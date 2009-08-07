@@ -18,40 +18,33 @@
 
   <ciManagement>
     <system>Hudson</system>
-    <!-- TODO: Hudson -->
-    <url/>
-    <!--
-        <notifiers>
-          <notifier>
-            <type>mail</type>
-            <configuration>
-              <address>notifications@maven.apache.org</address>
-            </configuration>
-          </notifier>
-        </notifiers>
-    -->
+    <url>http://hudson/hudson</url>
+    <notifiers>
+      <notifier>
+        <type>mail</type>
+        <configuration>
+          <address>usability@coremedia.com</address>
+        </configuration>
+      </notifier>
+    </notifiers>
+
   </ciManagement>
 
   <distributionManagement>
-    <!-- TODO: repository and snapshotRepository
+    <downloadUrl>http://repo.jangaroo.net/maven2</downloadUrl>
     <repository>
-    </repository>      -->
-    
+      <id>jangaroo</id>
+      <name>Jangaroo repository</name>
+      <url>scp://repo.jangaroo.net/home/jangaroo/maven2/repo</url>
+    </repository>
     <snapshotRepository>
-      <id>internal-snapshots</id>
-      <url>http://nexus/nexus/content/repositories/internal-snapshots/</url>
+      <id>jangaroo-snapshots</id>
+      <url>scp://repo.jangaroo.net/home/jangaroo/maven2/snapshots</url>
     </snapshotRepository>
-
-    <!-- we do not currently publish a site
-        <site>
-          <id>apache.website</id>
-          <url>scp://people.apache.org/www/maven.apache.org</url>
-        </site>
-    -->
   </distributionManagement>
 
   <properties>
-    <project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
 
@@ -75,65 +68,12 @@
 
   <repositories>
     <repository>
-      <id>coremedia-cms</id>
-      <url>http://nexus.coremedia.com/nexus/content/repositories/cms-releases</url>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <releases>
-        <updatePolicy>never</updatePolicy>
-      </releases>
-    </repository>
-
-    <repository>
-      <id>coremedia-cms-thirdparty</id>
-      <url>http://nexus.coremedia.com/nexus/content/repositories/cms-thirdparty</url>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <releases>
-        <updatePolicy>never</updatePolicy>
-      </releases>
-    </repository>
-
-    <repository>
-      <id>coremedia-cms-thirdparty-internal</id>
-      <url>http://nexus.coremedia.com/nexus/content/repositories/cms-thirdparty-internal</url>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-    </repository>
-
-    <repository>
-      <id>coremedia-sse</id>
-      <url>http://nexus.coremedia.com/nexus/content/repositories/sse-releases</url>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <releases>
-        <updatePolicy>never</updatePolicy>
-      </releases>
-    </repository>
-
-    <repository>
       <id>internal-snapshots</id>
       <url>http://nexus.coremedia.com/nexus/content/repositories/internal-snapshots</url>
       <snapshots>
         <enabled>true</enabled>
       </snapshots>
     </repository>
-
-
-    <!-- Enable the next repository to build against CMS nightly releases -->
-    <!--
-        <repository>
-          <id>coremedia-cms-nightly</id>
-          <url>http://nexus.coremedia.com/nexus/content/repositories/cms-nightly</url>
-          <snapshots>
-            <enabled>false</enabled>
-          </snapshots>
-        </repository>
-    -->
 
     <repository>
       <id>jangaroo</id>
@@ -150,11 +90,6 @@
       </snapshots>
     </repository>
 
-
-    <repository>
-      <id>jboss</id>
-      <url>http://repository.jboss.com/maven2/</url>
-    </repository>
   </repositories>
 
   <modules>
