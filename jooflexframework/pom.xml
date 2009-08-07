@@ -2,20 +2,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.ilinsky</groupId>
-  <artifactId>xmlhttprequest</artifactId>
+  <groupId>net.jangaroo</groupId>
+  <artifactId>jooflexframework</artifactId>
+  <version>0.0.2-SNAPSHOT</version>
   <packaging>jangaroo</packaging>
-  <version>1.0.3</version>
-  <name>XmlHttpRequest Cross-Browser Compatibility Library</name>
+  <name>Jangaroo Flex framework</name>
   <description/>
-  <developers>
-
-    <developer>
-      <id>silinsky</id>
-      <name>Sergey Ilinsky</name>
-    </developer>
-
-  </developers>
+  <developers/>
+  
   <parent>
     <groupId>met.jangaroo</groupId>
     <artifactId>jangaroo-libs</artifactId>
@@ -33,19 +27,4 @@
       </plugin>
     </plugins>
   </build>
-
-  <dependencies>
-    <dependency>
-      <groupId>net.jangaroo</groupId>
-      <artifactId>jangaroo-browser</artifactId>
-      <version>0.3.3</version>
-    </dependency>
-    <dependency>
-      <groupId>net.jangaroo</groupId>
-      <artifactId>jangaroo-browser</artifactId>
-      <version>0.3.3</version>
-      <type>jangaroo</type>
-    </dependency>
-  </dependencies>
-
 </project>

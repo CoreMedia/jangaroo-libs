@@ -5,7 +5,7 @@
   <groupId>net.jangaroo</groupId>
   <artifactId>joounit</artifactId>
   <packaging>jangaroo</packaging>
-  <version>0.1-SNAPSHOT</version>
+  <version>0.0.2-SNAPSHOT</version>
   <name>Jangaroo FlexUnit</name>
   <description/>
   <url>TODO</url>
@@ -21,35 +21,28 @@
 
   </developers>
 
-  <scm>
-    <developerConnection>scm:hg:https://mohlendo@bitbucket.org/mohlendo/flexunit/</developerConnection>
-  </scm>
+  <parent>
+    <groupId>met.jangaroo</groupId>
+    <artifactId>jangaroo-libs</artifactId>
+    <version>0.0.2-SNAPSHOT</version>
+  </parent>
 
   <repositories>
-
     <repository>
       <id>sonatype</id>
       <name>sonatype repository</name>
       <url> http://repository.sonatype.org/content/groups/flexgroup</url>
     </repository>
-
-    <repository>
-      <id>jangaroo-snapshots</id>
-      <name>Jangaroo snapshots repository</name>
-      <url>http://repo.jangaroo.net/maven2-snapshots</url>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </repository>
   </repositories>
 
   <build>
     <sourceDirectory>src/main/joo</sourceDirectory>
+    <testSourceDirectory>src/test/joo</testSourceDirectory>
     <plugins>
       <plugin>
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-maven-plugin</artifactId>
-        <version>0.3.4-SNAPSHOT</version>
+        <version>0.3.3</version>
         <extensions>true</extensions>
       </plugin>
     </plugins>
@@ -60,25 +53,27 @@
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>jooflash</artifactId>
-      <version>0.1-SNAPSHOT</version>
-      <classifier>sources</classifier>
-      <type>jar</type>
+      <version>0.2-SNAPSHOT</version>
     </dependency>
 
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>jooflash</artifactId>
-      <version>0.1-SNAPSHOT</version>
-      <classifier>lib</classifier>
-      <type>zip</type>
+      <version>0.2-SNAPSHOT</version>
+      <type>jangaroo</type>
     </dependency>
 
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>jooflexframework</artifactId>
-      <version>0.1-SNAPSHOT</version>
-      <classifier>lib</classifier>
-      <type>zip</type>
+      <version>0.2-SNAPSHOT</version>
+    </dependency>
+
+    <dependency>
+      <groupId>net.jangaroo</groupId>
+      <artifactId>jooflexframework</artifactId>
+      <version>0.2-SNAPSHOT</version>
+      <type>jangaroo</type>
     </dependency>
 
   </dependencies>

@@ -4,17 +4,10 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>net.jangaroo</groupId>
   <artifactId>jooflash</artifactId>
-  <packaging>pom</packaging>
-  <version>0.1-SNAPSHOT</version>
+  <packaging>jangaroo</packaging>
+  <version>0.0.2-SNAPSHOT</version>
   <name>Jangaroo Flash Compatibility Library</name>
   <description/>
-
-  <parent>
-    <groupId>net.jangaroo</groupId>
-    <artifactId>joo-lib</artifactId>
-    <version>0.1-SNAPSHOT</version>
-    <relativePath>../joo-lib/pom.xml</relativePath>
-  </parent>
 
   <developers>
 
@@ -27,39 +20,50 @@
 
   </developers>
 
+  <parent>
+    <groupId>met.jangaroo</groupId>
+    <artifactId>jangaroo-libs</artifactId>
+    <version>0.0.2-SNAPSHOT</version>
+  </parent>
+
+  <build>
+    <sourceDirectory>src/main/joo</sourceDirectory>
+    <plugins>
+      <plugin>
+        <groupId>net.jangaroo</groupId>
+        <artifactId>jangaroo-maven-plugin</artifactId>
+        <version>0.3.3</version>
+        <extensions>true</extensions>
+      </plugin>
+    </plugins>
+  </build>
+
   <dependencies>
 
     <dependency>
       <groupId>net.jangaroo</groupId>
-      <artifactId>js2native</artifactId>
-      <version>0.1-SNAPSHOT</version>
-      <classifier>lib</classifier>
-      <type>zip</type>
-      <scope>runtime</scope>
+      <artifactId>jangaroo-browser</artifactId>
+      <version>0.3.3</version>
     </dependency>
 
     <dependency>
       <groupId>net.jangaroo</groupId>
-      <artifactId>js2native</artifactId>
-      <version>0.1-SNAPSHOT</version>
-      <classifier>sources</classifier>
+      <artifactId>jangaroo-browser</artifactId>
+      <version>0.3.3</version>
+      <type>jangaroo</type>
     </dependency>
 
     <dependency>
       <groupId>com.ilinsky</groupId>
       <artifactId>xmlhttprequest</artifactId>
       <version>1.0.3</version>
-      <type>zip</type>
-      <classifier>lib</classifier>
-      <scope>runtime</scope>
     </dependency>
 
     <dependency>
       <groupId>com.ilinsky</groupId>
       <artifactId>xmlhttprequest</artifactId>
       <version>1.0.3</version>
-      <classifier>sources</classifier>
-      <type>jar</type>
+      <type>jangaroo</type>
     </dependency>
   </dependencies>
 
