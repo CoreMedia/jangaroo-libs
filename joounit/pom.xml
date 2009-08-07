@@ -52,6 +52,19 @@
 
     <dependency>
       <groupId>net.jangaroo</groupId>
+      <artifactId>js2native</artifactId>
+      <version>0.2-SNAPSHOT</version>
+    </dependency>
+
+    <dependency>
+      <groupId>net.jangaroo</groupId>
+      <artifactId>js2native</artifactId>
+      <version>0.2-SNAPSHOT</version>
+      <type>jangaroo</type>
+    </dependency>
+
+    <dependency>
+      <groupId>net.jangaroo</groupId>
       <artifactId>jooflash</artifactId>
       <version>0.2-SNAPSHOT</version>
     </dependency>

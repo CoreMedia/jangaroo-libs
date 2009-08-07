@@ -94,6 +94,7 @@
 
   <modules>
     <module>xmlhttprequest</module>
+    <module>js2native</module>
     <module>jooflash</module>
     <module>jooflexframework</module>
     <module>joounit</module>

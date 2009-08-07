@@ -54,6 +54,19 @@
     </dependency>
 
     <dependency>
+      <groupId>net.jangaroo</groupId>
+      <artifactId>jangaroo-browser</artifactId>
+      <version>0.3.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>net.jangaroo</groupId>
+      <artifactId>jangaroo-browser</artifactId>
+      <version>0.3.3</version>
+      <type>jangaroo</type>
+    </dependency>
+
+    <dependency>
       <groupId>com.ilinsky</groupId>
       <artifactId>xmlhttprequest</artifactId>
       <version>1.0.3</version>
