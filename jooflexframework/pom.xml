@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>net.jangaroo</groupId>
   <artifactId>jooflexframework</artifactId>
-  <version>0.0.2-SNAPSHOT</version>
+  <version>0.2-SNAPSHOT</version>
   <packaging>jangaroo</packaging>
   <name>Jangaroo Flex framework</name>
   <description/>
@@ -13,7 +13,7 @@
   <parent>
     <groupId>met.jangaroo</groupId>
     <artifactId>jangaroo-libs</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.2-SNAPSHOT</version>
   </parent>
 
   <build>

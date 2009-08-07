@@ -5,7 +5,7 @@
   <groupId>net.jangaroo</groupId>
   <artifactId>jooflash</artifactId>
   <packaging>jangaroo</packaging>
-  <version>0.0.2-SNAPSHOT</version>
+  <version>0.2-SNAPSHOT</version>
   <name>Jangaroo Flash Compatibility Library</name>
   <description/>
 
@@ -23,7 +23,7 @@
   <parent>
     <groupId>met.jangaroo</groupId>
     <artifactId>jangaroo-libs</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.2-SNAPSHOT</version>
   </parent>
 
   <build>
