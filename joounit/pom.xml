@@ -42,8 +42,26 @@
       <plugin>
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-maven-plugin</artifactId>
-        <version>0.3.3</version>
+        <version>0.3.4-SNAPSHOT</version>
         <extensions>true</extensions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>2.1</version>
+        <executions>
+          <execution>
+            <configuration>
+              <type>jangaroo</type>
+              <includes>*.js</includes>
+              <outputDirectory>${project.build.testOutputDirectory}/libs/</outputDirectory>
+            </configuration>
+            <phase>test-compile</phase>
+            <goals>
+              <goal>unpack-dependencies</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
