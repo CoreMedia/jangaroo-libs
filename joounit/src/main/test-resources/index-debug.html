@@ -1,0 +1,20 @@
+<html>
+  <head><title>JooUnit</title></head>
+  <body>
+  <script type="text/javascript" src="joo/joo.js"></script>
+  <script type="text/javascript" src="flash/utils/flashutils.js"></script>
+  <script type="text/javascript" src="/flexunit/runner/BaseTestRunner.js"></script>
+  <script type="text/javascript">
+    //with (joo.classLoader=new joo.ClassLoader()) { // disable DynamicClassLoader, as all classes are already there!
+    with (joo.classLoader) {
+      debug = true;
+      //classLoadTimeoutMS = 3000;
+      import_("flexunit.textui.TestRunner");
+      import_("flexunit.framework.AllFrameworkTests");
+      complete(function(imports) {with(imports){
+        TestRunner.run(AllFrameworkTests.suite());
+      }});
+    }
+  </script>
+  </body>
+</html>

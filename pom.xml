@@ -1,0 +1,166 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>met.jangaroo</groupId>
+  <artifactId>jangaroo-libs</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0.0-SNAPSHOT</version>
+
+  <name>Jangaroo standard libraries</name>
+  <description/>
+  <url>http://www.coremedia.com</url>
+
+  <scm>
+    <connection>scm:perforce://coremedia/jangaroo-libs</connection>
+    <url>http://perforce.coremedia.com:6060/@md=d&amp;cd=//coremedia/jangaroo-libs/main/&amp;c=W5j@//coremedia/jangaroo-libs/main/?ac=83</url>
+  </scm>
+
+  <ciManagement>
+    <system>Hudson</system>
+    <!-- TODO: Hudson -->
+    <url/>
+    <!--
+        <notifiers>
+          <notifier>
+            <type>mail</type>
+            <configuration>
+              <address>notifications@maven.apache.org</address>
+            </configuration>
+          </notifier>
+        </notifiers>
+    -->
+  </ciManagement>
+
+  <distributionManagement>
+    <!-- TODO: repository and snapshotRepository
+    <repository>
+    </repository>      -->
+    
+    <snapshotRepository>
+      <id>internal-snapshots</id>
+      <url>http://nexus/nexus/content/repositories/internal-snapshots/</url>
+    </snapshotRepository>
+
+    <!-- we do not currently publish a site
+        <site>
+          <id>apache.website</id>
+          <url>scp://people.apache.org/www/maven.apache.org</url>
+        </site>
+    -->
+  </distributionManagement>
+
+  <properties>
+    <project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
+  </properties>
+
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>jangaroo</id>
+      <name>Jangaroo repository</name>
+      <url>http://repo.jangaroo.net/maven2</url>
+    </pluginRepository>
+
+    <pluginRepository>
+      <id>jangaroo-snapshots</id>
+      <name>Jangaroo snapshot repository</name>
+      <url>http://repo.jangaroo.net/maven2-snapshots</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </pluginRepository>
+  </pluginRepositories>
+
+
+  <repositories>
+    <repository>
+      <id>coremedia-cms</id>
+      <url>http://nexus.coremedia.com/nexus/content/repositories/cms-releases</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <releases>
+        <updatePolicy>never</updatePolicy>
+      </releases>
+    </repository>
+
+    <repository>
+      <id>coremedia-cms-thirdparty</id>
+      <url>http://nexus.coremedia.com/nexus/content/repositories/cms-thirdparty</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <releases>
+        <updatePolicy>never</updatePolicy>
+      </releases>
+    </repository>
+
+    <repository>
+      <id>coremedia-cms-thirdparty-internal</id>
+      <url>http://nexus.coremedia.com/nexus/content/repositories/cms-thirdparty-internal</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+
+    <repository>
+      <id>coremedia-sse</id>
+      <url>http://nexus.coremedia.com/nexus/content/repositories/sse-releases</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <releases>
+        <updatePolicy>never</updatePolicy>
+      </releases>
+    </repository>
+
+    <repository>
+      <id>internal-snapshots</id>
+      <url>http://nexus.coremedia.com/nexus/content/repositories/internal-snapshots</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+
+
+    <!-- Enable the next repository to build against CMS nightly releases -->
+    <!--
+        <repository>
+          <id>coremedia-cms-nightly</id>
+          <url>http://nexus.coremedia.com/nexus/content/repositories/cms-nightly</url>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+        </repository>
+    -->
+
+    <repository>
+      <id>jangaroo</id>
+      <name>Jangaroo repository</name>
+      <url>http://repo.jangaroo.net/maven2</url>
+    </repository>
+
+    <repository>
+      <id>jangaroo-snapshots</id>
+      <name>Jangaroo snapshot repository</name>
+      <url>http://repo.jangaroo.net/maven2-snapshots</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+
+
+    <repository>
+      <id>jboss</id>
+      <url>http://repository.jboss.com/maven2/</url>
+    </repository>
+  </repositories>
+
+  <modules>
+    <module>xmlhttprequest</module>
+    <module>jooflash</module>
+    <module>joounit</module>
+  </modules>
+
+</project>

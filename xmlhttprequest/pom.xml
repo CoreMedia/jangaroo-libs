@@ -1,0 +1,38 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.ilinsky</groupId>
+  <artifactId>xmlhttprequest</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0.3</version>
+  <name>XmlHttpRequest Cross-Browser Compatibility Library</name>
+  <description/>
+
+  <parent>
+    <groupId>net.jangaroo</groupId>
+    <artifactId>joo-lib</artifactId>
+    <version>0.1-SNAPSHOT</version>
+    <relativePath>../joo-lib/pom.xml</relativePath>
+  </parent>
+
+  <developers>
+
+    <developer>
+      <id>silinsky</id>
+      <name>Sergey Ilinsky</name>
+    </developer>
+
+  </developers>
+
+  <dependencies>
+    <dependency>
+      <groupId>net.jangaroo</groupId>
+      <artifactId>js2native</artifactId>
+      <version>0.1-SNAPSHOT</version>
+      <classifier>sources</classifier>
+      <type>jar</type>
+    </dependency>
+  </dependencies>
+
+</project>

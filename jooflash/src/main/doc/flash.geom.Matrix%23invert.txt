@@ -1,0 +1,101 @@
+﻿                             [Ba Bc Btx ]   
+                             [Bb Bd Bty ]
+                             [0  0  1   ]
+
+[ Aa Ac Atx]   [Ba Bc Btx]   [1  0  0   ]
+[ Ab Ad Aty] X [Bb Bd Bty] = [0  1  0   ]
+[ 0  0  1  ]   [0  0  1  ]   [0  0  1   ]
+
+[Aa*Ba+Ac*Bb Aa*Bc+Ac*Bd Aa*Btx+Ac*Bty+Atx]
+[Ab*Ba+Ad*Bb Ab*Bc+Ad*Bd Ab*Btx+Ad*Bty+Aty]
+[0 0 1]
+
+1) Aa*Ba+Ac*Bb = 1
+2) Aa*Bc+Ac*Bd = 0
+3) Aa*Btx+Ac*Bty+Atx = 0
+
+4) Ab*Ba+Ad*Bb = 0
+5) Ab*Bc+Ad*Bd = 1
+6) Ab*Btx+Ad*Bty+Aty = 0
+
+7) 1) => Ba = (1-Ac*Bb)/Aa
+8) 4) => Ba = -Ad*Bb/Ab
+
+9) 7)+8) => (1-Ac*Bb)/Aa = -Ad*Bb/Ab
+         => 1/Aa - Ac/Aa * Bb = -Ad/Ab * Bb
+	 => 1/Aa = Ac/Aa * Bb - Ad/Ab * Bb
+	 => 1/Aa = (Ac/Aa - Ad/Ab) * Bb
+         => Bb = 1/(Aa * (Ac/Aa - Ad/Ab))
+10)      => Bb = 1/(Ac - Aa*Ad/Ab)
+
+11) 1) => Bb = (1-Aa*Ba)/Ac
+12) 4) => Bb = -Ab*Ba/Ad
+
+13) 11)+12) => (1-Aa*Ba)/Ac = -Ab*Ba/Ad
+            => 1/Ac - Aa/Ac * Ba = -Ab/Ad * Ba
+            => 1/Ac = Aa/Ac * Ba - Ab/Ad * Ba
+	    => 1/Ac = (Aa/Ac - Ab/Ad) * Ba
+	    => Ba = 1/(Ac * (Aa/Ac - Ab/Ad))
+14)	    => Ba = 1/(Aa - Ac*Ab/Ad)
+
+15) 2) => Bd = -Aa*Bc/Ac
+16) 5) => Bd = (1-Ab*Bc)/Ad
+
+17) 15)+16) => -Aa*Bc/Ac = (1-Ab*Bc)/Ad
+            => -Aa/Ac * Bc = 1/Ad - Ab/Ad * Bc
+            => -Aa/Ac * Bc + Ab/Ad * Bc = 1/Ad
+	    => (Ab/Ad - Aa/Ac) * Bc = 1/Ad
+	    => Bc = 1/(Ad * (Ab/Ad - Aa/Ac))
+18)	    => Bc = 1/(Ab - Ad*Aa/Ac)
+
+19)            Bd = 1/(Ad - Ab*Ac/Aa)
+
+20) 3) => Bty = -(Aa*Btx + Atx)/Ac
+21) 6) => Bty = -(Ab*Btx + Aty)/Ad
+
+22) 20) + 21) => (Aa*Btx + Atx)/Ac = (Ab*Btx + Aty)/Ad
+              => Aa/Ac * Btx + Atx/Ac = Ab/Ad * Btx + Aty/Ad
+	      => Aa/Ac * Btx - Ab/Ad * Btx = Aty/Ad - Atx/Ac
+	      => (Aa/Ac - Ab/Ad) * Btx = Aty/Ad - Atx/Ac
+22)	      => Btx = (Aty/Ad - Atx/Ac) / (Aa/Ac - Ab/Ad)
+
+23) 3) => Btx = -(Ac*Bty+Atx)/Aa
+24) 6) => Btx = -(Ad*Bty+Aty)/Ab
+
+25) 23) + 24) => (Ac*Bty+Atx)/Aa = (Ad*Bty+Aty)/Ab
+              => Ac/Aa * Bty + Atx/Aa = Ad/Ab * Bty + Aty/Ab
+	      => Ac/Aa * Bty - Ad/Ab * Bty = Aty/Ab - Atx/Aa
+	      => (Ac/Aa - Ad/Ab) * Bty = Aty/Ab - Atx/Aa
+	      => Bty = (Aty/Ab - Atx/Aa) / (Ac/Aa - Ad/Ab)
+
+
+[1/(Aa - Ac*Ab/Ad) 1/(Ab - Ad*Aa/Ac) (Aty/Ad - Atx/Ac) / (Aa/Ac - Ab/Ad)]
+[1/(Ac - Aa*Ad/Ab) 1/(Ad - Ab*Ac/Aa) (Aty/Ab - Atx/Aa) / (Ac/Aa - Ad/Ab)]
+
+         [x]
+         [y]
+         [1]
+[a c tx] [a*x + c*y + tx*1]   [a*x + c*y + tx]
+[b d ty] [b*x + d*y + ty*1] = [b*x + d*y + ty]
+[0 0 1 ] [0*x + 0*y + 1 *1]   [1]
+
+         [sx   0    0]
+         [0    sy   0]
+         [0    0    1]
+[a c tx] [a*sx c*sy tx]
+[b d ty] [b*sx d*sy ty]
+[0 0 1 ] [0    0    1 ]
+
+         [ cos         sin        0 ]
+         [-sin         cos        0 ]
+         [  0           0         1 ]
+[a c tx] [a*cos-c*sin a*sin+c*cos tx]
+[b d ty] [b*cos-d*sin b*sin+d*cos ty]
+[0 0 1 ] [0             0         1 ]
+
+
+   d*(x-pm.x) + pm.y = -1/d*(x-px.x) + px.y
+=> d*x - d*pm.x + pm.y = -1/d*x + px.x/d + px.y
+=> d*x + 1/d*x = px.x/d + px.y + d*pm.x - pm.y 
+=> (d + 1/d)*x = px.x/d + px.y + d*pm.x - pm.y 
+=> x = (px.x/d + px.y + d*pm.x - pm.y) / (d + 1/d)
