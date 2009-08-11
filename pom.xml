@@ -91,6 +91,17 @@
     </repository>
   </repositories>
 
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-release-plugin</artifactId>
+          <version>2.0-beta-9</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
   <modules>
     <module>xmlhttprequest</module>
     <module>jooflash</module>
