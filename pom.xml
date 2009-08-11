@@ -14,8 +14,6 @@
   <scm>
     <connection>scm:perforce://coremedia/jangaroo-libs</connection>
     <developerConnection>scm:perforce://coremedia/jangaroo-libs</developerConnection>
-    <url>scm:perforce://coremedia/jangaroo-libs</url>
-
   </scm>
 
   <ciManagement>
@@ -91,7 +89,6 @@
         <enabled>true</enabled>
       </snapshots>
     </repository>
-
   </repositories>
 
   <modules>
