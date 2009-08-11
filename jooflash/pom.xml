@@ -29,7 +29,7 @@
       <plugin>
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-maven-plugin</artifactId>
-        <version>0.3.3</version>
+        <version>0.3.4</version>
         <extensions>true</extensions>
       </plugin>
     </plugins>
@@ -40,13 +40,13 @@
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>jangaroo-browser</artifactId>
-      <version>0.3.3</version>
+      <version>0.3.4</version>
     </dependency>
 
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>jangaroo-browser</artifactId>
-      <version>0.3.3</version>
+      <version>0.3.4</version>
       <type>jangaroo</type>
     </dependency>
 
