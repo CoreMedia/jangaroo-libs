@@ -2,14 +2,14 @@
   <parent>
     <groupId>met.jangaroo</groupId>
     <artifactId>jangaroo-libs</artifactId>
-    <version>0.2</version>
+    <version>0.3-SNAPSHOT</version>
   </parent>
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.ilinsky</groupId>
   <artifactId>xmlhttprequest</artifactId>
   <packaging>jangaroo</packaging>
-  <version>1.0.3</version>
+  <version>1.0.4-SNAPSHOT</version>
   <name>XmlHttpRequest Cross-Browser Compatibility Library</name>
   <description />
   <developers>
