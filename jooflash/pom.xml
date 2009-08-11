@@ -43,26 +43,13 @@
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>jangaroo-browser</artifactId>
-      <version>0.3.3</version>
+      <version>0.3.4-SNAPSHOT</version>
     </dependency>
 
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>jangaroo-browser</artifactId>
-      <version>0.3.3</version>
-      <type>jangaroo</type>
-    </dependency>
-
-    <dependency>
-      <groupId>net.jangaroo</groupId>
-      <artifactId>jangaroo-browser</artifactId>
-      <version>0.3.3</version>
-    </dependency>
-
-    <dependency>
-      <groupId>net.jangaroo</groupId>
-      <artifactId>jangaroo-browser</artifactId>
-      <version>0.3.3</version>
+      <version>0.3.4-SNAPSHOT</version>
       <type>jangaroo</type>
     </dependency>
 
