@@ -1,6 +1,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-
+  <parent>
+    <groupId>met.jangaroo</groupId>
+    <artifactId>jangaroo-libs</artifactId>
+    <version>0.2-SNAPSHOT</version>
+  </parent>
   <modelVersion>4.0.0</modelVersion>
   <groupId>net.jangaroo</groupId>
   <artifactId>joounit</artifactId>
@@ -21,12 +25,6 @@
 
   </developers>
 
-  <parent>
-    <groupId>met.jangaroo</groupId>
-    <artifactId>jangaroo-libs</artifactId>
-    <version>0.2-SNAPSHOT</version>
-  </parent>
-
   <repositories>
     <repository>
       <id>sonatype</id>
@@ -42,7 +40,7 @@
       <plugin>
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-maven-plugin</artifactId>
-        <version>0.3.4-SNAPSHOT</version>
+        <version>0.3.3</version>
         <extensions>true</extensions>
         <configuration>
           <enableGuessingTypeCasts>true</enableGuessingTypeCasts>
