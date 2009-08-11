@@ -13,7 +13,9 @@
 
   <scm>
     <connection>scm:perforce://coremedia/jangaroo-libs</connection>
-    <url>http://perforce.coremedia.com:6060/@md=d&amp;cd=//coremedia/jangaroo-libs/main/&amp;c=W5j@//coremedia/jangaroo-libs/main/?ac=83</url>
+    <developerConnection>scm:perforce://coremedia/jangaroo-libs</developerConnection>
+    <url>scm:perforce://coremedia/jangaroo-libs</url>
+
   </scm>
 
   <ciManagement>
