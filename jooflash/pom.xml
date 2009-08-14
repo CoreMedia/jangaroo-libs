@@ -2,13 +2,13 @@
   <parent>
     <groupId>met.jangaroo</groupId>
     <artifactId>jangaroo-libs</artifactId>
-    <version>0.3-SNAPSHOT</version>
+    <version>0.3</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <groupId>net.jangaroo</groupId>
   <artifactId>jooflash</artifactId>
   <packaging>jangaroo</packaging>
-  <version>0.3-SNAPSHOT</version>
+  <version>0.3</version>
   <name>Jangaroo Flash Compatibility Library</name>
   <description />
 
@@ -53,13 +53,13 @@
     <dependency>
       <groupId>com.ilinsky</groupId>
       <artifactId>xmlhttprequest</artifactId>
-      <version>1.0.4-SNAPSHOT</version>
+      <version>1.0.4</version>
     </dependency>
 
     <dependency>
       <groupId>com.ilinsky</groupId>
       <artifactId>xmlhttprequest</artifactId>
-      <version>1.0.4-SNAPSHOT</version>
+      <version>1.0.4</version>
       <type>jangaroo</type>
     </dependency>
   </dependencies>
