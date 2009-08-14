@@ -4,7 +4,7 @@
   <groupId>met.jangaroo</groupId>
   <artifactId>jangaroo-libs</artifactId>
   <packaging>pom</packaging>
-  <version>0.3</version>
+  <version>0.4-SNAPSHOT</version>
 
   <name>Jangaroo standard libraries</name>
   <description />
