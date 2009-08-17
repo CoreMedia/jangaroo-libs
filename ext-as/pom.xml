@@ -1,0 +1,88 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>net.jangaroo</groupId>
+  <artifactId>extas</artifactId>
+  <packaging>jangaroo</packaging>
+  <version>0.2-SNAPSHOT</version>
+  <name>Ext AS</name>
+  <description>ActionScript 3 API for Ext AS Component Library</description>
+
+  <distributionManagement>
+    <downloadUrl>http://repo.jangaroo.net/maven2</downloadUrl>
+    <repository>
+      <id>jangaroo</id>
+      <name>Jangaroo repository</name>
+      <url>scp://repo.jangaroo.net/home/jangaroo/maven2/repo</url>
+    </repository>
+    <snapshotRepository>
+      <id>jangaroo-snapshots</id>
+      <url>scp://repo.jangaroo.net/home/jangaroo/maven2/snapshots</url>
+    </snapshotRepository>
+  </distributionManagement>
+
+  <repositories>
+    <repository>
+      <id>shard-3rdp</id>
+      <url>http://nexus/nexus/content/repositories/shard-3rdp/</url>
+    </repository>
+  </repositories>
+
+  <dependencies>
+    <dependency>
+      <groupId>net.jangaroo</groupId>
+      <artifactId>jangaroo-runtime</artifactId>
+      <version>0.3.5</version>
+    </dependency>
+    <dependency>
+      <groupId>net.jangaroo</groupId>
+      <artifactId>jangaroo-runtime</artifactId>
+      <version>0.3.5</version>
+      <type>jangaroo</type>
+    </dependency>
+
+    <dependency>
+      <groupId>net.jangaroo</groupId>
+      <artifactId>jangaroo-browser</artifactId>
+      <version>0.3.5</version>
+    </dependency>
+    <dependency>
+      <groupId>net.jangaroo</groupId>
+      <artifactId>jangaroo-browser</artifactId>
+      <version>0.3.5</version>
+      <type>jangaroo</type>
+    </dependency>
+
+    <dependency>
+      <groupId>com.ext</groupId>
+      <artifactId>extjs</artifactId>
+      <version>3.0.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.ext</groupId>
+      <artifactId>extjs</artifactId>
+      <version>3.0.0</version>
+      <type>jangaroo</type>
+    </dependency>
+    
+  </dependencies>
+
+  <build>
+    <sourceDirectory>src/main/joo-api</sourceDirectory>
+    <plugins>
+      <plugin>
+        <groupId>net.jangaroo</groupId>
+        <artifactId>jangaroo-maven-plugin</artifactId>
+        <version>0.3.5</version>
+        <extensions>true</extensions>
+      </plugin>
+    </plugins>
+  </build>  
+
+  <profiles>
+    <profile>
+      <id>joodoc</id>
+    </profile>
+  </profiles>
+</project>

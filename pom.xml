@@ -66,6 +66,12 @@
 
 
   <repositories>
+
+    <repository>
+      <id>shard-3rdp</id>
+      <url>http://nexus.coremedia.com/nexus/content/repositories/shard-3rdp</url>
+    </repository>
+
     <repository>
       <id>internal-snapshots</id>
       <url>http://nexus.coremedia.com/nexus/content/repositories/internal-snapshots</url>
@@ -109,6 +115,8 @@
     <module>jooflash</module>
     <module>jooflexframework</module>
     <module>joounit</module>
+    <module>ext-as</module>
+    <module>tinymce</module>
   </modules>
 
 </project>

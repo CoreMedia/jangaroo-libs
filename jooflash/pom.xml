@@ -53,13 +53,13 @@
     <dependency>
       <groupId>com.ilinsky</groupId>
       <artifactId>xmlhttprequest</artifactId>
-      <version>1.0.5-SNAPSHOT</version>
+      <version>1.0.4</version>
     </dependency>
 
     <dependency>
       <groupId>com.ilinsky</groupId>
       <artifactId>xmlhttprequest</artifactId>
-      <version>1.0.5-SNAPSHOT</version>
+      <version>1.0.4</version>
       <type>jangaroo</type>
     </dependency>
   </dependencies>

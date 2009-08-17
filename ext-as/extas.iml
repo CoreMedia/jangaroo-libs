@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module relativePaths="true" MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="false">
+    <output url="file://$MODULE_DIR$/target/classes" />
+    <output-test url="file://$MODULE_DIR$/target/test-classes" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src/main/joo-api" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/target" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" exported="" name="Maven: net.jangaroo:jangaroo-runtime:0.3.5" level="project" />
+    <orderEntry type="library" exported="" name="Maven: net.jangaroo:jangaroo-compiler:0.3.5" level="project" />
+    <orderEntry type="library" exported="" name="Maven: edu.princeton.cup:java-cup-runtime:10k" level="project" />
+    <orderEntry type="library" exported="" name="Maven: commons-cli:commons-cli:1.1" level="project" />
+    <orderEntry type="library" exported="" name="Maven: net.jangaroo:jangaroo-browser:0.3.5" level="project" />
+    <orderEntry type="library" exported="" name="Maven: com.ext:extjs:3.0.0" level="project" />
+  </component>
+</module>
+
