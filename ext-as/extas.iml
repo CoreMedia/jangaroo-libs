@@ -15,7 +15,6 @@
     <orderEntry type="library" exported="" name="Maven: edu.princeton.cup:java-cup-runtime:10k" level="project" />
     <orderEntry type="library" exported="" name="Maven: commons-cli:commons-cli:1.1" level="project" />
     <orderEntry type="library" exported="" name="Maven: net.jangaroo:jangaroo-browser:0.3.5" level="project" />
-    <orderEntry type="library" exported="" name="Maven: com.ext:extjs:3.0.0" level="project" />
   </component>
 </module>
 

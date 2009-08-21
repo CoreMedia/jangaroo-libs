@@ -7,7 +7,7 @@
   <packaging>jangaroo</packaging>
   <version>0.2-SNAPSHOT</version>
   <name>Ext AS</name>
-  <description>ActionScript 3 API for Ext AS Component Library</description>
+  <description>ActionScript 3 API for Ext JS Component Library</description>
 
   <distributionManagement>
     <downloadUrl>http://repo.jangaroo.net/maven2</downloadUrl>
@@ -22,11 +22,42 @@
     </snapshotRepository>
   </distributionManagement>
 
+  <pluginRepositories>
+
+    <pluginRepository>
+      <id>jangaroo</id>
+      <name>Jangaroo repository</name>
+      <url>http://repo.jangaroo.net/maven2</url>
+    </pluginRepository>
+
+    <pluginRepository>
+      <id>jangaroo-snapshots</id>
+      <name>Jangaroo repository</name>
+      <url>http://repo.jangaroo.net/maven2-snapshots</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </pluginRepository>
+
+  </pluginRepositories>
+
   <repositories>
+
     <repository>
-      <id>shard-3rdp</id>
-      <url>http://nexus/nexus/content/repositories/shard-3rdp/</url>
+      <id>jangaroo-snapshots</id>
+      <name>Jangaroo repository</name>
+      <url>http://repo.jangaroo.net/maven2-snapshots</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
     </repository>
+    
+    <repository>
+      <id>jangaroo</id>
+      <name>Jangaroo repository</name>
+      <url>http://repo.jangaroo.net/maven2</url>
+    </repository>
+
   </repositories>
 
   <dependencies>
@@ -56,12 +87,7 @@
 
     <dependency>
       <groupId>com.ext</groupId>
-      <artifactId>extjs</artifactId>
-      <version>3.0.0</version>
-    </dependency>
-    <dependency>
-      <groupId>com.ext</groupId>
-      <artifactId>extjs</artifactId>
+      <artifactId>extjs-jangaroo</artifactId>
       <version>3.0.0</version>
       <type>jangaroo</type>
     </dependency>
