@@ -116,7 +116,7 @@
     <module>jooflexframework</module>
     <module>joounit</module>
     <module>ext-as</module>
-    <module>tinymce</module>
+    <module>tinymce-as</module>
   </modules>
 
 </project>
