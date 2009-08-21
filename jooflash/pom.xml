@@ -51,15 +51,15 @@
     </dependency>
 
     <dependency>
-      <groupId>com.ilinsky</groupId>
+      <groupId>net.jangaroo</groupId>
       <artifactId>xmlhttprequest</artifactId>
-      <version>1.0.4</version>
+      <version>0.4-SNAPSHOT</version>
     </dependency>
 
     <dependency>
       <groupId>com.ilinsky</groupId>
-      <artifactId>xmlhttprequest</artifactId>
-      <version>1.0.4</version>
+      <artifactId>xmlhttprequest-jangaroo</artifactId>
+      <version>1.0.3</version>
       <type>jangaroo</type>
     </dependency>
   </dependencies>

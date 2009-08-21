@@ -6,20 +6,12 @@
   </parent>
 
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.ilinsky</groupId>
+  <groupId>net.jangaroo</groupId>
   <artifactId>xmlhttprequest</artifactId>
   <packaging>jangaroo</packaging>
-  <version>1.0.4</version>
+  <version>0.4-SNAPSHOT</version>
   <name>XmlHttpRequest Cross-Browser Compatibility Library</name>
   <description />
-  <developers>
-
-    <developer>
-      <id>silinsky</id>
-      <name>Sergey Ilinsky</name>
-    </developer>
-
-  </developers>
 
   <build>
     <sourceDirectory>src/main/joo</sourceDirectory>
