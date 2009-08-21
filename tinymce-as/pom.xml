@@ -6,7 +6,7 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <groupId>net.jangaroo</groupId>
-  <artifactId>tinymce</artifactId>
+  <artifactId>tinymce-as</artifactId>
   <packaging>jangaroo</packaging>
   <version>0.4-SNAPSHOT</version>
   <name>ExtJS TinyMCE</name>
