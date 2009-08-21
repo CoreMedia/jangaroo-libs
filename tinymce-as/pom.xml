@@ -2,13 +2,13 @@
   <parent>
     <groupId>net.jangaroo</groupId>
     <artifactId>jangaroo-libs</artifactId>
-    <version>0.4</version>
+    <version>0.5-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <groupId>net.jangaroo</groupId>
   <artifactId>tinymce-as</artifactId>
   <packaging>jangaroo</packaging>
-  <version>0.4</version>
+  <version>0.5-SNAPSHOT</version>
   <name>ExtJS TinyMCE</name>
   <description />
   
@@ -29,13 +29,13 @@
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>extas</artifactId>
-      <version>0.2</version>
+      <version>0.3-SNAPSHOT</version>
       <type>jangaroo</type>
     </dependency>
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>extas</artifactId>
-      <version>0.2</version>
+      <version>0.3-SNAPSHOT</version>
     </dependency>
 
     <dependency>
