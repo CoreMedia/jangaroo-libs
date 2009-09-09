@@ -14,6 +14,10 @@
     <connection>scm:perforce://coremedia/jangaroo-libs</connection>
     <developerConnection>scm:perforce://coremedia/jangaroo-libs</developerConnection>
   </scm>
+  <properties>
+    <jangaroo_version>0.3.6-SNAPSHOT</jangaroo_version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
 
   <ciManagement>
     <system>Hudson</system>
@@ -42,9 +46,7 @@
     </snapshotRepository>
   </distributionManagement>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
+  
 
 
   <pluginRepositories>
@@ -106,9 +108,40 @@
             <preparationGoals>clean install</preparationGoals>
           </configuration>
         </plugin>
+        <plugin>
+          <groupId>net.jangaroo</groupId>
+          <artifactId>jangaroo-maven-plugin</artifactId>
+          <version>${jangaroo_version}</version>
+        </plugin>
       </plugins>
     </pluginManagement>
   </build>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>net.jangaroo</groupId>
+        <artifactId>jangaroo-runtime</artifactId>
+        <version>${jangaroo_version}</version>
+      </dependency>
+      <dependency>
+        <groupId>net.jangaroo</groupId>
+        <artifactId>jangaroo-browser</artifactId>
+        <version>${jangaroo_version}</version>
+      </dependency>
+      <dependency>
+        <groupId>net.jangaroo</groupId>
+        <artifactId>jangaroo-runtime</artifactId>
+        <version>${jangaroo_version}</version>
+        <type>jangaroo</type>
+      </dependency>
+      <dependency>
+        <groupId>net.jangaroo</groupId>
+        <artifactId>jangaroo-browser</artifactId>
+        <version>${jangaroo_version}</version>
+        <type>jangaroo</type>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
   <modules>
     <module>xmlhttprequest</module>
@@ -117,6 +150,7 @@
     <module>joounit</module>
     <module>ext-as</module>
     <module>tinymce-as</module>
+    <module>jangaroo-libs-bom</module>
   </modules>
 
 </project>

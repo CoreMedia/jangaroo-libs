@@ -39,7 +39,6 @@
       <plugin>
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-maven-plugin</artifactId>
-        <version>0.3.5</version>
         <extensions>true</extensions>
         <configuration>
           <enableGuessingTypeCasts>true</enableGuessingTypeCasts>

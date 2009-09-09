@@ -1,12 +1,18 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>net.jangaroo</groupId>
   <artifactId>extas</artifactId>
   <packaging>jangaroo</packaging>
-  <version>0.3-SNAPSHOT</version>
+  <version>0.5-SNAPSHOT</version>
   <name>Ext AS</name>
   <description>ActionScript 3 API for Ext JS Component Library</description>
+  <parent>
+    <groupId>net.jangaroo</groupId>
+    <artifactId>jangaroo-libs</artifactId>
+    <version>0.5-SNAPSHOT</version>
+  </parent>
 
   <distributionManagement>
     <downloadUrl>http://repo.jangaroo.net/maven2</downloadUrl>
@@ -50,7 +56,7 @@
         <enabled>true</enabled>
       </snapshots>
     </repository>
-    
+
     <repository>
       <id>jangaroo</id>
       <name>Jangaroo repository</name>
@@ -63,24 +69,20 @@
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>jangaroo-runtime</artifactId>
-      <version>0.3.5</version>
     </dependency>
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>jangaroo-runtime</artifactId>
-      <version>0.3.5</version>
       <type>jangaroo</type>
     </dependency>
 
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>jangaroo-browser</artifactId>
-      <version>0.3.5</version>
     </dependency>
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>jangaroo-browser</artifactId>
-      <version>0.3.5</version>
       <type>jangaroo</type>
     </dependency>
 
@@ -90,7 +92,7 @@
       <version>3.0.0</version>
       <type>jangaroo</type>
     </dependency>
-    
+
   </dependencies>
 
   <build>
@@ -103,7 +105,7 @@
         <extensions>true</extensions>
       </plugin>
     </plugins>
-  </build>  
+  </build>
 
   <profiles>
     <profile>

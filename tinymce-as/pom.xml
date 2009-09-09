@@ -18,7 +18,6 @@
       <plugin>
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-maven-plugin</artifactId>
-        <version>0.3.5</version>
         <extensions>true</extensions>
       </plugin>
     </plugins>
@@ -29,13 +28,13 @@
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>extas</artifactId>
-      <version>0.3-SNAPSHOT</version>
+      <version>0.5-SNAPSHOT</version>
       <type>jangaroo</type>
     </dependency>
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>extas</artifactId>
-      <version>0.3-SNAPSHOT</version>
+      <version>0.5-SNAPSHOT</version>
     </dependency>
 
     <dependency>
