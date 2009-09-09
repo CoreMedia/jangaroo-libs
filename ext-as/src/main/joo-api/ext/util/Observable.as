@@ -34,8 +34,6 @@ var newEmployee = new Employee({
 });
 </code></pre>
  */
-    /**
-*/
 public class Observable {
 /**
      * @cfg {Object} listeners (optional) <p>A config object containing one or more event handlers to be added to this

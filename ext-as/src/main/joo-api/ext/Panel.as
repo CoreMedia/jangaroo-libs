@@ -398,6 +398,7 @@ tools:[{
 .x-tool-help-over {background-position:-15px 0;}
 </code></pre>
      */
+    public var tools:*;
     /**
      * @cfg {ext.Template/ext.XTemplate} toolTemplate
      * <p>A Template used to create <b class='link'>#tools</b> in the <b class='link'>#header</b> Element. Defaults to:</p><pre><code>

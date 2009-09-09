@@ -423,6 +423,7 @@ new ext.Panel({
      * plugin, passing a reference to itself.  Each plugin can then call methods or respond to events on the
      * component as needed to provide its functionality.
      */
+    public var plugins:*;
     /**
      * @cfg {Mixed} applyTo
      * <p>Specify the id of the element, a DOM element or an existing Element corresponding to a DIV

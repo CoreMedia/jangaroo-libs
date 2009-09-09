@@ -167,8 +167,6 @@ ext.Ajax.request({
  *
  * @xtype container
  */
-    /**
-*/
 public class Container extends BoxComponent {
 
   public function Container(config:*) {
@@ -389,15 +387,15 @@ items: [
     public native function getComponentId(comp : Component) : void;
     /**
      * <p>Adds <b class='link' title='ext.Component'>Component</b>(s) to this Container.</p>
-     * <br><p><b>Description</b></u> :
-     * <div><ul class="mdetail-params">
+     * <p><b>Description:</b></p>
+     * <ul class="mdetail-params">
      * <li>Fires the <b class='link'>#beforeadd</b> event before adding</li>
      * <li>The Container's <b class='link' title='#defaults default config'>values</b> will be applied
      * accordingly (see <code><b class='link'>#defaults</b></code> for details).</li>
      * <li>Fires the <b class='link'>#add</b> event after the component has been added.</li>
-     * </ul></div>
-     * <br><p><b>Notes</b></u> :
-     * <div><ul class="mdetail-params">
+     * </ul>
+     * <p><b>Notes:</b></p>
+     * <ul class="mdetail-params">
      * <li>If the Container is <i>already rendered</i> when <tt>add</tt>
      * is called, you may need to call <b class='link'>#doLayout</b> to refresh the view which causes
      * any unrendered child Components to be rendered. This is required so that you can
@@ -412,15 +410,14 @@ tb.<b class='link'>#doLayout</b>();             // refresh the layout
      * <li><i>Warning:</i> Containers directly managed by the BorderLayout layout manager
      * may not be removed or added.  See the Notes for <b class='link' title='Ext.layout.BorderLayout'>BorderLayout</b>
      * for more details.</li>
-     * </ul></div>
+     * </ul>
      * @param component
-     * <p>Either a single component or an Array of components to add.  See
-     * <code><b class='link'>#items</b></code> for additional information.</p>
-     * @param  component_2
-     * @param  component_n
+     * Either a single component or an Array of components to add.  See
+     * <code><b class='link'>#items</b></code> for additional information.
+     * @param  components more components to add.
      * @return component The Component (or config object) that was added.
      */
-    public native function add(component : *, component_2 : Object = null, component_n : Object = null) : Component;
+    public native function add(component : *, ...components : Array) : Component;
     /**
      * Inserts a Component into this Container at a specified index. Fires the
      * <b class='link'>#beforeadd</b> event before inserting, then fires the <b class='link'>#add</b> event after the
