@@ -4,7 +4,7 @@ import ext.EventObject;
 import js.HTMLElement;
 
 /**
- * Defines the interface and base operation of items that that can be
+ * Defines the interface and base operation of items that can be
  * dragged or can be drop targets.  It was designed to be extended, overriding
  * the event handlers for startDrag, onDrag, onDragOver and onDragOut.
  * Up to three html elements can be associated with a DragDrop instance:
@@ -351,7 +351,7 @@ public function DragDrop(id : String, sGroup : String, config : Object) {
      * an object containing the sides to pad. For example: {right:10, bottom:10}
      * @param inContent Constrain the draggable in the content box of the element (inside padding and borders)
      */
-    public native function constrainTo(constrainTo:*, pad:*=undefined, inContent:Boolean = false):void;
+    public native function constrainTo(constrainTo:*, pad:* = undefined, inContent:Boolean = false):void;
     /**
      * Returns a reference to the linked element
      * @return HTMLElement the html element
