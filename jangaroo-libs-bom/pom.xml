@@ -19,6 +19,28 @@
     <dependencies>
       <dependency>
         <groupId>net.jangaroo</groupId>
+        <artifactId>ext-all</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>net.jangaroo</groupId>
+        <artifactId>ext-all</artifactId>
+        <version>${project.version}</version>
+        <type>jangaroo</type>
+      </dependency>
+      <dependency>
+        <groupId>net.jangaroo</groupId>
+        <artifactId>ext-base</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>net.jangaroo</groupId>
+        <artifactId>ext-base</artifactId>
+        <version>${project.version}</version>
+        <type>jangaroo</type>
+      </dependency>
+      <dependency>
+        <groupId>net.jangaroo</groupId>
         <artifactId>extas</artifactId>
         <version>${project.version}</version>
       </dependency>
@@ -30,12 +52,34 @@
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
+        <artifactId>extas-aliases</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>net.jangaroo</groupId>
+        <artifactId>extas-aliases</artifactId>
+        <version>${project.version}</version>
+        <type>jangaroo</type>
+      </dependency>
+      <dependency>
+        <groupId>net.jangaroo</groupId>
         <artifactId>jooflash</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
         <artifactId>jooflash</artifactId>
+        <version>${project.version}</version>
+        <type>jangaroo</type>
+      </dependency>
+      <dependency>
+        <groupId>net.jangaroo</groupId>
+        <artifactId>jooflash-native</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>net.jangaroo</groupId>
+        <artifactId>jooflash-native</artifactId>
         <version>${project.version}</version>
         <type>jangaroo</type>
       </dependency>
@@ -63,23 +107,56 @@
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
-        <artifactId>tinymce-as</artifactId>
+        <artifactId>miframe</artifactId>
+        <version>0.5-SNAPSHOT</version>
+        <type>jangaroo</type>
+      </dependency>
+      <dependency>
+        <groupId>net.jangaroo</groupId>
+        <artifactId>miframe</artifactId>
+        <version>0.5-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>net.jangaroo</groupId>
+        <artifactId>Ext.ux.TinyMCE</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
-        <artifactId>tinymce-as</artifactId>
+        <artifactId>Ext.ux.TinyMCE</artifactId>
+        <version>${project.version}</version>
+        <type>jangaroo</type>
+      </dependency>      
+      <dependency>
+        <groupId>net.jangaroo</groupId>
+        <artifactId>tiny_mce</artifactId>
         <version>${project.version}</version>
         <type>jangaroo</type>
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
-        <artifactId>xmlhttprequest</artifactId>
+        <artifactId>tiny_mce</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
-        <artifactId>xmlhttprequest</artifactId>
+        <artifactId>xmlhttprequestas</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>net.jangaroo</groupId>
+        <artifactId>xmlhttprequestas</artifactId>
+        <version>${project.version}</version>
+        <type>jangaroo</type>
+      </dependency>
+      <dependency>
+        <groupId>net.jangaroo</groupId>
+        <artifactId>XMLHttpRequest</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>net.jangaroo</groupId>
+        <artifactId>XMLHttpRequest</artifactId>
         <version>${project.version}</version>
         <type>jangaroo</type>
       </dependency>

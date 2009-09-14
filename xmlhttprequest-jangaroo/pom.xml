@@ -2,11 +2,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.ilinsky</groupId>
-  <artifactId>xmlhttprequest-jangaroo</artifactId>
+  <groupId>net.jangaroo</groupId>
+  <artifactId>XMLHttpRequest</artifactId>
   <packaging>jangaroo</packaging>
-  <version>1.0.3</version>
-  <name>XmlHttpRequest Cross-Browser Compatibility Library</name>
+  <version>0.5-SNAPSHOT</version>
+  <parent>
+    <groupId>net.jangaroo</groupId>
+    <artifactId>jangaroo-libs</artifactId>
+    <version>0.5-SNAPSHOT</version>
+  </parent>
+  <name>XmlHttpRequest Cross-Browser Compatibility Library 1.0.3</name>
   <url>http://code.google.com/p/xmlhttprequest/</url>
   <description>
     * Deliver unobtrusive standard-compliant (W3C) cross-browser implementation of the XMLHttpRequest 1.0 object
@@ -34,7 +39,6 @@
       <plugin>
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-maven-plugin</artifactId>
-        <version>0.3.5</version>
         <extensions>true</extensions>
       </plugin>
     </plugins>

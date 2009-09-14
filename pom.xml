@@ -151,6 +151,13 @@
     <module>ext-as</module>
     <module>tinymce-as</module>
     <module>jangaroo-libs-bom</module>
+    <module>ext-all</module>
+    <module>extas-aliases</module>
+    <module>ext-base</module>
+    <module>xmlhttprequest-jangaroo</module>
+    <module>miframe</module>
+    <module>tinymce-jangaroo</module>
+    <module>jooflash-native</module>
   </modules>
 
 </project>

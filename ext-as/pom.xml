@@ -87,29 +87,29 @@
     </dependency>
 
     <dependency>
-      <groupId>com.ext</groupId>
-      <artifactId>extjs-jangaroo</artifactId>
-      <version>3.0.0</version>
+      <groupId>net.jangaroo</groupId>
+      <artifactId>ext-all</artifactId>
+      <version>0.5-SNAPSHOT</version>
+      <type>jangaroo</type>
+    </dependency>
+    
+    <dependency>
+      <groupId>net.jangaroo</groupId>
+      <artifactId>extas-aliases</artifactId>
+      <version>0.5-SNAPSHOT</version>
       <type>jangaroo</type>
     </dependency>
 
   </dependencies>
 
   <build>
-    <sourceDirectory>src/main/joo-api</sourceDirectory>
     <plugins>
       <plugin>
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-maven-plugin</artifactId>
-        <version>0.3.5</version>
         <extensions>true</extensions>
       </plugin>
     </plugins>
   </build>
 
-  <profiles>
-    <profile>
-      <id>joodoc</id>
-    </profile>
-  </profiles>
 </project>

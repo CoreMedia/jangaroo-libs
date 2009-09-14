@@ -49,14 +49,27 @@
 
     <dependency>
       <groupId>net.jangaroo</groupId>
+      <artifactId>jooflash-native</artifactId>
+      <version>0.5-SNAPSHOT</version>
+    </dependency>
+
+    <dependency>
+      <groupId>net.jangaroo</groupId>
+      <artifactId>jooflash-native</artifactId>
+      <version>0.5-SNAPSHOT</version>
+      <type>jangaroo</type>
+    </dependency>
+
+    <dependency>
+      <groupId>net.jangaroo</groupId>
       <artifactId>xmlhttprequest</artifactId>
       <version>0.5-SNAPSHOT</version>
     </dependency>
 
     <dependency>
-      <groupId>com.ilinsky</groupId>
-      <artifactId>xmlhttprequest-jangaroo</artifactId>
-      <version>1.0.3</version>
+      <groupId>net.jangaroo</groupId>
+      <artifactId>XMLHttpRequest</artifactId>
+      <version>0.5-SNAPSHOT</version>
       <type>jangaroo</type>
     </dependency>
   </dependencies>

@@ -6,7 +6,7 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <groupId>net.jangaroo</groupId>
-  <artifactId>tinymce-as</artifactId>
+  <artifactId>Ext.ux.TinyMCE</artifactId>
   <packaging>jangaroo</packaging>
   <version>0.5-SNAPSHOT</version>
   <name>ExtJS TinyMCE</name>
@@ -38,9 +38,16 @@
     </dependency>
 
     <dependency>
-      <groupId>com.moxiecode</groupId>
-      <artifactId>tinymce-jangaroo</artifactId>
-      <version>3.2.6</version>
+      <groupId>net.jangaroo</groupId>
+      <artifactId>miframe</artifactId>
+      <version>0.5-SNAPSHOT</version>
+      <type>jangaroo</type>
+    </dependency>
+
+    <dependency>
+      <groupId>net.jangaroo</groupId>
+      <artifactId>tiny_mce</artifactId>
+      <version>0.5-SNAPSHOT</version>
       <type>jangaroo</type>
     </dependency>
 
