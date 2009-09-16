@@ -62,13 +62,13 @@
 
     <dependency>
       <groupId>net.jangaroo</groupId>
-      <artifactId>xmlhttprequest</artifactId>
+      <artifactId>xmlhttprequest-as</artifactId>
       <version>0.5-SNAPSHOT</version>
     </dependency>
 
     <dependency>
       <groupId>net.jangaroo</groupId>
-      <artifactId>XMLHttpRequest</artifactId>
+      <artifactId>xmlhttprequest-as</artifactId>
       <version>0.5-SNAPSHOT</version>
       <type>jangaroo</type>
     </dependency>
