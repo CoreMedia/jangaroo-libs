@@ -159,7 +159,7 @@
     <module>extas-aliases</module>
 
     <module>tiny_mce</module>
-    <module>tiny_mce-as</module>
+    <module>tiny_mce-ext</module>
     <module>miframe</module>
 
     <module>jangaroo-libs-bom</module>
