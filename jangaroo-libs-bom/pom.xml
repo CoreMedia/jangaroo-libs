@@ -140,23 +140,23 @@
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
-        <artifactId>xmlhttprequestas</artifactId>
+        <artifactId>xmlhttprequest-as</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
-        <artifactId>xmlhttprequestas</artifactId>
+        <artifactId>xmlhttprequest-as</artifactId>
         <version>${project.version}</version>
         <type>jangaroo</type>
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
-        <artifactId>XMLHttpRequest</artifactId>
+        <artifactId>xmlhttprequest</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
-        <artifactId>XMLHttpRequest</artifactId>
+        <artifactId>xmlhttprequest</artifactId>
         <version>${project.version}</version>
         <type>jangaroo</type>
       </dependency>

@@ -7,7 +7,7 @@
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>net.jangaroo</groupId>
-  <artifactId>xmlhttprequestas</artifactId>
+  <artifactId>xmlhttprequest-as</artifactId>
   <packaging>jangaroo</packaging>
   <version>0.5-SNAPSHOT</version>
   <name>XmlHttpRequest Cross-Browser Compatibility Library</name>
@@ -36,7 +36,7 @@
     </dependency>
     <dependency>
       <groupId>net.jangaroo</groupId>
-      <artifactId>XMLHttpRequest</artifactId>
+      <artifactId>xmlhttprequest</artifactId>
       <type>jangaroo</type>
       <version>0.5-SNAPSHOT</version>
     </dependency>
