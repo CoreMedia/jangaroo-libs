@@ -146,17 +146,22 @@
   <modules>
     <module>xmlhttprequest</module>
     <module>xmlhttprequest-as</module>
+
     <module>jooflash</module>
     <module>jooflash-native</module>
+
     <module>jooflexframework</module>
     <module>joounit</module>
-    <module>ext-as</module>
-    <module>tinymce-as</module>
+
     <module>ext-all</module>
-    <module>extas-aliases</module>
     <module>ext-base</module>
-    <module>miframe</module>
+    <module>ext-as</module>
+    <module>extas-aliases</module>
+
     <module>tiny_mce</module>
+    <module>tiny_mce-as</module>
+    <module>miframe</module>
+
     <module>jangaroo-libs-bom</module>
   </modules>
 

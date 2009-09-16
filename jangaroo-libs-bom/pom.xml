@@ -118,12 +118,12 @@
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
-        <artifactId>tinymce-ext-as</artifactId>
+        <artifactId>tiny_mce-ext</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
-        <artifactId>tinymce-ext-as</artifactId>
+        <artifactId>tiny_mce-ext</artifactId>
         <version>${project.version}</version>
         <type>jangaroo</type>
       </dependency>      
