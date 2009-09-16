@@ -144,20 +144,20 @@
   </dependencyManagement>
 
   <modules>
+    <module>xmlhttprequest</module>
     <module>xmlhttprequest-as</module>
     <module>jooflash</module>
+    <module>jooflash-native</module>
     <module>jooflexframework</module>
     <module>joounit</module>
     <module>ext-as</module>
     <module>tinymce-as</module>
-    <module>jangaroo-libs-bom</module>
     <module>ext-all</module>
     <module>extas-aliases</module>
     <module>ext-base</module>
-    <module>xmlhttprequest-jangaroo</module>
     <module>miframe</module>
     <module>tiny_mce</module>
-    <module>jooflash-native</module>
+    <module>jangaroo-libs-bom</module>
   </modules>
 
 </project>
