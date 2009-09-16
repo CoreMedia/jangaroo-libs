@@ -8,7 +8,7 @@
     <version>0.5-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
-  <name>Name Correction for ext</name>
+  <name>AS ExtJs API aliases</name>
   <description>Corrects names of ext classes and packages to conform the standard naming convention</description>
   <packaging>jangaroo</packaging>
   <groupId>net.jangaroo</groupId>

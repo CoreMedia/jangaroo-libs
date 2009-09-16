@@ -8,7 +8,7 @@
     <version>0.5-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
-  <name>Managed IFrame</name>
+  <name>Managed IFrame x.y.z</name>
   <description>Managed IFrame in an unknown version delivered with Ext.ux.TinyMCE</description>
   <groupId>net.jangaroo</groupId>
   <artifactId>miframe</artifactId>

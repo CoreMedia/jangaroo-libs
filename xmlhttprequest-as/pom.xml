@@ -10,7 +10,7 @@
   <artifactId>xmlhttprequest-as</artifactId>
   <packaging>jangaroo</packaging>
   <version>0.5-SNAPSHOT</version>
-  <name>XmlHttpRequest Cross-Browser Compatibility Library</name>
+  <name>AS XmlHttpRequest API</name>
   <description />
 
   <build>

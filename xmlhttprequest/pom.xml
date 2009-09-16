@@ -11,9 +11,10 @@
     <artifactId>jangaroo-libs</artifactId>
     <version>0.5-SNAPSHOT</version>
   </parent>
-  <name>XmlHttpRequest Cross-Browser Compatibility Library 1.0.3</name>
+  <name>XmlHttpRequest 1.0.3</name>
   <url>http://code.google.com/p/xmlhttprequest/</url>
   <description>
+    XmlHttpRequest Cross-Browser Compatibility Library 1.0.3
     * Deliver unobtrusive standard-compliant (W3C) cross-browser implementation of the XMLHttpRequest 1.0 object
     * Fix ALL browsers quirks observed in their native XMLHttpRequest object implementations
     * Enable transparent logging of XMLHttpRequest object activity
