@@ -30,17 +30,6 @@
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
-        <artifactId>ext-base</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>net.jangaroo</groupId>
-        <artifactId>ext-base</artifactId>
-        <version>${project.version}</version>
-        <type>jangaroo</type>
-      </dependency>
-      <dependency>
-        <groupId>net.jangaroo</groupId>
         <artifactId>ext-as</artifactId>
         <version>${project.version}</version>
       </dependency>
@@ -58,6 +47,17 @@
       <dependency>
         <groupId>net.jangaroo</groupId>
         <artifactId>ext-as-aliases</artifactId>
+        <version>${project.version}</version>
+        <type>jangaroo</type>
+      </dependency>
+      <dependency>
+        <groupId>net.jangaroo</groupId>
+        <artifactId>ext-base</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>net.jangaroo</groupId>
+        <artifactId>ext-base</artifactId>
         <version>${project.version}</version>
         <type>jangaroo</type>
       </dependency>
@@ -108,25 +108,14 @@
       <dependency>
         <groupId>net.jangaroo</groupId>
         <artifactId>miframe</artifactId>
-        <version>0.5-SNAPSHOT</version>
+        <version>${project.version}</version>
         <type>jangaroo</type>
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
         <artifactId>miframe</artifactId>
-        <version>0.5-SNAPSHOT</version>
-      </dependency>
-      <dependency>
-        <groupId>net.jangaroo</groupId>
-        <artifactId>tiny_mce-ext</artifactId>
         <version>${project.version}</version>
       </dependency>
-      <dependency>
-        <groupId>net.jangaroo</groupId>
-        <artifactId>tiny_mce-ext</artifactId>
-        <version>${project.version}</version>
-        <type>jangaroo</type>
-      </dependency>      
       <dependency>
         <groupId>net.jangaroo</groupId>
         <artifactId>tiny_mce</artifactId>
@@ -140,12 +129,12 @@
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
-        <artifactId>xmlhttprequest-as</artifactId>
+        <artifactId>tiny_mce-ext</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
-        <artifactId>xmlhttprequest-as</artifactId>
+        <artifactId>tiny_mce-ext</artifactId>
         <version>${project.version}</version>
         <type>jangaroo</type>
       </dependency>
@@ -157,6 +146,17 @@
       <dependency>
         <groupId>net.jangaroo</groupId>
         <artifactId>xmlhttprequest</artifactId>
+        <version>${project.version}</version>
+        <type>jangaroo</type>
+      </dependency>
+      <dependency>
+        <groupId>net.jangaroo</groupId>
+        <artifactId>xmlhttprequest-as</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>net.jangaroo</groupId>
+        <artifactId>xmlhttprequest-as</artifactId>
         <version>${project.version}</version>
         <type>jangaroo</type>
       </dependency>
