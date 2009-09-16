@@ -144,7 +144,7 @@
   </dependencyManagement>
 
   <modules>
-    <module>xmlhttprequest</module>
+    <module>xmlhttprequest-as</module>
     <module>jooflash</module>
     <module>jooflexframework</module>
     <module>joounit</module>
@@ -156,7 +156,7 @@
     <module>ext-base</module>
     <module>xmlhttprequest-jangaroo</module>
     <module>miframe</module>
-    <module>tinymce-jangaroo</module>
+    <module>tiny_mce</module>
     <module>jooflash-native</module>
   </modules>
 

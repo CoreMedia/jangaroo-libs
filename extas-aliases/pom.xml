@@ -8,10 +8,11 @@
     <version>0.5-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
-  <name>Ext AS Aliases whatever that is</name>
+  <name>Name Correction for ext</name>
+  <description>Corrects names of ext classes and packages to conform the standard naming convention</description>
   <packaging>jangaroo</packaging>
   <groupId>net.jangaroo</groupId>
-  <artifactId>extas-aliases</artifactId>
+  <artifactId>ext-as-aliases</artifactId>
   <version>0.5-SNAPSHOT</version>
   <build>
     <plugins>

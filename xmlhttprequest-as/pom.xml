@@ -4,14 +4,15 @@
     <artifactId>jangaroo-libs</artifactId>
     <version>0.5-SNAPSHOT</version>
   </parent>
+
   <modelVersion>4.0.0</modelVersion>
   <groupId>net.jangaroo</groupId>
-  <artifactId>tiny_mce-ext</artifactId>
+  <artifactId>xmlhttprequestas</artifactId>
   <packaging>jangaroo</packaging>
   <version>0.5-SNAPSHOT</version>
-  <name>AS TinyMCE API</name>
+  <name>XmlHttpRequest Cross-Browser Compatibility Library</name>
   <description />
-  
+
   <build>
     <sourceDirectory>src/main/joo</sourceDirectory>
     <plugins>
@@ -24,33 +25,21 @@
   </build>
 
   <dependencies>
-
     <dependency>
       <groupId>net.jangaroo</groupId>
-      <artifactId>ext-as</artifactId>
-      <version>0.5-SNAPSHOT</version>
+      <artifactId>jangaroo-browser</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>net.jangaroo</groupId>
+      <artifactId>jangaroo-browser</artifactId>
       <type>jangaroo</type>
     </dependency>
     <dependency>
       <groupId>net.jangaroo</groupId>
-      <artifactId>ext-as</artifactId>
-      <version>0.5-SNAPSHOT</version>
-    </dependency>
-
-    <dependency>
-      <groupId>net.jangaroo</groupId>
-      <artifactId>miframe</artifactId>
-      <version>0.5-SNAPSHOT</version>
+      <artifactId>XMLHttpRequest</artifactId>
       <type>jangaroo</type>
-    </dependency>
-
-    <dependency>
-      <groupId>net.jangaroo</groupId>
-      <artifactId>tiny_mce</artifactId>
       <version>0.5-SNAPSHOT</version>
-      <type>jangaroo</type>
     </dependency>
-
   </dependencies>
 
 </project>

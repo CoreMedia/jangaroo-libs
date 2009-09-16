@@ -41,23 +41,23 @@
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
-        <artifactId>extas</artifactId>
+        <artifactId>ext-as</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
-        <artifactId>extas</artifactId>
+        <artifactId>ext-as</artifactId>
         <version>${project.version}</version>
         <type>jangaroo</type>
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
-        <artifactId>extas-aliases</artifactId>
+        <artifactId>ext-as-aliases</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
-        <artifactId>extas-aliases</artifactId>
+        <artifactId>ext-as-aliases</artifactId>
         <version>${project.version}</version>
         <type>jangaroo</type>
       </dependency>
@@ -118,12 +118,12 @@
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
-        <artifactId>Ext.ux.TinyMCE</artifactId>
+        <artifactId>tinymce-ext-as</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
-        <artifactId>Ext.ux.TinyMCE</artifactId>
+        <artifactId>tinymce-ext-as</artifactId>
         <version>${project.version}</version>
         <type>jangaroo</type>
       </dependency>      

@@ -3,10 +3,10 @@
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>net.jangaroo</groupId>
-  <artifactId>extas</artifactId>
+  <artifactId>ext-as</artifactId>
   <packaging>jangaroo</packaging>
   <version>0.5-SNAPSHOT</version>
-  <name>Ext AS</name>
+  <name>AS ExtJS API</name>
   <description>ActionScript 3 API for Ext JS Component Library</description>
   <parent>
     <groupId>net.jangaroo</groupId>
@@ -95,7 +95,7 @@
     
     <dependency>
       <groupId>net.jangaroo</groupId>
-      <artifactId>extas-aliases</artifactId>
+      <artifactId>ext-as-aliases</artifactId>
       <version>0.5-SNAPSHOT</version>
       <type>jangaroo</type>
     </dependency>
