@@ -3,7 +3,7 @@
   <parent>
     <artifactId>jangaroo-libs</artifactId>
     <groupId>net.jangaroo</groupId>
-    <version>0.5.7-SNAPSHOT</version>
+    <version>0.5.7</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <name>AS ExtJs API aliases</name>
@@ -11,7 +11,7 @@
   <packaging>jangaroo</packaging>
   <groupId>net.jangaroo</groupId>
   <artifactId>ext-as-aliases</artifactId>
-  <version>0.5.7-SNAPSHOT</version>
+  <version>0.5.7</version>
   <build>
     <resources>
       <resource>
@@ -39,7 +39,7 @@
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>ext-base</artifactId>
-      <version>0.5.7-SNAPSHOT</version>
+      <version>0.5.7</version>
       <type>jangaroo</type>
     </dependency>
   </dependencies>
