@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>net.jangaroo</groupId>
   <artifactId>tiny_mce</artifactId>
-  <version>0.5.3-SNAPSHOT</version>
+  <version>0.5.3</version>
   <packaging>jangaroo</packaging>
   <name>TinyMCE 3.2.6</name>
   <url>http://tinymce.moxiecode.com/</url>
@@ -14,7 +14,7 @@ TinyMCE is a platform independent web based Javascript HTML WYSIWYG editor contr
   <parent>
     <groupId>net.jangaroo</groupId>
     <artifactId>jangaroo-libs</artifactId>
-    <version>0.5.3-SNAPSHOT</version>
+    <version>0.5.3</version>
   </parent>
 
   <organization>
@@ -55,7 +55,7 @@ TinyMCE is a platform independent web based Javascript HTML WYSIWYG editor contr
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>ext-all</artifactId>
-      <version>0.5.3-SNAPSHOT</version>
+      <version>0.5.3</version>
       <type>jangaroo</type>
     </dependency>
   </dependencies>
