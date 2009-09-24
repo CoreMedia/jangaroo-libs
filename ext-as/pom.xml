@@ -13,54 +13,6 @@
     <version>0.5.7-SNAPSHOT</version>
   </parent>
 
-  <distributionManagement>
-    <downloadUrl>http://repo.jangaroo.net/maven2</downloadUrl>
-    <repository>
-      <id>jangaroo</id>
-      <name>Jangaroo repository</name>
-      <url>scp://repo.jangaroo.net/home/jangaroo/maven2/repo</url>
-    </repository>
-    <snapshotRepository>
-      <id>jangaroo-snapshots</id>
-      <url>scp://repo.jangaroo.net/home/jangaroo/maven2/snapshots</url>
-    </snapshotRepository>
-  </distributionManagement>
-
-  <pluginRepositories>
-
-    <pluginRepository>
-      <id>jangaroo</id>
-      <name>Jangaroo repository</name>
-      <url>http://repo.jangaroo.net/maven2</url>
-    </pluginRepository>
-
-    <pluginRepository>
-      <id>jangaroo-snapshots</id>
-      <name>Jangaroo repository</name>
-      <url>http://repo.jangaroo.net/maven2-snapshots</url>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </pluginRepository>
-  </pluginRepositories>
-
-  <repositories>
-    <repository>
-      <id>jangaroo-snapshots</id>
-      <name>Jangaroo repository</name>
-      <url>http://repo.jangaroo.net/maven2-snapshots</url>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </repository>
-
-    <repository>
-      <id>jangaroo</id>
-      <name>Jangaroo repository</name>
-      <url>http://repo.jangaroo.net/maven2</url>
-    </repository>
-
-  </repositories>
 
   <dependencies>
     <dependency>
@@ -110,6 +62,9 @@
     <resources>
       <resource>
         <directory>src/main/joo-js</directory>
+      </resource>
+      <resource>
+        <directory>src/main/joo-api</directory>
       </resource>
     </resources>
     <outputDirectory>target/joo</outputDirectory>

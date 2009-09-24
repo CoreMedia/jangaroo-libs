@@ -36,6 +36,9 @@ TinyMCE is a platform independent web based Javascript HTML WYSIWYG editor contr
       <resource>
         <directory>src/main/joo-js</directory>
       </resource>
+      <resource>
+        <directory>src/main/joo-api</directory>
+      </resource>
     </resources>
     <outputDirectory>target/joo</outputDirectory>
     <sourceDirectory>src/main/joo</sourceDirectory>
