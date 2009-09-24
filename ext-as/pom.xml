@@ -42,11 +42,9 @@
         <enabled>true</enabled>
       </snapshots>
     </pluginRepository>
-
   </pluginRepositories>
 
   <repositories>
-
     <repository>
       <id>jangaroo-snapshots</id>
       <name>Jangaroo repository</name>
