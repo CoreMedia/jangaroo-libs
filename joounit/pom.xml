@@ -63,7 +63,7 @@
         <configuration>
           <enableGuessingTypeCasts>true</enableGuessingTypeCasts>
           <testSuiteName>flexunit.framework.AllFrameworkTests</testSuiteName>
-          <jooUnitTestExecutionTimeout>50000</jooUnitTestExecutionTimeout>
+          <jooUnitTestExecutionTimeout>120000</jooUnitTestExecutionTimeout>
         </configuration>
       </plugin>
     </plugins>
