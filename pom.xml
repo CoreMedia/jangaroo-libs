@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>net.jangaroo</groupId>
@@ -7,7 +8,7 @@
   <version>0.5.8-SNAPSHOT</version>
 
   <name>Jangaroo standard libraries</name>
-  <description />
+  <description/>
   <url>http://www.coremedia.com</url>
 
   <scm>
@@ -15,7 +16,7 @@
     <developerConnection>scm:perforce://coremedia/jangaroo-libs</developerConnection>
   </scm>
   <properties>
-    <jangaroo_version>0.3.13</jangaroo_version>
+    <jangaroo_version>0.3.15-SNAPSHOT</jangaroo_version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
@@ -46,8 +47,6 @@
     </snapshotRepository>
   </distributionManagement>
 
-  
-
 
   <pluginRepositories>
     <pluginRepository>
@@ -70,19 +69,6 @@
   <repositories>
 
     <repository>
-      <id>shard-3rdp</id>
-      <url>http://nexus.coremedia.com/nexus/content/repositories/shard-3rdp</url>
-    </repository>
-
-    <repository>
-      <id>internal-snapshots</id>
-      <url>http://nexus.coremedia.com/nexus/content/repositories/internal-snapshots</url>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </repository>
-
-    <repository>
       <id>jangaroo</id>
       <name>Jangaroo repository</name>
       <url>http://repo.jangaroo.net/maven2</url>
@@ -99,6 +85,28 @@
   </repositories>
 
   <build>
+    <resources>
+      <resource>
+        <directory>src/main/joo-js</directory>
+      </resource>
+      <resource>
+        <directory>src/main/joo-api</directory>
+      </resource>
+    </resources>
+    <outputDirectory>target/joo</outputDirectory>
+    <sourceDirectory>src/main/joo</sourceDirectory>
+    <testSourceDirectory>src/test/joo</testSourceDirectory>
+    <testOutputDirectory>target/joo-test</testOutputDirectory>
+
+    <plugins>
+      <plugin>
+        <groupId>net.jangaroo</groupId>
+        <artifactId>jangaroo-lifecycle</artifactId>
+        <version>${jangaroo_version}</version>
+        <extensions>true</extensions>
+      </plugin>
+    </plugins>
+
     <pluginManagement>
       <plugins>
         <plugin>
