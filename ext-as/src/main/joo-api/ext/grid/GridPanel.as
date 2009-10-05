@@ -191,6 +191,7 @@ public function GridPanel(config : Object) {
     /**
      * @cfg {ext.data.Store} store The <b class='link'>ext.data.Store</b> the grid should use as its data source (required).
      */
+    public var store  : Store;
     /**
      * @cfg {Boolean} stripeRows <tt>true</tt> to stripe the rows. Default is <tt>false</tt>.
      * <p>This causes the CSS class <tt><b>x-grid3-row-alt</b></tt> to be added to alternate rows of
