@@ -159,6 +159,7 @@ public function DataView(config : Object) {
     protected native function onUpdate(ds, record) : void;
     protected native function onAdd(ds, records, index) : void;
     protected native function onRemove(ds, record, index) : void;
+    public var store : Store;
     /**
      * Refreshes an individual node's data from the store.
      * @param index The item's data index in the store
@@ -174,7 +175,7 @@ public function DataView(config : Object) {
      * Changes the data store bound to this view and refreshes it.
      * @param store The store to bind to this view
      */
-    public native function bindStore(store : Store, initial) : void;
+    public native function bindStore(store : Store, initial:Boolean = false) : void;
     /**
      * Returns the template node the passed child belongs to, or null if it doesn't belong to one.
      * @param node
