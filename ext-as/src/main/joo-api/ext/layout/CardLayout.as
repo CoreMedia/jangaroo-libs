@@ -62,8 +62,6 @@ var card = new ext.Panel({
 });
 </code></pre>
  */
-    /**
-*/
 public class CardLayout extends FitLayout {
 /**
      * @cfg {Boolean} deferredRender
