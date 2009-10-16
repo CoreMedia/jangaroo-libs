@@ -2,13 +2,13 @@
   <parent>
     <groupId>net.jangaroo</groupId>
     <artifactId>jangaroo-libs</artifactId>
-    <version>0.5.12-SNAPSHOT</version>
+    <version>0.5.11-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <groupId>net.jangaroo</groupId>
   <artifactId>tiny_mce-ext</artifactId>
   <packaging>jangaroo</packaging>
-  <version>0.5.12-SNAPSHOT</version>
+  <version>0.5.11-SNAPSHOT</version>
   <name>AS TinyMCE API</name>
   <description />
   
@@ -18,26 +18,26 @@
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>ext-as</artifactId>
-      <version>0.5.12-SNAPSHOT</version>
+      <version>0.5.11-SNAPSHOT</version>
       <type>jangaroo</type>
     </dependency>
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>ext-as</artifactId>
-      <version>0.5.12-SNAPSHOT</version>
+      <version>0.5.11-SNAPSHOT</version>
     </dependency>
 
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>miframe</artifactId>
-      <version>0.5.12-SNAPSHOT</version>
+      <version>0.5.11-SNAPSHOT</version>
       <type>jangaroo</type>
     </dependency>
 
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>tiny_mce</artifactId>
-      <version>0.5.12-SNAPSHOT</version>
+      <version>0.5.11-SNAPSHOT</version>
       <type>jangaroo</type>
     </dependency>
 
