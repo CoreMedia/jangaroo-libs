@@ -59,22 +59,21 @@ public class Ext {
          * @param obj The receiver of the properties
          * @param config The source of the properties
          * @param defaults A different object that will also be applied for default values
-         * @return returns obj
-         * @member Ext apply
+         * @return {Object} returns obj
          */
         public static native function apply (obj : Object, config : Object, defaults : Object = null) : Object;
         /**
          * Copies all the properties of config to obj if they don't already exist.
          * @param obj The receiver of the properties
          * @param config The source of the properties
-         * @return returns obj
+         * @return {Object} returns obj
          */
         public static native function applyIf(obj : Object, config : Object) : Object;
         /**
          * Generates unique ids. If the element already has an id, it is unchanged
          * @param el The element to generate an id for
          * @param prefix Id prefix (defaults "ext-gen")
-         * @return The generated Id.
+         * @return {String} The generated Id.
          */
         public static native function id(el : * = undefined, prefix : String = undefined) : String;
         /**
@@ -114,8 +113,7 @@ MyGridPanel = Ext.extend(Ext.grid.GridPanel, {
          * @param superclass The class being extended
          * @param overrides A literal with members which are copied into the subclass's
          * prototype, and are therefore shared between all instances of the new class.
-         * @return The subclass constructor.
-         * @method extend
+         * @return {Class} The subclass constructor.
          */
         public static native function extend(subclass : Class, superclass : *, overrides : Object = undefined) : Class;
         /**
@@ -133,7 +131,6 @@ Ext.override(MyClass, {
          * @param origclass The class to override
          * @param overrides The list of functions to add to origClass.  This should be specified as an object literal
          * containing one or more methods.
-         * @method override
          */
         public static native function override(origclass : Object, overrides : Object) : void;
         /**
@@ -485,7 +482,7 @@ public class ImageComponent extends BoxComponent {
          * @param source The source object.
          * @param names Either an Array of property names, or a comma-delimited list
          * of property names to copy.
-         * @return The modified object.
+         * @return {Object} The modified object.
         */
         public static native function copyTo(dest : Object, source : Object, names : *) : Object;
         /**
@@ -509,19 +506,19 @@ public class ImageComponent extends BoxComponent {
         /**
          * Creates a copy of the passed Array with falsy values removed.
          * @param arr The Array from which to remove falsy values.
-         * @return The new, compressed Array.
+         * @return {Array} The new, compressed Array.
          */
         public static native function clean(arr : *) : Array;
         /**
          * Creates a copy of the passed Array, filtered to contain only unique values.
          * @param arr The Array to filter
-         * @return The new Array containing unique values.
+         * @return {Array} The new Array containing unique values.
          */
         public static native function unique(arr : Array) : Array;
         /**
          * Recursively flattens into 1-d Array. Injects Arrays inline.
          * @param arr The array to flatten
-         * @return The new, flattened array.
+         * @return {Array} The new, flattened array.
          */
         public static native function flatten(arr : Array) : Array;
         /**
@@ -529,7 +526,7 @@ public class ImageComponent extends BoxComponent {
          * @param arr The Array from which to select the minimum value.
          * @param comp a function to perform the comparision which determines minimization.
          *                   If omitted the "<" operator will be used. Note: gt = 1; eq = 0; lt = -1
-         * @return The minimum value in the Array.
+         * @return {Object} The minimum value in the Array.
          */
         public static native function min(arr : *, comp : Function = undefined) : Object;
         /**
@@ -537,19 +534,19 @@ public class ImageComponent extends BoxComponent {
          * @param arr The Array from which to select the maximum value.
          * @param comp a function to perform the comparision which determines maximization.
          *                   If omitted the ">" operator will be used. Note: gt = 1; eq = 0; lt = -1
-         * @return The maximum value in the Array.
+         * @return {Object} The maximum value in the Array.
          */
         public static native function max(arr : *, comp : Function = undefined) : Object;
         /**
          * Calculates the mean of the Array
          * @param arr The Array to calculate the mean value of.
-         * @return The mean.
+         * @return {Number} The mean.
          */
         public static native function mean(arr : Array) : Number;
         /**
          * Calculates the sum of the Array
          * @param arr The Array to calculate the sum value of.
-         * @return The sum.
+         * @return {Number} The sum.
          */
         public static native function sum(arr : Array) : Number;
         /**
@@ -573,7 +570,7 @@ Ext.partition(
          * @param arr The array to partition
          * @param truth a function to determine truth.  If this is omitted the element
          *                   itself must be able to be evaluated for its truthfulness.
-         * @return [true<Array>,false<Array>]
+         * @return {Array} [true-Array, false-Array]
          */
         public static native function partition(arr : *, truth : Function = undefined) : Array;
         /**
@@ -586,7 +583,7 @@ Ext.invoke(Ext.query("p"), "getAttribute", "id");
          * @param arr The Array of items to invoke the method on.
          * @param methodName The method name to invoke.
          * @param rest Arguments to send into the method invocation.
-         * @return The results of invoking the method on each item in the array.
+         * @return {Array} The results of invoking the method on each item in the array.
          */
         public static native function invoke(arr : *, methodName : String, ...rest) : Array;
         /**
@@ -597,7 +594,7 @@ Ext.pluck(Ext.query("p"), "className"); // [el1.className, el2.className, ..., e
          * </code></pre>
          * @param arr The Array of items to pluck the value from.
          * @param prop The property name to pluck from each element.
-         * @return The value from each item in the Array.
+         * @return {Array} The value from each item in the Array.
          */
         public static native function pluck(arr : *, prop : String) : Array;
         /**
@@ -618,14 +615,14 @@ Ext.zip(
          * @param array First Array to contribute values.
          * @param arr Further Array(s) to contribute values.
          *   If the last item in the argument list is a function, it will drive how the items are zipped together.
-         * @return The zipped set.
+         * @return {Array} The zipped set.
          */
         public static native function zip(array:Array, ...arr):Array;
         /**
          * This is shorthand reference to <b class='link'>ext.ComponentMgr#get</b>.
          * Looks up an existing <b class='link' title='ext.Component'>Component</b> by <b class='link' title='ext.Component#id'>id</b>
          * @param id The component <b class='link' title='ext.Component#id'>id</b>
-         * @return The Component, <tt>undefined</tt> if not found, or <tt>null</tt> if a
+         * @return {Component} The Component, <tt>undefined</tt> if not found, or <tt>null</tt> if a
          * Class was found.
         */
         public static native function getCmp(id : String) : Component;
@@ -689,9 +686,7 @@ Ext.zip(
    * object was recreated with the same id via AJAX or DOM.</p>
    * Shorthand of <b class='link'>ext.Element#get</b>
    * @param el The id of the node, a DOM Node or an existing Element.
-   * @return The Element object (or null if no matching element was found)
-   * @member Ext
-   * @method get
+   * @return {Element} The Element object (or null if no matching element was found)
    */
   public static native function get(el : *) : Element;
   /**
@@ -703,18 +698,14 @@ Ext.zip(
    * @param el The dom node or id
    * @param named Allows for creation of named reusable flyweights to prevent conflicts
    * (e.g. internally Ext uses "_global")
-   * @return The shared Element object (or null if no matching element was found)
-   * @member Ext
-   * @method fly
+   * @return {Element} The shared Element object (or null if no matching element was found)
    */
-  public static native function fly(el : *, named : String) : Element;
+  public static native function fly(el : *, named : String = null) : Element;
   /**
     * Fires when the document is ready (before onload and before images are loaded).  Shorthand of <b class='link'>Ext.EventManager#onDocumentReady</b>.
     * @param fn The method the event invokes
     * @param scope An object that becomes the scope of the handler
     * @param options (optional) An object containing standard <b class='link'>#addListener</b> options
-    * @member Ext
-    * @method onReady
    */
   public static native function onReady(fn : Function, scope : Object = undefined, options : Boolean = undefined) : void;
 }}
