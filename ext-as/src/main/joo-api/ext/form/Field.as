@@ -154,7 +154,7 @@ side          Add an error icon to the right of the field with a popup on hover
      * @param preventMark True to disable marking the field invalid
      * @return True if the value is valid, else false
      */
-    public native function isValid(preventMark : Boolean) : Boolean;
+    public native function isValid(preventMark : Boolean = false) : Boolean;
     /**
      * Validates the field value
      * @return True if the value is valid, else false
