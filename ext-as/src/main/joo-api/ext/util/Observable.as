@@ -94,6 +94,11 @@ var combo = new ext.form.ComboBox({
 });
      * </code></pre></p>
      */
+     public native function Observable(config:Object = undefined);
+        /**
+         * This Objects contains all supported event names as its keys.
+         */
+        public native function get events() : Object;
         /**
          * <p>Fires the specified event with the passed parameters (minus the event name).</p>
          * <p>An event may be set to bubble up an Observable parent hierarchy (See <b class='link'>ext.Component#getBubbleTarget</b>)
