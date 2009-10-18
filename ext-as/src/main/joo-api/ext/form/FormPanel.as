@@ -115,7 +115,7 @@ public function FormPanel(config : Object) {
   override public native function getLayoutTarget() : Element;
     /**
      * Provides access to the <b class='link' title='ext.form.BasicForm'>Form</b> which this Panel contains.
-     * @return The <b class='link' title='ext.form.BasicForm'>Form</b> which this Panel contains.
+     * @return {BasicForm} The <b class='link' title='ext.form.BasicForm'>Form</b> which this Panel contains.
      */
     public native function getForm() : BasicForm;
     override protected native function onRender(container : Element, position : Element) : void;
