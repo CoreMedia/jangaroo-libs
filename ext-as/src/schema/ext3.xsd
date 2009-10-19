@@ -1,14 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- THIS FILE HAS BEEN MOVED TO THE ext-as MODULE IN jangaroo-libs AND NEEDS TO BE REMOVED HERE -->
-<!-- THIS FILE HAS BEEN MOVED TO THE ext-as MODULE IN jangaroo-libs AND NEEDS TO BE REMOVED HERE -->
-<!-- THIS FILE HAS BEEN MOVED TO THE ext-as MODULE IN jangaroo-libs AND NEEDS TO BE REMOVED HERE -->
-<!-- THIS FILE HAS BEEN MOVED TO THE ext-as MODULE IN jangaroo-libs AND NEEDS TO BE REMOVED HERE -->
-<!-- THIS FILE HAS BEEN MOVED TO THE ext-as MODULE IN jangaroo-libs AND NEEDS TO BE REMOVED HERE -->
-<!-- THIS FILE HAS BEEN MOVED TO THE ext-as MODULE IN jangaroo-libs AND NEEDS TO BE REMOVED HERE -->
-<!-- THIS FILE HAS BEEN MOVED TO THE ext-as MODULE IN jangaroo-libs AND NEEDS TO BE REMOVED HERE -->
-<!-- THIS FILE HAS BEEN MOVED TO THE ext-as MODULE IN jangaroo-libs AND NEEDS TO BE REMOVED HERE -->
-<!-- THIS FILE HAS BEEN MOVED TO THE ext-as MODULE IN jangaroo-libs AND NEEDS TO BE REMOVED HERE -->
-<!-- THIS FILE HAS BEEN MOVED TO THE ext-as MODULE IN jangaroo-libs AND NEEDS TO BE REMOVED HERE -->
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://extjs.com/ext3" xmlns:ext="http://extjs.com/ext3" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:complexType name='ext.BoxComponent'>
     <xs:complexContent>
@@ -1107,51 +1097,119 @@ Simple color palette class for choosing colors. The palette can be rendered to a
   </xs:element>
   <xs:complexType name='ext.Component'>
         <xs:sequence>
-            <xs:element name='plugins' minOccurs="0" maxOccurs="1">
+            <xs:element name='listeners' minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
-    An object or array of objects that will provide custom functionality for this component. The only requirement for a valid
-      plugin is that it contain an init method that accepts a reference of type Ext.Component. When a component is created, if any
-      plugins are available, the component will call the init method on each plugin, passing a reference to itself. Each plugin
-      can then call methods or respond to events on the component as needed to provide its functionality.
-   
-                </xs:documentation>
-              </xs:annotation>
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax"/>
-                </xs:sequence>
-                <xs:anyAttribute processContents="skip"/>
-              </xs:complexType>
-            </xs:element>
-            <xs:element name='applyTo' minOccurs="0" maxOccurs="1">
-              <xs:annotation>
-                <xs:documentation>
-    
-      <p>Specify the id of the element, a DOM element or an existing Element corresponding to a DIV that is already present in the
-         document that specifies some structural markup for this component.
-      </p>
-      <div>
-         <ul>
-            <li>
-               <b>Description</b> : 
-               <div style="margin-left: 2em">When 
-                  <tt>applyTo</tt> is used, constituent parts of the component can also be specified by id or CSS class name within the main element, and the
-                  component being created may attempt to create its subcomponents from that markup if applicable.
-               </div>
-            </li>
-            <li>
-               <b>Notes</b> : 
-               <div style="margin-left: 2em">
-                  <div class="sub-desc">When using this config, a call to render() is not required.</div>
-                  <div class="sub-desc">If applyTo is specified, any value passed for {@link #renderTo} will be ignored and the target element's parent node will
-                     automatically be used as the component's container.
-                  </div>
-               </div>
-            </li>
-         </ul>
-      </div>
-   
+<p>A config object containing one or more event handlers to be added to this
+object during initialization.  This should be a valid listeners config object as specified in the
+<b class='link'>#addListener</b> example for attaching multiple handlers at once.</p>
+<p><b><u>DOM events from ExtJs <b class='link' title='ext.Component'>Components</b></u></b></p>
+<p>While <i>some</i> ExtJs Component classes export selected DOM events (e.g. "click", "mouseover" etc), this
+is usually only done when extra value can be added. For example the <b class='link' title='ext.DataView'>DataView</b>'s
+<b><code><b class='link' title='ext.DataView#click'>click</b></code></b> event passing the node clicked on. To access DOM
+events directly from a Component's HTMLElement, listeners must be added to the <i><b class='link' title='ext.Component#getEl'>Element</b></i> after the Component
+has been rendered. A plugin can simplify this step:<pre><code>
+// Plugin is configured with a listeners config object.
+// The Component is appended to the argument list of all handler functions.
+ext.DomObserver = Ext.extend(Object, {
+    constructor: function(config) {
+        this.listeners = config.listeners ? config.listeners : config;
+    },
+
+    // Component passes itself into plugin&#39;s init method
+    init: function(c) {
+        var p, l = this.listeners;
+        for (p in l) {
+            if (Ext.isFunction(l[p])) {
+                l[p] = this.createHandler(l[p], c);
+            } else {
+                l[p].fn = this.createHandler(l[p].fn, c);
+            }
+        }
+
+        // Add the listeners to the Element immediately following the render call
+        c.render = c.render.<b class='link' title='Function#createSequence'>createSequence</b>(function() {
+            var e = c.getEl();
+            if (e) {
+                e.on(l);
+            }
+        });
+    },
+
+    createHandler: function(fn, c) {
+        return function(e) {
+            fn.call(this, e, c);
+        };
+    }
+});
+
+var combo = new ext.form.ComboBox({
+
+    // Collapse combo when its element is clicked on
+    plugins: [ new ext.DomObserver({
+        click: function(evt, comp) {
+            comp.collapse();
+        }
+    })],
+    store: myStore,
+    typeAhead: true,
+    mode: 'local',
+    triggerAction: 'all'
+});
+</code></pre></p>
+            </xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax"/>
+            </xs:sequence>
+            <xs:anyAttribute processContents="skip"/>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name='plugins' minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>
+An object or array of objects that will provide custom functionality for this component. The only requirement for a valid
+  plugin is that it contain an init method that accepts a reference of type Ext.Component. When a component is created, if any
+  plugins are available, the component will call the init method on each plugin, passing a reference to itself. Each plugin
+  can then call methods or respond to events on the component as needed to provide its functionality.
+
+            </xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax"/>
+            </xs:sequence>
+            <xs:anyAttribute processContents="skip"/>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name='applyTo' minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>
+
+  <p>Specify the id of the element, a DOM element or an existing Element corresponding to a DIV that is already present in the
+     document that specifies some structural markup for this component.
+  </p>
+  <div>
+     <ul>
+        <li>
+           <b>Description</b> : 
+           <div style="margin-left: 2em">When 
+              <tt>applyTo</tt> is used, constituent parts of the component can also be specified by id or CSS class name within the main element, and the
+              component being created may attempt to create its subcomponents from that markup if applicable.
+           </div>
+        </li>
+        <li>
+           <b>Notes</b> : 
+           <div style="margin-left: 2em">
+              <div class="sub-desc">When using this config, a call to render() is not required.</div>
+              <div class="sub-desc">If applyTo is specified, any value passed for {@link #renderTo} will be ignored and the target element's parent node will
+                 automatically be used as the component's container.
+              </div>
+           </div>
+        </li>
+     </ul>
+  </div>
                 </xs:documentation>
               </xs:annotation>
               <xs:complexType>
@@ -1710,6 +1768,69 @@ Render this component hidden (default is false). If
       <tt>true</tt>, the {@link #hide} method will be called internally.
    
             </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:string' name='listeners'>
+          <xs:annotation>
+            <xs:documentation>
+<p>A config object containing one or more event handlers to be added to this
+object during initialization.  This should be a valid listeners config object as specified in the
+<b class='link'>#addListener</b> example for attaching multiple handlers at once.</p>
+<p><b><u>DOM events from ExtJs <b class='link' title='ext.Component'>Components</b></u></b></p>
+<p>While <i>some</i> ExtJs Component classes export selected DOM events (e.g. "click", "mouseover" etc), this
+is usually only done when extra value can be added. For example the <b class='link' title='ext.DataView'>DataView</b>'s
+<b><code><b class='link' title='ext.DataView#click'>click</b></code></b> event passing the node clicked on. To access DOM
+events directly from a Component's HTMLElement, listeners must be added to the <i><b class='link' title='ext.Component#getEl'>Element</b></i> after the Component
+has been rendered. A plugin can simplify this step:<pre><code>
+// Plugin is configured with a listeners config object.
+// The Component is appended to the argument list of all handler functions.
+ext.DomObserver = Ext.extend(Object, {
+constructor: function(config) {
+    this.listeners = config.listeners ? config.listeners : config;
+},
+
+// Component passes itself into plugin&#39;s init method
+init: function(c) {
+    var p, l = this.listeners;
+    for (p in l) {
+        if (Ext.isFunction(l[p])) {
+            l[p] = this.createHandler(l[p], c);
+        } else {
+            l[p].fn = this.createHandler(l[p].fn, c);
+        }
+    }
+
+    // Add the listeners to the Element immediately following the render call
+    c.render = c.render.<b class='link' title='Function#createSequence'>createSequence</b>(function() {
+        var e = c.getEl();
+        if (e) {
+            e.on(l);
+        }
+    });
+},
+
+createHandler: function(fn, c) {
+    return function(e) {
+        fn.call(this, e, c);
+    };
+}
+});
+
+var combo = new ext.form.ComboBox({
+
+// Collapse combo when its element is clicked on
+plugins: [ new ext.DomObserver({
+    click: function(evt, comp) {
+        comp.collapse();
+    }
+})],
+store: myStore,
+typeAhead: true,
+mode: 'local',
+triggerAction: 'all'
+});
+</code></pre></p>
+        </xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute type='xs:string' name='plugins'>
