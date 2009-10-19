@@ -11,7 +11,7 @@
   <artifactId>ext-all</artifactId>
   <version>0.5.12-SNAPSHOT</version>
 
-  <name>Ext-all 3.0.0</name>
+  <name>Ext-all 3.0.3</name>
 
   <dependencies>
     <dependency>
