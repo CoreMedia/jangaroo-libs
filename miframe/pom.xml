@@ -3,14 +3,14 @@
   <parent>
     <artifactId>jangaroo-libs</artifactId>
     <groupId>net.jangaroo</groupId>
-    <version>0.5.12-SNAPSHOT</version>
+    <version>0.5.12</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <name>Managed IFrame x.y.z</name>
   <description>Managed IFrame in an unknown version delivered with Ext.ux.TinyMCE</description>
   <groupId>net.jangaroo</groupId>
   <artifactId>miframe</artifactId>
-  <version>0.5.12-SNAPSHOT</version>
+  <version>0.5.12</version>
   <packaging>jangaroo</packaging>
   <url>http://code.google.com/p/managediframe</url>
 
