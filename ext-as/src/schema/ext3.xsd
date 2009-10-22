@@ -8778,9 +8778,9 @@ The quicktip text displayed for the Refresh button (defaults to
                 </xs:documentation>
               </xs:annotation>
               <xs:complexType>
-                <xs:all>
+                <xs:sequence>
                   <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax"/>
-                </xs:all>
+                </xs:sequence>
                 <xs:anyAttribute processContents="skip"/>
               </xs:complexType>
             </xs:element>
