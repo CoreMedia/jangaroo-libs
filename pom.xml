@@ -91,6 +91,9 @@
       <resource>
         <directory>src/main/joo-api</directory>
       </resource>
+      <resource>
+        <directory>src/main/resources</directory>
+      </resource>
     </resources>
     <outputDirectory>target/joo</outputDirectory>
     <sourceDirectory>src/main/joo</sourceDirectory>
