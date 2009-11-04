@@ -3,7 +3,7 @@
   <xs:complexType name='ext.BoxComponent'>
     <xs:complexContent>
       <xs:extension base='ext:ext.Component'>
-        <xs:all>
+        <xs:choice>
             <xs:element name='margins' minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
@@ -36,8 +36,8 @@
             <li>If there are four values, they apply to the top, right, bottom, and left, respectively.</li>
          </ul>
       </div>
-      <br></br>
-      <br></br> 
+      <br/>
+      <br/>
       <p>Defaults to:</p>
       <pre>
          <code>{top:0, right:0, bottom:0, left:0}
@@ -55,7 +55,7 @@
                 </xs:simpleContent>
               </xs:complexType>
             </xs:element>
-        </xs:all>
+        </xs:choice>
         <xs:attribute type='xs:string' name='region'>
           <xs:annotation>
             <xs:documentation>
@@ -65,7 +65,7 @@
          <b>{@link Ext.layout.BorderLayout BorderLayout}</b> layout manager (e.g. specifying 
          <tt>layout:'border'</tt>).
       </p>
-      <br></br>
+      <br/>
       <p>See {@link Ext.layout.BorderLayout} also.</p>
    
             </xs:documentation>
@@ -103,8 +103,8 @@
             <li>If there are four values, they apply to the top, right, bottom, and left, respectively.</li>
          </ul>
       </div>
-      <br></br>
-      <br></br> 
+      <br/>
+      <br/> 
       <p>Defaults to:</p>
       <pre>
          <code>{top:0, right:0, bottom:0, left:0}
@@ -287,8 +287,8 @@ The width of this component in pixels (defaults to auto).
             });
          </code>
       </pre>This may then be {@link Ext.Container#add added} to a {@link Ext.Container Container} as a child item.
-      <br></br>
-      <br></br> 
+      <br/>
+      <br/> 
       <p>To create a BoxComponent based around a HTML element to be created at render time, use the {@link Ext.Component#autoEl autoEl}
          config option which takes the form of a {@link Ext.DomHelper DomHelper} specification:
       </p>
@@ -301,8 +301,8 @@ The width of this component in pixels (defaults to auto).
             });
          </code>
       </pre>
-      <br></br>
-      <br></br>
+      <br/>
+      <br/>
    
       </xs:documentation>
     </xs:annotation>
@@ -310,8 +310,8 @@ The width of this component in pixels (defaults to auto).
   <xs:complexType name='ext.Spacer'>
     <xs:complexContent>
       <xs:extension base='ext:ext.BoxComponent'>
-        <xs:all>
-        </xs:all>
+        <xs:choice>
+        </xs:choice>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -327,7 +327,7 @@ The width of this component in pixels (defaults to auto).
   <xs:complexType name='ext.Button'>
     <xs:complexContent>
       <xs:extension base='ext:ext.BoxComponent'>
-        <xs:all>
+        <xs:choice>
             <xs:element name='handler' minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
@@ -457,7 +457,7 @@ The width of this component in pixels (defaults to auto).
                 </xs:simpleContent>
               </xs:complexType>
             </xs:element>
-        </xs:all>
+        </xs:choice>
         <xs:attribute type='xs:string' name='text'>
           <xs:annotation>
             <xs:documentation>
@@ -745,8 +745,8 @@ Simple Button class
   <xs:complexType name='ext.ButtonGroup'>
     <xs:complexContent>
       <xs:extension base='ext:ext.Panel'>
-        <xs:all>
-        </xs:all>
+        <xs:choice>
+        </xs:choice>
         <xs:attribute type='xs:int' name='columns'>
           <xs:annotation>
             <xs:documentation>
@@ -808,7 +808,7 @@ Container for a group of buttons. Example usage:
   <xs:complexType name='ext.chart.Chart'>
     <xs:complexContent>
       <xs:extension base='ext:ext.FlashComponent'>
-        <xs:all>
+        <xs:choice>
             <xs:element name='chartStyle' minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
@@ -841,7 +841,7 @@ Container for a group of buttons. Example usage:
                 </xs:simpleContent>
               </xs:complexType>
             </xs:element>
-        </xs:all>
+        </xs:choice>
         <xs:attribute type='xs:string' name='chartStyle'>
           <xs:annotation>
             <xs:documentation>
@@ -882,8 +882,8 @@ The Ext.chart package provides the capability to visualize data with flash based
   <xs:complexType name='ext.chart.PieChart'>
     <xs:complexContent>
       <xs:extension base='ext:ext.chart.Chart'>
-        <xs:all>
-        </xs:all>
+        <xs:choice>
+        </xs:choice>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -897,8 +897,8 @@ The Ext.chart package provides the capability to visualize data with flash based
   <xs:complexType name='ext.chart.CartesianChart'>
     <xs:complexContent>
       <xs:extension base='ext:ext.chart.Chart'>
-        <xs:all>
-        </xs:all>
+        <xs:choice>
+        </xs:choice>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -912,8 +912,8 @@ The Ext.chart package provides the capability to visualize data with flash based
   <xs:complexType name='ext.chart.LineChart'>
     <xs:complexContent>
       <xs:extension base='ext:ext.chart.CartesianChart'>
-        <xs:all>
-        </xs:all>
+        <xs:choice>
+        </xs:choice>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -927,8 +927,8 @@ The Ext.chart package provides the capability to visualize data with flash based
   <xs:complexType name='ext.chart.ColumnChart'>
     <xs:complexContent>
       <xs:extension base='ext:ext.chart.CartesianChart'>
-        <xs:all>
-        </xs:all>
+        <xs:choice>
+        </xs:choice>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -942,8 +942,8 @@ The Ext.chart package provides the capability to visualize data with flash based
   <xs:complexType name='ext.chart.StackedColumnChart'>
     <xs:complexContent>
       <xs:extension base='ext:ext.chart.CartesianChart'>
-        <xs:all>
-        </xs:all>
+        <xs:choice>
+        </xs:choice>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -957,8 +957,8 @@ The Ext.chart package provides the capability to visualize data with flash based
   <xs:complexType name='ext.chart.BarChart'>
     <xs:complexContent>
       <xs:extension base='ext:ext.chart.CartesianChart'>
-        <xs:all>
-        </xs:all>
+        <xs:choice>
+        </xs:choice>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -972,8 +972,8 @@ The Ext.chart package provides the capability to visualize data with flash based
   <xs:complexType name='ext.chart.StackedBarChart'>
     <xs:complexContent>
       <xs:extension base='ext:ext.chart.CartesianChart'>
-        <xs:all>
-        </xs:all>
+        <xs:choice>
+        </xs:choice>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -987,8 +987,8 @@ The Ext.chart package provides the capability to visualize data with flash based
   <xs:complexType name='ext.FlashComponent'>
     <xs:complexContent>
       <xs:extension base='ext:ext.BoxComponent'>
-        <xs:all>
-        </xs:all>
+        <xs:choice>
+        </xs:choice>
         <xs:attribute type='xs:string' name='flashVersion'>
           <xs:annotation>
             <xs:documentation>
@@ -1048,8 +1048,8 @@ True to prompt the user to install flash if not installed. Note that this uses E
   <xs:complexType name='ext.ColorPalette'>
     <xs:complexContent>
       <xs:extension base='ext:ext.Component'>
-        <xs:all>
-        </xs:all>
+        <xs:choice>
+        </xs:choice>
         <xs:attribute type='xs:string' name='tpl'>
           <xs:annotation>
             <xs:documentation>
@@ -1080,7 +1080,7 @@ If set to true then reselecting a color that is already selected fires the {@lin
     <xs:annotation>
       <xs:documentation>
 Simple color palette class for choosing colors. The palette can be rendered to any container.
-      <br></br>Here's an example of typical usage: 
+      <br/>Here's an example of typical usage: 
       <pre>
          <code>var cp = new Ext.ColorPalette({value:'993300'});  // initial selected color
             cp.render('my-div');
@@ -1096,7 +1096,7 @@ Simple color palette class for choosing colors. The palette can be rendered to a
     </xs:annotation>
   </xs:element>
   <xs:complexType name='ext.Component'>
-        <xs:all>
+        <xs:choice>
             <xs:element name='listeners' minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
@@ -1318,19 +1318,19 @@ An object or array of objects that will provide custom functionality for this co
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
-        </xs:all>
+        </xs:choice>
         <xs:attribute type='xs:string' name='fieldLabel'>
           <xs:annotation>
             <xs:documentation>
 
       <p>The label text to display next to this Component (defaults to '').</p>
-      <br></br>
+      <br/>
       <p>
          <b>Note</b>: this config is only used when this Component is rendered by a Container which has been configured to use the 
          <b>{@link Ext.layout.FormLayout FormLayout}</b> layout manager (e.g. {@link Ext.form.FormPanel} or specifying 
          <tt>layout:'form'</tt>).
       </p>
-      <br></br>
+      <br/>
       <p>Also see 
          <tt>{@link #hideLabel}</tt> and {@link Ext.layout.FormLayout}.{@link Ext.layout.FormLayout#fieldTpl fieldTpl}.
       </p>Example use:
@@ -1358,12 +1358,12 @@ An object or array of objects that will provide custom functionality for this co
          set (e.g., 
          <tt>{@link Ext.layout.FormLayout#labelStyle}</tt> , or '').
       </p>
-      <br></br>
+      <br/>
       <p>
          <b>Note</b>: see the note for 
          <code>{@link #clearCls}</code>.
       </p>
-      <br></br>
+      <br/>
       <p>Also see 
          <code>{@link #hideLabel}</code> and 
          <code>{@link Ext.layout.FormLayout}.{@link Ext.layout.FormLayout#fieldTpl fieldTpl}.</code>
@@ -1401,14 +1401,14 @@ An object or array of objects that will provide custom functionality for this co
             </li>
          </ul>
       </div>To display no separator for this field's label specify empty string ''.
-      <br></br>
-      <br></br> 
-      <br></br>
+      <br/>
+      <br/> 
+      <br/>
       <p>
          <b>Note</b>: see the note for 
          <tt>{@link #clearCls}</tt>.
       </p>
-      <br></br>
+      <br/>
       <p>Also see 
          <tt>{@link #hideLabel}</tt> and {@link Ext.layout.FormLayout}.{@link Ext.layout.FormLayout#fieldTpl fieldTpl}.
       </p>Example use:
@@ -1446,12 +1446,12 @@ An object or array of objects that will provide custom functionality for this co
          <tt>{@link #fieldLabel}</tt> the space will still be reserved so that the field will line up with other fields that do have labels. Setting this to 
          <tt>true</tt> will cause the field to not reserve that space.
       </p>
-      <br></br>
+      <br/>
       <p>
          <b>Note</b>: see the note for 
          <tt>{@link #clearCls}</tt>.
       </p>
-      <br></br>Example use:
+      <br/>Example use:
       <pre>
          <code>new Ext.FormPanel({
             height: 100,
@@ -1476,7 +1476,7 @@ An object or array of objects that will provide custom functionality for this co
          clearing (defaults to 
          <tt>'x-form-clear-left'</tt>).
       </p>
-      <br></br>
+      <br/>
       <p>
          <b>Note</b>: this config is only used when this Component is rendered by a Container which has been configured to use the 
          <b>{@link Ext.layout.FormLayout FormLayout}</b> layout manager (e.g. {@link Ext.form.FormPanel} or specifying 
@@ -1484,7 +1484,7 @@ An object or array of objects that will provide custom functionality for this co
          <tt>{@link #fieldLabel}</tt> is specified or 
          <tt>isFormField=true</tt> is specified.
       </p>
-      <br></br>
+      <br/>
       <p>See {@link Ext.layout.FormLayout}.{@link Ext.layout.FormLayout#fieldTpl fieldTpl} also.</p>
    
             </xs:documentation>
@@ -1506,12 +1506,12 @@ An object or array of objects that will provide custom functionality for this co
          it allows you to write standard CSS rules that can apply to the field, the label (if specified), or any other element within
          the markup for the field.
       </p>
-      <br></br>
+      <br/>
       <p>
          <b>Note</b>: see the note for 
          <tt>{@link #fieldLabel}</tt>.
       </p>
-      <br></br>Example use:
+      <br/>Example use:
       <pre>
          <code>// Apply a style to the field's label:
             &lt;style&gt;
@@ -1553,8 +1553,8 @@ An object or array of objects that will provide custom functionality for this co
             </li>
          </ul>
       </div>
-      <br></br>
-      <br></br> 
+      <br/>
+      <br/> 
       <p>See {@link Ext.layout.AnchorLayout}.{@link Ext.layout.AnchorLayout#anchor anchor} also.</p>
    
             </xs:documentation>
@@ -1646,10 +1646,10 @@ The registered
       but as a 
       <i>Component config object</i>. The 
       <tt>xtype</tt> will be looked up at render time up to determine what type of child Component to create.
-      <br></br>
-      <br></br>The predefined xtypes are listed {@link Ext.Component here}. 
-      <br></br>
-      <br></br>If you subclass Components to create your own Components, you may register them using {@link Ext.ComponentMgr#registerType}
+      <br/>
+      <br/>The predefined xtypes are listed {@link Ext.Component here}. 
+      <br/>
+      <br/>If you subclass Components to create your own Components, you may register them using {@link Ext.ComponentMgr#registerType}
       in order to be able to take advantage of lazy instantiation and rendering.
    
             </xs:documentation>
@@ -1663,8 +1663,8 @@ The registered
       when lazy instantiation is being used, and a Plugin is being specified not as a fully instantiated Component, but as a 
       <i>Component config object</i>. The 
       <tt>ptype</tt> will be looked up at render time up to determine what type of Plugin to create.
-      <br></br>
-      <br></br>If you create your own Plugins, you may register them using {@link Ext.ComponentMgr#registerPlugin} in order to be able to
+      <br/>
+      <br/>If you create your own Plugins, you may register them using {@link Ext.ComponentMgr#registerPlugin} in order to be able to
       take advantage of lazy instantiation and rendering.
    
             </xs:documentation>
@@ -1748,8 +1748,8 @@ A custom style specification to be applied to this component's Element. Should b
             
          </code>
       </pre>
-      <br></br>
-      <br></br>
+      <br/>
+      <br/>
    
             </xs:documentation>
           </xs:annotation>
@@ -2058,7 +2058,7 @@ True if the component should check for hidden classes (e.g. 'x-hidden' or 'x-hid
          <tt>'offsets'</tt> (negative offset position) and 
          <tt>'display'</tt> (css display).
       </p>
-      <br></br>
+      <br/>
       <p>
          <b>Note</b>: the default of 
          <tt>'display'</tt> is generally preferred since items are automatically laid out when they are first shown (no sizing is done while hidden).
@@ -2238,7 +2238,7 @@ True to hide and show the component's container when hide/show is called on the 
   <xs:complexType name='ext.Container'>
     <xs:complexContent>
       <xs:extension base='ext:ext.BoxComponent'>
-        <xs:all>
+        <xs:choice>
             <xs:element name='layout' minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
@@ -2287,11 +2287,11 @@ True to hide and show the component's container when hide/show is called on the 
                         </tt>
                      </li>
                      <li style="list-style: none">
-                        <br></br>
+                        <br/>
                         <p>The layout type to be used for this container. If not specified, a default {@link Ext.layout.ContainerLayout} will be created
                            and used.
                         </p>
-                        <br></br>
+                        <br/>
                         <p>Valid layout 
                            <tt>type</tt> values are:
                         </p>
@@ -2373,7 +2373,7 @@ True to hide and show the component's container when hide/show is called on the 
                      </li>
                      <li>Layout specific configuration properties</li>
                      <li style="list-style: none">
-                        <br></br>
+                        <br/>
                         <p>Additional layout specific configuration properties may also be specified. For complete details regarding the valid config
                            options for each layout type, see the layout class corresponding to the 
                            <tt>type</tt> specified.
@@ -2406,11 +2406,11 @@ True to hide and show the component's container when hide/show is called on the 
                         </tt>
                      </li>
                      <li style="list-style: none">
-                        <br></br>
+                        <br/>
                         <p>The layout 
                            <tt>type</tt> to be used for this container (see list of valid layout type values above).
                         </p>
-                        <br></br>
+                        <br/>
                      </li>
                      <li>
                         <tt>
@@ -2418,7 +2418,7 @@ True to hide and show the component's container when hide/show is called on the 
                         </tt>
                      </li>
                      <li style="list-style: none">
-                        <br></br>
+                        <br/>
                         <p>Additional layout specific configuration properties. For complete details regarding the valid config options for each layout
                            type, see the layout class corresponding to the 
                            <tt>layout</tt> specified.
@@ -2451,8 +2451,8 @@ True to hide and show the component's container when hide/show is called on the 
          <code>{@link #layout}</code>
       </b> has been specified as a 
       <i>string</i>.
-      <br></br>
-      <br></br>
+      <br/>
+      <br/>
    
                 </xs:documentation>
               </xs:annotation>
@@ -2546,7 +2546,7 @@ True to hide and show the component's container when hide/show is called on the 
          {@link Ext.Panel} items, you could pass: 
          <tt>defaults: {bodyStyle:'padding:15px'}</tt>.
       </p>
-      <br></br>
+      <br/>
       <p>
          <b>Note</b>: 
          <tt>defaults</tt> will not be applied to config objects if the option is already specified. For example:
@@ -2582,7 +2582,7 @@ True to hide and show the component's container when hide/show is called on the 
                 </xs:simpleContent>
               </xs:complexType>
             </xs:element>
-        </xs:all>
+        </xs:choice>
         <xs:attribute type='xs:boolean' name='monitorResize'>
           <xs:annotation>
             <xs:documentation>
@@ -2641,11 +2641,11 @@ When creating complex UIs, it is important to remember that sizing and positioni
                         </tt>
                      </li>
                      <li style="list-style: none">
-                        <br></br>
+                        <br/>
                         <p>The layout type to be used for this container. If not specified, a default {@link Ext.layout.ContainerLayout} will be created
                            and used.
                         </p>
-                        <br></br>
+                        <br/>
                         <p>Valid layout 
                            <tt>type</tt> values are:
                         </p>
@@ -2727,7 +2727,7 @@ When creating complex UIs, it is important to remember that sizing and positioni
                      </li>
                      <li>Layout specific configuration properties</li>
                      <li style="list-style: none">
-                        <br></br>
+                        <br/>
                         <p>Additional layout specific configuration properties may also be specified. For complete details regarding the valid config
                            options for each layout type, see the layout class corresponding to the 
                            <tt>type</tt> specified.
@@ -2760,11 +2760,11 @@ When creating complex UIs, it is important to remember that sizing and positioni
                         </tt>
                      </li>
                      <li style="list-style: none">
-                        <br></br>
+                        <br/>
                         <p>The layout 
                            <tt>type</tt> to be used for this container (see list of valid layout type values above).
                         </p>
-                        <br></br>
+                        <br/>
                      </li>
                      <li>
                         <tt>
@@ -2772,7 +2772,7 @@ When creating complex UIs, it is important to remember that sizing and positioni
                         </tt>
                      </li>
                      <li style="list-style: none">
-                        <br></br>
+                        <br/>
                         <p>Additional layout specific configuration properties. For complete details regarding the valid config options for each layout
                            type, see the layout class corresponding to the 
                            <tt>layout</tt> specified.
@@ -2798,8 +2798,8 @@ This is a config object containing properties specific to the chosen
          <code>{@link #layout}</code>
       </b> has been specified as a 
       <i>string</i>.
-      <br></br>
-      <br></br>
+      <br/>
+      <br/>
    
             </xs:documentation>
           </xs:annotation>
@@ -2901,7 +2901,7 @@ A string component id or the numeric index of the component that should be initi
          {@link Ext.Panel} items, you could pass: 
          <tt>defaults: {bodyStyle:'padding:15px'}</tt>.
       </p>
-      <br></br>
+      <br/>
       <p>
          <b>Note</b>: 
          <tt>defaults</tt> will not be applied to config objects if the option is already specified. For example:
@@ -3028,8 +3028,8 @@ True to hide the borders of each contained component, false to defer to the comp
             });
          </code>
       </pre>
-      <br></br>
-      <br></br> 
+      <br/>
+      <br/> 
       <p>
          <u>
             <b>Layout</b>
@@ -3075,8 +3075,8 @@ True to hide the borders of each contained component, false to defer to the comp
             
          </code>
       </pre>
-      <br></br>
-      <br></br> 
+      <br/>
+      <br/> 
       <p>The example above adds a newly created GridPanel to a TabPanel. Note that a TabPanel uses {@link Ext.layout.CardLayout} as
          its layout manager which means all its child items are sized to {@link Ext.layout.FitLayout fit} exactly into its client area.
       </p>
@@ -3093,7 +3093,7 @@ True to hide the borders of each contained component, false to defer to the comp
             <b>{@link #layout}</b>
          </tt> configuration, then the overnested GridPanel will not be sized as expected.
       </p>
-      <p></p>
+      <p/>
       <p>
          <u>
             <b>Adding via remote configuration</b>
@@ -3185,7 +3185,7 @@ True to hide the borders of each contained component, false to defer to the comp
   <xs:complexType name='ext.CycleButton'>
     <xs:complexContent>
       <xs:extension base='ext:ext.SplitButton'>
-        <xs:all>
+        <xs:choice>
             <xs:element name='items' minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
@@ -3217,7 +3217,7 @@ True to hide the borders of each contained component, false to defer to the comp
                 </xs:simpleContent>
               </xs:complexType>
             </xs:element>
-        </xs:all>
+        </xs:choice>
         <xs:attribute type='xs:string' name='items'>
           <xs:annotation>
             <xs:documentation>
@@ -3299,7 +3299,7 @@ A specialized SplitButton that contains a menu of {@link Ext.menu.CheckItem} ele
   <xs:complexType name='ext.DataView'>
     <xs:complexContent>
       <xs:extension base='ext:ext.BoxComponent'>
-        <xs:all>
+        <xs:choice>
             <xs:element name='tpl' minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
@@ -3328,7 +3328,7 @@ A specialized SplitButton that contains a menu of {@link Ext.menu.CheckItem} ele
                 </xs:simpleContent>
               </xs:complexType>
             </xs:element>
-        </xs:all>
+        </xs:choice>
         <xs:attribute type='xs:string' name='tpl'>
           <xs:annotation>
             <xs:documentation>
@@ -3494,7 +3494,7 @@ A mechanism for displaying data using custom layout templates and formatting. Da
   <xs:complexType name='ext.DatePicker'>
     <xs:complexContent>
       <xs:extension base='ext:ext.Component'>
-        <xs:all>
+        <xs:choice>
             <xs:element name='monthNames' minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
@@ -3570,7 +3570,7 @@ A mechanism for displaying data using custom layout templates and formatting. Da
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
-        </xs:all>
+        </xs:choice>
         <xs:attribute type='xs:string' name='todayText'>
           <xs:annotation>
             <xs:documentation>
@@ -3772,7 +3772,7 @@ Simple date picker class.
   <xs:complexType name='ext.Editor'>
     <xs:complexContent>
       <xs:extension base='ext:ext.Component'>
-        <xs:all>
+        <xs:choice>
             <xs:element name='field' minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
@@ -3799,7 +3799,7 @@ Simple date picker class.
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
-        </xs:all>
+        </xs:choice>
         <xs:attribute type='xs:string' name='field'>
           <xs:annotation>
             <xs:documentation>
@@ -3919,7 +3919,7 @@ A base editor field that handles displaying/hiding on demand and has some built-
   <xs:complexType name='ext.form.Checkbox'>
     <xs:complexContent>
       <xs:extension base='ext:ext.form.Field'>
-        <xs:all>
+        <xs:choice>
             <xs:element name='handler' minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
@@ -3962,7 +3962,7 @@ A base editor field that handles displaying/hiding on demand and has some built-
                 </xs:simpleContent>
               </xs:complexType>
             </xs:element>
-        </xs:all>
+        </xs:choice>
         <xs:attribute type='xs:boolean' name='checked'>
           <xs:annotation>
             <xs:documentation>
@@ -4028,7 +4028,7 @@ Single checkbox field. Can be used as a direct replacement for traditional check
   <xs:complexType name='ext.form.CheckboxGroup'>
     <xs:complexContent>
       <xs:extension base='ext:ext.form.Field'>
-        <xs:all>
+        <xs:choice>
             <xs:element name='items' minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
@@ -4077,7 +4077,7 @@ Single checkbox field. Can be used as a direct replacement for traditional check
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
-        </xs:all>
+        </xs:choice>
         <xs:attribute type='xs:string' name='items'>
           <xs:annotation>
             <xs:documentation>
@@ -4178,7 +4178,7 @@ Error text to display if the {@link #allowBlank} validation fails (defaults to "
   <xs:complexType name='ext.form.ComboBox'>
     <xs:complexContent>
       <xs:extension base='ext:ext.form.TriggerField'>
-        <xs:all>
+        <xs:choice>
             <xs:element name='transform' minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
@@ -4263,12 +4263,12 @@ Error text to display if the {@link #allowBlank} validation fails (defaults to "
          <b>must</b> contain one or more substitution parameters using field names from the Combo's {@link #store Store}. In the example above an
       </p>
       <pre>ext:qtip</pre>attribute is added to display other fields from the Store.
-      <br></br>
-      <br></br> 
+      <br/>
+      <br/> 
       <p>To preserve the default visual look of list items, add the CSS class name</p>
       <pre>x-combo-list-item</pre>to the template's container element.
-      <br></br>
-      <br></br> 
+      <br/>
+      <br/> 
       <p>Also see {@link #itemSelector} for additional details.</p>
    
                 </xs:documentation>
@@ -4281,7 +4281,7 @@ Error text to display if the {@link #allowBlank} validation fails (defaults to "
                 </xs:simpleContent>
               </xs:complexType>
             </xs:element>
-        </xs:all>
+        </xs:choice>
         <xs:attribute type='xs:string' name='transform'>
           <xs:annotation>
             <xs:documentation>
@@ -4755,12 +4755,12 @@ When using a name/value combo, if the value passed to setValue is not found in t
          <b>must</b> contain one or more substitution parameters using field names from the Combo's {@link #store Store}. In the example above an
       </p>
       <pre>ext:qtip</pre>attribute is added to display other fields from the Store.
-      <br></br>
-      <br></br> 
+      <br/>
+      <br/> 
       <p>To preserve the default visual look of list items, add the CSS class name</p>
       <pre>x-combo-list-item</pre>to the template's container element.
-      <br></br>
-      <br></br> 
+      <br/>
+      <br/> 
       <p>Also see {@link #itemSelector} for additional details.</p>
    
             </xs:documentation>
@@ -4813,8 +4813,8 @@ When using a name/value combo, if the value passed to setValue is not found in t
             
          </code>
       </pre>
-      <br></br>
-      <br></br> 
+      <br/>
+      <br/> 
       <p style="font-weight: bold">
          <u>ComboBox in Grid</u>
       </p>
@@ -4864,8 +4864,8 @@ When using a name/value combo, if the value passed to setValue is not found in t
             
          </code>
       </pre>
-      <br></br>
-      <br></br> 
+      <br/>
+      <br/> 
       <p style="font-weight: bold">
          <u>Filtering</u>
       </p>
@@ -4879,7 +4879,7 @@ When using a name/value combo, if the value passed to setValue is not found in t
   <xs:complexType name='ext.form.DateField'>
     <xs:complexContent>
       <xs:extension base='ext:ext.form.TriggerField'>
-        <xs:all>
+        <xs:choice>
             <xs:element name='disabledDays' minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
@@ -4932,7 +4932,7 @@ When using a name/value combo, if the value passed to setValue is not found in t
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
-        </xs:all>
+        </xs:choice>
         <xs:attribute type='xs:string' name='format'>
           <xs:annotation>
             <xs:documentation>
@@ -5071,8 +5071,8 @@ Provides a date input field with a {@link Ext.DatePicker} dropdown and automatic
   <xs:complexType name='ext.form.DisplayField'>
     <xs:complexContent>
       <xs:extension base='ext:ext.form.Field'>
-        <xs:all>
-        </xs:all>
+        <xs:choice>
+        </xs:choice>
         <xs:attribute type='xs:boolean' name='htmlEncode'>
           <xs:annotation>
             <xs:documentation>
@@ -5097,7 +5097,7 @@ A display-only text field which is not validated and not submitted.
   <xs:complexType name='ext.form.Field'>
     <xs:complexContent>
       <xs:extension base='ext:ext.BoxComponent'>
-        <xs:all>
+        <xs:choice>
             <xs:element name='value' minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
@@ -5132,7 +5132,7 @@ A display-only text field which is not validated and not submitted.
                 </xs:simpleContent>
               </xs:complexType>
             </xs:element>
-        </xs:all>
+        </xs:choice>
         <xs:attribute type='xs:string' name='inputType'>
           <xs:annotation>
             <xs:documentation>
@@ -5265,7 +5265,7 @@ The location where error text should display. Should be one of the following val
 
       <tt>true</tt> to mark the field as readOnly in HTML (defaults to 
       <tt>false</tt>). 
-      <br></br>
+      <br/>
       <p>
          <b>Note</b>: this only sets the element's readOnly DOM attribute. Setting 
          <code>readOnly=true</code>, for example, will not disable triggering a ComboBox or DateField; it gives you the option of forcing the user to choose
@@ -5289,7 +5289,7 @@ Base class for form fields that provides default event handling, sizing, value h
   <xs:complexType name='ext.form.FieldSet'>
     <xs:complexContent>
       <xs:extension base='ext:ext.Panel'>
-        <xs:all>
+        <xs:choice>
             <xs:element name='checkboxToggle' minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
@@ -5314,7 +5314,7 @@ Base class for form fields that provides default event handling, sizing, value h
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
-        </xs:all>
+        </xs:choice>
         <xs:attribute type='xs:string' name='checkboxToggle'>
           <xs:annotation>
             <xs:documentation>
@@ -5420,8 +5420,8 @@ Standard container used for grouping items within a {@link Ext.form.FormPanel fo
   <xs:complexType name='ext.form.FormPanel'>
     <xs:complexContent>
       <xs:extension base='ext:ext.Panel'>
-        <xs:all>
-        </xs:all>
+        <xs:choice>
+        </xs:choice>
         <xs:attribute type='xs:string' name='formId'>
           <xs:annotation>
             <xs:documentation>
@@ -5490,7 +5490,7 @@ The label alignment value used for the
 If 
       <tt>true</tt>, the form monitors its valid state 
       <b>client-side</b> and regularly fires the {@link #clientvalidation} event passing that state.
-      <br></br>
+      <br/>
       <p>When monitoring valid state, the FormPanel enables/disables any of its configured {@link #buttons} which have been configured
          with 
          <code>formBind: true</code> depending on whether the {@link Ext.form.BasicForm#isValid form is valid} or not. Defaults to 
@@ -5578,8 +5578,8 @@ The milliseconds to poll valid state, ignored if monitorValid is not true (defau
   <xs:complexType name='ext.form.Hidden'>
     <xs:complexContent>
       <xs:extension base='ext:ext.form.Field'>
-        <xs:all>
-        </xs:all>
+        <xs:choice>
+        </xs:choice>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -5593,7 +5593,7 @@ A basic hidden field for storing hidden values in forms that need to be passed i
   <xs:complexType name='ext.form.HtmlEditor'>
     <xs:complexContent>
       <xs:extension base='ext:ext.form.Field'>
-        <xs:all>
+        <xs:choice>
             <xs:element name='fontFamilies' minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
@@ -5606,7 +5606,7 @@ A basic hidden field for storing hidden values in forms that need to be passed i
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
-        </xs:all>
+        </xs:choice>
         <xs:attribute type='xs:boolean' name='enableFormat'>
           <xs:annotation>
             <xs:documentation>
@@ -5701,18 +5701,18 @@ A default value to be put into the editor to resolve focus issues (defaults to â
       <xs:documentation>
 Provides a lightweight HTML Editor component. Some toolbar features are not supported by Safari and will be automatically
       hidden when needed. These are noted in the config options where appropriate. 
-      <br></br>
-      <br></br>The editor's toolbar buttons have tooltips defined in the {@link #buttonTips} property, but they are not enabled by default
+      <br/>
+      <br/>The editor's toolbar buttons have tooltips defined in the {@link #buttonTips} property, but they are not enabled by default
       unless the global {@link Ext.QuickTips} singleton is {@link Ext.QuickTips#init initialized}. 
-      <br></br>
-      <br></br>
+      <br/>
+      <br/>
       <b>Note: The focus/blur and validation marking functionality inherited from Ext.form.Field is NOT supported by this editor.</b> 
-      <br></br>
-      <br></br>An Editor is a sensitive component that can't be used in all spots standard fields can be used. Putting an Editor within any
+      <br/>
+      <br/>An Editor is a sensitive component that can't be used in all spots standard fields can be used. Putting an Editor within any
       element that has display set to 'none' can cause problems in Safari and Firefox due to their default iframe reloading bugs.
       
-      <br></br>
-      <br></br>Example usage: 
+      <br/>
+      <br/>Example usage: 
       <pre>
          <code>// Simple example rendered with default options:
             Ext.QuickTips.init();  // enable tooltips
@@ -5747,8 +5747,8 @@ Provides a lightweight HTML Editor component. Some toolbar features are not supp
   <xs:complexType name='ext.form.Label'>
     <xs:complexContent>
       <xs:extension base='ext:ext.BoxComponent'>
-        <xs:all>
-        </xs:all>
+        <xs:choice>
+        </xs:choice>
         <xs:attribute type='xs:string' name='text'>
           <xs:annotation>
             <xs:documentation>
@@ -5789,8 +5789,8 @@ Basic Label field.
   <xs:complexType name='ext.form.NumberField'>
     <xs:complexContent>
       <xs:extension base='ext:ext.form.TextField'>
-        <xs:all>
-        </xs:all>
+        <xs:choice>
+        </xs:choice>
         <xs:attribute type='xs:boolean' name='allowDecimals'>
           <xs:annotation>
             <xs:documentation>
@@ -5876,8 +5876,8 @@ Numeric text field that provides automatic keystroke filtering and numeric valid
   <xs:complexType name='ext.form.Radio'>
     <xs:complexContent>
       <xs:extension base='ext:ext.form.Checkbox'>
-        <xs:all>
-        </xs:all>
+        <xs:choice>
+        </xs:choice>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -5893,8 +5893,8 @@ Single radio field. Same as Checkbox, but provided as a convenience for automati
   <xs:complexType name='ext.form.RadioGroup'>
     <xs:complexContent>
       <xs:extension base='ext:ext.form.CheckboxGroup'>
-        <xs:all>
-        </xs:all>
+        <xs:choice>
+        </xs:choice>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -5908,8 +5908,8 @@ A grouping container for {@link Ext.form.Radio} controls.
   <xs:complexType name='ext.form.TextArea'>
     <xs:complexContent>
       <xs:extension base='ext:ext.form.TextField'>
-        <xs:all>
-        </xs:all>
+        <xs:choice>
+        </xs:choice>
         <xs:attribute type='xs:boolean' name='preventScrollbars'>
           <xs:annotation>
             <xs:documentation>
@@ -5934,7 +5934,7 @@ Multiline text field. Can be used as a direct replacement for traditional textar
   <xs:complexType name='ext.form.TextField'>
     <xs:complexContent>
       <xs:extension base='ext:ext.form.Field'>
-        <xs:all>
+        <xs:choice>
             <xs:element name='stripCharsRe' minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
@@ -6004,7 +6004,7 @@ Multiline text field. Can be used as a direct replacement for traditional textar
                 </xs:simpleContent>
               </xs:complexType>
             </xs:element>
-        </xs:all>
+        </xs:choice>
         <xs:attribute type='xs:string' name='vtypeText'>
           <xs:annotation>
             <xs:documentation>
@@ -6345,8 +6345,8 @@ The CSS class to apply to an empty field to style the
   <xs:complexType name='ext.form.TimeField'>
     <xs:complexContent>
       <xs:extension base='ext:ext.form.ComboBox'>
-        <xs:all>
-        </xs:all>
+        <xs:choice>
+        </xs:choice>
         <xs:attribute type='xs:string' name='minValue'>
           <xs:annotation>
             <xs:documentation>
@@ -6431,7 +6431,7 @@ Provides a time input field with a time dropdown and automatic time validation. 
   <xs:complexType name='ext.form.TriggerField'>
     <xs:complexContent>
       <xs:extension base='ext:ext.form.TextField'>
-        <xs:all>
+        <xs:choice>
             <xs:element name='triggerConfig' minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
@@ -6453,7 +6453,7 @@ Provides a time input field with a time dropdown and automatic time validation. 
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
-        </xs:all>
+        </xs:choice>
         <xs:attribute type='xs:string' name='triggerClass'>
           <xs:annotation>
             <xs:documentation>
@@ -6536,8 +6536,8 @@ Provides a convenient wrapper for TextFields that adds a clickable trigger butto
   <xs:complexType name='ext.grid.EditorGridPanel'>
     <xs:complexContent>
       <xs:extension base='ext:ext.grid.GridPanel'>
-        <xs:all>
-        </xs:all>
+        <xs:choice>
+        </xs:choice>
         <xs:attribute type='xs:int' name='clicksToEdit'>
           <xs:annotation>
             <xs:documentation>
@@ -6596,7 +6596,7 @@ True to automatically HTML encode and decode values pre and post edit (defaults 
   <xs:complexType name='ext.grid.GridPanel'>
     <xs:complexContent>
       <xs:extension base='ext:ext.Panel'>
-        <xs:all>
+        <xs:choice>
             <xs:element name='cm' minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
@@ -6735,7 +6735,7 @@ True to automatically HTML encode and decode values pre and post edit (defaults 
                 </xs:simpleContent>
               </xs:complexType>
             </xs:element>
-        </xs:all>
+        </xs:choice>
         <xs:attribute type='xs:string' name='autoExpandColumn'>
           <xs:annotation>
             <xs:documentation>
@@ -6745,7 +6745,7 @@ True to automatically HTML encode and decode values pre and post edit (defaults 
          be 
          <tt>0</tt>.
       </p>
-      <br></br>
+      <br/>
       <p>
          <b>Note</b>: If the Grid's {@link Ext.grid.GridView view} is configured with 
          <tt>{@link Ext.grid.GridView#forceFit forceFit}=true</tt> the 
@@ -7126,7 +7126,7 @@ A config object that will be applied to the grid's UI view. Any of the config op
   <xs:complexType name='ext.ListView'>
     <xs:complexContent>
       <xs:extension base='ext:ext.DataView'>
-        <xs:all>
+        <xs:choice>
             <xs:element name='columnResize' minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
@@ -7241,7 +7241,7 @@ A config object that will be applied to the grid's UI view. Any of the config op
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
-        </xs:all>
+        </xs:choice>
         <xs:attribute type='xs:boolean' name='hideHeaders'>
           <xs:annotation>
             <xs:documentation>
@@ -7466,7 +7466,7 @@ The template to be used for the header row. See {@link #tpl} for more details.
   <xs:complexType name='ext.menu.BaseItem'>
     <xs:complexContent>
       <xs:extension base='ext:ext.Component'>
-        <xs:all>
+        <xs:choice>
             <xs:element name='handler' minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
@@ -7512,7 +7512,7 @@ The template to be used for the header row. See {@link #tpl} for more details.
                 </xs:simpleContent>
               </xs:complexType>
             </xs:element>
-        </xs:all>
+        </xs:choice>
         <xs:attribute type='xs:string' name='handler'>
           <xs:annotation>
             <xs:documentation>
@@ -7587,8 +7587,8 @@ The base class for all items that render into menus. BaseItem provides default r
   <xs:complexType name='ext.menu.CheckItem'>
     <xs:complexContent>
       <xs:extension base='ext:ext.menu.Item'>
-        <xs:all>
-        </xs:all>
+        <xs:choice>
+        </xs:choice>
         <xs:attribute type='xs:string' name='group'>
           <xs:annotation>
             <xs:documentation>
@@ -7627,8 +7627,8 @@ Adds a menu item that contains a checkbox by default, but can also be part of a 
   <xs:complexType name='ext.menu.ColorMenu'>
     <xs:complexContent>
       <xs:extension base='ext:ext.menu.Menu'>
-        <xs:all>
-        </xs:all>
+        <xs:choice>
+        </xs:choice>
         <xs:attribute type='xs:boolean' name='hideOnClick'>
           <xs:annotation>
             <xs:documentation>
@@ -7649,8 +7649,8 @@ A menu containing a {@link Ext.ColorPalette} Component.
   <xs:complexType name='ext.menu.DateMenu'>
     <xs:complexContent>
       <xs:extension base='ext:ext.menu.Menu'>
-        <xs:all>
-        </xs:all>
+        <xs:choice>
+        </xs:choice>
         <xs:attribute type='xs:boolean' name='hideOnClick'>
           <xs:annotation>
             <xs:documentation>
@@ -7671,7 +7671,7 @@ A menu containing a {@link Ext.DatePicker} Component.
   <xs:complexType name='ext.menu.Item'>
     <xs:complexContent>
       <xs:extension base='ext:ext.menu.BaseItem'>
-        <xs:all>
+        <xs:choice>
             <xs:element name='menu' minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
@@ -7686,7 +7686,7 @@ A menu containing a {@link Ext.DatePicker} Component.
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
-        </xs:all>
+        </xs:choice>
         <xs:attribute type='xs:string' name='menu'>
           <xs:annotation>
             <xs:documentation>
@@ -7757,7 +7757,7 @@ A base class for all menu items that require menu-related functionality (like su
   <xs:complexType name='ext.menu.Menu'>
     <xs:complexContent>
       <xs:extension base='ext:ext.Container'>
-        <xs:all>
+        <xs:choice>
             <xs:element name='defaultOffsets' minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
@@ -7773,7 +7773,7 @@ A base class for all menu items that require menu-related functionality (like su
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
-        </xs:all>
+        </xs:choice>
         <xs:attribute type='xs:int' name='minWidth'>
           <xs:annotation>
             <xs:documentation>
@@ -7894,8 +7894,8 @@ May be specified as false to create a Menu which may be used as a child item of 
   <xs:complexType name='ext.menu.Separator'>
     <xs:complexContent>
       <xs:extension base='ext:ext.menu.BaseItem'>
-        <xs:all>
-        </xs:all>
+        <xs:choice>
+        </xs:choice>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -7911,8 +7911,8 @@ Adds a separator bar to a menu, used to divide logical groups of menu items. Gen
   <xs:complexType name='ext.menu.TextItem'>
     <xs:complexContent>
       <xs:extension base='ext:ext.menu.BaseItem'>
-        <xs:all>
-        </xs:all>
+        <xs:choice>
+        </xs:choice>
         <xs:attribute type='xs:string' name='text'>
           <xs:annotation>
             <xs:documentation>
@@ -7933,7 +7933,7 @@ Adds a static text string to a menu, usually used as either a heading or group s
   <xs:complexType name='ext.PagingToolbar'>
     <xs:complexContent>
       <xs:extension base='ext:ext.Toolbar'>
-        <xs:all>
+        <xs:choice>
             <xs:element name='store' minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
@@ -7948,7 +7948,7 @@ Adds a static text string to a menu, usually used as either a heading or group s
                 </xs:simpleContent>
               </xs:complexType>
             </xs:element>
-        </xs:all>
+        </xs:choice>
         <xs:attribute type='xs:string' name='store'>
           <xs:annotation>
             <xs:documentation>
@@ -8151,7 +8151,7 @@ The quicktip text displayed for the Refresh button (defaults to
   <xs:complexType name='ext.Panel'>
     <xs:complexContent>
       <xs:extension base='ext:ext.Container'>
-        <xs:all>
+        <xs:choice>
             <xs:element name='bodyCfg' minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
@@ -8848,7 +8848,7 @@ The quicktip text displayed for the Refresh button (defaults to
                 </xs:simpleContent>
               </xs:complexType>
             </xs:element>
-        </xs:all>
+        </xs:choice>
         <xs:attribute type='xs:string' name='bodyCfg'>
           <xs:annotation>
             <xs:documentation>
@@ -9872,7 +9872,7 @@ Defaults to
   <xs:complexType name='ext.ProgressBar'>
     <xs:complexContent>
       <xs:extension base='ext:ext.BoxComponent'>
-        <xs:all>
+        <xs:choice>
             <xs:element name='textEl' minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
@@ -9885,7 +9885,7 @@ Defaults to
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
-        </xs:all>
+        </xs:choice>
         <xs:attribute type='xs:float' name='value'>
           <xs:annotation>
             <xs:documentation>
@@ -9945,8 +9945,8 @@ True to animate the progress bar during transitions (defaults to false)
   <xs:complexType name='ext.Slider'>
     <xs:complexContent>
       <xs:extension base='ext:ext.BoxComponent'>
-        <xs:all>
-        </xs:all>
+        <xs:choice>
+        </xs:choice>
         <xs:attribute type='xs:int' name='value'>
           <xs:annotation>
             <xs:documentation>
@@ -10046,7 +10046,7 @@ Slider which supports vertical or horizontal orientation, keyboard adjustments, 
   <xs:complexType name='ext.SplitButton'>
     <xs:complexContent>
       <xs:extension base='ext:ext.Button'>
-        <xs:all>
+        <xs:choice>
             <xs:element name='arrowHandler' minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
@@ -10061,7 +10061,7 @@ Slider which supports vertical or horizontal orientation, keyboard adjustments, 
                 </xs:simpleContent>
               </xs:complexType>
             </xs:element>
-        </xs:all>
+        </xs:choice>
         <xs:attribute type='xs:string' name='arrowHandler'>
           <xs:annotation>
             <xs:documentation>
@@ -10118,7 +10118,7 @@ A split button that provides a built-in dropdown arrow that can fire an event se
   <xs:complexType name='ext.TabPanel'>
     <xs:complexContent>
       <xs:extension base='ext:ext.Panel'>
-        <xs:all>
+        <xs:choice>
             <xs:element name='itemTpl' minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
@@ -10202,7 +10202,7 @@ A split button that provides a built-in dropdown arrow that can fire an event se
                 </xs:simpleContent>
               </xs:complexType>
             </xs:element>
-        </xs:all>
+        </xs:choice>
         <xs:attribute type='xs:boolean' name='layoutOnTabChange'>
           <xs:annotation>
             <xs:documentation>
@@ -10235,12 +10235,12 @@ Set to true to force a layout of the active tab when the tab is changed. Default
          heavy controls being rendered into panels that are not displayed by default, setting this to 
          <tt>true</tt> might improve performance.
       </p>
-      <br></br>
+      <br/>
       <p>The 
          <tt>deferredRender</tt> property is internally passed to the layout manager for TabPanels ({@link Ext.layout.CardLayout}) as its {@link Ext.layout.CardLayout#deferredRender}
          configuration value.
       </p>
-      <br></br>
+      <br/>
       <p>
          <b>Note</b>: leaving 
          <tt>deferredRender</tt> as 
@@ -10367,8 +10367,8 @@ The position where the tab strip should be rendered (defaults to
             not be transformed until each tab is activated and will be visible outside the TabPanel.
          </li>
       </ul>Example usage:
-      <br></br>
-      <br></br> 
+      <br/>
+      <br/> 
       <pre>
          <code>var tabs = new Ext.TabPanel({
             applyTo: 'my-tabs',
@@ -10632,8 +10632,8 @@ For scrolling tabs, the number of pixels to increment on mouse wheel scrolling (
   <xs:complexType name='ext.Toolbar'>
     <xs:complexContent>
       <xs:extension base='ext:ext.Container'>
-        <xs:all>
-        </xs:all>
+        <xs:choice>
+        </xs:choice>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -10740,8 +10740,8 @@ For scrolling tabs, the number of pixels to increment on mouse wheel scrolling (
   <xs:complexType name='ext.toolbar.Item'>
     <xs:complexContent>
       <xs:extension base='ext:ext.BoxComponent'>
-        <xs:all>
-        </xs:all>
+        <xs:choice>
+        </xs:choice>
         <xs:attribute type='xs:string' name='overflowText'>
           <xs:annotation>
             <xs:documentation>
@@ -10764,8 +10764,8 @@ The base class that other non-interacting Toolbar Item classes should extend in 
   <xs:complexType name='ext.toolbar.Separator'>
     <xs:complexContent>
       <xs:extension base='ext:ext.toolbar.Item'>
-        <xs:all>
-        </xs:all>
+        <xs:choice>
+        </xs:choice>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -10792,8 +10792,8 @@ A simple class that adds a vertical separator bar between toolbar items (css cla
   <xs:complexType name='ext.toolbar.Spacer'>
     <xs:complexContent>
       <xs:extension base='ext:ext.toolbar.Item'>
-        <xs:all>
-        </xs:all>
+        <xs:choice>
+        </xs:choice>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -10831,8 +10831,8 @@ A simple element that adds extra horizontal space between items in a toolbar. By
   <xs:complexType name='ext.toolbar.Fill'>
     <xs:complexContent>
       <xs:extension base='ext:ext.toolbar.Spacer'>
-        <xs:all>
-        </xs:all>
+        <xs:choice>
+        </xs:choice>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -10859,8 +10859,8 @@ A non-rendering placeholder item which instructs the Toolbar's Layout to begin u
   <xs:complexType name='ext.toolbar.TextItem'>
     <xs:complexContent>
       <xs:extension base='ext:ext.toolbar.Item'>
-        <xs:all>
-        </xs:all>
+        <xs:choice>
+        </xs:choice>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -10885,7 +10885,7 @@ A simple class that renders text directly into a toolbar (with css class:
   <xs:complexType name='ext.tree.TreePanel'>
     <xs:complexContent>
       <xs:extension base='ext:ext.Panel'>
-        <xs:all>
+        <xs:choice>
             <xs:element name='root' minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
@@ -10956,7 +10956,7 @@ A simple class that renders text directly into a toolbar (with css class:
                 </xs:simpleContent>
               </xs:complexType>
             </xs:element>
-        </xs:all>
+        </xs:choice>
         <xs:attribute type='xs:string' name='root'>
           <xs:annotation>
             <xs:documentation>
@@ -11250,8 +11250,8 @@ The HTTP request method for loading data (defaults to the value of {@link Ext.Aj
   <xs:complexType name='ext.Viewport'>
     <xs:complexContent>
       <xs:extension base='ext:ext.Container'>
-        <xs:all>
-        </xs:all>
+        <xs:choice>
+        </xs:choice>
         <xs:attribute type='xs:boolean' name='deferHeight'>
           <xs:annotation>
             <xs:documentation>
@@ -11329,7 +11329,7 @@ The HTTP request method for loading data (defaults to the value of {@link Ext.Aj
   <xs:complexType name='ext.Window'>
     <xs:complexContent>
       <xs:extension base='ext:ext.Panel'>
-        <xs:all>
+        <xs:choice>
             <xs:element name='animateTarget' minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
@@ -11389,7 +11389,7 @@ The HTTP request method for loading data (defaults to the value of {@link Ext.Aj
                 </xs:simpleContent>
               </xs:complexType>
             </xs:element>
-        </xs:all>
+        </xs:choice>
         <xs:attribute type='xs:boolean' name='modal'>
           <xs:annotation>
             <xs:documentation>
