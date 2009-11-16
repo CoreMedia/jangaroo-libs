@@ -3,14 +3,14 @@
   <parent>
     <artifactId>jangaroo-libs</artifactId>
     <groupId>net.jangaroo</groupId>
-    <version>0.5.16-SNAPSHOT</version>
+    <version>0.5.16</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <name>Joo Flash Compat. Native</name>
   <packaging>jangaroo</packaging>
   <groupId>net.jangaroo</groupId>
   <artifactId>jooflash-native</artifactId>
-  <version>0.5.16-SNAPSHOT</version>
+  <version>0.5.16</version>
 
 
 </project>
