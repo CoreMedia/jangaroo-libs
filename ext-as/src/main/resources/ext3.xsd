@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://extjs.com/ext3"
            xmlns:ext="http://extjs.com/ext3" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:complexType name='ext.Component'>
+  <xs:complexType id='component' name='ext.Component'>
     <xs:all>
       <xs:element name='plugins' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -456,7 +456,7 @@ myGrid.saveButton.enable();
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.BoxComponent'>
+  <xs:complexType id='box' name='ext.BoxComponent'>
     <xs:all>
       <xs:element name='plugins' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -700,7 +700,7 @@ title: 'Box 3'
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.Spacer'>
+  <xs:complexType id='spacer' name='ext.Spacer'>
     <xs:all>
       <xs:element name='plugins' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -814,7 +814,7 @@ left: (left margin)
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.Container'>
+  <xs:complexType id='container' name='ext.Container'>
     <xs:all>
       <xs:element name='defaults' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -1229,7 +1229,7 @@ return grid;  // return instantiated component
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.Viewport'>
+  <xs:complexType id='viewport' name='ext.Viewport'>
     <xs:all>
       <xs:element name='defaults' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -1559,7 +1559,7 @@ html: 'The first tab\'s content. Others may be added dynamically'
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.Panel'>
+  <xs:complexType id='panel' name='ext.Panel'>
     <xs:all>
       <xs:element name='bodyCssClass' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -2603,7 +2603,7 @@ scripts: false
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.Editor'>
+  <xs:complexType id='editor' name='ext.Editor'>
     <xs:all>
       <xs:element name='plugins' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -2821,7 +2821,7 @@ html: 'First list item'
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.ColorPalette'>
+  <xs:complexType id='colorpalette' name='ext.ColorPalette'>
     <xs:all>
       <xs:element name='scope' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -2966,7 +2966,7 @@ cp.colors = ['000000', '993300', '333300'];
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.DatePicker'>
+  <xs:complexType id='datepicker' name='ext.DatePicker'>
     <xs:all>
       <xs:element name='stateEvents' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -3284,7 +3284,7 @@ cp.colors = ['000000', '993300', '333300'];
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.Slider'>
+  <xs:complexType id='slider' name='ext.Slider'>
     <xs:all>
       <xs:element name='stateEvents' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -3461,7 +3461,7 @@ left: (left margin)
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.ProgressBar'>
+  <xs:complexType id='progress' name='ext.ProgressBar'>
     <xs:all>
       <xs:element name='plugins' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -3629,7 +3629,7 @@ left: (left margin)
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.data.Store'>
+  <xs:complexType id='store' name='ext.data.Store'>
     <xs:all>
       <xs:element name='defined' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -4036,7 +4036,7 @@ phantom records   Ext.data.Api.actions.create
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.data.ArrayStore'>
+  <xs:complexType id='arraystore' name='ext.data.ArrayStore'>
     <xs:all>
       <xs:element name='defined' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -4237,7 +4237,7 @@ direction: 'ASC' // or 'DESC' (case sensitive for local sorting)
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.data.JsonStore'>
+  <xs:complexType id='jsonstore' name='ext.data.JsonStore'>
     <xs:all>
       <xs:element name='defined' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -4433,7 +4433,7 @@ direction: 'ASC' // or 'DESC' (case sensitive for local sorting)
   </xs:complexType>
   <xs:element name='jsonstore' type='ext:ext.data.JsonStore'>
   </xs:element>
-  <xs:complexType name='ext.data.XmlStore'>
+  <xs:complexType id='xmlstore' name='ext.data.XmlStore'>
     <xs:all>
       <xs:element name='defined' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -4634,7 +4634,7 @@ direction: 'ASC' // or 'DESC' (case sensitive for local sorting)
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.data.GroupingStore'>
+  <xs:complexType id='groupingstore' name='ext.data.GroupingStore'>
     <xs:all>
       <xs:element name='defined' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -4844,7 +4844,7 @@ direction: 'ASC' // or 'DESC' (case sensitive for local sorting)
   </xs:complexType>
   <xs:element name='groupingstore' type='ext:ext.data.GroupingStore'>
   </xs:element>
-  <xs:complexType name='ext.data.DirectStore'>
+  <xs:complexType id='directstore' name='ext.data.DirectStore'>
     <xs:all>
       <xs:element name='defined' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -5038,7 +5038,7 @@ direction: 'ASC' // or 'DESC' (case sensitive for local sorting)
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.Window'>
+  <xs:complexType id='window' name='ext.Window'>
     <xs:all>
       <xs:element name='manager' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -5804,7 +5804,7 @@ return box;
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.DataView'>
+  <xs:complexType id='dataview' name='ext.DataView'>
     <xs:all>
       <xs:element name='store' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -6023,7 +6023,7 @@ left: (left margin)
   </xs:complexType>
   <xs:element name='dataview' type='ext:ext.DataView'>
   </xs:element>
-  <xs:complexType name='ext.ListView'>
+  <xs:complexType id='listview' name='ext.ListView'>
     <xs:all>
       <xs:element name='store' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -6301,7 +6301,7 @@ width: .35
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.TabPanel'>
+  <xs:complexType id='tabpanel' name='ext.TabPanel'>
     <xs:all>
       <xs:element name='bodyCssClass' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -7102,7 +7102,7 @@ extraText: 'Extra stuff in the tab button'
   </xs:complexType>
   <xs:element name='tabpanel' type='ext:ext.TabPanel'>
   </xs:element>
-  <xs:complexType name='ext.Button'>
+  <xs:complexType id='button' name='ext.Button'>
     <xs:all>
       <xs:element name='stateEvents' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -7488,7 +7488,7 @@ left: (left margin)
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.SplitButton'>
+  <xs:complexType id='splitbutton' name='ext.SplitButton'>
     <xs:all>
       <xs:element name='stateEvents' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -7692,7 +7692,7 @@ left: (left margin)
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.CycleButton'>
+  <xs:complexType id='cycle' name='ext.CycleButton'>
     <xs:all>
       <xs:element name='stateEvents' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -7943,7 +7943,7 @@ left: (left margin)
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.Toolbar'>
+  <xs:complexType id='toolbar' name='ext.Toolbar'>
     <xs:all>
       <xs:element name='defaults' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -8223,7 +8223,7 @@ tb.doLayout();
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.toolbar.Item'>
+  <xs:complexType id='tbitem' name='ext.toolbar.Item'>
     <xs:all>
       <xs:element name='plugins' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -8344,7 +8344,7 @@ left: (left margin)
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.toolbar.Separator'>
+  <xs:complexType id='tbseparator' name='ext.toolbar.Separator'>
     <xs:all>
       <xs:element name='plugins' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -8465,7 +8465,7 @@ tbar : [
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.toolbar.Spacer'>
+  <xs:complexType id='tbspacer' name='ext.toolbar.Spacer'>
     <xs:all>
       <xs:element name='plugins' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -8599,7 +8599,7 @@ tbar : [
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.toolbar.Fill'>
+  <xs:complexType id='tbfill' name='ext.toolbar.Fill'>
     <xs:all>
       <xs:element name='plugins' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -8720,7 +8720,7 @@ tbar : [
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.toolbar.TextItem'>
+  <xs:complexType id='tbtext' name='ext.toolbar.TextItem'>
     <xs:all>
       <xs:element name='plugins' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -8846,7 +8846,7 @@ tbar : [
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.ButtonGroup'>
+  <xs:complexType id='buttongroup' name='ext.ButtonGroup'>
     <xs:all>
       <xs:element name='bodyCssClass' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -9398,7 +9398,7 @@ text: 'Format', iconCls: 'add16'
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.PagingToolbar'>
+  <xs:complexType id='paging' name='ext.PagingToolbar'>
     <xs:all>
       <xs:element name='store' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -9753,7 +9753,7 @@ foo:   'bar'
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.Tip'>
+  <xs:complexType id='tip' name='ext.Tip'>
     <xs:all>
       <xs:element name='bodyCssClass' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -10333,7 +10333,7 @@ Ext.History.add(tabPanel.id + ':' + tab.id);
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.ToolTip'>
+  <xs:complexType id='tooltip' name='ext.ToolTip'>
     <xs:all>
       <xs:element name='bodyCssClass' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -10987,7 +10987,7 @@ tip.showBy('my-el', 'tl-tr');
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.QuickTip'>
+  <xs:complexType id='quicktip' name='ext.QuickTip'>
     <xs:all>
       <xs:element name='bodyCssClass' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -11559,7 +11559,7 @@ left: (left margin)
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.tree.TreePanel'>
+  <xs:complexType id='treepanel' name='ext.tree.TreePanel'>
     <xs:all>
       <xs:element name='bodyCssClass' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -12423,7 +12423,7 @@ c.showAt(e.getXY());
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.FlashComponent'>
+  <xs:complexType id='flash' name='ext.FlashComponent'>
     <xs:all>
       <xs:element name='flashVars' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -12614,7 +12614,7 @@ left: (left margin)
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.chart.Chart'>
+  <xs:complexType id='chart' name='ext.chart.Chart'>
     <xs:all>
       <xs:element name='flashVars' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -12807,7 +12807,7 @@ left: (left margin)
   </xs:complexType>
   <xs:element name='chart' type='ext:ext.chart.Chart'>
   </xs:element>
-  <xs:complexType name='ext.chart.PieChart'>
+  <xs:complexType id='piechart' name='ext.chart.PieChart'>
     <xs:all>
       <xs:element name='flashVars' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -12977,7 +12977,7 @@ left: (left margin)
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.chart.CartesianChart'>
+  <xs:complexType id='cartesianchart' name='ext.chart.CartesianChart'>
     <xs:all>
       <xs:element name='flashVars' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -13142,7 +13142,7 @@ left: (left margin)
   </xs:complexType>
   <xs:element name='cartesianchart' type='ext:ext.chart.CartesianChart'>
   </xs:element>
-  <xs:complexType name='ext.chart.LineChart'>
+  <xs:complexType id='linechart' name='ext.chart.LineChart'>
     <xs:all>
       <xs:element name='flashVars' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -13307,7 +13307,7 @@ left: (left margin)
   </xs:complexType>
   <xs:element name='linechart' type='ext:ext.chart.LineChart'>
   </xs:element>
-  <xs:complexType name='ext.chart.ColumnChart'>
+  <xs:complexType id='columnchart' name='ext.chart.ColumnChart'>
     <xs:all>
       <xs:element name='flashVars' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -13472,7 +13472,7 @@ left: (left margin)
   </xs:complexType>
   <xs:element name='columnchart' type='ext:ext.chart.ColumnChart'>
   </xs:element>
-  <xs:complexType name='ext.chart.StackedColumnChart'>
+  <xs:complexType id='stackedcolumnchart' name='ext.chart.StackedColumnChart'>
     <xs:all>
       <xs:element name='flashVars' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -13637,7 +13637,7 @@ left: (left margin)
   </xs:complexType>
   <xs:element name='stackedcolumnchart' type='ext:ext.chart.StackedColumnChart'>
   </xs:element>
-  <xs:complexType name='ext.chart.BarChart'>
+  <xs:complexType id='barchart' name='ext.chart.BarChart'>
     <xs:all>
       <xs:element name='flashVars' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -13802,7 +13802,7 @@ left: (left margin)
   </xs:complexType>
   <xs:element name='barchart' type='ext:ext.chart.BarChart'>
   </xs:element>
-  <xs:complexType name='ext.chart.StackedBarChart'>
+  <xs:complexType id='stackedbarchart' name='ext.chart.StackedBarChart'>
     <xs:all>
       <xs:element name='flashVars' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -13967,7 +13967,7 @@ left: (left margin)
   </xs:complexType>
   <xs:element name='stackedbarchart' type='ext:ext.chart.StackedBarChart'>
   </xs:element>
-  <xs:complexType name='ext.menu.Menu'>
+  <xs:complexType id='menu' name='ext.menu.Menu'>
     <xs:all>
       <xs:element name='defaults' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -14271,7 +14271,7 @@ left: (left margin)
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.menu.BaseItem'>
+  <xs:complexType id='menubaseitem' name='ext.menu.BaseItem'>
     <xs:all>
       <xs:element name='scope' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -14435,7 +14435,7 @@ html: 'First list item'
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.menu.TextItem'>
+  <xs:complexType id='menutextitem' name='ext.menu.TextItem'>
     <xs:all>
       <xs:element name='scope' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -14578,7 +14578,7 @@ html: 'First list item'
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.menu.Separator'>
+  <xs:complexType id='menuseparator' name='ext.menu.Separator'>
     <xs:all>
       <xs:element name='scope' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -14716,7 +14716,7 @@ html: 'First list item'
   </xs:complexType>
   <xs:element name='menuseparator' type='ext:ext.menu.Separator'>
   </xs:element>
-  <xs:complexType name='ext.menu.Item'>
+  <xs:complexType id='menuitem' name='ext.menu.Item'>
     <xs:all>
       <xs:element name='scope' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -14913,7 +14913,7 @@ html: 'First list item'
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.menu.CheckItem'>
+  <xs:complexType id='menucheckitem' name='ext.menu.CheckItem'>
     <xs:all>
       <xs:element name='scope' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -15075,7 +15075,7 @@ html: 'First list item'
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.menu.DateMenu'>
+  <xs:complexType id='datemenu' name='ext.menu.DateMenu'>
     <xs:all>
       <xs:element name='defaults' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -15344,7 +15344,7 @@ left: (left margin)
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.menu.ColorMenu'>
+  <xs:complexType id='colormenu' name='ext.menu.ColorMenu'>
     <xs:all>
       <xs:element name='defaults' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -15613,7 +15613,7 @@ left: (left margin)
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.form.Field'>
+  <xs:complexType id='field' name='ext.form.Field'>
     <xs:all>
       <xs:element name='autoCreate' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -15896,7 +15896,7 @@ form.submit();
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.form.TextField'>
+  <xs:complexType id='textfield' name='ext.form.TextField'>
     <xs:all>
       <xs:element name='autoCreate' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -16212,7 +16212,7 @@ autoCreate: {tag: 'input', type: 'text', size: '20', autocomplete: 'off', maxlen
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.form.TriggerField'>
+  <xs:complexType id='trigger' name='ext.form.TriggerField'>
     <xs:all>
       <xs:element name='autoCreate' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -16452,7 +16452,7 @@ trigger.applyToMarkup('my-field');
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.form.TextArea'>
+  <xs:complexType id='textarea' name='ext.form.TextArea'>
     <xs:all>
       <xs:element name='autoCreate' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -16642,7 +16642,7 @@ left: (left margin)
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.form.NumberField'>
+  <xs:complexType id='numberfield' name='ext.form.NumberField'>
     <xs:all>
       <xs:element name='autoCreate' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -16895,7 +16895,7 @@ left: (left margin)
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.form.DateField'>
+  <xs:complexType id='datefield' name='ext.form.DateField'>
     <xs:all>
       <xs:element name='autoCreate' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -17249,7 +17249,7 @@ dateField.setValue('2006-05-04');
   </xs:complexType>
   <xs:element name='datefield' type='ext:ext.form.DateField'>
   </xs:element>
-  <xs:complexType name='ext.form.DisplayField'>
+  <xs:complexType id='displayfield' name='ext.form.DisplayField'>
     <xs:all>
       <xs:element name='autoCreate' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -17411,7 +17411,7 @@ left: (left margin)
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.form.ComboBox'>
+  <xs:complexType id='combo' name='ext.form.ComboBox'>
     <xs:all>
       <xs:element name='store' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -18046,7 +18046,7 @@ renderer: Ext.util.Format.comboRenderer(combo) // pass combo instance to reusabl
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.form.Checkbox'>
+  <xs:complexType id='checkbox' name='ext.form.Checkbox'>
     <xs:all>
       <xs:element name='autoCreate' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -18231,7 +18231,7 @@ left: (left margin)
   </xs:complexType>
   <xs:element name='checkbox' type='ext:ext.form.Checkbox'>
   </xs:element>
-  <xs:complexType name='ext.form.CheckboxGroup'>
+  <xs:complexType id='checkboxgroup' name='ext.form.CheckboxGroup'>
     <xs:all>
       <xs:element name='autoCreate' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -18427,7 +18427,7 @@ items: [
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.form.Radio'>
+  <xs:complexType id='radio' name='ext.form.Radio'>
     <xs:all>
       <xs:element name='autoCreate' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -18561,7 +18561,7 @@ left: (left margin)
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.form.RadioGroup'>
+  <xs:complexType id='radiogroup' name='ext.form.RadioGroup'>
     <xs:all>
       <xs:element name='autoCreate' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -18705,7 +18705,7 @@ left: (left margin)
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.form.Hidden'>
+  <xs:complexType id='hidden' name='ext.form.Hidden'>
     <xs:all>
       <xs:element name='autoCreate' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -18811,7 +18811,7 @@ left: (left margin)
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.form.FormPanel'>
+  <xs:complexType id='form' name='ext.form.FormPanel'>
     <xs:all>
       <xs:element name='bodyCssClass' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -19434,7 +19434,7 @@ portOfDischarge: 'OSL'
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.form.FieldSet'>
+  <xs:complexType id='fieldset' name='ext.form.FieldSet'>
     <xs:all>
       <xs:element name='bodyCssClass' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -20170,7 +20170,7 @@ height: 100
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.form.HtmlEditor'>
+  <xs:complexType id='htmleditor' name='ext.form.HtmlEditor'>
     <xs:all>
       <xs:element name='stateEvents' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -20528,7 +20528,7 @@ enableAlignments: false
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.form.TimeField'>
+  <xs:complexType id='timefield' name='ext.form.TimeField'>
     <xs:all>
       <xs:element name='store' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -20838,7 +20838,7 @@ left: (left margin)
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.form.Label'>
+  <xs:complexType id='label' name='ext.form.Label'>
     <xs:all>
       <xs:element name='plugins' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -20973,7 +20973,7 @@ left: (left margin)
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.grid.GridPanel'>
+  <xs:complexType id='grid' name='ext.grid.GridPanel'>
     <xs:all>
       <xs:element name='store' minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -21910,7 +21910,7 @@ var data = record.get(fieldName);
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.grid.EditorGridPanel'>
+  <xs:complexType id='editorgrid' name='ext.grid.EditorGridPanel'>
     <xs:all>
       <xs:element name='store' minOccurs="0" maxOccurs="1">
         <xs:annotation>
