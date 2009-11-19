@@ -7,13 +7,40 @@
 
   <title>CKEditor Ext integration test page</title>
 
+  <script type="text/javascript" src="scripts/ext-base-debug.js"></script>
+  <script type="text/javascript" src="scripts/ext-all-debug.js"></script>
   <script type="text/javascript" src="scripts/ckeditor/ckeditor.js"></script>
-  <script type="text/javascript" src="dummy.txt"></script>
+  <script type="text/javascript" src="ckeditor-ext-cm.js"></script>
+
   <script type="text/javascript">
-    window.onload = function()
-    {
-      CKEDITOR.replace('editor1');
-    };
+
+    Ext.onReady(function() {
+      new Ext.Viewport({
+        layout: "border",
+        items:[
+          {
+            region:"center",
+            border:false,
+            layout:"fit",
+            items: [
+              {
+                xtype: "ckeditor",
+                CKConfig: {
+                  removePlugins: 'toolbar, elementspath',
+                  toolbar: [],
+                  height : 200,
+                  width: 250
+                }
+              }
+            ]
+          }
+        ]
+      });
+    },
+      // time delay to prevent extjs render bug
+      this, {delay:150}
+      );
+
   </script>
 
 </head>
