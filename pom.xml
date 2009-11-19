@@ -154,6 +154,9 @@
   </dependencyManagement>
 
   <modules>
+    <module>ckeditor</module>
+    <module>ckeditor-ext</module>
+
     <module>xmlhttprequest</module>
     <module>xmlhttprequest-as</module>
 
