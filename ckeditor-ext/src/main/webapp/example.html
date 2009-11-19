@@ -7,9 +7,13 @@
 
   <title>CKEditor Ext integration test page</title>
 
+  <link href="cm-rte-field.css" type="text/css" rel="stylesheet"/>
+
   <script type="text/javascript" src="scripts/ext-base-debug.js"></script>
   <script type="text/javascript" src="scripts/ext-all-debug.js"></script>
   <script type="text/javascript" src="scripts/ckeditor/ckeditor.js"></script>
+
+  <script type="text/javascript" src="theme.js"></script>
   <script type="text/javascript" src="ckeditor-ext-cm.js"></script>
 
   <script type="text/javascript">
@@ -24,13 +28,7 @@
             layout:"fit",
             items: [
               {
-                xtype: "ckeditor",
-                CKConfig: {
-                  removePlugins: 'toolbar, elementspath',
-                  toolbar: [],
-                  height : 200,
-                  width: 250
-                }
+                xtype: "ckeditor"
               }
             ]
           }
@@ -46,7 +44,7 @@
 </head>
 
 <body>
-<textarea name="editor1">&lt;p&gt;Initial value.&lt;/p&gt;</textarea>
+
 
 </body>
 </html>
