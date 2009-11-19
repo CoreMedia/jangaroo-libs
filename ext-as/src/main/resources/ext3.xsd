@@ -1468,6 +1468,13 @@ left: (left margin)
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
+    <xs:attribute type='xs:boolean' name='hideParent'>
+      <xs:annotation>
+        <xs:documentation>
+          @hide
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
     <xs:attribute type='xs:int' name='height'>
       <xs:annotation>
         <xs:documentation>
