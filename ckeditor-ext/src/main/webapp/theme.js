@@ -28,7 +28,7 @@ CKEDITOR.themes.add('cm', (function () {
                 style += "width: " + width + ";";
             }
             var container = CKEDITOR.dom.element.createFromHtml([
-                '<div', contentsHtml ? '' : ' style="display:none"', '><div id="cke_contents_', name, '" class="cm-rte-container" style="height:', height, ', border: 1px solid #ccc">', contentsHtml, '</div></div>' +
+                '<div', contentsHtml ? '' : ' style="display:none"', '><div id="cke_contents_', name, '" class="cm-rte-container" style="height:', height, '">', contentsHtml, '</div></div>' +
                 //Hide the container when loading skins, later restored by skin css.
                 '<style>.', editor.skinClass, '{visibility:hidden;}</style>'
                 ].join(''));
