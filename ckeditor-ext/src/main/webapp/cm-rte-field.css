@@ -1,3 +1,7 @@
 body {font-size:100.01%;font-family: 'Segoe UI','Trebuchet MS', Helvetica, Verdana, sans-serif}
 .cm-rte-container{border:1px solid #ccc}
 .x-panel-header {font-family: 'Segoe UI','Trebuchet MS', Helvetica, Verdana, sans-serif !important;font-size:13px}
+
+.cm-bold-16{background-image: url(img/cm-bold-16.png) !important}
+.cm-underline-16{background-image: url(img/cm-underline-16.png) !important}
+.cm-italic-16{background-image: url(img/cm-italic-16.png) !important}

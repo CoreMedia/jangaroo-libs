@@ -6,7 +6,10 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
   <title>CKEditor Ext integration test page</title>
-
+  <!-- include stylesheets -->
+  <link href="scripts/resources/css/reset-min.css" type="text/css" rel="stylesheet"/>
+  <link href="scripts/resources/css/ext-all.css" type="text/css" rel="stylesheet"/>
+  <link href="scripts/resources/css/xtheme-gray.css" type="text/css" rel="stylesheet"/>
   <link href="cm-rte-field.css" type="text/css" rel="stylesheet"/>
 
   <script type="text/javascript" src="scripts/ext-base-debug.js"></script>
@@ -17,28 +20,109 @@
   <script type="text/javascript" src="ckeditor-ext-cm.js"></script>
 
   <script type="text/javascript">
+    Ext.onReady(function () {
+        Ext.BLANK_IMAGE_URL = "scripts/resources/images/default/s.gif";
+        Ext.QuickTips.init();
 
-    Ext.onReady(function() {
-      new Ext.Viewport({
-        layout: "border",
-        items:[
-          {
-            region:"center",
-            border:false,
-            layout:"fit",
-            items: [
-              {
-                xtype: "ckeditor"
-              }
-            ]
-          }
-        ]
-      });
+        var actionBold = new Ext.Action({
+            scale: "small",
+            iconCls: "cm-bold-16",
+            handler: function () {
+                Ext.Msg.alert('Click', 'You did something.');
+            }
+        });
+
+        // ckeditor extension
+        Ext.form.CKEditor = function (config) {
+            this.config = config;
+            Ext.form.CKEditor.superclass.constructor.call(this, config);
+        };
+        Ext.extend(Ext.form.CKEditor, Ext.form.TextArea, {
+            onRender: function (ct, position) {
+                if (!this.el) {
+                    this.defaultAutoCreate = {
+                        tag: "textarea",
+                        autocomplete: "off"
+                    };
+                }
+                Ext.form.TextArea.superclass.onRender.call(this, ct, position);
+                CKEDITOR.replace(this.id, this.config.CKConfig);
+            },
+            setValue: function (value) {
+                Ext.form.TextArea.superclass.setValue.apply(this, [value]);
+                CKEDITOR.instances[this.id].setData(value);
+            },
+            getValue: function () {
+                CKEDITOR.instances[this.id].updateElement();
+                return Ext.form.TextArea.superclass.getValue(this);
+            },
+            getRawValue: function () {
+                CKEDITOR.instances[this.id].updateElement();
+                return Ext.form.TextArea.superclass.getRawValue(this);
+            }
+        });
+        Ext.reg('ckeditor', Ext.form.CKEditor);
+
+        // toolbar
+        var rtefield = new Ext.Panel({
+            border: false,
+            items: [{
+                tbar: [{
+                    xtype: "tbspacer",
+                    width: 10
+                },
+                {
+                    items: [new Ext.Button(actionBold)]
+                },
+                {
+                    xtype: "button",
+                    scale: "small",
+                    iconCls: "cm-underline-16"
+                },
+                {
+                    xtype: "button",
+                    scale: "small",
+                    iconCls: "cm-italic-16"
+                }],
+                hidden: false,
+                id: "rtefield"
+            },
+            {
+                xtype: "ckeditor",
+                CKConfig: {
+                    /* Enter your CKEditor config paramaters here or define a custom CKEditor config file. customConfig : '/ckeditor/config.js' */
+                    removePlugins: 'toolbar, elementspath'
+                }
+            }]
+        });
+
+        var TextFieldPanel = new Ext.Panel({
+            layout: "anchor",
+            padding: "5px",
+            title: "RichText",
+            items: [{
+                xtype: "panel",
+                border: false,
+                items: [rtefield]
+            }]
+        });
+        /* --------------- viewport ----------------- */
+        var viewport = new Ext.Viewport({
+            layout: "border",
+            items: [{
+                region: "center",
+                border: false,
+                layout: "fit",
+                items: [TextFieldPanel]
+            }]
+        });
+
+        // exit Ext.onReady
     },
-      // time delay to prevent extjs render bug
-      this, {delay:150}
-      );
-
+    // time delay to prevent extjs render bug
+    this, {
+        delay: 150
+    });
   </script>
 
 </head>
