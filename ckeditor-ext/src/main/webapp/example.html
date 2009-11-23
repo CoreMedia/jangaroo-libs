@@ -24,45 +24,40 @@
         Ext.BLANK_IMAGE_URL = "scripts/resources/images/default/s.gif";
         Ext.QuickTips.init();
 
-        var actionBold = new Ext.Action({
+        // boldbutton
+        var BoldButton = Ext.extend(Ext.Button, {
             scale: "small",
             iconCls: "cm-bold-16",
-            handler: function () {
-                Ext.Msg.alert('Click', 'You did something.');
-            }
-        });
-
-        // ckeditor extension
-        Ext.form.CKEditor = function (config) {
-            this.config = config;
-            Ext.form.CKEditor.superclass.constructor.call(this, config);
-        };
-        Ext.extend(Ext.form.CKEditor, Ext.form.TextArea, {
-            onRender: function (ct, position) {
-                if (!this.el) {
-                    this.defaultAutoCreate = {
-                        tag: "textarea",
-                        autocomplete: "off"
-                    };
-                }
-                Ext.form.TextArea.superclass.onRender.call(this, ct, position);
-                CKEDITOR.replace(this.id, this.config.CKConfig);
-            },
-            setValue: function (value) {
-                Ext.form.TextArea.superclass.setValue.apply(this, [value]);
-                CKEDITOR.instances[this.id].setData(value);
-            },
-            getValue: function () {
-                CKEDITOR.instances[this.id].updateElement();
-                return Ext.form.TextArea.superclass.getValue(this);
-            },
-            getRawValue: function () {
-                CKEDITOR.instances[this.id].updateElement();
-                return Ext.form.TextArea.superclass.getRawValue(this);
-            }
-        });
-        Ext.reg('ckeditor', Ext.form.CKEditor);
-
+            handler: clickHandlerBoldButton
+            });
+        // register xtype
+        Ext.reg('boldbuttonsmall', BoldButton);
+        // underline button
+        var UnderlineButton = Ext.extend(Ext.Button, {
+            scale: "small",
+            iconCls: "cm-underline-16",
+            handler: clickHandlerUnderlineButton
+            });
+        // register xtype
+        Ext.reg('underlinebuttonsmall', UnderlineButton);
+        // italic button
+        var ItalicButton = Ext.extend(Ext.Button, {
+            scale: "small",
+            iconCls: "cm-italic-16",
+            handler: clickHandlerItalicButton
+            });
+        // register xtype
+        Ext.reg('italicbuttonsmall', ItalicButton);
+        // clickhandler
+        function clickHandlerBoldButton(btn) {
+            Ext.Msg.alert('', 'bold button clicked!');
+        }
+        function clickHandlerUnderlineButton(btn) {
+            Ext.Msg.alert('', 'underline button clicked!');
+        }
+        function clickHandlerItalicButton(btn) {
+            Ext.Msg.alert('', 'italic button clicked!');
+        }
         // toolbar
         var rtefield = new Ext.Panel({
             border: false,
@@ -70,24 +65,16 @@
                 tbar: [{
                     xtype: "tbspacer",
                     width: 10
-                },
-                {
-                    items: [new Ext.Button(actionBold)]
-                },
-                {
-                    xtype: "button",
-                    scale: "small",
-                    iconCls: "cm-underline-16"
-                },
-                {
-                    xtype: "button",
-                    scale: "small",
-                    iconCls: "cm-italic-16"
-                }],
+                },{
+		xtype: "boldbuttonsmall"
+	        },{
+		xtype: "underlinebuttonsmall"
+	        },{
+		xtype: "italicbuttonsmall"
+	        }],
                 hidden: false,
                 id: "rtefield"
-            },
-            {
+                },{
                 xtype: "ckeditor",
                 CKConfig: {
                     /* Enter your CKEditor config paramaters here or define a custom CKEditor config file. customConfig : '/ckeditor/config.js' */
