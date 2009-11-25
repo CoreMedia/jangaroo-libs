@@ -21,94 +21,29 @@
 
   <script type="text/javascript">
     Ext.onReady(function () {
-        Ext.BLANK_IMAGE_URL = "scripts/resources/images/default/s.gif";
-        Ext.QuickTips.init();
+      Ext.BLANK_IMAGE_URL = "scripts/resources/images/default/s.gif";
+      Ext.QuickTips.init();
 
-        // boldbutton
-        var BoldButton = Ext.extend(Ext.Button, {
-            scale: "small",
-            iconCls: "cm-bold-16",
-            handler: clickHandlerBoldButton
-            });
-        // register xtype
-        Ext.reg('boldbuttonsmall', BoldButton);
-        // underline button
-        var UnderlineButton = Ext.extend(Ext.Button, {
-            scale: "small",
-            iconCls: "cm-underline-16",
-            handler: clickHandlerUnderlineButton
-            });
-        // register xtype
-        Ext.reg('underlinebuttonsmall', UnderlineButton);
-        // italic button
-        var ItalicButton = Ext.extend(Ext.Button, {
-            scale: "small",
-            iconCls: "cm-italic-16",
-            handler: clickHandlerItalicButton
-            });
-        // register xtype
-        Ext.reg('italicbuttonsmall', ItalicButton);
-        // clickhandler
-        function clickHandlerBoldButton(btn) {
-            Ext.Msg.alert('', 'bold button clicked!');
-        }
-        function clickHandlerUnderlineButton(btn) {
-            Ext.Msg.alert('', 'underline button clicked!');
-        }
-        function clickHandlerItalicButton(btn) {
-            Ext.Msg.alert('', 'italic button clicked!');
-        }
-        // toolbar
-        var rtefield = new Ext.Panel({
+    
+      /* --------------- viewport ----------------- */
+      new Ext.Viewport({
+        layout: "border",
+        items: [
+          {
+            region: "center",
             border: false,
-            items: [{
-                tbar: [{
-                    xtype: "tbspacer",
-                    width: 10
-                },{
-		xtype: "boldbuttonsmall"
-	        },{
-		xtype: "underlinebuttonsmall"
-	        },{
-		xtype: "italicbuttonsmall"
-	        }],
-                hidden: false,
-                id: "rtefield"
-                },{
-                xtype: "ckeditor",
-                CKConfig: {
-                    /* Enter your CKEditor config paramaters here or define a custom CKEditor config file. customConfig : '/ckeditor/config.js' */
-                    removePlugins: 'toolbar, elementspath'
-                }
-            }]
-        });
+            layout: "fit",
+            xtype: "richtexteditor",
+            height: 300
+          }
+        ]
+      });
 
-        var TextFieldPanel = new Ext.Panel({
-            layout: "anchor",
-            padding: "5px",
-            title: "RichText",
-            items: [{
-                xtype: "panel",
-                border: false,
-                items: [rtefield]
-            }]
-        });
-        /* --------------- viewport ----------------- */
-        var viewport = new Ext.Viewport({
-            layout: "border",
-            items: [{
-                region: "center",
-                border: false,
-                layout: "fit",
-                items: [TextFieldPanel]
-            }]
-        });
-
-        // exit Ext.onReady
+      // exit Ext.onReady
     },
-    // time delay to prevent extjs render bug
-    this, {
-        delay: 150
+      // time delay to prevent extjs render bug
+      this, {
+      delay: 150
     });
   </script>
 
