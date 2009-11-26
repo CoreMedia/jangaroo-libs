@@ -45,13 +45,15 @@ var BoldButton = Ext.extend(Ext.Button, {
   scale: "small",
   iconCls: "cm-bold-16",
   enableToggle: true,
-  pressed: true,
   handler: function() {
 
     var style = new CKEDITOR.style({ element : 'b' });
     style.type = CKEDITOR.STYLE_INLINE;
-    style.apply(this.richtextEditor.getCKEditorWrapper().getCKEditor());
-
+    if (this.pressed) {
+      style.apply(this.richtextEditor.getCKEditorWrapper().getCKEditor());
+    } else {
+      style.remove(this.richtextEditor.getCKEditorWrapper().getCKEditor());
+    }
   }
 });
 // register xtype
@@ -63,13 +65,15 @@ var UnderlineButton = Ext.extend(Ext.Button, {
   scale: "small",
   iconCls: "cm-underline-16",
   enableToggle: true,
-  pressed: false,
   handler: function() {
 
     var style = new CKEDITOR.style({ element : 'u' });
     style.type = CKEDITOR.STYLE_INLINE;
-    style.apply(this.richtextEditor.getCKEditorWrapper().getCKEditor());
-
+    if (this.pressed) {
+      style.apply(this.richtextEditor.getCKEditorWrapper().getCKEditor());
+    } else {
+      style.remove(this.richtextEditor.getCKEditorWrapper().getCKEditor());
+    }
   }
 });
 // register xtype
@@ -81,13 +85,15 @@ var ItalicButton = Ext.extend(Ext.Button, {
   scale: "small",
   iconCls: "cm-italic-16",
   enableToggle: true,
-  pressed: false,
   handler: function() {
 
     var style = new CKEDITOR.style({ element : 'i' });
     style.type = CKEDITOR.STYLE_INLINE;
-    style.apply(this.richtextEditor.getCKEditorWrapper().getCKEditor());
-
+    if (this.pressed) {
+      style.apply(this.richtextEditor.getCKEditorWrapper().getCKEditor());
+    } else {
+      style.remove(this.richtextEditor.getCKEditorWrapper().getCKEditor());
+    }
   }
 });
 // register xtype
