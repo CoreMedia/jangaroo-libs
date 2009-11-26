@@ -24,9 +24,9 @@ Ext.form.CKEditor = Ext.extend(Ext.form.TextArea, {
     editor.attachStyleStateChange(style, function(state)
     {
       if (state == CKEDITOR.TRISTATE_ON)
-        alert('The current state for the B element is ON');
+        //alert('The current state for the B element is ON');
       else
-        alert('The current state for the B element is OFF');
+        //alert('The current state for the B element is OFF');
     });
 
 
@@ -54,7 +54,14 @@ var BoldButton = Ext.extend(Ext.Button, {
   scale: "small",
   iconCls: "cm-bold-16",
   enableToggle: true,
-  pressed: true
+  pressed: true,
+  handler: function() {
+
+    var style = new CKEDITOR.style({ element : 'b' });
+    style.type = CKEDITOR.STYLE_INLINE;
+    style.apply(CKEDITOR.instances[this.richtextEditor.getCKEditorWrapper().id]);
+
+  }
 });
 // register xtype
 Ext.reg('boldbutton', BoldButton);
@@ -67,7 +74,11 @@ var UnderlineButton = Ext.extend(Ext.Button, {
   enableToggle: true,
   pressed: false,
   handler: function() {
-    window.alert(this.richtextEditor.getCKEditor().id);
+
+    var style = new CKEDITOR.style({ element : 'u' });
+    style.type = CKEDITOR.STYLE_INLINE;
+    style.apply(CKEDITOR.instances[this.richtextEditor.getCKEditorWrapper().id]);
+
   }
 });
 // register xtype
@@ -81,7 +92,11 @@ var ItalicButton = Ext.extend(Ext.Button, {
   enableToggle: true,
   pressed: false,
   handler: function() {
-    window.alert(this.richtextEditor.getCKEditor().id);
+
+    var style = new CKEDITOR.style({ element : 'i' });
+    style.type = CKEDITOR.STYLE_INLINE;
+    style.apply(CKEDITOR.instances[this.richtextEditor.getCKEditorWrapper().id]);
+
   }
 });
 // register xtype
@@ -122,7 +137,7 @@ Ext.ux.RichtextEditor = Ext.extend(Ext.Panel, {
         ]
     }));
   },
-  getCKEditor: function() {
+  getCKEditorWrapper: function() {
     return this.getComponent("ckeditor");
   }
 });
