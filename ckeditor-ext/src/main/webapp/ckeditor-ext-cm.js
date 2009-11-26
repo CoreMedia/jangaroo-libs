@@ -20,7 +20,7 @@ Ext.form.CKEditor = Ext.extend(Ext.form.TextArea, {
       customConfig : 'config.js'
     });
     var style = new CKEDITOR.style({ element : 'b' });
-    var editor = CKEDITOR.instances[this.id];
+    var editor = this.getCKEditor();
     editor.attachStyleStateChange(style, function(state)
     {
       if (state == CKEDITOR.TRISTATE_ON)
@@ -31,17 +31,20 @@ Ext.form.CKEditor = Ext.extend(Ext.form.TextArea, {
 
 
   },
+  getCKEditor: function() {
+    return CKEDITOR.instances[this.id];
+  },
   setValue: function (value) {
-    Ext.form.TextArea.superclass.setValue.apply(this, [value]);
-    CKEDITOR.instances[this.id].setData(value);
+    Ext.form.TextArea.superclass.setValue.call(this, value);
+    this.getCKEditor().setData(value);
   },
   getValue: function () {
-    CKEDITOR.instances[this.id].updateElement();
-    return Ext.form.TextArea.superclass.getValue(this);
+    this.getCKEditor().updateElement();
+    return Ext.form.TextArea.superclass.getValue.call(this);
   },
   getRawValue: function () {
-    CKEDITOR.instances[this.id].updateElement();
-    return Ext.form.TextArea.superclass.getRawValue(this);
+    this.getCKEditor().updateElement();
+    return Ext.form.TextArea.superclass.getRawValue.call(this);
   }
 });
 Ext.reg('ckeditor', Ext.form.CKEditor);
