@@ -1,11 +1,10 @@
 // ckeditor extension
-Ext.form.CKEditor = function (config) {
-  this.config = config;
-  Ext.form.CKEditor.superclass.constructor.call(this, config);
-};
+Ext.form.CKEditor = Ext.extend(Ext.form.TextArea, {
+  constructor: function (config) {
+    this.config = config;
+    Ext.form.CKEditor.superclass.constructor.call(this, config);
+  },
 
-Ext.extend(Ext.form.CKEditor, Ext.form.TextArea, {
-  
   onRender: function (ct, position) {
 
     if (!this.el) {
@@ -63,7 +62,10 @@ var UnderlineButton = Ext.extend(Ext.Button, {
   scale: "small",
   iconCls: "cm-underline-16",
   enableToggle: true,
-  pressed: false
+  pressed: false,
+  handler: function() {
+    window.alert(this.richtextEditor.getCKEditor().id);
+  }
 });
 // register xtype
 Ext.reg('underlinebutton', UnderlineButton);
@@ -74,7 +76,10 @@ var ItalicButton = Ext.extend(Ext.Button, {
   scale: "small",
   iconCls: "cm-italic-16",
   enableToggle: true,
-  pressed: false
+  pressed: false,
+  handler: function() {
+    window.alert(this.richtextEditor.getCKEditor().id);
+  }
 });
 // register xtype
 Ext.reg('italicbutton', ItalicButton);
@@ -82,14 +87,8 @@ Ext.reg('italicbutton', ItalicButton);
 
 
 Ext.ux.RichtextEditor = Ext.extend(Ext.Panel, {
-  
-  testHandler: function() {
-    alert("clicked");
-  },
-  initComponent: function() {
-
-
-    Ext.apply(this, {
+  constructor: function(config) {
+    Ext.ux.RichtextEditor.superclass.constructor.call(this, Ext.apply(config, {
       layout: "anchor",
       items:
         [
@@ -97,29 +96,31 @@ Ext.ux.RichtextEditor = Ext.extend(Ext.Panel, {
             tbar: [
               {
                 xtype: "boldbutton",
-                handler: this.testHandler
+                richtextEditor: this
               },
 
               {
-                xtype: "underlinebutton"
-
+                xtype: "underlinebutton",
+                richtextEditor: this
               },
               {
                 xtype: "italicbutton",
-                itemId: 'test'
+                richtextEditor: this
               }
             ],
             hidden: false,
             itemId: 'toolbar'
           },
           {
-            xtype: "ckeditor"
-
+            xtype: "ckeditor",
+            id: "myCKEditor",
+            itemId: "ckeditor"
           }
         ]
-    });
-    Ext.ux.RichtextEditor.superclass.initComponent.call(this);
-
+    }));
+  },
+  getCKEditor: function() {
+    return this.getComponent("ckeditor");
   }
 });
 
