@@ -9,8 +9,8 @@ Ext.form.CKEditor = Ext.extend(Ext.form.TextArea, {
 
     if (!this.el) {
       this.defaultAutoCreate = {
-        tag: "textarea",
-        autocomplete: "off"
+        tag:"textarea",
+        autocomplete:"off"
       };
     }
     Ext.form.TextArea.superclass.onRender.call(this, ct, position);
@@ -18,15 +18,6 @@ Ext.form.CKEditor = Ext.extend(Ext.form.TextArea, {
       removePlugins: 'toolbar, elementspath',
       toolbar: [],
       customConfig : 'config.js'
-    });
-    var style = new CKEDITOR.style({ element : 'b' });
-    var editor = this.getCKEditor();
-    editor.attachStyleStateChange(style, function(state)
-    {
-      if (state == CKEDITOR.TRISTATE_ON)
-        //alert('The current state for the B element is ON');
-      else
-        //alert('The current state for the B element is OFF');
     });
 
 
@@ -59,7 +50,7 @@ var BoldButton = Ext.extend(Ext.Button, {
 
     var style = new CKEDITOR.style({ element : 'b' });
     style.type = CKEDITOR.STYLE_INLINE;
-    style.apply(CKEDITOR.instances[this.richtextEditor.getCKEditorWrapper().id]);
+    style.apply(this.richtextEditor.getCKEditorWrapper().getCKEditor());
 
   }
 });
@@ -77,7 +68,7 @@ var UnderlineButton = Ext.extend(Ext.Button, {
 
     var style = new CKEDITOR.style({ element : 'u' });
     style.type = CKEDITOR.STYLE_INLINE;
-    style.apply(CKEDITOR.instances[this.richtextEditor.getCKEditorWrapper().id]);
+    style.apply(this.richtextEditor.getCKEditorWrapper().getCKEditor());
 
   }
 });
@@ -95,7 +86,7 @@ var ItalicButton = Ext.extend(Ext.Button, {
 
     var style = new CKEDITOR.style({ element : 'i' });
     style.type = CKEDITOR.STYLE_INLINE;
-    style.apply(CKEDITOR.instances[this.richtextEditor.getCKEditorWrapper().id]);
+    style.apply(this.richtextEditor.getCKEditorWrapper().getCKEditor());
 
   }
 });
