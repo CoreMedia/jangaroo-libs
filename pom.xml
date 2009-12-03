@@ -156,6 +156,7 @@
   <modules>
     <module>ckeditor</module>
     <module>ckeditor-ext</module>
+    <module>ckeditor-ext-develop</module>
 
     <module>xmlhttprequest</module>
     <module>xmlhttprequest-as</module>
