@@ -40,9 +40,8 @@ Ext.reg('ckhtmleditor', com.coremedia.ui.ckhtmleditor.HtmlEditor);
 
 
 com.coremedia.ui.ckhtmleditor.FormatAction = Ext.extend(Ext.Action, {
-  constructor: function(element, iconCls, text, tooltip, richtextEditor) {
-    var style = new CKEDITOR.style({ element : element });
-    style.type = CKEDITOR.STYLE_INLINE;
+  constructor: function(style, iconCls, text, tooltip, richtextEditor) {
+
     var styleCommand = new CKEDITOR.styleCommand(style);
     this.pressed = false;
     com.coremedia.ui.ckhtmleditor.FormatAction.superclass.constructor.call(this, {
@@ -67,8 +66,113 @@ com.coremedia.ui.ckhtmleditor.FormatAction = Ext.extend(Ext.Action, {
   }
 });
 
+
+var win;
+
+com.coremedia.ui.ckhtmleditor.LinkAction = Ext.extend(Ext.Action, {
+  constructor: function(iconCls, text, tooltip, richtextEditor) {
+      
+    this.pressed = false;
+    com.coremedia.ui.ckhtmleditor.FormatAction.superclass.constructor.call(this, {
+      scale: 'small',
+      iconCls: iconCls,
+      text: text,
+      tooltip: tooltip,
+      enableToggle: true,
+      handler: function() {
+        if (!win) {
+          win = new Ext.Window({
+
+            layout:'fit',
+            width:500,
+            height:300,
+            closeAction:'hide',
+            plain: true,
+
+            items: new Ext.FormPanel({
+              labelWidth: 75, // label settings here cascade unless overridden
+              frame:true,
+              title: 'Insert/ Edit Link',
+              defaults: {width: 230},
+              defaultType: 'textfield',
+
+              items: [
+                {
+                  id:'href',
+                  fieldLabel: 'URL',
+                  name: 'href',
+                  allowBlank:false
+                },
+                new Ext.form.ComboBox({
+                  id: 'target',
+                  typeAhead: true,
+                  triggerAction: 'all',
+                  editable: false,
+                  fieldLabel: 'Target',
+                  mode: 'local',
+                  forceSelection: true,
+                  store: new Ext.data.ArrayStore({
+                    id: 0,
+                    fields: [
+                      'myId',
+                      'displayText'
+                    ],
+                    data: [
+                      ['_self', 'same window'],
+                      ['_blank', 'new window']
+                    ]
+                  }),
+                  valueField: 'myId',
+                  displayField: 'displayText'
+                })
+              ]
+
+
+            }),
+
+            buttons: [
+              {
+                text:'Okay',
+                handler: function() {
+                  var style = new CKEDITOR.style({ element : 'a', attributes : {'href' : Ext.get('href').getValue(), target: Ext.get('target').getValue() }  });
+                  style.type = CKEDITOR.STYLE_INLINE;
+
+                  var styleCommand = new CKEDITOR.styleCommand(style);
+
+                  var ckEditor = richtextEditor.getHtmlEditor().getCKEditor();
+                  styleCommand.state = this.pressed ? CKEDITOR.TRISTATE_ON : CKEDITOR.TRISTATE_OFF;
+                  styleCommand.exec(ckEditor);
+                  win.hide();
+                }
+
+              },
+              {
+                text: 'Cancel',
+                handler: function() {
+                  win.hide();
+                }
+              }
+            ]
+          });
+        }
+        win.show(this);
+
+      },
+      scope: this
+    });
+    
+  },
+  setState: function(ckStyleState) {
+    var pressed = ckStyleState === CKEDITOR.TRISTATE_ON;
+    this.pressed = pressed;
+    this.callEach('toggle', [pressed]);
+  }
+});
+
+
 // Define empty Item#toggle method to make it Button-API-compatible:
-Ext.menu.Item.prototype.toggle = function(){};
+Ext.menu.Item.prototype.toggle = function() {
+};
 
 // alias CheckItem#setChecked method to "toggle" to make it Button-API-compatible:
 Ext.menu.CheckItem.prototype.toggle = Ext.menu.CheckItem.prototype.setChecked;
@@ -96,23 +200,24 @@ com.coremedia.ui.ckhtmleditor.RichtextEditor = Ext.extend(Ext.Panel, {
       layout: 'anchor',
       items:
         [
-          { xtype: 'toolbar',
-            defaultType: 'iconbutton',
+          {
+            xtype: 'toolbar',
             items: [
-              this.getBoldAction(),
-              this.getItalicAction(),
-              this.getUnderlineAction(),
+
+              new com.coremedia.ui.IconButton(this.getBoldAction()),
+              new com.coremedia.ui.IconButton(this.getItalicAction()),
+              new com.coremedia.ui.IconButton(this.getUnderlineAction()),
+              new com.coremedia.ui.IconButton(this.getLinkAction()),
               {
-                  xtype: 'button',
-                  text: "Format",
-                  // Add the action to a menu as a text item
-                  menu: [
-                    new Ext.menu.CheckItem(this.getBoldAction()),
-                    new Ext.menu.CheckItem(this.getItalicAction()),
-                    new Ext.menu.CheckItem(this.getUnderlineAction())
-                  ]
+                xtype: 'button',
+                text: "Format",
+                // Add the action to a menu as a text item
+                menu: [
+                  new Ext.menu.CheckItem(this.getBoldAction()),
+                  new Ext.menu.CheckItem(this.getItalicAction()),
+                  new Ext.menu.CheckItem(this.getUnderlineAction())
+                ]
               }
-              
             ]
           },
           {
@@ -123,34 +228,50 @@ com.coremedia.ui.ckhtmleditor.RichtextEditor = Ext.extend(Ext.Panel, {
     }));
     this.getHtmlEditor().addListener("render", this._ckEditorAvailable, this);
   },
+  createStyle: function(element) {
+    var style = new CKEDITOR.style({ element : element });
+    style.type = CKEDITOR.STYLE_INLINE;
+    return style;
+  },
+  createStyleWithAttributes: function(element, attributes) {
+    var style = new CKEDITOR.style({ element : element, attributes : attributes  });
+    style.type = CKEDITOR.STYLE_INLINE;
+    return style;
+  },
   getBoldAction: function() {
     if (!this.boldAction) {
-      this.boldAction = new com.coremedia.ui.ckhtmleditor.FormatAction('strong', 'cm-bold-16', "Bold", "Mark bold", this); 
+      this.boldAction = new com.coremedia.ui.ckhtmleditor.FormatAction(this.createStyle('strong'), 'cm-bold-16', "Bold", "Mark bold", this);
     }
     return this.boldAction;
   },
   getItalicAction: function() {
     if (!this.italicAction) {
-      this.italicAction = new com.coremedia.ui.ckhtmleditor.FormatAction('em', 'cm-italic-16', "Italic", "Mark italic", this); 
+      this.italicAction = new com.coremedia.ui.ckhtmleditor.FormatAction(this.createStyle('em'), 'cm-italic-16', "Italic", "Mark italic", this);
     }
     return this.italicAction;
   },
   getUnderlineAction: function() {
     if (!this.underlineAction) {
-      this.underlineAction = new com.coremedia.ui.ckhtmleditor.FormatAction('u', 'cm-underline-16', "Underline", "Mark underline", this); 
+      this.underlineAction = new com.coremedia.ui.ckhtmleditor.FormatAction(this.createStyle('u'), 'cm-underline-16', "Underline", "Mark underline", this);
     }
     return this.underlineAction;
+  },
+  getLinkAction: function() {
+    if (!this.linkAction) {
+      this.linkAction = new com.coremedia.ui.ckhtmleditor.LinkAction('cm-bold-16', "Link", "Insert Link", this);
+    }
+    return this.linkAction;
   },
   _ckEditorAvailable: function() {
     var ckEditorWrapper = this.getHtmlEditor();
     ckEditorWrapper.removeListener("render", this._ckEditorAvailable);
     var ckEditor = ckEditorWrapper.getCKEditor();
-    for (var i=0; i<this.styleStateChangeCallbacks.length; ++i) {
+    for (var i = 0; i < this.styleStateChangeCallbacks.length; ++i) {
       ckEditor.attachStyleStateChange(this.styleStateChangeCallbacks[i].style, this.styleStateChangeCallbacks[i].callback);
     }
     delete this.styleStateChangeCallbacks;
   },
-  attachStyleStateChange: function( style, callback ) {
+  attachStyleStateChange: function(style, callback) {
     if (this.styleStateChangeCallbacks) {
       // store and add when CKEditor instance is available:
       this.styleStateChangeCallbacks.push({style: style, callback: callback});
