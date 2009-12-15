@@ -258,7 +258,7 @@ com.coremedia.ui.ckhtmleditor.RichtextEditor = Ext.extend(Ext.Panel, {
   },
   getLinkAction: function() {
     if (!this.linkAction) {
-      this.linkAction = new com.coremedia.ui.ckhtmleditor.LinkAction('cm-bold-16', "Link", "Insert Link", this);
+      this.linkAction = new com.coremedia.ui.ckhtmleditor.LinkAction('cm-externallink-16', "Link", "Insert Link", this);
     }
     return this.linkAction;
   },
