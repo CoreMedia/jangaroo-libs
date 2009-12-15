@@ -9,7 +9,7 @@
   <artifactId>ckeditor-ext-develop</artifactId>
   <packaging>war</packaging>
   <version>0.5.18-SNAPSHOT</version>
-  <name>CKEditor as Ext component</name>
+  <name>CKEditor/ Ext development only module</name>
   <description />
 
   <build>
