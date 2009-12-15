@@ -160,6 +160,9 @@ com.coremedia.ui.ckhtmleditor.LinkAction = Ext.extend(Ext.Action, {
       },
       scope: this
     });
+    var style = new CKEDITOR.style({ element : 'a' });
+    style.type = CKEDITOR.STYLE_INLINE;
+    richtextEditor.attachStyleStateChange(style, this.setState.createDelegate(this));
     
   },
   setState: function(ckStyleState) {
