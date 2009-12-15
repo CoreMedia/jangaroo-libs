@@ -683,10 +683,10 @@ var myGrid = new ext.grid.EditorGridPanel({
          * Component's <b class='link'>#ownerCt</b>.</p>
          */
     protected native function initState(config) : void;
-    protected native function getStateId() : void;
+    protected native function getStateId() : String;
     protected native function initStateEvents() : void;
-    protected native function applyState(state, config) : void;
-    protected native function getState() : void;
+    protected native function applyState(state : *) : void;
+    protected native function getState() : *;
     protected native function saveState() : void;
     /**
      * Apply this component to existing markup that is valid. With this function, no call to render() is required.
