@@ -71,7 +71,7 @@ var win;
 
 com.coremedia.ui.ckhtmleditor.LinkAction = Ext.extend(Ext.Action, {
   constructor: function(iconCls, text, tooltip, richtextEditor) {
-      
+
     this.pressed = false;
     com.coremedia.ui.ckhtmleditor.FormatAction.superclass.constructor.call(this, {
       scale: 'small',
@@ -163,7 +163,7 @@ com.coremedia.ui.ckhtmleditor.LinkAction = Ext.extend(Ext.Action, {
     var style = new CKEDITOR.style({ element : 'a' });
     style.type = CKEDITOR.STYLE_INLINE;
     richtextEditor.attachStyleStateChange(style, this.setState.createDelegate(this));
-    
+
   },
   setState: function(ckStyleState) {
     var pressed = ckStyleState === CKEDITOR.TRISTATE_ON;
@@ -198,6 +198,7 @@ Ext.reg('iconbutton', com.coremedia.ui.IconButton);
 // The Richtext Editor:
 com.coremedia.ui.ckhtmleditor.RichtextEditor = Ext.extend(Ext.Panel, {
   constructor: function(config) {
+    var editor = this;
     this.styleStateChangeCallbacks = [];
     com.coremedia.ui.ckhtmleditor.RichtextEditor.superclass.constructor.call(this, Ext.apply(config, {
       layout: 'anchor',
@@ -211,6 +212,49 @@ com.coremedia.ui.ckhtmleditor.RichtextEditor = Ext.extend(Ext.Panel, {
               new com.coremedia.ui.IconButton(this.getItalicAction()),
               new com.coremedia.ui.IconButton(this.getUnderlineAction()),
               new com.coremedia.ui.IconButton(this.getLinkAction()),
+              new Ext.Button(config = { iconCls: 'cm-paste-16', handler: function() {
+                var win;
+                if (!win) {
+                 win = new Ext.Window({
+                  layout:'fit',
+                  width:500,
+                  height:300,
+                  closeAction:'hide',
+                  plain: true,
+                  items: new Ext.FormPanel({
+                    layout: 'fit',
+                    title: 'Paste as plain text',
+                    items: [
+
+                      new Ext.form.TextArea({
+                        id: 'textarea'
+
+                      })
+                    ]
+                  }),
+                  buttons: [
+                    {
+                      text: 'Paste',
+                      iconCls: 'cm-paste-16',
+                      handler: function() {
+                        var ckEditor = editor.getHtmlEditor().getCKEditor();
+                        ckEditor.insertText( Ext.get('textarea').getValue() );
+
+                        win.hide();
+                      }
+
+                    },
+                    {
+                      text: 'Cancel',
+                      handler: function() {
+                        win.hide();
+                      }
+                    }
+                  ]
+                });
+                }
+                win.show(this);
+              }}),
               {
                 xtype: 'button',
                 text: "Format",
@@ -228,43 +272,51 @@ com.coremedia.ui.ckhtmleditor.RichtextEditor = Ext.extend(Ext.Panel, {
             itemId: 'ckhtmleditor'
           }
         ]
-    }));
+    })
+      )
+      ;
     this.getHtmlEditor().addListener("render", this._ckEditorAvailable, this);
   },
   createStyle: function(element) {
     var style = new CKEDITOR.style({ element : element });
     style.type = CKEDITOR.STYLE_INLINE;
     return style;
-  },
+  }
+  ,
   createStyleWithAttributes: function(element, attributes) {
     var style = new CKEDITOR.style({ element : element, attributes : attributes  });
     style.type = CKEDITOR.STYLE_INLINE;
     return style;
-  },
+  }
+  ,
   getBoldAction: function() {
     if (!this.boldAction) {
       this.boldAction = new com.coremedia.ui.ckhtmleditor.FormatAction(this.createStyle('strong'), 'cm-bold-16', "Bold", "Mark bold", this);
     }
     return this.boldAction;
-  },
+  }
+  ,
   getItalicAction: function() {
     if (!this.italicAction) {
       this.italicAction = new com.coremedia.ui.ckhtmleditor.FormatAction(this.createStyle('em'), 'cm-italic-16', "Italic", "Mark italic", this);
     }
     return this.italicAction;
-  },
+  }
+  ,
   getUnderlineAction: function() {
     if (!this.underlineAction) {
       this.underlineAction = new com.coremedia.ui.ckhtmleditor.FormatAction(this.createStyle('u'), 'cm-underline-16', "Underline", "Mark underline", this);
     }
     return this.underlineAction;
-  },
+  }
+  ,
   getLinkAction: function() {
     if (!this.linkAction) {
       this.linkAction = new com.coremedia.ui.ckhtmleditor.LinkAction('cm-externallink-16', "Link", "Insert Link", this);
     }
     return this.linkAction;
-  },
+  }
+  ,
   _ckEditorAvailable: function() {
     var ckEditorWrapper = this.getHtmlEditor();
     ckEditorWrapper.removeListener("render", this._ckEditorAvailable);
@@ -273,7 +325,8 @@ com.coremedia.ui.ckhtmleditor.RichtextEditor = Ext.extend(Ext.Panel, {
       ckEditor.attachStyleStateChange(this.styleStateChangeCallbacks[i].style, this.styleStateChangeCallbacks[i].callback);
     }
     delete this.styleStateChangeCallbacks;
-  },
+  }
+  ,
   attachStyleStateChange: function(style, callback) {
     if (this.styleStateChangeCallbacks) {
       // store and add when CKEditor instance is available:
@@ -282,11 +335,13 @@ com.coremedia.ui.ckhtmleditor.RichtextEditor = Ext.extend(Ext.Panel, {
       // CKEditor instance is available: add directly!
       this.getHtmlEditor().getCKEditor().attachStyleStateChange(style, callback);
     }
-  },
+  }
+  ,
   getHtmlEditor: function() {
     return this.getComponent('ckhtmleditor');
   }
-});
+})
+  ;
 
 
 // register xtype
