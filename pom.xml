@@ -132,16 +132,6 @@
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-runtime</artifactId>
         <version>${jangaroo_version}</version>
-      </dependency>
-      <dependency>
-        <groupId>net.jangaroo</groupId>
-        <artifactId>jangaroo-browser</artifactId>
-        <version>${jangaroo_version}</version>
-      </dependency>
-      <dependency>
-        <groupId>net.jangaroo</groupId>
-        <artifactId>jangaroo-runtime</artifactId>
-        <version>${jangaroo_version}</version>
         <type>jangaroo</type>
       </dependency>
       <dependency>

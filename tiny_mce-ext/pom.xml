@@ -21,11 +21,6 @@
       <version>0.5.18-SNAPSHOT</version>
       <type>jangaroo</type>
     </dependency>
-    <dependency>
-      <groupId>net.jangaroo</groupId>
-      <artifactId>ext-as</artifactId>
-      <version>0.5.18-SNAPSHOT</version>
-    </dependency>
 
     <dependency>
       <groupId>net.jangaroo</groupId>

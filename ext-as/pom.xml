@@ -17,17 +17,9 @@
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>jangaroo-runtime</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>net.jangaroo</groupId>
-      <artifactId>jangaroo-runtime</artifactId>
       <type>jangaroo</type>
     </dependency>
 
-    <dependency>
-      <groupId>net.jangaroo</groupId>
-      <artifactId>jangaroo-browser</artifactId>
-    </dependency>
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>jangaroo-browser</artifactId>

@@ -19,10 +19,6 @@
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>jangaroo-browser</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>net.jangaroo</groupId>
-      <artifactId>jangaroo-browser</artifactId>
       <type>jangaroo</type>
     </dependency>
     <dependency>

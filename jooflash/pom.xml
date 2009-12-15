@@ -29,11 +29,6 @@
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>jangaroo-browser</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>net.jangaroo</groupId>
-      <artifactId>jangaroo-browser</artifactId>
       <type>jangaroo</type>
     </dependency>
 
@@ -41,19 +36,7 @@
       <groupId>net.jangaroo</groupId>
       <artifactId>jooflash-native</artifactId>
       <version>0.5.18-SNAPSHOT</version>
-    </dependency>
-
-    <dependency>
-      <groupId>net.jangaroo</groupId>
-      <artifactId>jooflash-native</artifactId>
-      <version>0.5.18-SNAPSHOT</version>
       <type>jangaroo</type>
-    </dependency>
-
-    <dependency>
-      <groupId>net.jangaroo</groupId>
-      <artifactId>xmlhttprequest-as</artifactId>
-      <version>0.5.18-SNAPSHOT</version>
     </dependency>
 
     <dependency>

@@ -19,17 +19,7 @@
         <groupId>net.jangaroo</groupId>
         <artifactId>ext-all</artifactId>
         <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>net.jangaroo</groupId>
-        <artifactId>ext-all</artifactId>
-        <version>${project.version}</version>
         <type>jangaroo</type>
-      </dependency>
-      <dependency>
-        <groupId>net.jangaroo</groupId>
-        <artifactId>ext-as</artifactId>
-        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
@@ -41,17 +31,7 @@
         <groupId>net.jangaroo</groupId>
         <artifactId>ext-as-aliases</artifactId>
         <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>net.jangaroo</groupId>
-        <artifactId>ext-as-aliases</artifactId>
-        <version>${project.version}</version>
         <type>jangaroo</type>
-      </dependency>
-      <dependency>
-        <groupId>net.jangaroo</groupId>
-        <artifactId>ext-base</artifactId>
-        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
@@ -63,17 +43,7 @@
         <groupId>net.jangaroo</groupId>
         <artifactId>jooflash</artifactId>
         <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>net.jangaroo</groupId>
-        <artifactId>jooflash</artifactId>
-        <version>${project.version}</version>
         <type>jangaroo</type>
-      </dependency>
-      <dependency>
-        <groupId>net.jangaroo</groupId>
-        <artifactId>jooflash-native</artifactId>
-        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
@@ -85,17 +55,7 @@
         <groupId>net.jangaroo</groupId>
         <artifactId>jooflexframework</artifactId>
         <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>net.jangaroo</groupId>
-        <artifactId>jooflexframework</artifactId>
-        <version>${project.version}</version>
         <type>jangaroo</type>
-      </dependency>
-      <dependency>
-        <groupId>net.jangaroo</groupId>
-        <artifactId>joounit</artifactId>
-        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
@@ -111,24 +71,9 @@
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
-        <artifactId>miframe</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>net.jangaroo</groupId>
         <artifactId>tiny_mce</artifactId>
         <version>${project.version}</version>
         <type>jangaroo</type>
-      </dependency>
-      <dependency>
-        <groupId>net.jangaroo</groupId>
-        <artifactId>tiny_mce</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>net.jangaroo</groupId>
-        <artifactId>tiny_mce-ext</artifactId>
-        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
@@ -140,17 +85,7 @@
         <groupId>net.jangaroo</groupId>
         <artifactId>xmlhttprequest</artifactId>
         <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>net.jangaroo</groupId>
-        <artifactId>xmlhttprequest</artifactId>
-        <version>${project.version}</version>
         <type>jangaroo</type>
-      </dependency>
-      <dependency>
-        <groupId>net.jangaroo</groupId>
-        <artifactId>xmlhttprequest-as</artifactId>
-        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>

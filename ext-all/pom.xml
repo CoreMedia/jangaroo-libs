@@ -14,11 +14,7 @@
   <name>Ext-all 3.0.3</name>
 
   <dependencies>
-    <dependency>
-      <groupId>net.jangaroo</groupId>
-      <artifactId>ext-base</artifactId>
-      <version>0.5.18-SNAPSHOT</version>
-    </dependency>
+
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>ext-base</artifactId>
