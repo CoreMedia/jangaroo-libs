@@ -67,12 +67,33 @@ com.coremedia.ui.ckhtmleditor.FormatAction = Ext.extend(Ext.Action, {
 });
 
 
-var win;
+var win, win2;
 
 com.coremedia.ui.ckhtmleditor.LinkAction = Ext.extend(Ext.Action, {
   constructor: function(iconCls, text, tooltip, richtextEditor) {
 
     this.pressed = false;
+
+    var href_textField = new Ext.form.TextField({fieldLabel: 'URL', allowBlank:false});
+    var target_comboBox = new Ext.form.ComboBox({
+      typeAhead: true,
+      triggerAction: 'all',
+      editable: false,
+      fieldLabel: 'Target',
+      mode: 'local',
+      forceSelection: true,
+      store: new Ext.data.ArrayStore({
+        id: 0,
+        fields: ['value', 'display'],
+        data: [
+          ['_self', 'same window'],
+          ['_blank', 'new window']
+        ]
+      }),
+      valueField: 'value',
+      displayField: 'display'
+    });
+
     com.coremedia.ui.ckhtmleditor.FormatAction.superclass.constructor.call(this, {
       scale: 'small',
       iconCls: iconCls,
@@ -82,59 +103,25 @@ com.coremedia.ui.ckhtmleditor.LinkAction = Ext.extend(Ext.Action, {
       handler: function() {
         if (!win) {
           win = new Ext.Window({
-
             layout:'fit',
             width:500,
             height:300,
             closeAction:'hide',
             plain: true,
-
             items: new Ext.FormPanel({
-              labelWidth: 75, // label settings here cascade unless overridden
               frame:true,
-              title: 'Insert/ Edit Link',
+              title: 'Insert Link...',
               defaults: {width: 230},
-              defaultType: 'textfield',
-
               items: [
-                {
-                  id:'href',
-                  fieldLabel: 'URL',
-                  name: 'href',
-                  allowBlank:false
-                },
-                new Ext.form.ComboBox({
-                  id: 'target',
-                  typeAhead: true,
-                  triggerAction: 'all',
-                  editable: false,
-                  fieldLabel: 'Target',
-                  mode: 'local',
-                  forceSelection: true,
-                  store: new Ext.data.ArrayStore({
-                    id: 0,
-                    fields: [
-                      'myId',
-                      'displayText'
-                    ],
-                    data: [
-                      ['_self', 'same window'],
-                      ['_blank', 'new window']
-                    ]
-                  }),
-                  valueField: 'myId',
-                  displayField: 'displayText'
-                })
+                href_textField,
+                target_comboBox
               ]
-
-
             }),
-
             buttons: [
               {
                 text:'Okay',
                 handler: function() {
-                  var style = new CKEDITOR.style({ element : 'a', attributes : {'href' : Ext.get('href').getValue(), target: Ext.get('target').getValue() }  });
+                  var style = new CKEDITOR.style({ element : 'a', attributes : {'href' : href_textField.getValue(), target: target_comboBox.getValue() }  });
                   style.type = CKEDITOR.STYLE_INLINE;
 
                   var styleCommand = new CKEDITOR.styleCommand(style);
@@ -144,7 +131,6 @@ com.coremedia.ui.ckhtmleditor.LinkAction = Ext.extend(Ext.Action, {
                   styleCommand.exec(ckEditor);
                   win.hide();
                 }
-
               },
               {
                 text: 'Cancel',
@@ -213,47 +199,44 @@ com.coremedia.ui.ckhtmleditor.RichtextEditor = Ext.extend(Ext.Panel, {
               new com.coremedia.ui.IconButton(this.getUnderlineAction()),
               new com.coremedia.ui.IconButton(this.getLinkAction()),
               new Ext.Button(config = { iconCls: 'cm-paste-16', handler: function() {
-                var win;
-                if (!win) {
-                 win = new Ext.Window({
-                  layout:'fit',
-                  width:500,
-                  height:300,
-                  closeAction:'hide',
-                  plain: true,
-                  items: new Ext.FormPanel({
-                    layout: 'fit',
-                    title: 'Paste as plain text',
-                    items: [
 
-                      new Ext.form.TextArea({
-                        id: 'textarea'
+                var textarea = new Ext.form.TextArea();
 
-                      })
+                if (!win2) {
+                  win2 = new Ext.Window({
+                    layout:'fit',
+                    width:500,
+                    height:300,
+                    closeAction:'hide',
+                    plain: true,
+                    items: new Ext.FormPanel({
+                      layout: 'fit',
+                      title: 'Paste as plain text',
+                      items: [
+                        textarea
+                      ]
+                    }),
+                    buttons: [
+                      {
+                        text: 'Paste',
+                        iconCls: 'cm-paste-16',
+                        handler: function() {
+                          var ckEditor = editor.getHtmlEditor().getCKEditor();
+                          ckEditor.insertText(textarea.getValue());
+                          Ext.get('textarea').reset();
+                          win2.hide();
+                        }
+                      },
+                      {
+                        text: 'Cancel',
+                        handler: function() {
+                          win2.hide();
+                        }
+                      }
                     ]
-                  }),
-                  buttons: [
-                    {
-                      text: 'Paste',
-                      iconCls: 'cm-paste-16',
-                      handler: function() {
-                        var ckEditor = editor.getHtmlEditor().getCKEditor();
-                        ckEditor.insertText( Ext.get('textarea').getValue() );
-
-                        win.hide();
-                      }
-
-                    },
-                    {
-                      text: 'Cancel',
-                      handler: function() {
-                        win.hide();
-                      }
-                    }
-                  ]
-                });
+                  });
                 }
-                win.show(this);
+                win2.show(this);
               }}),
               {
                 xtype: 'button',
@@ -272,51 +255,43 @@ com.coremedia.ui.ckhtmleditor.RichtextEditor = Ext.extend(Ext.Panel, {
             itemId: 'ckhtmleditor'
           }
         ]
-    })
-      )
-      ;
+    }));
     this.getHtmlEditor().addListener("render", this._ckEditorAvailable, this);
   },
   createStyle: function(element) {
     var style = new CKEDITOR.style({ element : element });
     style.type = CKEDITOR.STYLE_INLINE;
     return style;
-  }
-  ,
+  },
   createStyleWithAttributes: function(element, attributes) {
     var style = new CKEDITOR.style({ element : element, attributes : attributes  });
     style.type = CKEDITOR.STYLE_INLINE;
     return style;
-  }
-  ,
+  },
   getBoldAction: function() {
     if (!this.boldAction) {
       this.boldAction = new com.coremedia.ui.ckhtmleditor.FormatAction(this.createStyle('strong'), 'cm-bold-16', "Bold", "Mark bold", this);
     }
     return this.boldAction;
-  }
-  ,
+  },
   getItalicAction: function() {
     if (!this.italicAction) {
       this.italicAction = new com.coremedia.ui.ckhtmleditor.FormatAction(this.createStyle('em'), 'cm-italic-16', "Italic", "Mark italic", this);
     }
     return this.italicAction;
-  }
-  ,
+  },
   getUnderlineAction: function() {
     if (!this.underlineAction) {
       this.underlineAction = new com.coremedia.ui.ckhtmleditor.FormatAction(this.createStyle('u'), 'cm-underline-16', "Underline", "Mark underline", this);
     }
     return this.underlineAction;
-  }
-  ,
+  },
   getLinkAction: function() {
     if (!this.linkAction) {
       this.linkAction = new com.coremedia.ui.ckhtmleditor.LinkAction('cm-externallink-16', "Link", "Insert Link", this);
     }
     return this.linkAction;
-  }
-  ,
+  },
   _ckEditorAvailable: function() {
     var ckEditorWrapper = this.getHtmlEditor();
     ckEditorWrapper.removeListener("render", this._ckEditorAvailable);
@@ -325,8 +300,7 @@ com.coremedia.ui.ckhtmleditor.RichtextEditor = Ext.extend(Ext.Panel, {
       ckEditor.attachStyleStateChange(this.styleStateChangeCallbacks[i].style, this.styleStateChangeCallbacks[i].callback);
     }
     delete this.styleStateChangeCallbacks;
-  }
-  ,
+  },
   attachStyleStateChange: function(style, callback) {
     if (this.styleStateChangeCallbacks) {
       // store and add when CKEditor instance is available:
@@ -335,13 +309,11 @@ com.coremedia.ui.ckhtmleditor.RichtextEditor = Ext.extend(Ext.Panel, {
       // CKEditor instance is available: add directly!
       this.getHtmlEditor().getCKEditor().attachStyleStateChange(style, callback);
     }
-  }
-  ,
+  },
   getHtmlEditor: function() {
     return this.getComponent('ckhtmleditor');
   }
-})
-  ;
+});
 
 
 // register xtype
