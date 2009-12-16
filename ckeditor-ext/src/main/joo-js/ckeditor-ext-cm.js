@@ -223,7 +223,7 @@ com.coremedia.ui.ckhtmleditor.RichtextEditor = Ext.extend(Ext.Panel, {
                         handler: function() {
                           var ckEditor = editor.getHtmlEditor().getCKEditor();
                           ckEditor.insertText(textarea.getValue());
-                          Ext.get('textarea').reset();
+                          textarea.reset();
                           win2.hide();
                         }
                       },
