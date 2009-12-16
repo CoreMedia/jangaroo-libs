@@ -15,7 +15,7 @@ com.coremedia.ui.ckhtmleditor.HtmlEditor = Ext.extend(Ext.form.TextArea, {
     }
     com.coremedia.ui.ckhtmleditor.HtmlEditor.superclass.onRender.call(this, ct, position);
     CKEDITOR.replace(this.id, {
-      removePlugins: 'toolbar, elementspath',
+      removePlugins: 'toolbar, elementspath, clipboard, pastetext',
       toolbar: [],
       customConfig: 'scripts/config.js'
     });
@@ -181,10 +181,13 @@ com.coremedia.ui.IconButton = Ext.extend(Ext.Button, {
 
 Ext.reg('iconbutton', com.coremedia.ui.IconButton);
 
+
+var editor;
+
 // The Richtext Editor:
 com.coremedia.ui.ckhtmleditor.RichtextEditor = Ext.extend(Ext.Panel, {
   constructor: function(config) {
-    var editor = this;
+    editor = this;
     this.styleStateChangeCallbacks = [];
     com.coremedia.ui.ckhtmleditor.RichtextEditor.superclass.constructor.call(this, Ext.apply(config, {
       layout: 'anchor',
@@ -198,46 +201,7 @@ com.coremedia.ui.ckhtmleditor.RichtextEditor = Ext.extend(Ext.Panel, {
               new com.coremedia.ui.IconButton(this.getItalicAction()),
               new com.coremedia.ui.IconButton(this.getUnderlineAction()),
               new com.coremedia.ui.IconButton(this.getLinkAction()),
-              new Ext.Button(config = { iconCls: 'cm-paste-16', handler: function() {
-
-                var textarea = new Ext.form.TextArea();
-
-                if (!win2) {
-                  win2 = new Ext.Window({
-                    layout:'fit',
-                    width:500,
-                    height:300,
-                    closeAction:'hide',
-                    plain: true,
-                    items: new Ext.FormPanel({
-                      layout: 'fit',
-                      title: 'Paste as plain text',
-                      items: [
-                        textarea
-                      ]
-                    }),
-                    buttons: [
-                      {
-                        text: 'Paste',
-                        iconCls: 'cm-paste-16',
-                        handler: function() {
-                          var ckEditor = editor.getHtmlEditor().getCKEditor();
-                          ckEditor.insertText(textarea.getValue());
-                          textarea.reset();
-                          win2.hide();
-                        }
-                      },
-                      {
-                        text: 'Cancel',
-                        handler: function() {
-                          win2.hide();
-                        }
-                      }
-                    ]
-                  });
-                }
-                win2.show(this);
-              }}),
+              new Ext.Button(config = { iconCls: 'cm-paste-16', handler: this.pasteAsPlainText}),
               {
                 xtype: 'button',
                 text: "Format",
@@ -257,6 +221,48 @@ com.coremedia.ui.ckhtmleditor.RichtextEditor = Ext.extend(Ext.Panel, {
         ]
     }));
     this.getHtmlEditor().addListener("render", this._ckEditorAvailable, this);
+  },
+  pasteAsPlainText: function() {
+
+    var textarea = new Ext.form.TextArea();
+
+    
+    if (!win2) {
+      win2 = new Ext.Window({
+        layout:'fit',
+        width:500,
+        height:300,
+        closeAction:'hide',
+        plain: true,
+        items: new Ext.FormPanel({
+          layout: 'fit',
+          title: 'Paste as plain text',
+          items: [
+            textarea
+          ]
+        }),
+        buttons: [
+          {
+            text: 'Paste',
+            iconCls: 'cm-paste-16',
+            handler: function() {
+              
+              var ckEditor = editor.getHtmlEditor().getCKEditor();
+              ckEditor.insertText(textarea.getValue());
+              textarea.reset();
+              win2.hide();
+            }
+          },
+          {
+            text: 'Cancel',
+            handler: function() {
+              win2.hide();
+            }
+          }
+        ]
+      });
+    }
+    win2.show(this);
   },
   createStyle: function(element) {
     var style = new CKEDITOR.style({ element : element });
@@ -300,6 +306,48 @@ com.coremedia.ui.ckhtmleditor.RichtextEditor = Ext.extend(Ext.Panel, {
       ckEditor.attachStyleStateChange(this.styleStateChangeCallbacks[i].style, this.styleStateChangeCallbacks[i].callback);
     }
     delete this.styleStateChangeCallbacks;
+    var e = this;
+
+    // Listens for some clipboard related keystrokes, so they get customized.
+    var onKey = function(event)
+    {
+      switch (event.data.keyCode)
+        {
+        // Paste
+        case CKEDITOR.CTRL + 86 :                // CTRL+V
+        case CKEDITOR.SHIFT + 45 :                // SHIFT+INS
+
+          var editor = ckEditor;
+          editor.fire('saveSnapshot');                // Save before paste
+
+          e.pasteAsPlainText();
+          //if (editor.fire('beforePaste'))
+          event.cancel();
+
+          setTimeout(function()
+          {
+            editor.fire('saveSnapshot');		// Save after paste
+          }, 0);
+          return;
+
+        // Cut
+        case CKEDITOR.CTRL + 88 :                // CTRL+X
+        case CKEDITOR.SHIFT + 46 :                // SHIFT+DEL
+
+          // Save Undo snapshot.
+          editor = this;
+          editor.fire('saveSnapshot');                // Save before paste
+          setTimeout(function()
+          {
+            editor.fire('saveSnapshot');		// Save after paste
+          }, 0);
+      }
+    };
+
+
+    ckEditor.on('key', onKey, ckEditor);
+         
+
   },
   attachStyleStateChange: function(style, callback) {
     if (this.styleStateChangeCallbacks) {
