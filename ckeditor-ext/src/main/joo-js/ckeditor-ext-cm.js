@@ -196,6 +196,7 @@ com.coremedia.ui.ckhtmleditor.RichtextEditor = Ext.extend(Ext.Panel, {
   constructor: function(config) {
     // private members:
     var win;
+    var textarea = new Ext.form.TextArea();
 
     var handlePaste = function() {
       var ckEditor = this.getHtmlEditor().getCKEditor();
@@ -207,9 +208,18 @@ com.coremedia.ui.ckhtmleditor.RichtextEditor = Ext.extend(Ext.Panel, {
     // "priviledged" methods:
     this.pasteAsPlainText = function() {
 
-      var textarea = new Ext.form.TextArea();
 
-    
+
+     if (!(CKEDITOR.getClipboardData() === false || !window.clipboardData))
+      {
+        var ckEditor = this.getHtmlEditor().getCKEditor();
+        ckEditor.insertText(window.clipboardData.getData('Text'));
+        return;
+      }
+          
+
+
+
       if (!win) {
         win = new Ext.Window({
           layout:'fit',
@@ -360,7 +370,7 @@ com.coremedia.ui.ckhtmleditor.RichtextEditor = Ext.extend(Ext.Panel, {
 
 
     ckEditor.on('key', onKey, ckEditor);
-         
+
 
   },
   attachStyleStateChange: function(style, callback) {
@@ -380,3 +390,65 @@ com.coremedia.ui.ckhtmleditor.RichtextEditor = Ext.extend(Ext.Panel, {
 
 // register xtype
 Ext.reg('richtexteditor', com.coremedia.ui.ckhtmleditor.RichtextEditor);
+
+
+var clipboardDiv;
+
+CKEDITOR.getClipboardData = function()
+{
+  if (!CKEDITOR.env.ie)
+    return false;
+
+  var doc = CKEDITOR.document,
+    body = doc.getBody();
+
+  if (!clipboardDiv)
+  {
+    clipboardDiv = doc.createElement('div',
+    {
+      attributes :
+      {
+        id: 'cke_hiddenDiv'
+      },
+      styles :
+      {
+        position : 'absolute',
+        visibility : 'hidden',
+        overflow : 'hidden',
+        width : '1px',
+        height : '1px'
+      }
+    });
+
+    clipboardDiv.setHtml('');
+
+    clipboardDiv.appendTo(body);
+  }
+
+  // The "enabled" flag is used to check whether the paste operation has
+  // been completed (the onpaste event has been fired).
+  var enabled = false;
+  var setEnabled = function()
+  {
+    enabled = true;
+  };
+
+  body.on('paste', setEnabled);
+
+  // Create a text range and move it inside the div.
+  var textRange = body.$.createTextRange();
+  textRange.moveToElementText(clipboardDiv.$);
+
+  // The execCommand in will fire the "onpaste", only if the
+  // security settings are enabled.
+  textRange.execCommand('Paste');
+
+  // Get the DIV html and reset it.
+  var html = clipboardDiv.getHtml();
+  clipboardDiv.setHtml('');
+
+  body.removeListener('paste', setEnabled);
+
+  // Return the HTML or false if not enabled.
+  return enabled && html;
+};
