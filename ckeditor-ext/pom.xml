@@ -24,16 +24,25 @@
 
       <plugin>
         <groupId>net.jangaroo</groupId>
-        <artifactId>jangaroo-maven-plugin</artifactId>
+        <artifactId>ext-xml-maven-plugin</artifactId>
         <version>${jangaroo_version}</version>
-        <extensions>true</extensions>
         <executions>
           <execution>
             <goals>
-              <goal>war-package</goal>
+              <goal>extxml</goal>
             </goals>
+            <phase>generate-sources</phase>
+            <configuration>
+              <sourceDirectory>src/main/joo-js</sourceDirectory>
+            </configuration>
           </execution>
         </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>net.jangaroo</groupId>
+        <artifactId>jangaroo-maven-plugin</artifactId>
+        <version>${jangaroo_version}</version>
       </plugin>
 
     </plugins>
@@ -51,6 +60,13 @@
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>ext-all</artifactId>
+      <version>0.5.18-SNAPSHOT</version>
+      <type>jangaroo</type>
+    </dependency>
+
+    <dependency>
+      <groupId>net.jangaroo</groupId>
+      <artifactId>ext-as</artifactId>
       <version>0.5.18-SNAPSHOT</version>
       <type>jangaroo</type>
     </dependency>
