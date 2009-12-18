@@ -63,6 +63,9 @@ com.coremedia.ui.ckhtmleditor.HtmlEditor = Ext.extend(Ext.form.TextArea, {
   getRawValue: function() {
     this.getCKEditor().updateElement();
     return com.coremedia.ui.ckhtmleditor.HtmlEditor.superclass.getRawValue.call(this);
+  },
+  focus: function() {
+    this.getCKEditor().focus();
   }
 });
 Ext.reg('ckhtmleditor', com.coremedia.ui.ckhtmleditor.HtmlEditor);
