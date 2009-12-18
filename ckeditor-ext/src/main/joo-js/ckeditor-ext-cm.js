@@ -7,7 +7,9 @@ Ext.namespace('com.coremedia.ui.ckhtmleditor');
  */
 com.coremedia.ui.ckhtmleditor.HtmlEditor = Ext.extend(Ext.form.TextArea, {
   constructor: function (config) {
-    this.config = config;
+    this.addEvents('focus');
+    this.addEvents('blur');
+    this.addEvents('change');
     com.coremedia.ui.ckhtmleditor.HtmlEditor.superclass.constructor.call(this, config);
   },
 
@@ -24,16 +26,38 @@ com.coremedia.ui.ckhtmleditor.HtmlEditor = Ext.extend(Ext.form.TextArea, {
       toolbar: [],
       customConfig: 'scripts/config.js'
     });
+    var ckEditor = this.getCKEditor();
+    var oldValue;
+    ckEditor.on('focus', function() {
+      oldValue = this.getRawValue();
+      ckEditor.resetDirty();
+      this.fireEvent('focus', this);
+    }, this);
+
+    ckEditor.on('blur', function() {
+      this.fireEvent('blur', this);
+      if (ckEditor.checkDirty()) {
+        this.fireEvent('change', this, this.getRawValue(), oldValue);
+      }
+      oldValue = undefined;
+    }, this);
+    
   },
   getCKEditor: function() {
     return CKEDITOR.instances[this.id];
   },
   setValue: function(value) {
     com.coremedia.ui.ckhtmleditor.HtmlEditor.superclass.setValue.call(this, value);
-    this.getCKEditor().setData(value);
+    var ckeditor = this.getCKEditor();
+    if (ckeditor) {
+      ckeditor.setData(value);
+    }
   },
   getValue: function() {
-    this.getCKEditor().updateElement();
+    var ckeditor = this.getCKEditor();
+    if (ckeditor) {
+      ckeditor.updateElement();
+    }
     return com.coremedia.ui.ckhtmleditor.HtmlEditor.superclass.getValue.call(this);
   },
   getRawValue: function() {
@@ -110,6 +134,7 @@ com.coremedia.ui.ckhtmleditor.LinkAction = Ext.extend(Ext.Action, {
             layout:'fit',
             width:500,
             height:300,
+            modal:true,
             closeAction:'hide',
             plain: true,
             items: new Ext.FormPanel({
@@ -193,19 +218,25 @@ Ext.reg('iconbutton', com.coremedia.ui.IconButton);
  * Richtext Editor is a CKEditor with an Ext toolbar.
  */
 com.coremedia.ui.ckhtmleditor.RichtextEditor = Ext.extend(Ext.Panel, {
+  /**
+   * @cfg {Object} toolbar The RichText toolbar configuration.
+   * @cfg {Object} field The RichText field configuration.
+   * @param config
+   */
   constructor: function(config) {
     // private members:
     var win;
     var textarea = new Ext.form.TextArea();
 
+    var self = this; // workaround for non-working scope: this (see usage below)
     var handlePaste = function() {
-      var ckEditor = this.getHtmlEditor().getCKEditor();
+      var ckEditor = self.getHtmlEditor().getCKEditor();
       ckEditor.insertText(textarea.getValue());
       textarea.reset();
       win.hide();
     };
 
-    // "priviledged" methods:
+    // "privileged" methods:
     this.pasteAsPlainText = function() {
 
 
@@ -225,6 +256,7 @@ com.coremedia.ui.ckhtmleditor.RichtextEditor = Ext.extend(Ext.Panel, {
           layout:'fit',
           width:500,
           height:300,
+          modal:true,
           closeAction:'hide',
           plain: true,
           items: new Ext.FormPanel({
@@ -239,7 +271,7 @@ com.coremedia.ui.ckhtmleditor.RichtextEditor = Ext.extend(Ext.Panel, {
               text: 'Paste',
               iconCls: 'cm-paste-16',
               handler: handlePaste,
-              scope: this
+              scope: this // does not work?!
             },
             {
               text: 'Cancel',
@@ -255,35 +287,38 @@ com.coremedia.ui.ckhtmleditor.RichtextEditor = Ext.extend(Ext.Panel, {
 
     // object initialization:
     this.styleStateChangeCallbacks = [];
+    var richtextField = Ext.apply(config['field'] || {}, {
+      xtype: 'ckhtmleditor',
+      itemId: 'ckhtmleditor'
+    });
+    delete config['field'];
+    var toolbar = Ext.apply(config['toolbar'] || {}, {
+      xtype: 'toolbar',
+      items: [
+        new com.coremedia.ui.IconButton(this.getBoldAction()),
+        new com.coremedia.ui.IconButton(this.getItalicAction()),
+        // new com.coremedia.ui.IconButton(this.getUnderlineAction()), // TODO: CoreMedia RichText does not support <u>: replace by <span class="undeline"> later!
+        // new com.coremedia.ui.IconButton(this.getLinkAction()), // TODO: LinkAction is incomplete in this release: cannot be saved, behaves strangely on editing.
+        new Ext.Button({ iconCls: 'cm-paste-16', handler: this.pasteAsPlainText}),
+        {
+          xtype: 'button',
+          text: "Format",
+          // Add the action to a menu as a text item
+          menu: [
+            new Ext.menu.CheckItem(this.getBoldAction()),
+            new Ext.menu.CheckItem(this.getItalicAction()),
+            // new Ext.menu.CheckItem(this.getUnderlineAction()) // TODO: see above!
+          ]
+        }
+      ]
+    });
+    delete config['toolbar'];
     com.coremedia.ui.ckhtmleditor.RichtextEditor.superclass.constructor.call(this, Ext.apply(config, {
       layout: 'anchor',
       items:
         [
-          {
-            xtype: 'toolbar',
-            items: [
-
-              new com.coremedia.ui.IconButton(this.getBoldAction()),
-              new com.coremedia.ui.IconButton(this.getItalicAction()),
-              new com.coremedia.ui.IconButton(this.getUnderlineAction()),
-              new com.coremedia.ui.IconButton(this.getLinkAction()),
-              new Ext.Button(config = { iconCls: 'cm-paste-16', handler: this.pasteAsPlainText}),
-              {
-                xtype: 'button',
-                text: "Format",
-                // Add the action to a menu as a text item
-                menu: [
-                  new Ext.menu.CheckItem(this.getBoldAction()),
-                  new Ext.menu.CheckItem(this.getItalicAction()),
-                  new Ext.menu.CheckItem(this.getUnderlineAction())
-                ]
-              }
-            ]
-          },
-          {
-            xtype: 'ckhtmleditor',
-            itemId: 'ckhtmleditor'
-          }
+          toolbar,
+          richtextField
         ]
     }));
     this.getHtmlEditor().addListener("render", this._ckEditorAvailable, this);

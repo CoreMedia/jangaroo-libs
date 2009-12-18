@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="ckeditor-ext" xmlns:ckeditor-ext="ckeditor-ext" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ext='http://extjs.com/ext3'>
+  <xs:import namespace="http://extjs.com/ext3"/>
+  <xs:complexType name='com.coremedia.ui.ckhtmleditor.HtmlEditor'>
+    <xs:complexContent>
+      <xs:extension base='ext:ext.form.TextArea'>
+        <xs:all>
+        </xs:all>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name='ckhtmleditor' type='ckeditor-ext:com.coremedia.ui.ckhtmleditor.HtmlEditor' substitutionGroup='ext:textarea'>
+  </xs:element>
+  <xs:complexType name='com.coremedia.ui.ckhtmleditor.RichtextEditor'>
+    <xs:complexContent>
+      <xs:extension base='ext:ext.Panel'>
+        <xs:all>
+            <xs:element name='toolbar' minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>
+    The RichText toolbar configuration.
+                </xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:extension base="xs:string">
+                    <xs:anyAttribute processContents="skip"/>
+                  </xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name='field' minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>
+    The RichText field configuration. @param config
+                </xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:extension base="xs:string">
+                    <xs:anyAttribute processContents="skip"/>
+                  </xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+        </xs:all>
+        <xs:attribute type='xs:string' name='toolbar'>
+          <xs:annotation>
+            <xs:documentation>
+The RichText toolbar configuration.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:string' name='field'>
+          <xs:annotation>
+            <xs:documentation>
+The RichText field configuration. @param config
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name='richtexteditor' type='ckeditor-ext:com.coremedia.ui.ckhtmleditor.RichtextEditor' substitutionGroup='ext:panel'>
+    <xs:annotation>
+      <xs:documentation>
+Richtext Editor is a CKEditor with an Ext toolbar.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+</xs:schema>
