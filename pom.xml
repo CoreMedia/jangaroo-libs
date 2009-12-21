@@ -144,10 +144,6 @@
   </dependencyManagement>
 
   <modules>
-    <module>ckeditor</module>
-    <module>ckeditor-ext</module>
-    <module>ckeditor-ext-develop</module>
-
     <module>xmlhttprequest</module>
     <module>xmlhttprequest-as</module>
 
@@ -162,9 +158,8 @@
     <module>ext-as</module>
     <module>extas-aliases</module>
 
-    <module>tiny_mce</module>
-    <module>tiny_mce-ext</module>
-    <module>miframe</module>
+    <module>ckeditor</module>
+    <module>ckeditor-ext</module>
 
     <module>jangaroo-libs-bom</module>
   </modules>

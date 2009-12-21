@@ -65,19 +65,13 @@
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
-        <artifactId>miframe</artifactId>
+        <artifactId>ckeditor</artifactId>
         <version>${project.version}</version>
         <type>jangaroo</type>
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
-        <artifactId>tiny_mce</artifactId>
-        <version>${project.version}</version>
-        <type>jangaroo</type>
-      </dependency>
-      <dependency>
-        <groupId>net.jangaroo</groupId>
-        <artifactId>tiny_mce-ext</artifactId>
+        <artifactId>ckeditor-ext</artifactId>
         <version>${project.version}</version>
         <type>jangaroo</type>
       </dependency>
