@@ -18,6 +18,9 @@ body
 	/* */
 	margin:5px;
 }
+.cke_panel{
+  border:none !important;
+}
 p {margin:0px}
 html
 {
