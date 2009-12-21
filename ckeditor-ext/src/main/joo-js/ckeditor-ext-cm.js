@@ -207,6 +207,7 @@ Ext.menu.CheckItem.prototype.initComponent = Ext.menu.CheckItem.prototype.initCo
 com.coremedia.ui.IconButton = Ext.extend(Ext.Button, {
   constructor: function(config) {
     com.coremedia.ui.IconButton.superclass.constructor.call(this, config);
+    this.overflowText = this.text;
     delete this.text;
   }
 });
