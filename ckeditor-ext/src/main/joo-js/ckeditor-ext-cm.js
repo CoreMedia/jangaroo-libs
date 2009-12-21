@@ -310,7 +310,7 @@ com.coremedia.ui.ckhtmleditor.RichtextEditor = Ext.extend(Ext.Panel, {
           // Add the action to a menu as a text item
           menu: [
             new Ext.menu.CheckItem(this.getBoldAction()),
-            new Ext.menu.CheckItem(this.getItalicAction()),
+            new Ext.menu.CheckItem(this.getItalicAction())
             // new Ext.menu.CheckItem(this.getUnderlineAction()) // TODO: see above!
           ]
         }
