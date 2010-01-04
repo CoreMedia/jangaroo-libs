@@ -23,6 +23,7 @@ com.coremedia.ui.ckhtmleditor.HtmlEditor = Ext.extend(Ext.form.TextArea, {
     com.coremedia.ui.ckhtmleditor.HtmlEditor.superclass.onRender.call(this, ct, position);
     CKEDITOR.replace(this.id, {
       removePlugins: 'toolbar, elementspath, clipboard, pastetext',
+      extraPlugins: 'linkcommand',
       toolbar: [],
       customConfig: 'scripts/config.js'
     });
@@ -41,7 +42,7 @@ com.coremedia.ui.ckhtmleditor.HtmlEditor = Ext.extend(Ext.form.TextArea, {
       }
       oldValue = undefined;
     }, this);
-    
+
   },
   getCKEditor: function() {
     return CKEDITOR.instances[this.id];
@@ -99,6 +100,29 @@ com.coremedia.ui.ckhtmleditor.FormatAction = Ext.extend(Ext.Action, {
 });
 
 
+com.coremedia.ui.ckhtmleditor.UnlinkAction = Ext.extend(Ext.Action, {
+  constructor: function(iconCls, text, tooltip, richtextEditor) {
+    com.coremedia.ui.ckhtmleditor.FormatAction.superclass.constructor.call(this, {
+      scale: 'small',
+      iconCls: iconCls,
+      text: text,
+      tooltip: tooltip,
+      disabled: true,
+      handler: function() {
+        var ckEditor = richtextEditor.getHtmlEditor().getCKEditor();
+        ckEditor.focus();
+        ckEditor.linkcommand.unlink();
+      }
+    });
+    var style = new CKEDITOR.style({ element : 'a' });
+    style.type = CKEDITOR.STYLE_INLINE;
+    richtextEditor.attachStyleStateChange(style, this.setState.createDelegate(this));
+  },
+  setState: function(ckStyleState) {
+    this.callEach(ckStyleState === CKEDITOR.TRISTATE_OFF ? 'disable' : 'enable');
+  }
+});
+
 com.coremedia.ui.ckhtmleditor.LinkAction = Ext.extend(Ext.Action, {
   constructor: function(iconCls, text, tooltip, richtextEditor) {
 
@@ -130,7 +154,6 @@ com.coremedia.ui.ckhtmleditor.LinkAction = Ext.extend(Ext.Action, {
       iconCls: iconCls,
       text: text,
       tooltip: tooltip,
-      enableToggle: true,
       handler: function() {
         if (!win) {
           win = new Ext.Window({
@@ -153,14 +176,9 @@ com.coremedia.ui.ckhtmleditor.LinkAction = Ext.extend(Ext.Action, {
               {
                 text:'Okay',
                 handler: function() {
-                  var style = new CKEDITOR.style({ element : 'a', attributes : {'href' : href_textField.getValue(), target: target_comboBox.getValue() }  });
-                  style.type = CKEDITOR.STYLE_INLINE;
-
-                  var styleCommand = new CKEDITOR.styleCommand(style);
-
                   var ckEditor = richtextEditor.getHtmlEditor().getCKEditor();
-                  styleCommand.state = this.pressed ? CKEDITOR.TRISTATE_ON : CKEDITOR.TRISTATE_OFF;
-                  styleCommand.exec(ckEditor);
+                  ckEditor.focus();
+                  ckEditor.linkcommand.updateLink({'url' : { 'url' : href_textField.getValue() }, 'target': target_comboBox.getValue() });
                   win.hide();
                 }
               },
@@ -173,20 +191,14 @@ com.coremedia.ui.ckhtmleditor.LinkAction = Ext.extend(Ext.Action, {
             ]
           });
         }
+        var ckEditor = richtextEditor.getHtmlEditor().getCKEditor();
+        var data = ckEditor.linkcommand.retrieveLink();
+        href_textField.setValue(data && data.url ? data.url.url : '');
         win.show(this);
 
       },
       scope: this
     });
-    var style = new CKEDITOR.style({ element : 'a' });
-    style.type = CKEDITOR.STYLE_INLINE;
-    richtextEditor.attachStyleStateChange(style, this.setState.createDelegate(this));
-
-  },
-  setState: function(ckStyleState) {
-    var pressed = ckStyleState === CKEDITOR.TRISTATE_ON;
-    this.pressed = pressed;
-    this.callEach('toggle', [pressed]);
   }
 });
 
@@ -244,15 +256,12 @@ com.coremedia.ui.ckhtmleditor.RichtextEditor = Ext.extend(Ext.Panel, {
     this.pasteAsPlainText = function() {
 
 
-
-     if (!(CKEDITOR.getClipboardData() === false || !window.clipboardData))
+      if (!(CKEDITOR.getClipboardData() === false || !window.clipboardData))
       {
         var ckEditor = this.getHtmlEditor().getCKEditor();
         ckEditor.insertText(window.clipboardData.getData('Text'));
         return;
       }
-          
-
 
 
       if (!win) {
@@ -302,7 +311,9 @@ com.coremedia.ui.ckhtmleditor.RichtextEditor = Ext.extend(Ext.Panel, {
         new com.coremedia.ui.IconButton(this.getBoldAction()),
         new com.coremedia.ui.IconButton(this.getItalicAction()),
         // new com.coremedia.ui.IconButton(this.getUnderlineAction()), // TODO: CoreMedia RichText does not support <u>: replace by <span class="undeline"> later!
-        // new com.coremedia.ui.IconButton(this.getLinkAction()), // TODO: LinkAction is incomplete in this release: cannot be saved, behaves strangely on editing.
+        new com.coremedia.ui.IconButton(this.getLinkAction()), // TODO: LinkAction is incomplete in this release: cannot be saved
+        new com.coremedia.ui.IconButton(this.getUnlinkAction()),
+
         new Ext.Button({ iconCls: 'cm-paste-16', handler: this.pasteAsPlainText}),
         {
           xtype: 'button',
@@ -357,9 +368,15 @@ com.coremedia.ui.ckhtmleditor.RichtextEditor = Ext.extend(Ext.Panel, {
   },
   getLinkAction: function() {
     if (!this.linkAction) {
-      this.linkAction = new com.coremedia.ui.ckhtmleditor.LinkAction('cm-externallink-16', "Link", "Insert Link", this);
+      this.linkAction = new com.coremedia.ui.ckhtmleditor.LinkAction('cm-externallink-16', "Link", "Insert/ Edit Link", this);
     }
     return this.linkAction;
+  },
+  getUnlinkAction: function() {
+    if (!this.unlinkAction) {
+      this.unlinkAction = new com.coremedia.ui.ckhtmleditor.UnlinkAction('cm-externallink-16', "Link", "Remove Link", this);
+    }
+    return this.unlinkAction;
   },
   _ckEditorAvailable: function() {
     var ckEditorWrapper = this.getHtmlEditor();

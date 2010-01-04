@@ -160,6 +160,7 @@
 
     <module>ckeditor</module>
     <module>ckeditor-ext</module>
+    <module>ckeditor-ext-develop</module>
 
     <module>jangaroo-libs-bom</module>
   </modules>
