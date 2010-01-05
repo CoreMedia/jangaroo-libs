@@ -125,6 +125,51 @@ com.coremedia.ui.ckhtmleditor.ListNumberedAction = Ext.extend(Ext.Action, {
 });
 
 
+com.coremedia.ui.ckhtmleditor.IndentAction = Ext.extend(Ext.Action, {
+  constructor: function(iconCls, text, tooltip, richtextEditor) {
+    com.coremedia.ui.ckhtmleditor.FormatAction.superclass.constructor.call(this, {
+      scale: 'small',
+      iconCls: iconCls,
+      text: text,
+      tooltip: tooltip,
+      handler: function() {
+        var ckEditor = richtextEditor.getHtmlEditor().getCKEditor();
+        ckEditor.focus();
+        ckEditor.execCommand('indent');
+      }
+    });
+    // Get the command instance.
+   /* var command = richtextEditor.getHtmlEditor().getCKEditor().getCommand('indent');  // todo: ckeditor not yet available
+    if (command) {
+      command.on('state', this.setState, this);
+    } */
+  },
+  setState: function(ckStyleState) {
+    this.callEach(ckStyleState === CKEDITOR.TRISTATE_OFF ? 'disable' : 'enable');
+  }
+});
+
+
+com.coremedia.ui.ckhtmleditor.OutdentAction = Ext.extend(Ext.Action, {
+  constructor: function(iconCls, text, tooltip, richtextEditor) {
+    com.coremedia.ui.ckhtmleditor.FormatAction.superclass.constructor.call(this, {
+      scale: 'small',
+      iconCls: iconCls,
+      text: text,
+      tooltip: tooltip,
+      handler: function() {
+        var ckEditor = richtextEditor.getHtmlEditor().getCKEditor();
+        ckEditor.focus();
+        ckEditor.execCommand('outdent');
+      }
+    });
+  },
+  setState: function(ckStyleState) {
+    this.callEach(ckStyleState === CKEDITOR.TRISTATE_OFF ? 'disable' : 'enable');
+  }
+});
+
+
 com.coremedia.ui.ckhtmleditor.ListBulletedAction = Ext.extend(Ext.Action, {
   constructor: function(iconCls, text, tooltip, richtextEditor) {
     com.coremedia.ui.ckhtmleditor.FormatAction.superclass.constructor.call(this, {
@@ -365,6 +410,8 @@ com.coremedia.ui.ckhtmleditor.RichtextEditor = Ext.extend(Ext.Panel, {
         new com.coremedia.ui.IconButton(this.getUnlinkAction()),
         new com.coremedia.ui.IconButton(this.getListBulletedAction()),
         new com.coremedia.ui.IconButton(this.getListNumberedAction()),
+        new com.coremedia.ui.IconButton(this.getIndentAction()),
+        new com.coremedia.ui.IconButton(this.getOutdentAction()),
 
         new Ext.Button({ iconCls: 'cm-paste-16', handler: this.pasteAsPlainText}),
         {
@@ -441,6 +488,18 @@ com.coremedia.ui.ckhtmleditor.RichtextEditor = Ext.extend(Ext.Panel, {
       this.listNumberedAction = new com.coremedia.ui.ckhtmleditor.ListNumberedAction('cm-list-numbered-16', "Numbered List", "Numbered List", this);
     }
     return this.listNumberedAction;
+  },
+  getIndentAction: function() {
+    if (!this.indentAction) {
+      this.indentAction = new com.coremedia.ui.ckhtmleditor.IndentAction('indent-16', "Indent", "Indent", this);
+    }
+    return this.indentAction;
+  },
+  getOutdentAction: function() {
+    if (!this.outdentAction) {
+      this.outdentAction = new com.coremedia.ui.ckhtmleditor.OutdentAction('outdent-16', "Outdent", "Outdent", this);
+    }
+    return this.outdentAction;
   },
   _ckEditorAvailable: function() {
     var ckEditorWrapper = this.getHtmlEditor();
