@@ -100,6 +100,56 @@ com.coremedia.ui.ckhtmleditor.FormatAction = Ext.extend(Ext.Action, {
 });
 
 
+com.coremedia.ui.ckhtmleditor.ListNumberedAction = Ext.extend(Ext.Action, {
+  constructor: function(iconCls, text, tooltip, richtextEditor) {
+    com.coremedia.ui.ckhtmleditor.FormatAction.superclass.constructor.call(this, {
+      scale: 'small',
+      iconCls: iconCls,
+      text: text,
+      tooltip: tooltip,
+      handler: function() {
+        var ckEditor = richtextEditor.getHtmlEditor().getCKEditor();
+        ckEditor.focus();
+        ckEditor.execCommand('numberedlist');
+      }
+    });
+    var style = new CKEDITOR.style({ element : 'ol' });
+    style.type = CKEDITOR.STYLE_INLINE;
+    richtextEditor.attachStyleStateChange(style, this.setState.createDelegate(this));
+  },
+  setState: function(ckStyleState) {
+    var pressed = ckStyleState === CKEDITOR.TRISTATE_ON;
+    this.pressed = pressed;
+    this.callEach('toggle', [pressed]);
+  }
+});
+
+
+com.coremedia.ui.ckhtmleditor.ListBulletedAction = Ext.extend(Ext.Action, {
+  constructor: function(iconCls, text, tooltip, richtextEditor) {
+    com.coremedia.ui.ckhtmleditor.FormatAction.superclass.constructor.call(this, {
+      scale: 'small',
+      iconCls: iconCls,
+      text: text,
+      tooltip: tooltip,
+      handler: function() {
+        var ckEditor = richtextEditor.getHtmlEditor().getCKEditor();
+        ckEditor.focus();
+        ckEditor.execCommand('bulletedlist');
+      }
+    });
+    var style = new CKEDITOR.style({ element : 'ul' });
+    style.type = CKEDITOR.STYLE_INLINE;
+    richtextEditor.attachStyleStateChange(style, this.setState.createDelegate(this));
+  },
+  setState: function(ckStyleState) {
+    var pressed = ckStyleState === CKEDITOR.TRISTATE_ON;
+    this.pressed = pressed;
+    this.callEach('toggle', [pressed]);
+  }
+});
+
+
 com.coremedia.ui.ckhtmleditor.UnlinkAction = Ext.extend(Ext.Action, {
   constructor: function(iconCls, text, tooltip, richtextEditor) {
     com.coremedia.ui.ckhtmleditor.FormatAction.superclass.constructor.call(this, {
@@ -313,6 +363,8 @@ com.coremedia.ui.ckhtmleditor.RichtextEditor = Ext.extend(Ext.Panel, {
         // new com.coremedia.ui.IconButton(this.getUnderlineAction()), // TODO: CoreMedia RichText does not support <u>: replace by <span class="undeline"> later!
         new com.coremedia.ui.IconButton(this.getLinkAction()), // TODO: LinkAction is incomplete in this release: cannot be saved
         new com.coremedia.ui.IconButton(this.getUnlinkAction()),
+        new com.coremedia.ui.IconButton(this.getListBulletedAction()),
+        new com.coremedia.ui.IconButton(this.getListNumberedAction()),
 
         new Ext.Button({ iconCls: 'cm-paste-16', handler: this.pasteAsPlainText}),
         {
@@ -377,6 +429,18 @@ com.coremedia.ui.ckhtmleditor.RichtextEditor = Ext.extend(Ext.Panel, {
       this.unlinkAction = new com.coremedia.ui.ckhtmleditor.UnlinkAction('cm-externallink-16', "Link", "Remove Link", this);
     }
     return this.unlinkAction;
+  },
+  getListBulletedAction: function() {
+    if (!this.listBulletedAction) {
+      this.listBulletedAction = new com.coremedia.ui.ckhtmleditor.ListBulletedAction('cm-list-bulleted-16', "List", "List", this);
+    }
+    return this.listBulletedAction;
+  },
+  getListNumberedAction: function() {
+    if (!this.listNumberedAction) {
+      this.listNumberedAction = new com.coremedia.ui.ckhtmleditor.ListNumberedAction('cm-list-numbered-16', "Numbered List", "Numbered List", this);
+    }
+    return this.listNumberedAction;
   },
   _ckEditorAvailable: function() {
     var ckEditorWrapper = this.getHtmlEditor();
