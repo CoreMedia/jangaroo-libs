@@ -1,8 +1,9 @@
 package ext.form {
 
 import ext.Component;
-import ext.Element;
 import ext.Toolbar;
+
+import js.Element;
 
 /**
  * Provides a lightweight HTML Editor component. Some toolbar features are not supported by Safari and will be 
@@ -107,6 +108,7 @@ public function HtmlEditor(config : Object) {
     public var sourceEditMode ;
     //public var onFocus ;
     public var iframePad;
+    protected var iframe:Element;
     //public var hideMode;
     //public var defaultAutoCreate ;
     override protected native function initComponent() : void;

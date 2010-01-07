@@ -1,4 +1,4 @@
-package {
+package ext{
 
 import ext.Component;
 import ext.Element;

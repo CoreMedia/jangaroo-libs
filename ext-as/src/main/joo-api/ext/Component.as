@@ -125,11 +125,28 @@ public function Component(config : *) {
   super();
   config++;
 }
+
+    /**
+     * If this Component was created with a single Action argument, this Action
+     * can be found in this read-only property.
+     * @return ext.Action this Component's Action.
+     */
+    public native function get baseAction() : Action;
+
+    /**
+     * For internal use only.
+     */
+    public native function set baseAction(action : Action) : void;
+
     /**
      * This Component's initial configuration specification. Read-only.
      * @property initialConfig
      */
   public native function get initialConfig() : Object;
+    /**
+     * For internal use only.
+     */
+  public native function set initialConfig(config : Object) : void;
 
   protected static var AUTO_ID  : Object = 1000;
     /**

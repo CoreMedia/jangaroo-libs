@@ -163,7 +163,7 @@ public function Resizable(el : *, config : Object) {
      */
     public var transparent : Boolean;
     /**
-     * @cfg {Ext.lib.Region} resizeRegion Constrain the resize to a particular region
+     * @cfg {ext.lib.Region} resizeRegion Constrain the resize to a particular region
      */
     /**
      * @cfg {Boolean} wrap True to wrap an element with a div if needed (required for textareas and images, defaults to false)

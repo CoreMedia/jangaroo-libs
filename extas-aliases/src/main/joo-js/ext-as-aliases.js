@@ -1,4 +1,5 @@
 ext = Ext;
+ext.Ext = Ext;
 ext.listview = Ext.ListView;
 ext.panel = Ext.Panel;
 ext.splitbar = Ext.SplitBar;

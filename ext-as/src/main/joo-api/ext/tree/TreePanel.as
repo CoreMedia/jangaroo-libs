@@ -90,7 +90,7 @@ new ext.Viewport({
 */
 public class TreePanel extends Panel {
 /**
- * @cfg {Ext.tree.TreeNode} root The root node for the tree.
+ * @cfg {ext.tree.TreeNode} root The root node for the tree.
  * @cfg {Boolean} rootVisible <tt>false</tt> to hide the root node (defaults to <tt>true</tt>)
  * @cfg {Boolean} lines <tt>false</tt> to disable tree lines (defaults to <tt>true</tt>)
  * @cfg {Boolean} enableDD <tt>true</tt> to enable drag and drop
@@ -108,7 +108,7 @@ public class TreePanel extends Panel {
  * @cfg {Boolean} singleExpand <tt>true</tt> if only 1 node per branch may be expanded
  * @cfg {Object} selModel A tree selection model to use with this TreePanel (defaults to an <b class='link'>Ext.tree.DefaultSelectionModel</b>)
  * @cfg {Boolean} trackMouseOver <tt>false</tt> to disable mouse over highlighting
- * @cfg {Ext.tree.TreeLoader} loader A <b class='link'>Ext.tree.TreeLoader</b> for use with this TreePanel
+ * @cfg {ext.tree.TreeLoader} loader A <b class='link'>Ext.tree.TreeLoader</b> for use with this TreePanel
  * @cfg {String} pathSeparator The token used to separate sub-paths in path strings (defaults to <tt>'/'</tt>)
  * @cfg {Boolean} useArrows <tt>true</tt> to use Vista-style arrows in the tree (defaults to <tt>false</tt>)
  * @cfg {String} requestMethod The HTTP request method for loading data (defaults to the value of <b class='link'>ext.Ajax#method</b>).
@@ -390,5 +390,5 @@ public class TreePanel extends Panel {
      * @method setDisabled
      * @hide
      */
-public static var nodeTypes  : Boolean = {};
+public static var nodeTypes  : Object = {};
 }}

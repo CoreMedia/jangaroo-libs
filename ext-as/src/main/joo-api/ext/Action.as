@@ -57,6 +57,13 @@ public class Action {
 public function Action(config : Object) {
   super(config);
 }
+
+    /**
+     * This Action's initial configuration specification. Read-only.
+     * @property initialConfig
+     */
+    public native function get initialConfig() : Object;
+
     /**
      * @cfg {String} text The text to set for all components using this action (defaults to '').
      */
@@ -162,8 +169,15 @@ public function Action(config : Object) {
      */
     public native function each(fn : Function, scope : Object) : void;
     protected native function callEach(fnName, args) : void;
-    protected native function addComponent(comp) : void;
-    protected native function removeComponent(comp) : void;
+
+    /**
+     * Only for internal use.
+     */
+    public native function addComponent(comp : Component) : void;
+    /**
+     * Only for internal use.
+     */
+    public native function removeComponent(comp : Component) : void;
     /**
      * Executes this action manually using the handler function specified in the original config object
      * or the handler function set with <code><b class='link'>#setHandler</b></code>.  Any arguments passed to this
