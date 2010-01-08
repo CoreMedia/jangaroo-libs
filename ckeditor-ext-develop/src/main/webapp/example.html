@@ -29,13 +29,10 @@
 
       var htmlEditor = {
         xtype: "ckhtmleditor",
-        region: "center",
-        height: 200,
         id: "1"
       };
 
       var htmlEditorToolbar = {
-        region: "north",
         xtype: "htmleditortoolbar",
         height: 30,
         htmlEditorId: "1",
@@ -56,10 +53,20 @@
       new Ext.Viewport({
         layout: "border",
         items: [
-
-          htmlEditor,
-          htmlEditorToolbar
-
+          {
+            region: "west",
+            width: 200 // to test toolbar overflow, we need to shift the CKEditor to the right!
+          },
+          {
+            region: "center",
+            border: false,
+            layout: "anchor",
+            height: 300,
+            items: [
+              htmlEditorToolbar,
+              htmlEditor
+            ]
+          }
         ]
       });
 

@@ -1,226 +1,150 @@
 Ext.namespace('com.coremedia.ui.ckhtmleditor');
 
-com.coremedia.ui.ckhtmleditor.FormatAction = Ext.extend(Ext.Action, {
+com.coremedia.ui.ckhtmleditor.CommandAction = Ext.extend(Ext.Action, {
   constructor: function(config) {
-    this.style = config.style;
-    var styleCommand = new CKEDITOR.styleCommand(this.style);
-    this.pressed = false;
-    delete config.style;
-    com.coremedia.ui.ckhtmleditor.FormatAction.superclass.constructor.call(this, Ext.apply(config, {
+    this.commandName = config.commandName;
+    delete config.commandName;
+    com.coremedia.ui.ckhtmleditor.CommandAction.superclass.constructor.call(this, Ext.apply(config, {
       scale: 'small',
-      enableToggle: true,
       scope: this,
       handler: function() {
-        styleCommand.state = this.pressed ? CKEDITOR.TRISTATE_ON : CKEDITOR.TRISTATE_OFF;
-        styleCommand.exec(this.ckEditor);
+        this.ckEditor.execCommand(this.commandName);
       }
     }));
   },
 
-  createStyle: function(element) {
-    var style = new CKEDITOR.style({ element : element });
-    style.type = CKEDITOR.STYLE_INLINE;
-    return style;
-  },
-
   setCKEditor: function(ckEditor) {
     this.ckEditor = ckEditor;
-    ckEditor.attachStyleStateChange(this.style, this.setState.createDelegate(this));
+    // Now, we can get the command instance and attach as state change listener:
+    var command = this.ckEditor.getCommand(this.commandName);
+    command.on('state', this.setState, this);
   },
 
-  setState: function(ckStyleState) {
-    var pressed = ckStyleState === CKEDITOR.TRISTATE_ON;
-    this.pressed = pressed;
-    this.callEach('toggle', [pressed]);
+  setState: function(evt) {
+    var oldPressed = !!this.pressed;
+    var oldDisabled = !!this.disabled;
+    var state = evt.sender.state;
+    this.disabled = state === CKEDITOR.TRISTATE_DISABLED;
+    if (this.disabled !== oldDisabled) {
+      this.callEach(this.disabled ? 'disable' : 'enable');
+    }
+    if (!this.disabled) {
+      this.pressed = state === CKEDITOR.TRISTATE_ON;
+      if (this.pressed !== oldPressed) {
+        this.callEach('toggle', [this.pressed]);
+      }
+    }
   }
 });
 
-
-com.coremedia.ui.ckhtmleditor.BoldAction = Ext.extend(com.coremedia.ui.ckhtmleditor.FormatAction, {
+com.coremedia.ui.ckhtmleditor.BoldAction = Ext.extend(com.coremedia.ui.ckhtmleditor.CommandAction, {
   constructor: function() {
     com.coremedia.ui.ckhtmleditor.BoldAction.superclass.constructor.call(this, {
       iconCls: 'cm-bold-16',
       text: 'Bold',
       tooltip: 'Mark bold',
-      style: this.createStyle('strong')
+      commandName: 'bold'
     });
   }
 });
 
 
-com.coremedia.ui.ckhtmleditor.ItalicAction = Ext.extend(com.coremedia.ui.ckhtmleditor.FormatAction, {
+com.coremedia.ui.ckhtmleditor.ItalicAction = Ext.extend(com.coremedia.ui.ckhtmleditor.CommandAction, {
   constructor: function() {
     com.coremedia.ui.ckhtmleditor.ItalicAction.superclass.constructor.call(this, {
       iconCls: 'cm-italic-16',
       text: 'Italic',
       tooltip: 'Mark italic',
-      style: this.createStyle('em')
+      commandName: 'italic'
     });
   }
 });
 
 
-com.coremedia.ui.ckhtmleditor.UnderlineAction = Ext.extend(com.coremedia.ui.ckhtmleditor.FormatAction, {
+com.coremedia.ui.ckhtmleditor.UnderlineAction = Ext.extend(com.coremedia.ui.ckhtmleditor.CommandAction, {
   constructor: function() {
     com.coremedia.ui.ckhtmleditor.UnderlineAction.superclass.constructor.call(this, {
       iconCls: 'cm-underline-16',
       text: 'Underline',
       tooltip: 'Mark underline',
-      style: this.createStyle('u')
+      commandName: 'underline'
     });
   }
 });
 
 
-com.coremedia.ui.ckhtmleditor.ListNumberedAction = Ext.extend(Ext.Action, {
+com.coremedia.ui.ckhtmleditor.ListNumberedAction = Ext.extend(com.coremedia.ui.ckhtmleditor.CommandAction, {
   constructor: function() {
     com.coremedia.ui.ckhtmleditor.ListNumberedAction.superclass.constructor.call(this, {
       iconCls: 'cm-list-numbered-16',
       text: 'Numbered List',
       tooltip: 'Insert numbered list',
-      scale: 'small',
-      scope: this,
-      handler: function() {
-        this.ckEditor.focus();
-        this.ckEditor.execCommand('numberedlist');
-      }
+      commandName: 'numberedlist'
     });
-  },
-
-  setCKEditor: function(ckEditor) {
-    this.ckEditor = ckEditor;
-    var style = new CKEDITOR.style({ element : 'ol' });
-    style.type = CKEDITOR.STYLE_INLINE;
-    ckEditor.attachStyleStateChange(style, this.setState.createDelegate(this));
-  },
-
-  setState: function(ckStyleState) {
-    var pressed = ckStyleState === CKEDITOR.TRISTATE_ON;
-    this.pressed = pressed;
-    this.callEach('toggle', [pressed]);
   }
 });
 
 
-com.coremedia.ui.ckhtmleditor.ListBulletedAction = Ext.extend(Ext.Action, {
+com.coremedia.ui.ckhtmleditor.ListBulletedAction = Ext.extend(com.coremedia.ui.ckhtmleditor.CommandAction, {
   constructor: function() {
     com.coremedia.ui.ckhtmleditor.ListBulletedAction.superclass.constructor.call(this, {
       iconCls: 'cm-list-bulleted-16',
       text: 'Bulleted List',
       tooltip: 'Insert bulleted list',
-      scale: 'small',
-      scope: this,
-      handler: function() {
-        this.ckEditor.focus();
-        this.ckEditor.execCommand('bulletedlist');
-      }
+      commandName: 'bulletedlist'
     });
-  },
-
-  setCKEditor: function(ckEditor) {
-    this.ckEditor = ckEditor;
-    var style = new CKEDITOR.style({ element : 'ul' });
-    style.type = CKEDITOR.STYLE_INLINE;
-    ckEditor.attachStyleStateChange(style, this.setState.createDelegate(this));
-  },
-
-  setState: function(ckStyleState) {
-    var pressed = ckStyleState === CKEDITOR.TRISTATE_ON;
-    this.pressed = pressed;
-    this.callEach('toggle', [pressed]);
   }
 });
 
 
-com.coremedia.ui.ckhtmleditor.IndentAction = Ext.extend(Ext.Action, {
+com.coremedia.ui.ckhtmleditor.IndentAction = Ext.extend(com.coremedia.ui.ckhtmleditor.CommandAction, {
   constructor: function() {
     com.coremedia.ui.ckhtmleditor.IndentAction.superclass.constructor.call(this, {
       iconCls: 'indent-16',
       text: 'Indent',
       tooltip: 'Indent',
-      scale: 'small',
-      scope: this,
-      handler: function() {
-        this.ckEditor.focus();
-        this.ckEditor.execCommand('indent');
-      }
+      commandName: 'indent'
     });
-  },
-
-  setCKEditor: function(ckEditor) {
-    this.ckEditor = ckEditor;
-    // Get the command instance.
-    var command = ckEditor.getCommand('indent');
-    if (command) {
-      command.on('state', this.setState, this);
-    }
-  },
-
-  setState: function(ckStyleState) {
-    this.callEach(ckStyleState === CKEDITOR.TRISTATE_OFF ? 'disable' : 'enable');
   }
 });
 
 
-com.coremedia.ui.ckhtmleditor.OutdentAction = Ext.extend(Ext.Action, {
+com.coremedia.ui.ckhtmleditor.OutdentAction = Ext.extend(com.coremedia.ui.ckhtmleditor.CommandAction, {
   constructor: function() {
     com.coremedia.ui.ckhtmleditor.OutdentAction.superclass.constructor.call(this, {
       iconCls: 'outdent-16',
       text: 'Outdent',
       tooltip: 'Outdent',
-      scale: 'small',
-      scope: this,
-      handler: function() {
-        this.ckEditor.focus();
-        this.ckEditor.execCommand('outdent');
-      }
+      commandName: 'outdent'
     });
-  },
-
-  setCKEditor: function(ckEditor) {
-    this.ckEditor = ckEditor;
-    // Get the command instance.
-    var command = ckEditor.getCommand('outdent');
-    if (command) {
-      command.on('state', this.setState, this);
-    }
-  },
-
-  setState: function(ckStyleState) {
-    this.callEach(ckStyleState === CKEDITOR.TRISTATE_OFF ? 'disable' : 'enable');
   }
 });
 
 
-com.coremedia.ui.ckhtmleditor.UnlinkAction = Ext.extend(Ext.Action, {
+com.coremedia.ui.ckhtmleditor.LinkAction = Ext.extend(com.coremedia.ui.ckhtmleditor.CommandAction, {
   constructor: function() {
-    com.coremedia.ui.ckhtmleditor.FormatAction.superclass.constructor.call(this, {
+    com.coremedia.ui.ckhtmleditor.LinkAction.superclass.constructor.call(this, {
+      iconCls: 'cm-externallink-16',
+      text: 'Link',
+      tooltip: 'Link',
+      commandName: 'link'
+    });
+  }
+});
+
+com.coremedia.ui.ckhtmleditor.UnlinkAction = Ext.extend(com.coremedia.ui.ckhtmleditor.CommandAction, {
+  constructor: function() {
+    com.coremedia.ui.ckhtmleditor.UnlinkAction.superclass.constructor.call(this, {
       iconCls: 'cm-externallink-16',
       text: 'Unlink',
       tooltip: 'Unlink',
-      scale: 'small',
-      disabled: true,
-      scope: this,
-      handler: function() {
-        this.ckEditor.focus();
-        this.ckEditor.linkcommand.unlink();
-      }
+      commandName: 'unlink'
     });
-    var style = new CKEDITOR.style({ element : 'a' });
-    style.type = CKEDITOR.STYLE_INLINE;
-  },
-
-  setCKEditor: function(ckEditor) {
-    this.ckEditor = ckEditor;
-    ckEditor.attachStyleStateChange(this.style, this.setState.createDelegate(this));
-  },
-
-  setState: function(ckStyleState) {
-    this.callEach(ckStyleState === CKEDITOR.TRISTATE_OFF ? 'disable' : 'enable');
   }
 });
 
 
+/*
 com.coremedia.ui.ckhtmleditor.LinkAction = Ext.extend(Ext.Action, {
   constructor: function() {
     var win;
@@ -247,7 +171,7 @@ com.coremedia.ui.ckhtmleditor.LinkAction = Ext.extend(Ext.Action, {
       displayField: 'display'
     });
 
-    com.coremedia.ui.ckhtmleditor.FormatAction.superclass.constructor.call(this, {
+    com.coremedia.ui.ckhtmleditor.LinkAction.superclass.constructor.call(this, {
       iconCls: 'cm-externallink-16',
       text: 'Link',
       tooltip: 'Link',
@@ -301,3 +225,4 @@ com.coremedia.ui.ckhtmleditor.LinkAction = Ext.extend(Ext.Action, {
     this.ckEditor = ckEditor;
   }
 });
+*/

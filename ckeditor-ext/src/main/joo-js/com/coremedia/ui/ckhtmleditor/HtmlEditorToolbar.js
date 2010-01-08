@@ -78,14 +78,18 @@ com.coremedia.ui.ckhtmleditor.HtmlEditorToolbar = Ext.extend(Ext.Toolbar, {
 
   onRender: function (ct, position) {
     this.myHtmlEditor = Ext.getCmp(this['htmlEditorId']);
-    this.myHtmlEditor.addListener("afterrender", this._ckEditorAvailable, this);
+    var ckEditor = this.myHtmlEditor.getCKEditor();
+    if (ckEditor) {
+      ckEditor.on('pluginsLoaded', this._ckEditorAvailable, this);
+    } else {
+      CKEDITOR.on('instanceCreated', function(evt) {
+        var ckEditor = evt.editor;
+        if (ckEditor.name === this.myHtmlEditor.id) {
+          ckEditor.on('pluginsLoaded', this._ckEditorAvailable, this);
+        }
+      }, this);
+    }
     com.coremedia.ui.ckhtmleditor.HtmlEditorToolbar.superclass.onRender.call(this, ct, position);
-    var self = this;
-    this.items.each(
-      function(item) {
-        item.baseAction.setCKEditor(self.getCKEditor());
-      }
-      );
   },
 
   getCKEditor: function() {
@@ -103,11 +107,12 @@ com.coremedia.ui.ckhtmleditor.HtmlEditorToolbar = Ext.extend(Ext.Toolbar, {
     return style;
   },
   _ckEditorAvailable: function() {
-    var ckEditorWrapper = this.getHtmlEditor();
-    ckEditorWrapper.removeListener("afterrender", this._ckEditorAvailable);
-    var ckEditor = ckEditorWrapper.getCKEditor();
-
-    var e = this;
+    var ckEditor = this.getCKEditor();
+    this.items.each(
+      function(item) {
+        item.baseAction.setCKEditor(ckEditor);
+      }
+      );
 
     // Listens for some clipboard related keystrokes, so they get customized.
     var onKey = function(event)
@@ -118,16 +123,15 @@ com.coremedia.ui.ckhtmleditor.HtmlEditorToolbar = Ext.extend(Ext.Toolbar, {
         case CKEDITOR.CTRL + 86 :                // CTRL+V
         case CKEDITOR.SHIFT + 45 :                // SHIFT+INS
 
-          var editor = ckEditor;
-          editor.fire('saveSnapshot');                // Save before paste
+          ckEditor.fire('saveSnapshot');                // Save before paste
 
-          e.pasteAsPlainText();
-          //if (editor.fire('beforePaste'))
+          this.pasteAsPlainText();
+          //if (ckEditor.fire('beforePaste'))
           event.cancel();
 
           setTimeout(function()
           {
-            editor.fire('saveSnapshot');		// Save after paste
+            ckEditor.fire('saveSnapshot');		// Save after paste
           }, 0);
           return;
 
@@ -136,28 +140,14 @@ com.coremedia.ui.ckhtmleditor.HtmlEditorToolbar = Ext.extend(Ext.Toolbar, {
         case CKEDITOR.SHIFT + 46 :                // SHIFT+DEL
 
           // Save Undo snapshot.
-          editor = this;
-          editor.fire('saveSnapshot');                // Save before paste
+          ckEditor.fire('saveSnapshot');                // Save before paste
           setTimeout(function()
           {
-            editor.fire('saveSnapshot');		// Save after paste
+            ckEditor.fire('saveSnapshot');		// Save after paste
           }, 0);
       }
     };
-
-
-    ckEditor.on('key', onKey, ckEditor);
-
-
-  },
-  attachStyleStateChange: function(style, callback) {
-    if (this.styleStateChangeCallbacks) {
-      // store and add when CKEditor instance is available:
-      this.styleStateChangeCallbacks.push({style: style, callback: callback});
-    } else {
-      // CKEditor instance is available: add directly!
-      this.getHtmlEditor().getCKEditor().attachStyleStateChange(style, callback);
-    }
+    ckEditor.on('key', onKey, this);
   },
   getHtmlEditor: function() {
     return this.myHtmlEditor;
