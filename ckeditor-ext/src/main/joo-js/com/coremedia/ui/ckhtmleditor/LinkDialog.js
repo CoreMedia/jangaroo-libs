@@ -15,16 +15,11 @@ com.coremedia.ui.ckhtmleditor.LinkDialog = Ext.extend(Ext.Window, {
       fieldLabel: 'Target',
       mode: 'local',
       forceSelection: true,
-      store: new Ext.data.ArrayStore({
-        id: 0,
-        fields: ['value', 'display'],
-        data: [
+      store:
+        [
           ['_self', 'same window'],
           ['_blank', 'new window']
         ]
-      }),
-      valueField: 'value',
-      displayField: 'display'
     });
 
     com.coremedia.ui.ckhtmleditor.LinkDialog.superclass.constructor.call(this, Ext.apply(config, {
