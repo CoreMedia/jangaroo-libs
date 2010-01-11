@@ -99,16 +99,6 @@ com.coremedia.ui.ckhtmleditor.HtmlEditorToolbar = Ext.extend(Ext.Toolbar, {
     return this.myHtmlEditor.getCKEditor();
   },
 
-  createStyle: function(element) {
-    var style = new CKEDITOR.style({ element : element });
-    style.type = CKEDITOR.STYLE_INLINE;
-    return style;
-  },
-  createStyleWithAttributes: function(element, attributes) {
-    var style = new CKEDITOR.style({ element : element, attributes : attributes  });
-    style.type = CKEDITOR.STYLE_INLINE;
-    return style;
-  },
   _ckEditorAvailable: function() {
     var ckEditor = this.getCKEditor();
     this.items.each(
