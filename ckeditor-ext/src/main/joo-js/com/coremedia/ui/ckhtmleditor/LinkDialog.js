@@ -3,7 +3,7 @@ Ext.namespace('com.coremedia.ui.ckhtmleditor');
 /**
  * @class com.coremedia.ui.ckhtmleditor.LinkDialog
  * @extends Ext.Window
- * @xtype ckdialog.link
+ * @xtype ck.dialog.link
  */
 com.coremedia.ui.ckhtmleditor.LinkDialog = Ext.extend(Ext.Window, {
   constructor: function(config) {
@@ -64,4 +64,4 @@ com.coremedia.ui.ckhtmleditor.LinkDialog = Ext.extend(Ext.Window, {
 });
 
 // register xtype
-Ext.reg('ckdialog.link', com.coremedia.ui.ckhtmleditor.LinkDialog);
+Ext.reg('ck.dialog.link', com.coremedia.ui.ckhtmleditor.LinkDialog);

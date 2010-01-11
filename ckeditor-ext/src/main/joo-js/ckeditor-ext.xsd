@@ -9,63 +9,38 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name='ckhtmleditor' type='ckeditor-ext:com.coremedia.ui.ckhtmleditor.HtmlEditor' substitutionGroup='ext:textarea'>
+  <xs:element id='ck.htmleditor' name='htmleditor' type='ckeditor-ext:com.coremedia.ui.ckhtmleditor.HtmlEditor' substitutionGroup='ext:textarea'>
   </xs:element>
-  <xs:complexType name='com.coremedia.ui.ckhtmleditor.RichtextEditor'>
+  <xs:complexType name='com.coremedia.ui.ckhtmleditor.HtmlEditorToolbar'>
     <xs:complexContent>
       <xs:extension base='ext:ext.Panel'>
         <xs:all>
-            <xs:element name='toolbar' minOccurs="0" maxOccurs="1">
-              <xs:annotation>
-                <xs:documentation>
-    The RichText toolbar configuration.
-                </xs:documentation>
-              </xs:annotation>
-              <xs:complexType>
-                <xs:simpleContent>
-                  <xs:extension base="xs:string">
-                    <xs:anyAttribute processContents="skip"/>
-                  </xs:extension>
-                </xs:simpleContent>
-              </xs:complexType>
-            </xs:element>
-            <xs:element name='field' minOccurs="0" maxOccurs="1">
-              <xs:annotation>
-                <xs:documentation>
-    The RichText field configuration. @param config
-                </xs:documentation>
-              </xs:annotation>
-              <xs:complexType>
-                <xs:simpleContent>
-                  <xs:extension base="xs:string">
-                    <xs:anyAttribute processContents="skip"/>
-                  </xs:extension>
-                </xs:simpleContent>
-              </xs:complexType>
-            </xs:element>
         </xs:all>
-        <xs:attribute type='xs:string' name='toolbar'>
+        <xs:attribute type='xs:string' name='htmlEditorId'>
           <xs:annotation>
             <xs:documentation>
-The RichText toolbar configuration.
-            </xs:documentation>
-          </xs:annotation>
-        </xs:attribute>
-        <xs:attribute type='xs:string' name='field'>
-          <xs:annotation>
-            <xs:documentation>
-The RichText field configuration. @param config
+The ckhtmleditor's ID. Optional if the target ckhtmleditor is below the same container as this toolbar. @param config all config options of toolbar plus the ones documented above.
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name='richtexteditor' type='ckeditor-ext:com.coremedia.ui.ckhtmleditor.RichtextEditor' substitutionGroup='ext:panel'>
+  <xs:element id='ck.toolbar' name='toolbar' type='ckeditor-ext:com.coremedia.ui.ckhtmleditor.HtmlEditorToolbar' substitutionGroup='ext:panel'>
     <xs:annotation>
       <xs:documentation>
-Richtext Editor is a CKEditor with an Ext toolbar.
+An Ext toolbar that connects to a ckhtmleditor (Ext CKEdtior wrapper) component. The ckhtmleditor must be below the same container as this toolbar, or the config attribute 'htmlEditorId' must be set.
       </xs:documentation>
     </xs:annotation>
+  </xs:element>
+  <xs:complexType name='com.coremedia.ui.ckhtmleditor.LinkDialog'>
+    <xs:complexContent>
+      <xs:extension base='ext:ext.Window'>
+        <xs:all>
+        </xs:all>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element id='ck.dialog.link' name='link' type='ckeditor-ext:com.coremedia.ui.ckhtmleditor.LinkDialog' substitutionGroup='ext:window'>
   </xs:element>
 </xs:schema>

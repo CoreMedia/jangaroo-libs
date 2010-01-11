@@ -3,7 +3,7 @@ Ext.namespace('com.coremedia.ui.ckhtmleditor');
 /**
  * @class com.coremedia.ui.ckhtmleditor.HtmlEditor
  * @extends Ext.form.TextArea
- * @xtype ckhtmleditor
+ * @xtype ck.htmleditor
  */
 com.coremedia.ui.ckhtmleditor.HtmlEditor = Ext.extend(Ext.form.TextArea, {
   constructor: function (config) {
@@ -69,4 +69,4 @@ com.coremedia.ui.ckhtmleditor.HtmlEditor = Ext.extend(Ext.form.TextArea, {
     this.getCKEditor().focus();
   }
 });
-Ext.reg('ckhtmleditor', com.coremedia.ui.ckhtmleditor.HtmlEditor);
+Ext.reg('ck.htmleditor', com.coremedia.ui.ckhtmleditor.HtmlEditor);

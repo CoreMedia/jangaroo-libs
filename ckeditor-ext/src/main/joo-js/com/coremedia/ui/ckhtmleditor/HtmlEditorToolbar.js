@@ -4,14 +4,14 @@ Ext.namespace('com.coremedia.ui.ckhtmleditor');
 /**
  * @class com.coremedia.ui.ckhtmleditor.HtmlEditorToolbar
  * @extends Ext.Panel
- * @xtype cktoolbar
- * An Ext toolbar that connects to a ckhtmleditor (Ext CKEdtior wrapper) component.
- * The ckhtmleditor must be below the same container as this toolbar, or the config attribute 'htmlEditorId'
+ * @xtype ck.toolbar
+ * An Ext toolbar that connects to a ck.htmleditor (Ext CKEdtior wrapper) component.
+ * The ck.htmleditor must be below the same container as this toolbar, or the config attribute 'htmlEditorId'
  * must be set.
  */
 com.coremedia.ui.ckhtmleditor.HtmlEditorToolbar = Ext.extend(Ext.Toolbar, {
   /**
-   * @cfg {Object} htmlEditorId The ckhtmleditor's ID. Optional if the target ckhtmleditor is below the same
+   * @cfg {String} htmlEditorId The ck.htmleditor's ID. Optional if the target ck.htmleditor is below the same
    *   container as this toolbar.
    * @param config all config options of toolbar plus the ones documented above.
    */
@@ -80,7 +80,7 @@ com.coremedia.ui.ckhtmleditor.HtmlEditorToolbar = Ext.extend(Ext.Toolbar, {
   },
 
   onRender: function (ct, position) {
-    this.myHtmlEditor = this['htmlEditorId'] ? Ext.getCmp(this['htmlEditorId']) : this.ownerCt.findByType('ckhtmleditor')[0];
+    this.myHtmlEditor = this['htmlEditorId'] ? Ext.getCmp(this['htmlEditorId']) : this.ownerCt.findByType('ck.htmleditor')[0];
     var ckEditor = this.myHtmlEditor.getCKEditor();
     if (ckEditor) {
       ckEditor.on('pluginsLoaded', this._ckEditorAvailable, this);
@@ -148,7 +148,7 @@ com.coremedia.ui.ckhtmleditor.HtmlEditorToolbar = Ext.extend(Ext.Toolbar, {
 });
 
 // register xtype
-Ext.reg('cktoolbar', com.coremedia.ui.ckhtmleditor.HtmlEditorToolbar);
+Ext.reg('ck.toolbar', com.coremedia.ui.ckhtmleditor.HtmlEditorToolbar);
 
 
 // Define empty Item#toggle method to make it Button-API-compatible:

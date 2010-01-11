@@ -58,7 +58,7 @@ CKEDITOR.plugins.add('extdialog',
       }
       if (!dialog) {
         dialog = Ext.create({
-          xtype: "ckdialog."+this._.name,
+          xtype: "ck.dialog."+this._.name,
           layout:'fit',
           plain: true,
           modal:true,
