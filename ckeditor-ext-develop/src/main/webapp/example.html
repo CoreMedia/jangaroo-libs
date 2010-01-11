@@ -30,14 +30,12 @@
 
 
       var htmlEditor = {
-        xtype: "ckhtmleditor",
-        id: "1"
+        xtype: "ckhtmleditor"
       };
 
       var htmlEditorToolbar = {
-        xtype: "htmleditortoolbar",
+        xtype: "cktoolbar",
         height: 30,
-        htmlEditorId: "1",
         items: [
           new com.coremedia.ui.IconButton(new com.coremedia.ui.ckhtmleditor.BoldAction()),
           new com.coremedia.ui.IconButton(new com.coremedia.ui.ckhtmleditor.ItalicAction()),
@@ -47,7 +45,7 @@
           new com.coremedia.ui.IconButton(new com.coremedia.ui.ckhtmleditor.ListBulletedAction()),
           new com.coremedia.ui.IconButton(new com.coremedia.ui.ckhtmleditor.ListNumberedAction()),
           new com.coremedia.ui.IconButton(new com.coremedia.ui.ckhtmleditor.IndentAction()),
-          new com.coremedia.ui.IconButton(new com.coremedia.ui.ckhtmleditor.OutdentAction()),
+          new com.coremedia.ui.IconButton(new com.coremedia.ui.ckhtmleditor.OutdentAction())
         ]
       };
 
@@ -74,8 +72,9 @@
 
       // exit Ext.onReady
     },
+      undefined,
       // time delay to prevent extjs render bug
-      this, {
+    {
       delay: 150
     });
   </script>

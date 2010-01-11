@@ -1,7 +1,7 @@
 Ext.namespace('com.coremedia.ui.ckhtmleditor');
 
 com.coremedia.ui.ckhtmleditor.LinkDialog = Ext.extend(Ext.Window, {
-  constructor: function() {
+  constructor: function(config) {
     this.href_textField = new Ext.form.TextField({fieldLabel: 'URL', allowBlank:false});
     this.target_comboBox = new Ext.form.ComboBox({
       typeAhead: true,
@@ -22,42 +22,38 @@ com.coremedia.ui.ckhtmleditor.LinkDialog = Ext.extend(Ext.Window, {
       displayField: 'display'
     });
 
-    com.coremedia.ui.ckhtmleditor.LinkDialog.superclass.constructor.call(this, {
-            layout:'fit',
-            width:500,
-            height:300,
-            modal:true,
-            closeAction:'hide',
-            plain: true,
-            items: new Ext.FormPanel({
-              frame:true,
-              title: 'Insert Link...',
-              defaults: {width: 230},
-              items: [
-                this.href_textField,
-                this.target_comboBox
-              ]
-            }),
-            buttons: [
-              {
-                text:'Okay',
-                scope: this,
-                handler: function() {
-                  this.data = {'url' : { 'url' : this.href_textField.getValue() }, 'target': this.target_comboBox.getValue() };
-                  this.hide();
-                }
-              },
-              {
-                text: 'Cancel',
-                scope: this,
-                handler: function() {
-                  this.data = null;
-                  this.hide();
-                }
-              }
-            ]
-          });
-      },
+    com.coremedia.ui.ckhtmleditor.LinkDialog.superclass.constructor.call(this, Ext.apply(config, {
+      width:500,
+      height:300,
+      items: new Ext.FormPanel({
+        frame:true,
+        title: 'Insert Link...',
+        defaults: {width: 230},
+        items: [
+          this.href_textField,
+          this.target_comboBox
+        ]
+      }),
+      buttons: [
+        {
+          text:'Okay',
+          scope: this,
+          handler: function() {
+            this.data = {'url' : { 'url' : this.href_textField.getValue() }, 'target': this.target_comboBox.getValue() };
+            this.hide();
+          }
+        },
+        {
+          text: 'Cancel',
+          scope: this,
+          handler: function() {
+            this.data = null;
+            this.hide();
+          }
+        }
+      ]
+    }));
+  },
   setData: function(data) {
     this.data = data;
     this.href_textField.setValue(data && data.url ? data.url.url : '');
@@ -66,3 +62,6 @@ com.coremedia.ui.ckhtmleditor.LinkDialog = Ext.extend(Ext.Window, {
     return this.data;
   }
 });
+
+// register xtype
+Ext.reg('ckdialog.link', com.coremedia.ui.ckhtmleditor.LinkDialog);

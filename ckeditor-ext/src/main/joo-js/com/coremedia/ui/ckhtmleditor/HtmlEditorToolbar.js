@@ -4,13 +4,16 @@ Ext.namespace('com.coremedia.ui.ckhtmleditor');
 /**
  * @class com.coremedia.ui.ckhtmleditor.HtmlEditorToolbar
  * @extends Ext.Panel
- * @xtype htmleditortoolbar
- * Richtext Editor is a CKEditor with an Ext toolbar.
+ * @xtype cktoolbar
+ * An Ext toolbar that connects to a ckhtmleditor (Ext CKEdtior wrapper) component.
+ * The ckhtmleditor must be below the same container as this toolbar, or the config attribute 'htmlEditorId'
+ * must be set.
  */
 com.coremedia.ui.ckhtmleditor.HtmlEditorToolbar = Ext.extend(Ext.Toolbar, {
   /**
-   * @cfg {Object} htmlEditorId The HtmlEditors ID.
-   * @param config
+   * @cfg {Object} htmlEditorId The ckhtmleditor's ID. Optional if the target ckhtmleditor is below the same
+   *   container as this toolbar.
+   * @param config all config options of toolbar plus the ones documented above.
    */
   constructor: function(config) {
     // private members:
@@ -77,7 +80,7 @@ com.coremedia.ui.ckhtmleditor.HtmlEditorToolbar = Ext.extend(Ext.Toolbar, {
   },
 
   onRender: function (ct, position) {
-    this.myHtmlEditor = Ext.getCmp(this['htmlEditorId']);
+    this.myHtmlEditor = this['htmlEditorId'] ? Ext.getCmp(this['htmlEditorId']) : this.ownerCt.findByType('ckhtmleditor')[0];
     var ckEditor = this.myHtmlEditor.getCKEditor();
     if (ckEditor) {
       ckEditor.on('pluginsLoaded', this._ckEditorAvailable, this);
@@ -155,7 +158,7 @@ com.coremedia.ui.ckhtmleditor.HtmlEditorToolbar = Ext.extend(Ext.Toolbar, {
 });
 
 // register xtype
-Ext.reg('htmleditortoolbar', com.coremedia.ui.ckhtmleditor.HtmlEditorToolbar);
+Ext.reg('cktoolbar', com.coremedia.ui.ckhtmleditor.HtmlEditorToolbar);
 
 
 // Define empty Item#toggle method to make it Button-API-compatible:

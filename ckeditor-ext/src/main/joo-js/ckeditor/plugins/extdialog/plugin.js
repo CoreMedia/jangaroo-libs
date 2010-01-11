@@ -57,7 +57,13 @@ CKEDITOR.plugins.add('extdialog',
         selection && selection.lock();
       }
       if (!dialog) {
-        dialog = new com.coremedia.ui.ckhtmleditor.LinkDialog(); // TODO: dispatch by dialogName!
+        dialog = Ext.create({
+          xtype: "ckdialog."+this._.name,
+          layout:'fit',
+          plain: true,
+          modal:true,
+          closeAction:'hide'
+        }, "window");
         dialog.on('hide', function() {
           var dialogData = dialog.getData();
           if (dialogData) {
