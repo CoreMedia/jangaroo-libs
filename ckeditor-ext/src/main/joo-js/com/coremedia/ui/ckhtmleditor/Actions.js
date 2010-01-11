@@ -103,3 +103,25 @@ com.coremedia.ui.ckhtmleditor.UnlinkAction = Ext.extend(com.coremedia.ui.ckhtmle
     });
   }
 });
+
+com.coremedia.ui.ckhtmleditor.UndoAction = Ext.extend(com.coremedia.ui.ckhtmleditor.CommandAction, {
+  constructor: function() {
+    com.coremedia.ui.ckhtmleditor.UndoAction.superclass.constructor.call(this, {
+      iconCls: 'undo-16',
+      text: 'Undo',
+      tooltip: 'Undo',
+      commandName: 'undo'
+    });
+  }
+});
+
+com.coremedia.ui.ckhtmleditor.RedoAction = Ext.extend(com.coremedia.ui.ckhtmleditor.CommandAction, {
+  constructor: function() {
+    com.coremedia.ui.ckhtmleditor.RedoAction.superclass.constructor.call(this, {
+      iconCls: 'redo-16',
+      text: 'Redo',
+      tooltip: 'Redo',
+      commandName: 'redo'
+    });
+  }
+});
