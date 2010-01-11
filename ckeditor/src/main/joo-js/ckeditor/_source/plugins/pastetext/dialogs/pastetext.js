@@ -1,4 +1,4 @@
-﻿/*
+/*
 Copyright (c) 2003-2009, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.html or http://ckeditor.com/license
 */
@@ -16,15 +16,15 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 				onShow : function()
 				{
 					// Reset the textarea value.
-					this.getContentElement( 'general', 'content' ).getInputElement().setValue( '' );
+					this.setupContent( { text : '' } );
 				},
 
 				onOk : function()
 				{
-					// Get the textarea value.
-					var text = this.getContentElement( 'general', 'content' ).getInputElement().getValue();
-
+					var data = {};
+					this.commitContent( data );
 					// Inserts the text.
+					var text = data.text;
 					this.getParentEditor().insertText( text );
 				},
 
@@ -55,6 +55,16 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 								focus : function()
 								{
 									this.getElement().focus();
+								},
+								setup : function( data )
+								{
+									// Set the textarea value.
+									this.getInputElement().setValue( data.text || '' );
+								},
+								commit : function( data )
+								{
+									// Get the textarea value.
+									data.text = this.getInputElement().getValue();
 								}
 							}
 						]
