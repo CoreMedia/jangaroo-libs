@@ -1,5 +1,10 @@
 Ext.namespace('com.coremedia.ui.ckhtmleditor');
 
+/**
+ * @class com.coremedia.ui.ckhtmleditor.LinkDialog
+ * @extends Ext.Window
+ * @xtype ckdialog.link
+ */
 com.coremedia.ui.ckhtmleditor.LinkDialog = Ext.extend(Ext.Window, {
   constructor: function(config) {
     this.href_textField = new Ext.form.TextField({fieldLabel: 'URL', allowBlank:false});

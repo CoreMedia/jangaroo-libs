@@ -1,5 +1,9 @@
 Ext.namespace('com.coremedia.ui.ckhtmleditor');
 
+/**
+ * @class com.coremedia.ui.ckhtmleditor.CommandAction
+ * @extends Ext.Action
+ */
 com.coremedia.ui.ckhtmleditor.CommandAction = Ext.extend(Ext.Action, {
   constructor: function(config) {
     this.commandName = config.commandName;
