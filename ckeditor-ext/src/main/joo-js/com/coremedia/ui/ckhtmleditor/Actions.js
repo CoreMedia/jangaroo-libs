@@ -82,6 +82,18 @@ com.coremedia.ui.ckhtmleditor.OutdentAction = Ext.extend(com.coremedia.ui.ckhtml
 });
 
 
+com.coremedia.ui.ckhtmleditor.PasteTextAction = Ext.extend(com.coremedia.ui.ckhtmleditor.CommandAction, {
+  constructor: function() {
+    com.coremedia.ui.ckhtmleditor.PasteTextAction.superclass.constructor.call(this, {
+      iconCls: 'cm-paste-16',
+      text: 'Paste',
+      tooltip: 'Paste as plaintext',
+      commandName: 'pastetext'
+    });
+  }
+});
+
+
 com.coremedia.ui.ckhtmleditor.LinkAction = Ext.extend(com.coremedia.ui.ckhtmleditor.CommandAction, {
   constructor: function() {
     com.coremedia.ui.ckhtmleditor.LinkAction.superclass.constructor.call(this, {

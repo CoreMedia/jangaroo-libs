@@ -16,67 +16,7 @@ com.coremedia.ui.ckhtmleditor.HtmlEditorToolbar = Ext.extend(Ext.Toolbar, {
    * @param config all config options of toolbar plus the ones documented above.
    */
   constructor: function(config) {
-    // private members:
-
-    var win;
-    var textarea = new Ext.form.TextArea();
-
-    var self = this; // workaround for non-working scope: this (see usage below)
-
-    var handlePaste = function() {
-      self.getCKEditor().insertText(textarea.getValue());
-      textarea.reset();
-      win.hide();
-    };
-
-    // "privileged" methods:
-    this.pasteAsPlainText = function() {
-
-
-      if (!(CKEDITOR.getClipboardData() === false || !window.clipboardData))
-      {
-        this.getCKEditor().insertText(window.clipboardData.getData('Text'));
-        return;
-      }
-
-
-      if (!win) {
-        win = new Ext.Window({
-          layout:'fit',
-          width:500,
-          height:300,
-          modal:true,
-          closeAction:'hide',
-          plain: true,
-          items: new Ext.FormPanel({
-            layout: 'fit',
-            title: 'Paste as plain text',
-            items: [
-              textarea
-            ]
-          }),
-          buttons: [
-            {
-              text: 'Paste',
-              iconCls: 'cm-paste-16',
-              handler: handlePaste,
-              scope: this // does not work?!
-            },
-            {
-              text: 'Cancel',
-              handler: function() {
-                win.hide();
-              }
-            }
-          ]
-        });
-      }
-      win.show(this);
-    };
-
-
     com.coremedia.ui.ckhtmleditor.HtmlEditorToolbar.superclass.constructor.call(this, config);
-
   },
 
   onRender: function (ct, position) {
@@ -105,42 +45,7 @@ com.coremedia.ui.ckhtmleditor.HtmlEditorToolbar = Ext.extend(Ext.Toolbar, {
       function(item) {
         item.baseAction.setCKEditor(ckEditor);
       }
-      );
-
-    // Listens for some clipboard related keystrokes, so they get customized.
-    var onKey = function(event)
-    {
-      switch (event.data.keyCode)
-        {
-        // Paste
-        case CKEDITOR.CTRL + 86 :                // CTRL+V
-        case CKEDITOR.SHIFT + 45 :                // SHIFT+INS
-
-          ckEditor.fire('saveSnapshot');                // Save before paste
-
-          this.pasteAsPlainText();
-          //if (ckEditor.fire('beforePaste'))
-          event.cancel();
-
-          setTimeout(function()
-          {
-            ckEditor.fire('saveSnapshot');		// Save after paste
-          }, 0);
-          return;
-
-        // Cut
-        case CKEDITOR.CTRL + 88 :                // CTRL+X
-        case CKEDITOR.SHIFT + 46 :                // SHIFT+DEL
-
-          // Save Undo snapshot.
-          ckEditor.fire('saveSnapshot');                // Save before paste
-          setTimeout(function()
-          {
-            ckEditor.fire('saveSnapshot');		// Save after paste
-          }, 0);
-      }
-    };
-    ckEditor.on('key', onKey, this);
+    );
   },
   getHtmlEditor: function() {
     return this.myHtmlEditor;

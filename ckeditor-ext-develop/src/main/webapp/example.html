@@ -14,7 +14,7 @@
 
   <script type="text/javascript" src="scripts/ext-base-debug.js"></script>
   <script type="text/javascript" src="scripts/ext-all-debug.js"></script>
-  <script type="text/javascript" src="scripts/ckeditor/ckeditor.js"></script>
+  <script type="text/javascript" src="scripts/ckeditor/ckeditor_source.js"></script>
 
   <script type="text/javascript" src="scripts/theme.js"></script>
   <script type="text/javascript" src="scripts/com/coremedia/ui/ckhtmleditor/HtmlEditor.js"></script>
@@ -22,6 +22,7 @@
   <script type="text/javascript" src="scripts/com/coremedia/ui/ckhtmleditor/CommandAction.js"></script>
   <script type="text/javascript" src="scripts/com/coremedia/ui/ckhtmleditor/Actions.js"></script>
   <script type="text/javascript" src="scripts/com/coremedia/ui/ckhtmleditor/LinkDialog.js"></script>
+  <script type="text/javascript" src="scripts/com/coremedia/ui/ckhtmleditor/PasteTextDialog.js"></script>
 
   <script type="text/javascript">
     Ext.onReady(function () {
@@ -30,16 +31,17 @@
 
 
       var htmlEditor = {
-        xtype: "ckhtmleditor"
+        xtype: "ck.htmleditor"
       };
 
       var htmlEditorToolbar = {
-        xtype: "cktoolbar",
+        xtype: "ck.toolbar",
         height: 30,
         items: [
           new com.coremedia.ui.IconButton(new com.coremedia.ui.ckhtmleditor.BoldAction()),
           new com.coremedia.ui.IconButton(new com.coremedia.ui.ckhtmleditor.ItalicAction()),
           new com.coremedia.ui.IconButton(new com.coremedia.ui.ckhtmleditor.UnderlineAction()),
+          new com.coremedia.ui.IconButton(new com.coremedia.ui.ckhtmleditor.PasteTextAction()),
           new com.coremedia.ui.IconButton(new com.coremedia.ui.ckhtmleditor.LinkAction()),
           new com.coremedia.ui.IconButton(new com.coremedia.ui.ckhtmleditor.UnlinkAction()),
           new com.coremedia.ui.IconButton(new com.coremedia.ui.ckhtmleditor.ListBulletedAction()),
