@@ -50,22 +50,21 @@ CKEDITOR.plugins.add('extdialog',
       }
     }
     CKEDITOR.dialog.prototype = ckDialog.prototype;
-    var dialog;
     CKEDITOR.dialog.prototype.show = function dialog$show() {
       if (editor.mode == 'wysiwyg' && CKEDITOR.env.ie) {
         var selection = editor.getSelection();
         selection && selection.lock();
       }
-      if (!dialog) {
-        dialog = Ext.create({
+      if (!this._.dialog) {
+        this._.dialog = Ext.create({
           xtype: "ck.dialog."+this._.name,
           layout:'fit',
           plain: true,
           modal:true,
           closeAction:'hide'
         }, "window");
-        dialog.on('hide', function() {
-          var dialogData = dialog.getData();
+        this._.dialog.on('hide', function() {
+          var dialogData = this._.dialog.getData();
           if (dialogData) {
             this.fire('ok', {});
           } else {
@@ -74,7 +73,7 @@ CKEDITOR.plugins.add('extdialog',
         }, this);
       }
       this.fire('show', {});
-      dialog.show();
+      this._.dialog.show();
     };
     CKEDITOR.dialog.prototype.hide = function() {
       this.fire('hide', {});
@@ -84,10 +83,10 @@ CKEDITOR.plugins.add('extdialog',
       }
     };
     CKEDITOR.dialog.prototype.setupContent = function dialog$setupContent(data) {
-      dialog.setData(data);
+      this._.dialog.setData(data);
     };
     CKEDITOR.dialog.prototype.commitContent = function dialog$commitContent(data) {
-      var dialogData = dialog.getData();
+      var dialogData = this._.dialog.getData();
       for (var m in dialogData) {
         data[m] = dialogData[m];
       }
