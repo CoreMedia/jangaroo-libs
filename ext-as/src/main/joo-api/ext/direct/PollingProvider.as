@@ -9,36 +9,34 @@ package ext.direct {
  * API portion of the ext.Direct stack.</p>
  *
  * <p>An instance of PollingProvider may be created directly via the new keyword or by simply
- * specifying <tt>type = 'polling'</tt>.  For example:</p>
+ * specifying <code>type = 'polling'</code>.  For example:</p>
  * <pre><code>
 var pollA = new Ext.direct.PollingProvider({
-    type:'polling',
-    url: 'php/pollA.php',
+    type&#58;'polling',
+    url&#58; 'php/pollA.php',
 });
 ext.Direct.addProvider(pollA);
 pollA.disconnect();
 
 ext.Direct.addProvider(
     {
-        type:'polling',
-        url: 'php/pollB.php',
-        id: 'pollB-provider'
+        type&#58;'polling',
+        url&#58; 'php/pollB.php',
+        id&#58; 'pollB-provider'
     }
 );
 var pollB = ext.Direct.getProvider('pollB-provider');
  * </code></pre>
  */
-    /**
-*/
-public class PollingProvider extends JsonProvider {
+    public class PollingProvider extends JsonProvider {
 /**
      * @cfg {Number} priority
-     * Priority of the request (defaults to <tt>3</tt>). See <b class='link'>Ext.direct.Provider#priority</b>.
+     * Priority of the request (defaults to <code>3</code>). See <b class='link'>Ext.direct.Provider#priority</b>.
      */
     //public var priority;
     /**
      * @cfg {Number} interval
-     * How often to poll the server-side in milliseconds (defaults to <tt>3000</tt> - every
+     * How often to poll the server-side in milliseconds (defaults to <code>3000</code> - every
      * 3 seconds).
      */
     public var interval : Number;

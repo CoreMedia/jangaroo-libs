@@ -8,16 +8,16 @@ import ext.util.Observable;
  * whose elements are node definition objects. e.g.:
  * <pre><code>
     [{
-        id: 1,
-        text: 'A leaf Node',
-        leaf: true
+        id&#58; 1,
+        text&#58; 'A leaf Node',
+        leaf&#58; true
     },{
-        id: 2,
-        text: 'A folder Node',
-        children: [{
-            id: 3,
-            text: 'A child Node',
-            leaf: true
+        id&#58; 2,
+        text&#58; 'A folder Node',
+        children&#58; [{
+            id&#58; 3,
+            text&#58; 'A child Node',
+            leaf&#58; true
         }]
    }]
 </code></pre>
@@ -55,7 +55,7 @@ public function TreeLoader(config : Object) {
      * @cfg {String} requestMethod The HTTP request method for loading data (defaults to the value of <b class='link'>ext.Ajax#method</b>).
      */
     /**
-     * @cfg {String} url Equivalent to <b class='link'>#dataUrl</b>.
+     * @cfg {String} url Equivalent to <b class='link' title='#dataUrl'>dataUrl</b>.
      */
     /**
      * @cfg {Boolean} preloadChildren If set to true, the loader recursively loads "children" attributes when doing the first load on nodes.
@@ -83,23 +83,23 @@ public function TreeLoader(config : Object) {
     */
     public var clearOnLoad  : Boolean;
     /**
-     * @cfg {Array/String} paramOrder Defaults to <tt>undefined</tt>. Only used when using directFn.
+     * @cfg {Array/String} paramOrder Defaults to <code>undefined</code>. Only used when using directFn.
      * A list of params to be executed
      * server side.  Specify the params in the order in which they must be executed on the server-side
      * as either (1) an Array of String values, or (2) a String of params delimited by either whitespace,
      * comma, or pipe. For example,
      * any of the following would be acceptable:<pre><code>
-paramOrder: ['param1','param2','param3']
-paramOrder: 'param1 param2 param3'
-paramOrder: 'param1,param2,param3'
-paramOrder: 'param1|param2|param'
+paramOrder&#58; ['param1','param2','param3']
+paramOrder&#58; 'param1 param2 param3'
+paramOrder&#58; 'param1,param2,param3'
+paramOrder&#58; 'param1|param2|param'
      </code></pre>
      */
     public var paramOrder : *;
     /**
      * @cfg {Boolean} paramsAsHash Only used when using directFn.
-     * Send parameters as a collection of named arguments (defaults to <tt>false</tt>). Providing a
-     * <tt><b class='link'>#paramOrder</b></tt> nullifies this configuration.
+     * Send parameters as a collection of named arguments (defaults to <code>false</code>). Providing a
+     * <code><b class='link' title='#paramOrder'>paramOrder</b></code> nullifies this configuration.
      */
     public var paramsAsHash : Boolean;
     /**
@@ -110,7 +110,7 @@ paramOrder: 'param1|param2|param'
     /**
      * Load an <b class='link'>Ext.tree.TreeNode</b> from the URL specified in the constructor.
      * This is called automatically when a node is expanded, but may be used to reload
-     * a node (or append new children if the <b class='link'>#clearOnLoad</b> option is false.)
+     * a node (or append new children if the <b class='link' title='#clearOnLoad'>clearOnLoad</b> option is false.)
      * @param node
      * @param callback
      * @param scope
@@ -130,10 +130,10 @@ paramOrder: 'param1|param2|param'
 new Ext.tree.TreePanel({
     ...
     new Ext.tree.TreeLoader({
-        url: 'dataUrl',
-        createNode: function(attr) {
-//          Allow consolidation consignments to have
-//          consignments dropped into them.
+        url&#58; 'dataUrl',
+        createNode&#58; function(attr) {
+&#47;/          Allow consolidation consignments to have
+&#47;/          consignments dropped into them.
             if (attr.isConsolidation) {
                 attr.iconCls = 'x-consol',
                 attr.allowDrop = true;

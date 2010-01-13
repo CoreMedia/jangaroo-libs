@@ -27,11 +27,11 @@ public function GridView(config : Object) {
      * to the row's wrapping div.  To apply multiple class names, simply return them space-delimited within the string
      * (e.g., 'my-class another-class'). Example usage:
     <pre><code>
-viewConfig: {
-    forceFit: true,
-    showPreview: true, // custom property
-    enableRowBody: true, // required to create a second, full-width row to show expanded Record data
-    getRowClass: function(record, rowIndex, rp, ds){ // rp = rowParams
+viewConfig&#58; {
+    forceFit&#58; true,
+    showPreview&#58; true, // custom property
+    enableRowBody&#58; true, // required to create a second, full-width row to show expanded Record data
+    getRowClass&#58; function(record, rowIndex, rp, ds){ // rp = rowParams
         if(this.showPreview){
             rp.body = '&lt;p>'+record.data.excerpt+'&lt;/p>';
             return 'x-grid3-row-expanded';
@@ -44,7 +44,7 @@ viewConfig: {
      * @param index The row index.
      * @param rowParams A config object that is passed to the row template during rendering that allows
      * customization of various aspects of a grid row.
-     * <p>If <b class='link'>#enableRowBody</b> is configured <b><tt></tt>true</b>, then the following properties may be set
+     * <p>If <b class='link' title='#enableRowBody'>enableRowBody</b> is configured <b><code></code>true</b>, then the following properties may be set
      * by this function, and will be used to render a full-width expansion row below each grid row:</p>
      * <ul>
      * <li><code>body</code> : String <div class="sub-desc">An HTML fragment to be used as the expansion row's body content (defaults to '').</div></li>
@@ -61,18 +61,18 @@ viewConfig: {
      */
     /**
      * @cfg {Boolean} enableRowBody True to add a second TR element per row that can be used to provide a row body
-     * that spans beneath the data row.  Use the <b class='link'>#getRowClass</b> method's rowParams config to customize the row body.
+     * that spans beneath the data row.  Use the <b class='link' title='#getRowClass'>getRowClass</b> method's rowParams config to customize the row body.
      */
     /**
      * @cfg {String} emptyText Default text (html tags are accepted) to display in the grid body when no rows
-     * are available (defaults to ''). This value will be used to update the <tt><b class='link'>#mainBody</b></tt>:
+     * are available (defaults to ''). This value will be used to update the <code><b class='link' title='#mainBody'>mainBody</b></code>:
     <pre><code>
     this.mainBody.update('&lt;div class="x-grid-empty">' + this.emptyText + '&lt;/div>');
     </code></pre>
      */
     /**
-     * @cfg {Boolean} headersDisabled True to disable the grid column headers (defaults to <tt>false</tt>). 
-     * Use the <b class='link' title='Ext.grid.ColumnModel'>ColumnModel</b> <tt><b class='link' title='Ext.grid.ColumnModel#menuDisabled'>menuDisabled</b></tt>
+     * @cfg {Boolean} headersDisabled True to disable the grid column headers (defaults to <code>false</code>). 
+     * Use the <b class='link' title='Ext.grid.ColumnModel'>ColumnModel</b> <code><b class='link' title='Ext.grid.ColumnModel#menuDisabled'>menuDisabled</b></code>
      * config to disable the <i>menu</i> for individual columns.  While this config is true the
      * following will be disabled:<div class="mdetail-params"><ul>
      * <li>clicking on header to sort</li>
@@ -84,58 +84,58 @@ viewConfig: {
      * of the template methods of DragZone to enable dragging of the selected rows of a GridPanel.
      * See <b class='link'>Ext.grid.GridDragZone</b> for details.</p>
      * <p>This will <b>only</b> be present:<div class="mdetail-params"><ul>
-     * <li><i>if</i> the owning GridPanel was configured with <b class='link' title='Ext.grid.GridPanel#enableDragDrop'>enableDragDrop</b>: <tt>true</tt>.</li>
+     * <li><i>if</i> the owning GridPanel was configured with <b class='link' title='Ext.grid.GridPanel#enableDragDrop'>enableDragDrop</b>: <code>true</code>.</li>
      * <li><i>after</i> the owning GridPanel has been rendered.</li>
      * </ul></div>
      * @property dragZone
      */
     /**
-     * @cfg {Boolean} deferEmptyText True to defer <tt><b class='link'>#emptyText</b></tt> being applied until the store's
-     * first load (defaults to <tt>true</tt>).
+     * @cfg {Boolean} deferEmptyText True to defer <code><b class='link' title='#emptyText'>emptyText</b></code> being applied until the store's
+     * first load (defaults to <code>true</code>).
      */
     public var deferEmptyText  : Boolean;
     /**
      * @cfg {Number} scrollOffset The amount of space to reserve for the vertical scrollbar
-     * (defaults to <tt>19</tt> pixels).
+     * (defaults to <code>19</code> pixels).
      */
     public var scrollOffset  : Number;
     /**
      * @cfg {Boolean} autoFill
-     * Defaults to <tt>false</tt>.  Specify <tt>true</tt> to have the column widths re-proportioned
+     * Defaults to <code>false</code>.  Specify <code>true</code> to have the column widths re-proportioned
      * when the grid is <b>initially rendered</b>.  The 
-     * <b class='link' title='Ext.grid.Column#width initially configured'>width</b></tt> of each column will be adjusted
+     * <b class='link' title='Ext.grid.Column#width initially configured'>width</b></code> of each column will be adjusted
      * to fit the grid width and prevent horizontal scrolling. If columns are later resized (manually
      * or programmatically), the other columns in the grid will <b>not</b> be resized to fit the grid width.
-     * See <tt><b class='link'>#forceFit</b></tt> also.
+     * See <code><b class='link' title='#forceFit'>forceFit</b></code> also.
      */
     public var autoFill  : Boolean;
     /**
      * @cfg {Boolean} forceFit
-     * Defaults to <tt>false</tt>.  Specify <tt>true</tt> to have the column widths re-proportioned
-     * at <b>all times</b>.  The <b class='link' title='Ext.grid.Column#width initially configured'>width</b></tt> of each
+     * Defaults to <code>false</code>.  Specify <code>true</code> to have the column widths re-proportioned
+     * at <b>all times</b>.  The <b class='link' title='Ext.grid.Column#width initially configured'>width</b></code> of each
      * column will be adjusted to fit the grid width and prevent horizontal scrolling. If columns are
      * later resized (manually or programmatically), the other columns in the grid <b>will</b> be resized
-     * to fit the grid width. See <tt><b class='link'>#autoFill</b></tt> also.
+     * to fit the grid width. See <code><b class='link' title='#autoFill'>autoFill</b></code> also.
      */
     public var forceFit  : Boolean;
     /**
-     * @cfg {Array} sortClasses The CSS classes applied to a header when it is sorted. (defaults to <tt>["sort-asc", "sort-desc"]</tt>)
+     * @cfg {Array} sortClasses The CSS classes applied to a header when it is sorted. (defaults to <code>["sort-asc", "sort-desc"]</code>)
      */
     public var sortClasses  : Array;
     /**
-     * @cfg {String} sortAscText The text displayed in the "Sort Ascending" menu item (defaults to <tt>"Sort Ascending"</tt>)
+     * @cfg {String} sortAscText The text displayed in the "Sort Ascending" menu item (defaults to <code>"Sort Ascending"</code>)
      */
     public var sortAscText  : String;
     /**
-     * @cfg {String} sortDescText The text displayed in the "Sort Descending" menu item (defaults to <tt>"Sort Descending"</tt>)
+     * @cfg {String} sortDescText The text displayed in the "Sort Descending" menu item (defaults to <code>"Sort Descending"</code>)
      */
     public var sortDescText  : String;
     /**
-     * @cfg {String} columnsText The text displayed in the "Columns" menu item (defaults to <tt>"Columns"</tt>)
+     * @cfg {String} columnsText The text displayed in the "Columns" menu item (defaults to <code>"Columns"</code>)
      */
     public var columnsText  : String;
     /**
-     * @cfg {String} selectedRowClass The CSS class applied to a selected row (defaults to <tt>"x-grid3-row-selected"</tt>). An
+     * @cfg {String} selectedRowClass The CSS class applied to a selected row (defaults to <code>"x-grid3-row-selected"</code>). An
      * example overriding the default styling:
     <pre><code>
     .x-grid3-row-selected {background-color: yellow;}
@@ -144,7 +144,7 @@ viewConfig: {
      * facets (like text) use something like:
     <pre><code>
     .x-grid3-row-selected .x-grid3-cell-inner {
-        color: #FFCC00;
+        color&#58; #FFCC00;
     }
     </code></pre>
      */
@@ -154,19 +154,19 @@ viewConfig: {
     public var hdCls ;
     public var markDirty ;
     /**
-     * @cfg {Number} cellSelectorDepth The number of levels to search for cells in event delegation (defaults to <tt>4</tt>)
+     * @cfg {Number} cellSelectorDepth The number of levels to search for cells in event delegation (defaults to <code>4</code>)
      */
     public var cellSelectorDepth  : Number;
     /**
-     * @cfg {Number} rowSelectorDepth The number of levels to search for rows in event delegation (defaults to <tt>10</tt>)
+     * @cfg {Number} rowSelectorDepth The number of levels to search for rows in event delegation (defaults to <code>10</code>)
      */
     public var rowSelectorDepth  : Number;
     /**
-     * @cfg {String} cellSelector The selector used to find cells internally (defaults to <tt>'td.x-grid3-cell'</tt>)
+     * @cfg {String} cellSelector The selector used to find cells internally (defaults to <code>'td.x-grid3-cell'</code>)
      */
     public var cellSelector  : String;
     /**
-     * @cfg {String} rowSelector The selector used to find rows internally (defaults to <tt>'div.x-grid3-row'</tt>)
+     * @cfg {String} rowSelector The selector used to find rows internally (defaults to <code>'div.x-grid3-row'</code>)
      */
     public var rowSelector  : String;
     protected var firstRowCls;
@@ -185,7 +185,7 @@ viewConfig: {
     protected native function findCell(el) : void;
 /**
  * <p>Return the index of the grid column which contains the passed element.</p>
- * See also <b class='link'>#findRowIndex</b>
+ * See also <b class='link' title='#findRowIndex'>findRowIndex</b>
  * @param el The target element
  * @return column index, or <b>false</b> if the target element is not within a row of this GridView.
  */
@@ -201,26 +201,26 @@ viewConfig: {
     public native function findRow(el : Element) : Element;
 /**
  * <p>Return the index of the grid row which contains the passed element.</p>
- * See also <b class='link'>#findCellIndex</b>
+ * See also <b class='link' title='#findCellIndex'>findCellIndex</b>
  * @param el The target element
  * @return row index, or <b>false</b> if the target element is not within a row of this GridView.
  */
     public native function findRowIndex(el : Element) : *;
 /**
- * Return the <tt>&lt;div></tt> HtmlElement which represents a Grid row for the specified index.
+ * Return the <code>&lt;div></code> HtmlElement which represents a Grid row for the specified index.
  * @param index The row index
  * @return The div element.
  */
     public native function getRow(index : Number) : HTMLElement;
 /**
- * Returns the grid's <tt>&lt;td></tt> HtmlElement at the specified coordinates.
+ * Returns the grid's <code>&lt;td></code> HtmlElement at the specified coordinates.
  * @param row The row index in which to find the cell.
  * @param col The column index of the cell.
  * @return The td at the specified coordinates.
  */
     public native function getCell(row : Number, col : Number) : HTMLElement;
 /**
- * Return the <tt>&lt;td></tt> HtmlElement which represents the Grid's header cell for the specified column index.
+ * Return the <code>&lt;td></code> HtmlElement which represents the Grid's header cell for the specified column index.
  * @param index The column index
  * @return The td element.
  */

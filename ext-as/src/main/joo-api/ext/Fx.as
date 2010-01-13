@@ -11,7 +11,7 @@ package ext {
  * method chain.  The Fx methods use an internal effects queue so that each effect can be properly timed and sequenced.
  * Non-Fx methods, on the other hand, have no such internal queueing and will always execute immediately.  For this reason,
  * while it may be possible to mix certain Fx and non-Fx method calls in a single chain, it may not always provide the
- * expected results and should be done with care.  Also see <tt><b class='link'>#callback</b></tt>.</p><br/>
+ * expected results and should be done with care.  Also see <code><b class='link' title='#callback'>callback</b></code>.</p><br/>
  *
  * <p><b><u>Anchor Options for Motion Effects</u></b></p>
  * <p>Motion effects support 8-way anchoring, meaning that you can choose one of 8 different anchor points on the Element
@@ -42,38 +42,38 @@ public class Fx {
  * The callback is intended for any additional code that should run once a particular effect has completed. The Element
  * being operated upon is passed as the first parameter.
  * 
- * @cfg {Object} scope The scope of the <tt><b class='link'>#callback</b></tt> function
+ * @cfg {Object} scope The scope of the <code><b class='link' title='#callback'>callback</b></code> function
  * 
  * @cfg {String} easing A valid Ext.lib.Easing value for the effect:</p><div class="mdetail-params"><ul>
- * <li><b><tt>backBoth</tt></b></li>
- * <li><b><tt>backIn</tt></b></li>
- * <li><b><tt>backOut</tt></b></li>
- * <li><b><tt>bounceBoth</tt></b></li>
- * <li><b><tt>bounceIn</tt></b></li>
- * <li><b><tt>bounceOut</tt></b></li>
- * <li><b><tt>easeBoth</tt></b></li>
- * <li><b><tt>easeBothStrong</tt></b></li>
- * <li><b><tt>easeIn</tt></b></li>
- * <li><b><tt>easeInStrong</tt></b></li>
- * <li><b><tt>easeNone</tt></b></li>
- * <li><b><tt>easeOut</tt></b></li>
- * <li><b><tt>easeOutStrong</tt></b></li>
- * <li><b><tt>elasticBoth</tt></b></li>
- * <li><b><tt>elasticIn</tt></b></li>
- * <li><b><tt>elasticOut</tt></b></li>
+ * <li><b><code>backBoth</code></b></li>
+ * <li><b><code>backIn</code></b></li>
+ * <li><b><code>backOut</code></b></li>
+ * <li><b><code>bounceBoth</code></b></li>
+ * <li><b><code>bounceIn</code></b></li>
+ * <li><b><code>bounceOut</code></b></li>
+ * <li><b><code>easeBoth</code></b></li>
+ * <li><b><code>easeBothStrong</code></b></li>
+ * <li><b><code>easeIn</code></b></li>
+ * <li><b><code>easeInStrong</code></b></li>
+ * <li><b><code>easeNone</code></b></li>
+ * <li><b><code>easeOut</code></b></li>
+ * <li><b><code>easeOutStrong</code></b></li>
+ * <li><b><code>elasticBoth</code></b></li>
+ * <li><b><code>elasticIn</code></b></li>
+ * <li><b><code>elasticOut</code></b></li>
  * </ul></div>
  *
  * @cfg {String} afterCls A css class to apply after the effect
  * @cfg {Number} duration The length of time (in seconds) that the effect should last
  * 
- * @cfg {Number} endOpacity Only applicable for <b class='link'>#fadeIn</b> or <b class='link'>#fadeOut</b>, a number between
- * <tt>0</tt> and <tt>1</tt> inclusive to configure the ending opacity value.
+ * @cfg {Number} endOpacity Only applicable for <b class='link' title='#fadeIn'>fadeIn</b> or <b class='link' title='#fadeOut'>fadeOut</b>, a number between
+ * <code>0</code> and <code>1</code> inclusive to configure the ending opacity value.
  *  
  * @cfg {Boolean} remove Whether the Element should be removed from the DOM and destroyed after the effect finishes
  * @cfg {Boolean} useDisplay Whether to use the <i>display</i> CSS property instead of <i>visibility</i> when hiding Elements (only applies to 
  * effects that end with the element being visually hidden, ignored otherwise)
- * @cfg {String/Object/Function} afterStyle A style specification string, e.g. <tt>"width:100px"</tt>, or an object
- * in the form <tt>{width:"100px"}</tt>, or a function which returns such a specification that will be applied to the
+ * @cfg {String/Object/Function} afterStyle A style specification string, e.g. <code>"width:100px"</code>, or an object
+ * in the form <code>{width:"100px"}</code>, or a function which returns such a specification that will be applied to the
  * Element after the effect finishes.
  * @cfg {Boolean} block Whether the effect should block other effects from queueing while it runs
  * @cfg {Boolean} concurrent Whether to allow subsequently-queued effects to run at the same time as the current effect, or to ensure that they run in sequence
@@ -86,16 +86,16 @@ public class Fx {
      * a fixed-size container if needed.  See the Fx class overview for valid anchor point options.
      * Usage:
      *<pre><code>
-// default: slide the element in from the top
+&#47;/ default: slide the element in from the top
 el.slideIn();
 
-// custom: slide the element in from the right with a 2-second duration
+&#47;/ custom: slide the element in from the right with a 2-second duration
 el.slideIn('r', { duration: 2 });
 
-// common config options shown with default values
+&#47;/ common config options shown with default values
 el.slideIn('t', {
-    easing: 'easeOut',
-    duration: .5
+    easing&#58; 'easeOut',
+    duration&#58; .5
 });
 </code></pre>
      * @param anchor One of the valid Fx anchor positions (defaults to top: 't')
@@ -111,18 +111,18 @@ el.slideIn('t', {
      * wrapping the element with a fixed-size container if needed.  See the Fx class overview for valid anchor point options.
      * Usage:
      *<pre><code>
-// default: slide the element out to the top
+&#47;/ default: slide the element out to the top
 el.slideOut();
 
-// custom: slide the element out to the right with a 2-second duration
+&#47;/ custom: slide the element out to the right with a 2-second duration
 el.slideOut('r', { duration: 2 });
 
-// common config options shown with default values
+&#47;/ common config options shown with default values
 el.slideOut('t', {
-    easing: 'easeOut',
-    duration: .5,
-    remove: false,
-    useDisplay: false
+    easing&#58; 'easeOut',
+    duration&#58; .5,
+    remove&#58; false,
+    useDisplay&#58; false
 });
 </code></pre>
      * @param anchor One of the valid Fx anchor positions (defaults to top: 't')
@@ -136,15 +136,15 @@ el.slideOut('t', {
      * The element must be removed from the DOM using the 'remove' config option if desired.
      * Usage:
      *<pre><code>
-// default
+&#47;/ default
 el.puff();
 
-// common config options shown with default values
+&#47;/ common config options shown with default values
 el.puff({
-    easing: 'easeOut',
-    duration: .5,
-    remove: false,
-    useDisplay: false
+    easing&#58; 'easeOut',
+    duration&#58; .5,
+    remove&#58; false,
+    useDisplay&#58; false
 });
 </code></pre>
      * @param options Object literal with any of the Fx config options
@@ -157,15 +157,15 @@ el.puff({
      * take up space in the document. The element must be removed from the DOM using the 'remove' config option if desired.
      * Usage:
      *<pre><code>
-// default
+&#47;/ default
 el.switchOff();
 
-// all config options shown with default values
+&#47;/ all config options shown with default values
 el.switchOff({
-    easing: 'easeIn',
-    duration: .3,
-    remove: false,
-    useDisplay: false
+    easing&#58; 'easeIn',
+    duration&#58; .3,
+    remove&#58; false,
+    useDisplay&#58; false
 });
 </code></pre>
      * @param options Object literal with any of the Fx config options
@@ -178,18 +178,18 @@ el.switchOff({
      * color is available, you should provide the "endColor" config option which will be cleared after the animation.
      * Usage:
 <pre><code>
-// default: highlight background to yellow
+&#47;/ default: highlight background to yellow
 el.highlight();
 
-// custom: highlight foreground text to blue for 2 seconds
+&#47;/ custom: highlight foreground text to blue for 2 seconds
 el.highlight("0000ff", { attr: 'color', duration: 2 });
 
-// common config options shown with default values
+&#47;/ common config options shown with default values
 el.highlight("ffff9c", {
-    attr: "background-color", //can be any valid CSS property (attribute) that supports a color value
-    endColor: (current color) or "ffffff",
-    easing: 'easeIn',
-    duration: 1
+    attr&#58; "background-color", //can be any valid CSS property (attribute) that supports a color value
+    endColor&#58; (current color) or "ffffff",
+    easing&#58; 'easeIn',
+    duration&#58; 1
 });
 </code></pre>
      * @param color The highlight color. Should be a 6 char hex color without the leading # (defaults to yellow: 'ffff9c')
@@ -201,16 +201,16 @@ el.highlight("ffff9c", {
     * Shows a ripple of exploding, attenuating borders to draw attention to an Element.
     * Usage:
 <pre><code>
-// default: a single light blue ripple
+&#47;/ default: a single light blue ripple
 el.frame();
 
-// custom: 3 red ripples lasting 3 seconds total
+&#47;/ custom: 3 red ripples lasting 3 seconds total
 el.frame("ff0000", 3, { duration: 3 });
 
-// common config options shown with default values
+&#47;/ common config options shown with default values
 el.frame("C3DAF9", 1, {
-    duration: 1 //duration of each individual ripple.
-    // Note: Easing is not configurable and will be ignored if included
+    duration&#58; 1 //duration of each individual ripple.
+    &#47;/ Note: Easing is not configurable and will be ignored if included
 });
 </code></pre>
     * @param color The color of the border.  Should be a 6 char hex color without the leading # (defaults to light blue: 'C3DAF9').
@@ -232,20 +232,20 @@ el.pause(1);
     public native function pause(seconds : Number) : Element;
    /**
     * Fade an element in (from transparent to opaque).  The ending opacity can be specified
-    * using the <tt><b class='link'>#endOpacity</b></tt> config option.
+    * using the <code><b class='link' title='#endOpacity'>endOpacity</b></code> config option.
     * Usage:
 <pre><code>
-// default: fade in from opacity 0 to 100%
+&#47;/ default: fade in from opacity 0 to 100%
 el.fadeIn();
 
-// custom: fade in from opacity 0 to 75% over 2 seconds
+&#47;/ custom: fade in from opacity 0 to 75% over 2 seconds
 el.fadeIn({ endOpacity: .75, duration: 2});
 
-// common config options shown with default values
+&#47;/ common config options shown with default values
 el.fadeIn({
-    endOpacity: 1, //can be any value between 0 and 1 (e.g. .5)
-    easing: 'easeOut',
-    duration: .5
+    endOpacity&#58; 1, //can be any value between 0 and 1 (e.g. .5)
+    easing&#58; 'easeOut',
+    duration&#58; .5
 });
 </code></pre>
     * @param options Object literal with any of the Fx config options
@@ -254,23 +254,23 @@ el.fadeIn({
     public native function fadeIn(options : Object = undefined) : Element;
    /**
     * Fade an element out (from opaque to transparent).  The ending opacity can be specified
-    * using the <tt><b class='link'>#endOpacity</b></tt> config option.  Note that IE may require
-    * <tt><b class='link'>#useDisplay</b>:true</tt> in order to redisplay correctly.
+    * using the <code><b class='link' title='#endOpacity'>endOpacity</b></code> config option.  Note that IE may require
+    * <code><b class='link' title='#useDisplay'>useDisplay</b>:true</code> in order to redisplay correctly.
     * Usage:
 <pre><code>
-// default: fade out from the element's current opacity to 0
+&#47;/ default: fade out from the element's current opacity to 0
 el.fadeOut();
 
-// custom: fade out from the element's current opacity to 25% over 2 seconds
+&#47;/ custom: fade out from the element's current opacity to 25% over 2 seconds
 el.fadeOut({ endOpacity: .25, duration: 2});
 
-// common config options shown with default values
+&#47;/ common config options shown with default values
 el.fadeOut({
-    endOpacity: 0, //can be any value between 0 and 1 (e.g. .5)
-    easing: 'easeOut',
-    duration: .5,
-    remove: false,
-    useDisplay: false
+    endOpacity&#58; 0, //can be any value between 0 and 1 (e.g. .5)
+    easing&#58; 'easeOut',
+    duration&#58; .5,
+    remove&#58; false,
+    useDisplay&#58; false
 });
 </code></pre>
     * @param options Object literal with any of the Fx config options
@@ -282,16 +282,16 @@ el.fadeOut({
     * to an ending height/width.  This method is a convenience implementation of <b class='link'>shift</b>.
     * Usage:
 <pre><code>
-// change height and width to 100x100 pixels
+&#47;/ change height and width to 100x100 pixels
 el.scale(100, 100);
 
-// common config options shown with default values.  The height and width will default to
-// the element&#39;s existing values if passed as null.
+&#47;/ common config options shown with default values.  The height and width will default to
+&#47;/ the element&#39;s existing values if passed as null.
 el.scale(
     [element&#39;s width],
     [element&#39;s height], {
-        easing: 'easeOut',
-        duration: .35
+        easing&#58; 'easeOut',
+        duration&#58; .35
     }
 );
 </code></pre>
@@ -308,18 +308,18 @@ el.scale(
     * the config object in order for the function to have any effect.
     * Usage:
 <pre><code>
-// slide the element horizontally to x position 200 while changing the height and opacity
+&#47;/ slide the element horizontally to x position 200 while changing the height and opacity
 el.shift({ x: 200, height: 50, opacity: .8 });
 
-// common config options shown with default values.
+&#47;/ common config options shown with default values.
 el.shift({
-    width: [element&#39;s width],
-    height: [element&#39;s height],
-    x: [element&#39;s x position],
-    y: [element&#39;s y position],
-    opacity: [element&#39;s opacity],
-    easing: 'easeOut',
-    duration: .35
+    width&#58; [element&#39;s width],
+    height&#58; [element&#39;s height],
+    x&#58; [element&#39;s x position],
+    y&#58; [element&#39;s y position],
+    opacity&#58; [element&#39;s opacity],
+    easing&#58; 'easeOut',
+    duration&#58; .35
 });
 </code></pre>
     * @param options  Object literal with any of the Fx config options
@@ -331,18 +331,18 @@ el.shift({
      * ending point of the effect.
      * Usage:
      *<pre><code>
-// default: slide the element downward while fading out
+&#47;/ default: slide the element downward while fading out
 el.ghost();
 
-// custom: slide the element out to the right with a 2-second duration
+&#47;/ custom: slide the element out to the right with a 2-second duration
 el.ghost('r', { duration: 2 });
 
-// common config options shown with default values
+&#47;/ common config options shown with default values
 el.ghost('b', {
-    easing: 'easeOut',
-    duration: .5,
-    remove: false,
-    useDisplay: false
+    easing&#58; 'easeOut',
+    duration&#58; .5,
+    remove&#58; false,
+    useDisplay&#58; false
 });
 </code></pre>
      * @param anchor One of the valid Fx anchor positions (defaults to bottom: 'b')
@@ -352,13 +352,13 @@ el.ghost('b', {
     public native function ghost(anchor : String = undefined, options : Object = undefined) : Element;
     /**
      * Ensures that all effects queued after syncFx is called on the element are
-     * run concurrently.  This is the opposite of <b class='link'>#sequenceFx</b>.
+     * run concurrently.  This is the opposite of <b class='link' title='#sequenceFx'>sequenceFx</b>.
      * @return The Element
      */
     public native function syncFx() : Element;
     /**
      * Ensures that all effects queued after sequenceFx is called on the element are
-     * run in sequence.  This is the opposite of <b class='link'>#syncFx</b>.
+     * run in sequence.  This is the opposite of <b class='link' title='#syncFx'>syncFx</b>.
      * @return The Element
      */
     public native function sequenceFx() : Element;

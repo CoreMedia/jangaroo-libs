@@ -7,7 +7,7 @@ package ext.grid {
  * of <b class='link' title='Ext.grid.ColumnModel#isCellEditable'>isCellEditable</b> into the
  * <b class='link' title='Ext.grid.ColumnModel'>ColumnModel</b>.</p>
  * <p>Editing is performed on the value of the <i>field</i> specified by the column's
- * <tt><b class='link' title='Ext.grid.ColumnModel#dataIndex'>dataIndex</b></tt> in the backing <b class='link' title='ext.data.Store'>Store</b>
+ * <code><b class='link' title='Ext.grid.ColumnModel#dataIndex'>dataIndex</b></code> in the backing <b class='link' title='ext.data.Store'>Store</b>
  * (so if you are using a <b class='link' title='Ext.grid.ColumnModel#setRenderer'>renderer</b> in order to display
  * transformed data, this must be accounted for).</p>
  * <p>If a value-to-description mapping is used to render a column, then a <b class='link' title='ext.form.Field#ComboBox'>ComboBox</b>
@@ -15,7 +15,7 @@ package ext.grid {
  * mapping would be an appropriate editor.</p>
  * If there is a more complex mismatch between the visible data in the grid, and the editable data in
  * the <b class='link' title='Edt.data.Store'>Store</b>, then code to transform the data both before and after editing can be
- * injected using the <b class='link'>#beforeedit</b> and <b class='link'>#afteredit</b> events.
+ * injected using the <b class='link' title='#beforeedit'>beforeedit</b> and <b class='link' title='#afteredit'>afteredit</b> events.
 */
 public class EditorGridPanel extends GridPanel {
 /**

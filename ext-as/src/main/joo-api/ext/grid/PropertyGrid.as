@@ -5,11 +5,11 @@ package ext.grid {
  * as a set of name/value pairs in <b class='link'>Ext.grid.PropertyRecord</b>s.  Example usage:
  * <pre><code>
 var grid = new Ext.grid.PropertyGrid({
-    title: 'Properties Grid',
-    autoHeight: true,
-    width: 300,
-    renderTo: 'grid-ct',
-    source: {
+    title&#58; 'Properties Grid',
+    autoHeight&#58; true,
+    width&#58; 300,
+    renderTo&#58; 'grid-ct',
+    source&#58; {
         "(name)": "My Object",
         "Created": new Date(Date.parse('10/15/2006')),
         "Available": false,
@@ -32,7 +32,7 @@ public function PropertyGrid(config : Object) {
     * If specified, the display name will be shown in the name column instead of the property name.
     */
     /**
-    * @cfg {Object} source A data object to use as the data source of the grid (see <b class='link'>#setSource</b> for details).
+    * @cfg {Object} source A data object to use as the data source of the grid (see <b class='link' title='#setSource'>setSource</b> for details).
     */
     /**
     * @cfg {Object} customEditors An object containing name/value pairs of custom editor type definitions that allow
@@ -43,10 +43,10 @@ public function PropertyGrid(config : Object) {
     * <pre><code>
 var grid = new Ext.grid.PropertyGrid({
     ...
-    customEditors: {
+    customEditors&#58; {
         'Start Time': new Ext.grid.GridEditor(new ext.form.TimeField({selectOnFocus:true}))
     },
-    source: {
+    source&#58; {
         'Start Time': '10:00 AM'
     }
 });
@@ -64,9 +64,9 @@ var grid = new Ext.grid.PropertyGrid({
     /**
      * Sets the source data object containing the property data.  The data object can contain one or more name/value
      * pairs representing all of the properties of an object to display in the grid, and this data will automatically
-     * be loaded into the grid's <b class='link'>#store</b>.  The values should be supplied in the proper data type if needed,
+     * be loaded into the grid's <b class='link' title='#store'>store</b>.  The values should be supplied in the proper data type if needed,
      * otherwise string type will be assumed.  If the grid already contains data, this method will replace any
-     * existing data.  See also the <b class='link'>#source</b> config value.  Example usage:
+     * existing data.  See also the <b class='link' title='#source'>source</b> config value.  Example usage:
      * <pre><code>
 grid.setSource({
     "(name)": "My Object",
@@ -80,7 +80,7 @@ grid.setSource({
      */
     public native function setSource(source : Object) : void;
     /**
-     * Gets the source data object containing the property data.  See <b class='link'>#setSource</b> for details regarding the
+     * Gets the source data object containing the property data.  See <b class='link' title='#setSource'>setSource</b> for details regarding the
      * format of the data object.
      * @return The data object
      */

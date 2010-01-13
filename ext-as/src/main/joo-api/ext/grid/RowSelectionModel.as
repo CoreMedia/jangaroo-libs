@@ -5,7 +5,7 @@ import ext.data.Record;
 /**
  * The default SelectionModel used by <b class='link'>Ext.grid.GridPanel</b>.
  * It supports multiple selections and keyboard selection/navigation. The objects stored
- * as selections and returned by <b class='link'>#getSelected</b>, and <b class='link'>#getSelections</b> are
+ * as selections and returned by <b class='link' title='#getSelected'>getSelected</b>, and <b class='link' title='#getSelections'>getSelections</b> are
  * the <b class='link' title='ext.data.Record'>Record</b>s which provide the data for the selected rows.
 */
 public class RowSelectionModel extends AbstractSelectionModel {
@@ -19,13 +19,13 @@ public function RowSelectionModel(config : Object) {
 }
     /**
      * @cfg {Boolean} singleSelect
-     * <tt>true</tt> to allow selection of only one row at a time (defaults to <tt>false</tt>
+     * <code>true</code> to allow selection of only one row at a time (defaults to <code>false</code>
      * allowing multiple selections)
      */
     public var singleSelect  : Boolean;
     /**
      * @cfg {Boolean} moveEditorOnEnter
-     * <tt>false</tt> to turn off moving the editor to the next row down when the enter key is pressed
+     * <code>false</code> to turn off moving the editor to the next row down when the enter key is pressed
      * or the next row up when shift + enter keys are pressed.
      */
     protected native function initEvents() : void;
@@ -35,7 +35,7 @@ public function RowSelectionModel(config : Object) {
     /**
      * Select records.
      * @param records The records to select
-     * @param keepExisting <tt>true</tt> to keep existing selections
+     * @param keepExisting <code>true</code> to keep existing selections
      */
     public native function selectRecords(records : Array, keepExisting : Boolean = undefined) : void;
     /**
@@ -49,19 +49,19 @@ public function RowSelectionModel(config : Object) {
     public native function selectFirstRow() : void;
     /**
      * Select the last row.
-     * @param keepExisting <tt>true</tt> to keep existing selections
+     * @param keepExisting <code>true</code> to keep existing selections
      */
     public native function selectLastRow(keepExisting : Boolean = undefined) : void;
     /**
      * Selects the row immediately following the last selected row.
-     * @param keepExisting <tt>true</tt> to keep existing selections
-     * @return <tt>true</tt> if there is a next row, else <tt>false</tt>
+     * @param keepExisting <code>true</code> to keep existing selections
+     * @return <code>true</code> if there is a next row, else <code>false</code>
      */
     public native function selectNext(keepExisting : Boolean = undefined) : Boolean;
     /**
      * Selects the row that precedes the last selected row.
-     * @param keepExisting <tt>true</tt> to keep existing selections
-     * @return <tt>true</tt> if there is a previous row, else <tt>false</tt>
+     * @param keepExisting <code>true</code> to keep existing selections
+     * @return <code>true</code> if there is a previous row, else <code>false</code>
      */
     public native function selectPrevious(keepExisting : Boolean = undefined) : Boolean;
     /**
@@ -86,8 +86,8 @@ public function RowSelectionModel(config : Object) {
     public native function getSelected() : Record;
     /**
      * Calls the passed function with each selection. If the function returns
-     * <tt>false</tt>, iteration is stopped and this function returns
-     * <tt>false</tt>. Otherwise it returns <tt>true</tt>.
+     * <code>false</code>, iteration is stopped and this function returns
+     * <code>false</code>. Otherwise it returns <code>true</code>.
      * @param fn
      * @param scope
      * @return true if all selections were iterated
@@ -96,8 +96,8 @@ public function RowSelectionModel(config : Object) {
     /**
      * Clears all selections if the selection model
      * <b class='link' title='Ext.grid.AbstractSelectionModel#isLocked is not'>locked</b>.
-     * @param fast <tt>true</tt> to bypass the
-     * conditional checks and events described in <b class='link'>#deselectRow</b>.
+     * @param fast <code>true</code> to bypass the
+     * conditional checks and events described in <b class='link' title='#deselectRow'>deselectRow</b>.
      */
     public native function clearSelections(fast : Boolean = undefined) : void;
     /**
@@ -106,18 +106,18 @@ public function RowSelectionModel(config : Object) {
      */
     public native function selectAll() : void;
     /**
-     * Returns <tt>true</tt> if there is a selection.
+     * Returns <code>true</code> if there is a selection.
      * @return 
      */
     public native function hasSelection() : Boolean;
     /**
-     * Returns <tt>true</tt> if the specified row is selected.
+     * Returns <code>true</code> if the specified row is selected.
      * @param index The record or index of the record to check
      * @return 
      */
     public native function isSelected(index : *) : Boolean;
     /**
-     * Returns <tt>true</tt> if the specified record id is selected.
+     * Returns <code>true</code> if the specified record id is selected.
      * @param id The id of record to check
      * @return 
      */
@@ -126,8 +126,8 @@ public function RowSelectionModel(config : Object) {
     /**
      * Selects multiple rows.
      * @param rows Array of the indexes of the row to select
-     * @param keepExisting <tt>true</tt> to keep
-     * existing selections (defaults to <tt>false</tt>)
+     * @param keepExisting <code>true</code> to keep
+     * existing selections (defaults to <code>false</code>)
      */
     public native function selectRows(rows : Array, keepExisting : Boolean = undefined) : void;
     /**
@@ -150,12 +150,12 @@ public function RowSelectionModel(config : Object) {
     /**
      * Selects a row.  Before selecting a row, checks if the selection model
      * <b class='link' title='Ext.grid.AbstractSelectionModel#isLocked is'>locked</b> and fires the
-     * <b class='link'>#beforerowselect</b> event.  If these checks are satisfied the row
-     * will be selected and followed up by  firing the <b class='link'>#rowselect</b> and
-     * <b class='link'>#selectionchange</b> events.
+     * <b class='link' title='#beforerowselect'>beforerowselect</b> event.  If these checks are satisfied the row
+     * will be selected and followed up by  firing the <b class='link' title='#rowselect'>rowselect</b> and
+     * <b class='link' title='#selectionchange'>selectionchange</b> events.
      * @param row The index of the row to select
-     * @param keepExisting <tt>true</tt> to keep existing selections
-     * @param preventViewNotify Specify <tt>true</tt> to
+     * @param keepExisting <code>true</code> to keep existing selections
+     * @param preventViewNotify Specify <code>true</code> to
      * prevent notifying the view (disables updating the selected appearance)
      */
     public native function selectRow(row : Number, keepExisting : Boolean = undefined, preventViewNotify : Boolean = undefined) : void;
@@ -163,9 +163,9 @@ public function RowSelectionModel(config : Object) {
      * Deselects a row.  Before deselecting a row, checks if the selection model
      * <b class='link' title='Ext.grid.AbstractSelectionModel#isLocked is'>locked</b>.
      * If this check is satisfied the row will be deselected and followed up by
-     * firing the <b class='link'>#rowdeselect</b> and <b class='link'>#selectionchange</b> events.
+     * firing the <b class='link' title='#rowdeselect'>rowdeselect</b> and <b class='link' title='#selectionchange'>selectionchange</b> events.
      * @param row The index of the row to deselect
-     * @param preventViewNotify Specify <tt>true</tt> to
+     * @param preventViewNotify Specify <code>true</code> to
      * prevent notifying the view (disables updating the selected appearance)
      */
     public native function deselectRow(row : Number, preventViewNotify : Boolean = undefined) : void;

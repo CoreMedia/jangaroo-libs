@@ -14,16 +14,16 @@ package ext.data {
  * </ul></div>
  * <li><b class='link' title='ext.data.JsonReader'>JsonReader</b></li>
  * <div class="sub-desc"><ul class="mdetail-params">
- * <li><tt><b class='link' title='ext.data.JsonReader#root'>root</b></tt></li>
- * <li><tt><b class='link' title='ext.data.JsonReader#idProperty'>idProperty</b></tt></li>
- * <li><tt><b class='link' title='ext.data.JsonReader#totalProperty'>totalProperty</b></tt></li>
+ * <li><code><b class='link' title='ext.data.JsonReader#root'>root</b></code></li>
+ * <li><code><b class='link' title='ext.data.JsonReader#idProperty'>idProperty</b></code></li>
+ * <li><code><b class='link' title='ext.data.JsonReader#totalProperty'>totalProperty</b></code></li>
  * </ul></div>
  *
  * <li><b class='link' title='ext.data.DirectProxy'>DirectProxy</b></li>
  * <div class="sub-desc"><ul class="mdetail-params">
- * <li><tt><b class='link' title='ext.data.DirectProxy#directFn'>directFn</b></tt></li>
- * <li><tt><b class='link' title='ext.data.DirectProxy#paramOrder'>paramOrder</b></tt></li>
- * <li><tt><b class='link' title='ext.data.DirectProxy#paramsAsHash'>paramsAsHash</b></tt></li>
+ * <li><code><b class='link' title='ext.data.DirectProxy#directFn'>directFn</b></code></li>
+ * <li><code><b class='link' title='ext.data.DirectProxy#paramOrder'>paramOrder</b></code></li>
+ * <li><code><b class='link' title='ext.data.DirectProxy#paramsAsHash'>paramsAsHash</b></code></li>
  * </ul></div>
  * </ul></div>
  *

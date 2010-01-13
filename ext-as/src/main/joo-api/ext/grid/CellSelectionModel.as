@@ -6,7 +6,7 @@ import ext.data.Record;
  * This class provides the basic implementation for <i>single</i> <b>cell</b> selection in a grid.
  * The object stored as the selection contains the following properties:
  * <div class="mdetail-params"><ul>
- * <li><b>cell</b> : see <b class='link'>#getSelectedCell</b> 
+ * <li><b>cell</b> : see <b class='link' title='#getSelectedCell'>getSelectedCell</b> 
  * <li><b>record</b> : Ext.data.record The <b class='link' title='ext.data.Record'>Record</b>
  * which provides the data for the row containing the selection</li>
  * </ul></div>
@@ -37,9 +37,9 @@ public function CellSelectionModel(config : Object) {
      * Due to possible column reordering, the cellIndex should <b>not</b> be used as an
      * index into the Record's data. Instead, use the cellIndex to determine the <i>name</i>
      * of the selected cell and use the field name to retrieve the data value from the record:<pre><code>
-// get name
+&#47;/ get name
 var fieldName = grid.getColumnModel().getDataIndex(cellIndex);
-// get data value based on name
+&#47;/ get data value based on name
 var data = record.get(fieldName);
      * </code></pre></p></li>
      * </ul></div>
@@ -48,24 +48,24 @@ var data = record.get(fieldName);
     public native function getSelectedCell() : Array;
     /**
      * If anything is selected, clears all selections and fires the selectionchange event.
-     * @param preventNotify <tt>true</tt> to prevent the gridview from
+     * @param preventNotify <code>true</code> to prevent the gridview from
      * being notified about the change.
      */
     public native function clearSelections(preventNotify : Boolean) : void;
     /**
-     * Returns <tt>true</tt> if there is a selection.
+     * Returns <code>true</code> if there is a selection.
      * @return 
      */
     public native function hasSelection() : Boolean;
 
     /**
      * Selects a cell.  Before selecting a cell, fires the
-     * <b class='link'>#beforecellselect</b> event.  If this check is satisfied the cell
-     * will be selected and followed up by  firing the <b class='link'>#cellselect</b> and
-     * <b class='link'>#selectionchange</b> events.
+     * <b class='link' title='#beforecellselect'>beforecellselect</b> event.  If this check is satisfied the cell
+     * will be selected and followed up by  firing the <b class='link' title='#cellselect'>cellselect</b> and
+     * <b class='link' title='#selectionchange'>selectionchange</b> events.
      * @param rowIndex The index of the row to select
      * @param colIndex The index of the column to select
-     * @param preventViewNotify Specify <tt>true</tt> to
+     * @param preventViewNotify Specify <code>true</code> to
      * prevent notifying the view (disables updating the selected appearance)
      * @param preventFocus Whether to prevent the cell at
      * the specified rowIndex / colIndex from being focused.

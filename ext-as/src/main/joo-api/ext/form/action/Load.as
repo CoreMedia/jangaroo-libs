@@ -18,41 +18,41 @@ import ext.form.Action;
  * <p><u><b>JSON Packets</b></u></p>
  * <p>By default, response packets are assumed to be JSON, so for the following form load call:<pre><code>
 var myFormPanel = new ext.form.FormPanel({
-    title: 'Client and routing info',
-    items: [{
-        fieldLabel: 'Client',
-        name: 'clientName'
+    title&#58; 'Client and routing info',
+    items&#58; [{
+        fieldLabel&#58; 'Client',
+        name&#58; 'clientName'
     }, {
-        fieldLabel: 'Port of loading',
-        name: 'portOfLoading'
+        fieldLabel&#58; 'Port of loading',
+        name&#58; 'portOfLoading'
     }, {
-        fieldLabel: 'Port of discharge',
-        name: 'portOfDischarge'
+        fieldLabel&#58; 'Port of discharge',
+        name&#58; 'portOfDischarge'
     }]
 });
 myFormPanel.<b class='link' title='ext.form.FormPanel#getForm'>getForm</b>().<b class='link' title='ext.form.BasicForm#load'>load</b>({
-    url: '/getRoutingInfo.php',
-    params: {
-        consignmentRef: myConsignmentRef
+    url&#58; '/getRoutingInfo.php',
+    params&#58; {
+        consignmentRef&#58; myConsignmentRef
     },
-    failure: function(form, action() {
+    failure&#58; function(form, action() {
         ext.Msg.alert("Load failed", action.result.errorMessage);
     }
 });
 </code></pre>
  * a <b>success response</b> packet may look like this:</p><pre><code>
 {
-    success: true,
-    data: {
-        clientName: "Fred. Olsen Lines",
-        portOfLoading: "FXT",
-        portOfDischarge: "OSL"
+    success&#58; true,
+    data&#58; {
+        clientName&#58; "Fred. Olsen Lines",
+        portOfLoading&#58; "FXT",
+        portOfDischarge&#58; "OSL"
     }
 }</code></pre>
  * while a <b>failure response</b> packet may look like this:</p><pre><code>
 {
-    success: false,
-    errorMessage: "Consignment reference not found"
+    success&#58; false,
+    errorMessage&#58; "Consignment reference not found"
 }</code></pre>
  * <p>Other data may be placed into the response for processing the <b class='link' title='ext.form.BasicForm'>Form</b>'s
  * callback or event handler methods. The object decoded from this JSON is available in the

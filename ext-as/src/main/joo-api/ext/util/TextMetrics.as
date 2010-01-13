@@ -52,7 +52,7 @@ public class TextMetrics {
          */
         /**
          * Returns the measured height of the specified text.  For multiline text, be sure to call
-         * <b class='link'>#setFixedWidth</b> if necessary.
+         * <b class='link' title='#setFixedWidth'>setFixedWidth</b> if necessary.
          * @param text The text to measure
          * @return height The height in pixels
          */

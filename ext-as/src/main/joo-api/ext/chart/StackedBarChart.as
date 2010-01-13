@@ -1,6 +1,4 @@
 package ext.chart {
-/**
-*/
 public class StackedBarChart extends CartesianChart {
 /**
  * @constructor
@@ -10,6 +8,4 @@ public class StackedBarChart extends CartesianChart {
 public function StackedBarChart() {
   super();
 }
-/**
-*/
 }}

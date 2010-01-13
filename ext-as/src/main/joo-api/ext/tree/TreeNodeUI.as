@@ -100,6 +100,4 @@ public class TreeNodeUI {
     protected native function getChildIndent() : void;
     protected native function renderIndent() : void;
     public native function destroy() : void;
-/**
-*/
 }}

@@ -5,9 +5,7 @@ package ext.grid {
  * See the <b class='link' title='Ext.grid.ColumnModel#xtype'>xtype</b> config option of <b class='link'>Ext.grid.ColumnModel</b> for more
  * details.</p>
  */
-    /**
-*/
-public class TemplateColumn extends Column {
+    public class TemplateColumn extends Column {
 /**
      * @cfg {String/XTemplate} tpl
      * An <b class='link' title='ext.XTemplate'>XTemplate</b>, or an XTemplate <i>definition string</i> to use to process a

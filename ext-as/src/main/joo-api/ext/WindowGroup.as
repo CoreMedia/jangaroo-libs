@@ -61,6 +61,4 @@ public function WindowGroup() {
          * @param scope The scope in which to execute the function
          */
         public native function each(fn : Function, scope : Object = undefined) : void;
-/**
-*/
 }}

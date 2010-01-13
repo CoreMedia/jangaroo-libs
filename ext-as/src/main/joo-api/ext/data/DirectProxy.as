@@ -1,26 +1,22 @@
 package ext.data {
+    public class DirectProxy extends DataProxy {
 /**
- */
-    /**
-*/
-public class DirectProxy extends DataProxy {
-/**
-     * @cfg {Array/String} paramOrder Defaults to <tt>undefined</tt>. A list of params to be executed
+     * @cfg {Array/String} paramOrder Defaults to <code>undefined</code>. A list of params to be executed
      * server side.  Specify the params in the order in which they must be executed on the server-side
      * as either (1) an Array of String values, or (2) a String of params delimited by either whitespace,
      * comma, or pipe. For example,
      * any of the following would be acceptable:<pre><code>
-paramOrder: ['param1','param2','param3']
-paramOrder: 'param1 param2 param3'
-paramOrder: 'param1,param2,param3'
-paramOrder: 'param1|param2|param'
+paramOrder&#58; ['param1','param2','param3']
+paramOrder&#58; 'param1 param2 param3'
+paramOrder&#58; 'param1,param2,param3'
+paramOrder&#58; 'param1|param2|param'
      </code></pre>
      */
     public var paramOrder;
     /**
      * @cfg {Boolean} paramsAsHash
-     * Send parameters as a collection of named arguments (defaults to <tt>true</tt>). Providing a
-     * <tt><b class='link'>#paramOrder</b></tt> nullifies this configuration.
+     * Send parameters as a collection of named arguments (defaults to <code>true</code>). Providing a
+     * <code><b class='link' title='#paramOrder'>paramOrder</b></code> nullifies this configuration.
      */
     public var paramsAsHash : Boolean;
     /**

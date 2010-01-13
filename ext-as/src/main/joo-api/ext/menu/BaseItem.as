@@ -31,7 +31,7 @@ public function BaseItem(config : Object) {
      */
     /**
      * @cfg {Object} scope
-     * The scope (<tt><b>this</b></tt> reference) in which the handler function will be called.
+     * The scope (<code><b>this</b></code> reference) in which the handler function will be called.
      */
     /**
      * @cfg {Boolean} canActivate True if this item can be visually activated (defaults to false)
@@ -53,7 +53,7 @@ public function BaseItem(config : Object) {
     //protected var actionMode ;
     override protected native function onRender(container : Element, position : Element) : void;
     /**
-     * Sets the function that will handle click events for this item (equivalent to passing in the <b class='link'>#handler</b>
+     * Sets the function that will handle click events for this item (equivalent to passing in the <b class='link' title='#handler'>handler</b>
      * config property).  If an existing handler is already registered, it will be unregistered for you.
      * @param handler The function that should be called on click
      * @param scope The scope that should be passed to the handler

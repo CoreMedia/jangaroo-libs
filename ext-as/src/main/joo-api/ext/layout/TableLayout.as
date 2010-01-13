@@ -7,7 +7,7 @@ package ext.layout {
  * and should generally not need to be created directly via the new keyword.</p>
  * <p>Note that when creating a layout via config, the layout-specific config properties must be passed in via
  * the <b class='link'>ext.Container#layoutConfig</b> object which will then be applied internally to the layout.  In the
- * case of TableLayout, the only valid layout config property is <b class='link'>#columns</b>.  However, the items added to a
+ * case of TableLayout, the only valid layout config property is <b class='link' title='#columns'>columns</b>.  However, the items added to a
  * TableLayout can supply the following table-specific config properties:</p>
  * <ul>
  * <li><b>rowspan</b> Applied to the table cell containing the item.</li>
@@ -24,42 +24,40 @@ package ext.layout {
  * how to position each panel within the table.  Just like with HTML tables, your rowspans and colspans must add
  * up correctly in your overall layout or you'll end up with missing and/or extra cells!  Example usage:</p>
  * <pre><code>
-// This code will generate a layout table that is 3 columns by 2 rows
-// with some spanning included.  The basic layout will be:
-// +--------+-----------------+
-// |   A    |   B             |
-// |        |--------+--------|
-// |        |   C    |   D    |
-// +--------+--------+--------+
+&#47;/ This code will generate a layout table that is 3 columns by 2 rows
+&#47;/ with some spanning included.  The basic layout will be:
+&#47;/ +--------+-----------------+
+&#47;/ |   A    |   B             |
+&#47;/ |        |--------+--------|
+&#47;/ |        |   C    |   D    |
+&#47;/ +--------+--------+--------+
 var table = new ext.Panel({
-    title: 'Table Layout',
-    layout:'table',
-    defaults: {
-        // applied to each contained panel
-        bodyStyle:'padding:20px'
+    title&#58; 'Table Layout',
+    layout&#58;'table',
+    defaults&#58; {
+        &#47;/ applied to each contained panel
+        bodyStyle&#58;'padding:20px'
     },
-    layoutConfig: {
-        // The total column count must be specified here
-        columns: 3
+    layoutConfig&#58; {
+        &#47;/ The total column count must be specified here
+        columns&#58; 3
     },
-    items: [{
-        html: '&lt;p&gt;Cell A content&lt;/p&gt;',
-        rowspan: 2
+    items&#58; [{
+        html&#58; '&lt;p&gt;Cell A content&lt;/p&gt;',
+        rowspan&#58; 2
     },{
-        html: '&lt;p&gt;Cell B content&lt;/p&gt;',
-        colspan: 2
+        html&#58; '&lt;p&gt;Cell B content&lt;/p&gt;',
+        colspan&#58; 2
     },{
-        html: '&lt;p&gt;Cell C content&lt;/p&gt;',
-        cellCls: 'highlight'
+        html&#58; '&lt;p&gt;Cell C content&lt;/p&gt;',
+        cellCls&#58; 'highlight'
     },{
-        html: '&lt;p&gt;Cell D content&lt;/p&gt;'
+        html&#58; '&lt;p&gt;Cell D content&lt;/p&gt;'
     }]
 });
 </code></pre>
  */
-    /**
-*/
-public class TableLayout extends ContainerLayout {
+    public class TableLayout extends ContainerLayout {
 /**
      * @cfg {Number} columns
      * The total number of columns to create in the table for this layout.  If not specified, all Components added to
@@ -68,17 +66,17 @@ public class TableLayout extends ContainerLayout {
     /**
      * @cfg {Object} tableAttrs
      * <p>An object containing properties which are added to the <b class='link' title='ext.DomHelper'>DomHelper</b> specification
-     * used to create the layout's <tt>&lt;table&gt;</tt> element. Example:</p><pre><code>
+     * used to create the layout's <code>&lt;table&gt;</code> element. Example:</p><pre><code>
 {
-    xtype: 'panel',
-    layout: 'table',
-    layoutConfig: {
-        tableAttrs: {
-        	style: {
-        		width: '100%'
+    xtype&#58; 'panel',
+    layout&#58; 'table',
+    layoutConfig&#58; {
+        tableAttrs&#58; {
+        	style&#58; {
+        		width&#58; '100%'
         	}
         },
-        columns: 3
+        columns&#58; 3
     }
 }</code></pre>
      */

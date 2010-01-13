@@ -1,6 +1,4 @@
 package ext.tree {
-/**
-*/
 public class AsyncTreeNode extends TreeNode {
 /**
  * @cfg {TreeLoader} loader A TreeLoader to be used by this node (defaults to the loader defined on the tree)

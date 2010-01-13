@@ -12,7 +12,7 @@ public function ToolTip(config : Object) {
   super(config);
 }
     /**
-     * When a Tooltip is configured with the <b class='link'>#delegate</b> option to cause selected child elements of the <b class='link'>#target</b>
+     * When a Tooltip is configured with the <b class='link' title='#delegate'>delegate</b> option to cause selected child elements of the <b class='link' title='#target'>target</b>
      * Element to each trigger a seperate show event, this property is set to the DOM element which triggered the show.
      * @property triggerElement
      */
@@ -22,7 +22,7 @@ public function ToolTip(config : Object) {
      */
     /**
      * @cfg {Boolean} autoHide True to automatically hide the tooltip after the mouse exits the target element
-     * or after the <b class='link'>#dismissDelay</b> has expired if set (defaults to true).  If <b class='link'>closable</b> = true a close
+     * or after the <b class='link' title='#dismissDelay'>dismissDelay</b> has expired if set (defaults to true).  If <b class='link'>closable</b> = true a close
      * tool button will be rendered into the tooltip header.
      */
     /**
@@ -50,8 +50,8 @@ public function ToolTip(config : Object) {
     /**
      * @cfg {Boolean} anchorToTarget True to anchor the tooltip to the target element, false to
      * anchor it relative to the mouse coordinates (defaults to true).  When anchorToTarget is
-     * true, use <b class='link'>#defaultAlign</b> to control tooltip alignment to the target element.  When
-     * anchorToTarget is false, use <b class='link'>#anchorPosition</b> instead to control alignment.
+     * true, use <b class='link' title='#defaultAlign'>defaultAlign</b> to control tooltip alignment to the target element.  When
+     * anchorToTarget is false, use <b class='link' title='#anchorPosition'>anchorPosition</b> instead to control alignment.
      */
     public var anchorToTarget : Boolean;
     /**
@@ -63,8 +63,8 @@ public function ToolTip(config : Object) {
     public var anchorOffset : Number;
     /**
      * @cfg {String} delegate <p>Optional. A <b class='link' title='ext.DomQuery'>DomQuery</b> selector which allows selection of individual elements
-     * within the <b class='link'>#target</b> element to trigger showing and hiding the ToolTip as the mouse moves within the target.</p>
-     * <p>When specified, the child element of the target which caused a show event is placed into the <b class='link'>#triggerElement</b> property
+     * within the <b class='link' title='#target'>target</b> element to trigger showing and hiding the ToolTip as the mouse moves within the target.</p>
+     * <p>When specified, the child element of the target which caused a show event is placed into the <b class='link' title='#triggerElement'>triggerElement</b> property
      * before the ToolTip is shown.</p>
      * <p>This may be useful when a Component has regular, repeating elements in it, each of which need a Tooltip which contains
      * information specific to that element. For example:</p><pre><code>
@@ -73,12 +73,12 @@ myGrid.on('render', function(grid) {
     var store = grid.getStore();  // Capture the Store.
     var view = grid.getView();    // Capture the GridView.
     myGrid.tip = new ext.ToolTip({
-        target: view.mainBody,    // The overall target element.
-        delegate: '.x-grid3-row', // Each grid row causes its own seperate show and hide.
-        trackMouse: true,         // Moving within the row should not hide the tip.
-        renderTo: document.body,  // Render immediately so that tip.body can be referenced prior to the first show.
-        listeners: {              // Change content dynamically depending on which element triggered the show.
-            beforeshow: function updateTipBody(tip) {
+        target&#58; view.mainBody,    // The overall target element.
+        delegate&#58; '.x-grid3-row', // Each grid row causes its own seperate show and hide.
+        trackMouse&#58; true,         // Moving within the row should not hide the tip.
+        renderTo&#58; document.body,  // Render immediately so that tip.body can be referenced prior to the first show.
+        listeners&#58; {              // Change content dynamically depending on which element triggered the show.
+            beforeshow&#58; function updateTipBody(tip) {
                 var rowIndex = view.findRowIndex(tip.triggerElement);
                 tip.body.dom.innerHTML = "Over Record ID " + store.getAt(rowIndex).id;
             }

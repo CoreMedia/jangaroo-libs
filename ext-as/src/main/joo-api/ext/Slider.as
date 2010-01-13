@@ -5,20 +5,18 @@ package ext {
  * any container. Example usage:
 <pre><code>
 new ext.Slider({
-    renderTo: Ext.getBody(),
-    width: 200,
-    value: 50,
-    increment: 10,
-    minValue: 0,
-    maxValue: 100
+    renderTo&#58; Ext.getBody(),
+    width&#58; 200,
+    value&#58; 50,
+    increment&#58; 10,
+    minValue&#58; 0,
+    maxValue&#58; 100
 });
 </code></pre>
  */
 public class Slider extends BoxComponent {
 
-  /**
-   */
-  public function Slider(config : *) {
+    public function Slider(config : *) {
     super(config);
   }
 /**
@@ -39,7 +37,7 @@ public class Slider extends BoxComponent {
     /**
      * @cfg {Number/Boolean} decimalPrecision.
      * <p>The number of decimal places to which to round the Slider's value. Defaults to 0.</p>
-     * <p>To disable rounding, configure as <tt><b>false</b></tt>.</p>
+     * <p>To disable rounding, configure as <code><b>false</b></code>.</p>
      */
     public var decimalPrecision : *;
 	/**
@@ -93,7 +91,7 @@ public class Slider extends BoxComponent {
     override protected native function onEnable() : void;
     /**
      * Synchronizes the thumb position to the proper proportion of the total component width based
-     * on the current slider <b class='link'>#value</b>.  This will be called automatically when the Slider
+     * on the current slider <b class='link' title='#value'>value</b>.  This will be called automatically when the Slider
      * is resized by a layout, but if it is rendered auto width, this method can be called from
      * another resize handler to sync the Slider if necessary.
      */

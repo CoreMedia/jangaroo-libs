@@ -7,13 +7,13 @@ import ext.util.Observable;
  * <p>Encapsulates the DOM &lt;form> element at the heart of the <b class='link' title='ext.form.FormPanel'>FormPanel</b> class, and provides
  * input field management, validation, submission, and form loading services.</p>
  * <p>By default, Ext Forms are submitted through Ajax, using an instance of <b class='link'>ext.form.action.Submit</b>.
- * To enable normal browser submission of an Ext Form, use the <b class='link'>#standardSubmit</b> config option.</p>
+ * To enable normal browser submission of an Ext Form, use the <b class='link' title='#standardSubmit'>standardSubmit</b> config option.</p>
  * <p><b><u>File Uploads</u></b></p>
  * <p><b class='link' title='#fileUpload File'>uploads</b> are not performed using Ajax submission, that
  * is they are <b>not</b> performed using XMLHttpRequests. Instead the form is submitted in the standard
- * manner with the DOM <tt>&lt;form></tt> element temporarily modified to have its
+ * manner with the DOM <code>&lt;form></code> element temporarily modified to have its
  * <a href="http://www.w3.org/TR/REC-html40/present/frames.html#adef-target">target</a> set to refer
- * to a dynamically generated, hidden <tt>&lt;iframe></tt> which is inserted into the document
+ * to a dynamically generated, hidden <code>&lt;iframe></code> which is inserted into the document
  * but removed after the return data has been gathered.</p>
  * <p>The server response is parsed by the browser to create the document for the IFRAME. If the
  * server is using JSON to send the return object, then the
@@ -22,7 +22,7 @@ import ext.util.Observable;
  * <p>Characters which are significant to an HTML parser must be sent as HTML entities, so encode
  * "&lt;" as "&amp;lt;", "&amp;" as "&amp;amp;" etc.</p>
  * <p>The response text is retrieved from the document, and a fake XMLHttpRequest object
- * is created containing a <tt>responseText</tt> property in order to conform to the
+ * is created containing a <code>responseText</code> property in order to conform to the
  * requirements of event handlers and callbacks.</p>
  * <p>Be aware that file upload packets are sent with the content type <a href="http://www.faqs.org/rfcs/rfc2388.html">multipart/form</a>
  * and some server technologies (notably JEE) may require some custom processing in order to
@@ -58,11 +58,11 @@ public function BasicForm(el : *, config : Object) {
      * Field name (or id) as the Record ID, and must contain a field called 'msg'
      * which contains the error message.</p>
      * <p>The errorReader does not have to be a full-blown implementation of a
-     * DataReader. It simply needs to implement a <tt>read(xhr)</tt> function
+     * DataReader. It simply needs to implement a <code>read(xhr)</code> function
      * which returns an Array of Records in an object with the following
      * structure:</p><pre><code>
 {
-    records: recordArray
+    records&#58; recordArray
 }
 </code></pre>
      */
@@ -76,9 +76,9 @@ public function BasicForm(el : *, config : Object) {
      * Set to true if this form is a file upload.
      * <p>File uploads are not performed using normal 'Ajax' techniques, that is they are <b>not</b>
      * performed using XMLHttpRequests. Instead the form is submitted in the standard manner with the
-     * DOM <tt>&lt;form></tt> element temporarily modified to have its
+     * DOM <code>&lt;form></code> element temporarily modified to have its
      * <a href="http://www.w3.org/TR/REC-html40/present/frames.html#adef-target">target</a> set to refer
-     * to a dynamically generated, hidden <tt>&lt;iframe></tt> which is inserted into the document
+     * to a dynamically generated, hidden <code>&lt;iframe></code> which is inserted into the document
      * but removed after the return data has been gathered.</p>
      * <p>The server response is parsed by the browser to create the document for the IFRAME. If the
      * server is using JSON to send the return object, then the
@@ -87,7 +87,7 @@ public function BasicForm(el : *, config : Object) {
      * <p>Characters which are significant to an HTML parser must be sent as HTML entities, so encode
      * "&lt;" as "&amp;lt;", "&amp;" as "&amp;amp;" etc.</p>
      * <p>The response text is retrieved from the document, and a fake XMLHttpRequest object
-     * is created containing a <tt>responseText</tt> property in order to conform to the
+     * is created containing a <code>responseText</code> property in order to conform to the
      * requirements of event handlers and callbacks.</p>
      * <p>Be aware that file upload packets are sent with the content type <a href="http://www.faqs.org/rfcs/rfc2388.html">multipart/form</a>
      * and some server technologies (notably JEE) may require some custom processing in order to
@@ -108,48 +108,48 @@ public function BasicForm(el : *, config : Object) {
      * Methods which have been imported by ext.Direct can be specified here to load and submit
      * forms.
      * Such as the following:<pre><code>
-api: {
-    load: App.ss.MyProfile.load,
-    submit: App.ss.MyProfile.submit
+api&#58; {
+    load&#58; App.ss.MyProfile.load,
+    submit&#58; App.ss.MyProfile.submit
 }
 </code></pre>
-     * <p>Load actions can use <code><b class='link'>#paramOrder</b></code> or <code><b class='link'>#paramsAsHash</b></code>
+     * <p>Load actions can use <code><b class='link' title='#paramOrder'>paramOrder</b></code> or <code><b class='link' title='#paramsAsHash'>paramsAsHash</b></code>
      * to customize how the load method is invoked.
      * Submit actions will always use a standard form submit. The formHandler configuration must
      * be set on the associated server-side method which has been imported by ext.Direct</p>
      */
     /**
      * @cfg {Array/String} paramOrder <p>A list of params to be executed server side.
-     * Defaults to <tt>undefined</tt>. Only used for the <code><b class='link'>#api</b></code>
+     * Defaults to <code>undefined</code>. Only used for the <code><b class='link' title='#api'>api</b></code>
      * <code>load</code> configuration.</p>
      * <br><p>Specify the params in the order in which they must be executed on the
      * server-side as either (1) an Array of String values, or (2) a String of params
      * delimited by either whitespace, comma, or pipe. For example,
      * any of the following would be acceptable:</p><pre><code>
-paramOrder: ['param1','param2','param3']
-paramOrder: 'param1 param2 param3'
-paramOrder: 'param1,param2,param3'
-paramOrder: 'param1|param2|param'
+paramOrder&#58; ['param1','param2','param3']
+paramOrder&#58; 'param1 param2 param3'
+paramOrder&#58; 'param1,param2,param3'
+paramOrder&#58; 'param1|param2|param'
      </code></pre>
      */
     public var paramOrder : *;
     /**
-     * @cfg {Boolean} paramsAsHash Only used for the <code><b class='link'>#api</b></code>
+     * @cfg {Boolean} paramsAsHash Only used for the <code><b class='link' title='#api'>api</b></code>
      * <code>load</code> configuration. Send parameters as a collection of named
-     * arguments (defaults to <tt>false</tt>). Providing a
-     * <tt><b class='link'>#paramOrder</b></tt> nullifies this configuration.
+     * arguments (defaults to <code>false</code>). Providing a
+     * <code><b class='link' title='#paramOrder'>paramOrder</b></code> nullifies this configuration.
      */
     public var paramsAsHash : Boolean;
     protected var activeAction ;
     /**
-     * @cfg {Boolean} trackResetOnLoad If set to <tt>true</tt>, <b class='link'>#reset</b>() resets to the last loaded
-     * or <b class='link'>#setValues</b>() data instead of when the form was first created.  Defaults to <tt>false</tt>.
+     * @cfg {Boolean} trackResetOnLoad If set to <code>true</code>, <b class='link' title='#reset'>reset</b>() resets to the last loaded
+     * or <b class='link' title='#setValues'>setValues</b>() data instead of when the form was first created.  Defaults to <code>false</code>.
      */
     public var trackResetOnLoad  : Boolean;
     /**
      * @cfg {Boolean} standardSubmit If set to true, standard HTML form submits are used instead of XHR (Ajax) style
      * form submissions. (defaults to false)<br>
-     * <p><b>Note:</b> When using standardSubmit, the options to <b class='link'>#submit</b> are ignored because Ext's
+     * <p><b>Note:</b> When using standardSubmit, the options to <b class='link' title='#submit'>submit</b> are ignored because Ext's
      * Ajax infrastracture is bypassed. To pass extra parameters (baseParams and params), you will need to
      * create hidden fields within the form.</p>
      * <p>The url config option is also bypassed, so set the action as well:</p>
@@ -159,18 +159,18 @@ PANEL.getForm().getEl().dom.action = 'URL'
      * An example encapsulating the above:
      * <pre><code>
 new ext.FormPanel({
-    standardSubmit: true,
-    baseParams: {
-        foo: 'bar'
+    standardSubmit&#58; true,
+    baseParams&#58; {
+        foo&#58; 'bar'
     },
-    url: 'myProcess.php',
-    items: [{
-        xtype: 'textfield',
-        name: 'userName'
+    url&#58; 'myProcess.php',
+    items&#58; [{
+        xtype&#58; 'textfield',
+        name&#58; 'userName'
     }],
-    buttons: [{
-        text: 'Save',
-        handler: function(){
+    buttons&#58; [{
+        text&#58; 'Save',
+        handler&#58; function(){
             var O = this.ownerCt;
             if (O.getForm().isValid()) {
                 if (O.url)
@@ -178,9 +178,9 @@ new ext.FormPanel({
                 if (O.baseParams) {
                     for (i in O.baseParams) {
                         O.add({
-                            xtype: 'hidden',
-                            name: i,
-                            value: O.baseParams[i]
+                            xtype&#58; 'hidden',
+                            name&#58; i,
+                            value&#58; O.baseParams[i]
                         })
                     }
                     O.doLayout();
@@ -212,9 +212,9 @@ new ext.FormPanel({
     public native function isValid() : Boolean;
     /**
      * <p>Returns true if any fields in this form have changed from their original values.</p>
-     * <p>Note that if this BasicForm was configured with <b class='link'>#trackResetOnLoad</b> then the
-     * Fields' <i>original values</i> are updated when the values are loaded by <b class='link'>#setValues</b>
-     * or <b class='link'>#loadRecord</b>.</p>
+     * <p>Note that if this BasicForm was configured with <b class='link' title='#trackResetOnLoad'>trackResetOnLoad</b> then the
+     * Fields' <i>original values</i> are updated when the values are loaded by <b class='link' title='#setValues'>setValues</b>
+     * or <b class='link' title='#loadRecord'>loadRecord</b>.</p>
      * @return 
      */
     public native function isDirty() : Boolean;
@@ -231,7 +231,7 @@ new ext.FormPanel({
      * other config options):<ul>
      *
      * <li><b>url</b> : String<div class="sub-desc">The url for the action (defaults
-     * to the form's <b class='link'>#url</b>.)</div></li>
+     * to the form's <b class='link' title='#url'>url</b>.)</div></li>
      *
      * <li><b>method</b> : String<div class="sub-desc">The form method to use (defaults
      * to the form's method, or POST if not defined)</div></li>
@@ -248,31 +248,31 @@ new ext.FormPanel({
      * <b class='link' title='ext.form.action.Submit'>submit</b> and <b class='link' title='ext.form.action.Load'>load</b>
      * for a description of what constitutes a successful response).
      * The function is passed the following parameters:<ul>
-     * <li><tt>form</tt> : ext.form.BasicForm<div class="sub-desc">The form that requested the action</div></li>
-     * <li><tt>action</tt> : The <b class='link' title='ext.form.Action'>Action</b> object which performed the operation.
+     * <li><code>form</code> : ext.form.BasicForm<div class="sub-desc">The form that requested the action</div></li>
+     * <li><code>action</code> : The <b class='link' title='ext.form.Action'>Action</b> object which performed the operation.
      * <div class="sub-desc">The action object contains these properties of interest:<ul>
-     * <li><tt><b class='link' title='ext.form.Action#response'>response</b></tt></li>
-     * <li><tt><b class='link' title='ext.form.Action#result'>result</b></tt> : interrogate for custom postprocessing</li>
-     * <li><tt><b class='link' title='ext.form.Action#type'>type</b></tt></li>
+     * <li><code><b class='link' title='ext.form.Action#response'>response</b></code></li>
+     * <li><code><b class='link' title='ext.form.Action#result'>result</b></code> : interrogate for custom postprocessing</li>
+     * <li><code><b class='link' title='ext.form.Action#type'>type</b></code></li>
      * </ul></div></li></ul></div></li>
      *
      * <li><b>failure</b> : Function<div class="sub-desc">The callback that will be invoked after a
      * failed transaction attempt. The function is passed the following parameters:<ul>
-     * <li><tt>form</tt> : The <b class='link'>ext.form.BasicForm</b> that requested the action.</li>
-     * <li><tt>action</tt> : The <b class='link' title='ext.form.Action'>Action</b> object which performed the operation.
+     * <li><code>form</code> : The <b class='link'>ext.form.BasicForm</b> that requested the action.</li>
+     * <li><code>action</code> : The <b class='link' title='ext.form.Action'>Action</b> object which performed the operation.
      * <div class="sub-desc">The action object contains these properties of interest:<ul>
-     * <li><tt><b class='link' title='ext.form.Action#failureType'>failureType</b></tt></li>
-     * <li><tt><b class='link' title='ext.form.Action#response'>response</b></tt></li>
-     * <li><tt><b class='link' title='ext.form.Action#result'>result</b></tt> : interrogate for custom postprocessing</li>
-     * <li><tt><b class='link' title='ext.form.Action#type'>type</b></tt></li>
+     * <li><code><b class='link' title='ext.form.Action#failureType'>failureType</b></code></li>
+     * <li><code><b class='link' title='ext.form.Action#response'>response</b></code></li>
+     * <li><code><b class='link' title='ext.form.Action#result'>result</b></code> : interrogate for custom postprocessing</li>
+     * <li><code><b class='link' title='ext.form.Action#type'>type</b></code></li>
      * </ul></div></li></ul></div></li>
      *
      * <li><b>scope</b> : Object<div class="sub-desc">The scope in which to call the
-     * callback functions (The <tt>this</tt> reference for the callback functions).</div></li>
+     * callback functions (The <code>this</code> reference for the callback functions).</div></li>
      *
      * <li><b>clientValidation</b> : Boolean<div class="sub-desc">Submit Action only.
      * Determines whether a Form's fields are validated in a final call to
-     * <b class='link' title='ext.form.BasicForm#isValid'>isValid</b> prior to submission. Set to <tt>false</tt>
+     * <b class='link' title='ext.form.BasicForm#isValid'>isValid</b> prior to submission. Set to <code>false</code>
      * to prevent this. If undefined, pre-submission field validation is performed.</div></li></ul>
      *
      * @return this
@@ -280,19 +280,19 @@ new ext.FormPanel({
     public native function doAction(actionName : *, options : Object = undefined) : BasicForm;
     /**
      * Shortcut to <b class='link' title='#doAction'>do</b> a <b class='link' title='ext.form.action.Submit submit'>action</b>.
-     * @param options The options to pass to the action (see <b class='link'>#doAction</b> for details).<br>
-     * <p><b>Note:</b> this is ignored when using the <b class='link'>#standardSubmit</b> option.</p>
+     * @param options The options to pass to the action (see <b class='link' title='#doAction'>doAction</b> for details).<br>
+     * <p><b>Note:</b> this is ignored when using the <b class='link' title='#standardSubmit'>standardSubmit</b> option.</p>
      * <p>The following code:</p><pre><code>
 myFormPanel.getForm().submit({
-    clientValidation: true,
-    url: 'updateConsignment.php',
-    params: {
-        newStatus: 'delivered'
+    clientValidation&#58; true,
+    url&#58; 'updateConsignment.php',
+    params&#58; {
+        newStatus&#58; 'delivered'
     },
-    success: function(form, action) {
+    success&#58; function(form, action) {
        ext.Msg.alert('Success', action.result.msg);
     },
-    failure: function(form, action) {
+    failure&#58; function(form, action) {
         switch (action.failureType) {
             case ext.form.action.CLIENT_INVALID:
                 ext.Msg.alert('Failure', 'Form fields may not be submitted with invalid values');
@@ -323,7 +323,7 @@ myFormPanel.getForm().submit({
     public native function submit(options : Object) : BasicForm;
     /**
      * Shortcut to <b class='link' title='#doAction'>do</b> a <b class='link' title='ext.form.action.Load load'>action</b>.
-     * @param options The options to pass to the action (see <b class='link'>#doAction</b> for details)
+     * @param options The options to pass to the action (see <b class='link' title='#doAction'>doAction</b> for details)
      * @return this
      */
     public native function load(options : Object) : BasicForm;
@@ -334,9 +334,9 @@ myFormPanel.getForm().submit({
      */
     public native function updateRecord(record : Record) : BasicForm;
     /**
-     * Loads an <b class='link'>ext.data.Record</b> into this form by calling <b class='link'>#setValues</b> with the
+     * Loads an <b class='link'>ext.data.Record</b> into this form by calling <b class='link' title='#setValues'>setValues</b> with the
      * <b class='link' title='ext.data.Record#data record'>data</b>.
-     * See also <b class='link'>#trackResetOnLoad</b>.
+     * See also <b class='link' title='#trackResetOnLoad'>trackResetOnLoad</b>.
      * @param record The record to load
      * @return this
      */
@@ -364,9 +364,9 @@ myFormPanel.getForm().submit({
  {id:'portOfDischarge', value:'OSL'} ]</code></pre>
      * or an object hash of the form:<pre><code>
 {
-    clientName: 'Fred. Olsen Lines',
-    portOfLoading: 'FXT',
-    portOfDischarge: 'OSL'
+    clientName&#58; 'Fred. Olsen Lines',
+    portOfLoading&#58; 'FXT',
+    portOfDischarge&#58; 'OSL'
 }</code></pre>
      * @return this
      */

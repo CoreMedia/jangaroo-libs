@@ -24,6 +24,4 @@ public function Item(el : HTMLElement) {
     /**
      * @cfg {String} overflowText Text to be used for the menu if the item is overflowed.
      */
-/**
-*/
 }}

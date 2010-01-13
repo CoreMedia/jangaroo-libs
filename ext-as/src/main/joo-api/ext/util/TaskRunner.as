@@ -6,21 +6,21 @@ package ext.util {
  * separate tasks can be started at any time and will run independently of each
  * other. Example usage:
  * <pre><code>
-// Start a simple clock task that updates a div once per second
+&#47;/ Start a simple clock task that updates a div once per second
 var updateClock = function(){
     Ext.fly('clock').update(new Date().format('g:i:s A'));
 } 
 var task = {
-    run: updateClock,
-    interval: 1000 //1 second
+    run&#58; updateClock,
+    interval&#58; 1000 //1 second
 }
 var runner = new Ext.util.TaskRunner();
 runner.start(task);
 
-// equivalent using TaskMgr
+&#47;/ equivalent using TaskMgr
 ext.TaskMgr.start({
-    run: updateClock,
-    interval: 1000
+    run&#58; updateClock,
+    interval&#58; 1000
 });
 
  * </code></pre>
@@ -47,7 +47,7 @@ public function TaskRunner(interval : Number = undefined) {
      * should be executed.</div></li>
      * <li><code>args</code> : Array<div class="sub-desc">(optional) An array of arguments to be passed to the function
      * specified by <code>run</code>.</div></li>
-     * <li><code>scope</code> : Object<div class="sub-desc">(optional) The scope (<tt>this</tt> reference) in which to execute the
+     * <li><code>scope</code> : Object<div class="sub-desc">(optional) The scope (<code>this</code> reference) in which to execute the
      * <code>run</code> function. Defaults to the task config object.</div></li>
      * <li><code>duration</code> : Number<div class="sub-desc">(optional) The length of time in milliseconds to execute
      * the task before stopping automatically (defaults to indefinite).</div></li>
@@ -70,6 +70,4 @@ public function TaskRunner(interval : Number = undefined) {
      */
     public native function stopAll() : void;
   
-/**
-*/
 }}

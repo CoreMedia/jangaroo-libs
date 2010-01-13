@@ -66,7 +66,7 @@ public static var TRANS_ID = 1000;
     /**
      * HttpProxy implementation of DataProxy#doRequest
      * @param action
-     * @param rs If action is <tt>read</tt>, rs will be null
+     * @param rs If action is <code>read</code>, rs will be null
      * @param params An object containing properties which are to be used as HTTP parameters
      * for the request to the remote server.
      * @param reader The Reader object which converts the data

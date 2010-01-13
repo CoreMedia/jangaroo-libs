@@ -11,37 +11,37 @@ var Employee = ext.data.Record.create([
 ]);
 var myReader = new ext.data.JsonReader(
     {                             // The metadata property, with configuration options:
-        totalProperty: "results", //   the property which contains the total dataset size (optional)
-        root: "rows",             //   the property which contains an Array of record data objects
-        idProperty: "id"          //   the property within each row object that provides an ID for the record (optional)
+        totalProperty&#58; "results", //   the property which contains the total dataset size (optional)
+        root&#58; "rows",             //   the property which contains an Array of record data objects
+        idProperty&#58; "id"          //   the property within each row object that provides an ID for the record (optional)
     },
     Employee  // <b class='link'>ext.data.Record</b> constructor that provides mapping for JSON object
 );
 </code></pre>
  * <p>This would consume a JSON data object of the form:</p><pre><code>
 {
-    results: 2,  // Reader's configured totalProperty
-    rows: [      // Reader's configured root
+    results&#58; 2,  // Reader's configured totalProperty
+    rows&#58; [      // Reader's configured root
         { id: 1, firstname: 'Bill', occupation: 'Gardener' },         // a row object
         { id: 2, firstname: 'Ben' , occupation: 'Horticulturalist' }  // another row object
     ]
 }
 </code></pre>
  * <p><b><u>Automatic configuration using metaData</u></b></p>
- * <p>It is possible to change a JsonReader's metadata at any time by including a <b><tt>metaData</tt></b>
- * property in the JSON data object. If the JSON data object has a <b><tt>metaData</tt></b> property, a
+ * <p>It is possible to change a JsonReader's metadata at any time by including a <b><code>metaData</code></b>
+ * property in the JSON data object. If the JSON data object has a <b><code>metaData</code></b> property, a
  * <b class='link' title='ext.data.Store'>Store</b> object using this Reader will reconfigure itself to use the newly provided
  * field definition and fire its <b class='link' title='ext.data.Store#metachange'>metachange</b> event. The metachange event
- * handler may interrogate the <b><tt>metaData</tt></b> property to perform any configuration required.
+ * handler may interrogate the <b><code>metaData</code></b> property to perform any configuration required.
  * Note that reconfiguring a Store potentially invalidates objects which may refer to Fields or Records
  * which no longer exist.</p>
- * <p>The <b><tt>metaData</tt></b> property in the JSON data object may contain:</p>
+ * <p>The <b><code>metaData</code></b> property in the JSON data object may contain:</p>
  * <div class="mdetail-params"><ul>
  * <li>any of the configuration options for this class</li>
- * <li>a <b><tt><b class='link' title='ext.data.Record#fields'>fields</b></tt></b> property which the JsonReader will
+ * <li>a <b><code><b class='link' title='ext.data.Record#fields'>fields</b></code></b> property which the JsonReader will
  * use as an argument to the <b class='link' title='ext.data.Record#create data Record create'>method</b> in order to
  * configure the layout of the Records it will produce.</li>
- * <li>a <b><tt><b class='link' title='ext.data.Store#sortInfo'>sortInfo</b></tt></b> property which the JsonReader will
+ * <li>a <b><code><b class='link' title='ext.data.Store#sortInfo'>sortInfo</b></code></b> property which the JsonReader will
  * use to set the <b class='link'>ext.data.Store</b>'s <b class='link' title='ext.data.Store#sortInfo'>sortInfo</b> property</li>
  * <li>any user-defined properties needed</li>
  * </ul></div>
@@ -50,23 +50,23 @@ var myReader = new ext.data.JsonReader(
 var myReader = new ext.data.JsonReader();
 </code></pre>
  * <p>The first data packet from the server would configure the reader by containing a
- * <b><tt>metaData</tt></b> property <b>and</b> the data. For example, the JSON data object might take
+ * <b><code>metaData</code></b> property <b>and</b> the data. For example, the JSON data object might take
  * the form:</p>
 <pre><code>
 {
-    metaData: {
-        idProperty: 'id',
-        root: 'rows',
-        totalProperty: 'results',
-        fields: [
+    metaData&#58; {
+        idProperty&#58; 'id',
+        root&#58; 'rows',
+        totalProperty&#58; 'results',
+        fields&#58; [
             {name: 'name'},
             {name: 'job', mapping: 'occupation'}
         ],
-        sortInfo: {field: 'name', direction:'ASC'}, // used by store to set its sortInfo
-        foo: 'bar' // custom property
+        sortInfo&#58; {field: 'name', direction:'ASC'}, // used by store to set its sortInfo
+        foo&#58; 'bar' // custom property
     },
-    results: 2,
-    rows: [ // an Array
+    results&#58; 2,
+    rows&#58; [ // an Array
         { 'id': 1, 'name': 'Bill', occupation: 'Gardener' },
         { 'id': 2, 'name': 'Ben', occupation: 'Horticulturalist' }
     ]
@@ -77,25 +77,25 @@ public class JsonReader extends DataReader {
 /**
  * @cfg {String} totalProperty [total] Name of the property from which to retrieve the total number of records
  * in the dataset. This is only needed if the whole dataset is not passed in one go, but is being
- * paged from the remote server.  Defaults to <tt>total</tt>.
+ * paged from the remote server.  Defaults to <code>total</code>.
  */
   public var totalProperty : String;
 /**  
  * @cfg {String} successProperty [success] Name of the property from which to
- * retrieve the success attribute. Defaults to <tt>success</tt>.  See
+ * retrieve the success attribute. Defaults to <code>success</code>.  See
  * <b class='link'>ext.data.DataProxy</b>.<b class='link' title='ext.data.DataProxy#exception'>exception</b>
  * for additional information.
  */
   public var successProperty : String;
 /**
  * @cfg {String} root [undefined] <b>Required</b>.  The name of the property
- * which contains the Array of row objects.  Defaults to <tt>undefined</tt>.
+ * which contains the Array of row objects.  Defaults to <code>undefined</code>.
  * An exception will be thrown if the root property is undefined. The data packet
  * value for this property should be an empty array to clear the data or show
  * no data.
  */
 /**
- * @cfg {String} idProperty [id] Name of the property within a row object that contains a record identifier value.  Defaults to <tt>id</tt>
+ * @cfg {String} idProperty [id] Name of the property within a row object that contains a record identifier value.  Defaults to <code>id</code>
  */
   public var idProperty : String;
 /**
@@ -112,7 +112,7 @@ public function JsonReader(meta : Object, recordType : *) {
 }
     /**
      * This JsonReader's metadata as passed to the constructor, or as passed in
-     * the last data packet's <b><tt>metaData</tt></b> property.
+     * the last data packet's <b><code>metaData</code></b> property.
      * @property meta
      */
   override public native function get meta() : Object;
@@ -153,6 +153,4 @@ public function JsonReader(meta : Object, recordType : *) {
      * @param response
      */
     public native function readResponse(action : String, response : Object) : void;
-/**
-*/
 }}

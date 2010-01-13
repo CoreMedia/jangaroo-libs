@@ -16,6 +16,4 @@ public function CategoryAxis() {
      * @property categoryNames
      */
     public var categoryNames : Array;
-/**
-*/
 }}

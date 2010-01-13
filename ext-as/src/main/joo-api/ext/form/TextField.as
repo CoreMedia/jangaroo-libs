@@ -11,7 +11,7 @@ package ext.form {
  * <div class="sub-desc">
  * <p>If a field is configured with a <code><b class='link' title='ext.form.TextField#validator'>validator</b></code> function,
  * it will be passed the current field value.  The <code><b class='link' title='ext.form.TextField#validator'>validator</b></code>
- * function is expected to return boolean <tt>true</tt> if the value is valid or return a string to
+ * function is expected to return boolean <code>true</code> if the value is valid or return a string to
  * represent the invalid message if invalid.</p>
  * </div></li>
  * <li><b>2. Built in Validation</b>
@@ -67,121 +67,121 @@ public function TextField(config : Object) {
 }
     /**
      * @cfg {String} vtypeText A custom error message to display in place of the default message provided
-     * for the <b><code><b class='link'>#vtype</b></code></b> currently set for this field (defaults to <tt>''</tt>).  <b>Note</b>:
-     * only applies if <b><code><b class='link'>#vtype</b></code></b> is set, else ignored.
+     * for the <b><code><b class='link' title='#vtype'>vtype</b></code></b> currently set for this field (defaults to <code>''</code>).  <b>Note</b>:
+     * only applies if <b><code><b class='link' title='#vtype'>vtype</b></code></b> is set, else ignored.
      */
     /**
      * @cfg {RegExp} stripCharsRe A JavaScript RegExp object used to strip unwanted content from the value
-     * before validation (defaults to <tt>null</tt>).
+     * before validation (defaults to <code>null</code>).
      */
     /**
-     * @cfg {Boolean} grow <tt>true</tt> if this field should automatically grow and shrink to its content
-     * (defaults to <tt>false</tt>)
+     * @cfg {Boolean} grow <code>true</code> if this field should automatically grow and shrink to its content
+     * (defaults to <code>false</code>)
      */
     public var grow  : Boolean;
     /**
-     * @cfg {Number} growMin The minimum width to allow when <code><b class='link'>#grow</b> = true</code> (defaults
-     * to <tt>30</tt>)
+     * @cfg {Number} growMin The minimum width to allow when <code><b class='link' title='#grow'>grow</b> = true</code> (defaults
+     * to <code>30</code>)
      */
     public var growMin  : Number;
     /**
-     * @cfg {Number} growMax The maximum width to allow when <code><b class='link'>#grow</b> = true</code> (defaults
-     * to <tt>800</tt>)
+     * @cfg {Number} growMax The maximum width to allow when <code><b class='link' title='#grow'>grow</b> = true</code> (defaults
+     * to <code>800</code>)
      */
     public var growMax  : Number;
     /**
-     * @cfg {String} vtype A validation type name as defined in <b class='link'>ext.form.VTypes</b> (defaults to <tt>null</tt>)
+     * @cfg {String} vtype A validation type name as defined in <b class='link'>ext.form.VTypes</b> (defaults to <code>null</code>)
      */
     public var vtype  : String;
     /**
      * @cfg {RegExp} maskRe An input mask regular expression that will be used to filter keystrokes that do
-     * not match (defaults to <tt>null</tt>)
+     * not match (defaults to <code>null</code>)
      */
     public var maskRe  : RegExp;
     /**
-     * @cfg {Boolean} disableKeyFilter Specify <tt>true</tt> to disable input keystroke filtering (defaults
-     * to <tt>false</tt>)
+     * @cfg {Boolean} disableKeyFilter Specify <code>true</code> to disable input keystroke filtering (defaults
+     * to <code>false</code>)
      */
     public var disableKeyFilter  : Boolean;
     /**
-     * @cfg {Boolean} allowBlank Specify <tt>false</tt> to validate that the value's length is > 0 (defaults to
-     * <tt>true</tt>)
+     * @cfg {Boolean} allowBlank Specify <code>false</code> to validate that the value's length is > 0 (defaults to
+     * <code>true</code>)
      */
     public var allowBlank  : Boolean;
     /**
-     * @cfg {Number} minLength Minimum input field length required (defaults to <tt>0</tt>)
+     * @cfg {Number} minLength Minimum input field length required (defaults to <code>0</code>)
      */
     public var minLength  : Number;
     /**
      * @cfg {Number} maxLength Maximum input field length allowed by validation (defaults to Number.MAX_VALUE).
      * This behavior is intended to provide instant feedback to the user by improving usability to allow pasting
      * and editing or overtyping and back tracking. To restrict the maximum number of characters that can be
-     * entered into the field use <tt><b class='link' title='ext.form.Field#autoCreate'>autoCreate</b></tt> to add
+     * entered into the field use <code><b class='link' title='ext.form.Field#autoCreate'>autoCreate</b></code> to add
      * any attributes you want to a field, for example:<pre><code>
 var myField = new ext.form.NumberField({
-    id: 'mobile',
-    anchor:'90%',
-    fieldLabel: 'Mobile',
-    maxLength: 16, // for validation
-    autoCreate: {tag: 'input', type: 'text', size: '20', autocomplete: 'off', maxlength: '10'}
+    id&#58; 'mobile',
+    anchor&#58;'90%',
+    fieldLabel&#58; 'Mobile',
+    maxLength&#58; 16, // for validation
+    autoCreate&#58; {tag: 'input', type: 'text', size: '20', autocomplete: 'off', maxlength: '10'}
 });
 </code></pre>
      */
     public var maxLength  : Number;
     /**
-     * @cfg {String} minLengthText Error text to display if the <b><tt><b class='link' title='#minLength minimum'>length</b></tt></b>
-     * validation fails (defaults to <tt>'The minimum length for this field is {minLength}'</tt>)
+     * @cfg {String} minLengthText Error text to display if the <b><code><b class='link' title='#minLength minimum'>length</b></code></b>
+     * validation fails (defaults to <code>'The minimum length for this field is {minLength}'</code>)
      */
     public var minLengthText  : String;
     /**
-     * @cfg {String} maxLengthText Error text to display if the <b><tt><b class='link' title='#maxLength maximum'>length</b></tt></b>
-     * validation fails (defaults to <tt>'The maximum length for this field is {maxLength}'</tt>)
+     * @cfg {String} maxLengthText Error text to display if the <b><code><b class='link' title='#maxLength maximum'>length</b></code></b>
+     * validation fails (defaults to <code>'The maximum length for this field is {maxLength}'</code>)
      */
     public var maxLengthText  : String;
     /**
-     * @cfg {Boolean} selectOnFocus <tt>true</tt> to automatically select any existing field text when the field
-     * receives input focus (defaults to <tt>false</tt>)
+     * @cfg {Boolean} selectOnFocus <code>true</code> to automatically select any existing field text when the field
+     * receives input focus (defaults to <code>false</code>)
      */
     public var selectOnFocus  : Boolean;
     /**
-     * @cfg {String} blankText The error text to display if the <b><tt><b class='link'>#allowBlank</b></tt></b> validation
-     * fails (defaults to <tt>'This field is required'</tt>)
+     * @cfg {String} blankText The error text to display if the <b><code><b class='link' title='#allowBlank'>allowBlank</b></code></b> validation
+     * fails (defaults to <code>'This field is required'</code>)
      */
     public var blankText  : String;
     /**
      * @cfg {Function} validator A custom validation function to be called during field validation
-     * (defaults to <tt>null</tt>). If specified, this function will be called first, allowing the
+     * (defaults to <code>null</code>). If specified, this function will be called first, allowing the
      * developer to override the default validation process. This function will be passed the current
-     * field value and expected to return boolean <tt>true</tt> if the value is valid or a string
+     * field value and expected to return boolean <code>true</code> if the value is valid or a string
      * error message if invalid.
      */
     public var validator  : Function;
     /**
      * @cfg {RegExp} regex A JavaScript RegExp object to be tested against the field value during validation
-     * (defaults to <tt>null</tt>). If the test fails, the field will be marked invalid using
-     * <b><tt><b class='link'>#regexText</b></tt></b>.
+     * (defaults to <code>null</code>). If the test fails, the field will be marked invalid using
+     * <b><code><b class='link' title='#regexText'>regexText</b></code></b>.
      */
     public var regex  : RegExp;
     /**
-     * @cfg {String} regexText The error text to display if <b><tt><b class='link'>#regex</b></tt></b> is used and the
-     * test fails during validation (defaults to <tt>''</tt>)
+     * @cfg {String} regexText The error text to display if <b><code><b class='link' title='#regex'>regex</b></code></b> is used and the
+     * test fails during validation (defaults to <code>''</code>)
      */
     public var regexText  : String;
     /**
-     * @cfg {String} emptyText The default text to place into an empty field (defaults to <tt>null</tt>).
+     * @cfg {String} emptyText The default text to place into an empty field (defaults to <code>null</code>).
      * <b>Note</b>: that this value will be submitted to the server if this field is enabled and configured
-     * with a <b class='link'>#name</b>.
+     * with a <b class='link' title='#name'>name</b>.
      */
     public var emptyText  : String;
     /**
-     * @cfg {String} emptyClass The CSS class to apply to an empty field to style the <b><tt><b class='link'>#emptyText</b></tt></b>
-     * (defaults to <tt>'x-form-empty-field'</tt>).  This class is automatically added and removed as needed
+     * @cfg {String} emptyClass The CSS class to apply to an empty field to style the <b><code><b class='link' title='#emptyText'>emptyText</b></code></b>
+     * (defaults to <code>'x-form-empty-field'</code>).  This class is automatically added and removed as needed
      * depending on the current field value.
      */
     public var emptyClass  : String;
     /**
-     * @cfg {Boolean} enableKeyEvents <tt>true</tt> to enable the proxying of key events for the HTML input
-     * field (defaults to <tt>false</tt>)
+     * @cfg {Boolean} enableKeyEvents <code>true</code> to enable the proxying of key events for the HTML input
+     * field (defaults to <code>false</code>)
      */
     override protected native function initComponent() : void;
     override protected native function initEvents() : void;
@@ -195,7 +195,7 @@ var myField = new ext.form.NumberField({
     protected native function onKeyPress(e) : void;
     /**
      * Resets the current field value to the originally-loaded value and clears any validation messages.
-     * Also adds <tt><b class='link'>#emptyText</b></b></tt> and <tt><b><b class='link'>#emptyClass</b></tt> if the
+     * Also adds <code><b class='link' title='#emptyText'>emptyText</b></b></code> and <code><b><b class='link' title='#emptyClass'>emptyClass</b></code> if the
      * original value was blank.
      */
     override public native function reset() : void;
@@ -219,7 +219,7 @@ var myField = new ext.form.NumberField({
     public native function selectText(start : Number = undefined, end : Number = undefined) : void;
     /**
      * Automatically grows the field to accommodate the width of the text up to the maximum field width allowed.
-     * This only takes effect if <tt><b><b class='link'>#grow</b></b> = true</tt>, and fires the <b class='link'>#autosize</b> event.
+     * This only takes effect if <code><b><b class='link' title='#grow'>grow</b></b> = true</code>, and fires the <b class='link' title='#autosize'>autosize</b> event.
      */
     public native function autoSize() : void;
     override protected native function onDestroy() : void;

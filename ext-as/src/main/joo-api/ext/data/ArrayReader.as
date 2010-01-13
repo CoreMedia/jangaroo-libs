@@ -11,7 +11,7 @@ var Employee = ext.data.Record.create([
     {name: 'occupation', mapping: 2}    // precludes using the ordinal position as the index.
 ]);
 var myReader = new ext.data.ArrayReader({
-    <b class='link'>#idIndex</b>: 0
+    <b class='link' title='#idIndex'>idIndex</b>: 0
 }, Employee);
 </code></pre>
  * <p>This would consume an Array like this:</p>
@@ -38,7 +38,7 @@ public function ArrayReader(meta : Object, recordType : *) {
      */
     /**
      * @cfg {Number} id (optional) The subscript within row Array that provides an ID for the Record.
-     * Deprecated. Use <b class='link'>#idIndex</b> instead.
+     * Deprecated. Use <b class='link' title='#idIndex'>idIndex</b> instead.
      */
     /**
      * @cfg {Number} idIndex (optional) The subscript within row Array that provides an ID for the Record.

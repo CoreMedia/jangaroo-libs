@@ -5,10 +5,10 @@ import ext.form.Field;
 import ext.layout.ContainerLayout;
 
 /**
- * <p>Basic Toolbar class. Although the <tt><b class='link' title='ext.Container#defaultType'>defaultType</b></tt> for Toolbar
- * is <tt><b class='link' title='ext.Button'>button</b></tt>, Toolbar elements (child items for the Toolbar container) may
+ * <p>Basic Toolbar class. Although the <code><b class='link' title='ext.Container#defaultType'>defaultType</b></code> for Toolbar
+ * is <code><b class='link' title='ext.Button'>button</b></code>, Toolbar elements (child items for the Toolbar container) may
  * be virtually any type of Component. Toolbar elements can be created explicitly via their constructors,
- * or implicitly via their xtypes, and can be <tt><b class='link'>#add</b></tt>ed dynamically.</p>
+ * or implicitly via their xtypes, and can be <code><b class='link' title='#add'>add</b></code>ed dynamically.</p>
  * <p>Some items have shortcut strings for creation:</p>
  * <pre>
 <u>Shortcut</u>  <u>xtype</u>          <u>Class</u>                  <u>Description</u>
@@ -20,26 +20,26 @@ import ext.layout.ContainerLayout;
  * Example usage of various elements:
  * <pre><code>
 var tb = new ext.Toolbar({
-    renderTo: document.body,
-    width: 600,
-    height: 100,
-    items: [
+    renderTo&#58; document.body,
+    width&#58; 600,
+    height&#58; 100,
+    items&#58; [
         {
-            // xtype: 'button', // default for Toolbars, same as 'tbbutton'
-            text: 'Button'
+            &#47;/ xtype: 'button', // default for Toolbars, same as 'tbbutton'
+            text&#58; 'Button'
         },
         {
-            xtype: 'splitbutton', // same as 'tbsplitbutton'
-            text: 'Split Button'
+            xtype&#58; 'splitbutton', // same as 'tbsplitbutton'
+            text&#58; 'Split Button'
         },
-        // begin using the right-justified button container
+        &#47;/ begin using the right-justified button container
         '->', // same as {xtype: 'tbfill'}, // Ext.toolbar.Fill
         {
-            xtype: 'textfield',
-            name: 'field1',
-            emptyText: 'enter search term'
+            xtype&#58; 'textfield',
+            name&#58; 'field1',
+            emptyText&#58; 'enter search term'
         },
-        // add a vertical separator bar between toolbar items
+        &#47;/ add a vertical separator bar between toolbar items
         '-', // same as {xtype: 'tbseparator'} to create ext.Toolbar.Separator
         'text 1', // same as {xtype: 'tbtext', text: 'text1'} to create ext.Toolbar.TextItem
         {xtype: 'tbspacer'},// same as ' ' to create ext.toolbar.Spacer
@@ -51,42 +51,42 @@ var tb = new ext.Toolbar({
  * </code></pre>
  * Example adding a ComboBox within a menu of a button:
  * <pre><code>
-// ComboBox creation
+&#47;/ ComboBox creation
 var combo = new ext.form.ComboBox({
-    store: new ext.data.ArrayStore({
-        autoDestroy: true,
-        fields: ['initials', 'fullname'],
+    store&#58; new ext.data.ArrayStore({
+        autoDestroy&#58; true,
+        fields&#58; ['initials', 'fullname'],
         data : [
             ['FF', 'Fred Flintstone'],
             ['BR', 'Barney Rubble']
         ]
     }),
-    displayField: 'fullname',
-    typeAhead: true,
-    mode: 'local',
-    forceSelection: true,
-    triggerAction: 'all',
-    emptyText: 'Select a name...',
-    selectOnFocus: true,
-    width: 135,
-    getListParent: function() {
+    displayField&#58; 'fullname',
+    typeAhead&#58; true,
+    mode&#58; 'local',
+    forceSelection&#58; true,
+    triggerAction&#58; 'all',
+    emptyText&#58; 'Select a name...',
+    selectOnFocus&#58; true,
+    width&#58; 135,
+    getListParent&#58; function() {
         return this.el.up('.x-menu');
     },
-    iconCls: 'no-icon' //use iconCls if placing within menu to shift to right side of menu
+    iconCls&#58; 'no-icon' //use iconCls if placing within menu to shift to right side of menu
 });
 
-// put ComboBox in a Menu
+&#47;/ put ComboBox in a Menu
 var menu = new Ext.menu.Menu({
-    id: 'mainMenu',
-    items: [
+    id&#58; 'mainMenu',
+    items&#58; [
         combo // A Field in a Menu
     ]
 });
 
-// add a Button with the menu
+&#47;/ add a Button with the menu
 tb.add({
-        text:'Button w/ Menu',
-        menu: menu  // assign menu by instance
+        text&#58;'Button w/ Menu',
+        menu&#58; menu  // assign menu by instance
     });
 tb.doLayout();
  * </code></pre>
@@ -95,7 +95,7 @@ public class Toolbar extends Container {
 /**
  * @constructor
  * Creates a new Toolbar
- * @param config A config object or an array of buttons to <tt><b class='link'>#add</b></tt>
+ * @param config A config object or an array of buttons to <code><b class='link' title='#add'>add</b></code>
  * @xtype toolbar
  */
   public function Toolbar(config : Object = null) {
@@ -115,15 +115,15 @@ public class Toolbar extends Container {
      * arguments of mixed type and adds them to the toolbar.
      * @param arg1 The following types of arguments are all valid:<br />
      * <ul>
-     * <li><b class='link'>ext.Button</b> config: A valid button config object (equivalent to <b class='link'>#addButton</b>)</li>
-     * <li>HtmlElement: Any standard HTML element (equivalent to <b class='link'>#addElement</b>)</li>
-     * <li>Field: Any form field (equivalent to <b class='link'>#addField</b>)</li>
-     * <li>Item: Any subclass of <b class='link'>ext.Toolbar.Item</b> (equivalent to <b class='link'>#addItem</b>)</li>
-     * <li>String: Any generic string (gets wrapped in a <b class='link'>ext.Toolbar.TextItem</b>, equivalent to <b class='link'>#addText</b>).
+     * <li><b class='link'>ext.Button</b> config: A valid button config object (equivalent to <b class='link' title='#addButton'>addButton</b>)</li>
+     * <li>HtmlElement: Any standard HTML element (equivalent to <b class='link' title='#addElement'>addElement</b>)</li>
+     * <li>Field: Any form field (equivalent to <b class='link' title='#addField'>addField</b>)</li>
+     * <li>Item: Any subclass of <b class='link'>ext.Toolbar.Item</b> (equivalent to <b class='link' title='#addItem'>addItem</b>)</li>
+     * <li>String: Any generic string (gets wrapped in a <b class='link'>ext.Toolbar.TextItem</b>, equivalent to <b class='link' title='#addText'>addText</b>).
      * Note that there are a few special strings that are treated differently as explained next.</li>
-     * <li>'-': Creates a separator element (equivalent to <b class='link'>#addSeparator</b>)</li>
-     * <li>' ': Creates a spacer element (equivalent to <b class='link'>#addSpacer</b>)</li>
-     * <li>'->': Creates a fill element (equivalent to <b class='link'>#addFill</b>)</li>
+     * <li>'-': Creates a separator element (equivalent to <b class='link' title='#addSeparator'>addSeparator</b>)</li>
+     * <li>' ': Creates a spacer element (equivalent to <b class='link' title='#addSpacer'>addSpacer</b>)</li>
+     * <li>'->': Creates a fill element (equivalent to <b class='link' title='#addFill'>addFill</b>)</li>
      * </ul>
      * @param arg2
      * @param argn
@@ -179,7 +179,7 @@ public class Toolbar extends Container {
     public native function addDom(config : Object) : Item;
     /**
      * Adds a dynamically rendered Ext.form field (TextField, ComboBox, etc). Note: the field should not have
-     * been rendered yet. For a field that has already been rendered, use <b class='link'>#addElement</b>.
+     * been rendered yet. For a field that has already been rendered, use <b class='link' title='#addElement'>addElement</b>.
      * @param field
      * @return 
      */
@@ -199,6 +199,4 @@ public class Toolbar extends Container {
     protected native function onButtonTriggerOver(btn) : void;
     protected native function onButtonMenuShow(btn) : void;
     protected native function onButtonMenuHide(btn) : void;
-/**
-*/
 }}

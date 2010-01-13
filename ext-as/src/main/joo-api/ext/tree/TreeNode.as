@@ -1,13 +1,11 @@
 package ext.tree {
 import ext.data.Node;
 
-/**
-*/
 public class TreeNode extends Node {
 /**
  * @cfg {String} text The text for this node
  * @cfg {Boolean} expanded true to start the node expanded
- * @cfg {Boolean} allowDrag False to make this node undraggable if <b class='link'>#draggable</b> = true (defaults to true)
+ * @cfg {Boolean} allowDrag False to make this node undraggable if <b class='link' title='#draggable'>draggable</b> = true (defaults to true)
  * @cfg {Boolean} allowDrop False if this node cannot have child nodes dropped on it (defaults to true)
  * @cfg {Boolean} disabled true to start the node disabled
  * @cfg {String} icon The path to an icon for the node. The preferred way to do this
@@ -55,7 +53,7 @@ public function TreeNode(attributes : *) {
 /**
  * Returns the UI object for this node.
  * @return The object which is providing the user interface for this tree
- * node. Unless otherwise specified in the <b class='link'>#uiProvider</b>, this will be an instance
+ * node. Unless otherwise specified in the <b class='link' title='#uiProvider'>uiProvider</b>, this will be an instance
  * of <b class='link'>Ext.tree.TreeNodeUI</b>
  */
     public native function getUI() : TreeNodeUI;

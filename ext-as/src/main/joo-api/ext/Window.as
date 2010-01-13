@@ -1,12 +1,12 @@
 package ext {
 
 /**
- * <p>A specialized panel intended for use as an application window.  Windows are floated, <b class='link'>#resizable</b>, and
- * <b class='link'>#draggable</b> by default.  Windows can be <b class='link' title='#maximizable'>maximized</b> to fill the viewport,
- * restored to their prior size, and can be <b class='link'>#minimize</b>d.</p>
+ * <p>A specialized panel intended for use as an application window.  Windows are floated, <b class='link' title='#resizable'>resizable</b>, and
+ * <b class='link' title='#draggable'>draggable</b> by default.  Windows can be <b class='link' title='#maximizable'>maximized</b> to fill the viewport,
+ * restored to their prior size, and can be <b class='link' title='#minimize'>minimize</b>d.</p>
  * <p>Windows can also be linked to a <b class='link'>ext.WindowGroup</b> or managed by the <b class='link'>ext.WindowMgr</b> to provide 
  * grouping, activation, to front, to back and other application-specific behavior.</p>
- * <p>By default, Windows will be rendered to document.body. To <b class='link'>#constrain</b> a Window to another element
+ * <p>By default, Windows will be rendered to document.body. To <b class='link' title='#constrain'>constrain</b> a Window to another element
  * specify <b class='link' title='ext.Component#renderTo'>renderTo</b>.</p>
  * <p><b>Note:</b> By default, the <code><b class='link' title='#closable'>close</b></code> header tool <i>destroys</i> the Window resulting in
  * destruction of any child Components. This makes the Window object, and all its descendants <b>unusable</b>. To enable
@@ -55,14 +55,14 @@ public function Window(config : Object) {
     /**
     * @cfg {Function} onEsc
     * Allows override of the built-in processing for the escape key. Default action
-    * is to close the Window (performing whatever action is specified in <b class='link'>#closeAction</b>.
+    * is to close the Window (performing whatever action is specified in <b class='link' title='#closeAction'>closeAction</b>.
     * To prevent the Window closing when the escape key is pressed, specify this as
     * Ext.emptyFn (See <b class='link'>Ext#emptyFn</b>).
     */
     /**
      * @cfg {Boolean} collapsed
      * True to render the window collapsed, false to render it expanded (defaults to false). Note that if 
-     * <b class='link'>#expandOnShow</b> is true (the default) it will override the <tt>collapsed</tt> config and the window 
+     * <b class='link' title='#expandOnShow'>expandOnShow</b> is true (the default) it will override the <code>collapsed</code> config and the window 
      * will always be expanded when shown.
      */
     /**
@@ -91,45 +91,45 @@ public function Window(config : Object) {
      * <p>True to display the 'close' tool button and allow the user to close the window, false to
      * hide the button and disallow closing the window (defaults to true).</p>
      * <p>By default, when close is requested by either clicking the close button in the header
-     * or pressing ESC when the Window has focus, the <b class='link'>#close</b> method will be called. This
+     * or pressing ESC when the Window has focus, the <b class='link' title='#close'>close</b> method will be called. This
      * will <i><b class='link' title='ext.Component#destroy'>destroy</b></i> the Window and its content meaning that
      * it may not be reused.</p>
      * <p>To make closing a Window <i>hide</i> the Window so that it may be reused, set
-     * <b class='link'>#closeAction</b> to 'hide'.
+     * <b class='link' title='#closeAction'>closeAction</b> to 'hide'.
      */
     public var closable  : Boolean;
     /**
      * @cfg {String} closeAction
      * <p>The action to take when the close header tool is clicked:
      * <div class="mdetail-params"><ul>
-     * <li><b><code>'<b class='link'>#close</b>'</code></b> : <b>Default</b><div class="sub-desc">
+     * <li><b><code>'<b class='link' title='#close'>close</b>'</code></b> : <b>Default</b><div class="sub-desc">
      * <b class='link' title='#close'>remove</b> the window from the DOM and <b class='link' title='ext.Component#destroy'>destroy</b>
      * it and all descendant Components. The window will <b>not</b> be available to be
-     * redisplayed via the <b class='link'>#show</b> method.
+     * redisplayed via the <b class='link' title='#show'>show</b> method.
      * </div></li>
-     * <li><b><code>'<b class='link'>#hide</b>'</code></b> : <div class="sub-desc">
-     * <b class='link'>#hide</b> the window by setting visibility to hidden and applying negative offsets.
-     * The window will be available to be redisplayed via the <b class='link'>#show</b> method.
+     * <li><b><code>'<b class='link' title='#hide'>hide</b>'</code></b> : <div class="sub-desc">
+     * <b class='link' title='#hide'>hide</b> the window by setting visibility to hidden and applying negative offsets.
+     * The window will be available to be redisplayed via the <b class='link' title='#show'>show</b> method.
      * </div></li>
      * </ul></div>
-     * <p><b>Note:</b> This setting does not affect the <b class='link'>#close</b> method
+     * <p><b>Note:</b> This setting does not affect the <b class='link' title='#close'>close</b> method
      * which will always <b class='link' title='ext.Component#destroy'>destroy</b> the window. To
-     * programatically <i>hide</i> a window, call <b class='link'>#hide</b>.</p>
+     * programatically <i>hide</i> a window, call <b class='link' title='#hide'>hide</b>.</p>
      */
     public var closeAction  : String;
     /**
      * @cfg {Boolean} constrain
      * True to constrain the window within its containing element, false to allow it to fall outside of its
      * containing element. By default the window will be rendered to document.body.  To render and constrain the 
-     * window within another element specify <b class='link'>#renderTo</b>.
-     * (defaults to false).  Optionally the header only can be constrained using <b class='link'>#constrainHeader</b>.
+     * window within another element specify <b class='link' title='#renderTo'>renderTo</b>.
+     * (defaults to false).  Optionally the header only can be constrained using <b class='link' title='#constrainHeader'>constrainHeader</b>.
      */
     public var constrain  : Boolean;
     /**
      * @cfg {Boolean} constrainHeader
      * True to constrain the window header within its containing element (allowing the window body to fall outside 
      * of its containing element) or false to allow the header to fall outside its containing element (defaults to 
-     * false). Optionally the entire window can be constrained using <b class='link'>#constrain</b>.
+     * false). Optionally the entire window can be constrained using <b class='link' title='#constrain'>constrain</b>.
      */
     public var constrainHeader  : Boolean;
     /**
@@ -168,7 +168,7 @@ public function Window(config : Object) {
     /**
      * @cfg {Boolean} expandOnShow
      * True to always expand the window when it is displayed, false to keep it in its current state (which may be
-     * <b class='link'>#collapsed</b>) when displayed (defaults to true).
+     * <b class='link' title='#collapsed'>collapsed</b>) when displayed (defaults to true).
      */
     public var expandOnShow  : Boolean;
     public var collapsible ;
@@ -193,7 +193,7 @@ public function Window(config : Object) {
     override protected native function initEvents() : void;
     override protected native function initDraggable() : void;
         /**
-         * If this Window is configured <b class='link'>#draggable</b>, this property will contain
+         * If this Window is configured <b class='link' title='#draggable'>draggable</b>, this property will contain
          * an instance of <b class='link'>Ext.dd.DD</b> which handles dragging the Window's DOM Element.
          * @property dd
          */
@@ -243,7 +243,7 @@ public function Window(config : Object) {
     public native function ghost(cls) : void;
     protected native function unghost(show, matchPosition) : void;
     /**
-     * Placeholder method for minimizing the window.  By default, this method simply fires the <b class='link'>#minimize</b> event
+     * Placeholder method for minimizing the window.  By default, this method simply fires the <b class='link' title='#minimize'>minimize</b> event
      * since the behavior of minimizing a window is application-specific.  To implement custom minimize behavior,
      * either the minimize event can be handled or this method can be overridden.
      * @return this
@@ -253,15 +253,15 @@ public function Window(config : Object) {
      * <p>Closes the Window, removes it from the DOM, <b class='link' title='ext.Component#destroy'>destroy</b>s
      * the Window object and all its descendant Components. The <b class='link' title='ext.Panel#beforeclose'>beforeclose</b>
      * event is fired before the close happens and will cancel the close action if it returns false.<p>
-     * <p><b>Note:</b> This method is not affected by the <b class='link'>#closeAction</b> setting which
+     * <p><b>Note:</b> This method is not affected by the <b class='link' title='#closeAction'>closeAction</b> setting which
      * only affects the action triggered when clicking the <b class='link' title='#closable 'close' tool in the'>header</b>.
-     * To hide the Window without destroying it, call <b class='link'>#hide</b>.</p>
+     * To hide the Window without destroying it, call <b class='link' title='#hide'>hide</b>.</p>
      */
     public native function close() : void;
     /**
      * Fits the window within its current container and automatically replaces
      * the <b class='link' title='#maximizable 'maximize' tool'>button</b> with the 'restore' tool button.
-     * Also see <b class='link'>#toggleMaximize</b>.
+     * Also see <b class='link' title='#toggleMaximize'>toggleMaximize</b>.
      * @return this
      */
     public native function maximize() : Window;
@@ -269,12 +269,12 @@ public function Window(config : Object) {
      * Restores a <b class='link' title='#maximizable'>maximized</b>  window back to its original
      * size and position prior to being maximized and also replaces
      * the 'restore' tool button with the 'maximize' tool button.
-     * Also see <b class='link'>#toggleMaximize</b>.
+     * Also see <b class='link' title='#toggleMaximize'>toggleMaximize</b>.
      * @return this
      */
     public native function restore() : Window;
     /**
-     * A shortcut method for toggling between <b class='link'>#maximize</b> and <b class='link'>#restore</b> based on the current maximized
+     * A shortcut method for toggling between <b class='link' title='#maximize'>maximize</b> and <b class='link' title='#restore'>restore</b> based on the current maximized
      * state of the window.
      * @return this
      */
@@ -301,13 +301,13 @@ public function Window(config : Object) {
     public native function anchorTo(element : *, position : String, offsets : Array = undefined, monitorScroll : * = undefined) : Window;
     /**
      * Brings this window to the front of any other visible windows
-     * @param e Specify <tt>false</tt> to prevent the window from being focused.
+     * @param e Specify <code>false</code> to prevent the window from being focused.
      * @return this
      */
     public native function toFront(e : Boolean = undefined) : Window;
     /**
      * Makes this the active window by showing its shadow, or deactivates it by hiding its shadow.  This method also
-     * fires the <b class='link'>#activate</b> or <b class='link'>#deactivate</b> event depending on which action occurred.
+     * fires the <b class='link' title='#activate'>activate</b> or <b class='link' title='#deactivate'>deactivate</b> event depending on which action occurred.
      * @param active True to activate the window, false to deactivate it (defaults to false)
      */
     public native function setActive(active : Boolean) : void;

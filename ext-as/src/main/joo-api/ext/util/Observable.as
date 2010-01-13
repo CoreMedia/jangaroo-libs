@@ -6,28 +6,28 @@ package ext.util {
  * For example:
  * <pre><code>
 Employee = Ext.extend(Ext.util.Observable, {
-    constructor: function(config){
+    constructor&#58; function(config){
         this.name = config.name;
         this.addEvents({
             "fired" : true,
             "quit" : true
         });
 
-        // Copy configured listeners into *this* object so that the base class&#39;s
-        // constructor will add them.
+        &#47;/ Copy configured listeners into *this* object so that the base class&#39;s
+        &#47;/ constructor will add them.
         this.listeners = config.listeners;
 
-        // Call our superclass constructor to complete construction process.
+        &#47;/ Call our superclass constructor to complete construction process.
         Employee.superclass.constructor.call(config)
     }
 });
 </code></pre>
  * This could then be used like this:<pre><code>
 var newEmployee = new Employee({
-    name: employeeName,
-    listeners: {
-        quit: function() {
-            // By default, "this" will be the object that fired the event.
+    name&#58; employeeName,
+    listeners&#58; {
+        quit&#58; function() {
+            &#47;/ By default, "this" will be the object that fired the event.
             alert(this.name + " has quit!");
         }
     }
@@ -38,22 +38,22 @@ public class Observable {
 /**
      * @cfg {Object} listeners (optional) <p>A config object containing one or more event handlers to be added to this
      * object during initialization.  This should be a valid listeners config object as specified in the
-     * <b class='link'>#addListener</b> example for attaching multiple handlers at once.</p>
+     * <b class='link' title='#addListener'>addListener</b> example for attaching multiple handlers at once.</p>
      * <br><p><b><u>DOM events from ExtJs <b class='link' title='ext.Component'>Components</b></u></b></p>
      * <br><p>While <i>some</i> ExtJs Component classes export selected DOM events (e.g. "click", "mouseover" etc), this
      * is usually only done when extra value can be added. For example the <b class='link' title='ext.DataView'>DataView</b>'s
      * <b><code><b class='link' title='ext.DataView#click'>click</b></code></b> event passing the node clicked on. To access DOM
      * events directly from a Component's HTMLElement, listeners must be added to the <i><b class='link' title='ext.Component#getEl'>Element</b></i> after the Component
      * has been rendered. A plugin can simplify this step:<pre><code>
-// Plugin is configured with a listeners config object.
-// The Component is appended to the argument list of all handler functions.
+&#47;/ Plugin is configured with a listeners config object.
+&#47;/ The Component is appended to the argument list of all handler functions.
 ext.DomObserver = Ext.extend(Object, {
-    constructor: function(config) {
+    constructor&#58; function(config) {
         this.listeners = config.listeners ? config.listeners : config;
     },
 
-    // Component passes itself into plugin&#39;s init method
-    init: function(c) {
+    &#47;/ Component passes itself into plugin&#39;s init method
+    init&#58; function(c) {
         var p, l = this.listeners;
         for (p in l) {
             if (Ext.isFunction(l[p])) {
@@ -63,7 +63,7 @@ ext.DomObserver = Ext.extend(Object, {
             }
         }
 
-        // Add the listeners to the Element immediately following the render call
+        &#47;/ Add the listeners to the Element immediately following the render call
         c.render = c.render.<b class='link' title='Function#createSequence'>createSequence</b>(function() {
             var e = c.getEl();
             if (e) {
@@ -72,7 +72,7 @@ ext.DomObserver = Ext.extend(Object, {
         });
     },
 
-    createHandler: function(fn, c) {
+    createHandler&#58; function(fn, c) {
         return function(e) {
             fn.call(this, e, c);
         };
@@ -81,16 +81,16 @@ ext.DomObserver = Ext.extend(Object, {
 
 var combo = new ext.form.ComboBox({
 
-    // Collapse combo when its element is clicked on
-    plugins: [ new ext.DomObserver({
-        click: function(evt, comp) {
+    &#47;/ Collapse combo when its element is clicked on
+    plugins&#58; [ new ext.DomObserver({
+        click&#58; function(evt, comp) {
             comp.collapse();
         }
     })],
-    store: myStore,
-    typeAhead: true,
-    mode: 'local',
-    triggerAction: 'all'
+    store&#58; myStore,
+    typeAhead&#58; true,
+    mode&#58; 'local',
+    triggerAction&#58; 'all'
 });
      * </code></pre></p>
      */
@@ -102,7 +102,7 @@ var combo = new ext.form.ComboBox({
         /**
          * <p>Fires the specified event with the passed parameters (minus the event name).</p>
          * <p>An event may be set to bubble up an Observable parent hierarchy (See <b class='link'>ext.Component#getBubbleTarget</b>)
-         * by calling <b class='link'>#enableBubble</b>.</p>
+         * by calling <b class='link' title='#enableBubble'>enableBubble</b>.</p>
          * @param eventName The name of the event to fire.
          * @param args Variable number of parameters are passed to handlers.
          * @return returns false if any of the handlers return false otherwise it returns true.
@@ -133,8 +133,8 @@ var combo = new ext.form.ComboBox({
          * A delayed, one-time listener.
          * <pre><code>
 myDataView.on('click', this.onClick, this, {
-    single: true,
-    delay: 100
+    single&#58; true,
+    delay&#58; 100
 });</code></pre>
          * <p>
          * <b>Attaching multiple handlers in 1 call</b><br>
@@ -144,17 +144,17 @@ myDataView.on('click', this.onClick, this, {
          * <pre><code>
 myGridPanel.on({
     'click' : {
-        fn: this.onClick,
-        scope: this,
-        delay: 100
+        fn&#58; this.onClick,
+        scope&#58; this,
+        delay&#58; 100
     },
     'mouseover' : {
-        fn: this.onMouseOver,
-        scope: this
+        fn&#58; this.onMouseOver,
+        scope&#58; this
     },
     'mouseout' : {
-        fn: this.onMouseOut,
-        scope: this
+        fn&#58; this.onMouseOut,
+        scope&#58; this
     }
 });</code></pre>
      * <p>
@@ -164,14 +164,14 @@ myGridPanel.on({
     'click' : this.onClick,
     'mouseover' : this.onMouseOver,
     'mouseout' : this.onMouseOut,
-     scope: this
+     scope&#58; this
 });</code></pre>
          */
         public native function addListener(eventName : String, handler : Function, scope : Object = undefined, options : Object = undefined) : void;
         /**
          * Removes an event handler.
          * @param eventName The type of event the handler was associated with.
-         * @param handler   The handler to remove. <b>This must be a reference to the function passed into the <b class='link'>#addListener</b> call.</b>
+         * @param handler   The handler to remove. <b>This must be a reference to the function passed into the <b class='link' title='#addListener'>addListener</b> call.</b>
          * @param scope The scope originally specified for the handler.
          */
         public native function removeListener(eventName : String, handler : Function, scope : Object = undefined) : void;
@@ -191,14 +191,14 @@ myGridPanel.on({
          */
         public native function hasListener(eventName : String) : Boolean;
         /**
-         * Suspend the firing of all events. (see <b class='link'>#resumeEvents</b>)
+         * Suspend the firing of all events. (see <b class='link' title='#resumeEvents'>resumeEvents</b>)
          * @param queueSuspended Pass as true to queue up suspended events to be fired
-         * after the <b class='link'>#resumeEvents</b> call instead of discarding all suspended events;
+         * after the <b class='link' title='#resumeEvents'>resumeEvents</b> call instead of discarding all suspended events;
          */
         public native function suspendEvents(queueSuspended : Boolean) : void;
         /**
-         * Resume firing events. (see <b class='link'>#suspendEvents</b>)
-         * If events were suspended using the <tt><b>queueSuspended</b></tt> parameter, then all
+         * Resume firing events. (see <b class='link' title='#suspendEvents'>suspendEvents</b>)
+         * If events were suspended using the <code><b>queueSuspended</b></code> parameter, then all
          * events fired during event suspension will be sent to any listeners now.
          */
         public native function resumeEvents() : void;
@@ -207,7 +207,7 @@ myGridPanel.on({
         public native function afterMethod(method, fn, scope) : void;
         public native function removeMethodListener(method, fn, scope) : void;
         /**
-         * Relays selected events from the specified Observable as if the events were fired by <tt><b>this</b></tt>.
+         * Relays selected events from the specified Observable as if the events were fired by <code><b>this</b></code>.
          * @param o The Observable whose events this object is to relay.
          * @param events Array of event names to relay.
          */

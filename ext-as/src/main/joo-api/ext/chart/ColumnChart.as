@@ -1,6 +1,4 @@
 package ext.chart {
-/**
-*/
 public class ColumnChart extends CartesianChart {
 /**
  * @constructor
@@ -10,6 +8,4 @@ public class ColumnChart extends CartesianChart {
 public function ColumnChart() {
   super();
 }
-/**
-*/
 }}

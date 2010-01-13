@@ -10,6 +10,4 @@ public function ColumnSeries() {
   super();
 }
 //  public var type;
-/**
-*/
 }}

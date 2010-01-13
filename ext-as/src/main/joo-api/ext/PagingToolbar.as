@@ -11,7 +11,7 @@ import ext.data.Store;
  * approprate data.</p>
  * <p><b>ext.PagingToolbar</b> is a specialized toolbar that is bound to a <b class='link'>ext.data.Store</b>
  * and provides automatic paging control. This Component <b class='link' title='ext.data.Store#load'>load</b>s blocks
- * of data into the <tt><b class='link'>#store</b></tt> by passing <b class='link' title='ext.data.Store#paramNames'>paramNames</b> used for
+ * of data into the <code><b class='link' title='#store'>store</b></code> by passing <b class='link' title='ext.data.Store#paramNames'>paramNames</b> used for
  * paging criteria.</p>
  * <p>PagingToolbar is typically used as one of the Grid's toolbars:</p>
  * <pre><code>
@@ -25,13 +25,13 @@ var myPageSize = 25;  // server script should only send back 25 items
 
 var grid = new Ext.grid.GridPanel({
     ...
-    store: myStore,
-    bbar: new ext.PagingToolbar({
-        <b class='link'>#store</b>: myStore,       // grid and PagingToolbar using same store
-        <b class='link'>#displayInfo</b>: true,
-        <b class='link'>#pageSize</b>: myPageSize,
-        <b class='link'>#prependButtons</b>: true,
-        items: [
+    store&#58; myStore,
+    bbar&#58; new ext.PagingToolbar({
+        <b class='link' title='#store'>store</b>: myStore,       // grid and PagingToolbar using same store
+        <b class='link' title='#displayInfo'>displayInfo</b>: true,
+        <b class='link' title='#pageSize'>pageSize</b>: myPageSize,
+        <b class='link' title='#prependButtons'>prependButtons</b>: true,
+        items&#58; [
             'text 1'
         ]
     })
@@ -41,10 +41,10 @@ var grid = new Ext.grid.GridPanel({
  * <p>To use paging, pass the paging requirements to the server when the store is first loaded.</p>
  * <pre><code>
 store.load({
-    params: {
-        start: 0,          // specify params for the first page load if using paging
-        limit: myPageSize,
-        foo:   'bar'
+    params&#58; {
+        start&#58; 0,          // specify params for the first page load if using paging
+        limit&#58; myPageSize,
+        foo&#58;   'bar'
     }
 });
  * </code></pre>
@@ -71,22 +71,22 @@ public function PagingToolbar(config : Object) {
      */
     /**
      * @cfg {Boolean} displayInfo
-     * <tt>true</tt> to display the displayMsg (defaults to <tt>false</tt>)
+     * <code>true</code> to display the displayMsg (defaults to <code>false</code>)
      */
     /**
      * @cfg {Number} pageSize
-     * The number of records to display per page (defaults to <tt>20</tt>)
+     * The number of records to display per page (defaults to <code>20</code>)
      */
     public var pageSize  : Number;
     /**
      * @cfg {Boolean} prependButtons
-     * <tt>true</tt> to insert any configured <tt>items</tt> <i>before</i> the paging buttons.
-     * Defaults to <tt>false</tt>.
+     * <code>true</code> to insert any configured <code>items</code> <i>before</i> the paging buttons.
+     * Defaults to <code>false</code>.
      */
     /**
      * @cfg {String} displayMsg
-     * The paging status message to display (defaults to <tt>'Displaying {0} - {1} of {2}'</tt>).
-     * Note that this string is formatted using the braced numbers <tt>{0}-{2}</tt> as tokens
+     * The paging status message to display (defaults to <code>'Displaying {0} - {1} of {2}'</code>).
+     * Note that this string is formatted using the braced numbers <code>{0}-{2}</code> as tokens
      * that are replaced by the values for start, end and total respectively. These tokens should
      * be preserved when overriding this string if showing those values is desired.
      */
@@ -98,44 +98,44 @@ public function PagingToolbar(config : Object) {
     public var emptyMsg  : String;
     /**
      * @cfg {String} beforePageText
-     * The text displayed before the input item (defaults to <tt>'Page'</tt>).
+     * The text displayed before the input item (defaults to <code>'Page'</code>).
      */
     public var beforePageText  : String;
     /**
      * @cfg {String} afterPageText
-     * Customizable piece of the default paging text (defaults to <tt>'of {0}'</tt>). Note that
-     * this string is formatted using <tt>{0}</tt> as a token that is replaced by the number of
+     * Customizable piece of the default paging text (defaults to <code>'of {0}'</code>). Note that
+     * this string is formatted using <code>{0}</code> as a token that is replaced by the number of
      * total pages. This token should be preserved when overriding this string if showing the
      * total page count is desired.
      */
     public var afterPageText  : String;
     /**
      * @cfg {String} firstText
-     * The quicktip text displayed for the first page button (defaults to <tt>'First Page'</tt>).
+     * The quicktip text displayed for the first page button (defaults to <code>'First Page'</code>).
      * <b>Note</b>: quick tips must be initialized for the quicktip to show.
      */
     public var firstText  : String;
     /**
      * @cfg {String} prevText
-     * The quicktip text displayed for the previous page button (defaults to <tt>'Previous Page'</tt>).
+     * The quicktip text displayed for the previous page button (defaults to <code>'Previous Page'</code>).
      * <b>Note</b>: quick tips must be initialized for the quicktip to show.
      */
     public var prevText  : String;
     /**
      * @cfg {String} nextText
-     * The quicktip text displayed for the next page button (defaults to <tt>'Next Page'</tt>).
+     * The quicktip text displayed for the next page button (defaults to <code>'Next Page'</code>).
      * <b>Note</b>: quick tips must be initialized for the quicktip to show.
      */
     public var nextText  : String;
     /**
      * @cfg {String} lastText
-     * The quicktip text displayed for the last page button (defaults to <tt>'Last Page'</tt>).
+     * The quicktip text displayed for the last page button (defaults to <code>'Last Page'</code>).
      * <b>Note</b>: quick tips must be initialized for the quicktip to show.
      */
     public var lastText  : String;
     /**
      * @cfg {String} refreshText
-     * The quicktip text displayed for the Refresh button (defaults to <tt>'Refresh'</tt>).
+     * The quicktip text displayed for the Refresh button (defaults to <code>'Refresh'</code>).
      * <b>Note</b>: quick tips must be initialized for the quicktip to show.
      */
     public var refreshText  : String;
@@ -146,7 +146,7 @@ public function PagingToolbar(config : Object) {
      * <pre>{start: 'start', limit: 'limit'}</pre>
      */
     /**
-     * The number of records to display per page.  See also <tt><b class='link'>#cursor</b></tt>.
+     * The number of records to display per page.  See also <code><b class='link' title='#cursor'>cursor</b></code>.
      * @property pageSize
      */
     /**

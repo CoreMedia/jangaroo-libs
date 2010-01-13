@@ -3,15 +3,15 @@ package ext.dd {
  * <p>Provides automatic scrolling of overflow regions in the page during drag operations.</p>
  * <p>The ScrollManager configs will be used as the defaults for any scroll container registered with it,
  * but you can also override most of the configs per scroll container by adding a 
- * <tt>ddScrollConfig</tt> object to the target element that contains these properties: <b class='link'>#hthresh</b>,
- * <b class='link'>#vthresh</b>, <b class='link'>#increment</b> and <b class='link'>#frequency</b>.  Example usage:
+ * <code>ddScrollConfig</code> object to the target element that contains these properties: <b class='link' title='#hthresh'>hthresh</b>,
+ * <b class='link' title='#vthresh'>vthresh</b>, <b class='link' title='#increment'>increment</b> and <b class='link' title='#frequency'>frequency</b>.  Example usage:
  * <pre><code>
 var el = Ext.get('scroll-ct');
 el.ddScrollConfig = {
-    vthresh: 50,
-    hthresh: -1,
-    frequency: 100,
-    increment: 200
+    vthresh&#58; 50,
+    hthresh&#58; -1,
+    frequency&#58; 100,
+    increment&#58; 200
 };
 Ext.dd.ScrollManager.register(el);
 </code></pre>

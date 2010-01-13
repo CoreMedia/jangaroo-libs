@@ -10,6 +10,4 @@ public function LineSeries() {
   super();
 }
 //  public var type;
-/**
-*/
 }}

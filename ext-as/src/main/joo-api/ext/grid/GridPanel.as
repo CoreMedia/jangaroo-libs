@@ -19,23 +19,23 @@ import ext.data.Store;
  * <p>Example usage:</p>
  * <pre><code>
 var grid = new Ext.grid.GridPanel({
-    <b class='link'>#store</b>: new <b class='link'>ext.data.Store</b>({
+    <b class='link' title='#store'>store</b>: new <b class='link'>ext.data.Store</b>({
         <b class='link' title='ext.data.Store#autoDestroy'>autoDestroy</b>: true,
         <b class='link' title='ext.data.Store#reader'>reader</b>: reader,
         <b class='link' title='ext.data.Store#data'>data</b>: xg.dummyData
     }),
-    <b class='link'>#columns</b>: [
+    <b class='link' title='#columns'>columns</b>: [
         {id: 'company', header: 'Company', width: 200, sortable: true, dataIndex: 'company'},
         {header: 'Price', width: 120, sortable: true, renderer: Ext.util.Format.usMoney, dataIndex: 'price'},
         {header: 'Change', width: 120, sortable: true, dataIndex: 'change'},
         {header: '% Change', width: 120, sortable: true, dataIndex: 'pctChange'},
-        // instead of specifying renderer: Ext.util.Format.dateRenderer('m/d/Y') use xtype
+        &#47;/ instead of specifying renderer: Ext.util.Format.dateRenderer('m/d/Y') use xtype
         {header: 'Last Updated', width: 135, sortable: true, dataIndex: 'lastChange', xtype: 'datecolumn', format: 'M d, Y'}
     ],
-    <b class='link'>#viewConfig</b>: {
+    <b class='link' title='#viewConfig'>viewConfig</b>: {
         <b class='link' title='Ext.grid.GridView#forceFit'>forceFit</b>: true,
 
-//      Return CSS class to apply to rows depending upon data values
+&#47;/      Return CSS class to apply to rows depending upon data values
         <b class='link' title='Ext.grid.GridView#getRowClass'>getRowClass</b>: function(record, index) {
             var c = record.<b class='link' title='ext.data.Record#get'>get</b>('change');
             if (c < 0) {
@@ -46,11 +46,11 @@ var grid = new Ext.grid.GridPanel({
         }
     },
     <b class='link' title='#sm}: new'>Ext.grid.RowSelectionModel({singleSelect:true</b>),
-    width: 600,
-    height: 300,
-    frame: true,
-    title: 'Framed with Row Selection and Horizontal Scrolling',
-    iconCls: 'icon-grid'
+    width&#58; 600,
+    height&#58; 300,
+    frame&#58; true,
+    title&#58; 'Framed with Row Selection and Horizontal Scrolling',
+    iconCls&#58; 'icon-grid'
 });
  * </code></pre>
  * <p><b><u>Notes:</u></b></p>
@@ -60,13 +60,13 @@ var grid = new Ext.grid.GridPanel({
  * have no effect.</li>
  * <li>A grid <b>requires</b> a width in which to scroll its columns, and a height in which to
  * scroll its rows. These dimensions can either be set explicitly through the
- * <tt><b class='link' title='ext.BoxComponent#height'>height</b></tt> and <tt><b class='link' title='ext.BoxComponent#width'>width</b></tt>
+ * <code><b class='link' title='ext.BoxComponent#height'>height</b></code> and <code><b class='link' title='ext.BoxComponent#width'>width</b></code>
  * configuration options or implicitly set by using the grid as a child item of a
  * <b class='link' title='ext.Container'>Container</b> which will have a <b class='link' title='ext.Container#layout layout'>manager</b>
  * provide the sizing of its child items (for example the Container of the Grid may specify
- * <tt><b class='link' title='ext.Container#layout'>layout</b>:'fit'</tt>).</li>
+ * <code><b class='link' title='ext.Container#layout'>layout</b>:'fit'</code>).</li>
  * <li>To access the data in a Grid, it is necessary to use the data model encapsulated
- * by the <b class='link' title='#store'>Store</b>. See the <b class='link'>#cellclick</b> event for more details.</li>
+ * by the <b class='link' title='#store'>Store</b>. See the <b class='link' title='#cellclick'>cellclick</b> event for more details.</li>
  * </ul></div>
 */
 public class GridPanel extends Panel {
@@ -80,33 +80,33 @@ public function GridPanel(config : Object) {
 }
     /**
      * @cfg {String} autoExpandColumn
-     * <p>The <tt><b class='link' title='Ext.grid.Column#id'>id</b></tt> of a <b class='link' title='Ext.grid.Column'>column</b> in
+     * <p>The <code><b class='link' title='Ext.grid.Column#id'>id</b></code> of a <b class='link' title='Ext.grid.Column'>column</b> in
      * this grid that should expand to fill unused space. This value specified here can not
-     * be <tt>0</tt>.</p>
+     * be <code>0</code>.</p>
      * <br><p><b>Note</b>: If the Grid's <b class='link' title='Ext.grid.GridView'>view</b> is configured with
-     * <tt><b class='link' title='Ext.grid.GridView#forceFit'>forceFit</b>=true</tt> the <tt>autoExpandColumn</tt>
-     * is ignored. See <b class='link'>Ext.grid.Column</b>.<tt><b class='link' title='Ext.grid.Column#width'>width</b></tt>
+     * <code><b class='link' title='Ext.grid.GridView#forceFit'>forceFit</b>=true</code> the <code>autoExpandColumn</code>
+     * is ignored. See <b class='link'>Ext.grid.Column</b>.<code><b class='link' title='Ext.grid.Column#width'>width</b></code>
      * for additional details.</p>
-     * <p>See <tt><b class='link'>#autoExpandMax</b></tt> and <tt><b class='link'>#autoExpandMin</b></tt> also.</p>
+     * <p>See <code><b class='link' title='#autoExpandMax'>autoExpandMax</b></code> and <code><b class='link' title='#autoExpandMin'>autoExpandMin</b></code> also.</p>
      */
     public var autoExpandColumn  : String;
     /**
-     * @cfg {Number} autoExpandMax The maximum width the <tt><b class='link'>#autoExpandColumn</b></tt>
-     * can have (if enabled). Defaults to <tt>1000</tt>.
+     * @cfg {Number} autoExpandMax The maximum width the <code><b class='link' title='#autoExpandColumn'>autoExpandColumn</b></code>
+     * can have (if enabled). Defaults to <code>1000</code>.
      */
     public var autoExpandMax  : Number;
     /**
-     * @cfg {Number} autoExpandMin The minimum width the <tt><b class='link'>#autoExpandColumn</b></tt>
-     * can have (if enabled). Defaults to <tt>50</tt>.
+     * @cfg {Number} autoExpandMin The minimum width the <code><b class='link' title='#autoExpandColumn'>autoExpandColumn</b></code>
+     * can have (if enabled). Defaults to <code>50</code>.
      */
     public var autoExpandMin  : Number;
     /**
-     * @cfg {Boolean} columnLines <tt>true</tt> to add css for column separation lines.
-     * Default is <tt>false</tt>.
+     * @cfg {Boolean} columnLines <code>true</code> to add css for column separation lines.
+     * Default is <code>false</code>.
      */
     public var columnLines  : Boolean;
     /**
-     * @cfg {Object} cm Shorthand for <tt><b class='link'>#colModel</b></tt>.
+     * @cfg {Object} cm Shorthand for <code><b class='link' title='#colModel'>colModel</b></code>.
      */
     /**
      * @cfg {Object} colModel The <b class='link'>Ext.grid.ColumnModel</b> to use when rendering the grid (required).
@@ -114,10 +114,10 @@ public function GridPanel(config : Object) {
     /**
      * @cfg {Array} columns An array of <b class='link' title='Ext.grid.Column'>columns</b> to auto create a
      * <b class='link'>Ext.grid.ColumnModel</b>.  The ColumnModel may be explicitly created via the
-     * <tt><b class='link'>#colModel</b></tt> configuration property.
+     * <code><b class='link' title='#colModel'>colModel</b></code> configuration property.
      */
     /**
-     * @cfg {String} ddGroup The DD group this GridPanel belongs to. Defaults to <tt>'GridDD'</tt> if not specified.
+     * @cfg {String} ddGroup The DD group this GridPanel belongs to. Defaults to <code>'GridDD'</code> if not specified.
      */
     /**
      * @cfg {String} ddText
@@ -125,36 +125,36 @@ public function GridPanel(config : Object) {
      * <pre><code>
      * ddText : '{0} selected row{1}'
      * </code></pre>
-     * <tt>{0}</tt> is replaced with the number of selected rows.
+     * <code>{0}</code> is replaced with the number of selected rows.
      */
     public var ddText  : String;
     /**
-     * @cfg {Boolean} deferRowRender <P>Defaults to <tt>true</tt> to enable deferred row rendering.</p>
+     * @cfg {Boolean} deferRowRender <P>Defaults to <code>true</code> to enable deferred row rendering.</p>
      * <p>This allows the GridPanel to be initially rendered empty, with the expensive update of the row
      * structure deferred so that layouts with GridPanels appear more quickly.</p>
      */
     public var deferRowRender  : Boolean;
     /**
-     * @cfg {Boolean} disableSelection <p><tt>true</tt> to disable selections in the grid. Defaults to <tt>false</tt>.</p>
+     * @cfg {Boolean} disableSelection <p><code>true</code> to disable selections in the grid. Defaults to <code>false</code>.</p>
      * <p>Ignored if a <b class='link' title='#selModel'>SelectionModel</b> is specified.</p>
      */
     /**
-     * @cfg {Boolean} enableColumnResize <tt>false</tt> to turn off column resizing for the whole grid. Defaults to <tt>true</tt>.
+     * @cfg {Boolean} enableColumnResize <code>false</code> to turn off column resizing for the whole grid. Defaults to <code>true</code>.
      */
     /**
-     * @cfg {Boolean} enableColumnHide Defaults to <tt>true</tt> to enable hiding of columns with the header context menu.
+     * @cfg {Boolean} enableColumnHide Defaults to <code>true</code> to enable hiding of columns with the header context menu.
      */
     public var enableColumnHide  : Boolean;
     /**
-     * @cfg {Boolean} enableColumnMove Defaults to <tt>true</tt> to enable drag and drop reorder of columns. <tt>false</tt>
+     * @cfg {Boolean} enableColumnMove Defaults to <code>true</code> to enable drag and drop reorder of columns. <code>false</code>
      * to turn off column reordering via drag drop.
      */
     public var enableColumnMove  : Boolean;
     /**
-     * @cfg {Boolean} enableDragDrop <p>Enables dragging of the selected rows of the GridPanel. Defaults to <tt>false</tt>.</p>
-     * <p>Setting this to <b><tt>true</tt></b> causes this GridPanel's <b class='link' title='#getView'>GridView</b> to
+     * @cfg {Boolean} enableDragDrop <p>Enables dragging of the selected rows of the GridPanel. Defaults to <code>false</code>.</p>
+     * <p>Setting this to <b><code>true</code></b> causes this GridPanel's <b class='link' title='#getView'>GridView</b> to
      * create an instance of <b class='link'>Ext.grid.GridDragZone</b>. <b>Note</b>: this is available only <b>after</b>
-     * the Grid has been rendered as the GridView's <tt><b class='link' title='Ext.grid.GridView#dragZone'>dragZone</b></tt>
+     * the Grid has been rendered as the GridView's <code><b class='link' title='Ext.grid.GridView#dragZone'>dragZone</b></code>
      * property.</p>
      * <p>A cooperating <b class='link' title='Ext.dd.DropZone'>DropZone</b> must be created who's implementations of
      * <b class='link' title='Ext.dd.DropZone#onNodeEnter'>onNodeEnter</b>, <b class='link' title='Ext.dd.DropZone#onNodeOver'>onNodeOver</b>,
@@ -163,7 +163,7 @@ public function GridPanel(config : Object) {
      */
     public var enableDragDrop  : Boolean;
     /**
-     * @cfg {Boolean} enableHdMenu Defaults to <tt>true</tt> to enable the drop down button for menu in the headers.
+     * @cfg {Boolean} enableHdMenu Defaults to <code>true</code> to enable the drop down button for menu in the headers.
      */
     public var enableHdMenu  : Boolean;
     /**
@@ -175,14 +175,14 @@ public function GridPanel(config : Object) {
      */
     public var loadMask  : Object;
     /**
-     * @cfg {Number} maxHeight Sets the maximum height of the grid - ignored if <tt>autoHeight</tt> is not on.
+     * @cfg {Number} maxHeight Sets the maximum height of the grid - ignored if <code>autoHeight</code> is not on.
      */
     /**
-     * @cfg {Number} minColumnWidth The minimum width a column can be resized to. Defaults to <tt>25</tt>.
+     * @cfg {Number} minColumnWidth The minimum width a column can be resized to. Defaults to <code>25</code>.
      */
     public var minColumnWidth  : Number;
     /**
-     * @cfg {Object} sm Shorthand for <tt><b class='link'>#selModel</b></tt>.
+     * @cfg {Object} sm Shorthand for <code><b class='link' title='#selModel'>selModel</b></code>.
      */
     /**
      * @cfg {Object} selModel Any subclass of <b class='link'>Ext.grid.AbstractSelectionModel</b> that will provide
@@ -193,16 +193,16 @@ public function GridPanel(config : Object) {
      */
     public var store  : Store;
     /**
-     * @cfg {Boolean} stripeRows <tt>true</tt> to stripe the rows. Default is <tt>false</tt>.
-     * <p>This causes the CSS class <tt><b>x-grid3-row-alt</b></tt> to be added to alternate rows of
+     * @cfg {Boolean} stripeRows <code>true</code> to stripe the rows. Default is <code>false</code>.
+     * <p>This causes the CSS class <code><b>x-grid3-row-alt</b></code> to be added to alternate rows of
      * the grid. A default CSS rule is provided which sets a background colour, but you can override this
      * with a rule which either overrides the <b>background-color</b> style using the '!important'
      * modifier, or which uses a CSS selector of higher specificity.</p>
      */
     public var stripeRows  : Boolean;
     /**
-     * @cfg {Boolean} trackMouseOver True to highlight rows when the mouse is over. Default is <tt>true</tt>
-     * for GridPanel, but <tt>false</tt> for EditorGridPanel.
+     * @cfg {Boolean} trackMouseOver True to highlight rows when the mouse is over. Default is <code>true</code>
+     * for GridPanel, but <code>false</code> for EditorGridPanel.
      */
     public var trackMouseOver  : Boolean;
     /**
@@ -212,7 +212,7 @@ public function GridPanel(config : Object) {
      * stateEvents: ['columnmove', 'columnresize', 'sortchange']
      * </code></pre>
      * <p>These can be any types of events supported by this component, including browser or
-     * custom events (e.g., <tt>['click', 'customerchange']</tt>).</p>
+     * custom events (e.g., <code>['click', 'customerchange']</code>).</p>
      * <p>See <b class='link'>ext.Component#stateful</b> for an explanation of saving and restoring
      * Component state.</p>
      */
@@ -225,7 +225,7 @@ public function GridPanel(config : Object) {
     /**
      * @cfg {Object} viewConfig A config object that will be applied to the grid's UI view.  Any of
      * the config options available for <b class='link'>Ext.grid.GridView</b> can be specified here. This option
-     * is ignored if <tt><b class='link'>#view</b></tt> is specified.
+     * is ignored if <code><b class='link' title='#view'>view</b></code> is specified.
      */
     //protected var rendered  : Object;
     protected var viewReady ;
@@ -241,9 +241,9 @@ public function GridPanel(config : Object) {
      * and fires the 'reconfigure' event. The View will be bound to the new
      * objects and refreshed.</p>
      * <p>Be aware that upon reconfiguring a GridPanel, certain existing settings <i>may</i> become
-     * invalidated. For example the configured <b class='link'>#autoExpandColumn</b> may no longer exist in the
+     * invalidated. For example the configured <b class='link' title='#autoExpandColumn'>autoExpandColumn</b> may no longer exist in the
      * new ColumnModel. Also, an existing <b class='link' title='ext.PagingToolbar'>PagingToolbar</b> will still be bound
-     * to the old Store, and will need rebinding. Any <b class='link'>#plugins</b> might also need reconfiguring
+     * to the old Store, and will need rebinding. Any <b class='link' title='#plugins'>plugins</b> might also need reconfiguring
      * with the new data.</p>
      * @param store The new <b class='link'>ext.data.Store</b> object
      * @param colModel The new <b class='link'>Ext.grid.ColumnModel</b> object
@@ -265,7 +265,7 @@ public function GridPanel(config : Object) {
     public native function getGridEl() : Element;
     public native function stopEditing(cancel : Boolean = undefined) : void;
     /**
-     * Returns the grid's selection model configured by the <code><b class='link'>#selModel</b></code>
+     * Returns the grid's selection model configured by the <code><b class='link' title='#selModel'>selModel</b></code>
      * configuration option. If no selection model was configured, this will create
      * and return a <b class='link' title='Ext.grid.RowSelectionModel'>RowSelectionModel</b>.
      * @return 

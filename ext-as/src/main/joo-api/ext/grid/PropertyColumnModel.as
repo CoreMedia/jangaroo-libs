@@ -27,6 +27,4 @@ public class PropertyColumnModel extends ColumnModel {
     protected native function getPropertyName(name) : void;
     override public native function getCellEditor(colIndex : Number, rowIndex : Number) : Editor;
     override public native function destroy() : void;
-/**
-*/
 }}

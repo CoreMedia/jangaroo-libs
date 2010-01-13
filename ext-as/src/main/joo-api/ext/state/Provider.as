@@ -24,13 +24,13 @@ public class Provider {
      */
     public native function set(name : String, value : *) : void;
     /**
-     * Decodes a string previously encoded with <b class='link'>#encodeValue</b>.
+     * Decodes a string previously encoded with <b class='link' title='#encodeValue'>encodeValue</b>.
      * @param value The value to decode
      * @return The decoded value
      */
     public native function decodeValue(value : String) : *;
     /**
-     * Encodes a value including type information.  Decode with <b class='link'>#decodeValue</b>.
+     * Encodes a value including type information.  Decode with <b class='link' title='#decodeValue'>decodeValue</b>.
      * @param value The value to encode
      * @return The encoded value
      */

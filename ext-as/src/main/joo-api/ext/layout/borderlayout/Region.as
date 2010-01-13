@@ -17,8 +17,8 @@ public class Region extends ContainerLayout {
  * Create a new Region.
  * @param layout The <b class='link' title='Ext.layout.BorderLayout'>BorderLayout</b> instance that is managing this Region.
  * @param config The configuration options
- * @param position The region position.  Valid values are: <tt>north</tt>, <tt>south</tt>,
- * <tt>east</tt>, <tt>west</tt> and <tt>center</tt>.  Every <b class='link' title='Ext.layout.BorderLayout'>BorderLayout</b>
+ * @param position The region position.  Valid values are: <code>north</code>, <code>south</code>,
+ * <code>east</code>, <code>west</code> and <code>center</code>.  Every <b class='link' title='Ext.layout.BorderLayout'>BorderLayout</b>
  * <b>must have a center region</b> for the primary content -- all other regions are optional.
  */
 public function Region(layout : BorderLayout, config : Object, position : String) {
@@ -31,41 +31,41 @@ public function Region(layout : BorderLayout, config : Object, position : String
      * @cfg {Boolean} animFloat
      * When a collapsed region's bar is clicked, the region's panel will be displayed as a floated
      * panel that will close again once the user mouses out of that panel (or clicks out if
-     * <tt><b class='link'>#autoHide</b> = false</tt>).  Setting <tt><b class='link'>#animFloat</b> = false</tt> will
-     * prevent the open and close of these floated panels from being animated (defaults to <tt>true</tt>).
+     * <code><b class='link' title='#autoHide'>autoHide</b> = false</code>).  Setting <code><b class='link' title='#animFloat'>animFloat</b> = false</code> will
+     * prevent the open and close of these floated panels from being animated (defaults to <code>true</code>).
      */
     /**
      * @cfg {Boolean} autoHide
      * When a collapsed region's bar is clicked, the region's panel will be displayed as a floated
-     * panel.  If <tt>autoHide = true</tt>, the panel will automatically hide after the user mouses
-     * out of the panel.  If <tt>autoHide = false</tt>, the panel will continue to display until the
-     * user clicks outside of the panel (defaults to <tt>true</tt>).
+     * panel.  If <code>autoHide = true</code>, the panel will automatically hide after the user mouses
+     * out of the panel.  If <code>autoHide = false</code>, the panel will continue to display until the
+     * user clicks outside of the panel (defaults to <code>true</code>).
      */
     /**
      * @cfg {String} collapseMode
-     * <tt>collapseMode</tt> supports two configuration values:<div class="mdetail-params"><ul>
-     * <li><b><tt>undefined</tt></b> (default)<div class="sub-desc">By default, <b class='link'>#collapsible</b>
+     * <code>collapseMode</code> supports two configuration values:<div class="mdetail-params"><ul>
+     * <li><b><code>undefined</code></b> (default)<div class="sub-desc">By default, <b class='link' title='#collapsible'>collapsible</b>
      * regions are collapsed by clicking the expand/collapse tool button that renders into the region's
      * title bar.</div></li>
-     * <li><b><tt>'mini'</tt></b><div class="sub-desc">Optionally, when <tt>collapseMode</tt> is set to
-     * <tt>'mini'</tt> the region's split bar will also display a small collapse button in the center of
-     * the bar. In <tt>'mini'</tt> mode the region will collapse to a thinner bar than in normal mode.
+     * <li><b><code>'mini'</code></b><div class="sub-desc">Optionally, when <code>collapseMode</code> is set to
+     * <code>'mini'</code> the region's split bar will also display a small collapse button in the center of
+     * the bar. In <code>'mini'</code> mode the region will collapse to a thinner bar than in normal mode.
      * </div></li>
      * </ul></div></p>
-     * <p><b>Note</b>: if a collapsible region does not have a title bar, then set <tt>collapseMode =
-     * 'mini'</tt> and <tt><b class='link'>#split</b> = true</tt> in order for the region to be <b class='link'>#collapsible</b>
+     * <p><b>Note</b>: if a collapsible region does not have a title bar, then set <code>collapseMode =
+     * 'mini'</code> and <code><b class='link' title='#split'>split</b> = true</code> in order for the region to be <b class='link' title='#collapsible'>collapsible</b>
      * by the user as the expand/collapse tool button (that would go in the title bar) will not be rendered.</p>
-     * <p>See also <tt><b class='link'>#cmargins</b></tt>.</p>
+     * <p>See also <code><b class='link' title='#cmargins'>cmargins</b></code>.</p>
      */
     /**
      * @cfg {Object} margins
      * An object containing margins to apply to the region when in the expanded state in the
      * format:<pre><code>
 {
-    top: (top margin),
-    right: (right margin),
-    bottom: (bottom margin),
-    left: (left margin)
+    top&#58; (top margin),
+    right&#58; (right margin),
+    bottom&#58; (bottom margin),
+    left&#58; (left margin)
 }</code></pre>
      * <p>May also be a string containing space-separated, numeric margin values. The order of the
      * sides associated with each value matches the way CSS processes margin values:</p>
@@ -86,10 +86,10 @@ public function Region(layout : BorderLayout, config : Object, position : String
      * An object containing margins to apply to the region when in the collapsed state in the
      * format:<pre><code>
 {
-    top: (top margin),
-    right: (right margin),
-    bottom: (bottom margin),
-    left: (left margin)
+    top&#58; (top margin),
+    right&#58; (right margin),
+    bottom&#58; (bottom margin),
+    left&#58; (left margin)
 }</code></pre>
      * <p>May also be a string containing space-separated, numeric margin values. The order of the
      * sides associated with each value matches the way CSS processes margin values.</p>
@@ -104,54 +104,54 @@ public function Region(layout : BorderLayout, config : Object, position : String
      */
     /**
      * @cfg {Boolean} collapsible
-     * <p><tt>true</tt> to allow the user to collapse this region (defaults to <tt>false</tt>).  If
-     * <tt>true</tt>, an expand/collapse tool button will automatically be rendered into the title
+     * <p><code>true</code> to allow the user to collapse this region (defaults to <code>false</code>).  If
+     * <code>true</code>, an expand/collapse tool button will automatically be rendered into the title
      * bar of the region, otherwise the button will not be shown.</p>
      * <p><b>Note</b>: that a title bar is required to display the collapse/expand toggle button -- if
-     * no <tt>title</tt> is specified for the region's panel, the region will only be collapsible if
-     * <tt><b class='link'>#collapseMode</b> = 'mini'</tt> and <tt><b class='link'>#split</b> = true</tt>.
+     * no <code>title</code> is specified for the region's panel, the region will only be collapsible if
+     * <code><b class='link' title='#collapseMode'>collapseMode</b> = 'mini'</code> and <code><b class='link' title='#split'>split</b> = true</code>.
      */
     public var collapsible  : Boolean;
     /**
      * @cfg {Boolean} split
-     * <p><tt>true</tt> to create a <b class='link' title='Ext.layout.borderlayout.SplitRegion'>SplitRegion</b> and 
+     * <p><code>true</code> to create a <b class='link' title='Ext.layout.borderlayout.SplitRegion'>SplitRegion</b> and 
      * display a 5px wide <b class='link'>ext.SplitBar</b> between this region and its neighbor, allowing the user to
-     * resize the regions dynamically.  Defaults to <tt>false</tt> creating a
+     * resize the regions dynamically.  Defaults to <code>false</code> creating a
      * <b class='link' title='Ext.layout.borderlayout.Region'>Region</b>.</p><br>
      * <p><b>Notes</b>:</p><div class="mdetail-params"><ul>
-     * <li>this configuration option is ignored if <tt>region='center'</tt></li> 
-     * <li>when <tt>split == true</tt>, it is common to specify a
-     * <tt><b class='link' title='ext.SplitBar#minSize'>minSize</b></tt> and <tt><b class='link' title='ext.SplitBar#maxSize'>maxSize</b></tt>
+     * <li>this configuration option is ignored if <code>region='center'</code></li> 
+     * <li>when <code>split == true</code>, it is common to specify a
+     * <code><b class='link' title='ext.SplitBar#minSize'>minSize</b></code> and <code><b class='link' title='ext.SplitBar#maxSize'>maxSize</b></code>
      * for the <b class='link' title='ext.BoxComponent'>BoxComponent</b> representing the region. These are not native
      * configs of <b class='link' title='ext.BoxComponent'>BoxComponent</b>, and are used only by this class.</li>
-     * <li>if <tt><b class='link'>#collapseMode</b> = 'mini'</tt> requires <tt>split = true</tt> to reserve space
-     * for the collapse tool</tt></li> 
+     * <li>if <code><b class='link' title='#collapseMode'>collapseMode</b> = 'mini'</code> requires <code>split = true</code> to reserve space
+     * for the collapse tool</code></li> 
      * </ul></div> 
      */
     public var split : Boolean;
     /**
      * @cfg {Boolean} floatable
-     * <tt>true</tt> to allow clicking a collapsed region's bar to display the region's panel floated
-     * above the layout, <tt>false</tt> to force the user to fully expand a collapsed region by
-     * clicking the expand button to see it again (defaults to <tt>true</tt>).
+     * <code>true</code> to allow clicking a collapsed region's bar to display the region's panel floated
+     * above the layout, <code>false</code> to force the user to fully expand a collapsed region by
+     * clicking the expand button to see it again (defaults to <code>true</code>).
      */
     public var floatable : Boolean;
     /**
      * @cfg {Number} minWidth
-     * <p>The minimum allowable width in pixels for this region (defaults to <tt>50</tt>).
-     * <tt>maxWidth</tt> may also be specified.</p><br>
-     * <p><b>Note</b>: setting the <tt><b class='link' title='ext.SplitBar#minSize'>minSize</b></tt> / 
-     * <tt><b class='link' title='ext.SplitBar#maxSize'>maxSize</b></tt> supersedes any specified 
-     * <tt>minWidth</tt> / <tt>maxWidth</tt>.</p>
+     * <p>The minimum allowable width in pixels for this region (defaults to <code>50</code>).
+     * <code>maxWidth</code> may also be specified.</p><br>
+     * <p><b>Note</b>: setting the <code><b class='link' title='ext.SplitBar#minSize'>minSize</b></code> / 
+     * <code><b class='link' title='ext.SplitBar#maxSize'>maxSize</b></code> supersedes any specified 
+     * <code>minWidth</code> / <code>maxWidth</code>.</p>
      */
     public var minWidth : Number;
     /**
      * @cfg {Number} minHeight
-     * The minimum allowable height in pixels for this region (defaults to <tt>50</tt>)
-     * <tt>maxHeight</tt> may also be specified.</p><br>
-     * <p><b>Note</b>: setting the <tt><b class='link' title='ext.SplitBar#minSize'>minSize</b></tt> / 
-     * <tt><b class='link' title='ext.SplitBar#maxSize'>maxSize</b></tt> supersedes any specified 
-     * <tt>minHeight</tt> / <tt>maxHeight</tt>.</p>
+     * The minimum allowable height in pixels for this region (defaults to <code>50</code>)
+     * <code>maxHeight</code> may also be specified.</p><br>
+     * <p><b>Note</b>: setting the <code><b class='link' title='ext.SplitBar#minSize'>minSize</b></code> / 
+     * <code><b class='link' title='ext.SplitBar#maxSize'>maxSize</b></code> supersedes any specified 
+     * <code>minHeight</code> / <code>maxHeight</code>.</p>
      */
     public var minHeight : Number;
     protected var defaultMargins ;
@@ -193,17 +193,17 @@ public function Region(layout : BorderLayout, config : Object, position : String
     public native function isVisible() : Boolean;
     /**
      * Returns the current margins for this region.  If the region is collapsed, the
-     * <b class='link'>#cmargins</b> (collapsed margins) value will be returned, otherwise the
-     * <b class='link'>#margins</b> value will be returned.
-     * @return An object containing the element's margins: <tt>{left: (left
-     * margin), top: (top margin), right: (right margin), bottom: (bottom margin)}</tt>
+     * <b class='link' title='#cmargins'>cmargins</b> (collapsed margins) value will be returned, otherwise the
+     * <b class='link' title='#margins'>margins</b> value will be returned.
+     * @return An object containing the element's margins: <code>{left: (left
+     * margin), top: (top margin), right: (right margin), bottom: (bottom margin)}</code>
      */
     public native function getMargins() : Object;
     /**
      * Returns the current size of this region.  If the region is collapsed, the size of the
      * collapsedEl will be returned, otherwise the size of the region's panel will be returned.
-     * @return An object containing the element's size: <tt>{width: (element width),
-     * height: (element height)}</tt>
+     * @return An object containing the element's size: <code>{width: (element width),
+     * height: (element height)}</code>
      */
     public native function getSize() : Object;
     /**
@@ -229,14 +229,14 @@ public function Region(layout : BorderLayout, config : Object, position : String
     protected native function clearAutoHide() : void;
     protected native function clearMonitor() : void;
     /**
-     * If this Region is <b class='link'>#floatable</b>, this method slides this Region into full visibility <i>over the top
-     * of the center Region</i> where it floats until either <b class='link'>#slideIn</b> is called, or other regions of the layout
+     * If this Region is <b class='link' title='#floatable'>floatable</b>, this method slides this Region into full visibility <i>over the top
+     * of the center Region</i> where it floats until either <b class='link' title='#slideIn'>slideIn</b> is called, or other regions of the layout
      * are clicked, or the mouse exits the Region.
      */
     public native function slideOut() : void;
     protected native function afterSlideIn() : void;
     /**
-     * If this Region is <b class='link'>#floatable</b>, and this Region has been slid into floating visibility, then this method slides
+     * If this Region is <b class='link' title='#floatable'>floatable</b>, and this Region has been slid into floating visibility, then this method slides
      * this region back into its collapsed state.
      */
     public native function slideIn(cb) : void;
@@ -249,6 +249,4 @@ public function Region(layout : BorderLayout, config : Object, position : String
     protected native function getSlideAnchor() : void;
     protected native function getAlignAdj() : void;
     protected native function getExpandAdj() : void;
-/**
-*/
 }}

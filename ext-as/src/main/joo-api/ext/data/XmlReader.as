@@ -13,9 +13,9 @@ var Employee = ext.data.Record.create([
    {name: 'occupation'}                 // This field will use "occupation" as the mapping.
 ]);
 var myReader = new ext.data.XmlReader({
-   totalRecords: "results", // The element which contains the total dataset size (optional)
-   record: "row",           // The repeated element which contains row information
-   id: "id"                 // The element within the row that provides an ID for the record (optional)
+   totalRecords&#58; "results", // The element which contains the total dataset size (optional)
+   record&#58; "row",           // The repeated element which contains row information
+   id&#58; "id"                 // The element within the row that provides an ID for the record (optional)
 }, Employee);
 </code></pre>
  * <p>
@@ -58,7 +58,7 @@ public function XmlReader(meta : Object, recordType : Object) {
     /**
      * This method is only used by a DataProxy which has retrieved data from a remote server.
      * @param response The XHR object which contains the parsed XML document.  The response is expected
-     * to contain a property called <tt>responseXML</tt> which refers to an XML document object.
+     * to contain a property called <code>responseXML</code> which refers to an XML document object.
      * @return records A data block which is used by an <b class='link'>ext.data.Store</b> as
      * a cache of ext.data.Records.
      */

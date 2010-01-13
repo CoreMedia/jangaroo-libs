@@ -1,8 +1,6 @@
 package ext.tree {
 import ext.dd.DragZone;
 
-/**
-*/
 public class TreeDragZone extends DragZone {
 /**
  * @constructor

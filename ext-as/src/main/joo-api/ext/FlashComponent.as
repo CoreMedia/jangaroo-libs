@@ -1,6 +1,4 @@
 package ext {
-/**
-*/
 public class FlashComponent extends BoxComponent {
 /**
  * @constructor
@@ -11,22 +9,22 @@ public function FlashComponent() {
 }
     /**
      * @cfg {String} flashVersion
-     * Indicates the version the flash content was published for. Defaults to <tt>'9.0.45'</tt>.
+     * Indicates the version the flash content was published for. Defaults to <code>'9.0.45'</code>.
      */
     public var flashVersion  : String;
     /**
      * @cfg {String} backgroundColor
-     * The background color of the chart. Defaults to <tt>'#ffffff'</tt>.
+     * The background color of the chart. Defaults to <code>'#ffffff'</code>.
      */
     public var backgroundColor : String;
     /**
      * @cfg {String} wmode
-     * The wmode of the flash object. This can be used to control layering. Defaults to <tt>'opaque'</tt>.
+     * The wmode of the flash object. This can be used to control layering. Defaults to <code>'opaque'</code>.
      */
     public var wmode : String;
     /**
      * @cfg {String} url
-     * The URL of the chart to include. Defaults to <tt>undefined</tt>.
+     * The URL of the chart to include. Defaults to <code>undefined</code>.
      */
     public var url : String;
     public var swfId ;
@@ -35,7 +33,7 @@ public function FlashComponent() {
     /**
      * @cfg {Boolean} expressInstall
      * True to prompt the user to install flash if not installed. Note that this uses
-     * ext.FlashComponent.EXPRESS_INSTALL_URL, which should be set to the local resource. Defaults to <tt>false</tt>.
+     * ext.FlashComponent.EXPRESS_INSTALL_URL, which should be set to the local resource. Defaults to <code>false</code>.
      */
     public var expressInstall : Boolean;
     override protected native function initComponent() : void;

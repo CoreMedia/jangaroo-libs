@@ -4,27 +4,27 @@ package ext {
  * <p>Note that the MessageBox is asynchronous.  Unlike a regular JavaScript <code>alert</code> (which will halt
  * browser execution), showing a MessageBox will not cause the code to stop.  For this reason, if you have code
  * that should only run <em>after</em> some user feedback from the MessageBox, you must use a callback function
- * (see the <code>function</code> parameter for <b class='link'>#show</b> for more details).</p>
+ * (see the <code>function</code> parameter for <b class='link' title='#show'>show</b> for more details).</p>
  * <p>Example usage:</p>
  *<pre><code>
-// Basic alert:
+&#47;/ Basic alert:
 ext.Msg.alert('Status', 'Changes saved successfully.');
 
-// Prompt for user data and process the result using a callback:
+&#47;/ Prompt for user data and process the result using a callback:
 ext.Msg.prompt('Name', 'Please enter your name:', function(btn, text){
     if (btn == 'ok'){
-        // process text value and close...
+        &#47;/ process text value and close...
     }
 });
 
-// Show a dialog using config options:
+&#47;/ Show a dialog using config options:
 ext.Msg.show({
-   title:'Save Changes?',
-   msg: 'You are closing a tab that has unsaved changes. Would you like to save your changes?',
-   buttons: ext.Msg.YESNOCANCEL,
-   fn: processResult,
-   animEl: 'elId',
-   icon: ext.MessageBox.QUESTION
+   title&#58;'Save Changes?',
+   msg&#58; 'You are closing a tab that has unsaved changes. Would you like to save your changes?',
+   buttons&#58; ext.Msg.YESNOCANCEL,
+   fn&#58; processResult,
+   animEl&#58; 'elId',
+   icon&#58; ext.MessageBox.QUESTION
 });
 </code></pre>
 */
@@ -87,13 +87,13 @@ public class MessageBox {
          * actions and can only be closed programmatically, so any required function should be called
          * by the same code after it closes the dialog. Parameters passed:<ul>
          * <li><b>buttonId</b> : String<div class="sub-desc">The ID of the button pressed, one of:<div class="sub-desc"><ul>
-         * <li><tt>ok</tt></li>
-         * <li><tt>yes</tt></li>
-         * <li><tt>no</tt></li>
-         * <li><tt>cancel</tt></li>
+         * <li><code>ok</code></li>
+         * <li><code>yes</code></li>
+         * <li><code>no</code></li>
+         * <li><code>cancel</code></li>
          * </ul></div></div></li>
-         * <li><b>text</b> : String<div class="sub-desc">Value of the input field if either <tt><a href="#show-option-prompt" ext:member="show-option-prompt" ext:cls="ext.MessageBox">prompt</a></tt>
-         * or <tt><a href="#show-option-multiline" ext:member="show-option-multiline" ext:cls="ext.MessageBox">multiline</a></tt> is true</div></li>
+         * <li><b>text</b> : String<div class="sub-desc">Value of the input field if either <code><a href="#show-option-prompt" ext:member="show-option-prompt" ext:cls="ext.MessageBox">prompt</a></code>
+         * or <code><a href="#show-option-multiline" ext:member="show-option-multiline" ext:cls="ext.MessageBox">multiline</a></code> is true</div></li>
          * <li><b>opt</b> : Object<div class="sub-desc">The config object passed to show.</div></li>
          * </ul></p></div></li>
          * <li><b>scope</b> : Object<div class="sub-desc">The scope of the callback function</div></li>
@@ -122,14 +122,14 @@ public class MessageBox {
          * Example usage:
          * <pre><code>
 ext.Msg.show({
-   title: 'Address',
-   msg: 'Please enter your address:',
-   width: 300,
-   buttons: ext.MessageBox.OKCANCEL,
-   multiline: true,
-   fn: saveAddress,
-   animEl: 'addAddressBtn',
-   icon: ext.MessageBox.INFO
+   title&#58; 'Address',
+   msg&#58; 'Please enter your address:',
+   width&#58; 300,
+   buttons&#58; ext.MessageBox.OKCANCEL,
+   multiline&#58; true,
+   fn&#58; saveAddress,
+   animEl&#58; 'addAddressBtn',
+   icon&#58; ext.MessageBox.INFO
 });
 </code></pre>
          * @return this

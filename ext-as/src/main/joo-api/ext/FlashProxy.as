@@ -1,6 +1,4 @@
 package ext {
-/**
-*/
 public class FlashProxy {
 /**
  * @singleton

@@ -120,6 +120,4 @@ public function DD(id : String, sGroup : String, config : Object) {
     override public native function onDragOut(e:EventObject, id:Object) : void;
     override public native function onDragDrop(e:EventObject, id:Object) : void;
     override public native function endDrag(e:EventObject) : void;
-/**
-*/
 }}

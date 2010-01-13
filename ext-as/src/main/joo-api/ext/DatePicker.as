@@ -15,48 +15,48 @@ public function DatePicker(config : Object) {
 }
     /**
      * @cfg {String} todayText
-     * The text to display on the button that selects the current date (defaults to <tt>'Today'</tt>)
+     * The text to display on the button that selects the current date (defaults to <code>'Today'</code>)
      */
     public var todayText  : String;
     /**
      * @cfg {String} okText
-     * The text to display on the ok button (defaults to <tt>'&#160;OK&#160;'</tt> to give the user extra clicking room)
+     * The text to display on the ok button (defaults to <code>'&#160;OK&#160;'</code> to give the user extra clicking room)
      */
     public var okText  : String;
     /**
      * @cfg {String} cancelText
-     * The text to display on the cancel button (defaults to <tt>'Cancel'</tt>)
+     * The text to display on the cancel button (defaults to <code>'Cancel'</code>)
      */
     public var cancelText  : String;
     /**
      * @cfg {String} todayTip
-     * The tooltip to display for the button that selects the current date (defaults to <tt>'{current date} (Spacebar)'</tt>)
+     * The tooltip to display for the button that selects the current date (defaults to <code>'{current date} (Spacebar)'</code>)
      */
     public var todayTip  : String;
     /**
      * @cfg {String} minText
-     * The error text to display if the minDate validation fails (defaults to <tt>'This date is before the minimum date'</tt>)
+     * The error text to display if the minDate validation fails (defaults to <code>'This date is before the minimum date'</code>)
      */
     public var minText  : String;
     /**
      * @cfg {String} maxText
-     * The error text to display if the maxDate validation fails (defaults to <tt>'This date is after the maximum date'</tt>)
+     * The error text to display if the maxDate validation fails (defaults to <code>'This date is after the maximum date'</code>)
      */
     public var maxText  : String;
     /**
      * @cfg {String} format
      * The default date format string which can be overriden for localization support.  The format must be
-     * valid according to <b class='link'>Date#parseDate</b> (defaults to <tt>'m/d/y'</tt>).
+     * valid according to <b class='link'>Date#parseDate</b> (defaults to <code>'m/d/y'</code>).
      */
     public var format  : String;
     /**
      * @cfg {String} disabledDaysText
-     * The tooltip to display when the date falls on a disabled day (defaults to <tt>'Disabled'</tt>)
+     * The tooltip to display when the date falls on a disabled day (defaults to <code>'Disabled'</code>)
      */
     public var disabledDaysText  : String;
     /**
      * @cfg {String} disabledDatesText
-     * The tooltip text to display when the date falls on a disabled date (defaults to <tt>'Disabled'</tt>)
+     * The tooltip text to display when the date falls on a disabled date (defaults to <code>'Disabled'</code>)
      */
     public var disabledDatesText  : String;
     /**
@@ -71,17 +71,17 @@ public function DatePicker(config : Object) {
     public var dayNames  : Array;
     /**
      * @cfg {String} nextText
-     * The next month navigation button tooltip (defaults to <tt>'Next Month (Control+Right)'</tt>)
+     * The next month navigation button tooltip (defaults to <code>'Next Month (Control+Right)'</code>)
      */
     public var nextText  : String;
     /**
      * @cfg {String} prevText
-     * The previous month navigation button tooltip (defaults to <tt>'Previous Month (Control+Left)'</tt>)
+     * The previous month navigation button tooltip (defaults to <code>'Previous Month (Control+Left)'</code>)
      */
     public var prevText  : String;
     /**
      * @cfg {String} monthYearText
-     * The header month selector tooltip (defaults to <tt>'Choose a month (Control+Up/Down to move years)'</tt>)
+     * The header month selector tooltip (defaults to <code>'Choose a month (Control+Up/Down to move years)'</code>)
      */
     public var monthYearText  : String;
     /**
@@ -92,7 +92,7 @@ public function DatePicker(config : Object) {
     /**
      * @cfg {Boolean} showToday
      * False to hide the footer area containing the Today button and disable the keyboard handler for spacebar
-     * that selects the current date (defaults to <tt>true</tt>).
+     * that selects the current date (defaults to <code>true</code>).
      */
     public var showToday  : Boolean;
     /**
@@ -109,7 +109,7 @@ public function DatePicker(config : Object) {
      */
     /**
      * @cfg {RegExp} disabledDatesRE
-     * JavaScript regular expression used to disable a pattern of dates (defaults to null).  The <b class='link'>#disabledDates</b>
+     * JavaScript regular expression used to disable a pattern of dates (defaults to null).  The <b class='link' title='#disabledDates'>disabledDates</b>
      * config will generate this regex internally, but if you specify disabledDatesRE it will take precedence over the
      * disabledDates value.
      */
@@ -124,7 +124,7 @@ public function DatePicker(config : Object) {
      * <li>['03/../2006'] would disable every day in March 2006</li>
      * <li>['^03'] would disable every day in every March</li>
      * </ul>
-     * Note that the format of the dates included in the array should exactly match the <b class='link'>#format</b> config.
+     * Note that the format of the dates included in the array should exactly match the <b class='link' title='#format'>format</b> config.
      * In order to support regular expressions, if you are using a date format that has '.' in it, you will have to
      * escape the dot when restricting dates. For example: ['03\\.08\\.03'].
      */
@@ -134,23 +134,23 @@ public function DatePicker(config : Object) {
 
     /**
      * Replaces any existing disabled dates with new values and refreshes the DatePicker.
-     * @param disabledDates An array of date strings (see the <b class='link'>#disabledDates</b> config
+     * @param disabledDates An array of date strings (see the <b class='link' title='#disabledDates'>disabledDates</b> config
      * for details on supported values), or a JavaScript regular expression used to disable a pattern of dates.
      */
     public native function setDisabledDates(disabledDates : *) : void;
     /**
      * Replaces any existing disabled days (by index, 0-6) with new values and refreshes the DatePicker.
-     * @param disabledDays An array of disabled day indexes. See the <b class='link'>#disabledDays</b> config
+     * @param disabledDays An array of disabled day indexes. See the <b class='link' title='#disabledDays'>disabledDays</b> config
      * for details on supported values.
      */
     public native function setDisabledDays(disabledDays : Array) : void;
     /**
-     * Replaces any existing <b class='link'>#minDate</b> with the new value and refreshes the DatePicker.
+     * Replaces any existing <b class='link' title='#minDate'>minDate</b> with the new value and refreshes the DatePicker.
      * @param value The minimum date that can be selected
      */
     public native function setMinDate(value : Date) : void;
     /**
-     * Replaces any existing <b class='link'>#maxDate</b> with the new value and refreshes the DatePicker.
+     * Replaces any existing <b class='link' title='#maxDate'>maxDate</b> with the new value and refreshes the DatePicker.
      * @param value The maximum date that can be selected
      */
     public native function setMaxDate(value : Date) : void;

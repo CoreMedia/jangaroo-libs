@@ -4,22 +4,22 @@ import ext.menu.CheckItem;
 
 /**
  * A specialized SplitButton that contains a menu of <b class='link'>Ext.menu.CheckItem</b> elements.  The button automatically
- * cycles through each menu item on click, raising the button's <b class='link'>#change</b> event (or calling the button's
- * <b class='link'>#changeHandler</b> function, if supplied) for the active menu item. Clicking on the arrow section of the
+ * cycles through each menu item on click, raising the button's <b class='link' title='#change'>change</b> event (or calling the button's
+ * <b class='link' title='#changeHandler'>changeHandler</b> function, if supplied) for the active menu item. Clicking on the arrow section of the
  * button displays the dropdown menu just like a normal SplitButton.  Example usage:
  * <pre><code>
 var btn = new ext.CycleButton({
-    showText: true,
-    prependText: 'View as ',
-    items: [{
-        text:'text only',
-        iconCls:'view-text',
-        checked:true
+    showText&#58; true,
+    prependText&#58; 'View as ',
+    items&#58; [{
+        text&#58;'text only',
+        iconCls&#58;'view-text',
+        checked&#58;true
     },{
-        text:'HTML',
-        iconCls:'view-html'
+        text&#58;'HTML',
+        iconCls&#58;'view-html'
     }],
-    changeHandler:function(btn, item){
+    changeHandler&#58;function(btn, item){
         ext.Msg.alert('Change View', item.text);
     }
 });
@@ -49,7 +49,7 @@ public function CycleButton(config : Object) {
     /**
      * @cfg {Function} changeHandler A callback function that will be invoked each time the active menu
      * item in the button's menu has changed.  If this callback is not supplied, the SplitButton will instead
-     * fire the <b class='link'>#change</b> event on active item change.  The changeHandler function will be called with the
+     * fire the <b class='link' title='#change'>change</b> event on active item change.  The changeHandler function will be called with the
      * following argument list: (SplitButton this, Ext.menu.CheckItem item)
      */
     /**

@@ -9,13 +9,13 @@ import ext.util.Observable;
  * or they may be added dynamically via the <b class='link' title='ext.Container#add'>add</b> method.</p>
  * <p>The Component base class has built-in support for basic hide/show and enable/disable behavior.</p>
  * <p>All Components are registered with the <b class='link'>ext.ComponentMgr</b> on construction so that they can be referenced at any time via
- * <b class='link'>Ext#getCmp</b>, passing the <b class='link'>#id</b>.</p>
+ * <b class='link'>Ext#getCmp</b>, passing the <b class='link' title='#id'>id</b>.</p>
  * <p>All user-developed visual widgets that are required to participate in automated lifecycle and size management should subclass Component (or
  * <b class='link'>ext.BoxComponent</b> if managed box model handling is required, ie height and width management).</p>
  * <p>See the <a href="http://extjs.com/learn/Tutorial:Creating_new_UI_controls">Creating new UI controls</a> tutorial for details on how
  * and to either extend or augment ExtJs base classes to create custom Components.</p>
  * <p>Every component has a specific xtype, which is its Ext-specific type name, along with methods for checking the
- * xtype like <b class='link'>#getXType</b> and <b class='link'>#isXType</b>. This is the list of all valid xtypes:</p>
+ * xtype like <b class='link' title='#getXType'>getXType</b> and <b class='link' title='#isXType'>isXType</b>. This is the list of all valid xtypes:</p>
  * <pre>
 xtype            Class
 -------------    ------------------
@@ -153,16 +153,16 @@ public function Component(config : *) {
      * @cfg {String} fieldLabel <p>The label text to display next to this Component (defaults to '').</p>
      * <br><p><b>Note</b>: this config is only used when this Component is rendered by a Container which
      * has been configured to use the <b class='link' title='ext.layout.FormLayout'>FormLayout</b> layout manager (e.g.
-     * <b class='link'>ext.form.FormPanel</b> or specifying <tt>layout:'form'</tt>).</p><br>
-     * <p>Also see <tt><b class='link'>#hideLabel</b></tt> and
+     * <b class='link'>ext.form.FormPanel</b> or specifying <code>layout:'form'</code>).</p><br>
+     * <p>Also see <code><b class='link' title='#hideLabel'>hideLabel</b></code> and
      * <b class='link'>ext.layout.FormLayout</b>.<b class='link' title='ext.layout.FormLayout#fieldTpl'>fieldTpl</b>.</p>
      * Example use:<pre><code>
 new ext.FormPanel({
-    height: 100,
-    renderTo: Ext.getBody(),
-    items: [{
-        xtype: 'textfield',
-        fieldLabel: 'Name'
+    height&#58; 100,
+    renderTo&#58; Ext.getBody(),
+    items&#58; [{
+        xtype&#58; 'textfield',
+        fieldLabel&#58; 'Name'
     }]
 });
 </code></pre>
@@ -170,68 +170,68 @@ new ext.FormPanel({
     /**
      * @cfg {String} labelStyle <p>A CSS style specification string to apply directly to this field's
      * label.  Defaults to the container's labelStyle value if set (e.g.,
-     * <tt><b class='link'>ext.layout.FormLayout#labelStyle</b></tt> , or '').</p>
-     * <br><p><b>Note</b>: see the note for <code><b class='link'>#clearCls</b></code>.</p><br>
-     * <p>Also see <code><b class='link'>#hideLabel</b></code> and
+     * <code><b class='link'>ext.layout.FormLayout#labelStyle</b></code> , or '').</p>
+     * <br><p><b>Note</b>: see the note for <code><b class='link' title='#clearCls'>clearCls</b></code>.</p><br>
+     * <p>Also see <code><b class='link' title='#hideLabel'>hideLabel</b></code> and
      * <code><b class='link'>ext.layout.FormLayout</b>.<b class='link' title='ext.layout.FormLayout#fieldTpl'>fieldTpl</b>.</code></p>
      * Example use:<pre><code>
 new ext.FormPanel({
-    height: 100,
-    renderTo: Ext.getBody(),
-    items: [{
-        xtype: 'textfield',
-        fieldLabel: 'Name',
-        labelStyle: 'font-weight:bold;'
+    height&#58; 100,
+    renderTo&#58; Ext.getBody(),
+    items&#58; [{
+        xtype&#58; 'textfield',
+        fieldLabel&#58; 'Name',
+        labelStyle&#58; 'font-weight:bold;'
     }]
 });
 </code></pre>
      */
     /**
      * @cfg {String} labelSeparator <p>The separator to display after the text of each
-     * <tt><b class='link'>#fieldLabel</b></tt>.  This property may be configured at various levels.
+     * <code><b class='link' title='#fieldLabel'>fieldLabel</b></code>.  This property may be configured at various levels.
      * The order of precedence is:
      * <div class="mdetail-params"><ul>
      * <li>field / component level</li>
      * <li>container level</li>
-     * <li><b class='link' title='ext.layout.FormLayout#labelSeparator layout'>level</b> (defaults to colon <tt>':'</tt>)</li>
+     * <li><b class='link' title='ext.layout.FormLayout#labelSeparator layout'>level</b> (defaults to colon <code>':'</code>)</li>
      * </ul></div>
      * To display no separator for this field's label specify empty string ''.</p>
-     * <br><p><b>Note</b>: see the note for <tt><b class='link'>#clearCls</b></tt>.</p><br>
-     * <p>Also see <tt><b class='link'>#hideLabel</b></tt> and
+     * <br><p><b>Note</b>: see the note for <code><b class='link' title='#clearCls'>clearCls</b></code>.</p><br>
+     * <p>Also see <code><b class='link' title='#hideLabel'>hideLabel</b></code> and
      * <b class='link'>ext.layout.FormLayout</b>.<b class='link' title='ext.layout.FormLayout#fieldTpl'>fieldTpl</b>.</p>
      * Example use:<pre><code>
 new ext.FormPanel({
-    height: 100,
-    renderTo: Ext.getBody(),
-    layoutConfig: {
-        labelSeparator: '~'   // layout config has lowest priority (defaults to ':')
+    height&#58; 100,
+    renderTo&#58; Ext.getBody(),
+    layoutConfig&#58; {
+        labelSeparator&#58; '~'   // layout config has lowest priority (defaults to ':')
     },
     <b class='link' title='ext.layout.FormLayout#labelSeparator'>labelSeparator</b>: '>>',     // config at container level
-    items: [{
-        xtype: 'textfield',
-        fieldLabel: 'Field 1',
-        labelSeparator: '...' // field/component level config supersedes others
+    items&#58; [{
+        xtype&#58; 'textfield',
+        fieldLabel&#58; 'Field 1',
+        labelSeparator&#58; '...' // field/component level config supersedes others
     },{
-        xtype: 'textfield',
-        fieldLabel: 'Field 2' // labelSeparator will be '='
+        xtype&#58; 'textfield',
+        fieldLabel&#58; 'Field 2' // labelSeparator will be '='
     }]
 });
 </code></pre>
      */
     /**
-     * @cfg {Boolean} hideLabel <p><tt>true</tt> to completely hide the label element
-     * (<b class='link' title='#fieldLabel'>label</b> and <b class='link' title='#labelSeparator'>separator</b>). Defaults to <tt>false</tt>.
-     * By default, even if you do not specify a <tt><b class='link'>#fieldLabel</b></tt> the space will still be
+     * @cfg {Boolean} hideLabel <p><code>true</code> to completely hide the label element
+     * (<b class='link' title='#fieldLabel'>label</b> and <b class='link' title='#labelSeparator'>separator</b>). Defaults to <code>false</code>.
+     * By default, even if you do not specify a <code><b class='link' title='#fieldLabel'>fieldLabel</b></code> the space will still be
      * reserved so that the field will line up with other fields that do have labels.
-     * Setting this to <tt>true</tt> will cause the field to not reserve that space.</p>
-     * <br><p><b>Note</b>: see the note for <tt><b class='link'>#clearCls</b></tt>.</p><br>
+     * Setting this to <code>true</code> will cause the field to not reserve that space.</p>
+     * <br><p><b>Note</b>: see the note for <code><b class='link' title='#clearCls'>clearCls</b></code>.</p><br>
      * Example use:<pre><code>
 new ext.FormPanel({
-    height: 100,
-    renderTo: Ext.getBody(),
-    items: [{
-        xtype: 'textfield'
-        hideLabel: true
+    height&#58; 100,
+    renderTo&#58; Ext.getBody(),
+    items&#58; [{
+        xtype&#58; 'textfield'
+        hideLabel&#58; true
     }]
 });
 </code></pre>
@@ -239,39 +239,39 @@ new ext.FormPanel({
     /**
      * @cfg {String} clearCls <p>The CSS class used to to apply to the special clearing div rendered
      * directly after each form field wrapper to provide field clearing (defaults to
-     * <tt>'x-form-clear-left'</tt>).</p>
+     * <code>'x-form-clear-left'</code>).</p>
      * <br><p><b>Note</b>: this config is only used when this Component is rendered by a Container
      * which has been configured to use the <b class='link' title='ext.layout.FormLayout'>FormLayout</b> layout
-     * manager (e.g. <b class='link'>ext.form.FormPanel</b> or specifying <tt>layout:'form'</tt>) and either a
-     * <tt><b class='link'>#fieldLabel</b></tt> is specified or <tt>isFormField=true</tt> is specified.</p><br>
+     * manager (e.g. <b class='link'>ext.form.FormPanel</b> or specifying <code>layout:'form'</code>) and either a
+     * <code><b class='link' title='#fieldLabel'>fieldLabel</b></code> is specified or <code>isFormField=true</code> is specified.</p><br>
      * <p>See <b class='link'>ext.layout.FormLayout</b>.<b class='link' title='ext.layout.FormLayout#fieldTpl'>fieldTpl</b> also.</p>
      */
     /**
      * @cfg {String} itemCls <p>An additional CSS class to apply to the div wrapping the form item
-     * element of this field.  If supplied, <tt>itemCls</tt> at the <b>field</b> level will override
-     * the default <tt>itemCls</tt> supplied at the <b>container</b> level. The value specified for
-     * <tt>itemCls</tt> will be added to the default class (<tt>'x-form-item'</tt>).</p>
+     * element of this field.  If supplied, <code>itemCls</code> at the <b>field</b> level will override
+     * the default <code>itemCls</code> supplied at the <b>container</b> level. The value specified for
+     * <code>itemCls</code> will be added to the default class (<code>'x-form-item'</code>).</p>
      * <p>Since it is applied to the item wrapper (see
      * <b class='link'>ext.layout.FormLayout</b>.<b class='link' title='ext.layout.FormLayout#fieldTpl'>fieldTpl</b>), it allows
      * you to write standard CSS rules that can apply to the field, the label (if specified), or
      * any other element within the markup for the field.</p>
-     * <br><p><b>Note</b>: see the note for <tt><b class='link'>#fieldLabel</b></tt>.</p><br>
+     * <br><p><b>Note</b>: see the note for <code><b class='link' title='#fieldLabel'>fieldLabel</b></code>.</p><br>
      * Example use:<pre><code>
-// Apply a style to the field's label:
+&#47;/ Apply a style to the field's label:
 &lt;style>
     .required .x-form-item-label {font-weight:bold;color:red;}
 &lt;/style>
 
 new ext.FormPanel({
-	height: 100,
-	renderTo: Ext.getBody(),
-	items: [{
-		xtype: 'textfield',
-		fieldLabel: 'Name',
-		itemCls: 'required' //this label will be styled
+	height&#58; 100,
+	renderTo&#58; Ext.getBody(),
+	items&#58; [{
+		xtype&#58; 'textfield',
+		fieldLabel&#58; 'Name',
+		itemCls&#58; 'required' //this label will be styled
 	},{
-		xtype: 'textfield',
-		fieldLabel: 'Favorite Color'
+		xtype&#58; 'textfield',
+		fieldLabel&#58; 'Favorite Color'
 	}]
 });
 </code></pre>
@@ -294,53 +294,53 @@ new ext.FormPanel({
      * that is rendered to the page for this component. This allows you to write id-based CSS
      * rules to style the specific instance of this component uniquely, and also to select
      * sub-elements using this component's id as the parent.</p>
-     * <p><b>Note</b>: to avoid complications imposed by a unique <tt>id</tt> also see
-     * <code><b class='link'>#itemId</b></code> and <code><b class='link'>#ref</b></code>.</p>
-     * <p><b>Note</b>: to access the container of an item see <code><b class='link'>#ownerCt</b></code>.</p>
+     * <p><b>Note</b>: to avoid complications imposed by a unique <code>id</code> also see
+     * <code><b class='link' title='#itemId'>itemId</b></code> and <code><b class='link' title='#ref'>ref</b></code>.</p>
+     * <p><b>Note</b>: to access the container of an item see <code><b class='link' title='#ownerCt'>ownerCt</b></code>.</p>
      */
   public var id : String;
     /**
      * @cfg {String} itemId
-     * <p>An <tt>itemId</tt> can be used as an alternative way to get a reference to a component
-     * when no object reference is available.  Instead of using an <code><b class='link'>#id</b></code> with
+     * <p>An <code>itemId</code> can be used as an alternative way to get a reference to a component
+     * when no object reference is available.  Instead of using an <code><b class='link' title='#id'>id</b></code> with
      * <b class='link'>Ext</b>.<b class='link' title='Ext#getCmp'>getCmp</b>, use <code>itemId</code> with
      * <b class='link'>ext.Container</b>.<b class='link' title='ext.Container#getComponent'>getComponent</b> which will retrieve
-     * <code>itemId</code>'s or <tt><b class='link'>#id</b></tt>'s. Since <code>itemId</code>'s are an index to the
+     * <code>itemId</code>'s or <code><b class='link' title='#id'>id</b></code>'s. Since <code>itemId</code>'s are an index to the
      * container's internal MixedCollection, the <code>itemId</code> is scoped locally to the container --
      * avoiding potential conflicts with <b class='link'>ext.ComponentMgr</b> which requires a <b>unique</b>
-     * <code><b class='link'>#id</b></code>.</p>
+     * <code><b class='link' title='#id'>id</b></code>.</p>
      * <pre><code>
 var c = new ext.Panel({ //
     <b class='link' title='ext.BoxComponent#height'>height</b>: 300,
-    <b class='link'>#renderTo</b>: document.body,
+    <b class='link' title='#renderTo'>renderTo</b>: document.body,
     <b class='link' title='ext.Container#layout'>layout</b>: 'auto',
     <b class='link' title='ext.Container#items'>items</b>: [
         {
-            itemId: 'p1',
+            itemId&#58; 'p1',
             <b class='link' title='ext.Panel#title'>title</b>: 'Panel 1',
             <b class='link' title='ext.BoxComponent#height'>height</b>: 150
         },
         {
-            itemId: 'p2',
+            itemId&#58; 'p2',
             <b class='link' title='ext.Panel#title'>title</b>: 'Panel 2',
             <b class='link' title='ext.BoxComponent#height'>height</b>: 150
         }
     ]
 })
 p1 = c.<b class='link' title='ext.Container#getComponent'>getComponent</b>('p1'); // not the same as <b class='link' title='Ext#getCmp'>Ext.getCmp()</b>
-p2 = p1.<b class='link'>#ownerCt</b>.<b class='link' title='ext.Container#getComponent'>getComponent</b>('p2'); // reference via a sibling
+p2 = p1.<b class='link' title='#ownerCt'>ownerCt</b>.<b class='link' title='ext.Container#getComponent'>getComponent</b>('p2'); // reference via a sibling
      * </code></pre>
-     * <p>Also see <tt><b class='link'>#id</b></tt> and <code><b class='link'>#ref</b></code>.</p>
-     * <p><b>Note</b>: to access the container of an item see <tt><b class='link'>#ownerCt</b></tt>.</p>
+     * <p>Also see <code><b class='link' title='#id'>id</b></code> and <code><b class='link' title='#ref'>ref</b></code>.</p>
+     * <p><b>Note</b>: to access the container of an item see <code><b class='link' title='#ownerCt'>ownerCt</b></code>.</p>
      */
   public var itemId : String;
     /**
      * @cfg {String} xtype
-     * The registered <tt>xtype</tt> to create. This config option is not used when passing
+     * The registered <code>xtype</code> to create. This config option is not used when passing
      * a config object into a constructor. This config option is used only when
      * lazy instantiation is being used, and a child item of a Container is being
      * specified not as a fully instantiated Component, but as a <i>Component config
-     * object</i>. The <tt>xtype</tt> will be looked up at render time up to determine what
+     * object</i>. The <code>xtype</code> will be looked up at render time up to determine what
      * type of child Component to create.<br><br>
      * The predefined xtypes are listed <b class='link' title='ext.Component'>here</b>.
      * <br><br>
@@ -351,11 +351,11 @@ p2 = p1.<b class='link'>#ownerCt</b>.<b class='link' title='ext.Container#getCom
   public var xtype : String;
     /**
      * @cfg {String} ptype
-     * The registered <tt>ptype</tt> to create. This config option is not used when passing
+     * The registered <code>ptype</code> to create. This config option is not used when passing
      * a config object into a constructor. This config option is used only when
      * lazy instantiation is being used, and a Plugin is being
      * specified not as a fully instantiated Component, but as a <i>Component config
-     * object</i>. The <tt>ptype</tt> will be looked up at render time up to determine what
+     * object</i>. The <code>ptype</code> will be looked up at render time up to determine what
      * type of Plugin to create.<br><br>
      * If you create your own Plugins, you may register them using
      * <b class='link'>ext.ComponentMgr#registerPlugin</b> in order to be able to
@@ -381,22 +381,22 @@ p2 = p1.<b class='link'>#ownerCt</b>.<b class='link' title='ext.Container#getCom
      * <b class='link'>ext.Element#applyStyles</b>.
      * <pre><code>
 new ext.Panel({
-    title: 'Some Title',
-    renderTo: Ext.getBody(),
-    width: 400, height: 300,
-    layout: 'form',
-    items: [{
-        xtype: 'textarea',
-        style: {
-            width: '95%',
-            marginBottom: '10px'
+    title&#58; 'Some Title',
+    renderTo&#58; Ext.getBody(),
+    width&#58; 400, height: 300,
+    layout&#58; 'form',
+    items&#58; [{
+        xtype&#58; 'textarea',
+        style&#58; {
+            width&#58; '95%',
+            marginBottom&#58; '10px'
         }
     },
         new ext.Button({
-            text: 'Send',
-            minWidth: '100',
-            style: {
-                marginBottom: '10px'
+            text&#58; 'Send',
+            minWidth&#58; '100',
+            style&#58; {
+                marginBottom&#58; '10px'
             }
         })
     ]
@@ -409,10 +409,10 @@ new ext.Panel({
      * <p>An optional extra CSS class that will be added to this component's container. This can be useful for
      * adding customized styles to the container or any of its children using standard CSS rules.  See
      * <b class='link'>ext.layout.ContainerLayout</b>.<b class='link' title='ext.layout.ContainerLayout#extraCls'>extraCls</b> also.</p>
-     * <p><b>Note</b>: <tt>ctCls</tt> defaults to <tt>''</tt> except for the following class
+     * <p><b>Note</b>: <code>ctCls</code> defaults to <code>''</code> except for the following class
      * which assigns a value by default:
      * <div class="mdetail-params"><ul>
-     * <li><b class='link' title='ext.layout.Box Box'>Layout</b> : <tt>'x-box-layout-ct'</tt></li>
+     * <li><b class='link' title='ext.layout.Box Box'>Layout</b> : <code>'x-box-layout-ct'</code></li>
      * </ul></div>
      * To configure the above Class with an extra CSS class append to the default.  For example,
      * for BoxLayout (Hbox and Vbox):<pre><code>
@@ -428,8 +428,8 @@ new ext.Panel({
     public native function get disabled()  : Boolean;
     /**
      * @cfg {Boolean} hidden
-     * Render this component hidden (default is false). If <tt>true</tt>, the
-     * <b class='link'>#hide</b> method will be called internally.
+     * Render this component hidden (default is false). If <code>true</code>, the
+     * <b class='link' title='#hide'>hide</b> method will be called internally.
      */
     public native function get hidden() : Boolean;
     /**
@@ -447,13 +447,13 @@ new ext.Panel({
      * that is already present in the document that specifies some structural markup for this
      * component.</p><div><ul>
      * <li><b>Description</b> : <ul>
-     * <div class="sub-desc">When <tt>applyTo</tt> is used, constituent parts of the component can also be specified
+     * <div class="sub-desc">When <code>applyTo</code> is used, constituent parts of the component can also be specified
      * by id or CSS class name within the main element, and the component being created may attempt
      * to create its subcomponents from that markup if applicable.</div>
      * </ul></li>
      * <li><b>Notes</b> : <ul>
      * <div class="sub-desc">When using this config, a call to render() is not required.</div>
-     * <div class="sub-desc">If applyTo is specified, any value passed for <b class='link'>#renderTo</b> will be ignored and the target
+     * <div class="sub-desc">If applyTo is specified, any value passed for <b class='link' title='#renderTo'>renderTo</b> will be ignored and the target
      * element's parent node will automatically be used as the component's container.</div>
      * </ul></li>
      * </ul></div>
@@ -470,13 +470,13 @@ new ext.Panel({
      * <div class="sub-desc">When using this config, a call to render() is not required.</div>
      * </ul></li>
      * </ul></div>
-     * <p>See <tt><b class='link'>#render</b></tt> also.</p>
+     * <p>See <code><b class='link' title='#render'>render</b></code> also.</p>
      */
     /**
      * @cfg {Boolean} stateful
      * <p>A flag which causes the Component to attempt to restore the state of
      * internal properties from a saved state on startup. The component must have
-     * either a <code><b class='link'>#stateId</b></code> or <code><b class='link'>#id</b></code> assigned
+     * either a <code><b class='link' title='#stateId'>stateId</b></code> or <code><b class='link' title='#id'>id</b></code> assigned
      * for state to be managed. Auto-generated ids are not guaranteed to be stable
      * across page loads and cannot be relied upon to save and restore the same
      * state for a component.<p>
@@ -488,11 +488,11 @@ new ext.Panel({
      * <p>To set the state provider for the current page:</p>
      * <pre><code>
 ext.state.Manager.setProvider(new ext.state.CookieProvider({
-    expires: new Date(new Date().getTime()+(1000*60*60*24*7)), //7 days from now
+    expires&#58; new Date(new Date().getTime()+(1000*60*60*24*7)), //7 days from now
 }));
      * </code></pre>
      * <p>A stateful Component attempts to save state when one of the events
-     * listed in the <code><b class='link'>#stateEvents</b></code> configuration fires.</p>
+     * listed in the <code><b class='link' title='#stateEvents'>stateEvents</b></code> configuration fires.</p>
      * <p>To save state, a stateful Component first serializes its state by
      * calling <b><code>getState</code></b>. By default, this function does
      * nothing. The developer must provide an implementation which returns an
@@ -500,25 +500,25 @@ ext.state.Manager.setProvider(new ext.state.CookieProvider({
      * <p>The value yielded by getState is passed to <b class='link'>ext.state.Manager#set</b>
      * which uses the configured <b class='link'>ext.state.Provider</b> to save the object
      * keyed by the Component's <code><b class='link'>stateId</b></code>, or, if that is not
-     * specified, its <code><b class='link'>#id</b></code>.</p>
+     * specified, its <code><b class='link' title='#id'>id</b></code>.</p>
      * <p>During construction, a stateful Component attempts to <i>restore</i>
      * its state by calling <b class='link'>ext.state.Manager#get</b> passing the
-     * <code><b class='link'>#stateId</b></code>, or, if that is not specified, the
-     * <code><b class='link'>#id</b></code>.</p>
+     * <code><b class='link' title='#stateId'>stateId</b></code>, or, if that is not specified, the
+     * <code><b class='link' title='#id'>id</b></code>.</p>
      * <p>The resulting object is passed to <b><code>applyState</code></b>.
      * The default implementation of <code>applyState</code> simply copies
      * properties into the object, but a developer may override this to support
      * more behaviour.</p>
      * <p>You can perform extra processing on state save and restore by attaching
-     * handlers to the <b class='link'>#beforestaterestore</b>, <b class='link'>#staterestore</b>,
-     * <b class='link'>#beforestatesave</b> and <b class='link'>#statesave</b> events.</p>
+     * handlers to the <b class='link' title='#beforestaterestore'>beforestaterestore</b>, <b class='link' title='#staterestore'>staterestore</b>,
+     * <b class='link' title='#beforestatesave'>beforestatesave</b> and <b class='link' title='#statesave'>statesave</b> events.</p>
      */
     /**
      * @cfg {String} stateId
      * The unique id for this component to use for state management purposes
      * (defaults to the component id if one was set, otherwise null if the
      * component is using a generated id).
-     * <p>See <code><b class='link'>#stateful</b></code> for an explanation of saving and
+     * <p>See <code><b class='link' title='#stateful'>stateful</b></code> for an explanation of saving and
      * restoring Component state.</p>
      */
     /**
@@ -526,8 +526,8 @@ ext.state.Manager.setProvider(new ext.state.CookieProvider({
      * <p>An array of events that, when fired, should trigger this component to
      * save its state (defaults to none). <code>stateEvents</code> may be any type
      * of event supported by this component, including browser or custom events
-     * (e.g., <tt>['click', 'customerchange']</tt>).</p>
-     * <p>See <code><b class='link'>#stateful</b></code> for an explanation of saving and
+     * (e.g., <code>['click', 'customerchange']</code>).</p>
+     * <p>See <code><b class='link' title='#stateful'>stateful</b></code> for an explanation of saving and
      * restoring Component state.</p>
      */
     /**
@@ -535,30 +535,30 @@ ext.state.Manager.setProvider(new ext.state.CookieProvider({
      * <p>A tag name or <b class='link' title='ext.DomHelper'>DomHelper</b> spec used to create the <b class='link' title='#getEl'>Element</b> which will
      * encapsulate this Component.</p>
      * <p>You do not normally need to specify this. For the base classes <b class='link'>ext.Component</b>, <b class='link'>ext.BoxComponent</b>,
-     * and <b class='link'>ext.Container</b>, this defaults to <b><tt>'div'</tt></b>. The more complex Ext classes use a more complex
+     * and <b class='link'>ext.Container</b>, this defaults to <b><code>'div'</code></b>. The more complex Ext classes use a more complex
      * DOM structure created by their own onRender methods.</p>
      * <p>This is intended to allow the developer to create application-specific utility Components encapsulated by
      * different DOM elements. Example usage:</p><pre><code>
 {
-    xtype: 'box',
-    autoEl: {
-        tag: 'img',
-        src: 'http://www.example.com/example.jpg'
+    xtype&#58; 'box',
+    autoEl&#58; {
+        tag&#58; 'img',
+        src&#58; 'http://www.example.com/example.jpg'
     }
 }, {
-    xtype: 'box',
-    autoEl: {
-        tag: 'blockquote',
-        html: 'autoEl is cool!'
+    xtype&#58; 'box',
+    autoEl&#58; {
+        tag&#58; 'blockquote',
+        html&#58; 'autoEl is cool!'
     }
 }, {
-    xtype: 'container',
-    autoEl: 'ul',
-    cls: 'ux-unordered-list',
-    items: {
-        xtype: 'box',
-        autoEl: 'li',
-        html: 'First list item'
+    xtype&#58; 'container',
+    autoEl&#58; 'ul',
+    cls&#58; 'ux-unordered-list',
+    items&#58; {
+        xtype&#58; 'box',
+        autoEl&#58; 'li',
+        html&#58; 'First list item'
     }
 }
 </code></pre>
@@ -582,10 +582,10 @@ ext.state.Manager.setProvider(new ext.state.CookieProvider({
     public var autoShow  : Boolean;
     /**
      * @cfg {String} hideMode
-     * <p>How this component should be hidden. Supported values are <tt>'visibility'</tt>
-     * (css visibility), <tt>'offsets'</tt> (negative offset position) and <tt>'display'</tt>
+     * <p>How this component should be hidden. Supported values are <code>'visibility'</code>
+     * (css visibility), <code>'offsets'</code> (negative offset position) and <code>'display'</code>
      * (css display).</p>
-     * <br><p><b>Note</b>: the default of <tt>'display'</tt> is generally preferred
+     * <br><p><b>Note</b>: the default of <code>'display'</code> is generally preferred
      * since items are automatically laid out when they are first shown (no sizing
      * is done while hidden).</p>
      */
@@ -600,29 +600,29 @@ ext.state.Manager.setProvider(new ext.state.CookieProvider({
     /**
      * <p>The <b class='link'>ext.Element</b> which encapsulates this Component. Read-only.</p>
      * <p>This will <i>usually</i> be a &lt;DIV> element created by the class's onRender method, but
-     * that may be overridden using the <code><b class='link'>#autoEl</b></code> config.</p>
+     * that may be overridden using the <code><b class='link' title='#autoEl'>autoEl</b></code> config.</p>
      * <br><p><b>Note</b>: this element will not be available until this Component has been rendered.</p><br>
      * <p>To add listeners for <b>DOM events</b> to this Component (as opposed to listeners
      * for this Component's own Observable events), see the <b class='link' title='ext.util.Observable#listeners'>listeners</b>
      * config for a suggestion, or use a render listener directly:</p><pre><code>
 new ext.Panel({
-    title: 'The Clickable Panel',
-    listeners: {
-        render: function(p) {
-            // Append the Panel to the click handler&#39;s argument list.
+    title&#58; 'The Clickable Panel',
+    listeners&#58; {
+        render&#58; function(p) {
+            &#47;/ Append the Panel to the click handler&#39;s argument list.
             p.getEl().on('click', handlePanelClick.createDelegate(null, [p], true));
         },
-        single: true  // Remove the listener after first invocation
+        single&#58; true  // Remove the listener after first invocation
     }
 });
 </code></pre>
-     * <p>See also <tt><b class='link' title='#getEl'>getEl</b></p>
+     * <p>See also <code><b class='link' title='#getEl'>getEl</b></p>
      * @property el
      */
     /**
      * The component's owner <b class='link'>ext.Container</b> (defaults to undefined, and is set automatically when
      * the component is added to a container).  Read-only.
-     * <p><b>Note</b>: to access items within the container see <tt><b class='link'>#itemId</b></tt>.</p>
+     * <p><b>Note</b>: to access items within the container see <code><b class='link' title='#itemId'>itemId</b></code>.</p>
      * @property ownerCt
      */
     /**
@@ -673,23 +673,23 @@ new ext.Panel({
     public native function initRef() : void;
         /**
          * @cfg {String} ref
-         * <p>A path specification, relative to the Component's <b class='link'>#ownerCt</b> specifying into which
+         * <p>A path specification, relative to the Component's <b class='link' title='#ownerCt'>ownerCt</b> specifying into which
          * ancestor Container to place a named reference to this Component.</p>
          * <p>The ancestor axis can be traversed by using '/' characters in the path.
          * For example, to put a reference to a Toolbar Button into <i>the Panel which owns the Toolbar</i>:</p><pre><code>
 var myGrid = new ext.grid.EditorGridPanel({
-    title: 'My EditorGridPanel',
-    store: myStore,
-    colModel: myColModel,
-    tbar: [{
-        text: 'Save',
-        handler: saveChanges,
-        disabled: true,
-        ref: '../saveButton'
+    title&#58; 'My EditorGridPanel',
+    store&#58; myStore,
+    colModel&#58; myColModel,
+    tbar&#58; [{
+        text&#58; 'Save',
+        handler&#58; saveChanges,
+        disabled&#58; true,
+        ref&#58; '../saveButton'
     }],
-    listeners: {
-        afteredit: function() {
-//          The button reference is in the GridPanel
+    listeners&#58; {
+        afteredit&#58; function() {
+&#47;/          The button reference is in the GridPanel
             myGrid.saveButton.enable();
         }
     }
@@ -697,7 +697,7 @@ var myGrid = new ext.grid.EditorGridPanel({
 </code></pre>
          * <p>In the code above, if the ref had been <code>'saveButton'</code> the reference would
          * have been placed into the Toolbar. Each '/' in the ref moves up one level from the
-         * Component's <b class='link'>#ownerCt</b>.</p>
+         * Component's <b class='link' title='#ownerCt'>ownerCt</b>.</p>
          */
     protected native function initState(config) : void;
     protected native function getStateId() : String;
@@ -738,19 +738,19 @@ var myGrid = new ext.grid.EditorGridPanel({
     /**
      * <p>Returns the <b class='link'>ext.Element</b> which encapsulates this Component.</p>
      * <p>This will <i>usually</i> be a &lt;DIV> element created by the class's onRender method, but
-     * that may be overridden using the <b class='link'>#autoEl</b> config.</p>
+     * that may be overridden using the <b class='link' title='#autoEl'>autoEl</b> config.</p>
      * <br><p><b>Note</b>: this element will not be available until this Component has been rendered.</p><br>
      * <p>To add listeners for <b>DOM events</b> to this Component (as opposed to listeners
-     * for this Component's own Observable events), see the <b class='link'>#listeners</b> config for a suggestion,
+     * for this Component's own Observable events), see the <b class='link' title='#listeners'>listeners</b> config for a suggestion,
      * or use a render listener directly:</p><pre><code>
 new ext.Panel({
-    title: 'The Clickable Panel',
-    listeners: {
-        render: function(p) {
-            // Append the Panel to the click handler&#39;s argument list.
+    title&#58; 'The Clickable Panel',
+    listeners&#58; {
+        render&#58; function(p) {
+            &#47;/ Append the Panel to the click handler&#39;s argument list.
             p.getEl().on('click', handlePanelClick.createDelegate(null, [p], true));
         },
-        single: true  // Remove the listener after first invocation
+        single&#58; true  // Remove the listener after first invocation
     }
 });
 </code></pre>
@@ -766,9 +766,9 @@ new ext.Panel({
      */
     public native function getId() : String;
     /**
-     * Returns the <code><b class='link'>#itemId</b></code> of this component.  If an
-     * <code><b class='link'>#itemId</b></code> was not assigned through configuration the
-     * <code>id</code> is returned using <code><b class='link'>#getId</b></code>.
+     * Returns the <code><b class='link' title='#itemId'>itemId</b></code> of this component.  If an
+     * <code><b class='link' title='#itemId'>itemId</b></code> was not assigned through configuration the
+     * <code>id</code> is returned using <code><b class='link' title='#getId'>getId</b></code>.
      * @return 
      */
     public native function getItemId() : String;
@@ -799,18 +799,18 @@ new ext.Panel({
      */
     public native function setDisabled(disabled : Boolean) : Component;
     /**
-     * Show this component.  Listen to the '<b class='link'>#beforeshow</b>' event and return
-     * <tt>false</tt> to cancel showing the component.  Fires the '<b class='link'>#show</b>'
+     * Show this component.  Listen to the '<b class='link' title='#beforeshow'>beforeshow</b>' event and return
+     * <code>false</code> to cancel showing the component.  Fires the '<b class='link' title='#show'>show</b>'
      * event after showing the component.
      * @return this
      */
     public native function show() : Component;
     protected native function onShow() : void;
     /**
-     * Hide this component.  Listen to the '<b class='link'>#beforehide</b>' event and return
-     * <tt>false</tt> to cancel hiding the component.  Fires the '<b class='link'>#hide</b>'
+     * Hide this component.  Listen to the '<b class='link' title='#beforehide'>beforehide</b>' event and return
+     * <code>false</code> to cancel hiding the component.  Fires the '<b class='link' title='#hide'>hide</b>'
      * event after hiding the component. Note this method is called internally if
-     * the component is configured to be <code><b class='link'>#hidden</b></code>.
+     * the component is configured to be <code><b class='link' title='#hidden'>hidden</b></code>.
      * @return this
      */
     public native function hide() : Component;

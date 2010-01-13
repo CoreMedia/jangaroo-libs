@@ -18,7 +18,7 @@ public function Field(config : Object) {
     /**
      * @cfg {String} inputType The type attribute for input fields -- e.g. radio, text, password, file (defaults
      * to "text"). The types "file" and "password" must be used to render those field types currently -- there are
-     * no separate Ext components for those. Note that if you use <tt>inputType:'file'</tt>, <b class='link'>#emptyText</b>
+     * no separate Ext components for those. Note that if you use <code>inputType:'file'</code>, <b class='link' title='#emptyText'>emptyText</b>
      * is not supported and should be avoided.
      */
     /**
@@ -66,7 +66,7 @@ public function Field(config : Object) {
     /**
      * @cfg {String/Object} autoCreate <p>A <b class='link' title='ext.DomHelper'>DomHelper</b> element spec, or true for a default
      * element spec. Used to create the <b class='link' title='ext.Component#getEl'>Element</b> which will encapsulate this Component.
-     * See <tt><b class='link' title='ext.Component#autoEl'>autoEl</b></tt> for details.  Defaults to:</p>
+     * See <code><b class='link' title='ext.Component#autoEl'>autoEl</b></code> for details.  Defaults to:</p>
      * <pre><code>{tag: "input", type: "text", size: "20", autocomplete: "off"}</code></pre>
      */
     public var defaultAutoCreate  : *;
@@ -94,8 +94,8 @@ side          Add an error icon to the right of the field with a popup on hover
      */
     public var msgFx  : String;
     /**
-     * @cfg {Boolean} readOnly <tt>true</tt> to mark the field as readOnly in HTML
-     * (defaults to <tt>false</tt>).
+     * @cfg {Boolean} readOnly <code>true</code> to mark the field as readOnly in HTML
+     * (defaults to <code>false</code>).
      * <br><p><b>Note</b>: this only sets the element's readOnly DOM attribute.
      * Setting <code>readOnly=true</code>, for example, will not disable triggering a
      * ComboBox or DateField; it gives you the option of forcing the user to choose
@@ -122,7 +122,7 @@ side          Add an error icon to the right of the field with a popup on hover
     protected native function getItemCt() : void;
     protected native function initValue() : void;
         /**
-         * The original value of the field as configured in the <b class='link'>#value</b> configuration, or
+         * The original value of the field as configured in the <b class='link' title='#value'>value</b> configuration, or
          * as loaded by the last form load operation if the form's <b class='link' title='ext.form.BasicForm#trackResetOnLoad'>trackResetOnLoad</b>
          * setting is <code>true</code>.
          * @property originalValue
@@ -163,9 +163,9 @@ side          Add an error icon to the right of the field with a popup on hover
     public native function processValue(value : *) : void;
     protected native function validateValue(value : *) : Boolean;
     /**
-     * Mark this field as invalid, using <b class='link'>#msgTarget</b> to determine how to display the error and
-     * applying <b class='link'>#invalidClass</b> to the field's element.
-     * @param msg The validation message (defaults to <b class='link'>#invalidText</b>)
+     * Mark this field as invalid, using <b class='link' title='#msgTarget'>msgTarget</b> to determine how to display the error and
+     * applying <b class='link' title='#invalidClass'>invalidClass</b> to the field's element.
+     * @param msg The validation message (defaults to <b class='link' title='#invalidText'>invalidText</b>)
      */
     public native function markInvalid(msg : String = undefined) : void;
     /**
@@ -176,23 +176,23 @@ side          Add an error icon to the right of the field with a popup on hover
     protected native function getErrorCt() : void;
     protected native function alignErrorIcon() : void;
     /**
-     * Returns the raw data value which may or may not be a valid, defined value.  To return a normalized value see <b class='link'>#getValue</b>.
+     * Returns the raw data value which may or may not be a valid, defined value.  To return a normalized value see <b class='link' title='#getValue'>getValue</b>.
      * @return value The field value
      */
     public native function getRawValue() : *;
     /**
-     * Returns the normalized data value (undefined or emptyText will be returned as '').  To return the raw value see <b class='link'>#getRawValue</b>.
+     * Returns the normalized data value (undefined or emptyText will be returned as '').  To return the raw value see <b class='link' title='#getRawValue'>getRawValue</b>.
      * @return value The field value
      */
     public native function getValue() : *;
     /**
-     * Sets the underlying DOM field's value directly, bypassing validation.  To set the value with validation see <b class='link'>#setValue</b>.
+     * Sets the underlying DOM field's value directly, bypassing validation.  To set the value with validation see <b class='link' title='#setValue'>setValue</b>.
      * @param value The value to set
      * @return value The field value that is set
      */
     public native function setRawValue(value : *) : *;
     /**
-     * Sets a data value into the field and validates it.  To set the value directly without validation see <b class='link'>#setRawValue</b>.
+     * Sets a data value into the field and validates it.  To set the value directly without validation see <b class='link' title='#setRawValue'>setRawValue</b>.
      * @param value The value to set
      * @return this
      */

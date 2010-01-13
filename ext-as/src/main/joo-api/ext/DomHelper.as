@@ -12,39 +12,39 @@ import js.Node;
  * <p>A specification object is used when creating elements. Attributes of this object
  * are assumed to be element attributes, except for 4 special attributes:
  * <div class="mdetail-params"><ul>
- * <li><b><tt>tag</tt></b> : <div class="sub-desc">The tag name of the element</div></li>
- * <li><b><tt>children</tt></b> : or <tt>cn</tt><div class="sub-desc">An array of the
+ * <li><b><code>tag</code></b> : <div class="sub-desc">The tag name of the element</div></li>
+ * <li><b><code>children</code></b> : or <code>cn</code><div class="sub-desc">An array of the
  * same kind of element definition objects to be created and appended. These can be nested
  * as deep as you want.</div></li>
- * <li><b><tt>cls</tt></b> : <div class="sub-desc">The class attribute of the element.
+ * <li><b><code>cls</code></b> : <div class="sub-desc">The class attribute of the element.
  * This will end up being either the "class" attribute on a HTML fragment or className
  * for a DOM node, depending on whether DomHelper is using fragments or DOM.</div></li>
- * <li><b><tt>html</tt></b> : <div class="sub-desc">The innerHTML for the element</div></li>
+ * <li><b><code>html</code></b> : <div class="sub-desc">The innerHTML for the element</div></li>
  * </ul></div></p>
  *
  * <p><b><u>Insertion methods</u></b></p>
  * <p>Commonly used insertion methods:
  * <div class="mdetail-params"><ul>
- * <li><b><tt><b class='link'>#append</b></tt></b> : <div class="sub-desc"></div></li>
- * <li><b><tt><b class='link'>#insertBefore</b></tt></b> : <div class="sub-desc"></div></li>
- * <li><b><tt><b class='link'>#insertAfter</b></tt></b> : <div class="sub-desc"></div></li>
- * <li><b><tt><b class='link'>#overwrite</b></tt></b> : <div class="sub-desc"></div></li>
- * <li><b><tt><b class='link'>#createTemplate</b></tt></b> : <div class="sub-desc"></div></li>
- * <li><b><tt><b class='link'>#insertHtml</b></tt></b> : <div class="sub-desc"></div></li>
+ * <li><b><code><b class='link' title='#append'>append</b></code></b> : <div class="sub-desc"></div></li>
+ * <li><b><code><b class='link' title='#insertBefore'>insertBefore</b></code></b> : <div class="sub-desc"></div></li>
+ * <li><b><code><b class='link' title='#insertAfter'>insertAfter</b></code></b> : <div class="sub-desc"></div></li>
+ * <li><b><code><b class='link' title='#overwrite'>overwrite</b></code></b> : <div class="sub-desc"></div></li>
+ * <li><b><code><b class='link' title='#createTemplate'>createTemplate</b></code></b> : <div class="sub-desc"></div></li>
+ * <li><b><code><b class='link' title='#insertHtml'>insertHtml</b></code></b> : <div class="sub-desc"></div></li>
  * </ul></div></p>
  *
  * <p><b><u>Example</u></b></p>
  * <p>This is an example, where an unordered list with 3 children items is appended to an existing
- * element with id <tt>'my-div'</tt>:<br>
+ * element with id <code>'my-div'</code>:<br>
  <pre><code>
 var dh = ext.DomHelper; // create shorthand alias
-// specification object
+&#47;/ specification object
 var spec = {
-    id: 'my-ul',
-    tag: 'ul',
-    cls: 'my-list',
-    // append children after creating
-    children: [     // may also specify 'cn' instead of 'children'
+    id&#58; 'my-ul',
+    tag&#58; 'ul',
+    cls&#58; 'my-list',
+    &#47;/ append children after creating
+    children&#58; [     // may also specify 'cn' instead of 'children'
         {tag: 'li', id: 'item0', html: 'List Item 0'},
         {tag: 'li', id: 'item1', html: 'List Item 1'},
         {tag: 'li', id: 'item2', html: 'List Item 2'}
@@ -66,12 +66,12 @@ dh.append('my-ul', [
  *
  * <p><b><u>Templating</u></b></p>
  * <p>The real power is in the built-in templating. Instead of creating or appending any elements,
- * <tt><b class='link'>#createTemplate</b></tt> returns a Template object which can be used over and over to
+ * <code><b class='link' title='#createTemplate'>createTemplate</b></code> returns a Template object which can be used over and over to
  * insert new elements. Revisiting the example above, we could utilize templating this time:
  * <pre><code>
-// create the node
+&#47;/ create the node
 var list = dh.append('my-div', {tag: 'ul', cls: 'my-list'});
-// get template
+&#47;/ get template
 var tpl = dh.createTemplate({tag: 'li', id: 'item{0}', html: 'List Item {0}'});
 
 for(var i = 0; i < 5, i++){
@@ -91,14 +91,14 @@ var html = '<a id="{id}" href="{url}" class="nav">{text}</a>';
 
 var tpl = new ext.DomHelper.createTemplate(html);
 tpl.append('blog-roll', {
-    id: 'link1',
-    url: 'http://www.jackslocum.com/',
-    text: "Jack&#39;s Site"
+    id&#58; 'link1',
+    url&#58; 'http://www.jackslocum.com/',
+    text&#58; "Jack&#39;s Site"
 });
 tpl.append('blog-roll', {
-    id: 'link2',
-    url: 'http://www.dustindiaz.com/',
-    text: "Dustin&#39;s Site"
+    id&#58; 'link2',
+    url&#58; 'http://www.dustindiaz.com/',
+    text&#58; "Dustin&#39;s Site"
 });
  * </code></pre></p>
  *
@@ -116,14 +116,14 @@ var html = '<a id="{id}" href="{url}" class="nav">{text}</a>';
 var tpl = new ext.DomHelper.createTemplate(html);
 tpl.compile();
 
-//... use template like normal
+&#47;/... use template like normal
  * </code></pre></p>
  *
  * <p><b><u>Performance Boost</u></b></p>
  * <p>DomHelper will transparently create HTML fragments when it can. Using HTML fragments instead
  * of DOM can significantly boost performance.</p>
- * <p>Element creation specification parameters may also be strings. If <b class='link'>#useDom</b> is <tt>false</tt>,
- * then the string is used as innerHTML. If <b class='link'>#useDom</b> is <tt>true</tt>, a string specification
+ * <p>Element creation specification parameters may also be strings. If <b class='link' title='#useDom'>useDom</b> is <code>false</code>,
+ * then the string is used as innerHTML. If <b class='link' title='#useDom'>useDom</b> is <code>true</code>, a string specification
  * results in the creation of a text node. Usage:</p>
  * <pre><code>
 ext.DomHelper.useDom = true; // force it to use DOM; reduces performance

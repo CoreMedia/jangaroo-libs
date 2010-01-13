@@ -5,9 +5,7 @@ import ext.DatePicker;
  * A menu containing a <b class='link'>ext.DatePicker</b> Component.
  * @xtype datemenu
  */
-    /** 
-*/
-public class DateMenu extends Menu {
+    public class DateMenu extends Menu {
 
   public function DateMenu(config:*) {
     super(config);

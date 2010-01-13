@@ -1,12 +1,12 @@
 package ext {
 /**
- * A simple utility class for generically masking elements while loading data.  If the <b class='link'>#store</b>
+ * A simple utility class for generically masking elements while loading data.  If the <b class='link' title='#store'>store</b>
  * config option is specified, the masking will be automatically synchronized with the store's loading
  * process and the mask element will be cached for reuse.  For all other elements, this mask will replace the
  * element's Updater load indicator and will be destroyed after the initial load.
  * <p>Example usage:</p>
  *<pre><code>
-// Basic mask:
+&#47;/ Basic mask:
 var myMask = new ext.LoadMask(Ext.getBody(), {msg:"Please wait..."});
 myMask.show();
 </code></pre>

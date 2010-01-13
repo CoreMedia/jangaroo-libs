@@ -1,8 +1,6 @@
 package ext.data {
 import ext.util.Observable;
 
-/**
-*/
 public class Node extends Observable {
 /**
  * @cfg {Boolean} leaf true if this node is a leaf and does not have children
@@ -43,8 +41,8 @@ public function Node(attributes : Object) {
      */
     public native function hasChildNodes() : Boolean;
     /**
-     * Returns true if this node has one or more child nodes, or if the <tt>expandable</tt>
-     * node attribute is explicitly specified as true (see <b class='link'>#attributes</b>), otherwise returns false.
+     * Returns true if this node has one or more child nodes, or if the <code>expandable</code>
+     * node attribute is explicitly specified as true (see <b class='link' title='#attributes'>attributes</b>), otherwise returns false.
      * @return 
      */
     public native function isExpandable() : Boolean;

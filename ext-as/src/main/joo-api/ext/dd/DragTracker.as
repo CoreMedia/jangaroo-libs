@@ -4,17 +4,17 @@ import ext.util.Observable;
 public class DragTracker extends Observable {
 /**
      * @cfg {Boolean} active
-	 * Defaults to <tt>false</tt>.
+	 * Defaults to <code>false</code>.
 	 */	
     public var active : Boolean;
     /**
      * @cfg {Number} tolerance
-	 * Defaults to <tt>5</tt>.
+	 * Defaults to <code>5</code>.
 	 */	
     public var tolerance : Number;
     /**
      * @cfg {Boolean/Number} autoStart
-	 * Defaults to <tt>false</tt>. Specify <tt>true</tt> to defer trigger start by 1000 ms.
+	 * Defaults to <code>false</code>. Specify <code>true</code> to defer trigger start by 1000 ms.
 	 * Specify a Number for the number of milliseconds to defer trigger start.
 	 */	
     public var autoStart : *;

@@ -40,6 +40,4 @@ public function Axis() {
      * @property hideOverlappingLabels
      */
     public var hideOverlappingLabels : Boolean;
-/**
-*/
 }}

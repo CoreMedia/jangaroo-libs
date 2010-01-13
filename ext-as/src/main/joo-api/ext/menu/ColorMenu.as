@@ -3,9 +3,7 @@ package ext.menu {
  * A menu containing a <b class='link'>ext.ColorPalette</b> Component.
  * @xtype colormenu
  */
-    /** 
-*/
-public class ColorMenu extends Menu {
+    public class ColorMenu extends Menu {
   public function ColorMenu(config:*) {
     super(config);
   }

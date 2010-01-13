@@ -20,7 +20,7 @@ docs for additional assistance."
  * <p>An example of the code used for generating error messages:</p><pre><code>
 try {
     generateError({
-        foo: 'bar'
+        foo&#58; 'bar'
     });
 }
 catch (e) {

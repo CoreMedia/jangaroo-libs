@@ -20,19 +20,19 @@ import ext.form.Action;
  * <p>By default, response packets are assumed to be JSON, so a typical response
  * packet may look like this:</p><pre><code>
 {
-    success: false,
-    errors: {
-        clientCode: "Client not found",
-        portOfLoading: "This field must not be null"
+    success&#58; false,
+    errors&#58; {
+        clientCode&#58; "Client not found",
+        portOfLoading&#58; "This field must not be null"
     }
 }</code></pre>
  * <p>Other data may be placed into the response for processing by the <b class='link'>ext.form.BasicForm</b>'s callback
  * or event handler methods. The object decoded from this JSON is available in the
  * <b class='link' title='ext.form.Action#result'>result</b> property.</p>
- * <p>Alternatively, if an <b class='link'>#errorReader</b> is specified as an <b class='link' title='ext.data.XmlReader'>XmlReader</b>:</p><pre><code>
-    errorReader: new ext.data.XmlReader({
+ * <p>Alternatively, if an <b class='link' title='#errorReader'>errorReader</b> is specified as an <b class='link' title='ext.data.XmlReader'>XmlReader</b>:</p><pre><code>
+    errorReader&#58; new ext.data.XmlReader({
             record : 'field',
-            success: '@success'
+            success&#58; '@success'
         }, [
             'id', 'msg'
         ]
@@ -54,11 +54,9 @@ import ext.form.Action;
 &lt;/message&gt;
 </code></pre>
  * <p>Other elements may be placed into the response XML for processing by the <b class='link'>ext.form.BasicForm</b>'s callback
- * or event handler methods. The XML document is available in the <b class='link'>#errorReader</b>'s <b class='link' title='ext.data.XmlReader#xmlData'>xmlData</b> property.</p>
+ * or event handler methods. The XML document is available in the <b class='link' title='#errorReader'>errorReader</b>'s <b class='link' title='ext.data.XmlReader#xmlData'>xmlData</b> property.</p>
  */
-    /**
-*/
-public class Submit extends Action {
+    public class Submit extends Action {
     override public native function run(options) : void;
     override public native function success(response) : void;
     override public native function handleResponse(response) : void;

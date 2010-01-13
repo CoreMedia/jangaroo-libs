@@ -5,9 +5,9 @@ package ext.state {
  * <br />Usage:
  <pre><code>
    var cp = new Ext.state.CookieProvider({
-       path: "/cgi-bin/",
-       expires: new Date(new Date().getTime()+(1000*60*60*24*30)), //30 days
-       domain: "extjs.com"
+       path&#58; "/cgi-bin/",
+       expires&#58; new Date(new Date().getTime()+(1000*60*60*24*30)), //30 days
+       domain&#58; "extjs.com"
    });
    Ext.state.Manager.setProvider(cp);
  </code></pre>

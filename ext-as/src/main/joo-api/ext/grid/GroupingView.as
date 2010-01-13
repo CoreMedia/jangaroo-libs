@@ -11,46 +11,46 @@ package ext.grid {
  * <p>Sample usage:</p>
  * <pre><code>
 var grid = new Ext.grid.GridPanel({
-    // A groupingStore is required for a GroupingView
-    store: new <b class='link'>ext.data.GroupingStore</b>({
-        autoDestroy: true,
-        reader: reader,
-        data: xg.dummyData,
-        sortInfo: {field: 'company', direction: 'ASC'},
+    &#47;/ A groupingStore is required for a GroupingView
+    store&#58; new <b class='link'>ext.data.GroupingStore</b>({
+        autoDestroy&#58; true,
+        reader&#58; reader,
+        data&#58; xg.dummyData,
+        sortInfo&#58; {field: 'company', direction: 'ASC'},
         <b class='link' title='ext.data.GroupingStore#groupOnSort'>groupOnSort</b>: true,
         <b class='link' title='ext.data.GroupingStore#remoteGroup'>remoteGroup</b>: true,
         <b class='link' title='ext.data.GroupingStore#groupField'>groupField</b>: 'industry'
     }),
-    colModel: new <b class='link'>Ext.grid.ColumnModel</b>({
-        columns:[
+    colModel&#58; new <b class='link'>Ext.grid.ColumnModel</b>({
+        columns&#58;[
             {id:'company',header: 'Company', width: 60, dataIndex: 'company'},
-            // <b class='link' title='Ext.grid.Column#groupable'>groupable</b>, <b class='link' title='Ext.grid.Column#groupName'>groupName</b>, <b class='link' title='Ext.grid.Column#groupRender'>groupRender</b> are also configurable at column level
+            &#47;/ <b class='link' title='Ext.grid.Column#groupable'>groupable</b>, <b class='link' title='Ext.grid.Column#groupName'>groupName</b>, <b class='link' title='Ext.grid.Column#groupRender'>groupRender</b> are also configurable at column level
             {header: 'Price', renderer: Ext.util.Format.usMoney, dataIndex: 'price', <b class='link' title='Ext.grid.Column#groupable groupable}:'>false</b>,
             {header: 'Change', dataIndex: 'change', renderer: Ext.util.Format.usMoney},
             {header: 'Industry', dataIndex: 'industry'},
             {header: 'Last Updated', renderer: Ext.util.Format.dateRenderer('m/d/Y'), dataIndex: 'lastChange'}
         ],
-        defaults: {
-            sortable: true,
-            menuDisabled: false,
-            width: 20
+        defaults&#58; {
+            sortable&#58; true,
+            menuDisabled&#58; false,
+            width&#58; 20
         }
     }),
 
-    view: new Ext.grid.GroupingView({
+    view&#58; new Ext.grid.GroupingView({
         <b class='link' title='Ext.grid.GridView#forceFit'>forceFit</b>: true,
-        // custom grouping text template to display the number of items per group
+        &#47;/ custom grouping text template to display the number of items per group
         <b class='link' title='#groupTextTpl}: '{text} ({[values.rs.length]} {[values.rs.length > 1 ? "Items" :'>"Item"]</b>)'
     }),
 
-    frame:true,
-    width: 700,
-    height: 450,
-    collapsible: true,
-    animCollapse: false,
-    title: 'Grouping Example',
-    iconCls: 'icon-grid',
-    renderTo: document.body
+    frame&#58;true,
+    width&#58; 700,
+    height&#58; 450,
+    collapsible&#58; true,
+    animCollapse&#58; false,
+    title&#58; 'Grouping Example',
+    iconCls&#58; 'icon-grid',
+    renderTo&#58; document.body
 });
  * </code></pre>
 */
@@ -73,51 +73,51 @@ public function GroupingView(config : Object) {
      */
     public var showGroupsText  : String;
     /**
-     * @cfg {Boolean} hideGroupedColumn <tt>true</tt> to hide the column that is currently grouped (defaults to <tt>false</tt>)
+     * @cfg {Boolean} hideGroupedColumn <code>true</code> to hide the column that is currently grouped (defaults to <code>false</code>)
      */
     public var hideGroupedColumn  : Boolean;
     /**
-     * @cfg {Boolean} showGroupName If <tt>true</tt> will display a prefix plus a ': ' before the group field value
-     * in the group header line.  The prefix will consist of the <tt><b class='link' title='Ext.grid.Column#groupName'>groupName</b></tt>
-     * (or the configured <tt><b class='link' title='Ext.grid.Column#header'>header</b></tt> if not provided) configured in the
-     * <b class='link'>Ext.grid.Column</b> for each set of grouped rows (defaults to <tt>true</tt>).
+     * @cfg {Boolean} showGroupName If <code>true</code> will display a prefix plus a ': ' before the group field value
+     * in the group header line.  The prefix will consist of the <code><b class='link' title='Ext.grid.Column#groupName'>groupName</b></code>
+     * (or the configured <code><b class='link' title='Ext.grid.Column#header'>header</b></code> if not provided) configured in the
+     * <b class='link'>Ext.grid.Column</b> for each set of grouped rows (defaults to <code>true</code>).
      */
     public var showGroupName  : Boolean;
     /**
-     * @cfg {Boolean} startCollapsed <tt>true</tt> to start all groups collapsed (defaults to <tt>false</tt>)
+     * @cfg {Boolean} startCollapsed <code>true</code> to start all groups collapsed (defaults to <code>false</code>)
      */
     public var startCollapsed  : Boolean;
     /**
-     * @cfg {Boolean} enableGrouping <tt>false</tt> to disable grouping functionality (defaults to <tt>true</tt>)
+     * @cfg {Boolean} enableGrouping <code>false</code> to disable grouping functionality (defaults to <code>true</code>)
      */
     public var enableGrouping  : Boolean;
     /**
-     * @cfg {Boolean} enableGroupingMenu <tt>true</tt> to enable the grouping control in the column menu (defaults to <tt>true</tt>)
+     * @cfg {Boolean} enableGroupingMenu <code>true</code> to enable the grouping control in the column menu (defaults to <code>true</code>)
      */
     public var enableGroupingMenu  : Boolean;
     /**
-     * @cfg {Boolean} enableNoGroups <tt>true</tt> to allow the user to turn off grouping (defaults to <tt>true</tt>)
+     * @cfg {Boolean} enableNoGroups <code>true</code> to allow the user to turn off grouping (defaults to <code>true</code>)
      */
     public var enableNoGroups  : Boolean;
     /**
-     * @cfg {String} emptyGroupText The text to display when there is an empty group value (defaults to <tt>'(None)'</tt>).
+     * @cfg {String} emptyGroupText The text to display when there is an empty group value (defaults to <code>'(None)'</code>).
      * May also be specified per column, see <b class='link'>Ext.grid.Column</b>.<b class='link' title='Ext.grid.Column#emptyGroupText'>emptyGroupText</b>.
      */
     public var emptyGroupText  : String;
     /**
-     * @cfg {Boolean} ignoreAdd <tt>true</tt> to skip refreshing the view when new rows are added (defaults to <tt>false</tt>)
+     * @cfg {Boolean} ignoreAdd <code>true</code> to skip refreshing the view when new rows are added (defaults to <code>false</code>)
      */
     public var ignoreAdd  : Boolean;
     /**
-     * @cfg {String} groupTextTpl The template used to render the group header (defaults to <tt>'{text}'</tt>).
+     * @cfg {String} groupTextTpl The template used to render the group header (defaults to <code>'{text}'</code>).
      * This is used to format an object which contains the following properties:
      * <div class="mdetail-params"><ul>
      * <li><b>group</b> : String<p class="sub-desc">The <i>rendered</i> value of the group field.
-     * By default this is the unchanged value of the group field. If a <tt><b class='link' title='Ext.grid.Column#groupRenderer'>groupRenderer</b></tt>
+     * By default this is the unchanged value of the group field. If a <code><b class='link' title='Ext.grid.Column#groupRenderer'>groupRenderer</b></code>
      * is specified, it is the result of a call to that function.</p></li>
      * <li><b>gvalue</b> : Object<p class="sub-desc">The <i>raw</i> value of the group field.</p></li>
-     * <li><b>text</b> : String<p class="sub-desc">The configured header (as described in <tt><b class='link'>#showGroupName</b>)</tt>
-     * if <tt><b class='link'>#showGroupName</b></tt> is <tt>true</tt>) plus the <i>rendered</i> group field value.</p></li>
+     * <li><b>text</b> : String<p class="sub-desc">The configured header (as described in <code><b class='link' title='#showGroupName'>showGroupName</b>)</code>
+     * if <code><b class='link' title='#showGroupName'>showGroupName</b></code> is <code>true</code>) plus the <i>rendered</i> group field value.</p></li>
      * <li><b>groupId</b> : String<p class="sub-desc">A unique, generated ID which is applied to the
      * View Element which contains the group.</p></li>
      * <li><b>startRow</b> : Number<p class="sub-desc">The row index of the Record which caused group change.</p></li>
@@ -129,8 +129,8 @@ public function GroupingView(config : Object) {
      * See <b class='link'>ext.XTemplate</b> for information on how to format data using a template. Possible usage:<pre><code>
 var grid = new Ext.grid.GridPanel({
     ...
-    view: new Ext.grid.GroupingView({
-        groupTextTpl: '{text} ({[values.rs.length]} {[values.rs.length > 1 ? "Items" : "Item"]})'
+    view&#58; new Ext.grid.GroupingView({
+        groupTextTpl&#58; '{text} ({[values.rs.length]} {[values.rs.length > 1 ? "Items" : "Item"]})'
     }),
 });
      * </code></pre>

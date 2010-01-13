@@ -44,7 +44,7 @@ public class Ext {
         public static var enableGarbageCollector  : Boolean;
         /**
          * True to automatically purge event listeners after uncaching an element (defaults to false).
-         * Note: this only happens if <b class='link'>#enableGarbageCollector</b> is true.
+         * Note: this only happens if <b class='link' title='#enableGarbageCollector'>enableGarbageCollector</b> is true.
          */
         public static var enableListenerCollection  : Boolean;
         /**
@@ -89,7 +89,7 @@ public class Ext {
          * <li><code>overrides</code>
          * <div class="sub-desc">A literal with members which are copied into the subclass's
          * prototype, and are therefore shared among all instances of the new class.<p>
-         * This may contain a special member named <tt><b>constructor</b></tt>. This is used
+         * This may contain a special member named <code><b>constructor</b></code>. This is used
          * to define the constructor of the new class, and is returned. If this property is
          * <i>not</i> specified, a constructor is generated and returned which just calls the
          * superclass's constructor passing on its parameters.</p></div></li>
@@ -97,14 +97,14 @@ public class Ext {
          * For example, to create a subclass of the Ext GridPanel:
          * <pre><code>
 MyGridPanel = Ext.extend(Ext.grid.GridPanel, {
-    constructor: function(config) {
-        // Your preprocessing here
+    constructor&#58; function(config) {
+        &#47;/ Your preprocessing here
         MyGridPanel.superclass.constructor.apply(this, arguments);
-        // Your postprocessing here
+        &#47;/ Your postprocessing here
     },
 
-    yourMethod: function() {
-        // etc.
+    yourMethod&#58; function() {
+        &#47;/ etc.
     }
 });
 </code></pre>
@@ -121,10 +121,10 @@ MyGridPanel = Ext.extend(Ext.grid.GridPanel, {
          * Usage:<pre><code>
 Ext.override(MyClass, {
     newMethod1: function(){
-        // etc.
+        &#47;/ etc.
     },
     newMethod2: function(foo){
-        // etc.
+        &#47;/ etc.
     }
 });
 </code></pre>
@@ -191,39 +191,39 @@ Ext.urlDecode("foo=1&bar=2&bar=3&bar=4", false); // returns {foo: "1", bar: ["2"
         public static native function each(array : *, fn : Function, scope : Object) : void;
         /**
          * Iterates either the elements in an array, or each of the properties in an object.
-         * <b>Note</b>: If you are only iterating arrays, it is better to call <b class='link'>#each</b>.
+         * <b>Note</b>: If you are only iterating arrays, it is better to call <b class='link' title='#each'>each</b>.
          * @param object The object or array to be iterated
          * @param fn The function to be called for each iteration.
          * The iteration will stop if the supplied function returns false, or
          * all array elements / object properties have been covered. The signature
          * varies depending on the type of object being interated:
          * <div class="mdetail-params"><ul>
-         * <li>Arrays : <tt>(Object item, Number index, Array allItems)</tt>
+         * <li>Arrays : <code>(Object item, Number index, Array allItems)</code>
          * <div class="sub-desc">
          * When iterating an array, the supplied function is called with each item.</div></li>
-         * <li>Objects : <tt>(String key, Object value)</tt>
+         * <li>Objects : <code>(String key, Object value)</code>
          * <div class="sub-desc">
          * When iterating an object, the supplied function is called with each key-value pair in
          * the object.</div></li>
          * </ul></div>
          * @param scope The scope to call the supplied function with, defaults to
-         * the specified <tt>object</tt>
+         * the specified <code>object</code>
          */
         public static native function iterate(object : *, fn : Function, scope : Object) : void;
         /**
          * Return the dom node for the passed String (id), dom node, or ext.Element.
          * Here are some examples:
          * <pre><code>
-// gets dom node based on id
+&#47;/ gets dom node based on id
 var elDom = Ext.getDom('elId');
-// gets dom node based on the dom node
+&#47;/ gets dom node based on the dom node
 var elDom1 = Ext.getDom(elDom);
 
-// If we don&#39;t know if we are working with an
-// ext.Element or a dom node use Ext.getDom
+&#47;/ If we don&#39;t know if we are working with an
+&#47;/ ext.Element or a dom node use Ext.getDom
 function(el){
     var dom = Ext.getDom(el);
-    // do something with the dom node
+    &#47;/ do something with the dom node
 }
          * </code></pre>
          * <b>Note</b>: the dom node to be found actually needs to exist (be rendered, etc)
@@ -248,7 +248,7 @@ function(el){
          * <li>null</li>
          * <li>undefined</li>
          * <li>an empty array</li>
-         * <li>a zero length string (Unless the <tt>allowBlank</tt> parameter is <tt>true</tt>)</li>
+         * <li>a zero length string (Unless the <code>allowBlank</code> parameter is <code>true</code>)</li>
          * </ul></div>
          * @param value The value to test
          * @param allowBlank true to allow empty strings (defaults to false)
@@ -385,10 +385,6 @@ Company.data.CustomStore = function(config) { ... }
      * @return Object the last newly created or retrieved namespace
      */
     public static native function ns(namespace1 : String, ...etc) : Object;
-/**
-*/
-/**
- */
     /**
      * Namespace alloted for extensions to the framework.
      * @property ux
@@ -429,7 +425,7 @@ Company.data.CustomStore = function(config) { ... }
          * <li>null</li>
          * <li>undefined</li>
          * <li>an empty array</li>
-         * <li>a zero length string (Unless the <tt>allowBlank</tt> parameter is <tt>true</tt>)</li>
+         * <li>a zero length string (Unless the <code>allowBlank</code> parameter is <code>true</code>)</li>
          * </ul></div>
          * @param value The value to test
          * @param defaultValue The value to return if the original value is empty
@@ -446,17 +442,17 @@ Company.data.CustomStore = function(config) { ... }
         public static native function sequence(o, name, fn, scope) : void;
         /**
          * Applies event listeners to elements by selectors when the document is ready.
-         * The event name is specified with an <tt>&#64;</tt> suffix.
+         * The event name is specified with an <code>&#64;</code> suffix.
          * <pre><code>
 Ext.addBehaviors({
-    // add a listener for click on all anchors in element with id foo
+    &#47;/ add a listener for click on all anchors in element with id foo
     '#foo a&#64;click' : function(e, t){
-        // do something
+        &#47;/ do something
     },
     
-    // add the same listener to multiple selectors (separated by comma BEFORE the &#64;)
+    &#47;/ add the same listener to multiple selectors (separated by comma BEFORE the &#64;)
     '#foo a, #bar span.some-class&#64;mouseover' : function(){
-        // do something
+        &#47;/ do something
     }
 });
          * </code></pre> 
@@ -554,18 +550,18 @@ public class ImageComponent extends BoxComponent {
          * Example: 
          * Example2: 
          * <pre><code>
-// Example 1:
+&#47;/ Example 1:
 Ext.partition([true, false, true, true, false]); // [[true, true, true], [false, false]]
 
-// Example 2:
+&#47;/ Example 2:
 Ext.partition(
     Ext.query("p"),
     function(val){
         return val.className == "class1"
     }
 );
-// true are those paragraph elements with a className of "class1",
-// false set are those that do not have that className.
+&#47;/ true are those paragraph elements with a className of "class1",
+&#47;/ false set are those that do not have that className.
          * </code></pre>
          * @param arr The array to partition
          * @param truth a function to determine truth.  If this is omitted the element
@@ -576,9 +572,9 @@ Ext.partition(
         /**
          * Invokes a method on each item in an Array.
          * <pre><code>
-// Example:
+&#47;/ Example:
 Ext.invoke(Ext.query("p"), "getAttribute", "id");
-// [el1.getAttribute("id"), el2.getAttribute("id"), ..., elN.getAttribute("id")]
+&#47;/ [el1.getAttribute("id"), el2.getAttribute("id"), ..., elN.getAttribute("id")]
          * </code></pre>
          * @param arr The Array of items to invoke the method on.
          * @param methodName The method name to invoke.
@@ -589,7 +585,7 @@ Ext.invoke(Ext.query("p"), "getAttribute", "id");
         /**
          * Plucks the value of a property from each item in the Array
          * <pre><code>
-// Example:
+&#47;/ Example:
 Ext.pluck(Ext.query("p"), "className"); // [el1.className, el2.className, ..., elN.className]
          * </code></pre>
          * @param arr The Array of items to pluck the value from.
@@ -600,9 +596,9 @@ Ext.pluck(Ext.query("p"), "className"); // [el1.className, el2.className, ..., e
         /**
          * <p>Zips N sets together.</p>
          * <pre><code>
-// Example 1:
+&#47;/ Example 1:
 Ext.zip([1,2,3],[4,5,6]); // [[1,4],[2,5],[3,6]]
-// Example 2:
+&#47;/ Example 2:
 Ext.zip(
     [ "+", "-", "+"],
     [  12,  10,  22],
@@ -622,7 +618,7 @@ Ext.zip(
          * This is shorthand reference to <b class='link'>ext.ComponentMgr#get</b>.
          * Looks up an existing <b class='link' title='ext.Component'>Component</b> by <b class='link' title='ext.Component#id'>id</b>
          * @param id The component <b class='link' title='ext.Component#id'>id</b>
-         * @return {Component} The Component, <tt>undefined</tt> if not found, or <tt>null</tt> if a
+         * @return {Component} The Component, <code>undefined</code> if not found, or <code>null</code> if a
          * Class was found.
         */
         public static native function getCmp(id : String) : Component;
@@ -705,7 +701,7 @@ Ext.zip(
     * Fires when the document is ready (before onload and before images are loaded).  Shorthand of <b class='link'>Ext.EventManager#onDocumentReady</b>.
     * @param fn The method the event invokes
     * @param scope An object that becomes the scope of the handler
-    * @param options (optional) An object containing standard <b class='link'>#addListener</b> options
+    * @param options (optional) An object containing standard <b class='link' title='#addListener'>addListener</b> options
    */
   public static native function onReady(fn : Function, scope : Object = undefined, options : Boolean = undefined) : void;
 }}

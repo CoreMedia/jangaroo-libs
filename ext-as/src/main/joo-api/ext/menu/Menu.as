@@ -8,24 +8,22 @@ import ext.Element;
  * when you want a specialized menu based off of another component (like <b class='link'>Ext.menu.DateMenu</b> for example).</p>
  * <p>Menus may contain either <b class='link' title='Ext.menu.Item menu'>items</b>, or general <b class='link' title='ext.Component'>Component</b>s.</p>
  * <p>To make a contained general <b class='link' title='ext.Component'>Component</b> line up with other <b class='link' title='Ext.menu.Item menu'>items</b>
- * specify <tt>iconCls: 'no-icon'</tt>.  This reserves a space for an icon, and indents the Component in line
+ * specify <code>iconCls: 'no-icon'</code>.  This reserves a space for an icon, and indents the Component in line
  * with the other menu items.  See <b class='link'>ext.form.ComboBox</b>.<b class='link' title='ext.form.ComboBox#getListParent'>getListParent</b>
  * for an example.</p>
  * <p>By default, Menus are absolutely positioned, floating Components. By configuring a Menu with
- * <b><tt><b class='link'>#floating</b>:false</tt></b>, a Menu may be used as child of a Container.</p>
+ * <b><code><b class='link' title='#floating'>floating</b>:false</code></b>, a Menu may be used as child of a Container.</p>
  *
  * @xtype menu
  */
-    /**
-*/
-public class Menu extends Container {
+    public class Menu extends Container {
   public function Menu(config:*) {
     super(config);
   }
 /**
      * @cfg {Object} defaults
-     * A config object that will be applied to all items added to this container either via the <b class='link'>#items</b>
-     * config or via the <b class='link'>#add</b> method.  The defaults config can contain any number of
+     * A config object that will be applied to all items added to this container either via the <b class='link' title='#items'>items</b>
+     * config or via the <b class='link' title='#add'>add</b> method.  The defaults config can contain any number of
      * name/value property pairs to be added to each item, and should be valid for the types of items
      * being added to the menu.
      */
@@ -80,8 +78,8 @@ public class Menu extends Container {
     public var showSeparator : Boolean;
     /**
      * @cfg {Array} defaultOffsets An array specifying the [x, y] offset in pixels by which to
-     * change the default Menu popup position after aligning according to the <b class='link'>#defaultAlign</b>
-     * configuration. Defaults to <tt>[0, 0]</tt>.
+     * change the default Menu popup position after aligning according to the <b class='link' title='#defaultAlign'>defaultAlign</b>
+     * configuration. Defaults to <code>[0, 0]</code>.
      */
     public var defaultOffsets  : Array;
     /**

@@ -145,7 +145,7 @@ public class Format {
         public static native function number(v : Number, format : String) : String;
         /**
          * Returns a number rendering function that can be reused to apply a number format multiple times efficiently
-         * @param format Any valid number format string for <b class='link'>#number</b>
+         * @param format Any valid number format string for <b class='link' title='#number'>number</b>
          * @return The number formatting function
          */
         public static native function numberRenderer(format : String) : Function;

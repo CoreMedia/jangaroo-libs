@@ -11,15 +11,15 @@ import ext.form.Field;
 public class Column {
   public static var AUTO_ID : int = 0;
 /**
-     * @cfg {Boolean} editable Optional. Defaults to <tt>true</tt>, enabling the configured
-     * <tt><b class='link'>#editor</b></tt>.  Set to <tt>false</tt> to initially disable editing on this column.
+     * @cfg {Boolean} editable Optional. Defaults to <code>true</code>, enabling the configured
+     * <code><b class='link' title='#editor'>editor</b></code>.  Set to <code>false</code> to initially disable editing on this column.
      * The initial configuration may be dynamically altered using
      * <b class='link'>Ext.grid.ColumnModel</b>.<b class='link' title='Ext.grid.ColumnModel#setEditable'>setEditable()</b>.
      */
     /**
      * @cfg {String} id Optional. A name which identifies this column (defaults to the column's initial
-     * ordinal position.) The <tt>id</tt> is used to create a CSS <b>class</b> name which is applied to all
-     * table cells (including headers) in that column (in this context the <tt>id</tt> does not need to be
+     * ordinal position.) The <code>id</code> is used to create a CSS <b>class</b> name which is applied to all
+     * table cells (including headers) in that column (in this context the <code>id</code> does not need to be
      * unique). The class name takes the form of <pre>x-grid3-td-<b>id</b></pre>
      * Header cells will also receive this class name, but will also have the class <pre>x-grid3-hd</pre>
      * So, to target header cells, use CSS selectors such as:<pre>.x-grid3-hd-row .x-grid3-td-<b>id</b></pre>
@@ -29,27 +29,27 @@ public class Column {
     /**
      * @cfg {String} header Optional. The header text to be used as innerHTML
      * (html tags are accepted) to display in the Grid view.  <b>Note</b>: to
-     * have a clickable header with no text displayed use <tt>'&#160;'</tt>.
+     * have a clickable header with no text displayed use <code>'&#160;'</code>.
      */
     /**
      * @cfg {Boolean} groupable Optional. If the grid is being rendered by an <b class='link'>Ext.grid.GroupingView</b>, this option
-     * may be used to disable the header menu item to group by the column selected. Defaults to <tt>true</tt>,
-     * which enables the header menu group option.  Set to <tt>false</tt> to disable (but still show) the
-     * group option in the header menu for the column. See also <code><b class='link'>#groupName</b></code>.
+     * may be used to disable the header menu item to group by the column selected. Defaults to <code>true</code>,
+     * which enables the header menu group option.  Set to <code>false</code> to disable (but still show) the
+     * group option in the header menu for the column. See also <code><b class='link' title='#groupName'>groupName</b></code>.
      */
     /**
      * @cfg {String} groupName Optional. If the grid is being rendered by an <b class='link'>Ext.grid.GroupingView</b>, this option
      * may be used to specify the text with which to prefix the group field value in the group header line.
-     * See also <b class='link'>#groupRenderer</b> and
+     * See also <b class='link' title='#groupRenderer'>groupRenderer</b> and
      * <b class='link'>Ext.grid.GroupingView</b>.<b class='link' title='Ext.grid.GroupingView#showGroupName'>showGroupName</b>.
      */
     /**
      * @cfg {Function} groupRenderer <p>Optional. If the grid is being rendered by an <b class='link'>Ext.grid.GroupingView</b>, this option
      * may be used to specify the function used to format the grouping field value for display in the group
-     * <b class='link' title='#groupName'>header</b>.  If a <tt><b>groupRenderer</b></tt> is not specified, the configured
-     * <tt><b class='link'>#renderer</b></b></tt> will be called; if a <tt><b><b class='link'>#renderer</b></tt> is also not specified
+     * <b class='link' title='#groupName'>header</b>.  If a <code><b>groupRenderer</b></code> is not specified, the configured
+     * <code><b class='link' title='#renderer'>renderer</b></b></code> will be called; if a <code><b><b class='link' title='#renderer'>renderer</b></code> is also not specified
      * the new value of the group field will be used.</p>
-     * <p>The called function (either the <tt><b>groupRenderer</b></tt> or <tt><b class='link'>#renderer</b></tt>) will be
+     * <p>The called function (either the <code><b>groupRenderer</b></code> or <code><b class='link' title='#renderer'>renderer</b></code>) will be
      * passed the following parameters:
      * <div class="mdetail-params"><ul>
      * <li><b>v</b> : Object<p class="sub-desc">The new value of the group field.</p></li>
@@ -77,36 +77,36 @@ public class Column {
      * Optional. The initial width in pixels of the column.
      * The width of each column can also be affected if any of the following are configured:
      * <div class="mdetail-params"><ul>
-     * <li><b class='link'>Ext.grid.GridPanel</b>.<tt><b class='link' title='Ext.grid.GridPanel#autoExpandColumn'>autoExpandColumn</b></tt></li>
-     * <li><b class='link'>Ext.grid.GridView</b>.<tt><b class='link' title='Ext.grid.GridView#forceFit'>forceFit</b></tt>
+     * <li><b class='link'>Ext.grid.GridPanel</b>.<code><b class='link' title='Ext.grid.GridPanel#autoExpandColumn'>autoExpandColumn</b></code></li>
+     * <li><b class='link'>Ext.grid.GridView</b>.<code><b class='link' title='Ext.grid.GridView#forceFit'>forceFit</b></code>
      * <div class="sub-desc">
-     * <p>By specifying <tt>forceFit:true</tt>, <b class='link' title='#fixed non-fixed'>width</b> columns will be
+     * <p>By specifying <code>forceFit:true</code>, <b class='link' title='#fixed non-fixed'>width</b> columns will be
      * re-proportioned (based on the relative initial widths) to fill the width of the grid so
      * that no horizontal scrollbar is shown.</p>
      * </div></li>
-     * <li><b class='link'>Ext.grid.GridView</b>.<tt><b class='link' title='Ext.grid.GridView#autoFill'>autoFill</b></tt></li>
-     * <li><b class='link'>Ext.grid.GridPanel</b>.<tt><b class='link' title='Ext.grid.GridPanel#minColumnWidth'>minColumnWidth</b></tt></li>
+     * <li><b class='link'>Ext.grid.GridView</b>.<code><b class='link' title='Ext.grid.GridView#autoFill'>autoFill</b></code></li>
+     * <li><b class='link'>Ext.grid.GridPanel</b>.<code><b class='link' title='Ext.grid.GridPanel#minColumnWidth'>minColumnWidth</b></code></li>
      * <br><p><b>Note</b>: when the width of each column is determined, a space on the right side
      * is reserved for the vertical scrollbar.  The
-     * <b class='link'>Ext.grid.GridView</b>.<tt><b class='link' title='Ext.grid.GridView#scrollOffset'>scrollOffset</b></tt>
+     * <b class='link'>Ext.grid.GridView</b>.<code><b class='link' title='Ext.grid.GridView#scrollOffset'>scrollOffset</b></code>
      * can be modified to reduce or eliminate the reserved offset.</p>
      */
     /**
-     * @cfg {Boolean} sortable Optional. <tt>true</tt> if sorting is to be allowed on this column.
-     * Defaults to the value of the <b class='link'>#defaultSortable</b> property.
+     * @cfg {Boolean} sortable Optional. <code>true</code> if sorting is to be allowed on this column.
+     * Defaults to the value of the <b class='link' title='#defaultSortable'>defaultSortable</b> property.
      * Whether local/remote sorting is used is specified in <b class='link'>ext.data.Store#remoteSort</b>.
      */
     /**
-     * @cfg {Boolean} fixed Optional. <tt>true</tt> if the column width cannot be changed.  Defaults to <tt>false</tt>.
+     * @cfg {Boolean} fixed Optional. <code>true</code> if the column width cannot be changed.  Defaults to <code>false</code>.
      */
     /**
-     * @cfg {Boolean} resizable Optional. <tt>false</tt> to disable column resizing. Defaults to <tt>true</tt>.
+     * @cfg {Boolean} resizable Optional. <code>false</code> to disable column resizing. Defaults to <code>true</code>.
      */
     /**
-     * @cfg {Boolean} menuDisabled Optional. <tt>true</tt> to disable the column menu. Defaults to <tt>false</tt>.
+     * @cfg {Boolean} menuDisabled Optional. <code>true</code> to disable the column menu. Defaults to <code>false</code>.
      */
     /**
-     * @cfg {Boolean} hidden Optional. <tt>true</tt> to hide the column. Defaults to <tt>false</tt>.
+     * @cfg {Boolean} hidden Optional. <code>true</code> to hide the column. Defaults to <code>false</code>.
      */
     /**
      * @cfg {String} tooltip Optional. A text string to use as the column header's tooltip.  If Quicktips
@@ -115,67 +115,67 @@ public class Column {
      */
     /**
      * @cfg {Mixed} renderer
-     * <p>For an alternative to specifying a renderer see <code><b class='link'>#xtype</b></code></p>
+     * <p>For an alternative to specifying a renderer see <code><b class='link' title='#xtype'>xtype</b></code></p>
      * <p>Optional. A renderer is an 'interceptor' method which can be used transform data (value,
      * appearance, etc.) before it is rendered). This may be specified in either of three ways:
      * <div class="mdetail-params"><ul>
      * <li>A renderer function used to return HTML markup for a cell given the cell's data value.</li>
      * <li>A string which references a property name of the <b class='link'>Ext.util.Format</b> class which
      * provides a renderer function.</li>
-     * <li>An object specifying both the renderer function, and its execution scope (<tt><b>this</b></tt>
+     * <li>An object specifying both the renderer function, and its execution scope (<code><b>this</b></code>
      * reference) e.g.:<pre style="margin-left:1.2em"><code>
 {
-    fn: this.gridRenderer,
-    scope: this
+    fn&#58; this.gridRenderer,
+    scope&#58; this
 }
 </code></pre></li></ul></div>
      * If not specified, the default renderer uses the raw data value.</p>
      * <p>For information about the renderer function (passed parameters, etc.), see
      * <b class='link'>Ext.grid.ColumnModel#setRenderer</b>. An example of specifying renderer function inline:</p><pre><code>
 var companyColumn = {
-   header: 'Company Name',
-   dataIndex: 'company',
-   renderer: function(value, metaData, record, rowIndex, colIndex, store) {
-      // provide the logic depending on business rules
-      // name of your own choosing to manipulate the cell depending upon
-      // the data in the underlying Record object.
+   header&#58; 'Company Name',
+   dataIndex&#58; 'company',
+   renderer&#58; function(value, metaData, record, rowIndex, colIndex, store) {
+      &#47;/ provide the logic depending on business rules
+      &#47;/ name of your own choosing to manipulate the cell depending upon
+      &#47;/ the data in the underlying Record object.
       if (value == 'whatever') {
-          //metaData.css : String : A CSS class name to add to the TD element of the cell.
-          //metaData.attr : String : An html attribute definition string to apply to
-          //                         the data container element within the table
-          //                         cell (e.g. 'style="color:red;"').
+          &#47;/metaData.css : String : A CSS class name to add to the TD element of the cell.
+          &#47;/metaData.attr : String : An html attribute definition string to apply to
+          &#47;/                         the data container element within the table
+          &#47;/                         cell (e.g. 'style="color:red;"').
           metaData.css = 'name-of-css-class-you-will-define';
       }
       return value;
    }
 }
      * </code></pre>
-     * See also <b class='link'>#scope</b>.
+     * See also <b class='link' title='#scope'>scope</b>.
      */
     /**
      * @cfg {String} xtype Optional. A String which references a predefined <b class='link'>Ext.grid.Column</b> subclass
-     * type which is preconfigured with an appropriate <code><b class='link'>#renderer</b></code> to be easily
+     * type which is preconfigured with an appropriate <code><b class='link' title='#renderer'>renderer</b></code> to be easily
      * configured into a ColumnModel. The predefined <b class='link'>Ext.grid.Column</b> subclass types are:
      * <div class="mdetail-params"><ul>
-     * <li><b><tt>gridcolumn</tt></b> : <b class='link'>Ext.grid.Column</b> (<b>Default</b>)<p class="sub-desc"></p></li>
-     * <li><b><tt>booleancolumn</tt></b> : <b class='link'>Ext.grid.BooleanColumn</b><p class="sub-desc"></p></li>
-     * <li><b><tt>numbercolumn</tt></b> : <b class='link'>Ext.grid.NumberColumn</b><p class="sub-desc"></p></li>
-     * <li><b><tt>datecolumn</tt></b> : <b class='link'>Ext.grid.DateColumn</b><p class="sub-desc"></p></li>
-     * <li><b><tt>templatecolumn</tt></b> : <b class='link'>Ext.grid.TemplateColumn</b><p class="sub-desc"></p></li>
+     * <li><b><code>gridcolumn</code></b> : <b class='link'>Ext.grid.Column</b> (<b>Default</b>)<p class="sub-desc"></p></li>
+     * <li><b><code>booleancolumn</code></b> : <b class='link'>Ext.grid.BooleanColumn</b><p class="sub-desc"></p></li>
+     * <li><b><code>numbercolumn</code></b> : <b class='link'>Ext.grid.NumberColumn</b><p class="sub-desc"></p></li>
+     * <li><b><code>datecolumn</code></b> : <b class='link'>Ext.grid.DateColumn</b><p class="sub-desc"></p></li>
+     * <li><b><code>templatecolumn</code></b> : <b class='link'>Ext.grid.TemplateColumn</b><p class="sub-desc"></p></li>
      * </ul></div>
      * <p>Configuration properties for the specified <code>xtype</code> may be specified with
      * the Column configuration properties, for example:</p>
      * <pre><code>
 var grid = new Ext.grid.GridPanel({
     ...
-    columns: [{
-        header: 'Last Updated',
-        dataIndex: 'lastChange',
-        width: 85,
-        sortable: true,
-        //renderer: Ext.util.Format.dateRenderer('m/d/Y'),
-        xtype: 'datecolumn', // use xtype instead of renderer
-        format: 'M/d/Y' // configuration property for <b class='link'>Ext.grid.DateColumn</b>
+    columns&#58; [{
+        header&#58; 'Last Updated',
+        dataIndex&#58; 'lastChange',
+        width&#58; 85,
+        sortable&#58; true,
+        &#47;/renderer: Ext.util.Format.dateRenderer('m/d/Y'),
+        xtype&#58; 'datecolumn', // use xtype instead of renderer
+        format&#58; 'M/d/Y' // configuration property for <b class='link'>Ext.grid.DateColumn</b>
     }, {
         ...
     }]
@@ -183,7 +183,7 @@ var grid = new Ext.grid.GridPanel({
      * </code></pre>
      */
     /**
-     * @cfg {Object} scope Optional. The scope (<tt><b>this</b></tt> reference) in which to execute the
+     * @cfg {Object} scope Optional. The scope (<code><b>this</b></code> reference) in which to execute the
      * renderer.  Defaults to the Column configuration object.
      */
     /**
@@ -194,13 +194,13 @@ var grid = new Ext.grid.GridPanel({
      * (excluding headers). Defaults to undefined.
      */
     /**
-     * @cfg {Boolean} hideable Optional. Specify as <tt>false</tt> to prevent the user from hiding this column
+     * @cfg {Boolean} hideable Optional. Specify as <code>false</code> to prevent the user from hiding this column
      * (defaults to true).  To disallow column hiding globally for all columns in the grid, use
      * <b class='link'>Ext.grid.GridPanel#enableColumnHide</b> instead.
      */
     /**
      * @cfg {ext.form.Field} editor Optional. The <b class='link'>ext.form.Field</b> to use when editing values in this column
-     * if editing is supported by the grid. See <tt><b class='link'>#editable</b></tt> also.
+     * if editing is supported by the grid. See <code><b class='link' title='#editable'>editable</b></code> also.
      */
     public var isColumn  : Field;
     /**
@@ -229,6 +229,4 @@ var grid = new Ext.grid.GridPanel({
      * @return 
      */
     public native function getCellEditor(rowIndex : Number) : Editor;
-/**
-*/
 }}

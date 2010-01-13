@@ -24,12 +24,12 @@ Value   Description
  * <p>Here's an example showing the creation of a typical Resizable:</p>
  * <pre><code>
 var resizer = new ext.Resizable('element-id', {
-    handles: 'all',
-    minWidth: 200,
-    minHeight: 100,
-    maxWidth: 500,
-    maxHeight: 400,
-    pinned: true
+    handles&#58; 'all',
+    minWidth&#58; 200,
+    minHeight&#58; 100,
+    maxWidth&#58; 500,
+    maxHeight&#58; 400,
+    pinned&#58; true
 });
 resizer.on('resize', myHandler);
 </code></pre>
@@ -56,7 +56,7 @@ public function Resizable(el : *, config : Object) {
      */
     /**
      * @cfg {Array/String} adjustments String 'auto' or an array [width, height] with values to be <b>added</b> to the
-     * resize operation's new size (defaults to <tt>[0, 0]</tt>)
+     * resize operation's new size (defaults to <code>[0, 0]</code>)
      */
     public var adjustments  : *;
     /**
@@ -83,7 +83,7 @@ public function Resizable(el : *, config : Object) {
      */
     public var dynamic  : Boolean;
     /**
-     * @cfg {String} easing Animation easing if animate = true (defaults to <tt>'easingOutStrong'</tt>)
+     * @cfg {String} easing Animation easing if animate = true (defaults to <code>'easingOutStrong'</code>)
      */
     public var easing  : String;
     /**
@@ -95,7 +95,7 @@ public function Resizable(el : *, config : Object) {
      */
     /**
      * @cfg {String} handles String consisting of the resize handles to display (defaults to undefined).
-     * Specify either <tt>'all'</tt> or any of <tt>'n s e w ne nw se sw'</tt>.
+     * Specify either <code>'all'</code> or any of <code>'n s e w ne nw se sw'</code>.
      */
     public var handles  : String;
     /**
@@ -112,12 +112,12 @@ public function Resizable(el : *, config : Object) {
     public var width  : Number;
     /**
      * @cfg {Number} heightIncrement The increment to snap the height resize in pixels
-     * (only applies if <code><b class='link'>#dynamic</b>==true</code>). Defaults to <tt>0</tt>.
+     * (only applies if <code><b class='link' title='#dynamic'>dynamic</b>==true</code>). Defaults to <code>0</code>.
      */
     public var heightIncrement  : Number;
     /**
      * @cfg {Number} widthIncrement The increment to snap the width resize in pixels
-     * (only applies if <code><b class='link'>#dynamic</b>==true</code>). Defaults to <tt>0</tt>.
+     * (only applies if <code><b class='link' title='#dynamic'>dynamic</b>==true</code>). Defaults to <code>0</code>.
      */
     public var widthIncrement  : Number;
     /**
@@ -186,25 +186,25 @@ public function Resizable(el : *, config : Object) {
      * component such as a Panel, this method may be overridden by specifying an implementation
      * as a config option to provide appropriate behaviour at the end of the resize operation on
      * mouseup, for example resizing the Panel, and relaying the Panel's content.</p>
-     * <p>The new area to be resized to is available by examining the state of the <b class='link'>#proxy</b>
+     * <p>The new area to be resized to is available by examining the state of the <b class='link' title='#proxy'>proxy</b>
      * Element. Example:
 <pre><code>
 new ext.Panel({
-    title: 'Resize me',
-    x: 100,
-    y: 100,
-    renderTo: Ext.getBody(),
-    floating: true,
-    frame: true,
-    width: 400,
-    height: 200,
-    listeners: {
-        render: function(p) {
+    title&#58; 'Resize me',
+    x&#58; 100,
+    y&#58; 100,
+    renderTo&#58; Ext.getBody(),
+    floating&#58; true,
+    frame&#58; true,
+    width&#58; 400,
+    height&#58; 200,
+    listeners&#58; {
+        render&#58; function(p) {
             new ext.Resizable(p.getEl(), {
-                handles: 'all',
-                pinned: true,
-                transparent: true,
-                resizeElement: function() {
+                handles&#58; 'all',
+                pinned&#58; true,
+                transparent&#58; true,
+                resizeElement&#58; function() {
                     var box = this.proxy.getBox();
                     p.updateBox(box);
                     if (p.layout) {

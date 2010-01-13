@@ -9,7 +9,7 @@ public class TextItem extends BaseItem {
  * @constructor
  * Creates a new TextItem
  * @param config If config is a string, it is used as the text to display, otherwise it
- * is applied as a config object (and should contain a <tt>text</tt> property).
+ * is applied as a config object (and should contain a <code>text</code> property).
  * @xtype menutextitem
  */
 public function TextItem(config : *) {

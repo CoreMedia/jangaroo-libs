@@ -56,6 +56,4 @@ public function TimeAxis() {
      * @property snapToUnits
      */
     public var snapToUnits : Boolean;
-/**
-*/
 }}

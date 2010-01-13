@@ -23,7 +23,7 @@ public function Checkbox(config : Object) {
      */
     //public var fieldClass  : String;
     /**
-     * @cfg {Boolean} checked <tt>true</tt> if the checkbox should render initially checked (defaults to <tt>false</tt>)
+     * @cfg {Boolean} checked <code>true</code> if the checkbox should render initially checked (defaults to <code>false</code>)
      */
     public var checked  : Boolean;
     /**
@@ -38,7 +38,7 @@ public function Checkbox(config : Object) {
      * @cfg {String} inputValue The value that should go into the generated input element's value attribute
      */
     /**
-     * @cfg {Function} handler A function called when the <b class='link'>#checked</b> value changes (can be used instead of 
+     * @cfg {Function} handler A function called when the <b class='link' title='#checked'>checked</b> value changes (can be used instead of 
      * handling the check event). The handler is passed the following parameters:
      * <div class="mdetail-params"><ul>
      * <li><b>checkbox</b> : ext.form.Checkbox<div class="sub-desc">The Checkbox being toggled.</div></li>
@@ -46,7 +46,7 @@ public function Checkbox(config : Object) {
      * </ul></div>
      */
     /**
-     * @cfg {Object} scope An object to use as the scope ('this' reference) of the <b class='link'>#handler</b> function
+     * @cfg {Object} scope An object to use as the scope ('this' reference) of the <b class='link' title='#handler'>handler</b> function
      * (defaults to this Checkbox).
      */
     //protected var actionMode  : Object;
@@ -78,7 +78,7 @@ public function Checkbox(config : Object) {
     protected native function onClick() : void;
     /**
      * Sets the checked state of the checkbox, fires the 'check' event, and calls a
-     * <code><b class='link'>#handler</b></code> (if configured).
+     * <code><b class='link' title='#handler'>handler</b></code> (if configured).
      * @param checked The following values will check the checkbox:
      * <code>true, 'true', '1', or 'on'</code>. Any other value will uncheck the checkbox.
      * @return this

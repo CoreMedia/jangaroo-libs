@@ -12,14 +12,14 @@ package ext.util {
 var task = new Ext.util.DelayedTask(function(){
     alert(Ext.getDom('myInputField').value.length);
 });
-// Wait 500ms before calling our function. If the user presses another key 
-// during that 500ms, it will be cancelled and we'll wait another 500ms.
+&#47;/ Wait 500ms before calling our function. If the user presses another key 
+&#47;/ during that 500ms, it will be cancelled and we'll wait another 500ms.
 Ext.get('myInputField').on('keypress', function(){
-    task.<b class='link'>#delay</b>(500); 
+    task.<b class='link' title='#delay'>delay</b>(500); 
 });
  * </code></pre> 
  * <p>Note that we are using a DelayedTask here to illustrate a point. The configuration
- * option <tt>buffer</tt> for <b class='link' title='Ext.util.Observable#addListener'>addListener/on</b> will
+ * option <code>buffer</code> for <b class='link' title='Ext.util.Observable#addListener'>addListener/on</b> will
  * also setup a delayed task for you to buffer events.</p> 
 */
 public class DelayedTask {

@@ -3,8 +3,6 @@ import ext.EventObject;
 import ext.dd.DragSource;
 import ext.dd.DropZone;
 
-/**
-*/
 public class TreeDropZone extends DropZone {
 /**
  * @constructor

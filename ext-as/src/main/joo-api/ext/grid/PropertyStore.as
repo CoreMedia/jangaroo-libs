@@ -6,7 +6,7 @@ import ext.util.Observable;
  * A custom wrapper for the <b class='link'>Ext.grid.PropertyGrid</b>'s <b class='link'>ext.data.Store</b>. This class handles the mapping
  * between the custom data source objects supported by the grid and the <b class='link'>Ext.grid.PropertyRecord</b> format
  * required for compatibility with the underlying store. Generally this class should not need to be used directly --
- * the grid's data should be accessed from the underlying store via the <b class='link'>#store</b> property.
+ * the grid's data should be accessed from the underlying store via the <b class='link' title='#store'>store</b> property.
 */
 public class PropertyStore extends Observable {
 /**
@@ -27,6 +27,4 @@ public class PropertyStore extends Observable {
     protected native function isEditableValue(val) : void;
     protected native function setValue(prop, value) : void;
     public native function getSource() : void;
-/**
-*/
 }}

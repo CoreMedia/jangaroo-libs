@@ -80,6 +80,4 @@ public static var dragElId  : String = "ygddfdiv";
     public native function beforeMove() : void;
     public native function afterDrag() : void;
     override public native function toString() : String;
-/**
-*/
 }}

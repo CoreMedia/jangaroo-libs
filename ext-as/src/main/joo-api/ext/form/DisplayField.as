@@ -17,12 +17,12 @@ public class DisplayField extends Field {
   //public var validateOnBlur ;
   //public var defaultAutoCreate ;
     /**
-     * @cfg {String} fieldClass The default CSS class for the field (defaults to <tt>"x-form-display-field"</tt>)
+     * @cfg {String} fieldClass The default CSS class for the field (defaults to <code>"x-form-display-field"</code>)
      */
   //public var fieldClass  : String;
     /**
-     * @cfg {Boolean} htmlEncode <tt>false</tt> to skip HTML-encoding the text when rendering it (defaults to
-     * <tt>false</tt>). This might be useful if you want to include tags in the field's innerHTML rather than
+     * @cfg {Boolean} htmlEncode <code>false</code> to skip HTML-encoding the text when rendering it (defaults to
+     * <code>false</code>). This might be useful if you want to include tags in the field's innerHTML rather than
      * rendering them as string literals per the default logic.
      */
     public var htmlEncode : Boolean;

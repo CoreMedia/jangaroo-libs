@@ -9,31 +9,31 @@ package ext {
  * This is the data object used for reference in each code example:</p>
  * <pre><code>
 var data = {
-    name: 'Jack Slocum',
-    title: 'Lead Developer',
-    company: 'Ext JS, LLC',
-    email: 'jack@extjs.com',
-    address: '4 Red Bulls Drive',
-    city: 'Cleveland',
-    state: 'Ohio',
-    zip: '44102',
-    drinks: ['Red Bull', 'Coffee', 'Water'],
-    kids: [{
-        name: 'Sara Grace',
-        age:3
+    name&#58; 'Jack Slocum',
+    title&#58; 'Lead Developer',
+    company&#58; 'Ext JS, LLC',
+    email&#58; 'jack@extjs.com',
+    address&#58; '4 Red Bulls Drive',
+    city&#58; 'Cleveland',
+    state&#58; 'Ohio',
+    zip&#58; '44102',
+    drinks&#58; ['Red Bull', 'Coffee', 'Water'],
+    kids&#58; [{
+        name&#58; 'Sara Grace',
+        age&#58;3
     },{
-        name: 'Zachary',
-        age:2
+        name&#58; 'Zachary',
+        age&#58;2
     },{
-        name: 'John James',
-        age:0
+        name&#58; 'John James',
+        age&#58;0
     }]
 };
  * </code></pre>
- * <p><b>Auto filling of arrays</b><br/>The <tt>tpl</tt> tag and the <tt>for</tt> operator are used
- * to process the provided data object. If <tt>for="."</tt> is specified, the data object provided
- * is examined. If the variable in <tt>for</tt> is an array, it will auto-fill, repeating the template
- * block inside the <tt>tpl</tt> tag for each item in the array:</p>
+ * <p><b>Auto filling of arrays</b><br/>The <code>tpl</code> tag and the <code>for</code> operator are used
+ * to process the provided data object. If <code>for="."</code> is specified, the data object provided
+ * is examined. If the variable in <code>for</code> is an array, it will auto-fill, repeating the template
+ * block inside the <code>tpl</code> tag for each item in the array:</p>
  * <pre><code>
 var tpl = new ext.XTemplate(
     '&lt;p>Kids: ',
@@ -43,7 +43,7 @@ var tpl = new ext.XTemplate(
 );
 tpl.overwrite(panel.body, data.kids); // pass the kids property of the data object
  * </code></pre>
- * <p><b>Scope switching</b><br/>The <tt>for</tt> property can be leveraged to access specified members
+ * <p><b>Scope switching</b><br/>The <code>for</code> property can be leveraged to access specified members
  * of the provided data object to populate the template:</p>
  * <pre><code>
 var tpl = new ext.XTemplate(
@@ -58,7 +58,7 @@ var tpl = new ext.XTemplate(
 tpl.overwrite(panel.body, data);
  * </code></pre>
  * <p><b>Access to parent object from within sub-template scope</b><br/>When processing a sub-template, for example while
- * looping through a child array, you can access the parent object's members via the <tt>parent</tt> object:</p>
+ * looping through a child array, you can access the parent object's members via the <code>parent</code> object:</p>
  * <pre><code>
 var tpl = new ext.XTemplate(
     '&lt;p>Name: {name}&lt;/p>',
@@ -72,7 +72,7 @@ var tpl = new ext.XTemplate(
 );
 tpl.overwrite(panel.body, data);
 </code></pre>
- * <p><b>Array item index and basic math support</b> <br/>While processing an array, the special variable <tt>{#}</tt>
+ * <p><b>Array item index and basic math support</b> <br/>While processing an array, the special variable <code>{#}</code>
  * will provide the current array index + 1 (starts at 1, not 0). Templates also support the basic math operators
  * + - * and / that can be applied directly on numeric data values:</p>
  * <pre><code>
@@ -90,7 +90,7 @@ var tpl = new ext.XTemplate(
 tpl.overwrite(panel.body, data);
 </code></pre>
  * <p><b>Auto-rendering of flat arrays</b> <br/>Flat arrays that contain values (and not objects) can be auto-rendered
- * using the special <tt>{.}</tt> variable inside a loop.  This variable will represent the value of
+ * using the special <code>{.}</code> variable inside a loop.  This variable will represent the value of
  * the array at the current index:</p>
  * <pre><code>
 var tpl = new ext.XTemplate(
@@ -101,9 +101,9 @@ var tpl = new ext.XTemplate(
 );
 tpl.overwrite(panel.body, data);
 </code></pre>
- * <p><b>Basic conditional logic</b> <br/>Using the <tt>tpl</tt> tag and the <tt>if</tt>
+ * <p><b>Basic conditional logic</b> <br/>Using the <code>tpl</code> tag and the <code>if</code>
  * operator you can provide conditional checks for deciding whether or not to render specific parts of the template.
- * Note that there is no <tt>else</tt> operator &mdash; if needed, you should use two opposite <tt>if</tt> statements.
+ * Note that there is no <code>else</code> operator &mdash; if needed, you should use two opposite <code>if</code> statements.
  * Properly-encoded attributes are required as seen in the following example:</p>
  * <pre><code>
 var tpl = new ext.XTemplate(
@@ -120,14 +120,14 @@ tpl.overwrite(panel.body, data);
  * <p><b>Ability to execute arbitrary inline code</b> <br/>In an XTemplate, anything between {[ ... ]}  is considered
  * code to be executed in the scope of the template. There are some special variables available in that code:
  * <ul>
- * <li><b><tt>values</tt></b>: The values in the current scope. If you are using scope changing sub-templates, you
- * can change what <tt>values</tt> is.</li>
- * <li><b><tt>parent</tt></b>: The scope (values) of the ancestor template.</li>
- * <li><b><tt>xindex</tt></b>: If you are in a looping template, the index of the loop you are in (1-based).</li>
- * <li><b><tt>xcount</tt></b>: If you are in a looping template, the total length of the array you are looping.</li>
- * <li><b><tt>fm</tt></b>: An alias for <tt>Ext.util.Format</tt>.</li>
+ * <li><b><code>values</code></b>: The values in the current scope. If you are using scope changing sub-templates, you
+ * can change what <code>values</code> is.</li>
+ * <li><b><code>parent</code></b>: The scope (values) of the ancestor template.</li>
+ * <li><b><code>xindex</code></b>: If you are in a looping template, the index of the loop you are in (1-based).</li>
+ * <li><b><code>xcount</code></b>: If you are in a looping template, the total length of the array you are looping.</li>
+ * <li><b><code>fm</code></b>: An alias for <code>Ext.util.Format</code>.</li>
  * </ul>
- * This example demonstrates basic row striping using an inline code block and the <tt>xindex</tt> variable:</p>
+ * This example demonstrates basic row striping using an inline code block and the <code>xindex</code> variable:</p>
  * <pre><code>
 var tpl = new ext.XTemplate(
     '&lt;p>Name: {name}&lt;/p>',
@@ -158,10 +158,10 @@ var tpl = new ext.XTemplate(
             '&lt;p>{name} is a baby!&lt;/p>',
         '&lt;/tpl>',
     '&lt;/tpl>&lt;/p>', {
-     isGirl: function(name){
+     isGirl&#58; function(name){
          return name == 'Sara Grace';
      },
-     isBaby: function(age){
+     isBaby&#58; function(age){
         return age < 1;
      }
 });
@@ -193,7 +193,7 @@ public class XTemplate extends Template {
      */
     override public native function compile() : Template;
 /**
- * Alias for <b class='link'>#applyTemplate</b>
+ * Alias for <b class='link' title='#applyTemplate'>applyTemplate</b>
  * Returns an HTML fragment of this template with the specified values applied.
  * @param values The template values. Can be an array if your params are numeric (i.e. {0}) or an object (i.e. {foo: 'bar'})
  * @return The HTML fragment

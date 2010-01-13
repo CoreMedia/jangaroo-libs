@@ -16,9 +16,7 @@ Provider
  * </code></pre>
  * @abstract
  */
-    /**
-*/
-public class Provider extends Observable {
+    public class Provider extends Observable {
 /**
      * @cfg {String} id
      * The unique id of the provider (defaults to an <b class='link' title='Ext#id auto-assigned'>id</b>).
@@ -27,9 +25,9 @@ public class Provider extends Observable {
      * <pre><code>
 ext.Direct.addProvider(
     {
-        type: 'polling',
-        url:  'php/poll.php',
-        id:   'poll-provider'
+        type&#58; 'polling',
+        url&#58;  'php/poll.php',
+        id&#58;   'poll-provider'
     }
 );
      
@@ -39,17 +37,17 @@ p.disconnect();
      */
     /**
      * @cfg {Number} priority
-     * Priority of the request. Lower is higher priority, <tt>0</tt> means "duplex" (always on).
-     * All Providers default to <tt>1</tt> except for PollingProvider which defaults to <tt>3</tt>.
+     * Priority of the request. Lower is higher priority, <code>0</code> means "duplex" (always on).
+     * All Providers default to <code>1</code> except for PollingProvider which defaults to <code>3</code>.
      */    
     public var priority : Number;
     /**
      * @cfg {String} type
-     * <b>Required</b>, <tt>undefined</tt> by default.  The <tt>type</tt> of provider specified
+     * <b>Required</b>, <code>undefined</code> by default.  The <code>type</code> of provider specified
      * to <b class='link' title='ext.Direct'>ext.Direct</b>.<b class='link' title='ext.Direct#addProvider'>addProvider</b> to create a
      * new Provider. Acceptable values by default are:<div class="mdetail-params"><ul>
-     * <li><b><tt>polling</tt></b> : <b class='link' title='Ext.direct.PollingProvider'>PollingProvider</b></li>
-     * <li><b><tt>remoting</tt></b> : <b class='link' title='Ext.direct.RemotingProvider'>RemotingProvider</b></li>
+     * <li><b><code>polling</code></b> : <b class='link' title='Ext.direct.PollingProvider'>PollingProvider</b></li>
+     * <li><b><code>remoting</code></b> : <b class='link' title='Ext.direct.RemotingProvider'>RemotingProvider</b></li>
      * </ul></div>
      */    
     protected native function constructor(config) : void;

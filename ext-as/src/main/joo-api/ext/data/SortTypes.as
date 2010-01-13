@@ -1,6 +1,4 @@
 package ext.data {
-/**
-*/
 public class SortTypes {
 /**
  * @singleton

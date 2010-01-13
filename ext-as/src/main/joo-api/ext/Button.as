@@ -13,9 +13,9 @@ public class Button extends BoxComponent {
  * <li><code>b</code> : Button<div class="sub-desc">This Button.</div></li>
  * <li><code>e</code> : EventObject<div class="sub-desc">The click event.</div></li>
  * </ul></div>
- * @cfg {Object} scope The scope (<tt><b>this</b></tt> reference) in which the handler is executed. Defaults to this Button.
+ * @cfg {Object} scope The scope (<code><b>this</b></code> reference) in which the handler is executed. Defaults to this Button.
  * @cfg {Number} minWidth The minimum width for this button (used to give a set of buttons a common width).
- * See also <b class='link'>ext.Panel</b>.<tt><b class='link' title='ext.Panel#minButtonWidth'>minButtonWidth</b></tt>.
+ * See also <b class='link'>ext.Panel</b>.<code><b class='link' title='ext.Panel#minButtonWidth'>minButtonWidth</b></code>.
  * @cfg {String/Object} tooltip The tooltip for the button - can be a string to be used as innerHTML (html tags are accepted) or QuickTips config object
  * @cfg {Boolean} hidden True to start hidden (defaults to false)
  * @cfg {Boolean} disabled True to start disabled (defaults to false)
@@ -53,7 +53,7 @@ public function Button(config : Object) {
      */
     /**
      * @cfg {Boolean} allowDepress
-     * False to not allow a pressed Button to be depressed (defaults to undefined). Only valid when <b class='link'>#enableToggle</b> is true.
+     * False to not allow a pressed Button to be depressed (defaults to undefined). Only valid when <b class='link' title='#enableToggle'>enableToggle</b> is true.
      */
     /**
      * @cfg {Boolean} enableToggle
@@ -62,7 +62,7 @@ public function Button(config : Object) {
     public var enableToggle : Boolean;
     /**
      * @cfg {Function} toggleHandler
-     * Function called when a Button with <b class='link'>#enableToggle</b> set to true is clicked. Two arguments are passed:<ul class="mdetail-params">
+     * Function called when a Button with <b class='link' title='#enableToggle'>enableToggle</b> set to true is clicked. Two arguments are passed:<ul class="mdetail-params">
      * <li><b>button</b> : ext.Button<div class="sub-desc">this Button object</div></li>
      * <li><b>state</b> : Boolean<div class="sub-desc">The next state if the Button, true means pressed.</div></li>
      * </ul>
@@ -110,9 +110,9 @@ public function Button(config : Object) {
      * @cfg {String} buttonSelector
      * <p>(Optional) A <b class='link' title='ext.DomQuery'>DomQuery</b> selector which is used to extract the active, clickable element from the
      * DOM structure created.</p>
-     * <p>When a custom <b class='link'>#template</b> is used, you  must ensure that this selector results in the selection of
+     * <p>When a custom <b class='link' title='#template'>template</b> is used, you  must ensure that this selector results in the selection of
      * a focussable element.</p>
-     * <p>Defaults to <b><tt>"button:first-child"</tt></b>.</p>
+     * <p>Defaults to <b><code>"button:first-child"</code></b>.</p>
      */
     public var buttonSelector  : String;
     /**
@@ -123,7 +123,7 @@ public function Button(config : Object) {
      * <li>'medium'<div class="sub-desc">Results in the button element being 24px high.</div></li>
      * <li>'large'<div class="sub-desc">Results in the button element being 32px high.</div></li>
      * </ul>
-     * <p>Defaults to <b><tt>'small'</tt></b>.</p>
+     * <p>Defaults to <b><code>'small'</code></b>.</p>
      */
     public var scale : String;
     /**
@@ -135,25 +135,25 @@ public function Button(config : Object) {
      * <li>'bottom'<div class="sub-desc"></div></li>
      * <li>'left'<div class="sub-desc"></div></li>
      * </ul>
-     * <p>Defaults to <b><tt>'left'</tt></b>.</p>
+     * <p>Defaults to <b><code>'left'</code></b>.</p>
      */
     public var iconAlign  : String;
     /**
      * @cfg {String} arrowAlign
-     * <p>(Optional) The side of the Button box to render the arrow if the button has an associated <b class='link'>#menu</b>.
+     * <p>(Optional) The side of the Button box to render the arrow if the button has an associated <b class='link' title='#menu'>menu</b>.
      * Two values are allowed:</p>
      * <ul class="mdetail-params">
      * <li>'right'<div class="sub-desc"></div></li>
      * <li>'bottom'<div class="sub-desc"></div></li>
      * </ul>
-     * <p>Defaults to <b><tt>'right'</tt></b>.</p>
+     * <p>Defaults to <b><code>'right'</code></b>.</p>
      */
     public var arrowAlign  : String;
     /**
      * @cfg {ext.Template} template (Optional)
      * <p>A <b class='link' title='ext.Template'>Template</b> used to create the Button's DOM structure.</p>
      * Instances, or subclasses which need a different DOM structure may provide a different
-     * template layout in conjunction with an implementation of <b class='link'>#getTemplateArgs</b>.
+     * template layout in conjunction with an implementation of <b class='link' title='#getTemplateArgs'>getTemplateArgs</b>.
      * @property template
      */
     /**
@@ -162,7 +162,7 @@ public function Button(config : Object) {
      */
     /**
      * @property menu
-     * The <b class='link' title='Ext.menu.Menu'>Menu</b> object associated with this Button when configured with the <b class='link'>#menu</b> config option.
+     * The <b class='link' title='Ext.menu.Menu'>Menu</b> object associated with this Button when configured with the <b class='link' title='#menu'>menu</b> config option.
      */
     override protected native function initComponent() : void;
 /**
@@ -170,14 +170,14 @@ public function Button(config : Object) {
   * to create this Button's DOM structure.</p>
   * <p>Instances or subclasses which use a different Template to create a different DOM structure may need to provide their
   * own implementation of this method.</p>
-  * <p>The default implementation which provides data for the default <b class='link'>#template</b> returns an Array containing the
+  * <p>The default implementation which provides data for the default <b class='link' title='#template'>template</b> returns an Array containing the
   * following items:</p><div class="mdetail-params"><ul>
-  * <li>The Button's <b class='link'>#text</b></li>
-  * <li>The &lt;button&gt;'s <b class='link'>#type</b></li>
+  * <li>The Button's <b class='link' title='#text'>text</b></li>
+  * <li>The &lt;button&gt;'s <b class='link' title='#type'>type</b></li>
   * <li>The <b class='link'>iconCls</b> applied to the &lt;button&gt; <b class='link' title='#btnEl'>element</b></li>
-  * <li>The <b class='link'>#cls</b> applied to the Button's main <b class='link' title='#getEl'>Element</b></li>
-  * <li>A CSS class name controlling the Button's <b class='link'>#scale</b> and <b class='link' title='#iconAlign icon'>alignment</b></li>
-  * <li>A CSS class name which applies an arrow to the Button if configured with a <b class='link'>#menu</b></li>
+  * <li>The <b class='link' title='#cls'>cls</b> applied to the Button's main <b class='link' title='#getEl'>Element</b></li>
+  * <li>A CSS class name controlling the Button's <b class='link' title='#scale'>scale</b> and <b class='link' title='#iconAlign icon'>alignment</b></li>
+  * <li>A CSS class name which applies an arrow to the Button if configured with a <b class='link' title='#menu'>menu</b></li>
   * </ul></div>
   * @return Substitution data for a Template.
  */
@@ -186,7 +186,7 @@ public function Button(config : Object) {
     override protected native function onRender(container : Element, position : Element) : void;
         /**
          * An <b class='link' title='ext.Element'>Element</b> encapsulating the Button's clickable element. By default,
-         * this references a <tt>&lt;button&gt;</tt> element. Read only.
+         * this references a <code>&lt;button&gt;</code> element. Read only.
          * @property btnEl
          */
     protected native function initButtonEl(btn, btnEl) : void;

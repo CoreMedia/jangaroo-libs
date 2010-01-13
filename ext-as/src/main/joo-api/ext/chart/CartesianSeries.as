@@ -21,6 +21,4 @@ public function CartesianSeries() {
      * @property yField
      */
     public var yField : String;
-/**
-*/
 }}

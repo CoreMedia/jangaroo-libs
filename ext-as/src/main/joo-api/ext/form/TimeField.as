@@ -3,9 +3,9 @@ package ext.form {
  * Provides a time input field with a time dropdown and automatic time validation.  Example usage:
  * <pre><code>
 new ext.form.TimeField({
-    minValue: '9:00 AM',
-    maxValue: '6:00 PM',
-    increment: 30
+    minValue&#58; '9:00 AM',
+    maxValue&#58; '6:00 PM',
+    increment&#58; 30
 });
 </code></pre>
 */
@@ -22,13 +22,13 @@ public function TimeField(config : Object) {
     /**
      * @cfg {Date/String} minValue
      * The minimum allowed time. Can be either a Javascript date object with a valid time value or a string 
-     * time in a valid format -- see <b class='link'>#format</b> and <b class='link'>#altFormats</b> (defaults to null).
+     * time in a valid format -- see <b class='link' title='#format'>format</b> and <b class='link' title='#altFormats'>altFormats</b> (defaults to null).
      */
     public var minValue  : *;
     /**
      * @cfg {Date/String} maxValue
      * The maximum allowed time. Can be either a Javascript date object with a valid time value or a string 
-     * time in a valid format -- see <b class='link'>#format</b> and <b class='link'>#altFormats</b> (defaults to null).
+     * time in a valid format -- see <b class='link' title='#format'>format</b> and <b class='link' title='#altFormats'>altFormats</b> (defaults to null).
      */
     public var maxValue  : *;
     /**

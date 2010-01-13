@@ -7,10 +7,10 @@ package ext.grid {
  * can also be created explicitly as shwon below.  Example usage:
  * <pre><code>
 var rec = new Ext.grid.PropertyRecord({
-    name: 'Birthday',
-    value: new Date(Date.parse('05/26/1972'))
+    name&#58; 'Birthday',
+    value&#58; new Date(Date.parse('05/26/1972'))
 });
-// Add record to an already populated grid
+&#47;/ Add record to an already populated grid
 grid.store.addSorted(rec);
 </code></pre>
 */
@@ -23,6 +23,4 @@ public class PropertyRecord {
 public function PropertyRecord(config : Object) {
   super(config);
 }
-/**
-*/
 }}

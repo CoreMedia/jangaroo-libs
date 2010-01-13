@@ -9,41 +9,41 @@ package ext {
  * setDisabled(boolean), setVisible(boolean) and setHandler(function).</p>
  * Example usage:<br>
  * <pre><code>
-// Define the shared action.  Each component below will have the same
-// display text and icon, and will display the same message on click.
+&#47;/ Define the shared action.  Each component below will have the same
+&#47;/ display text and icon, and will display the same message on click.
 var action = new ext.Action({
-    <b class='link'>#text</b>: 'Do something',
-    <b class='link'>#handler</b>: function(){
+    <b class='link' title='#text'>text</b>: 'Do something',
+    <b class='link' title='#handler'>handler</b>: function(){
         ext.Msg.alert('Click', 'You did something.');
     },
-    <b class='link'>#iconCls</b>: 'do-something',
-    <b class='link'>#itemId</b>: 'myAction'
+    <b class='link' title='#iconCls'>iconCls</b>: 'do-something',
+    <b class='link' title='#itemId'>itemId</b>: 'myAction'
 });
 
 var panel = new ext.Panel({
-    title: 'Actions',
-    width: 500,
-    height: 300,
-    tbar: [
-        // Add the action directly to a toolbar as a menu button
+    title&#58; 'Actions',
+    width&#58; 500,
+    height&#58; 300,
+    tbar&#58; [
+        &#47;/ Add the action directly to a toolbar as a menu button
         action,
         {
-            text: 'Action Menu',
-            // Add the action to a menu as a text item
-            menu: [action]
+            text&#58; 'Action Menu',
+            &#47;/ Add the action to a menu as a text item
+            menu&#58; [action]
         }
     ],
-    items: [
-        // Add the action to the panel body as a standard button
+    items&#58; [
+        &#47;/ Add the action to the panel body as a standard button
         new ext.Button(action)
     ],
-    renderTo: Ext.getBody()
+    renderTo&#58; Ext.getBody()
 });
 
-// Change the text for all components using the action
+&#47;/ Change the text for all components using the action
 action.setText('Something else');
 
-// Reference an action through a container using the itemId
+&#47;/ Reference an action through a container using the itemId
 var btn = panel.getComponent('myAction');
 var aRef = btn.baseAction;
 aRef.setText('New text');
@@ -73,11 +73,11 @@ public function Action(config : Object) {
      * all components using this action (defaults to '').
      * <p>An example of specifying a custom icon class would be something like:
      * </p><pre><code>
-// specify the property in the config for the class:
+&#47;/ specify the property in the config for the class:
      ...
-     iconCls: 'do-something'
+     iconCls&#58; 'do-something'
 
-// css class that specifies background image to be used as the icon image:
+&#47;/ css class that specifies background image to be used as the icon image:
 .do-something { background-image: url(../images/my-icon.gif) 0 6px no-repeat !important; }
 </code></pre>
      */
@@ -96,7 +96,7 @@ public function Action(config : Object) {
      * See <b class='link'>ext.Component</b>.<b class='link' title='ext.Component#itemId'>itemId</b>.
      */
     /**
-     * @cfg {Object} scope The scope in which the <b class='link'>#handler</b> function will execute.
+     * @cfg {Object} scope The scope in which the <b class='link' title='#handler'>handler</b> function will execute.
      */
     protected var isAction  : Object;
     /**
@@ -120,7 +120,7 @@ public function Action(config : Object) {
     public native function getIconClass() : void;
     /**
      * Sets the disabled state of all components using this action.  Shortcut method
-     * for <b class='link'>#enable</b> and <b class='link'>#disable</b>.
+     * for <b class='link' title='#enable'>enable</b> and <b class='link' title='#disable'>disable</b>.
      * @param disabled True to disable the component, false to enable it
      */
     public native function setDisabled(disabled : Boolean) : void;
@@ -138,7 +138,7 @@ public function Action(config : Object) {
     public native function isDisabled() : void;
     /**
      * Sets the hidden state of all components using this action.  Shortcut method
-     * for <code><b class='link'>#hide</b></code> and <code><b class='link'>#show</b></code>.
+     * for <code><b class='link' title='#hide'>hide</b></code> and <code><b class='link' title='#show'>show</b></code>.
      * @param hidden True to hide the component, false to show it
      */
     public native function setHidden(hidden : Boolean) : void;
@@ -180,7 +180,7 @@ public function Action(config : Object) {
     public native function removeComponent(comp : Component) : void;
     /**
      * Executes this action manually using the handler function specified in the original config object
-     * or the handler function set with <code><b class='link'>#setHandler</b></code>.  Any arguments passed to this
+     * or the handler function set with <code><b class='link' title='#setHandler'>setHandler</b></code>.  Any arguments passed to this
      * function will be passed on to the handler function.
      * @param arg1 Variable number of arguments passed to the handler function
      * @param arg2

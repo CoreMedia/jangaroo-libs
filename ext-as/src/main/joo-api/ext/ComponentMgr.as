@@ -5,15 +5,15 @@ import ext.util.MixedCollection;
 /**
  * <p>Provides a registry of all Components (instances of <b class='link'>ext.Component</b> or any subclass
  * thereof) on a page so that they can be easily accessed by <b class='link' title='ext.Component'>component</b>
- * <b class='link' title='ext.Component#id'>id</b> (see <b class='link'>#get</b>, or the convenience method <b class='link' title='Ext#getCmp'>Ext.getCmp</b>).</p>
+ * <b class='link' title='ext.Component#id'>id</b> (see <b class='link' title='#get'>get</b>, or the convenience method <b class='link' title='Ext#getCmp'>Ext.getCmp</b>).</p>
  * <p>This object also provides a registry of available Component <i>classes</i>
  * indexed by a mnemonic code known as the Component's <b class='link' title='ext.Component#xtype'>xtype</b>.
- * The <tt><b class='link' title='ext.Component#xtype'>xtype</b></tt> provides a way to avoid instantiating child Components
+ * The <code><b class='link' title='ext.Component#xtype'>xtype</b></code> provides a way to avoid instantiating child Components
  * when creating a full, nested config object for a complete Ext page.</p>
  * <p>A child Component may be specified simply as a <i>config object</i>
- * as long as the correct <tt><b class='link' title='ext.Component#xtype'>xtype</b></tt> is specified so that if and when the Component
+ * as long as the correct <code><b class='link' title='ext.Component#xtype'>xtype</b></code> is specified so that if and when the Component
  * needs rendering, the correct type can be looked up for lazy instantiation.</p>
- * <p>For a list of all available <tt><b class='link' title='ext.Component#xtype'>xtypes</b></tt>, see <b class='link'>ext.Component</b>.</p>
+ * <p>For a list of all available <code><b class='link' title='ext.Component#xtype'>xtypes</b></code>, see <b class='link'>ext.Component</b>.</p>
 */
 public class ComponentMgr {
 /**
@@ -33,7 +33,7 @@ public class ComponentMgr {
          * Returns a component by <b class='link' title='ext.Component#id'>id</b>.
          * For additional details see <b class='link'>Ext.util.MixedCollection#get</b>.
          * @param id The component <b class='link' title='ext.Component#id'>id</b>
-         * @return The Component, <tt>undefined</tt> if not found, or <tt>null</tt> if a
+         * @return The Component, <code>undefined</code> if not found, or <code>null</code> if a
          * Class was found.
          */
         public static native function get(id : String) : Component;
@@ -71,7 +71,7 @@ public class ComponentMgr {
          * config object's <b class='link' title='Ext.component#xtype'>xtype</b> to determine the class to instantiate.
          * @param config A configuration object for the Component you wish to create.
          * @param defaultType The constructor to provide the default Component type if
-         * the config object does not contain a <tt>xtype</tt>. (Optional if the config contains a <tt>xtype</tt>).
+         * the config object does not contain a <code>xtype</code>. (Optional if the config contains a <code>xtype</code>).
          * @return The newly instantiated Component.
          */
         public static native function create(config : Object, defaultType : Class) : Component;
@@ -90,7 +90,7 @@ public class ComponentMgr {
          * config object's <b class='link' title='Ext.component#ptype'>ptype</b> to determine the class to instantiate.
          * @param config A configuration object for the Plugin you wish to create.
          * @param defaultType The constructor to provide the default Plugin type if
-         * the config object does not contain a <tt>ptype</tt>. (Optional if the config contains a <tt>ptype</tt>).
+         * the config object does not contain a <code>ptype</code>. (Optional if the config contains a <code>ptype</code>).
          * @return The newly instantiated Plugin.
          */
         public static native function createPlugin(config : Object, defaultType : Class) : Component;

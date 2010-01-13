@@ -19,7 +19,7 @@ public function Label(config : *) {
 }
     /**
      * @cfg {String} text The plain text to display within the label (defaults to ''). If you need to include HTML
-     * tags within the label's innerHTML, use the <b class='link'>#html</b> config instead.
+     * tags within the label's innerHTML, use the <b class='link' title='#html'>html</b> config instead.
      */
     /**
      * @cfg {String} forId The id of the input element to which this label will be bound via the standard HTML 'for'
@@ -27,7 +27,7 @@ public function Label(config : *) {
      */
     /**
      * @cfg {String} html An HTML fragment that will be used as the label's innerHTML (defaults to '').
-     * Note that if <b class='link'>#text</b> is specified it will take precedence and this value will be ignored.
+     * Note that if <b class='link' title='#text'>text</b> is specified it will take precedence and this value will be ignored.
      */
     override protected native function onRender(container : Element, position : Element) : void;
     /**

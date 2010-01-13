@@ -1,6 +1,4 @@
 package ext.chart {
-/**
-*/
 public class CartesianChart extends Chart {
 /**
  * @constructor
@@ -12,6 +10,4 @@ public class CartesianChart extends Chart {
     public native function setXAxis(value) : void;
     public native function setYAxis(value) : void;
     public native function createAxis(axis, value) : void;
-/**
-*/
 }}

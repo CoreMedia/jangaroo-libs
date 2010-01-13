@@ -19,7 +19,7 @@ public function Tip(config : Object) {
     /**
      * @cfg {Number} width
      * Width in pixels of the tip (defaults to auto).  Width will be ignored if it exceeds the bounds of
-     * <b class='link'>#minWidth</b> or <b class='link'>#maxWidth</b>.  The maximum supported value is 500.
+     * <b class='link' title='#minWidth'>minWidth</b> or <b class='link' title='#maxWidth'>maxWidth</b>.  The maximum supported value is 500.
      */
     /**
      * @cfg {Number} minWidth The minimum width of the tip in pixels (defaults to 40).
@@ -52,7 +52,7 @@ public function Tip(config : Object) {
     /**
      * Shows this tip at the specified XY position.  Example usage:
      * <pre><code>
-// Show the tip at x:50 and y:100
+&#47;/ Show the tip at x:50 and y:100
 tip.showAt([50,100]);
 </code></pre>
      * @param xy An array containing the x and y coordinates
@@ -63,15 +63,15 @@ tip.showAt([50,100]);
      * <b>Experimental</b>. Shows this tip at a position relative to another element using a standard <b class='link'>ext.Element#alignTo</b>
      * anchor position value.  Example usage:
      * <pre><code>
-// Show the tip at the default position ('tl-br?')
+&#47;/ Show the tip at the default position ('tl-br?')
 tip.showBy('my-el');
 
-// Show the tip's top-left corner anchored to the element's top-right corner
+&#47;/ Show the tip's top-left corner anchored to the element's top-right corner
 tip.showBy('my-el', 'tl-tr');
 </code></pre>
      * @param el An HTMLElement, ext.Element or string id of the target element to align to
      * @param position A valid <b class='link'>ext.Element#alignTo</b> anchor position (defaults to 'tl-br?' or
-     * <b class='link'>#defaultAlign</b> if specified).
+     * <b class='link' title='#defaultAlign'>defaultAlign</b> if specified).
      */
     public native function showBy(el : *, position : String = undefined) : void;
     override protected native function initDraggable() : void;

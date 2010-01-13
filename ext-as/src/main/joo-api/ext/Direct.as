@@ -48,7 +48,7 @@ import ext.util.Observable;
  * <pre><code>
 {"type":"event","name":"message","data":"Successfully polled at: 11:19:30 am"}
 
-// add a handler for a 'message' event sent by the server 
+&#47;/ add a handler for a 'message' event sent by the server 
 ext.Direct.on('message', function(e){
     out.append(String.format('&lt;p>&lt;i>{0}&lt;/i>&lt;/p>', e.data));
             out.el.scrollTo('t', 100000, true);
@@ -62,19 +62,19 @@ public class Direct extends Observable {
     /**
      * Each event type implements a getData() method. The default event types are:
      * <div class="mdetail-params"><ul>
-     * <li><b><tt>event</tt></b> : ext.Direct.Event</li>
-     * <li><b><tt>exception</tt></b> : ext.Direct.ExceptionEvent</li>
-     * <li><b><tt>rpc</tt></b> : ext.Direct.RemotingEvent</li>
+     * <li><b><code>event</code></b> : ext.Direct.Event</li>
+     * <li><b><code>exception</code></b> : ext.Direct.ExceptionEvent</li>
+     * <li><b><code>rpc</code></b> : ext.Direct.RemotingEvent</li>
      * </ul></div>
      * @property eventTypes
      */
     /**
      * Four types of possible exceptions which can occur:
      * <div class="mdetail-params"><ul>
-     * <li><b><tt>ext.Direct.exceptions.TRANSPORT</tt></b> : 'xhr'</li>
-     * <li><b><tt>ext.Direct.exceptions.PARSE</tt></b> : 'parse'</li>
-     * <li><b><tt>ext.Direct.exceptions.LOGIN</tt></b> : 'login'</li>
-     * <li><b><tt>ext.Direct.exceptions.SERVER</tt></b> : 'exception'</li>
+     * <li><b><code>ext.Direct.exceptions.TRANSPORT</code></b> : 'xhr'</li>
+     * <li><b><code>ext.Direct.exceptions.PARSE</code></b> : 'parse'</li>
+     * <li><b><code>ext.Direct.exceptions.LOGIN</code></b> : 'login'</li>
+     * <li><b><code>ext.Direct.exceptions.SERVER</code></b> : 'exception'</li>
      * </ul></div>
      * @property exceptions
      */
@@ -85,7 +85,7 @@ public class Direct extends Observable {
      * If the provider is not already connected, it will auto-connect.
      * <pre><code>
 var pollProv = new Ext.direct.PollingProvider({
-    url: 'php/poll2.php'
+    url&#58; 'php/poll2.php'
 }); 
 
 ext.Direct.addProvider(
@@ -108,8 +108,8 @@ ext.Direct.addProvider(
         },
         "namespace":"myApplication",// namespace to create the Remoting Provider in
     },{
-        type: 'polling', // create a <b class='link'>Ext.direct.PollingProvider</b> 
-        url:  'php/poll.php'
+        type&#58; 'polling', // create a <b class='link'>Ext.direct.PollingProvider</b> 
+        url&#58;  'php/poll.php'
     },
     pollProv // reference to previously created instance
 );
@@ -121,9 +121,9 @@ ext.Direct.addProvider(
     public static native function addProvider(provider : *) : void;
     /**
      * Retrieve a <b class='link' title='Ext.direct.Provider'>provider</b> by the
-     * <b><tt><b class='link' title='Ext.direct.Provider#id'>id</b></tt></b> specified when the provider is
+     * <b><code><b class='link' title='Ext.direct.Provider#id'>id</b></code></b> specified when the provider is
      * <b class='link' title='#addProvider'>added</b>.
-     * @param id Unique identifier assigned to the provider when calling <b class='link'>#addProvider</b> 
+     * @param id Unique identifier assigned to the provider when calling <b class='link' title='#addProvider'>addProvider</b> 
      */
     public static native function getProvider(id : String) : void;
     public static native function removeProvider(id) : void;

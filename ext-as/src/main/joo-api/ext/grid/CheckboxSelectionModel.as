@@ -11,28 +11,28 @@ public function CheckboxSelectionModel(config : Object) {
   super(config);
 }
     /**
-     * @cfg {Boolean} checkOnly <tt>true</tt> if rows can only be selected by clicking on the
-     * checkbox column (defaults to <tt>false</tt>).
+     * @cfg {Boolean} checkOnly <code>true</code> if rows can only be selected by clicking on the
+     * checkbox column (defaults to <code>false</code>).
      */
     /**
      * @cfg {String} header Any valid text or HTML fragment to display in the header cell for the
      * checkbox column.  Defaults to:<pre><code>
-     * '&lt;div class="x-grid3-hd-checker">&#38;#160;&lt;/div>'</tt>
+     * '&lt;div class="x-grid3-hd-checker">&#38;#160;&lt;/div>'</code>
      * </code></pre>
-     * The default CSS class of <tt>'x-grid3-hd-checker'</tt> displays a checkbox in the header
+     * The default CSS class of <code>'x-grid3-hd-checker'</code> displays a checkbox in the header
      * and provides support for automatic check all/none behavior on header click. This string
      * can be replaced by any valid HTML fragment, including a simple text string (e.g.,
-     * <tt>'Select Rows'</tt>), but the automatic check all/none behavior will only work if the
-     * <tt>'x-grid3-hd-checker'</tt> class is supplied.
+     * <code>'Select Rows'</code>), but the automatic check all/none behavior will only work if the
+     * <code>'x-grid3-hd-checker'</code> class is supplied.
      */
     public var header : String;
     /**
-     * @cfg {Number} width The default width in pixels of the checkbox column (defaults to <tt>20</tt>).
+     * @cfg {Number} width The default width in pixels of the checkbox column (defaults to <code>20</code>).
      */
     public var width : Number;
     /**
-     * @cfg {Boolean} sortable <tt>true</tt> if the checkbox column is sortable (defaults to
-     * <tt>false</tt>).
+     * @cfg {Boolean} sortable <code>true</code> if the checkbox column is sortable (defaults to
+     * <code>false</code>).
      */
     public var sortable : Boolean;
     protected var menuDisabled;

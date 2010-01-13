@@ -21,6 +21,4 @@ public function Series() {
      * @property displayName
      */
     public var displayName : String;
-/**
-*/
 }}

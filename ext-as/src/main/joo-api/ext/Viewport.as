@@ -4,49 +4,49 @@ package ext {
  * <p>The Viewport renders itself to the document body, and automatically sizes itself to the size of
  * the browser viewport and manages window resizing. There may only be one Viewport created
  * in a page. Inner layouts are available by virtue of the fact that all <b class='link' title='ext.Panel'>Panel</b>s
- * added to the Viewport, either through its <b class='link'>#items</b>, or through the items, or the <b class='link'>#add</b>
+ * added to the Viewport, either through its <b class='link' title='#items'>items</b>, or through the items, or the <b class='link' title='#add'>add</b>
  * method of any of its child Panels may themselves have a layout.</p>
  * <p>The Viewport does not provide scrolling, so child Panels within the Viewport should provide
- * for scrolling if needed using the <b class='link'>#autoScroll</b> config.</p>
+ * for scrolling if needed using the <b class='link' title='#autoScroll'>autoScroll</b> config.</p>
  * <p>An example showing a classic application border layout:</p><pre><code>
 new ext.Viewport({
-    layout: 'border',
-    items: [{
-        region: 'north',
-        html: '&lt;h1 class="x-panel-header">Page Title&lt;/h1>',
-        autoHeight: true,
-        border: false,
-        margins: '0 0 5 0'
+    layout&#58; 'border',
+    items&#58; [{
+        region&#58; 'north',
+        html&#58; '&lt;h1 class="x-panel-header">Page Title&lt;/h1>',
+        autoHeight&#58; true,
+        border&#58; false,
+        margins&#58; '0 0 5 0'
     }, {
-        region: 'west',
-        collapsible: true,
-        title: 'Navigation',
-        width: 200
-        // the west region might typically utilize a <b class='link' title='Ext.tree.TreePanel'>TreePanel</b> or a Panel with <b class='link' title='Ext.layout.AccordionLayout Accordion'>layout</b> 
+        region&#58; 'west',
+        collapsible&#58; true,
+        title&#58; 'Navigation',
+        width&#58; 200
+        &#47;/ the west region might typically utilize a <b class='link' title='Ext.tree.TreePanel'>TreePanel</b> or a Panel with <b class='link' title='Ext.layout.AccordionLayout Accordion'>layout</b> 
     }, {
-        region: 'south',
-        title: 'Title for Panel',
-        collapsible: true,
-        html: 'Information goes here',
-        split: true,
-        height: 100,
-        minHeight: 100
+        region&#58; 'south',
+        title&#58; 'Title for Panel',
+        collapsible&#58; true,
+        html&#58; 'Information goes here',
+        split&#58; true,
+        height&#58; 100,
+        minHeight&#58; 100
     }, {
-        region: 'east',
-        title: 'Title for the Grid Panel',
-        collapsible: true,
-        split: true,
-        width: 200,
-        xtype: 'grid',
-        // remaining grid configuration not shown ...
-        // notice that the GridPanel is added directly as the region
-        // it is not "overnested" inside another Panel
+        region&#58; 'east',
+        title&#58; 'Title for the Grid Panel',
+        collapsible&#58; true,
+        split&#58; true,
+        width&#58; 200,
+        xtype&#58; 'grid',
+        &#47;/ remaining grid configuration not shown ...
+        &#47;/ notice that the GridPanel is added directly as the region
+        &#47;/ it is not "overnested" inside another Panel
     }, {
-        region: 'center',
-        xtype: 'tabpanel', // TabPanel itself has no title
-        items: {
-            title: 'Default Tab',
-            html: 'The first tab\'s content. Others may be added dynamically'
+        region&#58; 'center',
+        xtype&#58; 'tabpanel', // TabPanel itself has no title
+        items&#58; {
+            title&#58; 'Default Tab',
+            html&#58; 'The first tab\'s content. Others may be added dynamically'
         }
     }]
 });

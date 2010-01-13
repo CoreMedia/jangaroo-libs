@@ -8,25 +8,25 @@ import ext.grid.AbstractSelectionModel;
  * <p>The TreePanel provides tree-structured UI representation of tree-structured data.</p>
  * <p><b class='link' title='Ext.tree.TreeNode'>TreeNode</b>s added to the TreePanel may each contain metadata
  * used by your application in their <b class='link' title='Ext.tree.TreeNode#attributes'>attributes</b> property.</p>
- * <p><b>A TreePanel must have a <b class='link'>#root</b> node before it is rendered.</b> This may either be
- * specified using the <b class='link'>#root</b> config option, or using the <b class='link'>#setRootNode</b> method.
+ * <p><b>A TreePanel must have a <b class='link' title='#root'>root</b> node before it is rendered.</b> This may either be
+ * specified using the <b class='link' title='#root'>root</b> config option, or using the <b class='link' title='#setRootNode'>setRootNode</b> method.
  * <p>An example of tree rendered to an existing div:</p><pre><code>
 var tree = new Ext.tree.TreePanel({
-    renderTo: 'tree-div',
-    useArrows: true,
-    autoScroll: true,
-    animate: true,
-    enableDD: true,
-    containerScroll: true,
-    border: false,
-    // auto create TreeLoader
-    dataUrl: 'get-nodes.php',
+    renderTo&#58; 'tree-div',
+    useArrows&#58; true,
+    autoScroll&#58; true,
+    animate&#58; true,
+    enableDD&#58; true,
+    containerScroll&#58; true,
+    border&#58; false,
+    &#47;/ auto create TreeLoader
+    dataUrl&#58; 'get-nodes.php',
 
-    root: {
-        nodeType: 'async',
-        text: 'Ext JS',
-        draggable: false,
-        id: 'source'
+    root&#58; {
+        nodeType&#58; 'async',
+        text&#58; 'Ext JS',
+        draggable&#58; false,
+        id&#58; 'source'
     }
 });
 
@@ -50,39 +50,39 @@ tree.getRootNode().expand();
  * </code></pre>
  * <p>An example of tree within a Viewport:</p><pre><code>
 new ext.Viewport({
-    layout: 'border',
-    items: [{
-        region: 'west',
-        collapsible: true,
-        title: 'Navigation',
-        xtype: 'treepanel',
-        width: 200,
-        autoScroll: true,
-        split: true,
-        loader: new Ext.tree.TreeLoader(),
-        root: new Ext.tree.AsyncTreeNode({
-            expanded: true,
-            children: [{
-                text: 'Menu Option 1',
-                leaf: true
+    layout&#58; 'border',
+    items&#58; [{
+        region&#58; 'west',
+        collapsible&#58; true,
+        title&#58; 'Navigation',
+        xtype&#58; 'treepanel',
+        width&#58; 200,
+        autoScroll&#58; true,
+        split&#58; true,
+        loader&#58; new Ext.tree.TreeLoader(),
+        root&#58; new Ext.tree.AsyncTreeNode({
+            expanded&#58; true,
+            children&#58; [{
+                text&#58; 'Menu Option 1',
+                leaf&#58; true
             }, {
-                text: 'Menu Option 2',
-                leaf: true
+                text&#58; 'Menu Option 2',
+                leaf&#58; true
             }, {
-                text: 'Menu Option 3',
-                leaf: true
+                text&#58; 'Menu Option 3',
+                leaf&#58; true
             }]
         }),
-        rootVisible: false,
-        listeners: {
-            click: function(n) {
+        rootVisible&#58; false,
+        listeners&#58; {
+            click&#58; function(n) {
                 ext.Msg.alert('Navigation Tree Click', 'You clicked: "' + n.attributes.text + '"');
             }
         }
     }, {
-        region: 'center',
-        xtype: 'tabpanel',
-        // remaining code not shown ...
+        region&#58; 'center',
+        xtype&#58; 'tabpanel',
+        &#47;/ remaining code not shown ...
     }]
 });
 </code></pre>
@@ -91,26 +91,26 @@ new ext.Viewport({
 public class TreePanel extends Panel {
 /**
  * @cfg {ext.tree.TreeNode} root The root node for the tree.
- * @cfg {Boolean} rootVisible <tt>false</tt> to hide the root node (defaults to <tt>true</tt>)
- * @cfg {Boolean} lines <tt>false</tt> to disable tree lines (defaults to <tt>true</tt>)
- * @cfg {Boolean} enableDD <tt>true</tt> to enable drag and drop
- * @cfg {Boolean} enableDrag <tt>true</tt> to enable just drag
- * @cfg {Boolean} enableDrop <tt>true</tt> to enable just drop
+ * @cfg {Boolean} rootVisible <code>false</code> to hide the root node (defaults to <code>true</code>)
+ * @cfg {Boolean} lines <code>false</code> to disable tree lines (defaults to <code>true</code>)
+ * @cfg {Boolean} enableDD <code>true</code> to enable drag and drop
+ * @cfg {Boolean} enableDrag <code>true</code> to enable just drag
+ * @cfg {Boolean} enableDrop <code>true</code> to enable just drop
  * @cfg {Object} dragConfig Custom config to pass to the <b class='link'>Ext.tree.TreeDragZone</b> instance
  * @cfg {Object} dropConfig Custom config to pass to the <b class='link'>Ext.tree.TreeDropZone</b> instance
  * @cfg {String} ddGroup The DD group this TreePanel belongs to
- * @cfg {Boolean} ddAppendOnly <tt>true</tt> if the tree should only allow append drops (use for trees which are sorted)
- * @cfg {Boolean} ddScroll <tt>true</tt> to enable body scrolling
- * @cfg {Boolean} containerScroll <tt>true</tt> to register this container with ScrollManager
- * @cfg {Boolean} hlDrop <tt>false</tt> to disable node highlight on drop (defaults to the value of <b class='link'>Ext#enableFx</b>)
- * @cfg {String} hlColor The color of the node highlight (defaults to <tt>'C3DAF9'</tt>)
- * @cfg {Boolean} animate <tt>true</tt> to enable animated expand/collapse (defaults to the value of <b class='link'>Ext#enableFx</b>)
- * @cfg {Boolean} singleExpand <tt>true</tt> if only 1 node per branch may be expanded
+ * @cfg {Boolean} ddAppendOnly <code>true</code> if the tree should only allow append drops (use for trees which are sorted)
+ * @cfg {Boolean} ddScroll <code>true</code> to enable body scrolling
+ * @cfg {Boolean} containerScroll <code>true</code> to register this container with ScrollManager
+ * @cfg {Boolean} hlDrop <code>false</code> to disable node highlight on drop (defaults to the value of <b class='link'>Ext#enableFx</b>)
+ * @cfg {String} hlColor The color of the node highlight (defaults to <code>'C3DAF9'</code>)
+ * @cfg {Boolean} animate <code>true</code> to enable animated expand/collapse (defaults to the value of <b class='link'>Ext#enableFx</b>)
+ * @cfg {Boolean} singleExpand <code>true</code> if only 1 node per branch may be expanded
  * @cfg {Object} selModel A tree selection model to use with this TreePanel (defaults to an <b class='link'>Ext.tree.DefaultSelectionModel</b>)
- * @cfg {Boolean} trackMouseOver <tt>false</tt> to disable mouse over highlighting
+ * @cfg {Boolean} trackMouseOver <code>false</code> to disable mouse over highlighting
  * @cfg {ext.tree.TreeLoader} loader A <b class='link'>Ext.tree.TreeLoader</b> for use with this TreePanel
- * @cfg {String} pathSeparator The token used to separate sub-paths in path strings (defaults to <tt>'/'</tt>)
- * @cfg {Boolean} useArrows <tt>true</tt> to use Vista-style arrows in the tree (defaults to <tt>false</tt>)
+ * @cfg {String} pathSeparator The token used to separate sub-paths in path strings (defaults to <code>'/'</code>)
+ * @cfg {Boolean} useArrows <code>true</code> to use Vista-style arrows in the tree (defaults to <code>false</code>)
  * @cfg {String} requestMethod The HTTP request method for loading data (defaults to the value of <b class='link'>ext.Ajax#method</b>).
  */
 /**
@@ -212,11 +212,11 @@ public class TreePanel extends Panel {
     override protected native function onRender(container : Element, position : Element) : void;
     override protected native function initEvents() : void;
            /**
-            * The dropZone used by this tree if drop is enabled (see <b class='link'>#enableDD</b> or <b class='link'>#enableDrop</b>)
+            * The dropZone used by this tree if drop is enabled (see <b class='link' title='#enableDD'>enableDD</b> or <b class='link' title='#enableDrop'>enableDrop</b>)
             * @property dropZone
             */
            /**
-            * The dragZone used by this tree if drag is enabled (see <b class='link'>#enableDD</b> or <b class='link'>#enableDrag</b>)
+            * The dragZone used by this tree if drag is enabled (see <b class='link' title='#enableDD'>enableDD</b> or <b class='link' title='#enableDrag'>enableDrag</b>)
             * @property dragZone
             */
     override protected native function afterRender() : void;

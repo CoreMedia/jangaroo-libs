@@ -15,7 +15,7 @@ public function ColumnResizer(config : Object) {
   config++;
 }
     /**
-     * @cfg {Number} minPct The minimum percentage to allot for any column (defaults to <tt>.05</tt>)
+     * @cfg {Number} minPct The minimum percentage to allot for any column (defaults to <code>.05</code>)
      */
     public var minPct : Number;
     public native function constructor(config) : void;

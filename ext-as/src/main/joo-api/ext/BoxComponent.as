@@ -9,16 +9,16 @@ package ext {
  * <p>To use a pre-existing element as a BoxComponent, configure it so that you preset the <b>el</b> property to the
  * element to reference:<pre><code>
 var pageHeader = new ext.BoxComponent({
-    el: 'my-header-div'
+    el&#58; 'my-header-div'
 });</code></pre>
  * This may then be <b class='link' title='ext.Container#add'>added</b> to a <b class='link' title='ext.Container'>Container</b> as a child item.</p>
  * <p>To create a BoxComponent based around a HTML element to be created at render time, use the
  * <b class='link' title='ext.Component#autoEl'>autoEl</b> config option which takes the form of a
  * <b class='link' title='ext.DomHelper'>DomHelper</b> specification:<pre><code>
 var myImage = new ext.BoxComponent({
-    autoEl: {
-        tag: 'img',
-        src: '/images/my-image.jpg'
+    autoEl&#58; {
+        tag&#58; 'img',
+        src&#58; '/images/my-image.jpg'
     }
 });</code></pre></p>
 */
@@ -34,7 +34,7 @@ public function BoxComponent(config : *) {
     /**
      * @cfg {String} region <p><b>Note</b>: this config is only used when this BoxComponent is rendered
      * by a Container which has been configured to use the <b class='link' title='Ext.layout.BorderLayout'>BorderLayout</b>
-     * layout manager (e.g. specifying <tt>layout:'border'</tt>).</p><br>
+     * layout manager (e.g. specifying <code>layout:'border'</code>).</p><br>
      * <p>See <b class='link'>Ext.layout.BorderLayout</b> also.</p>
      */
     /**
@@ -44,10 +44,10 @@ public function BoxComponent(config : *) {
      * <p>An object containing margins to apply to this BoxComponent in the
      * format:</p><pre><code>
 {
-    top: (top margin),
-    right: (right margin),
-    bottom: (bottom margin),
-    left: (left margin)
+    top&#58; (top margin),
+    right&#58; (right margin),
+    bottom&#58; (bottom margin),
+    left&#58; (left margin)
 }</code></pre>
      * <p>May also be a string containing space-separated, numeric margin values. The order of the
      * sides associated with each value matches the way CSS processes margin values:</p>
@@ -100,25 +100,25 @@ public function BoxComponent(config : *) {
      * to changes within the structure of the Component cannot be detected. Therefore changes to the height might
      * result in elements needing to be synchronized with the new height. Example:</p><pre><code>
 var w = new ext.Window({
-    title: 'Window',
-    width: 600,
-    autoHeight: true,
-    items: {
-        title: 'Collapse Me',
-        height: 400,
-        collapsible: true,
-        border: false,
-        listeners: {
-            beforecollapse: function() {
+    title&#58; 'Window',
+    width&#58; 600,
+    autoHeight&#58; true,
+    items&#58; {
+        title&#58; 'Collapse Me',
+        height&#58; 400,
+        collapsible&#58; true,
+        border&#58; false,
+        listeners&#58; {
+            beforecollapse&#58; function() {
                 w.el.shadow.hide();
             },
-            beforeexpand: function() {
+            beforeexpand&#58; function() {
                 w.el.shadow.hide();
             },
-            collapse: function() {
+            collapse&#58; function() {
                 w.syncShadow();
             },
-            expand: function() {
+            expand&#58; function() {
                 w.syncShadow();
             }
         }
@@ -141,24 +141,24 @@ var w = new ext.Window({
      * A Panel rendered into that target element must listen for browser window resize in order to relay its
       * child items when the browser changes its width:<pre><code>
 var myPanel = new ext.Panel({
-    renderTo: 'grid-container',
-    monitorResize: true, // relay on browser resize
-    title: 'Panel',
-    height: 400,
-    autoWidth: true,
-    layout: 'hbox',
-    layoutConfig: {
-        align: 'stretch'
+    renderTo&#58; 'grid-container',
+    monitorResize&#58; true, // relay on browser resize
+    title&#58; 'Panel',
+    height&#58; 400,
+    autoWidth&#58; true,
+    layout&#58; 'hbox',
+    layoutConfig&#58; {
+        align&#58; 'stretch'
     },
-    defaults: {
-        flex: 1
+    defaults&#58; {
+        flex&#58; 1
     },
-    items: [{
-        title: 'Box 1',
+    items&#58; [{
+        title&#58; 'Box 1',
     }, {
-        title: 'Box 2'
+        title&#58; 'Box 2'
     }, {
-        title: 'Box 3'
+        title&#58; 'Box 3'
     }],
 });
 </code></pre>
@@ -167,7 +167,7 @@ var myPanel = new ext.Panel({
     public var boxReady  : Boolean;
     public var deferHeight;
     /**
-     * Sets the width and height of this BoxComponent. This method fires the <b class='link'>#resize</b> event. This method can accept
+     * Sets the width and height of this BoxComponent. This method fires the <b class='link' title='#resize'>resize</b> event. This method can accept
      * either width and height as separate arguments, or you can pass a size object like <code>{width:10, height:20}</code>.
      * @param width The new width to set. This may be one of:<div class="mdetail-params"><ul>
      * <li>A Number specifying the new width in the <b class='link' title='#getEl'>Element</b>'s <b class='link'>ext.Element#defaultUnit</b>s (by default, pixels).</li>
@@ -185,7 +185,7 @@ var myPanel = new ext.Panel({
      */
     public native function setSize(width : *, height : *) : BoxComponent;
     /**
-     * Sets the width of the component.  This method fires the <b class='link'>#resize</b> event.
+     * Sets the width of the component.  This method fires the <b class='link' title='#resize'>resize</b> event.
      * @param width The new width to setThis may be one of:<div class="mdetail-params"><ul>
      * <li>A Number specifying the new width in the <b class='link' title='#getEl'>Element</b>'s <b class='link'>ext.Element#defaultUnit</b>s (by default, pixels).</li>
      * <li>A String used to set the CSS width style.</li>
@@ -194,7 +194,7 @@ var myPanel = new ext.Panel({
      */
     public native function setWidth(width : Number) : BoxComponent;
     /**
-     * Sets the height of the component.  This method fires the <b class='link'>#resize</b> event.
+     * Sets the height of the component.  This method fires the <b class='link' title='#resize'>resize</b> event.
      * @param height The new height to set. This may be one of:<div class="mdetail-params"><ul>
      * <li>A Number specifying the new height in the <b class='link' title='#getEl'>Element</b>'s <b class='link'>ext.Element#defaultUnit</b>s (by default, pixels).</li>
      * <li>A String used to set the CSS height style.</li>
@@ -243,27 +243,27 @@ var myPanel = new ext.Panel({
     public native function updateBox(box : Object) : BoxComponent;
     /**
      * <p>Returns the outermost Element of this Component which defines the Components overall size.</p>
-     * <p><i>Usually</i> this will return the same Element as <code><b class='link'>#getEl</b></code>,
+     * <p><i>Usually</i> this will return the same Element as <code><b class='link' title='#getEl'>getEl</b></code>,
      * but in some cases, a Component may have some more wrapping Elements around its main
      * active Element.</p>
      * <p>An example is a ComboBox. It is encased in a <i>wrapping</i> Element which
      * contains both the <code>&lt;input></code> Element (which is what would be returned
-     * by its <code><b class='link'>#getEl</b></code> method, <i>and</i> the trigger button Element.
+     * by its <code><b class='link' title='#getEl'>getEl</b></code> method, <i>and</i> the trigger button Element.
      * This Element is returned as the <code>resizeEl</code>.
      */
     public native function getResizeEl() : void;
     public native function getPositionEl() : void;
     /**
-     * Sets the left and top of the component.  To set the page XY position instead, use <b class='link'>#setPagePosition</b>.
-     * This method fires the <b class='link'>#move</b> event.
+     * Sets the left and top of the component.  To set the page XY position instead, use <b class='link' title='#setPagePosition'>setPagePosition</b>.
+     * This method fires the <b class='link' title='#move'>move</b> event.
      * @param left The new left
      * @param top The new top
      * @return this
      */
     public native function setPosition(left : Number, top : Number) : BoxComponent;
     /**
-     * Sets the page XY position of the component.  To set the left and top instead, use <b class='link'>#setPosition</b>.
-     * This method fires the <b class='link'>#move</b> event.
+     * Sets the page XY position of the component.  To set the left and top instead, use <b class='link' title='#setPosition'>setPosition</b>.
+     * This method fires the <b class='link' title='#move'>move</b> event.
      * @param x The new x position
      * @param y The new y position
      * @return this
@@ -280,6 +280,4 @@ var myPanel = new ext.Panel({
     public native function onPosition(x, y) : void;
     protected native function adjustSize(w, h) : void;
     protected native function adjustPosition(x, y) : void;
-/**
-*/
 }}

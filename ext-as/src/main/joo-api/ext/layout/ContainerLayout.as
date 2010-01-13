@@ -4,28 +4,26 @@ import ext.Template;
 
 /**
  * <p>The ContainerLayout class is the default layout manager delegated by <b class='link'>ext.Container</b> to
- * render any child Components when no <tt><b class='link' title='ext.Container#layout'>layout</b></tt> is configured into
+ * render any child Components when no <code><b class='link' title='ext.Container#layout'>layout</b></code> is configured into
  * a <b class='link' title='ext.Container'>Container</b>. ContainerLayout provides the basic foundation for all other layout
  * classes in Ext. It simply renders all child Components into the Container, performing no sizing or
  * positioning services. To utilize a layout that provides sizing and positioning of child Components,
- * specify an appropriate <tt><b class='link' title='ext.Container#layout'>layout</b></tt>.</p>
- * <p>This class is intended to be extended or created via the <tt><b class='link' title='ext.Container#layout'>layout</b></tt>
- * configuration property.  See <tt><b class='link'>ext.Container#layout</b></tt> for additional details.</p>
+ * specify an appropriate <code><b class='link' title='ext.Container#layout'>layout</b></code>.</p>
+ * <p>This class is intended to be extended or created via the <code><b class='link' title='ext.Container#layout'>layout</b></code>
+ * configuration property.  See <code><b class='link'>ext.Container#layout</b></code> for additional details.</p>
  */
-    /**
-*/
-public class ContainerLayout {
+    public class ContainerLayout {
 /**
      * @cfg {String} extraCls
      * <p>An optional extra CSS class that will be added to the container. This can be useful for adding
      * customized styles to the container or any of its children using standard CSS rules. See
      * <b class='link'>ext.Component</b>.<b class='link' title='ext.Component#ctCls'>ctCls</b> also.</p>
-     * <p><b>Note</b>: <tt>extraCls</tt> defaults to <tt>''</tt> except for the following classes
+     * <p><b>Note</b>: <code>extraCls</code> defaults to <code>''</code> except for the following classes
      * which assign a value by default:
      * <div class="mdetail-params"><ul>
-     * <li><b class='link' title='Ext.layout.AbsoluteLayout Absolute'>Layout</b> : <tt>'x-abs-layout-item'</tt></li>
-     * <li><b class='link' title='Ext.layout.Box Box'>Layout</b> : <tt>'x-box-item'</tt></li>
-     * <li><b class='link' title='Ext.layout.ColumnLayout Column'>Layout</b> : <tt>'x-column'</tt></li>
+     * <li><b class='link' title='Ext.layout.AbsoluteLayout Absolute'>Layout</b> : <code>'x-abs-layout-item'</code></li>
+     * <li><b class='link' title='Ext.layout.Box Box'>Layout</b> : <code>'x-box-item'</code></li>
+     * <li><b class='link' title='Ext.layout.ColumnLayout Column'>Layout</b> : <code>'x-column'</code></li>
      * </ul></div>
      * To configure the above Classes with an extra CSS class append to the default.  For example,
      * for ColumnLayout:<pre><code>
@@ -41,7 +39,7 @@ public class ContainerLayout {
      * A reference to the <b class='link'>ext.Component</b> that is active.  For example, <pre><code>
      * if(myPanel.layout.activeItem.id == 'item-1') { ... }
      * </code></pre>
-     * <tt>activeItem</tt> only applies to layout styles that can display items one at a time
+     * <code>activeItem</code> only applies to layout styles that can display items one at a time
      * (like <b class='link'>Ext.layout.AccordionLayout</b>, <b class='link'>Ext.layout.CardLayout</b>
      * and <b class='link'>Ext.layout.FitLayout</b>).  Read-only.  Related to <b class='link'>ext.Container#activeItem</b>.
      * @property activeItem

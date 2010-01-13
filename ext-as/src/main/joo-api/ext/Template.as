@@ -86,7 +86,7 @@ public function Template(html : *) {
      */
     public native function overwrite(el : *, values : *, returnElement : Boolean = undefined) : *;
 /**
- * Alias for <b class='link'>#applyTemplate</b>
+ * Alias for <b class='link' title='#applyTemplate'>applyTemplate</b>
  * Returns an HTML fragment of this template with the specified values applied.
  * @param values The template values. Can be an array if your params are numeric (i.e. {0}) or an object (i.e. {foo: 'bar'})
  * @return The HTML fragment
@@ -102,7 +102,7 @@ public function Template(html : *) {
 public native function from (el : *, config : Object) : Template;
 
     /**
-     * <tt>true</tt> to disable format functions (defaults to <tt>false</tt>)
+     * <code>true</code> to disable format functions (defaults to <code>false</code>)
      * @property
      */
     public var disableFormats  : Boolean;

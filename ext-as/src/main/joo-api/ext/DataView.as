@@ -9,15 +9,15 @@ import js.HTMLElement;
  * as its internal templating mechanism, and is bound to an <b class='link'>ext.data.Store</b>
  * so that as the data in the store changes the view is automatically updated to reflect the changes.  The view also
  * provides built-in behavior for many common events that can occur for its contained items including click, doubleclick,
- * mouseover, mouseout, etc. as well as a built-in selection model. <b>In order to use these features, an <b class='link'>#itemSelector</b>
+ * mouseover, mouseout, etc. as well as a built-in selection model. <b>In order to use these features, an <b class='link' title='#itemSelector'>itemSelector</b>
  * config must be provided for the DataView to determine what nodes it will be working with.</b>
  *
  * <p>The example below binds a DataView to a <b class='link'>ext.data.Store</b> and renders it into an <b class='link'>ext.Panel</b>.</p>
  * <pre><code>
 var store = new ext.data.JsonStore({
-    url: 'get-images.php',
-    root: 'images',
-    fields: [
+    url&#58; 'get-images.php',
+    root&#58; 'images',
+    fields&#58; [
         'name', 'url',
         {name:'size', type: 'float'},
         {name:'lastmod', type:'date', dateFormat:'timestamp'}
@@ -35,22 +35,22 @@ var tpl = new ext.XTemplate(
 );
 
 var panel = new ext.Panel({
-    id:'images-view',
-    frame:true,
-    width:535,
-    autoHeight:true,
-    collapsible:true,
-    layout:'fit',
-    title:'Simple DataView',
+    id&#58;'images-view',
+    frame&#58;true,
+    width&#58;535,
+    autoHeight&#58;true,
+    collapsible&#58;true,
+    layout&#58;'fit',
+    title&#58;'Simple DataView',
 
-    items: new ext.DataView({
-        store: store,
-        tpl: tpl,
-        autoHeight:true,
-        multiSelect: true,
-        overClass:'x-view-over',
-        itemSelector:'div.thumb-wrap',
-        emptyText: 'No images to display'
+    items&#58; new ext.DataView({
+        store&#58; store,
+        tpl&#58; tpl,
+        autoHeight&#58;true,
+        multiSelect&#58; true,
+        overClass&#58;'x-view-over',
+        itemSelector&#58;'div.thumb-wrap',
+        emptyText&#58; 'No images to display'
     })
 });
 panel.render(document.body);
@@ -77,19 +77,19 @@ public function DataView(config : Object) {
      */
     /**
      * @cfg {String} itemSelector
-     * <b>This is a required setting</b>. A simple CSS selector (e.g. <tt>div.some-class</tt> or 
-     * <tt>span:first-child</tt>) that will be used to determine what nodes this DataView will be
+     * <b>This is a required setting</b>. A simple CSS selector (e.g. <code>div.some-class</code> or 
+     * <code>span:first-child</code>) that will be used to determine what nodes this DataView will be
      * working with.
      */
     /**
      * @cfg {Boolean} multiSelect
      * True to allow selection of more than one item at a time, false to allow selection of only a single item
-     * at a time or no selection at all, depending on the value of <b class='link'>#singleSelect</b> (defaults to false).
+     * at a time or no selection at all, depending on the value of <b class='link' title='#singleSelect'>singleSelect</b> (defaults to false).
      */
     /**
      * @cfg {Boolean} singleSelect
      * True to allow selection of exactly one item at a time, false to allow no selection at all (defaults to false).
-     * Note that if <b class='link'>#multiSelect</b> = true, this value will be ignored.
+     * Note that if <b class='link' title='#multiSelect'>multiSelect</b> = true, this value will be ignored.
      */
     /**
      * @cfg {Boolean} simpleSelect
@@ -146,7 +146,7 @@ public function DataView(config : Object) {
      * <p>Function which can be overridden which returns the data object passed to this
      * DataView's <b class='link' title='#tpl'>template</b> to render the whole DataView.</p>
      * <p>This is usually an Array of data objects, each element of which is processed by an
-     * <b class='link' title='ext.XTemplate'>XTemplate</b> which uses <tt>'&lt;tpl for="."&gt;'</tt> to iterate over its supplied
+     * <b class='link' title='ext.XTemplate'>XTemplate</b> which uses <code>'&lt;tpl for="."&gt;'</code> to iterate over its supplied
      * data object as an Array. However, <i>named</i> properties may be placed into the data object to
      * provide non-repeating data such as headings, totals etc.</p>
      * @param records An Array of <b class='link'>ext.data.Record</b>s to be rendered into the DataView.

@@ -16,7 +16,7 @@ public function Sorter(config : Object) {
 }
     /**
      * @cfg {Array} sortClasses
-     * The CSS classes applied to a header when it is sorted. (defaults to <tt>["sort-asc", "sort-desc"]</tt>)
+     * The CSS classes applied to a header when it is sorted. (defaults to <code>["sort-asc", "sort-desc"]</code>)
      */
     public var sortClasses  : Array;
     public native function constructor(config) : void;

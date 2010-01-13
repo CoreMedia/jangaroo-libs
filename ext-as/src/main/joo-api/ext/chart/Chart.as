@@ -30,7 +30,7 @@ public function Chart() {
      */
     /**
      * @cfg {Object} extraStyle
-     * Contains extra styles that will be added or overwritten to the default chartStyle. Defaults to <tt>null</tt>.
+     * Contains extra styles that will be added or overwritten to the default chartStyle. Defaults to <code>null</code>.
      */
     public var extraStyle : Object;
     /**
@@ -78,6 +78,4 @@ public static var PROXY_FN_ID = 0;
  * @static
  */
 public static var CHART_URL  : String = 'http:/' + '/yui.yahooapis.com/2.7.0/build/charts/assets/charts.swf';
-/**
-*/
 }}

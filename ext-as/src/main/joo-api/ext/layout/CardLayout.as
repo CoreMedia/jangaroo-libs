@@ -4,7 +4,7 @@ package ext.layout {
  * visible at any given time.  This layout style is most commonly used for wizards, tab implementations, etc.
  * This class is intended to be extended or created via the layout:'card' <b class='link'>ext.Container#layout</b> config,
  * and should generally not need to be created directly via the new keyword.</p>
- * <p>The CardLayout's focal method is <b class='link'>#setActiveItem</b>.  Since only one panel is displayed at a time,
+ * <p>The CardLayout's focal method is <b class='link' title='#setActiveItem'>setActiveItem</b>.  Since only one panel is displayed at a time,
  * the only way to move from one Component to the next is by calling setActiveItem, passing the id or index of
  * the next panel to display.  The layout itself does not provide a user interface for handling this navigation,
  * so that functionality must be provided by the developer.</p>
@@ -16,48 +16,48 @@ package ext.layout {
  * CardLayout to provide the custom functionality needed.  Example usage:</p>
  * <pre><code>
 var navHandler = function(direction){
-    // This routine could contain business logic required to manage the navigation steps.
-    // It would call setActiveItem as needed, manage navigation button state, handle any
-    // branching logic that might be required, handle alternate actions like cancellation
-    // or finalization, etc.  A complete wizard implementation could get pretty
-    // sophisticated depending on the complexity required, and should probably be
-    // done as a subclass of CardLayout in a real-world implementation.
+    &#47;/ This routine could contain business logic required to manage the navigation steps.
+    &#47;/ It would call setActiveItem as needed, manage navigation button state, handle any
+    &#47;/ branching logic that might be required, handle alternate actions like cancellation
+    &#47;/ or finalization, etc.  A complete wizard implementation could get pretty
+    &#47;/ sophisticated depending on the complexity required, and should probably be
+    &#47;/ done as a subclass of CardLayout in a real-world implementation.
 };
 
 var card = new ext.Panel({
-    title: 'Example Wizard',
-    layout:'card',
-    activeItem: 0, // make sure the active item is set on the container config!
-    bodyStyle: 'padding:15px',
-    defaults: {
-        // applied to each contained panel
-        border:false
+    title&#58; 'Example Wizard',
+    layout&#58;'card',
+    activeItem&#58; 0, // make sure the active item is set on the container config!
+    bodyStyle&#58; 'padding:15px',
+    defaults&#58; {
+        &#47;/ applied to each contained panel
+        border&#58;false
     },
-    // just an example of one possible navigation scheme, using buttons
-    bbar: [
+    &#47;/ just an example of one possible navigation scheme, using buttons
+    bbar&#58; [
         {
-            id: 'move-prev',
-            text: 'Back',
-            handler: navHandler.createDelegate(this, [-1]),
-            disabled: true
+            id&#58; 'move-prev',
+            text&#58; 'Back',
+            handler&#58; navHandler.createDelegate(this, [-1]),
+            disabled&#58; true
         },
         '->', // greedy spacer so that the buttons are aligned to each side
         {
-            id: 'move-next',
-            text: 'Next',
-            handler: navHandler.createDelegate(this, [1])
+            id&#58; 'move-next',
+            text&#58; 'Next',
+            handler&#58; navHandler.createDelegate(this, [1])
         }
     ],
-    // the panels (or "cards") within the layout
-    items: [{
-        id: 'card-0',
-        html: '&lt;h1&gt;Welcome to the Wizard!&lt;/h1&gt;&lt;p&gt;Step 1 of 3&lt;/p&gt;'
+    &#47;/ the panels (or "cards") within the layout
+    items&#58; [{
+        id&#58; 'card-0',
+        html&#58; '&lt;h1&gt;Welcome to the Wizard!&lt;/h1&gt;&lt;p&gt;Step 1 of 3&lt;/p&gt;'
     },{
-        id: 'card-1',
-        html: '&lt;p&gt;Step 2 of 3&lt;/p&gt;'
+        id&#58; 'card-1',
+        html&#58; '&lt;p&gt;Step 2 of 3&lt;/p&gt;'
     },{
-        id: 'card-2',
-        html: '&lt;h1&gt;Congratulations!&lt;/h1&gt;&lt;p&gt;Step 3 of 3 - Complete&lt;/p&gt;'
+        id&#58; 'card-2',
+        html&#58; '&lt;h1&gt;Congratulations!&lt;/h1&gt;&lt;p&gt;Step 3 of 3 - Complete&lt;/p&gt;'
     }]
 });
 </code></pre>

@@ -2,38 +2,36 @@ package ext.layout {
 /**
  * <p>This is a layout that contains multiple panels in an expandable accordion style such that only
  * <b>one panel can be open at any given time</b>.  Each panel has built-in support for expanding and collapsing.
- * <p>This class is intended to be extended or created via the <tt><b class='link' title='ext.Container#layout'>layout</b></tt>
- * configuration property.  See <tt><b class='link'>ext.Container#layout</b></tt> for additional details.</p>
+ * <p>This class is intended to be extended or created via the <code><b class='link' title='ext.Container#layout'>layout</b></code>
+ * configuration property.  See <code><b class='link'>ext.Container#layout</b></code> for additional details.</p>
  * <p>Example usage:</p>
  * <pre><code>
 var accordion = new ext.Panel({
-    title: 'Accordion Layout',
-    layout:'accordion',
-    defaults: {
-        // applied to each contained panel
-        bodyStyle: 'padding:15px'
+    title&#58; 'Accordion Layout',
+    layout&#58;'accordion',
+    defaults&#58; {
+        &#47;/ applied to each contained panel
+        bodyStyle&#58; 'padding:15px'
     },
-    layoutConfig: {
-        // layout-specific configs go here
-        titleCollapse: false,
-        animate: true,
-        activeOnTop: true
+    layoutConfig&#58; {
+        &#47;/ layout-specific configs go here
+        titleCollapse&#58; false,
+        animate&#58; true,
+        activeOnTop&#58; true
     },
-    items: [{
-        title: 'Panel 1',
-        html: '&lt;p&gt;Panel content!&lt;/p&gt;'
+    items&#58; [{
+        title&#58; 'Panel 1',
+        html&#58; '&lt;p&gt;Panel content!&lt;/p&gt;'
     },{
-        title: 'Panel 2',
-        html: '&lt;p&gt;Panel content!&lt;/p&gt;'
+        title&#58; 'Panel 2',
+        html&#58; '&lt;p&gt;Panel content!&lt;/p&gt;'
     },{
-        title: 'Panel 3',
-        html: '&lt;p&gt;Panel content!&lt;/p&gt;'
+        title&#58; 'Panel 3',
+        html&#58; '&lt;p&gt;Panel content!&lt;/p&gt;'
     }]
 });
 </code></pre>
  */
-    /**
-*/
 public class AccordionLayout extends FitLayout {
 /**
      * @cfg {Boolean} fill
@@ -52,13 +50,13 @@ public class AccordionLayout extends FitLayout {
      * @cfg {Boolean} titleCollapse
      * True to allow expand/collapse of each contained panel by clicking anywhere on the title bar, false to allow
      * expand/collapse only when the toggle tool button is clicked (defaults to true).  When set to false,
-     * <b class='link'>#hideCollapseTool</b> should be false also.
+     * <b class='link' title='#hideCollapseTool'>hideCollapseTool</b> should be false also.
      */
     public var titleCollapse  : Boolean;
     /**
      * @cfg {Boolean} hideCollapseTool
      * True to hide the contained panels' collapse/expand toggle buttons, false to display them (defaults to false).
-     * When set to true, <b class='link'>#titleCollapse</b> should be true also.
+     * When set to true, <b class='link' title='#titleCollapse'>titleCollapse</b> should be true also.
      */
     public var hideCollapseTool  : Boolean;
     /**

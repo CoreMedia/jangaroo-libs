@@ -10,6 +10,4 @@ public class MenuLayout extends ContainerLayout {
     override protected native function isValidParent(c, target) : void;
     override protected native function onLayout(ct, target) : void;
     public native function doAutoSize() : void;
-/**
-*/
 }}

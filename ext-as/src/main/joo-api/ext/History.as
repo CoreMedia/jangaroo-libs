@@ -3,7 +3,7 @@ import ext.util.Observable;
 
 /**
  * History management component that allows you to register arbitrary tokens that signify application
- * history state on navigation actions.  You can then handle the history <b class='link'>#change</b> event in order
+ * history state on navigation actions.  You can then handle the history <b class='link' title='#change'>change</b> event in order
  * to reset your application UI to the appropriate state when the user navigates forward or backward through
  * the browser history stack.
 */
@@ -34,7 +34,7 @@ public class History extends Observable {
          * commonly be the concatenation of a component id and another id marking the specifc history
          * state of that component.  Example usage:
          * <pre><code>
-// Handle tab changes on a TabPanel
+&#47;/ Handle tab changes on a TabPanel
 tabPanel.on('tabchange', function(tabPanel, tab){
     ext.History.add(tabPanel.id + ':' + tab.id);
 });

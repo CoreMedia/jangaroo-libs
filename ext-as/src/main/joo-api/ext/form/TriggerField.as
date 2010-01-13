@@ -4,7 +4,7 @@ import ext.Element;
 /**
  * Provides a convenient wrapper for TextFields that adds a clickable trigger button (looks like a combobox by default).
  * The trigger has no default action, so you must assign a function to implement the trigger click handler by
- * overriding <b class='link'>#onTriggerClick</b>. You can create a TriggerField directly, as it renders exactly like a combobox
+ * overriding <b class='link' title='#onTriggerClick'>onTriggerClick</b>. You can create a TriggerField directly, as it renders exactly like a combobox
  * for which you can provide a custom implementation.  For example:
  * <pre><code>
 var trigger = new ext.form.TriggerField();
@@ -30,7 +30,7 @@ public function TriggerField(config : Object) {
     /**
      * @cfg {String} triggerClass
      * An additional CSS class used to style the trigger button.  The trigger will always get the
-     * class <tt>'x-form-trigger'</tt> by default and <tt>triggerClass</tt> will be <b>appended</b> if specified.
+     * class <code>'x-form-trigger'</code> by default and <code>triggerClass</code> will be <b>appended</b> if specified.
      */
     /**
      * @cfg {Mixed} triggerConfig
@@ -44,23 +44,23 @@ public function TriggerField(config : Object) {
     /**
      * @cfg {String/Object} autoCreate <p>A <b class='link' title='ext.DomHelper'>DomHelper</b> element spec, or true for a default
      * element spec. Used to create the <b class='link' title='ext.Component#getEl'>Element</b> which will encapsulate this Component.
-     * See <tt><b class='link' title='ext.Component#autoEl'>autoEl</b></tt> for details.  Defaults to:</p>
+     * See <code><b class='link' title='ext.Component#autoEl'>autoEl</b></code> for details.  Defaults to:</p>
      * <pre><code>{tag: "input", type: "text", size: "16", autocomplete: "off"}</code></pre>
      */
     //public var defaultAutoCreate  : *;
     /**
-     * @cfg {Boolean} hideTrigger <tt>true</tt> to hide the trigger element and display only the base
-     * text field (defaults to <tt>false</tt>)
+     * @cfg {Boolean} hideTrigger <code>true</code> to hide the trigger element and display only the base
+     * text field (defaults to <code>false</code>)
      */
     public var hideTrigger : Boolean;
     /**
-     * @cfg {Boolean} editable <tt>false</tt> to prevent the user from typing text directly into the field,
-     * the field will only respond to a click on the trigger to set the value. (defaults to <tt>true</tt>)
+     * @cfg {Boolean} editable <code>false</code> to prevent the user from typing text directly into the field,
+     * the field will only respond to a click on the trigger to set the value. (defaults to <code>true</code>)
      */
     public var editable : Boolean;
     /**
      * @cfg {String} wrapFocusClass The class added to the to the wrap of the trigger element. Defaults to
-     * <tt>x-trigger-wrap-focus</tt>.
+     * <code>x-trigger-wrap-focus</code>.
      */
     public var wrapFocusClass : String;
     /**
@@ -112,6 +112,4 @@ public function TriggerField(config : Object) {
     /**
      * @cfg {Number} growMax @hide
      */
-/**
-*/
 }}

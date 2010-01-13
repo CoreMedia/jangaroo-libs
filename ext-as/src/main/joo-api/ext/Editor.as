@@ -20,7 +20,7 @@ public function Editor(config : Object) {
     /**
      * @cfg {Boolean} allowBlur
      * True to <b class='link' title='#completeEdit complete the editing'>process</b> if in edit mode when the
-     * field is blurred. Defaults to <tt>false</tt>.
+     * field is blurred. Defaults to <code>false</code>.
      */
     /**
      * @cfg {Boolean/String} autoSize

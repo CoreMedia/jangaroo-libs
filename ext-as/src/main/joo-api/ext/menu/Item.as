@@ -26,11 +26,11 @@ public function Item(config : Object) {
      */
     /**
      * @cfg {String} icon The path to an icon to display in this item (defaults to ext.BLANK_IMAGE_URL).  If
-     * icon is specified <b class='link'>#iconCls</b> should not be.
+     * icon is specified <b class='link' title='#iconCls'>iconCls</b> should not be.
      */
     /**
      * @cfg {String} iconCls A CSS class that specifies a background image that will be used as the icon for
-     * this item (defaults to '').  If iconCls is specified <b class='link'>#icon</b> should not be.
+     * this item (defaults to '').  If iconCls is specified <b class='link' title='#icon'>icon</b> should not be.
      */
     /**
      * @cfg {String} text The text to display in this item (defaults to '').

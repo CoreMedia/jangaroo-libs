@@ -107,6 +107,4 @@ public function SplitBar(dragElement : *, resizingElement : *, orientation : Num
  * @private static Create our own proxy element element. So it will be the same same size on all browsers, we won't use borders. Instead we use a background color.
  */
 public native function createProxy (dir) : void;
-/** 
-*/
 }}

@@ -1,40 +1,40 @@
 package ext {
 /**
  * Handles mapping keys to actions for an element. One key map can be used for multiple actions.
- * The constructor accepts the same config object as defined by <b class='link'>#addBinding</b>.
+ * The constructor accepts the same config object as defined by <b class='link' title='#addBinding'>addBinding</b>.
  * If you bind a callback function to a KeyMap, anytime the KeyMap handles an expected key
  * combination it will call the function with this signature (if the match is a multi-key
  * combination the callback will still be called only once): (String key, ext.EventObject e)
  * A KeyMap can also handle a string representation of keys.<br />
  * Usage:
  <pre><code>
-// map one key by key code
+&#47;/ map one key by key code
 var map = new ext.KeyMap("my-element", {
-    key: 13, // or ext.EventObject.ENTER
-    fn: myHandler,
-    scope: myObject
+    key&#58; 13, // or ext.EventObject.ENTER
+    fn&#58; myHandler,
+    scope&#58; myObject
 });
 
-// map multiple keys to one action by string
+&#47;/ map multiple keys to one action by string
 var map = new ext.KeyMap("my-element", {
-    key: "a\r\n\t",
-    fn: myHandler,
-    scope: myObject
+    key&#58; "a\r\n\t",
+    fn&#58; myHandler,
+    scope&#58; myObject
 });
 
-// map multiple keys to multiple actions by strings and array of codes
+&#47;/ map multiple keys to multiple actions by strings and array of codes
 var map = new ext.KeyMap("my-element", [
     {
-        key: [10,13],
-        fn: function(){ alert("Return was pressed"); }
+        key&#58; [10,13],
+        fn&#58; function(){ alert("Return was pressed"); }
     }, {
-        key: "abc",
-        fn: function(){ alert('a, b or c was pressed'); }
+        key&#58; "abc",
+        fn&#58; function(){ alert('a, b or c was pressed'); }
     }, {
-        key: "\t",
-        ctrl:true,
-        shift:true,
-        fn: function(){ alert('Control + shift + tab was pressed.'); }
+        key&#58; "\t",
+        ctrl&#58;true,
+        shift&#58;true,
+        fn&#58; function(){ alert('Control + shift + tab was pressed.'); }
     }
 ]);
 </code></pre>
@@ -44,7 +44,7 @@ public class KeyMap {
 /**
  * @constructor
  * @param el The element to bind to
- * @param config The config (see <b class='link'>#addBinding</b>)
+ * @param config The config (see <b class='link' title='#addBinding'>addBinding</b>)
  * @param eventName The event to bind to (defaults to "keydown")
  */
 public function KeyMap(el : *, config : Object, eventName : String = undefined) {
@@ -72,19 +72,19 @@ stopEvent   Boolean          True to stop the event from bubbling and prevent th
      *
      * Usage:
      * <pre><code>
-// Create a KeyMap
+&#47;/ Create a KeyMap
 var map = new ext.KeyMap(document, {
-    key: ext.EventObject.ENTER,
-    fn: handleKey,
-    scope: this
+    key&#58; ext.EventObject.ENTER,
+    fn&#58; handleKey,
+    scope&#58; this
 });
 
-//Add a new binding to the existing KeyMap later
+&#47;/Add a new binding to the existing KeyMap later
 map.addBinding({
-    key: 'abc',
-    shift: true,
-    fn: handleKey,
-    scope: this
+    key&#58; 'abc',
+    shift&#58; true,
+    fn&#58; handleKey,
+    scope&#58; this
 });
 </code></pre>
      * @param config A single KeyMap config or an array of configs

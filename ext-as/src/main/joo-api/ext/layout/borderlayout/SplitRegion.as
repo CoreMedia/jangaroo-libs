@@ -28,8 +28,8 @@ public function SplitRegion(layout : BorderLayout, config : Object, position : S
      * @cfg {String} splitTip
      * The tooltip to display when the user hovers over a
      * <b class='link' title='Ext.layout.borderlayout.Region#collapsible'>non-collapsible</b> region's split bar
-     * (defaults to <tt>"Drag to resize."</tt>).  Only applies if
-     * <tt><b class='link'>#useSplitTips</b> = true</tt>.
+     * (defaults to <code>"Drag to resize."</code>).  Only applies if
+     * <code><b class='link' title='#useSplitTips'>useSplitTips</b> = true</code>.
      */
     public var splitTip  : String;
     /**
@@ -37,14 +37,14 @@ public function SplitRegion(layout : BorderLayout, config : Object, position : S
      * The tooltip to display when the user hovers over a
      * <b class='link' title='Ext.layout.borderlayout.Region#collapsible'>collapsible</b> region's split bar
      * (defaults to "Drag to resize. Double click to hide."). Only applies if
-     * <tt><b class='link'>#useSplitTips</b> = true</tt>.
+     * <code><b class='link' title='#useSplitTips'>useSplitTips</b> = true</code>.
      */
     public var collapsibleSplitTip  : String;
     /**
      * @cfg {Boolean} useSplitTips
-     * <tt>true</tt> to display a tooltip when the user hovers over a region's split bar
-     * (defaults to <tt>false</tt>).  The tooltip text will be the value of either
-     * <tt><b class='link'>#splitTip</b></tt> or <tt><b class='link'>#collapsibleSplitTip</b></tt> as appropriate.
+     * <code>true</code> to display a tooltip when the user hovers over a region's split bar
+     * (defaults to <code>false</code>).  The tooltip text will be the value of either
+     * <code><b class='link' title='#splitTip'>splitTip</b></code> or <code><b class='link' title='#collapsibleSplitTip'>collapsibleSplitTip</b></code> as appropriate.
      */
     public var useSplitTips  : Boolean;
     protected var splitSettings ;

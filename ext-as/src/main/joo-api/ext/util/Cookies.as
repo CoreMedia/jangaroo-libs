@@ -16,7 +16,7 @@ public class Cookies {
      * cookie is to persist until.  Note that the specified Date object will
      * be converted to Greenwich Mean Time (GMT). 
      * @param path Setting a path on the cookie restricts
-     * access to pages that match that path. Defaults to all pages (<tt>'/'</tt>). 
+     * access to pages that match that path. Defaults to all pages (<code>'/'</code>). 
      * @param domain Setting a domain restricts access to
      * pages on a given domain (typically used to allow cookie access across
      * subdomains). For example, "extjs.com" will create a cookie that can be
@@ -24,16 +24,16 @@ public class Cookies {
      * support.extjs.com, etc.
      * @param secure Specify true to indicate that the cookie
      * should only be accessible via SSL on a page using the HTTPS protocol.
-     * Defaults to <tt>false</tt>. Note that this will only work if the page
+     * Defaults to <code>false</code>. Note that this will only work if the page
      * calling this code uses the HTTPS protocol, otherwise the cookie will be
      * created with default options.
      */
     public static native function set(name : Object, value : Object, expires : Object = undefined, path : String = undefined, domain : String = undefined, secure : Boolean = undefined) : void;
     /**
      * Retrieves cookies that are accessible by the current page. If a cookie
-     * does not exist, <code>get()</code> returns <tt>null</tt>.  The following
+     * does not exist, <code>get()</code> returns <code>null</code>.  The following
      * example retrieves the cookie called "valid" and stores the String value
-     * in the variable <tt>validStatus</tt>.
+     * in the variable <code>validStatus</code>.
      * <pre><code>
      * var validStatus = Ext.util.Cookies.get("valid");
      * </code></pre>

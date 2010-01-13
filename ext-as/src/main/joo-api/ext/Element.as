@@ -8,16 +8,14 @@ import ext.layout.borderlayout.Region;
 
 import js.HTMLElement;
 
-/**
- */
 public class Element {
 /**
- * Visibility mode constant for use with <b class='link'>#setVisibilityMode</b>. Use visibility to hide element
+ * Visibility mode constant for use with <b class='link' title='#setVisibilityMode'>setVisibilityMode</b>. Use visibility to hide element
  * @static
  */
 public static const VISIBILITY  : Number = 1;
 /**
- * Visibility mode constant for use with <b class='link'>#setVisibilityMode</b>. Use display to hide element
+ * Visibility mode constant for use with <b class='link' title='#setVisibilityMode'>setVisibilityMode</b>. Use display to hide element
  * @static
  */
 public static const DISPLAY  : Number = 2;
@@ -41,13 +39,13 @@ public static const DISPLAY  : Number = 2;
          * <p>The Animation Control Object enables gradual transitions for any member of an
          * element's style object that takes a numeric value including but not limited to
          * these properties:</p><div><ul class="mdetail-params">
-         * <li><tt>bottom, top, left, right</tt></li>
-         * <li><tt>height, width</tt></li>
-         * <li><tt>margin, padding</tt></li>
-         * <li><tt>borderWidth</tt></li>
-         * <li><tt>opacity</tt></li>
-         * <li><tt>fontSize</tt></li>
-         * <li><tt>lineHeight</tt></li>
+         * <li><code>bottom, top, left, right</code></li>
+         * <li><code>height, width</code></li>
+         * <li><code>margin, padding</code></li>
+         * <li><code>borderWidth</code></li>
+         * <li><code>opacity</code></li>
+         * <li><code>fontSize</code></li>
+         * <li><code>lineHeight</code></li>
          * </ul></div>
          * 
          * 
@@ -55,26 +53,26 @@ public static const DISPLAY  : Number = 2;
          * 
          * <p>Each Animation Property is a config object with optional properties:</p>
          * <div><ul class="mdetail-params">
-         * <li><tt>by</tt>*  : relative change - start at current value, change by this value</li>
-         * <li><tt>from</tt> : ignore current value, start from this value</li>
-         * <li><tt>to</tt>*  : start at current value, go to this value</li>
-         * <li><tt>unit</tt> : any allowable unit specification</li>
-         * <p>* do not specify both <tt>to</tt> and <tt>by</tt> for an animation property</p>
+         * <li><code>by</code>*  : relative change - start at current value, change by this value</li>
+         * <li><code>from</code> : ignore current value, start from this value</li>
+         * <li><code>to</code>*  : start at current value, go to this value</li>
+         * <li><code>unit</code> : any allowable unit specification</li>
+         * <p>* do not specify both <code>to</code> and <code>by</code> for an animation property</p>
          * </ul></div>
          * 
          * <li><u>Animation Types</u></li>
          * 
          * <p>The supported animation types:</p><div><ul class="mdetail-params">
-         * <li><tt>'run'</tt> : Default
+         * <li><code>'run'</code> : Default
          * <pre><code>
 var el = Ext.get('complexEl');
 el.animate(
-    // animation control object
+    &#47;/ animation control object
     {
-        borderWidth: {to: 3, from: 0},
-        opacity: {to: .3, from: 1},
-        height: {to: 50, from: el.getHeight()},
-        width: {to: 300, from: el.getWidth()},
+        borderWidth&#58; {to: 3, from: 0},
+        opacity&#58; {to: .3, from: 1},
+        height&#58; {to: 50, from: el.getHeight()},
+        width&#58; {to: 300, from: el.getWidth()},
         top  : {by: - 100, unit: 'px'},
     },
     0.35,      // animation duration
@@ -84,14 +82,14 @@ el.animate(
 );
          * </code></pre>
          * </li>
-         * <li><tt>'color'</tt>
+         * <li><code>'color'</code>
          * <p>Animates transition of background, text, or border colors.</p>
          * <pre><code>
 el.animate(
-    // animation control object
+    &#47;/ animation control object
     {
-        color: { to: '#06e' },
-        backgroundColor: { to: '#e06' }
+        color&#58; { to: '#06e' },
+        backgroundColor&#58; { to: '#e06' }
     },
     0.35,      // animation duration
     null,      // callback
@@ -101,21 +99,21 @@ el.animate(
          * </code></pre> 
          * </li>
          * 
-         * <li><tt>'motion'</tt>
+         * <li><code>'motion'</code>
          * <p>Animates the motion of an element to/from specific points using optional bezier
          * way points during transit.</p>
          * <pre><code>
 el.animate(
-    // animation control object
+    &#47;/ animation control object
     {
-        borderWidth: {to: 3, from: 0},
-        opacity: {to: .3, from: 1},
-        height: {to: 50, from: el.getHeight()},
-        width: {to: 300, from: el.getWidth()},
+        borderWidth&#58; {to: 3, from: 0},
+        opacity&#58; {to: .3, from: 1},
+        height&#58; {to: 50, from: el.getHeight()},
+        width&#58; {to: 300, from: el.getWidth()},
         top  : {by: - 100, unit: 'px'},
-        points: {
-            to: [50, 100],  // go to this point
-            control: [      // optional bezier way points
+        points&#58; {
+            to&#58; [50, 100],  // go to this point
+            control&#58; [      // optional bezier way points
                 [ 600, 800],
                 [-100, 200]
             ]
@@ -128,13 +126,13 @@ el.animate(
 );
          * </code></pre> 
          * </li>
-         * <li><tt>'scroll'</tt>
+         * <li><code>'scroll'</code>
          * <p>Animate horizontal or vertical scrolling of an overflowing page element.</p>
          * <pre><code>
 el.animate(
-    // animation control object
+    &#47;/ animation control object
     {
-        scroll: {to: [400, 300]}
+        scroll&#58; {to: [400, 300]}
     },
     0.35,      // animation duration
     null,      // callback
@@ -148,11 +146,11 @@ el.animate(
          * </ul></div>
          * 
          * @param args The animation control args
-         * @param duration How long the animation lasts in seconds (defaults to <tt>.35</tt>)
+         * @param duration How long the animation lasts in seconds (defaults to <code>.35</code>)
          * @param onComplete Function to call when animation completes
-         * @param easing see <b class='link'>ext.Fx#easing</b>: method to use (defaults to <tt>'easeOut'</tt>)
-         * @param animType <tt>'run'</tt> is the default. Can also be <tt>'color'</tt>,
-         * <tt>'motion'</tt>, or <tt>'scroll'</tt>
+         * @param easing see <b class='link'>ext.Fx#easing</b>: method to use (defaults to <code>'easeOut'</code>)
+         * @param animType <code>'run'</code> is the default. Can also be <code>'color'</code>,
+         * <code>'motion'</code>, or <code>'scroll'</code>
          * @return this
          */
         public native function animate(args : Object, duration : Number = undefined, onComplete : Function = undefined, easing : String = undefined, animType : String = undefined) : Element;
@@ -180,19 +178,17 @@ el.animate(
         public native function setDisplayed(value : *) : Element;
         protected native function fixDisplay() : void;
         /**
-         * Hide this element - Uses display mode to determine whether to use "display" or "visibility". See <b class='link'>#setVisible</b>.
+         * Hide this element - Uses display mode to determine whether to use "display" or "visibility". See <b class='link' title='#setVisible'>setVisible</b>.
          * @param animate true for the default animation or a standard Element animation config object
          * @return this
          */
         public native function hide(animate : * = undefined) : Element;
         /**
-        * Show this element - Uses display mode to determine whether to use "display" or "visibility". See <b class='link'>#setVisible</b>.
+        * Show this element - Uses display mode to determine whether to use "display" or "visibility". See <b class='link' title='#setVisible'>setVisible</b>.
         * @param animate true for the default animation or a standard Element animation config object
          * @return this
          */
         public native function show(animate : * = undefined) : Element;
-/**
- */
 	    /**
 	     * Appends the passed element(s) to this element
 	     * @param el
@@ -267,10 +263,10 @@ el.animate(
  * browsers may not support the full range of events. Which events are supported is beyond the control of ExtJs.</p>
  * Usage:<br>
 <pre><code>
-// by id
+&#47;/ by id
 var el = Ext.get("my-div");
 
-// by DOM element reference
+&#47;/ by DOM element reference
 var el = Ext.get(myDivElement);
 </code></pre>
  * <b>Animations</b><br />
@@ -278,13 +274,13 @@ var el = Ext.get(myDivElement);
  * <pre><code>
 var el = Ext.get("my-div");
 
-// no animation
+&#47;/ no animation
 el.setWidth(100);
  * </code></pre>
  * <p>Many of the functions for manipulating an element have an optional "animate" parameter.  This
- * parameter can be specified as boolean (<tt>true</tt>) for default animation effects.</p>
+ * parameter can be specified as boolean (<code>true</code>) for default animation effects.</p>
  * <pre><code>
-// default animation
+&#47;/ default animation
 el.setWidth(100, true);
  * </code></pre>
  * 
@@ -302,25 +298,25 @@ Option    Default   Description
 </pre>
  * 
  * <pre><code>
-// Element animation options object
+&#47;/ Element animation options object
 var opt = {
     <b class='link' title='ext.Fx#duration'>duration</b>: 1,
     <b class='link' title='ext.Fx#easing'>easing</b>: 'elasticIn',
     <b class='link' title='ext.Fx#callback'>callback</b>: this.foo,
     <b class='link' title='ext.Fx#scope'>scope</b>: this
 };
-// animation with some options set
+&#47;/ animation with some options set
 el.setWidth(100, opt);
  * </code></pre>
  * <p>The Element animation object being used for the animation will be set on the options
  * object as "anim", which allows you to stop or manipulate the animation. Here is an example:</p>
  * <pre><code>
-// using the "anim" property to get the Anim object
+&#47;/ using the "anim" property to get the Anim object
 if(opt.anim.isAnimated()){
     opt.anim.stop();
 }
  * </code></pre>
- * <p>Also see the <tt><b class='link'>#animate</b></tt> method for another animation technique.</p>
+ * <p>Also see the <code><b class='link' title='#animate'>animate</b></code> method for another animation technique.</p>
  * <p><b> Composite (Collections of) Elements</b></p>
  * <p>For working with collections of Elements, see <b class='link'>ext.CompositeElement</b></p>
  * @constructor Create a new Element directly.
@@ -371,13 +367,13 @@ public function Element(element : *, forceNew : Boolean = undefined) {
      */
     public native function getValue(asNumber : Boolean) : *;
     /**
-     * Appends an event handler to this element.  The shorthand version <b class='link'>#on</b> is equivalent.
+     * Appends an event handler to this element.  The shorthand version <b class='link' title='#on'>on</b> is equivalent.
      * @param eventName The type of event to handle
      * @param fn The handler function the event invokes. This function is passed
      * the following parameters:<ul>
      * <li><b>evt</b> : EventObject<div class="sub-desc">The <b class='link' title='ext.EventObject'>EventObject</b> describing the event.</div></li>
      * <li><b>el</b> : Element<div class="sub-desc">The <b class='link' title='ext.Element'>Element</b> which was the target of the event.
-     * Note that this may be filtered by using the <tt>delegate</tt> option.</div></li>
+     * Note that this may be filtered by using the <code>delegate</code> option.</div></li>
      * <li><b>o</b> : Object<div class="sub-desc">The options object from the addListener call.</div></li>
      * </ul>
      * @param scope The scope (<code><b>this</b></code> reference) in which the handler function is executed.
@@ -400,7 +396,7 @@ public function Element(element : *, forceNew : Boolean = undefined) {
      * </ul><br>
      * <p>
      * <b>Combining Options</b><br>
-     * In the following examples, the shorthand form <b class='link'>#on</b> is used rather than the more verbose
+     * In the following examples, the shorthand form <b class='link' title='#on'>on</b> is used rather than the more verbose
      * addListener.  The two are equivalent.  Using the options argument, it is possible to combine different
      * types of listeners:<br>
      * <br>
@@ -408,10 +404,10 @@ public function Element(element : *, forceNew : Boolean = undefined) {
      * options object. The options object is available as the third parameter in the handler function.<div style="margin: 5px 20px 20px;">
      * Code:<pre><code>
 el.on('click', this.onClick, this, {
-    single: true,
-    delay: 100,
+    single&#58; true,
+    delay&#58; 100,
     stopEvent : true,
-    forumId: 4
+    forumId&#58; 4
 });</code></pre></p>
      * <p>
      * <b>Attaching multiple handlers in 1 call</b><br>
@@ -421,17 +417,17 @@ el.on('click', this.onClick, this, {
      * Code:<pre><code>
 el.on({
     'click' : {
-        fn: this.onClick,
-        scope: this,
-        delay: 100
+        fn&#58; this.onClick,
+        scope&#58; this,
+        delay&#58; 100
     },
     'mouseover' : {
-        fn: this.onMouseOver,
-        scope: this
+        fn&#58; this.onMouseOver,
+        scope&#58; this
     },
     'mouseout' : {
-        fn: this.onMouseOut,
-        scope: this
+        fn&#58; this.onMouseOut,
+        scope&#58; this
     }
 });</code></pre>
      * <p>
@@ -441,7 +437,7 @@ el.on({
     'click' : this.onClick,
     'mouseover' : this.onMouseOver,
     'mouseout' : this.onMouseOut,
-    scope: this
+    scope&#58; this
 });
      * </code></pre></p>
      * <p><b>delegate</b></p>
@@ -452,24 +448,24 @@ el.on({
      * configuration option to a simple selector, the target element will be filtered to look for
      * a descendant of the target.
      * For example:<pre><code>
-// using this markup:
+&#47;/ using this markup:
 &lt;div id='elId'>
     &lt;p id='p1'>paragraph one&lt;/p>
     &lt;p id='p2' class='clickable'>paragraph two&lt;/p>
     &lt;p id='p3'>paragraph three&lt;/p>
 &lt;/div>
-// utilize event delegation to registering just one handler on the container element: 
+&#47;/ utilize event delegation to registering just one handler on the container element: 
 el = Ext.get('elId');
 el.on(
     'click',
     function(e,t) {
-        // handle click
+        &#47;/ handle click
         console.info(t.id); // 'p2'
     },
     this,
     {
-        // filter the target element to be a descendant with the class 'clickable'
-        delegate: '.clickable' 
+        &#47;/ filter the target element to be a descendant with the class 'clickable'
+        delegate&#58; '.clickable' 
     }
 );
      * </code></pre></p>
@@ -477,18 +473,18 @@ el.on(
      */
     public native function addListener(eventName : String, fn : Function, scope : Object = undefined, options : Object = undefined) : Element;
     /**
-     * Removes an event handler from this element.  The shorthand version <b class='link'>#un</b> is equivalent.
+     * Removes an event handler from this element.  The shorthand version <b class='link' title='#un'>un</b> is equivalent.
      * <b>Note</b>: if a <i>scope</i> was explicitly specified when <b class='link' title='#addListener'>adding</b> the
      * listener, the same scope must be specified here.
      * Example:
      * <pre><code>
 el.removeListener('click', this.handlerFn);
-// or
+&#47;/ or
 el.un('click', this.handlerFn);
 </code></pre>
      * @param eventName the type of event to remove
      * @param fn the method the event invokes
-     * @param scope The scope (The <tt>this</tt> reference) of the handler function. Defaults
+     * @param scope The scope (The <code>this</code> reference) of the handler function. Defaults
      * to this Element.
      * @return this
      */
@@ -505,7 +501,7 @@ el.un('click', this.handlerFn);
     /**
      * <p>Updates the <a href="http://developer.mozilla.org/en/DOM/element.innerHTML">innerHTML</a> of this Element
      * from a specified URL. Note that this is subject to the <a href="http://en.wikipedia.org/wiki/Same_origin_policy">Same Origin Policy</a></p>
-     * <p>Updating innerHTML of an element will <b>not</b> execute embedded <tt>&lt;script></tt> elements. This is a browser restriction.</p>
+     * <p>Updating innerHTML of an element will <b>not</b> execute embedded <code>&lt;script></code> elements. This is a browser restriction.</p>
      * @param options. Either a sring containing the URL from which to load the HTML, or an <b class='link'>ext.Ajax#request</b> options object specifying
      * exactly how to request the HTML.
      * @return this
@@ -524,8 +520,8 @@ el.un('click', this.handlerFn);
      * Sets up event handlers to call the passed functions when the mouse is moved into and out of the Element.
      * @param overFn The function to call when the mouse enters the Element.
      * @param outFn The function to call when the mouse leaves the Element.
-     * @param scope The scope (<tt>this</tt> reference) in which the functions are executed. Defaults to the Element's DOM element.
-     * @param options Options for the listener. See <b class='link' title='Ext.util.Observable#addListener the'><tt>options</tt> parameter</b>.
+     * @param scope The scope (<code>this</code> reference) in which the functions are executed. Defaults to the Element's DOM element.
+     * @param options Options for the listener. See <b class='link' title='Ext.util.Observable#addListener the'><code>options</code> parameter</b>.
      * @return this
      */
     public native function hover(overFn : Function, outFn : Function, scope : Object = undefined, options : Object = undefined) : Element;
@@ -551,20 +547,20 @@ el.un('click', this.handlerFn);
      */
     public native function getAttribute(name : String, namespace : String = undefined) : String;
 /**
- * Appends an event handler (shorthand for <b class='link'>#addListener</b>).
+ * Appends an event handler (shorthand for <b class='link' title='#addListener'>addListener</b>).
  * @param eventName The type of event to handle
  * @param fn The handler function the event invokes
  * @param scope The scope (this element) of the handler function
- * @param options An object containing standard <b class='link'>#addListener</b> options
+ * @param options An object containing standard <b class='link' title='#addListener'>addListener</b> options
  * @member ext.Element
  * @method on
  */
   public native function on(eventName : String, fn : Function, scope : Object = undefined, options : Object = undefined) : Element;
 /**
- * Removes an event handler from this element (see <b class='link'>#removeListener</b> for additional notes).
+ * Removes an event handler from this element (see <b class='link' title='#removeListener'>removeListener</b> for additional notes).
  * @param eventName the type of event to remove
  * @param fn the method the event invokes
- * @param scope The scope (The <tt>this</tt> reference) of the handler function. Defaults
+ * @param scope The scope (The <code>this</code> reference) of the handler function. Defaults
  * to this Element.
  * @return this
  * @member ext.Element
@@ -607,8 +603,6 @@ el.un('click', this.handlerFn);
   public static native function fly(el : *, named : String) : Element;
 //    public var select;
     public var input;
-/**
- */
 	/**
       * Gets the current X position of the element based on page coordinates.  Element must be part of the DOM tree to have page coordinates (display:none or elements not appended return false).
       * @return The X position of the element
@@ -645,13 +639,13 @@ el.un('click', this.handlerFn);
      */
     public native function setY(y : Number, animate : * = undefined) : Element;
     /**
-     * Sets the element's left position directly using CSS style (instead of <b class='link'>#setX</b>).
+     * Sets the element's left position directly using CSS style (instead of <b class='link' title='#setX'>setX</b>).
      * @param left The left CSS property value
      * @return this
      */
     public native function setLeft(left : String) : Element;
     /**
-     * Sets the element's top position directly using CSS style (instead of <b class='link'>#setY</b>).
+     * Sets the element's top position directly using CSS style (instead of <b class='link' title='#setY'>setY</b>).
      * @param top The top CSS property value
      * @return this
      */
@@ -753,8 +747,6 @@ el.un('click', this.handlerFn);
      */
     public native function translatePoints(x : *, y : Number = undefined) : Object;
     public var animTest ;
-/**
- */
     /**
      * Returns true if this element is scrollable.
      * @return 
@@ -765,8 +757,6 @@ el.un('click', this.handlerFn);
      * @return An object containing the scroll position in the format {left: (scrollLeft), top: (scrollTop)}
      */
     public native function getScroll() : Object;
-/**
- */
         protected native function adjustWidth(width) : void;
         public native function adjustHeight(height) : void;
         /**
@@ -832,8 +822,8 @@ el.un('click', this.handlerFn);
         /**
          * Set the opacity of the element
          * @param opacity The new opacity. 0 = transparent, .5 = 50% visibile, 1 = fully visible, etc
-         * @param animate a standard Element animation config object or <tt>true</tt> for
-         * the default animation (<tt>{duration: .35, easing: 'easeIn'}</tt>)
+         * @param animate a standard Element animation config object or <code>true</code> for
+         * the default animation (<code>{duration: .35, easing: 'easeIn'}</code>)
          * @return this
          */
          public native function setOpacity(opacity : Number, animate : * = undefined) : Element;
@@ -857,7 +847,7 @@ el.un('click', this.handlerFn);
         /**
          * Set the width of this Element.
          * @param width The new width. This may be one of:<div class="mdetail-params"><ul>
-         * <li>A Number specifying the new width in this Element's <b class='link'>#defaultUnit</b>s (by default, pixels).</li>
+         * <li>A Number specifying the new width in this Element's <b class='link' title='#defaultUnit'>defaultUnit</b>s (by default, pixels).</li>
          * <li>A String used to set the CSS width style. Animation may <b>not</b> be used.
          * </ul></div>
          * @param animate true for the default animation or a standard Element animation config object
@@ -867,18 +857,18 @@ el.un('click', this.handlerFn);
         /**
          * Set the height of this Element.
          * <pre><code>
-// change the height to 200px and animate with default configuration
+&#47;/ change the height to 200px and animate with default configuration
 Ext.fly('elementId').setHeight(200, true);
 
-// change the height to 150px and animate with a custom configuration
+&#47;/ change the height to 150px and animate with a custom configuration
 Ext.fly('elId').setHeight(150, {
     duration : .5, // animation will have a duration of .5 seconds
-    // will change the content to "finished"
-    callback: function(){ this.<b class='link' title='#update}("finished");'></b> 
+    &#47;/ will change the content to "finished"
+    callback&#58; function(){ this.<b class='link' title='#update}("finished");'></b> 
 });
          * </code></pre>
          * @param height The new height. This may be one of:<div class="mdetail-params"><ul>
-         * <li>A Number specifying the new height in this Element's <b class='link'>#defaultUnit</b>s (by default, pixels.)</li>
+         * <li>A Number specifying the new height in this Element's <b class='link' title='#defaultUnit'>defaultUnit</b>s (by default, pixels.)</li>
          * <li>A String used to set the CSS height style. Animation may <b>not</b> be used.</li>
          * </ul></div>
          * @param animate true for the default animation or a standard Element animation config object
@@ -888,31 +878,29 @@ Ext.fly('elId').setHeight(150, {
         /**
          * Gets the width of the border(s) for the specified side(s)
          * @param side Can be t, l, r, b or any combination of those to add multiple values. For example,
-         * passing <tt>'lr'</tt> would get the border <b><u>l</u></b>eft width + the border <b><u>r</u></b>ight width.
+         * passing <code>'lr'</code> would get the border <b><u>l</u></b>eft width + the border <b><u>r</u></b>ight width.
          * @return The width of the sides passed added together
          */
         public native function getBorderWidth(side : String) : Number;
         /**
          * Gets the width of the padding(s) for the specified side(s)
          * @param side Can be t, l, r, b or any combination of those to add multiple values. For example,
-         * passing <tt>'lr'</tt> would get the padding <b><u>l</u></b>eft + the padding <b><u>r</u></b>ight.
+         * passing <code>'lr'</code> would get the padding <b><u>l</u></b>eft + the padding <b><u>r</u></b>ight.
          * @return The padding of the sides passed added together
          */
         public native function getPadding(side : String) : Number;
         /**
-         *  Store the current overflow setting and clip overflow on the element - use <tt><b class='link'>#unclip</b></tt> to remove
+         *  Store the current overflow setting and clip overflow on the element - use <code><b class='link' title='#unclip'>unclip</b></code> to remove
          * @return this
          */
         public native function clip() : Element;
         /**
-         *  Return clipping (overflow) to original clipping before <tt><b class='link'>#clip</b></tt> was called
+         *  Return clipping (overflow) to original clipping before <code><b class='link' title='#clip'>clip</b></code> was called
          * @return this
          */
         public native function unclip() : Element;
         public var addStyles ;
         public var margins ;
-/**
- */
 		/**
 	     * Looks at this node and then at parent nodes for a match of the passed simple selector (e.g. div.some-class or span:first-child)
 	     * @param selector The simple selector to test
@@ -1005,8 +993,6 @@ Ext.fly('elId').setHeight(150, {
 		 */
 	    public native function last(selector : String = undefined, returnDom : Boolean = undefined) : *;
 	    public native function matchNode(dir, start, selector, returnDom) : void;
-/**
- */
     /**
      * Stops the specified event(s) from bubbling and optionally prevents the default action
      * @param eventName an event / array of events to stop from bubbling
@@ -1052,11 +1038,9 @@ Ext.fly('elId').setHeight(150, {
      */
     public native function createProxy(config : *, renderTo : * = undefined, matchBox : Boolean = undefined) : Element;
 protected native function uncache (el) : void;
-/**
- */
     /**
      * Gets the x,y coordinates specified by the anchor position on the element.
-     * @param anchor The specified anchor position (defaults to "c").  See <b class='link'>#alignTo</b>
+     * @param anchor The specified anchor position (defaults to "c").  See <b class='link' title='#alignTo'>alignTo</b>
      * for details on supported anchor positions.
      * @param local True to get the local (element top/left-relative) anchor position instead
      * of page coordinates
@@ -1078,7 +1062,7 @@ protected native function uncache (el) : void;
      */
     public native function anchorTo(element : *, position : String, offsets : Array = undefined, animate : * = undefined, monitorScroll : * = undefined, callback : Function = undefined) : Element;
     /**
-     * Gets the x,y coordinates to align this element with another element. See <b class='link'>#alignTo</b> for more info on the
+     * Gets the x,y coordinates to align this element with another element. See <b class='link' title='#alignTo'>alignTo</b> for more info on the
      * supported position values.
      * @param element The element to align to.
      * @param position The position to align to.
@@ -1118,17 +1102,17 @@ br     The bottom right corner
 </pre>
 Example Usage:
 <pre><code>
-// align el to other-el using the default positioning ("tl-bl", non-constrained)
+&#47;/ align el to other-el using the default positioning ("tl-bl", non-constrained)
 el.alignTo("other-el");
 
-// align the top left corner of el with the top right corner of other-el (constrained to viewport)
+&#47;/ align the top left corner of el with the top right corner of other-el (constrained to viewport)
 el.alignTo("other-el", "tr?");
 
-// align the bottom right corner of el with the center left edge of other-el
+&#47;/ align the bottom right corner of el with the center left edge of other-el
 el.alignTo("other-el", "br-l?");
 
-// align the center of el with the bottom left corner of other-el and
-// adjust the x position by -6 pixels (and the y position by 0)
+&#47;/ align the center of el with the bottom left corner of other-el and
+&#47;/ adjust the x position by -6 pixels (and the y position by 0)
 el.alignTo("other-el", "c-bl", [-6, 0]);
 </code></pre>
      * @param element The element to align to.
@@ -1150,8 +1134,6 @@ el.alignTo("other-el", "c-bl", [-6, 0]);
     * @param centerIn The element in which to center the element.
     */
     public native function center(centerIn : * = undefined) : void;
-/**
- */
     /**
      * Initializes a <b class='link'>Ext.dd.DD</b> drag drop object for this element.
      * @param group The group the DD object is member of
@@ -1176,8 +1158,6 @@ el.alignTo("other-el", "c-bl", [-6, 0]);
      * @return The DDTarget object
      */
     public native function initDDTarget(group : String, config : Object, overrides : Object) : DDTarget;
-/**
- */
 		/**
 	     * Checks whether the element is currently visible using both visibility and display properties.
 	     * @param deep True to walk the dom and see if parent elements are hidden (defaults to false)
@@ -1218,8 +1198,6 @@ el.alignTo("other-el", "c-bl", [-6, 0]);
 	     * @return The new shim element
 	     */
 	    public native function createShim() : Element;
-/**
- */
 		/**
 	     * Inserts (or creates) the passed element (or DomHelper config) as a sibling of this element
 	     * @param el The id, element to insert or a DomHelper config to create and insert *or* an array of any of those.
@@ -1228,8 +1206,6 @@ el.alignTo("other-el", "c-bl", [-6, 0]);
 	     * @return the inserted Element
 	     */
 	    public native function insertSibling(el : *, where : String = undefined, returnDom : Boolean = undefined) : Element;
-/**
- */
     /**
      * Convenience method for constructing a KeyMap
      * @param key Either a string with the keys to listen for, the numeric key code, array of key codes or an object with the following options:
@@ -1245,8 +1221,6 @@ el.alignTo("other-el", "c-bl", [-6, 0]);
      * @return The KeyMap created
      */
     public native function addKeyMap(config : Object) : KeyMap;
-/**
- */
     /**
      * Measures the element's content height and updates height to match. Note: this function uses setTimeout so
      * the new height may not be available immediately.
@@ -1257,8 +1231,6 @@ el.alignTo("other-el", "c-bl", [-6, 0]);
      * @return this
      */
     public native function autoHeight(animate : Boolean = undefined, duration : Number = undefined, onComplete : Function = undefined, easing : String = undefined) : Element;
-/**
- */
     /**
      * Sets the element's box. Use getBox() on another element to get a box obj. If animate is true then width, height, x and y will be animated concurrently.
      * @param box The box to fill {x, y, width, height}
@@ -1301,11 +1273,11 @@ el.alignTo("other-el", "c-bl", [-6, 0]);
      * @param x X value for new position (coordinates are page-based)
      * @param y Y value for new position (coordinates are page-based)
      * @param width The new width. This may be one of:<div class="mdetail-params"><ul>
-     * <li>A Number specifying the new width in this Element's <b class='link'>#defaultUnit</b>s (by default, pixels)</li>
+     * <li>A Number specifying the new width in this Element's <b class='link' title='#defaultUnit'>defaultUnit</b>s (by default, pixels)</li>
      * <li>A String used to set the CSS width style. Animation may <b>not</b> be used.
      * </ul></div>
      * @param height The new height. This may be one of:<div class="mdetail-params"><ul>
-     * <li>A Number specifying the new height in this Element's <b class='link'>#defaultUnit</b>s (by default, pixels)</li>
+     * <li>A Number specifying the new height in this Element's <b class='link' title='#defaultUnit'>defaultUnit</b>s (by default, pixels)</li>
      * <li>A String used to set the CSS height style. Animation may <b>not</b> be used.</li>
      * </ul></div>
      * @param animate true for the default animation or a standard Element animation config object
@@ -1319,8 +1291,6 @@ el.alignTo("other-el", "c-bl", [-6, 0]);
      * @return this
      */
     public native function setRegion(region : Region, animate : * = undefined) : Element;
-/**
- */
     /**
      * Scrolls this element the specified scroll point. It does NOT do bounds checking so if you scroll to a weird value it will try to do it. For auto bounds checking, use scroll().
      * @param side Either "left" for scrollLeft values or "top" for scrollTop values.
@@ -1348,11 +1318,9 @@ el.alignTo("other-el", "c-bl", [-6, 0]);
      * was scrolled as far as it could go.
      */
      public native function scroll(direction : String, distance : Number, animate : * = undefined) : Boolean;
-/**
- */
 public static var boxMarkup = '<div class="{0}-tl"><div class="{0}-tr"><div class="{0}-tc"></div></div></div><div class="{0}-ml"><div class="{0}-mr"><div class="{0}-mc"></div></div></div><div class="{0}-bl"><div class="{0}-br"><div class="{0}-bc"></div></div></div>';
 	    /**
-	     * More flexible version of <b class='link'>#setStyle</b> for setting style properties.
+	     * More flexible version of <b class='link' title='#setStyle'>setStyle</b> for setting style properties.
 	     * @param styles A style specification string, e.g. "width:100px", or object in the form {width:"100px"}, or
 	     * a function which returns such a specification.
 	     * @return this
@@ -1374,7 +1342,7 @@ public static var boxMarkup = '<div class="{0}-tl"><div class="{0}-tr"><div clas
 		* <p>Wraps the specified element with a special 9 element markup/CSS block that renders by default as
 		* a gray container with a gradient background, rounded corners and a 4-way shadow.</p>
 		* <p>This special markup is used throughout Ext when box wrapping elements (<b class='link'>ext.Button</b>,
-		* <b class='link'>ext.Panel</b> when <tt><b class='link' title='ext.Panel#frame'>frame=true</b></tt>, <b class='link'>ext.Window</b>).  The markup
+		* <b class='link'>ext.Panel</b> when <code><b class='link' title='ext.Panel#frame'>frame=true</b></code>, <b class='link'>ext.Window</b>).  The markup
 		* is of this form:</p>
 		* <pre><code>
 ext.Element.boxMarkup =
@@ -1384,16 +1352,16 @@ ext.Element.boxMarkup =
 		* </code></pre>
 		* <p>Example usage:</p>
 		* <pre><code>
-// Basic box wrap
+&#47;/ Basic box wrap
 Ext.get("foo").boxWrap();
 
-// You can also add a custom class and use CSS inheritance rules to customize the box look.
-// 'x-box-blue' is a built-in alternative -- look at the related CSS definitions as an example
-// for how to create a custom box wrap style.
+&#47;/ You can also add a custom class and use CSS inheritance rules to customize the box look.
+&#47;/ 'x-box-blue' is a built-in alternative -- look at the related CSS definitions as an example
+&#47;/ for how to create a custom box wrap style.
 Ext.get("foo").boxWrap().addClass("x-box-blue");
 		* </code></pre>
 		* @param class_ A base CSS class to apply to the containing wrapper element
-		* (defaults to <tt>'x-box'</tt>). Note that there are a number of CSS rules that are dependent on
+		* (defaults to <code>'x-box'</code>). Note that there are a number of CSS rules that are dependent on
 		* this name to make the overall effect work, so if you supply an alternate base class, make sure you
 		* also supply all of the necessary rules.
 		* @return this
@@ -1402,12 +1370,12 @@ Ext.get("foo").boxWrap().addClass("x-box-blue");
         /**
          * Set the size of this Element. If animation is true, both width and height will be animated concurrently.
          * @param width The new width. This may be one of:<div class="mdetail-params"><ul>
-         * <li>A Number specifying the new width in this Element's <b class='link'>#defaultUnit</b>s (by default, pixels).</li>
+         * <li>A Number specifying the new width in this Element's <b class='link' title='#defaultUnit'>defaultUnit</b>s (by default, pixels).</li>
          * <li>A String used to set the CSS width style. Animation may <b>not</b> be used.
          * <li>A size object in the format <code>{width: widthValue, height: heightValue}</code>.</li>
          * </ul></div>
          * @param height The new height. This may be one of:<div class="mdetail-params"><ul>
-         * <li>A Number specifying the new height in this Element's <b class='link'>#defaultUnit</b>s (by default, pixels).</li>
+         * <li>A Number specifying the new height in this Element's <b class='link' title='#defaultUnit'>defaultUnit</b>s (by default, pixels).</li>
          * <li>A String used to set the CSS height style. Animation may <b>not</b> be used.</li>
          * </ul></div>
          * @param animate true for the default animation or a standard Element animation config object
@@ -1458,12 +1426,12 @@ Ext.get("foo").boxWrap().addClass("x-box-blue");
         * <pre><code>
         var vpSize = Ext.getBody().getViewSize();
 
-        // all Windows created afterwards will have a default value of 90% height and 95% width
+        &#47;/ all Windows created afterwards will have a default value of 90% height and 95% width
         ext.Window.override({
-            width: vpSize.width * 0.9,
-            height: vpSize.height * 0.95
+            width&#58; vpSize.width * 0.9,
+            height&#58; vpSize.height * 0.95
         });
-        // To handle window resizing you would have to hook onto onWindowResize.
+        &#47;/ To handle window resizing you would have to hook onto onWindowResize.
         </code></pre>
 	     * @return An object containing the viewport's size {width: (viewport width), height: (viewport height)}
 	     */

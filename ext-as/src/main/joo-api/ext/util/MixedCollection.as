@@ -11,7 +11,7 @@ public class MixedCollection extends Observable {
  * @param keyFn A function that can accept an item of the type(s) stored in this MixedCollection
  * and return the key value for that item.  This is used when available to look up the key on items that
  * were passed without an explicit key parameter to a MixedCollection method.  Passing this parameter is
- * equivalent to providing an implementation for the <b class='link'>#getKey</b> method.
+ * equivalent to providing an implementation for the <b class='link' title='#getKey'>getKey</b> method.
  */
 public function MixedCollection(allowFunctions : Boolean = false, keyFn : Function = null) {
   super();
@@ -24,10 +24,10 @@ public function MixedCollection(allowFunctions : Boolean = false, keyFn : Functi
     public native function get length() : int;
     public var allowFunctions : Boolean;
 /**
- * Adds an item to the collection. Fires the <b class='link'>#add</b> event when complete.
+ * Adds an item to the collection. Fires the <b class='link' title='#add'>add</b> event when complete.
  * @param key <p>The key to associate with the item, or the new item.</p>
- * <p>If you supplied a <b class='link'>#getKey</b> implementation for this MixedCollection, or if the key
- * of your stored items is in a property called <tt><b>id</b></tt>, then the MixedCollection
+ * <p>If you supplied a <b class='link' title='#getKey'>getKey</b> implementation for this MixedCollection, or if the key
+ * of your stored items is in a property called <code><b>id</b></code>, then the MixedCollection
  * will be able to <i>derive</i> the key for the new item. In this case just pass the new item in
  * this parameter.</p>
  * @param o The item to add.
@@ -36,16 +36,16 @@ public function MixedCollection(allowFunctions : Boolean = false, keyFn : Functi
     public native function add(key : *, o : Object = undefined) : Object;
 /**
   * MixedCollection has a generic way to fetch keys if you implement getKey.  The default implementation
-  * simply returns <tt style="font-weight:bold;">item.id</tt> but you can provide your own implementation
+  * simply returns <tt style="font-weight:bold;">item.id</code> but you can provide your own implementation
   * to return a different value as in the following examples:
 <pre><code>
-// normal way
+&#47;/ normal way
 var mc = new Ext.util.MixedCollection();
 mc.add(someEl.dom.id, someEl);
 mc.add(otherEl.dom.id, otherEl);
-//and so on
+&#47;/and so on
 
-// using getKey
+&#47;/ using getKey
 var mc = new Ext.util.MixedCollection();
 mc.getKey = function(el){
    return el.dom.id;
@@ -53,7 +53,7 @@ mc.getKey = function(el){
 mc.add(someEl);
 mc.add(otherEl);
 
-// or via the constructor
+&#47;/ or via the constructor
 var mc = new Ext.util.MixedCollection(false, function(el){
    return el.dom.id;
 });
@@ -65,10 +65,10 @@ mc.add(otherEl);
  */
     public native function getKey(item : Object) : Object;
 /**
- * Replaces an item in the collection. Fires the <b class='link'>#replace</b> event when complete.
+ * Replaces an item in the collection. Fires the <b class='link' title='#replace'>replace</b> event when complete.
  * @param key <p>The key associated with the item to replace, or the replacement item.</p>
- * <p>If you supplied a <b class='link'>#getKey</b> implementation for this MixedCollection, or if the key
- * of your stored items is in a property called <tt><b>id</b></tt>, then the MixedCollection
+ * <p>If you supplied a <b class='link' title='#getKey'>getKey</b> implementation for this MixedCollection, or if the key
+ * of your stored items is in a property called <code><b>id</b></code>, then the MixedCollection
  * will be able to <i>derive</i> the key of the replacement item. If you want to replace an item
  * with one having the same key value, then just pass the replacement item in this parameter.</p>
  * @param o {Object} o (optional) If the first parameter passed was a key, the item to associate
@@ -110,7 +110,7 @@ mc.add(otherEl);
      */
     public native function find(fn : Function, scope : Object = undefined) : Object;
 /**
- * Inserts an item at the specified index in the collection. Fires the <b class='link'>#add</b> event when complete.
+ * Inserts an item at the specified index in the collection. Fires the <b class='link' title='#add'>add</b> event when complete.
  * @param index The index to insert the item at.
  * @param key The key to associate with the new item, or the item itself.
  * @param o If the second parameter was a key, the new item.
@@ -124,7 +124,7 @@ mc.add(otherEl);
  */
     public native function remove(o : Object) : Object;
 /**
- * Remove an item from a specified index in the collection. Fires the <b class='link'>#remove</b> event when complete.
+ * Remove an item from a specified index in the collection. Fires the <b class='link' title='#remove'>remove</b> event when complete.
  * @param index The index within the collection of the item to remove.
  * @return The item removed or false if no item was removed.
  */
@@ -154,10 +154,10 @@ mc.add(otherEl);
     public native function indexOfKey(key : String) : Number;
 /**
  * Returns the item associated with the passed key OR index. Key has priority over index.  This is the equivalent
- * of calling <b class='link'>#key</b> first, then if nothing matched calling <b class='link'>#itemAt</b>.
+ * of calling <b class='link' title='#key'>key</b> first, then if nothing matched calling <b class='link' title='#itemAt'>itemAt</b>.
  * @param key The key or index of the item.
- * @return If the item is found, returns the item.  If the item was not found, returns <tt>undefined</tt>.
- * If an item was found, but is a Class, returns <tt>null</tt>.
+ * @return If the item is found, returns the item.  If the item was not found, returns <code>undefined</code>.
+ * If an item was found, but is a Class, returns <code>null</code>.
  */
     public native function item(key : *) : Object;
 /**
@@ -185,7 +185,7 @@ mc.add(otherEl);
  */
     public native function containsKey(key : String) : Boolean;
 /**
- * Removes all items from the collection.  Fires the <b class='link'>#clear</b> event when complete.
+ * Removes all items from the collection.  Fires the <b class='link' title='#clear'>clear</b> event when complete.
  */
     public native function clear() : void;
 /**
@@ -265,12 +265,12 @@ mc.add(otherEl);
      */
     public native function clone() : MixedCollection;
     /**
-     * This method calls {@link #item item()}.
+     * This method calls <code><b class='link' title='#item'>item()</i></code>.
      * Returns the item associated with the passed key OR index. Key has priority over index.  This is the equivalent
-     * of calling {@link #key} first, then if nothing matched calling {@link #itemAt}.
+     * of calling <b class='link' title='#key'>key</b> first, then if nothing matched calling <b class='link' title='#itemAt'>itemAt</b>.
      * @param {String/Number} key The key or index of the item.
-     * @return {Object} If the item is found, returns the item.  If the item was not found, returns <tt>undefined</tt>.
-     * If an item was found, but is a Class, returns <tt>null</tt>.
+     * @return {Object} If the item is found, returns the item.  If the item was not found, returns <code>undefined</code>.
+     * If an item was found, but is a Class, returns <code>null</code>.
      */
     public native function get(key : *) : Object;
 }}

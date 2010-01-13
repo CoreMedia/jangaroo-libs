@@ -57,6 +57,4 @@ public function NumericAxis() {
      * @property scale
      */
     public var scale : String;
-/**
-*/
 }}

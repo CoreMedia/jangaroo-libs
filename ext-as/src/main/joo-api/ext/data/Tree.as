@@ -43,6 +43,4 @@ public function Tree(root : Node = undefined) {
     protected native function registerNode(node) : void;
     protected native function unregisterNode(node) : void;
     public native function toString() : void;
-/**
-*/
 }}

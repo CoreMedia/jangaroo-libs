@@ -1,7 +1,7 @@
 package ext.toolbar {
 /**
  * A simple class that renders text directly into a toolbar
- * (with css class:<tt>'xtb-text'</tt>). Example usage:
+ * (with css class:<code>'xtb-text'</code>). Example usage:
  * <pre><code>
 new ext.Panel({
     tbar : [
@@ -14,7 +14,7 @@ public class TextItem extends Item {
 /**
  * @constructor
  * Creates a new TextItem
- * @param text A text string, or a config object containing a <tt>text</tt> property
+ * @param text A text string, or a config object containing a <code>text</code> property
  * @xtype tbtext
  */
   public function TextItem(text : *) {

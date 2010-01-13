@@ -5,13 +5,13 @@ package ext {
  * click event of the button.  Typically this would be used to display a dropdown menu that provides additional
  * options to the primary button action, but any custom handler can provide the arrowclick implementation.  Example usage:
  * <pre><code>
-// display a dropdown menu:
+&#47;/ display a dropdown menu:
 new ext.SplitButton({
-	renderTo: 'button-ct', // the container id
-   	text: 'Options',
-   	handler: optionsHandler, // handle a click on the button itself
-   	menu: new Ext.menu.Menu({
-        items: [
+	renderTo&#58; 'button-ct', // the container id
+   	text&#58; 'Options',
+   	handler&#58; optionsHandler, // handle a click on the button itself
+   	menu&#58; new Ext.menu.Menu({
+        items&#58; [
         	// these items will render as dropdown menu items when the arrow is clicked:
 	        {text: 'Item 1', handler: item1Handler},
 	        {text: 'Item 2', handler: item2Handler}
@@ -19,13 +19,13 @@ new ext.SplitButton({
    	})
 });
 
-// Instead of showing a menu, you provide any type of custom
-// functionality you want when the dropdown arrow is clicked:
+&#47;/ Instead of showing a menu, you provide any type of custom
+&#47;/ functionality you want when the dropdown arrow is clicked:
 new ext.SplitButton({
-	renderTo: 'button-ct',
-   	text: 'Options',
-   	handler: optionsHandler,
-   	arrowHandler: myCustomHandler
+	renderTo&#58; 'button-ct',
+   	text&#58; 'Options',
+   	handler&#58; optionsHandler,
+   	arrowHandler&#58; myCustomHandler
 });
 </code></pre>
 */

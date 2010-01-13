@@ -15,13 +15,13 @@ public class Field {
   /**
      * @cfg {String} name
      * The name by which the field is referenced within the Record. This is referenced by, for example,
-     * the <tt>dataIndex</tt> property in column definition objects passed to <b class='link'>Ext.grid.ColumnModel</b>.
-     * <p>Note: In the simplest case, if no properties other than <tt>name</tt> are required, a field
+     * the <code>dataIndex</code> property in column definition objects passed to <b class='link'>Ext.grid.ColumnModel</b>.
+     * <p>Note: In the simplest case, if no properties other than <code>name</code> are required, a field
      * definition may consist of just a String for the field name.</p>
      */
     /**
      * @cfg {String} type
-     * (Optional) The data type for conversion to displayable value if <tt><b class='link' title='ext.data.Field#convert'>convert</b></tt>
+     * (Optional) The data type for conversion to displayable value if <code><b class='link' title='ext.data.Field#convert'>convert</b></code>
      * has not been specified. Possible values are
      * <div class="mdetail-params"><ul>
      * <li>auto (Default, implies no conversion)</li>
@@ -36,13 +36,13 @@ public class Field {
      * (Optional) A function which converts the value provided by the Reader into an object that will be stored
      * in the Record. It is passed the following parameters:<div class="mdetail-params"><ul>
      * <li><b>v</b> : Mixed<div class="sub-desc">The data value as read by the Reader, if undefined will use
-     * the configured <tt><b class='link' title='ext.data.Field#defaultValue'>defaultValue</b></tt>.</div></li>
+     * the configured <code><b class='link' title='ext.data.Field#defaultValue'>defaultValue</b></code>.</div></li>
      * <li><b>rec</b> : Mixed<div class="sub-desc">The data object containing the row as read by the Reader.
      * Depending on the Reader type, this could be an Array (<b class='link' title='ext.data.ArrayReader'>ArrayReader</b>), an object
      *  (<b class='link' title='ext.data.JsonReader'>JsonReader</b>), or an XML element (<b class='link' title='ext.data.XMLReader'>XMLReader</b>).</div></li>
      * </ul></div>
      * <pre><code>
-// example of convert function
+&#47;/ example of convert function
 function fullName(v, record){
     return record.name.last + ', ' + record.name.first;
 }
@@ -60,13 +60,13 @@ var Dude = ext.data.Record.create([
     {name: 'location',  convert: location}
 ]);
 
-// create the data store
+&#47;/ create the data store
 var store = new ext.data.Store({
-    reader: new ext.data.JsonReader(
+    reader&#58; new ext.data.JsonReader(
         {
-            idProperty: 'key',
-            root: 'daRoot',  
-            totalProperty: 'total'
+            idProperty&#58; 'key',
+            root&#58; 'daRoot',  
+            totalProperty&#58; 'total'
         },
         Dude  // recordType
     )
@@ -74,16 +74,16 @@ var store = new ext.data.Store({
 
 var myData = [
     { key: 1,
-      name: { first: 'Fat',    last:  'Albert' }
-      // notice no city, state provided in data object
+      name&#58; { first: 'Fat',    last:  'Albert' }
+      &#47;/ notice no city, state provided in data object
     },
     { key: 2,
-      name: { first: 'Barney', last:  'Rubble' },
-      city: 'Bedrock', state: 'Stoneridge'
+      name&#58; { first: 'Barney', last:  'Rubble' },
+      city&#58; 'Bedrock', state: 'Stoneridge'
     },
     { key: 3,
-      name: { first: 'Cliff',  last:  'Claven' },
-      city: 'Boston',  state: 'MA'
+      name&#58; { first: 'Cliff',  last:  'Claven' },
+      city&#58; 'Boston',  state: 'MA'
     }
 ];
      * </code></pre>
@@ -98,7 +98,7 @@ var myData = [
     /**
      * @cfg {Mixed} defaultValue
      * (Optional) The default value used <b>when a Record is being created by a <b class='link' title='ext.data.Reader'>Reader</b></b>
-     * when the item referenced by the <tt><b class='link' title='ext.data.Field#mapping'>mapping</b></tt> does not exist in the data
+     * when the item referenced by the <code><b class='link' title='ext.data.Field#mapping'>mapping</b></code> does not exist in the data
      * object (i.e. undefined). (defaults to "")
      */
     public var defaultValue : *;
@@ -116,7 +116,7 @@ var myData = [
      * <li><b class='link'>ext.data.ArrayReader</b><div class="sub-desc">The mapping is a number indicating the Array index
      * of the field's value. Defaults to the field specification's Array position.</div></li>
      * </ul></div>
-     * <p>If a more complex value extraction strategy is required, then configure the Field with a <b class='link'>#convert</b>
+     * <p>If a more complex value extraction strategy is required, then configure the Field with a <b class='link' title='#convert'>convert</b>
      * function. This is passed the whole row object, and may interrogate it in whatever way is necessary in order to
      * return the desired data.</p>
      */
@@ -126,19 +126,19 @@ var myData = [
      * (Optional) A function which converts a Field's value to a comparable value in order to ensure
      * correct sort ordering. Predefined functions are provided in <b class='link'>ext.data.SortTypes</b>. A custom
      * sort example:<pre><code>
-// current sort     after sort we want
-// +-+------+          +-+------+
-// |1|First |          |1|First |
-// |2|Last  |          |3|Second|
-// |3|Second|          |2|Last  |
-// +-+------+          +-+------+
+&#47;/ current sort     after sort we want
+&#47;/ +-+------+          +-+------+
+&#47;/ |1|First |          |1|First |
+&#47;/ |2|Last  |          |3|Second|
+&#47;/ |3|Second|          |2|Last  |
+&#47;/ +-+------+          +-+------+
 
-sortType: function(value) {
+sortType&#58; function(value) {
    switch (value.toLowerCase()) // native toLowerCase():
    {
       case 'first': return 1;
       case 'second': return 2;
-      default: return 3;
+      default&#58; return 3;
    }
 }
      * </code></pre>
@@ -146,15 +146,15 @@ sortType: function(value) {
     public var sortType  : Function;
     /**
      * @cfg {String} sortDir
-     * (Optional) Initial direction to sort (<tt>"ASC"</tt> or  <tt>"DESC"</tt>).  Defaults to
-     * <tt>"ASC"</tt>.
+     * (Optional) Initial direction to sort (<code>"ASC"</code> or  <code>"DESC"</code>).  Defaults to
+     * <code>"ASC"</code>.
      */
     public var sortDir  : String;
 	/**
 	 * @cfg {Boolean} allowBlank 
-	 * (Optional) Used for validating a <b class='link' title='ext.data.Record'>record</b>, defaults to <tt>true</tt>.
+	 * (Optional) Used for validating a <b class='link' title='ext.data.Record'>record</b>, defaults to <code>true</code>.
 	 * An empty value here will cause <b class='link'>ext.data.Record</b>.<b class='link' title='ext.data.Record#isValid'>isValid</b>
-	 * to evaluate to <tt>false</tt>.
+	 * to evaluate to <code>false</code>.
 	 */
 	public var allowBlank  : Boolean;
 }}

@@ -10,8 +10,8 @@ import ext.util.Observable;
  * <p><u>Retrieving Data</u></p>
  * <p>A Store object may access a data object using:<div class="mdetail-params"><ul>
  * <li><b class='link' title='#proxy configured'>implementation</b> of <b class='link' title='ext.data.DataProxy'>DataProxy</b></li>
- * <li><b class='link'>#data</b> to automatically pass in data</li>
- * <li><b class='link'>#loadData</b> to manually pass in data</li>
+ * <li><b class='link' title='#data'>data</b> to automatically pass in data</li>
+ * <li><b class='link' title='#loadData'>loadData</b> to manually pass in data</li>
  * </ul></div></p>
  * <p><u>Reading Data</u></p>
  * <p>A Store object has no inherent knowledge of the format of the data object (it could be
@@ -24,22 +24,22 @@ import ext.util.Observable;
  * creates a reader commensurate to an Array data object.</p>
  * <pre><code>
 var myStore = new ext.data.ArrayStore({
-    fields: ['fullname', 'first'],
-    idIndex: 0 // id for each record will be the first element
+    fields&#58; ['fullname', 'first'],
+    idIndex&#58; 0 // id for each record will be the first element
 });
  * </code></pre>
  * <p>For custom implementations create a basic <b class='link'>ext.data.Store</b> configured as needed:</p>
  * <pre><code>
-// create a <b class='link' title='ext.data.Record'>Record</b> constructor:
+&#47;/ create a <b class='link' title='ext.data.Record'>Record</b> constructor:
 var rt = ext.data.Record.create([
     {name: 'fullname'},
     {name: 'first'}
 ]);
 var myStore = new ext.data.Store({
-    // explicitly create reader
-    reader: new ext.data.ArrayReader(
+    &#47;/ explicitly create reader
+    reader&#58; new ext.data.ArrayReader(
         {
-            idIndex: 0  // id for each record will be the first element
+            idIndex&#58; 0  // id for each record will be the first element
         },
         rt // recordType
     )
@@ -57,12 +57,12 @@ myStore.loadData(myData);
  * a record to the store:</p>
  * <pre><code>
 var defaultData = {
-    fullname: 'Full Name',
-    first: 'First Name'
+    fullname&#58; 'Full Name',
+    first&#58; 'First Name'
 };
 var recId = 100; // provide unique id for the record
 var r = new myStore.recordType(defaultData, ++recId); // create new record
-myStore.<b class='link'>#insert</b>(0, r); // insert a new record into the store (also see <b class='link'>#add</b>)
+myStore.<b class='link' title='#insert'>insert</b>(0, r); // insert a new record into the store (also see <b class='link' title='#add'>add</b>)
  * </code></pre>
 */
 public class Store extends Observable {
@@ -80,7 +80,7 @@ public function Store(config : Object) {
     /**
      * See the <code><b class='link' title='#baseParams corresponding configuration'>option</b></code>
      * for a description of this property.
-     * To modify this property see <code><b class='link'>#setBaseParam</b></code>.
+     * To modify this property see <code><b class='link' title='#setBaseParam'>setBaseParam</b></code>.
      * @property
      */
   public var baseParams : Object;
@@ -91,10 +91,10 @@ public function Store(config : Object) {
      * instead of a Record constructor, it will implicitly create a Record constructor from that Array (see
      * <b class='link'>ext.data.Record</b>.<b class='link' title='ext.data.Record#create'>create</b> for additional details).</p>
      * <p>This property may be used to create new Records of the type held in this Store, for example:</p><pre><code>
-// create the data store
+&#47;/ create the data store
 var store = new ext.data.ArrayStore({
-    autoDestroy: true,
-    fields: [
+    autoDestroy&#58; true,
+    fields&#58; [
        {name: 'company'},
        {name: 'price', type: 'float'},
        {name: 'change', type: 'float'},
@@ -104,42 +104,42 @@ var store = new ext.data.ArrayStore({
 });
 store.loadData(myData);
 
-// create the Grid
+&#47;/ create the Grid
 var grid = new Ext.grid.EditorGridPanel({
-    store: store,
-    colModel: new Ext.grid.ColumnModel({
-        columns: [
+    store&#58; store,
+    colModel&#58; new Ext.grid.ColumnModel({
+        columns&#58; [
             {id:'company', header: 'Company', width: 160, dataIndex: 'company'},
             {header: 'Price', renderer: 'usMoney', dataIndex: 'price'},
             {header: 'Change', renderer: change, dataIndex: 'change'},
             {header: '% Change', renderer: pctChange, dataIndex: 'pctChange'},
             {header: 'Last Updated', width: 85,
-                renderer: Ext.util.Format.dateRenderer('m/d/Y'),
-                dataIndex: 'lastChange'}
+                renderer&#58; Ext.util.Format.dateRenderer('m/d/Y'),
+                dataIndex&#58; 'lastChange'}
         ],
-        defaults: {
-            sortable: true,
-            width: 75
+        defaults&#58; {
+            sortable&#58; true,
+            width&#58; 75
         }
     }),
-    autoExpandColumn: 'company', // match the id specified in the column model
-    height:350,
-    width:600,
-    title:'Array Grid',
-    tbar: [{
-        text: 'Add Record',
+    autoExpandColumn&#58; 'company', // match the id specified in the column model
+    height&#58;350,
+    width&#58;600,
+    title&#58;'Array Grid',
+    tbar&#58; [{
+        text&#58; 'Add Record',
         handler : function(){
             var defaultData = {
-                change: 0,
-                company: 'New Company',
-                lastChange: (new Date()).clearTime(),
-                pctChange: 0,
-                price: 10
+                change&#58; 0,
+                company&#58; 'New Company',
+                lastChange&#58; (new Date()).clearTime(),
+                pctChange&#58; 0,
+                price&#58; 10
             };
             var recId = 3; // provide unique id
             var p = new store.recordType(defaultData, recId); // create new record
             grid.stopEditing();
-            store.<b class='link'>#insert</b>(0, p); // insert a new record into the store (also see <b class='link'>#add</b>)
+            store.<b class='link' title='#insert'>insert</b>(0, p); // insert a new record into the store (also see <b class='link' title='#add'>add</b>)
             grid.startEditing(0, 0);
         }
     }]
@@ -156,58 +156,58 @@ var grid = new Ext.grid.EditorGridPanel({
             public var fields : MixedCollection;
     /**
      * @cfg {String} storeId If passed, the id to use to register with the <b class='link' title='ext.StoreMgr'>StoreMgr</b>.
-     * <p><b>Note</b>: if a (deprecated) <tt><b class='link'>#id</b></tt> is specified it will supersede the <tt>storeId</tt>
+     * <p><b>Note</b>: if a (deprecated) <code><b class='link' title='#id'>id</b></code> is specified it will supersede the <code>storeId</code>
      * assignment.</p>
      */
     /**
-     * @cfg {String} url If a <tt><b class='link'>#proxy</b></tt> is not specified the <tt>url</tt> will be used to
-     * implicitly configure a <b class='link' title='ext.data.HttpProxy'>HttpProxy</b> if an <tt>url</tt> is specified.
-     * Typically this option, or the <code><b class='link'>#data</b></code> option will be specified.
+     * @cfg {String} url If a <code><b class='link' title='#proxy'>proxy</b></code> is not specified the <code>url</code> will be used to
+     * implicitly configure a <b class='link' title='ext.data.HttpProxy'>HttpProxy</b> if an <code>url</code> is specified.
+     * Typically this option, or the <code><b class='link' title='#data'>data</b></code> option will be specified.
      */
     /**
-     * @cfg {Boolean/Object} autoLoad If <tt><b class='link'>#data</b></tt> is not specified, and if <tt>autoLoad</tt>
-     * is <tt>true</tt> or an <tt>Object</tt>, this store's <b class='link'>#load</b> method is automatically called
-     * after creation. If the value of <tt>autoLoad</tt> is an <tt>Object</tt>, this <tt>Object</tt> will
-     * be passed to the store's <b class='link'>#load</b> method.
+     * @cfg {Boolean/Object} autoLoad If <code><b class='link' title='#data'>data</b></code> is not specified, and if <code>autoLoad</code>
+     * is <code>true</code> or an <code>Object</code>, this store's <b class='link' title='#load'>load</b> method is automatically called
+     * after creation. If the value of <code>autoLoad</code> is an <code>Object</code>, this <code>Object</code> will
+     * be passed to the store's <b class='link' title='#load'>load</b> method.
      */
     /**
      * @cfg {ext.data.DataProxy} proxy The <b class='link' title='ext.data.DataProxy'>DataProxy</b> object which provides
-     * access to a data object.  See <code><b class='link'>#url</b></code>.
+     * access to a data object.  See <code><b class='link' title='#url'>url</b></code>.
      */
     /**
-     * @cfg {Array} data An inline data object readable by the <code><b class='link'>#reader</b></code>.
-     * Typically this option, or the <code><b class='link'>#url</b></code> option will be specified.
+     * @cfg {Array} data An inline data object readable by the <code><b class='link' title='#reader'>reader</b></code>.
+     * Typically this option, or the <code><b class='link' title='#url'>url</b></code> option will be specified.
      */
     /**
      * @cfg {ext.data.DataReader} reader The <b class='link' title='ext.data.DataReader'>Reader</b> object which processes the
      * data object and returns an Array of <b class='link'>ext.data.Record</b> objects which are cached keyed by their
-     * <b><tt><b class='link' title='ext.data.Record#id'>id</b></tt></b> property.
+     * <b><code><b class='link' title='ext.data.Record#id'>id</b></code></b> property.
      */
     /**
      * @cfg {ext.data.DataWriter} writer
      * <p>The <b class='link' title='ext.data.DataWriter'>Writer</b> object which processes a record object for being written
      * to the server-side database.</p>
-     * <br><p>When a writer is installed into a Store the <b class='link'>#add</b>, <b class='link'>#remove</b>, and <b class='link'>#update</b>
+     * <br><p>When a writer is installed into a Store the <b class='link' title='#add'>add</b>, <b class='link' title='#remove'>remove</b>, and <b class='link' title='#update'>update</b>
      * events on the store are monitored in order to remotely <b class='link' title='#createRecords create'>records</b>,
      * <b class='link' title='#destroyRecord destroy'>records</b>, or <b class='link' title='#updateRecord update'>records</b>.</p>
-     * <br><p>The proxy for this store will relay any <b class='link'>#writexception</b> events to this store.</p>
+     * <br><p>The proxy for this store will relay any <b class='link' title='#writexception'>writexception</b> events to this store.</p>
      * <br><p>Sample implementation:
      * <pre><code>
 var writer = new <b class='link'>ext.data.JsonWriter</b>({
-    encode: true,
-    writeAllFields: true // write all fields, not just those that changed
+    encode&#58; true,
+    writeAllFields&#58; true // write all fields, not just those that changed
 });
 
-// Typical Store collecting the Proxy, Reader and Writer together.
+&#47;/ Typical Store collecting the Proxy, Reader and Writer together.
 var store = new ext.data.Store({
-    storeId: 'user',
-    root: 'records',
-    proxy: proxy,
-    reader: reader,
-    writer: writer,     // <-- plug a DataWriter into the store just as you would a Reader
-    paramsAsHash: true,
-    autoSave: false    // <-- false to delay executing create, update, destroy requests
-                        //     until specifically told to do so.
+    storeId&#58; 'user',
+    root&#58; 'records',
+    proxy&#58; proxy,
+    reader&#58; reader,
+    writer&#58; writer,     // <-- plug a DataWriter into the store just as you would a Reader
+    paramsAsHash&#58; true,
+    autoSave&#58; false    // <-- false to delay executing create, update, destroy requests
+                        &#47;/     until specifically told to do so.
 });
      * </code></pre></p>
      */
@@ -218,50 +218,50 @@ var store = new ext.data.Store({
      * for <i>every</i> HTTP request.</p>
      * <p>Parameters are encoded as standard HTTP parameters using <b class='link'>Ext#urlEncode</b>.</p>
      * <p><b>Note</b>: <code>baseParams</code> may be superseded by any <code>params</code>
-     * specified in a <code><b class='link'>#load</b></code> request, see <code><b class='link'>#load</b></code>
+     * specified in a <code><b class='link' title='#load'>load</b></code> request, see <code><b class='link' title='#load'>load</b></code>
      * for more details.</p>
-     * This property may be modified after creation using the <code><b class='link'>#setBaseParam</b></code>
+     * This property may be modified after creation using the <code><b class='link' title='#setBaseParam'>setBaseParam</b></code>
      * method.
      * @property
      */
     /**
      * @cfg {Object} sortInfo A config object to specify the sort order in the request of a Store's
-     * <b class='link'>#load</b> operation.  Note that for local sorting, the <tt>direction</tt> property is
-     * case-sensitive. See also <b class='link'>#remoteSort</b> and <b class='link'>#paramNames</b>.
+     * <b class='link' title='#load'>load</b> operation.  Note that for local sorting, the <code>direction</code> property is
+     * case-sensitive. See also <b class='link' title='#remoteSort'>remoteSort</b> and <b class='link' title='#paramNames'>paramNames</b>.
      * For example:<pre><code>
-sortInfo: {
-    field: 'fieldName',
-    direction: 'ASC' // or 'DESC' (case sensitive for local sorting)
+sortInfo&#58; {
+    field&#58; 'fieldName',
+    direction&#58; 'ASC' // or 'DESC' (case sensitive for local sorting)
 }
 </code></pre>
      */
     /**
-     * @cfg {boolean} remoteSort <tt>true</tt> if sorting is to be handled by requesting the <tt><b class='link' title='#proxy'>Proxy</b></tt>
+     * @cfg {boolean} remoteSort <code>true</code> if sorting is to be handled by requesting the <code><b class='link' title='#proxy'>Proxy</b></code>
      * to provide a refreshed version of the data object in sorted order, as opposed to sorting the Record cache
-     * in place (defaults to <tt>false</tt>).
-     * <p>If <tt>remoteSort</tt> is <tt>true</tt>, then clicking on a <b class='link' title='Ext.grid.Column Grid'>Column</b>'s
+     * in place (defaults to <code>false</code>).
+     * <p>If <code>remoteSort</code> is <code>true</code>, then clicking on a <b class='link' title='Ext.grid.Column Grid'>Column</b>'s
      * <b class='link' title='Ext.grid.Column#header'>header</b> causes the current page to be requested from the server appending
-     * the following two parameters to the <b><tt><b class='link' title='#load'>params</b></tt></b>:<div class="mdetail-params"><ul>
-     * <li><b><tt>sort</tt></b> : String<p class="sub-desc">The <tt>name</tt> (as specified in the Record's
+     * the following two parameters to the <b><code><b class='link' title='#load'>params</b></code></b>:<div class="mdetail-params"><ul>
+     * <li><b><code>sort</code></b> : String<p class="sub-desc">The <code>name</code> (as specified in the Record's
      * <b class='link' title='ext.data.Field Field'>definition</b>) of the field to sort on.</p></li>
-     * <li><b><tt>dir</tt></b> : String<p class="sub-desc">The direction of the sort, 'ASC' or 'DESC' (case-sensitive).</p></li>
+     * <li><b><code>dir</code></b> : String<p class="sub-desc">The direction of the sort, 'ASC' or 'DESC' (case-sensitive).</p></li>
      * </ul></div></p>
      */
     public var remoteSort  : Boolean;
     /**
-     * @cfg {Boolean} autoDestroy <tt>true</tt> to destroy the store when the component the store is bound
-     * to is destroyed (defaults to <tt>false</tt>).
+     * @cfg {Boolean} autoDestroy <code>true</code> to destroy the store when the component the store is bound
+     * to is destroyed (defaults to <code>false</code>).
      * <p><b>Note</b>: this should be set to true when using stores that are bound to only 1 component.</p>
      */
     public var autoDestroy  : Boolean;
     /**
-     * @cfg {Boolean} pruneModifiedRecords <tt>true</tt> to clear all modified record information each time
-     * the store is loaded or when a record is removed (defaults to <tt>false</tt>). See <b class='link'>#getModifiedRecords</b>
+     * @cfg {Boolean} pruneModifiedRecords <code>true</code> to clear all modified record information each time
+     * the store is loaded or when a record is removed (defaults to <code>false</code>). See <b class='link' title='#getModifiedRecords'>getModifiedRecords</b>
      * for the accessor method to retrieve the modified records.
      */
     public var pruneModifiedRecords  : Boolean;
     /**
-     * Contains the last options object used as the parameter to the <b class='link'>#load</b> method. See <b class='link'>#load</b>
+     * Contains the last options object used as the parameter to the <b class='link' title='#load'>load</b> method. See <b class='link' title='#load'>load</b>
      * for the details of what this may contain. This may be useful for accessing any params which were used
      * to load the current Record cache.
      * @property
@@ -269,31 +269,31 @@ sortInfo: {
     public var lastOptions ;
     /**
      * @cfg {Boolean} autoSave
-     * <p>Defaults to <tt>true</tt> causing the store to automatically <b class='link'>#save</b> records to
-     * the server when a record is modified (ie: becomes 'dirty'). Specify <tt>false</tt> to manually call <b class='link'>#save</b>
+     * <p>Defaults to <code>true</code> causing the store to automatically <b class='link' title='#save'>save</b> records to
+     * the server when a record is modified (ie: becomes 'dirty'). Specify <code>false</code> to manually call <b class='link' title='#save'>save</b>
      * to send all modifiedRecords to the server.</p>
      * <br><p><b>Note</b>: each CRUD action will be sent as a separate request.</p>
      */
     public var autoSave  : Boolean;
     /**
      * @cfg {Boolean} batch
-     * <p>Defaults to <tt>true</tt> (unless <code><b class='link'>#restful</b>:true</code>). Multiple
+     * <p>Defaults to <code>true</code> (unless <code><b class='link' title='#restful'>restful</b>:true</code>). Multiple
      * requests for each CRUD action (CREATE, READ, UPDATE and DESTROY) will be combined
-     * and sent as one transaction. Only applies when <code><b class='link'>#autoSave</b></code> is set
-     * to <tt>false</tt>.</p>
+     * and sent as one transaction. Only applies when <code><b class='link' title='#autoSave'>autoSave</b></code> is set
+     * to <code>false</code>.</p>
      * <br><p>If Store is RESTful, the DataProxy is also RESTful, and a unique transaction is
      * generated for each record.</p>
      */
     public var batch  : Boolean;
     /**
      * @cfg {Boolean} restful
-     * Defaults to <tt>false</tt>.  Set to <tt>true</tt> to have the Store and the set
+     * Defaults to <code>false</code>.  Set to <code>true</code> to have the Store and the set
      * Proxy operate in a RESTful manner. The store will automatically generate GET, POST,
      * PUT and DELETE requests to the server. The HTTP method used for any given CRUD
      * action is described in <b class='link'>ext.data.Api#restActions</b>.  For additional information
      * see <b class='link'>ext.data.DataProxy#restful</b>.
-     * <p><b>Note</b>: if <code><b class='link'>#restful</b>:true</code> <code>batch</code> will
-     * internally be set to <tt>false</tt>.</p>
+     * <p><b>Note</b>: if <code><b class='link' title='#restful'>restful</b>:true</code> <code>batch</code> will
+     * internally be set to <code>false</code>.</p>
      */
     public var restful : Boolean;
     /**
@@ -317,7 +317,7 @@ sortInfo: {
     public var paramNames  : Object;
     /**
      * @cfg {Object} defaultParamNames
-     * Provides the default values for the <b class='link'>#paramNames</b> property. To globally modify the parameters
+     * Provides the default values for the <b class='link' title='#paramNames'>paramNames</b> property. To globally modify the parameters
      * for all stores, this object should be changed on the store prototype.
      */
     public var defaultParamNames  : Object;
@@ -326,11 +326,11 @@ sortInfo: {
      */
     public native function destroy() : void;
     /**
-     * Add Records to the Store and fires the <b class='link'>#add</b> event.  To add Records
+     * Add Records to the Store and fires the <b class='link' title='#add'>add</b> event.  To add Records
      * to the store from a remote source use <code><b class='link'>#load}({add:true</b>)</code>.
-     * See also <code><b class='link'>#recordType</b></code> and <code><b class='link'>#insert</b></code>.
+     * See also <code><b class='link' title='#recordType'>recordType</b></code> and <code><b class='link' title='#insert'>insert</b></code>.
      * @param records An Array of ext.data.Record objects
-     * to add to the cache. See <b class='link'>#recordType</b>.
+     * to add to the cache. See <b class='link' title='#recordType'>recordType</b>.
      */
     public native function add(records : Array/*ext.data.Record*/) : void;
     /**
@@ -340,22 +340,22 @@ sortInfo: {
      */
     public native function addSorted(record : Record) : void;
     /**
-     * Remove a Record from the Store and fires the <b class='link'>#remove</b> event.
+     * Remove a Record from the Store and fires the <b class='link' title='#remove'>remove</b> event.
      * @param record The ext.data.Record object to remove from the cache.
      */
     public native function remove(record : Record) : void;
     /**
-     * Remove a Record from the Store at the specified index. Fires the <b class='link'>#remove</b> event.
+     * Remove a Record from the Store at the specified index. Fires the <b class='link' title='#remove'>remove</b> event.
      * @param index The index of the record to remove.
      */
     public native function removeAt(index : Number) : void;
     /**
-     * Remove all Records from the Store and fires the <b class='link'>#clear</b> event.
+     * Remove all Records from the Store and fires the <b class='link' title='#clear'>clear</b> event.
      */
     public native function removeAll() : void;
     /**
-     * Inserts Records into the Store at the given index and fires the <b class='link'>#add</b> event.
-     * See also <code><b class='link'>#add</b></code> and <code><b class='link'>#addSorted</b></code>.
+     * Inserts Records into the Store at the given index and fires the <b class='link' title='#add'>add</b> event.
+     * See also <code><b class='link' title='#add'>add</b></code> and <code><b class='link' title='#addSorted'>addSorted</b></code>.
      * @param index The start index at which to insert the passed Records.
      * @param records An Array of ext.data.Record objects to add to the cache.
      */
@@ -393,35 +393,35 @@ sortInfo: {
     public native function getRange(startIndex : Number = undefined, endIndex : Number = undefined) : Record;
     protected native function storeOptions(o) : void;
     /**
-     * <p>Loads the Record cache from the configured <tt><b class='link'>#proxy</b></tt> using the configured <tt><b class='link'>#reader</b></tt>.</p>
+     * <p>Loads the Record cache from the configured <code><b class='link' title='#proxy'>proxy</b></code> using the configured <code><b class='link' title='#reader'>reader</b></code>.</p>
      * <br><p>Notes:</p><div class="mdetail-params"><ul>
      * <li><b><u>Important</u></b>: loading is asynchronous! This call will return before the new data has been
      * loaded. To perform any post-processing where information from the load call is required, specify
-     * the <tt>callback</tt> function to be called, or use a <b class='link' title='Ext.util.Observable#listeners a 'load' event'>handler</b>.</li>
-     * <li>If using <b class='link' title='ext.PagingToolbar remote'>paging</b>, the first load call must specify the <tt>start</tt> and <tt>limit</tt>
+     * the <code>callback</code> function to be called, or use a <b class='link' title='Ext.util.Observable#listeners a 'load' event'>handler</b>.</li>
+     * <li>If using <b class='link' title='ext.PagingToolbar remote'>paging</b>, the first load call must specify the <code>start</code> and <code>limit</code>
      * properties in the <code>options.params</code> property to establish the initial position within the
      * dataset, and the number of Records to cache on each read from the Proxy.</li>
-     * <li>If using <b class='link' title='#remoteSort remote'>sorting</b>, the configured <code><b class='link'>#sortInfo</b></code>
+     * <li>If using <b class='link' title='#remoteSort remote'>sorting</b>, the configured <code><b class='link' title='#sortInfo'>sortInfo</b></code>
      * will be automatically included with the posted parameters according to the specified
-     * <code><b class='link'>#paramNames</b></code>.</li>
+     * <code><b class='link' title='#paramNames'>paramNames</b></code>.</li>
      * </ul></div>
      * @param options An object containing properties which control loading options:<ul>
-     * <li><b><tt>params</tt></b> :Object<div class="sub-desc"><p>An object containing properties to pass as HTTP
+     * <li><b><code>params</code></b> :Object<div class="sub-desc"><p>An object containing properties to pass as HTTP
      * parameters to a remote data source. <b>Note</b>: <code>params</code> will override any
-     * <code><b class='link'>#baseParams</b></code> of the same name.</p>
+     * <code><b class='link' title='#baseParams'>baseParams</b></code> of the same name.</p>
      * <p>Parameters are encoded as standard HTTP parameters using <b class='link'>Ext#urlEncode</b>.</p></div></li>
-     * <li><b><tt>callback</tt></b> : Function<div class="sub-desc"><p>A function to be called after the Records
-     * have been loaded. The <tt>callback</tt> is called after the load event and is passed the following arguments:<ul>
-     * <li><tt>r</tt> : ext.data.Record[]</li>
-     * <li><tt>options</tt>: Options object from the load call</li>
-     * <li><tt>success</tt>: Boolean success indicator</li></ul></p></div></li>
-     * <li><b><tt>scope</tt></b> : Object<div class="sub-desc"><p>Scope with which to call the callback (defaults
+     * <li><b><code>callback</code></b> : Function<div class="sub-desc"><p>A function to be called after the Records
+     * have been loaded. The <code>callback</code> is called after the load event and is passed the following arguments:<ul>
+     * <li><code>r</code> : ext.data.Record[]</li>
+     * <li><code>options</code>: Options object from the load call</li>
+     * <li><code>success</code>: Boolean success indicator</li></ul></p></div></li>
+     * <li><b><code>scope</code></b> : Object<div class="sub-desc"><p>Scope with which to call the callback (defaults
      * to the Store object)</p></div></li>
-     * <li><b><tt>add</tt></b> : Boolean<div class="sub-desc"><p>Indicator to append loaded records rather than
-     * replace the current cache.  <b>Note</b>: see note for <tt><b class='link'>#loadData</b></tt></p></div></li>
+     * <li><b><code>add</code></b> : Boolean<div class="sub-desc"><p>Indicator to append loaded records rather than
+     * replace the current cache.  <b>Note</b>: see note for <code><b class='link' title='#loadData'>loadData</b></code></p></div></li>
      * </ul>
-     * @return If the <i>developer</i> provided <tt><b class='link'>#beforeload</b></tt> event handler returns
-     * <tt>false</tt>, the load call will abort and will return <tt>false</tt>; otherwise will return <tt>true</tt>.
+     * @return If the <i>developer</i> provided <code><b class='link' title='#beforeload'>beforeload</b></code> event handler returns
+     * <code>false</code>, the load call will abort and will return <code>false</code>; otherwise will return <code>true</code>.
      */
     public native function load(options : Object) : Boolean;
     /**
@@ -451,8 +451,8 @@ sortInfo: {
     public native function destroyRecord(store : Store, records : *, index : Number) : void;
     /**
      * This method should generally not be used directly.  This method is called internally
-     * by <b class='link'>#load</b>, or if a Writer is set will be called automatically when <b class='link'>#add</b>,
-     * <b class='link'>#remove</b>, or <b class='link'>#update</b> events fire.
+     * by <b class='link' title='#load'>load</b>, or if a Writer is set will be called automatically when <b class='link' title='#add'>add</b>,
+     * <b class='link' title='#remove'>remove</b>, or <b class='link' title='#update'>update</b> events fire.
      * @param action Action name ('read', 'create', 'update', or 'destroy')
      * @param rs
      * @param options
@@ -462,7 +462,7 @@ sortInfo: {
     public native function execute(action : String, rs : *, options : Object) : void;
     /**
      * Saves all pending changes to the store.  If the commensurate ext.data.Api.actions action is not configured, then
-     * the configured <code><b class='link'>#url</b></code> will be used.
+     * the configured <code><b class='link' title='#url'>url</b></code> will be used.
      * <pre>
      * change            url
      * ---------------   --------------------
@@ -485,20 +485,20 @@ sortInfo: {
     /**
      * <p>Reloads the Record cache from the configured Proxy using the configured <b class='link' title='ext.data.Reader'>Reader</b> and
      * the options from the last load operation performed.</p>
-     * <p><b>Note</b>: see the Important note in <b class='link'>#load</b>.</p>
-     * @param options An <tt>Object</tt> containing <b class='link' title='#load loading'>options</b> which may
-     * override the options used in the last <b class='link'>#load</b> operation. See <b class='link'>#load</b> for details (defaults to
-     * <tt>null</tt>, in which case the <b class='link'>#lastOptions</b> are used).
+     * <p><b>Note</b>: see the Important note in <b class='link' title='#load'>load</b>.</p>
+     * @param options An <code>Object</code> containing <b class='link' title='#load loading'>options</b> which may
+     * override the options used in the last <b class='link' title='#load'>load</b> operation. See <b class='link' title='#load'>load</b> for details (defaults to
+     * <code>null</code>, in which case the <b class='link' title='#lastOptions'>lastOptions</b> are used).
      */
     public native function reload(options : Object = undefined) : void;
     protected native function loadRecords(o, options, success) : void;
     /**
-     * Loads data from a passed data block and fires the <b class='link'>#load</b> event. A <b class='link' title='ext.data.Reader'>Reader</b>
+     * Loads data from a passed data block and fires the <b class='link' title='#load'>load</b> event. A <b class='link' title='ext.data.Reader'>Reader</b>
      * which understands the format of the data must have been configured in the constructor.
      * @param data The data block from which to read the Records.  The format of the data expected
      * is dependent on the type of <b class='link' title='ext.data.Reader'>Reader</b> that is configured and should correspond to
-     * that <b class='link' title='ext.data.Reader'>Reader</b>'s <tt><b class='link'>ext.data.Reader#readRecords</b></tt> parameter.
-     * @param append <tt>true</tt> to append the new Records rather the default to replace
+     * that <b class='link' title='ext.data.Reader'>Reader</b>'s <code><b class='link'>ext.data.Reader#readRecords</b></code> parameter.
+     * @param append <code>true</code> to append the new Records rather the default to replace
      * the existing cache.
      * <b>Note</b>: that Records in a Store are keyed by their <b class='link' title='ext.data.Record#id'>id</b>, so added Records
      * with ids which are already present in the Store will <i>replace</i> existing Records. Only Records with
@@ -508,8 +508,8 @@ sortInfo: {
     /**
      * Gets the number of cached records.
      * <p>If using paging, this may not be the total size of the dataset. If the data object
-     * used by the Reader contains the dataset size, then the <b class='link'>#getTotalCount</b> function returns
-     * the dataset size.  <b>Note</b>: see the Important note in <b class='link'>#load</b>.</p>
+     * used by the Reader contains the dataset size, then the <b class='link' title='#getTotalCount'>getTotalCount</b> function returns
+     * the dataset size.  <b>Note</b>: see the Important note in <b class='link' title='#load'>load</b>.</p>
      * @return The number of Records in the Store's cache.
      */
     public native function getCount() : Number;
@@ -517,9 +517,9 @@ sortInfo: {
      * Gets the total number of records in the dataset as returned by the server.
      * <p>If using paging, for this to be accurate, the data object used by the <b class='link' title='#reader'>Reader</b>
      * must contain the dataset size. For remote data sources, the value for this property
-     * (<tt>totalProperty</tt> for <b class='link' title='ext.data.JsonReader'>JsonReader</b>,
-     * <tt>totalRecords</tt> for <b class='link' title='ext.data.XmlReader'>XmlReader</b>) shall be returned by a query on the server.
-     * <b>Note</b>: see the Important note in <b class='link'>#load</b>.</p>
+     * (<code>totalProperty</code> for <b class='link' title='ext.data.JsonReader'>JsonReader</b>,
+     * <code>totalRecords</code> for <b class='link' title='ext.data.XmlReader'>XmlReader</b>) shall be returned by a query on the server.
+     * <b>Note</b>: see the Important note in <b class='link' title='#load'>load</b>.</p>
      * @return The number of Records as specified in the data object passed to the Reader
      * by the Proxy.
      * <p><b>Note</b>: this value is not updated when changing the contents of the Store locally.</p>
@@ -531,48 +531,48 @@ sortInfo: {
      * <li><b>field : String<p class="sub-desc">The name of the field by which the Records are sorted.</p></li>
      * <li><b>direction : String<p class="sub-desc">The sort order, 'ASC' or 'DESC' (case-sensitive).</p></li>
      * </ul>
-     * See <tt><b class='link'>#sortInfo</b></tt> for additional details.
+     * See <code><b class='link' title='#sortInfo'>sortInfo</b></code> for additional details.
      */
     public native function getSortState() : Object;
     protected native function applySort() : void;
     protected native function sortData(f, direction) : void;
     /**
-     * Sets the default sort column and order to be used by the next <b class='link'>#load</b> operation.
+     * Sets the default sort column and order to be used by the next <b class='link' title='#load'>load</b> operation.
      * @param fieldName The name of the field to sort by.
-     * @param dir The sort order, 'ASC' or 'DESC' (case-sensitive, defaults to <tt>'ASC'</tt>)
+     * @param dir The sort order, 'ASC' or 'DESC' (case-sensitive, defaults to <code>'ASC'</code>)
      */
     public native function setDefaultSort(fieldName : String, dir : String = undefined) : void;
     /**
      * Sort the Records.
      * If remote sorting is used, the sort is performed on the server, and the cache is reloaded. If local
-     * sorting is used, the cache is sorted internally. See also <b class='link'>#remoteSort</b> and <b class='link'>#paramNames</b>.
+     * sorting is used, the cache is sorted internally. See also <b class='link' title='#remoteSort'>remoteSort</b> and <b class='link' title='#paramNames'>paramNames</b>.
      * @param fieldName The name of the field to sort by.
-     * @param dir The sort order, 'ASC' or 'DESC' (case-sensitive, defaults to <tt>'ASC'</tt>)
+     * @param dir The sort order, 'ASC' or 'DESC' (case-sensitive, defaults to <code>'ASC'</code>)
      */
     public native function sort(fieldName : String, dir : String = undefined) : void;
     /**
      * Calls the specified function for each of the <b class='link' title='ext.data.Record'>Records</b> in the cache.
      * @param fn The function to call. The <b class='link' title='ext.data.Record'>Record</b> is passed as the first parameter.
-     * Returning <tt>false</tt> aborts and exits the iteration.
+     * Returning <code>false</code> aborts and exits the iteration.
      * @param scope The scope in which to call the function (defaults to the <b class='link' title='ext.data.Record'>Record</b>).
      */
     public native function each(fn : Function, scope : Object = undefined) : void;
     /**
      * Gets all <b class='link' title='ext.data.Record'>records</b> modified since the last commit.  Modified records are
      * persisted across load operations (e.g., during paging). <b>Note</b>: deleted records are not
-     * included.  See also <tt><b class='link'>#pruneModifiedRecords</b></tt> and
-     * <b class='link'>ext.data.Record</b><tt><b class='link' title='ext.data.Record#markDirty'>markDirty</b>.</tt>.
+     * included.  See also <code><b class='link' title='#pruneModifiedRecords'>pruneModifiedRecords</b></code> and
+     * <b class='link'>ext.data.Record</b><code><b class='link' title='ext.data.Record#markDirty'>markDirty</b>.</code>.
      * @return ]} An array of <b class='link' title='ext.data.Record'>Records</b> containing outstanding
      * modifications.  To obtain modified fields within a modified record see
-     *<b class='link'>ext.data.Record</b><tt><b class='link' title='ext.data.Record#modified'>modified</b>.</tt>.
+     *<b class='link'>ext.data.Record</b><code><b class='link' title='ext.data.Record#modified'>modified</b>.</code>.
      */
     public native function getModifiedRecords() : Record;
     protected native function createFilterFn(property, value, anyMatch, caseSensitive) : void;
     /**
-     * Sums the value of <tt>property</tt> for each <b class='link' title='ext.data.Record'>record</b> between <tt>start</tt>
-     * and <tt>end</tt> and returns the result.
+     * Sums the value of <code>property</code> for each <b class='link' title='ext.data.Record'>record</b> between <code>start</code>
+     * and <code>end</code> and returns the result.
      * @param property A field in each record
-     * @param start The record index to start at (defaults to <tt>0</tt>)
+     * @param start The record index to start at (defaults to <code>0</code>)
      * @param end The last record index to include (defaults to length - 1)
      * @return The sum
      */
@@ -582,13 +582,13 @@ sortInfo: {
      * @param field A field on your records
      * @param value Either a string that the field should begin with, or a RegExp to test
      * against the field.
-     * @param anyMatch <tt>true</tt> to match any part not just the beginning
-     * @param caseSensitive <tt>true</tt> for case sensitive comparison
+     * @param anyMatch <code>true</code> to match any part not just the beginning
+     * @param caseSensitive <code>true</code> for case sensitive comparison
      */
     public native function filter(field : String, value : *, anyMatch : Boolean = undefined, caseSensitive : Boolean = undefined) : void;
     /**
      * Filter by a function. The specified function will be called for each
-     * Record in this Store. If the function returns <tt>true</tt> the Record is included,
+     * Record in this Store. If the function returns <code>true</code> the Record is included,
      * otherwise it is filtered out.
      * @param fn The function to be called. It will be passed the following parameters:<ul>
      * <li><b>record</b> : ext.data.Record<p class="sub-desc">The <b class='link' title='ext.data.Record'>record</b>
@@ -610,7 +610,7 @@ sortInfo: {
     public native function query(field : String, value : *, anyMatch : Boolean = undefined, caseSensitive : Boolean = undefined) : MixedCollection;
     /**
      * Query the cached records in this Store using a filtering function. The specified function
-     * will be called with each record in this Store. If the function returns <tt>true</tt> the record is
+     * will be called with each record in this Store. If the function returns <code>true</code> the record is
      * included in the results.
      * @param fn The function to be called. It will be passed the following parameters:<ul>
      * <li><b>record</b> : ext.data.Record<p class="sub-desc">The <b class='link' title='ext.data.Record'>record</b>
@@ -642,7 +642,7 @@ sortInfo: {
     public native function findExact(property : String, value : *, startIndex : Number = undefined) : Number;
     /**
      * Find the index of the first matching Record in this Store by a function.
-     * If the function returns <tt>true</tt> it is considered a match.
+     * If the function returns <code>true</code> it is considered a match.
      * @param fn The function to be called. It will be passed the following parameters:<ul>
      * <li><b>record</b> : ext.data.Record<p class="sub-desc">The <b class='link' title='ext.data.Record'>record</b>
      * to test for filtering. Access field values using <b class='link'>ext.data.Record#get</b>.</p></li>
@@ -663,8 +663,8 @@ sortInfo: {
     public native function collect(dataIndex : String, allowNull : Boolean = undefined, bypassFilter : Boolean = undefined) : Array;
     /**
      * Revert to a view of the Record cache with no filtering applied.
-     * @param suppressEvent If <tt>true</tt> the filter is cleared silently without firing the
-     * <b class='link'>#datachanged</b> event.
+     * @param suppressEvent If <code>true</code> the filter is cleared silently without firing the
+     * <b class='link' title='#datachanged'>datachanged</b> event.
      */
     public native function clearFilter(suppressEvent : Boolean) : void;
     /**
@@ -688,13 +688,11 @@ sortInfo: {
     protected native function onMetaChange(meta, rtype, o) : void;
     protected native function findInsertIndex(record) : void;
     /**
-     * Set the value for a property name in this store's <b class='link'>#baseParams</b>.  Usage:</p><pre><code>
+     * Set the value for a property name in this store's <b class='link' title='#baseParams'>baseParams</b>.  Usage:</p><pre><code>
 myStore.setBaseParam('foo', {bar:3});
 </code></pre>
      * @param name Name of the property to assign
-     * @param value Value to assign the <tt>name</tt>d property
+     * @param value Value to assign the <code>name</code>d property
      **/
     public native function setBaseParam(name : String, value : *) : void;
-/**
-*/
 }}

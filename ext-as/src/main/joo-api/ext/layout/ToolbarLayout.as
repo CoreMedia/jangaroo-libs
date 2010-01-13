@@ -24,6 +24,4 @@ public class ToolbarLayout extends ContainerLayout {
      * @property activeItem
      * @hide
      */
-/**
-*/
 }}

@@ -5,13 +5,13 @@ package ext.form {
  * <p>Sample usage:</p>
  * <pre><code>
 var myCheckboxGroup = new ext.form.CheckboxGroup({
-    id:'myGroup',
-    xtype: 'checkboxgroup',
-    fieldLabel: 'Single Column',
-    itemCls: 'x-check-group-alt',
-    // Put all controls in a single column with width 100%
-    columns: 1,
-    items: [
+    id&#58;'myGroup',
+    xtype&#58; 'checkboxgroup',
+    fieldLabel&#58; 'Single Column',
+    itemCls&#58; 'x-check-group-alt',
+    &#47;/ Put all controls in a single column with width 100%
+    columns&#58; 1,
+    items&#58; [
         {boxLabel: 'Item 1', name: 'cb-col-1'},
         {boxLabel: 'Item 2', name: 'cb-col-2', checked: true},
         {boxLabel: 'Item 3', name: 'cb-col-3'}
@@ -39,7 +39,7 @@ public function CheckboxGroup(config : Object) {
      * <ul><li><b>'auto'</b> : <p class="sub-desc">The controls will be rendered one per column on one row and the width
      * of each column will be evenly distributed based on the width of the overall field container. This is the default.</p></li>
      * <li><b>Number</b> : <p class="sub-desc">If you specific a number (e.g., 3) that number of columns will be 
-     * created and the contained controls will be automatically distributed based on the value of <b class='link'>#vertical</b>.</p></li>
+     * created and the contained controls will be automatically distributed based on the value of <b class='link' title='#vertical'>vertical</b>.</p></li>
      * <li><b>Array</b> : Object<p class="sub-desc">You can also specify an array of column widths, mixing integer
      * (fixed width) and float (percentage width) values as needed (e.g., [100, .25, .75]). Any integer values will
      * be rendered first, then any float values will be calculated as a percentage of the remaining space. Float
@@ -56,11 +56,11 @@ public function CheckboxGroup(config : Object) {
     public var vertical  : Boolean;
     /**
      * @cfg {Boolean} allowBlank False to validate that at least one item in the group is checked (defaults to true).
-     * If no items are selected at validation time, <b class='link'>#blankText</b> will be used as the error text.
+     * If no items are selected at validation time, <b class='link' title='#blankText'>blankText</b> will be used as the error text.
      */
     public var allowBlank  : Boolean;
     /**
-     * @cfg {String} blankText Error text to display if the <b class='link'>#allowBlank</b> validation fails (defaults to "You must 
+     * @cfg {String} blankText Error text to display if the <b class='link' title='#allowBlank'>allowBlank</b> validation fails (defaults to "You must 
      * select at least one item in this group")
      */
     public var blankText  : String;
@@ -81,16 +81,16 @@ public function CheckboxGroup(config : Object) {
      * <b class='link' title='ext.form.Checkbox#setValue Set the'>value(s)</b> of an item or items
      * in the group. Examples illustrating how this method may be called:
      * <pre><code>
-// call with name and value
+&#47;/ call with name and value
 myCheckboxGroup.setValue('cb-col-1', true);
-// call with an array of boolean values 
+&#47;/ call with an array of boolean values 
 myCheckboxGroup.setValue([true, false, false]);
-// call with an object literal specifying item:value pairs
+&#47;/ call with an object literal specifying item:value pairs
 myCheckboxGroup.setValue({
     'cb-col-2': false,
     'cb-col-3': true
 });
-// use comma separated string to set items with name to true (checked)
+&#47;/ use comma separated string to set items with name to true (checked)
 myCheckboxGroup.setValue('cb-col-1,cb-col-3');
      * </code></pre>
      * See <b class='link'>ext.form.Checkbox#setValue</b> for additional information.

@@ -6,7 +6,7 @@ import js.HTMLElement;
 
 /**
  * A simple class that adds a vertical separator bar between toolbar items
- * (css class:<tt>'xtb-sep'</tt>). Example usage:
+ * (css class:<code>'xtb-sep'</code>). Example usage:
  * <pre><code>
 new ext.Panel({
     tbar : [
@@ -28,6 +28,4 @@ public class Separator extends Item {
   }
 
   override protected native function onRender(container : Element, position : Element) : void;
-/**
-*/
 }}

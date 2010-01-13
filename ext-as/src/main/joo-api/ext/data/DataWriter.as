@@ -12,16 +12,16 @@ var writer = new ext.data.JsonWriter();
  * </code></pre>
  * <p>The proxy for a writer enabled store can be configured with a simple <code>url</code>:</p>
  * <pre><code>
-// Create a standard HttpProxy instance.
+&#47;/ Create a standard HttpProxy instance.
 var proxy = new ext.data.HttpProxy({
-    url: 'app.php/users'
+    url&#58; 'app.php/users'
 });
  * </code></pre>
  * <p>For finer grained control, the proxy may also be configured with an <code>api</code>:</p>
  * <pre><code>
-// Use the api specification
+&#47;/ Use the api specification
 var proxy = new ext.data.HttpProxy({
-    api: {
+    api&#58; {
         read    : 'app.php/users/read',
         create  : 'app.php/users/create',
         update  : 'app.php/users/update',
@@ -32,9 +32,9 @@ var proxy = new ext.data.HttpProxy({
  * <p>Creating a Writer enabled store:</p>
  * <pre><code>
 var store = new ext.data.Store({
-    proxy: proxy,
-    reader: reader,
-    writer: writer
+    proxy&#58; proxy,
+    reader&#58; reader,
+    writer&#58; writer
 });
  * </code></pre>
 */
@@ -55,14 +55,14 @@ public function DataWriter(meta : Object, recordType : Object) {
      */
     /**
      * @cfg {Boolean} writeAllFields
-     * <tt>false</tt> by default.  Set <tt>true</tt> to have DataWriter return ALL fields of a modified
+     * <code>false</code> by default.  Set <code>true</code> to have DataWriter return ALL fields of a modified
      * record -- not just those that changed.
-     * <tt>false</tt> to have DataWriter only request modified fields from a record.
+     * <code>false</code> to have DataWriter only request modified fields from a record.
      */
     public var writeAllFields  : Boolean;
     /**
      * @cfg {Boolean} listful
-     * <tt>false</tt> by default.  Set <tt>true</tt> to have the DataWriter <b>always</b> write HTTP params as a list,
+     * <code>false</code> by default.  Set <code>true</code> to have the DataWriter <b>always</b> write HTTP params as a list,
      * even when acting upon a single record.
      */
     public var listful  : Boolean;

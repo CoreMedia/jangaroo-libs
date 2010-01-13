@@ -87,7 +87,7 @@ public function DragDrop(id : String, sGroup : String, config : Object) {
      * A non-null property value identifies the tag as invalid. Defaults to the 
      * following value which prevents drag operations from being initiated by &lt;a> elements:<pre><code>
 {
-    A: "A"
+    A&#58; "A"
 }</code></pre>
      */
     public var invalidHandleTypes : Object;
@@ -96,7 +96,7 @@ public function DragDrop(id : String, sGroup : String, config : Object) {
      * A non-null property value identifies the ID as invalid. For example, to prevent
      * dragging from being initiated on element ID "foo", use:<pre><code>
 {
-    foo: true
+    foo&#58; true
 }</code></pre>
      */
     public var invalidHandleIds : Object;

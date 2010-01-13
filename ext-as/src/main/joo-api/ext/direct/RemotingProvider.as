@@ -13,9 +13,7 @@ package ext.direct {
  * are available on the client-side. This configuration will typically be
  * outputted by the server-side ext.Direct stack when the API description is built.</p>
  */
-    /**
-*/
-public class RemotingProvider extends JsonProvider {
+    public class RemotingProvider extends JsonProvider {
 /**
      * @cfg {Object} actions
      * Object literal defining the server side actions and methods. For example, if
@@ -29,8 +27,8 @@ public class RemotingProvider extends JsonProvider {
     },{
         "name":"multiply",// name of method
         "len":2           // The number of parameters that will be used to create an
-                          // array of data to send to the server side function.
-                          // Ensure the server sends back a Number, not a String. 
+                          &#47;/ array of data to send to the server side function.
+                          &#47;/ Ensure the server sends back a Number, not a String. 
     },{
         "name":"doForm",
         "formHandler":true, // direct the client to use specialized form handling method 
@@ -44,9 +42,9 @@ public class RemotingProvider extends JsonProvider {
      * <pre><code>
 TestAction.multiply(
     2, 4, // pass two arguments to server, so specify len=2
-    // callback function after the server is called
-    // result: the result returned by the server
-    //      e: ext.Direct.RemotingEvent object
+    &#47;/ callback function after the server is called
+    &#47;/ result: the result returned by the server
+    &#47;/      e: ext.Direct.RemotingEvent object
     function(result, e){
         var t = e.getTransaction();
         var action = t.action; // server side Class called
@@ -62,7 +60,7 @@ TestAction.multiply(
      * </code></pre>
      * In the example above, the server side "multiply" function will be passed two
      * arguments (2 and 4).  The "multiply" method should return the value 8 which will be
-     * available as the <tt>result</tt> in the example above. 
+     * available as the <code>result</code> in the example above. 
      */
     /**
      * @cfg {String/Object} namespace
@@ -77,13 +75,13 @@ TestAction.multiply(
     /**
      * @cfg {String} enableUrlEncode
      * Specify which param will hold the arguments for the method.
-     * Defaults to <tt>'data'</tt>.
+     * Defaults to <code>'data'</code>.
      */
     /**
      * @cfg {Number/Boolean} enableBuffer
-     * <p><tt>true</tt> or <tt>false</tt> to enable or disable combining of method
+     * <p><code>true</code> or <code>false</code> to enable or disable combining of method
      * calls. If a number is specified this is the amount of time in milliseconds
-     * to wait before sending a batched request (defaults to <tt>10</tt>).</p>
+     * to wait before sending a batched request (defaults to <code>10</code>).</p>
      * <br><p>Calls which are received within the specified timeframe will be
      * concatenated together and sent in a single request, optimizing the
      * application by reducing the amount of round trips that have to be made

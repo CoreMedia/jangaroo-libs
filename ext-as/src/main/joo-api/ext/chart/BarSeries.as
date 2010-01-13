@@ -10,6 +10,4 @@ public function BarSeries() {
   super();
 }
 //  public var type;
-/**
-*/
 }}

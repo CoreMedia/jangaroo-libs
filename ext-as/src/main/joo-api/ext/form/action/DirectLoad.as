@@ -4,41 +4,41 @@ package ext.form.action {
  * of ext.Direct to load a submit a form through ext.Direct.
  * <pre><code>
 var myFormPanel = new ext.form.FormPanel({
-    // configs for FormPanel
-    title: 'Basic Information',
-    border: false,
-    padding: 10,
-    buttons:[{
-        text: 'Submit',
-        handler: function(){
+    &#47;/ configs for FormPanel
+    title&#58; 'Basic Information',
+    border&#58; false,
+    padding&#58; 10,
+    buttons&#58;[{
+        text&#58; 'Submit',
+        handler&#58; function(){
             basicInfo.getForm().submit({
-                params: {
-                    uid: 5
+                params&#58; {
+                    uid&#58; 5
                 }
             });
         }
     }],
     
-    // configs apply to child items
-    defaults: {anchor: '100%'},
-    defaultType: 'textfield',
-    items: [
-        // form fields go here
+    &#47;/ configs apply to child items
+    defaults&#58; {anchor: '100%'},
+    defaultType&#58; 'textfield',
+    items&#58; [
+        &#47;/ form fields go here
     ],
     
-    // configs for BasicForm
-    api: {
-        load: Profile.getBasicInfo,
-        // The server-side must mark the submit handler as a 'formHandler'
-        submit: Profile.updateBasicInfo
+    &#47;/ configs for BasicForm
+    api&#58; {
+        load&#58; Profile.getBasicInfo,
+        &#47;/ The server-side must mark the submit handler as a 'formHandler'
+        submit&#58; Profile.updateBasicInfo
     },    
-    paramOrder: ['uid']
+    paramOrder&#58; ['uid']
 });
 
-// load the form
+&#47;/ load the form
 myFormPanel.getForm().load({
-    params: {
-        uid: 5
+    params&#58; {
+        uid&#58; 5
     }
 });
  * </code></pre>
@@ -48,6 +48,4 @@ public class DirectLoad extends Load {
     override public native function run(options) : void;
     override protected native function getParams() : void;
     override protected native function processResponse(result) : void;
-/**
-*/
 }}

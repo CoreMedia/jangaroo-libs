@@ -29,9 +29,9 @@ public class GridDragZone extends DragZone {
    */
     override public native function getDragData(e : EventObject) : Object;
     /**
-     * <p>The provided implementation of the onInitDrag method. Sets the <tt>innerHTML</tt> of the drag proxy which provides the "picture"
+     * <p>The provided implementation of the onInitDrag method. Sets the <code>innerHTML</code> of the drag proxy which provides the "picture"
      * of the data being dragged.</p>
-     * <p>The <tt>innerHTML</tt> data is found by calling the owning GridPanel's <b class='link' title='Ext.grid.GridPanel#getDragDropText'>getDragDropText</b>.</p>
+     * <p>The <code>innerHTML</code> data is found by calling the owning GridPanel's <b class='link' title='Ext.grid.GridPanel#getDragDropText'>getDragDropText</b>.</p>
      */
     override protected native function onInitDrag(x : Number, y : Number) : Boolean;
     /**

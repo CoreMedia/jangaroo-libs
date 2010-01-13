@@ -21,6 +21,4 @@ public class BasicLayoutAdapter extends Observable {
      * @param onComplete A function to be invoked when resizing is complete
      */
     public native function setElementSize(s : SplitBar, newSize : Number, onComplete : Function) : void;
-/** 
-*/
 }}

@@ -16,14 +16,14 @@ public function Shadow(config : Object) {
     /**
      * @cfg {String} mode
      * The shadow display mode.  Supports the following options:<div class="mdetail-params"><ul>
-     * <li><b><tt>sides</tt></b> : Shadow displays on both sides and bottom only</li>
-     * <li><b><tt>frame</tt></b> : Shadow displays equally on all four sides</li>
-     * <li><b><tt>drop</tt></b> : Traditional bottom-right drop shadow</li>
+     * <li><b><code>sides</code></b> : Shadow displays on both sides and bottom only</li>
+     * <li><b><code>frame</code></b> : Shadow displays equally on all four sides</li>
+     * <li><b><code>drop</code></b> : Traditional bottom-right drop shadow</li>
      * </ul></div>
      */
     /**
      * @cfg {String} offset
-     * The number of pixels to offset the shadow from the element (defaults to <tt>4</tt>)
+     * The number of pixels to offset the shadow from the element (defaults to <code>4</code>)
      */
     public var offset : String;
     protected var defaultMode;

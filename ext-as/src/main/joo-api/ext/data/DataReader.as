@@ -62,6 +62,4 @@ public function DataReader(meta : Object, recordType : *) {
      * @return 
      */
     public native function isData(data : Object) : Boolean;
-/**
-*/
 }}

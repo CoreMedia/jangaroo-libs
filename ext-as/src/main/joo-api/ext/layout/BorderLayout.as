@@ -5,7 +5,7 @@ package ext.layout {
  * nested panels, automatic <b class='link' title='Ext.layout.borderlayout.Region#split'>split</b> bars between
  * <b class='link' title='Ext.layout.borderlayout.Region#borderlayout.Region'>regions</b> and built-in
  * <b class='link' title='Ext.layout.borderlayout.Region#collapsible expanding and'>collapsing</b> of regions.</p>
- * <p>This class is intended to be extended or created via the <tt>layout:'border'</tt>
+ * <p>This class is intended to be extended or created via the <code>layout:'border'</code>
  * <b class='link'>ext.Container#layout</b> config, and should generally not need to be created directly
  * via the new keyword.</p>
  * <p>BorderLayout does not have any direct config options (other than inherited ones).
@@ -29,7 +29,7 @@ var myBorderPanel = new ext.Panel({
         <b class='link' title='ext.SplitBar#maxSize'>maxSize</b>: 150,
         <b class='link' title='Ext.layout.borderlayout.Region#margins'>margins</b>: '0 5 5 5'
     },{
-        // xtype: 'panel' implied by default
+        &#47;/ xtype: 'panel' implied by default
         <b class='link' title='ext.Panel#title'>title</b>: 'West Region is collapsible',
         <b class='link' title='Ext.layout.borderlayout.Region#borderlayout.Region'>region</b>:'west',
         <b class='link' title='Ext.layout.borderlayout.Region#margins'>margins</b>: '5 0 0 5',
@@ -49,12 +49,12 @@ var myBorderPanel = new ext.Panel({
 });
 </code></pre>
  * <p><b><u>Notes</u></b>:</p><div class="mdetail-params"><ul>
- * <li>Any container using the BorderLayout <b>must</b> have a child item with <tt>region:'center'</tt>.
+ * <li>Any container using the BorderLayout <b>must</b> have a child item with <code>region:'center'</code>.
  * The child item in the center region will always be resized to fill the remaining space not used by
  * the other regions in the layout.</li>
- * <li>Any child items with a region of <tt>west</tt> or <tt>east</tt> must have <tt>width</tt> defined
+ * <li>Any child items with a region of <code>west</code> or <code>east</code> must have <code>width</code> defined
  * (an integer representing the number of pixels that the region should take up).</li>
- * <li>Any child items with a region of <tt>north</tt> or <tt>south</tt> must have <tt>height</tt> defined.</li>
+ * <li>Any child items with a region of <code>north</code> or <code>south</code> must have <code>height</code> defined.</li>
  * <li>The regions of a BorderLayout are <b>fixed at render time</b> and thereafter, its child Components may not be removed or added</b>.  To add/remove
  * Components within a BorderLayout, have them wrapped by an additional Container which is directly
  * managed by the BorderLayout.  If the region is to be collapsible, the Container used directly
@@ -64,8 +64,8 @@ var myBorderPanel = new ext.Panel({
 wrc = <b class='link' title='Ext#getCmp'>Ext.getCmp</b>('west-region-container');
 wrc.<b class='link' title='ext.Panel#removeAll'>removeAll</b>();
 wrc.<b class='link' title='ext.Container#add'>add</b>({
-    title: 'Added Panel',
-    html: 'Some content'
+    title&#58; 'Added Panel',
+    html&#58; 'Some content'
 });
 wrc.<b class='link' title='ext.Container#doLayout'>doLayout</b>();
  * </code></pre></div>

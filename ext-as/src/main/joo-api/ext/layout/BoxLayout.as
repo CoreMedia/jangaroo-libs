@@ -3,21 +3,19 @@ package ext.layout {
 /**
  * <p>Base Class for HBoxLayout and VBoxLayout Classes. Generally it should not need to be used directly.</p>
  */
-    /**
-*/
-public class BoxLayout extends ContainerLayout {
+    public class BoxLayout extends ContainerLayout {
 /**
      * @cfg {Object} defaultMargins
-     * <p>If the individual contained items do not have a <tt>margins</tt>
+     * <p>If the individual contained items do not have a <code>margins</code>
      * property specified, the default margins from this property will be
      * applied to each item.</p>
      * <br><p>This property may be specified as an object containing margins
      * to apply in the format:</p><pre><code>
 {
-    top: (top margin),
-    right: (right margin),
-    bottom: (bottom margin),
-    left: (left margin)
+    top&#58; (top margin),
+    right&#58; (right margin),
+    bottom&#58; (bottom margin),
+    left&#58; (left margin)
 }</code></pre>
      * <p>This property may also be specified as a string containing
      * space-separated, numeric margin values. The order of the sides associated
@@ -38,7 +36,7 @@ public class BoxLayout extends ContainerLayout {
     public var defaultMargins ;
     /**
      * @cfg {String} padding
-     * Defaults to <tt>'0'</tt>. Sets the padding to be applied to all child items managed by this
+     * Defaults to <code>'0'</code>. Sets the padding to be applied to all child items managed by this
      * container's layout. 
      */
     public var padding  : String;
@@ -56,6 +54,4 @@ public class BoxLayout extends ContainerLayout {
      * @property activeItem
      * @hide
      */
-/**
-*/
 }}

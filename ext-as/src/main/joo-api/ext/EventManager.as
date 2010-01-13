@@ -9,7 +9,7 @@ public class EventManager {
  * @singleton
  */
 	    /**
-	     * Appends an event handler to an element.  The shorthand version <b class='link'>#on</b> is equivalent.  Typically you will
+	     * Appends an event handler to an element.  The shorthand version <b class='link' title='#on'>on</b> is equivalent.  Typically you will
 	     * use <b class='link'>ext.Element#addListener</b> directly on an Element in favor of calling this version.
 	     * @param el The html element or id to assign the event handler to
 	     * @param eventName The type of event to listen for
@@ -17,7 +17,7 @@ public class EventManager {
 	     * the following parameters:<ul>
 	     * <li>evt : EventObject<div class="sub-desc">The <b class='link' title='ext.EventObject'>EventObject</b> describing the event.</div></li>
 	     * <li>t : Element<div class="sub-desc">The <b class='link' title='ext.Element'>Element</b> which was the target of the event.
-	     * Note that this may be filtered by using the <tt>delegate</tt> option.</div></li>
+	     * Note that this may be filtered by using the <code>delegate</code> option.</div></li>
 	     * <li>o : Object<div class="sub-desc">The options object from the addListener call.</div></li>
 	     * </ul>
 	     * @param scope The scope (<b><code>this</code></b> reference) in which the handler function is executed. <b>Defaults to the Element</b>.
@@ -40,7 +40,7 @@ public class EventManager {
 	     */
 		public static native function addListener(el : *, eventName : String, handler : Function, scope : Object = undefined, options : Object = undefined) : void;
         /**
-         * Removes an event handler from an element.  The shorthand version <b class='link'>#un</b> is equivalent.  Typically
+         * Removes an event handler from an element.  The shorthand version <b class='link' title='#un'>un</b> is equivalent.  Typically
          * you will use <b class='link'>ext.Element#removeListener</b> directly on an Element in favor of calling this version.
          * @param el The id or html element from which to remove the event
          * @param eventName The type of event
@@ -58,24 +58,24 @@ public class EventManager {
          * accessed shorthanded as Ext.onReady().
          * @param fn The method the event invokes
          * @param scope An object that becomes the scope of the handler
-         * @param options An object containing standard <b class='link'>#addListener</b> options
+         * @param options An object containing standard <b class='link' title='#addListener'>addListener</b> options
          */
         public static native function onDocumentReady(fn : Function, scope : Object = undefined, options : Boolean = undefined) : void;
         public static var elHash ;
      /**
-     * Appends an event handler to an element.  Shorthand for <b class='link'>#addListener</b>.
+     * Appends an event handler to an element.  Shorthand for <b class='link' title='#addListener'>addListener</b>.
      * @param el The html element or id to assign the event handler to
      * @param eventName The type of event to listen for
      * @param handler The handler function the event invokes
      * @param scope The scope in which to execute the handler
      * function (the handler function's "this" context)
-     * @param options An object containing standard <b class='link'>#addListener</b> options
+     * @param options An object containing standard <b class='link' title='#addListener'>addListener</b> options
      * @member ext.EventManager
      * @method on
      */
   public static native function on(el : *, eventName : String, handler : Function, scope : Object = undefined, options : Object = undefined) : void;
     /**
-     * Removes an event handler from an element.  Shorthand for <b class='link'>#removeListener</b>.
+     * Removes an event handler from an element.  Shorthand for <b class='link' title='#removeListener'>removeListener</b>.
      * @param el The id or html element from which to remove the event
      * @param eventName The type of event
      * @param fn The handler function to remove
@@ -84,8 +84,6 @@ public class EventManager {
      * @method un
      */
   public static native function un(el : *, eventName : String, fn : Function, scope) : void;
-/**
- */
 	    protected native function doResizeEvent() : void;
 	    /**
 	     * Fires when the window is resized and provides resize event buffering (50 milliseconds), passes new viewport width and height to handlers.

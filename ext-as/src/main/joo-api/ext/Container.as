@@ -9,38 +9,38 @@ import ext.util.MixedCollection;
  * <p>The most commonly used Container classes are <b class='link'>ext.Panel</b>, <b class='link'>ext.Window</b> and <b class='link'>ext.TabPanel</b>.
  * If you do not need the capabilities offered by the aforementioned classes you can create a lightweight
  * Container to be encapsulated by an HTML element to your specifications by using the
- * <tt><b class='link' title='ext.Component#autoEl'>autoEl</b></tt> config option. This is a useful technique when creating
+ * <code><b class='link' title='ext.Component#autoEl'>autoEl</b></code> config option. This is a useful technique when creating
  * embedded <b class='link' title='Ext.layout.ColumnLayout'>column</b> layouts inside <b class='link' title='ext.form.FormPanel'>FormPanels</b>
  * for example.</p>
  *
  * <p>The code below illustrates both how to explicitly create a Container, and how to implicitly
- * create one using the <b><tt>'container'</tt></b> xtype:<pre><code>
-// explicitly create a Container
+ * create one using the <b><code>'container'</code></b> xtype:<pre><code>
+&#47;/ explicitly create a Container
 var embeddedColumns = new ext.Container({
-    autoEl: 'div',  // This is the default
-    layout: 'column',
-    defaults: {
-        // implicitly create Container by specifying xtype
-        xtype: 'container',
-        autoEl: 'div', // This is the default.
-        layout: 'form',
-        columnWidth: 0.5,
-        style: {
-            padding: '10px'
+    autoEl&#58; 'div',  // This is the default
+    layout&#58; 'column',
+    defaults&#58; {
+        &#47;/ implicitly create Container by specifying xtype
+        xtype&#58; 'container',
+        autoEl&#58; 'div', // This is the default.
+        layout&#58; 'form',
+        columnWidth&#58; 0.5,
+        style&#58; {
+            padding&#58; '10px'
         }
     },
-//  The two items below will be ext.Containers, each encapsulated by a &lt;DIV> element.
-    items: [{
-        items: {
-            xtype: 'datefield',
-            name: 'startDate',
-            fieldLabel: 'Start date'
+&#47;/  The two items below will be ext.Containers, each encapsulated by a &lt;DIV> element.
+    items&#58; [{
+        items&#58; {
+            xtype&#58; 'datefield',
+            name&#58; 'startDate',
+            fieldLabel&#58; 'Start date'
         }
     }, {
-        items: {
-            xtype: 'datefield',
-            name: 'endDate',
-            fieldLabel: 'End date'
+        items&#58; {
+            xtype&#58; 'datefield',
+            name&#58; 'endDate',
+            fieldLabel&#58; 'End date'
         }
     }]
 });</code></pre></p>
@@ -48,18 +48,18 @@ var embeddedColumns = new ext.Container({
  * <p><u><b>Layout</b></u></p>
  * <p>Container classes delegate the rendering of child Components to a layout
  * manager class which must be configured into the Container using the
- * <code><b class='link'>#layout</b></code> configuration property.</p>
- * <p>When either specifying child <code><b class='link'>#items</b></code> of a Container,
+ * <code><b class='link' title='#layout'>layout</b></code> configuration property.</p>
+ * <p>When either specifying child <code><b class='link' title='#items'>items</b></code> of a Container,
  * or dynamically <b class='link' title='#add'>adding</b> Components to a Container, remember to
  * consider how you wish the Container to arrange those child elements, and
  * whether those child elements need to be sized using one of Ext's built-in
- * <b><code><b class='link'>#layout</b></code></b> schemes. By default, Containers use the
+ * <b><code><b class='link' title='#layout'>layout</b></code></b> schemes. By default, Containers use the
  * <b class='link' title='Ext.layout.ContainerLayout'>ContainerLayout</b> scheme which only
  * renders child components, appending them one after the other inside the
  * Container, and <b>does not apply any sizing</b> at all.</p>
  * <p>A common mistake is when a developer neglects to specify a
- * <b><code><b class='link'>#layout</b></code></b> (e.g. widgets like GridPanels or
- * TreePanels are added to Containers for which no <tt><b class='link'>#layout</b></tt>
+ * <b><code><b class='link' title='#layout'>layout</b></code></b> (e.g. widgets like GridPanels or
+ * TreePanels are added to Containers for which no <code><b class='link' title='#layout'>layout</b></code>
  * has been specified). If a Container is left to use the default
  * <b class='link' title='Ext.layout.ContainerLayout'>ContainerLayout</b> scheme, none of its
  * child components will be resized, or changed in any way when the Container
@@ -68,11 +68,11 @@ var embeddedColumns = new ext.Container({
  * Those that do include <b class='link'>Ext.layout.CardLayout</b>,
  * <b class='link'>Ext.layout.AnchorLayout</b>, <b class='link'>Ext.layout.FormLayout</b>, and
  * <b class='link'>Ext.layout.TableLayout</b>. For example:<pre><code>
-//  Create the GridPanel.
+&#47;/  Create the GridPanel.
 var myNewGrid = new Ext.grid.GridPanel({
-    store: myStore,
-    columns: myColumnModel,
-    title: 'Results', // the title becomes the title of the tab
+    store&#58; myStore,
+    columns&#58; myColumnModel,
+    title&#58; 'Results', // the title becomes the title of the tab
 });
 
 myTabPanel.add(myNewGrid); // <b class='link'>ext.TabPanel</b> implicitly uses <b class='link' title='Ext.layout.CardLayout'>CardLayout</b>
@@ -85,10 +85,10 @@ myTabPanel.<b class='link' title='ext.TabPanel#setActiveTab'>setActiveTab</b>(my
  * <p><b><u>Overnesting is a common problem</u></b>.
  * An example of overnesting occurs when a GridPanel is added to a TabPanel
  * by wrapping the GridPanel <i>inside</i> a wrapping Panel (that has no
- * <tt><b class='link'>#layout</b></tt> specified) and then add that wrapping Panel
+ * <code><b class='link' title='#layout'>layout</b></code> specified) and then add that wrapping Panel
  * to the TabPanel. The point to realize is that a GridPanel <b>is</b> a
  * Component which can be added directly to a Container. If the wrapping Panel
- * has no <tt><b class='link'>#layout</b></tt> configuration, then the overnested
+ * has no <code><b class='link' title='#layout'>layout</b></code> configuration, then the overnested
  * GridPanel will not be sized as expected.<p>
 </code></pre>
  *
@@ -98,27 +98,27 @@ myTabPanel.<b class='link' title='ext.TabPanel#setActiveTab'>setActiveTab</b>(my
  * An example of adding a GridPanel to a TabPanel where the GridPanel is generated by the server
  * based on certain parameters:
  * </p><pre><code>
-// execute an Ajax request to invoke server side script:
+&#47;/ execute an Ajax request to invoke server side script:
 ext.Ajax.request({
-    url: 'gen-invoice-grid.php',
-    // send additional parameters to instruct server script
-    params: {
-        startDate: Ext.getCmp('start-date').getValue(),
-        endDate: Ext.getCmp('end-date').getValue()
+    url&#58; 'gen-invoice-grid.php',
+    &#47;/ send additional parameters to instruct server script
+    params&#58; {
+        startDate&#58; Ext.getCmp('start-date').getValue(),
+        endDate&#58; Ext.getCmp('end-date').getValue()
     },
-    // process the response object to add it to the TabPanel:
-    success: function(xhr) {
+    &#47;/ process the response object to add it to the TabPanel:
+    success&#58; function(xhr) {
         var newComponent = eval(xhr.responseText); // see discussion below
         myTabPanel.add(newComponent); // add the component to the TabPanel
         myTabPanel.setActiveTab(newComponent);
     },
-    failure: function() {
+    failure&#58; function() {
         ext.Msg.alert("Grid create failed", "Server communication failure");
     }
 });
 </code></pre>
  * <p>The server script needs to return an executable Javascript statement which, when processed
- * using <tt>eval()</tt>, will return either a config object with an <b class='link' title='ext.Component#xtype'>xtype</b>,
+ * using <code>eval()</code>, will return either a config object with an <b class='link' title='ext.Component#xtype'>xtype</b>,
  * or an instantiated Component. The server might return this for example:</p><pre><code>
 (function() {
     function formatDate(value){
@@ -126,15 +126,15 @@ ext.Ajax.request({
     };
 
     var store = new ext.data.Store({
-        url: 'get-invoice-data.php',
-        baseParams: {
-            startDate: '01/01/2008',
-            endDate: '01/31/2008'
+        url&#58; 'get-invoice-data.php',
+        baseParams&#58; {
+            startDate&#58; '01/01/2008',
+            endDate&#58; '01/31/2008'
         },
-        reader: new ext.data.JsonReader({
-            record: 'transaction',
-            idProperty: 'id',
-            totalRecords: 'total'
+        reader&#58; new ext.data.JsonReader({
+            record&#58; 'transaction',
+            idProperty&#58; 'id',
+            totalRecords&#58; 'total'
         }, [
            'customer',
            'invNo',
@@ -144,10 +144,10 @@ ext.Ajax.request({
     });
 
     var grid = new Ext.grid.GridPanel({
-        title: 'Invoice Report',
-        bbar: new ext.PagingToolbar(store),
-        store: store,
-        columns: [
+        title&#58; 'Invoice Report',
+        bbar&#58; new ext.PagingToolbar(store),
+        store&#58; store,
+        columns&#58; [
             {header: "Customer", width: 250, dataIndex: 'customer', sortable: true},
             {header: "Invoice Number", width: 120, dataIndex: 'invNo', sortable: true},
             {header: "Invoice Date", width: 100, dataIndex: 'date', renderer: formatDate, sortable: true},
@@ -158,10 +158,10 @@ ext.Ajax.request({
     return grid;  // return instantiated component
 })();
 </code></pre>
- * <p>When the above code fragment is passed through the <tt>eval</tt> function in the success handler
+ * <p>When the above code fragment is passed through the <code>eval</code> function in the success handler
  * of the Ajax request, the code is executed by the Javascript processor, and the anonymous function
  * runs, and returns the instantiated grid component.</p>
- * <p>Note: since the code above is <i>generated</i> by a server script, the <tt>baseParams</tt> for
+ * <p>Note: since the code above is <i>generated</i> by a server script, the <code>baseParams</code> for
  * the Store, the metadata to allow generation of the Record layout, and the ColumnModel
  * can all be generated into the code since these are all known on the server.</p>
  *
@@ -176,7 +176,7 @@ public class Container extends BoxComponent {
   /**
      * @cfg {Boolean} monitorResize
      * True to automatically monitor window resize events to handle anything that is sensitive to the current size
-     * of the viewport.  This value is typically managed by the chosen <code><b class='link'>#layout</b></code> and should not need
+     * of the viewport.  This value is typically managed by the chosen <code><b class='link' title='#layout'>layout</b></code> and should not need
      * to be set manually.
      */
     /**
@@ -187,14 +187,14 @@ public class Container extends BoxComponent {
      * user interactions, <b>you must specify a layout manager</b> which
      * creates and manages the type of layout you have in mind.  For example:<pre><code>
 new ext.Window({
-    width:300, height: 300,
-    layout: 'fit', // explicitly set layout manager: override the default (layout:'auto')
-    items: [{
-        title: 'Panel inside a Window'
+    width&#58;300, height: 300,
+    layout&#58; 'fit', // explicitly set layout manager: override the default (layout:'auto')
+    items&#58; [{
+        title&#58; 'Panel inside a Window'
     }]
 }).show();
      * </code></pre>
-     * <p>Omitting the <b class='link'>#layout</b> config means that the
+     * <p>Omitting the <b class='link' title='#layout'>layout</b> config means that the
      * <b class='link' title='Ext.layout.ContainerLayout default layout'>manager</b> will be used which does
      * nothing but render child components sequentially into the Container (no sizing or
      * positioning will be performed in this situation).</p>
@@ -206,38 +206,38 @@ new ext.Window({
      * <div><ul class="mdetail-params">
      * <li>Example usage:</li>
 <pre><code>
-layout: {
-    type: 'vbox',
-    padding: '5',
-    align: 'left'
+layout&#58; {
+    type&#58; 'vbox',
+    padding&#58; '5',
+    align&#58; 'left'
 }
 </code></pre>
      *
-     * <li><tt><b>type</b></tt></li>
+     * <li><code><b>type</b></code></li>
      * <br/><p>The layout type to be used for this container.  If not specified,
      * a default <b class='link'>Ext.layout.ContainerLayout</b> will be created and used.</p>
-     * <br/><p>Valid layout <tt>type</tt> values are:</p>
+     * <br/><p>Valid layout <code>type</code> values are:</p>
      * <div class="sub-desc"><ul class="mdetail-params">
-     * <li><tt><b class='link' title='Ext.layout.AbsoluteLayout'>absolute</b></tt></li>
-     * <li><tt><b class='link' title='Ext.layout.AccordionLayout'>accordion</b></tt></li>
-     * <li><tt><b class='link' title='Ext.layout.AnchorLayout'>anchor</b></tt></li>
-     * <li><tt><b class='link' title='Ext.layout.ContainerLayout'>auto</b></tt> &nbsp;&nbsp;&nbsp; <b>Default</b></li>
-     * <li><tt><b class='link' title='Ext.layout.BorderLayout'>border</b></tt></li>
-     * <li><tt><b class='link' title='Ext.layout.CardLayout'>card</b></tt></li>
-     * <li><tt><b class='link' title='Ext.layout.ColumnLayout'>column</b></tt></li>
-     * <li><tt><b class='link' title='Ext.layout.FitLayout'>fit</b></tt></li>
-     * <li><tt><b class='link' title='Ext.layout.FormLayout'>form</b></tt></li>
-     * <li><tt><b class='link' title='Ext.layout.HBoxLayout'>hbox</b></tt></li>
-     * <li><tt><b class='link' title='Ext.layout.MenuLayout'>menu</b></tt></li>
-     * <li><tt><b class='link' title='Ext.layout.TableLayout'>table</b></tt></li>
-     * <li><tt><b class='link' title='Ext.layout.ToolbarLayout'>toolbar</b></tt></li>
-     * <li><tt><b class='link' title='Ext.layout.VBoxLayout'>vbox</b></tt></li>
+     * <li><code><b class='link' title='Ext.layout.AbsoluteLayout'>absolute</b></code></li>
+     * <li><code><b class='link' title='Ext.layout.AccordionLayout'>accordion</b></code></li>
+     * <li><code><b class='link' title='Ext.layout.AnchorLayout'>anchor</b></code></li>
+     * <li><code><b class='link' title='Ext.layout.ContainerLayout'>auto</b></code> &nbsp;&nbsp;&nbsp; <b>Default</b></li>
+     * <li><code><b class='link' title='Ext.layout.BorderLayout'>border</b></code></li>
+     * <li><code><b class='link' title='Ext.layout.CardLayout'>card</b></code></li>
+     * <li><code><b class='link' title='Ext.layout.ColumnLayout'>column</b></code></li>
+     * <li><code><b class='link' title='Ext.layout.FitLayout'>fit</b></code></li>
+     * <li><code><b class='link' title='Ext.layout.FormLayout'>form</b></code></li>
+     * <li><code><b class='link' title='Ext.layout.HBoxLayout'>hbox</b></code></li>
+     * <li><code><b class='link' title='Ext.layout.MenuLayout'>menu</b></code></li>
+     * <li><code><b class='link' title='Ext.layout.TableLayout'>table</b></code></li>
+     * <li><code><b class='link' title='Ext.layout.ToolbarLayout'>toolbar</b></code></li>
+     * <li><code><b class='link' title='Ext.layout.VBoxLayout'>vbox</b></code></li>
      * </ul></div>
      *
      * <li>Layout specific configuration properties</li>
      * <br/><p>Additional layout specific configuration properties may also be
      * specified. For complete details regarding the valid config options for
-     * each layout type, see the layout class corresponding to the <tt>type</tt>
+     * each layout type, see the layout class corresponding to the <code>type</code>
      * specified.</p>
      *
      * </ul></div>
@@ -246,25 +246,25 @@ layout: {
      * <div><ul class="mdetail-params">
      * <li>Example usage:</li>
 <pre><code>
-layout: 'vbox',
-layoutConfig: {
-    padding: '5',
-    align: 'left'
+layout&#58; 'vbox',
+layoutConfig&#58; {
+    padding&#58; '5',
+    align&#58; 'left'
 }
 </code></pre>
-     * <li><tt><b>layout</b></tt></li>
-     * <br/><p>The layout <tt>type</tt> to be used for this container (see list
+     * <li><code><b>layout</b></code></li>
+     * <br/><p>The layout <code>type</code> to be used for this container (see list
      * of valid layout type values above).</p><br/>
-     * <li><tt><b class='link'>#layoutConfig</b></tt></li>
+     * <li><code><b class='link' title='#layoutConfig'>layoutConfig</b></code></li>
      * <br/><p>Additional layout specific configuration properties. For complete
      * details regarding the valid config options for each layout type, see the
-     * layout class corresponding to the <tt>layout</tt> specified.</p>
+     * layout class corresponding to the <code>layout</code> specified.</p>
      * </ul></div></ul></div>
      */
     /**
      * @cfg {Object} layoutConfig
      * This is a config object containing properties specific to the chosen
-     * <b><code><b class='link'>#layout</b></code></b> if <b><code><b class='link'>#layout</b></code></b>
+     * <b><code><b class='link' title='#layout'>layout</b></code></b> if <b><code><b class='link' title='#layout'>layout</b></code></b>
      * has been specified as a <i>string</i>.</p>
      */
     /**
@@ -284,17 +284,17 @@ layoutConfig: {
      */
     /**
      * @cfg {Object/Array} items
-     * <pre><b>** IMPORTANT</b>: be sure to specify a <b><code><b class='link'>#layout</b></code> ! **</b></pre>
+     * <pre><b>** IMPORTANT</b>: be sure to specify a <b><code><b class='link' title='#layout'>layout</b></code> ! **</b></pre>
      * <p>A single item, or an array of child Components to be added to this container,
      * for example:</p>
      * <pre><code>
-// specifying a single item
-items: {...},
-layout: 'fit',    // specify a layout!
+&#47;/ specifying a single item
+items&#58; {...},
+layout&#58; 'fit',    // specify a layout!
 
-// specifying multiple items
-items: [{...}, {...}],
-layout: 'anchor', // specify a layout!
+&#47;/ specifying multiple items
+items&#58; [{...}, {...}],
+layout&#58; 'anchor', // specify a layout!
      * </code></pre>
      * <p>Each item may be:</p>
      * <div><ul class="mdetail-params">
@@ -307,7 +307,7 @@ layout: 'anchor', // specify a layout!
      * desired and should be chosen from one of the available xtypes as listed
      * in <b class='link'>ext.Component</b>.</li>
      * <li>If an <code><b class='link' title='ext.Component#xtype'>xtype</b></code> is not explicitly
-     * specified, the <b class='link'>#defaultType</b> for that Container is used.</li>
+     * specified, the <b class='link' title='#defaultType'>defaultType</b> for that Container is used.</li>
      * <li>will be "lazily instanciated", avoiding the overhead of constructing a fully
      * instanciated Component object</li>
      * </ul></div></ul></div>
@@ -315,32 +315,32 @@ layout: 'anchor', // specify a layout!
      * <div><ul class="mdetail-params">
      * <li>Ext uses lazy rendering. Child Components will only be rendered
      * should it become necessary. Items are automatically laid out when they are first
-     * shown (no sizing is done while hidden), or in response to a <b class='link'>#doLayout</b> call.</li>
+     * shown (no sizing is done while hidden), or in response to a <b class='link' title='#doLayout'>doLayout</b> call.</li>
      * <li>Do not specify <code><b class='link' title='ext.Panel#contentEl'>contentEl</b></code>/
      * <code><b class='link' title='ext.Panel#html'>html</b></code> with <code>items</code>.</li>
      * </ul></div>
      */
     /**
      * @cfg {Object} defaults
-     * <p>A config object that will be applied to all components added to this container either via the <b class='link'>#items</b>
-     * config or via the <b class='link'>#add</b> or <b class='link'>#insert</b> methods.  The <tt>defaults</tt> config can contain any
+     * <p>A config object that will be applied to all components added to this container either via the <b class='link' title='#items'>items</b>
+     * config or via the <b class='link' title='#add'>add</b> or <b class='link' title='#insert'>insert</b> methods.  The <code>defaults</code> config can contain any
      * number of name/value property pairs to be added to each item, and should be valid for the types of items
      * being added to the container.  For example, to automatically apply padding to the body of each of a set of
-     * contained <b class='link' title='ext.Panel} items, you could pass:'><tt>defaults: {bodyStyle:'padding:15px'</b></tt>.</p><br/>
-     * <p><b>Note</b>: <tt>defaults</tt> will not be applied to config objects if the option is already specified.
+     * contained <b class='link' title='ext.Panel} items, you could pass:'><code>defaults: {bodyStyle:'padding:15px'</b></code>.</p><br/>
+     * <p><b>Note</b>: <code>defaults</code> will not be applied to config objects if the option is already specified.
      * For example:</p><pre><code>
-defaults: {               // defaults are applied to items, not the container
-    autoScroll:true
+defaults&#58; {               // defaults are applied to items, not the container
+    autoScroll&#58;true
 },
-items: [
+items&#58; [
     {
-        xtype: 'panel',   // defaults <b>do not</b> have precedence over
-        id: 'panel1',     // options in config objects, so the defaults
-        autoScroll: false // will not be applied here, panel1 will be autoScroll:false
+        xtype&#58; 'panel',   // defaults <b>do not</b> have precedence over
+        id&#58; 'panel1',     // options in config objects, so the defaults
+        autoScroll&#58; false // will not be applied here, panel1 will be autoScroll:false
     },
     new ext.Panel({       // defaults <b>do</b> have precedence over options
-        id: 'panel2',     // options in components, so the defaults
-        autoScroll: false // will be applied here, panel2 will be autoScroll:true.
+        id&#58; 'panel2',     // options in components, so the defaults
+        autoScroll&#58; false // will be applied here, panel2 will be autoScroll:true.
     })
 ]
      * </code></pre>
@@ -362,8 +362,8 @@ items: [
     /** @cfg {String} defaultType
      * <p>The default <b class='link' title='ext.Component'>xtype</b> of child Components to create in this Container when
      * a child item is specified as a raw configuration object, rather than as an instantiated Component.</p>
-     * <p>Defaults to <tt>'panel'</tt>, except <b class='link'>Ext.menu.Menu</b> which defaults to <tt>'menuitem'</tt>,
-     * and <b class='link'>ext.Toolbar</b> and <b class='link'>ext.ButtonGroup</b> which default to <tt>'button'</tt>.</p>
+     * <p>Defaults to <code>'panel'</code>, except <b class='link'>Ext.menu.Menu</b> which defaults to <code>'menuitem'</code>,
+     * and <b class='link'>ext.Toolbar</b> and <b class='link'>ext.ButtonGroup</b> which default to <code>'button'</code>.</p>
      */
     public var defaultType  : String;
     override protected native function initComponent() : void;
@@ -389,23 +389,23 @@ items: [
      * <p>Adds <b class='link' title='ext.Component'>Component</b>(s) to this Container.</p>
      * <p><b>Description:</b></p>
      * <ul class="mdetail-params">
-     * <li>Fires the <b class='link'>#beforeadd</b> event before adding</li>
+     * <li>Fires the <b class='link' title='#beforeadd'>beforeadd</b> event before adding</li>
      * <li>The Container's <b class='link' title='#defaults default config'>values</b> will be applied
-     * accordingly (see <code><b class='link'>#defaults</b></code> for details).</li>
-     * <li>Fires the <b class='link'>#add</b> event after the component has been added.</li>
+     * accordingly (see <code><b class='link' title='#defaults'>defaults</b></code> for details).</li>
+     * <li>Fires the <b class='link' title='#add'>add</b> event after the component has been added.</li>
      * </ul>
      * <p><b>Notes:</b></p>
      * <ul class="mdetail-params">
-     * <li>If the Container is <i>already rendered</i> when <tt>add</tt>
-     * is called, you may need to call <b class='link'>#doLayout</b> to refresh the view which causes
+     * <li>If the Container is <i>already rendered</i> when <code>add</code>
+     * is called, you may need to call <b class='link' title='#doLayout'>doLayout</b> to refresh the view which causes
      * any unrendered child Components to be rendered. This is required so that you can
-     * <tt>add</tt> multiple child components if needed while only refreshing the layout
+     * <code>add</code> multiple child components if needed while only refreshing the layout
      * once. For example:<pre><code>
 var tb = new <b class='link'>ext.Toolbar</b>();
 tb.render(document.body);  // toolbar is rendered
-tb.add({text:'Button 1'}); // add multiple items (<b class='link'>#defaultType</b> for <b class='link' title='ext.Toolbar'>Toolbar</b> is 'button')
+tb.add({text:'Button 1'}); // add multiple items (<b class='link' title='#defaultType'>defaultType</b> for <b class='link' title='ext.Toolbar'>Toolbar</b> is 'button')
 tb.add({text:'Button 2'});
-tb.<b class='link'>#doLayout</b>();             // refresh the layout
+tb.<b class='link' title='#doLayout'>doLayout</b>();             // refresh the layout
      * </code></pre></li>
      * <li><i>Warning:</i> Containers directly managed by the BorderLayout layout manager
      * may not be removed or added.  See the Notes for <b class='link' title='Ext.layout.BorderLayout'>BorderLayout</b>
@@ -413,14 +413,14 @@ tb.<b class='link'>#doLayout</b>();             // refresh the layout
      * </ul>
      * @param component
      * Either a single component or an Array of components to add.  See
-     * <code><b class='link'>#items</b></code> for additional information.
+     * <code><b class='link' title='#items'>items</b></code> for additional information.
      * @param  components more components to add.
      * @return component The Component (or config object) that was added.
      */
     public native function add(component : *, ...components : Array) : Component;
     /**
      * Inserts a Component into this Container at a specified index. Fires the
-     * <b class='link'>#beforeadd</b> event before inserting, then fires the <b class='link'>#add</b> event after the
+     * <b class='link' title='#beforeadd'>beforeadd</b> event before inserting, then fires the <b class='link' title='#add'>add</b> event after the
      * Component has been inserted.
      * @param index The index at which the Component will be inserted
      * into the Container's items collection
@@ -440,30 +440,30 @@ tb.<b class='link'>#doLayout</b>();             // refresh the layout
     protected native function applyDefaults(c) : void;
     protected native function onBeforeAdd(item) : void;
     /**
-     * Removes a component from this container.  Fires the <b class='link'>#beforeremove</b> event before removing, then fires
-     * the <b class='link'>#remove</b> event after the component has been removed.
+     * Removes a component from this container.  Fires the <b class='link' title='#beforeremove'>beforeremove</b> event before removing, then fires
+     * the <b class='link' title='#remove'>remove</b> event after the component has been removed.
      * @param component The component reference or id to remove.
      * @param autoDestroy True to automatically invoke the removed Component's <b class='link'>ext.Component#destroy</b> function.
-     * Defaults to the value of this Container's <b class='link'>#autoDestroy</b> config.
+     * Defaults to the value of this Container's <b class='link' title='#autoDestroy'>autoDestroy</b> config.
      * @return component The Component that was removed.
      */
     public native function remove(component : *, autoDestroy : Boolean = false) : Component;
     /**
      * Removes all components from this container.
      * @param autoDestroy True to automatically invoke the removed Component's <b class='link'>ext.Component#destroy</b> function.
-     * Defaults to the value of this Container's <b class='link'>#autoDestroy</b> config.
+     * Defaults to the value of this Container's <b class='link' title='#autoDestroy'>autoDestroy</b> config.
      * @return Array of the destroyed components
      */
     public native function removeAll(autoDestroy : Boolean = false) : Array;
     /**
-     * Examines this container's <code><b class='link'>#items</b></code> <b>property</b>
+     * Examines this container's <code><b class='link' title='#items'>items</b></code> <b>property</b>
      * and gets a direct child component of this container.
      * @param comp This parameter may be any of the following:
      * <div><ul class="mdetail-params">
-     * <li>a <b><tt>String</tt></b> : representing the <code><b class='link' title='ext.Component#itemId'>itemId</b></code>
+     * <li>a <b><code>String</code></b> : representing the <code><b class='link' title='ext.Component#itemId'>itemId</b></code>
      * or <code><b class='link' title='ext.Component#id'>id</b></code> of the child component </li>
-     * <li>a <b><tt>Number</tt></b> : representing the position of the child component
-     * within the <code><b class='link'>#items</b></code> <b>property</b></li>
+     * <li>a <b><code>Number</code></b> : representing the position of the child component
+     * within the <code><b class='link' title='#items'>items</b></code> <b>property</b></li>
      * </ul></div>
      * <p>For additional information see <b class='link'>Ext.util.MixedCollection#get</b>.
      * @return The component (if found).

@@ -12,7 +12,7 @@ public class defaults {
      */
     public var disableCaching  : Boolean;
     /**
-     * Whether or not to show <b class='link'>#indicatorText</b> during loading (defaults to true).
+     * Whether or not to show <b class='link' title='#indicatorText'>indicatorText</b> during loading (defaults to true).
      */
     public var showLoadIndicator  : Boolean;
     /**

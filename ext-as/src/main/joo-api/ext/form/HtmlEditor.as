@@ -8,7 +8,7 @@ import js.Element;
 /**
  * Provides a lightweight HTML Editor component. Some toolbar features are not supported by Safari and will be 
  * automatically hidden when needed.  These are noted in the config options where appropriate.
- * <br><br>The editor's toolbar buttons have tooltips defined in the <b class='link'>#buttonTips</b> property, but they are not 
+ * <br><br>The editor's toolbar buttons have tooltips defined in the <b class='link' title='#buttonTips'>buttonTips</b> property, but they are not 
  * enabled by default unless the global <b class='link'>ext.QuickTips</b> singleton is <b class='link' title='ext.QuickTips#init'>initialized</b>.
  * <br><br><b>Note: The focus/blur and validation marking functionality inherited from ext.form.Field is NOT
  * supported by this editor.</b>
@@ -16,27 +16,27 @@ import js.Element;
  * any element that has display set to 'none' can cause problems in Safari and Firefox due to their default iframe reloading bugs.
  * <br><br>Example usage:
  * <pre><code>
-// Simple example rendered with default options:
+&#47;/ Simple example rendered with default options:
 ext.QuickTips.init();  // enable tooltips
 new ext.form.HtmlEditor({
-    renderTo: Ext.getBody(),
-    width: 800,
-    height: 300
+    renderTo&#58; Ext.getBody(),
+    width&#58; 800,
+    height&#58; 300
 });
 
-// Passed via xtype into a container and with custom options:
+&#47;/ Passed via xtype into a container and with custom options:
 ext.QuickTips.init();  // enable tooltips
 new ext.Panel({
-    title: 'HTML Editor',
-    renderTo: Ext.getBody(),
-    width: 600,
-    height: 300,
-    frame: true,
-    layout: 'fit',
-    items: {
-        xtype: 'htmleditor',
-        enableColors: false,
-        enableAlignments: false
+    title&#58; 'HTML Editor',
+    renderTo&#58; Ext.getBody(),
+    width&#58; 600,
+    height&#58; 300,
+    frame&#58; true,
+    layout&#58; 'fit',
+    items&#58; {
+        xtype&#58; 'htmleditor',
+        enableColors&#58; false,
+        enableAlignments&#58; false
     }
 });
 </code></pre>
@@ -192,7 +192,7 @@ public function HtmlEditor(config : Object) {
     public native function relayCmd(cmd : String, value : * = undefined) : void;
     /**
      * Executes a Midas editor command directly on the editor document.
-     * For visual commands, you should use <b class='link'>#relayCmd</b> instead.
+     * For visual commands, you should use <b class='link' title='#relayCmd'>relayCmd</b> instead.
      * <b>This should only be called after the editor is initialized.</b>
      * @param cmd The Midas command
      * @param value The value to pass to the command (defaults to null)
@@ -218,14 +218,14 @@ public function HtmlEditor(config : Object) {
 <pre><code>
 {
     bold : {
-        title: 'Bold (Ctrl+B)',
-        text: 'Make the selected text bold.',
-        cls: 'x-html-editor-tip'
+        title&#58; 'Bold (Ctrl+B)',
+        text&#58; 'Make the selected text bold.',
+        cls&#58; 'x-html-editor-tip'
     },
     italic : {
-        title: 'Italic (Ctrl+I)',
-        text: 'Make the selected text italic.',
-        cls: 'x-html-editor-tip'
+        title&#58; 'Italic (Ctrl+I)',
+        text&#58; 'Make the selected text italic.',
+        cls&#58; 'x-html-editor-tip'
     },
     ...
 </code></pre>

@@ -7,7 +7,7 @@ var cp = new ext.ColorPalette({value:'993300'});  // initial selected color
 cp.render('my-div');
 
 cp.on('select', function(palette, selColor){
-    // do something with selColor
+    &#47;/ do something with selColor
 });
 </code></pre>
 */
@@ -38,7 +38,7 @@ public function ColorPalette(config : Object) {
     public var clickEvent;
     //protected var ctype;
     /**
-     * @cfg {Boolean} allowReselect If set to true then reselecting a color that is already selected fires the <b class='link'>#select</b> event
+     * @cfg {Boolean} allowReselect If set to true then reselecting a color that is already selected fires the <b class='link' title='#select'>select</b> event
      */
     public var allowReselect  : Boolean;
     /**
@@ -63,7 +63,7 @@ cp.colors = ["000000", "993300", "333300"];
     override protected native function afterRender() : void;
     protected native function handleClick(e, t) : void;
     /**
-     * Selects the specified color in the palette (fires the <b class='link'>#select</b> event)
+     * Selects the specified color in the palette (fires the <b class='link' title='#select'>select</b> event)
      * @param color A valid 6-digit color hex code (# will be stripped if included)
      */
     public native function select(color : String) : void;

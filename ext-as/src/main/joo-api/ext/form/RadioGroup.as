@@ -14,12 +14,12 @@ public function RadioGroup(config : Object) {
 }
     /**
      * @cfg {Boolean} allowBlank True to allow every item in the group to be blank (defaults to true).
-     * If allowBlank = false and no items are selected at validation time, <b class='link'>#blankText</b> will
+     * If allowBlank = false and no items are selected at validation time, <b class='link' title='#blankText'>blankText</b> will
      * be used as the error text.
      */
     //public var allowBlank  : Boolean;
     /**
-     * @cfg {String} blankText Error text to display if the <b class='link'>#allowBlank</b> validation fails
+     * @cfg {String} blankText Error text to display if the <b class='link' title='#allowBlank'>allowBlank</b> validation fails
      * (defaults to 'You must select one item in this group')
      */
     //public var blankText  : String;

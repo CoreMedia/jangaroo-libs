@@ -1,4 +1,7 @@
 package ext.form {
+
+import js.XMLHttpRequest;
+
 /**
  * <p>The subclasses of this class provide actions to perform upon <b class='link' title='ext.form.BasicForm'>Form</b>s.</p>
  * <p>Instances of this class are only created by a <b class='link' title='ext.form.BasicForm'>Form</b> when
@@ -15,29 +18,29 @@ public class Action {
 /**
  * Failure type returned when client side validation of the Form fails
  * thus aborting a submit action. Client side validation is performed unless
- * <b class='link'>#clientValidation</b> is explicitly set to <tt>false</tt>.
+ * <b class='link' title='#clientValidation'>clientValidation</b> is explicitly set to <code>false</code>.
  * @static
  */
 public static var CLIENT_INVALID  : String = 'client';
 /**
- * <p>Failure type returned when server side processing fails and the <b class='link'>#result</b>'s
- * <tt style="font-weight:bold">success</tt> property is set to <tt>false</tt>.</p>
+ * <p>Failure type returned when server side processing fails and the <b class='link' title='#result'>result</b>'s
+ * <code><b>success</b></code> property is set to <code>false</code>.</p>
  * <p>In the case of a form submission, field-specific error messages may be returned in the
- * <b class='link'>#result</b>'s <tt style="font-weight:bold">errors</tt> property.</p>
+ * <b class='link' title='#result'>result</b>'s <code><b>errors</b></code> property.</p>
  * @static
  */
 public static var SERVER_INVALID  : String = 'server';
 /**
  * Failure type returned when a communication error happens when attempting
- * to send a request to the remote server. The <b class='link'>#response</b> may be examined to
+ * to send a request to the remote server. The <b class='link' title='#response'>response</b> may be examined to
  * provide further information.
  * @static
  */
 public static var CONNECT_FAILURE  : String = 'connect';
 /**
- * Failure type returned when the response's <tt style="font-weight:bold">success</tt>
- * property is set to <tt>false</tt>, or no field values are returned in the response's
- * <tt style="font-weight:bold">data</tt> property.
+ * Failure type returned when the response's <code><b>success</b></code>
+ * property is set to <code>false</code>, or no field values are returned in the response's
+ * <code><b>data</b></code> property.
  * @static
  */
 public static var LOAD_FAILURE  : String = 'load';
@@ -45,9 +48,9 @@ public static var LOAD_FAILURE  : String = 'load';
  * @cfg {String} url The URL that the Action is to invoke.
  */
 /**
- * @cfg {Boolean} reset When set to <tt><b>true</b></tt>, causes the Form to be
+ * @cfg {Boolean} reset When set to <code><b>true</b></code>, causes the Form to be
  * <b class='link' title='ext.form.BasicForm.reset'>reset</b> on Action success. If specified, this happens
- * <b>before</b> the <b class='link'>#success</b> callback is called and before the Form's
+ * <b>before</b> the <b class='link' title='#success'>success</b> callback is called and before the Form's
  * <b class='link' title='ext.form.BasicForm.actioncomplete'>actioncomplete</b> event fires.
  */
 /**
@@ -62,15 +65,15 @@ public static var LOAD_FAILURE  : String = 'load';
  */
 /**
  * @cfg {Number} timeout The number of seconds to wait for a server response before
- * failing with the <b class='link'>#failureType</b> as <b class='link'>#Action.CONNECT_FAILURE</b>. If not specified,
- * defaults to the configured <tt><b class='link' title='ext.form.BasicForm#timeout'>timeout</b></tt> of the
+ * failing with the <b class='link' title='#failureType'>failureType</b> as <b class='link'>#Action.CONNECT_FAILURE</b>. If not specified,
+ * defaults to the configured <code><b class='link' title='ext.form.BasicForm#timeout'>timeout</b></code> of the
  * <b class='link' title='ext.form.BasicForm'>form</b>.
  */
 /**
  * @cfg {Function} success The function to call when a valid success return packet is recieved.
  * The function is passed the following parameters:<ul class="mdetail-params">
  * <li><b>form</b> : ext.form.BasicForm<div class="sub-desc">The form that requested the action</div></li>
- * <li><b>action</b> : ext.form.Action<div class="sub-desc">The Action class. The <b class='link'>#result</b>
+ * <li><b>action</b> : ext.form.Action<div class="sub-desc">The Action class. The <b class='link' title='#result'>result</b>
  * property of this object may be examined to perform custom postprocessing.</div></li>
  * </ul>
  */
@@ -80,12 +83,12 @@ public static var LOAD_FAILURE  : String = 'load';
  * The function is passed the following parameters:<ul class="mdetail-params">
  * <li><b>form</b> : ext.form.BasicForm<div class="sub-desc">The form that requested the action</div></li>
  * <li><b>action</b> : ext.form.Action<div class="sub-desc">The Action class. If an Ajax
- * error ocurred, the failure type will be in <b class='link'>#failureType</b>. The <b class='link'>#result</b>
+ * error ocurred, the failure type will be in <b class='link' title='#failureType'>failureType</b>. The <b class='link' title='#result'>result</b>
  * property of this object may be examined to perform custom postprocessing.</div></li>
  * </ul>
  */
 /**
- * @cfg {Object} scope The scope in which to call the callback functions (The <tt>this</tt> reference
+ * @cfg {Object} scope The scope in which to call the callback functions (The <code>this</code> reference
  * for the callback functions).
  */
 /**
@@ -102,55 +105,59 @@ public static var LOAD_FAILURE  : String = 'load';
  */
     public var type  : String;
 /**
- * The type of failure detected will be one of these: <b class='link'>#CLIENT_INVALID</b>,
- * <b class='link'>#SERVER_INVALID</b>, <b class='link'>#CONNECT_FAILURE</b>, or <b class='link'>#LOAD_FAILURE</b>.  Usage:
+ * The type of failure detected will be one of these: <b class='link' title='#CLIENT_INVALID'>CLIENT_INVALID</b>,
+ * <b class='link' title='#SERVER_INVALID'>SERVER_INVALID</b>, <b class='link' title='#CONNECT_FAILURE'>CONNECT_FAILURE</b>, or <b class='link' title='#LOAD_FAILURE'>LOAD_FAILURE</b>.  Usage:
  * <pre><code>
 var fp = new ext.form.FormPanel({
 ...
-buttons: [{
-    text: 'Save',
-    formBind: true,
-    handler: function(){
+buttons&#58; [{
+    text&#58; 'Save',
+    formBind&#58; true,
+    handler&#58; function(){
         if(fp.getForm().isValid()){
             fp.getForm().submit({
-                url: 'form-submit.php',
-                waitMsg: 'Submitting your data...',
-                success: function(form, action){
-                    // server responded with success = true
-                    var result = action.<b class='link'>#result</b>;
+                url&#58; 'form-submit.php',
+                waitMsg&#58; 'Submitting your data...',
+                success&#58; function(form, action){
+                    &#47;/ server responded with success = true
+                    var result = action.<b class='link' title='#result'>result</b>;
                 },
-                failure: function(form, action){
-                    if (action.<b class='link'>#failureType</b> === ext.form.Action.<b class='link'>#CONNECT_FAILURE</b>) {
+                failure&#58; function(form, action){
+                    if (action.<b class='link' title='#failureType'>failureType</b> === ext.form.Action.<b class='link' title='#CONNECT_FAILURE'>CONNECT_FAILURE</b>) {
                         ext.Msg.alert('Error',
-                            'Status:'+action.<b class='link'>#response</b>.status+': '+
-                            action.<b class='link'>#response</b>.statusText);
+                            'Status:'+action.<b class='link' title='#response'>response</b>.status+': '+
+                            action.<b class='link' title='#response'>response</b>.statusText);
                     }
-                    if (action.failureType === ext.form.Action.<b class='link'>#SERVER_INVALID</b>){
-                        // server responded with success = false
-                        ext.Msg.alert('Invalid', action.<b class='link'>#result</b>.errormsg);
+                    if (action.failureType === ext.form.Action.<b class='link' title='#SERVER_INVALID'>SERVER_INVALID</b>){
+                        &#47;/ server responded with success = false
+                        ext.Msg.alert('Invalid', action.<b class='link' title='#result'>result</b>.errormsg);
                     }
                 }
             });
         }
     }
 },{
-    text: 'Reset',
-    handler: function(){
+    text&#58; 'Reset',
+    handler&#58; function(){
         fp.getForm().reset();
     }
 }]
  * </code></pre>
  * @property failureType
  */
+  public native function get failureType() : String;
  /**
  * The XMLHttpRequest object used to perform the action.
  * @property response
  */
+  public native function get response() : XMLHttpRequest;
  /**
- * The decoded response object containing a boolean <tt style="font-weight:bold">success</tt> property and
+ * The decoded response object containing a boolean <code><b>success</b></code> property and
  * other, action-specific properties.
  * @property result
  */
+  public native function get result() : Object;
+
     public native function run(options) : void;
     public native function success(response) : void;
     public native function handleResponse(response) : void;
@@ -160,6 +167,4 @@ buttons: [{
     protected native function getMethod() : void;
     protected native function getParams() : void;
     protected native function createCallback(opts) : void;
-/**
-*/
 }}
