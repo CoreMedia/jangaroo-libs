@@ -30,7 +30,7 @@ com.coremedia.ui.ckhtmleditor.CommandAction = Ext.extend(Ext.Action, {
     var state = evt.sender.state;
     this.disabled = state === CKEDITOR.TRISTATE_DISABLED;
     if (this.disabled !== oldDisabled) {
-      this.callEach(this.disabled ? 'disable' : 'enable');
+      this.callEach(this.disabled ? 'disable' : 'enable', []);
     }
     if (!this.disabled) {
       this.pressed = state === CKEDITOR.TRISTATE_ON;
