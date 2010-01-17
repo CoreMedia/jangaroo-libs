@@ -43,7 +43,9 @@ com.coremedia.ui.ckhtmleditor.HtmlEditorToolbar = Ext.extend(Ext.Toolbar, {
     var ckEditor = this.getCKEditor();
     this.items.each(
       function(item) {
-        item.baseAction.setCKEditor(ckEditor);
+        if (typeof item.baseAction == 'object' && typeof item.baseAction.setCKEditor == 'function') {
+          item.baseAction.setCKEditor(ckEditor);
+        }
       }
     );
   },
