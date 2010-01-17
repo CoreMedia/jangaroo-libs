@@ -1,10 +1,70 @@
 ﻿/*
-Copyright (c) 2003-2009, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2010, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.html or http://ckeditor.com/license
 */
 
 CKEDITOR.themes.add( 'default', (function()
 {
+	function checkSharedSpace( editor, spaceName )
+	{
+		var container,
+			element;
+
+		// Try to retrieve the target element from the sharedSpaces settings.
+		element = editor.config.sharedSpaces;
+		element = element && element[ spaceName ];
+		element = element && CKEDITOR.document.getById( element );
+
+		// If the element is available, we'll then create the container for
+		// the space.
+		if ( element )
+		{
+			// Creates an HTML structure that reproduces the editor class hierarchy.
+			var html =
+				'<span class="cke_shared">' +
+				'<span class="' + editor.skinClass + ' cke_editor_' + editor.name + '">' +
+				'<span class="' + CKEDITOR.env.cssClass + '">' +
+				'<span class="cke_wrapper cke_' + editor.lang.dir + '">' +
+				'<span class="cke_editor">' +
+				'<div class="cke_' + spaceName + '">' +
+				'</div></span></span></span></span></span>';
+
+			var mainContainer = element.append( CKEDITOR.dom.element.createFromHtml( html, element.getDocument() ) );
+
+			// Only the first container starts visible. Others get hidden.
+			if ( element.getCustomData( 'cke_hasshared' ) )
+				mainContainer.hide();
+			else
+				element.setCustomData( 'cke_hasshared', 1 );
+
+			// Get the deeper inner <div>.
+			container = mainContainer.getChild( [0,0,0,0] );
+
+			// When the editor gets focus, we show the space container, hiding others.
+			editor.on( 'focus', function()
+				{
+					for ( var i = 0, sibling, children = element.getChildren() ; ( sibling = children.getItem( i ) ) ; i++ )
+					{
+						if ( sibling.type == CKEDITOR.NODE_ELEMENT
+							&& !sibling.equals( mainContainer )
+							&& sibling.hasClass( 'cke_shared' ) )
+						{
+							sibling.hide();
+						}
+					}
+
+					mainContainer.show();
+				});
+
+			editor.on( 'destroy', function()
+				{
+					mainContainer.remove();
+				});
+		}
+
+		return container;
+	}
+
 	return {
 		build : function( editor, themePath )
 		{
@@ -44,11 +104,17 @@ CKEDITOR.themes.add( 'default', (function()
 				style += "width: " + width + ";";
 			}
 
+			var sharedTop		= topHtml && checkSharedSpace( editor, 'top' ),
+				sharedBottoms	= checkSharedSpace( editor, 'bottom' );
+
+			sharedTop		&& ( sharedTop.setHtml( topHtml )		, topHtml = '' );
+			sharedBottoms	&& ( sharedBottoms.setHtml( bottomHtml ), bottomHtml = '' );
+
 			var container = CKEDITOR.dom.element.createFromHtml( [
 				'<span' +
 					' id="cke_', name, '"' +
 					' onmousedown="return false;"' +
-					' class="', editor.skinClass, '"' +
+					' class="', editor.skinClass, ' cke_editor_', name, '"' +
 					' dir="', editor.lang.dir, '"' +
 					' title="', ( CKEDITOR.env.gecko ? ' ' : '' ), '"' +
 					' lang="', editor.langCode, '"' +
@@ -98,20 +164,22 @@ CKEDITOR.themes.add( 'default', (function()
 			var baseIdNumber = CKEDITOR.tools.getNextNumber();
 
 			var element = CKEDITOR.dom.element.createFromHtml( [
-					'<div id="cke_' + editor.name.replace('.', '\\.') + '_dialog" class="cke_skin_', editor.skinName,
+					'<div class="cke_editor_' + editor.name.replace('.', '\\.') + '_dialog cke_skin_', editor.skinName,
 						'" dir="', editor.lang.dir, '"' +
 						' lang="', editor.langCode, '"' +
 						'>' +
-
-						'<div class="cke_dialog', ' ' + CKEDITOR.env.cssClass,
+						'<table class="cke_dialog', ' ' + CKEDITOR.env.cssClass,
 							' cke_', editor.lang.dir, '" style="position:absolute">' +
+							'<tr><td>' +
 							'<div class="%body">' +
 								'<div id="%title#" class="%title"></div>' +
 								'<div id="%close_button#" class="%close_button">' +
 									'<span>X</span>' +
 								'</div>' +
 								'<div id="%tabs#" class="%tabs"></div>' +
-								'<div id="%contents#" class="%contents"></div>' +
+								  '<table class="%contents"><tr>' +
+								  '<td id="%contents#" class="%contents"></td>' +
+								  '</tr></table>' +
 								'<div id="%footer#" class="%footer"></div>' +
 							'</div>' +
 							'<div id="%tl#" class="%tl"></div>' +
@@ -122,7 +190,8 @@ CKEDITOR.themes.add( 'default', (function()
 							'<div id="%bl#" class="%bl"></div>' +
 							'<div id="%bc#" class="%bc"></div>' +
 							'<div id="%br#" class="%br"></div>' +
-						'</div>',
+							'</td></tr>' +
+						'</table>',
 
 						//Hide the container when loading skins, later restored by skin css.
 						( CKEDITOR.env.ie ? '' : '<style>.cke_dialog{visibility:hidden;}</style>' ),
@@ -132,11 +201,13 @@ CKEDITOR.themes.add( 'default', (function()
 					.replace( /#/g, '_' + baseIdNumber )
 					.replace( /%/g, 'cke_dialog_' ) );
 
-			var body = element.getChild( [ 0, 0 ] );
+			var body = element.getChild( [ 0, 0, 0, 0, 0 ] ),
+				title = body.getChild( 0 ),
+				close = body.getChild( 1 );
 
 			// Make the Title and Close Button unselectable.
-			body.getChild( 0 ).unselectable();
-			body.getChild( 1 ).unselectable();
+			title.unselectable();
+			close.unselectable();
 
 
 			return {
@@ -144,10 +215,10 @@ CKEDITOR.themes.add( 'default', (function()
 				parts :
 				{
 					dialog		: element.getChild( 0 ),
-					title		: body.getChild( 0 ),
-					close		: body.getChild( 1 ),
+					title		: title,
+					close		: close,
 					tabs		: body.getChild( 2 ),
-					contents	: body.getChild( 3 ),
+					contents	: body.getChild( [ 3, 0, 0, 0 ] ),
 					footer		: body.getChild( 4 )
 				}
 			};
@@ -155,8 +226,7 @@ CKEDITOR.themes.add( 'default', (function()
 
 		destroy : function( editor )
 		{
-			var container = editor.container,
-				panels = editor.panels;
+			var container = editor.container;
 
 			/*
 			 * IE BUG: Removing the editor DOM elements while the selection is inside
@@ -183,9 +253,6 @@ CKEDITOR.themes.add( 'default', (function()
 			if ( container )
 				container.remove();
 
-			for( var i = 0 ; panels && i < panels.length ; i++ )
-					panels[ i ].remove();
-
 			if ( editor.elementMode == CKEDITOR.ELEMENT_MODE_REPLACE )
 			{
 				editor.element.show();
@@ -209,9 +276,9 @@ CKEDITOR.editor.prototype.resize = function( width, height, isContentHeight, res
 	if ( numberRegex.test( width ) )
 		width += 'px';
 
-	var contents = CKEDITOR.document.getById( 'cke_contents_' + this.name );
-	var outer = resizeInner ? contents.getAscendant( 'table' ).getParent()
-		: contents.getAscendant( 'table' ).getParent().getParent().getParent();
+	var container = this.container,
+		contents = CKEDITOR.document.getById( 'cke_contents_' + this.name ),
+		outer = resizeInner ? container.getChild( 0 ) : container;
 
 	// Resize the width first.
 	// WEBKIT BUG: Webkit requires that we put the editor off from display when we
@@ -235,5 +302,31 @@ CKEDITOR.editor.prototype.resize = function( width, height, isContentHeight, res
 
 CKEDITOR.editor.prototype.getResizable = function()
 {
-	return this.container.getChild( [ 0, 0 ] );
+	return this.container.getChild( 0 );
 };
+
+/**
+ * Makes it possible to place some of the editor UI blocks, like the toolbar
+ * and the elements path, into any element in the page.
+ * The elements used to hold the UI blocks can be shared among several editor
+ * instances. In that case, only the blocks of the active editor instance will
+ * display.
+ * @name CKEDITOR.config.sharedSpaces
+ * @type Object
+ * @default undefined
+ * @example
+ * // Place the toolbar inside the element with ID "someElementId" and the
+ * // elements path into the element with ID "anotherId".
+ * config.sharedSpaces =
+ * {
+ *     top : 'someElementId',
+ *     bottom : 'anotherId'
+ * };
+ * @example
+ * // Place the toolbar inside the element with ID "someElementId". The
+ * // elements path will remain attached to the editor UI.
+ * config.sharedSpaces =
+ * {
+ *     top : 'someElementId'
+ * };
+ */
