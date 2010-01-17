@@ -25,7 +25,7 @@ com.coremedia.ui.ckhtmleditor.HtmlEditor = Ext.extend(Ext.form.TextArea, {
       removePlugins: 'toolbar,elementspath',
       extraPlugins: 'extdialog,cmrichtextwriter',
       toolbar: [],
-      customConfig: 'scripts/config.js'
+      customConfig: 'cm-config.js'
     });
     var ckEditor = this.getCKEditor();
     var oldValue;
