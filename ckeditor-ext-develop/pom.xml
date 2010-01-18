@@ -2,13 +2,13 @@
   <parent>
     <groupId>net.jangaroo</groupId>
     <artifactId>jangaroo-libs</artifactId>
-    <version>0.5.19</version>
+    <version>0.5.20-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <groupId>net.jangaroo</groupId>
   <artifactId>ckeditor-ext-develop</artifactId>
   <packaging>war</packaging>
-  <version>0.5.19</version>
+  <version>0.5.20-SNAPSHOT</version>
   <name>CKEditor/ Ext development only module</name>
   <description />
 
@@ -44,21 +44,21 @@
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>ckeditor-ext</artifactId>
-      <version>0.5.19</version>
+      <version>0.5.20-SNAPSHOT</version>
       <type>jangaroo</type>
     </dependency>
 
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>ext-all</artifactId>
-      <version>0.5.19</version>
+      <version>0.5.20-SNAPSHOT</version>
       <type>jangaroo</type>
     </dependency>
 
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>ext-base</artifactId>
-      <version>0.5.19</version>
+      <version>0.5.20-SNAPSHOT</version>
       <type>jangaroo</type>
     </dependency>
 
