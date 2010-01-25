@@ -98,7 +98,12 @@ public function Action(config : Object) {
     /**
      * @cfg {Object} scope The scope in which the <b class='link' title='#handler'>handler</b> function will execute.
      */
-    protected var isAction  : Object;
+
+    /**
+     * Internal flag that this Object is an Action.
+     */
+    public const isAction  : Boolean = true;
+
     /**
      * Sets the text to be displayed by all components using this action.
      * @param text The text to display
@@ -107,7 +112,7 @@ public function Action(config : Object) {
     /**
      * Gets the text currently displayed by all components using this action.
      */
-    public native function getText() : void;
+    public native function getText() : String;
     /**
      * Sets the icon CSS class for all components using this action.  The class should supply
      * a background image that will be used as the icon image.
@@ -117,7 +122,7 @@ public function Action(config : Object) {
     /**
      * Gets the icon CSS class currently used by all components using this action.
      */
-    public native function getIconClass() : void;
+    public native function getIconClass() : String;
     /**
      * Sets the disabled state of all components using this action.  Shortcut method
      * for <b class='link' title='#enable'>enable</b> and <b class='link' title='#disable'>disable</b>.
@@ -135,7 +140,7 @@ public function Action(config : Object) {
     /**
      * Returns true if the components using this action are currently disabled, else returns false.  
      */
-    public native function isDisabled() : void;
+    public native function isDisabled() : Boolean;
     /**
      * Sets the hidden state of all components using this action.  Shortcut method
      * for <code><b class='link' title='#hide'>hide</b></code> and <code><b class='link' title='#show'>show</b></code>.
@@ -153,7 +158,7 @@ public function Action(config : Object) {
     /**
      * Returns true if the components using this action are currently hidden, else returns false.  
      */
-    public native function isHidden() : void;
+    public native function isHidden() : Boolean;
     /**
      * Sets the function that will be called by each component using this action when its primary event is triggered.
      * @param fn The function that will be invoked by the action's components.  The function
@@ -165,10 +170,11 @@ public function Action(config : Object) {
      * Executes the specified function once for each component currently tied to this action.  The function passed
      * in should accept a single argument that will be an object that supports the basic Action config/method interface.
      * @param fn The function to execute for each component
-     * @param scope The scope in which the function will execute
+     * @param scope The scope (<code>this</code> reference) in which the function is executed.  Defaults to the Component.
      */
-    public native function each(fn : Function, scope : Object) : void;
-    protected native function callEach(fnName, args) : void;
+    public native function each(fn : Function, scope : Object = null) : void;
+
+    protected native function callEach(fnName : String, args : Array) : void;
 
     /**
      * Only for internal use.
@@ -182,9 +188,7 @@ public function Action(config : Object) {
      * Executes this action manually using the handler function specified in the original config object
      * or the handler function set with <code><b class='link' title='#setHandler'>setHandler</b></code>.  Any arguments passed to this
      * function will be passed on to the handler function.
-     * @param arg1 Variable number of arguments passed to the handler function
-     * @param arg2
-     * @param etc
+     * @param args Variable number of arguments passed to the handler function
      */
-    public native function execute(arg1 : * = undefined, arg2 : * = undefined, ...etc) : void;
+    public native function execute(...args) : void;
 }}

@@ -2,6 +2,7 @@ package ext.form {
 import ext.Element;
 import ext.data.Record;
 import ext.util.Observable;
+import ext.util.MixedCollection;
 
 /**
  * <p>Encapsulates the DOM &lt;form> element at the heart of the <b class='link' title='ext.form.FormPanel'>FormPanel</b> class, and provides
@@ -198,6 +199,10 @@ new ext.FormPanel({
      * @property waitMsgTarget
      */
     protected native function initEl(el) : void;
+    /**
+     * A {@link Ext.util.MixedCollection MixedCollection} containing all the Ext.form.Fields in this form.
+     */
+    public native function get items():MixedCollection;
     /**
      * Get the HTML form Element
      * @return 
