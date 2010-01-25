@@ -43,6 +43,21 @@ An Ext toolbar that connects to a ck.htmleditor (Ext CKEdtior wrapper) component
       </xs:documentation>
     </xs:annotation>
   </xs:element>
+  <xs:complexType name='com.coremedia.ui.IconButton'>
+    <xs:complexContent>
+      <xs:extension base='ext:ext.Button'>
+        <xs:sequence>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element id='iconbutton' name='iconbutton' type='ckeditor-ext:com.coremedia.ui.IconButton' substitutionGroup='ext:button'>
+    <xs:annotation>
+      <xs:documentation>
+A Button that does not display its text (only as overflowText).
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
   <xs:complexType name='com.coremedia.ui.ckhtmleditor.LinkDialog'>
     <xs:complexContent>
       <xs:extension base='ckeditor-ext:com.coremedia.ui.ckhtmleditor.Dialog'>

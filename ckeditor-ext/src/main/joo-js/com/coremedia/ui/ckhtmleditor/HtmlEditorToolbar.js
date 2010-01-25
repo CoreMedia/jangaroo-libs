@@ -70,7 +70,12 @@ Ext.menu.CheckItem.prototype.initComponent = Ext.menu.CheckItem.prototype.initCo
   delete this.iconCls;
 });
 
-// A Button that does not display it's text:
+/**
+ * @class com.coremedia.ui.IconButton
+ * @extends Ext.Button
+ * A Button that does not display its text (only as overflowText).
+ * @xtype iconbutton
+ */
 com.coremedia.ui.IconButton = Ext.extend(Ext.Button, {
   constructor: function(config) {
     com.coremedia.ui.IconButton.superclass.constructor.call(this, config);
