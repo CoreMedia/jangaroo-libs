@@ -15,7 +15,7 @@
     <developerConnection>scm:perforce://coremedia/jangaroo-libs</developerConnection>
   </scm>
   <properties>
-    <jangaroo_version>0.4.2</jangaroo_version>
+    <jangaroo_version>0.4.3</jangaroo_version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
