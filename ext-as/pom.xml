@@ -4,13 +4,13 @@
   <groupId>net.jangaroo</groupId>
   <artifactId>ext-as</artifactId>
   <packaging>jangaroo</packaging>
-  <version>0.5.23</version>
+  <version>0.5.24-SNAPSHOT</version>
   <name>AS ExtJS API</name>
   <description>ActionScript 3 API for Ext JS Component Library</description>
   <parent>
     <groupId>net.jangaroo</groupId>
     <artifactId>jangaroo-libs</artifactId>
-    <version>0.5.23</version>
+    <version>0.5.24-SNAPSHOT</version>
   </parent>
 
   <dependencies>
@@ -29,28 +29,28 @@
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>ext-base</artifactId>
-      <version>0.5.23</version>
+      <version>0.5.24-SNAPSHOT</version>
       <type>jangaroo</type>
     </dependency>
 
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>ext-as-aliases</artifactId>
-      <version>0.5.23</version>
+      <version>0.5.24-SNAPSHOT</version>
       <type>jangaroo</type>
     </dependency>
 
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>ext-all</artifactId>
-      <version>0.5.23</version>
+      <version>0.5.24-SNAPSHOT</version>
       <type>jangaroo</type>
     </dependency>
 
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>xmlhttprequest</artifactId>
-      <version>0.5.23</version>
+      <version>0.5.24-SNAPSHOT</version>
       <type>jangaroo</type>
     </dependency>
 
