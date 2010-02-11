@@ -2,13 +2,13 @@
   <parent>
     <groupId>net.jangaroo</groupId>
     <artifactId>jangaroo-libs</artifactId>
-    <version>0.5.23-SNAPSHOT</version>
+    <version>0.5.23</version>
   </parent>
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>net.jangaroo</groupId>
   <artifactId>jooflexframework</artifactId>
-  <version>0.5.23-SNAPSHOT</version>
+  <version>0.5.23</version>
   <packaging>jangaroo</packaging>
   <name>Joo Flex Framework</name>
 
