@@ -15,7 +15,7 @@
     <developerConnection>scm:perforce://coremedia/jangaroo-libs</developerConnection>
   </scm>
   <properties>
-    <jangaroo_version>0.4.3</jangaroo_version>
+    <jangaroo_version>0.4.4-SNAPSHOT</jangaroo_version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
@@ -148,7 +148,6 @@
     <module>xmlhttprequest-as</module>
 
     <module>jooflash</module>
-    <module>jooflash-native</module>
 
     <module>jooflexframework</module>
     <module>joounit</module>
@@ -156,7 +155,6 @@
     <module>ext-all</module>
     <module>ext-base</module>
     <module>ext-as</module>
-    <module>extas-aliases</module>
 
     <module>ckeditor</module>
 

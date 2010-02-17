@@ -50,7 +50,6 @@
         <artifactId>jangaroo-maven-plugin</artifactId>
         <configuration>
           <enableGuessingTypeCasts>true</enableGuessingTypeCasts>
-          <testSuiteName>flexunit.framework.AllFrameworkTests</testSuiteName>
           <jooUnitTestExecutionTimeout>120000</jooUnitTestExecutionTimeout>
         </configuration>
       </plugin>

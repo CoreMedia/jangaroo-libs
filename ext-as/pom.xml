@@ -35,13 +35,6 @@
 
     <dependency>
       <groupId>net.jangaroo</groupId>
-      <artifactId>ext-as-aliases</artifactId>
-      <version>0.5.25-SNAPSHOT</version>
-      <type>jangaroo</type>
-    </dependency>
-
-    <dependency>
-      <groupId>net.jangaroo</groupId>
       <artifactId>ext-all</artifactId>
       <version>0.5.25-SNAPSHOT</version>
       <type>jangaroo</type>

@@ -1,0 +1,34 @@
+<html>
+  <head><title>net.jangaroo:joounit</title></head>
+  <body>
+  <script type="text/javascript" src="jangaroo-runtime.js"></script>
+  <script type="text/javascript" src="jooflexframework.js"></script>
+  <script type="text/javascript" src="xmlhttprequest.js"></script>
+  <script type="text/javascript" src="xmlhttprequest-as.js"></script>
+  <script type="text/javascript" src="jooflash-native.js"></script>
+  <script type="text/javascript" src="jooflash.js"></script>
+  
+  <script type="text/javascript" src="joounit.js"></script>
+  <script type="text/javascript">
+    //with (joo.classLoader=new joo.ClassLoader()) { // disable DynamicClassLoader, as all classes are already there!
+    with (joo.classLoader) {
+      debug = true;
+      classLoadErrorHandler = function(fullClassName, url) {
+         classLoadingError = "Class "+fullClassName+" not found at URL ["+url+"].";
+      }; 
+      import_("flexunit.textui.TestRunner");
+      import_("flexunit.framework.AllFrameworkTests");
+      import_("flexunit.textui.XmlResultPrinter");
+      complete(function(imports) {with(imports){
+        var xmlWriter = new XmlResultPrinter();
+        TestRunner.run(AllFrameworkTests.suite(),function(bla) {
+            result = xmlWriter.getXml();
+            document.getElementById("result").firstChild.nodeValue = result;
+        },xmlWriter);
+      }});    }
+  </script>
+  <h1>TestResult</h1>
+   <pre id="result">
+   </pre>
+ </body>
+</html>
