@@ -1,4 +1,4 @@
-joo.classLoader.prepare(////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 //
 //  ADOBE SYSTEMS INCORPORATED
 //  Copyright 2005-2007 Adobe Systems Incorporated
@@ -9,8 +9,8 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-"package mx.utils",
-[""],
+package mx.utils
+{
 
 /**
  *  The StringUtil utility class is an all-static class with methods for
@@ -19,27 +19,9 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
  *  instead you call methods such as 
  *  the <code>StringUtil.substitute()</code> method.  
  */
-"public class StringUtil",function($jooPublic,$jooPrivate){with(mx.utils)with($jooPublic)with($jooPrivate)return[
-
-    ////////////////////////////////////////////////////////////////////////////////
-//
-//  ADOBE SYSTEMS INCORPORATED
-//  Copyright 2005-2007 Adobe Systems Incorporated
-//  All Rights Reserved.
-//
-//  NOTICE: Adobe permits you to use, modify, and distribute this file
-//  in accordance with the terms of the license agreement accompanying it.
-//
-////////////////////////////////////////////////////////////////////////////////
-
-"import mx.core.mx_internal",
-
-/**
- *  @private
- *  Version string for this class.
- */
-"mx_internal static const",{ VERSION/*:String*/ : "3.3.0.0"},
-
+public class StringUtil
+{
+    include "../core/Version.asfragment";
 
     //--------------------------------------------------------------------------
     //
@@ -56,15 +38,15 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
      *  @return Updated String where whitespace was removed from the 
      *  beginning and end. 
      */
-    "public static function trim",function trim(str/*:String*/)/*:String*/
+    public static function trim(str:String):String
     {
         if (str == null) return '';
         
-        var startIndex/*:int*/ = 0;
+        var startIndex:int = 0;
         while (isWhitespace(str.charAt(startIndex)))
             ++startIndex;
 
-        var endIndex/*:int*/ = str.length - 1;
+        var endIndex:int = str.length - 1;
         while (isWhitespace(str.charAt(endIndex)))
             --endIndex;
 
@@ -72,7 +54,7 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
             return str.slice(startIndex, endIndex + 1);
         else
             return "";
-    },
+    }
     
     /**
      *  Removes all whitespace characters from the beginning and end
@@ -85,14 +67,14 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
      *  @return Updated String where whitespace was removed from the 
      *  beginning and end of each element. 
      */
-    "public static function trimArrayElements",function trimArrayElements(value/*:String*/, delimiter/*:String*/)/*:String*/
+    public static function trimArrayElements(value:String, delimiter:String):String
     {
         if (value != "" && value != null)
         {
-            var items/*:Array*/ = value.split(delimiter);
+            var items:Array = value.split(delimiter);
             
-            var len/*:int*/ = items.length;
-            for (var i/*:int*/ = 0; i < len; i++)
+            var len:int = items.length;
+            for (var i:int = 0; i < len; i++)
             {
                 items[i] = StringUtil.trim(items[i]);
             }
@@ -104,7 +86,7 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
         }
         
         return value;
-    },
+    }
 
     /**
      *  Returns <code>true</code> if the specified string is
@@ -115,7 +97,7 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
      *  @return <code>true</code> if the specified string is
      *  a single space, tab, carriage return, newline, or formfeed character.
      */
-    "public static function isWhitespace",function isWhitespace(character/*:String*/)/*:Boolean*/
+    public static function isWhitespace(character:String):Boolean
     {
         switch (character)
         {
@@ -129,7 +111,7 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
             default:
                 return false;
         }
-    },
+    }
 
     /**
      *  Substitutes "{n}" tokens within the specified string
@@ -166,16 +148,16 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
      *  // this will output the following string:
      *  // "here is some info '15.4' and true"
      */
-    "public static function substitute",function substitute(str/*:String, ... rest*/)/*:String*/
-    {var rest=Array.prototype.slice.call(arguments,1);
+    public static function substitute(str:String, ... rest):String
+    {
         if (str == null) return '';
         
         // Replace all of the parameters in the msg string.
-        var len/*:uint*/ = rest.length;
-        var args/*:Array*/;
-        if (len == 1 && is( rest[0], Array))
+        var len:uint = rest.length;
+        var args:Array;
+        if (len == 1 && rest[0] is Array)
         {
-            args = rest[0];
+            args = rest[0] as Array;
             len = args.length;
         }
         else
@@ -183,13 +165,13 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
             args = rest;
         }
         
-        for (var i/*:int*/ = 0; i < len; i++)
+        for (var i:int = 0; i < len; i++)
         {
             str = str.replace(new RegExp("\\{"+i+"\\}", "g"), args[i]);
         }
 
         return str;
-    },
-];},["trim","trimArrayElements","isWhitespace","substitute"]
+    }
+}
 
-);
+}

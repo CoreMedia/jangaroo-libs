@@ -1,4 +1,4 @@
-joo.classLoader.prepare(////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 //
 //  ADOBE SYSTEMS INCORPORATED
 //  Copyright 2005-2006 Adobe Systems Incorporated
@@ -9,10 +9,10 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-"package mx.events",
-[
+package mx.events
+{
 
-"import flash.events.Event",""],
+import flash.events.Event;
 
 /**
  *  The mx.events.CollectionEvent class represents an event that is  
@@ -20,27 +20,9 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
  *
  *  @see FlexEvent#CURSOR_UPDATE
  */
-"public class CollectionEvent extends Event",function($jooPublic,$jooPrivate){with(mx.events)with($jooPublic)with($jooPrivate)return[
-
-	////////////////////////////////////////////////////////////////////////////////
-//
-//  ADOBE SYSTEMS INCORPORATED
-//  Copyright 2005-2007 Adobe Systems Incorporated
-//  All Rights Reserved.
-//
-//  NOTICE: Adobe permits you to use, modify, and distribute this file
-//  in accordance with the terms of the license agreement accompanying it.
-//
-////////////////////////////////////////////////////////////////////////////////
-
-"import mx.core.mx_internal",
-
-/**
- *  @private
- *  Version string for this class.
- */
-"mx_internal static const",{ VERSION/*:String*/ : "3.3.0.0"},
-
+public class CollectionEvent extends Event
+{
+	include "../core/Version.asfragment";
 
     //--------------------------------------------------------------------------
     //
@@ -84,7 +66,7 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
      *
      *  @eventType collectionChange
      */
-    "public static const",{ COLLECTION_CHANGE/*:String*/ : "collectionChange"},
+    public static const COLLECTION_CHANGE:String = "collectionChange";
 
     //--------------------------------------------------------------------------
     //
@@ -126,18 +108,18 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
      *  When the <code>kind</code> is <code>CollectionEventKind.REFRESH</code>
      *  or <code>CollectionEventKind.RESET</code>, this Array has zero length.
      */
-    "public function CollectionEvent",function $CollectionEvent(type/*:String*/, bubbles/*:Boolean*/,
-                                    cancelable/*:Boolean*/,
-                                    kind/*:String*/, location/*:int*/,
-                                    oldLocation/*:int*/, items/*:Array*/)
-    {if(arguments.length<7){if(arguments.length<6){if(arguments.length<5){if(arguments.length<4){if(arguments.length<3){if(arguments.length<2){bubbles = false;}cancelable = false;}kind = null;}location = -1;}oldLocation = -1;}items = null;}
-        this[$super](type, bubbles, cancelable);
+    public function CollectionEvent(type:String, bubbles:Boolean = false,
+                                    cancelable:Boolean = false,
+                                    kind:String = null, location:int = -1,
+                                    oldLocation:int = -1, items:Array = null)
+    {
+        super(type, bubbles, cancelable);
 
         this.kind = kind;
         this.location = location;
         this.oldLocation = oldLocation;
         this.items = items ? items : [];
-    },
+    }
 
     //--------------------------------------------------------------------------
     //
@@ -159,7 +141,7 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
 	 * 
 	 *  @see CollectionEventKind
      */
-    "public var",{ kind/*:String*/: undefined},
+    public var kind:String;
 
 	//----------------------------------
 	//  items
@@ -183,7 +165,7 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
      *
      *  @see PropertyChangeEvent
      */
-    "public var",{ items/*:Array*/: undefined},
+    public var items:Array;
 
 	//----------------------------------
 	//  location
@@ -201,7 +183,7 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
      *
      *  @default -1
      */
-    "public var",{ location/*:int*/: undefined},
+    public var location:int;
 
 	//----------------------------------
 	//  oldLocation
@@ -214,7 +196,7 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
      *
      *  @default -1
      */
-    "public var",{ oldLocation/*:int*/: undefined},
+    public var oldLocation:int;
 
     //--------------------------------------------------------------------------
     //
@@ -225,12 +207,12 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
     /**
      *  @private
      */
-    "override public function toString",function toString()/*:String*/
+    override public function toString():String
     {
-        return this.formatToString("CollectionEvent", "kind", "location",
+        return formatToString("CollectionEvent", "kind", "location",
 							  "oldLocation", "type", "bubbles",
 							  "cancelable", "eventPhase");
-    },
+    }
 
     //--------------------------------------------------------------------------
     //
@@ -241,10 +223,10 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
     /**
      *  @private
      */
-    "override public function clone",function clone()/*:Event*/
+    override public function clone():Event
     {
-        return new CollectionEvent(this.type, this.bubbles, this.cancelable, this.kind, this.location, this.oldLocation, this.items);
-    },
-];},[]
+        return new CollectionEvent(type, bubbles, cancelable, kind, location, oldLocation, items);
+    }
+}
 
-);
+}

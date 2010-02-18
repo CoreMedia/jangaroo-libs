@@ -1,4 +1,4 @@
-joo.classLoader.prepare(////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 //
 //  ADOBE SYSTEMS INCORPORATED
 //  Copyright 2005-2007 Adobe Systems Incorporated
@@ -9,18 +9,18 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-"package mx.collections", 
-[
+package mx.collections 
+{
     
-"import flash.events.IEventDispatcher",
-"import mx.events.CollectionEvent",/*
+import flash.events.IEventDispatcher;
+import mx.events.CollectionEvent;
 
 /**
  *  Dispatched when the IList has been updated in some way.
  *
  *  @eventType mx.events.CollectionEvent.COLLECTION_CHANGE
- * /
-[Event(name="collectionChange", type="mx.events.CollectionEvent")]*/""],
+ */
+[Event(name="collectionChange", type="mx.events.CollectionEvent")]
 
 /**
  *  A collection of items organized in an ordinal fashion.  
@@ -40,8 +40,8 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
  *  @see mx.collections.ICollectionView
  *  @see mx.collections.ListCollectionView
  */
-"public interface IList extends IEventDispatcher",function($jooPublic,$jooPrivate){with(mx.collections)with($jooPublic)with($jooPrivate)return[
-/*
+public interface IList extends IEventDispatcher
+{
     //--------------------------------------------------------------------------
     //
     //  Properties
@@ -55,8 +55,8 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
     /**
      *  The number of items in this collection. 
      *  0 means no items while -1 means the length is unknown. 
-     * /
-    function length():int;*/,/*
+     */
+    function get length():int;
 
     //--------------------------------------------------------------------------
     //
@@ -69,8 +69,8 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
      *  Equivalent to <code>addItemAt(item, length)</code>.
      *
      *  @param item The item to add.
-     * /
-    function addItem(item:Object):void;*/,/*
+     */
+    function addItem(item:Object):void;
     
     /**
      *  Adds the item at the specified index.  
@@ -83,8 +83,8 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
      *  @param index The index at which to place the item.
      *
      *  @throws RangeError if index is less than 0 or greater than the length of the list. 
-     * /
-    function addItemAt(item:Object, index:int):void;*/,/*
+     */
+    function addItemAt(item:Object, index:int):void;
     
     /**
      *  Gets the item at the specified index.
@@ -102,8 +102,8 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
      *
      *  @throws RangeError if <code>index &lt; 0</code>
      *  or <code>index >= length</code>.
-     * /
-    function getItemAt(index:int, prefetch:int):Object;*/,/*
+     */
+    function getItemAt(index:int, prefetch:int = 0):Object;
     
     /**
      *  Returns the index of the item if it is in the list such that
@@ -118,8 +118,8 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
      *  @param item The item to find.
      *
      *  @return The index of the item, or -1 if the item is not in the list.
-     * /
-    function getItemIndex(item:Object):int;*/,/*
+     */
+    function getItemIndex(item:Object):int;
     
     /**
      *  Notifies the view that an item has been updated.  
@@ -143,10 +143,10 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
      *
      *  @see mx.events.CollectionEvent
      *  @see mx.events.PropertyChangeEvent
-     * /
-    function itemUpdated(item:Object, property:Object, 
-                         oldValue:Object, 
-                         newValue:Object):void;*/,/*
+     */
+    function itemUpdated(item:Object, property:Object = null, 
+                         oldValue:Object = null, 
+                         newValue:Object = null):void;
 
     /** 
      *  Removes all items from the list.
@@ -157,8 +157,8 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
      *  <p>See the ItemPendingError documentation as well as
      *  the collections documentation for more information
      *   on using the <code>ItemPendingError</code>.</p>
-     * /
-    function removeAll():void;*/,/*
+     */
+    function removeAll():void;
 
     /**
      *  Removes the item at the specified index and returns it.  
@@ -169,8 +169,8 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
      *  @return The item that was removed.
      *
      *  @throws RangeError is index is less than 0 or greater than length. 
-     * /
-    function removeItemAt(index:int):Object;*/,/*
+     */
+    function removeItemAt(index:int):Object;
     
     /**
      *  Places the item at the specified index.  
@@ -184,8 +184,8 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
      *  @return The item that was replaced, or <code>null</code> if none.
      *
      *  @throws RangeError if index is less than 0 or greater than length.
-     * /
-    function setItemAt(item:Object, index:int):Object;*/,/*
+     */
+    function setItemAt(item:Object, index:int):Object;
     
     /**
      *  Returns an Array that is populated in the same order as the IList
@@ -196,8 +196,8 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
      *  
      *  @throws mx.collections.errors.ItemPendingError If the data is not yet completely loaded
      *  from a remote location.
-     * / 
-    function toArray():Array;*/,
-];},[]
+     */ 
+    function toArray():Array;
+}
 
-);
+}

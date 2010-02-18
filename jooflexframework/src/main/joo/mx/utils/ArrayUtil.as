@@ -1,4 +1,4 @@
-joo.classLoader.prepare(////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 //
 //  ADOBE SYSTEMS INCORPORATED
 //  Copyright 2004-2006 Adobe Systems Incorporated
@@ -9,8 +9,8 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-"package mx.utils",
-[""],
+package mx.utils
+{
 
 /**
  *  The ArrayUtil utility class is an all-static class
@@ -19,27 +19,9 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
  *  instead you call static methods such as the 
  *  <code>ArrayUtil.toArray()</code> method.
  */
-"public class ArrayUtil",function($jooPublic,$jooPrivate){with(mx.utils)with($jooPublic)with($jooPrivate)return[
-
-	////////////////////////////////////////////////////////////////////////////////
-//
-//  ADOBE SYSTEMS INCORPORATED
-//  Copyright 2005-2007 Adobe Systems Incorporated
-//  All Rights Reserved.
-//
-//  NOTICE: Adobe permits you to use, modify, and distribute this file
-//  in accordance with the terms of the license agreement accompanying it.
-//
-////////////////////////////////////////////////////////////////////////////////
-
-"import mx.core.mx_internal",
-
-/**
- *  @private
- *  Version string for this class.
- */
-"mx_internal static const",{ VERSION/*:String*/ : "3.3.0.0"},
-
+public class ArrayUtil
+{
+	include "../core/Version.asfragment";
 
 	//--------------------------------------------------------------------------
 	//
@@ -63,17 +45,17 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
      *  only element is the Object is returned or an empty Array if 
      *  the Object was null. 
      */
-    "public static function toArray",function toArray(obj/*:Object*/)/*:Array*/
+    public static function toArray(obj:Object):Array
     {
 		if (!obj) 
 			return [];
 		
-		else if ( is(obj, Array))
-			return obj;
+		else if (obj is Array)
+			return obj as Array;
 		
 		else
 		 	return [ obj ];
-    },
+    }
     
     /**
      *  Returns the index of the item in the Array.
@@ -87,17 +69,17 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
      * 
      *  @return The index of the item, and -1 if the item is not in the list.
      */
-    "public static function getItemIndex",function getItemIndex(item/*:Object*/, source/*:Array*/)/*:int*/
+    public static function getItemIndex(item:Object, source:Array):int
     {
-        var n/*:int*/ = source.length;
-        for (var i/*:int*/ = 0; i < n; i++)
+        var n:int = source.length;
+        for (var i:int = 0; i < n; i++)
         {
             if (source[i] === item)
                 return i;
         }
 
         return -1;           
-    },
-];},["toArray","getItemIndex"]
+    }
+}
 
-);
+}

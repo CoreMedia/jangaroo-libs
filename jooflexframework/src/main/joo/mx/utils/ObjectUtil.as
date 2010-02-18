@@ -1,4 +1,4 @@
-joo.classLoader.prepare(////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 //
 //  ADOBE SYSTEMS INCORPORATED
 //  Copyright 2005-2007 Adobe Systems Incorporated
@@ -9,13 +9,15 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-"package mx.utils",
-[
+package mx.utils
+{
 
-"import flash.utils.Dictionary",
-"import flash.utils.getQualifiedClassName",
+//import flash.utils.ByteArray;
+import flash.utils.Dictionary;
+import flash.utils.getQualifiedClassName;
+//import flash.xml.XMLNode;
 
-"import mx.collections.IList",""],
+import mx.collections.IList;
 
 /**
  *  The ObjectUtil class is an all-static class with methods for
@@ -24,32 +26,14 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
  *  instead you simply call static methods such as the 
  *  <code>ObjectUtil.isSimple()</code> method.
  */
-"public class ObjectUtil",function($jooPublic,$jooPrivate){with(mx.utils)with($jooPublic)with($jooPrivate)return[function(){joo.classLoader.init(ByteArray,XMLNode,IList,Dictionary);},
-
-    ////////////////////////////////////////////////////////////////////////////////
-//
-//  ADOBE SYSTEMS INCORPORATED
-//  Copyright 2005-2007 Adobe Systems Incorporated
-//  All Rights Reserved.
-//
-//  NOTICE: Adobe permits you to use, modify, and distribute this file
-//  in accordance with the terms of the license agreement accompanying it.
-//
-////////////////////////////////////////////////////////////////////////////////
-
-"import mx.core.mx_internal",
-
-/**
- *  @private
- *  Version string for this class.
- */
-"mx_internal static const",{ VERSION/*:String*/ : "3.3.0.0"},
-
+public class ObjectUtil
+{
+    include "../core/Version.asfragment";
     
     /**
     *  Array of properties to exclude from debugging output.
     */
-    "private static var",{ defaultToStringExcludes/*:Array*/ :function(){return( ["password", "credentials"]);}},
+    private static var defaultToStringExcludes:Array = ["password", "credentials"];
 
     //--------------------------------------------------------------------------
     //
@@ -90,10 +74,10 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
      *  Return 1 if a is null or greater than b. 
      *  Return -1 if b is null or greater than a. 
      */
-    "public static function compare",function compare(a/*:Object*/, b/*:Object*/, depth/*:int*/)/*:int*/
-    {if(arguments.length<3){depth = -1;}
+    public static function compare(a:Object, b:Object, depth:int = -1):int
+    {
         return internalCompare(a, b, 0, depth, new Dictionary(true));
-    },
+    }
     
     /**
      *  Copies the specified Object and returns a reference to the copy.
@@ -110,14 +94,14 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
      * 
      *  @return Copy of the specified Object.
      */ 
-    "public static function copy",function copy(value/*:Object*/)/*:Object*/
+    public static function copy(value:Object):Object
     {
-        var buffer/*:ByteArray*/ = new ByteArray();
+        var buffer:ByteArray = new ByteArray();
         buffer.writeObject(value);
         buffer.position = 0;
-        var result/*:Object*/ = buffer.readObject();
+        var result:Object = buffer.readObject();
         return result;
-    },
+    }
     
     /**
      *  Returns <code>true</code> if the object reference specified
@@ -137,9 +121,9 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
      *  @return <code>true</code> if the object specified
      *  is one of the types above; <code>false</code> otherwise.
      */
-    "public static function isSimple",function isSimple(value/*:Object*/)/*:Boolean*/
+    public static function isSimple(value:Object):Boolean
     {
-        var type/*:String*/ = typeof(value);
+        var type:String = typeof(value);
         switch (type)
         {
             case "number":
@@ -151,12 +135,12 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
 
             case "object":
             {
-                return ( is(value, Date)) || ( is(value, Array));
+                return (value is Date) || (value is Array);
             }
         }
 
         return false;
-    },
+    }
 
     /**
      *  Compares two numeric values.
@@ -171,7 +155,7 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
      *  -1 if <code>a</code> is less than <code>b</code>.
      *  1 if <code>a</code> is greater than <code>b</code>.
      */
-    "public static function numericCompare",function numericCompare(a/*:Number*/, b/*:Number*/)/*:int*/
+    public static function numericCompare(a:Number, b:Number):int
     {
         if (isNaN(a) && isNaN(b))
             return 0;
@@ -189,7 +173,7 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
             return 1;
 
         return 0;
-    },
+    }
 
     /**
      *  Compares two String values.
@@ -207,9 +191,9 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
      *  -1 if <code>a</code> precedes <code>b</code>.
      *  1 if <code>b</code> precedes <code>a</code>.
      */
-    "public static function stringCompare",function stringCompare(a/*:String*/, b/*:String*/,
-                                         caseInsensitive/*:Boolean*/)/*:int*/
-    {if(arguments.length<3){caseInsensitive = false;}
+    public static function stringCompare(a:String, b:String,
+                                         caseInsensitive:Boolean = false):int
+    {
         if (a == null && b == null)
             return 0;
 
@@ -226,7 +210,7 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
             b = b.toLocaleLowerCase();
         }
 
-        var result/*:int*/ = a.localeCompare(b);
+        var result:int = a.localeCompare(b);
         
         if (result < -1)
             result = -1;
@@ -234,7 +218,7 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
             result = 1;
 
         return result;
-    },
+    }
 
     /**
      *  Compares the two Date objects and returns an integer value 
@@ -252,7 +236,7 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
      *  -1 if <code>b</code> is <code>null</code>
      *  or before <code>a</code>. 
      */
-    "public static function dateCompare",function dateCompare(a/*:Date*/, b/*:Date*/)/*:int*/
+    public static function dateCompare(a:Date, b:Date):int
     {
         if (a == null && b == null)
             return 0;
@@ -263,8 +247,8 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
         if (b == null)
            return -1;
 
-        var na/*:Number*/ = a.getTime();
-        var nb/*:Number*/ = b.getTime();
+        var na:Number = a.getTime();
+        var nb:Number = b.getTime();
         
         if (na < nb)
             return -1;
@@ -273,7 +257,7 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
             return 1;
 
         return 0;
-    },
+    }
         
     /**
      *  Pretty-prints the specified Object into a String.
@@ -445,10 +429,10 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
      * 
      * </pre>
      */
-    "public static function toString",function toString(value/*:Object*/, 
-                                    namespaceURIs/*:Array*/, 
-                                    exclude/*:Array*/)/*:String*/
-    {if(arguments.length<3){if(arguments.length<2){namespaceURIs = null;}exclude = null;}
+    public static function toString(value:Object, 
+                                    namespaceURIs:Array = null, 
+                                    exclude:Array = null):String
+    {
         if (exclude == null)
         {
             exclude = defaultToStringExcludes;
@@ -456,21 +440,21 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
         
         refCount = 0;
         return internalToString(value, 0, null, namespaceURIs, exclude);
-    },
+    }
     
     /**
      *  This method cleans up all of the additional parameters that show up in AsDoc
      *  code hinting tools that developers shouldn't ever see.
      *  @private
      */
-    "private static function internalToString",function internalToString(value/*:Object*/, 
-                                             indent/*:int*/,
-                                             refs/*:Dictionary*/, 
-                                             namespaceURIs/*:Array*/, 
-                                             exclude/*:Array*/)/*:String*/
-    {if(arguments.length<5){if(arguments.length<4){if(arguments.length<3){if(arguments.length<2){indent = 0;}refs= null;}namespaceURIs = null;}exclude = null;}
-        var str/*:String*/;
-        var type/*:String*/ = value == null ? "null" : typeof(value);
+    private static function internalToString(value:Object, 
+                                             indent:int = 0,
+                                             refs:Dictionary= null, 
+                                             namespaceURIs:Array = null, 
+                                             exclude:Array = null):String
+    {
+        var str:String;
+        var type:String = value == null ? "null" : typeof(value);
         switch (type)
         {
             case "boolean":
@@ -486,24 +470,24 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
 
             case "object":
             {
-                if ( is(value, Date))
+                if (value is Date)
                 {
                     return value.toString();
                 }
-                else if ( is(value, XMLNode))
+                else if (value is XMLNode)
                 {
                     return value.toString();
                 }
-                else if ( is(value, Class))
+                else if (value is Class)
                 {
                     return "(" + getQualifiedClassName(value) + ")";
                 }
                 else
                 {
-                    var classInfo/*:Object*/ = getClassInfo(value, exclude,
+                    var classInfo:Object = getClassInfo(value, exclude,
                         { includeReadOnly: true, uris: namespaceURIs });
                         
-                    var properties/*:Array*/ = classInfo.properties;
+                    var properties:Array = classInfo.properties;
                     
                     str = "(" + classInfo.name + ")";
                     
@@ -515,7 +499,7 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
                         refs = new Dictionary(true);
 
                     // Check to be sure we haven't processed this object before
-                    var id/*:Object*/ = refs[value];
+                    var id:Object = refs[value];
                     if (id != null)
                     {
                         str += "#" + int(id);
@@ -529,13 +513,13 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
                         refCount++;
                     }
 
-                    var isArray/*:Boolean*/ = is( value, Array);
-                    var isDict/*:Boolean*/ = is( value, Dictionary);
-                    var prop/*:**/;
+                    var isArray:Boolean = value is Array;
+                    var isDict:Boolean = value is Dictionary;
+                    var prop:*;
                     indent += 2;
                     
                     // Print all of the variable values.
-                    for (var j/*:int*/ = 0; j < properties.length; j++)
+                    for (var j:int = 0; j < properties.length; j++)
                     {
                         str = newline(str, indent);
                         prop = properties[j];
@@ -570,7 +554,7 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
                             str += internalToString(value[prop], indent, refs,
                                                     namespaceURIs, exclude);
                         }
-                        catch(e){if(is(e,Error))
+                        catch(e:Error)
                         {
                             // value[prop] can cause an RTE
                             // for certain properties of certain objects.
@@ -589,7 +573,7 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
                             //   sufficiently loaded to provide this information
                             // In this case, we simply output ? for the value.
                             str += "?";
-                        }}
+                        }
                     }
                     indent -= 2;
                     return str;
@@ -609,28 +593,28 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
         }
         
         return "(unknown)";
-    },
+    }
 
     /**
      *  @private
      *  This method will append a newline and the specified number of spaces
      *  to the given string.
      */
-    "private static function newline",function newline(str/*:String*/, n/*:int*/)/*:String*/
-    {if(arguments.length<2){n = 0;}
-        var result/*:String*/ = str;
+    private static function newline(str:String, n:int = 0):String
+    {
+        var result:String = str;
         result += "\n";
         
-        for (var i/*:int*/ = 0; i < n; i++)
+        for (var i:int = 0; i < n; i++)
         {
             result += " ";
         }
         return result;
-    },
+    }
     
-    "private static function internalCompare",function internalCompare(a/*:Object*/, b/*:Object*/,
-                                            currentDepth/*:int*/, desiredDepth/*:int*/,
-                                            refs/*:Dictionary*/)/*:int*/
+    private static function internalCompare(a:Object, b:Object,
+                                            currentDepth:int, desiredDepth:int,
+                                            refs:Dictionary):int
     {
         if (a == null && b == null)
             return 0;
@@ -641,11 +625,16 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
         if (b == null)
             return -1;
            
+//        if (a is ObjectProxy)
+//            a = ObjectProxy(a).object_proxy::object;
+//            
+//        if (b is ObjectProxy)
+//            b = ObjectProxy(b).object_proxy::object;
             
-        var typeOfA/*:String*/ = typeof(a);
-        var typeOfB/*:String*/ = typeof(b);
+        var typeOfA:String = typeof(a);
+        var typeOfB:String = typeof(b);
         
-        var result/*:int*/ = 0;
+        var result:int = 0;
         
         if (typeOfA == typeOfB)
         {
@@ -659,19 +648,19 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
                 
                 case "number":
                 {
-                    result = numericCompare(a, b);
+                    result = numericCompare(a as Number, b as Number);
                     break;
                 }
                 
                 case "string":
                 {
-                    result = stringCompare(a, b);
+                    result = stringCompare(a as String, b as String);
                     break;
                 }
                 
                 case "object":
                 {
-                    var newDepth/*:int*/ = desiredDepth > 0 ? desiredDepth -1 : desiredDepth;
+                    var newDepth:int = desiredDepth > 0 ? desiredDepth -1 : desiredDepth;
                     // refs help us avoid circular reference infinite recursion.
                     // Each time an object is encoumtered it is pushed onto the
                     // refs stack so that we can determine if we have visited
@@ -681,8 +670,8 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
                     // references found.  A visited reference makes an object 
                     // "greater" than another object, only if both objects
                     // have a visited reference will the result be 0
-                    var aRef/*:Boolean*/ = refs[a];
-                    var bRef/*:Boolean*/ = refs[b];
+                    var aRef:Boolean = refs[a];
+                    var bRef:Boolean = refs[b];
                     
                     if (aRef && !bRef)
                         return 1;
@@ -700,26 +689,26 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
                         // toString() our way out
                         result = stringCompare(a.toString(), b.toString());
                     }
-                    else if (( is(a, Array)) && ( is(b, Array)))
+                    else if ((a is Array) && (b is Array))
                     {
-                        result = arrayCompare(a, b, currentDepth, desiredDepth, refs);
+                        result = arrayCompare(a as Array, b as Array, currentDepth, desiredDepth, refs);
                     }
-                    else if (( is(a, Date)) && ( is(b, Date)))
+                    else if ((a is Date) && (b is Date))
                     {
-                        result = dateCompare(a, b);
+                        result = dateCompare(a as Date, b as Date);
                     }
-                    else if (( is(a, IList)) && ( is(b, IList)))
+                    else if ((a is IList) && (b is IList))
                     {
-                        result = listCompare(a, b, currentDepth, desiredDepth, refs);
+                        result = listCompare(a as IList, b as IList, currentDepth, desiredDepth, refs);
                     }
-                    else if (( is(a, ByteArray)) && ( is(b, ByteArray)))
+                    else if ((a is ByteArray) && (b is ByteArray))
                     {
-                        result = byteArrayCompare(a, b);
+                        result = byteArrayCompare(a as ByteArray, b as ByteArray);
                     }
                     else if (getQualifiedClassName(a) == getQualifiedClassName(b))
                     {
-                        var aProps/*:Array*/ = getClassInfo(a).properties;
-                        var bProps/*:Array*/;
+                        var aProps:Array = getClassInfo(a).properties;
+                        var bProps:Array;
                         
                         // if the objects are anonymous they could have different 
                         // # of properties and should be treated on that basis first
@@ -735,10 +724,10 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
                         }
                         
                         // loop through all of the properties and compare
-                        var propName/*:QName*/;
-                        var aProp/*:Object*/;
-                        var bProp/*:Object*/;
-                        for (var i/*:int*/ = 0; i < aProps.length; i++)
+                        var propName:QName;
+                        var aProp:Object;
+                        var bProp:Object;
+                        for (var i:int = 0; i < aProps.length; i++)
                         {
                             propName = aProps[i];
                             aProp = a[propName];
@@ -765,7 +754,7 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
         }
 
         return result;
-    },
+    }
     
     /**
      *  Returns information about the class, and properties of the class, for
@@ -803,27 +792,29 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
      *    or references to the original key if the specified object is a Dictionary</li>
      *  </ul>
     */
-    "public static function getClassInfo",function getClassInfo(obj/*:Object*/,
-                                        excludes/*:Array*/,
-                                        options/*:Object*/)/*:Object*/
-    {if(arguments.length<3){if(arguments.length<2){excludes = null;}options = null;}   
-        var n/*:int*/;
-        var i/*:int*/;
+    public static function getClassInfo(obj:Object,
+                                        excludes:Array = null,
+                                        options:Object = null):Object
+    {   
+        var n:int;
+        var i:int;
 
+//        if (obj is ObjectProxy)
+//            obj = ObjectProxy(obj).object_proxy::object;
 
         if (options == null)
             options = { includeReadOnly: true, uris: null, includeTransient: true };
 
-        var result/*:Object*/;
-        var propertyNames/*:Array*/ = [];
-        var cacheKey/*:String*/;
+        var result:Object;
+        var propertyNames:Array = [];
+        var cacheKey:String;
 
-        var className/*:String*/;
-        var classAlias/*:String*/;
-        var properties/*:XMLList*/;
-        var prop/*:XML*/;
-        var dynamic/*:Boolean*/ = false;
-        var metadataInfo/*:Object*/;
+        var className:String;
+        var classAlias:String;
+        var properties:XMLList;
+        var prop:XML;
+        var dynamic:Boolean = false;
+        var metadataInfo:Object;
 
         if (typeof(obj) == "xml")
         {
@@ -835,13 +826,17 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
         }
         else
         {
-            var classInfo/*:XML*/ = DescribeTypeCache.describeType(obj).typeDescription;
+            var classInfo:XML = DescribeTypeCache.describeType(obj).typeDescription;
             className = classInfo["@name"].toString();
             classAlias = classInfo["@alias"].toString();
             dynamic = (classInfo["@isDynamic"].toString() == "true");
 
+//            if (options.includeReadOnly)
+//                properties = classInfo..accessor.(@access != "writeonly") + classInfo..variable;
+//            else
+//                properties = classInfo..accessor.(@access == "readwrite") + classInfo..variable;
 
-            var numericIndex/*:Boolean*/ = false;
+            var numericIndex:Boolean = false;
         }
 
         // If type is not dynamic, check our cache for class info...
@@ -860,7 +855,7 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
         result["dynamic"] = dynamic;
         result["metadata"] = metadataInfo = recordMetadata(properties);
         
-        var excludeObject/*:Object*/ = {};
+        var excludeObject:Object = {};
         if (excludes)
         {
             n = excludes.length;
@@ -871,28 +866,28 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
         }
 
         //TODO this seems slightly fragile, why not use the 'is' operator?
-        var isArray/*:Boolean*/ = (className == "Array");
-        var isDict/*:Boolean*/  = (className == "flash.utils::Dictionary");
+        var isArray:Boolean = (className == "Array");
+        var isDict:Boolean  = (className == "flash.utils::Dictionary");
         
         if (isDict)
         {
             // dictionaries can have multiple keys of the same type,
             // (they can index by reference rather than QName, String, or number),
             // which cannot be looked up by QName, so use references to the actual key
-            for (var key/*:**/ in obj)
+            for (var key:* in obj)
             {
                 propertyNames.push(key);
             }
         }
         else if (dynamic)
         {
-            for (var p/*:String*/ in obj)
+            for (var p:String in obj)
             {
                 if (excludeObject[p] != 1)
                 {
                     if (isArray)
                     {
-                         var pi/*:Number*/ = parseInt(p);
+                         var pi:Number = parseInt(p);
                          if (isNaN(pi))
                             propertyNames.push(new QName("", p));
                          else
@@ -924,9 +919,9 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
         else
         {
             n = properties.length();
-            var uris/*:Array*/ = options.uris;
-            var uri/*:String*/;
-            var qName/*:QName*/;
+            var uris:Array = options.uris;
+            var uri:String;
+            var qName:QName;
             for (i = 0; i < n; i++)
             {
                 prop = properties[i];
@@ -949,14 +944,14 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
                             obj[qName]; // access the property to ensure it is supported
                             propertyNames.push();
                         }
-                        catch(e){if(is(e,Error))
+                        catch(e:Error)
                         {
                             // don't keep property name 
-                        }}
+                        }
                     }
                     else
                     {
-                        for (var j/*:int*/ = 0; j < uris.length; j++)
+                        for (var j:int = 0; j < uris.length; j++)
                         {
                             uri = uris[j];
                             if (prop["@uri"].toString() == uri)
@@ -967,10 +962,10 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
                                     obj[qName];
                                     propertyNames.push(qName);
                                 }
-                                catch(e){if(is(e,Error))
+                                catch(e:Error)
                                 {
                                     // don't keep property name 
-                                }}
+                                }
                             }
                         }
                     }
@@ -983,10 +978,10 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
                         obj[qName];
                         propertyNames.push(qName);
                     }
-                    catch(e){if(is(e,Error))
+                    catch(e:Error)
                     {
                         // don't keep property name 
-                    }}
+                    }
                 }
             }
         }
@@ -1021,7 +1016,7 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
         }
 
         return result;
-    },
+    }
 
     /**
      * Uses <code>getClassInfo</code> and examines the metadata information to
@@ -1035,25 +1030,25 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
      * @param options If any options flags need to changed when generating class info. (Optional)
      * @return true if the property has the specified metadata.
      */
-    "public static function hasMetadata",function hasMetadata(obj/*:Object*/, 
-                propName/*:String*/, 
-                metadataName/*:String*/, 
-                excludes/*:Array*/,
-                options/*:Object*/)/*:Boolean*/
-    {if(arguments.length<5){if(arguments.length<4){excludes = null;}options = null;}
-        var classInfo/*:Object*/ = getClassInfo(obj, excludes, options);
-        var metadataInfo/*:Object*/ = classInfo["metadata"];
+    public static function hasMetadata(obj:Object, 
+                propName:String, 
+                metadataName:String, 
+                excludes:Array = null,
+                options:Object = null):Boolean
+    {
+        var classInfo:Object = getClassInfo(obj, excludes, options);
+        var metadataInfo:Object = classInfo["metadata"];
         return internalHasMetadata(metadataInfo, propName, metadataName);
-    },
+    }
 
     /**
      *  @private
      */
-    "private static function internalHasMetadata",function internalHasMetadata(metadataInfo/*:Object*/, propName/*:String*/, metadataName/*:String*/)/*:Boolean*/
+    private static function internalHasMetadata(metadataInfo:Object, propName:String, metadataName:String):Boolean
     {
         if (metadataInfo != null)
         {
-            var metadata/*:Object*/ = metadataInfo[propName];
+            var metadata:Object = metadataInfo[propName];
             if (metadata != null)
             {
                 if (metadata[metadataName] != null)
@@ -1061,53 +1056,53 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
             }
         }
         return false;
-    },
+    }
 
     /**
      *  @private
      */
-    "private static function recordMetadata",function recordMetadata(properties/*:XMLList*/)/*:Object*/
+    private static function recordMetadata(properties:XMLList):Object
     {
-        var result/*:Object*/ = null;
+        var result:Object = null;
 
         try
         {
-            for/* each*/ (var $1 in properties)
-            {var prop/*:XML*/ = properties[$1];
-                var propName/*:String*/ = prop.attribute("name").toString();
-                var metadataList/*:XMLList*/ = prop.metadata;
+            for each (var prop:XML in properties)
+            {
+                var propName:String = prop.attribute("name").toString();
+                var metadataList:XMLList = prop.metadata;
 
                 if (metadataList.length() > 0)
                 {
                     if (result == null)
                         result = {};
 
-                    var metadata/*:Object*/ = {};
+                    var metadata:Object = {};
                     result[propName] = metadata;
 
-                    for/* each*/ (var $2 in metadataList)
-                    {var md/*:XML*/ = metadataList[$2];
-                        var mdName/*:String*/ = md.attribute("name").toString();
+                    for each (var md:XML in metadataList)
+                    {
+                        var mdName:String = md.attribute("name").toString();
                         
-                        var argsList/*:XMLList*/ = md.arg;
-                        var value/*:Object*/ = {};
+                        var argsList:XMLList = md.arg;
+                        var value:Object = {};
 
-                        for/* each*/ (var $3 in argsList)
-                        {var arg/*:XML*/ = argsList[$3];
-                            var argKey/*:String*/ = arg.attribute("key").toString();
+                        for each (var arg:XML in argsList)
+                        {
+                            var argKey:String = arg.attribute("key").toString();
                             if (argKey != null)
                             {
-                                var argValue/*:String*/ = arg.attribute("value").toString();
+                                var argValue:String = arg.attribute("value").toString();
                                 value[argKey] = argValue;
                             }
                         }
 
-                        var existing/*:Object*/ = metadata[mdName];
+                        var existing:Object = metadata[mdName];
                         if (existing != null)
                         {
-                            var existingArray/*:Array*/;
-                            if ( is(existing, Array))
-                                existingArray = existing;
+                            var existingArray:Array;
+                            if (existing is Array)
+                                existingArray = existing as Array;
                             else
                                 existingArray = [];
                             existingArray.push(value);
@@ -1122,26 +1117,26 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
                 }
             }
         }
-        catch(e){if(is(e,Error))
+        catch(e:Error)
         {
-        }}
+        }
         
         return result;
-    },
+    }
 
 
     /**
      *  @private
      */
-    "private static function getCacheKey",function getCacheKey(o/*:Object*/, excludes/*:Array*/, options/*:Object*/)/*:String*/
-    {if(arguments.length<3){if(arguments.length<2){excludes = null;}options = null;}
-        var key/*:String*/ = getQualifiedClassName(o);
+    private static function getCacheKey(o:Object, excludes:Array = null, options:Object = null):String
+    {
+        var key:String = getQualifiedClassName(o);
 
         if (excludes != null)
         {
-            for (var i/*:uint*/ = 0; i < excludes.length; i++)
+            for (var i:uint = 0; i < excludes.length; i++)
             {
-                var excl/*:String*/ = excludes[i];
+                var excl:String = excludes[i] as String;
                 if (excl != null)
                     key += excl;
             }
@@ -1149,25 +1144,25 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
 
         if (options != null)
         {
-            for (var flag/*:String*/ in options)
+            for (var flag:String in options)
             {
                 key += flag;
-                var value/*:String*/ = options[flag];
+                var value:String = options[flag] as String;
                 if (value != null)
                     key += value;
             }
         }
         return key;
-    },
+    }
 
     /**
      *  @private
      */
-    "private static function arrayCompare",function arrayCompare(a/*:Array*/, b/*:Array*/,
-                                         currentDepth/*:int*/, desiredDepth/*:int*/,
-                                         refs/*:Dictionary*/)/*:int*/
+    private static function arrayCompare(a:Array, b:Array,
+                                         currentDepth:int, desiredDepth:int,
+                                         refs:Dictionary):int
     {
-        var result/*:int*/ = 0;
+        var result:int = 0;
 
         if (a.length != b.length)
         {
@@ -1178,7 +1173,7 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
         }
         else
         {
-            var key/*:Object*/;
+            var key:Object;
             for (key in a)
             {
                 if (b.hasOwnProperty(key))
@@ -1205,14 +1200,14 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
         }
 
         return result;
-    },
+    }
     
     /**
      * @private
      */
-    "private static function byteArrayCompare",function byteArrayCompare(a/*:ByteArray*/, b/*:ByteArray*/)/*:int*/
+    private static function byteArrayCompare(a:ByteArray, b:ByteArray):int
     {
-        var result/*:int*/ = 0;
+        var result:int = 0;
         if (a.length != b.length)
         {
             if (a.length < b.length)
@@ -1224,7 +1219,7 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
         {
             a.position = 0;
             b.position = 0;
-            for (var i/*:int*/ = 0; i < a.length; i++)
+            for (var i:int = 0; i < a.length; i++)
             {
                 result = numericCompare(a.readByte(), b.readByte());
                 if (result != 0)
@@ -1234,15 +1229,15 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
             }
         }
         return result;
-    },
+    }
 
     /**
      *  @private
      */
-    "private static function listCompare",function listCompare(a/*:IList*/, b/*:IList*/, currentDepth/*:int*/, 
-                                        desiredDepth/*:int*/, refs/*:Dictionary*/)/*:int*/
+    private static function listCompare(a:IList, b:IList, currentDepth:int, 
+                                        desiredDepth:int, refs:Dictionary):int
     {
-        var result/*:int*/ = 0;
+        var result:int = 0;
 
         if (a.length != b.length)
         {
@@ -1253,7 +1248,7 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
         }
         else
         {
-            for (var i/*:int*/ = 0; i < a.length; i++)
+            for (var i:int = 0; i < a.length; i++)
             {
                 result = internalCompare(a.getItemAt(i), b.getItemAt(i), 
                                          currentDepth+1, desiredDepth, refs);
@@ -1265,17 +1260,17 @@ joo.classLoader.prepare(////////////////////////////////////////////////////////
         }
 
         return result;
-    },
+    }
     
     /**
      * @private
      */
-    "private static var",{ refCount/*:int*/ : 0},
+    private static var refCount:int = 0;
 
     /**
      * @private
      */ 
-    "private static var",{ CLASS_INFO_CACHE/*:Object*/ :function(){return( {});}},
-];},["compare","copy","isSimple","numericCompare","stringCompare","dateCompare","toString","getClassInfo","hasMetadata"]
+    private static var CLASS_INFO_CACHE:Object = {};
+}
 
-);
+}
