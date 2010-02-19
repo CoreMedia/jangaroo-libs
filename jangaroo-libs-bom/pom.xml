@@ -17,6 +17,12 @@
     <dependencies>
       <dependency>
         <groupId>net.jangaroo</groupId>
+        <artifactId>ext-core</artifactId>
+        <version>${project.version}</version>
+        <type>jangaroo</type>
+      </dependency>
+      <dependency>
+        <groupId>net.jangaroo</groupId>
         <artifactId>ext-all</artifactId>
         <version>${project.version}</version>
         <type>jangaroo</type>

@@ -152,8 +152,9 @@
     <module>jooflexframework</module>
     <module>joounit</module>
 
-    <module>ext-all</module>
+    <module>ext-core</module>
     <module>ext-base</module>
+    <module>ext-all</module>
     <module>ext-as</module>
 
     <module>ckeditor</module>
