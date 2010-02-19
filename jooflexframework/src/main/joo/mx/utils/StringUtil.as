@@ -167,7 +167,7 @@ public class StringUtil
         
         for (var i:int = 0; i < len; i++)
         {
-            str = str.replace(new RegExp("\\{"+i+"\\}", "g"), args[i]);
+            str = str.replace(new RegExp("\\{"+i+"\\}", "g"), String(args[i]));
         }
 
         return str;
