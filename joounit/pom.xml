@@ -9,7 +9,7 @@
   <artifactId>joounit</artifactId>
   <packaging>jangaroo</packaging>
   <version>0.5.25-SNAPSHOT</version>
-  <name>Joo FlexUnit</name>
+  <name>JooUnit - Jangaroo FlexUnit 3</name>
   <description />
   <url>TODO</url>
 
@@ -50,6 +50,7 @@
         <artifactId>jangaroo-maven-plugin</artifactId>
         <configuration>
           <enableGuessingTypeCasts>true</enableGuessingTypeCasts>
+          <jooUnitSeleniumRCHost>hudson</jooUnitSeleniumRCHost>
           <jooUnitTestExecutionTimeout>120000</jooUnitTestExecutionTimeout>
         </configuration>
       </plugin>
