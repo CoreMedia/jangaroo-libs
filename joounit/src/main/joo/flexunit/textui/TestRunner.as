@@ -33,7 +33,7 @@ package flexunit.textui
    import flash.utils.*;
    import flash.utils.getTimer;
    import flexunit.framework.*;
-   import flexunit.runner.*;
+   import flexunit.runner.BaseTestRunner;
 
    public class TestRunner extends BaseTestRunner
    {
