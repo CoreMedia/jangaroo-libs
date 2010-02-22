@@ -12,3 +12,9 @@ ext.data.jsonreader = Ext.data.JsonReader;
 ext.data.store = Ext.data.Store;
 ext.form.action = Ext.form.Action;
 ext.layout.borderlayout = Ext.layout.BorderLayout;
+// Patch upper-case-bug of ext.util.Observable:
+ext.util.Observable.prototype.hasListener = (function(oldHasListener) {
+  return function(eventName) {
+    return oldHasListener.call(this, eventName.toLowerCase());
+  };
+})(ext.util.Observable.prototype.hasListener);
