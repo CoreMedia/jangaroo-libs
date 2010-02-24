@@ -29,6 +29,7 @@
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>jangaroo-browser</artifactId>
+      <version>0.5.25-SNAPSHOT</version>
       <type>jangaroo</type>
     </dependency>
 

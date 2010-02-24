@@ -1,0 +1,23 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>net.jangaroo</groupId>
+  <artifactId>jangaroo-browser</artifactId>
+  <packaging>jangaroo</packaging>
+  <version>0.5.25-SNAPSHOT</version>
+  <name>Jangaroo Browser DOM and BOM AS3 APIs</name>
+	<description>AS3 version of browser DOM and BOM for use with Jangaroo code</description>
+  <parent>
+    <groupId>net.jangaroo</groupId>
+    <artifactId>jangaroo-libs</artifactId>
+    <version>0.5.25-SNAPSHOT</version>
+  </parent>
+
+  <dependencies>
+    <dependency>
+      <groupId>net.jangaroo</groupId>
+      <artifactId>jangaroo-runtime</artifactId>
+      <type>jangaroo</type>
+    </dependency>
+  </dependencies>
+</project>

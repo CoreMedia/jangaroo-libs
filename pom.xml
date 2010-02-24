@@ -134,18 +134,14 @@
         <version>${jangaroo_version}</version>
         <type>jangaroo</type>
       </dependency>
-      <dependency>
-        <groupId>net.jangaroo</groupId>
-        <artifactId>jangaroo-browser</artifactId>
-        <version>${jangaroo_version}</version>
-        <type>jangaroo</type>
-      </dependency>
     </dependencies>
   </dependencyManagement>
 
   <modules>
     <module>xmlhttprequest</module>
     <module>xmlhttprequest-as</module>
+
+    <module>jangaroo-browser</module>
 
     <module>jooflash</module>
 
