@@ -5,8 +5,10 @@
   <artifactId>ext-as</artifactId>
   <packaging>jangaroo</packaging>
   <version>0.5.26-SNAPSHOT</version>
-  <name>AS ExtJS API</name>
+  
+  <name>ext-as</name>
   <description>ActionScript 3 API for Ext JS Component Library</description>
+  
   <parent>
     <groupId>net.jangaroo</groupId>
     <artifactId>jangaroo-libs</artifactId>

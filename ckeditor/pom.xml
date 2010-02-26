@@ -9,7 +9,7 @@
   <artifactId>ckeditor</artifactId>
   <packaging>jangaroo</packaging>
   <version>0.5.26-SNAPSHOT</version>
-  <name>CKEditor 3.1.0</name>
-  <description />
+  <name>ckeditor</name>
+  <description>CKEditor 3.1.0</description>
     
 </project>

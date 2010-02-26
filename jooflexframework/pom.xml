@@ -10,7 +10,9 @@
   <artifactId>jooflexframework</artifactId>
   <version>0.5.26-SNAPSHOT</version>
   <packaging>jangaroo</packaging>
-  <name>Joo Flex Framework</name>
+
+  <name>jooflexframework</name>
+  <description>Joo Flex Framework</description>
 
   <build>
 

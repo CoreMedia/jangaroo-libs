@@ -9,8 +9,10 @@
   <packaging>jangaroo</packaging>
   <groupId>net.jangaroo</groupId>
   <artifactId>ext-core</artifactId>
+  
   <version>0.5.26-SNAPSHOT</version>
 
-  <name>ext-core 3.1.0</name>
+  <name>ext-core</name>
+  <description>ext-core 3.1.0</description>
 
 </project>

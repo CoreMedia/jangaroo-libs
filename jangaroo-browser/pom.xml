@@ -5,7 +5,7 @@
   <artifactId>jangaroo-browser</artifactId>
   <packaging>jangaroo</packaging>
   <version>0.5.26-SNAPSHOT</version>
-  <name>Jangaroo Browser DOM and BOM AS3 APIs</name>
+  <name>jangaroo-browser</name>
 	<description>AS3 version of browser DOM and BOM for use with Jangaroo code</description>
   <parent>
     <groupId>net.jangaroo</groupId>

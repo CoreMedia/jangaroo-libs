@@ -10,7 +10,7 @@
   <groupId>net.jangaroo</groupId>
   <artifactId>jangaroo-libs-bom</artifactId>
   <version>0.5.26-SNAPSHOT</version>
-  <name>Jangaroo Libs BOM</name>
+  <name>jangaroo-libs-bom</name>
   <description>A Jangaroo Libs Bill of Materials POM</description>
 
   <dependencyManagement>

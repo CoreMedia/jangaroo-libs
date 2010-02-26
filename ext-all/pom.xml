@@ -11,10 +11,10 @@
   <artifactId>ext-all</artifactId>
   <version>0.5.26-SNAPSHOT</version>
 
-  <name>Ext-all 3.0.3</name>
-
+  <name>ext-all</name>
+  <description>Ext-all 3.0.3</description>
+  
   <dependencies>
-
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>ext-base</artifactId>

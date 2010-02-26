@@ -9,8 +9,10 @@
   <artifactId>joounit</artifactId>
   <packaging>jangaroo</packaging>
   <version>0.5.26-SNAPSHOT</version>
-  <name>JooUnit - Jangaroo FlexUnit 3</name>
-  <description />
+  
+  <name>joounit</name>
+  <description>JooUnit - Jangaroo FlexUnit 3</description>
+  
   <url>TODO</url>
 
   <developers>

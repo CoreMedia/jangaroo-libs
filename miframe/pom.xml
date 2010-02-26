@@ -6,12 +6,14 @@
     <version>0.5.18-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
-  <name>Managed IFrame x.y.z</name>
-  <description>Managed IFrame in an unknown version delivered with Ext.ux.TinyMCE</description>
+  
   <groupId>net.jangaroo</groupId>
   <artifactId>miframe</artifactId>
   <version>0.5.18-SNAPSHOT</version>
   <packaging>jangaroo</packaging>
+  
+  <name>miframe</name>
+  <description>Managed IFrame in an unknown version delivered with Ext.ux.TinyMCE</description>
   <url>http://code.google.com/p/managediframe</url>
 
 </project>

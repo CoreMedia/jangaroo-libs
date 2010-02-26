@@ -10,7 +10,9 @@
   <groupId>net.jangaroo</groupId>
   <artifactId>ext-base</artifactId>
   <version>0.5.26-SNAPSHOT</version>
-  <name>Ext-base 3.0.3</name>
+
+  <name>ext-base</name>
+  <description>Ext-base 3.0.3</description>
  
 
 </project>

@@ -9,8 +9,8 @@
   <artifactId>jooflash</artifactId>
   <packaging>jangaroo</packaging>
   <version>0.5.26-SNAPSHOT</version>
-  <name>Joo Flash Compat. Library</name>
-  <description />
+  <name>jooflash</name>
+  <description>Joo Flash Compat. Library</description>
 
   <developers>
 

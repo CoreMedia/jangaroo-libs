@@ -10,8 +10,9 @@
   <artifactId>xmlhttprequest-as</artifactId>
   <packaging>jangaroo</packaging>
   <version>0.5.26-SNAPSHOT</version>
-  <name>AS XmlHttpRequest API</name>
-  <description />
+
+  <name>xmlhttprequest-as</name>
+  <description>AS XmlHttpRequest API</description>
 
 
 

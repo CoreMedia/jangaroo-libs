@@ -9,9 +9,9 @@
   <artifactId>tiny_mce-ext</artifactId>
   <packaging>jangaroo</packaging>
   <version>0.5.18-SNAPSHOT</version>
-  <name>AS TinyMCE API</name>
-  <description />
-  
+
+  <name>tiny_mce-ext</name>
+  <description>AS TinyMCE API</description>
 
   <dependencies>
 
