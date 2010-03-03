@@ -168,7 +168,7 @@ anchor: '-50 -100' // render item the complete width of the container
 // one value specified
 anchor: '-50'      // anchor value is assumed to be the right offset value
 // bottom offset will default to 0
-</code></pre></div></li><li><b>Sides</b> : Valid values are <tt>'right'</tt> (or <tt>'r'</tt>) and <tt>'bottom'</tt> (or <tt>'b'</tt>).<div class="sub-desc">Either the container must have a fixed size or an anchorSize config value defined at render time in order for these to have any effect.</div></li><li><b>Mixed</b> : <div class="sub-desc">Anchor values can also be mixed as needed. For example, to render the width offset from the container right edge by 50 pixels and 75% of the container's height use: <pre><code>anchor: '-50 75%' 
+</code></pre></div></li><li><b>Sides</b> : Valid values are <tt>'right'</tt> (or <tt>'r'</tt>) and <tt>'bottom'</tt> (or <tt>'b'</tt>).<div class="sub-desc">Either the container must have a fixed size or an anchorSize config value defined at render time in order for these to have any effect.</div></li><li><b>Mixed</b> : <div class="sub-desc">Anchor values can also be mixed as needed. For example, to render the width offset from the container right edge by 50 pixels and 75% of the container's height use: <pre><code>anchor: '-50 75%'
 </code></pre></div></li></ul></div>
             </xs:documentation>
           </xs:annotation>
@@ -236,6 +236,17 @@ fields: [
 ['Wal-Mart Stores, Inc.',45.45,0.73,1.63,'9/1 12:00am']
 ];
 </code></pre>An object literal of this form could also be used as the {@link #data} config option.<br/><br/> <p><b>*Note:</b> Although not listed here, this class accepts all of the configuration options of <b>{@link Ext.data.ArrayReader ArrayReader}</b>.</p>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name='ext.layout.AutoLayout'>
+        <xs:sequence>
+        </xs:sequence>
+  </xs:complexType>
+  <xs:element id='autolayout' name='autolayout' type='ext:ext.layout.AutoLayout'>
+    <xs:annotation>
+      <xs:documentation>
+<p>The AutoLayout is the default layout manager delegated by {@link Ext.Container} to render any child Components when no <tt>{@link Ext.Container#layout layout}</tt> is configured into a {@link Ext.Container Container}. ContainerLayout provides the basic foundation for all other layout classes in Ext. It simply renders all child Components into the Container, performing no sizing or positioning services. To utilize a layout that provides sizing and positioning of child Components, specify an appropriate <tt>{@link Ext.Container#layout layout}</tt>.</p>
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -307,7 +318,7 @@ The string returned by the renderer when the column value is undefined (defaults
 {@link Ext.layout.BorderLayout.Region#BorderLayout.Region region}: 'south',     // position for region
 {@link Ext.BoxComponent#height height}: 100,
 {@link Ext.layout.BorderLayout.Region#split split}: true,         // enable resizing
-{@link Ext.SplitBar#minSize minSize}: 75,         // defaults to {@link Ext.layout.BorderLayout.Region#minHeight 50} 
+{@link Ext.SplitBar#minSize minSize}: 75,         // defaults to {@link Ext.layout.BorderLayout.Region#minHeight 50}
 {@link Ext.SplitBar#maxSize maxSize}: 150,
 {@link Ext.layout.BorderLayout.Region#margins margins}: '0 5 5 5'
 },{
@@ -365,6 +376,20 @@ left: (left margin)
               </xs:complexType>
             </xs:element>
         </xs:sequence>
+        <xs:attribute type='xs:int' name='flex'>
+          <xs:annotation>
+            <xs:documentation>
+<p><b>Note</b>: this config is only used when this Component is rendered by a Container which has been configured to use a <b>{@link Ext.layout.BoxLayout BoxLayout}.</b> Each child Component with a <code>flex</code> property will be flexed either vertically (by a VBoxLayout) or horizontally (by an HBoxLayout) according to the item's <b>relative</b> <code>flex</code> value compared to the sum of all Components with <code>flex value specified. Any child items that have either a</code> flex = 0 or <code>flex = undefined</code> will not be 'flexed' (the initial size will not be changed).</p>
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:string' name='anchor'>
+          <xs:annotation>
+            <xs:documentation>
+<p><b>Note</b>: this config is only used when this Component is rendered by a Container which has been configured to use an <b>{@link Ext.layout.AnchorLayout AnchorLayout} (or subclass thereof).</b> based layout manager, for example:</p><div class="mdetail-params"><ul><li>{@link Ext.form.FormPanel}</li><li>specifying <code>layout: 'anchor' // or 'form', or 'absolute'</code></li></ul></div><br/><br/> <p>See {@link Ext.layout.AnchorLayout}.{@link Ext.layout.AnchorLayout#anchor anchor} also.</p>
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
         <xs:attribute type='xs:string' name='tabTip'>
           <xs:annotation>
             <xs:documentation>
@@ -455,6 +480,34 @@ The width of this component in pixels (defaults to auto). <b>Note</b> to express
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
+        <xs:attribute type='xs:int' name='boxMinHeight'>
+          <xs:annotation>
+            <xs:documentation>
+<p>The minimum value in pixels which this BoxComponent will set its height to.</p><p><b>Warning:</b> This will override any size management applied by layout managers.</p>
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:int' name='boxMinWidth'>
+          <xs:annotation>
+            <xs:documentation>
+<p>The minimum value in pixels which this BoxComponent will set its width to.</p><p><b>Warning:</b> This will override any size management applied by layout managers.</p>
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:int' name='boxMaxHeight'>
+          <xs:annotation>
+            <xs:documentation>
+<p>The maximum value in pixels which this BoxComponent will set its height to.</p><p><b>Warning:</b> This will override any size management applied by layout managers.</p>
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:int' name='boxMaxWidth'>
+          <xs:annotation>
+            <xs:documentation>
+<p>The maximum value in pixels which this BoxComponent will set its width to.</p><p><b>Warning:</b> This will override any size management applied by layout managers.</p>
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
         <xs:attribute type='xs:boolean' name='autoHeight'>
           <xs:annotation>
             <xs:documentation>
@@ -513,6 +566,13 @@ title: 'Box 3'
 }],
 });
 </code></pre>
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:boolean' name='autoScroll'>
+          <xs:annotation>
+            <xs:documentation>
+<code>true</code> to use overflow:'auto' on the components layout element and show scroll bars automatically when necessary, <code>false</code> to clip any overflowing content (defaults to <code>false</code>).
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
@@ -633,7 +693,7 @@ left: (left margin)
             <xs:element name='toggleHandler' minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
-    Function called when a Button with {@link #enableToggle} set to true is clicked. Two arguments are passed:<ul class="mdetail-params"><li><b>button</b> : Ext.Button<div class="sub-desc">this Button object</div></li><li><b>state</b> : Boolean<div class="sub-desc">The next state if the Button, true means pressed.</div></li></ul>
+    Function called when a Button with {@link #enableToggle} set to true is clicked. Two arguments are passed:<ul class="mdetail-params"><li><b>button</b> : Ext.Button<div class="sub-desc">this Button object</div></li><li><b>state</b> : Boolean<div class="sub-desc">The next state of the Button, true means pressed.</div></li></ul>
                 </xs:documentation>
               </xs:annotation>
               <xs:complexType>
@@ -763,7 +823,7 @@ True to enable pressed/not pressed toggling (defaults to false)
         <xs:attribute type='xs:string' name='toggleHandler'>
           <xs:annotation>
             <xs:documentation>
-Function called when a Button with {@link #enableToggle} set to true is clicked. Two arguments are passed:<ul class="mdetail-params"><li><b>button</b> : Ext.Button<div class="sub-desc">this Button object</div></li><li><b>state</b> : Boolean<div class="sub-desc">The next state if the Button, true means pressed.</div></li></ul>
+Function called when a Button with {@link #enableToggle} set to true is clicked. Two arguments are passed:<ul class="mdetail-params"><li><b>button</b> : Ext.Button<div class="sub-desc">this Button object</div></li><li><b>state</b> : Boolean<div class="sub-desc">The next state of the Button, true means pressed.</div></li></ul>
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
@@ -1022,7 +1082,7 @@ html: '&lt;h1&gt;Congratulations!&lt;/h1&gt;&lt;p&gt;Step 3 of 3 - Complete&lt;/
             <xs:element name='chartStyle' minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
-    Sets styles for this chart. Contains a number of default values. Modifying this property will override the base styles on the chart.
+    Sets styles for this chart. This contains default styling, so modifying this property will <b>override</b> the built in styles of the chart. Use {@link #extraStyle} to add customizations to the default styling.
                 </xs:documentation>
               </xs:annotation>
               <xs:complexType>
@@ -1035,7 +1095,20 @@ html: '&lt;h1&gt;Congratulations!&lt;/h1&gt;&lt;p&gt;Step 3 of 3 - Complete&lt;/
             <xs:element name='extraStyle' minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
-    Contains extra styles that will be added or overwritten to the default chartStyle. Defaults to <tt>null</tt>.
+    Contains extra styles that will be added or overwritten to the default chartStyle. Defaults to <tt>null</tt>. For a detailed list of the options available, visit the YUI Charts site at <a href="http://developer.yahoo.com/yui/charts/#basicstyles">http://developer.yahoo.com/yui/charts/#basicstyles</a><br/>Some of the options availabe:<br/><ul style="padding:5px;padding-left:16px;list-style-type:inherit;"><li><b>padding</b> - The space around the edge of the chart's contents. Padding does not increase the size of the chart.</li><li><b>animationEnabled</b> - A Boolean value that specifies whether marker animations are enabled or not. Enabled by default.</li><li><b>font</b> - An Object defining the font style to be used in the chart. Defaults to <tt>{ name: 'Tahoma', color: 0x444444, size: 11 }</tt><br/> <ul style="padding:5px;padding-left:26px;list-style-type:circle;"><li><b>name</b> - font name</li><li><b>color</b> - font color (hex code, ie: "#ff0000", "ff0000" or 0xff0000)</li><li><b>size</b> - font size in points (numeric portion only, ie: 11)</li><li><b>bold</b> - boolean</li><li><b>italic</b> - boolean</li><li><b>underline</b> - boolean</li></ul></li><li><b>border</b> - An object defining the border style around the chart. The chart itself will decrease in dimensions to accomodate the border.<br/> <ul style="padding:5px;padding-left:26px;list-style-type:circle;"><li><b>color</b> - border color (hex code, ie: "#ff0000", "ff0000" or 0xff0000)</li><li><b>size</b> - border size in pixels (numeric portion only, ie: 1)</li></ul></li><li><b>background</b> - An object defining the background style of the chart.<br/> <ul style="padding:5px;padding-left:26px;list-style-type:circle;"><li><b>color</b> - border color (hex code, ie: "#ff0000", "ff0000" or 0xff0000)</li><li><b>image</b> - an image URL. May be relative to the current document or absolute.</li></ul></li><li><b>legend</b> - An object defining the legend style<br/> <ul style="padding:5px;padding-left:26px;list-style-type:circle;"><li><b>display</b> - location of the legend. Possible values are "none", "left", "right", "top", and "bottom".</li><li><b>spacing</b> - an image URL. May be relative to the current document or absolute.</li><li><b>padding, border, background, font</b> - same options as described above.</li></ul></li><li><b>dataTip</b> - An object defining the style of the data tip (tooltip).<br/> <ul style="padding:5px;padding-left:26px;list-style-type:circle;"><li><b>padding, border, background, font</b> - same options as described above.</li></ul></li><li><b>xAxis and yAxis</b> - An object defining the style of the style of either axis.<br/> <ul style="padding:5px;padding-left:26px;list-style-type:circle;"><li><b>color</b> - same option as described above.</li><li><b>size</b> - same option as described above.</li><li><b>showLabels</b> - boolean</li><li><b>labelRotation</b> - a value in degrees from -90 through 90. Default is zero.</li></ul></li><li><b>majorGridLines and minorGridLines</b> - An object defining the style of the style of the grid lines.<br/> <ul style="padding:5px;padding-left:26px;list-style-type:circle;"><li><b>color, size</b> - same options as described above.</li></ul></li><li><b>zeroGridLine</b> - An object defining the style of the style of the zero grid line.<br/> <ul style="padding:5px;padding-left:26px;list-style-type:circle;"><li><b>color, size</b> - same options as described above.</li></ul></li><li><b>majorTicks and minorTicks</b> - An object defining the style of the style of ticks in the chart.<br/> <ul style="padding:5px;padding-left:26px;list-style-type:circle;"><li><b>color, size</b> - same options as described above.</li><li><b>length</b> - the length of each tick in pixels extending from the axis.</li><li><b>display</b> - how the ticks are drawn. Possible values are "none", "inside", "outside", and "cross".</li></ul></li></ul>
+                </xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax"/>
+                </xs:sequence>
+                <xs:anyAttribute processContents="skip"/>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name='seriesStyles' minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>
+    Contains styles to apply to the series after a refresh. Defaults to <tt>null</tt>.
                 </xs:documentation>
               </xs:annotation>
               <xs:complexType>
@@ -1049,14 +1122,21 @@ html: '&lt;h1&gt;Congratulations!&lt;/h1&gt;&lt;p&gt;Step 3 of 3 - Complete&lt;/
         <xs:attribute type='xs:string' name='chartStyle'>
           <xs:annotation>
             <xs:documentation>
-Sets styles for this chart. Contains a number of default values. Modifying this property will override the base styles on the chart.
+Sets styles for this chart. This contains default styling, so modifying this property will <b>override</b> the built in styles of the chart. Use {@link #extraStyle} to add customizations to the default styling.
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute type='xs:string' name='extraStyle'>
           <xs:annotation>
             <xs:documentation>
-Contains extra styles that will be added or overwritten to the default chartStyle. Defaults to <tt>null</tt>.
+Contains extra styles that will be added or overwritten to the default chartStyle. Defaults to <tt>null</tt>. For a detailed list of the options available, visit the YUI Charts site at <a href="http://developer.yahoo.com/yui/charts/#basicstyles">http://developer.yahoo.com/yui/charts/#basicstyles</a><br/>Some of the options availabe:<br/><ul style="padding:5px;padding-left:16px;list-style-type:inherit;"><li><b>padding</b> - The space around the edge of the chart's contents. Padding does not increase the size of the chart.</li><li><b>animationEnabled</b> - A Boolean value that specifies whether marker animations are enabled or not. Enabled by default.</li><li><b>font</b> - An Object defining the font style to be used in the chart. Defaults to <tt>{ name: 'Tahoma', color: 0x444444, size: 11 }</tt><br/> <ul style="padding:5px;padding-left:26px;list-style-type:circle;"><li><b>name</b> - font name</li><li><b>color</b> - font color (hex code, ie: "#ff0000", "ff0000" or 0xff0000)</li><li><b>size</b> - font size in points (numeric portion only, ie: 11)</li><li><b>bold</b> - boolean</li><li><b>italic</b> - boolean</li><li><b>underline</b> - boolean</li></ul></li><li><b>border</b> - An object defining the border style around the chart. The chart itself will decrease in dimensions to accomodate the border.<br/> <ul style="padding:5px;padding-left:26px;list-style-type:circle;"><li><b>color</b> - border color (hex code, ie: "#ff0000", "ff0000" or 0xff0000)</li><li><b>size</b> - border size in pixels (numeric portion only, ie: 1)</li></ul></li><li><b>background</b> - An object defining the background style of the chart.<br/> <ul style="padding:5px;padding-left:26px;list-style-type:circle;"><li><b>color</b> - border color (hex code, ie: "#ff0000", "ff0000" or 0xff0000)</li><li><b>image</b> - an image URL. May be relative to the current document or absolute.</li></ul></li><li><b>legend</b> - An object defining the legend style<br/> <ul style="padding:5px;padding-left:26px;list-style-type:circle;"><li><b>display</b> - location of the legend. Possible values are "none", "left", "right", "top", and "bottom".</li><li><b>spacing</b> - an image URL. May be relative to the current document or absolute.</li><li><b>padding, border, background, font</b> - same options as described above.</li></ul></li><li><b>dataTip</b> - An object defining the style of the data tip (tooltip).<br/> <ul style="padding:5px;padding-left:26px;list-style-type:circle;"><li><b>padding, border, background, font</b> - same options as described above.</li></ul></li><li><b>xAxis and yAxis</b> - An object defining the style of the style of either axis.<br/> <ul style="padding:5px;padding-left:26px;list-style-type:circle;"><li><b>color</b> - same option as described above.</li><li><b>size</b> - same option as described above.</li><li><b>showLabels</b> - boolean</li><li><b>labelRotation</b> - a value in degrees from -90 through 90. Default is zero.</li></ul></li><li><b>majorGridLines and minorGridLines</b> - An object defining the style of the style of the grid lines.<br/> <ul style="padding:5px;padding-left:26px;list-style-type:circle;"><li><b>color, size</b> - same options as described above.</li></ul></li><li><b>zeroGridLine</b> - An object defining the style of the style of the zero grid line.<br/> <ul style="padding:5px;padding-left:26px;list-style-type:circle;"><li><b>color, size</b> - same options as described above.</li></ul></li><li><b>majorTicks and minorTicks</b> - An object defining the style of the style of ticks in the chart.<br/> <ul style="padding:5px;padding-left:26px;list-style-type:circle;"><li><b>color, size</b> - same options as described above.</li><li><b>length</b> - the length of each tick in pixels extending from the axis.</li><li><b>display</b> - how the ticks are drawn. Possible values are "none", "inside", "outside", and "cross".</li></ul></li></ul>
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:string' name='seriesStyles'>
+          <xs:annotation>
+            <xs:documentation>
+Contains styles to apply to the series after a refresh. Defaults to <tt>null</tt>.
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
@@ -1073,7 +1153,7 @@ True to add a "cache buster" to the end of the chart url. Defaults to true for O
   <xs:element id='chart' name='chart' type='ext:ext.chart.Chart' substitutionGroup='ext:flash'>
     <xs:annotation>
       <xs:documentation>
-The Ext.chart package provides the capability to visualize data with flash based charting. Each chart binds directly to an Ext.data.Store enabling automatic updates of the chart.
+The Ext.chart package provides the capability to visualize data with flash based charting. Each chart binds directly to an Ext.data.Store enabling automatic updates of the chart. To change the look and feel of a chart, see the {@link #chartStyle} and {@link #extraStyle} config options.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -1112,6 +1192,13 @@ The Ext.chart package provides the capability to visualize data with flash based
           <xs:annotation>
             <xs:documentation>
 <tt>true</tt> if the checkbox should render initially checked (defaults to <tt>false</tt>)
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:string' name='boxLabel'>
+          <xs:annotation>
+            <xs:documentation>
+The text that appears beside the checkbox
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
@@ -1342,17 +1429,17 @@ An id to assign to the underlying color palette. Defaults to <tt>null</tt>.
               </xs:complexType>
             </xs:element>
         </xs:sequence>
-        <xs:attribute type='xs:string' name='tpl'>
-          <xs:annotation>
-            <xs:documentation>
-An existing XTemplate instance to be used in place of the default template for rendering the component.
-            </xs:documentation>
-          </xs:annotation>
-        </xs:attribute>
         <xs:attribute type='xs:string' name='value'>
           <xs:annotation>
             <xs:documentation>
 The initial color to highlight (should be a valid 6-digit color hex code without the # symbol). Note that the hex codes are case-sensitive.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:string' name='clickEvent'>
+          <xs:annotation>
+            <xs:documentation>
+The DOM event that will cause a color to be selected. This can be any valid event name (dblclick, contextmenu). Defaults to <tt>'click'</tt>.
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
@@ -1420,7 +1507,7 @@ title: 'Column Layout - Percentage Only',
 layout:'column',
 items: [{
 title: 'Column 1',
-columnWidth: .25 
+columnWidth: .25
 },{
 title: 'Column 2',
 columnWidth: .6
@@ -1481,12 +1568,10 @@ columnWidth: .2
                 <xs:anyAttribute processContents="skip"/>
               </xs:complexType>
             </xs:element>
-            <xs:element name='tpl' minOccurs="0" maxOccurs="1">
+            <xs:element name='listAlign' minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
-    <p>The template string, or {@link Ext.XTemplate} instance to use to display each item in the dropdown list. The dropdown list is displayed in a DataView. See {@link #view}.</p><p>The default template string is:</p><pre><code>'&lt;tpl for="."&gt;&lt;div class="x-combo-list-item"&gt;{' + this.displayField + '}&lt;/div&gt;&lt;/tpl&gt;'
-</code></pre><p>Override the default value to create custom UI layouts for items in the list. For example:</p><pre><code>'&lt;tpl for="."&gt;&lt;div ext:qtip="{state}. {nick}" class="x-combo-list-item"&gt;{state}&lt;/div&gt;&lt;/tpl&gt;'
-</code></pre><p>The template <b>must</b> contain one or more substitution parameters using field names from the Combo's {@link #store Store}. In the example above an</p><pre>ext:qtip</pre>attribute is added to display other fields from the Store.<br/><br/> <p>To preserve the default visual look of list items, add the CSS class name</p><pre>x-combo-list-item</pre>to the template's container element.<br/><br/> <p>Also see {@link #itemSelector} for additional details.</p>
+    A valid anchor position value. See <tt>{@link Ext.Element#alignTo}</tt> for details on supported anchor positions and offsets. To specify x/y offsets as well, this value may be specified as an Array of <tt>{@link Ext.Element#alignTo}</tt> method arguments.<br/><br/> <pre><code>[ 'tl-bl?', [6,0] ]</code></pre>(defaults to <tt>'tl-bl?'</tt>)
                 </xs:documentation>
               </xs:annotation>
               <xs:complexType>
@@ -1598,7 +1683,7 @@ The empty text to display in the data view if no items are found. (defaults to '
         <xs:attribute type='xs:string' name='listAlign'>
           <xs:annotation>
             <xs:documentation>
-A valid anchor position value. See <tt>{@link Ext.Element#alignTo}</tt> for details on supported anchor positions (defaults to <tt>'tl-bl?'</tt>)
+A valid anchor position value. See <tt>{@link Ext.Element#alignTo}</tt> for details on supported anchor positions and offsets. To specify x/y offsets as well, this value may be specified as an Array of <tt>{@link Ext.Element#alignTo}</tt> method arguments.<br/><br/> <pre><code>[ 'tl-bl?', [6,0] ]</code></pre>(defaults to <tt>'tl-bl?'</tt>)
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
@@ -1627,6 +1712,13 @@ The action to execute when the trigger is clicked. <div class="mdetail-params"><
           <xs:annotation>
             <xs:documentation>
 The minimum number of characters the user must type before autocomplete and {@link #typeAhead} activate (defaults to <tt>4</tt> if <tt>{@link #mode} = 'remote'</tt> or <tt>0</tt> if <tt>{@link #mode} = 'local'</tt>, does not apply if <tt>{@link Ext.form.TriggerField#editable editable} = false</tt>).
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:boolean' name='autoSelect'>
+          <xs:annotation>
+            <xs:documentation>
+<tt>true</tt> to select the first result gathered by the data store (defaults to <tt>true</tt>). A false value would require a manual selection from the dropdown list to set the components value unless the value of ({@link #typeAheadDelay}) were true.
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
@@ -1743,12 +1835,10 @@ When using a name/value combo, if the value passed to setValue is not found in t
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
-        <xs:attribute type='xs:string' name='tpl'>
+        <xs:attribute type='xs:boolean' name='clearFilterOnReset'>
           <xs:annotation>
             <xs:documentation>
-<p>The template string, or {@link Ext.XTemplate} instance to use to display each item in the dropdown list. The dropdown list is displayed in a DataView. See {@link #view}.</p><p>The default template string is:</p><pre><code>'&lt;tpl for="."&gt;&lt;div class="x-combo-list-item"&gt;{' + this.displayField + '}&lt;/div&gt;&lt;/tpl&gt;'
-</code></pre><p>Override the default value to create custom UI layouts for items in the list. For example:</p><pre><code>'&lt;tpl for="."&gt;&lt;div ext:qtip="{state}. {nick}" class="x-combo-list-item"&gt;{state}&lt;/div&gt;&lt;/tpl&gt;'
-</code></pre><p>The template <b>must</b> contain one or more substitution parameters using field names from the Combo's {@link #store Store}. In the example above an</p><pre>ext:qtip</pre>attribute is added to display other fields from the Store.<br/><br/> <p>To preserve the default visual look of list items, add the CSS class name</p><pre>x-combo-list-item</pre>to the template's container element.<br/><br/> <p>Also see {@link #itemSelector} for additional details.</p>
+<tt>true</tt> to clear any filters on the store (when in local mode) when reset is called (defaults to <tt>true</tt>)
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
@@ -1900,6 +1990,45 @@ html: 'First list item'
 }
 }
 </code></pre>
+                </xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax"/>
+                </xs:sequence>
+                <xs:anyAttribute processContents="skip"/>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name='html' minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>
+    An HTML fragment, or a {@link Ext.DomHelper DomHelper} specification to use as the layout element content (defaults to ''). The HTML content is added after the component is rendered, so the document will not contain this HTML at the time the {@link #render} event is fired. This content is inserted into the body <i>before</i> any configured {@link #contentEl} is appended.
+                </xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax"/>
+                </xs:sequence>
+                <xs:anyAttribute processContents="skip"/>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name='tpl' minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>
+    An {@link Ext.Template}, {@link Ext.XTemplate} or an array of strings to form an Ext.XTemplate. Used in conjunction with the <code>{@link #data}</code> and <code>{@link #tplWriteMode}</code> configurations.
+                </xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax"/>
+                </xs:sequence>
+                <xs:anyAttribute processContents="skip"/>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name='data' minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>
+    The initial set of data to apply to the <code>{@link #tpl}</code> to update the content area of the Component.
                 </xs:documentation>
               </xs:annotation>
               <xs:complexType>
@@ -2237,10 +2366,45 @@ True to hide and show the component's container when hide/show is called on the 
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
+        <xs:attribute type='xs:string' name='contentEl'>
+          <xs:annotation>
+            <xs:documentation>
+<p>Optional. Specify an existing HTML element, or the <code>id</code> of an existing HTML element to use as the content for this component.</p><ul><li><b>Description</b> : <div class="sub-desc">This config option is used to take an existing HTML element and place it in the layout element of a new component (it simply moves the specified DOM element <i>after the Component is rendered</i> to use as the content.</div></li><li><b>Notes</b> : <div class="sub-desc">The specified HTML element is appended to the layout element of the component <i>after any configured {@link #html HTML} has been inserted</i>, and so the document will not contain this element at the time the {@link #render} event is fired.</div><div class="sub-desc">The specified HTML element used will not participate in any <code><b>{@link Ext.Container#layout layout}</b></code> scheme that the Component may use. It is just HTML. Layouts operate on child <code><b>{@link Ext.Container#items items}</b></code>.</div><div class="sub-desc">Add either the <code>x-hidden</code> or the <code>x-hide-display</code> CSS class to prevent a brief flicker of the content before it is rendered to the panel.</div></li></ul>
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:string' name='html'>
+          <xs:annotation>
+            <xs:documentation>
+An HTML fragment, or a {@link Ext.DomHelper DomHelper} specification to use as the layout element content (defaults to ''). The HTML content is added after the component is rendered, so the document will not contain this HTML at the time the {@link #render} event is fired. This content is inserted into the body <i>before</i> any configured {@link #contentEl} is appended.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:string' name='tpl'>
+          <xs:annotation>
+            <xs:documentation>
+An {@link Ext.Template}, {@link Ext.XTemplate} or an array of strings to form an Ext.XTemplate. Used in conjunction with the <code>{@link #data}</code> and <code>{@link #tplWriteMode}</code> configurations.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:string' name='tplWriteMode'>
+          <xs:annotation>
+            <xs:documentation>
+The Ext.(X)Template method to use when updating the content area of the Component. Defaults to <tt>'overwrite'</tt> (see <code>{@link Ext.XTemplate#overwrite}</code>).
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:string' name='data'>
+          <xs:annotation>
+            <xs:documentation>
+The initial set of data to apply to the <code>{@link #tpl}</code> to update the content area of the Component.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
         <xs:attribute type='xs:string' name='ref'>
           <xs:annotation>
             <xs:documentation>
-<p>A path specification, relative to the Component's {@link #ownerCt} specifying into which ancestor Container to place a named reference to this Component.</p><p>The ancestor axis can be traversed by using '/' characters in the path. For example, to put a reference to a Toolbar Button into <i>the Panel which owns the Toolbar</i>:</p><pre><code>var myGrid = new Ext.grid.EditorGridPanel({
+<p>A path specification, relative to the Component's <code>{@link #ownerCt}</code> specifying into which ancestor Container to place a named reference to this Component.</p><p>The ancestor axis can be traversed by using '/' characters in the path. For example, to put a reference to a Toolbar Button into <i>the Panel which owns the Toolbar</i>:</p><pre><code>var myGrid = new Ext.grid.EditorGridPanel({
 title: 'My EditorGridPanel',
 store: myStore,
 colModel: myColModel,
@@ -2257,7 +2421,7 @@ myGrid.saveButton.enable();
 }
 }
 });
-</code></pre><p>In the code above, if the ref had been <code>'saveButton'</code> the reference would have been placed into the Toolbar. Each '/' in the ref moves up one level from the Component's {@link #ownerCt}.</p>
+</code></pre><p>In the code above, if the <code>ref</code> had been <code>'saveButton'</code> the reference would have been placed into the Toolbar. Each '/' in the <code>ref</code> moves up one level from the Component's <code>{@link #ownerCt}</code>.</p><p>Also see the <code>{@link #added}</code> and <code>{@link #removed}</code> events.</p>
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
@@ -2319,7 +2483,7 @@ menutextitem     {@link Ext.menu.TextItem}
 
 Form components
 ---------------------------------------
-form             {@link Ext.FormPanel}
+form             {@link Ext.form.FormPanel}
 checkbox         {@link Ext.form.Checkbox}
 checkboxgroup    {@link Ext.form.CheckboxGroup}
 combo            {@link Ext.form.ComboBox}
@@ -2379,12 +2543,12 @@ type: 'vbox',
 padding: '5',
 align: 'left'
 }
-</code></pre></li><li><tt><b>type</b></tt></li><li style="list-style: none"><br/><p>The layout type to be used for this container. If not specified, a default {@link Ext.layout.ContainerLayout} will be created and used.</p><br/><p>Valid layout <tt>type</tt> values are:</p><div class="sub-desc"><ul class="mdetail-params"><li><tt><b>{@link Ext.layout.AbsoluteLayout absolute}</b></tt></li><li><tt><b>{@link Ext.layout.AccordionLayout accordion}</b></tt></li><li><tt><b>{@link Ext.layout.AnchorLayout anchor}</b></tt></li><li><tt><b>{@link Ext.layout.ContainerLayout auto}</b></tt>     <b>Default</b></li><li><tt><b>{@link Ext.layout.BorderLayout border}</b></tt></li><li><tt><b>{@link Ext.layout.CardLayout card}</b></tt></li><li><tt><b>{@link Ext.layout.ColumnLayout column}</b></tt></li><li><tt><b>{@link Ext.layout.FitLayout fit}</b></tt></li><li><tt><b>{@link Ext.layout.FormLayout form}</b></tt></li><li><tt><b>{@link Ext.layout.HBoxLayout hbox}</b></tt></li><li><tt><b>{@link Ext.layout.MenuLayout menu}</b></tt></li><li><tt><b>{@link Ext.layout.TableLayout table}</b></tt></li><li><tt><b>{@link Ext.layout.ToolbarLayout toolbar}</b></tt></li><li><tt><b>{@link Ext.layout.VBoxLayout vbox}</b></tt></li></ul></div></li><li>Layout specific configuration properties</li><li style="list-style: none"><br/><p>Additional layout specific configuration properties may also be specified. For complete details regarding the valid config options for each layout type, see the layout class corresponding to the <tt>type</tt> specified.</p></li></ul></div></li><li><u>Specify as a String</u></li><li style="list-style: none"><div><ul class="mdetail-params"><li>Example usage:</li><li style="list-style: none"><pre><code>layout: 'vbox',
+</code></pre></li><li><code><b>type</b></code></li><li style="list-style: none"><br/><p>The layout type to be used for this container. If not specified, a default {@link Ext.layout.ContainerLayout} will be created and used.</p><br/><p>Valid layout <code>type</code> values are:</p><div class="sub-desc"><ul class="mdetail-params"><li><code><b>{@link Ext.layout.AbsoluteLayout absolute}</b></code></li><li><code><b>{@link Ext.layout.AccordionLayout accordion}</b></code></li><li><code><b>{@link Ext.layout.AnchorLayout anchor}</b></code></li><li><code><b>{@link Ext.layout.ContainerLayout auto}</b></code>     <b>Default</b></li><li><code><b>{@link Ext.layout.BorderLayout border}</b></code></li><li><code><b>{@link Ext.layout.CardLayout card}</b></code></li><li><code><b>{@link Ext.layout.ColumnLayout column}</b></code></li><li><code><b>{@link Ext.layout.FitLayout fit}</b></code></li><li><code><b>{@link Ext.layout.FormLayout form}</b></code></li><li><code><b>{@link Ext.layout.HBoxLayout hbox}</b></code></li><li><code><b>{@link Ext.layout.MenuLayout menu}</b></code></li><li><code><b>{@link Ext.layout.TableLayout table}</b></code></li><li><code><b>{@link Ext.layout.ToolbarLayout toolbar}</b></code></li><li><code><b>{@link Ext.layout.VBoxLayout vbox}</b></code></li></ul></div></li><li>Layout specific configuration properties</li><li style="list-style: none"><br/><p>Additional layout specific configuration properties may also be specified. For complete details regarding the valid config options for each layout type, see the layout class corresponding to the <code>type</code> specified.</p></li></ul></div></li><li><u>Specify as a String</u></li><li style="list-style: none"><div><ul class="mdetail-params"><li>Example usage:</li><li style="list-style: none"><pre><code>layout: 'vbox',
 layoutConfig: {
 padding: '5',
 align: 'left'
 }
-</code></pre></li><li><tt><b>layout</b></tt></li><li style="list-style: none"><br/><p>The layout <tt>type</tt> to be used for this container (see list of valid layout type values above).</p><br/></li><li><tt><b>{@link #layoutConfig}</b></tt></li><li style="list-style: none"><br/><p>Additional layout specific configuration properties. For complete details regarding the valid config options for each layout type, see the layout class corresponding to the <tt>layout</tt> specified.</p></li></ul></div></li></ul></div>
+</code></pre></li><li><code><b>layout</b></code></li><li style="list-style: none"><br/><p>The layout <code>type</code> to be used for this container (see list of valid layout type values above).</p><br/></li><li><code><b>{@link #layoutConfig}</b></code></li><li style="list-style: none"><br/><p>Additional layout specific configuration properties. For complete details regarding the valid config options for each layout type, see the layout class corresponding to the <code>layout</code> specified.</p></li></ul></div></li></ul></div>
                 </xs:documentation>
               </xs:annotation>
               <xs:complexType>
@@ -2430,7 +2594,7 @@ layout: 'anchor', // specify a layout!
             <xs:element name='defaults' minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
-    <p>A config object that will be applied to all components added to this container either via the {@link #items} config or via the {@link #add} or {@link #insert} methods. The <tt>defaults</tt> config can contain any number of name/value property pairs to be added to each item, and should be valid for the types of items being added to the container. For example, to automatically apply padding to the body of each of a set of contained {@link Ext.Panel} items, you could pass: <tt>defaults: {bodyStyle:'padding:15px'}</tt>.</p><br/><p><b>Note</b>: <tt>defaults</tt> will not be applied to config objects if the option is already specified. For example:</p><pre><code>defaults: {               // defaults are applied to items, not the container
+    <p>This option is a means of applying default settings to all added items whether added through the {@link #items} config or via the {@link #add} or {@link #insert} methods.</p><p>If an added item is a config object, and <b>not</b> an instantiated Component, then the default properties are unconditionally applied. If the added item <b>is</b> an instantiated Component, then the default properties are applied conditionally so as not to override existing properties in the item.</p><p>If the defaults option is specified as a function, then the function will be called using this Container as the scope (<code>this</code> reference) and passing the added item as the first parameter. Any resulting object from that call is then applied to the item as default properties.</p><p>For example, to automatically apply padding to the body of each of a set of contained {@link Ext.Panel} items, you could pass: <code>defaults: {bodyStyle:'padding:15px'}</code>.</p><p>Usage:</p><pre><code>defaults: {               // defaults are applied to items, not the container
 autoScroll:true
 },
 items: [
@@ -2457,7 +2621,7 @@ autoScroll: false // will be applied here, panel2 will be autoScroll:true.
             <xs:element name='bubbleEvents' minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
-    <p>An array of events that, when fired, should be bubbled to any parent container. Defaults to <tt>['add', 'remove']</tt>.</p>
+    <p>An array of events that, when fired, should be bubbled to any parent container. See {@link Ext.util.Observable#enableBubble}. Defaults to <code>['add', 'remove']</code>.</p>
                 </xs:documentation>
               </xs:annotation>
               <xs:complexType>
@@ -2490,12 +2654,12 @@ type: 'vbox',
 padding: '5',
 align: 'left'
 }
-</code></pre></li><li><tt><b>type</b></tt></li><li style="list-style: none"><br/><p>The layout type to be used for this container. If not specified, a default {@link Ext.layout.ContainerLayout} will be created and used.</p><br/><p>Valid layout <tt>type</tt> values are:</p><div class="sub-desc"><ul class="mdetail-params"><li><tt><b>{@link Ext.layout.AbsoluteLayout absolute}</b></tt></li><li><tt><b>{@link Ext.layout.AccordionLayout accordion}</b></tt></li><li><tt><b>{@link Ext.layout.AnchorLayout anchor}</b></tt></li><li><tt><b>{@link Ext.layout.ContainerLayout auto}</b></tt>     <b>Default</b></li><li><tt><b>{@link Ext.layout.BorderLayout border}</b></tt></li><li><tt><b>{@link Ext.layout.CardLayout card}</b></tt></li><li><tt><b>{@link Ext.layout.ColumnLayout column}</b></tt></li><li><tt><b>{@link Ext.layout.FitLayout fit}</b></tt></li><li><tt><b>{@link Ext.layout.FormLayout form}</b></tt></li><li><tt><b>{@link Ext.layout.HBoxLayout hbox}</b></tt></li><li><tt><b>{@link Ext.layout.MenuLayout menu}</b></tt></li><li><tt><b>{@link Ext.layout.TableLayout table}</b></tt></li><li><tt><b>{@link Ext.layout.ToolbarLayout toolbar}</b></tt></li><li><tt><b>{@link Ext.layout.VBoxLayout vbox}</b></tt></li></ul></div></li><li>Layout specific configuration properties</li><li style="list-style: none"><br/><p>Additional layout specific configuration properties may also be specified. For complete details regarding the valid config options for each layout type, see the layout class corresponding to the <tt>type</tt> specified.</p></li></ul></div></li><li><u>Specify as a String</u></li><li style="list-style: none"><div><ul class="mdetail-params"><li>Example usage:</li><li style="list-style: none"><pre><code>layout: 'vbox',
+</code></pre></li><li><code><b>type</b></code></li><li style="list-style: none"><br/><p>The layout type to be used for this container. If not specified, a default {@link Ext.layout.ContainerLayout} will be created and used.</p><br/><p>Valid layout <code>type</code> values are:</p><div class="sub-desc"><ul class="mdetail-params"><li><code><b>{@link Ext.layout.AbsoluteLayout absolute}</b></code></li><li><code><b>{@link Ext.layout.AccordionLayout accordion}</b></code></li><li><code><b>{@link Ext.layout.AnchorLayout anchor}</b></code></li><li><code><b>{@link Ext.layout.ContainerLayout auto}</b></code>     <b>Default</b></li><li><code><b>{@link Ext.layout.BorderLayout border}</b></code></li><li><code><b>{@link Ext.layout.CardLayout card}</b></code></li><li><code><b>{@link Ext.layout.ColumnLayout column}</b></code></li><li><code><b>{@link Ext.layout.FitLayout fit}</b></code></li><li><code><b>{@link Ext.layout.FormLayout form}</b></code></li><li><code><b>{@link Ext.layout.HBoxLayout hbox}</b></code></li><li><code><b>{@link Ext.layout.MenuLayout menu}</b></code></li><li><code><b>{@link Ext.layout.TableLayout table}</b></code></li><li><code><b>{@link Ext.layout.ToolbarLayout toolbar}</b></code></li><li><code><b>{@link Ext.layout.VBoxLayout vbox}</b></code></li></ul></div></li><li>Layout specific configuration properties</li><li style="list-style: none"><br/><p>Additional layout specific configuration properties may also be specified. For complete details regarding the valid config options for each layout type, see the layout class corresponding to the <code>type</code> specified.</p></li></ul></div></li><li><u>Specify as a String</u></li><li style="list-style: none"><div><ul class="mdetail-params"><li>Example usage:</li><li style="list-style: none"><pre><code>layout: 'vbox',
 layoutConfig: {
 padding: '5',
 align: 'left'
 }
-</code></pre></li><li><tt><b>layout</b></tt></li><li style="list-style: none"><br/><p>The layout <tt>type</tt> to be used for this container (see list of valid layout type values above).</p><br/></li><li><tt><b>{@link #layoutConfig}</b></tt></li><li style="list-style: none"><br/><p>Additional layout specific configuration properties. For complete details regarding the valid config options for each layout type, see the layout class corresponding to the <tt>layout</tt> specified.</p></li></ul></div></li></ul></div>
+</code></pre></li><li><code><b>layout</b></code></li><li style="list-style: none"><br/><p>The layout <code>type</code> to be used for this container (see list of valid layout type values above).</p><br/></li><li><code><b>{@link #layoutConfig}</b></code></li><li style="list-style: none"><br/><p>Additional layout specific configuration properties. For complete details regarding the valid config options for each layout type, see the layout class corresponding to the <code>layout</code> specified.</p></li></ul></div></li></ul></div>
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
@@ -2509,7 +2673,7 @@ This is a config object containing properties specific to the chosen <b><code>{@
         <xs:attribute type='xs:string' name='bufferResize'>
           <xs:annotation>
             <xs:documentation>
-When set to true (50 milliseconds) or a number of milliseconds, the layout assigned for this container will buffer the frequency it calculates and does a re-layout of components. This is useful for heavy containers or containers with a large quantity of sub-components for which frequent layout calls would be expensive. Defaults to <tt>50</tt>.
+When set to true (50 milliseconds) or a number of milliseconds, the layout assigned for this container will buffer the frequency it calculates and does a re-layout of components. This is useful for heavy containers or containers with a large quantity of sub-components for which frequent layout calls would be expensive. Defaults to <code>50</code>.
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
@@ -2537,7 +2701,7 @@ layout: 'anchor', // specify a layout!
         <xs:attribute type='xs:string' name='defaults'>
           <xs:annotation>
             <xs:documentation>
-<p>A config object that will be applied to all components added to this container either via the {@link #items} config or via the {@link #add} or {@link #insert} methods. The <tt>defaults</tt> config can contain any number of name/value property pairs to be added to each item, and should be valid for the types of items being added to the container. For example, to automatically apply padding to the body of each of a set of contained {@link Ext.Panel} items, you could pass: <tt>defaults: {bodyStyle:'padding:15px'}</tt>.</p><br/><p><b>Note</b>: <tt>defaults</tt> will not be applied to config objects if the option is already specified. For example:</p><pre><code>defaults: {               // defaults are applied to items, not the container
+<p>This option is a means of applying default settings to all added items whether added through the {@link #items} config or via the {@link #add} or {@link #insert} methods.</p><p>If an added item is a config object, and <b>not</b> an instantiated Component, then the default properties are unconditionally applied. If the added item <b>is</b> an instantiated Component, then the default properties are applied conditionally so as not to override existing properties in the item.</p><p>If the defaults option is specified as a function, then the function will be called using this Container as the scope (<code>this</code> reference) and passing the added item as the first parameter. Any resulting object from that call is then applied to the item as default properties.</p><p>For example, to automatically apply padding to the body of each of a set of contained {@link Ext.Panel} items, you could pass: <code>defaults: {bodyStyle:'padding:15px'}</code>.</p><p>Usage:</p><pre><code>defaults: {               // defaults are applied to items, not the container
 autoScroll:true
 },
 items: [
@@ -2568,7 +2732,7 @@ autoScroll: false // will be applied here, panel2 will be autoScroll:true.
         <xs:attribute type='xs:string' name='bubbleEvents'>
           <xs:annotation>
             <xs:documentation>
-<p>An array of events that, when fired, should be bubbled to any parent container. Defaults to <tt>['add', 'remove']</tt>.</p>
+<p>An array of events that, when fired, should be bubbled to any parent container. See {@link Ext.util.Observable#enableBubble}. Defaults to <code>['add', 'remove']</code>.</p>
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
@@ -2578,7 +2742,7 @@ autoScroll: false // will be applied here, panel2 will be autoScroll:true.
   <xs:element id='container' name='container' type='ext:ext.Container' substitutionGroup='ext:box'>
     <xs:annotation>
       <xs:documentation>
-<p>Base class for any {@link Ext.BoxComponent} that may contain other Components. Containers handle the basic behavior of containing items, namely adding, inserting and removing items.</p><p>The most commonly used Container classes are {@link Ext.Panel}, {@link Ext.Window} and {@link Ext.TabPanel}. If you do not need the capabilities offered by the aforementioned classes you can create a lightweight Container to be encapsulated by an HTML element to your specifications by using the <tt><b>{@link Ext.Component#autoEl autoEl}</b></tt> config option. This is a useful technique when creating embedded {@link Ext.layout.ColumnLayout column} layouts inside {@link Ext.form.FormPanel FormPanels} for example.</p><p>The code below illustrates both how to explicitly create a Container, and how to implicitly create one using the <b><tt>'container'</tt></b> xtype:</p><pre><code>// explicitly create a Container
+<p>Base class for any {@link Ext.BoxComponent} that may contain other Components. Containers handle the basic behavior of containing items, namely adding, inserting and removing items.</p><p>The most commonly used Container classes are {@link Ext.Panel}, {@link Ext.Window} and {@link Ext.TabPanel}. If you do not need the capabilities offered by the aforementioned classes you can create a lightweight Container to be encapsulated by an HTML element to your specifications by using the <code><b>{@link Ext.Component#autoEl autoEl}</b></code> config option. This is a useful technique when creating embedded {@link Ext.layout.ColumnLayout column} layouts inside {@link Ext.form.FormPanel FormPanels} for example.</p><p>The code below illustrates both how to explicitly create a Container, and how to implicitly create one using the <b><code>'container'</code></b> xtype:</p><pre><code>// explicitly create a Container
 var embeddedColumns = new Ext.Container({
 autoEl: 'div',  // This is the default
 layout: 'column',
@@ -2606,7 +2770,7 @@ name: 'endDate',
 fieldLabel: 'End date'
 }
 }]
-});</code></pre><br/><br/> <p><u><b>Layout</b></u></p><p>Container classes delegate the rendering of child Components to a layout manager class which must be configured into the Container using the <code><b>{@link #layout}</b></code> configuration property.</p><p>When either specifying child <code>{@link #items}</code> of a Container, or dynamically {@link #add adding} Components to a Container, remember to consider how you wish the Container to arrange those child elements, and whether those child elements need to be sized using one of Ext's built-in <b><code>{@link #layout}</code></b> schemes. By default, Containers use the {@link Ext.layout.ContainerLayout ContainerLayout} scheme which only renders child components, appending them one after the other inside the Container, and <b>does not apply any sizing</b> at all.</p><p>A common mistake is when a developer neglects to specify a <b><code>{@link #layout}</code></b> (e.g. widgets like GridPanels or TreePanels are added to Containers for which no <tt><b>{@link #layout}</b></tt> has been specified). If a Container is left to use the default {@link Ext.layout.ContainerLayout ContainerLayout} scheme, none of its child components will be resized, or changed in any way when the Container is resized.</p><p>Certain layout managers allow dynamic addition of child components. Those that do include {@link Ext.layout.CardLayout}, {@link Ext.layout.AnchorLayout}, {@link Ext.layout.FormLayout}, and {@link Ext.layout.TableLayout}. For example:</p><pre><code>//  Create the GridPanel.
+});</code></pre><br/><br/> <p><u><b>Layout</b></u></p><p>Container classes delegate the rendering of child Components to a layout manager class which must be configured into the Container using the <code><b>{@link #layout}</b></code> configuration property.</p><p>When either specifying child <code>{@link #items}</code> of a Container, or dynamically {@link #add adding} Components to a Container, remember to consider how you wish the Container to arrange those child elements, and whether those child elements need to be sized using one of Ext's built-in <b><code>{@link #layout}</code></b> schemes. By default, Containers use the {@link Ext.layout.ContainerLayout ContainerLayout} scheme which only renders child components, appending them one after the other inside the Container, and <b>does not apply any sizing</b> at all.</p><p>A common mistake is when a developer neglects to specify a <b><code>{@link #layout}</code></b> (e.g. widgets like GridPanels or TreePanels are added to Containers for which no <code><b>{@link #layout}</b></code> has been specified). If a Container is left to use the default {@link Ext.layout.ContainerLayout ContainerLayout} scheme, none of its child components will be resized, or changed in any way when the Container is resized.</p><p>Certain layout managers allow dynamic addition of child components. Those that do include {@link Ext.layout.CardLayout}, {@link Ext.layout.AnchorLayout}, {@link Ext.layout.FormLayout}, and {@link Ext.layout.TableLayout}. For example:</p><pre><code>//  Create the GridPanel.
 var myNewGrid = new Ext.grid.GridPanel({
 store: myStore,
 columns: myColumnModel,
@@ -2615,7 +2779,7 @@ title: 'Results', // the title becomes the title of the tab
 
 myTabPanel.add(myNewGrid); // {@link Ext.TabPanel} implicitly uses {@link Ext.layout.CardLayout CardLayout}
 myTabPanel.{@link Ext.TabPanel#setActiveTab setActiveTab}(myNewGrid);
-</code></pre><br/><br/> <p>The example above adds a newly created GridPanel to a TabPanel. Note that a TabPanel uses {@link Ext.layout.CardLayout} as its layout manager which means all its child items are sized to {@link Ext.layout.FitLayout fit} exactly into its client area.</p><p><b><u>Overnesting is a common problem</u></b>. An example of overnesting occurs when a GridPanel is added to a TabPanel by wrapping the GridPanel <i>inside</i> a wrapping Panel (that has no <tt><b>{@link #layout}</b></tt> specified) and then add that wrapping Panel to the TabPanel. The point to realize is that a GridPanel <b>is</b> a Component which can be added directly to a Container. If the wrapping Panel has no <tt><b>{@link #layout}</b></tt> configuration, then the overnested GridPanel will not be sized as expected.</p><p/><p><u><b>Adding via remote configuration</b></u></p><p>A server side script can be used to add Components which are generated dynamically on the server. An example of adding a GridPanel to a TabPanel where the GridPanel is generated by the server based on certain parameters:</p><pre><code>// execute an Ajax request to invoke server side script:
+</code></pre><br/><br/> <p>The example above adds a newly created GridPanel to a TabPanel. Note that a TabPanel uses {@link Ext.layout.CardLayout} as its layout manager which means all its child items are sized to {@link Ext.layout.FitLayout fit} exactly into its client area.</p><p><b><u>Overnesting is a common problem</u></b>. An example of overnesting occurs when a GridPanel is added to a TabPanel by wrapping the GridPanel <i>inside</i> a wrapping Panel (that has no <code><b>{@link #layout}</b></code> specified) and then add that wrapping Panel to the TabPanel. The point to realize is that a GridPanel <b>is</b> a Component which can be added directly to a Container. If the wrapping Panel has no <code><b>{@link #layout}</b></code> configuration, then the overnested GridPanel will not be sized as expected.</p><p/><p><u><b>Adding via remote configuration</b></u></p><p>A server side script can be used to add Components which are generated dynamically on the server. An example of adding a GridPanel to a TabPanel where the GridPanel is generated by the server based on certain parameters:</p><pre><code>// execute an Ajax request to invoke server side script:
 Ext.Ajax.request({
 url: 'gen-invoice-grid.php',
 // send additional parameters to instruct server script
@@ -2633,7 +2797,7 @@ failure: function() {
 Ext.Msg.alert("Grid create failed", "Server communication failure");
 }
 });
-</code></pre><p>The server script needs to return an executable Javascript statement which, when processed using <tt>eval()</tt>, will return either a config object with an {@link Ext.Component#xtype xtype}, or an instantiated Component. The server might return this for example:</p><pre><code>(function() {
+</code></pre><p>The server script needs to return an executable Javascript statement which, when processed using <code>eval()</code>, will return either a config object with an {@link Ext.Component#xtype xtype}, or an instantiated Component. The server might return this for example:</p><pre><code>(function() {
 function formatDate(value){
 return value ? value.dateFormat('M d, Y') : '';
 };
@@ -2670,7 +2834,7 @@ columns: [
 store.load();
 return grid;  // return instantiated component
 })();
-</code></pre><p>When the above code fragment is passed through the <tt>eval</tt> function in the success handler of the Ajax request, the code is executed by the Javascript processor, and the anonymous function runs, and returns the instantiated grid component.</p><p>Note: since the code above is <i>generated</i> by a server script, the <tt>baseParams</tt> for the Store, the metadata to allow generation of the Record layout, and the ColumnModel can all be generated into the code since these are all known on the server.</p>
+</code></pre><p>When the above code fragment is passed through the <code>eval</code> function in the success handler of the Ajax request, the code is executed by the Javascript processor, and the anonymous function runs, and returns the instantiated grid component.</p><p>Note: since the code above is <i>generated</i> by a server script, the <code>baseParams</code> for the Store, the metadata to allow generation of the Record layout, and the ColumnModel can all be generated into the code since these are all known on the server.</p>
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -2696,7 +2860,7 @@ True to hide each contained item on render (defaults to false).
   <xs:element id='containerlayout' name='containerlayout' type='ext:ext.layout.ContainerLayout'>
     <xs:annotation>
       <xs:documentation>
-<p>The ContainerLayout class is the default layout manager delegated by {@link Ext.Container} to render any child Components when no <tt>{@link Ext.Container#layout layout}</tt> is configured into a {@link Ext.Container Container}. ContainerLayout provides the basic foundation for all other layout classes in Ext. It simply renders all child Components into the Container, performing no sizing or positioning services. To utilize a layout that provides sizing and positioning of child Components, specify an appropriate <tt>{@link Ext.Container#layout layout}</tt>.</p><p>This class is intended to be extended or created via the <tt><b>{@link Ext.Container#layout layout}</b></tt> configuration property. See <tt><b>{@link Ext.Container#layout}</b></tt> for additional details.</p>
+<p>This class is intended to be extended or created via the <tt><b>{@link Ext.Container#layout layout}</b></tt> configuration property. See <tt><b>{@link Ext.Container#layout}</b></tt> for additional details.</p>
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -2819,7 +2983,7 @@ var store = new Ext.data.Store({
 reader: new Ext.data.JsonReader(
 {
 idProperty: 'key',
-root: 'daRoot',  
+root: 'daRoot',
 totalProperty: 'total'
 },
 Dude  // recordType
@@ -2932,7 +3096,7 @@ var store = new Ext.data.Store({
 reader: new Ext.data.JsonReader(
 {
 idProperty: 'key',
-root: 'daRoot',  
+root: 'daRoot',
 totalProperty: 'total'
 },
 Dude  // recordType
@@ -3026,19 +3190,6 @@ default: return 3;
     <xs:complexContent>
       <xs:extension base='ext:ext.BoxComponent'>
         <xs:sequence>
-            <xs:element name='tpl' minOccurs="0" maxOccurs="1">
-              <xs:annotation>
-                <xs:documentation>
-    The HTML fragment or an array of fragments that will make up the template used by this DataView. This should be specified in the same format expected by the constructor of {@link Ext.XTemplate}.
-                </xs:documentation>
-              </xs:annotation>
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax"/>
-                </xs:sequence>
-                <xs:anyAttribute processContents="skip"/>
-              </xs:complexType>
-            </xs:element>
             <xs:element name='store' minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
@@ -3053,13 +3204,6 @@ default: return 3;
               </xs:complexType>
             </xs:element>
         </xs:sequence>
-        <xs:attribute type='xs:string' name='tpl'>
-          <xs:annotation>
-            <xs:documentation>
-The HTML fragment or an array of fragments that will make up the template used by this DataView. This should be specified in the same format expected by the constructor of {@link Ext.XTemplate}.
-            </xs:documentation>
-          </xs:annotation>
-        </xs:attribute>
         <xs:attribute type='xs:string' name='store'>
           <xs:annotation>
             <xs:documentation>
@@ -3431,7 +3575,7 @@ An id to assign to the underlying date picker. Defaults to <tt>null</tt>.
             <xs:element name='handler' minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
-    Optional. A function that will handle the select event of this picker. The handler is passed the following parameters:<div class="mdetail-params"><ul><li><code>picker</code> : DatePicker<div class="sub-desc">The Ext.DatePicker.</div></li><li><code>date</code> : Date<div class="sub-desc">The selected date.</div></li></ul></div>
+    Optional. A function that will handle the select event of this picker. The handler is passed the following parameters:<div class="mdetail-params"><ul><li><code>picker</code> : DatePicker<div class="sub-desc">This DatePicker.</div></li><li><code>date</code> : Date<div class="sub-desc">The selected date.</div></li></ul></div>
                 </xs:documentation>
               </xs:annotation>
               <xs:complexType>
@@ -3444,7 +3588,7 @@ An id to assign to the underlying date picker. Defaults to <tt>null</tt>.
             <xs:element name='scope' minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
-    The scope (<tt><b>this</b></tt> reference) in which the <code>{@link #handler}</code> function will be called. Defaults to this DatePicker instance.
+    The scope (<code><b>this</b></code> reference) in which the <code>{@link #handler}</code> function will be called. Defaults to this DatePicker instance.
                 </xs:documentation>
               </xs:annotation>
               <xs:complexType>
@@ -3523,77 +3667,77 @@ An id to assign to the underlying date picker. Defaults to <tt>null</tt>.
         <xs:attribute type='xs:string' name='todayText'>
           <xs:annotation>
             <xs:documentation>
-The text to display on the button that selects the current date (defaults to <tt>'Today'</tt>)
+The text to display on the button that selects the current date (defaults to <code>'Today'</code>)
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute type='xs:string' name='okText'>
           <xs:annotation>
             <xs:documentation>
-The text to display on the ok button (defaults to <tt>' OK '</tt> to give the user extra clicking room)
+The text to display on the ok button (defaults to <code>' OK '</code> to give the user extra clicking room)
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute type='xs:string' name='cancelText'>
           <xs:annotation>
             <xs:documentation>
-The text to display on the cancel button (defaults to <tt>'Cancel'</tt>)
+The text to display on the cancel button (defaults to <code>'Cancel'</code>)
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute type='xs:string' name='handler'>
           <xs:annotation>
             <xs:documentation>
-Optional. A function that will handle the select event of this picker. The handler is passed the following parameters:<div class="mdetail-params"><ul><li><code>picker</code> : DatePicker<div class="sub-desc">The Ext.DatePicker.</div></li><li><code>date</code> : Date<div class="sub-desc">The selected date.</div></li></ul></div>
+Optional. A function that will handle the select event of this picker. The handler is passed the following parameters:<div class="mdetail-params"><ul><li><code>picker</code> : DatePicker<div class="sub-desc">This DatePicker.</div></li><li><code>date</code> : Date<div class="sub-desc">The selected date.</div></li></ul></div>
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute type='xs:string' name='scope'>
           <xs:annotation>
             <xs:documentation>
-The scope (<tt><b>this</b></tt> reference) in which the <code>{@link #handler}</code> function will be called. Defaults to this DatePicker instance.
+The scope (<code><b>this</b></code> reference) in which the <code>{@link #handler}</code> function will be called. Defaults to this DatePicker instance.
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute type='xs:string' name='todayTip'>
           <xs:annotation>
             <xs:documentation>
-The tooltip to display for the button that selects the current date (defaults to <tt>'{current date} (Spacebar)'</tt>)
+A string used to format the message for displaying in a tooltip over the button that selects the current date. Defaults to <code>'{0} (Spacebar)'</code> where the <code>{0}</code> token is replaced by today's date.
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute type='xs:string' name='minText'>
           <xs:annotation>
             <xs:documentation>
-The error text to display if the minDate validation fails (defaults to <tt>'This date is before the minimum date'</tt>)
+The error text to display if the minDate validation fails (defaults to <code>'This date is before the minimum date'</code>)
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute type='xs:string' name='maxText'>
           <xs:annotation>
             <xs:documentation>
-The error text to display if the maxDate validation fails (defaults to <tt>'This date is after the maximum date'</tt>)
+The error text to display if the maxDate validation fails (defaults to <code>'This date is after the maximum date'</code>)
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute type='xs:string' name='format'>
           <xs:annotation>
             <xs:documentation>
-The default date format string which can be overriden for localization support. The format must be valid according to {@link Date#parseDate} (defaults to <tt>'m/d/y'</tt>).
+The default date format string which can be overriden for localization support. The format must be valid according to {@link Date#parseDate} (defaults to <code>'m/d/y'</code>).
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute type='xs:string' name='disabledDaysText'>
           <xs:annotation>
             <xs:documentation>
-The tooltip to display when the date falls on a disabled day (defaults to <tt>'Disabled'</tt>)
+The tooltip to display when the date falls on a disabled day (defaults to <code>'Disabled'</code>)
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute type='xs:string' name='disabledDatesText'>
           <xs:annotation>
             <xs:documentation>
-The tooltip text to display when the date falls on a disabled date (defaults to <tt>'Disabled'</tt>)
+The tooltip text to display when the date falls on a disabled date (defaults to <code>'Disabled'</code>)
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
@@ -3614,21 +3758,21 @@ An array of textual day names which can be overriden for localization support (d
         <xs:attribute type='xs:string' name='nextText'>
           <xs:annotation>
             <xs:documentation>
-The next month navigation button tooltip (defaults to <tt>'Next Month (Control+Right)'</tt>)
+The next month navigation button tooltip (defaults to <code>'Next Month (Control+Right)'</code>)
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute type='xs:string' name='prevText'>
           <xs:annotation>
             <xs:documentation>
-The previous month navigation button tooltip (defaults to <tt>'Previous Month (Control+Left)'</tt>)
+The previous month navigation button tooltip (defaults to <code>'Previous Month (Control+Left)'</code>)
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute type='xs:string' name='monthYearText'>
           <xs:annotation>
             <xs:documentation>
-The header month selector tooltip (defaults to <tt>'Choose a month (Control+Up/Down to move years)'</tt>)
+The header month selector tooltip (defaults to <code>'Choose a month (Control+Up/Down to move years)'</code>)
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
@@ -3642,7 +3786,7 @@ Day index at which the week should begin, 0-based (defaults to 0, which is Sunda
         <xs:attribute type='xs:boolean' name='showToday'>
           <xs:annotation>
             <xs:documentation>
-False to hide the footer area containing the Today button and disable the keyboard handler for spacebar that selects the current date (defaults to <tt>true</tt>).
+False to hide the footer area containing the Today button and disable the keyboard handler for spacebar that selects the current date (defaults to <code>true</code>).
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
@@ -3687,7 +3831,7 @@ An array of 'dates' to disable, as strings. These strings will be used to build 
   <xs:element id='datepicker' name='datepicker' type='ext:ext.DatePicker' substitutionGroup='ext:component'>
     <xs:annotation>
       <xs:documentation>
-Simple date picker class.
+<p>A popup date picker. This class is used by the {@link Ext.form.DateField DateField} class to allow browsing and selection of valid dates.</p><p>All the string values documented below may be overridden by including an Ext locale file in your page.</p>
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -3758,6 +3902,19 @@ A display-only text field which is not validated and not submitted.
                 <xs:anyAttribute processContents="skip"/>
               </xs:complexType>
             </xs:element>
+            <xs:element name='offsets' minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>
+    The offsets to use when aligning (see {@link Ext.Element#alignTo} for more details. Defaults to <tt>[0, 0]</tt>.
+                </xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax"/>
+                </xs:sequence>
+                <xs:anyAttribute processContents="skip"/>
+              </xs:complexType>
+            </xs:element>
         </xs:sequence>
         <xs:attribute type='xs:string' name='field'>
           <xs:annotation>
@@ -3812,6 +3969,13 @@ The data value of the underlying field (defaults to "")
           <xs:annotation>
             <xs:documentation>
 The position to align to (see {@link Ext.Element#alignTo} for more details, defaults to "c-c?").
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:string' name='offsets'>
+          <xs:annotation>
+            <xs:documentation>
+The offsets to use when aligning (see {@link Ext.Element#alignTo} for more details. Defaults to <tt>[0, 0]</tt>.
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
@@ -4028,14 +4192,7 @@ The default CSS class for the field (defaults to 'x-form-field')
         <xs:attribute type='xs:string' name='msgTarget'>
           <xs:annotation>
             <xs:documentation>
-The location where error text should display. Should be one of the following values (defaults to 'qtip'): <pre>Value         Description
------------   ----------------------------------------------------------------------
-qtip          Display a quick tip when the user hovers over the field
-title         Display a default browser title attribute popup
-under         Add a block div beneath the field containing the error text
-side          Add an error icon to the right of the field with a popup on hover
-[element id]  Add the error text directly to the innerHTML of the specified element
-</pre>
+<p>The location where the message text set through {@link #markInvalid} should display. Must be one of the following values:</p><div class="mdetail-params"><ul><li><code>qtip</code> Display a quick tip containing the message when the user hovers over the field. This is the default. <div style="font-weight: bold" class="subdesc">{@link Ext.QuickTips#init Ext.QuickTips.init} must have been called for this setting to work.</div></li><li><code>title</code> Display the message in a default browser title attribute popup.</li><li><code>under</code> Add a block div beneath the field containing the error message.</li><li><code>side</code> Add an error icon to the right of the field, displaying the message in a popup on hover.</li><li><code>[element id]</code> Add the error message directly to the innerHTML of the specified element.</li></ul></div>
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
@@ -4050,6 +4207,13 @@ side          Add an error icon to the right of the field with a popup on hover
           <xs:annotation>
             <xs:documentation>
 <tt>true</tt> to mark the field as readOnly in HTML (defaults to <tt>false</tt>). <br/><p><b>Note</b>: this only sets the element's readOnly DOM attribute. Setting <code>readOnly=true</code>, for example, will not disable triggering a ComboBox or DateField; it gives you the option of forcing the user to choose via the trigger without typing in the text box. To hide the trigger use <code>{@link Ext.form.TriggerField#hideTrigger hideTrigger}</code>.</p>
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:boolean' name='submitValue'>
+          <xs:annotation>
+            <xs:documentation>
+False to clear the name attribute on the field so that it is not submitted during a form post. Defaults to <tt>true</tt>.
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
@@ -5139,7 +5303,7 @@ A specialized store implementation that provides for grouping records by one of 
         <xs:attribute type='xs:string' name='align'>
           <xs:annotation>
             <xs:documentation>
-Controls how the child items of the container are aligned. Acceptable configuration values for this property are: <div class="mdetail-params"><ul><li><b><tt>top</tt></b> : <b>Default</b><div class="sub-desc">child items are aligned vertically at the <b>left</b> side of the container</div></li><li><b><tt>middle</tt></b> : <div class="sub-desc">child items are aligned vertically at the <b>mid-height</b> of the container</div></li><li><b><tt>stretch</tt></b> : <div class="sub-desc">child items are stretched vertically to fill the height of the container</div></li><li><b><tt>stretchmax</tt></b> : <div class="sub-desc">child items are stretched vertically to the size of the largest item.</div></li></ul></div>
+Controls how the child items of the container are aligned. Acceptable configuration values for this property are: <div class="mdetail-params"><ul><li><b><tt>top</tt></b> : <b>Default</b><div class="sub-desc">child items are aligned vertically at the <b>top</b> of the container</div></li><li><b><tt>middle</tt></b> : <div class="sub-desc">child items are aligned vertically in the <b>middle</b> of the container</div></li><li><b><tt>stretch</tt></b> : <div class="sub-desc">child items are stretched vertically to fill the height of the container</div></li><li><b><tt>stretchmax</tt></b> : <div class="sub-desc">child items are stretched vertically to the height of the largest item.</div></li></ul></div>
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
@@ -5280,7 +5444,7 @@ An array of available font families
         <xs:attribute type='xs:string' name='defaultValue'>
           <xs:annotation>
             <xs:documentation>
-A default value to be put into the editor to resolve focus issues (defaults to ​ (Zero-width space),   (Non-breaking space) in Opera and IE6).
+A default value to be put into the editor to resolve focus issues (defaults to   (Non-breaking space) in Opera and IE6, ​ (Zero-width space) in all other browsers).
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
@@ -5367,13 +5531,6 @@ The id of the input element to which this label will be bound via the standard H
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
-        <xs:attribute type='xs:string' name='html'>
-          <xs:annotation>
-            <xs:documentation>
-An HTML fragment that will be used as the label's innerHTML (defaults to ''). Note that if {@link #text} is specified it will take precedence and this value will be ignored.
-            </xs:documentation>
-          </xs:annotation>
-        </xs:attribute>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -5394,14 +5551,14 @@ Basic Label field.
   </xs:complexType>
   <xs:element id='linechart' name='linechart' type='ext:ext.chart.LineChart' substitutionGroup='ext:cartesianchart'>
   </xs:element>
-  <xs:complexType name='ext.ListView'>
+  <xs:complexType name='ext.list.ListView'>
     <xs:complexContent>
       <xs:extension base='ext:ext.DataView'>
         <xs:sequence>
             <xs:element name='columnResize' minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
-    Specify <tt>true</tt> or specify a configuration object for {@link Ext.ListView.ColumnResizer} to enable the columns to be resizable (defaults to <tt>true</tt>).
+    Specify <tt>true</tt> or specify a configuration object for {@link Ext.list.ListView.ColumnResizer} to enable the columns to be resizable (defaults to <tt>true</tt>).
                 </xs:documentation>
               </xs:annotation>
               <xs:complexType>
@@ -5434,7 +5591,7 @@ width: .35
             <xs:element name='columnSort' minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
-    Specify <tt>true</tt> or specify a configuration object for {@link Ext.ListView.Sorter} to enable the columns to be sortable (defaults to <tt>true</tt>).
+    Specify <tt>true</tt> or specify a configuration object for {@link Ext.list.ListView.Sorter} to enable the columns to be sortable (defaults to <tt>true</tt>).
                 </xs:documentation>
               </xs:annotation>
               <xs:complexType>
@@ -5482,7 +5639,7 @@ The amount of space to reserve for the scrollbar (defaults to <tt>undefined</tt>
         <xs:attribute type='xs:string' name='columnResize'>
           <xs:annotation>
             <xs:documentation>
-Specify <tt>true</tt> or specify a configuration object for {@link Ext.ListView.ColumnResizer} to enable the columns to be resizable (defaults to <tt>true</tt>).
+Specify <tt>true</tt> or specify a configuration object for {@link Ext.list.ListView.ColumnResizer} to enable the columns to be resizable (defaults to <tt>true</tt>).
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
@@ -5503,7 +5660,7 @@ width: .35
         <xs:attribute type='xs:string' name='columnSort'>
           <xs:annotation>
             <xs:documentation>
-Specify <tt>true</tt> or specify a configuration object for {@link Ext.ListView.Sorter} to enable the columns to be sortable (defaults to <tt>true</tt>).
+Specify <tt>true</tt> or specify a configuration object for {@link Ext.list.ListView.Sorter} to enable the columns to be sortable (defaults to <tt>true</tt>).
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
@@ -5517,10 +5674,10 @@ The template to be used for the header row. See {@link #tpl} for more details.
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element id='listview' name='listview' type='ext:ext.ListView' substitutionGroup='ext:dataview'>
+  <xs:element id='listview' name='listview' type='ext:ext.list.ListView' substitutionGroup='ext:dataview'>
     <xs:annotation>
       <xs:documentation>
-<p>Ext.ListView is a fast and light-weight implentation of a {@link Ext.grid.GridPanel Grid} like view with the following characteristics:</p><div class="mdetail-params"><ul><li>resizable columns</li><li>selectable</li><li>column widths are initially proportioned by percentage based on the container width and number of columns</li><li>uses templates to render the data in any required format</li><li>no horizontal scrolling</li><li>no editing</li></ul></div><p>Example usage:</p><pre><code>// consume JSON of this form:
+<p>Ext.list.ListView is a fast and light-weight implentation of a {@link Ext.grid.GridPanel Grid} like view with the following characteristics:</p><div class="mdetail-params"><ul><li>resizable columns</li><li>selectable</li><li>column widths are initially proportioned by percentage based on the container width and number of columns</li><li>uses templates to render the data in any required format</li><li>no horizontal scrolling</li><li>no editing</li></ul></div><p>Example usage:</p><pre><code>// consume JSON of this form:
 {
 "images":[
 {
@@ -5548,7 +5705,7 @@ fields: [
 });
 store.load();
 
-var listView = new Ext.ListView({
+var listView = new Ext.list.ListView({
 store: store,
 multiSelect: true,
 emptyText: 'No images to display',
@@ -5589,6 +5746,139 @@ var s = l != 1 ? 's' : '';
 panel.setTitle('Simple ListView <i>('+l+' item'+s+' selected)</i>');
 });
 </code></pre>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name='ext.list.BooleanColumn'>
+    <xs:complexContent>
+      <xs:extension base='ext:ext.list.Column'>
+        <xs:sequence>
+        </xs:sequence>
+        <xs:attribute type='xs:string' name='trueText'>
+          <xs:annotation>
+            <xs:documentation>
+The string returned by the renderer when the column value is not falsey (defaults to <tt>'true'</tt>).
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:string' name='falseText'>
+          <xs:annotation>
+            <xs:documentation>
+The string returned by the renderer when the column value is falsey (but not undefined) (defaults to <tt>'false'</tt>).
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:string' name='undefinedText'>
+          <xs:annotation>
+            <xs:documentation>
+The string returned by the renderer when the column value is undefined (defaults to <tt>' '</tt>).
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element id='lvbooleancolumn' name='lvbooleancolumn' type='ext:ext.list.BooleanColumn' substitutionGroup='ext:lvcolumn'>
+    <xs:annotation>
+      <xs:documentation>
+<p>A Column definition class which renders boolean data fields. See the {@link Ext.list.Column#xtype xtype} config option of {@link Ext.list.Column} for more details.</p>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name='ext.list.Column'>
+        <xs:sequence>
+        </xs:sequence>
+        <xs:attribute type='xs:boolean' name='isColumn'>
+          <xs:annotation>
+            <xs:documentation>
+Used by ListView constructor method to avoid reprocessing a Column if <code>isColumn</code> is not set ListView will recreate a new Ext.list.Column Defaults to true.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:string' name='align'>
+          <xs:annotation>
+            <xs:documentation>
+Set the CSS text-align property of the column. Defaults to <tt>'left'</tt>.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:string' name='header'>
+          <xs:annotation>
+            <xs:documentation>
+Optional. The header text to be used as innerHTML (html tags are accepted) to display in the ListView. <b>Note</b>: to have a clickable header with no text displayed use <tt>' '</tt>.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:int' name='width'>
+          <xs:annotation>
+            <xs:documentation>
+Optional. Percentage of the container width this column should be allocated. Columns that have no width specified will be allocated with an equal percentage to fill 100% of the container width. To easily take advantage of the full container width, leave the width of at least one column undefined. Note that if you do not want to take up the full width of the container, the width of every column needs to be explicitly defined.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:string' name='cls'>
+          <xs:annotation>
+            <xs:documentation>
+Optional. This option can be used to add a CSS class to the cell of each row for this column.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:string' name='tpl'>
+          <xs:annotation>
+            <xs:documentation>
+Optional. Specify a string to pass as the configuration string for {@link Ext.XTemplate}. By default an {@link Ext.XTemplate} will be implicitly created using the <tt>dataIndex</tt>.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:string' name='dataIndex'>
+          <xs:annotation>
+            <xs:documentation>
+<p><b>Required</b>. The name of the field in the ListViews's {@link Ext.data.Store}'s {@link Ext.data.Record} definition from which to draw the column's value.</p>
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+  </xs:complexType>
+  <xs:element id='lvcolumn' name='lvcolumn' type='ext:ext.list.Column'>
+    <xs:annotation>
+      <xs:documentation>
+<p>This class encapsulates column configuration data to be used in the initialization of a {@link Ext.list.ListView ListView}.</p><p>While subclasses are provided to render data in different ways, this class renders a passed data field unchanged and is usually used for textual columns.</p>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name='ext.list.DateColumn'>
+    <xs:complexContent>
+      <xs:extension base='ext:ext.list.Column'>
+        <xs:sequence>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element id='lvdatecolumn' name='lvdatecolumn' type='ext:ext.list.DateColumn' substitutionGroup='ext:lvcolumn'>
+    <xs:annotation>
+      <xs:documentation>
+<p>A Column definition class which renders a passed date according to the default locale, or a configured {@link #format}. See the {@link Ext.list.Column#xtype xtype} config option of {@link Ext.list.Column} for more details.</p>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name='ext.list.NumberColumn'>
+    <xs:complexContent>
+      <xs:extension base='ext:ext.list.Column'>
+        <xs:sequence>
+        </xs:sequence>
+        <xs:attribute type='xs:string' name='format'>
+          <xs:annotation>
+            <xs:documentation>
+A formatting string as used by {@link Ext.util.Format#number} to format a numeric value for this Column (defaults to <tt>'0,000.00'</tt>).
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element id='lvnumbercolumn' name='lvnumbercolumn' type='ext:ext.list.NumberColumn' substitutionGroup='ext:lvcolumn'>
+    <xs:annotation>
+      <xs:documentation>
+<p>A Column definition class which renders a numeric data field according to a {@link #format} string. See the {@link Ext.list.Column#xtype xtype} config option of {@link Ext.list.Column} for more details.</p>
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -5698,6 +5988,13 @@ True to remove the incised line down the left side of the menu. Defaults to <tt>
           <xs:annotation>
             <xs:documentation>
 <p>By default, a Menu configured as <b><code>floating:true</code></b> will be rendered as an {@link Ext.Layer} (an absolutely positioned, floating Component with zindex=15000). If configured as <b><code>floating:false</code></b>, the Menu may be used as child item of another Container instead of a free-floating {@link Ext.Layer Layer}.</p>
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:int' name='zIndex'>
+          <xs:annotation>
+            <xs:documentation>
+zIndex to use when the menu is floating.
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
@@ -6200,7 +6497,7 @@ this.addEvents({
 this.listeners = config.listeners;
 
 // Call our superclass constructor to complete construction process.
-Employee.superclass.constructor.call(config)
+Employee.superclass.constructor.call(this, config)
 }
 });
 </code></pre>This could then be used like this:<pre><code>var newEmployee = new Employee({
@@ -6580,7 +6877,7 @@ footerStyle:    'background-color:red' // see {@link #bodyStyle}
             <xs:element name='tools' minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
-    An array of tool button configs to be added to the header tool area. When rendered, each tool is stored as an {@link Ext.Element Element} referenced by a public property called <code>tools.<i>&lt;tool-type&gt;</i></code> <p>Each tool config may contain the following properties:</p><div class="mdetail-params"><ul><li><b>id</b> : String<div class="sub-desc"><b>Required.</b> The type of tool to create. By default, this assigns a CSS class of the form <code>x-tool-<i>&lt;tool-type&gt;</i></code> to the resulting tool Element. Ext provides CSS rules, and an icon sprite containing images for the tool types listed below. The developer may implement custom tools by supplying alternate CSS rules and background images: <div style="margin-left: 2em"><div><code>toggle</code> (Created by default when {@link #collapsible} is <code>true</code>)</div><div><code>close</code></div><div><code>minimize</code></div><div><code>maximize</code></div><div><code>restore</code></div><div><code>gear</code></div><div><code>pin</code></div><div><code>unpin</code></div><div><code>right</code></div><div><code>left</code></div><div><code>up</code></div><div><code>down</code></div><div><code>refresh</code></div><div><code>minus</code></div><div><code>plus</code></div><div><code>help</code></div><div><code>search</code></div><div><code>save</code></div><div><code>print</code></div></div></div></li><li><b>handler</b> : Function<div class="sub-desc"><b>Required.</b> The function to call when clicked. Arguments passed are:<ul><li><b>event</b> : Ext.EventObject<div class="sub-desc">The click event.</div></li><li><b>toolEl</b> : Ext.Element<div class="sub-desc">The tool Element.</div></li><li><b>panel</b> : Ext.Panel<div class="sub-desc">The host Panel</div></li><li><b>tc</b> : Ext.Panel<div class="sub-desc">The tool configuration object</div></li></ul></div></li><li><b>stopEvent</b> : Boolean<div class="sub-desc">Defaults to true. Specify as false to allow click event to propagate.</div></li><li><b>scope</b> : Object<div class="sub-desc">The scope in which to call the handler.</div></li><li><b>qtip</b> : String/Object<div class="sub-desc">A tip string, or a config argument to {@link Ext.QuickTip#register}</div></li><li><b>hidden</b> : Boolean<div class="sub-desc">True to initially render hidden.</div></li><li><b>on</b> : Object<div class="sub-desc">A listener config object specifiying event listeners in the format of an argument to {@link #addListener}</div></li></ul></div><p>Note that, apart from the toggle tool which is provided when a panel is collapsible, these tools only provide the visual button. Any required functionality must be provided by adding handlers that implement the necessary behavior.</p><p>Example usage:</p><pre><code>tools:[{
+    An array of tool button configs to be added to the header tool area. When rendered, each tool is stored as an {@link Ext.Element Element} referenced by a public property called <code>tools.<i>&lt;tool-type&gt;</i></code> <p>Each tool config may contain the following properties:</p><div class="mdetail-params"><ul><li><b>id</b> : String<div class="sub-desc"><b>Required.</b> The type of tool to create. By default, this assigns a CSS class of the form <code>x-tool-<i>&lt;tool-type&gt;</i></code> to the resulting tool Element. Ext provides CSS rules, and an icon sprite containing images for the tool types listed below. The developer may implement custom tools by supplying alternate CSS rules and background images: <div style="margin-left: 2em"><div><code>toggle</code> (Created by default when {@link #collapsible} is <code>true</code>)</div><div><code>close</code></div><div><code>minimize</code></div><div><code>maximize</code></div><div><code>restore</code></div><div><code>gear</code></div><div><code>pin</code></div><div><code>unpin</code></div><div><code>right</code></div><div><code>left</code></div><div><code>up</code></div><div><code>down</code></div><div><code>refresh</code></div><div><code>minus</code></div><div><code>plus</code></div><div><code>help</code></div><div><code>search</code></div><div><code>save</code></div><div><code>print</code></div></div></div></li><li><b>handler</b> : Function<div class="sub-desc"><b>Required.</b> The function to call when clicked. Arguments passed are:<ul><li><b>event</b> : Ext.EventObject<div class="sub-desc">The click event.</div></li><li><b>toolEl</b> : Ext.Element<div class="sub-desc">The tool Element.</div></li><li><b>panel</b> : Ext.Panel<div class="sub-desc">The host Panel</div></li><li><b>tc</b> : Object<div class="sub-desc">The tool configuration object</div></li></ul></div></li><li><b>stopEvent</b> : Boolean<div class="sub-desc">Defaults to true. Specify as false to allow click event to propagate.</div></li><li><b>scope</b> : Object<div class="sub-desc">The scope in which to call the handler.</div></li><li><b>qtip</b> : String/Object<div class="sub-desc">A tip string, or a config argument to {@link Ext.QuickTip#register}</div></li><li><b>hidden</b> : Boolean<div class="sub-desc">True to initially render hidden.</div></li><li><b>on</b> : Object<div class="sub-desc">A listener config object specifiying event listeners in the format of an argument to {@link #addListener}</div></li></ul></div><p>Note that, apart from the toggle tool which is provided when a panel is collapsible, these tools only provide the visual button. Any required functionality must be provided by adding handlers that implement the necessary behavior.</p><p>Example usage:</p><pre><code>tools:[{
 id:'refresh',
 qtip: 'Refresh form Data',
 // hidden:true,
@@ -6644,19 +6941,6 @@ closeAction:'hide'
               <xs:annotation>
                 <xs:documentation>
     <p>This property is used to configure the underlying {@link Ext.Layer}. Acceptable values for this configuration property are:</p><div class="mdetail-params"><ul><li><b><code>false</code></b> : <b>Default.</b><div class="sub-desc">Display the panel inline where it is rendered.</div></li><li><b><code>true</code></b> : <div class="sub-desc">Float the panel (absolute position it with automatic shimming and shadow).<div style="margin-left: 2em"><div class="sub-desc">Setting floating to true will create an Ext.Layer for this panel and display the panel at negative offsets so that it is hidden.</div><div class="sub-desc">Since the panel will be absolute positioned, the position must be set explicitly <i>after</i> render (e.g., <code>myPanel.setPosition(100,100);</code>).</div><div class="sub-desc"><b>Note</b>: when floating a panel you should always assign a fixed width, otherwise it will be auto width and will expand to fill to the right edge of the viewport.</div></div></div></li><li><b><code>{@link Ext.Layer object}</code></b> : <div class="sub-desc">The specified object will be used as the configuration object for the {@link Ext.Layer} that will be created.</div></li></ul></div>
-                </xs:documentation>
-              </xs:annotation>
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax"/>
-                </xs:sequence>
-                <xs:anyAttribute processContents="skip"/>
-              </xs:complexType>
-            </xs:element>
-            <xs:element name='html' minOccurs="0" maxOccurs="1">
-              <xs:annotation>
-                <xs:documentation>
-    An HTML fragment, or a {@link Ext.DomHelper DomHelper} specification to use as the panel's body content (defaults to ''). The HTML content is added by the Panel's {@link #afterRender} method, and so the document will not contain this HTML at the time the {@link #render} event is fired. This content is inserted into the body <i>before</i> any configured {@link #contentEl} is appended.
                 </xs:documentation>
               </xs:annotation>
               <xs:complexType>
@@ -6937,7 +7221,7 @@ True to make the panel collapsible and have the expand/collapse toggle button au
         <xs:attribute type='xs:string' name='tools'>
           <xs:annotation>
             <xs:documentation>
-An array of tool button configs to be added to the header tool area. When rendered, each tool is stored as an {@link Ext.Element Element} referenced by a public property called <code>tools.<i>&lt;tool-type&gt;</i></code> <p>Each tool config may contain the following properties:</p><div class="mdetail-params"><ul><li><b>id</b> : String<div class="sub-desc"><b>Required.</b> The type of tool to create. By default, this assigns a CSS class of the form <code>x-tool-<i>&lt;tool-type&gt;</i></code> to the resulting tool Element. Ext provides CSS rules, and an icon sprite containing images for the tool types listed below. The developer may implement custom tools by supplying alternate CSS rules and background images: <div style="margin-left: 2em"><div><code>toggle</code> (Created by default when {@link #collapsible} is <code>true</code>)</div><div><code>close</code></div><div><code>minimize</code></div><div><code>maximize</code></div><div><code>restore</code></div><div><code>gear</code></div><div><code>pin</code></div><div><code>unpin</code></div><div><code>right</code></div><div><code>left</code></div><div><code>up</code></div><div><code>down</code></div><div><code>refresh</code></div><div><code>minus</code></div><div><code>plus</code></div><div><code>help</code></div><div><code>search</code></div><div><code>save</code></div><div><code>print</code></div></div></div></li><li><b>handler</b> : Function<div class="sub-desc"><b>Required.</b> The function to call when clicked. Arguments passed are:<ul><li><b>event</b> : Ext.EventObject<div class="sub-desc">The click event.</div></li><li><b>toolEl</b> : Ext.Element<div class="sub-desc">The tool Element.</div></li><li><b>panel</b> : Ext.Panel<div class="sub-desc">The host Panel</div></li><li><b>tc</b> : Ext.Panel<div class="sub-desc">The tool configuration object</div></li></ul></div></li><li><b>stopEvent</b> : Boolean<div class="sub-desc">Defaults to true. Specify as false to allow click event to propagate.</div></li><li><b>scope</b> : Object<div class="sub-desc">The scope in which to call the handler.</div></li><li><b>qtip</b> : String/Object<div class="sub-desc">A tip string, or a config argument to {@link Ext.QuickTip#register}</div></li><li><b>hidden</b> : Boolean<div class="sub-desc">True to initially render hidden.</div></li><li><b>on</b> : Object<div class="sub-desc">A listener config object specifiying event listeners in the format of an argument to {@link #addListener}</div></li></ul></div><p>Note that, apart from the toggle tool which is provided when a panel is collapsible, these tools only provide the visual button. Any required functionality must be provided by adding handlers that implement the necessary behavior.</p><p>Example usage:</p><pre><code>tools:[{
+An array of tool button configs to be added to the header tool area. When rendered, each tool is stored as an {@link Ext.Element Element} referenced by a public property called <code>tools.<i>&lt;tool-type&gt;</i></code> <p>Each tool config may contain the following properties:</p><div class="mdetail-params"><ul><li><b>id</b> : String<div class="sub-desc"><b>Required.</b> The type of tool to create. By default, this assigns a CSS class of the form <code>x-tool-<i>&lt;tool-type&gt;</i></code> to the resulting tool Element. Ext provides CSS rules, and an icon sprite containing images for the tool types listed below. The developer may implement custom tools by supplying alternate CSS rules and background images: <div style="margin-left: 2em"><div><code>toggle</code> (Created by default when {@link #collapsible} is <code>true</code>)</div><div><code>close</code></div><div><code>minimize</code></div><div><code>maximize</code></div><div><code>restore</code></div><div><code>gear</code></div><div><code>pin</code></div><div><code>unpin</code></div><div><code>right</code></div><div><code>left</code></div><div><code>up</code></div><div><code>down</code></div><div><code>refresh</code></div><div><code>minus</code></div><div><code>plus</code></div><div><code>help</code></div><div><code>search</code></div><div><code>save</code></div><div><code>print</code></div></div></div></li><li><b>handler</b> : Function<div class="sub-desc"><b>Required.</b> The function to call when clicked. Arguments passed are:<ul><li><b>event</b> : Ext.EventObject<div class="sub-desc">The click event.</div></li><li><b>toolEl</b> : Ext.Element<div class="sub-desc">The tool Element.</div></li><li><b>panel</b> : Ext.Panel<div class="sub-desc">The host Panel</div></li><li><b>tc</b> : Object<div class="sub-desc">The tool configuration object</div></li></ul></div></li><li><b>stopEvent</b> : Boolean<div class="sub-desc">Defaults to true. Specify as false to allow click event to propagate.</div></li><li><b>scope</b> : Object<div class="sub-desc">The scope in which to call the handler.</div></li><li><b>qtip</b> : String/Object<div class="sub-desc">A tip string, or a config argument to {@link Ext.QuickTip#register}</div></li><li><b>hidden</b> : Boolean<div class="sub-desc">True to initially render hidden.</div></li><li><b>on</b> : Object<div class="sub-desc">A listener config object specifiying event listeners in the format of an argument to {@link #addListener}</div></li></ul></div><p>Note that, apart from the toggle tool which is provided when a panel is collapsible, these tools only provide the visual button. Any required functionality must be provided by adding handlers that implement the necessary behavior.</p><p>Example usage:</p><pre><code>tools:[{
 id:'refresh',
 qtip: 'Refresh form Data',
 // hidden:true,
@@ -6999,13 +7283,6 @@ closeAction:'hide'
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
-        <xs:attribute type='xs:boolean' name='autoScroll'>
-          <xs:annotation>
-            <xs:documentation>
-<code>true</code> to use overflow:'auto' on the panel's body element and show scroll bars automatically when necessary, <code>false</code> to clip any overflowing content (defaults to <code>false</code>).
-            </xs:documentation>
-          </xs:annotation>
-        </xs:attribute>
         <xs:attribute type='xs:string' name='floating'>
           <xs:annotation>
             <xs:documentation>
@@ -7031,20 +7308,6 @@ The number of pixels to offset the shadow if displayed (defaults to <code>4</cod
           <xs:annotation>
             <xs:documentation>
 <code>false</code> to disable the iframe shim in browsers which need one (defaults to <code>true</code>). Note that this option only applies when <code>{@link #floating} = true</code>.
-            </xs:documentation>
-          </xs:annotation>
-        </xs:attribute>
-        <xs:attribute type='xs:string' name='html'>
-          <xs:annotation>
-            <xs:documentation>
-An HTML fragment, or a {@link Ext.DomHelper DomHelper} specification to use as the panel's body content (defaults to ''). The HTML content is added by the Panel's {@link #afterRender} method, and so the document will not contain this HTML at the time the {@link #render} event is fired. This content is inserted into the body <i>before</i> any configured {@link #contentEl} is appended.
-            </xs:documentation>
-          </xs:annotation>
-        </xs:attribute>
-        <xs:attribute type='xs:string' name='contentEl'>
-          <xs:annotation>
-            <xs:documentation>
-<p>Optional. Specify an existing HTML element, or the <code>id</code> of an existing HTML element to use as this Panel's <code><b>{@link #body}</b></code> content.</p><ul><li><b>Description</b> : <div class="sub-desc">This config option is used to take an existing HTML element and place it in the body of a new panel (it simply moves the specified DOM element into the body element of the Panel <i>after the Panel is rendered</i> to use as the content (it is not going to be the actual panel itself).</div></li><li><b>Notes</b> : <div class="sub-desc">The specified HTML element is appended to the Panel's {@link #body} Element by the Panel's <code>afterRender</code> method <i>after any configured {@link #html HTML} has been inserted</i>, and so the document will not contain this element at the time the {@link #render} event is fired.</div><div class="sub-desc">The specified HTML element used will not participate in any <code><b>{@link Ext.Container#layout layout}</b></code> scheme that the Panel may use. It is just HTML. Layouts operate on child <code><b>{@link Ext.Container#items items}</b></code>.</div><div class="sub-desc">Add either the <code>x-hidden</code> or the <code>x-hide-display</code> CSS class to prevent a brief flicker of the content before it is rendered to the panel.</div></li></ul>
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
@@ -7178,6 +7441,13 @@ A comma-delimited list of panel elements to initialize when the panel is rendere
           <xs:annotation>
             <xs:documentation>
 Defaults to <code>false</code>. When set to <code>true</code>, an extra css class <code>'x-panel-normal'</code> will be added to the panel's element, effectively applying css styles suggested by the W3C (see http://www.w3.org/TR/CSS21/sample.html) to the Panel's <b>body</b> element (not the header, footer, etc.).
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:string' name='padding'>
+          <xs:annotation>
+            <xs:documentation>
+A shortcut for setting a padding style on the body element. The value can either be a number to be applied to all sides, or a normal css string describing padding. Defaults to <tt>undefined</tt>.
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
@@ -7669,7 +7939,7 @@ dir : 'dir'       // The parameter name which specifies the sort direction
 removed records   Ext.data.Api.actions.destroy
 phantom records   Ext.data.Api.actions.create
 {@link #getModifiedRecords modified records}  Ext.data.Api.actions.update
-</pre>@TODO: Create extensions of Error class and send associated Record with thrown exceptions. e.g.: Ext.data.DataReader.Error or Ext.data.Error or Ext.data.DataProxy.Error, etc.
+</pre>@TODO: Create extensions of Error class and send associated Record with thrown exceptions. e.g.: Ext.data.DataReader.Error or Ext.data.Error or Ext.data.DataProxy.Error, etc. @return {Number} batch Returns a number to uniquely identify the "batch" of saves occurring. -1 will be returned if there are no items to save or the save was cancelled.
                 </xs:documentation>
               </xs:annotation>
               <xs:complexType>
@@ -7833,7 +8103,7 @@ Provides the default values for the {@link #paramNames} property. To globally mo
 removed records   Ext.data.Api.actions.destroy
 phantom records   Ext.data.Api.actions.create
 {@link #getModifiedRecords modified records}  Ext.data.Api.actions.update
-</pre>@TODO: Create extensions of Error class and send associated Record with thrown exceptions. e.g.: Ext.data.DataReader.Error or Ext.data.Error or Ext.data.DataProxy.Error, etc.
+</pre>@TODO: Create extensions of Error class and send associated Record with thrown exceptions. e.g.: Ext.data.DataReader.Error or Ext.data.Error or Ext.data.DataProxy.Error, etc. @return {Number} batch Returns a number to uniquely identify the "batch" of saves occurring. -1 will be returned if there are no items to save or the save was cancelled.
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
@@ -7990,9 +8260,9 @@ defaults: {autoScroll:true},
 itemTpl: new Ext.XTemplate(
 '&lt;li class="{cls}" id="{id}" style="overflow:hidden"&gt;',
 '&lt;tpl if="closable"&gt;',
-'&lt;a class="x-tab-strip-close" onclick="return false;"&gt;&lt;/a&gt;',
+'&lt;a class="x-tab-strip-close"&gt;&lt;/a&gt;',
 '&lt;/tpl&gt;',
-'&lt;a class="x-tab-right" href="#" onclick="return false;" style="padding-left:6px"&gt;',
+'&lt;a class="x-tab-right" href="#" style="padding-left:6px"&gt;',
 '&lt;em class="x-tab-left"&gt;',
 '&lt;span class="x-tab-strip-inner"&gt;',
 '&lt;img src="{src}" style="float:left;margin:3px 3px 0 0"&gt;',
@@ -8149,7 +8419,7 @@ The CSS selector used to search for tabs in existing markup when <tt>{@link #aut
         <xs:attribute type='xs:string' name='activeTab'>
           <xs:annotation>
             <xs:documentation>
-A string id or the numeric index of the tab that should be initially activated on render (defaults to none).
+A string id or the numeric index of the tab that should be initially activated on render (defaults to undefined).
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
@@ -8188,9 +8458,9 @@ defaults: {autoScroll:true},
 itemTpl: new Ext.XTemplate(
 '&lt;li class="{cls}" id="{id}" style="overflow:hidden"&gt;',
 '&lt;tpl if="closable"&gt;',
-'&lt;a class="x-tab-strip-close" onclick="return false;"&gt;&lt;/a&gt;',
+'&lt;a class="x-tab-strip-close"&gt;&lt;/a&gt;',
 '&lt;/tpl&gt;',
-'&lt;a class="x-tab-right" href="#" onclick="return false;" style="padding-left:6px"&gt;',
+'&lt;a class="x-tab-right" href="#" style="padding-left:6px"&gt;',
 '&lt;em class="x-tab-left"&gt;',
 '&lt;span class="x-tab-strip-inner"&gt;',
 '&lt;img src="{src}" style="float:left;margin:3px 3px 0 0"&gt;',
@@ -8233,7 +8503,7 @@ extraText: 'Extra stuff in the tab button'
   <xs:element id='tabpanel' name='tabpanel' type='ext:ext.TabPanel' substitutionGroup='ext:panel'>
     <xs:annotation>
       <xs:documentation>
-<p>A basic tab container. TabPanels can be used exactly like a standard {@link Ext.Panel} for layout purposes, but also have special support for containing child Components (<tt>{@link Ext.Container#items items}</tt>) that are managed using a {@link Ext.layout.CardLayout CardLayout layout manager}, and displayed as separate tabs.</p><b>Note:</b> By default, a tab's close tool <i>destroys</i> the child tab Component and all its descendants. This makes the child tab Component, and all its descendants <b>unusable</b>. To enable re-use of a tab, configure the TabPanel with <b><code>{@link #autoDestroy autoDestroy: false}</code></b>. <p style="font-weight: bold"><u>TabPanel header/footer elements</u></p><p>TabPanels use their {@link Ext.Panel#header header} or {@link Ext.Panel#footer footer} element (depending on the {@link #tabPosition} configuration) to accommodate the tab selector buttons. This means that a TabPanel will not display any configured title, and will not display any configured header {@link Ext.Panel#tools tools}.</p><p>To display a header, embed the TabPanel in a {@link Ext.Panel Panel} which uses <b><tt>{@link Ext.Container#layout layout:'fit'}</tt></b>.</p><p style="font-weight: bold"><u>Tab Events</u></p><p>There is no actual tab class — each tab is simply a {@link Ext.BoxComponent Component} such as a {@link Ext.Panel Panel}. However, when rendered in a TabPanel, each child Component can fire additional events that only exist for tabs and are not available from other Components. These events are:</p><div><ul class="mdetail-params"><li><tt><b>{@link Ext.Panel#activate activate}</b></tt> : Fires when this Component becomes the active tab.</li><li><tt><b>{@link Ext.Panel#deactivate deactivate}</b></tt> : Fires when the Component that was the active tab becomes deactivated.</li></ul></div><p style="font-weight: bold"><u>Creating TabPanels from Code</u></p><p>TabPanels can be created and rendered completely in code, as in this example:</p><pre><code>var tabs = new Ext.TabPanel({
+<p>A basic tab container. TabPanels can be used exactly like a standard {@link Ext.Panel} for layout purposes, but also have special support for containing child Components (<tt>{@link Ext.Container#items items}</tt>) that are managed using a {@link Ext.layout.CardLayout CardLayout layout manager}, and displayed as separate tabs.</p><b>Note:</b> By default, a tab's close tool <i>destroys</i> the child tab Component and all its descendants. This makes the child tab Component, and all its descendants <b>unusable</b>. To enable re-use of a tab, configure the TabPanel with <b><code>{@link #autoDestroy autoDestroy: false}</code></b>. <p style="font-weight: bold"><u>TabPanel header/footer elements</u></p><p>TabPanels use their {@link Ext.Panel#header header} or {@link Ext.Panel#footer footer} element (depending on the {@link #tabPosition} configuration) to accommodate the tab selector buttons. This means that a TabPanel will not display any configured title, and will not display any configured header {@link Ext.Panel#tools tools}.</p><p>To display a header, embed the TabPanel in a {@link Ext.Panel Panel} which uses <b><tt>{@link Ext.Container#layout layout:'fit'}</tt></b>.</p><p style="font-weight: bold"><u>Tab Events</u></p><p>There is no actual tab class — each tab is simply a {@link Ext.BoxComponent Component} such as a {@link Ext.Panel Panel}. However, when rendered in a TabPanel, each child Component can fire additional events that only exist for tabs and are not available from other Components. These events are:</p><div><ul class="mdetail-params"><li><tt><b>{@link Ext.Panel#activate activate}</b></tt> : Fires when this Component becomes the active tab.</li><li><tt><b>{@link Ext.Panel#deactivate deactivate}</b></tt> : Fires when the Component that was the active tab becomes deactivated.</li><li><tt><b>{@link Ext.Panel#beforeclose beforeclose}</b></tt> : Fires when the user clicks on the close tool of a closeable tab. May be vetoed by returning <code>false</code> from a handler.</li><li><tt><b>{@link Ext.Panel#close close}</b></tt> : Fires a closeable tab has been closed by the user.</li></ul></div><p style="font-weight: bold"><u>Creating TabPanels from Code</u></p><p>TabPanels can be created and rendered completely in code, as in this example:</p><pre><code>var tabs = new Ext.TabPanel({
 renderTo: Ext.getBody(),
 activeTab: 0,
 items: [{
@@ -8668,14 +8938,14 @@ The CSS class to apply to an empty field to style the <b><tt>{@link #emptyText}<
         <xs:attribute type='xs:string' name='minValue'>
           <xs:annotation>
             <xs:documentation>
-The minimum allowed time. Can be either a Javascript date object with a valid time value or a string time in a valid format -- see {@link #format} and {@link #altFormats} (defaults to null).
+The minimum allowed time. Can be either a Javascript date object with a valid time value or a string time in a valid format -- see {@link #format} and {@link #altFormats} (defaults to undefined).
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute type='xs:string' name='maxValue'>
           <xs:annotation>
             <xs:documentation>
-The maximum allowed time. Can be either a Javascript date object with a valid time value or a string time in a valid format -- see {@link #format} and {@link #altFormats} (defaults to null).
+The maximum allowed time. Can be either a Javascript date object with a valid time value or a string time in a valid format -- see {@link #format} and {@link #altFormats} (defaults to undefined).
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
@@ -8770,6 +9040,20 @@ This is the base class for {@link Ext.QuickTip} and {@link Ext.Tooltip} that pro
       <xs:extension base='ext:ext.Container'>
         <xs:sequence>
         </xs:sequence>
+        <xs:attribute type='xs:boolean' name='enableOverflow'>
+          <xs:annotation>
+            <xs:documentation>
+Defaults to false. Configure <code>true</code> to make the toolbar provide a button which activates a dropdown Menu to show items which overflow the Toolbar's width.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:string' name='buttonAlign'>
+          <xs:annotation>
+            <xs:documentation>
+<p>The default position at which to align child items. Defaults to <code>"left"</code></p><p>May be specified as <code>"center"</code> to cause items added before a Fill (A <code>"-&gt;"</code>) item to be centered in the Toolbar. Items added after a Fill are still right-aligned.</p><p>Specify as <code>"right"</code> to right align all child items.</p>
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -9342,7 +9626,7 @@ An additional CSS class used to style the trigger button. The trigger will alway
         <xs:attribute type='xs:boolean' name='editable'>
           <xs:annotation>
             <xs:documentation>
-<tt>false</tt> to prevent the user from typing text directly into the field, the field will only respond to a click on the trigger to set the value. (defaults to <tt>true</tt>)
+<tt>false</tt> to prevent the user from typing text directly into the field, the field will only respond to a click on the trigger to set the value. (defaults to <tt>true</tt>).
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
@@ -9433,7 +9717,7 @@ region: 'west',
 collapsible: true,
 title: 'Navigation',
 width: 200
-// the west region might typically utilize a {@link Ext.tree.TreePanel TreePanel} or a Panel with {@link Ext.layout.AccordionLayout Accordion layout} 
+// the west region might typically utilize a {@link Ext.tree.TreePanel TreePanel} or a Panel with {@link Ext.layout.AccordionLayout Accordion layout}
 }, {
 region: 'south',
 title: 'Title for Panel',
@@ -9498,7 +9782,7 @@ html: 'The first tab\'s content. Others may be added dynamically'
             <xs:element name='defaultButton' minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
-    The id / index of a button or a button instance to focus when this window received the focus.
+    <p>Specifies a Component to receive focus when this Window is focussed.</p><p>This may be one of:</p><div class="mdetail-params"><ul><li>The index of a footer Button.</li><li>The id of a Component.</li><li>A Component.</li></ul></div>
                 </xs:documentation>
               </xs:annotation>
               <xs:complexType>
@@ -9553,7 +9837,7 @@ A reference to the WindowGroup that should manage this window (defaults to {@lin
         <xs:attribute type='xs:string' name='defaultButton'>
           <xs:annotation>
             <xs:documentation>
-The id / index of a button or a button instance to focus when this window received the focus.
+<p>Specifies a Component to receive focus when this Window is focussed.</p><p>This may be one of:</p><div class="mdetail-params"><ul><li>The index of a footer Button.</li><li>The id of a Component.</li><li>A Component.</li></ul></div>
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>

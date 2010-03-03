@@ -1,6 +1,6 @@
 /*!
- * Ext JS Library 3.0.3
- * Copyright(c) 2006-2009 Ext JS, LLC
+ * Ext JS Library 3.1.1
+ * Copyright(c) 2006-2010 Ext JS, LLC
  * licensing@extjs.com
  * http://www.extjs.com/license
  */
@@ -76,7 +76,7 @@ textarea {
 /* 2.0.2 style */
 .x-form-check-wrap {
     line-height:18px;
-    height: 22px;
+    height: auto;
 }
 
 .ext-ie .x-form-check-wrap input {
@@ -127,6 +127,10 @@ textarea {
     position:static;
     top:auto;
     vertical-align:top;
+}
+
+.ext-strict .ext-ie8 .x-toolbar-cell .x-form-field-trigger-wrap .x-form-trigger {
+	right: 0; /* IE8 Strict mode trigger bug */
 }
 
 .x-form-field-wrap {
@@ -515,7 +519,7 @@ fieldset.x-panel-collapsed .x-fieldset-bwrap {
     margin-left:-3px;
 }
 
-/* IE legend positioing bug */
+/* IE legend positioning bug */
 .ext-ie .x-fieldset-noborder legend {
     position: relative;
     margin-bottom:23px;
@@ -527,11 +531,13 @@ fieldset.x-panel-collapsed .x-fieldset-bwrap {
         
 .ext-gecko .x-window-body .x-form-item {
     -moz-outline: none;
+    outline: none;
     overflow: auto;
 }
 
 .ext-gecko .x-form-item {
     -moz-outline: none;
+    outline: none;
 }
 
 .x-hide-label label.x-form-item-label {

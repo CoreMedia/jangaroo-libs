@@ -31,13 +31,6 @@
 
     <dependency>
       <groupId>net.jangaroo</groupId>
-      <artifactId>ext-base</artifactId>
-      <version>0.5.28-SNAPSHOT</version>
-      <type>jangaroo</type>
-    </dependency>
-
-    <dependency>
-      <groupId>net.jangaroo</groupId>
       <artifactId>ext-all</artifactId>
       <version>0.5.28-SNAPSHOT</version>
       <type>jangaroo</type>
