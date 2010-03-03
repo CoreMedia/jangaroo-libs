@@ -1,5 +1,208 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://extjs.com/ext3" xmlns:ext="http://extjs.com/ext3" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name='ext.layout.AbsoluteLayout'>
+    <xs:complexContent>
+      <xs:extension base='ext:ext.layout.AnchorLayout'>
+        <xs:sequence>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element id='absolutelayout' name='absolutelayout' type='ext:ext.layout.AbsoluteLayout' substitutionGroup='ext:anchorlayout'>
+    <xs:annotation>
+      <xs:documentation>
+<p>This is a layout that inherits the anchoring of <b>{@link Ext.layout.AnchorLayout}</b> and adds the ability for x/y positioning using the standard x and y component config options.</p><p>This class is intended to be extended or created via the <tt><b>{@link Ext.Container#layout layout}</b></tt> configuration property. See <tt><b>{@link Ext.Container#layout}</b></tt> for additional details.</p><p>Example usage:</p><pre><code>var form = new Ext.form.FormPanel({
+title: 'Absolute Layout',
+layout:'absolute',
+layoutConfig: {
+// layout-specific configs go here
+extraCls: 'x-abs-layout-item',
+},
+baseCls: 'x-plain',
+url:'save-form.php',
+defaultType: 'textfield',
+items: [{
+x: 0,
+y: 5,
+xtype:'label',
+text: 'Send To:'
+},{
+x: 60,
+y: 0,
+name: 'to',
+anchor:'100%'  // anchor width by percentage
+},{
+x: 0,
+y: 35,
+xtype:'label',
+text: 'Subject:'
+},{
+x: 60,
+y: 30,
+name: 'subject',
+anchor: '100%'  // anchor width by percentage
+},{
+x:0,
+y: 60,
+xtype: 'textarea',
+name: 'msg',
+anchor: '100% 100%'  // anchor width and height
+}]
+});
+</code></pre>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name='ext.layout.AccordionLayout'>
+    <xs:complexContent>
+      <xs:extension base='ext:ext.layout.FitLayout'>
+        <xs:sequence>
+        </xs:sequence>
+        <xs:attribute type='xs:boolean' name='fill'>
+          <xs:annotation>
+            <xs:documentation>
+True to adjust the active item's height to fill the available space in the container, false to use the item's current height, or auto height if not explicitly set (defaults to true).
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:boolean' name='autoWidth'>
+          <xs:annotation>
+            <xs:documentation>
+True to set each contained item's width to 'auto', false to use the item's current width (defaults to true). Note that some components, in particular the {@link Ext.grid.GridPanel grid}, will not function properly within layouts if they have auto width, so in such cases this config should be set to false.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:boolean' name='titleCollapse'>
+          <xs:annotation>
+            <xs:documentation>
+True to allow expand/collapse of each contained panel by clicking anywhere on the title bar, false to allow expand/collapse only when the toggle tool button is clicked (defaults to true). When set to false, {@link #hideCollapseTool} should be false also.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:boolean' name='hideCollapseTool'>
+          <xs:annotation>
+            <xs:documentation>
+True to hide the contained panels' collapse/expand toggle buttons, false to display them (defaults to false). When set to true, {@link #titleCollapse} should be true also.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:boolean' name='collapseFirst'>
+          <xs:annotation>
+            <xs:documentation>
+True to make sure the collapse/expand toggle button always renders first (to the left of) any other tools in the contained panels' title bars, false to render it last (defaults to false).
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:boolean' name='animate'>
+          <xs:annotation>
+            <xs:documentation>
+True to slide the contained panels open and closed during expand/collapse using animation, false to open and close directly with no animation (defaults to false). Note: to defer to the specific config setting of each contained panel for this property, set this to undefined at the layout level.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:boolean' name='sequence'>
+          <xs:annotation>
+            <xs:documentation>
+<b>Experimental</b>. If animate is set to true, this will result in each animation running in sequence.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:boolean' name='activeOnTop'>
+          <xs:annotation>
+            <xs:documentation>
+True to swap the position of each panel as it is expanded so that it becomes the first item in the container, false to keep the panels in the rendered order. <b>This is NOT compatible with "animate:true"</b> (defaults to false).
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element id='accordionlayout' name='accordionlayout' type='ext:ext.layout.AccordionLayout' substitutionGroup='ext:fitlayout'>
+    <xs:annotation>
+      <xs:documentation>
+<p>This is a layout that manages multiple Panels in an expandable accordion style such that only <b>one Panel can be expanded at any given time</b>. Each Panel has built-in support for expanding and collapsing.</p><p>Note: Only Ext.Panels <b>and all subclasses of Ext.Panel</b> may be used in an accordion layout Container.</p><p>This class is intended to be extended or created via the <tt><b>{@link Ext.Container#layout layout}</b></tt> configuration property. See <tt><b>{@link Ext.Container#layout}</b></tt> for additional details.</p><p>Example usage:</p><pre><code>var accordion = new Ext.Panel({
+title: 'Accordion Layout',
+layout:'accordion',
+defaults: {
+// applied to each contained panel
+bodyStyle: 'padding:15px'
+},
+layoutConfig: {
+// layout-specific configs go here
+titleCollapse: false,
+animate: true,
+activeOnTop: true
+},
+items: [{
+title: 'Panel 1',
+html: '&lt;p&gt;Panel content!&lt;/p&gt;'
+},{
+title: 'Panel 2',
+html: '&lt;p&gt;Panel content!&lt;/p&gt;'
+},{
+title: 'Panel 3',
+html: '&lt;p&gt;Panel content!&lt;/p&gt;'
+}]
+});
+</code></pre>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name='ext.layout.AnchorLayout'>
+    <xs:complexContent>
+      <xs:extension base='ext:ext.layout.ContainerLayout'>
+        <xs:sequence>
+        </xs:sequence>
+        <xs:attribute type='xs:string' name='anchor'>
+          <xs:annotation>
+            <xs:documentation>
+<p>This configuation option is to be applied to <b>child <tt>items</tt></b> of a container managed by this layout (ie. configured with <tt>layout:'anchor'</tt>).</p><br/> <p>This value is what tells the layout how an item should be anchored to the container. <tt>items</tt> added to an AnchorLayout accept an anchoring-specific config property of <b>anchor</b> which is a string containing two values: the horizontal anchor value and the vertical anchor value (for example, '100% 50%'). The following types of anchor values are supported:</p><div class="mdetail-params"><ul><li><b>Percentage</b> : Any value between 1 and 100, expressed as a percentage.<div class="sub-desc">The first anchor is the percentage width that the item should take up within the container, and the second is the percentage height. For example:<pre><code>// two values specified
+anchor: '100% 50%' // render item complete width of the container and
+// 1/2 height of the container
+// one value specified
+anchor: '100%'     // the width value; the height will default to auto
+</code></pre></div></li><li><b>Offsets</b> : Any positive or negative integer value.<div class="sub-desc">This is a raw adjustment where the first anchor is the offset from the right edge of the container, and the second is the offset from the bottom edge. For example:<pre><code>// two values specified
+anchor: '-50 -100' // render item the complete width of the container
+// minus 50 pixels and
+// the complete height minus 100 pixels.
+// one value specified
+anchor: '-50'      // anchor value is assumed to be the right offset value
+// bottom offset will default to 0
+</code></pre></div></li><li><b>Sides</b> : Valid values are <tt>'right'</tt> (or <tt>'r'</tt>) and <tt>'bottom'</tt> (or <tt>'b'</tt>).<div class="sub-desc">Either the container must have a fixed size or an anchorSize config value defined at render time in order for these to have any effect.</div></li><li><b>Mixed</b> : <div class="sub-desc">Anchor values can also be mixed as needed. For example, to render the width offset from the container right edge by 50 pixels and 75% of the container's height use: <pre><code>anchor: '-50 75%' 
+</code></pre></div></li></ul></div>
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element id='anchorlayout' name='anchorlayout' type='ext:ext.layout.AnchorLayout' substitutionGroup='ext:containerlayout'>
+    <xs:annotation>
+      <xs:documentation>
+<p>This is a layout that enables anchoring of contained elements relative to the container's dimensions. If the container is resized, all anchored items are automatically rerendered according to their <b><tt>{@link #anchor}</tt></b> rules.</p><p>This class is intended to be extended or created via the layout:'anchor' {@link Ext.Container#layout} config, and should generally not need to be created directly via the new keyword.</p><p>AnchorLayout does not have any direct config options (other than inherited ones). By default, AnchorLayout will calculate anchor measurements based on the size of the container itself. However, the container using the AnchorLayout can supply an anchoring-specific config property of <b>anchorSize</b>. If anchorSize is specifed, the layout will use it as a virtual container for the purposes of calculating anchor measurements based on it instead, allowing the container to be sized independently of the anchoring logic if necessary. For example:</p><pre><code>var viewport = new Ext.Viewport({
+layout:'anchor',
+anchorSize: {width:800, height:600},
+items:[{
+title:'Item 1',
+html:'Content 1',
+width:800,
+anchor:'right 20%'
+},{
+title:'Item 2',
+html:'Content 2',
+width:300,
+anchor:'50% 30%'
+},{
+title:'Item 3',
+html:'Content 3',
+width:600,
+anchor:'-100 50%'
+}]
+});
+</code></pre>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
   <xs:complexType name='ext.data.ArrayStore'>
     <xs:complexContent>
       <xs:extension base='ext:ext.data.Store'>
@@ -79,6 +282,62 @@ The string returned by the renderer when the column value is undefined (defaults
     <xs:annotation>
       <xs:documentation>
 <p>A Column definition class which renders boolean data fields. See the {@link Ext.grid.Column#xtype xtype} config option of {@link Ext.grid.Column} for more details.</p>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name='ext.layout.BorderLayout'>
+    <xs:complexContent>
+      <xs:extension base='ext:ext.layout.ContainerLayout'>
+        <xs:sequence>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element id='borderlayout' name='borderlayout' type='ext:ext.layout.BorderLayout' substitutionGroup='ext:containerlayout'>
+    <xs:annotation>
+      <xs:documentation>
+<p>This is a multi-pane, application-oriented UI layout style that supports multiple nested panels, automatic {@link Ext.layout.BorderLayout.Region#split split} bars between {@link Ext.layout.BorderLayout.Region#BorderLayout.Region regions} and built-in {@link Ext.layout.BorderLayout.Region#collapsible expanding and collapsing} of regions.</p><p>This class is intended to be extended or created via the <tt>layout:'border'</tt> {@link Ext.Container#layout} config, and should generally not need to be created directly via the new keyword.</p><p>BorderLayout does not have any direct config options (other than inherited ones). All configuration options available for customizing the BorderLayout are at the {@link Ext.layout.BorderLayout.Region} and {@link Ext.layout.BorderLayout.SplitRegion} levels.</p><p>Example usage:</p><pre><code>var myBorderPanel = new Ext.Panel({
+{@link Ext.Component#renderTo renderTo}: document.body,
+{@link Ext.BoxComponent#width width}: 700,
+{@link Ext.BoxComponent#height height}: 500,
+{@link Ext.Panel#title title}: 'Border Layout',
+{@link Ext.Container#layout layout}: 'border',
+{@link Ext.Container#items items}: [{
+{@link Ext.Panel#title title}: 'South Region is resizable',
+{@link Ext.layout.BorderLayout.Region#BorderLayout.Region region}: 'south',     // position for region
+{@link Ext.BoxComponent#height height}: 100,
+{@link Ext.layout.BorderLayout.Region#split split}: true,         // enable resizing
+{@link Ext.SplitBar#minSize minSize}: 75,         // defaults to {@link Ext.layout.BorderLayout.Region#minHeight 50} 
+{@link Ext.SplitBar#maxSize maxSize}: 150,
+{@link Ext.layout.BorderLayout.Region#margins margins}: '0 5 5 5'
+},{
+// xtype: 'panel' implied by default
+{@link Ext.Panel#title title}: 'West Region is collapsible',
+{@link Ext.layout.BorderLayout.Region#BorderLayout.Region region}:'west',
+{@link Ext.layout.BorderLayout.Region#margins margins}: '5 0 0 5',
+{@link Ext.BoxComponent#width width}: 200,
+{@link Ext.layout.BorderLayout.Region#collapsible collapsible}: true,   // make collapsible
+{@link Ext.layout.BorderLayout.Region#cmargins cmargins}: '5 5 0 5', // adjust top margin when collapsed
+{@link Ext.Component#id id}: 'west-region-container',
+{@link Ext.Container#layout layout}: 'fit',
+{@link Ext.Panel#unstyled unstyled}: true
+},{
+{@link Ext.Panel#title title}: 'Center Region',
+{@link Ext.layout.BorderLayout.Region#BorderLayout.Region region}: 'center',     // center region is required, no width/height specified
+{@link Ext.Component#xtype xtype}: 'container',
+{@link Ext.Container#layout layout}: 'fit',
+{@link Ext.layout.BorderLayout.Region#margins margins}: '5 5 0 0'
+}]
+});
+</code></pre><p><b><u>Notes</u></b>:</p><div class="mdetail-params"><ul><li>Any container using the BorderLayout <b>must</b> have a child item with <tt>region:'center'</tt>. The child item in the center region will always be resized to fill the remaining space not used by the other regions in the layout.</li><li>Any child items with a region of <tt>west</tt> or <tt>east</tt> must have <tt>width</tt> defined (an integer representing the number of pixels that the region should take up).</li><li>Any child items with a region of <tt>north</tt> or <tt>south</tt> must have <tt>height</tt> defined.</li><li>The regions of a BorderLayout are <b>fixed at render time</b> and thereafter, its child Components may not be removed or added. To add/remove Components within a BorderLayout, have them wrapped by an additional Container which is directly managed by the BorderLayout. If the region is to be collapsible, the Container used directly by the BorderLayout manager should be a Panel. In the following example a Container (an Ext.Panel) is added to the west region: <div style="margin-left:16px"><pre><code>wrc = {@link Ext#getCmp Ext.getCmp}('west-region-container');
+wrc.{@link Ext.Panel#removeAll removeAll}();
+wrc.{@link Ext.Container#add add}({
+title: 'Added Panel',
+html: 'Some content'
+});
+wrc.{@link Ext.Container#doLayout doLayout}();
+</code></pre></div></li><li>To reference a {@link Ext.layout.BorderLayout.Region Region}: <div style="margin-left:16px"><pre><code>wr = myBorderPanel.layout.west;
+</code></pre></div></li></ul></div>
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -271,6 +530,60 @@ tag: 'img',
 src: '/images/my-image.jpg'
 }
 });</code></pre><br/><br/>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name='ext.layout.BoxLayout'>
+    <xs:complexContent>
+      <xs:extension base='ext:ext.layout.ContainerLayout'>
+        <xs:sequence>
+            <xs:element name='defaultMargins' minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>
+    <p>If the individual contained items do not have a <tt>margins</tt> property specified, the default margins from this property will be applied to each item.</p><br/><p>This property may be specified as an object containing margins to apply in the format:</p><pre><code>{
+top: (top margin),
+right: (right margin),
+bottom: (bottom margin),
+left: (left margin)
+}</code></pre><p>This property may also be specified as a string containing space-separated, numeric margin values. The order of the sides associated with each value matches the way CSS processes margin values:</p><div class="mdetail-params"><ul><li>If there is only one value, it applies to all sides.</li><li>If there are two values, the top and bottom borders are set to the first value and the right and left are set to the second.</li><li>If there are three values, the top is set to the first value, the left and right are set to the second, and the bottom is set to the third.</li><li>If there are four values, they apply to the top, right, bottom, and left, respectively.</li></ul></div><p>Defaults to:</p><pre><code>{top:0, right:0, bottom:0, left:0}
+</code></pre>
+                </xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax"/>
+                </xs:sequence>
+                <xs:anyAttribute processContents="skip"/>
+              </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute type='xs:string' name='defaultMargins'>
+          <xs:annotation>
+            <xs:documentation>
+<p>If the individual contained items do not have a <tt>margins</tt> property specified, the default margins from this property will be applied to each item.</p><br/><p>This property may be specified as an object containing margins to apply in the format:</p><pre><code>{
+top: (top margin),
+right: (right margin),
+bottom: (bottom margin),
+left: (left margin)
+}</code></pre><p>This property may also be specified as a string containing space-separated, numeric margin values. The order of the sides associated with each value matches the way CSS processes margin values:</p><div class="mdetail-params"><ul><li>If there is only one value, it applies to all sides.</li><li>If there are two values, the top and bottom borders are set to the first value and the right and left are set to the second.</li><li>If there are three values, the top is set to the first value, the left and right are set to the second, and the bottom is set to the third.</li><li>If there are four values, they apply to the top, right, bottom, and left, respectively.</li></ul></div><p>Defaults to:</p><pre><code>{top:0, right:0, bottom:0, left:0}
+</code></pre>
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:string' name='padding'>
+          <xs:annotation>
+            <xs:documentation>
+<p>Sets the padding to be applied to all child items managed by this layout.</p><p>This property must be specified as a string containing space-separated, numeric padding values. The order of the sides associated with each value matches the way CSS processes padding values:</p><div class="mdetail-params"><ul><li>If there is only one value, it applies to all sides.</li><li>If there are two values, the top and bottom borders are set to the first value and the right and left are set to the second.</li><li>If there are three values, the top is set to the first value, the left and right are set to the second, and the bottom is set to the third.</li><li>If there are four values, they apply to the top, right, bottom, and left, respectively.</li></ul></div><p>Defaults to: <code>"0"</code></p>
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element id='boxlayout' name='boxlayout' type='ext:ext.layout.BoxLayout' substitutionGroup='ext:containerlayout'>
+    <xs:annotation>
+      <xs:documentation>
+<p>Base Class for HBoxLayout and VBoxLayout Classes. Generally it should not need to be used directly.</p>
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -612,6 +925,80 @@ text: 'Copy', iconCls: 'add16'
 },{
 text: 'Format', iconCls: 'add16'
 }]
+}]
+});
+</code></pre>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name='ext.layout.CardLayout'>
+    <xs:complexContent>
+      <xs:extension base='ext:ext.layout.FitLayout'>
+        <xs:sequence>
+        </xs:sequence>
+        <xs:attribute type='xs:boolean' name='deferredRender'>
+          <xs:annotation>
+            <xs:documentation>
+True to render each contained item at the time it becomes active, false to render all contained items as soon as the layout is rendered (defaults to false). If there is a significant amount of content or a lot of heavy controls being rendered into panels that are not displayed by default, setting this to true might improve performance.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:boolean' name='layoutOnCardChange'>
+          <xs:annotation>
+            <xs:documentation>
+True to force a layout of the active item when the active card is changed. Defaults to false.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element id='cardlayout' name='cardlayout' type='ext:ext.layout.CardLayout' substitutionGroup='ext:fitlayout'>
+    <xs:annotation>
+      <xs:documentation>
+<p>This layout manages multiple child Components, each fitted to the Container, where only a single child Component can be visible at any given time. This layout style is most commonly used for wizards, tab implementations, etc. This class is intended to be extended or created via the layout:'card' {@link Ext.Container#layout} config, and should generally not need to be created directly via the new keyword.</p><p>The CardLayout's focal method is {@link #setActiveItem}. Since only one panel is displayed at a time, the only way to move from one Component to the next is by calling setActiveItem, passing the id or index of the next panel to display. The layout itself does not provide a user interface for handling this navigation, so that functionality must be provided by the developer.</p><p>In the following example, a simplistic wizard setup is demonstrated. A button bar is added to the footer of the containing panel to provide navigation buttons. The buttons will be handled by a common navigation routine -- for this example, the implementation of that routine has been ommitted since it can be any type of custom logic. Note that other uses of a CardLayout (like a tab control) would require a completely different implementation. For serious implementations, a better approach would be to extend CardLayout to provide the custom functionality needed. Example usage:</p><pre><code>var navHandler = function(direction){
+// This routine could contain business logic required to manage the navigation steps.
+// It would call setActiveItem as needed, manage navigation button state, handle any
+// branching logic that might be required, handle alternate actions like cancellation
+// or finalization, etc.  A complete wizard implementation could get pretty
+// sophisticated depending on the complexity required, and should probably be
+// done as a subclass of CardLayout in a real-world implementation.
+};
+
+var card = new Ext.Panel({
+title: 'Example Wizard',
+layout:'card',
+activeItem: 0, // make sure the active item is set on the container config!
+bodyStyle: 'padding:15px',
+defaults: {
+// applied to each contained panel
+border:false
+},
+// just an example of one possible navigation scheme, using buttons
+bbar: [
+{
+id: 'move-prev',
+text: 'Back',
+handler: navHandler.createDelegate(this, [-1]),
+disabled: true
+},
+'-&gt;', // greedy spacer so that the buttons are aligned to each side
+{
+id: 'move-next',
+text: 'Next',
+handler: navHandler.createDelegate(this, [1])
+}
+],
+// the panels (or "cards") within the layout
+items: [{
+id: 'card-0',
+html: '&lt;h1&gt;Welcome to the Wizard!&lt;/h1&gt;&lt;p&gt;Step 1 of 3&lt;/p&gt;'
+},{
+id: 'card-1',
+html: '&lt;p&gt;Step 2 of 3&lt;/p&gt;'
+},{
+id: 'card-2',
+html: '&lt;h1&gt;Congratulations!&lt;/h1&gt;&lt;p&gt;Step 3 of 3 - Complete&lt;/p&gt;'
 }]
 });
 </code></pre>
@@ -1015,6 +1402,54 @@ cp.on('select', function(palette, selColor){
     </xs:complexContent>
   </xs:complexType>
   <xs:element id='columnchart' name='columnchart' type='ext:ext.chart.ColumnChart' substitutionGroup='ext:cartesianchart'>
+  </xs:element>
+  <xs:complexType name='ext.layout.ColumnLayout'>
+    <xs:complexContent>
+      <xs:extension base='ext:ext.layout.ContainerLayout'>
+        <xs:sequence>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element id='columnlayout' name='columnlayout' type='ext:ext.layout.ColumnLayout' substitutionGroup='ext:containerlayout'>
+    <xs:annotation>
+      <xs:documentation>
+<p>This is the layout style of choice for creating structural layouts in a multi-column format where the width of each column can be specified as a percentage or fixed width, but the height is allowed to vary based on the content. This class is intended to be extended or created via the layout:'column' {@link Ext.Container#layout} config, and should generally not need to be created directly via the new keyword.</p><p>ColumnLayout does not have any direct config options (other than inherited ones), but it does support a specific config property of <b><tt>columnWidth</tt></b> that can be included in the config of any panel added to it. The layout will use the columnWidth (if present) or width of each panel during layout to determine how to size each panel. If width or columnWidth is not specified for a given panel, its width will default to the panel's width (or auto).</p><p>The width property is always evaluated as pixels, and must be a number greater than or equal to 1. The columnWidth property is always evaluated as a percentage, and must be a decimal value greater than 0 and less than 1 (e.g., .25).</p><p>The basic rules for specifying column widths are pretty simple. The logic makes two passes through the set of contained panels. During the first layout pass, all panels that either have a fixed width or none specified (auto) are skipped, but their widths are subtracted from the overall container width. During the second pass, all panels with columnWidths are assigned pixel widths in proportion to their percentages based on the total <b>remaining</b> container width. In other words, percentage width panels are designed to fill the space left over by all the fixed-width and/or auto-width panels. Because of this, while you can specify any number of columns with different percentages, the columnWidths must always add up to 1 (or 100%) when added together, otherwise your layout may not render as expected. Example usage:</p><pre><code>// All columns are percentages -- they must add up to 1
+var p = new Ext.Panel({
+title: 'Column Layout - Percentage Only',
+layout:'column',
+items: [{
+title: 'Column 1',
+columnWidth: .25 
+},{
+title: 'Column 2',
+columnWidth: .6
+},{
+title: 'Column 3',
+columnWidth: .15
+}]
+});
+
+// Mix of width and columnWidth -- all columnWidth values must add up
+// to 1. The first column will take up exactly 120px, and the last two
+// columns will fill the remaining container width.
+var p = new Ext.Panel({
+title: 'Column Layout - Mixed',
+layout:'column',
+items: [{
+title: 'Column 1',
+width: 120
+},{
+title: 'Column 2',
+columnWidth: .8
+},{
+title: 'Column 3',
+columnWidth: .2
+}]
+});
+</code></pre>
+      </xs:documentation>
+    </xs:annotation>
   </xs:element>
   <xs:complexType name='ext.form.ComboBox'>
     <xs:complexContent>
@@ -2236,6 +2671,32 @@ store.load();
 return grid;  // return instantiated component
 })();
 </code></pre><p>When the above code fragment is passed through the <tt>eval</tt> function in the success handler of the Ajax request, the code is executed by the Javascript processor, and the anonymous function runs, and returns the instantiated grid component.</p><p>Note: since the code above is <i>generated</i> by a server script, the <tt>baseParams</tt> for the Store, the metadata to allow generation of the Record layout, and the ColumnModel can all be generated into the code since these are all known on the server.</p>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name='ext.layout.ContainerLayout'>
+        <xs:sequence>
+        </xs:sequence>
+        <xs:attribute type='xs:string' name='extraCls'>
+          <xs:annotation>
+            <xs:documentation>
+<p>An optional extra CSS class that will be added to the container. This can be useful for adding customized styles to the container or any of its children using standard CSS rules. See {@link Ext.Component}.{@link Ext.Component#ctCls ctCls} also.</p><p><b>Note</b>: <tt>extraCls</tt> defaults to <tt>''</tt> except for the following classes which assign a value by default:</p><div class="mdetail-params"><ul><li>{@link Ext.layout.AbsoluteLayout Absolute Layout} : <tt>'x-abs-layout-item'</tt></li><li>{@link Ext.layout.Box Box Layout} : <tt>'x-box-item'</tt></li><li>{@link Ext.layout.ColumnLayout Column Layout} : <tt>'x-column'</tt></li></ul></div>To configure the above Classes with an extra CSS class append to the default. For example, for ColumnLayout:<pre><code>extraCls: 'x-column custom-class'
+</code></pre><br/><br/>
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:boolean' name='renderHidden'>
+          <xs:annotation>
+            <xs:documentation>
+True to hide each contained item on render (defaults to false).
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+  </xs:complexType>
+  <xs:element id='containerlayout' name='containerlayout' type='ext:ext.layout.ContainerLayout'>
+    <xs:annotation>
+      <xs:documentation>
+<p>The ContainerLayout class is the default layout manager delegated by {@link Ext.Container} to render any child Components when no <tt>{@link Ext.Container#layout layout}</tt> is configured into a {@link Ext.Container Container}. ContainerLayout provides the basic foundation for all other layout classes in Ext. It simply renders all child Components into the Container, performing no sizing or positioning services. To utilize a layout that provides sizing and positioning of child Components, specify an appropriate <tt>{@link Ext.Container#layout layout}</tt>.</p><p>This class is intended to be extended or created via the <tt><b>{@link Ext.Container#layout layout}</b></tt> configuration property. See <tt><b>{@link Ext.Container#layout}</b></tt> for additional details.</p>
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -3704,6 +4165,30 @@ height: 100
       </xs:documentation>
     </xs:annotation>
   </xs:element>
+  <xs:complexType name='ext.layout.FitLayout'>
+    <xs:complexContent>
+      <xs:extension base='ext:ext.layout.ContainerLayout'>
+        <xs:sequence>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element id='fitlayout' name='fitlayout' type='ext:ext.layout.FitLayout' substitutionGroup='ext:containerlayout'>
+    <xs:annotation>
+      <xs:documentation>
+<p>This is a base class for layouts that contain <b>a single item</b> that automatically expands to fill the layout's container. This class is intended to be extended or created via the <tt>layout:'fit'</tt> {@link Ext.Container#layout} config, and should generally not need to be created directly via the new keyword.</p><p>FitLayout does not have any direct config options (other than inherited ones). To fit a panel to a container using FitLayout, simply set layout:'fit' on the container and add a single panel to it. If the container has multiple panels, only the first one will be displayed. Example usage:</p><pre><code>var p = new Ext.Panel({
+title: 'Fit Layout',
+layout:'fit',
+items: {
+title: 'Inner Panel',
+html: '&lt;p&gt;This is the inner panel content&lt;/p&gt;',
+border: false
+}
+});
+</code></pre>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
   <xs:complexType name='ext.FlashComponent'>
     <xs:complexContent>
       <xs:extension base='ext:ext.BoxComponent'>
@@ -3850,6 +4335,118 @@ The milliseconds to poll valid state, ignored if monitorValid is not true (defau
     <xs:annotation>
       <xs:documentation>
 <p>Standard form container.</p><p style="font-weight: bold"><u>Layout</u></p><p>By default, FormPanel is configured with <tt>layout:'form'</tt> to use an {@link Ext.layout.FormLayout} layout manager, which styles and renders fields and labels correctly. When nesting additional Containers within a FormPanel, you should ensure that any descendant Containers which host input Fields use the {@link Ext.layout.FormLayout} layout manager.</p><p style="font-weight: bold"><u>BasicForm</u></p><p>Although <b>not listed</b> as configuration options of FormPanel, the FormPanel class accepts all of the config options required to configure its internal {@link Ext.form.BasicForm} for:</p><div class="mdetail-params"><ul><li>{@link Ext.form.BasicForm#fileUpload file uploads}</li><li>functionality for {@link Ext.form.BasicForm#doAction loading, validating and submitting} the form</li></ul></div><p><b>Note</b>: If subclassing FormPanel, any configuration options for the BasicForm must be applied to the <tt><b>initialConfig</b></tt> property of the FormPanel. Applying {@link Ext.form.BasicForm BasicForm} configuration settings to <b><tt>this</tt></b> will <b>not</b> affect the BasicForm's configuration.</p><p style="font-weight: bold"><u>Form Validation</u></p><p>For information on form validation see the following:</p><div class="mdetail-params"><ul><li>{@link Ext.form.TextField}</li><li>{@link Ext.form.VTypes}</li><li>{@link Ext.form.BasicForm#doAction BasicForm.doAction <b>clientValidation</b> notes}</li><li><tt>{@link Ext.form.FormPanel#monitorValid monitorValid}</tt></li></ul></div><p style="font-weight: bold"><u>Form Submission</u></p><p>By default, Ext Forms are submitted through Ajax, using {@link Ext.form.Action}. To enable normal browser submission of the {@link Ext.form.BasicForm BasicForm} contained in this FormPanel, see the <tt><b>{@link Ext.form.BasicForm#standardSubmit standardSubmit}</b></tt> option.</p>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name='ext.layout.FormLayout'>
+    <xs:complexContent>
+      <xs:extension base='ext:ext.layout.AnchorLayout'>
+        <xs:sequence>
+            <xs:element name='fieldTpl' minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>
+    A {@link Ext.Template#compile compile}d {@link Ext.Template} for rendering the fully wrapped, labeled and styled form Field. Defaults to:<br/><br/><pre><code>new Ext.Template(
+'&lt;div class="x-form-item {itemCls}" tabIndex="-1"&gt;',
+'&lt;label for="{id}" style="{labelStyle}" class="x-form-item-label"&gt;{label}{labelSeparator}&lt;/label&gt;',
+'&lt;div class="x-form-element" id="x-form-el-{id}" style="{elementStyle}"&gt;',
+'&lt;/div&gt;&lt;div class="{clearCls}"&gt;&lt;/div&gt;',
+'&lt;/div&gt;'
+);
+</code></pre><p>This may be specified to produce a different DOM structure when rendering form Fields.</p><p>A description of the properties within the template follows:</p><div class="mdetail-params"><ul><li><b><tt>itemCls</tt></b> : String<div class="sub-desc">The CSS class applied to the outermost div wrapper that contains this field label and field element (the default class is <tt>'x-form-item'</tt> and <tt>itemCls</tt> will be added to that). If supplied, <tt>itemCls</tt> at the field level will override the default <tt>itemCls</tt> supplied at the container level.</div></li><li><b><tt>id</tt></b> : String<div class="sub-desc">The id of the Field</div></li><li><b><tt>{@link #labelStyle}</tt></b> : String<div class="sub-desc">A CSS style specification string to add to the field label for this field (defaults to <tt>''</tt> or the {@link #labelStyle layout's value for <tt>labelStyle</tt>}).</div></li><li><b><tt>label</tt></b> : String<div class="sub-desc">The text to display as the label for this field (defaults to <tt>''</tt>)</div></li><li><b><tt>{@link #labelSeparator}</tt></b> : String<div class="sub-desc">The separator to display after the text of the label for this field (defaults to a colon <tt>':'</tt> or the {@link #labelSeparator layout's value for labelSeparator}). To hide the separator use empty string ''.</div></li><li><b><tt>elementStyle</tt></b> : String<div class="sub-desc">The styles text for the input element's wrapper.</div></li><li><b><tt>clearCls</tt></b> : String<div class="sub-desc">The CSS class to apply to the special clearing div rendered directly after each form field wrapper (defaults to <tt>'x-form-clear-left'</tt>)</div></li></ul></div><p>Also see <tt>{@link #getTemplateArgs}</tt></p>
+                </xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax"/>
+                </xs:sequence>
+                <xs:anyAttribute processContents="skip"/>
+              </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute type='xs:string' name='labelSeparator'>
+          <xs:annotation>
+            <xs:documentation>
+See {@link Ext.form.FormPanel}.{@link Ext.form.FormPanel#labelSeparator labelSeparator}. Configuration of this property at the <b>container</b> level takes precedence.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:boolean' name='trackLabels'>
+          <xs:annotation>
+            <xs:documentation>
+True to show/hide the field label when the field is hidden. Defaults to <tt>false</tt>.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:string' name='fieldTpl'>
+          <xs:annotation>
+            <xs:documentation>
+A {@link Ext.Template#compile compile}d {@link Ext.Template} for rendering the fully wrapped, labeled and styled form Field. Defaults to:<br/><br/><pre><code>new Ext.Template(
+'&lt;div class="x-form-item {itemCls}" tabIndex="-1"&gt;',
+'&lt;label for="{id}" style="{labelStyle}" class="x-form-item-label"&gt;{label}{labelSeparator}&lt;/label&gt;',
+'&lt;div class="x-form-element" id="x-form-el-{id}" style="{elementStyle}"&gt;',
+'&lt;/div&gt;&lt;div class="{clearCls}"&gt;&lt;/div&gt;',
+'&lt;/div&gt;'
+);
+</code></pre><p>This may be specified to produce a different DOM structure when rendering form Fields.</p><p>A description of the properties within the template follows:</p><div class="mdetail-params"><ul><li><b><tt>itemCls</tt></b> : String<div class="sub-desc">The CSS class applied to the outermost div wrapper that contains this field label and field element (the default class is <tt>'x-form-item'</tt> and <tt>itemCls</tt> will be added to that). If supplied, <tt>itemCls</tt> at the field level will override the default <tt>itemCls</tt> supplied at the container level.</div></li><li><b><tt>id</tt></b> : String<div class="sub-desc">The id of the Field</div></li><li><b><tt>{@link #labelStyle}</tt></b> : String<div class="sub-desc">A CSS style specification string to add to the field label for this field (defaults to <tt>''</tt> or the {@link #labelStyle layout's value for <tt>labelStyle</tt>}).</div></li><li><b><tt>label</tt></b> : String<div class="sub-desc">The text to display as the label for this field (defaults to <tt>''</tt>)</div></li><li><b><tt>{@link #labelSeparator}</tt></b> : String<div class="sub-desc">The separator to display after the text of the label for this field (defaults to a colon <tt>':'</tt> or the {@link #labelSeparator layout's value for labelSeparator}). To hide the separator use empty string ''.</div></li><li><b><tt>elementStyle</tt></b> : String<div class="sub-desc">The styles text for the input element's wrapper.</div></li><li><b><tt>clearCls</tt></b> : String<div class="sub-desc">The CSS class to apply to the special clearing div rendered directly after each form field wrapper (defaults to <tt>'x-form-clear-left'</tt>)</div></li></ul></div><p>Also see <tt>{@link #getTemplateArgs}</tt></p>
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element id='formlayout' name='formlayout' type='ext:ext.layout.FormLayout' substitutionGroup='ext:anchorlayout'>
+    <xs:annotation>
+      <xs:documentation>
+<p>This layout manager is specifically designed for rendering and managing child Components of {@link Ext.form.FormPanel forms}. It is responsible for rendering the labels of {@link Ext.form.Field Field}s.</p><p>This layout manager is used when a Container is configured with the <tt>layout:'form'</tt> {@link Ext.Container#layout layout} config option, and should generally not need to be created directly via the new keyword. See <tt><b>{@link Ext.Container#layout}</b></tt> for additional details.</p><p>In an application, it will usually be preferrable to use a {@link Ext.form.FormPanel FormPanel} (which is configured with FormLayout as its layout class by default) since it also provides built-in functionality for {@link Ext.form.BasicForm#doAction loading, validating and submitting} the form.</p><p>A {@link Ext.Container Container} <i>using</i> the FormLayout layout manager (e.g. {@link Ext.form.FormPanel} or specifying <tt>layout:'form'</tt>) can also accept the following layout-specific config properties:</p><div class="mdetail-params"><ul><li><b><tt>{@link Ext.form.FormPanel#hideLabels hideLabels}</tt></b></li><li><b><tt>{@link Ext.form.FormPanel#labelAlign labelAlign}</tt></b></li><li><b><tt>{@link Ext.form.FormPanel#labelPad labelPad}</tt></b></li><li><b><tt>{@link Ext.form.FormPanel#labelSeparator labelSeparator}</tt></b></li><li><b><tt>{@link Ext.form.FormPanel#labelWidth labelWidth}</tt></b></li></ul></div><br/><br/> <p>Any Component (including Fields) managed by FormLayout accepts the following as a config option:</p><div class="mdetail-params"><ul><li><b><tt>{@link Ext.Component#anchor anchor}</tt></b></li></ul></div><br/><br/> <p>Any Component managed by FormLayout may be rendered as a form field (with an associated label) by configuring it with a non-null <b><tt>{@link Ext.Component#fieldLabel fieldLabel}</tt></b>. Components configured in this way may be configured with the following options which affect the way the FormLayout renders them:</p><div class="mdetail-params"><ul><li><b><tt>{@link Ext.Component#clearCls clearCls}</tt></b></li><li><b><tt>{@link Ext.Component#fieldLabel fieldLabel}</tt></b></li><li><b><tt>{@link Ext.Component#hideLabel hideLabel}</tt></b></li><li><b><tt>{@link Ext.Component#itemCls itemCls}</tt></b></li><li><b><tt>{@link Ext.Component#labelSeparator labelSeparator}</tt></b></li><li><b><tt>{@link Ext.Component#labelStyle labelStyle}</tt></b></li></ul></div><br/><br/> <p>Example usage:</p><pre><code>// Required if showing validation messages
+Ext.QuickTips.init();
+
+// While you can create a basic Panel with layout:'form', practically
+// you should usually use a FormPanel to also get its form functionality
+// since it already creates a FormLayout internally.
+var form = new Ext.form.FormPanel({
+title: 'Form Layout',
+bodyStyle: 'padding:15px',
+width: 350,
+defaultType: 'textfield',
+defaults: {
+// applied to each contained item
+width: 230,
+msgTarget: 'side'
+},
+items: [{
+fieldLabel: 'First Name',
+name: 'first',
+allowBlank: false,
+{@link Ext.Component#labelSeparator labelSeparator}: ':' // override labelSeparator layout config
+},{
+fieldLabel: 'Last Name',
+name: 'last'
+},{
+fieldLabel: 'Email',
+name: 'email',
+vtype:'email'
+}, {
+xtype: 'textarea',
+hideLabel: true,     // override hideLabels layout config
+name: 'msg',
+anchor: '100% -53'
+}
+],
+buttons: [
+{text: 'Save'},
+{text: 'Cancel'}
+],
+layoutConfig: {
+{@link #labelSeparator}: '~' // superseded by assignment below
+},
+// config options applicable to container when layout='form':
+hideLabels: false,
+labelAlign: 'left',   // or 'right' or 'top'
+{@link Ext.form.FormPanel#labelSeparator labelSeparator}: '&gt;&gt;', // takes precedence over layoutConfig value
+labelWidth: 65,       // defaults to 100
+labelPad: 8           // defaults to 5, must specify labelWidth to be honored
+});
+</code></pre>
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -4531,6 +5128,42 @@ True to sort the data on the grouping field when a grouping operation occurs, fa
     <xs:annotation>
       <xs:documentation>
 A specialized store implementation that provides for grouping records by one of the available fields. This is usually used in conjunction with an {@link Ext.grid.GroupingView} to proved the data model for a grouped GridPanel.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name='ext.layout.HBoxLayout'>
+    <xs:complexContent>
+      <xs:extension base='ext:ext.layout.BoxLayout'>
+        <xs:sequence>
+        </xs:sequence>
+        <xs:attribute type='xs:string' name='align'>
+          <xs:annotation>
+            <xs:documentation>
+Controls how the child items of the container are aligned. Acceptable configuration values for this property are: <div class="mdetail-params"><ul><li><b><tt>top</tt></b> : <b>Default</b><div class="sub-desc">child items are aligned vertically at the <b>left</b> side of the container</div></li><li><b><tt>middle</tt></b> : <div class="sub-desc">child items are aligned vertically at the <b>mid-height</b> of the container</div></li><li><b><tt>stretch</tt></b> : <div class="sub-desc">child items are stretched vertically to fill the height of the container</div></li><li><b><tt>stretchmax</tt></b> : <div class="sub-desc">child items are stretched vertically to the size of the largest item.</div></li></ul></div>
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:string' name='pack'>
+          <xs:annotation>
+            <xs:documentation>
+Controls how the child items of the container are packed together. Acceptable configuration values for this property are: <div class="mdetail-params"><ul><li><b><tt>start</tt></b> : <b>Default</b><div class="sub-desc">child items are packed together at <b>left</b> side of container</div></li><li><b><tt>center</tt></b> : <div class="sub-desc">child items are packed together at <b>mid-width</b> of container</div></li><li><b><tt>end</tt></b> : <div class="sub-desc">child items are packed together at <b>right</b> side of container</div></li></ul></div>
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:int' name='flex'>
+          <xs:annotation>
+            <xs:documentation>
+This configuation option is to be applied to <b>child <tt>items</tt></b> of the container managed by this layout. Each child item with a <tt>flex</tt> property will be flexed <b>horizontally</b> according to each item's <b>relative</b> <tt>flex</tt> value compared to the sum of all items with a <tt>flex</tt> value specified. Any child items that have either a <tt>flex = 0</tt> or <tt>flex = undefined</tt> will not be 'flexed' (the initial size will not be changed).
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element id='hboxlayout' name='hboxlayout' type='ext:ext.layout.HBoxLayout' substitutionGroup='ext:boxlayout'>
+    <xs:annotation>
+      <xs:documentation>
+<p>A layout that arranges items horizontally across a Container. This layout optionally divides available horizontal space between child items containing a numeric <code>flex</code> configuration.</p>This layout may also be used to set the heights of child items by configuring it with the {@link #align} option.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -5271,6 +5904,21 @@ Length of time in milliseconds to wait before showing this item (defaults to 200
     <xs:annotation>
       <xs:documentation>
 A base class for all menu items that require menu-related functionality (like sub-menus) and are not static display items. Item extends the base functionality of {@link Ext.menu.BaseItem} by adding menu-specific activation and click handling.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name='ext.layout.MenuLayout'>
+    <xs:complexContent>
+      <xs:extension base='ext:ext.layout.ContainerLayout'>
+        <xs:sequence>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element id='menulayout' name='menulayout' type='ext:ext.layout.MenuLayout' substitutionGroup='ext:containerlayout'>
+    <xs:annotation>
+      <xs:documentation>
+<p>Layout manager used by {@link Ext.menu.Menu}. Generally this class should not need to be used directly.</p>
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -7229,6 +7877,101 @@ myStore.{@link #insert}(0, r); // insert a new record into the store (also see {
       </xs:documentation>
     </xs:annotation>
   </xs:element>
+  <xs:complexType name='ext.layout.TableLayout'>
+    <xs:complexContent>
+      <xs:extension base='ext:ext.layout.ContainerLayout'>
+        <xs:sequence>
+            <xs:element name='tableAttrs' minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>
+    <p>An object containing properties which are added to the {@link Ext.DomHelper DomHelper} specification used to create the layout's <tt>&lt;table&gt;</tt> element. Example:</p><pre><code>{
+xtype: 'panel',
+layout: 'table',
+layoutConfig: {
+tableAttrs: {
+style: {
+width: '100%'
+}
+},
+columns: 3
+}
+}</code></pre>
+                </xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax"/>
+                </xs:sequence>
+                <xs:anyAttribute processContents="skip"/>
+              </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute type='xs:int' name='columns'>
+          <xs:annotation>
+            <xs:documentation>
+The total number of columns to create in the table for this layout. If not specified, all Components added to this layout will be rendered into a single row using one column per Component.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:string' name='tableAttrs'>
+          <xs:annotation>
+            <xs:documentation>
+<p>An object containing properties which are added to the {@link Ext.DomHelper DomHelper} specification used to create the layout's <tt>&lt;table&gt;</tt> element. Example:</p><pre><code>{
+xtype: 'panel',
+layout: 'table',
+layoutConfig: {
+tableAttrs: {
+style: {
+width: '100%'
+}
+},
+columns: 3
+}
+}</code></pre>
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element id='tablelayout' name='tablelayout' type='ext:ext.layout.TableLayout' substitutionGroup='ext:containerlayout'>
+    <xs:annotation>
+      <xs:documentation>
+<p>This layout allows you to easily render content into an HTML table. The total number of columns can be specified, and rowspan and colspan can be used to create complex layouts within the table. This class is intended to be extended or created via the layout:'table' {@link Ext.Container#layout} config, and should generally not need to be created directly via the new keyword.</p><p>Note that when creating a layout via config, the layout-specific config properties must be passed in via the {@link Ext.Container#layoutConfig} object which will then be applied internally to the layout. In the case of TableLayout, the only valid layout config property is {@link #columns}. However, the items added to a TableLayout can supply the following table-specific config properties:</p><ul><li><b>rowspan</b> Applied to the table cell containing the item.</li><li><b>colspan</b> Applied to the table cell containing the item.</li><li><b>cellId</b> An id applied to the table cell containing the item.</li><li><b>cellCls</b> A CSS class name added to the table cell containing the item.</li></ul><p>The basic concept of building up a TableLayout is conceptually very similar to building up a standard HTML table. You simply add each panel (or "cell") that you want to include along with any span attributes specified as the special config properties of rowspan and colspan which work exactly like their HTML counterparts. Rather than explicitly creating and nesting rows and columns as you would in HTML, you simply specify the total column count in the layoutConfig and start adding panels in their natural order from left to right, top to bottom. The layout will automatically figure out, based on the column count, rowspans and colspans, how to position each panel within the table. Just like with HTML tables, your rowspans and colspans must add up correctly in your overall layout or you'll end up with missing and/or extra cells! Example usage:</p><pre><code>// This code will generate a layout table that is 3 columns by 2 rows
+// with some spanning included.  The basic layout will be:
+// +--------+-----------------+
+// |   A    |   B             |
+// |        |--------+--------|
+// |        |   C    |   D    |
+// +--------+--------+--------+
+var table = new Ext.Panel({
+title: 'Table Layout',
+layout:'table',
+defaults: {
+// applied to each contained panel
+bodyStyle:'padding:20px'
+},
+layoutConfig: {
+// The total column count must be specified here
+columns: 3
+},
+items: [{
+html: '&lt;p&gt;Cell A content&lt;/p&gt;',
+rowspan: 2
+},{
+html: '&lt;p&gt;Cell B content&lt;/p&gt;',
+colspan: 2
+},{
+html: '&lt;p&gt;Cell C content&lt;/p&gt;',
+cellCls: 'highlight'
+},{
+html: '&lt;p&gt;Cell D content&lt;/p&gt;'
+}]
+});
+</code></pre>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
   <xs:complexType name='ext.TabPanel'>
     <xs:complexContent>
       <xs:extension base='ext:ext.Panel'>
@@ -8108,6 +8851,21 @@ tb.doLayout();
       </xs:documentation>
     </xs:annotation>
   </xs:element>
+  <xs:complexType name='ext.layout.ToolbarLayout'>
+    <xs:complexContent>
+      <xs:extension base='ext:ext.layout.ContainerLayout'>
+        <xs:sequence>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element id='toolbarlayout' name='toolbarlayout' type='ext:ext.layout.ToolbarLayout' substitutionGroup='ext:containerlayout'>
+    <xs:annotation>
+      <xs:documentation>
+Layout manager implicitly used by Ext.Toolbar.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
   <xs:complexType name='ext.ToolTip'>
     <xs:complexContent>
       <xs:extension base='ext:ext.Tip'>
@@ -8605,6 +9363,42 @@ Provides a convenient wrapper for TextFields that adds a clickable trigger butto
 trigger.onTriggerClick = myTriggerFn;
 trigger.applyToMarkup('my-field');
 </code></pre>However, in general you will most likely want to use TriggerField as the base class for a reusable component. {@link Ext.form.DateField} and {@link Ext.form.ComboBox} are perfect examples of this.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name='ext.layout.VBoxLayout'>
+    <xs:complexContent>
+      <xs:extension base='ext:ext.layout.BoxLayout'>
+        <xs:sequence>
+        </xs:sequence>
+        <xs:attribute type='xs:string' name='align'>
+          <xs:annotation>
+            <xs:documentation>
+Controls how the child items of the container are aligned. Acceptable configuration values for this property are: <div class="mdetail-params"><ul><li><b><tt>left</tt></b> : <b>Default</b><div class="sub-desc">child items are aligned horizontally at the <b>left</b> side of the container</div></li><li><b><tt>center</tt></b> : <div class="sub-desc">child items are aligned horizontally at the <b>mid-width</b> of the container</div></li><li><b><tt>stretch</tt></b> : <div class="sub-desc">child items are stretched horizontally to fill the width of the container</div></li><li><b><tt>stretchmax</tt></b> : <div class="sub-desc">child items are stretched horizontally to the size of the largest item.</div></li></ul></div>
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:string' name='pack'>
+          <xs:annotation>
+            <xs:documentation>
+Controls how the child items of the container are packed together. Acceptable configuration values for this property are: <div class="mdetail-params"><ul><li><b><tt>start</tt></b> : <b>Default</b><div class="sub-desc">child items are packed together at <b>top</b> side of container</div></li><li><b><tt>center</tt></b> : <div class="sub-desc">child items are packed together at <b>mid-height</b> of container</div></li><li><b><tt>end</tt></b> : <div class="sub-desc">child items are packed together at <b>bottom</b> side of container</div></li></ul></div>
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:int' name='flex'>
+          <xs:annotation>
+            <xs:documentation>
+This configuation option is to be applied to <b>child <tt>items</tt></b> of the container managed by this layout. Each child item with a <tt>flex</tt> property will be flexed <b>vertically</b> according to each item's <b>relative</b> <tt>flex</tt> value compared to the sum of all items with a <tt>flex</tt> value specified. Any child items that have either a <tt>flex = 0</tt> or <tt>flex = undefined</tt> will not be 'flexed' (the initial size will not be changed).
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element id='vboxlayout' name='vboxlayout' type='ext:ext.layout.VBoxLayout' substitutionGroup='ext:boxlayout'>
+    <xs:annotation>
+      <xs:documentation>
+<p>A layout that arranges items vertically down a Container. This layout optionally divides available vertical space between child items containing a numeric <code>flex</code> configuration.</p>This layout may also be used to set the widths of child items by configuring it with the {@link #align} option.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
