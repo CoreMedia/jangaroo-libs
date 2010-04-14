@@ -2,14 +2,14 @@
   <parent>
     <groupId>net.jangaroo</groupId>
     <artifactId>jangaroo-libs</artifactId>
-    <version>0.5.30-SNAPSHOT</version>
+    <version>0.5.30</version>
   </parent>
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>net.jangaroo</groupId>
   <artifactId>xmlhttprequest-as</artifactId>
   <packaging>jangaroo</packaging>
-  <version>0.5.30-SNAPSHOT</version>
+  <version>0.5.30</version>
 
   <name>xmlhttprequest-as</name>
   <description>AS XmlHttpRequest API</description>
@@ -20,7 +20,7 @@
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>jangaroo-browser</artifactId>
-      <version>0.5.30-SNAPSHOT</version>
+      <version>0.5.30</version>
       <type>jangaroo</type>
     </dependency>
 
@@ -28,7 +28,7 @@
       <groupId>net.jangaroo</groupId>
       <artifactId>xmlhttprequest</artifactId>
       <type>jangaroo</type>
-      <version>0.5.30-SNAPSHOT</version>
+      <version>0.5.30</version>
     </dependency>
   </dependencies>
 
