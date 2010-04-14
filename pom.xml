@@ -4,7 +4,7 @@
   <groupId>net.jangaroo</groupId>
   <artifactId>jangaroo-libs</artifactId>
   <packaging>pom</packaging>
-  <version>0.5.30</version>
+  <version>0.5.31-SNAPSHOT</version>
 
   <name>Jangaroo standard libraries</name>
   <description />
