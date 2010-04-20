@@ -173,6 +173,13 @@ anchor: '-50'      // anchor value is assumed to be the right offset value
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
+        <xs:attribute type='xs:string' name='defaultAnchor'>
+          <xs:annotation>
+            <xs:documentation>
+default anchor for all child container items applied if no anchor or specific width is set on the child item. Defaults to '100%'.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -219,7 +226,7 @@ anchor:'-100 50%'
 autoDestroy: true,
 storeId: 'myStore',
 // reader configs
-idIndex: 0,  
+idIndex: 0,
 fields: [
 'company',
 {name: 'price', type: 'float'},
@@ -383,6 +390,13 @@ left: (left margin)
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
+        <xs:attribute type='xs:string' name='anchor'>
+          <xs:annotation>
+            <xs:documentation>
+<p><b>Note</b>: this config is only used when this Component is rendered by a Container which has been configured to use an <b>{@link Ext.layout.AnchorLayout AnchorLayout} (or subclass thereof).</b> based layout manager, for example:</p><div class="mdetail-params"><ul><li>{@link Ext.form.FormPanel}</li><li>specifying <code>layout: 'anchor' // or 'form', or 'absolute'</code></li></ul></div><br/><br/> <p>See {@link Ext.layout.AnchorLayout}.{@link Ext.layout.AnchorLayout#anchor anchor} also.</p>
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
         <xs:attribute type='xs:string' name='tabTip'>
           <xs:annotation>
             <xs:documentation>
@@ -407,20 +421,6 @@ bottom: (bottom margin),
 left: (left margin)
 }</code></pre><p>May also be a string containing space-separated, numeric margin values. The order of the sides associated with each value matches the way CSS processes margin values:</p><div class="mdetail-params"><ul><li>If there is only one value, it applies to all sides.</li><li>If there are two values, the top and bottom borders are set to the first value and the right and left are set to the second.</li><li>If there are three values, the top is set to the first value, the left and right are set to the second, and the bottom is set to the third.</li><li>If there are four values, they apply to the top, right, bottom, and left, respectively.</li></ul></div><br/><br/> <p>Defaults to:</p><pre><code>{top:0, right:0, bottom:0, left:0}
 </code></pre>
-            </xs:documentation>
-          </xs:annotation>
-        </xs:attribute>
-        <xs:attribute type='xs:string' name='align'>
-          <xs:annotation>
-            <xs:documentation>
-<p><b>Note</b>: this config is only used when this BoxComponent is rendered by a Container which has been configured to use one of the two <b>{@link Ext.layout.BoxLayout BoxLayout} subclasses.</b></p>Controls how the child items of the container are aligned. Acceptable configuration values for this property are: For {@link Ext.layout.HBoxLayout HBoxLayout}: <div class="mdetail-params"><ul><li><b><tt>top</tt></b> : <b>Default</b><div class="sub-desc">child items are aligned vertically at the <b>left</b> side of the container</div></li><li><b><tt>middle</tt></b> : <div class="sub-desc">child items are aligned vertically at the <b>mid-height</b> of the container</div></li><li><b><tt>stretch</tt></b> : <div class="sub-desc">child items are stretched vertically to fill the height of the container</div></li><li><b><tt>stretchmax</tt></b> : <div class="sub-desc">child items are stretched vertically to the size of the largest item.</div></li></ul></div>For {@link Ext.layout.VBoxLayout VBoxLayout}: <div class="mdetail-params"><ul><li><b><tt>left</tt></b> : <b>Default</b><div class="sub-desc">child items are aligned horizontally at the <b>left</b> side of the container</div></li><li><b><tt>center</tt></b> : <div class="sub-desc">child items are aligned horizontally at the <b>mid-width</b> of the container</div></li><li><b><tt>stretch</tt></b> : <div class="sub-desc">child items are stretched horizontally to fill the width of the container</div></li><li><b><tt>stretchmax</tt></b> : <div class="sub-desc">child items are stretched horizontally to the size of the largest item.</div></li></ul></div>
-            </xs:documentation>
-          </xs:annotation>
-        </xs:attribute>
-        <xs:attribute type='xs:string' name='pack'>
-          <xs:annotation>
-            <xs:documentation>
-<p><b>Note</b>: this config is only used when this BoxComponent is rendered by a Container which has been configured to use one of the two <b>{@link Ext.layout.BoxLayout BoxLayout} subclasses.</b></p>Controls how the child items of the container are packed together. Acceptable configuration values for this property are: For {@link Ext.layout.HBoxLayout HBoxLayout}: <div class="mdetail-params"><ul><li><b><tt>start</tt></b> : <b>Default</b><div class="sub-desc">child items are packed together at <b>left</b> side of container</div></li><li><b><tt>center</tt></b> : <div class="sub-desc">child items are packed together at <b>mid-width</b> of container</div></li><li><b><tt>end</tt></b> : <div class="sub-desc">child items are packed together at <b>right</b> side of container</div></li></ul></div>For {@link Ext.layout.VBoxLayout VBoxLayout}: <div class="mdetail-params"><ul><li><b><tt>start</tt></b> : <b>Default</b><div class="sub-desc">child items are packed together at <b>top</b> side of container</div></li><li><b><tt>center</tt></b> : <div class="sub-desc">child items are packed together at <b>mid-height</b> of container</div></li><li><b><tt>end</tt></b> : <div class="sub-desc">child items are packed together at <b>bottom</b> side of container</div></li></ul></div>
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
@@ -1178,6 +1178,13 @@ The Ext.chart package provides the capability to visualize data with flash based
           <xs:annotation>
             <xs:documentation>
 <tt>true</tt> if the checkbox should render initially checked (defaults to <tt>false</tt>)
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:string' name='boxLabel'>
+          <xs:annotation>
+            <xs:documentation>
+The text that appears beside the checkbox
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
@@ -2017,6 +2024,19 @@ html: 'First list item'
                 <xs:anyAttribute processContents="skip"/>
               </xs:complexType>
             </xs:element>
+            <xs:element name='bubbleEvents' minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>
+    <p>An array of events that, when fired, should be bubbled to any parent container. See {@link Ext.util.Observable#enableBubble}. Defaults to <tt>[]</tt>.</p>
+                </xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax"/>
+                </xs:sequence>
+                <xs:anyAttribute processContents="skip"/>
+              </xs:complexType>
+            </xs:element>
         </xs:sequence>
         <xs:attribute type='xs:string' name='fieldLabel'>
           <xs:annotation>
@@ -2380,6 +2400,13 @@ The initial set of data to apply to the <code>{@link #tpl}</code> to update the 
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
+        <xs:attribute type='xs:string' name='bubbleEvents'>
+          <xs:annotation>
+            <xs:documentation>
+<p>An array of events that, when fired, should be bubbled to any parent container. See {@link Ext.util.Observable#enableBubble}. Defaults to <tt>[]</tt>.</p>
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
         <xs:attribute type='xs:string' name='ref'>
           <xs:annotation>
             <xs:documentation>
@@ -2503,6 +2530,47 @@ xmlstore         {@link Ext.data.XmlStore}
       </xs:documentation>
     </xs:annotation>
   </xs:element>
+  <xs:complexType name='ext.form.CompositeField'>
+    <xs:complexContent>
+      <xs:extension base='ext:ext.form.Field'>
+        <xs:sequence>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element id='compositefield' name='compositefield' type='ext:ext.form.CompositeField' substitutionGroup='ext:field'>
+    <xs:annotation>
+      <xs:documentation>
+Composite field allowing a number of form Fields to be rendered on the same row. The fields are rendered using an hbox layout internally, so all of the normal HBox layout config items are available. Example usage: <pre>{
+xtype: 'compositefield',
+labelWidth: 120
+items: [
+{
+xtype     : 'textfield',
+fieldLabel: 'Title',
+width     : 20
+},
+{
+xtype     : 'textfield',
+fieldLabel: 'First',
+flex      : 1
+},
+{
+xtype     : 'textfield',
+fieldLabel: 'Last',
+flex      : 1
+}
+]
+}
+</pre>In the example above the composite's fieldLabel will be set to 'Title, First, Last' as it groups the fieldLabels of each of its children. This can be overridden by setting a fieldLabel on the compositefield itself: <pre>{
+xtype: 'compositefield',
+fieldLabel: 'Custom label',
+items: [...]
+}
+</pre>Any Ext.form.* component can be placed inside a composite field.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
   <xs:complexType name='ext.Container'>
     <xs:complexContent>
       <xs:extension base='ext:ext.BoxComponent'>
@@ -2588,19 +2656,6 @@ autoScroll: false // will be applied here, panel2 will be autoScroll:true.
 })
 ]
 </code></pre>
-                </xs:documentation>
-              </xs:annotation>
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax"/>
-                </xs:sequence>
-                <xs:anyAttribute processContents="skip"/>
-              </xs:complexType>
-            </xs:element>
-            <xs:element name='bubbleEvents' minOccurs="0" maxOccurs="1">
-              <xs:annotation>
-                <xs:documentation>
-    <p>An array of events that, when fired, should be bubbled to any parent container. See {@link Ext.util.Observable#enableBubble}. Defaults to <code>['add', 'remove']</code>.</p>
                 </xs:documentation>
               </xs:annotation>
               <xs:complexType>
@@ -2707,13 +2762,6 @@ autoScroll: false // will be applied here, panel2 will be autoScroll:true.
         <xs:attribute type='xs:string' name='defaultType'>
         </xs:attribute>
         <xs:attribute type='xs:string' name='resizeEvent'>
-        </xs:attribute>
-        <xs:attribute type='xs:string' name='bubbleEvents'>
-          <xs:annotation>
-            <xs:documentation>
-<p>An array of events that, when fired, should be bubbled to any parent container. See {@link Ext.util.Observable#enableBubble}. Defaults to <code>['add', 'remove']</code>.</p>
-            </xs:documentation>
-          </xs:annotation>
         </xs:attribute>
       </xs:extension>
     </xs:complexContent>
@@ -2913,33 +2961,26 @@ A css class which sets an image to be used as the static icon for this button. T
     </xs:complexContent>
   </xs:complexType>
   <xs:element id='cycle' name='cycle' type='ext:ext.CycleButton' substitutionGroup='ext:splitbutton'>
-    <xs:annotation>
-      <xs:documentation>
-A specialized SplitButton that contains a menu of {@link Ext.menu.CheckItem} elements. The button automatically cycles through each menu item on click, raising the button's {@link #change} event (or calling the button's {@link #changeHandler} function, if supplied) for the active menu item. Clicking on the arrow section of the button displays the dropdown menu just like a normal SplitButton. Example usage: <pre><code>var btn = new Ext.CycleButton({
-showText: true,
-prependText: 'View as ',
-items: [{
-text:'text only',
-iconCls:'view-text',
-checked:true
-},{
-text:'HTML',
-iconCls:'view-html'
-}],
-changeHandler:function(btn, item){
-Ext.Msg.alert('Change View', item.text);
-}
-});
-</code></pre>
-      </xs:documentation>
-    </xs:annotation>
   </xs:element>
   <xs:complexType name='ext.data.Field'>
         <xs:sequence>
+            <xs:element name='type' minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>
+    (Optional) The data type for automatic conversion from received data to the <i>stored</i> value if <code>{@link Ext.data.Field#convert convert}</code> has not been specified. This may be specified as a string value. Possible values are <div class="mdetail-params"><ul><li>auto (Default, implies no conversion)</li><li>string</li><li>int</li><li>float</li><li>boolean</li><li>date</li></ul></div><p>This may also be specified by referencing a member of the {@link Ext.data.Types} class.</p><p>Developers may create their own application-specific data types by defining new members of the {@link Ext.data.Types} class.</p>
+                </xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax"/>
+                </xs:sequence>
+                <xs:anyAttribute processContents="skip"/>
+              </xs:complexType>
+            </xs:element>
             <xs:element name='convert' minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
-    (Optional) A function which converts the value provided by the Reader into an object that will be stored in the Record. It is passed the following parameters:<div class="mdetail-params"><ul><li><b>v</b> : Mixed<div class="sub-desc">The data value as read by the Reader, if undefined will use the configured <tt>{@link Ext.data.Field#defaultValue defaultValue}</tt>.</div></li><li><b>rec</b> : Mixed<div class="sub-desc">The data object containing the row as read by the Reader. Depending on the Reader type, this could be an Array ({@link Ext.data.ArrayReader ArrayReader}), an object ({@link Ext.data.JsonReader JsonReader}), or an XML element ({@link Ext.data.XMLReader XMLReader}).</div></li></ul></div><pre><code>// example of convert function
+    (Optional) A function which converts the value provided by the Reader into an object that will be stored in the Record. It is passed the following parameters:<div class="mdetail-params"><ul><li><b>v</b> : Mixed<div class="sub-desc">The data value as read by the Reader, if undefined will use the configured <code>{@link Ext.data.Field#defaultValue defaultValue}</code>.</div></li><li><b>rec</b> : Mixed<div class="sub-desc">The data object containing the row as read by the Reader. Depending on the Reader type, this could be an Array ({@link Ext.data.ArrayReader ArrayReader}), an object ({@link Ext.data.JsonReader JsonReader}), or an XML element ({@link Ext.data.XMLReader XMLReader}).</div></li></ul></div><pre><code>// example of convert function
 function fullName(v, record){
 return record.name.last + ', ' + record.name.first;
 }
@@ -2996,7 +3037,7 @@ city: 'Boston',  state: 'MA'
             <xs:element name='defaultValue' minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
-    (Optional) The default value used <b>when a Record is being created by a {@link Ext.data.Reader Reader}</b> when the item referenced by the <tt>{@link Ext.data.Field#mapping mapping}</tt> does not exist in the data object (i.e. undefined). (defaults to "")
+    (Optional) The default value used <b>when a Record is being created by a {@link Ext.data.Reader Reader}</b> when the item referenced by the <code>{@link Ext.data.Field#mapping mapping}</code> does not exist in the data object (i.e. undefined). (defaults to "")
                 </xs:documentation>
               </xs:annotation>
               <xs:complexType>
@@ -3038,21 +3079,21 @@ default: return 3;
         <xs:attribute type='xs:string' name='name'>
           <xs:annotation>
             <xs:documentation>
-The name by which the field is referenced within the Record. This is referenced by, for example, the <tt>dataIndex</tt> property in column definition objects passed to {@link Ext.grid.ColumnModel}. <p>Note: In the simplest case, if no properties other than <tt>name</tt> are required, a field definition may consist of just a String for the field name.</p>
+The name by which the field is referenced within the Record. This is referenced by, for example, the <code>dataIndex</code> property in column definition objects passed to {@link Ext.grid.ColumnModel}. <p>Note: In the simplest case, if no properties other than <code>name</code> are required, a field definition may consist of just a String for the field name.</p>
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute type='xs:string' name='type'>
           <xs:annotation>
             <xs:documentation>
-(Optional) The data type for conversion to displayable value if <tt>{@link Ext.data.Field#convert convert}</tt> has not been specified. Possible values are <div class="mdetail-params"><ul><li>auto (Default, implies no conversion)</li><li>string</li><li>int</li><li>float</li><li>boolean</li><li>date</li></ul></div>
+(Optional) The data type for automatic conversion from received data to the <i>stored</i> value if <code>{@link Ext.data.Field#convert convert}</code> has not been specified. This may be specified as a string value. Possible values are <div class="mdetail-params"><ul><li>auto (Default, implies no conversion)</li><li>string</li><li>int</li><li>float</li><li>boolean</li><li>date</li></ul></div><p>This may also be specified by referencing a member of the {@link Ext.data.Types} class.</p><p>Developers may create their own application-specific data types by defining new members of the {@link Ext.data.Types} class.</p>
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute type='xs:string' name='convert'>
           <xs:annotation>
             <xs:documentation>
-(Optional) A function which converts the value provided by the Reader into an object that will be stored in the Record. It is passed the following parameters:<div class="mdetail-params"><ul><li><b>v</b> : Mixed<div class="sub-desc">The data value as read by the Reader, if undefined will use the configured <tt>{@link Ext.data.Field#defaultValue defaultValue}</tt>.</div></li><li><b>rec</b> : Mixed<div class="sub-desc">The data object containing the row as read by the Reader. Depending on the Reader type, this could be an Array ({@link Ext.data.ArrayReader ArrayReader}), an object ({@link Ext.data.JsonReader JsonReader}), or an XML element ({@link Ext.data.XMLReader XMLReader}).</div></li></ul></div><pre><code>// example of convert function
+(Optional) A function which converts the value provided by the Reader into an object that will be stored in the Record. It is passed the following parameters:<div class="mdetail-params"><ul><li><b>v</b> : Mixed<div class="sub-desc">The data value as read by the Reader, if undefined will use the configured <code>{@link Ext.data.Field#defaultValue defaultValue}</code>.</div></li><li><b>rec</b> : Mixed<div class="sub-desc">The data object containing the row as read by the Reader. Depending on the Reader type, this could be an Array ({@link Ext.data.ArrayReader ArrayReader}), an object ({@link Ext.data.JsonReader JsonReader}), or an XML element ({@link Ext.data.XMLReader XMLReader}).</div></li></ul></div><pre><code>// example of convert function
 function fullName(v, record){
 return record.name.last + ', ' + record.name.first;
 }
@@ -3103,14 +3144,14 @@ city: 'Boston',  state: 'MA'
         <xs:attribute type='xs:string' name='dateFormat'>
           <xs:annotation>
             <xs:documentation>
-(Optional) A format string for the {@link Date#parseDate Date.parseDate} function, or "timestamp" if the value provided by the Reader is a UNIX timestamp, or "time" if the value provided by the Reader is a javascript millisecond timestamp.
+<p>(Optional) Used when converting received data into a Date when the {@link #type} is specified as <code>"date"</code>.</p><p>A format string for the {@link Date#parseDate Date.parseDate} function, or "timestamp" if the value provided by the Reader is a UNIX timestamp, or "time" if the value provided by the Reader is a javascript millisecond timestamp. See {@link Date}</p>
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute type='xs:string' name='defaultValue'>
           <xs:annotation>
             <xs:documentation>
-(Optional) The default value used <b>when a Record is being created by a {@link Ext.data.Reader Reader}</b> when the item referenced by the <tt>{@link Ext.data.Field#mapping mapping}</tt> does not exist in the data object (i.e. undefined). (defaults to "")
+(Optional) The default value used <b>when a Record is being created by a {@link Ext.data.Reader Reader}</b> when the item referenced by the <code>{@link Ext.data.Field#mapping mapping}</code> does not exist in the data object (i.e. undefined). (defaults to "")
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
@@ -3146,14 +3187,14 @@ default: return 3;
         <xs:attribute type='xs:string' name='sortDir'>
           <xs:annotation>
             <xs:documentation>
-(Optional) Initial direction to sort (<tt>"ASC"</tt> or <tt>"DESC"</tt>). Defaults to <tt>"ASC"</tt>.
+(Optional) Initial direction to sort (<code>"ASC"</code> or <code>"DESC"</code>). Defaults to <code>"ASC"</code>.
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute type='xs:boolean' name='allowBlank'>
           <xs:annotation>
             <xs:documentation>
-(Optional) Used for validating a {@link Ext.data.Record record}, defaults to <tt>true</tt>. An empty value here will cause {@link Ext.data.Record}.{@link Ext.data.Record#isValid isValid} to evaluate to <tt>false</tt>.
+(Optional) Used for validating a {@link Ext.data.Record record}, defaults to <code>true</code>. An empty value here will cause {@link Ext.data.Record}.{@link Ext.data.Record#isValid isValid} to evaluate to <code>false</code>.
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
@@ -3260,55 +3301,17 @@ True to enable mouseenter and mouseleave events
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
+        <xs:attribute type='xs:boolean' name='blockRefresh'>
+          <xs:annotation>
+            <xs:documentation>
+Set this to true to ignore datachanged events on the bound store. This is useful if you wish to provide custom transition animations via a plugin (defaults to false)
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
   <xs:element id='dataview' name='dataview' type='ext:ext.DataView' substitutionGroup='ext:box'>
-    <xs:annotation>
-      <xs:documentation>
-A mechanism for displaying data using custom layout templates and formatting. DataView uses an {@link Ext.XTemplate} as its internal templating mechanism, and is bound to an {@link Ext.data.Store} so that as the data in the store changes the view is automatically updated to reflect the changes. The view also provides built-in behavior for many common events that can occur for its contained items including click, doubleclick, mouseover, mouseout, etc. as well as a built-in selection model. <b>In order to use these features, an {@link #itemSelector} config must be provided for the DataView to determine what nodes it will be working with.</b> <p>The example below binds a DataView to a {@link Ext.data.Store} and renders it into an {@link Ext.Panel}.</p><pre><code>var store = new Ext.data.JsonStore({
-url: 'get-images.php',
-root: 'images',
-fields: [
-'name', 'url',
-{name:'size', type: 'float'},
-{name:'lastmod', type:'date', dateFormat:'timestamp'}
-]
-});
-store.load();
-
-var tpl = new Ext.XTemplate(
-'&lt;tpl for="."&gt;',
-'&lt;div class="thumb-wrap" id="{name}"&gt;',
-'&lt;div class="thumb"&gt;&lt;img src="{url}" title="{name}"&gt;&lt;/div&gt;',
-'&lt;span class="x-editable"&gt;{shortName}&lt;/span&gt;&lt;/div&gt;',
-'&lt;/tpl&gt;',
-'&lt;div class="x-clear"&gt;&lt;/div&gt;'
-);
-
-var panel = new Ext.Panel({
-id:'images-view',
-frame:true,
-width:535,
-autoHeight:true,
-collapsible:true,
-layout:'fit',
-title:'Simple DataView',
-
-items: new Ext.DataView({
-store: store,
-tpl: tpl,
-autoHeight:true,
-multiSelect: true,
-overClass:'x-view-over',
-itemSelector:'div.thumb-wrap',
-emptyText: 'No images to display'
-})
-});
-panel.render(document.body);
-</code></pre>
-      </xs:documentation>
-    </xs:annotation>
   </xs:element>
   <xs:complexType name='ext.grid.DateColumn'>
     <xs:complexContent>
@@ -3845,11 +3848,6 @@ An array of 'dates' to disable, as strings. These strings will be used to build 
     </xs:complexContent>
   </xs:complexType>
   <xs:element id='displayfield' name='displayfield' type='ext:ext.form.DisplayField' substitutionGroup='ext:field'>
-    <xs:annotation>
-      <xs:documentation>
-A display-only text field which is not validated and not submitted.
-      </xs:documentation>
-    </xs:annotation>
   </xs:element>
   <xs:complexType name='ext.Editor'>
     <xs:complexContent>
@@ -3905,7 +3903,7 @@ The Field object (or descendant) or config object for field
         <xs:attribute type='xs:boolean' name='allowBlur'>
           <xs:annotation>
             <xs:documentation>
-True to {@link #completeEdit complete the editing process} if in edit mode when the field is blurred. Defaults to <tt>false</tt>.
+True to {@link #completeEdit complete the editing process} if in edit mode when the field is blurred. Defaults to <tt>true</tt>.
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
@@ -4366,7 +4364,7 @@ border: false
         <xs:attribute type='xs:string' name='flashVersion'>
           <xs:annotation>
             <xs:documentation>
-Indicates the version the flash content was published for. Defaults to <tt>'9.0.45'</tt>.
+Indicates the version the flash content was published for. Defaults to <tt>'9.0.115'</tt>.
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
@@ -5232,11 +5230,6 @@ Used by ColumnModel setConfig method to avoid reprocessing a Column if <code>isC
         </xs:attribute>
   </xs:complexType>
   <xs:element id='gridcolumn' name='gridcolumn' type='ext:ext.grid.Column'>
-    <xs:annotation>
-      <xs:documentation>
-<p>This class encapsulates column configuration data to be used in the initialization of a {@link Ext.grid.ColumnModel ColumnModel}.</p><p>While subclasses are provided to render data in different ways, this class renders a passed data field unchanged and is usually used for textual columns.</p>
-      </xs:documentation>
-    </xs:annotation>
   </xs:element>
   <xs:complexType name='ext.data.GroupingStore'>
     <xs:complexContent>
@@ -5270,7 +5263,7 @@ True to sort the data on the grouping field when a grouping operation occurs, fa
   <xs:element id='groupingstore' name='groupingstore' type='ext:ext.data.GroupingStore' substitutionGroup='ext:store'>
     <xs:annotation>
       <xs:documentation>
-A specialized store implementation that provides for grouping records by one of the available fields. This is usually used in conjunction with an {@link Ext.grid.GroupingView} to proved the data model for a grouped GridPanel.
+@event groupchange Fired whenever a call to store.groupBy successfully changes the grouping on the store @param {Ext.data.GroupingStore} store The grouping store @param {String} groupField The field that the store is now grouped by
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -5672,7 +5665,7 @@ The template to be used for the header row. See {@link #tpl} for more details.
 "url":"images\/thumbs\/zack_sink.jpg"
 }
 ]
-} 
+}
 var store = new Ext.data.JsonStore({
 url: 'get-images.php',
 root: 'images',
@@ -5695,7 +5688,7 @@ width: .5,
 dataIndex: 'name'
 },{
 header: 'Last Modified',
-width: .35, 
+width: .35,
 dataIndex: 'lastmod',
 tpl: '{lastmod:date("m-d h:i a")}'
 },{
@@ -5820,7 +5813,7 @@ Optional. Specify a string to pass as the configuration string for {@link Ext.XT
   <xs:element id='lvcolumn' name='lvcolumn' type='ext:ext.list.Column'>
     <xs:annotation>
       <xs:documentation>
-<p>This class encapsulates column configuration data to be used in the initialization of a {@link Ext.list.ListView ListView}.</p><p>While subclasses are provided to render data in different ways, this class renders a passed data field unchanged and is usually used for textual columns.</p>
+@private
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -6056,7 +6049,7 @@ True to hide the containing menu after this item is clicked (defaults to true)
         <xs:attribute type='xs:int' name='clickHideDelay'>
           <xs:annotation>
             <xs:documentation>
-Length of time in milliseconds to wait before hiding after a click (defaults to 100)
+Length of time in milliseconds to wait before hiding after a click (defaults to 1)
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
@@ -6179,7 +6172,7 @@ Length of time in milliseconds to wait before showing this item (defaults to 200
   <xs:element id='menuitem' name='menuitem' type='ext:ext.menu.Item' substitutionGroup='ext:menubaseitem'>
     <xs:annotation>
       <xs:documentation>
-A base class for all menu items that require menu-related functionality (like sub-menus) and are not static display items. Item extends the base functionality of {@link Ext.menu.BaseItem} by adding menu-specific activation and click handling.
+@property menu @type Ext.menu.Menu The submenu associated with this Item if one was configured.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -6207,11 +6200,6 @@ A base class for all menu items that require menu-related functionality (like su
     </xs:complexContent>
   </xs:complexType>
   <xs:element id='menuseparator' name='menuseparator' type='ext:ext.menu.Separator' substitutionGroup='ext:menubaseitem'>
-    <xs:annotation>
-      <xs:documentation>
-Adds a separator bar to a menu, used to divide logical groups of menu items. Generally you will add one of these by using "-" in you call to add() or in your items config rather than creating one directly.
-      </xs:documentation>
-    </xs:annotation>
   </xs:element>
   <xs:complexType name='ext.menu.TextItem'>
     <xs:complexContent>
@@ -6229,9 +6217,107 @@ The text to display for this item (defaults to '')
     </xs:complexContent>
   </xs:complexType>
   <xs:element id='menutextitem' name='menutextitem' type='ext:ext.menu.TextItem' substitutionGroup='ext:menubaseitem'>
+  </xs:element>
+  <xs:complexType name='ext.slider.MultiSlider'>
+    <xs:complexContent>
+      <xs:extension base='ext:ext.BoxComponent'>
+        <xs:sequence>
+        </xs:sequence>
+        <xs:attribute type='xs:int' name='value'>
+          <xs:annotation>
+            <xs:documentation>
+The value to initialize the slider with. Defaults to minValue.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:boolean' name='vertical'>
+          <xs:annotation>
+            <xs:documentation>
+Orient the Slider vertically rather than horizontally, defaults to false.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:int' name='minValue'>
+          <xs:annotation>
+            <xs:documentation>
+The minimum value for the Slider. Defaults to 0.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:int' name='maxValue'>
+          <xs:annotation>
+            <xs:documentation>
+The maximum value for the Slider. Defaults to 100.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:string' name='decimalPrecision'>
+          <xs:annotation>
+            <xs:documentation>
+. <p>The number of decimal places to which to round the Slider's value. Defaults to 0.</p><p>To disable rounding, configure as <tt><b>false</b></tt>.</p>
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:int' name='keyIncrement'>
+          <xs:annotation>
+            <xs:documentation>
+How many units to change the Slider when adjusting with keyboard navigation. Defaults to 1. If the increment config is larger, it will be used instead.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:int' name='increment'>
+          <xs:annotation>
+            <xs:documentation>
+How many units to change the slider when adjusting by drag and drop. Use this option to enable 'snapping'.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:boolean' name='clickToChange'>
+          <xs:annotation>
+            <xs:documentation>
+Determines whether or not clicking on the Slider axis will change the slider. Defaults to true
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:boolean' name='animate'>
+          <xs:annotation>
+            <xs:documentation>
+Turn on or off animation. Defaults to true
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:boolean' name='constrainThumbs'>
+          <xs:annotation>
+            <xs:documentation>
+True to disallow thumbs from overlapping one another. Defaults to true
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element id='multislider' name='multislider' type='ext:ext.slider.MultiSlider' substitutionGroup='ext:box'>
     <xs:annotation>
       <xs:documentation>
-Adds a static text string to a menu, usually used as either a heading or group separator.
+Slider which supports vertical or horizontal orientation, keyboard adjustments, configurable snapping, axis clicking and animation. Can be added as an item to any container. Example usage: <pre>new Ext.Slider({
+renderTo: Ext.getBody(),
+width: 200,
+value: 50,
+increment: 10,
+minValue: 0,
+maxValue: 100
+});
+</pre>Sliders can be created with more than one thumb handle by passing an array of values instead of a single one: <pre>new Ext.Slider({
+renderTo: Ext.getBody(),
+width: 200,
+values: [25, 50, 75],
+minValue: 0,
+maxValue: 100,
+
+//this defaults to true, setting to false allows the thumbs to pass each other
+{@link #constrainThumbs}: false
+});
+</pre>
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -6336,159 +6422,15 @@ The base set of characters to evaluate as valid numbers (defaults to '0123456789
     </xs:complexContent>
   </xs:complexType>
   <xs:element id='numberfield' name='numberfield' type='ext:ext.form.NumberField' substitutionGroup='ext:textfield'>
-    <xs:annotation>
-      <xs:documentation>
-Numeric text field that provides automatic keystroke filtering and numeric validation.
-      </xs:documentation>
-    </xs:annotation>
   </xs:element>
   <xs:complexType name='ext.util.Observable'>
         <xs:sequence>
-            <xs:element name='listeners' minOccurs="0" maxOccurs="1">
-              <xs:annotation>
-                <xs:documentation>
-    (optional) <p>A config object containing one or more event handlers to be added to this object during initialization. This should be a valid listeners config object as specified in the {@link #addListener} example for attaching multiple handlers at once.</p><br/><p style="font-weight: bold"><u>DOM events from ExtJs {@link Ext.Component Components}</u></p><br/><p>While <i>some</i> ExtJs Component classes export selected DOM events (e.g. "click", "mouseover" etc), this is usually only done when extra value can be added. For example the {@link Ext.DataView DataView}'s <b><code>{@link Ext.DataView#click click}</code></b> event passing the node clicked on. To access DOM events directly from a Component's HTMLElement, listeners must be added to the <i>{@link Ext.Component#getEl Element}</i> after the Component has been rendered. A plugin can simplify this step:</p><pre><code>// Plugin is configured with a listeners config object.
-// The Component is appended to the argument list of all handler functions.
-Ext.DomObserver = Ext.extend(Object, {
-constructor: function(config) {
-this.listeners = config.listeners ? config.listeners : config;
-},
-
-// Component passes itself into plugin's init method
-init: function(c) {
-var p, l = this.listeners;
-for (p in l) {
-if (Ext.isFunction(l[p])) {
-l[p] = this.createHandler(l[p], c);
-} else {
-l[p].fn = this.createHandler(l[p].fn, c);
-}
-}
-
-// Add the listeners to the Element immediately following the render call
-c.render = c.render.{@link Function#createSequence createSequence}(function() {
-var e = c.getEl();
-if (e) {
-e.on(l);
-}
-});
-},
-
-createHandler: function(fn, c) {
-return function(e) {
-fn.call(this, e, c);
-};
-}
-});
-
-var combo = new Ext.form.ComboBox({
-
-// Collapse combo when its element is clicked on
-plugins: [ new Ext.DomObserver({
-click: function(evt, comp) {
-comp.collapse();
-}
-})],
-store: myStore,
-typeAhead: true,
-mode: 'local',
-triggerAction: 'all'
-});
-</code></pre><br/><br/>
-                </xs:documentation>
-              </xs:annotation>
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax"/>
-                </xs:sequence>
-                <xs:anyAttribute processContents="skip"/>
-              </xs:complexType>
-            </xs:element>
         </xs:sequence>
-        <xs:attribute type='xs:string' name='listeners'>
-          <xs:annotation>
-            <xs:documentation>
-(optional) <p>A config object containing one or more event handlers to be added to this object during initialization. This should be a valid listeners config object as specified in the {@link #addListener} example for attaching multiple handlers at once.</p><br/><p style="font-weight: bold"><u>DOM events from ExtJs {@link Ext.Component Components}</u></p><br/><p>While <i>some</i> ExtJs Component classes export selected DOM events (e.g. "click", "mouseover" etc), this is usually only done when extra value can be added. For example the {@link Ext.DataView DataView}'s <b><code>{@link Ext.DataView#click click}</code></b> event passing the node clicked on. To access DOM events directly from a Component's HTMLElement, listeners must be added to the <i>{@link Ext.Component#getEl Element}</i> after the Component has been rendered. A plugin can simplify this step:</p><pre><code>// Plugin is configured with a listeners config object.
-// The Component is appended to the argument list of all handler functions.
-Ext.DomObserver = Ext.extend(Object, {
-constructor: function(config) {
-this.listeners = config.listeners ? config.listeners : config;
-},
-
-// Component passes itself into plugin's init method
-init: function(c) {
-var p, l = this.listeners;
-for (p in l) {
-if (Ext.isFunction(l[p])) {
-l[p] = this.createHandler(l[p], c);
-} else {
-l[p].fn = this.createHandler(l[p].fn, c);
-}
-}
-
-// Add the listeners to the Element immediately following the render call
-c.render = c.render.{@link Function#createSequence createSequence}(function() {
-var e = c.getEl();
-if (e) {
-e.on(l);
-}
-});
-},
-
-createHandler: function(fn, c) {
-return function(e) {
-fn.call(this, e, c);
-};
-}
-});
-
-var combo = new Ext.form.ComboBox({
-
-// Collapse combo when its element is clicked on
-plugins: [ new Ext.DomObserver({
-click: function(evt, comp) {
-comp.collapse();
-}
-})],
-store: myStore,
-typeAhead: true,
-mode: 'local',
-triggerAction: 'all'
-});
-</code></pre><br/><br/>
-            </xs:documentation>
-          </xs:annotation>
-        </xs:attribute>
   </xs:complexType>
   <xs:element id='observable' name='observable' type='ext:ext.util.Observable'>
     <xs:annotation>
       <xs:documentation>
-Base class that provides a common interface for publishing events. Subclasses are expected to to have a property "events" with all the events defined, and, optionally, a property "listeners" with configured listeners defined.<br/>For example: <pre><code>Employee = Ext.extend(Ext.util.Observable, {
-constructor: function(config){
-this.name = config.name;
-this.addEvents({
-"fired" : true,
-"quit" : true
-});
-
-// Copy configured listeners into *this* object so that the base class's
-// constructor will add them.
-this.listeners = config.listeners;
-
-// Call our superclass constructor to complete construction process.
-Employee.superclass.constructor.call(this, config)
-}
-});
-</code></pre>This could then be used like this:<pre><code>var newEmployee = new Employee({
-name: employeeName,
-listeners: {
-quit: function() {
-// By default, "this" will be the object that fired the event.
-alert(this.name + " has quit!");
-}
-}
-});
-</code></pre>
+Relays selected events from the specified Observable as if the events were fired by <tt><b>this</b></tt>. @param {Object} o The Observable whose events this object is to relay. @param {Array} events Array of event names to relay.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -7565,81 +7507,18 @@ A grouping container for {@link Ext.form.Radio} controls.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ext.Slider'>
+  <xs:complexType name='ext.slider.SingleSlider'>
     <xs:complexContent>
-      <xs:extension base='ext:ext.BoxComponent'>
+      <xs:extension base='ext:ext.slider.MultiSlider'>
         <xs:sequence>
         </xs:sequence>
-        <xs:attribute type='xs:int' name='value'>
-          <xs:annotation>
-            <xs:documentation>
-The value to initialize the slider with. Defaults to minValue.
-            </xs:documentation>
-          </xs:annotation>
-        </xs:attribute>
-        <xs:attribute type='xs:boolean' name='vertical'>
-          <xs:annotation>
-            <xs:documentation>
-Orient the Slider vertically rather than horizontally, defaults to false.
-            </xs:documentation>
-          </xs:annotation>
-        </xs:attribute>
-        <xs:attribute type='xs:int' name='minValue'>
-          <xs:annotation>
-            <xs:documentation>
-The minimum value for the Slider. Defaults to 0.
-            </xs:documentation>
-          </xs:annotation>
-        </xs:attribute>
-        <xs:attribute type='xs:int' name='maxValue'>
-          <xs:annotation>
-            <xs:documentation>
-The maximum value for the Slider. Defaults to 100.
-            </xs:documentation>
-          </xs:annotation>
-        </xs:attribute>
-        <xs:attribute type='xs:string' name='decimalPrecision'>
-          <xs:annotation>
-            <xs:documentation>
-. <p>The number of decimal places to which to round the Slider's value. Defaults to 0.</p><p>To disable rounding, configure as <tt><b>false</b></tt>.</p>
-            </xs:documentation>
-          </xs:annotation>
-        </xs:attribute>
-        <xs:attribute type='xs:int' name='keyIncrement'>
-          <xs:annotation>
-            <xs:documentation>
-How many units to change the Slider when adjusting with keyboard navigation. Defaults to 1. If the increment config is larger, it will be used instead.
-            </xs:documentation>
-          </xs:annotation>
-        </xs:attribute>
-        <xs:attribute type='xs:int' name='increment'>
-          <xs:annotation>
-            <xs:documentation>
-How many units to change the slider when adjusting by drag and drop. Use this option to enable 'snapping'.
-            </xs:documentation>
-          </xs:annotation>
-        </xs:attribute>
-        <xs:attribute type='xs:boolean' name='clickToChange'>
-          <xs:annotation>
-            <xs:documentation>
-Determines whether or not clicking on the Slider axis will change the slider. Defaults to true
-            </xs:documentation>
-          </xs:annotation>
-        </xs:attribute>
-        <xs:attribute type='xs:boolean' name='animate'>
-          <xs:annotation>
-            <xs:documentation>
-Turn on or off animation. Defaults to true
-            </xs:documentation>
-          </xs:annotation>
-        </xs:attribute>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element id='slider' name='slider' type='ext:ext.Slider' substitutionGroup='ext:box'>
+  <xs:element id='slider' name='slider' type='ext:ext.slider.SingleSlider' substitutionGroup='ext:multislider'>
     <xs:annotation>
       <xs:documentation>
-Slider which supports vertical or horizontal orientation, keyboard adjustments, configurable snapping, axis clicking and animation. Can be added as an item to any container. Example usage: <pre><code>new Ext.Slider({
+Slider which supports vertical or horizontal orientation, keyboard adjustments, configurable snapping, axis clicking and animation. Can be added as an item to any container. Example usage: <pre><code>new Ext.slider.SingleSlider({
 renderTo: Ext.getBody(),
 width: 200,
 value: 50,
@@ -7647,9 +7526,46 @@ increment: 10,
 minValue: 0,
 maxValue: 100
 });
-</code></pre>
+</code></pre>The class Ext.slider.SingleSlider is aliased to Ext.Slider for backwards compatibility.
       </xs:documentation>
     </xs:annotation>
+  </xs:element>
+  <xs:complexType name='ext.form.SliderField'>
+    <xs:complexContent>
+      <xs:extension base='ext:ext.form.Field'>
+        <xs:sequence>
+            <xs:element name='tipText' minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>
+    A function used to display custom text for the slider tip. Defaults to <tt>null</tt>, which will use the default on the plugin.
+                </xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax"/>
+                </xs:sequence>
+                <xs:anyAttribute processContents="skip"/>
+              </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute type='xs:boolean' name='useTips'>
+          <xs:annotation>
+            <xs:documentation>
+True to use an Ext.slider.Tip to display tips for the value. Defaults to <tt>true</tt>.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:string' name='tipText'>
+          <xs:annotation>
+            <xs:documentation>
+A function used to display custom text for the slider tip. Defaults to <tt>null</tt>, which will use the default on the plugin.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element id='sliderfield' name='sliderfield' type='ext:ext.form.SliderField' substitutionGroup='ext:field'>
   </xs:element>
   <xs:complexType name='ext.Spacer'>
     <xs:complexContent>
@@ -8952,7 +8868,7 @@ The default time format string which can be overriden for localization support. 
         <xs:attribute type='xs:string' name='altFormats'>
           <xs:annotation>
             <xs:documentation>
-Multiple date formats separated by "|" to try when parsing a user input value and it doesn't match the defined format (defaults to 'g:ia|g:iA|g:i a|g:i A|h:i|g:i|H:i|ga|ha|gA|h a|g a|g A|gi|hi|gia|hia|g|H').
+Multiple date formats separated by "|" to try when parsing a user input value and it doesn't match the defined format (defaults to 'g:ia|g:iA|g:i a|g:i A|h:i|g:i|H:i|ga|ha|gA|h a|g a|g A|gi|hi|gia|hia|g|H|gi a|hi a|giA|hiA|gi A|hi A').
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
@@ -9125,7 +9041,7 @@ tb.doLayout();
   <xs:element id='toolbarlayout' name='toolbarlayout' type='ext:ext.layout.ToolbarLayout' substitutionGroup='ext:containerlayout'>
     <xs:annotation>
       <xs:documentation>
-Layout manager implicitly used by Ext.Toolbar.
+Layout manager used by Ext.Toolbar. This is highly specialised for use by Toolbars and would not usually be used by any other class.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -9255,7 +9171,7 @@ tip.body.dom.innerHTML = 'Over Record ID ' + store.getAt(rowIndex).id;
   <xs:element id='tooltip' name='tooltip' type='ext:ext.ToolTip' substitutionGroup='ext:tip'>
     <xs:annotation>
       <xs:documentation>
-A standard tooltip implementation for providing additional information when hovering over a target element.
+When a Tooltip is configured with the <code>{@link #delegate}</code> option to cause selected child elements of the <code>{@link #target}</code> Element to each trigger a seperate show event, this property is set to the DOM element which triggered the show. @type DOMElement @property triggerElement
       </xs:documentation>
     </xs:annotation>
   </xs:element>
