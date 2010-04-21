@@ -15,7 +15,7 @@
     <developerConnection>scm:perforce://coremedia/jangaroo-libs</developerConnection>
   </scm>
   <properties>
-    <jangaroo_version>0.4.9</jangaroo_version>
+    <jangaroo_version>0.4.10-SNAPSHOT</jangaroo_version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
@@ -89,9 +89,6 @@
         <directory>src/main/joo-js</directory>
       </resource>
       <resource>
-        <directory>src/main/joo-api</directory>
-      </resource>
-      <resource>
         <directory>src/main/resources</directory>
       </resource>
     </resources>
@@ -106,6 +103,31 @@
         <artifactId>jangaroo-lifecycle</artifactId>
         <version>${jangaroo_version}</version>
         <extensions>true</extensions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>add-source</goal>
+            </goals>
+            <configuration>
+              <sources>
+                <source>${basedir}/src/main/joo-api</source>
+              </sources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <artifactId>maven-source-plugin</artifactId>
+        <configuration>
+          <excludeResources>true</excludeResources>
+        </configuration>
       </plugin>
     </plugins>
 
