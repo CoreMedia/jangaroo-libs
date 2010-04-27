@@ -148,6 +148,136 @@ html: '&lt;p&gt;Panel content!&lt;/p&gt;'
       </xs:documentation>
     </xs:annotation>
   </xs:element>
+  <xs:complexType name='ext.Action'>
+        <xs:sequence>
+            <xs:element name='handler' minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>
+    The function that will be invoked by each component tied to this action when the component's primary event is triggered (defaults to undefined).
+                </xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax"/>
+                </xs:sequence>
+                <xs:anyAttribute processContents="skip"/>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name='scope' minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>
+    The scope (<tt><b>this</b></tt> reference) in which the <code>{@link #handler}</code> is executed. Defaults to this Button.
+                </xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax"/>
+                </xs:sequence>
+                <xs:anyAttribute processContents="skip"/>
+              </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute type='xs:string' name='text'>
+          <xs:annotation>
+            <xs:documentation>
+The text to set for all components using this action (defaults to '').
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:string' name='iconCls'>
+          <xs:annotation>
+            <xs:documentation>
+The CSS class selector that specifies a background image to be used as the header icon for all components using this action (defaults to ''). <p>An example of specifying a custom icon class would be something like:</p><pre><code>// specify the property in the config for the class:
+...
+iconCls: 'do-something'
+
+// css class that specifies background image to be used as the icon image:
+.do-something { background-image: url(../images/my-icon.gif) 0 6px no-repeat !important; }
+</code></pre>
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:boolean' name='disabled'>
+          <xs:annotation>
+            <xs:documentation>
+True to disable all components using this action, false to enable them (defaults to false).
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:boolean' name='hidden'>
+          <xs:annotation>
+            <xs:documentation>
+True to hide all components using this action, false to show them (defaults to false).
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:string' name='handler'>
+          <xs:annotation>
+            <xs:documentation>
+The function that will be invoked by each component tied to this action when the component's primary event is triggered (defaults to undefined).
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:string' name='itemId'>
+          <xs:annotation>
+            <xs:documentation>
+See {@link Ext.Component}.{@link Ext.Component#itemId itemId}.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type='xs:string' name='scope'>
+          <xs:annotation>
+            <xs:documentation>
+The scope (<tt><b>this</b></tt> reference) in which the <code>{@link #handler}</code> is executed. Defaults to this Button.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+  </xs:complexType>
+  <xs:element id='Action' name='Action' type='ext:ext.Action'>
+    <xs:annotation>
+      <xs:documentation>
+<p>An Action is a piece of reusable functionality that can be abstracted out of any particular component so that it can be usefully shared among multiple components. Actions let you share handlers, configuration options and UI updates across any components that support the Action interface (primarily {@link Ext.Toolbar}, {@link Ext.Button} and {@link Ext.menu.Menu} components).</p><p>Aside from supporting the config object interface, any component that needs to use Actions must also support the following method list, as these will be called as needed by the Action class: setText(string), setIconCls(string), setDisabled(boolean), setVisible(boolean) and setHandler(function).</p>Example usage:<br/><pre><code>// Define the shared action.  Each component below will have the same
+// display text and icon, and will display the same message on click.
+var action = new Ext.Action({
+{@link #text}: 'Do something',
+{@link #handler}: function(){
+Ext.Msg.alert('Click', 'You did something.');
+},
+{@link #iconCls}: 'do-something',
+{@link #itemId}: 'myAction'
+});
+
+var panel = new Ext.Panel({
+title: 'Actions',
+width: 500,
+height: 300,
+tbar: [
+// Add the action directly to a toolbar as a menu button
+action,
+{
+text: 'Action Menu',
+// Add the action to a menu as a text item
+menu: [action]
+}
+],
+items: [
+// Add the action to the panel body as a standard button
+new Ext.Button(action)
+],
+renderTo: Ext.getBody()
+});
+
+// Change the text for all components using the action
+action.setText('Something else');
+
+// Reference an action through a container using the itemId
+var btn = panel.getComponent('myAction');
+var aRef = btn.baseAction;
+aRef.setText('New text');
+</code></pre>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
   <xs:complexType name='ext.layout.AnchorLayout'>
     <xs:complexContent>
       <xs:extension base='ext:ext.layout.ContainerLayout'>
@@ -226,7 +356,7 @@ anchor:'-100 50%'
 autoDestroy: true,
 storeId: 'myStore',
 // reader configs
-idIndex: 0,
+idIndex: 0,  
 fields: [
 'company',
 {name: 'price', type: 'float'},
@@ -253,7 +383,7 @@ fields: [
   <xs:element id='autolayout' name='autolayout' type='ext:ext.layout.AutoLayout'>
     <xs:annotation>
       <xs:documentation>
-<p>The AutoLayout is the default layout manager delegated by {@link Ext.Container} to render any child Components when no <tt>{@link Ext.Container#layout layout}</tt> is configured into a {@link Ext.Container Container}. ContainerLayout provides the basic foundation for all other layout classes in Ext. It simply renders all child Components into the Container, performing no sizing or positioning services. To utilize a layout that provides sizing and positioning of child Components, specify an appropriate <tt>{@link Ext.Container#layout layout}</tt>.</p>
+<p>The AutoLayout is the default layout manager delegated by {@link Ext.Container} to render any child Components when no <tt>{@link Ext.Container#layout layout}</tt> is configured into a {@link Ext.Container Container}.. AutoLayout provides only a passthrough of any layout calls to any child containers.</p>
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -1898,6 +2028,23 @@ renderer: Ext.util.Format.comboRenderer(combo) // pass combo instance to reusabl
     <xs:complexContent>
       <xs:extension base='ext:ext.util.Observable'>
         <xs:sequence>
+            <xs:element name='action' minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>
+   The action controlling this component, usually a button or menu item. If this property is set, all other
+   component configuration attributes are ignored, as the component receives its configuration from the action.
+   <p>Aside from supporting the config object interface, any component that needs to use Actions must also support
+   the following method list, as these will be called as needed by the Action class: setText(string), setIconCls(string),
+   setDisabled(boolean), setVisible(boolean) and setHandler(function).</p>
+                </xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax"/>
+                </xs:sequence>
+                <xs:anyAttribute processContents="skip"/>
+              </xs:complexType>
+            </xs:element>
             <xs:element name='plugins' minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
@@ -2961,6 +3108,26 @@ A css class which sets an image to be used as the static icon for this button. T
     </xs:complexContent>
   </xs:complexType>
   <xs:element id='cycle' name='cycle' type='ext:ext.CycleButton' substitutionGroup='ext:splitbutton'>
+    <xs:annotation>
+      <xs:documentation>
+A specialized SplitButton that contains a menu of {@link Ext.menu.CheckItem} elements. The button automatically cycles through each menu item on click, raising the button's {@link #change} event (or calling the button's {@link #changeHandler} function, if supplied) for the active menu item. Clicking on the arrow section of the button displays the dropdown menu just like a normal SplitButton. Example usage: <pre><code>var btn = new Ext.CycleButton({
+showText: true,
+prependText: 'View as ',
+items: [{
+text:'text only',
+iconCls:'view-text',
+checked:true
+},{
+text:'HTML',
+iconCls:'view-html'
+}],
+changeHandler:function(btn, item){
+Ext.Msg.alert('Change View', item.text);
+}
+});
+</code></pre>
+      </xs:documentation>
+    </xs:annotation>
   </xs:element>
   <xs:complexType name='ext.data.Field'>
         <xs:sequence>
@@ -3312,6 +3479,51 @@ Set this to true to ignore datachanged events on the bound store. This is useful
     </xs:complexContent>
   </xs:complexType>
   <xs:element id='dataview' name='dataview' type='ext:ext.DataView' substitutionGroup='ext:box'>
+    <xs:annotation>
+      <xs:documentation>
+A mechanism for displaying data using custom layout templates and formatting. DataView uses an {@link Ext.XTemplate} as its internal templating mechanism, and is bound to an {@link Ext.data.Store} so that as the data in the store changes the view is automatically updated to reflect the changes. The view also provides built-in behavior for many common events that can occur for its contained items including click, doubleclick, mouseover, mouseout, etc. as well as a built-in selection model. <b>In order to use these features, an {@link #itemSelector} config must be provided for the DataView to determine what nodes it will be working with.</b> <p>The example below binds a DataView to a {@link Ext.data.Store} and renders it into an {@link Ext.Panel}.</p><pre><code>var store = new Ext.data.JsonStore({
+url: 'get-images.php',
+root: 'images',
+fields: [
+'name', 'url',
+{name:'size', type: 'float'},
+{name:'lastmod', type:'date', dateFormat:'timestamp'}
+]
+});
+store.load();
+
+var tpl = new Ext.XTemplate(
+'&lt;tpl for="."&gt;',
+'&lt;div class="thumb-wrap" id="{name}"&gt;',
+'&lt;div class="thumb"&gt;&lt;img src="{url}" title="{name}"&gt;&lt;/div&gt;',
+'&lt;span class="x-editable"&gt;{shortName}&lt;/span&gt;&lt;/div&gt;',
+'&lt;/tpl&gt;',
+'&lt;div class="x-clear"&gt;&lt;/div&gt;'
+);
+
+var panel = new Ext.Panel({
+id:'images-view',
+frame:true,
+width:535,
+autoHeight:true,
+collapsible:true,
+layout:'fit',
+title:'Simple DataView',
+
+items: new Ext.DataView({
+store: store,
+tpl: tpl,
+autoHeight:true,
+multiSelect: true,
+overClass:'x-view-over',
+itemSelector:'div.thumb-wrap',
+emptyText: 'No images to display'
+})
+});
+panel.render(document.body);
+</code></pre>
+      </xs:documentation>
+    </xs:annotation>
   </xs:element>
   <xs:complexType name='ext.grid.DateColumn'>
     <xs:complexContent>
@@ -3848,6 +4060,11 @@ An array of 'dates' to disable, as strings. These strings will be used to build 
     </xs:complexContent>
   </xs:complexType>
   <xs:element id='displayfield' name='displayfield' type='ext:ext.form.DisplayField' substitutionGroup='ext:field'>
+    <xs:annotation>
+      <xs:documentation>
+A display-only text field which is not validated and not submitted.
+      </xs:documentation>
+    </xs:annotation>
   </xs:element>
   <xs:complexType name='ext.Editor'>
     <xs:complexContent>
@@ -5230,6 +5447,11 @@ Used by ColumnModel setConfig method to avoid reprocessing a Column if <code>isC
         </xs:attribute>
   </xs:complexType>
   <xs:element id='gridcolumn' name='gridcolumn' type='ext:ext.grid.Column'>
+    <xs:annotation>
+      <xs:documentation>
+<p>This class encapsulates column configuration data to be used in the initialization of a {@link Ext.grid.ColumnModel ColumnModel}.</p><p>While subclasses are provided to render data in different ways, this class renders a passed data field unchanged and is usually used for textual columns.</p>
+      </xs:documentation>
+    </xs:annotation>
   </xs:element>
   <xs:complexType name='ext.data.GroupingStore'>
     <xs:complexContent>
@@ -5263,7 +5485,7 @@ True to sort the data on the grouping field when a grouping operation occurs, fa
   <xs:element id='groupingstore' name='groupingstore' type='ext:ext.data.GroupingStore' substitutionGroup='ext:store'>
     <xs:annotation>
       <xs:documentation>
-@event groupchange Fired whenever a call to store.groupBy successfully changes the grouping on the store @param {Ext.data.GroupingStore} store The grouping store @param {String} groupField The field that the store is now grouped by
+A specialized store implementation that provides for grouping records by one of the available fields. This is usually used in conjunction with an {@link Ext.grid.GroupingView} to provide the data model for a grouped GridPanel. Internally, GroupingStore is simply a normal Store with multi sorting enabled from the start. The grouping field and direction are always injected as the first sorter pair. GroupingView picks up on the configured groupField and builds grid rows appropriately.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -5813,7 +6035,7 @@ Optional. Specify a string to pass as the configuration string for {@link Ext.XT
   <xs:element id='lvcolumn' name='lvcolumn' type='ext:ext.list.Column'>
     <xs:annotation>
       <xs:documentation>
-@private
+<p>This class encapsulates column configuration data to be used in the initialization of a {@link Ext.list.ListView ListView}.</p><p>While subclasses are provided to render data in different ways, this class renders a passed data field unchanged and is usually used for textual columns.</p>
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -6172,7 +6394,7 @@ Length of time in milliseconds to wait before showing this item (defaults to 200
   <xs:element id='menuitem' name='menuitem' type='ext:ext.menu.Item' substitutionGroup='ext:menubaseitem'>
     <xs:annotation>
       <xs:documentation>
-@property menu @type Ext.menu.Menu The submenu associated with this Item if one was configured.
+A base class for all menu items that require menu-related functionality (like sub-menus) and are not static display items. Item extends the base functionality of {@link Ext.menu.BaseItem} by adding menu-specific activation and click handling.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -6200,6 +6422,11 @@ Length of time in milliseconds to wait before showing this item (defaults to 200
     </xs:complexContent>
   </xs:complexType>
   <xs:element id='menuseparator' name='menuseparator' type='ext:ext.menu.Separator' substitutionGroup='ext:menubaseitem'>
+    <xs:annotation>
+      <xs:documentation>
+Adds a separator bar to a menu, used to divide logical groups of menu items. Generally you will add one of these by using "-" in you call to add() or in your items config rather than creating one directly.
+      </xs:documentation>
+    </xs:annotation>
   </xs:element>
   <xs:complexType name='ext.menu.TextItem'>
     <xs:complexContent>
@@ -6217,6 +6444,11 @@ The text to display for this item (defaults to '')
     </xs:complexContent>
   </xs:complexType>
   <xs:element id='menutextitem' name='menutextitem' type='ext:ext.menu.TextItem' substitutionGroup='ext:menubaseitem'>
+    <xs:annotation>
+      <xs:documentation>
+Adds a static text string to a menu, usually used as either a heading or group separator.
+      </xs:documentation>
+    </xs:annotation>
   </xs:element>
   <xs:complexType name='ext.slider.MultiSlider'>
     <xs:complexContent>
@@ -6422,15 +6654,159 @@ The base set of characters to evaluate as valid numbers (defaults to '0123456789
     </xs:complexContent>
   </xs:complexType>
   <xs:element id='numberfield' name='numberfield' type='ext:ext.form.NumberField' substitutionGroup='ext:textfield'>
+    <xs:annotation>
+      <xs:documentation>
+Numeric text field that provides automatic keystroke filtering and numeric validation.
+      </xs:documentation>
+    </xs:annotation>
   </xs:element>
   <xs:complexType name='ext.util.Observable'>
         <xs:sequence>
+            <xs:element name='listeners' minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>
+    (optional) <p>A config object containing one or more event handlers to be added to this object during initialization. This should be a valid listeners config object as specified in the {@link #addListener} example for attaching multiple handlers at once.</p><br/><p style="font-weight: bold"><u>DOM events from ExtJs {@link Ext.Component Components}</u></p><br/><p>While <i>some</i> ExtJs Component classes export selected DOM events (e.g. "click", "mouseover" etc), this is usually only done when extra value can be added. For example the {@link Ext.DataView DataView}'s <b><code>{@link Ext.DataView#click click}</code></b> event passing the node clicked on. To access DOM events directly from a Component's HTMLElement, listeners must be added to the <i>{@link Ext.Component#getEl Element}</i> after the Component has been rendered. A plugin can simplify this step:</p><pre><code>// Plugin is configured with a listeners config object.
+// The Component is appended to the argument list of all handler functions.
+Ext.DomObserver = Ext.extend(Object, {
+constructor: function(config) {
+this.listeners = config.listeners ? config.listeners : config;
+},
+
+// Component passes itself into plugin's init method
+init: function(c) {
+var p, l = this.listeners;
+for (p in l) {
+if (Ext.isFunction(l[p])) {
+l[p] = this.createHandler(l[p], c);
+} else {
+l[p].fn = this.createHandler(l[p].fn, c);
+}
+}
+
+// Add the listeners to the Element immediately following the render call
+c.render = c.render.{@link Function#createSequence createSequence}(function() {
+var e = c.getEl();
+if (e) {
+e.on(l);
+}
+});
+},
+
+createHandler: function(fn, c) {
+return function(e) {
+fn.call(this, e, c);
+};
+}
+});
+
+var combo = new Ext.form.ComboBox({
+
+// Collapse combo when its element is clicked on
+plugins: [ new Ext.DomObserver({
+click: function(evt, comp) {
+comp.collapse();
+}
+})],
+store: myStore,
+typeAhead: true,
+mode: 'local',
+triggerAction: 'all'
+});
+</code></pre><br/><br/>
+                </xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax"/>
+                </xs:sequence>
+                <xs:anyAttribute processContents="skip"/>
+              </xs:complexType>
+            </xs:element>
         </xs:sequence>
+        <xs:attribute type='xs:string' name='listeners'>
+          <xs:annotation>
+            <xs:documentation>
+(optional) <p>A config object containing one or more event handlers to be added to this object during initialization. This should be a valid listeners config object as specified in the {@link #addListener} example for attaching multiple handlers at once.</p><br/><p style="font-weight: bold"><u>DOM events from ExtJs {@link Ext.Component Components}</u></p><br/><p>While <i>some</i> ExtJs Component classes export selected DOM events (e.g. "click", "mouseover" etc), this is usually only done when extra value can be added. For example the {@link Ext.DataView DataView}'s <b><code>{@link Ext.DataView#click click}</code></b> event passing the node clicked on. To access DOM events directly from a Component's HTMLElement, listeners must be added to the <i>{@link Ext.Component#getEl Element}</i> after the Component has been rendered. A plugin can simplify this step:</p><pre><code>// Plugin is configured with a listeners config object.
+// The Component is appended to the argument list of all handler functions.
+Ext.DomObserver = Ext.extend(Object, {
+constructor: function(config) {
+this.listeners = config.listeners ? config.listeners : config;
+},
+
+// Component passes itself into plugin's init method
+init: function(c) {
+var p, l = this.listeners;
+for (p in l) {
+if (Ext.isFunction(l[p])) {
+l[p] = this.createHandler(l[p], c);
+} else {
+l[p].fn = this.createHandler(l[p].fn, c);
+}
+}
+
+// Add the listeners to the Element immediately following the render call
+c.render = c.render.{@link Function#createSequence createSequence}(function() {
+var e = c.getEl();
+if (e) {
+e.on(l);
+}
+});
+},
+
+createHandler: function(fn, c) {
+return function(e) {
+fn.call(this, e, c);
+};
+}
+});
+
+var combo = new Ext.form.ComboBox({
+
+// Collapse combo when its element is clicked on
+plugins: [ new Ext.DomObserver({
+click: function(evt, comp) {
+comp.collapse();
+}
+})],
+store: myStore,
+typeAhead: true,
+mode: 'local',
+triggerAction: 'all'
+});
+</code></pre><br/><br/>
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
   </xs:complexType>
   <xs:element id='observable' name='observable' type='ext:ext.util.Observable'>
     <xs:annotation>
       <xs:documentation>
-Relays selected events from the specified Observable as if the events were fired by <tt><b>this</b></tt>. @param {Object} o The Observable whose events this object is to relay. @param {Array} events Array of event names to relay.
+Base class that provides a common interface for publishing events. Subclasses are expected to to have a property "events" with all the events defined, and, optionally, a property "listeners" with configured listeners defined.<br/>For example: <pre><code>Employee = Ext.extend(Ext.util.Observable, {
+constructor: function(config){
+this.name = config.name;
+this.addEvents({
+"fired" : true,
+"quit" : true
+});
+
+// Copy configured listeners into *this* object so that the base class's
+// constructor will add them.
+this.listeners = config.listeners;
+
+// Call our superclass constructor to complete construction process.
+Employee.superclass.constructor.call(this, config)
+}
+});
+</code></pre>This could then be used like this:<pre><code>var newEmployee = new Employee({
+name: employeeName,
+listeners: {
+quit: function() {
+// By default, "this" will be the object that fired the event.
+alert(this.name + " has quit!");
+}
+}
+});
+</code></pre>
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -7566,6 +7942,11 @@ A function used to display custom text for the slider tip. Defaults to <tt>null<
     </xs:complexContent>
   </xs:complexType>
   <xs:element id='sliderfield' name='sliderfield' type='ext:ext.form.SliderField' substitutionGroup='ext:field'>
+    <xs:annotation>
+      <xs:documentation>
+Wraps a {@link Ext.Slider Slider} so it can be used as a form field.
+      </xs:documentation>
+    </xs:annotation>
   </xs:element>
   <xs:complexType name='ext.Spacer'>
     <xs:complexContent>
@@ -9171,7 +9552,7 @@ tip.body.dom.innerHTML = 'Over Record ID ' + store.getAt(rowIndex).id;
   <xs:element id='tooltip' name='tooltip' type='ext:ext.ToolTip' substitutionGroup='ext:tip'>
     <xs:annotation>
       <xs:documentation>
-When a Tooltip is configured with the <code>{@link #delegate}</code> option to cause selected child elements of the <code>{@link #target}</code> Element to each trigger a seperate show event, this property is set to the DOM element which triggered the show. @type DOMElement @property triggerElement
+A standard tooltip implementation for providing additional information when hovering over a target element.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
