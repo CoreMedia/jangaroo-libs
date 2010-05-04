@@ -206,7 +206,7 @@ public function Button(config : Object) {
      * </ul></div>
      * @return this
      */
-    public native function setTooltip(tooltip : *, initial) : Button;
+    public native function setTooltip(tooltip : *) : Button;
     protected native function clearTip() : void;
     override protected native function beforeDestroy() : void;
     override protected native function onDestroy() : void;
@@ -253,7 +253,7 @@ public function Button(config : Object) {
     public native function hideMenu() : void;
     /**
      * Returns true if the button has a menu and it is visible
-     * @return 
+     * @return boolean
      */
     public native function hasVisibleMenu() : Boolean;
     protected native function onClick(e) : void;
