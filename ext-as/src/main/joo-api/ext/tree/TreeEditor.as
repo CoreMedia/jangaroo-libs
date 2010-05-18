@@ -61,10 +61,10 @@ public function TreeEditor(tree : TreePanel, fieldConfig : Object = undefined, c
      * @param node {ext.tree.TreeNode} The TreeNode to edit. The TreeNode must be <b class='link' title='ext.tree.TreeNode#editable'>editable</b>.
      */
     public native function triggerEdit(node, defer) : void;
-           /**
-            * The <b class='link' title='Ext.tree.TreeNode'>TreeNode</b> this editor is bound to. Read-only.
-            * @property editNode
-            */
+    /**
+     * The <b class='link' title='Ext.tree.TreeNode'>TreeNode</b> this editor is bound to. Read-only.
+     */
+    public native function get editNode():TreeNode;
     protected native function bindScroll() : void;
     protected native function beforeNodeClick(node, e) : void;
     public native function onNodeDblClick(node, e) : void;
