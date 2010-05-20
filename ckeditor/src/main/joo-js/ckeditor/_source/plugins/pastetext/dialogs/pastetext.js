@@ -57,10 +57,12 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 										'border:1px solid black;' +
 										'background-color:white">' +
 									'</textarea>',
+
 								focus : function()
 								{
 									this.getElement().focus();
 								},
+
 								setup : function( data )
 								{
 									// Set the textarea value.
