@@ -70,7 +70,15 @@ public class Document extends Node {
 
 
 
+  public native function getElementsByName(name : String) : Collection;
+
+
+
   public native function write(text : String) : void;
+
+
+
+  public native function open() : void; // TODO: parameters!
 
 
 
@@ -79,6 +87,10 @@ public class Document extends Node {
 
 
   public native function createEvent(eventType : String) : Event;
+
+
+
+  public native function createEventObject(templateEvent : Event) : Event;
 
 
 
@@ -91,6 +103,14 @@ public class Document extends Node {
 
 
   public native function createRange() : Range;
+
+
+
+  public native function createDocumentFragment() : Node;
+
+
+
+  public native function get selection():IESelection; // IE only
 
 
 }

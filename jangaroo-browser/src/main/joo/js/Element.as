@@ -42,7 +42,13 @@ public class Element extends Node {
 
 
 
+  public native function get runtimeStyle() : Style;
+
+
+
   public native function get filters() : Collection; // IE only
+
+
 
   public native function get offsetLeft() : Number;
 
@@ -122,7 +128,7 @@ public class Element extends Node {
 
   public native function get scopeName() : String;   // IE only
 
-  public native function getAttribute(name : String) : Object;
+  public native function getAttribute(name : String, iFlags:int = 0) : Object; // iFlags: IE only
 
 
 
@@ -220,9 +226,19 @@ public class Element extends Node {
 
   public native function set rowSpan(span : Number) : void; // <th>, <td>
 
+  public native function get selectionStart() : Number; // <input type="text">, <textarea>
+
+  public native function set selectionStart(start : Number) : void;  // <input type="text">, <textarea>
+
+  public native function get selectionEnd() : Number; // <input type="text">, <textarea>
+
+  public native function set selectionEnd(end : Number) : void; // <input type="text">, <textarea>
+
   public native function scrollIntoView(alignWithTop : Boolean = true) : void;
 
+  public native function createTextRange() : TextRange; // IE only
 
+  public native function createControlRange() : ControlRange; // IE only
 
 }
 

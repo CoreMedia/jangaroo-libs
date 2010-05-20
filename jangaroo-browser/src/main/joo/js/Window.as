@@ -26,7 +26,7 @@ public class Window {
 
 
 
-  public native function get navigator() : *;
+  public native function get navigator() : Navigator;
 
 
 
@@ -90,11 +90,7 @@ public class Window {
 
 
 
-  public native function getComputedStyle(elem : Element, pseudoElt : Element) : Style;
-
-
-
-  public native function set location(location : String) : void;
+  public native function getComputedStyle(elem : Element, pseudoElt : String) : Style;
 
 
 
@@ -112,6 +108,13 @@ public class Window {
 
   public native function close() : void;
 
+
+  /**
+   * Scrolls to a particular set of coordinates in the document.
+   * @param x is the pixel along the horizontal axis of the document that you want displayed in the upper left.
+   * @param y is the pixel along the vertical axis of the document that you want displayed in the upper left.
+   */
+  public native function scrollTo(x:int, y:int):void;
 
   /**
    * Firefox only.
