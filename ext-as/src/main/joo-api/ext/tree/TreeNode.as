@@ -32,22 +32,25 @@ public class TreeNode extends Node {
 public function TreeNode(attributes : *) {
   super(attributes);
 }
-    /**
+
+  /**
      * Read-only. The text for this node. To change it use setText().
      */
     /**
      * True if this node is disabled.
      */
+     public var disabled  : Boolean;
     /**
      * True if this node is hidden.
      */
+     public var hidden  : Boolean;
     /**
      * Read-only. The UI for this node
      */
     public var preventHScroll : TreeNodeUI;
     /**
      * Returns true if this node is expanded
-     * @return 
+     * @return Boolean returns true if this node is expanded
      */
     public native function isExpanded() : Boolean;
 /**

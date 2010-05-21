@@ -16,6 +16,34 @@ public function Node(attributes : Object) {
      * The attributes supplied for the node. You can use this property to access any custom attributes you supplied.
      */
   public var attributes : Object;
+  /**
+   * All child nodes of this node.
+   */
+  public var childNodes  : Array;
+  /**
+   * The node id.
+   */
+  public var id  : String;
+  /**
+   * The first direct child node of this node, or null if this node has no child nodes.
+   */
+  public var firstChild  : Node;
+  /**
+   * The last direct child node of this node, or null if this node has no child nodes.
+   */
+  public var lastChild  : Node;
+  /**
+   * The node immediately following this node in the tree, or null if there is no sibling node.
+   */
+  public var nextSibling  : Node;
+  /**
+   * The parent node for this node.
+   */
+  public var parentNode  : Node;
+  /**
+   * The node immediately preceding this node in the tree, or null if there is no sibling node.
+   */
+  public var previousSibling  : Node;
 
   override public native function fireEvent(eventName : String, ...args) : Boolean;
     /**
@@ -69,7 +97,7 @@ public function Node(attributes : Object) {
      * Removes this node from its parent
      * @return this
      */
-    public native function remove() : Node;
+    public native function remove(destroy : Boolean) : Node;
     /**
      * Returns the child node at the specified index.
      * @param index

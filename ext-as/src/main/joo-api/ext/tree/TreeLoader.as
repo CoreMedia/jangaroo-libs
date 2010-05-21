@@ -118,7 +118,14 @@ paramOrder&#58; 'param1|param2|param'
     public native function load(node : TreeNode, callback : Function, scope : Object) : void;
     public native function doPreload(node) : void;
     public native function getParams(node) : void;
-    public native function requestData(node, callback, scope) : void;
+
+  /**
+   * Not documented in ExtJS 
+   * @param node
+   * @param callback
+   * @param scope
+   */
+    public native function requestData(node : TreeNode, callback : Function, scope : Object) : void;
     public native function processDirectResponse(result, response, args) : void;
     protected native function runCallback(cb, scope, args) : void;
     public native function isLoading() : void;
