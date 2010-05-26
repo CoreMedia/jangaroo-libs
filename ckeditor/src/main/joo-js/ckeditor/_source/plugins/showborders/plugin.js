@@ -1,4 +1,4 @@
-﻿/*
+/*
 Copyright (c) 2003-2010, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.html or http://ckeditor.com/license
 */
@@ -20,7 +20,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 			'.%1 table.%2,',
 			 '.%1 table.%2 td, .%1 table.%2 th,',
 			 '{',
-				'border : #d3d3d3 1px dotted',
+				'border : #BCBCBC 1px solid',
 			 '}'
 		  ] :
 		  [
@@ -30,7 +30,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 			 '.%1 table.%2 > thead > tr > td, .%1 table.%2 > thead > tr > th,',
 			 '.%1 table.%2 > tfoot > tr > td, .%1 table.%2 > tfoot > tr > th',
 			 '{',
-				'border : #d3d3d3 1px dotted',
+				'border : #BCBCBC 1px solid',
 			 '}'
 		  ] ).join( '' );
 
