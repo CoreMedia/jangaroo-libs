@@ -1,6 +1,7 @@
 package ext.tree {
 
 import ext.Editor;
+import ext.form.Field;
 
 /**
  * Provides editor functionality for inline tree node editing.  Any valid <b class='link'>ext.form.Field</b> subclass can be used
@@ -19,12 +20,22 @@ public function TreeEditor(tree : TreePanel, fieldConfig : Object = undefined, c
   tree++;
   fieldConfig++;
 }
+   /**
+    * @cfg {String} alignment
+    * The position to align to (see <b class='link'>ext.Element#alignTo</b> for more details, defaults to "l-l").
+    */
+    public var alignment : String;
     /**
-     * @cfg {String} alignment
-     * The position to align to (see <b class='link'>ext.Element#alignTo</b> for more details, defaults to "l-l").
+     * @cfg {String} autoSize
+     * True for the editor to automatically adopt the size of the underlying field, "width" to adopt the width only,
+     * or "height" to adopt the height only, "none" to always use the field dimensions. (defaults to false)
      */
-    //public var alignment : String;
-    public var autoSize;
+    public var autoSize : *;
+    /**
+     * @cfg {Field} field
+     * The Field object (or descendant) or config object for field
+     */
+    public var field  : Field;
     /**
      * @cfg {Boolean} hideEl
      * True to hide the bound element while the editor is displayed (defaults to false)
