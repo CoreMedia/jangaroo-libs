@@ -893,8 +893,37 @@ alert(t.getXTypes());  // alerts 'component/box/field/textfield'
     public native function getDomPositionEl() : void;
     override public native function purgeListeners() : void;
     protected native function clearMons() : void;
-    public native function mon(item, ename, fn, scope, opt) : void;
-    public native function mun(item, ename, fn, scope) : void;
+    /**
+     *
+     * Adds listeners to any Observable object (or Elements) which are automatically removed when this Component
+     * is destroyed. Usage:
+     * myGridPanel.mon(myGridPanel.getSelectionModel(), 'selectionchange', handleSelectionChange, null, {buffer: 50});
+     *
+     * or:
+     * myGridPanel.mon(myGridPanel.getSelectionModel(), {
+     *   selectionchange: handleSelectionChange,
+     *   buffer: 50
+     * });
+     * @param {Observable|Element} item The item to which to add a listener/listeners.
+     * @param {Object|String} ename The event name, or an object containing event name properties.
+     * @param {Function} fn Optional. If the ename parameter was an event name, this
+     * is the handler function.
+     * @param {Object} scope Optional. If the ename parameter was an event name, this
+     * is the scope (this reference) in which the handler function is executed.
+     * @param {Object} opt Optional. If the ename parameter was an event name, this
+     * is the {@link Ext.util.Observable#addListener addListener} options.
+     */
+    public native function mon(item:*, ename:*, fn:Function, scope:Object=undefined, opt:Object=undefined) : void;
+    /**
+     * Removes listeners that were added by the {@link #mon} method.
+     * @param {Observable|Element} item The item from which to remove a listener/listeners.
+     * @param {Object|String} ename The event name, or an object containing event name properties.
+     * @param {Function} fn Optional. If the ename parameter was an event name, this
+     * is the handler function.
+     * @param {Object} scope Optional. If the ename parameter was an event name, this
+     * is the scope (this reference) in which the handler function is executed.
+     */
+    public native function mun(item:*, ename:*, fn:Function, scope:Object=undefined) : void;
     /**
      * Returns the next component in the owning container
      * @return 
