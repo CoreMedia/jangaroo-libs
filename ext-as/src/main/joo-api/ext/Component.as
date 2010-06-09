@@ -913,7 +913,7 @@ alert(t.getXTypes());  // alerts 'component/box/field/textfield'
      * @param {Object} opt Optional. If the ename parameter was an event name, this
      * is the {@link Ext.util.Observable#addListener addListener} options.
      */
-    public native function mon(item:*, ename:*, fn:Function, scope:Object=undefined, opt:Object=undefined) : void;
+    public native function mon(item:*, ename:*, fn:Function=undefined, scope:Object=undefined, opt:Object=undefined) : void;
     /**
      * Removes listeners that were added by the {@link #mon} method.
      * @param {Observable|Element} item The item from which to remove a listener/listeners.
@@ -923,7 +923,7 @@ alert(t.getXTypes());  // alerts 'component/box/field/textfield'
      * @param {Object} scope Optional. If the ename parameter was an event name, this
      * is the scope (this reference) in which the handler function is executed.
      */
-    public native function mun(item:*, ename:*, fn:Function, scope:Object=undefined) : void;
+    public native function mun(item:*, ename:*, fn:Function=undefined, scope:Object=undefined) : void;
     /**
      * Returns the next component in the owning container
      * @return 
