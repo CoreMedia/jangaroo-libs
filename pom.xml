@@ -4,7 +4,7 @@
   <groupId>net.jangaroo</groupId>
   <artifactId>jangaroo-libs</artifactId>
   <packaging>pom</packaging>
-  <version>0.5.35-SNAPSHOT</version>
+  <version>0.6.0-SNAPSHOT</version>
 
   <name>Jangaroo standard libraries</name>
   <description />
@@ -15,7 +15,7 @@
     <developerConnection>scm:perforce://coremedia/jangaroo-libs</developerConnection>
   </scm>
   <properties>
-    <jangaroo_version>0.5.1</jangaroo_version>
+    <jangaroo_version>0.6.0-SNAPSHOT</jangaroo_version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
@@ -91,6 +91,10 @@
       <resource>
         <directory>src/main/resources</directory>
       </resource>
+      <resource>
+        <directory>src/main/joo-api</directory>
+        <targetPath>META-INF/joo-api</targetPath>
+      </resource>
     </resources>
     <outputDirectory>target/joo</outputDirectory>
     <sourceDirectory>src/main/joo</sourceDirectory>
@@ -159,10 +163,9 @@
     </dependencies>
   </dependencyManagement>
 
+  
   <modules>
     <module>xmlhttprequest</module>
-    <module>xmlhttprequest-as</module>
-
     <module>jangaroo-browser</module>
 
     <module>jooflash</module>

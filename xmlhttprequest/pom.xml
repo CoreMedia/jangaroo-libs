@@ -4,11 +4,11 @@
   <groupId>net.jangaroo</groupId>
   <artifactId>xmlhttprequest</artifactId>
   <packaging>jangaroo</packaging>
-  <version>0.5.35-SNAPSHOT</version>
+  <version>0.6.0-SNAPSHOT</version>
   <parent>
     <groupId>net.jangaroo</groupId>
     <artifactId>jangaroo-libs</artifactId>
-    <version>0.5.35-SNAPSHOT</version>
+    <version>0.6.0-SNAPSHOT</version>
   </parent>
   <name>xmlhttprequest</name>
   <url>http://code.google.com/p/xmlhttprequest/</url>
