@@ -69,12 +69,6 @@
         <version>${project.version}</version>
         <type>jangaroo</type>
       </dependency>
-      <dependency>
-        <groupId>net.jangaroo</groupId>
-        <artifactId>xmlhttprequest-as</artifactId>
-        <version>${project.version}</version>
-        <type>jangaroo</type>
-      </dependency>
     </dependencies>
   </dependencyManagement>
 
