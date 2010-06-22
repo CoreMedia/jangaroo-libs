@@ -12,10 +12,10 @@
 package mx.utils
 {
 
-//import flash.utils.ByteArray;
+import flash.utils.ByteArray;
 import flash.utils.Dictionary;
 import flash.utils.getQualifiedClassName;
-//import flash.xml.XMLNode;
+import flash.xml.XMLNode;
 
 import mx.collections.IList;
 
@@ -1064,6 +1064,7 @@ public class ObjectUtil
     private static function recordMetadata(properties:XMLList):Object
     {
         var result:Object = null;
+      /*
 
         try
         {
@@ -1120,10 +1121,10 @@ public class ObjectUtil
         catch(e:Error)
         {
         }
+    */
         
         return result;
     }
-
 
     /**
      *  @private
