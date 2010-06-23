@@ -1,9 +1,9 @@
 package ext.data.store {
 
-import ext.Error;
+import ext.ExtError;
 /**
  * Store Error extension.
  */
-public class Error extends ext.Error {
+public class Error extends ext.ExtError {
 }
 }

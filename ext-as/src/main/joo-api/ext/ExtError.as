@@ -1,7 +1,5 @@
 package ext {
 
-import js.Error;
-
 /**
  * <p>A base error class. Future implementations are intended to provide more
  * robust error handling throughout the framework (<b>in the debug build only</b>)
@@ -31,11 +29,11 @@ function generateError(data) {
 }
  * </code></pre>
  */
-public class Error extends js.Error {
+public class ExtError extends Error {
   /**
    * @param message
    */
-  public function Error(message : String = null) {
+  public function ExtError(message : String = null) {
     super(message);
   }
 
