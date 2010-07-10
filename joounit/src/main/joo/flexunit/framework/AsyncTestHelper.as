@@ -42,7 +42,7 @@ package flexunit.framework
            this.testResult = testResult;
            timer = new Timer( 100 );
            timer.addEventListener( TimerEvent.TIMER, timerHandler );
-           this.handleEvent; // triggers Jangaroo to generate bound method code
+           this.handleEvent = this.handleEvent.bind(this);
        }
 
    //------------------------------------------------------------------------------

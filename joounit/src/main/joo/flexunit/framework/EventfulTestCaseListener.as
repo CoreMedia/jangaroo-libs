@@ -154,7 +154,7 @@ package flexunit.framework
       {
          _dispatchedExpectedEvents = new Array();
          _expectedEventTypes = new Array();
-        this.handleEvent; // triggers Jangaroo to generate bound method code
+        this.handleEvent = this.handleEvent.bind(this);
       }
 
       //-------------------------------
