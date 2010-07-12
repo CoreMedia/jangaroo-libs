@@ -33,9 +33,9 @@ POSSIBILITY OF SUCH DAMAGE.
 package flexunit.framework
 {
    import flash.events.Event;
-   
-//   import mx.collections.ArrayCollection;
-//   import mx.collections.ListCollectionView;
+
+   import mx.collections.ArrayCollection;
+   import mx.collections.ListCollectionView;
 
    /**
     * Listens for expected events, keeping track of the expected events that
@@ -50,13 +50,13 @@ package flexunit.framework
       //
       //-------------------------------
 
-      private var _expectedEventTypes : Array
-               = new Array();
-      private var _unexpectedEventTypes : Array
-               = new Array();
+      private var _expectedEventTypes : ListCollectionView
+               = new ArrayCollection();
+      private var _unexpectedEventTypes : ListCollectionView
+               = new ArrayCollection();
 
-      private var _dispatchedExpectedEvents : Array
-               = new Array();
+      private var _dispatchedExpectedEvents : ListCollectionView
+               = new ArrayCollection();
 
       /**
        * Gets a comma-separated string listing the types of events that were
@@ -128,7 +128,7 @@ package flexunit.framework
        */
       public function get dispatchedExpectedEvents() : Array
       {
-         return _dispatchedExpectedEvents;
+         return _dispatchedExpectedEvents.toArray();
       }
 
       /**
@@ -141,7 +141,7 @@ package flexunit.framework
             return null;
          }
 
-         return Event( _dispatchedExpectedEvents[ _dispatchedExpectedEvents.length - 1 ] );
+         return Event( _dispatchedExpectedEvents.getItemAt( _dispatchedExpectedEvents.length - 1 ) );
       }
 
       //-------------------------------
@@ -152,8 +152,8 @@ package flexunit.framework
 
       public function EventfulTestCaseListener()
       {
-         _dispatchedExpectedEvents = new Array();
-         _expectedEventTypes = new Array();
+         _dispatchedExpectedEvents = new ArrayCollection();
+         _expectedEventTypes = new ArrayCollection();
         this.handleEvent = this.handleEvent.bind(this);
       }
 
@@ -167,16 +167,16 @@ package flexunit.framework
        * Records an event being listened for.
        *
        * @param type
-       *    the type of event 
+       *    the type of event
        * @param expected
        *    whether the event is expected to be dispatched or not
        */
       public function listenForEvent( type : String, expected : Boolean ) : void
       {
       	if ( expected )
-	         _expectedEventTypes.push( type );
+	         _expectedEventTypes.addItem( type );
 	      else
-         	_unexpectedEventTypes.push( type );
+         	_unexpectedEventTypes.addItem( type );
       }
 
       /**
@@ -185,26 +185,26 @@ package flexunit.framework
        */
       public function expectedEventsDispatched() : Boolean
       {
-         for each ( var expectedEvent : String in _expectedEventTypes )
+         for each ( var expectedEvent : String in _expectedEventTypes.toArray() )
          {
          	if ( expectedEventDispatched( expectedEvent ) == false )
          		return false;
          }
-         return true;      	
+         return true;
       }
-      
-      /** 
-      *  Verifies the expected event was dispatched 
+
+      /**
+      *  Verifies the expected event was dispatched
       */
       public function expectedEventDispatched( expectedEvent : String ) : Boolean
       {
-      	for each ( var actualEvent : Event in _dispatchedExpectedEvents )
+      	for each ( var actualEvent : Event in _dispatchedExpectedEvents.toArray() )
         	{
             if ( actualEvent.type == expectedEvent )
             {
                return true;
             }
-         }      	
+         }
          return false;
       }
 
@@ -214,23 +214,23 @@ package flexunit.framework
        */
       public function unexpectedEventsNotDispatched() : Boolean
       {
-         for each ( var unexpectedEvent : String in _unexpectedEventTypes )
+         for each ( var unexpectedEvent : String in _unexpectedEventTypes.toArray() )
          {
          	if ( unexpectedEventNotDispatched( unexpectedEvent ) == false )
          	{
          		return false;
-         	}	
+         	}
          }
 
          return true;
       }
 
-      /** 
-      *  Verifies that the unexpected event was not dispatched 
+      /**
+      *  Verifies that the unexpected event was not dispatched
       */
       public function unexpectedEventNotDispatched( unexpectedEvent : String ) : Boolean
       {
-	      for each ( var actualEvent : Event in _dispatchedExpectedEvents )
+	      for each ( var actualEvent : Event in _dispatchedExpectedEvents.toArray() )
          {
             if( actualEvent.type == unexpectedEvent )
             {
@@ -240,13 +240,13 @@ package flexunit.framework
 
          return true;
       }
-      
+
       /**
        * Handles an event by recording that it actually occurred.
        */
       public function handleEvent( event : Event ) : void
       {
-         _dispatchedExpectedEvents.push( event );
+         _dispatchedExpectedEvents.addItem( event );
       }
    }
 }
