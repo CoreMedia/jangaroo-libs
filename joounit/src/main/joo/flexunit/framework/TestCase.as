@@ -30,7 +30,6 @@ package flexunit.framework
 {
 
    import flash.utils.*;
-   import flash.utils.describeType;
 
    /**
     * The Base Class for test cases. A Test case defines the fixture in which to run multiple tests.
@@ -49,7 +48,7 @@ package flexunit.framework
     *
     * For each test, implement a method which interacts
     * with the fixture. Verify the expected results using the assertions
-    * residing in the class <code>Assert</code>.
+    * residing in the base class <code>Assert</code>.
     * <code>
     *  public function testAddMoney()
     *  {
@@ -63,11 +62,11 @@ package flexunit.framework
     *
     *     var money3 : Money = money1.addMoney( money2 )
     *
-    *     Assert.assertNotNull( "money was null", money3 );
-    *     Assert.assertNotUndefined( "money was undefined", money3 );
+    *     assertNotNull( "money was null", money3 );
+    *     assertNotUndefined( "money was undefined", money3 );
     *
-    *     Assert.assertEquals( "Dollars should be 6", 6, money3.dollars );
-    *     Assert.assertEquals( "Cents should be 70", 70, money3.cents );
+    *     assertEquals( "Dollars should be 6", 6, money3.dollars );
+    *     assertEquals( "Cents should be 70", 70, money3.cents );
     *  }
     * </code>
     * You can also specify <code>setUp()</code> and <code>tearDown()</code> methods
@@ -112,18 +111,17 @@ package flexunit.framework
     *   public function eventHandler(event : ValueEvent, expected : String)
     *   {
     *      var actual : String = event.value;
-    *      Assert.assertEquals(expected, actual);
+    *      assertEquals(expected, actual);
     *   }
     * <code>
     *
     *
-    * @see flexunit.flexui.TestRunner
     * @see flexunit.framework.Assert
     * @see flexunit.framework.TestSuite
     * @see flexunit.framework.TestResult
     *
     */
-   public class TestCase implements Test
+   public class TestCase extends Assert implements Test
    {
 
    //------------------------------------------------------------------------------
@@ -263,7 +261,7 @@ package flexunit.framework
        {
            if ( methodName == null || methodName == "" )
            {
-               Assert.fail( "No test method to run" );
+               fail( "No test method to run" );
            }
 
            if ( asyncTestHelper != null )
@@ -295,7 +293,7 @@ package flexunit.framework
                passThroughData : Object = null,
                failFunc : Function = null ) : Function
       {
-         Assert.oneAssertionHasBeenMade();
+         oneAssertionHasBeenMade();
          
          if ( asyncTestHelper == null )
          {
@@ -361,9 +359,9 @@ package flexunit.framework
             methodNames = new Array();
 
             var type : XML = describeType( this );
-            var names : XMLList = type.method["@name"];
+            var names : XMLList = type.method.@name;
 
-            for ( var i : uint = 0; i < names.length; i++ )
+            for ( var i : uint = 0; i < names.length(); i++ )
             {
                if ( isTestMethod( String( names[ i ] ) ) )
                {

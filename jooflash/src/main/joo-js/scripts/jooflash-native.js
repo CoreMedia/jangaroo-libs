@@ -11,12 +11,18 @@ flash_utils.getQualifiedClassName = function getQualifiedClassName(value) {
     };
 flash_utils.describeType = function(value) {
       var type = typeof value=="function" ? value : value.constructor;
-      var methods = [];
+      // fake collection:
+      var len = 0;
+      var methods = {
+        length: function() {
+          return len;
+        }
+      };
       if (type && type.prototype) {
         for (var p in type.prototype) {
           if (p.match(/^[a-zA-Z_]/) && !isGetterOrSetter(type.prototype,p)
               && typeof type.prototype[p]=="function") {
-            methods.push(p);
+            methods[len++] = p;
           }
         }
       }

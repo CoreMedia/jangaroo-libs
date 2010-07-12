@@ -200,7 +200,7 @@ package flexunit.framework
       public function assertEvents(
          message : String = "" ) : void
       {
-         Assert.oneAssertionHasBeenMade();
+         oneAssertionHasBeenMade();
       	
          var failed : Boolean = failExpectedEventsDidNotOccur( message, eventListener );
          if ( !failed )
