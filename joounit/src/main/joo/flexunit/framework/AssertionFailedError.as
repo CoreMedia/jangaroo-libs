@@ -36,7 +36,6 @@ package flexunit.framework
        public function AssertionFailedError( message : String = "" )
        {
            super( message );
-           this.message = message;
        }
 
       public override function toString() : String
@@ -44,6 +43,5 @@ package flexunit.framework
           return message;
       }
 
-      public var message : String;
    }
 }
