@@ -2,13 +2,13 @@
   <parent>
     <groupId>net.jangaroo</groupId>
     <artifactId>jangaroo-libs</artifactId>
-    <version>0.6.0-SNAPSHOT</version>
+    <version>0.6.0</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <groupId>net.jangaroo</groupId>
   <artifactId>joounit</artifactId>
   <packaging>jangaroo</packaging>
-  <version>0.6.0-SNAPSHOT</version>
+  <version>0.6.0</version>
   
   <name>joounit</name>
   <description>JooUnit - Jangaroo FlexUnit 3</description>
@@ -61,14 +61,14 @@
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>jooflash</artifactId>
-      <version>0.6.0-SNAPSHOT</version>
+      <version>0.6.0</version>
       <type>jangaroo</type>
     </dependency>
 
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>jooflexframework</artifactId>
-      <version>0.6.0-SNAPSHOT</version>
+      <version>0.6.0</version>
       <type>jangaroo</type>
     </dependency>
 
