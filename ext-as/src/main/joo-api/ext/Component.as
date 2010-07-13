@@ -717,11 +717,23 @@ var myGrid = new ext.grid.EditorGridPanel({
      */
     public native function addClass(cls : String) : Component;
     /**
+     * Add the given CSS classes to the component's underlying element.
+     * @param classes The CSS classes (Array of Strings) to add
+     * @return this
+     */
+    public native function addClasses(classes : Array) : Component;
+    /**
      * Removes a CSS class from the component's underlying element.
      * @param cls The CSS class name to remove
      * @return this
      */
     public native function removeClass(cls : String) : Component;
+    /**
+     * Removes the given CSS classes from the component's underlying element.
+     * @param classes The CSS classes (Array of Strings) to remove
+     * @return this
+     */
+    public native function removeClasses(classes : Array) : Component;
     protected native function onRender(container : Element, position : Element) : void;
     protected native function getAutoCreate() : void;
     protected native function afterRender()  : void;
@@ -769,7 +781,6 @@ new ext.Panel({
      * Returns the <code><b class='link' title='#itemId'>itemId</b></code> of this component.  If an
      * <code><b class='link' title='#itemId'>itemId</b></code> was not assigned through configuration the
      * <code>id</code> is returned using <code><b class='link' title='#getId'>getId</b></code>.
-     * @return 
      */
     public native function getItemId() : String;
     /**
@@ -926,12 +937,10 @@ alert(t.getXTypes());  // alerts 'component/box/field/textfield'
     public native function mun(item:*, ename:*, fn:Function=undefined, scope:Object=undefined) : void;
     /**
      * Returns the next component in the owning container
-     * @return 
      */
     public native function nextSibling() : Component;
     /**
      * Returns the previous component in the owning container
-     * @return 
      */
     public native function previousSibling() : Component;
     /**

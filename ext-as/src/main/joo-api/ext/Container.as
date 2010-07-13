@@ -417,7 +417,7 @@ tb.<b class='link' title='#doLayout'>doLayout</b>();             // refresh the 
      * @param  components more components to add.
      * @return component The Component (or config object) that was added.
      */
-    public native function add(component : *, ...components : Array) : Component;
+    public native function add(component : Object, ...components : Array) : Object;
     /**
      * Inserts a Component into this Container at a specified index. Fires the
      * <b class='link' title='#beforeadd'>beforeadd</b> event before inserting, then fires the <b class='link' title='#add'>add</b> event after the
@@ -436,7 +436,7 @@ tb.<b class='link' title='#doLayout'>doLayout</b>();             // refresh the 
      * @return component The Component (or config object) that was
      * inserted with the Container's default config values applied.
      */
-    public native function insert(index : Number, component : Component) : Component;
+    public native function insert(index : Number, component : Object) : Object;
     protected native function applyDefaults(c) : void;
     protected native function onBeforeAdd(item) : void;
     /**
@@ -515,7 +515,6 @@ tb.<b class='link' title='#doLayout'>doLayout</b>();             // refresh the 
     /**
      * Find a component under this container at any level by id
      * @param id
-     * @return 
      */
     public native function findById(id : String) : Component;
     /**

@@ -13,4 +13,14 @@ ext.data.jsonreader = Ext.data.JsonReader;
 ext.data.store = Ext.data.Store;
 ext.form.action = Ext.form.Action;
 ext.layout.borderlayout = Ext.layout.BorderLayout;
-ext.menu.Menu.prototype.showMenu = ext.menu.Menu.prototype.show; // patch for overloaded method renamed in AS API
+ext.util.ExtDate = Date;
+// aliases for overloaded methods, renamed in Ext AS API:
+ext.menu.Menu.prototype.showMenu = function(element, position, parentMenu) {
+  this.show(element, position, parentMenu);
+};
+ext.Component.prototype.addClasses = function(classes) {
+  return this.addClass(classes);
+};
+ext.Component.prototype.removeClasses = function(classes) {
+  return this.removeClass(classes);
+};

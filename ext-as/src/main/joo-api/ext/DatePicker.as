@@ -1,4 +1,5 @@
 package ext {
+import ext.util.ExtDate;
 
 /**
  * Simple date picker class.
@@ -163,7 +164,7 @@ public function DatePicker(config : Object) {
      * Gets the current selected value of the date field
      * @return The selected date
      */
-    public native function getValue() : Date;
+    public native function getValue() : ExtDate;
     override public native function focus(selectText : Boolean = undefined, delay : * = undefined) : Component;
     override protected native function onEnable() : void;
     override protected native function onDisable() : void;

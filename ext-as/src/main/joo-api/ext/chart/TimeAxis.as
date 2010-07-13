@@ -1,4 +1,6 @@
 package ext.chart {
+import ext.util.ExtDate;
+
 /**
  * A type of axis whose units are measured in time-based values.
 */
@@ -16,7 +18,7 @@ public function TimeAxis() {
      *
      * @property minimum
      */
-    public var minimum : Date;
+    public var minimum : ExtDate;
     /**
      * The maximum value drawn by the axis. If not set explicitly, the axis maximum
      * will be calculated automatically.

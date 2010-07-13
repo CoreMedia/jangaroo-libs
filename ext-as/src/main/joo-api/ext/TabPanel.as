@@ -252,6 +252,7 @@ var tabs = new ext.TabPanel({
          * <code><b class='link' title='#deferredRender'>deferredRender</b></code> and <code><b class='link' title='#layoutOnTabChange'>layoutOnTabChange</b></code>
          * configured on the TabPanel will be applied as configs to the layout manager.
          */
+    public var layoutConfig : Object;
     override protected native function onRender(container : Element, position : Element) : void;
         /**
          * @cfg {Template/XTemplate} itemTpl <p>(Optional) A <b class='link' title='ext.Template'>Template</b> or
@@ -315,6 +316,7 @@ new ext.TabPanel({
 });
 </code></pre>
          */
+    public var itemTpl : Template;
     override protected native function afterRender() : void;
     override protected native function initEvents() : void;
     protected native function findTargets(e) : void;
