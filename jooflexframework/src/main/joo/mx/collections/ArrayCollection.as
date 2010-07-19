@@ -11,6 +11,7 @@
 
 package mx.collections
 {
+import flash.events.Event;
 
 /**
  *  The ArrayCollection class is a wrapper class that exposes an Array as
@@ -46,7 +47,7 @@ package mx.collections
  *        doCelebration();
  *  </pre>
  */
-public class ArrayCollection extends ListCollectionView
+public class ArrayCollection extends Array implements ListCollectionView
 {
   include "../core/Version.asfragment";
 
@@ -62,23 +63,17 @@ public class ArrayCollection extends ListCollectionView
    *  <p>Creates a new ArrayCollection using the specified source array.
    *  If no array is specified an empty array will be used.</p>
    */
-  public function ArrayCollection(source:Array = null)
+  public function ArrayCollection(source:Array = undefined)
   {
     super();
 
-    this.source = source || [];
+    if (source) {
+      for (var i:uint = 0; i < source.length; ++i) {
+        this[i] = source[i];
+      }
+      this.length = source.length;
+    }
   }
-
-  //--------------------------------------------------------------------------
-  //
-  // Private variables
-  //
-  //--------------------------------------------------------------------------
-
-  /**
-   *  @private
-   */
-  private var source:Array;
 
   //--------------------------------------------------------------------------
   //
@@ -89,58 +84,92 @@ public class ArrayCollection extends ListCollectionView
   /**
    * @inheritDoc
    */
-  override public function get length():int {
-    return source.length;
-  }
-
-  /**
-   * @inheritDoc
-   */
-  override public function getItemAt(index:int, prefetch:int = 0):Object {
-    if (index < 0 || index >= source.length)
+  public function getItemAt(index:int, prefetch:int = 0):Object {
+    if (index < 0 || index >= length)
     {
       throw new /*Range*/Error("[collections] outOfBounds: " + index);
     }
 
-    return source[index];
+    return this[index];
   }
 
   /**
    * @inheritDoc
    */
-  override public function addItem(item:Object):void {
-    source.push(item);
+  public function addItem(item:Object):void {
+    this[length++] = item;
   }
 
   /**
    * @inheritDoc
    */
-  override public function toArray():Array {
-    return source.concat();
+  public function toArray():Array {
+    var result:Array = [];
+    for (var i:uint = 0; i < length; ++i) {
+      result[i] = this[i];
+    }
+    return result;
   }
 
   /**
    * @inheritDoc
    */
-  override public function getItemIndex(item:Object):int {
-    return source.indexOf(item);
+  public function getItemIndex(item:Object):int {
+    return indexOf(item);
   }
 
   /**
    * @inheritDoc
    */
-  override public function removeAll():void {
-    source.length = 0;
+  public function removeAll():void {
+    length = 0;
   }
 
   /**
    * @inheritDoc
    */
-  override public function setItemAt(item:Object, index:int):Object {
+  public function setItemAt(item:Object, index:int):Object {
     var oldItem:Object = getItemAt(index);
-    source[index] = item;
+    this[index] = item;
     return oldItem;
   }
 
+  //--------------------------------------------------------------------------
+  //
+  // IList Methods
+  //
+  //--------------------------------------------------------------------------
+
+  public function addItemAt(item:Object, index:int):void {
+    throw new Error("not implemented");
+  }
+
+  public function itemUpdated(item:Object, property:Object = null, oldValue:Object = null, newValue:Object = null):void {
+    throw new Error("not implemented");
+  }
+
+  public function removeItemAt(index:int):Object {
+    throw new Error("not implemented");
+  }
+
+  public function dispatchEvent(event:Event):Boolean {
+    throw new Error("not implemented");
+  }
+
+  public function hasEventListener(type:String):Boolean {
+    throw new Error("not implemented");
+  }
+
+  public function willTrigger(type:String):Boolean {
+    throw new Error("not implemented");
+  }
+
+  public function removeEventListener(type:String, listener:Function, useCapture:Boolean = false):void {
+    throw new Error("not implemented");
+  }
+
+  public function addEventListener(type:String, listener:Function, useCapture:Boolean = false, priority:int = 0, useWeakReference:Boolean = false):void {
+    throw new Error("not implemented");
+  }
 }
 }

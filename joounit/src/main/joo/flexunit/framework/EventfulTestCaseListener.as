@@ -66,7 +66,7 @@ package flexunit.framework
       {
          var eventTypes : String = "";
 
-         for ( var i: uint; i < _expectedEventTypes.length; i++ )
+        for ( var i: uint = 0; i < _expectedEventTypes.length; i++ )
          {
             eventTypes += _expectedEventTypes[ i ] as String;
 
@@ -87,7 +87,7 @@ package flexunit.framework
       {
          var eventTypes : String = "";
 
-         for ( var i: uint; i < _unexpectedEventTypes.length; i++ )
+         for ( var i: uint = 0; i < _unexpectedEventTypes.length; i++ )
          {
             eventTypes += _unexpectedEventTypes[ i ] as String;
 
@@ -185,8 +185,9 @@ package flexunit.framework
        */
       public function expectedEventsDispatched() : Boolean
       {
-         for each ( var expectedEvent : String in _expectedEventTypes.toArray() )
+        for (var i:uint = 0; i < _expectedEventTypes.length; ++i )
          {
+            var expectedEvent : String = _expectedEventTypes[i];
          	if ( expectedEventDispatched( expectedEvent ) == false )
          		return false;
          }
@@ -198,8 +199,9 @@ package flexunit.framework
       */
       public function expectedEventDispatched( expectedEvent : String ) : Boolean
       {
-      	for each ( var actualEvent : Event in _dispatchedExpectedEvents.toArray() )
+      	for (var i:uint = 0; i < _dispatchedExpectedEvents.length; ++i )
         	{
+              var actualEvent : Event = _dispatchedExpectedEvents[i];
             if ( actualEvent.type == expectedEvent )
             {
                return true;
@@ -214,8 +216,9 @@ package flexunit.framework
        */
       public function unexpectedEventsNotDispatched() : Boolean
       {
-         for each ( var unexpectedEvent : String in _unexpectedEventTypes.toArray() )
+         for (var i:uint = 0; i < _unexpectedEventTypes.length; ++i )
          {
+            var unexpectedEvent : String = _unexpectedEventTypes[i];
          	if ( unexpectedEventNotDispatched( unexpectedEvent ) == false )
          	{
          		return false;
@@ -230,8 +233,9 @@ package flexunit.framework
       */
       public function unexpectedEventNotDispatched( unexpectedEvent : String ) : Boolean
       {
-	      for each ( var actualEvent : Event in _dispatchedExpectedEvents.toArray() )
+	      for (var i:uint = 0; i < _dispatchedExpectedEvents.length; ++i )
          {
+            var actualEvent : Event = _dispatchedExpectedEvents[i];
             if( actualEvent.type == unexpectedEvent )
             {
                return false;
