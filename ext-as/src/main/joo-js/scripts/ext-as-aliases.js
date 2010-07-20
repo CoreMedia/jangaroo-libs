@@ -14,6 +14,7 @@ ext.data.store = Ext.data.Store;
 ext.form.action = Ext.form.Action;
 ext.layout.borderlayout = Ext.layout.BorderLayout;
 ext.util.ExtDate = Date;
+ext.util.StringUtil = String;
 // aliases for overloaded methods, renamed in Ext AS API:
 ext.menu.Menu.prototype.showMenu = function(element, position, parentMenu) {
   this.show(element, position, parentMenu);
