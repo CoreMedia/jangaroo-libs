@@ -55,6 +55,6 @@ public class SplitButton extends Button {
     override public native function getMenuClass() : void;
     public native function isClickOnArrow(e) : void;
     override protected native function onClick(e) : void;
-    override protected native function isMenuTriggerOver(e, $internal) : void;
-    override protected native function isMenuTriggerOut(e, $internal) : void;
+    override protected native function isMenuTriggerOver(e, _internal) : void;
+    override protected native function isMenuTriggerOut(e, _internal) : void;
 }}

@@ -257,8 +257,8 @@ public function Button(config : Object) {
      */
     public native function hasVisibleMenu() : Boolean;
     protected native function onClick(e) : void;
-    protected native function isMenuTriggerOver(e, $internal) : void;
-    protected native function isMenuTriggerOut(e, $internal) : void;
+    protected native function isMenuTriggerOver(e, _internal) : void;
+    protected native function isMenuTriggerOut(e, _internal) : void;
     protected native function onMouseOver(e) : void;
     protected native function monitorMouseOver(e) : void;
     protected native function onMouseOut(e) : void;
@@ -276,9 +276,9 @@ public function Button(config : Object) {
        public native function register(btn) : void;
        public native function unregister(btn) : void;
        /**
-        * Gets the pressed button in the passed group or null
+        * Gets the pressed button in the passed group or null.
         * @param group
-        * @return 
+        * @return Button the pressed button in the passed group or null
         */
        public native function getPressed(group : String) : Button;
 }}
