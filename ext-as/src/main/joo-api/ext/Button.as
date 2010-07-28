@@ -1,4 +1,5 @@
 package ext {
+import ext.menu.Menu;
 
 /**
  * Simple Button class
@@ -164,6 +165,8 @@ public function Button(config : Object) {
      * @property menu
      * The <b class='link' title='Ext.menu.Menu'>Menu</b> object associated with this Button when configured with the <b class='link' title='#menu'>menu</b> config option.
      */
+    public var menu:Menu;
+
     override protected native function initComponent() : void;
 /**
   * <p>This method returns an object which provides substitution parameters for the <b class='link' title='#template'>Template</b> used
