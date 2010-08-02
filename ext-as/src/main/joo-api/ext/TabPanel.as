@@ -407,11 +407,11 @@ new ext.TabPanel({
     public native function getItem(id : String) : Panel;
     protected native function autoScrollTabs() : void;
     protected native function createScrollers() : void;
-    protected native function getScrollWidth() : void;
-    protected native function getScrollPos() : void;
-    protected native function getScrollArea() : void;
-    protected native function getScrollAnim() : void;
-    protected native function getScrollIncrement() : void;
+    protected native function getScrollWidth() : int;
+    protected native function getScrollPos() : int;
+    protected native function getScrollArea() : int;
+    protected native function getScrollAnim() : Object;
+    protected native function getScrollIncrement() : int;
     /**
      * Scrolls to a particular tab if tab scrolling is enabled
      * @param item The item to scroll to
