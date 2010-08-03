@@ -42,7 +42,6 @@ package flexunit.framework
            this.testResult = testResult;
            timer = new Timer( 100 );
            timer.addEventListener( TimerEvent.TIMER, timerHandler );
-           this.handleEvent = this.handleEvent.bind(this);
        }
 
    //------------------------------------------------------------------------------

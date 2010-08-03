@@ -154,7 +154,6 @@ package flexunit.framework
       {
          _dispatchedExpectedEvents = new ArrayCollection();
          _expectedEventTypes = new ArrayCollection();
-        this.handleEvent = this.handleEvent.bind(this);
       }
 
       //-------------------------------
