@@ -14,30 +14,6 @@
   <name>jooflexframework</name>
   <description>Joo Flex Framework</description>
 
-  <build>
-
-    <plugins>
-
-      <plugin>
-        <groupId>net.jangaroo</groupId>
-        <artifactId>jangaroo-lifecycle</artifactId>
-        <version>${jangaroo_version}</version>
-        <extensions>true</extensions>
-      </plugin>
-
-      <plugin>
-        <groupId>net.jangaroo</groupId>
-        <artifactId>jangaroo-maven-plugin</artifactId>
-        <configuration>
-          <enableGuessingClasses>true</enableGuessingClasses>
-          <enableGuessingMembers>true</enableGuessingMembers>
-          <enableGuessingTypeCasts>true</enableGuessingTypeCasts>
-        </configuration>
-      </plugin>
-    </plugins>
-
-  </build>
-
   <dependencies>
 
     <dependency>
