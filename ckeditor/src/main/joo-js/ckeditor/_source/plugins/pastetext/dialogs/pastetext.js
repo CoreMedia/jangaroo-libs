@@ -1,4 +1,4 @@
-﻿/*
+/*
 Copyright (c) 2003-2010, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.html or http://ckeditor.com/license
 */
@@ -16,14 +16,16 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 				onShow : function()
 				{
 					// Reset the textarea value.
-					this.getContentElement( 'general', 'content' ).getInputElement().setValue( '' );
+					this.setupContent( { text : '' } );
 				},
 
 				onOk : function()
 				{
-					// Get the textarea value.
-					var text = this.getContentElement( 'general', 'content' ).getInputElement().getValue(),
-						editor = this.getParentEditor();
+					var data = {};
+					this.commitContent( data );
+					// Insert the text.
+					var text = data.text;
+					editor = this.getParentEditor();
 
 					setTimeout( function()
 					{
