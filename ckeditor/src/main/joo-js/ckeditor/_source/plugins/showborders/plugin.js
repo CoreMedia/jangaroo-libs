@@ -1,4 +1,4 @@
-/*
+﻿/*
 Copyright (c) 2003-2010, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.html or http://ckeditor.com/license
 */
@@ -20,7 +20,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 			'.%1 table.%2,',
 			 '.%1 table.%2 td, .%1 table.%2 th,',
 			 '{',
-				'border : #BCBCBC 1px solid',
+				'border : #d3d3d3 1px dotted',
 			 '}'
 		  ] :
 		  [
@@ -30,7 +30,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 			 '.%1 table.%2 > thead > tr > td, .%1 table.%2 > thead > tr > th,',
 			 '.%1 table.%2 > tfoot > tr > td, .%1 table.%2 > tfoot > tr > th',
 			 '{',
-				'border : #BCBCBC 1px solid',
+				'border : #d3d3d3 1px dotted',
 			 '}'
 		  ] ).join( '' );
 
@@ -82,6 +82,14 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 				{
 					if ( command.state != CKEDITOR.TRISTATE_DISABLED )
 						command.refresh( editor );
+				});
+
+			editor.on( 'removeFormatCleanup', function( evt )
+				{
+					var element = evt.data;
+					if ( editor.getCommand( 'showborders' ).state == CKEDITOR.TRISTATE_ON &&
+						element.is( 'table' ) && ( !element.hasAttribute( 'border' ) || parseInt( element.getAttribute( 'border' ), 10 ) <= 0 ) )
+							element.addClass( showBorderClassName );
 				});
 		},
 
@@ -153,6 +161,32 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 						selectedTable[ ( !value || value <= 0 ) ? 'addClass' : 'removeClass' ]( showBorderClassName );
 					};
 			} );
+
+			var advTab = dialogDefinition.getContents( 'advanced' ),
+				classField = advTab && advTab.get( 'advCSSClasses' );
+
+			if ( classField )
+			{
+				classField.setup = CKEDITOR.tools.override( classField.setup, function( originalSetup )
+					{
+						return function()
+							{
+								originalSetup.apply( this, arguments );
+								this.setValue( this.getValue().replace( /cke_show_border/, '' ) );
+							};
+					});
+
+				classField.commit = CKEDITOR.tools.override( classField.commit, function( originalCommit )
+					{
+						return function( data, element )
+							{
+								originalCommit.apply( this, arguments );
+
+								if ( !parseInt( element.getAttribute( 'border' ), 10 ) )
+									element.addClass( 'cke_show_border' );
+							};
+					});
+			}
 		}
 	});
 

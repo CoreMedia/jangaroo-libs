@@ -411,13 +411,13 @@ CKEDITOR.dialog.add( 'link', function( editor )
 										type : 'select',
 										label : editor.lang.common.protocol,
 										'default' : 'http://',
-										style : 'width : 100%;',
 										items :
 										[
-											[ 'http://' ],
-											[ 'https://' ],
-											[ 'ftp://' ],
-											[ 'news://' ],
+											// Force 'ltr' for protocol names in BIDI. (#5433)
+											[ 'http://\u200E', 'http://' ],
+											[ 'https://\u200E', 'https://' ],
+											[ 'ftp://\u200E', 'ftp://' ],
+											[ 'news://\u200E', 'news://' ],
 											[ editor.lang.link.other , '' ]
 										],
 										setup : function( data )
@@ -1294,10 +1294,12 @@ CKEDITOR.dialog.add( 'link', function( editor )
 			{
 				// Create element if current selection is collapsed.
 				var selection = editor.getSelection(),
-					ranges = selection.getRanges();
+					ranges = selection.getRanges( true );
 				if ( ranges.length == 1 && ranges[0].collapsed )
 				{
-					var text = new CKEDITOR.dom.text( attributes._cke_saved_href, editor.document );
+					// Short mailto link text view (#5736).
+					var text = new CKEDITOR.dom.text( data.type == 'email' ?
+							data.email.address : attributes._cke_saved_href, editor.document );
 					ranges[0].insertNode( text );
 					ranges[0].selectNodeContents( text );
 					selection.selectRanges( ranges );
@@ -1348,9 +1350,13 @@ CKEDITOR.dialog.add( 'link', function( editor )
 
 				element.setAttributes( attributes );
 				element.removeAttributes( removeAttributes );
-				// Update text view when user changes protocol #4612.
-				if (href == textView)
-					element.setHtml( attributes._cke_saved_href );
+				// Update text view when user changes protocol (#4612).
+				if ( href == textView || data.type == 'email' && textView.indexOf( '@' ) != -1 )
+				{
+					// Short mailto link text view (#5736).
+					element.setHtml( data.type == 'email' ?
+						data.email.address : attributes._cke_saved_href );
+				}
 				// Make the element display as an anchor if a name has been set.
 				if ( element.getAttribute( 'name' ) )
 					element.addClass( 'cke_anchor' );

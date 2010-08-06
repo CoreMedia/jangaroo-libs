@@ -60,13 +60,13 @@ CKEDITOR.editor.prototype.attachStyleStateChange = function( style, callback )
 
 						// Save the current state, so it can be compared next
 						// time.
-						callback.state !== currentState;
+						callback.state = currentState;
 					}
 				}
 			});
 	}
 
-	// Save the callback info, so it can be checked on the next occurence of
+	// Save the callback info, so it can be checked on the next occurrence of
 	// selectionChange.
 	styleStateChangeCallbacks.push( { style : style, fn : callback } );
 };
@@ -180,6 +180,10 @@ CKEDITOR.STYLE_OBJECT = 3;
 			return false;
 		},
 
+		/**
+		 * Whether this style can be applied at the element path.
+ 		 * @param elementPath
+		 */
 		checkApplicable : function( elementPath )
 		{
 			switch ( this.type )
@@ -222,6 +226,8 @@ CKEDITOR.STYLE_OBJECT = 3;
 							continue;
 
 						var elementAttr = element.getAttribute( attName ) || '';
+
+						// Special treatment for 'style' attribute is required.
 						if ( attName == 'style' ?
 							compareCssText( attribs[ attName ], normalizeCssText( elementAttr, false ) )
 							: attribs[ attName ] == elementAttr  )
@@ -370,48 +376,15 @@ CKEDITOR.STYLE_OBJECT = 3;
 		// Get the DTD definition for the element. Defaults to "span".
 		var dtd = CKEDITOR.dtd[ elementName ] || ( isUnknownElement = true, CKEDITOR.dtd.span );
 
-		// Bookmark the range so we can re-select it after processing.
-		var bookmark = range.createBookmark();
-
 		// Expand the range.
 		range.enlarge( CKEDITOR.ENLARGE_ELEMENT );
 		range.trim();
 
 		// Get the first node to be processed and the last, which concludes the
 		// processing.
-		var boundaryNodes = range.getBoundaryNodes();
-		var firstNode = boundaryNodes.startNode;
-		var lastNode = boundaryNodes.endNode.getNextSourceNode( true );
-
-		// Probably the document end is reached, we need a marker node.
-		if ( !lastNode )
-		{
-				var marker;
-				lastNode = marker = document.createText( '' );
-				lastNode.insertAfter( range.endContainer );
-		}
-		// The detection algorithm below skips the contents inside bookmark nodes, so
-		// we'll need to make sure lastNode isn't the &nbsp; inside a bookmark node.
-		var lastParent = lastNode.getParent();
-		if ( lastParent && lastParent.getAttribute( '_fck_bookmark' ) )
-			lastNode = lastParent;
-
-		if ( lastNode.equals( firstNode ) )
-		{
-			// If the last node is the same as the the first one, we must move
-			// it to the next one, otherwise the first one will not be
-			// processed.
-			lastNode = lastNode.getNextSourceNode( true );
-
-			// It may happen that there are no more nodes after it (the end of
-			// the document), so we must add something there to make our code
-			// simpler.
-			if ( !lastNode )
-			{
-				lastNode = marker = document.createText( '' );
-				lastNode.insertAfter( firstNode );
-			}
-		}
+		var boundaryNodes = range.createBookmark(),
+			firstNode = boundaryNodes.startNode,
+			lastNode = boundaryNodes.endNode;
 
 		var currentNode = firstNode;
 
@@ -550,7 +523,7 @@ CKEDITOR.STYLE_OBJECT = 3;
 					styleRange.insertNode( styleNode );
 
 					// Let's merge our new style with its neighbors, if possible.
-					mergeSiblings( styleNode );
+					styleNode.mergeSiblings();
 
 					// As the style system breaks text nodes constantly, let's normalize
 					// things for performance.
@@ -568,9 +541,9 @@ CKEDITOR.STYLE_OBJECT = 3;
 			}
 		}
 
-		// Remove the temporary marking node.(#4111)
-		marker && marker.remove();
-		range.moveToBookmark( bookmark );
+		// Remove the bookmark nodes.
+		range.moveToBookmark( boundaryNodes );
+
 		// Minimize the result range to exclude empty text nodes. (#5374)
 		range.shrink( CKEDITOR.SHRINK_TEXT );
 	}
@@ -609,12 +582,14 @@ CKEDITOR.STYLE_OBJECT = 3;
 
 				if ( this.checkElementRemovable( element ) )
 				{
-					var endOfElement = range.checkBoundaryOfElement( element, CKEDITOR.END ),
-							startOfElement = !endOfElement && range.checkBoundaryOfElement( element, CKEDITOR.START );
-					if ( startOfElement || endOfElement )
+					var isStart;
+
+					if ( range.collapsed && (
+						 range.checkBoundaryOfElement( element, CKEDITOR.END ) ||
+						 ( isStart = range.checkBoundaryOfElement( element, CKEDITOR.START ) ) ) )
 					{
 						boundaryElement = element;
-						boundaryElement.match = startOfElement ? 'start' : 'end';
+						boundaryElement.match = isStart ? 'start' : 'end';
 					}
 					else
 					{
@@ -624,7 +599,7 @@ CKEDITOR.STYLE_OBJECT = 3;
 						 * no difference that they're separate entities in the DOM tree. So, merge
 						 * them before removal.
 						 */
-						mergeSiblings( element );
+						element.mergeSiblings();
 						removeFromElement( this, element );
 
 					}
@@ -753,6 +728,10 @@ CKEDITOR.STYLE_OBJECT = 3;
 		var iterator = range.createIterator();
 		iterator.enforceRealBlocks = true;
 
+		// make recognize <br /> tag as a separator in ENTER_BR mode (#5121)
+		if ( this._.enterMode )
+			iterator.enlargeBr = ( this._.enterMode != CKEDITOR.ENTER_BR );
+
 		var block;
 		var doc = range.document;
 		var previousPreBlock;
@@ -794,13 +773,14 @@ CKEDITOR.STYLE_OBJECT = 3;
 		}
 	}
 
+	var nonWhitespaces = CKEDITOR.dom.walker.whitespaces( true );
 	/**
 	 * Merge a <pre> block with a previous sibling if available.
 	 */
 	function mergePre( preBlock )
 	{
 		var previousBlock;
-		if ( !( ( previousBlock = preBlock.getPreviousSourceNode( true, CKEDITOR.NODE_ELEMENT ) )
+		if ( !( ( previousBlock = preBlock.getPrevious( nonWhitespaces ) )
 				 && previousBlock.is
 				 && previousBlock.is( 'pre') ) )
 			return;
@@ -1057,47 +1037,11 @@ CKEDITOR.STYLE_OBJECT = 3;
 			if ( firstChild )
 			{
 				// Check the cached nodes for merging.
-				mergeSiblings( firstChild );
+				firstChild.type == CKEDITOR.NODE_ELEMENT && firstChild.mergeSiblings();
 
-				if ( lastChild && !firstChild.equals( lastChild ) )
-					mergeSiblings( lastChild );
-			}
-		}
-	}
-
-	function mergeSiblings( element )
-	{
-		if ( !element || element.type != CKEDITOR.NODE_ELEMENT || !CKEDITOR.dtd.$removeEmpty[ element.getName() ] )
-			return;
-
-		mergeElements( element, element.getNext(), true );
-		mergeElements( element, element.getPrevious() );
-	}
-
-	function mergeElements( element, sibling, isNext )
-	{
-		if ( sibling && sibling.type == CKEDITOR.NODE_ELEMENT )
-		{
-			var hasBookmark = sibling.getAttribute( '_fck_bookmark' );
-
-			if ( hasBookmark )
-				sibling = isNext ? sibling.getNext() : sibling.getPrevious();
-
-			if ( sibling && sibling.type == CKEDITOR.NODE_ELEMENT && element.isIdentical( sibling ) )
-			{
-				// Save the last child to be checked too, to merge things like
-				// <b><i></i></b><b><i></i></b> => <b><i></i></b>
-				var innerSibling = isNext ? element.getLast() : element.getFirst();
-
-				if ( hasBookmark )
-					( isNext ? sibling.getPrevious() : sibling.getNext() ).move( element, !isNext );
-
-				sibling.moveChildren( element, !isNext );
-				sibling.remove();
-
-				// Now check the last inner child (see two comments above).
-				if ( innerSibling )
-					mergeSiblings( innerSibling );
+				if ( lastChild && !firstChild.equals( lastChild )
+					&& lastChild.type == CKEDITOR.NODE_ELEMENT  )
+					lastChild.mergeSiblings();
 			}
 		}
 	}
@@ -1260,6 +1204,7 @@ CKEDITOR.STYLE_OBJECT = 3;
 		return overrides;
 	}
 
+	// Make the comparison of attribute value easier by standardizing it.
 	function normalizeProperty( name, value, isStyle )
 	{
 		var temp = new CKEDITOR.dom.element( 'span' );
@@ -1267,6 +1212,7 @@ CKEDITOR.STYLE_OBJECT = 3;
 		return temp[ isStyle ? 'getStyle' : 'getAttribute' ]( name );
 	}
 
+	// Make the comparison of style text easier by standardizing it.
 	function normalizeCssText( unparsedCssText, nativeNormalize )
 	{
 		var styleText;
@@ -1302,14 +1248,18 @@ CKEDITOR.STYLE_OBJECT = 3;
 		return retval;
 	}
 
+	/**
+	 * Compare two bunch of styles, with the speciality that value 'inherit'
+	 * is treated as a wildcard which will match any value.
+	 * @param {Object|String} source
+	 * @param {Object|String} target
+	 */
 	function compareCssText( source, target )
 	{
 		typeof source == 'string' && ( source = parseStyleText( source ) );
 		typeof target == 'string' && ( target = parseStyleText( target ) );
 		for( var name in source )
 		{
-			// Value 'inherit'  is treated as a wildcard,
-			// which will match any value.
 			if ( !( name in target &&
 					( target[ name ] == source[ name ]
 						|| source[ name ] == 'inherit'
@@ -1323,17 +1273,24 @@ CKEDITOR.STYLE_OBJECT = 3;
 
 	function applyStyle( document, remove )
 	{
-		// Get all ranges from the selection.
-		var selection = document.getSelection();
-		var ranges = selection.getRanges();
-		var func = remove ? this.removeFromRange : this.applyToRange;
+		var selection = document.getSelection(),
+			// Bookmark the range so we can re-select it after processing.
+			bookmarks = selection.createBookmarks(),
+			ranges = selection.getRanges( true ),
+			func = remove ? this.removeFromRange : this.applyToRange,
+			range;
 
-		// Apply the style to the ranges.
-		for ( var i = 0 ; i < ranges.length ; i++ )
-			func.call( this, ranges[ i ] );
+		var iterator = ranges.createIterator();
+		while ( ( range = iterator.getNextRange() ) )
+			func.call( this, range );
 
-		// Select the ranges again.
-		selection.selectRanges( ranges );
+		if ( bookmarks.length == 1 && bookmarks[0].collapsed )
+		{
+			selection.selectRanges( ranges );
+			bookmarks[0].startNode.remove();
+		}
+		else
+			selection.selectBookmarks( bookmarks );
 	}
 })();
 
@@ -1422,6 +1379,7 @@ CKEDITOR.editor.prototype.getStylesSet = function( callback )
  * Otherwise, this setting has the "name:url" syntax, making it
  * possible to set the URL from which loading the styles file.<br>
  * Previously this setting was available as config.stylesCombo_stylesSet<br>
+ * @name CKEDITOR.config.stylesSet
  * @type String|Array
  * @default 'default'
  * @since 3.3

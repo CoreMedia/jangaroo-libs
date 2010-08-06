@@ -40,12 +40,15 @@ CKEDITOR.plugins.add( 'colorbutton',
 						block.autoSize = true;
 						block.element.addClass( 'cke_colorblock' );
 						block.element.setHtml( renderColors( panel, type ) );
+						// The block should not have scrollbars (#5933, #6056)
+						block.element.getDocument().getBody().setStyle( 'overflow', 'hidden' );
 
 						var keys = block.keys;
-						keys[ 39 ]	= 'next';					// ARROW-RIGHT
+						var rtl = editor.lang.dir == 'rtl';
+						keys[ rtl ? 37 : 39 ]	= 'next';					// ARROW-RIGHT
 						keys[ 40 ]	= 'next';					// ARROW-DOWN
 						keys[ 9 ]	= 'next';					// TAB
-						keys[ 37 ]	= 'prev';					// ARROW-LEFT
+						keys[ rtl ? 39 : 37 ]	= 'prev';					// ARROW-LEFT
 						keys[ 38 ]	= 'prev';					// ARROW-UP
 						keys[ CKEDITOR.SHIFT + 9 ]	= 'prev';	// SHIFT + TAB
 						keys[ 32 ]	= 'click';					// SPACE
@@ -140,8 +143,9 @@ CKEDITOR.plugins.add( 'colorbutton',
 
 				// The data can be only a color code (without #) or colorName + color code
 				// If only a color code is provided, then the colorName is the color with the hash
+				// Convert the color from RGB to RRGGBB for better compatibility with IE and <font>. See #5676
 				if (!parts[1])
-					colorName = '#' + colorName;
+					colorName = '#' + colorName.replace( /^(.)(.)(.)$/, '$1$1$2$2$3$3' );
 
 				var colorLabel = editor.lang.colors[ colorCode ] || colorCode;
 				output.push(
