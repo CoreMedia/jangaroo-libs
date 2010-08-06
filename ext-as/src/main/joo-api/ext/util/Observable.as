@@ -203,9 +203,9 @@ myGridPanel.on({
          */
         public native function resumeEvents() : void;
 
-        protected native function beforeMethod(method, fn, scope) : void;
-        public native function afterMethod(method, fn, scope) : void;
-        public native function removeMethodListener(method, fn, scope) : void;
+        public native function beforeMethod(method:String, fn:Function, scope:Object = null) : void;
+        public native function afterMethod(method:String, fn:Function, scope:Object = null) : void;
+        public native function removeMethodListener(method:String, fn:Function, scope:Object = null) : void;
         /**
          * Relays selected events from the specified Observable as if the events were fired by <code><b>this</b></code>.
          * @param o The Observable whose events this object is to relay.

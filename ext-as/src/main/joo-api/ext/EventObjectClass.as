@@ -6,13 +6,13 @@ import js.Event;
 import js.HTMLElement;
 
 /**
- * Just as <b class='link'>ext.Element</b> wraps around a native DOM node, ext.EventObject 
+ * Just as <b class='link'>ext.Element</b> wraps around a native DOM node, ext.EventObjectClass
  * wraps the browser's native event-object normalizing cross-browser differences,
  * such as which mouse button is clicked, keys pressed, mechanisms to stop
  * event-propagation along with a method to prevent default actions from taking place.
  * <p>For example:</p>
  * <pre><code>
-function handleClick(e, t){ // e is not a standard event object, it is a ext.EventObject
+function handleClick(e, t){ // e is not a standard event object, it is a ext.EventObjectClass
     e.preventDefault();
     var target = e.getTarget(); // same as t (the target HTMLElement)
     ...
@@ -27,14 +27,10 @@ ext.EventManager.on("myDiv", 'click', handleClick);
 ext.EventManager.addListener("myDiv", 'click', handleClick);
  </code></pre>
 */
-public class EventObject {
-/**
- * @singleton
- */
-  public static var INSTANCE : EventObject;
+public class EventObjectClass {
 
            /** @private */
-  public static native function setEvent(e : Event) : void;
+  public native function setEvent(e : Event) : void;
 
         /**
          * Stop the event (preventDefault and stopPropagation)
@@ -117,7 +113,7 @@ public class EventObject {
 		 */
 		public native function within(el : *, related : Boolean = undefined, allowEl : Boolean = undefined) : Boolean;
 
-   public static const BACKSPACE : Number = 8,
+   public const BACKSPACE : Number = 8,
    TAB : Number = 9,
    NUM_CENTER : Number = 12,
    ENTER : Number = 13,
@@ -216,4 +212,37 @@ public class EventObject {
    * @return 
    */
   public native function hasModifier() : Boolean;
-}}
+
+  /**
+   * True if the shift key was down during the event
+   */
+  public native function get shiftKey() : Boolean;
+
+  /**
+   * True if the control key was down during the event
+   */
+  public native function get ctrlKey() : Boolean;
+
+  /**
+   * True if the alt key was down during the event
+   */
+  public native function get altKey() : Boolean;
+
+  /**
+   * The original browser event.
+   */
+  public native function get browserEvent() : Event;
+
+  /**
+   * The event type.
+   */
+  public native function get type() : String;
+
+  /**
+   * The button pressed in a mouse event.
+   */
+  public native function get button() : int;
+
+
+}
+}

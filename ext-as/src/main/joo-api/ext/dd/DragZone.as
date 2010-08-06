@@ -1,5 +1,5 @@
 package ext.dd {
-import ext.EventObject;
+import ext.EventObjectClass;
 
 /**
  * <p>This class provides a container DD instance that allows dragging of multiple child source nodes.</p>
@@ -13,7 +13,7 @@ import ext.EventObject;
  * However a simpler way to allow a DragZone to manage any number of draggable elements is to configure
  * the DragZone with  an implementation of the <b class='link' title='#getDragData'>getDragData</b> method which interrogates the passed
  * mouse event to see if it has taken place within an element, or class of elements. This is easily done
- * by using the event's <b class='link' title='ext.EventObject#getTarget'>getTarget</b> method to identify a node based on a
+ * by using the event's <b class='link' title='ext.EventObjectClass#getTarget'>getTarget</b> method to identify a node based on a
  * <b class='link'>ext.DomQuery</b> selector. For example, to make the nodes of a DataView draggable, use the following
  * technique. Knowledge of the use of the DataView is required:</p><pre><code>
 myDataView.on('render', function() {
@@ -85,7 +85,7 @@ public function DragZone(el : *, config : Object) {
      * @param e The mouse down event
      * @return The dragData
      */
-    override public native function getDragData(e : EventObject) : Object;
+    override public native function getDragData(e : EventObjectClass) : Object;
     /**
      * Called once drag threshold has been reached to initialize the proxy element. By default, it clones the
      * this.dragData.ddel
@@ -97,12 +97,12 @@ public function DragZone(el : *, config : Object) {
     /**
      * Called after a repair of an invalid drop. By default, highlights this.dragData.ddel 
      */
-    override protected native function afterRepair(e : EventObject, id : String) : void;
+    override protected native function afterRepair(e : EventObjectClass, id : String) : void;
     /**
      * Called before a repair of an invalid drop to get the XY to animate to. By default returns
      * the XY of this.dragData.ddel
      * @param e The mouse up event
      * @return The xy location (e.g. [100, 200])
      */
-     override protected native function getRepairXY(target : Object, e : EventObject, id : String) : void;
+     override protected native function getRepairXY(target : Object, e : EventObjectClass, id : String) : void;
 }}

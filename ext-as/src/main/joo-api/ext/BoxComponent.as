@@ -165,7 +165,7 @@ var myPanel = new ext.Panel({
      */
     override protected native function initComponent() : void;
     public var boxReady  : Boolean;
-    public var deferHeight;
+    public var deferHeight : Boolean;
     /**
      * Sets the width and height of this BoxComponent. This method fires the <b class='link' title='#resize'>resize</b> event. This method can accept
      * either width and height as separate arguments, or you can pass a size object like <code>{width:10, height:20}</code>.
@@ -251,8 +251,8 @@ var myPanel = new ext.Panel({
      * by its <code><b class='link' title='#getEl'>getEl</b></code> method, <i>and</i> the trigger button Element.
      * This Element is returned as the <code>resizeEl</code>.
      */
-    public native function getResizeEl() : void;
-    public native function getPositionEl() : void;
+    public native function getResizeEl() : Element;
+    public native function getPositionEl() : Element;
     /**
      * Sets the left and top of the component.  To set the page XY position instead, use <b class='link' title='#setPagePosition'>setPagePosition</b>.
      * This method fires the <b class='link' title='#move'>move</b> event.

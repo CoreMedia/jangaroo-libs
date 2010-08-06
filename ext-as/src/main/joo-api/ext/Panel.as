@@ -354,7 +354,7 @@ var w = new ext.Window({
      * </ul></div></li>
      * <li><b>handler</b> : Function<div class="sub-desc"><b>Required.</b> The function to
      * call when clicked. Arguments passed are:<ul>
-     * <li><b>event</b> : ext.EventObject<div class="sub-desc">The click event.</div></li>
+     * <li><b>event</b> : ext.EventObjectClass<div class="sub-desc">The click event.</div></li>
      * <li><b>toolEl</b> : ext.Element<div class="sub-desc">The tool Element.</div></li>
      * <li><b>panel</b> : ext.Panel<div class="sub-desc">The host Panel</div></li>
      * <li><b>tc</b> : ext.Panel<div class="sub-desc">The tool configuration object</div></li>

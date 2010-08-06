@@ -1,6 +1,6 @@
 package ext.dd {
 
-import ext.EventObject;
+import ext.EventObjectClass;
 
 /**
  * <p>This class provides a container DD instance that allows dropping on multiple child target nodes.</p>
@@ -8,7 +8,7 @@ import ext.EventObject;
  * However a simpler way to allow a DropZone to manage any number of target elements is to configure the
  * DropZone with an implementation of <b class='link' title='#getTargetFromEvent'>getTargetFromEvent</b> which interrogates the passed
  * mouse event to see if it has taken place within an element, or class of elements. This is easily done
- * by using the event's <b class='link' title='ext.EventObject#getTarget'>getTarget</b> method to identify a node based on a
+ * by using the event's <b class='link' title='ext.EventObjectClass#getTarget'>getTarget</b> method to identify a node based on a
  * <b class='link'>ext.DomQuery</b> selector.</p>
  * <p>Once the DropZone has detected through calling getTargetFromEvent, that the mouse is over
  * a drop target, that target is passed as the first parameter to <b class='link' title='#onNodeEnter'>onNodeEnter</b>, <b class='link' title='#onNodeOver'>onNodeOver</b>,
@@ -76,7 +76,7 @@ public function DropZone(el : *, config : Object) {
      * @param e The event
      * @return data The custom data
      */
-    public native function getTargetFromEvent(e : EventObject) : Object;
+    public native function getTargetFromEvent(e : EventObjectClass) : Object;
     /**
      * Called when the DropZone determines that a <b class='link'>Ext.dd.DragSource</b> has entered a drop node
      * that has either been registered or detected by a configured implementation of <b class='link' title='#getTargetFromEvent'>getTargetFromEvent</b>.
@@ -88,7 +88,7 @@ public function DropZone(el : *, config : Object) {
      * @param e The event
      * @param data An object containing arbitrary data supplied by the drag source
      */
-    public native function onNodeEnter(nodeData : Object, source : DragSource, e : EventObject, data : Object) : void;
+    public native function onNodeEnter(nodeData : Object, source : DragSource, e : EventObjectClass, data : Object) : void;
     /**
      * Called while the DropZone determines that a <b class='link'>Ext.dd.DragSource</b> is over a drop node
      * that has either been registered or detected by a configured implementation of <b class='link' title='#getTargetFromEvent'>getTargetFromEvent</b>.
@@ -102,7 +102,7 @@ public function DropZone(el : *, config : Object) {
      * @return status The CSS class that communicates the drop status back to the source so that the
      * underlying <b class='link'>Ext.dd.StatusProxy</b> can be updated
      */
-    public native function onNodeOver(nodeData : Object, source : DragSource, e : EventObject, data : Object) : String;
+    public native function onNodeOver(nodeData : Object, source : DragSource, e : EventObjectClass, data : Object) : String;
     /**
      * Called when the DropZone determines that a <b class='link'>Ext.dd.DragSource</b> has been dragged out of
      * the drop node without dropping.  This method has no default implementation and should be overridden to provide
@@ -113,7 +113,7 @@ public function DropZone(el : *, config : Object) {
      * @param e The event
      * @param data An object containing arbitrary data supplied by the drag source
      */
-    public native function onNodeOut(nodeData : Object, source : DragSource, e : EventObject, data : Object) : void;
+    public native function onNodeOut(nodeData : Object, source : DragSource, e : EventObjectClass, data : Object) : void;
     /**
      * Called when the DropZone determines that a <b class='link'>Ext.dd.DragSource</b> has been dropped onto
      * the drop node.  The default implementation returns false, so it should be overridden to provide the
@@ -125,7 +125,7 @@ public function DropZone(el : *, config : Object) {
      * @param data An object containing arbitrary data supplied by the drag source
      * @return True if the drop was valid, else false
      */
-    public native function onNodeDrop(nodeData : Object, source : DragSource, e : EventObject, data : Object) : Boolean;
+    public native function onNodeDrop(nodeData : Object, source : DragSource, e : EventObjectClass, data : Object) : Boolean;
     /**
      * Called while the DropZone determines that a <b class='link'>Ext.dd.DragSource</b> is being dragged over it,
      * but not over any of its registered drop nodes.  The default implementation returns this.dropNotAllowed, so
@@ -136,7 +136,7 @@ public function DropZone(el : *, config : Object) {
      * @return status The CSS class that communicates the drop status back to the source so that the
      * underlying <b class='link'>Ext.dd.StatusProxy</b> can be updated
      */
-    public native function onContainerOver(source : DragSource, e : EventObject, data : Object) : String;
+    public native function onContainerOver(source : DragSource, e : EventObjectClass, data : Object) : String;
     /**
      * Called when the DropZone determines that a <b class='link'>Ext.dd.DragSource</b> has been dropped on it,
      * but not on any of its registered drop nodes.  The default implementation returns false, so it should be
@@ -147,7 +147,7 @@ public function DropZone(el : *, config : Object) {
      * @param data An object containing arbitrary data supplied by the drag source
      * @return True if the drop was valid, else false
      */
-    public native function onContainerDrop(source : DragSource, e : EventObject, data : Object) : Boolean;
+    public native function onContainerDrop(source : DragSource, e : EventObjectClass, data : Object) : Boolean;
     /**
      * The function a <b class='link'>Ext.dd.DragSource</b> calls once to notify this drop zone that the source is now over
      * the zone.  The default implementation returns this.dropNotAllowed and expects that only registered drop
@@ -159,7 +159,7 @@ public function DropZone(el : *, config : Object) {
      * @return status The CSS class that communicates the drop status back to the source so that the
      * underlying <b class='link'>Ext.dd.StatusProxy</b> can be updated
      */
-    override public native function notifyEnter(source : DragSource, e : EventObject, data : Object) : String;
+    override public native function notifyEnter(source : DragSource, e : EventObjectClass, data : Object) : String;
     /**
      * The function a <b class='link'>Ext.dd.DragSource</b> calls continuously while it is being dragged over the drop zone.
      * This method will be called on every mouse movement while the drag source is over the drop zone.
@@ -173,7 +173,7 @@ public function DropZone(el : *, config : Object) {
      * @return status The CSS class that communicates the drop status back to the source so that the
      * underlying <b class='link'>Ext.dd.StatusProxy</b> can be updated
      */
-    override public native function notifyOver(source : DragSource, e : EventObject, data : Object) : String;
+    override public native function notifyOver(source : DragSource, e : EventObjectClass, data : Object) : String;
     /**
      * The function a <b class='link'>Ext.dd.DragSource</b> calls once to notify this drop zone that the source has been dragged
      * out of the zone without dropping.  If the drag source is currently over a registered node, the notification
@@ -182,7 +182,7 @@ public function DropZone(el : *, config : Object) {
      * @param e The event
      * @param data An object containing arbitrary data supplied by the drag zone
      */
-    override public native function notifyOut(source : DragSource, e : EventObject, data : Object) : void;
+    override public native function notifyOut(source : DragSource, e : EventObjectClass, data : Object) : void;
     /**
      * The function a <b class='link'>Ext.dd.DragSource</b> calls once to notify this drop zone that the dragged item has
      * been dropped on it.  The drag zone will look up the target node based on the event passed in, and if there
@@ -193,6 +193,6 @@ public function DropZone(el : *, config : Object) {
      * @param data An object containing arbitrary data supplied by the drag source
      * @return True if the drop was valid, else false
      */
-    override public native function notifyDrop(source : DragSource, e : EventObject, data : Object) : Boolean;
+    override public native function notifyDrop(source : DragSource, e : EventObjectClass, data : Object) : Boolean;
     protected native function triggerCacheRefresh() : void;
 }}

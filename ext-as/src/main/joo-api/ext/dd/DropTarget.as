@@ -1,6 +1,6 @@
 package ext.dd {
 
-import ext.EventObject;
+import ext.EventObjectClass;
 
 /**
  * A simple class that provides the basic implementation needed to make any element a drop target that can have
@@ -46,7 +46,7 @@ public function DropTarget(el : *, config : Object) {
      * @return status The CSS class that communicates the drop status back to the source so that the
      * underlying <b class='link'>Ext.dd.StatusProxy</b> can be updated
      */
-    public native function notifyEnter(source : DragSource, e : EventObject, data : Object) : String;
+    public native function notifyEnter(source : DragSource, e : EventObjectClass, data : Object) : String;
     /**
      * The function a <b class='link'>Ext.dd.DragSource</b> calls continuously while it is being dragged over the target.
      * This method will be called on every mouse movement while the drag source is over the drop target.
@@ -57,7 +57,7 @@ public function DropTarget(el : *, config : Object) {
      * @return status The CSS class that communicates the drop status back to the source so that the
      * underlying <b class='link'>Ext.dd.StatusProxy</b> can be updated
      */
-    public native function notifyOver(source : DragSource, e : EventObject, data : Object) : String;
+    public native function notifyOver(source : DragSource, e : EventObjectClass, data : Object) : String;
     /**
      * The function a <b class='link'>Ext.dd.DragSource</b> calls once to notify this drop target that the source has been dragged
      * out of the target without dropping.  This default implementation simply removes the CSS class specified by
@@ -66,7 +66,7 @@ public function DropTarget(el : *, config : Object) {
      * @param e The event
      * @param data An object containing arbitrary data supplied by the drag source
      */
-    public native function notifyOut(source : DragSource, e : EventObject, data : Object) : void;
+    public native function notifyOut(source : DragSource, e : EventObjectClass, data : Object) : void;
     /**
      * The function a <b class='link'>Ext.dd.DragSource</b> calls once to notify this drop target that the dragged item has
      * been dropped on it.  This method has no default implementation and returns false, so you must provide an
@@ -77,5 +77,5 @@ public function DropTarget(el : *, config : Object) {
      * @param data An object containing arbitrary data supplied by the drag source
      * @return True if the drop was valid, else false
      */
-    public native function notifyDrop(source : DragSource, e : EventObject, data : Object) : Boolean;
+    public native function notifyDrop(source : DragSource, e : EventObjectClass, data : Object) : Boolean;
 }}

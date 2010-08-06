@@ -1,5 +1,5 @@
 package ext.tree {
-import ext.EventObject;
+import ext.EventObjectClass;
 import ext.data.Tree;
 import ext.util.Observable;
 
@@ -16,7 +16,7 @@ public class MultiSelectionModel extends Observable {
      * @param keepExisting True to retain existing selections
      * @return The selected node
      */
-    public native function select(node : TreeNode, e : EventObject = undefined, keepExisting : Boolean = undefined) : TreeNode;
+    public native function select(node : TreeNode, e : EventObjectClass = undefined, keepExisting : Boolean = undefined) : TreeNode;
     /**
      * Deselect a node.
      * @param node The node to unselect

@@ -1,5 +1,5 @@
 package ext.dd {
-import ext.EventObject;
+import ext.EventObjectClass;
 
 import js.HTMLElement;
 
@@ -34,8 +34,8 @@ public function DragSource(el : *, config : Object) {
      * Returns the data object associated with this drag source
      * @return data An object containing arbitrary data
      */
-    public native function getDragData(e : EventObject) : Object;
-    override public native function onDragEnter(e:EventObject, id:Object) : void;
+    public native function getDragData(e : EventObjectClass) : Object;
+    override public native function onDragEnter(e:EventObjectClass, id:Object) : void;
                 /**
                  * An empty function by default, but provided so that you can perform a custom action
                  * when the dragged item enters the drop target by providing an implementation.
@@ -52,9 +52,9 @@ public function DragSource(el : *, config : Object) {
      * @param id The id of the dragged element
      * @return isValid True if the drag event is valid, else false to cancel
      */
-    public native function beforeDragEnter(target : DragDrop, e : EventObject, id : String) : Boolean;
+    public native function beforeDragEnter(target : DragDrop, e : EventObjectClass, id : String) : Boolean;
   override public native function alignElWithMouse(el : HTMLElement, iPageX : int, iPageY : int) : void;
-    override public native function onDragOver(e:EventObject, id:Object) : void;
+    override public native function onDragOver(e:EventObjectClass, id:Object) : void;
                 /**
                  * An empty function by default, but provided so that you can perform a custom action
                  * while the dragged item is over the drop target by providing an implementation.
@@ -71,8 +71,8 @@ public function DragSource(el : *, config : Object) {
      * @param id The id of the dragged element
      * @return isValid True if the drag event is valid, else false to cancel
      */
-    public native function beforeDragOver(target : DragDrop, e : EventObject, id : String) : Boolean;
-    override public native function onDragOut(e:EventObject, id:Object) : void;
+    public native function beforeDragOver(target : DragDrop, e : EventObjectClass, id : String) : Boolean;
+    override public native function onDragOut(e:EventObjectClass, id:Object) : void;
                 /**
                  * An empty function by default, but provided so that you can perform a custom action
                  * after the dragged item is dragged out of the target without dropping.
@@ -89,8 +89,8 @@ public function DragSource(el : *, config : Object) {
      * @param id The id of the dragged element
      * @return isValid True if the drag event is valid, else false to cancel
      */
-    public native function beforeDragOut(target : DragDrop, e : EventObject, id : String) : Boolean;
-    override public native function onDragDrop(e:EventObject, id:Object) : void;
+    public native function beforeDragOut(target : DragDrop, e : EventObjectClass, id : String) : Boolean;
+    override public native function onDragDrop(e:EventObjectClass, id:Object) : void;
                 /**
                  * An empty function by default, but provided so that you can perform a custom action
                  * after a valid drag drop has occurred by providing an implementation.
@@ -107,7 +107,7 @@ public function DragSource(el : *, config : Object) {
      * @param id The id of the dragged element
      * @return isValid True if the drag drop event is valid, else false to cancel
      */
-    public native function beforeDragDrop(target : DragDrop, e : EventObject, id : String) : Boolean;
+    public native function beforeDragDrop(target : DragDrop, e : EventObjectClass, id : String) : Boolean;
     protected native function onValidDrop(target, e, id) : void;
             /**
              * An empty function by default, but provided so that you can perform a custom action
@@ -117,8 +117,8 @@ public function DragSource(el : *, config : Object) {
              * @param id The id of the dropped element
              * @method afterInvalidDrop
              */
-    protected native function getRepairXY(target : Object, e : EventObject, id : String) : void;
-    override public native function onInvalidDrop(e:EventObject) : void;
+    protected native function getRepairXY(target : Object, e : EventObjectClass, id : String) : void;
+    override public native function onInvalidDrop(e:EventObjectClass) : void;
             /**
              * An empty function by default, but provided so that you can perform a custom action
              * after an invalid drop has occurred by providing an implementation.
@@ -126,7 +126,7 @@ public function DragSource(el : *, config : Object) {
              * @param id The id of the dropped element
              * @method afterInvalidDrop
              */
-    protected native function afterRepair(e : EventObject, id : String) : void;
+    protected native function afterRepair(e : EventObjectClass, id : String) : void;
     /**
      * An empty function by default, but provided so that you can perform a custom action after an invalid
      * drop has occurred.
@@ -135,8 +135,8 @@ public function DragSource(el : *, config : Object) {
      * @param id The id of the dragged element
      * @return isValid True if the invalid drop should proceed, else false to cancel
      */
-    public native function beforeInvalidDrop(target : DragDrop, e : EventObject, id : String) : Boolean;
-    override protected native function handleMouseDown(e:EventObject, oDD:DragDrop) : void;
+    public native function beforeInvalidDrop(target : DragDrop, e : EventObjectClass, id : String) : Boolean;
+    override protected native function handleMouseDown(e:EventObjectClass, oDD:DragDrop) : void;
     /**
      * An empty function by default, but provided so that you can perform a custom action before the initial
      * drag event begins and optionally cancel it.
@@ -144,7 +144,7 @@ public function DragSource(el : *, config : Object) {
      * @param e The event object
      * @return isValid True if the drag event is valid, else false to cancel
      */
-    public native function onBeforeDrag(data : Object, e : EventObject) : Boolean;
+    public native function onBeforeDrag(data : Object, e : EventObjectClass) : Boolean;
     /**
      * An empty function by default, but provided so that you can perform a custom action once the initial
      * drag event has begun.  The drag cannot be canceled from this function.
@@ -164,9 +164,9 @@ public function DragSource(el : *, config : Object) {
      */
     public native function hideProxy() : void;
     protected native function triggerCacheRefresh() : void;
-    override protected native function b4EndDrag(e:EventObject) : void;
-    override public native function endDrag(e:EventObject) : void;
-    protected native function onEndDrag(data, e : EventObject) : void;
+    override protected native function b4EndDrag(e:EventObjectClass) : void;
+    override public native function endDrag(e:EventObjectClass) : void;
+    protected native function onEndDrag(data, e : EventObjectClass) : void;
     override public native function autoOffset(iPageX : int, iPageY : int) : void;
 
     public var proxy : PanelProxy;

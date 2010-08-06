@@ -1,5 +1,5 @@
 package ext.dd {
-import ext.EventObject;
+import ext.EventObjectClass;
 
 import js.HTMLElement;
 
@@ -106,18 +106,18 @@ public function DD(id : String, sGroup : String, config : Object) {
      * Event that fires prior to the onMouseDown event.  Overrides
      * Ext.dd.DragDrop.
      */
-    override protected native function b4MouseDown(e:EventObject) : void;
+    override protected native function b4MouseDown(e:EventObjectClass) : void;
     /**
      * Event that fires prior to the onDrag event.  Overrides
      * Ext.dd.DragDrop.
      */
-    override protected native function b4Drag(e:EventObject) : void;
+    override protected native function b4Drag(e:EventObjectClass) : void;
     override public native function toString() : String;
     override public native function startDrag(x : Number, y : Number) : void;
-    override public native function onDrag(e:EventObject) : void;
-    override public native function onDragEnter(e:EventObject, id:Object) : void;
-    override public native function onDragOver(e:EventObject, id:Object) : void;
-    override public native function onDragOut(e:EventObject, id:Object) : void;
-    override public native function onDragDrop(e:EventObject, id:Object) : void;
-    override public native function endDrag(e:EventObject) : void;
+    override public native function onDrag(e:EventObjectClass) : void;
+    override public native function onDragEnter(e:EventObjectClass, id:Object) : void;
+    override public native function onDragOver(e:EventObjectClass, id:Object) : void;
+    override public native function onDragOut(e:EventObjectClass, id:Object) : void;
+    override public native function onDragDrop(e:EventObjectClass, id:Object) : void;
+    override public native function endDrag(e:EventObjectClass) : void;
 }}

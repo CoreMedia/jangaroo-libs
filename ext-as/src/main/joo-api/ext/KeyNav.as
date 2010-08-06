@@ -36,9 +36,9 @@ public function KeyNav(el : *, config : Object) {
     public var disabled  : Boolean;
     /**
      * @cfg {String} defaultEventAction
-     * The method to call on the <b class='link'>ext.EventObject</b> after this KeyNav intercepts a key.  Valid values are
-     * <b class='link'>ext.EventObject#stopEvent</b>, <b class='link'>ext.EventObject#preventDefault</b> and
-     * <b class='link'>ext.EventObject#stopPropagation</b> (defaults to 'stopEvent')
+     * The method to call on the <b class='link'>ext.EventObjectClass</b> after this KeyNav intercepts a key.  Valid values are
+     * <b class='link'>ext.EventObjectClass#stopEvent</b>, <b class='link'>ext.EventObjectClass#preventDefault</b> and
+     * <b class='link'>ext.EventObjectClass#stopPropagation</b> (defaults to 'stopEvent')
      */
     public var defaultEventAction : String;
     /**

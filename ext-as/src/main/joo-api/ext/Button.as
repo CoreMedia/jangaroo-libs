@@ -12,7 +12,7 @@ public class Button extends BoxComponent {
  * @cfg {Function} handler A function called when the button is clicked (can be used instead of click event).
  * The handler is passed the following parameters:<div class="mdetail-params"><ul>
  * <li><code>b</code> : Button<div class="sub-desc">This Button.</div></li>
- * <li><code>e</code> : EventObject<div class="sub-desc">The click event.</div></li>
+ * <li><code>e</code> : EventObjectClass<div class="sub-desc">The click event.</div></li>
  * </ul></div>
  * @cfg {Object} scope The scope (<code><b>this</b></code> reference) in which the handler is executed. Defaults to this Button.
  * @cfg {Number} minWidth The minimum width for this button (used to give a set of buttons a common width).

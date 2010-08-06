@@ -1,8 +1,8 @@
 package ext {
 /**
- * Registers event handlers that want to receive a normalized EventObject instead of the standard browser event and provides
+ * Registers event handlers that want to receive a normalized EventObjectClass instead of the standard browser event and provides
  * several useful events directly.
- * See <b class='link'>ext.EventObject</b> for more details on normalized event objects.
+ * See <b class='link'>ext.EventObjectClass</b> for more details on normalized event objects.
 */
 public class EventManager {
 /**
@@ -15,7 +15,7 @@ public class EventManager {
 	     * @param eventName The type of event to listen for
 	     * @param handler The handler function the event invokes This function is passed
 	     * the following parameters:<ul>
-	     * <li>evt : EventObject<div class="sub-desc">The <b class='link' title='ext.EventObject'>EventObject</b> describing the event.</div></li>
+	     * <li>evt : EventObjectClass<div class="sub-desc">The <b class='link' title='ext.EventObjectClass'>EventObjectClass</b> describing the event.</div></li>
 	     * <li>t : Element<div class="sub-desc">The <b class='link' title='ext.Element'>Element</b> which was the target of the event.
 	     * Note that this may be filtered by using the <code>delegate</code> option.</div></li>
 	     * <li>o : Object<div class="sub-desc">The options object from the addListener call.</div></li>
@@ -28,7 +28,7 @@ public class EventManager {
 	     * <li>stopEvent : Boolean<div class="sub-desc">True to stop the event. That is stop propagation, and prevent the default action.</div></li>
 	     * <li>preventDefault : Boolean<div class="sub-desc">True to prevent the default action</div></li>
 	     * <li>stopPropagation : Boolean<div class="sub-desc">True to prevent event propagation</div></li>
-	     * <li>normalized : Boolean<div class="sub-desc">False to pass a browser event to the handler function instead of an ext.EventObject</div></li>
+	     * <li>normalized : Boolean<div class="sub-desc">False to pass a browser event to the handler function instead of an ext.EventObjectClass</div></li>
 	     * <li>delay : Number<div class="sub-desc">The number of milliseconds to delay the invocation of the handler after te event fires.</div></li>
 	     * <li>single : Boolean<div class="sub-desc">True to add a handler to handle just the next firing of the event, and then remove itself.</div></li>
 	     * <li>buffer : Number<div class="sub-desc">Causes the handler to be scheduled to run in an <b class='link'>Ext.util.DelayedTask</b> delayed

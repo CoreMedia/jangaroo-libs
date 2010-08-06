@@ -1,5 +1,5 @@
 package ext.tree {
-import ext.EventObject;
+import ext.EventObjectClass;
 import ext.dd.DragSource;
 import ext.dd.DropZone;
 
@@ -51,12 +51,12 @@ public function TreeDropZone(tree : *, config : Object) {
     protected native function cancelExpand() : void;
     protected native function isValidDropPoint(n, pt, dd, e, data) : void;
     protected native function getDropPoint(e, n, dd) : void;
-  override public native function onNodeEnter(nodeData : Object, source : DragSource, e : EventObject, data : Object) : void;
-  override public native function onContainerOver(source : DragSource, e : EventObject, data : Object) : String;
-  override public native function onNodeOver(nodeData : Object, source : DragSource, e : EventObject, data : Object) : String;
-  override public native function onNodeOut(nodeData : Object, source : DragSource, e : EventObject, data : Object) : void;
-  override public native function onNodeDrop(nodeData : Object, source : DragSource, e : EventObject, data : Object) : Boolean;
-  override public native function onContainerDrop(source : DragSource, e : EventObject, data : Object) : Boolean;
+  override public native function onNodeEnter(nodeData : Object, source : DragSource, e : EventObjectClass, data : Object) : void;
+  override public native function onContainerOver(source : DragSource, e : EventObjectClass, data : Object) : String;
+  override public native function onNodeOver(nodeData : Object, source : DragSource, e : EventObjectClass, data : Object) : String;
+  override public native function onNodeOut(nodeData : Object, source : DragSource, e : EventObjectClass, data : Object) : void;
+  override public native function onNodeDrop(nodeData : Object, source : DragSource, e : EventObjectClass, data : Object) : Boolean;
+  override public native function onContainerDrop(source : DragSource, e : EventObjectClass, data : Object) : Boolean;
     protected native function processDrop(target, data, point, dd, e, dropNode) : void;
     protected native function completeDrop(de) : void;
     protected native function afterNodeMoved(dd, data, e, targetNode, dropNode) : void;

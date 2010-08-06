@@ -26,7 +26,7 @@ public function BaseItem(config : Object) {
      * A function that will handle the click event of this menu item (optional).
      * The handler is passed the following parameters:<div class="mdetail-params"><ul>
      * <li><code>b</code> : Item<div class="sub-desc">This menu Item.</div></li>
-     * <li><code>e</code> : EventObject<div class="sub-desc">The click event.</div></li>
+     * <li><code>e</code> : EventObjectClass<div class="sub-desc">The click event.</div></li>
      * </ul></div>
      */
     /**

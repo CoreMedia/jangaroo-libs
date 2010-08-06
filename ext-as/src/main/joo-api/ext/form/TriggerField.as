@@ -1,5 +1,6 @@
 package ext.form {
 import ext.Element;
+import ext.EventObjectClass;
 
 /**
  * Provides a convenient wrapper for TextFields that adds a clickable trigger button (looks like a combobox by default).
@@ -68,23 +69,23 @@ public function TriggerField(config : Object) {
      * @method autoSize
      */
     //public var autoSize;
-    protected var monitorTab ;
+    protected var monitorTab;
     //protected var deferHeight ;
-    protected var mimicing ;
+    protected var mimicing:Boolean;
     //public var actionMode;
     //override protected native function onResize(w, h) : void;
     //protected var adjustSize ;
-    override public native function getResizeEl() : void;
-    override public native function getPositionEl() : void;
+    override public native function getResizeEl() : Element;
+    override public native function getPositionEl() : Element;
     override protected native function alignErrorIcon() : void;
     override protected native function onRender(container : Element, position : Element) : void;
     override protected native function afterRender() : void;
     protected native function initTrigger() : void;
     override protected native function onDestroy() : void;
     override protected native function onFocus() : void;
-    protected native function checkTab(e) : void;
+    protected native function checkTab(e : EventObjectClass) : void;
     override protected native function onBlur() : void;
-    protected native function mimicBlur(e) : void;
+    protected native function mimicBlur(e : EventObjectClass) : void;
     protected native function triggerBlur() : void;
     override protected native function beforeBlur():void;
     /**
@@ -94,7 +95,7 @@ public function TriggerField(config : Object) {
      * @param value True to allow the user to directly edit the field text
      */
     public native function setEditable(value : Boolean) : void;
-    protected native function validateBlur(e) : void;
+    protected native function validateBlur(e : EventObjectClass) : void;
     /**
      * The function that should handle the trigger's click event.  This method does nothing by default
      * until overridden by an implementing function.  See ext.form.ComboBox and ext.form.DateField for
@@ -102,7 +103,7 @@ public function TriggerField(config : Object) {
      * @method
      * @param e
      */
-    public native function onTriggerClick(e : *) : void;
+    public native function onTriggerClick(e : EventObjectClass) : void;
     /**
      * @cfg {Boolean} grow @hide
      */

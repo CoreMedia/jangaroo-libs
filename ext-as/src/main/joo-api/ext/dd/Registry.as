@@ -1,5 +1,5 @@
 package ext.dd {
-import ext.EventObject;
+import ext.EventObjectClass;
 
 /**
  * Provides easy access to all drag drop components that are registered on a page.  Items can be retrieved either
@@ -42,7 +42,7 @@ isHandle   True if the element passed in triggers<br />
      * @param e The event
      * @return handle The custom handle data
      */
-        public static native function getHandleFromEvent(e : EventObject) : Object;
+        public static native function getHandleFromEvent(e : EventObjectClass) : Object;
     /**
      * Returns a custom data object that is registered for a DOM node by id
      * @param id The DOM node or id to look up
@@ -54,5 +54,5 @@ isHandle   True if the element passed in triggers<br />
      * @param e The event
      * @return data The custom data
      */
-        public static native function getTargetFromEvent(e : EventObject) : Object;
+        public static native function getTargetFromEvent(e : EventObjectClass) : Object;
 }}

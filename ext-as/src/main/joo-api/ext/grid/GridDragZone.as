@@ -1,5 +1,5 @@
 package ext.grid {
-import ext.EventObject;
+import ext.EventObjectClass;
 import ext.dd.DragDrop;
 import ext.dd.DragZone;
 
@@ -27,7 +27,7 @@ public class GridDragZone extends DragZone {
    * <li><b>selections</b> : Array<div class="sub-desc">An Array of the selected Records which are being dragged from the GridPanel.</div></li>
    * </ul></p>
    */
-    override public native function getDragData(e : EventObject) : Object;
+    override public native function getDragData(e : EventObjectClass) : Object;
     /**
      * <p>The provided implementation of the onInitDrag method. Sets the <code>innerHTML</code> of the drag proxy which provides the "picture"
      * of the data being dragged.</p>
@@ -38,16 +38,16 @@ public class GridDragZone extends DragZone {
      * An empty immplementation. Implement this to provide behaviour after a repair of an invalid drop. An implementation might highlight
      * the selected rows to show that they have not been dragged.
      */
-  override protected native function afterRepair(e : EventObject, id : String) : void;
+  override protected native function afterRepair(e : EventObjectClass, id : String) : void;
     /**
      * <p>An empty implementation. Implement this to provide coordinates for the drag proxy to slide back to after an invalid drop.</p>
      * <p>Called before a repair of an invalid drop to get the XY to animate to.</p>
      * @param e The mouse up event
      * @return The xy location (e.g. [100, 200])
      */
-  override protected native function getRepairXY(target : Object, e : EventObject, id : String) : void;
-  override protected native function onEndDrag(data, e : EventObject) : void;
+  override protected native function getRepairXY(target : Object, e : EventObjectClass, id : String) : void;
+  override protected native function onEndDrag(data, e : EventObjectClass) : void;
     override protected native function onValidDrop(dd, e, id) : void;
-  override public native function beforeInvalidDrop(target : DragDrop, e : EventObject, id : String) : Boolean;
+  override public native function beforeInvalidDrop(target : DragDrop, e : EventObjectClass, id : String) : Boolean;
 
 }}

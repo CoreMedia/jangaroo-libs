@@ -23,14 +23,17 @@ public static const DISPLAY  : Number = 2;
          * The element's default display mode  (defaults to "")
          */
         public var originalDisplay  : String;
-        public var visibilityMode ;
+        /**
+         * The element's visibility mode, either ext.Element.VISIBILITY or ext.Element.DISPLAY.
+         */
+        public native function get visibilityMode() : String;
         /**
          * Sets the element's visibility mode. When setVisible() is called it
          * will use this to determine whether to set the visibility or the display property.
          * @param visMode ext.Element.VISIBILITY or ext.Element.DISPLAY
          * @return this
          */
-        public native function setVisibilityMode(visMode) : Element;
+        public native function setVisibilityMode(visMode : String) : Element;
         /**
          * Perform custom animation on this element.
          * <div><ul class="mdetail-params">
@@ -163,13 +166,13 @@ el.animate(
          * @param animate True for the default animation, or a standard Element animation config object
          * @return this
          */
-         public native function setVisible(visible : Boolean, animate : * = undefined) : Element;
+         public native function setVisible(visible : Boolean, animate : * = false) : Element;
         /**
          * Toggles the element's visibility or display, depending on visibility mode.
          * @param animate True for the default animation, or a standard Element animation config object
          * @return this
          */
-        public native function toggle(animate : * = undefined) : Element;
+        public native function toggle(animate : * = false) : Element;
         /**
          * Sets the CSS display property. Uses originalDisplay if the specified value is a boolean true.
          * @param value Boolean value to display the element using its default display, or a string to set the display directly.
@@ -182,13 +185,13 @@ el.animate(
          * @param animate true for the default animation or a standard Element animation config object
          * @return this
          */
-        public native function hide(animate : * = undefined) : Element;
+        public native function hide(animate : * = false) : Element;
         /**
         * Show this element - Uses display mode to determine whether to use "display" or "visibility". See <b class='link' title='#setVisible'>setVisible</b>.
         * @param animate true for the default animation or a standard Element animation config object
          * @return this
          */
-        public native function show(animate : * = undefined) : Element;
+        public native function show(animate : * = false) : Element;
 	    /**
 	     * Appends the passed element(s) to this element
 	     * @param el
@@ -216,9 +219,10 @@ el.animate(
 	    /**
 	     * Inserts (or creates) an element (or DomHelper config) as the first child of this element
 	     * @param el The id or element to insert or a DomHelper config to create and insert
+         * @param returnDom true to return the dom node instead of creating an Element
 	     * @return The new child
 	     */
-	    public native function insertFirst(el : *, returnDom) : Element;
+	    public native function insertFirst(el : *, returnDom: Boolean = false) : Element;
 	    /**
 	     * Replaces the passed element with this element
 	     * @param el The element to replace
@@ -239,14 +243,14 @@ el.animate(
 		 * @param returnDom true to return the dom node instead of creating an Element
 		 * @return The new child element
 		 */
-		public native function createChild(config : Object, insertBefore : HTMLElement = undefined, returnDom : Boolean = undefined) : Element;
+		public native function createChild(config : Object, insertBefore : HTMLElement = undefined, returnDom : Boolean = false) : Element;
 		/**
 		 * Creates and wraps this element with another element
 		 * @param config DomHelper element config object for the wrapper element or null for an empty div
 		 * @param returnDom True to return the raw DOM element instead of ext.Element
 		 * @return The newly created wrapper element
 		 */
-		public native function wrap(config : Object = undefined, returnDom : Boolean = undefined) : *;
+		public native function wrap(config : Object = undefined, returnDom : Boolean = false) : *;
 		/**
 		 * Inserts an html fragment into this element
 		 * @param where Where to insert the html in relation to this element - beforeBegin, afterBegin, beforeEnd, afterEnd.
@@ -254,12 +258,12 @@ el.animate(
 		 * @param returnEl True to return an ext.Element (defaults to false)
 		 * @return The inserted node (or nearest related if more than 1 inserted)
 		 */
-		public native function insertHtml(where : String, html : String, returnEl : Boolean = undefined) : *;
+		public native function insertHtml(where : String, html : String, returnEl : Boolean = false) : *;
 /**
  * <p>Encapsulates a DOM element, adding simple DOM manipulation facilities, normalizing for browser differences.</p>
  * <p>All instances of this class inherit the methods of <b class='link'>ext.Fx</b> making visual effects easily available to all DOM elements.</p>
  * <p>Note that the events documented in this class are not Ext events, they encapsulate browser events. To
- * access the underlying browser event, see <b class='link'>ext.EventObject#browserEvent</b>. Some older
+ * access the underlying browser event, see <b class='link'>ext.EventObjectClass#browserEvent</b>. Some older
  * browsers may not support the full range of events. Which events are supported is beyond the control of ExtJs.</p>
  * Usage:<br>
 <pre><code>
@@ -323,7 +327,7 @@ if(opt.anim.isAnimated()){
  * @param element
  * @param forceNew By default the constructor checks to see if there is already an instance of this element in the cache and if there is it returns the same instance. This will skip that check (useful for extending this class).
  */
-public function Element(element : *, forceNew : Boolean = undefined) {
+public function Element(element : *, forceNew : Boolean = false) {
   super(element, forceNew);
 }
     /**
@@ -338,7 +342,7 @@ public function Element(element : *, forceNew : Boolean = undefined) {
      * @param useSet false to override the default setAttribute to use expandos.
      * @return this
      */
-    public native function set(o : Object, useSet : Boolean = undefined) : Element;
+    public native function set(o : Object, useSet : Boolean = false) : Element;
     /**
      * The default unit to append to CSS values where a unit isn't provided (defaults to px).
      */
@@ -354,7 +358,7 @@ public function Element(element : *, forceNew : Boolean = undefined) {
      * @param defer Milliseconds to defer the focus
      * @return this
      */
-    public native function focus(defer : Number = undefined, dom = undefined) : Element;
+    public native function focus(defer : Number = undefined) : Element;
     /**
      * Tries to blur the element. Any exceptions are caught and ignored.
      * @return this
@@ -365,13 +369,13 @@ public function Element(element : *, forceNew : Boolean = undefined) {
      * @param asNumber true to parse the value as a number
      * @return 
      */
-    public native function getValue(asNumber : Boolean) : *;
+    public native function getValue(asNumber : Boolean = false) : *;
     /**
      * Appends an event handler to this element.  The shorthand version <b class='link' title='#on'>on</b> is equivalent.
      * @param eventName The type of event to handle
      * @param fn The handler function the event invokes. This function is passed
      * the following parameters:<ul>
-     * <li><b>evt</b> : EventObject<div class="sub-desc">The <b class='link' title='ext.EventObject'>EventObject</b> describing the event.</div></li>
+     * <li><b>evt</b> : EventObjectClass<div class="sub-desc">The <b class='link' title='ext.EventObjectClass'>EventObjectClass</b> describing the event.</div></li>
      * <li><b>el</b> : Element<div class="sub-desc">The <b class='link' title='ext.Element'>Element</b> which was the target of the event.
      * Note that this may be filtered by using the <code>delegate</code> option.</div></li>
      * <li><b>o</b> : Object<div class="sub-desc">The options object from the addListener call.</div></li>
@@ -386,7 +390,7 @@ public function Element(element : *, forceNew : Boolean = undefined) {
      * <li><b>stopEvent</b> Boolean: <div class="sub-desc">True to stop the event. That is stop propagation, and prevent the default action.</div></li>
      * <li><b>preventDefault</b> Boolean: <div class="sub-desc">True to prevent the default action</div></li>
      * <li><b>stopPropagation</b> Boolean: <div class="sub-desc">True to prevent event propagation</div></li>
-     * <li><b>normalized</b> Boolean: <div class="sub-desc">False to pass a browser event to the handler function instead of an ext.EventObject</div></li>
+     * <li><b>normalized</b> Boolean: <div class="sub-desc">False to pass a browser event to the handler function instead of an ext.EventObjectClass</div></li>
      * <li><b>target</b> ext.Element: <div class="sub-desc">Only call the handler if the event was fired on the target Element, <i>not</i> if the event was bubbled up from a child node.</div></li>
      * <li><b>delay</b> Number: <div class="sub-desc">The number of milliseconds to delay the invocation of the handler after the event fires.</div></li>
      * <li><b>single</b> Boolean: <div class="sub-desc">True to add a handler to handle just the next firing of the event, and then remove itself.</div></li>
@@ -502,11 +506,11 @@ el.un('click', this.handlerFn);
      * <p>Updates the <a href="http://developer.mozilla.org/en/DOM/element.innerHTML">innerHTML</a> of this Element
      * from a specified URL. Note that this is subject to the <a href="http://en.wikipedia.org/wiki/Same_origin_policy">Same Origin Policy</a></p>
      * <p>Updating innerHTML of an element will <b>not</b> execute embedded <code>&lt;script></code> elements. This is a browser restriction.</p>
-     * @param options. Either a sring containing the URL from which to load the HTML, or an <b class='link'>ext.Ajax#request</b> options object specifying
+     * @param options. Either a string containing the URL from which to load the HTML, or an <b class='link'>ext.Ajax#request</b> options object specifying
      * exactly how to request the HTML.
      * @return this
      */
-    public native function load(options : *, params, cb) : Element;
+    public native function load(options : *, params:Object = undefined, callback:Function = undefined) : Element;
     /**
      * Tests various css rules/browsers to determine if this element uses a border box
      * @return 
@@ -693,25 +697,25 @@ el.un('click', this.handlerFn);
      * @param local True to get the local css position instead of page coordinate
      * @return 
      */
-    public native function getLeft(local : Boolean) : Number;
+    public native function getLeft(local : Boolean = false) : Number;
     /**
      * Gets the right X coordinate of the element (element X position + element width)
      * @param local True to get the local css position instead of page coordinate
      * @return 
      */
-    public native function getRight(local : Boolean) : Number;
+    public native function getRight(local : Boolean = false) : Number;
     /**
      * Gets the top Y coordinate
      * @param local True to get the local css position instead of page coordinate
      * @return 
      */
-    public native function getTop(local : Boolean) : Number;
+    public native function getTop(local : Boolean = false) : Number;
     /**
      * Gets the bottom Y coordinate of the element (element Y position + element height)
      * @param local True to get the local css position instead of page coordinate
      * @return 
      */
-    public native function getBottom(local : Boolean) : Number;
+    public native function getBottom(local : Boolean = false) : Number;
     /**
     * Initializes positioning on this element. If a desired position is not passed, it will make the
     * the element positioned relative IF it is not already positioned.
@@ -746,7 +750,7 @@ el.un('click', this.handlerFn);
      * @return An object with left and top properties. e.g. {left: (value), top: (value)}
      */
     public native function translatePoints(x : *, y : Number = undefined) : Object;
-    public var animTest ;
+
     /**
      * Returns true if this element is scrollable.
      * @return 
@@ -837,13 +841,13 @@ el.un('click', this.handlerFn);
          * @param contentHeight true to get the height minus borders and padding
          * @return The element's height
          */
-        public native function getHeight(contentHeight : Boolean = undefined) : Number;
+        public native function getHeight(contentHeight : Boolean = false) : Number;
         /**
          * Returns the offset width of the element
          * @param contentWidth true to get the width minus borders and padding
          * @return The element's width
          */
-        public native function getWidth(contentWidth : Boolean = undefined) : Number;
+        public native function getWidth(contentWidth : Boolean = false) : Number;
         /**
          * Set the width of this Element.
          * @param width The new width. This may be one of:<div class="mdetail-params"><ul>
@@ -853,7 +857,7 @@ el.un('click', this.handlerFn);
          * @param animate true for the default animation or a standard Element animation config object
          * @return this
          */
-        public native function setWidth(width : *, animate : * = undefined) : Element;
+        public native function setWidth(width : *, animate : * = false) : Element;
         /**
          * Set the height of this Element.
          * <pre><code>
@@ -908,7 +912,7 @@ Ext.fly('elId').setHeight(150, {
 	     * @param returnEl True to return a ext.Element object instead of DOM node
 	     * @return The matching DOM node (or null if no match was found)
 	     */
-	    public native function findParent(selector : String, maxDepth : * = undefined, returnEl : Boolean = undefined) : HTMLElement;
+	    public native function findParent(selector : String, maxDepth : * = undefined, returnEl : Boolean = false) : HTMLElement;
 	    /**
 	     * Looks at parent nodes for a match of the passed simple selector (e.g. div.some-class or span:first-child)
 	     * @param selector The simple selector to test
@@ -917,7 +921,7 @@ Ext.fly('elId').setHeight(150, {
 	     * @param returnEl True to return a ext.Element object instead of DOM node
 	     * @return The matching DOM node (or null if no match was found)
 	     */
-	    public native function findParentNode(selector : String, maxDepth : * = undefined, returnEl : Boolean = undefined) : HTMLElement;
+	    public native function findParentNode(selector : String, maxDepth : * = undefined, returnEl : Boolean = false) : HTMLElement;
 	    /**
 	     * Walks up the dom looking for a parent node that matches the passed simple selector (e.g. div.some-class or span:first-child).
 	     * This is a shortcut for findParentNode() that always returns an ext.Element.
@@ -936,7 +940,7 @@ Ext.fly('elId').setHeight(150, {
    * @param root The root element of the query or id of the root
    * @return The composite element
    */
-	    public native function select(selector : *, unique : Boolean = undefined, root : * = undefined) : CompositeElement;
+	    public native function select(selector : *, unique : Boolean = false, root : * = undefined) : CompositeElement;
 	    /**
 	     * Selects child nodes based on the passed CSS selector (the selector should not contain an id).
 	     * @param selector The CSS selector
@@ -949,49 +953,49 @@ Ext.fly('elId').setHeight(150, {
 	     * @param returnDom True to return the DOM node instead of ext.Element (defaults to false)
 	     * @return The child ext.Element (or DOM node if returnDom = true)
 	     */
-	    public native function child(selector : String, returnDom : Boolean = undefined) : *;
+	    public native function child(selector : String, returnDom : Boolean = false) : *;
 	    /**
 	     * Selects a single *direct* child based on the passed CSS selector (the selector should not contain an id).
 	     * @param selector The CSS selector
 	     * @param returnDom True to return the DOM node instead of ext.Element (defaults to false)
 	     * @return The child ext.Element (or DOM node if returnDom = true)
 	     */
-	    public native function down(selector : String, returnDom : Boolean = undefined) : *;
+	    public native function down(selector : String, returnDom : Boolean = false) : *;
 		 /**
 	     * Gets the parent node for this element, optionally chaining up trying to match a selector
 	     * @param selector Find a parent node that matches the passed simple selector
 	     * @param returnDom True to return a raw dom node instead of an ext.Element
 	     * @return The parent node or null
 		 */
-	    public native function parent(selector : String = undefined, returnDom : Boolean = undefined) : *;
+	    public native function parent(selector : String = undefined, returnDom : Boolean = false) : *;
 	     /**
 	     * Gets the next sibling, skipping text nodes
 	     * @param selector Find the next sibling that matches the passed simple selector
 	     * @param returnDom True to return a raw dom node instead of an ext.Element
 	     * @return The next sibling or null
 		 */
-	    public native function next(selector : String = undefined, returnDom : Boolean = undefined) : *;
+	    public native function next(selector : String = undefined, returnDom : Boolean = false) : *;
 	    /**
 	     * Gets the previous sibling, skipping text nodes
 	     * @param selector Find the previous sibling that matches the passed simple selector
 	     * @param returnDom True to return a raw dom node instead of an ext.Element
 	     * @return The previous sibling or null
 		 */
-	    public native function prev(selector : String = undefined, returnDom : Boolean = undefined) : *;
+	    public native function prev(selector : String = undefined, returnDom : Boolean = false) : *;
 	    /**
 	     * Gets the first child, skipping text nodes
 	     * @param selector Find the next sibling that matches the passed simple selector
 	     * @param returnDom True to return a raw dom node instead of an ext.Element
 	     * @return The first child or null
 		 */
-	    public native function first(selector : String = undefined, returnDom : Boolean = undefined) : *;
+	    public native function first(selector : String = undefined, returnDom : Boolean = false) : *;
 	    /**
 	     * Gets the last child, skipping text nodes
 	     * @param selector Find the previous sibling that matches the passed simple selector
 	     * @param returnDom True to return a raw dom node instead of an ext.Element
 	     * @return The last child or null
 		 */
-	    public native function last(selector : String = undefined, returnDom : Boolean = undefined) : *;
+	    public native function last(selector : String = undefined, returnDom : Boolean = false) : *;
 	    public native function matchNode(dir, start, selector, returnDom) : void;
     /**
      * Stops the specified event(s) from bubbling and optionally prevents the default action
@@ -999,7 +1003,7 @@ Ext.fly('elId').setHeight(150, {
      * @param preventDefault true to prevent the default action too
      * @return this
      */
-    public native function swallowEvent(eventName : *, preventDefault : Boolean = undefined) : Element;
+    public native function swallowEvent(eventName : *, preventDefault : Boolean = false) : Element;
     /**
      * Create an event handler on this element such that when the event fires and is handled by this element,
      * it will be relayed to another object (i.e., fired again as if it originated from that object instead).
@@ -1015,7 +1019,7 @@ Ext.fly('elId').setHeight(150, {
      * you can call this over and over. However, if you update the element and
      * need to force a reclean, you can pass true.
      */
-    public native function clean(forceReclean : Boolean = undefined) : void;
+    public native function clean(forceReclean : Boolean = false) : void;
     /**
     * Gets this element's <b class='link' title='ext.Updater'>Updater</b>
     * @return The Updater
@@ -1028,7 +1032,7 @@ Ext.fly('elId').setHeight(150, {
     * @param callback For async script loading you can be notified when the update completes
     * @return this
      */
-    public native function update(html : String, loadScripts : Boolean = undefined, callback : Function = undefined) : Element;
+    public native function update(html : String, loadScripts : Boolean = false, callback : Function = undefined) : Element;
     /**
      * Creates a proxy element of this element
      * @param config The class name of the proxy element or a DomHelper config object
@@ -1036,7 +1040,7 @@ Ext.fly('elId').setHeight(150, {
      * @param matchBox True to align and size the proxy to this element now (defaults to false)
      * @return The new proxy element
      */
-    public native function createProxy(config : *, renderTo : * = undefined, matchBox : Boolean = undefined) : Element;
+    public native function createProxy(config : *, renderTo : * = undefined, matchBox : Boolean = false) : Element;
 protected native function uncache (el) : void;
     /**
      * Gets the x,y coordinates specified by the anchor position on the element.
@@ -1048,7 +1052,7 @@ protected native function uncache (el) : void;
      * {width: (target width), height: (target height)} (defaults to the element's current size)
      * @return [x, y] An array containing the element's x and y coordinates
      */
-    public native function getAnchorXY(anchor : String = undefined, local : Boolean = undefined, size : Object = undefined) : Array;
+    public native function getAnchorXY(anchor : String = undefined, local : Boolean = false, size : Object = undefined) : Array;
     /**
      * Anchors an element to another element and realigns it when the window is resized.
      * @param element The element to align to.
@@ -1163,7 +1167,7 @@ el.alignTo("other-el", "c-bl", [-6, 0]);
 	     * @param deep True to walk the dom and see if parent elements are hidden (defaults to false)
 	     * @return True if the element is currently visible, else false
 	     */
-	    public native function isVisible(deep : Boolean = undefined) : Boolean;
+	    public native function isVisible(deep : Boolean = false) : Boolean;
 	    /**
 	     * Returns true if display is not "none"
 	     * @return 
@@ -1205,7 +1209,7 @@ el.alignTo("other-el", "c-bl", [-6, 0]);
 	     * @param returnDom True to return the raw DOM element instead of ext.Element
 	     * @return the inserted Element
 	     */
-	    public native function insertSibling(el : *, where : String = undefined, returnDom : Boolean = undefined) : Element;
+	    public native function insertSibling(el : *, where : String = undefined, returnDom : Boolean = false) : Element;
     /**
      * Convenience method for constructing a KeyMap
      * @param key Either a string with the keys to listen for, the numeric key code, array of key codes or an object with the following options:
@@ -1230,7 +1234,7 @@ el.alignTo("other-el", "c-bl", [-6, 0]);
      * @param easing Easing method to use (defaults to easeOut)
      * @return this
      */
-    public native function autoHeight(animate : Boolean = undefined, duration : Number = undefined, onComplete : Function = undefined, easing : String = undefined) : Element;
+    public native function autoHeight(animate : Boolean = false, duration : Number = .35, onComplete : Function = undefined, easing : String = undefined) : Element;
     /**
      * Sets the element's box. Use getBox() on another element to get a box obj. If animate is true then width, height, x and y will be animated concurrently.
      * @param box The box to fill {x, y, width, height}
@@ -1238,7 +1242,7 @@ el.alignTo("other-el", "c-bl", [-6, 0]);
      * @param animate true for the default animation or a standard Element animation config object
      * @return this
      */
-    public native function setBox(box : Object, adjust : Boolean = undefined, animate : * = undefined) : Element;
+    public native function setBox(box : Object, adjust : Boolean = false, animate : * = false) : Element;
     /**
      * Return a box {x, y, width, height} that can be used to set another elements
      * size/location to match this element.
@@ -1246,7 +1250,7 @@ el.alignTo("other-el", "c-bl", [-6, 0]);
      * @param local If true the element's left and top are returned instead of page x/y.
      * @return box An object in the format {x, y, width, height}
      */
-	public native function getBox(contentBox : Boolean = undefined, local : Boolean = undefined) : Object;
+	public native function getBox(contentBox : Boolean = false, local : Boolean = false) : Object;
     /**
      * Move this element relative to its current position.
      * @param direction Possible values are: "l" (or "left"), "r" (or "right"), "t" (or "top", or "up"), "b" (or "bottom", or "down").
@@ -1306,7 +1310,7 @@ el.alignTo("other-el", "c-bl", [-6, 0]);
      * @param hscroll False to disable horizontal scroll (defaults to true)
      * @return this
      */
-    public native function scrollIntoView(container : * = undefined, hscroll : Boolean = undefined) : Element;
+    public native function scrollIntoView(container : * = undefined, hscroll : Boolean = true) : Element;
     protected native function scrollChildIntoView(child, hscroll) : void;
     /**
      * Scrolls this element the specified direction. Does bounds checking to make sure the scroll is
@@ -1318,7 +1322,7 @@ el.alignTo("other-el", "c-bl", [-6, 0]);
      * was scrolled as far as it could go.
      */
      public native function scroll(direction : String, distance : Number, animate : * = undefined) : Boolean;
-public static var boxMarkup = '<div class="{0}-tl"><div class="{0}-tr"><div class="{0}-tc"></div></div></div><div class="{0}-ml"><div class="{0}-mr"><div class="{0}-mc"></div></div></div><div class="{0}-bl"><div class="{0}-br"><div class="{0}-bc"></div></div></div>';
+public static var boxMarkup:String = '<div class="{0}-tl"><div class="{0}-tr"><div class="{0}-tc"></div></div></div><div class="{0}-ml"><div class="{0}-mr"><div class="{0}-mc"></div></div></div><div class="{0}-bl"><div class="{0}-br"><div class="{0}-bc"></div></div></div>';
 	    /**
 	     * More flexible version of <b class='link' title='#setStyle'>setStyle</b> for setting style properties.
 	     * @param styles A style specification string, e.g. "width:100px", or object in the form {width:"100px"}, or
@@ -1441,7 +1445,7 @@ Ext.get("foo").boxWrap().addClass("x-box-blue");
 	     * @param contentSize true to get the width/size minus borders and padding
 	     * @return An object containing the element's size {width: (element width), height: (element height)}
 	     */
-	    public native function getSize(contentSize : Boolean = undefined) : Object;
+	    public native function getSize(contentSize : Boolean = false) : Object;
 	    /**
 	     * Forces the browser to repaint this element
 	     * @return this
@@ -1470,5 +1474,13 @@ Ext.get("foo").boxWrap().addClass("x-box-blue");
    */
   public static native function getTextWidth(text : String, min : Number = undefined, max : Number = undefined) : Number;
 
-  public var dom : HTMLElement;
+  /**
+   * The DOM element
+   */
+  public native function get dom() : HTMLElement;
+
+  /**
+   * The DOM element ID
+   */
+  public native function get id() : String;
 }}

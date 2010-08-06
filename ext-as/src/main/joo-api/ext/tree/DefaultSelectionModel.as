@@ -1,6 +1,6 @@
 package ext.tree {
 
-import ext.EventObject;
+import ext.EventObjectClass;
 import ext.util.Observable;
 
 /**
@@ -10,7 +10,7 @@ public class DefaultSelectionModel extends Observable {
 
     public native function init() : void;
 
-    public native function onNodeClick(node : TreeNode, e : EventObject) : void;
+    public native function onNodeClick(node : TreeNode, e : EventObjectClass) : void;
     /**
      * Select a node.
      * @param node The node to select
@@ -47,6 +47,6 @@ public class DefaultSelectionModel extends Observable {
      * @return The new selection
      */
     public native function selectNext() : TreeNode;
-    public native function onKeyDown(e : EventObject) : void;
+    public native function onKeyDown(e : EventObjectClass) : void;
 }
 }

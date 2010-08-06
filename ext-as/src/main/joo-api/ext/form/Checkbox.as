@@ -53,8 +53,8 @@ public function Checkbox(config : Object) {
     override protected native function initComponent() : void;
     override public native function onResize(adjWidth, adjHeight, rawWidth, rawHeight) : void;
     override protected native function initEvents() : void;
-    override public native function getResizeEl() : void;
-    override public native function getPositionEl() : void;
+    override public native function getResizeEl() : Element;
+    override public native function getPositionEl() : Element;
     /**
      * @hide
      * Overridden and disabled. The editor element does not support standard valid/invalid marking.

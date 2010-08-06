@@ -4,13 +4,13 @@ package ext {
  * The constructor accepts the same config object as defined by <b class='link' title='#addBinding'>addBinding</b>.
  * If you bind a callback function to a KeyMap, anytime the KeyMap handles an expected key
  * combination it will call the function with this signature (if the match is a multi-key
- * combination the callback will still be called only once): (String key, ext.EventObject e)
+ * combination the callback will still be called only once): (String key, ext.EventObjectClass e)
  * A KeyMap can also handle a string representation of keys.<br />
  * Usage:
  <pre><code>
 &#47;/ map one key by key code
 var map = new ext.KeyMap("my-element", {
-    key&#58; 13, // or ext.EventObject.ENTER
+    key&#58; 13, // or ext.EventObjectClass.ENTER
     fn&#58; myHandler,
     scope&#58; myObject
 });
@@ -74,7 +74,7 @@ stopEvent   Boolean          True to stop the event from bubbling and prevent th
      * <pre><code>
 &#47;/ Create a KeyMap
 var map = new ext.KeyMap(document, {
-    key&#58; ext.EventObject.ENTER,
+    key&#58; ext.EventObjectClass.ENTER,
     fn&#58; handleKey,
     scope&#58; this
 });

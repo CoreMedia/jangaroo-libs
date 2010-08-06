@@ -1,5 +1,5 @@
 package ext.dd {
-import ext.EventObject;
+import ext.EventObjectClass;
 
 /**
  * A DragDrop implementation that inserts an empty, bordered div into
@@ -73,10 +73,10 @@ public static var dragElId  : String = "ygddfdiv";
      * @private
      */
     public native function resizeProxy() : void;
-    override protected native function b4MouseDown(e:EventObject) : void;
+    override protected native function b4MouseDown(e:EventObjectClass) : void;
     override protected native function b4StartDrag(x:Number, y:Number) : void;
-    override protected native function b4EndDrag(e:EventObject) : void;
-    override public native function endDrag(e:EventObject) : void;
+    override protected native function b4EndDrag(e:EventObjectClass) : void;
+    override public native function endDrag(e:EventObjectClass) : void;
     public native function beforeMove() : void;
     public native function afterDrag() : void;
     override public native function toString() : String;

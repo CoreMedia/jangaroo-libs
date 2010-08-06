@@ -1,5 +1,5 @@
 package ext.dd {
-import ext.EventObject;
+import ext.EventObjectClass;
 
 import js.HTMLElement;
 
@@ -233,13 +233,13 @@ public function DragDrop(id : String, sGroup : String, config : Object) {
     /**
      * Code that executes immediately before the onDrag event
      */
-    protected native function b4Drag(e:EventObject) : void;
+    protected native function b4Drag(e:EventObjectClass) : void;
     /**
      * Abstract method called during the onMouseMove event while dragging an
      * object.
      * @param e the mousemove event
      */
-    public native function onDrag(e:EventObject) : void;
+    public native function onDrag(e:EventObjectClass) : void;
     /**
      * Abstract method called when this element fist begins hovering over
      * another DragDrop obj
@@ -248,11 +248,11 @@ public function DragDrop(id : String, sGroup : String, config : Object) {
      * id this is hovering over.  In INTERSECT mode, an array of one or more
      * dragdrop items being hovered over.
      */
-    public native function onDragEnter(e:EventObject, id:Object) : void;
+    public native function onDragEnter(e:EventObjectClass, id:Object) : void;
     /**
      * Code that executes immediately before the onDragOver event
      */
-    protected native function b4DragOver(e:EventObject) : void;
+    protected native function b4DragOver(e:EventObjectClass) : void;
     /**
      * Abstract method called when this element is hovering over another
      * DragDrop obj
@@ -261,11 +261,11 @@ public function DragDrop(id : String, sGroup : String, config : Object) {
      * id this is hovering over.  In INTERSECT mode, an array of dd items
      * being hovered over.
      */
-    public native function onDragOver(e:EventObject, id:Object) : void;
+    public native function onDragOver(e:EventObjectClass, id:Object) : void;
     /**
      * Code that executes immediately before the onDragOut event
      */
-    protected native function b4DragOut(e:EventObject) : void;
+    protected native function b4DragOut(e:EventObjectClass) : void;
     /**
      * Abstract method called when we are no longer hovering over an element
      * @param e the mousemove event
@@ -273,11 +273,11 @@ public function DragDrop(id : String, sGroup : String, config : Object) {
      * id this was hovering over.  In INTERSECT mode, an array of dd items
      * that the mouse is no longer over.
      */
-    public native function onDragOut(e:EventObject, id:Object) : void;
+    public native function onDragOut(e:EventObjectClass, id:Object) : void;
     /**
      * Code that executes immediately before the onDragDrop event
      */
-    protected native function b4DragDrop(e:EventObject) : void;
+    protected native function b4DragDrop(e:EventObjectClass) : void;
     /**
      * Abstract method called when this item is dropped on another DragDrop
      * obj
@@ -286,37 +286,37 @@ public function DragDrop(id : String, sGroup : String, config : Object) {
      * id this was dropped on.  In INTERSECT mode, an array of dd items this
      * was dropped on.
      */
-    public native function onDragDrop(e:EventObject, id:Object) : void;
+    public native function onDragDrop(e:EventObjectClass, id:Object) : void;
     /**
      * Abstract method called when this item is dropped on an area with no
      * drop target
      * @param e the mouseup event
      */
-    public native function onInvalidDrop(e:EventObject) : void;
+    public native function onInvalidDrop(e:EventObjectClass) : void;
     /**
      * Code that executes immediately before the endDrag event
      */
-    protected native function b4EndDrag(e:EventObject) : void;
+    protected native function b4EndDrag(e:EventObjectClass) : void;
     /**
      * Fired when we are done dragging the object
      * @param e the mouseup event
      */
-    public native function endDrag(e:EventObject) : void;
+    public native function endDrag(e:EventObjectClass) : void;
     /**
      * Code executed immediately before the onMouseDown event
      * @param e the mousedown event
      */
-    protected native function b4MouseDown(e:EventObject) : void;
+    protected native function b4MouseDown(e:EventObjectClass) : void;
     /**
      * Event handler that fires when a drag/drop obj gets a mousedown
      * @param e the mousedown event
      */
-    public native function onMouseDown(e:EventObject) : void;
+    public native function onMouseDown(e:EventObjectClass) : void;
     /**
      * Event handler that fires when a drag/drop obj gets a mouseup
      * @param e the mouseup event
      */
-    public native function onMouseUp(e:EventObject) : void;
+    public native function onMouseUp(e:EventObjectClass) : void;
     /**
      * Override the onAvailable method to do what is needed after the initial
      * position was determined.
@@ -467,7 +467,7 @@ public function DragDrop(id : String, sGroup : String, config : Object) {
      * @param e
      * @param oDD the clicked dd object (this dd obj)
      */
-    protected native function handleMouseDown(e:EventObject, oDD:DragDrop):void;
+    protected native function handleMouseDown(e:EventObjectClass, oDD:DragDrop):void;
     /**
      * Allows you to specify a tag name that should not start a drag operation
      * when clicked.  This is designed to facilitate embedding links within a
