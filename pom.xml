@@ -174,7 +174,7 @@
     <module>joounit</module>
 
     <module>ext-core</module>
-    <module>ext-all</module>
+    <module>ext-js</module>
     <module>ext-as</module>
 
     <module>ckeditor</module>

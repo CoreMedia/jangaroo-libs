@@ -23,7 +23,7 @@
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
-        <artifactId>ext-all</artifactId>
+        <artifactId>ext-js</artifactId>
         <version>${project.version}</version>
         <type>jangaroo</type>
       </dependency>

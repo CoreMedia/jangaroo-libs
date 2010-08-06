@@ -31,7 +31,7 @@
 
     <dependency>
       <groupId>net.jangaroo</groupId>
-      <artifactId>ext-all</artifactId>
+      <artifactId>ext-js</artifactId>
       <version>0.7.1-SNAPSHOT</version>
       <type>jangaroo</type>
     </dependency>
