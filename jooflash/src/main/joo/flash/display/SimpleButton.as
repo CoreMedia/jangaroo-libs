@@ -1,7 +1,5 @@
 package flash.display {
 
-import flash.display.InteractiveObject;
-import flash.display.DisplayObject;
 //import flash.media.SoundTransform;
 
 /**

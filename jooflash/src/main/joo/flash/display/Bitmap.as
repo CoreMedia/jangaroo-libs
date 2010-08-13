@@ -1,9 +1,7 @@
 package flash.display {
-
 import js.Element;
-import flash.display.DisplayObject;
 
-public class Bitmap extends flash.display.DisplayObject {
+public class Bitmap extends DisplayObject {
 
   /**
    * Initializes a Bitmap object to refer to the specified BitmapData object.

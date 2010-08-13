@@ -5,15 +5,13 @@ import flash.events.EventDispatcher;
 import js.Event;
 import flash.events.Event;
 import flash.events.MouseEvent;
-import flash.display.Stage;
-import flash.display.IBitmapDrawable;
 import flash.geom.Transform;
 
-public class DisplayObject extends EventDispatcher implements flash.display.IBitmapDrawable {
+public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
 
   public function DisplayObject() {
     super();
-    this._stage = flash.display.Stage.instance; // Stage singleton must be set before creating DisplayObject instances!
+    this._stage = Stage.getInstance(); // Stage singleton must be set before creating DisplayObject instances!
     this._elem = this.createElement();
     if (!isNaN(this.x)) {
       this._elem.style.left = this.x + "px";

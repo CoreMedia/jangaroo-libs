@@ -1,17 +1,16 @@
 package flash.display {
-
-import js.Element;
-import flash.display.DisplayObjectContainer;
+import flash.events.Event;
 import flash.events.TimerEvent;
 import flash.utils.Timer;
-import flash.events.Event;
+
+import js.Element;
 
 /**
- * The Stage class represents the main drawing area. The Stage represents the entire area where Flash® content is shown.
+ * The Stage class represents the main drawing area. The Stage represents the entire area where Flashï¿½ content is shown.
  * <p>The Stage object is not globally accessible. You need to access it through the stage property of a DisplayObject
  * instance.
- * <p>The Stage class has several ancestor classes — DisplayObjectContainer, InteractiveObject, DisplayObject, and
- * EventDispatcher — from which it inherits properties and methods. Many of these properties and methods are either
+ * <p>The Stage class has several ancestor classes ï¿½ DisplayObjectContainer, InteractiveObject, DisplayObject, and
+ * EventDispatcher ï¿½ from which it inherits properties and methods. Many of these properties and methods are either
  * inapplicable to Stage objects, or require security checks when called on a Stage object. The properties and methods
  * that require security checks are documented as part of the Stage class.
  * <p>In addition, the following inherited properties are inapplicable to Stage objects. If you try to set them, an
@@ -43,9 +42,15 @@ import flash.events.Event;
  *   <li>y
  * </ul>
  */
-public class Stage extends flash.display.DisplayObjectContainer {
+public class Stage extends DisplayObjectContainer {
 
-  internal static var instance : Stage;
+  private static var instance : Stage;
+  public static function getInstance(id:String = "stage") : Stage {
+    if (!instance) {
+      new Stage(id);
+    }
+    return instance;
+  }
 
   public function Stage(id : String) {
     this.id = id;
@@ -72,7 +77,7 @@ public class Stage extends flash.display.DisplayObjectContainer {
   }
 
   public function set stageHeight (value : int) : void {
-    this.getElement().offsetHeight = value;
+    this.getElement()['offsetHeight'] = value; // TODO: setter for offsetHeight!
   }
 
   /// Specifies the current width, in pixels, of the Stage.
@@ -81,7 +86,7 @@ public class Stage extends flash.display.DisplayObjectContainer {
   }
 
   public function set stageWidth (value : int) : void {
-    this.getElement().offsetWidth = value;    
+    this.getElement()['offsetWidth'] = value; // TODO: setter for offsetWidth
   }
 
   override protected function createElement():Element {
@@ -100,7 +105,7 @@ public class Stage extends flash.display.DisplayObjectContainer {
   }
 
   private function enterFrame() : void {
-    this.dispatchEvent(new flash.events.Event(flash.events.Event.ENTER_FRAME, false, false));
+    this.dispatchEvent(new Event(Event.ENTER_FRAME, false, false));
   }
 
   /**

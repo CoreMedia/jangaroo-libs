@@ -1,15 +1,14 @@
 package flash.display {
-
-import js.HTMLElement;
-import js.HTMLCanvasElement;
-import js.CanvasRenderingContext2D;
-import js.ImageData;
-import flash.geom.Matrix;
-import flash.display.IBitmapDrawable;
-import flash.geom.Rectangle;
 import flash.geom.ColorTransform;
+import flash.geom.Matrix;
+import flash.geom.Rectangle;
 
-public class BitmapData implements flash.display.IBitmapDrawable {
+import js.CanvasRenderingContext2D;
+import js.HTMLCanvasElement;
+import js.HTMLElement;
+import js.ImageData;
+
+public class BitmapData implements IBitmapDrawable {
 
   /**
    * Creates a BitmapData object with a specified width and height. If you specify a value for the fillColor parameter,

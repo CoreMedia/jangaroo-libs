@@ -1,7 +1,5 @@
 package flash.display {
 
-import flash.display.InteractiveObject;
-
 /**
  * The DisplayObjectContainer class is the base class for all objects that can serve as display object containers on
  * the display list. The display list manages all objects displayed in Flash Player. Use the DisplayObjectContainer
@@ -14,7 +12,7 @@ import flash.display.InteractiveObject;
  * <p>For more information, see the "Display Programming" chapter of the Programming ActionScript 3.0 book.
  * @see flash.display.DisplayObject
  */
-public class DisplayObjectContainer extends flash.display.InteractiveObject {
+public class DisplayObjectContainer extends InteractiveObject {
 
   /**
    * Calling the new DisplayObjectContainer() constructor throws an ArgumentError exception. You can, however, call

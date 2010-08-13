@@ -1,14 +1,10 @@
 package flash.display {
 
-import js.CanvasRenderingContext2D;
-import js.CanvasGradient;
-import flash.display.CapsStyle;
-import flash.display.JointStyle;
-import flash.display.LineScaleMode;
-import flash.display.GradientType;
 import flash.geom.Matrix;
 import flash.geom.Point;
-import ArgumentError;
+
+import js.CanvasGradient;
+import js.CanvasRenderingContext2D;
 
 public class Graphics {
 
@@ -437,7 +433,8 @@ package {
   public function drawRoundRect(x : Number, y : Number, width : Number, height : Number,
                                 ellipseWidth : Number, ellipseHeight : Number = NaN) : void {
     if (ellipseHeight==0 || ellipseWidth==0) {
-      return this.drawRect(x, y, width, height);
+      this.drawRect(x, y, width, height);
+      return;
     }
     if (isNaN(ellipseHeight)) {
       ellipseHeight = ellipseWidth;

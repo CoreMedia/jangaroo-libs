@@ -1,6 +1,5 @@
 package flash.display
 {
-	import flash.display.DisplayObject;
 	//import flash.ui.ContextMenu;
 	//import flash.accessibility.AccessibilityImplementation;
 
@@ -26,13 +25,13 @@ package flash.display
 	 * Dispatched when the user releases a key.
 	 * @eventType flash.events.KeyboardEvent.KEY_UP
 	 */
-	[Event(name="keyUp", type="flash.events.KeyboardEvent")] 
+	//[Event(name="keyUp", type="flash.events.KeyboardEvent")]
 
 	/**
 	 * Dispatched when the user presses a key.
 	 * @eventType flash.events.KeyboardEvent.KEY_DOWN
 	 */
-	[Event(name="keyDown", type="flash.events.KeyboardEvent")] 
+	//[Event(name="keyDown", type="flash.events.KeyboardEvent")]
 
 	/**
 	 * Dispatched when the user moves a pointing device over an InteractiveObject instance.
@@ -98,28 +97,28 @@ package flash.display
 	 * Dispatched when the user attempts to change focus by using a pointer device.
 	 * @eventType flash.events.FocusEvent.MOUSE_FOCUS_CHANGE
 	 */
-	[Event(name="mouseFocusChange", type="flash.events.FocusEvent")] 
+	//[Event(name="mouseFocusChange", type="flash.events.FocusEvent")]
 
 	/**
 	 * Dispatched when the user attempts to change focus by using keyboard navigation.
 	 * @eventType flash.events.FocusEvent.KEY_FOCUS_CHANGE
 	 */
-	[Event(name="keyFocusChange", type="flash.events.FocusEvent")] 
+	//[Event(name="keyFocusChange", type="flash.events.FocusEvent")]
 
 	/**
 	 * Dispatched after a display object loses focus.
 	 * @eventType flash.events.FocusEvent.FOCUS_OUT
 	 */
-	[Event(name="focusOut", type="flash.events.FocusEvent")] 
+	//[Event(name="focusOut", type="flash.events.FocusEvent")]
 
 	/**
 	 * Dispatched after a display object gains focus.
 	 * @eventType flash.events.FocusEvent.FOCUS_IN
 	 */
-	[Event(name="focusIn", type="flash.events.FocusEvent")] 
+	//[Event(name="focusIn", type="flash.events.FocusEvent")]
 
 	/// The InteractiveObject class is the abstract base class for all display objects with which the user can interact, using the mouse and keyboard.
-	public class InteractiveObject extends flash.display.DisplayObject
+	public class InteractiveObject extends DisplayObject
 	{
 //		public function get accessibilityImplementation () : AccessibilityImplementation;
 //		public function set accessibilityImplementation (value:AccessibilityImplementation) : void;

@@ -1,10 +1,7 @@
 package flash.display {
-
+import js.CanvasRenderingContext2D;
 import js.Element;
 import js.HTMLCanvasElement;
-import flash.display.Graphics;
-import flash.display.DisplayObjectContainer;
-import flash.display.Shape;
 import flash.geom.Transform;
 import flash.geom.Matrix;
 
