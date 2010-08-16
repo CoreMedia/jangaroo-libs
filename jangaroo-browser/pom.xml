@@ -6,11 +6,12 @@
   <packaging>jangaroo</packaging>
   <version>0.7.3-SNAPSHOT</version>
   <name>jangaroo-browser</name>
-	<description>AS3 version of browser DOM and BOM for use with Jangaroo code</description>
+  <description>AS3 version of browser DOM and BOM for use with Jangaroo code</description>
   <parent>
     <groupId>net.jangaroo</groupId>
     <artifactId>jangaroo-libs</artifactId>
     <version>0.7.3-SNAPSHOT</version>
+    <relativePath>../pom.xml</relativePath>
   </parent>
 
   <dependencies>

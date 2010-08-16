@@ -6,6 +6,7 @@
     <artifactId>jangaroo-libs</artifactId>
     <groupId>net.jangaroo</groupId>
     <version>0.7.3-SNAPSHOT</version>
+    <relativePath>../pom.xml</relativePath>
   </parent>
   <groupId>net.jangaroo</groupId>
   <artifactId>jangaroo-libs-bom</artifactId>
