@@ -105,7 +105,6 @@ CKEDITOR.lang['de'] =
 		targetTop		: 'Oberstes Fenster (_top)',
 		targetSelf		: 'Gleiches Fenster (_self)',
 		targetParent	: 'Oberes Fenster (_parent)',
-		advanced		: 'Advanced', // MISSING
 		langDirLTR		: 'Left to Right (LTR)', // MISSING
 		langDirRTL		: 'Right to Left (RTL)', // MISSING
 		styles			: 'Style', // MISSING

@@ -43,8 +43,6 @@ function commitAdvParams()
 	}
 }
 
-var isUpdating;
-
 CKEDITOR.plugins.add( 'dialogadvtab',
 {
 	/**
@@ -62,8 +60,8 @@ CKEDITOR.plugins.add( 'dialogadvtab',
 		var result =
 		{
 			id : 'advanced',
-			label : lang.advanced,
-			title : lang.advanced,
+			label : lang.advancedTab,
+			title : lang.advancedTab,
 			elements :
 				[
 					{
@@ -144,12 +142,6 @@ CKEDITOR.plugins.add( 'dialogadvtab',
 
 						updateStyle : function( name, value )
 						{
-							if ( isUpdating )
-								return;
-
-							// Flag to avoid recursion.
-							isUpdating = 1;
-
 							var styles = this.getValue();
 
 							// Remove the current value.
@@ -167,9 +159,8 @@ CKEDITOR.plugins.add( 'dialogadvtab',
 								styles += name + ': ' + value;
 							}
 
-							this.setValue( styles );
+							this.setValue( styles, true );
 
-							isUpdating = 0;
 						},
 
 						setup : setupAdvParams,

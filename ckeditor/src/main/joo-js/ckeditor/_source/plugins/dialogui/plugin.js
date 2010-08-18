@@ -59,9 +59,9 @@ CKEDITOR.plugins.add( 'dialogui' );
 			return this.getValue() != this.getInitValue();
 		},
 
-		reset : function()
+		reset : function( noChangeEvent )
 		{
-			this.setValue( this.getInitValue() );
+			this.setValue( this.getInitValue(), noChangeEvent );
 		},
 
 		setInitValue : function()
@@ -1061,7 +1061,7 @@ CKEDITOR.plugins.add( 'dialogui' );
 				setValue : function( value )
 				{
 					!value && ( value = '' );
-					return CKEDITOR.ui.dialog.uiElement.prototype.setValue.call( this, value );
+					return CKEDITOR.ui.dialog.uiElement.prototype.setValue.apply( this, arguments );
 				},
 
 				keyboardFocusable : true
@@ -1156,11 +1156,12 @@ CKEDITOR.plugins.add( 'dialogui' );
 				 * Sets the state of the checkbox.
 				 * @example
 				 * @param {Boolean} true to tick the checkbox, false to untick it.
+				 * @param {Boolean} noChangeEvent Internal commit, to supress 'change' event on this element.
 				 */
-				setValue : function( checked )
+				setValue : function( checked, noChangeEvent )
 				{
 					this.getInputElement().$.checked = checked;
-					this.fire( 'change', { value : checked } );
+					!noChangeEvent && this.fire( 'change', { value : checked } );
 				},
 
 				/**
@@ -1222,14 +1223,15 @@ CKEDITOR.plugins.add( 'dialogui' );
 				 * Checks one of the radio buttons in this button group.
 				 * @example
 				 * @param {String} value The value of the button to be chcked.
+				 * @param {Boolean} noChangeEvent Internal commit, to supress 'change' event on this element.
 				 */
-				setValue : function( value )
+				setValue : function( value, noChangeEvent )
 				{
 					var children = this._.children,
 						item;
 					for ( var i = 0 ; ( i < children.length ) && ( item = children[i] ) ; i++ )
 						item.getElement().$.checked = ( item.getValue() == value );
-					this.fire( 'change', { value : value } );
+					!noChangeEvent && this.fire( 'change', { value : value } );
 				},
 
 				/**

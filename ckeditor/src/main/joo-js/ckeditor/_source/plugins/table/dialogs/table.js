@@ -32,8 +32,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 
 			onLoad : function()
 			{
-				var dialog = this,
-					isUpdating;
+				var dialog = this;
 
 				var styles = dialog.getContentElement( 'advanced', 'advStyles' );
 
@@ -41,12 +40,6 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 				{
 					styles.on( 'change', function( evt )
 						{
-							if ( isUpdating )
-								return;
-
-							// Flag to avoid recursion.
-							isUpdating = 1;
-
 							// Synchronize width value.
 							var width = this.getStyle( 'width', '' ),
 								txtWidth = dialog.getContentElement( 'info', 'txtWidth' ),
@@ -59,17 +52,15 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 								width = parseInt( width, 10 );
 							}
 
-							txtWidth && txtWidth.setValue( width );
-							cmbWidthType && cmbWidthType.setValue( isPx ? 'pixels' : 'percents' );
+							txtWidth && txtWidth.setValue( width, true );
+							cmbWidthType && cmbWidthType.setValue( isPx ? 'pixels' : 'percents', true );
 
 							// Synchronize height value.
 							var height = this.getStyle( 'height', '' ),
 								txtHeight = dialog.getContentElement( 'info', 'txtHeight' );
 
 							height && ( height = parseInt( height, 10 ) );
-							txtHeight && txtHeight.setValue( height );
-
-							isUpdating = 0;
+							txtHeight && txtHeight.setValue( height, true );
 						});
 				}
 			},
@@ -108,19 +99,17 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 					this._.selectedElement = selectedTable;
 				}
 
-				// Enable, disable and select the row, cols, width fields.
+				// Enable or disable the row, cols, width fields.
 				if ( selectedTable )
 				{
 					this.setupContent( selectedTable );
 					rowsInput && rowsInput.disable();
 					colsInput && colsInput.disable();
-					widthInput && widthInput.select();
 				}
 				else
 				{
 					rowsInput && rowsInput.enable();
 					colsInput && colsInput.enable();
-					rowsInput && rowsInput.select();
 				}
 
 				// Call the onChange method for the widht and height fields so
