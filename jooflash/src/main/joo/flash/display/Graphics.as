@@ -690,7 +690,9 @@ package {
    * @see #beginGradientFill()
    */
   public function endFill() : void {
+    this.context.closePath();
     this.context.fill();
+    this.context.stroke();
     this.insideFill = false;
   }
 
