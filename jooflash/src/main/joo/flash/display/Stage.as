@@ -92,6 +92,7 @@ public class Stage extends DisplayObjectContainer {
   override protected function createElement():Element {
     var element : Element = window.document.getElementById(id);
     element.style.position = "relative";
+    element.setAttribute("tabindex", "0");
     var width : Object = element.getAttribute("width");
     if (width) {
       element.style.width = width+"px";
