@@ -5,7 +5,6 @@ package flash.text
   import flash.display.InteractiveObject;
   //import flash.display.DisplayObject;
   //import flash.geom.Rectangle;
-  import flash.text.TextFormat;
   //import flash.text.StyleSheet;
   //import flash.text.TextLineMetrics;
 
@@ -13,7 +12,7 @@ package flash.text
    * Flash Player dispatches the textInput event when a user enters one or more characters of text.
    * @eventType flash.events.TextEvent.TEXT_INPUT
    */
-  [Event(name="textInput", type="flash.events.TextEvent")] 
+  //[Event(name="textInput", type="flash.events.TextEvent")]
 
   /**
    * Dispatched by a TextField object after the user scrolls.
@@ -25,7 +24,7 @@ package flash.text
    * Dispatched when a user clicks a hyperlink in an HTML-enabled text field, where the URL begins with "event:".
    * @eventType flash.events.TextEvent.LINK
    */
-  [Event(name="link", type="flash.events.TextEvent")] 
+  //[Event(name="link", type="flash.events.TextEvent")]
 
   /**
    * Dispatched after a control value is modified, unlike the textInput event, which is dispatched before the value is modified.
@@ -109,6 +108,7 @@ package flash.text
       updateElementProperty("style.fontSize",   val.size);
       updateElementProperty("style.color",      val.color ? Graphics.toRGBA(val.color as uint) : "black");
       updateElementProperty("style.fontWeight", val.bold ? "bold" : "normal");
+      updateElementProperty("style.textAlign",  val.align || TextFormatAlign.LEFT);
       // TODO: listen to property changes of my defaultTextFormat object?
     }
 
@@ -179,7 +179,7 @@ package flash.text
     public var sharpness : Number;
 
     /// Attaches a style sheet to the text field.
-    public var styleSheet : StyleSheet;
+    //public var styleSheet : StyleSheet;
 
     /// A string that is the current text in the text field.
     private var _text : String;
@@ -191,7 +191,7 @@ package flash.text
     public function set text(val:String) : void {
       _text = val;
       //updateElementProperty("firstChild.data", val); TODO: does not work if TextNode does not yet exit!
-      updateElementProperty("innerHTML", val);
+      updateElementProperty("innerHTML", val.replace(/\n/g, '<br />'));
     }
 
     /// The color of the text in a text field, in hexadecimal format.
