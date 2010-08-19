@@ -1,6 +1,7 @@
 package flash.events
 {
-  import flash.display.InteractiveObject;
+import flash.display.DisplayObject;
+import flash.display.InteractiveObject;
   import flash.events.Event;
 
   /// Flash&#xAE; Player dispatches MouseEvent objects into the event flow whenever mouse events occur.
@@ -52,10 +53,14 @@ package flash.events
     public var shiftKey : Boolean;
 
     /// The horizontal coordinate at which the event occurred in global Stage coordinates.
-    public var stageX : Number;
+    public function get stageX() : Number {
+      return (this.target as DisplayObject).x + this.localX
+    }
 
     /// The vertical coordinate at which the event occurred in global Stage coordinates.
-    public var stageY : Number;
+    public function get stageY() : Number {
+      return (this.target as DisplayObject).y + this.localY;
+    }
 
     /// Creates a copy of the MouseEvent object and sets the value of each property to match that of the original.
     public override function clone() : Event {

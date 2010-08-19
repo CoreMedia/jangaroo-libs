@@ -1,4 +1,5 @@
 package flash.display {
+import flash.events.KeyboardEvent;
 
 import js.Element;
 import flash.events.EventDispatcher;
@@ -8,6 +9,9 @@ import flash.events.MouseEvent;
 import flash.geom.Transform;
 
 public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
+
+  private static var buttonDownTracking:Boolean = false;
+  private static var buttonDown:Boolean = false;
 
   public function DisplayObject() {
     super();
@@ -107,7 +111,8 @@ trace(stage.stageWidth);
   }
 
   private static const DELEGATED_EVENT_MAP : Object/*<String,String>*/ =
-          createEventMap(MouseEvent.CLICK, MouseEvent.MOUSE_MOVE);
+          createEventMap(MouseEvent.CLICK, MouseEvent.MOUSE_DOWN, MouseEvent.MOUSE_UP, MouseEvent.MOUSE_MOVE,
+            KeyboardEvent.KEY_DOWN, KeyboardEvent.KEY_UP);
 
   override public function addEventListener(type : String, listener : Function, useCapture : Boolean = false,
                                             priority : int = 0, useWeakReference : Boolean = false) : void {
@@ -116,6 +121,18 @@ trace(stage.stageWidth);
     var jsType : String = type.toLowerCase();
     if (newEventType) {
       if (DELEGATED_EVENT_MAP[jsType] == type) {
+        if (!buttonDownTracking && type.substr(0,5) === 'mouse') {
+          buttonDownTracking = true;
+          var stageElem:Element = stage.getElement();
+          stageElem.addEventListener('mousedown', function():void {
+            // TODO: check event.button property whether it was the "primary" mouse button!
+            buttonDown = true;
+          }, true);
+          stageElem.addEventListener('mouseup', function():void {
+            // TODO: check event.button property whether it was the "primary" mouse button!
+            buttonDown = false;
+          }, true);
+        }
         this._elem.addEventListener(jsType, this.transformAndDispatch, useCapture);
       } else if (this!=this.stage && flash.events.Event.ENTER_FRAME == type) {
         this.stage.addEventListener(type, this.dispatchWithOwnTarget, useCapture, priority, useWeakReference);
@@ -133,8 +150,13 @@ trace(stage.stageWidth);
 
   private function transformAndDispatch(event : js.Event) : Boolean {
     var type : String = DELEGATED_EVENT_MAP[event.type];
-    return this.dispatchEvent(new MouseEvent(type, true, true, event.pageX - this.stage.x, event.pageY - this.stage.y, null,
-            event.ctrlKey, event.altKey, event.shiftKey));
+    var flashEvent:flash.events.Event =
+      type.substring(0,5) == 'mouse'
+        ? new MouseEvent(type, true, true, event.pageX - this.stage.x, event.pageY - this.stage.y, null,
+        event.ctrlKey, event.altKey, event.shiftKey, buttonDown)
+      : new KeyboardEvent(type, true, true, event['charCode'], event.keyCode || event['which'], 0,
+        event.ctrlKey, event.altKey, event.shiftKey, event.ctrlKey, event.ctrlKey);
+    return this.dispatchEvent(flashEvent);
   }
 
   private function dispatchWithOwnTarget(event : flash.events.Event) : Boolean {
@@ -346,6 +368,10 @@ addChild(tf2);
   protected function createElement() : Element {
     var elem : Element = window.document.createElement(getElementName());
     elem.style.position = "absolute";
+    elem.style['MozUserSelect'] = 'none';
+    elem.style['KhtmlUserSelect'] = 'none';
+    elem['unselectable'] = 'on';
+    elem['onselectstart'] = function():Boolean {return false;};
     return elem;
   }
 
@@ -427,6 +453,35 @@ addChild(tf2);
   public function set transform(value:Transform) : void {
     _transform = value;
   }
+
+  /**
+   * Indicates the rotation of the DisplayObject instance, in degrees, from its original orientation. Values from 0 to 180 represent
+   * clockwise rotation; values from 0 to -180 represent counterclockwise rotation. Values outside this range are added to or
+   * subtracted from 360 to obtain a value within the range. For example, the statement <code>my_video.rotation = 450</code> is the
+   * same as <code> my_video.rotation = 90</code>.
+   *
+   * @example
+   * The following code creates a Sprite object and rotates the object when the user clicks it:
+   *
+   * <pre>
+   * import flash.display.Sprite;
+   * import flash.events.MouseEvent;
+   *
+   * var square:Sprite = new Sprite();
+   * square.graphics.beginFill(0xFFCC00);
+   * square.graphics.drawRect(-50, -50, 100, 100);
+   * square.x = 150;
+   * square.y = 150;
+   * addChild(square);
+   *
+   * square.addEventListener(MouseEvent.CLICK, rotate);
+   *
+   * function rotate(event:MouseEvent):void {
+   *         square.rotation += 15;
+   * }
+   * </pre>
+  */
+  public var rotation:Number;
 
   private var _stage : Stage;
   private var _parent : DisplayObjectContainer;

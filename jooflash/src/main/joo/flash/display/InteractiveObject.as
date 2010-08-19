@@ -136,8 +136,7 @@ package flash.display
 //		public function set focusRect (focusRect:Object) : void;
 
 		/// Specifies whether this object receives mouse messages.
-//		public function get mouseEnabled () : Boolean;
-//		public function set mouseEnabled (enabled:Boolean) : void;
+  public var mouseEnabled : Boolean;
 
 		/// Specifies whether this object is in the tab order.
 //		public function get tabEnabled () : Boolean;
