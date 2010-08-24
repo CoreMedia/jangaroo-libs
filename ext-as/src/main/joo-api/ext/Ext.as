@@ -171,7 +171,7 @@ Ext.urlDecode("foo=1&bar=2&bar=3&bar=4", false); // returns {foo: "1", bar: ["2"
          * @param s The content to append to the url.
          * @return (String) The appended string
          */
-        public static native function urlAppend(url : String, s : String) : void;
+        public static native function urlAppend(url : String, s : String) : String;
         /**
          * Converts any iterable (numeric indices and a length property) into a true array
          * Don't use this on strings. IE doesn't support "abc"[0] which this implementation depends on.
@@ -179,7 +179,7 @@ Ext.urlDecode("foo=1&bar=2&bar=3&bar=4", false); // returns {foo: "1", bar: ["2"
          * @param iterable the iterable object to be turned into a true Array.
          * @return (Array) array
          */
-        public static native function toArray(iterable : Object) : void;
+        public static native function toArray(iterable : Object) : Array;
         /**
          * Iterates an array calling the passed function with each item, stopping if your function returns false. If the
          * passed array is not really an array, your function is called once with it.
