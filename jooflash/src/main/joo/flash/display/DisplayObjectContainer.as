@@ -24,8 +24,8 @@ public class DisplayObjectContainer extends InteractiveObject {
    * </ul>
    */
   public function DisplayObjectContainer() {
-    super();
     this.children = [];
+    super();
   }
 
   /**
@@ -192,6 +192,13 @@ trace(container.getChildAt(2) == sprite2); // true
    */
   public function getChildAt(index : int) : DisplayObject {
     return this.children[index] as DisplayObject;
+  }
+
+  override protected function updateSize():void {
+    super.updateSize();
+    children.forEach(function(child:DisplayObject):void {
+      child.updateSize();
+    });
   }
 
   private var children : Array/*<DisplayObject>*/;

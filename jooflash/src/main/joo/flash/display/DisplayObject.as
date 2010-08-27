@@ -17,16 +17,11 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
     super();
     this._stage = Stage.getInstance(); // Stage singleton must be set before creating DisplayObject instances!
     this._elem = this.createElement();
-    if (!isNaN(this.x)) {
-      this._elem.style.left = this.x + "px";
+    if (!isNaN(this._stage.stageWidth) && !isNaN(this._stage.stageHeight)) {
+      this._width = this._stage.stageWidth;
+      this._height = this._stage.stageHeight;
     }
-    if (!isNaN(this.y)) {
-      this._elem.style.top = this.y + "px";
-    }
-    if (!isNaN(this._stage.stageWidth)) {
-      this._elem.style.width  = this._stage.stageWidth  + "px"; // TODO: resize according to its current content?
-      this._elem.style.height = this._stage.stageHeight + "px"; // TODO: resize according to its current content?
-    }
+    updateSize();
   }
 
   /**
@@ -100,6 +95,7 @@ trace(stage.stageWidth);
   // internal
   public function set parent(parent : DisplayObjectContainer) : void {
     _parent = parent;
+    updateSize();
   }
 
   private static function createEventMap(...events /*: Array<String>*/) : Object/*<String,String>*/ {
@@ -212,9 +208,10 @@ trace(stage.stageWidth);
    * @see #x()
    */
   public function set x(value:Number) : void {
-    this._x = value;
+    this._x = isNaN(value) ? 0 : value;
     if (this._elem) {
       this._elem.style.left = value + "px";
+      updateSize();
     }
   }
 
@@ -260,9 +257,10 @@ trace(stage.stageWidth);
    * @see #x()
    */
   public function set y(value:Number) : void {
-    this._y = value;
+    this._y = isNaN(value) ? 0 : value;
     if (this._elem) {
       this._elem.style.top = value+"px";
+      updateSize();
     }
   }
 
@@ -301,8 +299,7 @@ function widen(event:MouseEvent):void {
    * @return the width of the display object, in pixels.
    */
   public function get width() : Number {
-    return this._elem.offsetWidth;
-    //return this._width;
+    return this._elem ? this._elem.offsetWidth || this._width : this._width;
   }
 
   /**
@@ -312,6 +309,7 @@ function widen(event:MouseEvent):void {
    */
   public function set width(value : Number) : void {
     this._width = value;
+    updateSize();
   }
 
   /**
@@ -353,7 +351,7 @@ addChild(tf2);
 </pre>
    */
   public function get height() : Number {
-    return this._height;
+    return this._elem ? this._elem.offsetHeight || this._height : this._height;
   }
 
   /**
@@ -363,6 +361,21 @@ addChild(tf2);
    */
   public function set height(value : Number) : void {
     this._height = value;
+    updateSize();
+  }
+
+  protected function updateSize():void {
+    var parent:DisplayObjectContainer = this.parent;
+    if (parent) {
+      if (!isNaN(parent.x) && !isNaN(parent.width)) {
+        // clip at right parent boundary:
+        this._elem.style.width = Math.min(this._width || int.MAX_VALUE, (parent.x + parent.width - this._x)) + "px";
+      }
+      if (!isNaN(parent.y) && !isNaN(parent.height)) {
+        // clip at right parent boundary:
+        this._elem.style.height = Math.min(this._height || int.MAX_VALUE, (parent.y + parent.height - this._y)) + "px";
+      }
+    }
   }
 
   protected function createElement() : Element {

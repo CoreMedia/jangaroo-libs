@@ -36,7 +36,10 @@ package flash.text
   public class TextField extends InteractiveObject {
 
     /// Creates a new TextField instance.
-    public function TextField () { }
+    public function TextField () {
+      super();
+      defaultTextFormat = new TextFormat();
+    }
 
     /// When set to true and the text field is not in focus, Flash Player highlights the selection in the text field in gray.
     public var alwaysShowSelection : Boolean;
@@ -104,8 +107,8 @@ package flash.text
 
     public function set defaultTextFormat(val : TextFormat) : void {
       _defaultTextFormat = val;
-      updateElementProperty("style.fontFamily", val.font);
-      updateElementProperty("style.fontSize",   val.size);
+      updateElementProperty("style.fontFamily", val.font || "serif");
+      updateElementProperty("style.fontSize",   val.size || "12px");
       updateElementProperty("style.color",      val.color ? Graphics.toRGBA(val.color as uint) : "black");
       updateElementProperty("style.fontWeight", val.bold ? "bold" : "normal");
       updateElementProperty("style.textAlign",  val.align || TextFormatAlign.LEFT);
