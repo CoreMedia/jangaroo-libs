@@ -4,13 +4,13 @@
   <groupId>net.jangaroo</groupId>
   <artifactId>jangaroo-browser</artifactId>
   <packaging>jangaroo</packaging>
-  <version>0.7.4-SNAPSHOT</version>
+  <version>0.7.4</version>
   <name>jangaroo-browser</name>
   <description>AS3 version of browser DOM and BOM for use with Jangaroo code</description>
   <parent>
     <groupId>net.jangaroo</groupId>
     <artifactId>jangaroo-libs</artifactId>
-    <version>0.7.4-SNAPSHOT</version>
+    <version>0.7.4</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
 
