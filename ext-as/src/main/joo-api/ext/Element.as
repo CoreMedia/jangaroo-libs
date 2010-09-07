@@ -26,14 +26,14 @@ public static const DISPLAY  : Number = 2;
         /**
          * The element's visibility mode, either ext.Element.VISIBILITY or ext.Element.DISPLAY.
          */
-        public native function get visibilityMode() : String;
+        public native function get visibilityMode() : Number;
         /**
          * Sets the element's visibility mode. When setVisible() is called it
          * will use this to determine whether to set the visibility or the display property.
          * @param visMode ext.Element.VISIBILITY or ext.Element.DISPLAY
          * @return this
          */
-        public native function setVisibilityMode(visMode : String) : Element;
+        public native function setVisibilityMode(visMode : Number) : Element;
         /**
          * Perform custom animation on this element.
          * <div><ul class="mdetail-params">
