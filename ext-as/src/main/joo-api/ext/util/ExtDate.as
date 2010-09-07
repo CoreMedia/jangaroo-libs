@@ -119,7 +119,7 @@ public class ExtDate extends Date {
    * @static
    * @type Boolean
    */
-  public static native var useStrict:Boolean = false;
+  public static var useStrict:Boolean = false;
 
   /**
    * <p>An object hash in which each property is a date parsing function. The property name is the
