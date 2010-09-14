@@ -2,14 +2,14 @@
   <parent>
     <groupId>net.jangaroo</groupId>
     <artifactId>jangaroo-libs</artifactId>
-    <version>0.7.5</version>
+    <version>0.7.6-SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>net.jangaroo</groupId>
   <artifactId>jooflexframework</artifactId>
-  <version>0.7.5</version>
+  <version>0.7.6-SNAPSHOT</version>
   <packaging>jangaroo</packaging>
 
   <name>jooflexframework</name>
@@ -20,7 +20,7 @@
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>jooflash</artifactId>
-      <version>0.7.5</version>
+      <version>0.7.6-SNAPSHOT</version>
       <type>jangaroo</type>
     </dependency>
 
