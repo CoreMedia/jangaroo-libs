@@ -50,7 +50,6 @@
         <artifactId>jangaroo-maven-plugin</artifactId>
         <version>${jangaroo_version}</version>
         <configuration>
-          <enableGuessingTypeCasts>true</enableGuessingTypeCasts>
           <jooUnitTestExecutionTimeout>120000</jooUnitTestExecutionTimeout>
         </configuration>
       </plugin>
