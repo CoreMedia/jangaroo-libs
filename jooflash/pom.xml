@@ -2,14 +2,14 @@
   <parent>
     <groupId>net.jangaroo</groupId>
     <artifactId>jangaroo-libs</artifactId>
-    <version>0.7.7</version>
+    <version>0.7.8-SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <groupId>net.jangaroo</groupId>
   <artifactId>jooflash</artifactId>
   <packaging>jangaroo</packaging>
-  <version>0.7.7</version>
+  <version>0.7.8-SNAPSHOT</version>
   <name>jooflash</name>
   <description>Joo Flash Compat. Library</description>
 
@@ -30,7 +30,7 @@
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>jangaroo-browser</artifactId>
-      <version>0.7.7</version>
+      <version>0.7.8-SNAPSHOT</version>
       <type>jangaroo</type>
     </dependency>
 
