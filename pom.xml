@@ -11,8 +11,11 @@
   <url>http://www.coremedia.com</url>
 
   <scm>
-    <developerConnection>scm:git:git://github.com/CoreMedia/jangaroo-libs.git</developerConnection>
+    <url>http://github.com/CoreMedia/jangaroo-libs</url>
+    <connection>scm:git:git://github.com/CoreMedia/jangaroo-libs.git</connection>
+    <developerConnection>scm:git:git@github.com:CoreMedia/jangaroo-libs.git</developerConnection>
   </scm>
+
   <properties>
     <jangaroo_version>0.7.4</jangaroo_version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
