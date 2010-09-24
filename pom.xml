@@ -17,7 +17,7 @@
   </scm>
 
   <properties>
-    <jangaroo_version>0.7.6</jangaroo_version>
+    <jangaroo_version>0.7.7</jangaroo_version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
