@@ -98,26 +98,49 @@ trace(stage.stageWidth);
     updateSize();
   }
 
-  private static function createEventMap(...events /*: Array<String>*/) : Object/*<String,String>*/ {
-    var result : Object = {};
-    for (var i:uint=0; i<events.length; ++i) {
-      result[events[i].toLowerCase()] = events[i];
+  private static const DOM_EVENT_TO_MOUSE_EVENT : Object/*<String,String>*/ = {
+    'click':     MouseEvent.CLICK,
+    'dblclick':  MouseEvent.DOUBLE_CLICK,
+    'mousedown': MouseEvent.MOUSE_DOWN,
+    'mouseup':   MouseEvent.MOUSE_UP,
+    'mousemove': MouseEvent.MOUSE_MOVE
+    // TODO: map remaining MouseEvent constants to DOM events!
+  };
+  private static const DOM_EVENT_TO_KEYBOARD_EVENT : Object/*<String,String>*/ = {
+    'keydown': KeyboardEvent.KEY_DOWN,
+    'keyup': KeyboardEvent.KEY_UP
+  };
+  private static const FLASH_EVENT_TO_DOM_EVENT : Object = merge(
+    reverseMapping(DOM_EVENT_TO_MOUSE_EVENT),
+    reverseMapping(DOM_EVENT_TO_KEYBOARD_EVENT));
+
+  private static function merge(o1:Object, o2:Object):Object {
+    var result:Object = {};
+    for (var m:String in o1) {
+      result[m] = o1[m];
+    }
+    for (m in o2) {
+      result[m] = o2[m];
     }
     return result;
   }
 
-  private static const DELEGATED_EVENT_MAP : Object/*<String,String>*/ =
-          createEventMap(MouseEvent.CLICK, MouseEvent.MOUSE_DOWN, MouseEvent.MOUSE_UP, MouseEvent.MOUSE_MOVE,
-            KeyboardEvent.KEY_DOWN, KeyboardEvent.KEY_UP);
+  private static function reverseMapping(mapping:Object):Object {
+    var result:Object = {};
+    for (var m:String in mapping) {
+      result[mapping[m]] = m;
+    }
+    return result;
+  }
 
   override public function addEventListener(type : String, listener : Function, useCapture : Boolean = false,
                                             priority : int = 0, useWeakReference : Boolean = false) : void {
     var newEventType : Boolean = !this.hasEventListener(type);
     super.addEventListener(type, listener, useCapture, priority, useWeakReference);
-    var jsType : String = type.toLowerCase();
+    var domEventType : String = FLASH_EVENT_TO_DOM_EVENT[type];
     if (newEventType) {
-      if (DELEGATED_EVENT_MAP[jsType] == type) {
-        if (!buttonDownTracking && type.substr(0,5) === 'mouse') {
+      if (DOM_EVENT_TO_MOUSE_EVENT[domEventType]) {
+        if (!buttonDownTracking && (type === 'mouseup' || type === 'mousedown')) {
           buttonDownTracking = true;
           var stageElem:Element = stage.getElement();
           stageElem.addEventListener('mousedown', function():void {
@@ -129,7 +152,7 @@ trace(stage.stageWidth);
             buttonDown = false;
           }, true);
         }
-        this._elem.addEventListener(jsType, this.transformAndDispatch, useCapture);
+        this._elem.addEventListener(domEventType, this.transformAndDispatch, useCapture);
       } else if (this!=this.stage && flash.events.Event.ENTER_FRAME == type) {
         this.stage.addEventListener(type, this.dispatchWithOwnTarget, useCapture, priority, useWeakReference);
       }
@@ -138,20 +161,28 @@ trace(stage.stageWidth);
 
   override public function removeEventListener(type : String, listener : Function, useCapture : Boolean = false):void {
     super.removeEventListener(type, listener, useCapture);
-    var jsType : String = type.toLowerCase();
-    if (DELEGATED_EVENT_MAP[jsType]==type) {
-      this._elem.removeEventListener(jsType, this.transformAndDispatch, useCapture);
+    var domEventType : String = FLASH_EVENT_TO_DOM_EVENT[type];
+    if (domEventType) {
+      this._elem.removeEventListener(domEventType, this.transformAndDispatch, useCapture);
     }
   }
 
   private function transformAndDispatch(event : js.Event) : Boolean {
-    var type : String = DELEGATED_EVENT_MAP[event.type];
-    var flashEvent:flash.events.Event =
-      type.substring(0,5) == 'mouse'
-        ? new MouseEvent(type, true, true, event.pageX - this.stage.x, event.pageY - this.stage.y, null,
-        event.ctrlKey, event.altKey, event.shiftKey, buttonDown)
-      : new KeyboardEvent(type, true, true, event['charCode'], event.keyCode || event['which'], 0,
-        event.ctrlKey, event.altKey, event.shiftKey, event.ctrlKey, event.ctrlKey);
+    var flashEvent:flash.events.Event;
+    var type : String = DOM_EVENT_TO_MOUSE_EVENT[event.type];
+    if (type) {
+      flashEvent = new MouseEvent(type, true, true, event.pageX - this.stage.x, event.pageY - this.stage.y, null,
+        event.ctrlKey, event.altKey, event.shiftKey, buttonDown);
+    } else {
+      type = DOM_EVENT_TO_KEYBOARD_EVENT[event.type];
+      if (type) {
+        flashEvent = new KeyboardEvent(type, true, true, event['charCode'], event.keyCode || event['which'], 0,
+          event.ctrlKey, event.altKey, event.shiftKey, event.ctrlKey, event.ctrlKey);
+      }
+    }
+    if (!flashEvent) {
+      trace("Unmapped DOM event type " + event.type + " occured, ignoring.");
+    }
     return this.dispatchEvent(flashEvent);
   }
 

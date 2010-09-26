@@ -127,16 +127,34 @@ package flash.display
 //		public function get contextMenu () : ContextMenu;
 //		public function set contextMenu (cm:ContextMenu) : void;
 
-		/// Specifies whether the object receives doubleClick events.
-//		public function get doubleClickEnabled () : Boolean;
-//		public function set doubleClickEnabled (enabled:Boolean) : void;
+  /**
+   * Specifies whether the object receives <code>doubleClick</code> events. The default value
+   * is <code>false</code>, which means that by default an InteractiveObject instance does not receive
+   * <code>doubleClick</code> events. If the <code>doubleClickEnabled</code> property is set to
+   * <code>true</code>, the instance receives <code>doubleClick</code> events within its bounds.
+   * The <code>mouseEnabled</code> property of the InteractiveObject instance must also be
+   * set to <code>true</code> for the object to receive <code>doubleClick</code> events.
+   *
+   * </p><p>No event is dispatched by setting this property. You must use the
+   * <code>addEventListener()</code> method to add an event listener
+   * for the <code>doubleClick</code> event.</p>
+   */
+      public function get doubleClickEnabled():Boolean {
+        return _doubleClickEnabled;
+      }
 
-		/// Specifies whether this object displays a focus rectangle.
+      public function set doubleClickEnabled(value:Boolean):void {
+        _doubleClickEnabled = value;
+      }
+
+      /// Specifies whether this object displays a focus rectangle.
 //		public function get focusRect () : Object;
 //		public function set focusRect (focusRect:Object) : void;
 
 		/// Specifies whether this object receives mouse messages.
   public var mouseEnabled : Boolean;
+
+  private var _doubleClickEnabled : Boolean;
 
 		/// Specifies whether this object is in the tab order.
 //		public function get tabEnabled () : Boolean;
