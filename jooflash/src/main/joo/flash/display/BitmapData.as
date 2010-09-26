@@ -1,6 +1,7 @@
 package flash.display {
 import flash.geom.ColorTransform;
 import flash.geom.Matrix;
+import flash.geom.Point;
 import flash.geom.Rectangle;
 
 import js.CanvasRenderingContext2D;
@@ -66,6 +67,48 @@ public class BitmapData implements IBitmapDrawable {
    */
   public function get height() : int {
     return _height;
+  }
+
+  /**
+   * Fills a rectangular area of pixels with a specified ARGB color.
+   *
+   * @param rect The rectangular area to fill.
+   * @param color The ARGB color value that fills the area. ARGB colors are often
+   * specified in hexadecimal format; for example, 0xFF336699.
+   *
+   * @throws TypeError The rect is null.
+   *
+   * @see flash.geom.Rectangle
+   *
+   * @example
+   * The following example shows how to fill a rectangular region of a BitmapData object with blue:
+   *
+   * <pre>
+   * import flash.display.Bitmap;
+   * import flash.display.BitmapData;
+   * import flash.geom.Rectangle;
+   *
+   * var myBitmapData:BitmapData = new BitmapData(40, 40, false, 0x0000FF00);
+   *
+   * var rect:Rectangle = new Rectangle(0, 0, 20, 20);
+   * myBitmapData.fillRect(rect, 0x0000FF);
+   *
+   * var bm:Bitmap = new Bitmap(myBitmapData);
+   * addChild(bm);
+   * </pre>
+   */
+  public function fillRect(rect:Rectangle, color:uint):void {
+    context.save();
+    context.setTransform(1, 0, 0, 1, 0, 0);
+    // TODO: which other context attributes to reset?
+    context.fillStyle = "rgba("+
+      [color >> 16 & 0xFF, color >> 8 & 0xFF, color & 0xFF, (color >> 24 & 0xFF) / 0xFF]
+        .join(",")+")";
+    context.globalCompositeOperation = "copy";
+    context.fillRect(rect.x, rect.y, rect.width, rect.height);
+    context.restore();
+    context.globalCompositeOperation = "source-over";
+    this.invalidateImg();
   }
 
   /**
@@ -225,6 +268,393 @@ public class BitmapData implements IBitmapDrawable {
     this.context.drawImage(element, 0, 0);
     if (matrix) {
       this.context.restore();
+    }
+    this.invalidateImg();
+  }
+
+  function drawImg(img:HTMLElement):void {
+    this.context.drawImage(img, 0, 0);
+    this.img = img;
+  }
+
+  private function invalidateImg():void {
+    if (this.img) {
+      this.img.src = null;
+    }
+  }
+
+  function getImg():HTMLElement {
+    if (!this.img) {
+      this.img = window.document.createElement("img") as HTMLElement;
+    }
+    if (!this.img.src) {
+      this.img.src = this.canvas.toDataURL("image/png");
+    }
+    return this.img;
+  }
+
+  private var img:HTMLElement;
+
+  /**
+   * Returns an integer that represents an RGB pixel value from a BitmapData object at
+   * a specific point (<i>x</i>, <i>y</i>). The <code>getPixel()</code> method returns an
+   * unmultiplied pixel value. No alpha information is returned.</p>
+   * <p>All pixels in a BitmapData object are stored as premultiplied color values.
+   * A premultiplied image pixel has the red, green, and blue
+   * color channel values already multiplied by the alpha data. For example, if the
+   * alpha value is 0, the values for the RGB channels are also 0, independent of their unmultiplied
+   * values. This loss of data can cause some problems when you perform operations. All BitmapData
+   * methods take and return unmultiplied values. The internal pixel representation is converted
+   * from premultiplied to unmultiplied before it is returned as a value. During a set operation,
+   * the pixel value is premultiplied before the raw image pixel is set.</p>
+   *
+   * @param x The <i>x</i> position of the pixel.
+   * @param y The <i>y</i> position of the pixel.
+   *
+   * @return uint A number that represents an RGB pixel value. If the (<i>x</i>, <i>y</i>) coordinates are
+   * outside the bounds of the image, the method returns 0.
+   *
+   * @see #getPixel32()
+   * @see #setPixel()
+   *
+   * @example
+   * The following example creates a BitmapData object filled with red, then uses the
+   * <code>getPixel()</code> method to determine the color value in the upper-left pixel:
+   * <pre>
+   * import flash.display.BitmapData;
+   *
+   * var bmd:BitmapData = new BitmapData(80, 40, false, 0xFF0000);
+   *
+   * var pixelValue:uint = bmd.getPixel(1, 1);
+   * trace(pixelValue.toString(16)); // ff0000;
+   * </pre>
+   */
+  public function getPixel(x:int, y:int):uint {
+    if (rect.contains(x, y)) {
+      var data : Array = context.getImageData(x, y, 1, 1).data;
+      return data[0] << 16 | data[1] << 8 | data[2];
+    }
+    return 0;
+  }
+
+  /**
+   * Returns an ARGB color value that contains alpha channel data and RGB
+   * data. This method is similar to the <code>getPixel()</code> method, which returns an
+   * RGB color without alpha channel data.</p>
+   * <p>All pixels in a BitmapData object are stored as premultiplied color values.
+   * A premultiplied image pixel has the red, green, and blue
+   * color channel values already multiplied by the alpha data. For example, if the
+   * alpha value is 0, the values for the RGB channels are also 0, independent of their unmultiplied
+   * values. This loss of data can cause some problems when you perform operations. All BitmapData
+   * methods take and return unmultiplied values. The internal pixel representation is converted
+   * from premultiplied to unmultiplied before it is returned as a value. During a set operation,
+   * the pixel value is premultiplied before the raw image pixel is set.</p>
+   *
+   * @param x The <i>x</i> position of the pixel.
+   * @param y The <i>y</i> position of the pixel.
+   *
+   * @return uint A number representing an ARGB pixel value. If the (<i>x</i>, <i>y</i>) coordinates are
+   *    outside the bounds of the image, 0 is returned.
+   *
+   * @see #getPixel()
+   * @see #setPixel32()
+   *
+   * @example
+   * The following example creates a BitmapData object filled with a color, then uses the
+   * <code>getPixel32()</code> method to determine the color value in the upper-left pixel, and then
+   * determines the hexidecimal values for each color component (alpha, red, green, and blue):
+   *
+   * <pre>
+   * import flash.display.BitmapData;
+   *
+   * var bmd:BitmapData = new BitmapData(80, 40, true, 0xFF44AACC);
+   *
+   * var pixelValue:uint = bmd.getPixel32(1, 1);
+   * var alphaValue:uint = pixelValue &gt;&gt; 24 &amp; 0xFF;
+   * var red:uint = pixelValue &gt;&gt; 16 &amp; 0xFF;
+   * var green:uint = pixelValue &gt;&gt; 8 &amp; 0xFF;
+   * var blue:uint = pixelValue &amp; 0xFF;
+   *
+   * trace(alphaValue.toString(16)); // ff
+   * trace(red.toString(16)); // 44
+   * trace(green.toString(16)); // aa
+   * trace(blue.toString(16)); // cc
+   * </pre>
+   */
+  public function getPixel32(x:int, y:int):uint {
+    if (rect.contains(x, y)) {
+      var data : Array = context.getImageData(x, y, 1, 1).data;
+      return data[0] << 16 | data[1] << 8 | data[2] | data[3] << 24;
+    }
+    return 0;
+  }
+
+  /**
+   * Sets a single pixel of a BitmapData object. The current
+	 alpha channel value of the image pixel is preserved during this
+	 operation. TODO: Jangaroo: This seems to be incorrect, alpha is set to 0xFF!
+	 The value of the RGB color parameter is treated as an unmultiplied color value.
+	 
+	 </p><p><b>Note:</b> To increase performance, when you use the <code>setPixel()</code> or 
+	 <code>setPixel32()</code> method repeatedly, call the <code>lock()</code> method before
+	 you call the <code>setPixel()</code> or <code>setPixel32()</code> method, and then call 
+	 the <code>unlock()</code> method when you have made all pixel changes. This process prevents objects
+	 that reference this BitmapData instance from updating until you finish making 
+	 the pixel changes.</p>
+
+	 @param x The <i>x</i> position of the pixel whose value changes.
+	 @param y The <i>y</i> position of the pixel whose value changes.
+	 @param color The resulting RGB color for the pixel.
+	 
+	 @see #getPixel
+     @see #setPixel32
+     @see #lock
+     @see #unlock
+
+     @example
+ The following example uses the <code>setPixel()</code>
+ method to draw a red line in a BitmapData object:
+<pre>
+import flash.display.Bitmap;
+import flash.display.BitmapData;
+
+var bmd:BitmapData = new BitmapData(80, 80, false, 0xCCCCCC);
+
+for (var i:uint = 0; i &lt; 80; i++) {
+    var red:uint = 0xFF0000;
+    bmd.setPixel(i, 40, red);
+}
+
+var bm:Bitmap = new Bitmap(bmd);
+addChild(bm);
+</pre>
+   */
+  public function setPixel(x:int, y:int, color:uint):void {
+    if (rect.contains(x, y)) {
+      var imageData:ImageData = context.createImageData(1, 1);
+      imageData.data[0] = color >> 16 & 0xFF;
+      imageData.data[1] = color >>  8 & 0xFF;
+      imageData.data[2] = color       & 0xFF;
+      imageData.data[3] = 0xFF;
+      context.putImageData(imageData, x, y);
+      this.invalidateImg();
+    }
+  }
+
+   /**
+	 Sets the color and alpha transparency values of a single pixel of a BitmapData
+	 object. This method is similar to the <code>setPixel()</code> method; the main difference is 
+	 that the <code>setPixel32()</code> method takes an
+	 ARGB color value that contains alpha channel information.
+	 
+	 </p><p>All pixels in a BitmapData object are stored as premultiplied color values. 
+	 A premultiplied image pixel has the red, green, and blue 
+	 color channel values already multiplied by the alpha data. For example, if the 
+	 alpha value is 0, the values for the RGB channels are also 0, independent of their unmultiplied 
+	 values. This loss of data can cause some problems when you perform operations. All BitmapData 
+	 methods take and return unmultiplied values. The internal pixel representation is converted 
+	 from premultiplied to unmultiplied before it is returned as a value. During a set operation, 
+	 the pixel value is premultiplied before the raw image pixel is set.</p>
+	 
+	 <p><b>Note:</b> To increase performance, when you use the <code>setPixel()</code> or 
+	 <code>setPixel32()</code> method repeatedly, call the <code>lock()</code> method before
+	 you call the <code>setPixel()</code> or <code>setPixel32()</code> method, and then call 
+	 the <code>unlock()</code> method when you have made all pixel changes. This process prevents objects
+	 that reference this BitmapData instance from updating until you finish making 
+	 the pixel changes.</p>
+
+	 
+	 @param x The <i>x</i> position of the pixel whose value changes.
+	 @param y The <i>y</i> position of the pixel whose value changes.
+	 @param color The resulting ARGB color for the pixel. If the bitmap is opaque
+	 (not transparent), the alpha transparency portion of this color value is ignored.
+	 
+	 @see #setPixel
+     @see getPixel32
+     @see #lock
+     @see #unlock
+
+    @example
+    The following example uses the <code>setPixel32()</code>
+    method to draw a transparent (alpha == 0x60) red line in a BitmapData object:
+<pre>
+import flash.display.Bitmap;
+import flash.display.BitmapData;
+
+var bmd:BitmapData = new BitmapData(80, 80, true, 0xFFCCCCCC);
+
+for (var i:uint = 0; i &lt; 80; i++) {
+    var red:uint = 0x60FF0000;
+    bmd.setPixel32(i, 40, red);
+}
+
+var bm:Bitmap = new Bitmap(bmd);
+addChild(bm);
+</pre>
+   */
+  public function setPixel32(x:int, y:int, color:uint):void {
+    if (rect.contains(x, y)) {
+      var imageData:ImageData = context.createImageData(1, 1);
+      imageData.data[0] = color >> 16 & 0xFF;
+      imageData.data[1] = color >>  8 & 0xFF;
+      imageData.data[2] = color       & 0xFF;
+      imageData.data[3] = color >> 24 & 0xFF;
+      context.putImageData(imageData, x, y);
+      this.invalidateImg();
+    }
+  }
+
+  /**
+   * Locks an image so that any objects that reference the BitmapData object, such as Bitmap objects,
+	 are not updated when this BitmapData object changes. To improve performance, use this method
+	 along with the <code>unlock()</code> method before and after numerous calls to the
+	 <code>setPixel()</code> or <code>setPixel32()</code> method.
+
+	 @see #setPixel
+     @see #setPixel32
+     @see #unlock
+
+     @example
+   The following example creates a BitmapData object based on the
+ <code>bitmapData</code> property of a Bitmap object, <code>picture</code>.
+ It then calls the <code>lock()</code> method before calling a complicated custom function,
+ <code>complexTransformation()</code>, that modifies the BitmapData object. (The <code>picture</code> object
+ and the <code>complexTransformation()</code> function are not defined in this example.) Even if the
+ <code>complexTransformation()</code> function updates the <code>bitmapData</code> property of
+ the <code>picture</code> object, changes are not reflected until the code calls the
+ <code>unlock()</code> method on the <code>bitmapData</code> object:
+
+<pre>
+import flash.display.BitmapData;
+
+var bitmapData:BitmapData = picture.bitmapData;
+bitmapData.lock();
+bitmapData = complexTransformation(bitmapData);
+bitmapData.unlock();
+picture.bitmapData = bitmapData;
+</pre>
+   */
+  public function lock():void {
+    // TODO: anything we can do here? Maybe create a reusable ImageData object and destroy it on unlock()?
+  }
+
+  /**
+   * Unlocks an image so that any objects that reference the BitmapData object, such as Bitmap objects,
+	 are updated when this BitmapData object changes. To improve performance, use this method
+	 along with the <code>lock()</code> method before and after numerous calls to the
+	 <code>setPixel()</code> or <code>setPixel32()</code> method.
+
+	 @param changeRect (default = <code>null</code>) The area of the BitmapData object that has changed. If you do not specify a value for
+	 this parameter, the entire area of the BitmapData object is considered
+     changed. This parameter requires Flash Player version 9.0.115.0 or later.
+
+	 @see #lock
+     @see #setPixel
+     @see setPixel32
+
+   @example
+   The following example creates a BitmapData object based on the
+ <code>bitmapData</code> property of a Bitmap object, <code>picture</code>.
+ It then calls the <code>lock()</code> method before calling a complicated custom function,
+ <code>complexTransformation()</code>, that modifies the BitmapData object. (The <code>picture</code> object
+ and the <code>complexTransformation()</code> function are not defined in this example.) Even if the
+ <code>complexTransformation()</code> function updates the <code>bitmapData</code> property of
+ the <code>picture</code> object, changes are not reflected until the code calls the
+ <code>unlock()</code> method on the <code>bitmapData</code> object:
+
+<pre>import flash.display.BitmapData;
+
+var bitmapData:BitmapData = picture.bitmapData;
+bitmapData.lock();
+bitmapData = complexTransformation(bitmapData);
+bitmapData.unlock();
+picture.bitmapData = bitmapData;
+</pre>
+   */
+  public function unlock(changeRect:Rectangle = null):void {
+    // TODO: see lock()
+  }
+
+  /**
+   * Provides a fast routine to perform pixel manipulation
+   * between images with no stretching, rotation, or color effects. This method copies a
+   * rectangular area of a source image to a
+   * rectangular area of the same size at the destination point of the destination
+   * BitmapData object.</p>
+   *
+   * <p>If you include the <code>alphaBitmap</code> and <code>alphaPoint</code> parameters, you can use a secondary
+   * image as an alpha source for the source image. If the source
+   * image has alpha data, both sets of alpha data are used to
+   * composite pixels from the source image to the destination image. The
+   * <code>alphaPoint</code> parameter is the point in the alpha image that
+   * corresponds to the upper-left corner of the source
+   * rectangle. Any pixels outside the intersection of the source
+   * image and alpha image are not copied to the destination image.</p>
+   *
+   * <p>The <code>mergeAlpha</code> property controls whether or not the alpha
+   * channel is used when a transparent image is copied onto
+   * another transparent image. To copy
+   * pixels with the alpha channel data, set the <code>mergeAlpha</code>
+   * property to <code>true</code>. By default, the <code>mergeAlpha</code> property is
+   * <code>false</code>.</p>
+   *
+   * @param sourceBitmapData The input bitmap image from which to copy pixels. The source image can be a
+   * different BitmapData instance, or it can refer to the current BitmapData
+   * instance.
+   *
+   * @param sourceRect A rectangle that defines the area of the source image to use as input.
+   *
+   * @param destPoint The destination point that represents the upper-left corner of the rectangular
+   * area where the new pixels are placed.
+   *
+   * @param alphaBitmapData (default = <code>null</code>) A secondary, alpha BitmapData object source.
+   *
+   * @param alphaPoint (default = <code>null</code>) The point in the alpha BitmapData object source that corresponds to
+   * the upper-left corner of the <code>sourceRect</code> parameter.
+   *
+   * @param mergeAlpha (default = <code>false</code>) To use the alpha channel, set the value to
+   * <code>true</code>. To copy pixels with no alpha channel, set the value to
+   * <code>false</code>.
+   *
+   * @throws TypeError The sourceBitmapData, sourceRect, destPoint are null.
+   *
+   * @example
+   * The following example shows how to copy pixels from a 20 x 20 pixel region in one BitmapData object
+   * to another BitmapData object:
+   * <pre>
+   * import flash.display.Bitmap;
+   * import flash.display.BitmapData;
+   * import flash.geom.Rectangle;
+   * import flash.geom.Point;
+   *
+   * var bmd1:BitmapData = new BitmapData(40, 40, false, 0x000000FF);
+   * var bmd2:BitmapData = new BitmapData(80, 40, false, 0x0000CC44);
+   *
+   * var rect:Rectangle = new Rectangle(0, 0, 20, 20);
+   * var pt:Point = new Point(10, 10);
+   * bmd2.copyPixels(bmd1, rect, pt);
+   *
+   * var bm1:Bitmap = new Bitmap(bmd1);
+   * this.addChild(bm1);
+   * var bm2:Bitmap = new Bitmap(bmd2);
+   * this.addChild(bm2);
+   * bm2.x = 50;
+   * </pre>
+   */
+  public function copyPixels(sourceBitmapData:BitmapData, sourceRect:Rectangle, destPoint:Point,
+                             alphaBitmapData:BitmapData = null, alphaPoint:Point = null, mergeAlpha:Boolean = false):void {
+    var destRect:Rectangle = new Rectangle(destPoint.x, destPoint.y, sourceRect.width, sourceRect.height);
+    destRect = destRect.intersection(this.rect);
+    if (destRect.width > 0 && destRect.height > 0) {
+      if (mergeAlpha) {
+        // putImageData() does not support alpha channel, so use drawImage():
+        this.context.drawImage(sourceBitmapData.getImg(), sourceRect.x, sourceRect.y, destRect.width, destRect.height,
+          destPoint.x, destPoint.y, destRect.width, destRect.height);
+      } else {
+        var imageData:ImageData = sourceBitmapData.context.getImageData(sourceRect.x, sourceRect.y, destRect.width, destRect.height);
+        this.context.putImageData(imageData, destPoint.x, destPoint.y);
+      }
+      invalidateImg();
     }
   }
 
