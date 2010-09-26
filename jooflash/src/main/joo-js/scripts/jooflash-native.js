@@ -5,6 +5,7 @@ function isGetterOrSetter(object, propertyName) {
   return object.__lookupGetter__(propertyName) || object.__lookupSetter__(propertyName);
 }
 var flash_utils = joo.getOrCreatePackage("flash.utils");
+flash_utils.ByteArray = Array;
 flash_utils.getQualifiedClassName = function getQualifiedClassName(value) {
       var type = typeof value=="function" ? value : value.constructor;
       return typeof type["$class"]=="object" ? type["$class"]["fullClassName"].replace(/\.([^\.]+$)/,"::$1") : String(type);
