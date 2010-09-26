@@ -141,8 +141,126 @@ public class Stage extends DisplayObjectContainer {
     frameTimer.delay = 1000/value;
   }
 
+  /**
+    A value from the StageQuality class that specifies which rendering quality is used.
+    The following are valid values:</p>
+    <ul>
+      <li><code>StageQuality.LOW</code>—Low rendering quality. Graphics are not
+        anti-aliased, and bitmaps are not smoothed, but runtimes still use mip-mapping. This setting is not supported in Adobe AIR.</li>
+      <li><code>StageQuality.MEDIUM</code>—Medium rendering quality. Graphics are
+        anti-aliased using a 2 x 2 pixel grid, bitmap smoothing is dependent on the <code>Bitmap.smoothing</code> setting.
+        Runtimes use mip-mapping. This setting is suitable for movies that do not contain text.
+        This setting is not supported in Adobe AIR.</li>
+      <li><code>StageQuality.HIGH</code>—High rendering quality. Graphics are anti-aliased
+        using a 4 x 4 pixel grid, and bitmap smoothing is dependent on the <code>Bitmap.smoothing</code> setting.
+        Runtimes use mip-mapping. This is the default rendering quality setting that Flash Player uses.</li><li><code>StageQuality.BEST</code>—Very high rendering quality. Graphics are
+        anti-aliased using a 4 x 4 pixel grid. If <code>Bitmap.smoothing</code> is <code>true</code> the runtime uses a high quality
+        downscale algorithm that produces fewer artifacts (however, using <code>StageQuality.BEST</code> with <code>Bitmap.smoothing</code> set to <code>true</code>
+        slows performance significantly and is not a recommended setting).</li>
+    </ul>
+
+    <p>Higher quality settings produce better rendering of scaled bitmaps. However, higher
+    quality settings are computationally more expensive. In particular, when rendering scaled video,
+    using higher quality settings can reduce the frame rate.</p>
+
+    <p>For content running in Adobe AIR, <code>quality</code> can be set to <code>StageQuality.BEST</code>
+    or <code>StageQuality.HIGH</code> (and the default value is <code>StageQuality.HIGH</code>).
+    Attempting to set it to another value has no effect (and the property remains unchanged).</p>
+
+    <p>For content running in Adobe AIR, setting the <code>quality</code> property of one Stage
+    object changes the rendering quality for all Stage objects (used by different NativeWindow objects).</p>
+
+    <b><i>Note:</i></b> The operating system draws the device fonts,
+    which are therefore unaffected by the <code>quality</code> property.
+
+    @throws SecurityError Calling the <code>quality</code> property of a Stage object throws an exception for
+    any caller that is not in the same security sandbox as the Stage owner (the main SWF file).
+    To avoid this, the Stage owner can grant permission to the domain of the caller by calling
+    the <code>Security.allowDomain()</code> method or the <code>Security.allowInsecureDomain()</code> method.
+    For more information, see the "Security" chapter in the <i>ActionScript 3.0 Developer's Guide</i>.
+
+    @see flash.display.StageQuality
+    @see flash.display.Bitmap#smoothing
+   */
+  public function get quality():String {
+    return _quality;
+  }
+
+  public function set quality(value:String):void {
+    _quality = value;
+  }
+
+  /**
+    A value from the StageScaleMode class that specifies which scale mode to use.
+    The following are valid values:</p>
+    <ul>
+      <li><code>StageScaleMode.EXACT_FIT</code>—The entire application is visible
+        in the specified area without trying to preserve the original aspect ratio.
+        Distortion can occur, and the application may appear stretched or compressed.
+      </li>
+      <li><code>StageScaleMode.SHOW_ALL</code>—The entire application is visible
+        in the specified area without distortion while maintaining the original aspect ratio of the application.
+        Borders can appear on two sides of the application.
+      </li>
+      <li><code>StageScaleMode.NO_BORDER</code>—The entire application fills the specified area,
+        without distortion but possibly with some cropping, while maintaining the original aspect ratio
+        of the application.
+      </li>
+      <li><code>StageScaleMode.NO_SCALE</code>—The entire application is fixed, so that
+        it remains unchanged even as the size of the player window changes. Cropping might
+        occur if the player window is smaller than the content.
+      </li>
+    </ul>
+
+    @throws SecurityError Calling the <code>scaleMode</code> property of a Stage object throws an exception for
+    any caller that is not in the same security sandbox as the Stage owner (the main SWF file).
+    To avoid this, the Stage owner can grant permission to the domain of the caller by calling
+    the <code>Security.allowDomain()</code> method or the <code>Security.allowInsecureDomain()</code> method.
+    For more information, see the "Security" chapter in the <i>ActionScript 3.0 Developer's Guide</i>.
+
+    @see flash.display.StageScaleMode
+   */
+  public function get scaleMode():String {
+    return _scaleMode;
+  }
+
+  public function set scaleMode(value:String):void {
+    _scaleMode = value;
+  }
+
+  /**
+   * A value from the StageAlign class that specifies the alignment of the stage in
+   * Flash Player or the browser. The following are valid values:</p>
+   * <table>
+   *   <tr><th>Value</th><th>Vertical Alignment</th><th>Horizontal</th></tr>
+   *   <tr><td><code>StageAlign.TOP</code></td><td>Top</td><td>Center</td></tr>
+   *   <tr><td><code>StageAlign.BOTTOM</code></td><td>Bottom</td><td>Center</td></tr>
+   *   <tr><td><code>StageAlign.LEFT</code></td><td>Center</td><td>Left</td></tr>
+   *   <tr><td><code>StageAlign.RIGHT</code></td><td>Center</td><td>Right</td></tr>
+   *   <tr><td><code>StageAlign.TOP_LEFT</code></td><td>Top</td><td>Left</td></tr>
+   *   <tr><td><code>StageAlign.TOP_RIGHT</code></td><td>Top</td><td>Right</td></tr>
+   *   <tr><td><code>StageAlign.BOTTOM_LEFT</code></td><td>Bottom</td><td>Left</td></tr>
+   *   <tr><td><code>StageAlign.BOTTOM_RIGHT</code></td><td>Bottom</td><td>Right</td></tr>
+   * </table>
+   * <p>The <code>align</code> property is only available to an object that is in the same security sandbox
+   * as the Stage owner (the main SWF file).
+   * To avoid this, the Stage owner can grant permission to the domain of the
+   * calling object by calling the <code>Security.allowDomain()</code> method or the <code>Security.alowInsecureDomain()</code> method.
+   * For more information, see the "Security" chapter in the <i>ActionScript 3.0 Developer's Guide</i>.</p>
+   */
+  public function get align():String {
+    return _align;
+  }
+
+  public function set align(value:String):void {
+    _align = value;
+  }
+
   private var id : String;
   private var _frameRate : Number = 30;
   private var frameTimer : Timer;
+  private var _quality : String = StageQuality.HIGH;
+  private var _scaleMode : String = StageScaleMode.NO_SCALE;
+  private var _align : String = StageAlign.TOP_LEFT;
 }
 }
