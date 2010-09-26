@@ -26,6 +26,12 @@
 
 
   <dependencies>
+    <dependency>
+      <groupId>net.jangaroo</groupId>
+      <artifactId>jangaroo-runtime</artifactId>
+      <version>${jangaroo_version}</version>
+      <type>jangaroo</type>
+    </dependency>
 
     <dependency>
       <groupId>net.jangaroo</groupId>
@@ -33,7 +39,6 @@
       <version>0.7.9-SNAPSHOT</version>
       <type>jangaroo</type>
     </dependency>
-
   </dependencies>
 
 </project>
