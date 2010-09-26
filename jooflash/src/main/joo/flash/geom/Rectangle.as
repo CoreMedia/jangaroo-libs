@@ -40,11 +40,11 @@ public class Rectangle {
    * The sum of the y and height properties.
    */
   public function get bottom () : Number {
-    return x+height;
+    return y+height;
   }
 
-  public function set bottom (value:Number) : void {
-    height = value - x;
+  public function set bottom (bottom:Number) : void {
+    height = Math.max(bottom - y, 0);
   }
 
   /**
@@ -64,11 +64,11 @@ public class Rectangle {
    * The x coordinate of the top-left corner of the rectangle.
    */
   public function get left () : Number {
-    return x+width;
+    return x;
   }
 
   public function set left (left : Number) : void {
-    width += x - left;
+    width += x - left; // TODO: really change width?
     x = left;
   }
 
@@ -116,7 +116,7 @@ public class Rectangle {
    * Determines if the specified point is contained within the rectangular region.
    */
   public function contains (x:Number, y:Number) : Boolean {
-    return this.x <= x && x <= this.right && this.y <= y && y <= this.bottom;
+    return this.x <= x && x < this.right && this.y <= y && y < this.bottom;
   }
 
   /**
