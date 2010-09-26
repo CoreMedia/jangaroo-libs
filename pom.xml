@@ -203,8 +203,8 @@
 
   
   <modules>
-    <module>xmlhttprequest</module>
     <module>jangaroo-browser</module>
+    <module>xmlhttprequest</module>
 
     <module>jooflash</module>
 
@@ -216,6 +216,8 @@
     <module>ext-as</module>
 
     <module>ckeditor</module>
+
+    <module>soundmanager2</module>
 
     <module>jangaroo-libs-bom</module>
   </modules>
