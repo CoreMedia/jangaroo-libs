@@ -196,9 +196,11 @@ trace(container.getChildAt(2) == sprite2); // true
 
   override protected function updateSize():void {
     super.updateSize();
-    children.forEach(function(child:DisplayObject):void {
-      child.updateSize();
-    });
+    if (children) {
+      children.forEach(function(child:DisplayObject):void {
+        child.updateSize();
+      });
+    }
   }
 
   private var children : Array/*<DisplayObject>*/;

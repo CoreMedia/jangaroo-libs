@@ -403,7 +403,7 @@ addChild(tf2);
         this._elem.style.width = Math.min(this._width || int.MAX_VALUE, (parent.x + parent.width - this._x)) + "px";
       }
       if (!isNaN(parent.y) && !isNaN(parent.height)) {
-        // clip at right parent boundary:
+        // clip at bottom parent boundary:
         this._elem.style.height = Math.min(this._height || int.MAX_VALUE, (parent.y + parent.height - this._y)) + "px";
       }
     }

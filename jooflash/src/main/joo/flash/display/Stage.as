@@ -45,16 +45,18 @@ import js.Element;
 public class Stage extends DisplayObjectContainer {
 
   private static var instance : Stage;
-  public static function getInstance(id:String = "stage") : Stage {
-    if (!instance) {
-      new Stage(id);
-    }
+  public static function getInstance() : Stage {
     return instance;
   }
 
-  public function Stage(id : String) {
-    this.id = id;
+  public function Stage(id : String, properties : Object) {
     instance = this;
+    this.id = id;
+    if (properties) {
+      for (var m:String in properties) {
+        this[m] = properties[m];
+      }
+    }
     super();
     frameTimer = new Timer(1000/_frameRate);
     frameTimer.addEventListener(TimerEvent.TIMER, enterFrame);
@@ -89,17 +91,35 @@ public class Stage extends DisplayObjectContainer {
     this.getElement()['offsetWidth'] = value; // TODO: setter for offsetWidth
   }
 
+  public function get backgroundColor():uint {
+    return _backgroundColor;
+  }
+
+  public function set backgroundColor(value:uint):void {
+    _backgroundColor = value;
+    if (this.getElement()) {
+      this.getElement().style.backgroundColor = Graphics.toRGBA(value);
+    }
+  }
+
   override protected function createElement():Element {
     var element : Element = window.document.getElementById(id);
     element.style.position = "relative";
     element.setAttribute("tabindex", "0");
+    element.style.margin = "0";
+    element.style.padding = "0";
     var width : Object = element.getAttribute("width");
-    if (width) {
-      element.style.width = width+"px";
+    if (!width) {
+      width = this.width;
     }
+    element.style.width = width+"px";
     var height : Object = element.getAttribute("height");
-    if (height) {
-      element.style.height = height + "px";
+    if (!height) {
+      height = this.height;
+    }
+    element.style.height = height + "px";
+    if (_backgroundColor) {
+      element.style.backgroundColor = Graphics.toRGBA(_backgroundColor);
     }
     element.innerHTML = "";
     return element;
@@ -138,7 +158,9 @@ public class Stage extends DisplayObjectContainer {
    */
   public function set frameRate(value : Number) : void {
     _frameRate = value;
-    frameTimer.delay = 1000/value;
+    if (frameTimer) {
+      frameTimer.delay = 1000 / value;
+    }
   }
 
   /**
@@ -262,5 +284,6 @@ public class Stage extends DisplayObjectContainer {
   private var _quality : String = StageQuality.HIGH;
   private var _scaleMode : String = StageScaleMode.NO_SCALE;
   private var _align : String = StageAlign.TOP_LEFT;
+  private var _backgroundColor : uint;
 }
 }
