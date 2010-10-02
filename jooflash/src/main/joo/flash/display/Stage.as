@@ -75,20 +75,20 @@ public class Stage extends DisplayObjectContainer {
 
   /// The current height, in pixels, of the Stage.
   public function get stageHeight () : int {
-    return this.getElement().offsetHeight;
+    return this.height;
   }
 
   public function set stageHeight (value : int) : void {
-    this.getElement()['offsetHeight'] = value; // TODO: setter for offsetHeight!
+    this.height = value;
   }
 
   /// Specifies the current width, in pixels, of the Stage.
   public function get stageWidth () : int {
-    return this.getElement().offsetWidth;    
+    return this.width;
   }
 
   public function set stageWidth (value : int) : void {
-    this.getElement()['offsetWidth'] = value; // TODO: setter for offsetWidth
+    this.width = value;
   }
 
   public function get backgroundColor():uint {

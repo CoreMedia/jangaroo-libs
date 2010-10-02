@@ -15,12 +15,12 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
 
   public function DisplayObject() {
     super();
-    this._stage = Stage.getInstance(); // Stage singleton must be set before creating DisplayObject instances!
-    this._elem = this.createElement();
-    if (!isNaN(this._stage.stageWidth) && !isNaN(this._stage.stageHeight)) {
-      this._width = this._stage.stageWidth;
-      this._height = this._stage.stageHeight;
+    var stage:Stage = this.stage;
+    if (stage && !isNaN(stage.stageWidth) && !isNaN(stage.stageHeight)) {
+      this._width = stage.stageWidth;
+      this._height = stage.stageHeight;
     }
+    this._elem = this.createElement();
     updateSize();
   }
 
@@ -54,7 +54,7 @@ trace(stage.stageWidth);
    * @return the Stage of the display object.
    */
   public function get stage() : Stage {
-    return this._stage;
+    return Stage.getInstance();
   }
 
   /**
@@ -140,7 +140,7 @@ trace(stage.stageWidth);
     var domEventType : String = FLASH_EVENT_TO_DOM_EVENT[type];
     if (newEventType) {
       if (DOM_EVENT_TO_MOUSE_EVENT[domEventType]) {
-        if (!buttonDownTracking && (type === 'mouseup' || type === 'mousedown')) {
+        if (!buttonDownTracking && (type === MouseEvent.MOUSE_UP || type === MouseEvent.MOUSE_DOWN)) {
           buttonDownTracking = true;
           var stageElem:Element = stage.getElement();
           stageElem.addEventListener('mousedown', function():void {
@@ -154,7 +154,7 @@ trace(stage.stageWidth);
         }
         this._elem.addEventListener(domEventType, this.transformAndDispatch, useCapture);
       } else if (this!=this.stage && flash.events.Event.ENTER_FRAME == type) {
-        this.stage.addEventListener(type, this.dispatchWithOwnTarget, useCapture, priority, useWeakReference);
+        Stage.getInstance().addEventListener(type, this.dispatchWithOwnTarget, useCapture, priority, useWeakReference);
       }
     }
   }
@@ -406,6 +406,9 @@ addChild(tf2);
         // clip at bottom parent boundary:
         this._elem.style.height = Math.min(this._height || int.MAX_VALUE, (parent.y + parent.height - this._y)) + "px";
       }
+    } else if (this._elem) {
+      this._elem.style.width = this.width + "px";
+      this._elem.style.height = this.height + "px";
     }
   }
 
@@ -527,7 +530,6 @@ addChild(tf2);
   */
   public var rotation:Number;
 
-  private var _stage : Stage;
   private var _parent : DisplayObjectContainer;
   private var _elem : Element;
   private var _x : Number = 0, _y : Number = 0, _width : Number, _height : Number;

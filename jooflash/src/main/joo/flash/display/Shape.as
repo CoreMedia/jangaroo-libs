@@ -25,16 +25,16 @@ public class Shape extends DisplayObject {
   }
 
   override protected function createElement() : Element {
-    var canvas : HTMLCanvasElement = createCanvas();
+    var canvas : HTMLCanvasElement = createCanvas(width, height);
     canvas.style.position = "absolute";
     return canvas;
   }
 
-  internal static function createCanvas() : HTMLCanvasElement {
+  internal static function createCanvas(width:uint, height:uint) : HTMLCanvasElement {
     var canvas : HTMLCanvasElement = window.document.createElement("canvas") as HTMLCanvasElement;
     // TODO: adjust width and height when drawing into the canvas!
-    canvas.width = Stage.getInstance().stageWidth;
-    canvas.height = Stage.getInstance().stageHeight;
+    canvas.width = width;
+    canvas.height = height;
     return canvas;
   }
 

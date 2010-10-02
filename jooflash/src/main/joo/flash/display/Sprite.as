@@ -43,7 +43,7 @@ public class Sprite extends DisplayObjectContainer {
    */
   public function get graphics() : Graphics {
     if (!this._graphics) {
-      var canvas : HTMLCanvasElement = Shape.createCanvas();
+      var canvas : HTMLCanvasElement = Shape.createCanvas(width, height);
       var element : Element = this.getElement();
       if (element.firstChild) {
         element.insertBefore(canvas, element.firstChild);
