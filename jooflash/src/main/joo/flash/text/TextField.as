@@ -109,7 +109,7 @@ package flash.text
       _defaultTextFormat = val;
       updateElementProperty("style.fontFamily", val.font || "serif");
       updateElementProperty("style.fontSize",   val.size || "12px");
-      updateElementProperty("style.color",      val.color ? Graphics.toRGBA(val.color as uint) : "black");
+      updateElementProperty("style.color",      val.color ? Graphics.toRGBA(uint(val.color)) : "black");
       updateElementProperty("style.fontWeight", val.bold ? "bold" : "normal");
       updateElementProperty("style.textAlign",  val.align || TextFormatAlign.LEFT);
       // TODO: listen to property changes of my defaultTextFormat object?
