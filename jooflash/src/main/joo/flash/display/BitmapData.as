@@ -101,11 +101,17 @@ public class BitmapData implements IBitmapDrawable {
     context.save();
     context.setTransform(1, 0, 0, 1, 0, 0);
     // TODO: which other context attributes to reset?
-    context.fillStyle = "rgba("+
-      [color >> 16 & 0xFF, color >> 8 & 0xFF, color & 0xFF, (color >> 24 & 0xFF) / 0xFF]
-        .join(",")+")";
-    context.globalCompositeOperation = "copy";
-    context.fillRect(rect.x, rect.y, rect.width, rect.height);
+    var alpha:uint = (color >> 24 & 0xFF);
+    if (alpha == 0) {
+      // IE9 does not (yet?) support globalCompositeOperation, but at least we can clear:
+      context.clearRect(rect.x, rect.y, rect.width, rect.height);
+    } else {
+      context.fillStyle = "rgba("+
+        [color >> 16 & 0xFF, color >> 8 & 0xFF, color & 0xFF, alpha / 0xFF]
+          .join(",")+")";
+      context.globalCompositeOperation = "copy";
+      context.fillRect(rect.x, rect.y, rect.width, rect.height);
+    }
     context.restore();
     context.globalCompositeOperation = "source-over";
     this.invalidateImg();
@@ -285,10 +291,10 @@ public class BitmapData implements IBitmapDrawable {
 
   function getImg():HTMLElement {
     if (!this.img) {
-      this.img = window.document.createElement("img") as HTMLElement;
+      this.img = HTMLElement(window.document.createElement("img"));
     }
-    if (!this.img.src) {
-      this.img.src = this.canvas.toDataURL("image/png");
+    if (!this.img.getAttribute('src')) {
+      this.img.setAttribute('src', this.canvas.toDataURL("image/png"));
     }
     return this.img;
   }
