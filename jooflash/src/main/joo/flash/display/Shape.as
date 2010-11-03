@@ -25,9 +25,7 @@ public class Shape extends DisplayObject {
   }
 
   override protected function createElement() : Element {
-    var canvas : HTMLCanvasElement = createCanvas(width, height);
-    canvas.style.position = "absolute";
-    return canvas;
+    return createCanvas(width, height);
   }
 
   internal static function createCanvas(width:uint, height:uint) : HTMLCanvasElement {
@@ -35,6 +33,7 @@ public class Shape extends DisplayObject {
     // TODO: adjust width and height when drawing into the canvas!
     canvas.width = width;
     canvas.height = height;
+    canvas.style.position = "absolute";
     return canvas;
   }
 
