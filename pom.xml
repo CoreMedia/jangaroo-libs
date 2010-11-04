@@ -203,6 +203,7 @@
 
   
   <modules>
+    <module>jangaroo-net</module>
     <module>jangaroo-browser</module>
     <module>xmlhttprequest</module>
 
