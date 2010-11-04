@@ -122,6 +122,14 @@ public class Stage extends DisplayObjectContainer {
       element.style.backgroundColor = Graphics.toRGBA(_backgroundColor);
     }
     element.innerHTML = "";
+    element.addEventListener('mousedown', function():void {
+      // TODO: check event.button property whether it was the "primary" mouse button!
+      buttonDown = true;
+    }, true);
+    element.addEventListener('mouseup', function():void {
+      // TODO: check event.button property whether it was the "primary" mouse button!
+      buttonDown = false;
+    }, true);
     return element;
   }
 
@@ -285,5 +293,6 @@ public class Stage extends DisplayObjectContainer {
   private var _scaleMode : String = StageScaleMode.NO_SCALE;
   private var _align : String = StageAlign.TOP_LEFT;
   private var _backgroundColor : uint;
+  internal var buttonDown:Boolean = false;
 }
 }

@@ -10,9 +10,6 @@ import flash.geom.Transform;
 
 public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
 
-  private static var buttonDownTracking:Boolean = false;
-  private static var buttonDown:Boolean = false;
-
   public function DisplayObject() {
     super();
     var stage:Stage = this.stage;
@@ -139,19 +136,7 @@ trace(stage.stageWidth);
     super.addEventListener(type, listener, useCapture, priority, useWeakReference);
     var domEventType : String = FLASH_EVENT_TO_DOM_EVENT[type];
     if (newEventType) {
-      if (DOM_EVENT_TO_MOUSE_EVENT[domEventType]) {
-        if (!buttonDownTracking && (type === MouseEvent.MOUSE_UP || type === MouseEvent.MOUSE_DOWN)) {
-          buttonDownTracking = true;
-          var stageElem:Element = stage.getElement();
-          stageElem.addEventListener('mousedown', function():void {
-            // TODO: check event.button property whether it was the "primary" mouse button!
-            buttonDown = true;
-          }, true);
-          stageElem.addEventListener('mouseup', function():void {
-            // TODO: check event.button property whether it was the "primary" mouse button!
-            buttonDown = false;
-          }, true);
-        }
+      if (domEventType) {
         this._elem.addEventListener(domEventType, this.transformAndDispatch, useCapture);
       } else if (this!=this.stage && flash.events.Event.ENTER_FRAME == type) {
         Stage.getInstance().addEventListener(type, this.dispatchWithOwnTarget, useCapture, priority, useWeakReference);
@@ -172,7 +157,7 @@ trace(stage.stageWidth);
     var type : String = DOM_EVENT_TO_MOUSE_EVENT[event.type];
     if (type) {
       flashEvent = new MouseEvent(type, true, true, event.pageX - this.stage.x, event.pageY - this.stage.y, null,
-        event.ctrlKey, event.altKey, event.shiftKey, buttonDown);
+        event.ctrlKey, event.altKey, event.shiftKey, stage.buttonDown);
     } else {
       type = DOM_EVENT_TO_KEYBOARD_EVENT[event.type];
       if (type) {
