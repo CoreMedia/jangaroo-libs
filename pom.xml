@@ -17,7 +17,7 @@
   </scm>
 
   <properties>
-    <jangaroo_version>0.7.8-SNAPSHOT</jangaroo_version>
+    <jangaroo_version>0.7.9-SNAPSHOT</jangaroo_version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
@@ -47,43 +47,6 @@
       <url>scp://repo.jangaroo.net/home/jangaroo/maven2/snapshots</url>
     </snapshotRepository>
   </distributionManagement>
-
-
-  <pluginRepositories>
-    <pluginRepository>
-      <id>jangaroo</id>
-      <name>Jangaroo repository</name>
-      <url>http://repo.jangaroo.net/maven2</url>
-    </pluginRepository>
-
-    <pluginRepository>
-      <id>jangaroo-snapshots</id>
-      <name>Jangaroo snapshot repository</name>
-      <url>http://repo.jangaroo.net/maven2-snapshots</url>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </pluginRepository>
-  </pluginRepositories>
-
-
-  <repositories>
-
-    <repository>
-      <id>jangaroo</id>
-      <name>Jangaroo repository</name>
-      <url>http://repo.jangaroo.net/maven2</url>
-    </repository>
-
-    <repository>
-      <id>jangaroo-snapshots</id>
-      <name>Jangaroo snapshot repository</name>
-      <url>http://repo.jangaroo.net/maven2-snapshots</url>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </repository>
-  </repositories>
 
   <build>
     <resources>
