@@ -13,7 +13,12 @@
   <version>0.7.9-SNAPSHOT</version>
 
   <name>ext-js</name>
-  <description>Ext JS 3.2.2</description>
-
+  <description>Packaged version of Ext JS 3.2.2</description>
+  <url>http://www.sencha.com/products/js/</url>
+  <licenses>
+    <license>
+      <url>http://extjs.com/license</url>
+    </license>
+  </licenses>
 
 </project>
