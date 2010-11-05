@@ -582,7 +582,7 @@ package {
     this.lineStyle();
     this.context.save();
     this.context.setTransform(1,0,0,1,0,0);
-    this.context.fillStyle = "";
+    this.context.fillStyle = "#000000";
     this.context.clearRect(0,0,this.context.canvas.width, this.context.canvas.height);
     this.context.restore();
     this.insideFill = false;
