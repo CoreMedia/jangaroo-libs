@@ -26,15 +26,6 @@
     </developer>
   </developers>
 
-  <distributionManagement>
-    <downloadUrl>http://repo.jangaroo.net/maven2</downloadUrl>
-    <repository>
-      <id>jangaroo</id>
-      <name>Jangaroo repository</name>
-      <url>scp://repo.jangaroo.net/home/jangaroo/maven2/repo</url>
-    </repository>
-  </distributionManagement>
-
   <dependencies>
     <dependency>
       <groupId>net.jangaroo</groupId>

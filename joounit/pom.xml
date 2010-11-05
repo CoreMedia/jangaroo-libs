@@ -27,13 +27,6 @@
 
   </developers>
 
-  <repositories>
-    <repository>
-      <id>sonatype</id>
-      <name>sonatype repository</name>
-      <url> http://repository.sonatype.org/content/groups/flexgroup</url>
-    </repository>
-  </repositories>
   <profiles>
     <profile>
       <id>integrationtest</id>
