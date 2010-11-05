@@ -15,5 +15,11 @@
 
   <name>ext-core</name>
   <description>ext-core 3.1.0</description>
+  <url>http://www.sencha.com/products/js/</url>
+  <licenses>
+    <license>
+      <url>http://extjs.com/license</url>
+    </license>
+  </licenses>
 
 </project>
