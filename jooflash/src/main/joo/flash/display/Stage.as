@@ -44,13 +44,10 @@ import js.Element;
  */
 public class Stage extends DisplayObjectContainer {
 
-  private static var instance : Stage;
-  public static function getInstance() : Stage {
-    return instance;
-  }
+  private var _stageHeight:int;
+  private var _stageWidth:int;
 
   public function Stage(id : String, properties : Object) {
-    instance = this;
     this.id = id;
     if (properties) {
       for (var m:String in properties) {
@@ -63,48 +60,57 @@ public class Stage extends DisplayObjectContainer {
     frameTimer.start();
   }
 
-  override public function get x() : Number {
-    // TODO: consider offsetParent(s)!
-    return this.getElement().offsetLeft;
-  }
-
-  override public function get y() : Number {
-    // TODO: consider offsetParent(s)!
-    return this.getElement().offsetTop;
+  override public function get stage():Stage {
+    return this;
   }
 
   /// The current height, in pixels, of the Stage.
   public function get stageHeight () : int {
-    return this.height;
+    return _stageHeight;
   }
 
   public function set stageHeight (value : int) : void {
-    this.height = value;
+    _stageHeight = value;
+    getElement().style.height = value + "px";
   }
 
   /// Specifies the current width, in pixels, of the Stage.
   public function get stageWidth () : int {
-    return this.width;
+    return _stageWidth;
   }
 
   public function set stageWidth (value : int) : void {
-    this.width = value;
+    _stageWidth = value;
+    getElement().style.width = value + "px";
   }
 
-  public function get backgroundColor():uint {
-    return _backgroundColor;
+  public override function get height() : Number {
+    return _stageHeight;
   }
 
-  public function set backgroundColor(value:uint):void {
-    _backgroundColor = value;
-    if (this.getElement()) {
-      this.getElement().style.backgroundColor = Graphics.toRGBA(value);
+  override public function set height(value:Number):void {
+    stageHeight = int(value);
+  }
+
+  public override function get width() : Number {
+    return _stageWidth;
+  }
+
+  override public function set width(value:Number):void {
+    stageWidth = int(value);
+  }
+
+  public function set backgroundColor(value:*):void {
+    if (typeof value == 'string') {
+      value = String(value).replace(/^#/, "0x");
     }
+    getElement().style.backgroundColor = Graphics.toRGBA(uint(value));
   }
 
   override protected function createElement():Element {
     var element : Element = window.document.getElementById(id);
     element.style.position = "relative";
+    element.style.overflow = "hidden";
     element.setAttribute("tabindex", "0");
     element.style.margin = "0";
     element.style.padding = "0";
@@ -118,9 +124,6 @@ public class Stage extends DisplayObjectContainer {
       height = this.height;
     }
     element.style.height = height + "px";
-    if (_backgroundColor) {
-      element.style.backgroundColor = Graphics.toRGBA(_backgroundColor);
-    }
     element.innerHTML = "";
     element.addEventListener('mousedown', function():void {
       // TODO: check event.button property whether it was the "primary" mouse button!
@@ -134,7 +137,7 @@ public class Stage extends DisplayObjectContainer {
   }
 
   private function enterFrame() : void {
-    this.dispatchEvent(new Event(Event.ENTER_FRAME, false, false));
+    this.broadcastEvent(new Event(Event.ENTER_FRAME, false, false));
   }
 
   /**
@@ -165,9 +168,9 @@ public class Stage extends DisplayObjectContainer {
    * @param value the new frame rate in frames per second.
    */
   public function set frameRate(value : Number) : void {
-    _frameRate = value;
+    _frameRate = Number(value);
     if (frameTimer) {
-      frameTimer.delay = 1000 / value;
+      frameTimer.delay = 1000 / _frameRate;
     }
   }
 
@@ -292,7 +295,6 @@ public class Stage extends DisplayObjectContainer {
   private var _quality : String = StageQuality.HIGH;
   private var _scaleMode : String = StageScaleMode.NO_SCALE;
   private var _align : String = StageAlign.TOP_LEFT;
-  private var _backgroundColor : uint;
   internal var buttonDown:Boolean = false;
 }
 }

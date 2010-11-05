@@ -179,18 +179,7 @@ public class BitmapData implements IBitmapDrawable {
     // generic, but very slow solution:
     // get the image data to manipulate
     var input : ImageData = context.getImageData(rect.x, rect.y, rect.width, rect.height);
-
-    // get an empty slate to put the data into
-    //var output : ImageData = context.createImageData(rect.width, rect.height);
-    // => createImageData not yet supported by all browsers with canvas support, esp. not Firefox.
-
-    // alias some variables for convenience
-    // notice that we are using input.width and input.height here
-    // as they might not be the same as rect.width and rect.height
-    // (in particular, they might be different on high-res displays)
-    var w : uint = input.width, h : uint = input.height;
     var inputData : Array = input.data;
-    //var outputData : Array = output.data;
 
     // color transformation:
     var maps : Array = colorTransform.getComponentMaps();

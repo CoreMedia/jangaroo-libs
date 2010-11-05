@@ -1,7 +1,6 @@
 package flash.display {
-import js.CanvasRenderingContext2D;
+
 import js.Element;
-import js.HTMLCanvasElement;
 import flash.geom.Transform;
 import flash.geom.Matrix;
 
@@ -22,23 +21,11 @@ public class Shape extends DisplayObject {
    */
   public function Shape() {
     super();
+    _graphics = new Graphics();
   }
 
   override protected function createElement() : Element {
-    return createCanvas(width, height);
-  }
-
-  internal static function createCanvas(width:uint, height:uint) : HTMLCanvasElement {
-    var canvas : HTMLCanvasElement = window.document.createElement("canvas") as HTMLCanvasElement;
-    // TODO: adjust width and height when drawing into the canvas!
-    canvas.width = width;
-    canvas.height = height;
-    canvas.style.position = "absolute";
-    return canvas;
-  }
-
-  internal static function createGraphics(canvas : HTMLCanvasElement) : Graphics {
-    return new Graphics(canvas.getContext("2d") as CanvasRenderingContext2D);
+    return graphics.canvas;
   }
 
   /**
@@ -46,9 +33,6 @@ public class Shape extends DisplayObject {
    * @return  the Graphics object belonging to this Shape object
    */
   public function get graphics() : Graphics {
-    if (!this._graphics) {
-      this._graphics = createGraphics(this.getElement() as HTMLCanvasElement);
-    }
     return this._graphics;
   }
 
@@ -58,6 +42,14 @@ public class Shape extends DisplayObject {
     if (m) {
       this.graphics.renderingContext.setTransform(m.a, m.b, m.c, m.d, m.tx, m.ty);
     }
+  }
+
+  override public function get width():Number {
+    return _graphics.width;
+  }
+
+  override public function get height():Number {
+    return _graphics.height;
   }
 
   private var _graphics : Graphics;

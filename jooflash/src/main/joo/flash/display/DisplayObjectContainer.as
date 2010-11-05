@@ -1,4 +1,7 @@
 package flash.display {
+import flash.events.Event;
+
+import js.Element;
 
 /**
  * The DisplayObjectContainer class is the base class for all objects that can serve as display object containers on
@@ -149,13 +152,19 @@ trace(container.getChildAt(1) == circle1); // true
    * @see #addChild()
    */
   public function addChildAt(child : DisplayObject, index : int) : DisplayObject {
+    if (child.parent) {
+      child.parent.removeChild(child);
+    }
     var refChild : DisplayObject = this.children[index] as DisplayObject;
     this.children.splice(index, 0, child);
     child.parent = this;
+    // also add to DOM:
+    var containerElement:Element = this.getElement();
+    var childElement:Element = child.getElement();
     if (refChild) {
-      this.getElement().insertBefore(child.getElement(), refChild.getElement());
+      containerElement.insertBefore(childElement, refChild.getElement());
     } else {
-      this.getElement().appendChild(child.getElement());
+      containerElement.appendChild(childElement);
     }
     return child;
   }
@@ -194,13 +203,120 @@ trace(container.getChildAt(2) == sprite2); // true
     return this.children[index] as DisplayObject;
   }
 
-  override protected function updateSize():void {
-    super.updateSize();
-    if (children) {
-      children.forEach(function(child:DisplayObject):void {
-        child.updateSize();
-      });
+  /**
+   * Removes the specified <code>child</code> DisplayObject instance from the child list of the DisplayObjectContainer instance.
+   * The <code>parent</code> property of the removed child is set to <code>null</code>, and the object is garbage collected if no other
+   * references to the child exist. The index positions of any display objects above the child in the
+   * DisplayObjectContainer are decreased by 1.</p>
+   * <p>The garbage collector reallocates unused memory space. When a variabl
+   * or object is no longer actively referenced or stored somewhere, the garbage collector sweeps
+   * through and wipes out the memory space it used to occupy if no other references to it exist.</p>
+   *
+   * @example
+   * The following example creates a display object container named
+   * <code>container</code> and then adds two child display objects to the container.
+   * An event listener is added to the <code>container</code> object, so that when the
+   * user clicks a child object of the container, the <code>removeChild()</code> method
+   * removes the child clicked from the child list of the container:
+   * <pre>
+   * import flash.display.DisplayObject;
+   * import flash.display.Sprite;
+   * import flash.events.MouseEvent;
+   *
+   * var container:Sprite = new Sprite();
+   * addChild(container);
+   *
+   * var circle1:Sprite = new Sprite();
+   * circle1.graphics.beginFill(0xFFCC00);
+   * circle1.graphics.drawCircle(40, 40, 40);
+   *
+   * var circle2:Sprite = new Sprite();
+   * circle2.graphics.beginFill(0x00CCFF);
+   * circle2.graphics.drawCircle(120, 40, 40);
+   *
+   * container.addChild(circle1);
+   * container.addChild(circle2);
+   *
+   * container.addEventListener(MouseEvent.CLICK, clicked);
+   *
+   * function clicked(event:MouseEvent):void {
+   *     container.removeChild(DisplayObject(event.target));
+   * }
+   * </pre>
+   *
+   * @param child The DisplayObject instance to remove.
+   * @return The DisplayObject instance that you pass in the <code>child</code> parameter.
+   * @throws ArgumentError if the child parameter is not a child of this object.
+   */
+  public function removeChild(child:DisplayObject):DisplayObject {
+    var index:int = children.indexOf(child);
+    if (index == -1) {
+      throw new ArgumentError;
     }
+    return removeChildAt(index);
+  }
+
+  /**
+   * Removes a child DisplayObject from the specified <code>index</code> position in the child list of
+   * the DisplayObjectContainer. The <code>parent</code> property of the removed child is set to
+   * <code>null</code>, and the object is garbage collected if no other references to the child exist. The index
+   * positions of any display objects above the child in the DisplayObjectContainer are decreased by 1.</p>
+   *
+   *  <p>The garbage collector reallocates unused memory space. When a variable or
+   * object is no longer actively referenced or stored somewhere, the garbage collector sweeps
+   * through and wipes out the memory space it used to occupy if no other references to it exist.</p>
+   *
+   * @example
+   * The following example creates a display object container named
+   * <code>container</code> and then adds two child display objects to the container.
+   * The code then shows that when you call the <code>removeChildAt()</code> method
+   * to remove the child at the lowest index position (0), any other child object in the list
+   * moves down one position:
+   * <pre>
+   * import flash.display.Sprite;
+   *
+   * var container:Sprite = new Sprite();
+   *
+   * var sprite1:Sprite = new Sprite();
+   * sprite1.name = "sprite1";
+   * var sprite2:Sprite = new Sprite();
+   * sprite2.name = "sprite2";
+   *
+   * container.addChild(sprite1);
+   * container.addChild(sprite2);
+   *
+   * trace(container.numChildren) // 2
+   * container.removeChildAt(0);
+   * trace(container.numChildren) // 1
+   * trace(container.getChildAt(0).name); // sprite2
+   * </pre>
+   *
+   * @param index The child index of the DisplayObject to remove.
+   * @return The DisplayObject instance that was removed.
+   * @throws SecurityError This child display object belongs to a sandbox
+   * to which the calling object does not have access. You can avoid this situation by having
+   * the child movie call the <code>Security.allowDomain()</code> method.
+   * @throws RangeError Throws if the index does not exist in the child list.
+   */
+  public function removeChildAt(index:int):DisplayObject {
+    var child:DisplayObject = children.splice(index, 1)[0];
+    child.parent = null;
+    // if successful, remove in DOM, too:
+    var childElement:Element = child.getElement();
+    getElement().removeChild(childElement);
+    return child;
+  }
+
+  protected function broadcastEvent(event:Event):void {
+    this.dispatchEvent(event);
+    children.forEach(function(child:DisplayObject):void {
+      var subContainer:DisplayObjectContainer = child as DisplayObjectContainer;
+      if (subContainer) {
+        subContainer.broadcastEvent(event);
+      } else {
+        child.dispatchEvent(event);
+      }
+    });
   }
 
   private var children : Array/*<DisplayObject>*/;

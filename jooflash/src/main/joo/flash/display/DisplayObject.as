@@ -12,13 +12,55 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
 
   public function DisplayObject() {
     super();
-    var stage:Stage = this.stage;
-    if (stage && !isNaN(stage.stageWidth) && !isNaN(stage.stageHeight)) {
-      this._width = stage.stageWidth;
-      this._height = stage.stageHeight;
-    }
-    this._elem = this.createElement();
-    updateSize();
+  }
+
+  /**
+   * Indicates the instance name of the DisplayObject. The object can be identified in
+   * the child list of its parent display object container by calling the
+   * <code>getChildByName()</code> method of the display object container.
+   *
+   * @example
+   * The following code creates two Sprite object and traces the
+   * associated <code>name</code> property when the user clicks either of the objects:
+   * <pre>
+   * import flash.display.Sprite;
+   * import flash.events.MouseEvent;
+   *
+   * var circle1:Sprite = new Sprite();
+   * circle1.graphics.beginFill(0xFF0000);
+   * circle1.graphics.drawCircle(40, 40, 40);
+   * circle1.name = "circle1";
+   * addChild(circle1);
+   * circle1.addEventListener(MouseEvent.CLICK, traceName);
+   *
+   * var circle2:Sprite = new Sprite();
+   * circle2.graphics.beginFill(0x0000FF);
+   * circle2.graphics.drawCircle(140, 40, 40);
+   * circle2.name = "circle2";
+   * addChild(circle2);
+   * circle2.addEventListener(MouseEvent.CLICK, traceName);
+   *
+   * function traceName(event:MouseEvent):void {
+   *     trace(event.target.name);
+   * }
+   * </pre>
+   */
+  public function get name():String {
+    return _name;
+  }
+
+  /**
+   * Set the instance name of the DisplayObject. The object can be identified in
+   * the child list of its parent display object container by calling the
+   * <code>getChildByName()</code> method of the display object container.
+   *
+   * @param value the new name of the DisplayObject
+   * @throws IllegalOperationError If you are attempting to set this property on an object that was
+   *   placed on the timeline in the Flash authoring tool.
+   *
+   */
+  public function set name(value:String):void {
+    _name = value;
   }
 
   /**
@@ -51,7 +93,7 @@ trace(stage.stageWidth);
    * @return the Stage of the display object.
    */
   public function get stage() : Stage {
-    return Stage.getInstance();
+    return this._parent ? this._parent.stage : null;
   }
 
   /**
@@ -92,7 +134,6 @@ trace(stage.stageWidth);
   // internal
   public function set parent(parent : DisplayObjectContainer) : void {
     _parent = parent;
-    updateSize();
   }
 
   private static const DOM_EVENT_TO_MOUSE_EVENT : Object/*<String,String>*/ = {
@@ -138,17 +179,19 @@ trace(stage.stageWidth);
     if (newEventType) {
       if (domEventType) {
         this._elem.addEventListener(domEventType, this.transformAndDispatch, useCapture);
-      } else if (this!=this.stage && flash.events.Event.ENTER_FRAME == type) {
-        Stage.getInstance().addEventListener(type, this.dispatchWithOwnTarget, useCapture, priority, useWeakReference);
+        // TODO: maintain different event listeners for useCapture==true and useCapture==false (if supported by browser)!
       }
     }
   }
 
   override public function removeEventListener(type : String, listener : Function, useCapture : Boolean = false):void {
     super.removeEventListener(type, listener, useCapture);
-    var domEventType : String = FLASH_EVENT_TO_DOM_EVENT[type];
-    if (domEventType) {
-      this._elem.removeEventListener(domEventType, this.transformAndDispatch, useCapture);
+    if (!this.hasEventListener(type)) { // did we just remove the last event listener of this type?
+      var domEventType : String = FLASH_EVENT_TO_DOM_EVENT[type];
+      if (domEventType) {
+        // remove the DOM element event listener, too:
+        this._elem.removeEventListener(domEventType, this.transformAndDispatch, useCapture);
+      }
     }
   }
 
@@ -169,10 +212,6 @@ trace(stage.stageWidth);
       trace("Unmapped DOM event type " + event.type + " occured, ignoring.");
     }
     return this.dispatchEvent(flashEvent);
-  }
-
-  private function dispatchWithOwnTarget(event : flash.events.Event) : Boolean {
-    return this.dispatchEvent(event.clone());
   }
 
   /**
@@ -227,7 +266,6 @@ trace(stage.stageWidth);
     this._x = isNaN(value) ? 0 : value;
     if (this._elem) {
       this._elem.style.left = value + "px";
-      updateSize();
     }
   }
 
@@ -276,7 +314,6 @@ trace(stage.stageWidth);
     this._y = isNaN(value) ? 0 : value;
     if (this._elem) {
       this._elem.style.top = value+"px";
-      updateSize();
     }
   }
 
@@ -315,7 +352,8 @@ function widen(event:MouseEvent):void {
    * @return the width of the display object, in pixels.
    */
   public function get width() : Number {
-    return this._elem ? this._elem.offsetWidth || this._width : this._width;
+    // TODO: compute real width considering margins and borders!
+    return getElement().offsetWidth;
   }
 
   /**
@@ -324,8 +362,7 @@ function widen(event:MouseEvent):void {
    * @see #width
    */
   public function set width(value : Number) : void {
-    this._width = value;
-    updateSize();
+    getElement().style.width = isNaN(value) ? "auto" : (value + "px");
   }
 
   /**
@@ -367,7 +404,8 @@ addChild(tf2);
 </pre>
    */
   public function get height() : Number {
-    return this._elem ? this._elem.offsetHeight || this._height : this._height;
+    // TODO: compute real height considering margins and borders!
+    return getElement().offsetHeight;
   }
 
   /**
@@ -376,30 +414,13 @@ addChild(tf2);
    * @see #height
    */
   public function set height(value : Number) : void {
-    this._height = value;
-    updateSize();
-  }
-
-  protected function updateSize():void {
-    var parent:DisplayObjectContainer = this.parent;
-    if (parent) {
-      if (!isNaN(parent.x) && !isNaN(parent.width)) {
-        // clip at right parent boundary:
-        this._elem.style.width = Math.min(this._width || int.MAX_VALUE, (parent.x + parent.width - this._x)) + "px";
-      }
-      if (!isNaN(parent.y) && !isNaN(parent.height)) {
-        // clip at bottom parent boundary:
-        this._elem.style.height = Math.min(this._height || int.MAX_VALUE, (parent.y + parent.height - this._y)) + "px";
-      }
-    } else if (this._elem) {
-      this._elem.style.width = this.width + "px";
-      this._elem.style.height = this.height + "px";
-    }
+    getElement().style.height = isNaN(value) ? "auto" : (value + "px");
   }
 
   protected function createElement() : Element {
     var elem : Element = window.document.createElement(getElementName());
     elem.style.position = "absolute";
+    elem.style.width = "100%";
     elem.style['MozUserSelect'] = 'none';
     elem.style['KhtmlUserSelect'] = 'none';
     elem['unselectable'] = 'on';
@@ -412,7 +433,10 @@ addChild(tf2);
   }
 
   public function getElement() : Element {
-    return this._elem;
+    if (!_elem) {
+      _elem = this.createElement();
+    }
+    return _elem;
   }
 
   /**
@@ -517,7 +541,8 @@ addChild(tf2);
 
   private var _parent : DisplayObjectContainer;
   private var _elem : Element;
-  private var _x : Number = 0, _y : Number = 0, _width : Number, _height : Number;
+  private var _x : Number = 0, _y : Number = 0;
   private var _transform : Transform;
+  private var _name : String;
 }
 }

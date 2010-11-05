@@ -1,5 +1,5 @@
 package flash.display {
-import js.CanvasRenderingContext2D;
+
 import js.Element;
 import js.HTMLCanvasElement;
 import flash.geom.Transform;
@@ -42,15 +42,15 @@ public class Sprite extends DisplayObjectContainer {
    * @return the Graphics object that belongs to this sprite where vector drawing commands can occur.
    */
   public function get graphics() : Graphics {
-    if (!this._graphics) {
-      var canvas : HTMLCanvasElement = Shape.createCanvas(width, height);
+    if (!_graphics) {
+      _graphics = new Graphics();
+      var canvas : HTMLCanvasElement = _graphics.canvas;
       var element : Element = this.getElement();
       if (element.firstChild) {
         element.insertBefore(canvas, element.firstChild);
       } else {
         element.appendChild(canvas);
       }
-      this._graphics = new Graphics(canvas.getContext("2d") as CanvasRenderingContext2D);
     }
     return this._graphics;
   }

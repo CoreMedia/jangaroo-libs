@@ -33,6 +33,14 @@ public class Bitmap extends DisplayObject {
     this._bitmapData = value;
   }
 
+  override public function get height():Number {
+    return _bitmapData.height;
+  }
+
+  override public function get width():Number {
+    return _bitmapData.width;
+  }
+
   /**
    * Returns whether or not the Bitmap object is snapped to the nearest pixel. The PixelSnapping class includes
    * possible values:

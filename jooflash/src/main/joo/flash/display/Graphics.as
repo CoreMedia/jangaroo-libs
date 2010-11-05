@@ -5,23 +5,77 @@ import flash.geom.Point;
 
 import js.CanvasGradient;
 import js.CanvasRenderingContext2D;
+import js.HTMLCanvasElement;
+import js.ImageData;
 
 public class Graphics {
 
+  private static const PIXEL_CHUNK_SIZE:int = 100;
+
   private var context : CanvasRenderingContext2D;
   private var insideFill : Boolean = false;
+  private var x:Number = 0;
+  private var y:Number = 0;
+  internal var width:Number = 0;
+  internal var height:Number = 0;
 
-  public function Graphics(context : CanvasRenderingContext2D) {
-    this.context = context;
+  public function Graphics() {
+    var canvas : HTMLCanvasElement = window.document.createElement("canvas") as HTMLCanvasElement;
+    canvas.width = PIXEL_CHUNK_SIZE;
+    canvas.height = PIXEL_CHUNK_SIZE;
+    canvas.style.position = "absolute";
+
+    this.context = CanvasRenderingContext2D(canvas.getContext("2d"));
     // switch to Flash defaults:
+    this.context.beginPath();
     this.context.moveTo(0, 0);
     this.context.lineCap = CapsStyle.ROUND;
     this.context.lineJoin = JointStyle.ROUND;
     this.context.miterLimit = 3;
   }
 
+  internal function get canvas() : HTMLCanvasElement {
+    return context.canvas;
+  }
+
   internal function get renderingContext() : CanvasRenderingContext2D {
     return context;
+  }
+
+  private function createSpace(width:Number, height:Number):void {
+    if (width > this.width || height > this.height) {
+      this.width = Math.max(this.width, width);
+      this.height = Math.max(this.height, height);
+      var canvas:HTMLCanvasElement = this.canvas;
+      if (width > canvas.width || height > canvas.height) {
+        // backup all properties that will be reset by setting width / height:
+        var backupStyle:Object = {
+          fillStyle  : context.fillStyle,
+          lineWidth  : context.lineWidth,
+          strokeStyle: context.strokeStyle,
+          lineCap    : context.lineCap,
+          lineJoin   : context.lineJoin,
+          miterLimit : context.miterLimit
+        };
+
+        if (canvas.width > 0 && canvas.height > 0) {
+          var imageData:ImageData = context.getImageData(0, 0, canvas.width, canvas.height);
+        }
+        canvas.width = Math.max(canvas.width, width + PIXEL_CHUNK_SIZE);
+        canvas.height = Math.max(canvas.height, height + PIXEL_CHUNK_SIZE);
+
+        //trace("[INFO] enlarged canvas to " + canvas.width + " x " + canvas.height);
+        // restore context properties:
+        for (var m:String in backupStyle) {
+          context[m] = backupStyle[m];
+        }
+        if (imageData) {
+          context.putImageData(imageData, 0, 0);
+        }
+        this.context.beginPath();
+        this.context.moveTo(x, y);
+      }
+    }
   }
 
   /**
@@ -266,6 +320,9 @@ public class Graphics {
    *  object (in pixels).
    */
   public function lineTo(x : Number, y : Number) : void {
+    createSpace(Math.max(this.x, x), Math.max(this.y, y));
+    this.x = x;
+    this.y = y;
     this.context.lineTo(x, y);
     if (!this.insideFill) {
       this.context.stroke();
@@ -352,6 +409,10 @@ package {
    *   point of the parent display object.
    */
   public function curveTo(controlX:Number, controlY:Number, anchorX:Number, anchorY:Number) : void {
+    // TODO: more accurate computation of maximum x and y coordinate occupied by this curve!
+    createSpace(Math.max(this.x, anchorX), Math.max(this.y, anchorY));
+    this.x = anchorX;
+    this.y = anchorY;
     this.context.quadraticCurveTo(controlX, controlY, anchorX, anchorY);
     if (!this.insideFill) {
       this.context.stroke();
@@ -375,6 +436,7 @@ package {
    * @see #beginBitmapFill()
    */
   public function drawCircle(x : Number, y : Number, radius : Number) : void {
+    createSpace(x + radius, y + radius);
     this.context.moveTo(x + radius, y);
     this.context.arc(x, y, radius, 0 , 2*Math.PI, false);
     if (this.insideFill) {
@@ -403,6 +465,7 @@ package {
    * @see #drawRoundRect()
    */
   public function drawRect(x : Number, y : Number, width : Number, height : Number) : void {
+    createSpace(x + width, y + height);
     if (this.insideFill) {
       this.context.fillRect(x, y, width, height);
     }
@@ -432,6 +495,7 @@ package {
    */
   public function drawRoundRect(x : Number, y : Number, width : Number, height : Number,
                                 ellipseWidth : Number, ellipseHeight : Number = NaN) : void {
+    createSpace(x + width, y + height);
     if (ellipseHeight==0 || ellipseWidth==0) {
       this.drawRect(x, y, width, height);
       return;
@@ -507,6 +571,8 @@ package {
   public function moveTo(x : Number, y : Number) : void {
     this.context.beginPath();
     this.context.moveTo(x, y);
+    this.x = x;
+    this.y = y;
   }
 
   /**
@@ -521,6 +587,7 @@ package {
     this.context.restore();
     this.insideFill = false;
     this.context.moveTo(0, 0);
+    this.width = this.height = 0;
   }
 
   /**

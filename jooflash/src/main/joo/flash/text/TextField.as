@@ -108,7 +108,7 @@ package flash.text
     public function set defaultTextFormat(val : TextFormat) : void {
       _defaultTextFormat = val;
       updateElementProperty("style.fontFamily", val.font || "serif");
-      updateElementProperty("style.fontSize",   val.size || "12px");
+      updateElementProperty("style.fontSize",   (val.size || 12) + "px");
       updateElementProperty("style.color",      val.color ? Graphics.toRGBA(uint(val.color)) : "black");
       updateElementProperty("style.fontWeight", val.bold ? "bold" : "normal");
       updateElementProperty("style.textAlign",  val.align || TextFormatAlign.LEFT);
