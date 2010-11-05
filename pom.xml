@@ -59,6 +59,9 @@
       </roles>
       <timezone>+1</timezone>
     </developer>
+    <developer>
+      <name>Manuel Ohlendorf</name>
+    </developer>
   </developers>
 
   <scm>
@@ -68,7 +71,7 @@
   </scm>
 
   <properties>
-    <jangaroo_version>0.7.9-SNAPSHOT</jangaroo_version>
+    <jangaroo_version>0.7.9</jangaroo_version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
