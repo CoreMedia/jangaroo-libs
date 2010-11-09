@@ -763,8 +763,11 @@ package {
     this.insideFill = false;
   }
 
-  public static function toRGBA(color : uint, alpha : Number = 1.0) : String {
-    return "rgba("+[color >> 16, color >> 8 & 0xFF, color & 0xFF, alpha].join(",")+")";
+  public static function toRGBA(color : uint, alpha : Number = undefined) : String {
+    var params:String = [color >> 16, color >> 8 & 0xFF, color & 0xFF].join(",");
+    return alpha < 1 ? ["rgba(", params, ",", alpha, ")"].join("")
+                     :  "rgb(" + params + ")";
+    
   }
 }
 }
