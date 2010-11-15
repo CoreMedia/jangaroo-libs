@@ -135,7 +135,7 @@ package flash.display
    * The <code>mouseEnabled</code> property of the InteractiveObject instance must also be
    * set to <code>true</code> for the object to receive <code>doubleClick</code> events.
    *
-   * </p><p>No event is dispatched by setting this property. You must use the
+   * <p>No event is dispatched by setting this property. You must use the
    * <code>addEventListener()</code> method to add an event listener
    * for the <code>doubleClick</code> event.</p>
    */

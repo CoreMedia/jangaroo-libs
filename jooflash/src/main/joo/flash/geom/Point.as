@@ -3,10 +3,10 @@ package flash.geom {
 /**
  * The Point object represents a location in a two-dimensional coordinate system, where x  represents the horizontal
  * axis and y represents the vertical axis.
- * <p>The following code creates a point at (0,0):
- * <code>
+ * <p>The following code creates a point at (0,0):</p>
+ * <pre>
  *   var myPoint:Point = new Point();
- * </code>
+ * </pre>
  */
 public class Point {
 
@@ -87,7 +87,7 @@ public class Point {
    * @return The new, interpolated point.
    */
   public static function interpolate(pt1 : Point, pt2 : Point, f : Number) : Point {
-    return 0; // TODO
+    return null; // TODO
   }
 
   /**

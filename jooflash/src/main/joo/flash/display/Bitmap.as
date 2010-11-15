@@ -45,12 +45,12 @@ public class Bitmap extends DisplayObject {
    * Returns whether or not the Bitmap object is snapped to the nearest pixel. The PixelSnapping class includes
    * possible values:
    * <ul>
-   *   <li>PixelSnapping.NEVER—No pixel snapping occurs.
-   *   <li>PixelSnapping.ALWAYS—The image is always snapped to the nearest pixel, independent of transformation.
+   *   <li>PixelSnapping.NEVER—No pixel snapping occurs.</li>
+   *   <li>PixelSnapping.ALWAYS—The image is always snapped to the nearest pixel, independent of transformation.</li>
    *   <li>PixelSnapping.AUTO—The image is snapped to the nearest pixel if it is drawn with no rotation or skew and it
    *       is drawn at a scale factor of 99.9% to 100.1%. If these conditions are satisfied, the bitmap image is drawn
    *       at 100% scale, snapped to the nearest pixel. Internally, this value allows the image to be drawn as fast as
-   *       possible using the vector renderer.
+   *       possible using the vector renderer.</li>
    * </ul>
    * @return whether or not the Bitmap object is snapped to the nearest pixel.
    */
@@ -62,12 +62,12 @@ public class Bitmap extends DisplayObject {
    * Controls whether or not the Bitmap object is snapped to the nearest pixel. The PixelSnapping class includes
    * possible values:
    * <ul>
-   *   <li>PixelSnapping.NEVER—No pixel snapping occurs.
-   *   <li>PixelSnapping.ALWAYS—The image is always snapped to the nearest pixel, independent of transformation.
+   *   <li>PixelSnapping.NEVER—No pixel snapping occurs.</li>
+   *   <li>PixelSnapping.ALWAYS—The image is always snapped to the nearest pixel, independent of transformation.</li>
    *   <li>PixelSnapping.AUTO—The image is snapped to the nearest pixel if it is drawn with no rotation or skew and it
    *       is drawn at a scale factor of 99.9% to 100.1%. If these conditions are satisfied, the bitmap image is drawn
    *       at 100% scale, snapped to the nearest pixel. Internally, this value allows the image to be drawn as fast as
-   *       possible using the vector renderer.
+   *       possible using the vector renderer.</li>
    * </ul>
    * @return whether or not the Bitmap object is snapped to the nearest pixel.
    */

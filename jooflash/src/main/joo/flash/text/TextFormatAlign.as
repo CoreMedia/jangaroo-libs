@@ -34,7 +34,7 @@ public final class TextFormatAlign {
    * Constant; aligns text to the right within the text field.
    * Use the syntax <code>TextFormatAlign.RIGHT</code>.
    *
-   * @see flash.text.TextFormat.align<br>
+   * @see flash.text.TextFormat.align
    */
   public static const RIGHT:String = "right";
 

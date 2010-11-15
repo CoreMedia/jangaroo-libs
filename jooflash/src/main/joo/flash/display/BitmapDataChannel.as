@@ -4,12 +4,12 @@ package flash.display {
  * The BitmapDataChannel class is an enumeration of constant values that indicate which channel to use:
  * red, blue, green, or alpha transparency.
  * <p>When you call some methods, you can use the bitwise OR operator (|) to combine BitmapDataChannel constants to
- * indicate multiple color channels.
- * <p>The BitmapDataChannel constants are provided for use as values in the following:
+ * indicate multiple color channels.</p>
+ * <p>The BitmapDataChannel constants are provided for use as values in the following:</p>
  * <ul>
- * <li>The sourceChannel and destChannel parameters of the flash.display.BitmapData.copyChannel() method
- * <li>The channelOptions parameter of the flash.display.BitmapData.noise() method
- * <li>The flash.filters.DisplacementMapFilter.componentX and flash.filters.DisplacementMapFilter.componentY properties
+ * <li>The sourceChannel and destChannel parameters of the flash.display.BitmapData.copyChannel() method</li>
+ * <li>The channelOptions parameter of the flash.display.BitmapData.noise() method</li>
+ * <li>The flash.filters.DisplacementMapFilter.componentX and flash.filters.DisplacementMapFilter.componentY properties</li>
  * </ul>
  * @see flash.display.BitmapData.copyChannel()
  * @see flash.display.BitmapData.noise()

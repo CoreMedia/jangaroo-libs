@@ -17,9 +17,9 @@ public class BitmapData implements IBitmapDrawable {
    * <p>By default, the bitmap is created as transparent, unless you pass the value false for the transparent parameter.
    * After you create an opaque bitmap, you cannot change it to a transparent bitmap. Every pixel in an opaque bitmap
    * uses only 24 bits of color channel information. If you define the bitmap as transparent, every pixel uses 32 bits
-   * of color channel information, including an alpha transparency channel.
+   * of color channel information, including an alpha transparency channel.</p>
    * <p>The maximum width and maximum height of a BitmapData object is 2880 pixels. If you specify a width or height
-   * value that is greater than 2880, a new instance is not created.
+   * value that is greater than 2880, a new instance is not created.</p>
    * @throws ArgumentError width and/or height are invalid (less than or equal to zero, greater than 2880) 
    * @param width The width of the bitmap image in pixels.
    * @param height The height of the bitmap image in pixels.
@@ -202,15 +202,15 @@ public class BitmapData implements IBitmapDrawable {
    * rendering performs. Optionally, you can specify whether the bitmap should be smoothed when scaled (this
    * works only if the source object is a BitmapData object).
    * <p>This method directly corresponds to how objects are drawn with the standard vector renderer for objects in
-   * the authoring tool interface.
+   * the authoring tool interface.</p>
    * <p>The source display object does not use any of its applied transformations for this call. It is treated as it
    * exists in the library or file, with no matrix transform, no color transform, and no blend mode. To draw a
    * display object (such as a movie clip) by using its own transform properties, you can copy its transform
-   * property object to the transform property of the Bitmap object that uses the BitmapData object.
+   * property object to the transform property of the Bitmap object that uses the BitmapData object.</p>
    * <p>Note: The source object and (in the case of a Sprite or MovieClip object) all of its child objects must
    * come from the same domain as the caller, or must be in a SWF file that is accessible to the caller by having
    * called the Security.allowDomain() method. If these conditions are not met, the draw() method does not draw
-   * anything.
+   * anything.</p>
    * @throws ArgumentError The source parameter is not a BitmapData or DisplayObject object.
    * @throws SecurityError The source object and (in the case of a Sprite or MovieClip object) all of its
    *   child objects do not come from the same domain as the caller, or are not in a SWF file that is accessible
@@ -255,7 +255,7 @@ public class BitmapData implements IBitmapDrawable {
    */
   public function draw(source : IBitmapDrawable, matrix : Matrix = null, colorTransform : ColorTransform = null, 
                        blendMode : String = null, clipRect : Rectangle = null, smoothing : Boolean = false) : void {
-    var element : HTMLElement = source is BitmapData ? (source as BitmapData).canvas : (source as DisplayObject).getElement();
+    var element : HTMLElement = HTMLElement(source is BitmapData ? (source as BitmapData).canvas : (source as DisplayObject).getElement());
     if (matrix) {
       this.context.save();
       this.context.setTransform(matrix.a, matrix.b, matrix.c, matrix.d, matrix.tx, matrix.ty);
@@ -293,7 +293,7 @@ public class BitmapData implements IBitmapDrawable {
   /**
    * Returns an integer that represents an RGB pixel value from a BitmapData object at
    * a specific point (<i>x</i>, <i>y</i>). The <code>getPixel()</code> method returns an
-   * unmultiplied pixel value. No alpha information is returned.</p>
+   * unmultiplied pixel value. No alpha information is returned.
    * <p>All pixels in a BitmapData object are stored as premultiplied color values.
    * A premultiplied image pixel has the red, green, and blue
    * color channel values already multiplied by the alpha data. For example, if the
@@ -335,7 +335,7 @@ public class BitmapData implements IBitmapDrawable {
   /**
    * Returns an ARGB color value that contains alpha channel data and RGB
    * data. This method is similar to the <code>getPixel()</code> method, which returns an
-   * RGB color without alpha channel data.</p>
+   * RGB color without alpha channel data.
    * <p>All pixels in a BitmapData object are stored as premultiplied color values.
    * A premultiplied image pixel has the red, green, and blue
    * color channel values already multiplied by the alpha data. For example, if the
@@ -386,43 +386,43 @@ public class BitmapData implements IBitmapDrawable {
 
   /**
    * Sets a single pixel of a BitmapData object. The current
-	 alpha channel value of the image pixel is preserved during this
-	 operation. TODO: Jangaroo: This seems to be incorrect, alpha is set to 0xFF!
-	 The value of the RGB color parameter is treated as an unmultiplied color value.
-	 
-	 </p><p><b>Note:</b> To increase performance, when you use the <code>setPixel()</code> or 
-	 <code>setPixel32()</code> method repeatedly, call the <code>lock()</code> method before
-	 you call the <code>setPixel()</code> or <code>setPixel32()</code> method, and then call 
-	 the <code>unlock()</code> method when you have made all pixel changes. This process prevents objects
-	 that reference this BitmapData instance from updating until you finish making 
-	 the pixel changes.</p>
-
-	 @param x The <i>x</i> position of the pixel whose value changes.
-	 @param y The <i>y</i> position of the pixel whose value changes.
-	 @param color The resulting RGB color for the pixel.
-	 
-	 @see #getPixel
-     @see #setPixel32
-     @see #lock
-     @see #unlock
-
-     @example
- The following example uses the <code>setPixel()</code>
- method to draw a red line in a BitmapData object:
-<pre>
-import flash.display.Bitmap;
-import flash.display.BitmapData;
-
-var bmd:BitmapData = new BitmapData(80, 80, false, 0xCCCCCC);
-
-for (var i:uint = 0; i &lt; 80; i++) {
-    var red:uint = 0xFF0000;
-    bmd.setPixel(i, 40, red);
-}
-
-var bm:Bitmap = new Bitmap(bmd);
-addChild(bm);
-</pre>
+   * alpha channel value of the image pixel is preserved during this
+   * operation. TODO: Jangaroo: This seems to be incorrect, alpha is set to 0xFF!
+   * The value of the RGB color parameter is treated as an unmultiplied color value.
+   *
+   * <p><b>Note:</b> To increase performance, when you use the <code>setPixel()</code> or
+   * <code>setPixel32()</code> method repeatedly, call the <code>lock()</code> method before
+   * you call the <code>setPixel()</code> or <code>setPixel32()</code> method, and then call
+   * the <code>unlock()</code> method when you have made all pixel changes. This process prevents objects
+   * that reference this BitmapData instance from updating until you finish making
+   * the pixel changes.</p>
+   *
+   * @param x The <i>x</i> position of the pixel whose value changes.
+   * @param y The <i>y</i> position of the pixel whose value changes.
+   * @param color The resulting RGB color for the pixel.
+   *
+   * @see #getPixel
+   * @see #setPixel32
+   * @see #lock
+   * @see #unlock
+   *
+   * @example
+   * The following example uses the <code>setPixel()</code>
+   * method to draw a red line in a BitmapData object:
+   * <pre>
+   * import flash.display.Bitmap;
+   * import flash.display.BitmapData;
+   *
+   * var bmd:BitmapData = new BitmapData(80, 80, false, 0xCCCCCC);
+   *
+   * for (var i:uint = 0; i &lt; 80; i++) {
+   *     var red:uint = 0xFF0000;
+   *     bmd.setPixel(i, 40, red);
+   * }
+   *
+   * var bm:Bitmap = new Bitmap(bmd);
+   * addChild(bm);
+   * </pre>
    */
   public function setPixel(x:int, y:int, color:uint):void {
     if (rect.contains(x, y)) {
@@ -442,7 +442,7 @@ addChild(bm);
 	 that the <code>setPixel32()</code> method takes an
 	 ARGB color value that contains alpha channel information.
 	 
-	 </p><p>All pixels in a BitmapData object are stored as premultiplied color values. 
+	 <p>All pixels in a BitmapData object are stored as premultiplied color values. 
 	 A premultiplied image pixel has the red, green, and blue 
 	 color channel values already multiplied by the alpha data. For example, if the 
 	 alpha value is 0, the values for the RGB channels are also 0, independent of their unmultiplied 
@@ -575,7 +575,7 @@ picture.bitmapData = bitmapData;
    * between images with no stretching, rotation, or color effects. This method copies a
    * rectangular area of a source image to a
    * rectangular area of the same size at the destination point of the destination
-   * BitmapData object.</p>
+   * BitmapData object.
    *
    * <p>If you include the <code>alphaBitmap</code> and <code>alphaPoint</code> parameters, you can use a secondary
    * image as an alpha source for the source image. If the source

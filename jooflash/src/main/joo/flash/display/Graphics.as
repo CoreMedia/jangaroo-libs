@@ -83,9 +83,9 @@ public class Graphics {
    * drawCircle() method. The line style remains in effect until you call the lineGradientStyle() method, the
    * lineBitmapStyle() method, or the lineStyle() method with different parameters.
    * <p>You can call the lineStyle() method in the middle of drawing a path to specify different styles for different
-   * line segments within the path.
-   * <p>Note: Calls to the clear() method set the line style back to undefined.
-   * <p>Please see the lineTo() or moveTo() method's example for illustrations of how to use the getStyle() method.
+   * line segments within the path.</p>
+   * <p>Note: Calls to the clear() method set the line style back to undefined.</p>
+   * <p>Please see the lineTo() or moveTo() method's example for illustrations of how to use the getStyle() method.</p>
    * 
    * @param thickness (default = NaN) An integer that indicates the thickness of the line in points;
    *   valid values are 0 to 255. If a number is not specified, or if the parameter is undefined, a line is not drawn.
@@ -103,21 +103,21 @@ public class Graphics {
    *   identical are rendered, except that the pixelHinting parameter used in the lineStyle() method is set differently
    *   (the images are scaled by 200%, to emphasize the difference):
    *    <img src="http://injun.ru/flash10api/images/lineStyle_pixelHinting.jpg" />
-   *   <p>If a value is not supplied, the line does not use pixel hinting.
+   *   <p>If a value is not supplied, the line does not use pixel hinting.</p>
    * @param scaleMode (default = "normal") A value from the LineScaleMode class that specifies which scale mode to use:
    *   <ul>
-   *   <li>LineScaleMode.NORMAL—Always scale the line thickness when the object is scaled (the default).
-   *   <li>LineScaleMode.NONE—Never scale the line thickness.
+   *   <li>LineScaleMode.NORMAL—Always scale the line thickness when the object is scaled (the default).</li>
+   *   <li>LineScaleMode.NONE—Never scale the line thickness.</li>
    *   <li>LineScaleMode.VERTICAL—Do not scale the line thickness if the object is scaled vertically only. For example,
    *     consider the following circles, drawn with a one-pixel line, and each with the scaleMode parameter set to
    *     LineScaleMode.VERTICAL. The circle on the left is scaled vertically only, and the circle on the right is scaled
    *     both vertically and horizontally:
-   *     <img src="http://injun.ru/flash10api/images/LineScaleMode_VERTICAL.jpg" />
+   *     <img src="http://injun.ru/flash10api/images/LineScaleMode_VERTICAL.jpg" /></li>
    *   <li>LineScaleMode.HORIZONTAL—Do not scale the line thickness if the object is scaled horizontally only. For
    *     example, consider the following circles, drawn with a one-pixel line, and each with the scaleMode parameter set
    *     to LineScaleMode.HORIZONTAL. The circle on the left is scaled horizontally only, and the circle on the right is
    *     scaled both vertically and horizontally:
-   *     <img src="http://injun.ru/flash10api/images/LineScaleMode_HORIZONTAL.jpg" />
+   *     <img src="http://injun.ru/flash10api/images/LineScaleMode_HORIZONTAL.jpg" /></li>
    *   </ul>
    * @param caps (default = null) A value from the CapsStyle class that specifies the type of caps at the end of lines.
    *   Valid values are: CapsStyle.NONE, CapsStyle.ROUND, and CapsStyle.SQUARE. If a value is not indicated, round caps
@@ -176,7 +176,7 @@ public class Graphics {
    * for different line segments within a path.
    * Call the lineStyle() method before you call the lineGradientStyle() method to enable a stroke, or else
    * the value of the line style is undefined.
-   * Calls to the clear() method set the line style back to undefined.
+   * Calls to the clear() method set the line style back to undefined.</p>
    * @example
    * The following example draws a rectangle and a circle that use a gradient stroke from red to green to blue.
    * <p>The method createGradientBox() from the Matrix class is used to define the gradient box to 200 width
@@ -185,7 +185,7 @@ public class Graphics {
    * and blue. Transparency (alpha value) for the colors is set to 1 (opaque). The distribution of gradient is
    * even, where the colors are sampled at 100% at 0 (left-hand position in the gradient box), 128 (middle in
    * the box) and 255 (right-hand position in the box). The width of the rectangle encompasses all the spectrum
-   * of the gradient, while the circle encompasses 50% from the middle of the spectrum.
+   * of the gradient, while the circle encompasses 50% from the middle of the spectrum.</p>
    * <pre>
    * package {
    *     import flash.display.Sprite;
@@ -229,7 +229,7 @@ public class Graphics {
    *   positions in the gradient box, not the coordinate space of the final gradient, which can be wider or
    *   thinner than the gradient box. Specify a value for each value in the colors parameter.
    *   <p>For example, for a linear gradient that includes two colors, blue and green, the following figure
-   *   illustrates the placement of the colors in the gradient based on different values in the ratios array:
+   *   illustrates the placement of the colors in the gradient based on different values in the ratios array:</p>
    *   <table>
    *     <tr><th>ratios</th><th>Gradient</th></tr>
    *     <tr><td>[0, 127]</td><td>linear gradient blue to green with ratios 0 and 127</td></tr>
@@ -339,65 +339,65 @@ public class Graphics {
    * moveTo() method, the default of the current drawing position is (0, 0). If any of the parameters are missing,
    * this method fails and the current drawing position is not changed.
    * <p>The curve drawn is a quadratic Bezier curve. Quadratic Bezier curves consist of two anchor points and one
-   * control point. The curve interpolates the two anchor points and curves toward the control point.
+   * control point. The curve interpolates the two anchor points and curves toward the control point.</p>
    * 
    * <p><b>Example</b></p>
    * <p>The following example draws a green circular object with a width and height of 100 pixels, 250 pixels to the right
-   * from the registration point (0, 0) of Sprite display object.
-   * <p>Draw four curves to produce a circle and fill it green.
+   * from the registration point (0, 0) of Sprite display object.</p>
+   * <p>Draw four curves to produce a circle and fill it green.</p>
    * <p>Note that due to the nature of the quadratic Bezier equation, this is not a perfect circle. The best way to
-   * draw a circle is to use the Graphics class's drawCircle() method.
+   * draw a circle is to use the Graphics class's drawCircle() method.</p>
    * <pre>
-package {
-    import flash.display.Sprite;
-    import flash.display.Shape;
-    
-    public class Graphics_curveToExample1 extends Sprite
-    {
-        public function Graphics_curveToExample1():void
-        {
-            var roundObject:Shape = new Shape();
-
-            roundObject.graphics.beginFill(0x00FF00);
-            roundObject.graphics.moveTo(250, 0);
-            roundObject.graphics.curveTo(300, 0, 300, 50);
-            roundObject.graphics.curveTo(300, 100, 250, 100);
-            roundObject.graphics.curveTo(200, 100, 200, 50);
-            roundObject.graphics.curveTo(200, 0, 250, 0);
-            roundObject.graphics.endFill();
-            
-            this.addChild(roundObject);
-        }
-    }
-}
-</pre>
+   * package {
+   *     import flash.display.Sprite;
+   *     import flash.display.Shape;
+   *
+   *     public class Graphics_curveToExample1 extends Sprite
+   *     {
+   *         public function Graphics_curveToExample1():void
+   *         {
+   *             var roundObject:Shape = new Shape();
+   *
+   *             roundObject.graphics.beginFill(0x00FF00);
+   *             roundObject.graphics.moveTo(250, 0);
+   *             roundObject.graphics.curveTo(300, 0, 300, 50);
+   *             roundObject.graphics.curveTo(300, 100, 250, 100);
+   *             roundObject.graphics.curveTo(200, 100, 200, 50);
+   *             roundObject.graphics.curveTo(200, 0, 250, 0);
+   *             roundObject.graphics.endFill();
+   *
+   *             this.addChild(roundObject);
+   *         }
+   *     }
+   * }
+   * </pre>
    * The following example draws a new moon using curveTo() method.
    * <p>Two curve lines of 1 pixel are drawn and the space in between is filled white. The moveTo() method is used to
    * position the current drawing position to coordinates (100, 100). The first curve moves the drawing position to
    * (100, 200), its destination point. The second curve returns the position back to the starting position (100, 100),
-   * its destination point. The horizontal control points determine the different curve sizes.
+   * its destination point. The horizontal control points determine the different curve sizes.</p>
    * <pre>
-package {
-    import flash.display.Sprite;
-    import flash.display.Shape;
-
-    public class Graphics_curveToExample2 extends Sprite
-    {
-        public function Graphics_curveToExample2() {
-            var newMoon:Shape = new Shape();
-            
-            newMoon.graphics.lineStyle(1, 0);
-            newMoon.graphics.beginFill(0xFFFFFF);
-            newMoon.graphics.moveTo(100, 100); 
-            newMoon.graphics.curveTo(30, 150, 100, 200);    
-            newMoon.graphics.curveTo(50, 150, 100, 100);
-            graphics.endFill();
-            
-            this.addChild(newMoon);
-        }
-    }
-}
-</pre>
+   * package {
+   *     import flash.display.Sprite;
+   *     import flash.display.Shape;
+   *
+   *     public class Graphics_curveToExample2 extends Sprite
+   *     {
+   *         public function Graphics_curveToExample2() {
+   *             var newMoon:Shape = new Shape();
+   *
+   *             newMoon.graphics.lineStyle(1, 0);
+   *             newMoon.graphics.beginFill(0xFFFFFF);
+   *             newMoon.graphics.moveTo(100, 100);
+   *             newMoon.graphics.curveTo(30, 150, 100, 200);
+   *             newMoon.graphics.curveTo(50, 150, 100, 100);
+   *             graphics.endFill();
+   *
+   *             this.addChild(newMoon);
+   *         }
+   *     }
+   * }
+   * </pre>
    * 
    * @param controlX A number that specifies the horizontal position of the control point relative to the registration
    *   point of the parent display object.
@@ -530,39 +530,39 @@ package {
    * Moves the current drawing position to (x, y). If any of the parameters are missing, this method fails and the
    * current drawing position is not changed.
    * <p><b>Example</b></p>
-   * <p>The following example draws a dashed line of three pixels thickness using moveTo() and lineTo() methods.
+   * <p>The following example draws a dashed line of three pixels thickness using moveTo() and lineTo() methods.</p>
    * <p>Using the lineStyle() method, the line thickness is set to 3 pixels. It is also set not to scale. Color is set
-   * to red with 25 percent opacity. The CapsStyle property is set to square (the default is round).
+   * to red with 25 percent opacity. The CapsStyle property is set to square (the default is round).</p>
    * <p>Since Graphics_moveToExample is an instance of the Sprite class, it has access to all the Graphics class
    * methods. The Graphics class methods can be used to directly draw on the Graphic_moveToExample Sprite object.
-   * However, not putting the vector drawing object in a Shape limits the way they can be managed, moved, or changed.
+   * However, not putting the vector drawing object in a Shape limits the way they can be managed, moved, or changed.</p>
    * <pre>
- package {
-     import flash.display.Sprite;
-     import flash.display.CapsStyle;
-     import flash.display.LineScaleMode;
-
-     public class Graphics_moveToExample extends Sprite
-     {
-         public function Graphics_moveToExample() {
-            
-             graphics.lineStyle(3, 0x990000, 0.25, false, 
-                             LineScaleMode.NONE, CapsStyle.SQUARE);
-
-             graphics.moveTo(10, 20);
-             graphics.lineTo(20, 20);
-             graphics.moveTo(30, 20);
-             graphics.lineTo(50, 20);
-             graphics.moveTo(60, 20);
-             graphics.lineTo(80, 20);
-             graphics.moveTo(90, 20);
-             graphics.lineTo(110, 20);            
-             graphics.moveTo(120, 20);
-             graphics.lineTo(130, 20);           
-         }
-     }
- }
-</pre>
+   *  package {
+   *      import flash.display.Sprite;
+   *      import flash.display.CapsStyle;
+   *      import flash.display.LineScaleMode;
+   *
+   *      public class Graphics_moveToExample extends Sprite
+   *      {
+   *          public function Graphics_moveToExample() {
+   *
+   *              graphics.lineStyle(3, 0x990000, 0.25, false,
+   *                              LineScaleMode.NONE, CapsStyle.SQUARE);
+   *
+   *              graphics.moveTo(10, 20);
+   *              graphics.lineTo(20, 20);
+   *              graphics.moveTo(30, 20);
+   *              graphics.lineTo(50, 20);
+   *              graphics.moveTo(60, 20);
+   *              graphics.lineTo(80, 20);
+   *              graphics.moveTo(90, 20);
+   *              graphics.lineTo(110, 20);
+   *              graphics.moveTo(120, 20);
+   *              graphics.lineTo(130, 20);
+   *          }
+   *      }
+   *  }
+   * </pre>
    * @param x A number that indicates the horizontal position relative to the registration point of the parent display
    *   object (in pixels).
    * @param y A number that indicates the vertical position relative to the registration point of the parent display
@@ -594,7 +594,7 @@ package {
    * Specifies a simple one-color fill that Flash Player uses for subsequent calls to other Graphics methods (such as
    * lineTo() or drawCircle()) for the object. The fill remains in effect until you call the beginFill(),
    * beginBitmapFill(), beginGradientFill(), or beginShaderFill() method. Calling the clear() method clears the fill.
-   * <p>The fill is not rendered until the endFill() method is called.
+   * <p>The fill is not rendered until the endFill() method is called.</p>
    *
    * @param color The color of the fill (0xRRGGBB).
    * @param alpha (default = 1.0) The alpha value of the fill (0.0 to 1.0).
@@ -618,7 +618,7 @@ package {
    * beginBitmapFill(), beginGradientFill(), or beginShaderFill() method. Calling the clear() method clears the
    * fill.
    * <p>The application renders the fill whenever three or more points are drawn, or when the endFill() method
-   * is called.
+   * is called.</p>
    * 
    * @param type A value from the GradientType class that specifies which gradient type to use:
    *   GradientType.LINEAR or GradientType.RADIAL.
@@ -632,9 +632,9 @@ package {
    *   gradient box, and 255 represents the right position in the gradient box.
    *   <p>Note: This value represents positions in the gradient box, not the coordinate space of the final
    *   gradient, which can be wider or thinner than the gradient box. Specify a value for each value in the
-   *   colors parameter.
+   *   colors parameter.</p>
    *   <p>For example, for a linear gradient that includes two colors, blue and green, the following example
-   *   illustrates the placement of the colors in the gradient based on different values in the ratios array:
+   *   illustrates the placement of the colors in the gradient based on different values in the ratios array:</p>
    *   <table>
    *     <tr><th>ratios</th><th>Gradient</th></tr>
    *     <tr><td>[0, 127]</td><td>linear gradient blue to green with ratios 0 and 127</td></tr>
@@ -671,7 +671,7 @@ package {
    * @param interpolationMethod (default = "rgb") A value from the InterpolationMethod class that specifies
    *   which value to use: InterpolationMethod.LINEAR_RGB or InterpolationMethod.RGB
    *   <p>For example, consider a simple linear gradient between two colors (with the spreadMethod parameter
-   *   set to SpreadMethod.REFLECT). The different interpolation methods affect the appearance as follows:
+   *   set to SpreadMethod.REFLECT). The different interpolation methods affect the appearance as follows:</p>
    *   <pre>
    *   linear gradient with InterpolationMethod.LINEAR_RGB 	linear gradient with InterpolationMethod.RGB
    *   InterpolationMethod.LINEAR_RGB	InterpolationMethod.RGB

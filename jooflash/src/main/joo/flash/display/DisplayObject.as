@@ -67,29 +67,29 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * The Stage of the display object. A Flash application has only one Stage object. For example, you can create and
    * load multiple display objects into the display list, and the stage property of each display object refers to the
    * same Stage object (even if the display object belongs to a loaded SWF file).
-   * <p>If a display object is not added to the display list, its stage property is set to null.
+   * <p>If a display object is not added to the display list, its stage property is set to null.</p>
    * <p><b>Example</b></p>
    * <p>The following code creates two TextField objects and uses the width property of the Stage object to position
-   * the text fields:
+   * the text fields:</p>
    * <pre>
-import flash.text.TextField;
-
-var tf1:TextField = new TextField();
-tf1.text = "Text Field 1";
-tf1.border = true;
-tf1.x = 10;
-addChild(tf1);
-tf1.width = tf1.stage.stageWidth / 2 - 10;
-
-var tf2:TextField = new TextField();
-tf2.text = "Text Field 2";
-tf2.border = true;
-tf2.x = tf1.x + tf1.width + 5;
-addChild(tf2);
-tf2.width = tf2.stage.stageWidth / 2 - 10;
-
-trace(stage.stageWidth);
-</pre>
+   * import flash.text.TextField;
+   *
+   * var tf1:TextField = new TextField();
+   * tf1.text = "Text Field 1";
+   * tf1.border = true;
+   * tf1.x = 10;
+   * addChild(tf1);
+   * tf1.width = tf1.stage.stageWidth / 2 - 10;
+   *
+   * var tf2:TextField = new TextField();
+   * tf2.text = "Text Field 2";
+   * tf2.border = true;
+   * tf2.x = tf1.x + tf1.width + 5;
+   * addChild(tf2);
+   * tf2.width = tf2.stage.stageWidth / 2 - 10;
+   *
+   * trace(stage.stageWidth);
+   * </pre>
    * @return the Stage of the display object.
    */
   public function get stage() : Stage {
@@ -100,7 +100,7 @@ trace(stage.stageWidth);
    * Indicates the DisplayObjectContainer object that contains this display object. Use the parent property to
    * specify a relative path to display objects that are above the current display object in the display list
    * hierarchy.
-   * <p>You can use parent to move up multiple levels in the display list as in the following:
+   * <p>You can use parent to move up multiple levels in the display list as in the following:</p>
    * <pre>
    *   this.parent.parent.alpha = 20;
    * </pre>
@@ -217,38 +217,38 @@ trace(stage.stageWidth);
   /**
    * Indicates the x coordinate of the DisplayObject instance relative to the local coordinates of the parent
    * DisplayObjectContainer. If the object is inside a DisplayObjectContainer that has transformations, it is in the
-   * local coordinate system of the enclosing DisplayObjectContainer. Thus, for a DisplayObjectContainer rotated 90°
-   * counterclockwise, the DisplayObjectContainer's children inherit a coordinate system that is rotated 90°
+   * local coordinate system of the enclosing DisplayObjectContainer. Thus, for a DisplayObjectContainer rotated 90Â°
+   * counterclockwise, the DisplayObjectContainer's children inherit a coordinate system that is rotated 90Â°
    * counterclockwise. The object's coordinates refer to the registration point position.
    * <p><b>Example</b></p>
    * The following code sets up a circle Sprite object. A Timer object is used to change the x property of the sprite
    * every 50 milliseconds:
-   * <code>
+   * <pre>
    * import flash.display.Sprite;
    * import flash.utils.Timer;
    * import flash.events.TimerEvent;
-   * 
+   *
    * var circle:Sprite = new Sprite();
    * circle.graphics.beginFill(0xFF0000);
    * circle.graphics.drawCircle(100, 100, 100);
    * addChild(circle);
-   * 
+   *
    * var tim:Timer = new Timer(50);
    * tim.start();
    * tim.addEventListener(TimerEvent.TIMER, bounce);
-   * 
+   *
    * var xInc:Number = 2;
-   * 
+   *
    * function bounce(event:TimerEvent):void {
    *     circle.x += xInc;
    *     if (circle.x > circle.width) {
    *         xInc = -2;
    *     }
-   *     if (circle.x < 0) {
+   *     if (circle.x &lt; 0) {
    *         xInc = 2;
    *     }
    * }
-   * </code>
+   * </pre>
    * @return the x coordinate of the DisplayObject instance relative to the local coordinates of the parent
    * DisplayObjectContainer.
    */
@@ -272,13 +272,13 @@ trace(stage.stageWidth);
   /**
    * Indicates the y coordinate of the DisplayObject instance relative to the local coordinates of the parent
    * DisplayObjectContainer. If the object is inside a DisplayObjectContainer that has transformations, it is in the
-   * local coordinate system of the enclosing DisplayObjectContainer. Thus, for a DisplayObjectContainer rotated 90°
-   * counterclockwise, the DisplayObjectContainer's children inherit a coordinate system that is rotated 90°
+   * local coordinate system of the enclosing DisplayObjectContainer. Thus, for a DisplayObjectContainer rotated 90Â°
+   * counterclockwise, the DisplayObjectContainer's children inherit a coordinate system that is rotated 90Â°
    * counterclockwise. The object's coordinates refer to the registration point position.
    * <p><b>Example</b></p>
    * The following code creates two TextField objects and adjusts the height property of each based on the textHeight
    * property of each; it also positions the second text field by setting its y property:
-   * <code>
+   * <pre>
    * import flash.text.TextField;
    * 
    * var tf1:TextField = new TextField();
@@ -297,6 +297,7 @@ trace(stage.stageWidth);
    * tf2.height = tf2.textHeight + 5;
    * tf2.y = tf1.y + tf1.height + 5;
    * addChild(tf2);
+   * </pre>
    * @return the y coordinate of the DisplayObject instance relative to the local coordinates of the parent
    * DisplayObjectContainer.
    */
@@ -321,34 +322,34 @@ trace(stage.stageWidth);
    * Indicates the width of the display object, in pixels. The width is calculated based on the bounds of the content
    * of the display object. When you set the width property, the scaleX property is adjusted accordingly, as shown in
    * the following code:
-<pre>
-    var rect:Shape = new Shape();
-    rect.graphics.beginFill(0xFF0000);
-    rect.graphics.drawRect(0, 0, 100, 100);
-    trace(rect.scaleX) // 1;
-    rect.width = 200;
-    trace(rect.scaleX) // 2;
-</pre>
+   * <pre>
+   *   var rect:Shape = new Shape();
+   *   rect.graphics.beginFill(0xFF0000);
+   *   rect.graphics.drawRect(0, 0, 100, 100);
+   *   trace(rect.scaleX) // 1;
+   *   rect.width = 200;
+   *   trace(rect.scaleX) // 2;
+   * </pre>
    * Except for TextField and Video objects, a display object with no content (such as an empty sprite) has a width
    * of 0, even if you try to set width to a different value.
    * <p><b>Example</b></p>
    * <p>The following code sets up a square Sprite object. When the user clicks the sprite, the widen() method
-   * increases the width property of the sprite:
-<pre>
-import flash.display.Sprite;
-import flash.events.MouseEvent;
-
-var square:Sprite = new Sprite();
-square.graphics.beginFill(0xFF0000);
-square.graphics.drawRect(0, 0, 100, 100);
-addChild(square);
-
-square.addEventListener(MouseEvent.CLICK, widen);
-
-function widen(event:MouseEvent):void {
-    square.width += 10;
-}
-</pre>
+   * increases the width property of the sprite:</p>
+   * <pre>
+   * import flash.display.Sprite;
+   * import flash.events.MouseEvent;
+   *
+   * var square:Sprite = new Sprite();
+   * square.graphics.beginFill(0xFF0000);
+   * square.graphics.drawRect(0, 0, 100, 100);
+   * addChild(square);
+   *
+   * square.addEventListener(MouseEvent.CLICK, widen);
+   *
+   * function widen(event:MouseEvent):void {
+   *     square.width += 10;
+   * }
+   * </pre>
    * @return the width of the display object, in pixels.
    */
   public function get width() : Number {
@@ -441,13 +442,13 @@ addChild(tf2);
 
   /**
    * An object with properties pertaining to a display object's matrix, color transform, and pixel bounds. The
-   * specific properties — matrix, colorTransform, and three read-only properties (concatenatedMatrix,
-   * concatenatedColorTransform, and pixelBounds) — are described in the entry for the Transform class.
+   * specific properties ï¿½ matrix, colorTransform, and three read-only properties (concatenatedMatrix,
+   * concatenatedColorTransform, and pixelBounds) ï¿½ are described in the entry for the Transform class.
    * <p>Each of the transform object's properties is itself an object. This concept is important because the
    * only way to set new values for the matrix or colorTransform objects is to create a new object and copy that
-   * object into the transform.matrix or transform.colorTransform property.
+   * object into the transform.matrix or transform.colorTransform property.</p>
    * <p>For example, to increase the tx value of a display object's matrix, you must make a copy of the entire
-   * matrix object, then copy the new object into the matrix property of the transform object:
+   * matrix object, then copy the new object into the matrix property of the transform object:</p>
    * <pre>
    *   var myMatrix:Object = myDisplayObject.transform.matrix;  
    *   myMatrix.tx += 10; 

@@ -8,38 +8,38 @@ import js.Element;
 /**
  * The Stage class represents the main drawing area. The Stage represents the entire area where Flash� content is shown.
  * <p>The Stage object is not globally accessible. You need to access it through the stage property of a DisplayObject
- * instance.
+ * instance.</p>
  * <p>The Stage class has several ancestor classes � DisplayObjectContainer, InteractiveObject, DisplayObject, and
  * EventDispatcher � from which it inherits properties and methods. Many of these properties and methods are either
  * inapplicable to Stage objects, or require security checks when called on a Stage object. The properties and methods
- * that require security checks are documented as part of the Stage class.
+ * that require security checks are documented as part of the Stage class.</p>
  * <p>In addition, the following inherited properties are inapplicable to Stage objects. If you try to set them, an
  * IllegalOperationError is thrown. These properties may always be read, but since they cannot be set, they will always
- * contain default values.
+ * contain default values.</p>
  * <ul>
- *   <li>accessibilityProperties
- *   <li>alpha
- *   <li>blendMode
- *   <li>cacheAsBitmap
- *   <li>contextMenu
- *   <li>filters
- *   <li>focusRect
- *   <li>loaderInfo
- *   <li>mask
- *   <li>mouseEnabled
- *   <li>name
- *   <li>opaqueBackground
- *   <li>rotation
- *   <li>scale9Grid
- *   <li>scaleX
- *   <li>scaleY
- *   <li>scrollRect
- *   <li>tabEnabled
- *   <li>tabIndex
- *   <li>transform
- *   <li>visible
- *   <li>x
- *   <li>y
+ *   <li>accessibilityProperties</li>
+ *   <li>alpha</li>
+ *   <li>blendMode</li>
+ *   <li>cacheAsBitmap</li>
+ *   <li>contextMenu</li>
+ *   <li>filters</li>
+ *   <li>focusRect</li>
+ *   <li>loaderInfo</li>
+ *   <li>mask</li>
+ *   <li>mouseEnabled</li>
+ *   <li>name</li>
+ *   <li>opaqueBackground</li>
+ *   <li>rotation</li>
+ *   <li>scale9Grid</li>
+ *   <li>scaleX</li>
+ *   <li>scaleY</li>
+ *   <li>scrollRect</li>
+ *   <li>tabEnabled</li>
+ *   <li>tabIndex</li>
+ *   <li>transform</li>
+ *   <li>visible</li>
+ *   <li>x</li>
+ *   <li>y</li>
  * </ul>
  */
 public class Stage extends DisplayObjectContainer {
@@ -162,9 +162,9 @@ public class Stage extends DisplayObjectContainer {
    * <p>Note: An application might not be able to follow high frame rate settings, either because the target
    * platform is not fast enough or the player is synchronized to the vertical blank timing of the display
    * device (usually 60 Hz on LCD devices). In some cases, a target platform might also choose to lower the
-   * maximum frame rate if it anticipates high CPU usage.
+   * maximum frame rate if it anticipates high CPU usage.</p>
    * <p>For content running in Adobe AIR, setting the frameRate property of one Stage object changes the frame
-   * rate for all Stage objects (used by different NativeWindow objects).
+   * rate for all Stage objects (used by different NativeWindow objects).</p>
    * @param value the new frame rate in frames per second.
    */
   public function set frameRate(value : Number) : void {
@@ -175,45 +175,45 @@ public class Stage extends DisplayObjectContainer {
   }
 
   /**
-    A value from the StageQuality class that specifies which rendering quality is used.
-    The following are valid values:</p>
-    <ul>
-      <li><code>StageQuality.LOW</code>—Low rendering quality. Graphics are not
-        anti-aliased, and bitmaps are not smoothed, but runtimes still use mip-mapping. This setting is not supported in Adobe AIR.</li>
-      <li><code>StageQuality.MEDIUM</code>—Medium rendering quality. Graphics are
-        anti-aliased using a 2 x 2 pixel grid, bitmap smoothing is dependent on the <code>Bitmap.smoothing</code> setting.
-        Runtimes use mip-mapping. This setting is suitable for movies that do not contain text.
-        This setting is not supported in Adobe AIR.</li>
-      <li><code>StageQuality.HIGH</code>—High rendering quality. Graphics are anti-aliased
-        using a 4 x 4 pixel grid, and bitmap smoothing is dependent on the <code>Bitmap.smoothing</code> setting.
-        Runtimes use mip-mapping. This is the default rendering quality setting that Flash Player uses.</li><li><code>StageQuality.BEST</code>—Very high rendering quality. Graphics are
-        anti-aliased using a 4 x 4 pixel grid. If <code>Bitmap.smoothing</code> is <code>true</code> the runtime uses a high quality
-        downscale algorithm that produces fewer artifacts (however, using <code>StageQuality.BEST</code> with <code>Bitmap.smoothing</code> set to <code>true</code>
-        slows performance significantly and is not a recommended setting).</li>
-    </ul>
-
-    <p>Higher quality settings produce better rendering of scaled bitmaps. However, higher
-    quality settings are computationally more expensive. In particular, when rendering scaled video,
-    using higher quality settings can reduce the frame rate.</p>
-
-    <p>For content running in Adobe AIR, <code>quality</code> can be set to <code>StageQuality.BEST</code>
-    or <code>StageQuality.HIGH</code> (and the default value is <code>StageQuality.HIGH</code>).
-    Attempting to set it to another value has no effect (and the property remains unchanged).</p>
-
-    <p>For content running in Adobe AIR, setting the <code>quality</code> property of one Stage
-    object changes the rendering quality for all Stage objects (used by different NativeWindow objects).</p>
-
-    <b><i>Note:</i></b> The operating system draws the device fonts,
-    which are therefore unaffected by the <code>quality</code> property.
-
-    @throws SecurityError Calling the <code>quality</code> property of a Stage object throws an exception for
-    any caller that is not in the same security sandbox as the Stage owner (the main SWF file).
-    To avoid this, the Stage owner can grant permission to the domain of the caller by calling
-    the <code>Security.allowDomain()</code> method or the <code>Security.allowInsecureDomain()</code> method.
-    For more information, see the "Security" chapter in the <i>ActionScript 3.0 Developer's Guide</i>.
-
-    @see flash.display.StageQuality
-    @see flash.display.Bitmap#smoothing
+   * A value from the StageQuality class that specifies which rendering quality is used.
+   * The following are valid values:
+   * <ul>
+   * <li><code>StageQuality.LOW</code>—Low rendering quality. Graphics are not
+   * anti-aliased, and bitmaps are not smoothed, but runtimes still use mip-mapping. This setting is not supported in Adobe AIR.</li>
+   * <li><code>StageQuality.MEDIUM</code>—Medium rendering quality. Graphics are
+   * anti-aliased using a 2 x 2 pixel grid, bitmap smoothing is dependent on the <code>Bitmap.smoothing</code> setting.
+   * Runtimes use mip-mapping. This setting is suitable for movies that do not contain text.
+   * This setting is not supported in Adobe AIR.</li>
+   * <li><code>StageQuality.HIGH</code>—High rendering quality. Graphics are anti-aliased
+   * using a 4 x 4 pixel grid, and bitmap smoothing is dependent on the <code>Bitmap.smoothing</code> setting.
+   * Runtimes use mip-mapping. This is the default rendering quality setting that Flash Player uses.</li><li><code>StageQuality.BEST</code>—Very high rendering quality. Graphics are
+   * anti-aliased using a 4 x 4 pixel grid. If <code>Bitmap.smoothing</code> is <code>true</code> the runtime uses a high quality
+   * downscale algorithm that produces fewer artifacts (however, using <code>StageQuality.BEST</code> with <code>Bitmap.smoothing</code> set to <code>true</code>
+   * slows performance significantly and is not a recommended setting).</li>
+   * </ul>
+   *
+   * <p>Higher quality settings produce better rendering of scaled bitmaps. However, higher
+   * quality settings are computationally more expensive. In particular, when rendering scaled video,
+   * using higher quality settings can reduce the frame rate.</p>
+   *
+   * <p>For content running in Adobe AIR, <code>quality</code> can be set to <code>StageQuality.BEST</code>
+   * or <code>StageQuality.HIGH</code> (and the default value is <code>StageQuality.HIGH</code>).
+   * Attempting to set it to another value has no effect (and the property remains unchanged).</p>
+   *
+   * <p>For content running in Adobe AIR, setting the <code>quality</code> property of one Stage
+   * object changes the rendering quality for all Stage objects (used by different NativeWindow objects).</p>
+   *
+   * <b><i>Note:</i></b> The operating system draws the device fonts,
+   * which are therefore unaffected by the <code>quality</code> property.
+   *
+   * @throws SecurityError Calling the <code>quality</code> property of a Stage object throws an exception for
+   * any caller that is not in the same security sandbox as the Stage owner (the main SWF file).
+   * To avoid this, the Stage owner can grant permission to the domain of the caller by calling
+   * the <code>Security.allowDomain()</code> method or the <code>Security.allowInsecureDomain()</code> method.
+   * For more information, see the "Security" chapter in the <i>ActionScript 3.0 Developer's Guide</i>.
+   *
+   * @see flash.display.StageQuality
+   * @see flash.display.Bitmap#smoothing
    */
   public function get quality():String {
     return _quality;
@@ -224,34 +224,34 @@ public class Stage extends DisplayObjectContainer {
   }
 
   /**
-    A value from the StageScaleMode class that specifies which scale mode to use.
-    The following are valid values:</p>
-    <ul>
-      <li><code>StageScaleMode.EXACT_FIT</code>—The entire application is visible
-        in the specified area without trying to preserve the original aspect ratio.
-        Distortion can occur, and the application may appear stretched or compressed.
-      </li>
-      <li><code>StageScaleMode.SHOW_ALL</code>—The entire application is visible
-        in the specified area without distortion while maintaining the original aspect ratio of the application.
-        Borders can appear on two sides of the application.
-      </li>
-      <li><code>StageScaleMode.NO_BORDER</code>—The entire application fills the specified area,
-        without distortion but possibly with some cropping, while maintaining the original aspect ratio
-        of the application.
-      </li>
-      <li><code>StageScaleMode.NO_SCALE</code>—The entire application is fixed, so that
-        it remains unchanged even as the size of the player window changes. Cropping might
-        occur if the player window is smaller than the content.
-      </li>
-    </ul>
-
-    @throws SecurityError Calling the <code>scaleMode</code> property of a Stage object throws an exception for
-    any caller that is not in the same security sandbox as the Stage owner (the main SWF file).
-    To avoid this, the Stage owner can grant permission to the domain of the caller by calling
-    the <code>Security.allowDomain()</code> method or the <code>Security.allowInsecureDomain()</code> method.
-    For more information, see the "Security" chapter in the <i>ActionScript 3.0 Developer's Guide</i>.
-
-    @see flash.display.StageScaleMode
+   * A value from the StageScaleMode class that specifies which scale mode to use.
+   * The following are valid values:
+   * <ul>
+   *   <li><code>StageScaleMode.EXACT_FIT</code>—The entire application is visible
+   *     in the specified area without trying to preserve the original aspect ratio.
+   *     Distortion can occur, and the application may appear stretched or compressed.
+   *   </li>
+   *   <li><code>StageScaleMode.SHOW_ALL</code>—The entire application is visible
+   *     in the specified area without distortion while maintaining the original aspect ratio of the application.
+   *     Borders can appear on two sides of the application.
+   *   </li>
+   *   <li><code>StageScaleMode.NO_BORDER</code>—The entire application fills the specified area,
+   *     without distortion but possibly with some cropping, while maintaining the original aspect ratio
+   *     of the application.
+   *   </li>
+   *   <li><code>StageScaleMode.NO_SCALE</code>—The entire application is fixed, so that
+   *     it remains unchanged even as the size of the player window changes. Cropping might
+   *     occur if the player window is smaller than the content.
+   *   </li>
+   * </ul>
+   *
+   * @throws SecurityError Calling the <code>scaleMode</code> property of a Stage object throws an exception for
+   * any caller that is not in the same security sandbox as the Stage owner (the main SWF file).
+   * To avoid this, the Stage owner can grant permission to the domain of the caller by calling
+   * the <code>Security.allowDomain()</code> method or the <code>Security.allowInsecureDomain()</code> method.
+   * For more information, see the "Security" chapter in the <i>ActionScript 3.0 Developer's Guide</i>.
+   *
+   * @see flash.display.StageScaleMode
    */
   public function get scaleMode():String {
     return _scaleMode;
@@ -263,7 +263,7 @@ public class Stage extends DisplayObjectContainer {
 
   /**
    * A value from the StageAlign class that specifies the alignment of the stage in
-   * Flash Player or the browser. The following are valid values:</p>
+   * Flash Player or the browser. The following are valid values:
    * <table>
    *   <tr><th>Value</th><th>Vertical Alignment</th><th>Horizontal</th></tr>
    *   <tr><td><code>StageAlign.TOP</code></td><td>Top</td><td>Center</td></tr>

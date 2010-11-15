@@ -11,10 +11,10 @@ import flash.net.URLRequest;
  * It is useful for downloading text files, XML, or other information to be used in a dynamic, data-driven application.
  * <p>A URLLoader object downloads all of the data from a URL before making it available to ActionScript. It sends out
  * notifications about the progress of the download, which you can monitor through the bytesLoaded and bytesTotal
- * properties, as well as through dispatched events.
+ * properties, as well as through dispatched events.</p>
  * <p>The value you pass for the url parameter must, by default, be in exactly the same domain. For example, a SWF file
  * at www.adobe.com can load data only from sources that are also at www.adobe.com. To load data from a different
- * domain, place a cross-domain policy file on the server hosting the SWF file.
+ * domain, place a cross-domain policy file on the server hosting the SWF file.</p>
  * @see URLRequest
  * @see URLVariables
  * @see URLStream
@@ -36,11 +36,11 @@ public class URLLoader extends EventDispatcher {
    * The data received from the load operation. This property is populated only when the load operation is complete.
    * The format of the data depends on the setting of the dataFormat property:
    * <p>If the dataFormat property is URLLoaderDataFormat.TEXT, the received data is a string containing the text of
-   *  the loaded file.
+   *  the loaded file.</p>
    * <p>If the dataFormat property is URLLoaderDataFormat.BINARY, the received data is a ByteArray object containing
-   *  the raw binary data.
+   *  the raw binary data.</p>
    * <p>If the dataFormat property is URLLoaderDataFormat.VARIABLES, the received data is a URLVariables object
-   *  containing the URL-encoded variables.
+   *  containing the URL-encoded variables.</p>
    */
   public var data : *;
 
@@ -48,12 +48,12 @@ public class URLLoader extends EventDispatcher {
    * Controls whether the downloaded data is received as text (URLLoaderDataFormat.TEXT), raw binary data
    * (URLLoaderDataFormat.BINARY), or URL-encoded variables (URLLoaderDataFormat.VARIABLES).
    * <p>If the value of the dataFormat property is URLLoaderDataFormat.TEXT, the received data is a string containing
-   *  the text of the loaded file.
+   *  the text of the loaded file.</p>
    * <p>If the value of the dataFormat property is URLLoaderDataFormat.BINARY, the received data is a ByteArray object
-   *  containing the raw binary data.
+   *  containing the raw binary data.</p>
    * <p>If the value of the dataFormat property is URLLoaderDataFormat.VARIABLES, the received data is a URLVariables
-   *  object containing the URL-encoded variables.
-   * <p>The default value is URLLoaderDataFormat.TEXT.
+   *  object containing the URL-encoded variables.</p>
+   * <p>The default value is URLLoaderDataFormat.TEXT.</p>
    */
   public var dataFormat : String = URLLoaderDataFormat.TEXT;
 
@@ -83,11 +83,11 @@ public class URLLoader extends EventDispatcher {
    * dataFormat property is text. If you want to send data to the specified URL, you can set the data property in the
    * URLRequest object.
    * <p>Note: If a file being loaded contains non-ASCII characters (as found in many non-English languages), it is
-   * recommended that you save the file with UTF-8 or UTF-16 encoding as opposed to a non-Unicode format like ASCII.
+   * recommended that you save the file with UTF-8 or UTF-16 encoding as opposed to a non-Unicode format like ASCII.</p>
    * <p>By default, the URL you load must be in exactly the same domain as the calling SWF file. For example, a SWF
    * file at www.adobe.com can load data only from sources that are also at www.adobe.com. To load data from a
-   * different domain, put a cross-domain policy file on the server hosting the SWF file.
-   * <p>When using this method, consider the user agent's security model.
+   * different domain, put a cross-domain policy file on the server hosting the SWF file.</p>
+   * <p>When using this method, consider the user agent's security model.</p>
    * @param request A URLRequest object specifying the URL to download.
    * 
    * @event complete:Event — Dispatched after data has loaded successfully.

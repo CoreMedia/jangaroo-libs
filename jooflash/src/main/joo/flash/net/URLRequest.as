@@ -7,18 +7,18 @@ import flash.net.URLRequestMethod;
  * to initiate URL downloads, as well as to the upload()  and download() methods of the FileReference class.
  * <p>By default, the URL that you pass to the url parameter must be in exactly the same domain as the calling
  * SWF file, including subdomains. For example, www.adobe.com and store.adobe.com are different domains. To load data
- * from a different domain, place a cross-domain policy file on the server that is hosting the SWF file.
- * <p>When you use this class, consider the Adobe® Flash® Player security model:
+ * from a different domain, place a cross-domain policy file on the server that is hosting the SWF file.</p>
+ * <p>When you use this class, consider the Adobe® Flash® Player security model:</p>
  * <ul>
  * <li>Data loading is not allowed if the calling SWF file is in the local-with-file-system sandbox and the target
- *  resource is from a network sandbox.
+ *  resource is from a network sandbox.</li>
  * <li>Data loading is also not allowed if the calling SWF file is from a network sandbox and the target resource is
- *  local.
+ *  local.</li>
  * </ul>
- * <p>For more information, see the following:
+ * <p>For more information, see the following:</p>
  * <ul>
- * <li>The security chapter in the Programming ActionScript 3.0 book and the latest comments on LiveDocs
- * <li>The Flash Player 9 Security white paper
+ * <li>The security chapter in the Programming ActionScript 3.0 book and the latest comments on LiveDocs</li>
+ * <li>The Flash Player 9 Security white paper</li>
  * </ul>
  * @see URLRequestHeader
  * @see URLLoader
@@ -41,32 +41,32 @@ public class URLRequest {
   /**
    *  The MIME content type of any POST data.
    *  <p><b>Note:</b> The FileReference.upload() and FileReference.download() methods do not support the
-   *  URLRequest.contentType parameter.
+   *  URLRequest.contentType parameter.</p>
    */
   public var contentType : String;
 
   /**
    * An object containing data to be transmitted with the URL request.
    * <p>This property is used with the method property. If the value of URLRequest.method is POST, the data is
-   * transmitted with the URLRequest object with the HTTP POST method.
+   * transmitted with the URLRequest object with the HTTP POST method.</p>
    * <p>If the value of URLRequest.method is GET, the data defines variables to be sent with the URLRequest object
-   * with the HTTP GET method.
+   * with the HTTP GET method.</p>
    * <p>The URLRequest API offers binary POST support and support for URL-encoded variables, as well as support for
-   * strings. The data object can be of ByteArray, URLVariables, or String type.
-   * <p>The way in which the data is used depends on the type of object used:
+   * strings. The data object can be of ByteArray, URLVariables, or String type.</p>
+   * <p>The way in which the data is used depends on the type of object used:</p>
    * <ul>
    * <li>If the object is a ByteArray object, the binary data of the ByteArray object is used as POST data. For GET,
    * data of ByteArray type is not supported. Also, data of ByteArray type is not supported for FileReference.upload()
-   * and FileReference.download().
+   * and FileReference.download().</li>
    * <li>If the object is a URLVariables object and the method is POST, the variables are encoded using
    * x-www-form-urlencoded format and the resulting string is used as POST data. An exception is a call to
-   * FileReference.upload(), in which the variables are sent as separate fields in a multipart/form-data post.
+   * FileReference.upload(), in which the variables are sent as separate fields in a multipart/form-data post.</li>
    * <li>If the object is a URLVariables object and the method is GET, the URLVariables object defines variables to 
-   * be sent with the URLRequest object.
-   * <li>Otherwise, the object is converted to a string, and the string is used as the POST or GET data.
+   * be sent with the URLRequest object.</li>
+   * <li>Otherwise, the object is converted to a string, and the string is used as the POST or GET data.</li>
    * </ul>
    * <p>This data is not sent until a method, such as navigateToURL() or FileReference.upload(), uses the URLRequest
-   * object.
+   * object.</p>
    * @see URLRequest.method
    * @see URLRequestMethod
    * @see URLVariables
@@ -77,7 +77,7 @@ public class URLRequest {
   /**
    * Controls whether the HTTP form submission method is a GET  or POST operation.
    * Valid values are URLRequestMethod.GET or URLRequestMethod.POST.
-   * <p>The default value is URLRequestMethod.GET.
+   * <p>The default value is URLRequestMethod.GET.</p>
    * @throws ArgumentError If the value parameter is not URLRequestMethod.GET or URLRequestMethod.POST.
    * @see URLRequestMethod
    */
@@ -89,9 +89,9 @@ public class URLRequest {
    * that contains a name string and a value string, as follows:
    * <code>var rhArray:Array = new Array(new URLRequestHeader("Content-Type", "text/html"));</code>
    * <p>Flash Player imposes certain restrictions on request headers; for more information, see the URLRequestHeader
-   * class description.
+   * class description.</p>
    * <p>The FileReference.upload() and FileReference.download() methods do not support the URLRequest.requestHeaders
-   * parameter.
+   * parameter.</p>
    * @see URLRequestHeader 
    */
   public var requestHeaders : Array;

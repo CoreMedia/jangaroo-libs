@@ -12,7 +12,7 @@ public class URLVariables {
    * Creates a new URLVariables object.
    * You pass URLVariables objects to the data property of URLRequest objects.
    * <p>If you call the URLVariables constructor with a string, the decode() method is automatically called to convert
-   * the string to properties of the URLVariables object.
+   * the string to properties of the URLVariables object.</p>
    * @param source (default = null) A URL-encoded string containing name/value pairs. 
    */
   public function URLVariables(source : String = null) {
@@ -21,7 +21,7 @@ public class URLVariables {
 
   /**
    * Converts the variable string to properties of the specified URLVariables object.
-   * <p>This method is used internally by the URLVariables events. Most users do not need to call this method directly.
+   * <p>This method is used internally by the URLVariables events. Most users do not need to call this method directly.</p>
    * @param source A URL-encoded query string containing name/value pairs.
    * @throws Error The source parameter must be a URL-encoded query string containing name/value pairs.
    */

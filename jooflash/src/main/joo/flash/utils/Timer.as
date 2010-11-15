@@ -14,7 +14,7 @@ import flash.events.TimerEvent;
    intervals to execute code on a schedule. Depending on the environment
    (available memory and other factors), events may be dispatched at
    slightly offset intervals. Memory-intensive scripts may also offset
-   the events.
+   the events.</p>
  */
 public class Timer extends EventDispatcher
 {
@@ -23,7 +23,7 @@ public class Timer extends EventDispatcher
    * Constructs a new Timer object with the specified <code>delay</code>
      and <code>repeatCount</code> states.
    * <p>The timer does not start automatically; you must call the
-     <code>start()</code> method to start it.
+     <code>start()</code> method to start it.</p>
    * @param delay The delay between timer events, in milliseconds.
    * @param repeatCount (default = 0) — Specifies the number of
      repetitions. If zero, the timer repeats infinitely. If nonzero, the

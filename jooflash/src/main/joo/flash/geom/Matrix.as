@@ -63,10 +63,10 @@ public class Matrix {
    * mathematical terms, concatenating two matrixes is the same as combining them using matrix multiplication.
    * <p>For example, if matrix m1 scales an object by a factor of four, and matrix m2 rotates an object by
    * 1.5707963267949 radians (Math.PI/2), then m1.concat(m2) transforms m1 into a matrix that scales an object
-   * by a factor of four and rotates the object by Math.PI/2 radians.
+   * by a factor of four and rotates the object by Math.PI/2 radians.</p>
    * <p>This method replaces the source matrix with the concatenated matrix. If you want to concatenate two
    * matrixes without altering either of the two source matrixes, first copy the source matrix by using the
-   * clone() method, as shown in the Class Examples section.
+   * clone() method, as shown in the Class Examples section.</p>
    * 
    * @param m The matrix to be concatenated to the source matrix. 
    */
@@ -90,7 +90,7 @@ public class Matrix {
    * values based on those parameters.
    * <p>Using the createBox() method lets you obtain the same matrix as you would if you applied the
    * identity(), scale(), rotate(), and translate() methods in succession. For example,
-   * mat1.createBox(2,2,Math.PI/4, 100, 100) has the same effect as the following:
+   * mat1.createBox(2,2,Math.PI/4, 100, 100) has the same effect as the following:</p>
    * <pre>
    *  import flash.geom.Matrix;
    *       var mat1:Matrix = new Matrix();

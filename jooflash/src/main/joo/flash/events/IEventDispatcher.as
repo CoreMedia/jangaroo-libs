@@ -11,11 +11,11 @@ import flash.events.Event;
  * makes a round-trip journey to the event target, which is conceptually divided into three phases: the capture phase
  * includes the journey from the root to the last node before the event target's node; the target phase includes only
  * the event target node; and the bubbling phase includes any subsequent nodes encountered on the return trip to the
- * root of the display list.
+ * root of the display list.</p>
  * <p>In general, the easiest way for a user-defined class to gain event dispatching capabilities is to extend
  * EventDispatcher. If this is impossible (that is, if the class is already extending another class), you can instead
  * implement the IEventDispatcher interface, create an EventDispatcher member, and write simple hooks to route calls
- * into the aggregated EventDispatcher.
+ * into the aggregated EventDispatcher.</p>
  */
 public interface IEventDispatcher {
 
@@ -36,7 +36,7 @@ public interface IEventDispatcher {
    * IEventDispatcher.willTrigger().
    * <p>The difference between hasEventListener() and willTrigger() is that hasEventListener() examines only the object
    * to which it belongs, whereas willTrigger() examines the entire event flow for the event specified by the type
-   * parameter.
+   * parameter.</p>
    * 
    * @param type The type of event.
    * @return A value of true if a listener of the specified type is registered; false otherwise.
@@ -50,7 +50,7 @@ public interface IEventDispatcher {
    * flow when an event of the specified type is dispatched to this EventDispatcher object or any of its descendants.
    * <p>The difference between hasEventListener() and willTrigger() is that hasEventListener() examines only the object
    * to which it belongs, whereas willTrigger() examines the entire event flow for the event specified by the type
-   * parameter.
+   * parameter.</p>
    *  
    * @param type The type of event.
    * @return A value of true if a listener of the specified type will be triggered; false otherwise.
@@ -75,26 +75,26 @@ public interface IEventDispatcher {
    * and priority.
    * <p>After you successfully register an event listener, you cannot change its priority through additional calls to
    * addEventListener(). To change a listener's priority, you must first call removeEventListener(). Then you can
-   * register the listener again with the new priority level.
+   * register the listener again with the new priority level.</p>
    * <p>After the listener is registered, subsequent calls to addEventListener() with a different value for either type
    * or useCapture result in the creation of a separate listener registration. For example, if you first register a
    * listener with useCapture set to true, it listens only during the capture phase. If you call addEventListener()
    * again using the same listener object, but with useCapture set to false, you have two separate listeners: one that
-   * listens during the capture phase, and another that listens during the target and bubbling phases.
+   * listens during the capture phase, and another that listens during the target and bubbling phases.</p>
    * <p>You cannot register an event listener for only the target phase or the bubbling phase. Those phases are coupled
-   * during registration because bubbling applies only to the ancestors of the target node.
+   * during registration because bubbling applies only to the ancestors of the target node.</p>
    * <p>When you no longer need an event listener, remove it by calling EventDispatcher.removeEventListener();
    * otherwise, memory problems might result. Objects with registered event listeners are not automatically removed
-   * from memory because the garbage collector does not remove objects that still have references.
+   * from memory because the garbage collector does not remove objects that still have references.</p>
    * <p>Copying an EventDispatcher instance does not copy the event listeners attached to it. (If your newly created
    * node needs an event listener, you must attach the listener after creating the node.) However, if you move an
-   * EventDispatcher instance, the event listeners attached to it move along with it.
+   * EventDispatcher instance, the event listeners attached to it move along with it.</p>
    * <p>If the event listener is being registered on a node while an event is also being processed on this node, the
    * event listener is not triggered during the current phase but may be triggered during a later phase in the event
-   * flow, such as the bubbling phase.
+   * flow, such as the bubbling phase.</p>
    * <p>If an event listener is removed from a node while an event is being processed on the node, it is still
    * triggered by the current actions. After it is removed, the event listener is never invoked again (unless it is
-   * registered again for future processing).
+   * registered again for future processing).</p>
    * 
    * @param type The type of event.
    * @param listener The listener function that processes the event. This function must accept an Event object as its

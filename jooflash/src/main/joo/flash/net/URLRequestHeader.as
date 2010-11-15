@@ -6,10 +6,10 @@ package flash.net {
  * Accept-Ranges, Age, Allow, Allowed, Connection, Content-Length, Content-Location, Content-Range, ETag, Host,
  * Last-Modified, Location, Max-Forwards, Proxy-Authenticate, Proxy-Authorization, Public, Range, Retry-After,
  * Server, TE, Trailer, Transfer-Encoding, Upgrade, URI, Vary, Via, Warning, WWW-Authenticate, x-flash-version,
- * Referer, Get, Post, Put, Delete, Options, and Trace.
+ * Referer, Get, Post, Put, Delete, Options, and Trace.</p>
  * <p>URLRequestHeader objects are restricted in length. If the cumulative length of a URLRequestHeader object
  * (the length of the name property plus the value property) or an array of URLRequestHeader objects used in the
- * URLRequest.requestHeaders property exceeds the acceptable length, Adobe® Flash® Player throws an exception.
+ * URLRequest.requestHeaders property exceeds the acceptable length, Adobe® Flash® Player throws an exception.</p>
  * @see URLRequest
  * @see URLLoader 
  */

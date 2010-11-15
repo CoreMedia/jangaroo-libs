@@ -10,7 +10,7 @@ import flash.geom.Matrix;
  * <p>The Sprite class also includes a graphics property, and it includes other features not available to the Shape
  * class. For example, a Sprite object is a display object container, whereas a Shape object is not (and cannot contain
  * child display objects). For this reason, Shape objects consume less memory than Sprite objects that contain the same
- * graphics. However, a Sprite object supports mouse click events, while a Shape object does not.
+ * graphics. However, a Sprite object supports mouse click events, while a Shape object does not.</p>
  * @see flash.display.Graphics
  * @see flash.display.Sprite
  */
