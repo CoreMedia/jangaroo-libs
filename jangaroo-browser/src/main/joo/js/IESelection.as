@@ -21,7 +21,7 @@ public interface IESelection {
 
   /**
    * Clears the contents of the selection.
-   * <p>This method is defined in <a href="http://www.w3.org/tr/2000/wd-dom-level-1-20000929/" target="_top">World Wide Web Consortium (W3C) Document Object Model (DOM) Level 1</a>.
+   * <p>This method is defined in <a href="http://www.w3.org/tr/2000/wd-dom-level-1-20000929/" target="_top">World Wide Web Consortium (W3C) Document Object Model (DOM) Level 1</a>.</p>
    */
   function clear():void;
 
@@ -34,7 +34,7 @@ public interface IESelection {
 
   /**
    * Creates a TextRange object collection from the current selection.
-   * <p>The default implementation of this method returns a collection consisting of a single TextRange object.
+   * <p>The default implementation of this method returns a collection consisting of a single TextRange object.</p>
    */
   function createRangeCollection():Collection;
 

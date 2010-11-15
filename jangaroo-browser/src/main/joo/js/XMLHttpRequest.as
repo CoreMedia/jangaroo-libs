@@ -51,7 +51,7 @@ public class XMLHttpRequest {
    * sent, or cannot be parsed as XML.
    * The response is parsed as if it were a text/xml stream.
    * <p><b>Note:</b> If the server doesn't apply the text/xml Content-Type header, you can use overrideMimeType() to
-   * force XMLHttpRequest to parse it as XML anyway.
+   * force XMLHttpRequest to parse it as XML anyway.</p>
    * @return the response to the request as a DOM Document object or null.
    */
   public native function get responseXML() : Document;
@@ -71,7 +71,7 @@ public class XMLHttpRequest {
 
   /**
    * Sets the value of an HTTP request header.
-   * <p><b>Note:</b> You must call open() before using this method.
+   * <p><b>Note:</b> You must call open() before using this method.</p>
    * @param header The name of the header whose value is to be set.
    * @param value The value to set as the body of the header.
    */
@@ -79,7 +79,7 @@ public class XMLHttpRequest {
 
   /**
    * Overrides the MIME type returned by the server.
-   * <p><b>Note:</b> This method must be called before send().
+   * <p><b>Note:</b> This method must be called before send().</p>
    * @param mimetype The type that should be used instead of the one returned by the server, if any.
    */
   public native function overrideMimeType(mimetype : String) : void;
@@ -87,7 +87,7 @@ public class XMLHttpRequest {
   /**
    * Initializes a request.
    * <p><b>Note:</b> Calling this method an already active request (one for which open() or openRequest() has already
-   * been called) is the equivalent of calling abort().
+   * been called) is the equivalent of calling abort().</p>
    * @param method The HTTP method to use; either "POST" or "GET".  Ignored for non-HTTP URLs.
    * @param url The URL to which to send the request.
    * @param async An optional boolean parameter, defaulting to true, indicating whether or not to perform the operation
@@ -110,7 +110,7 @@ public class XMLHttpRequest {
    * Sends the request.
    * If the request is asynchronous (which is the default), this method returns as soon as the request is sent.
    * If the request is synchronous, this method doesn't return until the response has arrived.
-   * <p><b>Note:</b> Any event listeners you wish to set must be set before calling send().
+   * <p><b>Note:</b> Any event listeners you wish to set must be set before calling send().</p>
    * @param body This may be a Document or a String that is used to populate the body of a POST request.
    *  If the body is an Document, it is serialized before being sent.
    */
@@ -132,7 +132,7 @@ public class XMLHttpRequest {
   /**
    * Returns all the response headers as a string.
    * <p><b>Note:</b> For multipart requests, this returns the headers from the current part of the request, not from
-   *  the original channel.
+   *  the original channel.</p>
    * @return The text of all response headers, or null if no response has been received.
    */
   public native function getAllResponseHeaders() : String;
