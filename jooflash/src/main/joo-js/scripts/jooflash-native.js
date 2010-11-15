@@ -34,6 +34,13 @@ flash_utils.describeType = function(value) {
         }
       };
     };
+flash_utils.getDefinitionByName = function(name) {
+  var clazz = joo.getQualifiedObject(name);
+  if (typeof clazz !== 'function') {
+    throw new ReferenceError(name);
+  }
+  return clazz;
+};
 var startTime = new Date().getTime();
 flash_utils.getTimer = function() {
       return new Date().getTime()-startTime;
