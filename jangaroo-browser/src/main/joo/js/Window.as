@@ -1,6 +1,6 @@
 package js{
 
-public class Window {
+public dynamic class Window {
 
   public native function get top() : Window;
 
