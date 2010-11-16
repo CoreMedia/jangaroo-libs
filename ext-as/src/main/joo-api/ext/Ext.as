@@ -185,7 +185,7 @@ Ext.urlDecode("foo=1&bar=2&bar=3&bar=4", false); // returns {foo: "1", bar: ["2"
          * @param fn
          * @param scope
          */
-        public static native function each(array : *, fn : Function, scope : Object) : void;
+        public static native function each(array : *, fn : Function, scope : Object = undefined) : void;
         /**
          * Iterates either the elements in an array, or each of the properties in an object.
          * <b>Note</b>: If you are only iterating arrays, it is better to call <b class='link' title='#each'>each</b>.
@@ -206,7 +206,7 @@ Ext.urlDecode("foo=1&bar=2&bar=3&bar=4", false); // returns {foo: "1", bar: ["2"
          * @param scope The scope to call the supplied function with, defaults to
          * the specified <code>object</code>
          */
-        public static native function iterate(object : *, fn : Function, scope : Object) : void;
+        public static native function iterate(object : *, fn : Function, scope : Object = undefined) : void;
         /**
          * Return the dom node for the passed String (id), dom node, or ext.Element.
          * Here are some examples:
