@@ -3,9 +3,9 @@ package ext.form {
  * Provides a time input field with a time dropdown and automatic time validation.  Example usage:
  * <pre><code>
 new ext.form.TimeField({
-    minValue&#58; '9:00 AM',
-    maxValue&#58; '6:00 PM',
-    increment&#58; 30
+    minValue: '9:00 AM',
+    maxValue: '6:00 PM',
+    increment: 30
 });
 </code></pre>
 */

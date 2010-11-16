@@ -6,7 +6,7 @@ package ext {
  * element's Updater load indicator and will be destroyed after the initial load.
  * <p>Example usage:</p>
  *<pre><code>
-&#47;/ Basic mask:
+// Basic mask:
 var myMask = new ext.LoadMask(Ext.getBody(), {msg:"Please wait..."});
 myMask.show();
 </code></pre>
@@ -18,9 +18,7 @@ public class LoadMask {
  * @param el The element or DOM node, or its id
  * @param config The config object
  */
-public function LoadMask(el : *, config : Object) {
-  super(el, config);
-}
+public native function LoadMask(el : *, config : Object);
     /**
      * @cfg {ext.data.Store} store
      * Optional Store to which the mask is bound. The mask is displayed when a load request is issued, and

@@ -3,7 +3,7 @@ package ext.form {
 import ext.Component;
 import ext.Toolbar;
 
-import js.Element;
+import ext.Element;
 
 /**
  * Provides a lightweight HTML Editor component. Some toolbar features are not supported by Safari and will be 
@@ -16,27 +16,27 @@ import js.Element;
  * any element that has display set to 'none' can cause problems in Safari and Firefox due to their default iframe reloading bugs.
  * <br><br>Example usage:
  * <pre><code>
-&#47;/ Simple example rendered with default options:
+// Simple example rendered with default options:
 ext.QuickTips.init();  // enable tooltips
 new ext.form.HtmlEditor({
-    renderTo&#58; Ext.getBody(),
-    width&#58; 800,
-    height&#58; 300
+    renderTo: Ext.getBody(),
+    width: 800,
+    height: 300
 });
 
-&#47;/ Passed via xtype into a container and with custom options:
+// Passed via xtype into a container and with custom options:
 ext.QuickTips.init();  // enable tooltips
 new ext.Panel({
-    title&#58; 'HTML Editor',
-    renderTo&#58; Ext.getBody(),
-    width&#58; 600,
-    height&#58; 300,
-    frame&#58; true,
-    layout&#58; 'fit',
-    items&#58; {
-        xtype&#58; 'htmleditor',
-        enableColors&#58; false,
-        enableAlignments&#58; false
+    title: 'HTML Editor',
+    renderTo: Ext.getBody(),
+    width: 600,
+    height: 300,
+    frame: true,
+    layout: 'fit',
+    items: {
+        xtype: 'htmleditor',
+        enableColors: false,
+        enableAlignments: false
     }
 });
 </code></pre>
@@ -136,8 +136,8 @@ public function HtmlEditor(config : Object) {
     public native function toggleSourceEdit(sourceEdit : Boolean = undefined) : void;
     public native function createLink() : void;
     //public var adjustSize : Boolean;
-    override public native function getResizeEl() : void;
-    override public native function getPositionEl() : void;
+    override public native function getResizeEl() : Element;
+    override public native function getPositionEl() : Element;
     override protected native function initEvents() : void;
     /**
      * Overridden and disabled. The editor element does not support standard valid/invalid marking. @hide
@@ -218,14 +218,14 @@ public function HtmlEditor(config : Object) {
 <pre><code>
 {
     bold : {
-        title&#58; 'Bold (Ctrl+B)',
-        text&#58; 'Make the selected text bold.',
-        cls&#58; 'x-html-editor-tip'
+        title: 'Bold (Ctrl+B)',
+        text: 'Make the selected text bold.',
+        cls: 'x-html-editor-tip'
     },
     italic : {
-        title&#58; 'Italic (Ctrl+I)',
-        text&#58; 'Make the selected text italic.',
-        cls&#58; 'x-html-editor-tip'
+        title: 'Italic (Ctrl+I)',
+        text: 'Make the selected text italic.',
+        cls: 'x-html-editor-tip'
     },
     ...
 </code></pre>

@@ -7,27 +7,27 @@ package ext.layout {
  * <p>Example usage:</p>
  * <pre><code>
 var accordion = new ext.Panel({
-    title&#58; 'Accordion Layout',
-    layout&#58;'accordion',
-    defaults&#58; {
-        &#47;/ applied to each contained panel
-        bodyStyle&#58; 'padding:15px'
+    title: 'Accordion Layout',
+    layout:'accordion',
+    defaults: {
+        // applied to each contained panel
+        bodyStyle: 'padding:15px'
     },
-    layoutConfig&#58; {
-        &#47;/ layout-specific configs go here
-        titleCollapse&#58; false,
-        animate&#58; true,
-        activeOnTop&#58; true
+    layoutConfig: {
+        // layout-specific configs go here
+        titleCollapse: false,
+        animate: true,
+        activeOnTop: true
     },
-    items&#58; [{
-        title&#58; 'Panel 1',
-        html&#58; '&lt;p&gt;Panel content!&lt;/p&gt;'
+    items: [{
+        title: 'Panel 1',
+        html: '&lt;p&gt;Panel content!&lt;/p&gt;'
     },{
-        title&#58; 'Panel 2',
-        html&#58; '&lt;p&gt;Panel content!&lt;/p&gt;'
+        title: 'Panel 2',
+        html: '&lt;p&gt;Panel content!&lt;/p&gt;'
     },{
-        title&#58; 'Panel 3',
-        html&#58; '&lt;p&gt;Panel content!&lt;/p&gt;'
+        title: 'Panel 3',
+        html: '&lt;p&gt;Panel content!&lt;/p&gt;'
     }]
 });
 </code></pre>

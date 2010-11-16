@@ -110,26 +110,26 @@ public static var LOAD_FAILURE  : String = 'load';
  * <pre><code>
 var fp = new ext.form.FormPanel({
 ...
-buttons&#58; [{
-    text&#58; 'Save',
-    formBind&#58; true,
-    handler&#58; function(){
+buttons: [{
+    text: 'Save',
+    formBind: true,
+    handler: function(){
         if(fp.getForm().isValid()){
             fp.getForm().submit({
-                url&#58; 'form-submit.php',
-                waitMsg&#58; 'Submitting your data...',
-                success&#58; function(form, action){
-                    &#47;/ server responded with success = true
+                url: 'form-submit.php',
+                waitMsg: 'Submitting your data...',
+                success: function(form, action){
+                    // server responded with success = true
                     var result = action.<b class='link' title='#result'>result</b>;
                 },
-                failure&#58; function(form, action){
+                failure: function(form, action){
                     if (action.<b class='link' title='#failureType'>failureType</b> === ext.form.Action.<b class='link' title='#CONNECT_FAILURE'>CONNECT_FAILURE</b>) {
                         ext.Msg.alert('Error',
                             'Status:'+action.<b class='link' title='#response'>response</b>.status+': '+
                             action.<b class='link' title='#response'>response</b>.statusText);
                     }
                     if (action.failureType === ext.form.Action.<b class='link' title='#SERVER_INVALID'>SERVER_INVALID</b>){
-                        &#47;/ server responded with success = false
+                        // server responded with success = false
                         ext.Msg.alert('Invalid', action.<b class='link' title='#result'>result</b>.errormsg);
                     }
                 }
@@ -137,8 +137,8 @@ buttons&#58; [{
         }
     }
 },{
-    text&#58; 'Reset',
-    handler&#58; function(){
+    text: 'Reset',
+    handler: function(){
         fp.getForm().reset();
     }
 }]

@@ -1,7 +1,7 @@
 package ext {
 
 /**
- * <p>An updateable progress bar component.  The progress bar supports two different modes: manual and automatic.</p>
+ * An updateable progress bar component. The progress bar supports two different modes: manual and automatic.
  * <p>In manual mode, you are responsible for showing, updating (via <b class='link' title='#updateProgress'>updateProgress</b>) and clearing the
  * progress bar as needed from your own code.  This method is most appropriate when you want to show progress
  * throughout an operation that has predictable points of interest at which you can update the control.</p>
@@ -78,22 +78,22 @@ scope      Object        The scope that is passed to the callback function (only
          * Example usage:
          * <pre><code>
 var p = new ext.ProgressBar({
-   renderTo&#58; 'my-el'
+   renderTo: 'my-el'
 });
 
-&#47;/Wait for 5 seconds, then update the status el (progress bar will auto-reset)
+//Wait for 5 seconds, then update the status el (progress bar will auto-reset)
 p.wait({
-   interval&#58; 100, //bar will move fast!
-   duration&#58; 5000,
-   increment&#58; 15,
-   text&#58; 'Updating...',
-   scope&#58; this,
-   fn&#58; function(){
+   interval: 100, //bar will move fast!
+   duration: 5000,
+   increment: 15,
+   text: 'Updating...',
+   scope: this,
+   fn: function(){
       Ext.fly('status').update('Done!');
    }
 });
 
-&#47;/Or update indefinitely until some async action completes, then reset manually
+//Or update indefinitely until some async action completes, then reset manually
 p.wait();
 myAction.on('complete', function(){
     p.reset();

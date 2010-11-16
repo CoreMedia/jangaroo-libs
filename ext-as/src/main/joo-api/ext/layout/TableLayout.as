@@ -24,35 +24,35 @@ package ext.layout {
  * how to position each panel within the table.  Just like with HTML tables, your rowspans and colspans must add
  * up correctly in your overall layout or you'll end up with missing and/or extra cells!  Example usage:</p>
  * <pre><code>
-&#47;/ This code will generate a layout table that is 3 columns by 2 rows
-&#47;/ with some spanning included.  The basic layout will be:
-&#47;/ +--------+-----------------+
-&#47;/ |   A    |   B             |
-&#47;/ |        |--------+--------|
-&#47;/ |        |   C    |   D    |
-&#47;/ +--------+--------+--------+
+// This code will generate a layout table that is 3 columns by 2 rows
+// with some spanning included.  The basic layout will be:
+// +--------+-----------------+
+// |   A    |   B             |
+// |        |--------+--------|
+// |        |   C    |   D    |
+// +--------+--------+--------+
 var table = new ext.Panel({
-    title&#58; 'Table Layout',
-    layout&#58;'table',
-    defaults&#58; {
-        &#47;/ applied to each contained panel
-        bodyStyle&#58;'padding:20px'
+    title: 'Table Layout',
+    layout:'table',
+    defaults: {
+        // applied to each contained panel
+        bodyStyle:'padding:20px'
     },
-    layoutConfig&#58; {
-        &#47;/ The total column count must be specified here
-        columns&#58; 3
+    layoutConfig: {
+        // The total column count must be specified here
+        columns: 3
     },
-    items&#58; [{
-        html&#58; '&lt;p&gt;Cell A content&lt;/p&gt;',
-        rowspan&#58; 2
+    items: [{
+        html: '&lt;p&gt;Cell A content&lt;/p&gt;',
+        rowspan: 2
     },{
-        html&#58; '&lt;p&gt;Cell B content&lt;/p&gt;',
-        colspan&#58; 2
+        html: '&lt;p&gt;Cell B content&lt;/p&gt;',
+        colspan: 2
     },{
-        html&#58; '&lt;p&gt;Cell C content&lt;/p&gt;',
-        cellCls&#58; 'highlight'
+        html: '&lt;p&gt;Cell C content&lt;/p&gt;',
+        cellCls: 'highlight'
     },{
-        html&#58; '&lt;p&gt;Cell D content&lt;/p&gt;'
+        html: '&lt;p&gt;Cell D content&lt;/p&gt;'
     }]
 });
 </code></pre>
@@ -68,15 +68,15 @@ var table = new ext.Panel({
      * <p>An object containing properties which are added to the <b class='link' title='ext.DomHelper'>DomHelper</b> specification
      * used to create the layout's <code>&lt;table&gt;</code> element. Example:</p><pre><code>
 {
-    xtype&#58; 'panel',
-    layout&#58; 'table',
-    layoutConfig&#58; {
-        tableAttrs&#58; {
-        	style&#58; {
-        		width&#58; '100%'
+    xtype: 'panel',
+    layout: 'table',
+    layoutConfig: {
+        tableAttrs: {
+        	style: {
+        		width: '100%'
         	}
         },
-        columns&#58; 3
+        columns: 3
     }
 }</code></pre>
      */

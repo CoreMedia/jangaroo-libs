@@ -27,8 +27,8 @@ package ext.direct {
     },{
         "name":"multiply",// name of method
         "len":2           // The number of parameters that will be used to create an
-                          &#47;/ array of data to send to the server side function.
-                          &#47;/ Ensure the server sends back a Number, not a String. 
+                          // array of data to send to the server side function.
+                          // Ensure the server sends back a Number, not a String.
     },{
         "name":"doForm",
         "formHandler":true, // direct the client to use specialized form handling method 
@@ -42,9 +42,9 @@ package ext.direct {
      * <pre><code>
 TestAction.multiply(
     2, 4, // pass two arguments to server, so specify len=2
-    &#47;/ callback function after the server is called
-    &#47;/ result: the result returned by the server
-    &#47;/      e: ext.Direct.RemotingEvent object
+    // callback function after the server is called
+    // result: the result returned by the server
+    //      e: ext.Direct.RemotingEvent object
     function(result, e){
         var t = e.getTransaction();
         var action = t.action; // server side Class called

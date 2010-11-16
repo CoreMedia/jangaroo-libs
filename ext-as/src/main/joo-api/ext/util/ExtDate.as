@@ -5,7 +5,7 @@ package ext.util {
  * <a href="http://www.php.net/date">PHP's date() function</a>, and the formats that are
  * supported will provide results equivalent to their PHP versions.
  *
- * The following is a list of all currently supported formats:
+ * <p>The following is a list of all currently supported formats:</p>
  * <pre>
  Format  Description                                                               Example returned values
  ------  -----------------------------------------------------------------------   -----------------------
@@ -100,68 +100,65 @@ package ext.util {
  document.write(dt.format(DateUtil.patterns.ShortDate));
  </code></pre>
  * <p>Developer-written, custom formats may be used by supplying both a formatting and a parsing function
- * which perform to specialized requirements. The functions are stored in {@link #parseFunctions} and {@link #formatFunctions}.</p>
+ * which perform to specialized requirements. The functions are stored in <a href="#parseFunctions">parseFunctions</a>
+ * and <a href="#formatFunctions">formatFunctions</a>.</p>
  *
- * Most of the date-formatting functions below are the excellent work of Baron Schwartz.
+ * <p>Most of the date-formatting functions below are the excellent work of Baron Schwartz.
  * (see http://www.xaprb.com/blog/2005/12/12/javascript-closures-for-runtime-efficiency/)
  * They generate precompiled functions from format patterns instead of parsing and
  * processing each pattern every time a date is formatted. These functions are available
- * on every Date object.
+ * on every Date object.</p>
  */
-public class ExtDate extends Date {
+public class ExtDate { //extends Date {
 
   /**
    * Global flag which determines if strict date parsing should be used.
    * Strict date parsing will not roll-over invalid dates, which is the
    * default behaviour of javascript Date objects.
-   * (see {@link #parseDate} for more information)
    * Defaults to <tt>false</tt>.
-   * @static
-   * @type Boolean
+   * @see ExtDate#parseDate
    */
   public static var useStrict:Boolean = false;
 
   /**
-   * <p>An object hash in which each property is a date parsing function. The property name is the
-   * format string which that function parses.</p>
+   * An object hash in which each property is a date parsing function. The property name is the
+   * format string which that function parses.
    * <p>This object is automatically populated with date parsing functions as
    * date formats are requested for Ext standard formatting strings.</p>
    * <p>Custom parsing functions may be inserted into this object, keyed by a name which from then on
-   * may be used as a format string to {@link #parseDate}.<p>
-   * <p>Example:</p><pre><code>
-   DateUtil.parseFunctions['x-date-format'] = myDateParser;
-   </code></pre>
-   * <p>A parsing function should return a Date object, and is passed the following parameters:<div class="mdetail-params"><ul>
-   * <li><code>date</code> : String<div class="sub-desc">The date string to parse.</div></li>
-   * <li><code>strict</code> : Boolean<div class="sub-desc">True to validate date strings while parsing
+   * may be used as a format string to <a href="#parseDate">parseDate</a>.</p>
+   * <p>Example:</p>
+   * <pre><code>
+   * DateUtil.parseFunctions['x-date-format'] = myDateParser;
+   * </code></pre>
+   * <p>A parsing function should return a Date object, and is passed the following parameters:</p>
+   * <ul>
+   * <li><code>date : String</code> The date string to parse.</li>
+   * <li><code>strict : Boolean</code> True to validate date strings while parsing
    * (i.e. prevent javascript Date "rollover") (The default must be false).
-   * Invalid date strings should return null when parsed.</div></li>
-   * </ul></div></p>
+   * Invalid date strings should return null when parsed.</li>
+   * </ul>
    * <p>To enable Dates to also be <i>formatted</i> according to that format, a corresponding
-   * formatting function must be placed into the {@link #formatFunctions} property.
-   * @property parseFunctions
-   * @static
-   * @type Object
+   * formatting function must be placed into the <a href="#formatFunctions">formatFunctions</a> property.</p>
    */
   public static const parseFunctions:Object = {};
 
   /**
-   * <p>An object hash in which each property is a date formatting function. The property name is the
-   * format string which corresponds to the produced formatted date string.</p>
+   * An object hash in which each property is a date formatting function. The property name is the
+   * format string which corresponds to the produced formatted date string.
    * <p>This object is automatically populated with date formatting functions as
    * date formats are requested for Ext standard formatting strings.</p>
    * <p>Custom formatting functions may be inserted into this object, keyed by a name which from then on
-   * may be used as a format string to {@link #format}. Example:</p><pre><code>
-   DateUtil.formatFunctions['x-date-format'] = myDateFormatter;
-   </code></pre>
-   * <p>A formatting function should return a string representation of the passed Date object, and is passed the following parameters:<div class="mdetail-params"><ul>
-   * <li><code>date</code> : Date<div class="sub-desc">The Date to format.</div></li>
-   * </ul></div></p>
+   * may be used as a format string to {@link #format}. Example:</p>
+   * <pre><code>
+   * DateUtil.formatFunctions['x-date-format'] = myDateFormatter;
+   * </code></pre>
+   * <p>A formatting function should return a string representation of the passed Date object, and is passed the following parameters:<div class="mdetail-params"></p>
+   * <ul>
+   * <li><code>date : Date</code> The Date to format.</li>
+   * </ul>
    * <p>To enable date strings to also be <i>parsed</i> according to that format, a corresponding
-   * parsing function must be placed into the {@link #parseFunctions} property.
-   * @property formatFunctions
-   * @static
-   * @type Object
+   * parsing function must be placed into the <a href="#parseFunctions">parseFunctions</a> property.</p>
    */
   public static const formatFunctions:Object = {};
 
@@ -216,8 +213,9 @@ public class ExtDate extends Date {
   public static const YEAR : String = "y";
 
   /**
-   * <p>An object hash containing default date values used during date parsing.</p>
-   * <p>The following properties are available:<div class="mdetail-params"><ul>
+   * An object hash containing default date values used during date parsing.
+   * <p>The following properties are available:</p>
+   * <ul>
    * <li><code>y</code> : Number<div class="sub-desc">The default year value. (defaults to undefined)</div></li>
    * <li><code>m</code> : Number<div class="sub-desc">The default 1-based month value. (defaults to undefined)</div></li>
    * <li><code>d</code> : Number<div class="sub-desc">The default day value. (defaults to undefined)</div></li>
@@ -225,8 +223,8 @@ public class ExtDate extends Date {
    * <li><code>i</code> : Number<div class="sub-desc">The default minute value. (defaults to undefined)</div></li>
    * <li><code>s</code> : Number<div class="sub-desc">The default second value. (defaults to undefined)</div></li>
    * <li><code>ms</code> : Number<div class="sub-desc">The default millisecond value. (defaults to undefined)</div></li>
-   * </ul></div></p>
-   * <p>Override these properties to customize the default date values used by the {@link #parseDate} method.</p>
+   * </ul>
+   * <p>Override these properties to customize the default date values used by the <a href="#parseDate">parseDate</a> method.</p>
    * <p><b>Note: In countries which experience Daylight Saving Time (i.e. DST), the <tt>h</tt>, <tt>i</tt>, <tt>s</tt>
    * and <tt>ms</tt> properties may coincide with the exact time in which DST takes effect.
    * It is the responsiblity of the developer to account for this.</b></p>
@@ -240,9 +238,6 @@ public class ExtDate extends Date {
    // when attempting to parse the following date string on, for example, March 31st 2009.
    DateUtil.parseDate('2009-02', 'Y-m'); // returns a Date object representing February 1st 2009
    </code></pre>
-   * @property defaults
-   * @static
-   * @type Object
    */
   public static const defaults : Object = {};
 

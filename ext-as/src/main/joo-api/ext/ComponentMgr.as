@@ -3,9 +3,10 @@ package ext {
 import ext.util.MixedCollection;
 
 /**
- * <p>Provides a registry of all Components (instances of <b class='link'>ext.Component</b> or any subclass
+ * Provides a registry of all Components (instances of <b class='link'>ext.Component</b> or any subclass
  * thereof) on a page so that they can be easily accessed by <b class='link' title='ext.Component'>component</b>
- * <b class='link' title='ext.Component#id'>id</b> (see <b class='link' title='#get'>get</b>, or the convenience method <b class='link' title='Ext#getCmp'>Ext.getCmp</b>).</p>
+ * <b class='link' title='ext.Component#id'>id</b> (see <b class='link' title='#get'>get</b>, or the convenience method
+ * <b class='link' title='Ext#getCmp'>Ext.getCmp</b>).
  * <p>This object also provides a registry of available Component <i>classes</i>
  * indexed by a mnemonic code known as the Component's <b class='link' title='ext.Component#xtype'>xtype</b>.
  * The <code><b class='link' title='ext.Component#xtype'>xtype</b></code> provides a way to avoid instantiating child Components

@@ -36,7 +36,7 @@ import js.HTMLElement;
  * also override the methods you want on an instance of the class...
  * <pre>
  *  dd.onDragDrop = function(e, id) {
- *  &nbsp;&nbsp;alert("dd was dropped on " + id);
+ *    alert("dd was dropped on " + id);
  *  }
  * </pre>
 */
@@ -49,9 +49,7 @@ public class DragDrop {
  *                Valid properties for DragDrop:
  *                    padding, isTarget, maintainOffset, primaryButtonOnly
  */
-public function DragDrop(id : String, sGroup : String, config : Object) {
-  super(id, sGroup, config);
-}
+public native function DragDrop(id : String, sGroup : String, config : Object);
     /**
      * Set to false to enable a DragDrop object to fire drag events while dragging
      * over its own Element. Defaults to true - DragDrop objects do not by default
@@ -87,7 +85,7 @@ public function DragDrop(id : String, sGroup : String, config : Object) {
      * A non-null property value identifies the tag as invalid. Defaults to the 
      * following value which prevents drag operations from being initiated by &lt;a> elements:<pre><code>
 {
-    A&#58; "A"
+    A: "A"
 }</code></pre>
      */
     public var invalidHandleTypes : Object;
@@ -96,7 +94,7 @@ public function DragDrop(id : String, sGroup : String, config : Object) {
      * A non-null property value identifies the ID as invalid. For example, to prevent
      * dragging from being initiated on element ID "foo", use:<pre><code>
 {
-    foo&#58; true
+    foo: true
 }</code></pre>
      */
     public var invalidHandleIds : Object;

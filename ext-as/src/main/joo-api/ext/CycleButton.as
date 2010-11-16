@@ -9,17 +9,17 @@ import ext.menu.CheckItem;
  * button displays the dropdown menu just like a normal SplitButton.  Example usage:
  * <pre><code>
 var btn = new ext.CycleButton({
-    showText&#58; true,
-    prependText&#58; 'View as ',
-    items&#58; [{
-        text&#58;'text only',
-        iconCls&#58;'view-text',
-        checked&#58;true
+    showText: true,
+    prependText: 'View as ',
+    items: [{
+        text:'text only',
+        iconCls:'view-text',
+        checked:true
     },{
-        text&#58;'HTML',
-        iconCls&#58;'view-html'
+        text:'HTML',
+        iconCls:'view-html'
     }],
-    changeHandler&#58;function(btn, item){
+    changeHandler:function(btn, item){
         ext.Msg.alert('Change View', item.text);
     }
 });

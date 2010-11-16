@@ -14,11 +14,7 @@ public class PanelProxy {
  * @param panel The <b class='link'>ext.Panel</b> to proxy for
  * @param config Configuration options
  */
-public function PanelProxy(panel : Panel, config : Object = null) {
-  super();
-  panel++;
-  config++;
-}
+public native function PanelProxy(panel : Panel, config : Object = null);
     /**
      * @cfg {Boolean} insertProxy True to insert a placeholder proxy element while dragging the panel,
      * false to drag with no proxy (defaults to true).

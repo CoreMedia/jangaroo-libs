@@ -1,8 +1,8 @@
 package ext.data {
 
 /**
- * <p>An implementation of <b class='link'>ext.data.DataProxy</b> that processes data requests within the same
- * domain of the originating page.</p>
+ * An implementation of <b class='link'>ext.data.DataProxy</b> that processes data requests within the same
+ * domain of the originating page.
  * <p><b>Note</b>: this class cannot be used to retrieve data from a domain other
  * than the domain from which the running page was served. For cross-domain requests, use a
  * <b class='link' title='ext.data.ScriptTagProxy'>ScriptTagProxy</b>.</p>
@@ -22,10 +22,7 @@ public class HttpProxy extends DataProxy {
  * <p>If an options parameter is passed, the singleton <b class='link'>ext.Ajax</b> object will be used to make
  * the request.</p>
  */
-public function HttpProxy(conn : Object) {
-  super();
-  conn++;
-}
+public native function HttpProxy(conn : Object);
     /**
      * The Connection object (Or options parameter to <b class='link'>ext.Ajax#request</b>) which this HttpProxy
      * uses to make requests to the server. Properties of this object may be changed dynamically to
@@ -50,19 +47,19 @@ public function HttpProxy(conn : Object) {
      * </ul></div></p>
      * <p>For example:</p>
      * <pre><code>
-api&#58; {
+api: {
     load :    '/controller/load',
     create :  '/controller/new',  // Server MUST return idProperty of new record
     save :    '/controller/update',
     destroy : '/controller/destroy_action'
 }
 
-&#47;/ Alternatively, one can use the object-form to specify each API-action
-api&#58; {
-    load&#58; {url: 'read.php', method: 'GET'},
-    create&#58; 'create.php',
-    destroy&#58; 'destroy.php',
-    save&#58; 'update.php'
+// Alternatively, one can use the object-form to specify each API-action
+api: {
+    load: {url: 'read.php', method: 'GET'},
+    create: 'create.php',
+    destroy: 'destroy.php',
+    save: 'update.php'
 }
      */
     /**

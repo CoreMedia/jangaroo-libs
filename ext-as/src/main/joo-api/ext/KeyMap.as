@@ -8,33 +8,33 @@ package ext {
  * A KeyMap can also handle a string representation of keys.<br />
  * Usage:
  <pre><code>
-&#47;/ map one key by key code
+// map one key by key code
 var map = new ext.KeyMap("my-element", {
-    key&#58; 13, // or ext.EventObjectClass.ENTER
-    fn&#58; myHandler,
-    scope&#58; myObject
+    key: 13, // or ext.EventObjectClass.ENTER
+    fn: myHandler,
+    scope: myObject
 });
 
-&#47;/ map multiple keys to one action by string
+// map multiple keys to one action by string
 var map = new ext.KeyMap("my-element", {
-    key&#58; "a\r\n\t",
-    fn&#58; myHandler,
-    scope&#58; myObject
+    key: "a\r\n\t",
+    fn: myHandler,
+    scope: myObject
 });
 
-&#47;/ map multiple keys to multiple actions by strings and array of codes
+// map multiple keys to multiple actions by strings and array of codes
 var map = new ext.KeyMap("my-element", [
     {
-        key&#58; [10,13],
-        fn&#58; function(){ alert("Return was pressed"); }
+        key: [10,13],
+        fn: function(){ alert("Return was pressed"); }
     }, {
-        key&#58; "abc",
-        fn&#58; function(){ alert('a, b or c was pressed'); }
+        key: "abc",
+        fn: function(){ alert('a, b or c was pressed'); }
     }, {
-        key&#58; "\t",
-        ctrl&#58;true,
-        shift&#58;true,
-        fn&#58; function(){ alert('Control + shift + tab was pressed.'); }
+        key: "\t",
+        ctrl:true,
+        shift:true,
+        fn: function(){ alert('Control + shift + tab was pressed.'); }
     }
 ]);
 </code></pre>
@@ -47,9 +47,7 @@ public class KeyMap {
  * @param config The config (see <b class='link' title='#addBinding'>addBinding</b>)
  * @param eventName The event to bind to (defaults to "keydown")
  */
-public function KeyMap(el : *, config : Object, eventName : String = undefined) {
-  super(el, config, eventName);
-}
+public native function KeyMap(el : *, config : Object, eventName : String = undefined);
     /**
      * True to stop the event from bubbling and prevent the default browser action if the
      * key was handled by the KeyMap (defaults to false)
@@ -72,19 +70,19 @@ stopEvent   Boolean          True to stop the event from bubbling and prevent th
      *
      * Usage:
      * <pre><code>
-&#47;/ Create a KeyMap
+// Create a KeyMap
 var map = new ext.KeyMap(document, {
-    key&#58; ext.EventObjectClass.ENTER,
-    fn&#58; handleKey,
-    scope&#58; this
+    key: ext.EventObjectClass.ENTER,
+    fn: handleKey,
+    scope: this
 });
 
-&#47;/Add a new binding to the existing KeyMap later
+//Add a new binding to the existing KeyMap later
 map.addBinding({
-    key&#58; 'abc',
-    shift&#58; true,
-    fn&#58; handleKey,
-    scope&#58; this
+    key: 'abc',
+    shift: true,
+    fn: handleKey,
+    scope: this
 });
 </code></pre>
      * @param config A single KeyMap config or an array of configs

@@ -4,7 +4,7 @@ package ext.grid {
  * an automatic row numbering column.
  * <br>Usage:<br>
  <pre><code>
- &#47;/ This is a typical column config with the first column providing row numbers
+ // This is a typical column config with the first column providing row numbers
  var colModel = new Ext.grid.ColumnModel([
     new Ext.grid.RowNumberer(),
     {header: "Name", width: 80, sortable: true},
@@ -18,9 +18,7 @@ public class RowNumberer {
  * @constructor
  * @param config The configuration options
  */
-public function RowNumberer(config : Object) {
-  super(config);
-}
+public native function RowNumberer(config : Object);
     /**
      * @cfg {String} header Any valid text or HTML fragment to display in the header cell for the row
      * number column (defaults to '').

@@ -52,7 +52,7 @@ public function Tip(config : Object) {
     /**
      * Shows this tip at the specified XY position.  Example usage:
      * <pre><code>
-&#47;/ Show the tip at x:50 and y:100
+// Show the tip at x:50 and y:100
 tip.showAt([50,100]);
 </code></pre>
      * @param xy An array containing the x and y coordinates
@@ -63,10 +63,10 @@ tip.showAt([50,100]);
      * <b>Experimental</b>. Shows this tip at a position relative to another element using a standard <b class='link'>ext.Element#alignTo</b>
      * anchor position value.  Example usage:
      * <pre><code>
-&#47;/ Show the tip at the default position ('tl-br?')
+// Show the tip at the default position ('tl-br?')
 tip.showBy('my-el');
 
-&#47;/ Show the tip's top-left corner anchored to the element's top-right corner
+// Show the tip's top-left corner anchored to the element's top-right corner
 tip.showBy('my-el', 'tl-tr');
 </code></pre>
      * @param el An HTMLElement, ext.Element or string id of the target element to align to

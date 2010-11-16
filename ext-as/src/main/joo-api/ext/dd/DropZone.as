@@ -20,33 +20,33 @@ import ext.EventObjectClass;
 myGridPanel.on('render', function() {
     myGridPanel.dropZone = new Ext.dd.DropZone(myGridPanel.getView().scroller, {
 
-&#47;/      If the mouse is over a grid row, return that node. This is
-&#47;/      provided as the "target" parameter in all "onNodeXXXX" node event handling functions
-        getTargetFromEvent&#58; function(e) {
+//      If the mouse is over a grid row, return that node. This is
+//      provided as the "target" parameter in all "onNodeXXXX" node event handling functions
+        getTargetFromEvent: function(e) {
             return e.getTarget(myGridPanel.getView().rowSelector);
         },
 
-&#47;/      On entry into a target node, highlight that node.
+//      On entry into a target node, highlight that node.
         onNodeEnter : function(target, dd, e, data){ 
             Ext.fly(target).addClass('my-row-highlight-class');
         },
 
-&#47;/      On exit from a target node, unhighlight that node.
+//      On exit from a target node, unhighlight that node.
         onNodeOut : function(target, dd, e, data){ 
             Ext.fly(target).removeClass('my-row-highlight-class');
         },
 
-&#47;/      While over a target node, return the default drop allowed class which
-&#47;/      places a "tick" icon into the drag proxy.
+//      While over a target node, return the default drop allowed class which
+//      places a "tick" icon into the drag proxy.
         onNodeOver : function(target, dd, e, data){ 
             return Ext.dd.DropZone.prototype.dropAllowed;
         },
 
-&#47;/      On node drop we can interrogate the target to find the underlying
-&#47;/      application object that is the real target of the dragged data.
-&#47;/      In this case, it is a Record in the GridPanel's Store.
-&#47;/      We can use the data set up by the DragZone's getDragData method to read
-&#47;/      any data we decided to attach in the DragZone's getDragData method.
+//      On node drop we can interrogate the target to find the underlying
+//      application object that is the real target of the dragged data.
+//      In this case, it is a Record in the GridPanel's Store.
+//      We can use the data set up by the DragZone's getDragData method to read
+//      any data we decided to attach in the DragZone's getDragData method.
         onNodeDrop : function(target, dd, e, data){
             var rowIndex = myGridPanel.getView().findRowIndex(target);
             var r = myGridPanel.getStore().getAt(rowIndex);

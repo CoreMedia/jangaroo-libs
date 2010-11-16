@@ -2,10 +2,10 @@ package ext {
 import ext.data.Store;
 
 /**
- * <p>As the amount of records increases, the time required for the browser to render
+ * As the amount of records increases, the time required for the browser to render
  * them increases. Paging is used to reduce the amount of data exchanged with the client.
  * Note: if there are more records/rows than can be viewed in the available screen area, vertical
- * scrollbars will be added.</p>
+ * scrollbars will be added.
  * <p>Paging is typically handled on the server side (see exception below). The client sends
  * parameters to the server side, which the server needs to interpret and then respond with the
  * approprate data.</p>
@@ -25,13 +25,13 @@ var myPageSize = 25;  // server script should only send back 25 items
 
 var grid = new Ext.grid.GridPanel({
     ...
-    store&#58; myStore,
-    bbar&#58; new ext.PagingToolbar({
+    store: myStore,
+    bbar: new ext.PagingToolbar({
         <b class='link' title='#store'>store</b>: myStore,       // grid and PagingToolbar using same store
         <b class='link' title='#displayInfo'>displayInfo</b>: true,
         <b class='link' title='#pageSize'>pageSize</b>: myPageSize,
         <b class='link' title='#prependButtons'>prependButtons</b>: true,
-        items&#58; [
+        items: [
             'text 1'
         ]
     })
@@ -41,10 +41,10 @@ var grid = new Ext.grid.GridPanel({
  * <p>To use paging, pass the paging requirements to the server when the store is first loaded.</p>
  * <pre><code>
 store.load({
-    params&#58; {
-        start&#58; 0,          // specify params for the first page load if using paging
-        limit&#58; myPageSize,
-        foo&#58;   'bar'
+    params: {
+        start: 0,          // specify params for the first page load if using paging
+        limit: myPageSize,
+        foo:   'bar'
     }
 });
  * </code></pre>

@@ -39,10 +39,7 @@ public class ScriptTagProxy extends DataProxy {
  * @constructor
  * @param config A configuration object.
  */
-public function ScriptTagProxy(config : Object) {
-  super();
-  config++;
-}
+public native function ScriptTagProxy(config : Object);
 public static var TRANS_ID = 1000;
     /**
      * @cfg {String} url The URL from which to request the data object.

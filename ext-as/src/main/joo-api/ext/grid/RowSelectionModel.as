@@ -13,10 +13,7 @@ public class RowSelectionModel extends AbstractSelectionModel {
  * @constructor
  * @param config
  */
-public function RowSelectionModel(config : Object) {
-  super();
-  config++;
-}
+public native function RowSelectionModel(config : Object);
     /**
      * @cfg {Boolean} singleSelect
      * <code>true</code> to allow selection of only one row at a time (defaults to <code>false</code>

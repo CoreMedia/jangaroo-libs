@@ -1,6 +1,5 @@
 package ext {
 
-import ext.Element;
 import ext.dd.DD;
 import ext.dd.DDProxy;
 import ext.dd.DDTarget;
@@ -70,12 +69,12 @@ public static const DISPLAY  : Number = 2;
          * <pre><code>
 var el = Ext.get('complexEl');
 el.animate(
-    &#47;/ animation control object
+    // animation control object
     {
-        borderWidth&#58; {to: 3, from: 0},
-        opacity&#58; {to: .3, from: 1},
-        height&#58; {to: 50, from: el.getHeight()},
-        width&#58; {to: 300, from: el.getWidth()},
+        borderWidth: {to: 3, from: 0},
+        opacity: {to: .3, from: 1},
+        height: {to: 50, from: el.getHeight()},
+        width: {to: 300, from: el.getWidth()},
         top  : {by: - 100, unit: 'px'},
     },
     0.35,      // animation duration
@@ -89,10 +88,10 @@ el.animate(
          * <p>Animates transition of background, text, or border colors.</p>
          * <pre><code>
 el.animate(
-    &#47;/ animation control object
+    // animation control object
     {
-        color&#58; { to: '#06e' },
-        backgroundColor&#58; { to: '#e06' }
+        color: { to: '#06e' },
+        backgroundColor: { to: '#e06' }
     },
     0.35,      // animation duration
     null,      // callback
@@ -107,16 +106,16 @@ el.animate(
          * way points during transit.</p>
          * <pre><code>
 el.animate(
-    &#47;/ animation control object
+    // animation control object
     {
-        borderWidth&#58; {to: 3, from: 0},
-        opacity&#58; {to: .3, from: 1},
-        height&#58; {to: 50, from: el.getHeight()},
-        width&#58; {to: 300, from: el.getWidth()},
+        borderWidth: {to: 3, from: 0},
+        opacity: {to: .3, from: 1},
+        height: {to: 50, from: el.getHeight()},
+        width: {to: 300, from: el.getWidth()},
         top  : {by: - 100, unit: 'px'},
-        points&#58; {
-            to&#58; [50, 100],  // go to this point
-            control&#58; [      // optional bezier way points
+        points: {
+            to: [50, 100],  // go to this point
+            control: [      // optional bezier way points
                 [ 600, 800],
                 [-100, 200]
             ]
@@ -133,9 +132,9 @@ el.animate(
          * <p>Animate horizontal or vertical scrolling of an overflowing page element.</p>
          * <pre><code>
 el.animate(
-    &#47;/ animation control object
+    // animation control object
     {
-        scroll&#58; {to: [400, 300]}
+        scroll: {to: [400, 300]}
     },
     0.35,      // animation duration
     null,      // callback
@@ -267,10 +266,10 @@ el.animate(
  * browsers may not support the full range of events. Which events are supported is beyond the control of ExtJs.</p>
  * Usage:<br>
 <pre><code>
-&#47;/ by id
+// by id
 var el = Ext.get("my-div");
 
-&#47;/ by DOM element reference
+// by DOM element reference
 var el = Ext.get(myDivElement);
 </code></pre>
  * <b>Animations</b><br />
@@ -278,13 +277,13 @@ var el = Ext.get(myDivElement);
  * <pre><code>
 var el = Ext.get("my-div");
 
-&#47;/ no animation
+// no animation
 el.setWidth(100);
  * </code></pre>
  * <p>Many of the functions for manipulating an element have an optional "animate" parameter.  This
  * parameter can be specified as boolean (<code>true</code>) for default animation effects.</p>
  * <pre><code>
-&#47;/ default animation
+// default animation
 el.setWidth(100, true);
  * </code></pre>
  * 
@@ -302,20 +301,20 @@ Option    Default   Description
 </pre>
  * 
  * <pre><code>
-&#47;/ Element animation options object
+// Element animation options object
 var opt = {
     <b class='link' title='ext.Fx#duration'>duration</b>: 1,
     <b class='link' title='ext.Fx#easing'>easing</b>: 'elasticIn',
     <b class='link' title='ext.Fx#callback'>callback</b>: this.foo,
     <b class='link' title='ext.Fx#scope'>scope</b>: this
 };
-&#47;/ animation with some options set
+// animation with some options set
 el.setWidth(100, opt);
  * </code></pre>
  * <p>The Element animation object being used for the animation will be set on the options
  * object as "anim", which allows you to stop or manipulate the animation. Here is an example:</p>
  * <pre><code>
-&#47;/ using the "anim" property to get the Anim object
+// using the "anim" property to get the Anim object
 if(opt.anim.isAnimated()){
     opt.anim.stop();
 }
@@ -327,9 +326,7 @@ if(opt.anim.isAnimated()){
  * @param element
  * @param forceNew By default the constructor checks to see if there is already an instance of this element in the cache and if there is it returns the same instance. This will skip that check (useful for extending this class).
  */
-public function Element(element : *, forceNew : Boolean = false) {
-  super(element, forceNew);
-}
+public native function Element(element : *, forceNew : Boolean = false);
     /**
      * The DOM element
      */
@@ -408,10 +405,10 @@ public function Element(element : *, forceNew : Boolean = false) {
      * options object. The options object is available as the third parameter in the handler function.<div style="margin: 5px 20px 20px;">
      * Code:<pre><code>
 el.on('click', this.onClick, this, {
-    single&#58; true,
-    delay&#58; 100,
+    single: true,
+    delay: 100,
     stopEvent : true,
-    forumId&#58; 4
+    forumId: 4
 });</code></pre></p>
      * <p>
      * <b>Attaching multiple handlers in 1 call</b><br>
@@ -421,17 +418,17 @@ el.on('click', this.onClick, this, {
      * Code:<pre><code>
 el.on({
     'click' : {
-        fn&#58; this.onClick,
-        scope&#58; this,
-        delay&#58; 100
+        fn: this.onClick,
+        scope: this,
+        delay: 100
     },
     'mouseover' : {
-        fn&#58; this.onMouseOver,
-        scope&#58; this
+        fn: this.onMouseOver,
+        scope: this
     },
     'mouseout' : {
-        fn&#58; this.onMouseOut,
-        scope&#58; this
+        fn: this.onMouseOut,
+        scope: this
     }
 });</code></pre>
      * <p>
@@ -441,7 +438,7 @@ el.on({
     'click' : this.onClick,
     'mouseover' : this.onMouseOver,
     'mouseout' : this.onMouseOut,
-    scope&#58; this
+    scope: this
 });
      * </code></pre></p>
      * <p><b>delegate</b></p>
@@ -452,24 +449,24 @@ el.on({
      * configuration option to a simple selector, the target element will be filtered to look for
      * a descendant of the target.
      * For example:<pre><code>
-&#47;/ using this markup:
+// using this markup:
 &lt;div id='elId'>
     &lt;p id='p1'>paragraph one&lt;/p>
     &lt;p id='p2' class='clickable'>paragraph two&lt;/p>
     &lt;p id='p3'>paragraph three&lt;/p>
 &lt;/div>
-&#47;/ utilize event delegation to registering just one handler on the container element: 
+// utilize event delegation to registering just one handler on the container element:
 el = Ext.get('elId');
 el.on(
     'click',
     function(e,t) {
-        &#47;/ handle click
+        // handle click
         console.info(t.id); // 'p2'
     },
     this,
     {
-        &#47;/ filter the target element to be a descendant with the class 'clickable'
-        delegate&#58; '.clickable' 
+        // filter the target element to be a descendant with the class 'clickable'
+        delegate: '.clickable'
     }
 );
      * </code></pre></p>
@@ -483,7 +480,7 @@ el.on(
      * Example:
      * <pre><code>
 el.removeListener('click', this.handlerFn);
-&#47;/ or
+// or
 el.un('click', this.handlerFn);
 </code></pre>
      * @param eventName the type of event to remove
@@ -861,14 +858,14 @@ el.un('click', this.handlerFn);
         /**
          * Set the height of this Element.
          * <pre><code>
-&#47;/ change the height to 200px and animate with default configuration
+// change the height to 200px and animate with default configuration
 Ext.fly('elementId').setHeight(200, true);
 
-&#47;/ change the height to 150px and animate with a custom configuration
+// change the height to 150px and animate with a custom configuration
 Ext.fly('elId').setHeight(150, {
     duration : .5, // animation will have a duration of .5 seconds
-    &#47;/ will change the content to "finished"
-    callback&#58; function(){ this.<b class='link' title='#update}("finished");'></b> 
+    // will change the content to "finished"
+    callback: function(){ this.<b class='link' title='#update}("finished");'></b>
 });
          * </code></pre>
          * @param height The new height. This may be one of:<div class="mdetail-params"><ul>
@@ -1106,17 +1103,17 @@ br     The bottom right corner
 </pre>
 Example Usage:
 <pre><code>
-&#47;/ align el to other-el using the default positioning ("tl-bl", non-constrained)
+// align el to other-el using the default positioning ("tl-bl", non-constrained)
 el.alignTo("other-el");
 
-&#47;/ align the top left corner of el with the top right corner of other-el (constrained to viewport)
+// align the top left corner of el with the top right corner of other-el (constrained to viewport)
 el.alignTo("other-el", "tr?");
 
-&#47;/ align the bottom right corner of el with the center left edge of other-el
+// align the bottom right corner of el with the center left edge of other-el
 el.alignTo("other-el", "br-l?");
 
-&#47;/ align the center of el with the bottom left corner of other-el and
-&#47;/ adjust the x position by -6 pixels (and the y position by 0)
+// align the center of el with the bottom left corner of other-el and
+// adjust the x position by -6 pixels (and the y position by 0)
 el.alignTo("other-el", "c-bl", [-6, 0]);
 </code></pre>
      * @param element The element to align to.
@@ -1356,12 +1353,12 @@ ext.Element.boxMarkup =
 		* </code></pre>
 		* <p>Example usage:</p>
 		* <pre><code>
-&#47;/ Basic box wrap
+// Basic box wrap
 Ext.get("foo").boxWrap();
 
-&#47;/ You can also add a custom class and use CSS inheritance rules to customize the box look.
-&#47;/ 'x-box-blue' is a built-in alternative -- look at the related CSS definitions as an example
-&#47;/ for how to create a custom box wrap style.
+// You can also add a custom class and use CSS inheritance rules to customize the box look.
+// 'x-box-blue' is a built-in alternative -- look at the related CSS definitions as an example
+// for how to create a custom box wrap style.
 Ext.get("foo").boxWrap().addClass("x-box-blue");
 		* </code></pre>
 		* @param class_ A base CSS class to apply to the containing wrapper element
@@ -1430,12 +1427,12 @@ Ext.get("foo").boxWrap().addClass("x-box-blue");
         * <pre><code>
         var vpSize = Ext.getBody().getViewSize();
 
-        &#47;/ all Windows created afterwards will have a default value of 90% height and 95% width
+        // all Windows created afterwards will have a default value of 90% height and 95% width
         ext.Window.override({
-            width&#58; vpSize.width * 0.9,
-            height&#58; vpSize.height * 0.95
+            width: vpSize.width * 0.9,
+            height: vpSize.height * 0.95
         });
-        &#47;/ To handle window resizing you would have to hook onto onWindowResize.
+        // To handle window resizing you would have to hook onto onWindowResize.
         </code></pre>
 	     * @return An object containing the viewport's size {width: (viewport width), height: (viewport height)}
 	     */

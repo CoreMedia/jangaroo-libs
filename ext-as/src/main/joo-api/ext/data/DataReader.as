@@ -15,9 +15,7 @@ public class DataReader {
  * will be passed to <b class='link'>ext.data.Record#create</b>, or a <b class='link' title='ext.data.Record'>Record</b>
  * constructor created using <b class='link'>ext.data.Record#create</b>.</p>
  */
-public function DataReader(meta : Object, recordType : *) {
-  super(meta, recordType);
-}
+public native function DataReader(meta : Object, recordType : *);
     /**
      * This DataReader's configured metadata as passed to the constructor.
      * @property meta

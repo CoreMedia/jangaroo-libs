@@ -14,23 +14,23 @@ package ext.layout {
  * logic if necessary.  For example:</p>
  * <pre><code>
 var viewport = new ext.Viewport({
-    layout&#58;'anchor',
-    anchorSize&#58; {width:800, height:600},
-    items&#58;[{
-        title&#58;'Item 1',
-        html&#58;'Content 1',
-        width&#58;800,
-        anchor&#58;'right 20%'
+    layout:'anchor',
+    anchorSize: {width:800, height:600},
+    items:[{
+        title:'Item 1',
+        html:'Content 1',
+        width:800,
+        anchor:'right 20%'
     },{
-        title&#58;'Item 2',
-        html&#58;'Content 2',
-        width&#58;300,
-        anchor&#58;'50% 30%'
+        title:'Item 2',
+        html:'Content 2',
+        width:300,
+        anchor:'50% 30%'
     },{
-        title&#58;'Item 3',
-        html&#58;'Content 3',
-        width&#58;600,
-        anchor&#58;'-100 50%'
+        title:'Item 3',
+        html:'Content 3',
+        width:600,
+        anchor:'-100 50%'
     }]
 });
  * </code></pre>
@@ -49,23 +49,23 @@ var viewport = new ext.Viewport({
      * <li><b>Percentage</b> : Any value between 1 and 100, expressed as a percentage.<div class="sub-desc">
      * The first anchor is the percentage width that the item should take up within the container, and the
      * second is the percentage height.  For example:<pre><code>
-&#47;/ two values specified
-anchor&#58; '100% 50%' // render item complete width of the container and
-                   &#47;/ 1/2 height of the container
-&#47;/ one value specified
-anchor&#58; '100%'     // the width value; the height will default to auto
+// two values specified
+anchor: '100% 50%' // render item complete width of the container and
+                   // 1/2 height of the container
+// one value specified
+anchor: '100%'     // the width value; the height will default to auto
      * </code></pre></div></li>
      * 
      * <li><b>Offsets</b> : Any positive or negative integer value.<div class="sub-desc">
      * This is a raw adjustment where the first anchor is the offset from the right edge of the container,
      * and the second is the offset from the bottom edge. For example:<pre><code>
-&#47;/ two values specified
-anchor&#58; '-50 -100' // render item the complete width of the container
-                   &#47;/ minus 50 pixels and
-                   &#47;/ the complete height minus 100 pixels.
-&#47;/ one value specified
-anchor&#58; '-50'      // anchor value is assumed to be the right offset value
-                   &#47;/ bottom offset will default to 0
+// two values specified
+anchor: '-50 -100' // render item the complete width of the container
+                   // minus 50 pixels and
+                   // the complete height minus 100 pixels.
+// one value specified
+anchor: '-50'      // anchor value is assumed to be the right offset value
+                   // bottom offset will default to 0
      * </code></pre></div></li>
      * 
      * <li><b>Sides</b> : Valid values are <code>'right'</code> (or <code>'r'</code>) and <code>'bottom'</code>
@@ -77,7 +77,7 @@ anchor&#58; '-50'      // anchor value is assumed to be the right offset value
      * Anchor values can also be mixed as needed.  For example, to render the width offset from the container
      * right edge by 50 pixels and 75% of the container's height use:
      * <pre><code>
-anchor&#58; '-50 75%' 
+anchor: '-50 75%'
      * </code></pre></div></li>
      * 
      * 

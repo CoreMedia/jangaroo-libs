@@ -2,10 +2,10 @@ package ext {
 import js.HTMLElement;
 
 /**
- * <p>A basic tab container. TabPanels can be used exactly like a standard <b class='link'>ext.Panel</b>
+ * A basic tab container. TabPanels can be used exactly like a standard <b class='link'>ext.Panel</b>
  * for layout purposes, but also have special support for containing child Components
  * (<code><b class='link' title='ext.Container#items'>items</b></code>) that are managed using a
- * <b class='link' title='Ext.layout.CardLayout CardLayout layout'>manager</b>, and displayed as separate tabs.</p>
+ * <b class='link' title='Ext.layout.CardLayout CardLayout layout'>manager</b>, and displayed as separate tabs.
  *
  * <b>Note:</b> By default, a tab's close tool <i>destroys</i> the child tab Component
  * and all its descendants. This makes the child tab Component, and all its descendants <b>unusable</b>. To enable
@@ -34,14 +34,14 @@ import js.HTMLElement;
  * <p>TabPanels can be created and rendered completely in code, as in this example:</p>
  * <pre><code>
 var tabs = new ext.TabPanel({
-    renderTo&#58; Ext.getBody(),
-    activeTab&#58; 0,
-    items&#58; [{
-        title&#58; 'Tab 1',
-        html&#58; 'A simple tab'
+    renderTo: Ext.getBody(),
+    activeTab: 0,
+    items: [{
+        title: 'Tab 1',
+        html: 'A simple tab'
     },{
-        title&#58; 'Tab 2',
-        html&#58; 'Another one'
+        title: 'Tab 2',
+        html: 'Another one'
     }]
 });
 </code></pre>
@@ -62,15 +62,15 @@ var tabs = new ext.TabPanel({
  * elements within the page by id regardless of page structure. For example:</p>
  * <pre><code>
 var tabs = new ext.TabPanel({
-    renderTo&#58; 'my-tabs',
-    activeTab&#58; 0,
-    items&#58;[
+    renderTo: 'my-tabs',
+    activeTab: 0,
+    items:[
         {contentEl:'tab1', title:'Tab 1'},
         {contentEl:'tab2', title:'Tab 2'}
     ]
 });
 
-&#47;/ Note that the tabs do not have to be nested within the container (although they can be)
+// Note that the tabs do not have to be nested within the container (although they can be)
 &lt;div id="my-tabs">&lt;/div>
 &lt;div id="tab1" class="x-hide-display">A simple tab&lt;/div>
 &lt;div id="tab2" class="x-hide-display">Another one&lt;/div>
@@ -196,13 +196,13 @@ public function TabPanel(config : Object) {
      * </ul>Example usage:</p>
      * <pre><code>
 var tabs = new ext.TabPanel({
-    applyTo&#58; 'my-tabs',
-    activeTab&#58; 0,
-    deferredRender&#58; false,
-    autoTabs&#58; true
+    applyTo: 'my-tabs',
+    activeTab: 0,
+    deferredRender: false,
+    autoTabs: true
 });
 
-&#47;/ This markup will be converted to a TabPanel from the code above
+// This markup will be converted to a TabPanel from the code above
 &lt;div id="my-tabs">
     &lt;div class="x-tab" title="Tab 1">A simple tab&lt;/div>
     &lt;div class="x-tab" title="Tab 2">Another one&lt;/div>
@@ -269,14 +269,14 @@ var tabs = new ext.TabPanel({
          * style rules to create the desired appearance.</p>
          * Below is an example of how to create customized tab selector items:<pre><code>
 new ext.TabPanel({
-    renderTo&#58; document.body,
-    minTabWidth&#58; 115,
-    tabWidth&#58; 135,
-    enableTabScroll&#58; true,
-    width&#58; 600,
-    height&#58; 250,
-    defaults&#58; {autoScroll:true},
-    itemTpl&#58; new ext.XTemplate(
+    renderTo: document.body,
+    minTabWidth: 115,
+    tabWidth: 135,
+    enableTabScroll: true,
+    width: 600,
+    height: 250,
+    defaults: {autoScroll:true},
+    itemTpl: new ext.XTemplate(
     '&lt;li class="{cls}" id="{id}" style="overflow:hidden">',
          '&lt;tpl if="closable">',
             '&lt;a class="x-tab-strip-close" onclick="return false;">&lt;/a>',
@@ -291,27 +291,27 @@ new ext.TabPanel({
         '&lt;/a>',
     '&lt;/li>'
     ),
-    getTemplateArgs&#58; function(item) {
-&#47;/      Call the native method to collect the base data. Like the ID!
+    getTemplateArgs: function(item) {
+//      Call the native method to collect the base data. Like the ID!
         var result = ext.TabPanel.prototype.getTemplateArgs.call(this, item);
 
-&#47;/      Add stuff used in our template
+//      Add stuff used in our template
         return Ext.apply(result, {
-            closable&#58; item.closable,
-            src&#58; item.iconSrc,
-            extra&#58; item.extraText || ''
+            closable: item.closable,
+            src: item.iconSrc,
+            extra: item.extraText || ''
         });
     },
-    items&#58; [{
-        title&#58; 'New Tab 1',
-        iconSrc&#58; '../shared/icons/fam/grid.png',
-        html&#58; 'Tab Body 1',
-        closable&#58; true
+    items: [{
+        title: 'New Tab 1',
+        iconSrc: '../shared/icons/fam/grid.png',
+        html: 'Tab Body 1',
+        closable: true
     }, {
-        title&#58; 'New Tab 2',
-        iconSrc&#58; '../shared/icons/fam/grid.png',
-        html&#58; 'Tab Body 2',
-        extraText&#58; 'Extra stuff in the tab button'
+        title: 'New Tab 2',
+        iconSrc: '../shared/icons/fam/grid.png',
+        html: 'Tab Body 2',
+        extraText: 'Extra stuff in the tab button'
     }]
 });
 </code></pre>

@@ -80,34 +80,31 @@ public class Ext {
          * Extends one class with another class and optionally overrides members with the passed literal. This class
          * also adds the function "override()" to the class that can be used to override
          * members on an instance.
-         * * <p>
-         * This function also supports a 2-argument call in which the subclass's constructor is
-         * not passed as an argument. In this form, the parameters are as follows:</p><p>
-         * <div class="mdetail-params"><ul>
-         * <li><code>superclass</code>
-         * <div class="sub-desc">The class being extended</div></li>
-         * <li><code>overrides</code>
-         * <div class="sub-desc">A literal with members which are copied into the subclass's
-         * prototype, and are therefore shared among all instances of the new class.<p>
-         * This may contain a special member named <code><b>constructor</b></code>. This is used
-         * to define the constructor of the new class, and is returned. If this property is
-         * <i>not</i> specified, a constructor is generated and returned which just calls the
-         * superclass's constructor passing on its parameters.</p></div></li>
-         * </ul></div></p><p>
-         * For example, to create a subclass of the Ext GridPanel:
-         * <pre><code>
-MyGridPanel = Ext.extend(Ext.grid.GridPanel, {
-    constructor&#58; function(config) {
-        &#47;/ Your preprocessing here
-        MyGridPanel.superclass.constructor.apply(this, arguments);
-        &#47;/ Your postprocessing here
-    },
-
-    yourMethod&#58; function() {
-        &#47;/ etc.
-    }
-});
-</code></pre>
+         * <p>This function also supports a 2-argument call in which the subclass's constructor is
+         * not passed as an argument. In this form, the parameters are as follows:</p>
+         * <ul>
+         * <li><code>superclass</code> The class being extended</li>
+         * <li><code>overrides</code> A literal with members which are copied into the subclass's
+         *   prototype, and are therefore shared among all instances of the new class.
+         *   <p>This may contain a special member named <code><b>constructor</b></code>. This is used
+         *   to define the constructor of the new class, and is returned. If this property is
+         *   <i>not</i> specified, a constructor is generated and returned which just calls the
+         *   superclass's constructor passing on its parameters.</p></li>
+         * </ul>
+         * <p>For example, to create a subclass of the Ext GridPanel:</p>
+         * <pre>
+         * MyGridPanel = Ext.extend(Ext.grid.GridPanel, {
+         *     constructor: function(config) {
+         *         // Your preprocessing here
+         *         MyGridPanel.superclass.constructor.apply(this, arguments);
+         *         // Your postprocessing here
+         *     },
+         *
+         *     yourMethod: function() {
+         *         // etc.
+         *     }
+         * });
+         * </pre>
          * </p>
          * @param subclass The class inheriting the functionality
          * @param superclass The class being extended
@@ -121,10 +118,10 @@ MyGridPanel = Ext.extend(Ext.grid.GridPanel, {
          * Usage:<pre><code>
 Ext.override(MyClass, {
     newMethod1: function(){
-        &#47;/ etc.
+        // etc.
     },
     newMethod2: function(foo){
-        &#47;/ etc.
+        // etc.
     }
 });
 </code></pre>
@@ -214,16 +211,16 @@ Ext.urlDecode("foo=1&bar=2&bar=3&bar=4", false); // returns {foo: "1", bar: ["2"
          * Return the dom node for the passed String (id), dom node, or ext.Element.
          * Here are some examples:
          * <pre><code>
-&#47;/ gets dom node based on id
+// gets dom node based on id
 var elDom = Ext.getDom('elId');
-&#47;/ gets dom node based on the dom node
+// gets dom node based on the dom node
 var elDom1 = Ext.getDom(elDom);
 
-&#47;/ If we don&#39;t know if we are working with an
-&#47;/ ext.Element or a dom node use Ext.getDom
+// If we don&#39;t know if we are working with an
+// ext.Element or a dom node use Ext.getDom
 function(el){
     var dom = Ext.getDom(el);
-    &#47;/ do something with the dom node
+    // do something with the dom node
 }
          * </code></pre>
          * <b>Note</b>: the dom node to be found actually needs to exist (be rendered, etc)
@@ -445,14 +442,14 @@ Company.data.CustomStore = function(config) { ... }
          * The event name is specified with an <code>&#64;</code> suffix.
          * <pre><code>
 Ext.addBehaviors({
-    &#47;/ add a listener for click on all anchors in element with id foo
+    // add a listener for click on all anchors in element with id foo
     '#foo a&#64;click' : function(e, t){
-        &#47;/ do something
+        // do something
     },
     
-    &#47;/ add the same listener to multiple selectors (separated by comma BEFORE the &#64;)
+    // add the same listener to multiple selectors (separated by comma BEFORE the &#64;)
     '#foo a, #bar span.some-class&#64;mouseover' : function(){
-        &#47;/ do something
+        // do something
     }
 });
          * </code></pre> 
@@ -485,7 +482,7 @@ public class ImageComponent extends BoxComponent {
          * Attempts to destroy any objects passed to it by removing all event listeners, removing them from the
          * DOM (if applicable) and calling their destroy functions (if available).  This method is primarily
          * intended for arguments of type <b class='link'>ext.Element</b> and <b class='link'>ext.Component</b>, but any subclass of
-         * <b class='link'>Ext.util.Observable</b> can be passed in.  Any number of elements and/or components can be
+         * <b class='link'>ext.util.Observable</b> can be passed in.  Any number of elements and/or components can be
          * passed into this function in a single call as separate arguments.
          * @param arg1 An <b class='link'>ext.Element</b>, <b class='link'>ext.Component</b>, or an Array of either of these to destroy
          * @param arg2
@@ -550,18 +547,18 @@ public class ImageComponent extends BoxComponent {
          * Example: 
          * Example2: 
          * <pre><code>
-&#47;/ Example 1:
+// Example 1:
 Ext.partition([true, false, true, true, false]); // [[true, true, true], [false, false]]
 
-&#47;/ Example 2:
+// Example 2:
 Ext.partition(
     Ext.query("p"),
     function(val){
         return val.className == "class1"
     }
 );
-&#47;/ true are those paragraph elements with a className of "class1",
-&#47;/ false set are those that do not have that className.
+// true are those paragraph elements with a className of "class1",
+// false set are those that do not have that className.
          * </code></pre>
          * @param arr The array to partition
          * @param truth a function to determine truth.  If this is omitted the element
@@ -572,9 +569,9 @@ Ext.partition(
         /**
          * Invokes a method on each item in an Array.
          * <pre><code>
-&#47;/ Example:
+// Example:
 Ext.invoke(Ext.query("p"), "getAttribute", "id");
-&#47;/ [el1.getAttribute("id"), el2.getAttribute("id"), ..., elN.getAttribute("id")]
+// [el1.getAttribute("id"), el2.getAttribute("id"), ..., elN.getAttribute("id")]
          * </code></pre>
          * @param arr The Array of items to invoke the method on.
          * @param methodName The method name to invoke.
@@ -585,7 +582,7 @@ Ext.invoke(Ext.query("p"), "getAttribute", "id");
         /**
          * Plucks the value of a property from each item in the Array
          * <pre><code>
-&#47;/ Example:
+// Example:
 Ext.pluck(Ext.query("p"), "className"); // [el1.className, el2.className, ..., elN.className]
          * </code></pre>
          * @param arr The Array of items to pluck the value from.
@@ -596,9 +593,9 @@ Ext.pluck(Ext.query("p"), "className"); // [el1.className, el2.className, ..., e
         /**
          * <p>Zips N sets together.</p>
          * <pre><code>
-&#47;/ Example 1:
+// Example 1:
 Ext.zip([1,2,3],[4,5,6]); // [[1,4],[2,5],[3,6]]
-&#47;/ Example 2:
+// Example 2:
 Ext.zip(
     [ "+", "-", "+"],
     [  12,  10,  22],

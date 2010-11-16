@@ -11,46 +11,46 @@ package ext.grid {
  * <p>Sample usage:</p>
  * <pre><code>
 var grid = new Ext.grid.GridPanel({
-    &#47;/ A groupingStore is required for a GroupingView
-    store&#58; new <b class='link'>ext.data.GroupingStore</b>({
-        autoDestroy&#58; true,
-        reader&#58; reader,
-        data&#58; xg.dummyData,
-        sortInfo&#58; {field: 'company', direction: 'ASC'},
+    // A groupingStore is required for a GroupingView
+    store: new <b class='link'>ext.data.GroupingStore</b>({
+        autoDestroy: true,
+        reader: reader,
+        data: xg.dummyData,
+        sortInfo: {field: 'company', direction: 'ASC'},
         <b class='link' title='ext.data.GroupingStore#groupOnSort'>groupOnSort</b>: true,
         <b class='link' title='ext.data.GroupingStore#remoteGroup'>remoteGroup</b>: true,
         <b class='link' title='ext.data.GroupingStore#groupField'>groupField</b>: 'industry'
     }),
-    colModel&#58; new <b class='link'>Ext.grid.ColumnModel</b>({
-        columns&#58;[
+    colModel: new <b class='link'>Ext.grid.ColumnModel</b>({
+        columns:[
             {id:'company',header: 'Company', width: 60, dataIndex: 'company'},
-            &#47;/ <b class='link' title='Ext.grid.Column#groupable'>groupable</b>, <b class='link' title='Ext.grid.Column#groupName'>groupName</b>, <b class='link' title='Ext.grid.Column#groupRender'>groupRender</b> are also configurable at column level
+            // <b class='link' title='Ext.grid.Column#groupable'>groupable</b>, <b class='link' title='Ext.grid.Column#groupName'>groupName</b>, <b class='link' title='Ext.grid.Column#groupRender'>groupRender</b> are also configurable at column level
             {header: 'Price', renderer: Ext.util.Format.usMoney, dataIndex: 'price', <b class='link' title='Ext.grid.Column#groupable groupable}:'>false</b>,
             {header: 'Change', dataIndex: 'change', renderer: Ext.util.Format.usMoney},
             {header: 'Industry', dataIndex: 'industry'},
             {header: 'Last Updated', renderer: Ext.util.Format.dateRenderer('m/d/Y'), dataIndex: 'lastChange'}
         ],
-        defaults&#58; {
-            sortable&#58; true,
-            menuDisabled&#58; false,
-            width&#58; 20
+        defaults: {
+            sortable: true,
+            menuDisabled: false,
+            width: 20
         }
     }),
 
-    view&#58; new Ext.grid.GroupingView({
+    view: new Ext.grid.GroupingView({
         <b class='link' title='Ext.grid.GridView#forceFit'>forceFit</b>: true,
-        &#47;/ custom grouping text template to display the number of items per group
+        // custom grouping text template to display the number of items per group
         <b class='link' title='#groupTextTpl}: '{text} ({[values.rs.length]} {[values.rs.length > 1 ? "Items" :'>"Item"]</b>)'
     }),
 
-    frame&#58;true,
-    width&#58; 700,
-    height&#58; 450,
-    collapsible&#58; true,
-    animCollapse&#58; false,
-    title&#58; 'Grouping Example',
-    iconCls&#58; 'icon-grid',
-    renderTo&#58; document.body
+    frame:true,
+    width: 700,
+    height: 450,
+    collapsible: true,
+    animCollapse: false,
+    title: 'Grouping Example',
+    iconCls: 'icon-grid',
+    renderTo: document.body
 });
  * </code></pre>
 */
@@ -129,8 +129,8 @@ public function GroupingView(config : Object) {
      * See <b class='link'>ext.XTemplate</b> for information on how to format data using a template. Possible usage:<pre><code>
 var grid = new Ext.grid.GridPanel({
     ...
-    view&#58; new Ext.grid.GroupingView({
-        groupTextTpl&#58; '{text} ({[values.rs.length]} {[values.rs.length > 1 ? "Items" : "Item"]})'
+    view: new Ext.grid.GroupingView({
+        groupTextTpl: '{text} ({[values.rs.length]} {[values.rs.length > 1 ? "Items" : "Item"]})'
     }),
 });
      * </code></pre>

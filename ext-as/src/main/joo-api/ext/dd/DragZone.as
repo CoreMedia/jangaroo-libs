@@ -19,34 +19,34 @@ import ext.EventObjectClass;
 myDataView.on('render', function() {
     myDataView.dragZone = new Ext.dd.DragZone(myDataView.getEl(), {
 
-&#47;/      On receipt of a mousedown event, see if it is within a DataView node.
-&#47;/      Return a drag data object if so.
-        getDragData&#58; function(e) {
+//      On receipt of a mousedown event, see if it is within a DataView node.
+//      Return a drag data object if so.
+        getDragData: function(e) {
 
-&#47;/          Use the DataView's own itemSelector (a mandatory property) to
-&#47;/          test if the mousedown is within one of the DataView's nodes.
+//          Use the DataView's own itemSelector (a mandatory property) to
+//          test if the mousedown is within one of the DataView's nodes.
             var sourceEl = e.getTarget(myDataView.itemSelector, 10);
 
-&#47;/          If the mousedown is within a DataView node, clone the node to produce
-&#47;/          a ddel element for use by the drag proxy. Also add application data
-&#47;/          to the returned data object.
+//          If the mousedown is within a DataView node, clone the node to produce
+//          a ddel element for use by the drag proxy. Also add application data
+//          to the returned data object.
             if (sourceEl) {
                 d = sourceEl.cloneNode(true);
                 d.id = Ext.id();
                 return {
-                    ddel&#58; d,
-                    sourceEl&#58; sourceEl,
-                    repairXY&#58; Ext.fly(sourceEl).getXY(),
-                    sourceStore&#58; myDataView.store,
-                    draggedRecord&#58; v.getRecord(sourceEl)
+                    ddel: d,
+                    sourceEl: sourceEl,
+                    repairXY: Ext.fly(sourceEl).getXY(),
+                    sourceStore: myDataView.store,
+                    draggedRecord: v.getRecord(sourceEl)
                 }
             }
         },
 
-&#47;/      Provide coordinates for the proxy to slide back to on failed drag.
-&#47;/      This is the original XY coordinates of the draggable element captured
-&#47;/      in the getDragData method.
-        getRepairXY&#58; function() {
+//      Provide coordinates for the proxy to slide back to on failed drag.
+//      This is the original XY coordinates of the draggable element captured
+//      in the getDragData method.
+        getRepairXY: function() {
             return this.dragData.repairXY;
         }
     });

@@ -7,7 +7,7 @@ var cp = new ext.ColorPalette({value:'993300'});  // initial selected color
 cp.render('my-div');
 
 cp.on('select', function(palette, selColor){
-    &#47;/ do something with selColor
+    // do something with selColor
 });
 </code></pre>
 */

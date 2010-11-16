@@ -10,10 +10,7 @@ public class Tree extends Observable {
  * @constructor
  * @param root The root node
  */
-public function Tree(root : Node = undefined) {
-  super();
-  root++;
-}
+public native function Tree(root : Node = undefined);
    /**
     * The root node for this tree
     */

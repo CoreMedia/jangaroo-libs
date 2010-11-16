@@ -2,12 +2,10 @@ package ext {
 import ext.util.Observable;
 
 /**
- * <p><b><u>Overview</u></b></p>
- * 
- * <p>ext.Direct aims to streamline communication between the client and server
+ * Direct aims to streamline communication between the client and server
  * by providing a single interface that reduces the amount of common code
  * typically required to validate data and handle returned data packets
- * (reading data, error conditions, etc).</p>
+ * (reading data, error conditions, etc).
  *  
  * <p>The Ext.direct namespace includes several classes for a closer integration
  * with the server-side. The Ext.data namespace also includes classes for working
@@ -48,7 +46,7 @@ import ext.util.Observable;
  * <pre><code>
 {"type":"event","name":"message","data":"Successfully polled at: 11:19:30 am"}
 
-&#47;/ add a handler for a 'message' event sent by the server 
+// add a handler for a 'message' event sent by the server
 ext.Direct.on('message', function(e){
     out.append(String.format('&lt;p>&lt;i>{0}&lt;/i>&lt;/p>', e.data));
             out.el.scrollTo('t', 100000, true);
@@ -85,7 +83,7 @@ public class Direct extends Observable {
      * If the provider is not already connected, it will auto-connect.
      * <pre><code>
 var pollProv = new Ext.direct.PollingProvider({
-    url&#58; 'php/poll2.php'
+    url: 'php/poll2.php'
 }); 
 
 ext.Direct.addProvider(
@@ -108,8 +106,8 @@ ext.Direct.addProvider(
         },
         "namespace":"myApplication",// namespace to create the Remoting Provider in
     },{
-        type&#58; 'polling', // create a <b class='link'>Ext.direct.PollingProvider</b> 
-        url&#58;  'php/poll.php'
+        type: 'polling', // create a <b class='link'>Ext.direct.PollingProvider</b>
+        url:  'php/poll.php'
     },
     pollProv // reference to previously created instance
 );

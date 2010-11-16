@@ -41,13 +41,13 @@ public class CompositeElementLite {
  * Flyweight composite class. Reuses the same ext.Element for element operations.
  <pre><code>
  var els = Ext.select("#some-el div.some-class");
- &#47;/ or select directly from an existing element
+ // or select directly from an existing element
  var el = Ext.get('some-el');
  el.select('div.some-class');
 
  els.setWidth(100); // all elements become 100 width
  els.hide(true); // all elements fade out and hide
- &#47;/ or
+ // or
  els.setWidth(100).hide(true);
  </code></pre><br><br>
  * <b>NOTE: Although they are not listed, this class supports all of the set/update methods of ext.Element. All ext.Element

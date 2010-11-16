@@ -11,7 +11,7 @@ package ext {
  * <li><b><code><b class='link' title='#url'>url</b></code></b><p class="sub-desc"></p></li>
  * </ul></div>
  * <pre><code>
-&#47;/ Default headers to pass in every request
+// Default headers to pass in every request
 ext.Ajax.defaultHeaders = {
     'Powered-By': 'Ext'
 };
@@ -23,7 +23,7 @@ ext.Ajax.defaultHeaders = {
  * <li><b><code><b class='link' title='ext.data.Connection#requestexception'>requestexception</b></code></b><p class="sub-desc"></p></li>
  * </ul></div>
  * <pre><code>
-&#47;/ Example: show a spinner during all Ajax requests
+// Example: show a spinner during all Ajax requests
 ext.Ajax.on('beforerequest', this.showSpinner, this);
 ext.Ajax.on('requestcomplete', this.hideSpinner, this);
 ext.Ajax.on('requestexception', this.hideSpinner, this);
@@ -31,21 +31,21 @@ ext.Ajax.on('requestexception', this.hideSpinner, this);
  * </p>
  * <p>An example request:</p>
  * <pre><code>
-&#47;/ Basic request
+// Basic request
 ext.Ajax.<b class='link' title='ext.data.Connection#request'>request</b>({
-   url&#58; 'foo.php',
-   success&#58; someFn,
-   failure&#58; otherFn,
-   headers&#58; {
+   url: 'foo.php',
+   success: someFn,
+   failure: otherFn,
+   headers: {
        'my-header': 'foo'
    },
-   params&#58; { foo: 'bar' }
+   params: { foo: 'bar' }
 });
 
-&#47;/ Simple ajax form submission
+// Simple ajax form submission
 ext.Ajax.<b class='link' title='ext.data.Connection#request'>request</b>({
-    form&#58; 'some-form',
-    params&#58; 'foo=bar'
+    form: 'some-form',
+    params: 'foo=bar'
 });
  * </code></pre> 
  * </p>

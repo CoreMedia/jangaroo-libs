@@ -12,7 +12,7 @@ public class Api extends Object {
         /**
          * Defined actions corresponding to remote actions:
          * <pre><code>
-actions&#58; {
+actions: {
     create  : 'create',  // Text representing the remote-action to create records on server.
     read    : 'read',    // Text representing the remote-action to read/load data from server.
     update  : 'update',  // Text representing the remote-action to update records on server.
@@ -76,22 +76,22 @@ restActions : {
          * be used.  If the method configuration parameter is not specified, POST will be used.
          <pre><code>
 new ext.data.HttpProxy({
-    method&#58; "POST",     // <-- default HTTP method when not specified.
-    api&#58; {
-        create&#58; 'create.php',
-        load&#58; 'read.php',
-        save&#58; 'save.php',
-        destroy&#58; 'destroy.php'
+    method: "POST",     // <-- default HTTP method when not specified.
+    api: {
+        create: 'create.php',
+        load: 'read.php',
+        save: 'save.php',
+        destroy: 'destroy.php'
     }
 });
 
-&#47;/ Alternatively, one can use the object-form to specify the API
+// Alternatively, one can use the object-form to specify the API
 new ext.data.HttpProxy({
-    api&#58; {
-        load&#58; {url: 'read.php', method: 'GET'},
-        create&#58; 'create.php',
-        destroy&#58; 'destroy.php',
-        save&#58; 'update.php'
+    api: {
+        load: {url: 'read.php', method: 'GET'},
+        create: 'create.php',
+        destroy: 'destroy.php',
+        save: 'update.php'
     }
 });
         </code></pre>

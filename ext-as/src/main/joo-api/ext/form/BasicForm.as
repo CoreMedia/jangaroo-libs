@@ -63,7 +63,7 @@ public function BasicForm(el : *, config : Object) {
      * which returns an Array of Records in an object with the following
      * structure:</p><pre><code>
 {
-    records&#58; recordArray
+    records: recordArray
 }
 </code></pre>
      */
@@ -109,9 +109,9 @@ public function BasicForm(el : *, config : Object) {
      * Methods which have been imported by ext.Direct can be specified here to load and submit
      * forms.
      * Such as the following:<pre><code>
-api&#58; {
-    load&#58; App.ss.MyProfile.load,
-    submit&#58; App.ss.MyProfile.submit
+api: {
+    load: App.ss.MyProfile.load,
+    submit: App.ss.MyProfile.submit
 }
 </code></pre>
      * <p>Load actions can use <code><b class='link' title='#paramOrder'>paramOrder</b></code> or <code><b class='link' title='#paramsAsHash'>paramsAsHash</b></code>
@@ -127,10 +127,10 @@ api&#58; {
      * server-side as either (1) an Array of String values, or (2) a String of params
      * delimited by either whitespace, comma, or pipe. For example,
      * any of the following would be acceptable:</p><pre><code>
-paramOrder&#58; ['param1','param2','param3']
-paramOrder&#58; 'param1 param2 param3'
-paramOrder&#58; 'param1,param2,param3'
-paramOrder&#58; 'param1|param2|param'
+paramOrder: ['param1','param2','param3']
+paramOrder: 'param1 param2 param3'
+paramOrder: 'param1,param2,param3'
+paramOrder: 'param1|param2|param'
      </code></pre>
      */
     public var paramOrder : *;
@@ -160,18 +160,18 @@ PANEL.getForm().getEl().dom.action = 'URL'
      * An example encapsulating the above:
      * <pre><code>
 new ext.FormPanel({
-    standardSubmit&#58; true,
-    baseParams&#58; {
-        foo&#58; 'bar'
+    standardSubmit: true,
+    baseParams: {
+        foo: 'bar'
     },
-    url&#58; 'myProcess.php',
-    items&#58; [{
-        xtype&#58; 'textfield',
-        name&#58; 'userName'
+    url: 'myProcess.php',
+    items: [{
+        xtype: 'textfield',
+        name: 'userName'
     }],
-    buttons&#58; [{
-        text&#58; 'Save',
-        handler&#58; function(){
+    buttons: [{
+        text: 'Save',
+        handler: function(){
             var O = this.ownerCt;
             if (O.getForm().isValid()) {
                 if (O.url)
@@ -179,9 +179,9 @@ new ext.FormPanel({
                 if (O.baseParams) {
                     for (i in O.baseParams) {
                         O.add({
-                            xtype&#58; 'hidden',
-                            name&#58; i,
-                            value&#58; O.baseParams[i]
+                            xtype: 'hidden',
+                            name: i,
+                            value: O.baseParams[i]
                         })
                     }
                     O.doLayout();
@@ -289,15 +289,15 @@ new ext.FormPanel({
      * <p><b>Note:</b> this is ignored when using the <b class='link' title='#standardSubmit'>standardSubmit</b> option.</p>
      * <p>The following code:</p><pre><code>
 myFormPanel.getForm().submit({
-    clientValidation&#58; true,
-    url&#58; 'updateConsignment.php',
-    params&#58; {
-        newStatus&#58; 'delivered'
+    clientValidation: true,
+    url: 'updateConsignment.php',
+    params: {
+        newStatus: 'delivered'
     },
-    success&#58; function(form, action) {
+    success: function(form, action) {
        ext.Msg.alert('Success', action.result.msg);
     },
-    failure&#58; function(form, action) {
+    failure: function(form, action) {
         switch (action.failureType) {
             case ext.form.action.CLIENT_INVALID:
                 ext.Msg.alert('Failure', 'Form fields may not be submitted with invalid values');
@@ -369,9 +369,9 @@ myFormPanel.getForm().submit({
  {id:'portOfDischarge', value:'OSL'} ]</code></pre>
      * or an object hash of the form:<pre><code>
 {
-    clientName&#58; 'Fred. Olsen Lines',
-    portOfLoading&#58; 'FXT',
-    portOfDischarge&#58; 'OSL'
+    clientName: 'Fred. Olsen Lines',
+    portOfLoading: 'FXT',
+    portOfDischarge: 'OSL'
 }</code></pre>
      * @return this
      */

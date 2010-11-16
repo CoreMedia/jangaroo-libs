@@ -5,13 +5,13 @@ package ext.form {
  * <p>Sample usage:</p>
  * <pre><code>
 var myCheckboxGroup = new ext.form.CheckboxGroup({
-    id&#58;'myGroup',
-    xtype&#58; 'checkboxgroup',
-    fieldLabel&#58; 'Single Column',
-    itemCls&#58; 'x-check-group-alt',
-    &#47;/ Put all controls in a single column with width 100%
-    columns&#58; 1,
-    items&#58; [
+    id:'myGroup',
+    xtype: 'checkboxgroup',
+    fieldLabel: 'Single Column',
+    itemCls: 'x-check-group-alt',
+    // Put all controls in a single column with width 100%
+    columns: 1,
+    items: [
         {boxLabel: 'Item 1', name: 'cb-col-1'},
         {boxLabel: 'Item 2', name: 'cb-col-2', checked: true},
         {boxLabel: 'Item 3', name: 'cb-col-3'}
@@ -81,16 +81,16 @@ public function CheckboxGroup(config : Object) {
      * <b class='link' title='ext.form.Checkbox#setValue Set the'>value(s)</b> of an item or items
      * in the group. Examples illustrating how this method may be called:
      * <pre><code>
-&#47;/ call with name and value
+// call with name and value
 myCheckboxGroup.setValue('cb-col-1', true);
-&#47;/ call with an array of boolean values 
+// call with an array of boolean values
 myCheckboxGroup.setValue([true, false, false]);
-&#47;/ call with an object literal specifying item:value pairs
+// call with an object literal specifying item:value pairs
 myCheckboxGroup.setValue({
     'cb-col-2': false,
     'cb-col-3': true
 });
-&#47;/ use comma separated string to set items with name to true (checked)
+// use comma separated string to set items with name to true (checked)
 myCheckboxGroup.setValue('cb-col-1,cb-col-3');
      * </code></pre>
      * See <b class='link'>ext.form.Checkbox#setValue</b> for additional information.

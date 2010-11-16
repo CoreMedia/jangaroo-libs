@@ -8,10 +8,10 @@ package ext.dd {
  * <pre><code>
 var el = Ext.get('scroll-ct');
 el.ddScrollConfig = {
-    vthresh&#58; 50,
-    hthresh&#58; -1,
-    frequency&#58; 100,
-    increment&#58; 200
+    vthresh: 50,
+    hthresh: -1,
+    frequency: 100,
+    increment: 200
 };
 Ext.dd.ScrollManager.register(el);
 </code></pre>

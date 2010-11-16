@@ -6,28 +6,28 @@ package ext.form {
  * test function, and optionally specify any corresponding error text to display and any keystroke
  * filtering mask to apply. For example:</p>
  * <pre><code>
-&#47;/ custom Vtype for vtype:'time'
+// custom Vtype for vtype:'time'
 var timeTest = /^([1-9]|1[0-9]):([0-5][0-9])(\s[a|p]m)$/i;
 Ext.apply(ext.form.VTypes, {
-    &#47;/  vtype validation function
-    time&#58; function(val, field) {
+    //  vtype validation function
+    time: function(val, field) {
         return timeTest.test(val);
     },
-    &#47;/ vtype Text property: The error text to display when the validation function returns false
-    timeText&#58; 'Not a valid time.  Must be in the format "12:34 PM".',
-    &#47;/ vtype Mask property: The keystroke filter mask
-    timeMask&#58; /[\d\s:amp]/i
+    // vtype Text property: The error text to display when the validation function returns false
+    timeText: 'Not a valid time.  Must be in the format "12:34 PM".',
+    // vtype Mask property: The keystroke filter mask
+    timeMask: /[\d\s:amp]/i
 });
  * </code></pre>
  * Another example: 
  * <pre><code>
-&#47;/ custom Vtype for vtype:'IPAddress'
+// custom Vtype for vtype:'IPAddress'
 Ext.apply(ext.form.VTypes, {
-    IPAddress&#58;  function(v) {
+    IPAddress:  function(v) {
         return /^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/.test(v);
     },
-    IPAddressText&#58; 'Must be a numeric IP address',
-    IPAddressMask&#58; /[\d\.]/i
+    IPAddressText: 'Must be a numeric IP address',
+    IPAddressMask: /[\d\.]/i
 });
  * </code></pre>
 */

@@ -29,13 +29,13 @@ var grid = new Ext.grid.GridPanel({
         {header: 'Price', width: 120, sortable: true, renderer: Ext.util.Format.usMoney, dataIndex: 'price'},
         {header: 'Change', width: 120, sortable: true, dataIndex: 'change'},
         {header: '% Change', width: 120, sortable: true, dataIndex: 'pctChange'},
-        &#47;/ instead of specifying renderer: Ext.util.Format.dateRenderer('m/d/Y') use xtype
+        // instead of specifying renderer: Ext.util.Format.dateRenderer('m/d/Y') use xtype
         {header: 'Last Updated', width: 135, sortable: true, dataIndex: 'lastChange', xtype: 'datecolumn', format: 'M d, Y'}
     ],
     <b class='link' title='#viewConfig'>viewConfig</b>: {
         <b class='link' title='Ext.grid.GridView#forceFit'>forceFit</b>: true,
 
-&#47;/      Return CSS class to apply to rows depending upon data values
+//      Return CSS class to apply to rows depending upon data values
         <b class='link' title='Ext.grid.GridView#getRowClass'>getRowClass</b>: function(record, index) {
             var c = record.<b class='link' title='ext.data.Record#get'>get</b>('change');
             if (c < 0) {
@@ -46,11 +46,11 @@ var grid = new Ext.grid.GridPanel({
         }
     },
     <b class='link' title='#sm}: new'>Ext.grid.RowSelectionModel({singleSelect:true</b>),
-    width&#58; 600,
-    height&#58; 300,
-    frame&#58; true,
-    title&#58; 'Framed with Row Selection and Horizontal Scrolling',
-    iconCls&#58; 'icon-grid'
+    width: 600,
+    height: 300,
+    frame: true,
+    title: 'Framed with Row Selection and Horizontal Scrolling',
+    iconCls: 'icon-grid'
 });
  * </code></pre>
  * <p><b><u>Notes:</u></b></p>

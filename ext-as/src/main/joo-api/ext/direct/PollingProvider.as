@@ -12,17 +12,17 @@ package ext.direct {
  * specifying <code>type = 'polling'</code>.  For example:</p>
  * <pre><code>
 var pollA = new Ext.direct.PollingProvider({
-    type&#58;'polling',
-    url&#58; 'php/pollA.php',
+    type:'polling',
+    url: 'php/pollA.php',
 });
 ext.Direct.addProvider(pollA);
 pollA.disconnect();
 
 ext.Direct.addProvider(
     {
-        type&#58;'polling',
-        url&#58; 'php/pollB.php',
-        id&#58; 'pollB-provider'
+        type:'polling',
+        url: 'php/pollB.php',
+        id: 'pollB-provider'
     }
 );
 var pollB = ext.Direct.getProvider('pollB-provider');

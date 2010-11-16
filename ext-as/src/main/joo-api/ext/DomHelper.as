@@ -4,9 +4,9 @@ import js.HTMLElement;
 import js.Node;
 
 /**
- * <p>The DomHelper class provides a layer of abstraction from DOM and transparently supports creating
+ * The DomHelper class provides a layer of abstraction from DOM and transparently supports creating
  * elements via DOM or using HTML fragments. It also has the ability to create HTML fragment templates
- * from your DOM building code.</p>
+ * from your DOM building code.
  *
  * <p><b><u>DomHelper element specification object</u></b></p>
  * <p>A specification object is used when creating elements. Attributes of this object
@@ -38,13 +38,13 @@ import js.Node;
  * element with id <code>'my-div'</code>:<br>
  <pre><code>
 var dh = ext.DomHelper; // create shorthand alias
-&#47;/ specification object
+// specification object
 var spec = {
-    id&#58; 'my-ul',
-    tag&#58; 'ul',
-    cls&#58; 'my-list',
-    &#47;/ append children after creating
-    children&#58; [     // may also specify 'cn' instead of 'children'
+    id: 'my-ul',
+    tag: 'ul',
+    cls: 'my-list',
+    // append children after creating
+    children: [     // may also specify 'cn' instead of 'children'
         {tag: 'li', id: 'item0', html: 'List Item 0'},
         {tag: 'li', id: 'item1', html: 'List Item 1'},
         {tag: 'li', id: 'item2', html: 'List Item 2'}
@@ -69,9 +69,9 @@ dh.append('my-ul', [
  * <code><b class='link' title='#createTemplate'>createTemplate</b></code> returns a Template object which can be used over and over to
  * insert new elements. Revisiting the example above, we could utilize templating this time:
  * <pre><code>
-&#47;/ create the node
+// create the node
 var list = dh.append('my-div', {tag: 'ul', cls: 'my-list'});
-&#47;/ get template
+// get template
 var tpl = dh.createTemplate({tag: 'li', id: 'item{0}', html: 'List Item {0}'});
 
 for(var i = 0; i < 5, i++){
@@ -91,14 +91,14 @@ var html = '<a id="{id}" href="{url}" class="nav">{text}</a>';
 
 var tpl = new ext.DomHelper.createTemplate(html);
 tpl.append('blog-roll', {
-    id&#58; 'link1',
-    url&#58; 'http://www.jackslocum.com/',
-    text&#58; "Jack&#39;s Site"
+    id: 'link1',
+    url: 'http://www.jackslocum.com/',
+    text: "Jack&#39;s Site"
 });
 tpl.append('blog-roll', {
-    id&#58; 'link2',
-    url&#58; 'http://www.dustindiaz.com/',
-    text&#58; "Dustin&#39;s Site"
+    id: 'link2',
+    url: 'http://www.dustindiaz.com/',
+    text: "Dustin&#39;s Site"
 });
  * </code></pre></p>
  *
@@ -116,7 +116,7 @@ var html = '<a id="{id}" href="{url}" class="nav">{text}</a>';
 var tpl = new ext.DomHelper.createTemplate(html);
 tpl.compile();
 
-&#47;/... use template like normal
+//... use template like normal
  * </code></pre></p>
  *
  * <p><b><u>Performance Boost</u></b></p>

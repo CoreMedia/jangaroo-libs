@@ -3,8 +3,8 @@ import ext.layout.ContainerLayout;
 import ext.util.MixedCollection;
 
 /**
- * <p>Base class for any <b class='link'>ext.BoxComponent</b> that may contain other Components. Containers handle the
- * basic behavior of containing items, namely adding, inserting and removing items.</p>
+ * Base class for any <b class='link'>ext.BoxComponent</b> that may contain other Components. Containers handle the
+ * basic behavior of containing items, namely adding, inserting and removing items.
  *
  * <p>The most commonly used Container classes are <b class='link'>ext.Panel</b>, <b class='link'>ext.Window</b> and <b class='link'>ext.TabPanel</b>.
  * If you do not need the capabilities offered by the aforementioned classes you can create a lightweight
@@ -14,36 +14,37 @@ import ext.util.MixedCollection;
  * for example.</p>
  *
  * <p>The code below illustrates both how to explicitly create a Container, and how to implicitly
- * create one using the <b><code>'container'</code></b> xtype:<pre><code>
-&#47;/ explicitly create a Container
+ * create one using the <b><code>'container'</code></b> xtype:</p>
+ * <pre><code>
+// explicitly create a Container
 var embeddedColumns = new ext.Container({
-    autoEl&#58; 'div',  // This is the default
-    layout&#58; 'column',
-    defaults&#58; {
-        &#47;/ implicitly create Container by specifying xtype
-        xtype&#58; 'container',
-        autoEl&#58; 'div', // This is the default.
-        layout&#58; 'form',
-        columnWidth&#58; 0.5,
-        style&#58; {
-            padding&#58; '10px'
+    autoEl: 'div',  // This is the default
+    layout: 'column',
+    defaults: {
+        // implicitly create Container by specifying xtype
+        xtype: 'container',
+        autoEl: 'div', // This is the default.
+        layout: 'form',
+        columnWidth: 0.5,
+        style: {
+            padding: '10px'
         }
     },
-&#47;/  The two items below will be ext.Containers, each encapsulated by a &lt;DIV> element.
-    items&#58; [{
-        items&#58; {
-            xtype&#58; 'datefield',
-            name&#58; 'startDate',
-            fieldLabel&#58; 'Start date'
+//  The two items below will be ext.Containers, each encapsulated by a &lt;DIV> element.
+    items: [{
+        items: {
+            xtype: 'datefield',
+            name: 'startDate',
+            fieldLabel: 'Start date'
         }
     }, {
-        items&#58; {
-            xtype&#58; 'datefield',
-            name&#58; 'endDate',
-            fieldLabel&#58; 'End date'
+        items: {
+            xtype: 'datefield',
+            name: 'endDate',
+            fieldLabel: 'End date'
         }
     }]
-});</code></pre></p>
+});</code></pre>
  *
  * <p><u><b>Layout</b></u></p>
  * <p>Container classes delegate the rendering of child Components to a layout
@@ -67,74 +68,75 @@ var embeddedColumns = new ext.Container({
  * <p>Certain layout managers allow dynamic addition of child components.
  * Those that do include <b class='link'>Ext.layout.CardLayout</b>,
  * <b class='link'>Ext.layout.AnchorLayout</b>, <b class='link'>Ext.layout.FormLayout</b>, and
- * <b class='link'>Ext.layout.TableLayout</b>. For example:<pre><code>
-&#47;/  Create the GridPanel.
+ * <b class='link'>Ext.layout.TableLayout</b>. For example:</p>
+ * <pre><code>
+//  Create the GridPanel.
 var myNewGrid = new Ext.grid.GridPanel({
-    store&#58; myStore,
-    columns&#58; myColumnModel,
-    title&#58; 'Results', // the title becomes the title of the tab
+    store: myStore,
+    columns: myColumnModel,
+    title: 'Results', // the title becomes the title of the tab
 });
 
 myTabPanel.add(myNewGrid); // <b class='link'>ext.TabPanel</b> implicitly uses <b class='link' title='Ext.layout.CardLayout'>CardLayout</b>
 myTabPanel.<b class='link' title='ext.TabPanel#setActiveTab'>setActiveTab</b>(myNewGrid);
- * </code></pre></p>
+ * </code></pre>
  * <p>The example above adds a newly created GridPanel to a TabPanel. Note that
  * a TabPanel uses <b class='link'>Ext.layout.CardLayout</b> as its layout manager which
  * means all its child items are sized to <b class='link' title='Ext.layout.FitLayout'>fit</b>
- * exactly into its client area.
- * <p><b><u>Overnesting is a common problem</u></b>.
- * An example of overnesting occurs when a GridPanel is added to a TabPanel
+ * exactly into its client area.</p>
+ * <p><b><u>Overnesting is a common problem</u></b>.</p>
+ * <p>An example of overnesting occurs when a GridPanel is added to a TabPanel
  * by wrapping the GridPanel <i>inside</i> a wrapping Panel (that has no
  * <code><b class='link' title='#layout'>layout</b></code> specified) and then add that wrapping Panel
  * to the TabPanel. The point to realize is that a GridPanel <b>is</b> a
  * Component which can be added directly to a Container. If the wrapping Panel
  * has no <code><b class='link' title='#layout'>layout</b></code> configuration, then the overnested
- * GridPanel will not be sized as expected.<p>
-</code></pre>
+ * GridPanel will not be sized as expected.</p>
  *
  * <p><u><b>Adding via remote configuration</b></u></p>
  *
  * <p>A server side script can be used to add Components which are generated dynamically on the server.
  * An example of adding a GridPanel to a TabPanel where the GridPanel is generated by the server
- * based on certain parameters:
- * </p><pre><code>
-&#47;/ execute an Ajax request to invoke server side script:
+ * based on certain parameters:</p>
+ * <pre><code>
+// execute an Ajax request to invoke server side script:
 ext.Ajax.request({
-    url&#58; 'gen-invoice-grid.php',
-    &#47;/ send additional parameters to instruct server script
-    params&#58; {
-        startDate&#58; Ext.getCmp('start-date').getValue(),
-        endDate&#58; Ext.getCmp('end-date').getValue()
+    url: 'gen-invoice-grid.php',
+    // send additional parameters to instruct server script
+    params: {
+        startDate: Ext.getCmp('start-date').getValue(),
+        endDate: Ext.getCmp('end-date').getValue()
     },
-    &#47;/ process the response object to add it to the TabPanel:
-    success&#58; function(xhr) {
+    // process the response object to add it to the TabPanel:
+    success: function(xhr) {
         var newComponent = eval(xhr.responseText); // see discussion below
         myTabPanel.add(newComponent); // add the component to the TabPanel
         myTabPanel.setActiveTab(newComponent);
     },
-    failure&#58; function() {
+    failure: function() {
         ext.Msg.alert("Grid create failed", "Server communication failure");
     }
 });
 </code></pre>
  * <p>The server script needs to return an executable Javascript statement which, when processed
  * using <code>eval()</code>, will return either a config object with an <b class='link' title='ext.Component#xtype'>xtype</b>,
- * or an instantiated Component. The server might return this for example:</p><pre><code>
+ * or an instantiated Component. The server might return this for example:</p>
+ * <pre><code>
 (function() {
     function formatDate(value){
         return value ? value.dateFormat('M d, Y') : '';
     };
 
     var store = new ext.data.Store({
-        url&#58; 'get-invoice-data.php',
-        baseParams&#58; {
-            startDate&#58; '01/01/2008',
-            endDate&#58; '01/31/2008'
+        url: 'get-invoice-data.php',
+        baseParams: {
+            startDate: '01/01/2008',
+            endDate: '01/31/2008'
         },
-        reader&#58; new ext.data.JsonReader({
-            record&#58; 'transaction',
-            idProperty&#58; 'id',
-            totalRecords&#58; 'total'
+        reader: new ext.data.JsonReader({
+            record: 'transaction',
+            idProperty: 'id',
+            totalRecords: 'total'
         }, [
            'customer',
            'invNo',
@@ -144,10 +146,10 @@ ext.Ajax.request({
     });
 
     var grid = new Ext.grid.GridPanel({
-        title&#58; 'Invoice Report',
-        bbar&#58; new ext.PagingToolbar(store),
-        store&#58; store,
-        columns&#58; [
+        title: 'Invoice Report',
+        bbar: new ext.PagingToolbar(store),
+        store: store,
+        columns: [
             {header: "Customer", width: 250, dataIndex: 'customer', sortable: true},
             {header: "Invoice Number", width: 120, dataIndex: 'invNo', sortable: true},
             {header: "Invoice Date", width: 100, dataIndex: 'date', renderer: formatDate, sortable: true},
@@ -187,10 +189,10 @@ public class Container extends BoxComponent {
      * user interactions, <b>you must specify a layout manager</b> which
      * creates and manages the type of layout you have in mind.  For example:<pre><code>
 new ext.Window({
-    width&#58;300, height: 300,
-    layout&#58; 'fit', // explicitly set layout manager: override the default (layout:'auto')
-    items&#58; [{
-        title&#58; 'Panel inside a Window'
+    width:300, height: 300,
+    layout: 'fit', // explicitly set layout manager: override the default (layout:'auto')
+    items: [{
+        title: 'Panel inside a Window'
     }]
 }).show();
      * </code></pre>
@@ -206,10 +208,10 @@ new ext.Window({
      * <div><ul class="mdetail-params">
      * <li>Example usage:</li>
 <pre><code>
-layout&#58; {
-    type&#58; 'vbox',
-    padding&#58; '5',
-    align&#58; 'left'
+layout: {
+    type: 'vbox',
+    padding: '5',
+    align: 'left'
 }
 </code></pre>
      *
@@ -246,10 +248,10 @@ layout&#58; {
      * <div><ul class="mdetail-params">
      * <li>Example usage:</li>
 <pre><code>
-layout&#58; 'vbox',
-layoutConfig&#58; {
-    padding&#58; '5',
-    align&#58; 'left'
+layout: 'vbox',
+layoutConfig: {
+    padding: '5',
+    align: 'left'
 }
 </code></pre>
      * <li><code><b>layout</b></code></li>
@@ -288,13 +290,13 @@ layoutConfig&#58; {
      * <p>A single item, or an array of child Components to be added to this container,
      * for example:</p>
      * <pre><code>
-&#47;/ specifying a single item
-items&#58; {...},
-layout&#58; 'fit',    // specify a layout!
+// specifying a single item
+items: {...},
+layout: 'fit',    // specify a layout!
 
-&#47;/ specifying multiple items
-items&#58; [{...}, {...}],
-layout&#58; 'anchor', // specify a layout!
+// specifying multiple items
+items: [{...}, {...}],
+layout: 'anchor', // specify a layout!
      * </code></pre>
      * <p>Each item may be:</p>
      * <div><ul class="mdetail-params">
@@ -329,18 +331,18 @@ layout&#58; 'anchor', // specify a layout!
      * contained <b class='link' title='ext.Panel} items, you could pass:'><code>defaults: {bodyStyle:'padding:15px'</b></code>.</p><br/>
      * <p><b>Note</b>: <code>defaults</code> will not be applied to config objects if the option is already specified.
      * For example:</p><pre><code>
-defaults&#58; {               // defaults are applied to items, not the container
-    autoScroll&#58;true
+defaults: {               // defaults are applied to items, not the container
+    autoScroll:true
 },
-items&#58; [
+items: [
     {
-        xtype&#58; 'panel',   // defaults <b>do not</b> have precedence over
-        id&#58; 'panel1',     // options in config objects, so the defaults
-        autoScroll&#58; false // will not be applied here, panel1 will be autoScroll:false
+        xtype: 'panel',   // defaults <b>do not</b> have precedence over
+        id: 'panel1',     // options in config objects, so the defaults
+        autoScroll: false // will not be applied here, panel1 will be autoScroll:false
     },
     new ext.Panel({       // defaults <b>do</b> have precedence over options
-        id&#58; 'panel2',     // options in components, so the defaults
-        autoScroll&#58; false // will be applied here, panel2 will be autoScroll:true.
+        id: 'panel2',     // options in components, so the defaults
+        autoScroll: false // will be applied here, panel2 will be autoScroll:true.
     })
 ]
      * </code></pre>

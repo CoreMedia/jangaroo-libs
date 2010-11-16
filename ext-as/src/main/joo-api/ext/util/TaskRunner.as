@@ -6,21 +6,21 @@ package ext.util {
  * separate tasks can be started at any time and will run independently of each
  * other. Example usage:
  * <pre><code>
-&#47;/ Start a simple clock task that updates a div once per second
+// Start a simple clock task that updates a div once per second
 var updateClock = function(){
     Ext.fly('clock').update(new Date().format('g:i:s A'));
 } 
 var task = {
-    run&#58; updateClock,
-    interval&#58; 1000 //1 second
+    run: updateClock,
+    interval: 1000 //1 second
 }
 var runner = new Ext.util.TaskRunner();
 runner.start(task);
 
-&#47;/ equivalent using TaskMgr
+// equivalent using TaskMgr
 ext.TaskMgr.start({
-    run&#58; updateClock,
-    interval&#58; 1000
+    run: updateClock,
+    interval: 1000
 });
 
  * </code></pre>
@@ -33,9 +33,7 @@ public class TaskRunner {
  * @param interval The minimum precision in milliseconds supported by this TaskRunner instance
  * (defaults to 10)
  */
-public function TaskRunner(interval : Number = undefined) {
-  super(interval);
-}
+public native function TaskRunner(interval : Number = undefined);
     /**
      * Starts a new task.
      * @method start

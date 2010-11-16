@@ -42,7 +42,7 @@ public class Field {
      *  (<b class='link' title='ext.data.JsonReader'>JsonReader</b>), or an XML element (<b class='link' title='ext.data.XMLReader'>XMLReader</b>).</div></li>
      * </ul></div>
      * <pre><code>
-&#47;/ example of convert function
+// example of convert function
 function fullName(v, record){
     return record.name.last + ', ' + record.name.first;
 }
@@ -60,13 +60,13 @@ var Dude = ext.data.Record.create([
     {name: 'location',  convert: location}
 ]);
 
-&#47;/ create the data store
+// create the data store
 var store = new ext.data.Store({
-    reader&#58; new ext.data.JsonReader(
+    reader: new ext.data.JsonReader(
         {
-            idProperty&#58; 'key',
-            root&#58; 'daRoot',  
-            totalProperty&#58; 'total'
+            idProperty: 'key',
+            root: 'daRoot',
+            totalProperty: 'total'
         },
         Dude  // recordType
     )
@@ -74,16 +74,16 @@ var store = new ext.data.Store({
 
 var myData = [
     { key: 1,
-      name&#58; { first: 'Fat',    last:  'Albert' }
-      &#47;/ notice no city, state provided in data object
+      name: { first: 'Fat',    last:  'Albert' }
+      // notice no city, state provided in data object
     },
     { key: 2,
-      name&#58; { first: 'Barney', last:  'Rubble' },
-      city&#58; 'Bedrock', state: 'Stoneridge'
+      name: { first: 'Barney', last:  'Rubble' },
+      city: 'Bedrock', state: 'Stoneridge'
     },
     { key: 3,
-      name&#58; { first: 'Cliff',  last:  'Claven' },
-      city&#58; 'Boston',  state: 'MA'
+      name: { first: 'Cliff',  last:  'Claven' },
+      city: 'Boston',  state: 'MA'
     }
 ];
      * </code></pre>
@@ -126,19 +126,19 @@ var myData = [
      * (Optional) A function which converts a Field's value to a comparable value in order to ensure
      * correct sort ordering. Predefined functions are provided in <b class='link'>ext.data.SortTypes</b>. A custom
      * sort example:<pre><code>
-&#47;/ current sort     after sort we want
-&#47;/ +-+------+          +-+------+
-&#47;/ |1|First |          |1|First |
-&#47;/ |2|Last  |          |3|Second|
-&#47;/ |3|Second|          |2|Last  |
-&#47;/ +-+------+          +-+------+
+// current sort     after sort we want
+// +-+------+          +-+------+
+// |1|First |          |1|First |
+// |2|Last  |          |3|Second|
+// |3|Second|          |2|Last  |
+// +-+------+          +-+------+
 
-sortType&#58; function(value) {
+sortType: function(value) {
    switch (value.toLowerCase()) // native toLowerCase():
    {
       case 'first': return 1;
       case 'second': return 2;
-      default&#58; return 3;
+      default: return 3;
    }
 }
      * </code></pre>

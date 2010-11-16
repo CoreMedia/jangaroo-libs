@@ -6,10 +6,10 @@ package ext.data {
      * as either (1) an Array of String values, or (2) a String of params delimited by either whitespace,
      * comma, or pipe. For example,
      * any of the following would be acceptable:<pre><code>
-paramOrder&#58; ['param1','param2','param3']
-paramOrder&#58; 'param1 param2 param3'
-paramOrder&#58; 'param1,param2,param3'
-paramOrder&#58; 'param1|param2|param'
+paramOrder: ['param1','param2','param3']
+paramOrder: 'param1 param2 param3'
+paramOrder: 'param1,param2,param3'
+paramOrder: 'param1|param2|param'
      </code></pre>
      */
     public var paramOrder;

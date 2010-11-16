@@ -13,11 +13,7 @@ public class MixedCollection extends Observable {
  * were passed without an explicit key parameter to a MixedCollection method.  Passing this parameter is
  * equivalent to providing an implementation for the <b class='link' title='#getKey'>getKey</b> method.
  */
-public function MixedCollection(allowFunctions : Boolean = false, keyFn : Function = null) {
-  super();
-  this.allowFunctions = allowFunctions;
-  this.getKey = keyFn;
-}
+public native function MixedCollection(allowFunctions : Boolean = false, keyFn : Function = null);
     public native function get items() : Array;
     public native function get map() : Object;
     public native function get keys() : Array;
@@ -39,13 +35,13 @@ public function MixedCollection(allowFunctions : Boolean = false, keyFn : Functi
   * simply returns <tt style="font-weight:bold;">item.id</code> but you can provide your own implementation
   * to return a different value as in the following examples:
 <pre><code>
-&#47;/ normal way
+// normal way
 var mc = new Ext.util.MixedCollection();
 mc.add(someEl.dom.id, someEl);
 mc.add(otherEl.dom.id, otherEl);
-&#47;/and so on
+//and so on
 
-&#47;/ using getKey
+// using getKey
 var mc = new Ext.util.MixedCollection();
 mc.getKey = function(el){
    return el.dom.id;
@@ -53,7 +49,7 @@ mc.getKey = function(el){
 mc.add(someEl);
 mc.add(otherEl);
 
-&#47;/ or via the constructor
+// or via the constructor
 var mc = new Ext.util.MixedCollection(false, function(el){
    return el.dom.id;
 });

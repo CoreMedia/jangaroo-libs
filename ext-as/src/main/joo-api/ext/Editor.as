@@ -51,7 +51,13 @@ public function Editor(config : Object) {
      * @cfg {String} alignment
      * The position to align to (see <b class='link'>ext.Element#alignTo</b> for more details, defaults to "c-c?").
      */
-    public var alignment : String;
+    public native function get alignment() : String;
+    /**
+     * @cfg {String} alignment
+     * The position to align to (see <b class='link'>ext.Element#alignTo</b> for more details).
+     */
+    public native function set alignment(value : String):void;
+
     /**
      * @cfg {Boolean/String} shadow "sides" for sides/bottom only, "frame" for 4-way shadow, and "drop"
      * for bottom-right shadow (defaults to "frame")

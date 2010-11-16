@@ -20,19 +20,19 @@ import ext.form.Action;
  * <p>By default, response packets are assumed to be JSON, so a typical response
  * packet may look like this:</p><pre><code>
 {
-    success&#58; false,
-    errors&#58; {
-        clientCode&#58; "Client not found",
-        portOfLoading&#58; "This field must not be null"
+    success: false,
+    errors: {
+        clientCode: "Client not found",
+        portOfLoading: "This field must not be null"
     }
 }</code></pre>
  * <p>Other data may be placed into the response for processing by the <b class='link'>ext.form.BasicForm</b>'s callback
  * or event handler methods. The object decoded from this JSON is available in the
  * <b class='link' title='ext.form.Action#result'>result</b> property.</p>
  * <p>Alternatively, if an <b class='link' title='#errorReader'>errorReader</b> is specified as an <b class='link' title='ext.data.XmlReader'>XmlReader</b>:</p><pre><code>
-    errorReader&#58; new ext.data.XmlReader({
+    errorReader: new ext.data.XmlReader({
             record : 'field',
-            success&#58; '@success'
+            success: '@success'
         }, [
             'id', 'msg'
         ]

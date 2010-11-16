@@ -5,12 +5,12 @@ package ext.data {
  * An ArrayStore will be automatically configured with a <b class='link'>ext.data.ArrayReader</b>.</p>
  * <p>A store configuration would be something like:<pre><code>
 var store = new ext.data.ArrayStore({
-    &#47;/ store configs
-    autoDestroy&#58; true,
-    storeId&#58; 'myStore',
-    &#47;/ reader configs
-    idIndex&#58; 0,  
-    fields&#58; [
+    // store configs
+    autoDestroy: true,
+    storeId: 'myStore',
+    // reader configs
+    idIndex: 0,
+    fields: [
        'company',
        {name: 'price', type: 'float'},
        {name: 'change', type: 'float'},

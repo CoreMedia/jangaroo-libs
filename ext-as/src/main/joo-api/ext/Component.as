@@ -3,10 +3,10 @@ package ext {
 import ext.util.Observable;
 
 /**
- * <p>Base class for all Ext components.  All subclasses of Component may participate in the automated
+ * Base class for all Ext components. All subclasses of Component may participate in the automated
  * Ext component lifecycle of creation, rendering and destruction which is provided by the <b class='link' title='ext.Container'>Container</b> class.
  * Components may be added to a Container through the <b class='link' title='ext.Container#items'>items</b> config option at the time the Container is created,
- * or they may be added dynamically via the <b class='link' title='ext.Container#add'>add</b> method.</p>
+ * or they may be added dynamically via the <b class='link' title='ext.Container#add'>add</b> method.
  * <p>The Component base class has built-in support for basic hide/show and enable/disable behavior.</p>
  * <p>All Components are registered with the <b class='link'>ext.ComponentMgr</b> on construction so that they can be referenced at any time via
  * <b class='link'>Ext#getCmp</b>, passing the <b class='link' title='#id'>id</b>.</p>
@@ -121,10 +121,7 @@ public class Component extends Observable {
  * <p class="sub-desc">it is assumed to be a standard config object and is applied to the component</p></li>
  * </ul></div>
  */
-public function Component(config : *) {
-  super();
-  config++;
-}
+public native function Component(config : *);
 
     /**
      * If this Component was created with a single Action argument, this Action
@@ -158,11 +155,11 @@ public function Component(config : *) {
      * <b class='link'>ext.layout.FormLayout</b>.<b class='link' title='ext.layout.FormLayout#fieldTpl'>fieldTpl</b>.</p>
      * Example use:<pre><code>
 new ext.FormPanel({
-    height&#58; 100,
-    renderTo&#58; Ext.getBody(),
-    items&#58; [{
-        xtype&#58; 'textfield',
-        fieldLabel&#58; 'Name'
+    height: 100,
+    renderTo: Ext.getBody(),
+    items: [{
+        xtype: 'textfield',
+        fieldLabel: 'Name'
     }]
 });
 </code></pre>
@@ -176,12 +173,12 @@ new ext.FormPanel({
      * <code><b class='link'>ext.layout.FormLayout</b>.<b class='link' title='ext.layout.FormLayout#fieldTpl'>fieldTpl</b>.</code></p>
      * Example use:<pre><code>
 new ext.FormPanel({
-    height&#58; 100,
-    renderTo&#58; Ext.getBody(),
-    items&#58; [{
-        xtype&#58; 'textfield',
-        fieldLabel&#58; 'Name',
-        labelStyle&#58; 'font-weight:bold;'
+    height: 100,
+    renderTo: Ext.getBody(),
+    items: [{
+        xtype: 'textfield',
+        fieldLabel: 'Name',
+        labelStyle: 'font-weight:bold;'
     }]
 });
 </code></pre>
@@ -201,19 +198,19 @@ new ext.FormPanel({
      * <b class='link'>ext.layout.FormLayout</b>.<b class='link' title='ext.layout.FormLayout#fieldTpl'>fieldTpl</b>.</p>
      * Example use:<pre><code>
 new ext.FormPanel({
-    height&#58; 100,
-    renderTo&#58; Ext.getBody(),
-    layoutConfig&#58; {
-        labelSeparator&#58; '~'   // layout config has lowest priority (defaults to ':')
+    height: 100,
+    renderTo: Ext.getBody(),
+    layoutConfig: {
+        labelSeparator: '~'   // layout config has lowest priority (defaults to ':')
     },
     <b class='link' title='ext.layout.FormLayout#labelSeparator'>labelSeparator</b>: '>>',     // config at container level
-    items&#58; [{
-        xtype&#58; 'textfield',
-        fieldLabel&#58; 'Field 1',
-        labelSeparator&#58; '...' // field/component level config supersedes others
+    items: [{
+        xtype: 'textfield',
+        fieldLabel: 'Field 1',
+        labelSeparator: '...' // field/component level config supersedes others
     },{
-        xtype&#58; 'textfield',
-        fieldLabel&#58; 'Field 2' // labelSeparator will be '='
+        xtype: 'textfield',
+        fieldLabel: 'Field 2' // labelSeparator will be '='
     }]
 });
 </code></pre>
@@ -227,11 +224,11 @@ new ext.FormPanel({
      * <br><p><b>Note</b>: see the note for <code><b class='link' title='#clearCls'>clearCls</b></code>.</p><br>
      * Example use:<pre><code>
 new ext.FormPanel({
-    height&#58; 100,
-    renderTo&#58; Ext.getBody(),
-    items&#58; [{
-        xtype&#58; 'textfield'
-        hideLabel&#58; true
+    height: 100,
+    renderTo: Ext.getBody(),
+    items: [{
+        xtype: 'textfield'
+        hideLabel: true
     }]
 });
 </code></pre>
@@ -257,21 +254,21 @@ new ext.FormPanel({
      * any other element within the markup for the field.</p>
      * <br><p><b>Note</b>: see the note for <code><b class='link' title='#fieldLabel'>fieldLabel</b></code>.</p><br>
      * Example use:<pre><code>
-&#47;/ Apply a style to the field's label:
+// Apply a style to the field's label:
 &lt;style>
     .required .x-form-item-label {font-weight:bold;color:red;}
 &lt;/style>
 
 new ext.FormPanel({
-	height&#58; 100,
-	renderTo&#58; Ext.getBody(),
-	items&#58; [{
-		xtype&#58; 'textfield',
-		fieldLabel&#58; 'Name',
-		itemCls&#58; 'required' //this label will be styled
+	height: 100,
+	renderTo: Ext.getBody(),
+	items: [{
+		xtype: 'textfield',
+		fieldLabel: 'Name',
+		itemCls: 'required' //this label will be styled
 	},{
-		xtype&#58; 'textfield',
-		fieldLabel&#58; 'Favorite Color'
+		xtype: 'textfield',
+		fieldLabel: 'Favorite Color'
 	}]
 });
 </code></pre>
@@ -316,12 +313,12 @@ var c = new ext.Panel({ //
     <b class='link' title='ext.Container#layout'>layout</b>: 'auto',
     <b class='link' title='ext.Container#items'>items</b>: [
         {
-            itemId&#58; 'p1',
+            itemId: 'p1',
             <b class='link' title='ext.Panel#title'>title</b>: 'Panel 1',
             <b class='link' title='ext.BoxComponent#height'>height</b>: 150
         },
         {
-            itemId&#58; 'p2',
+            itemId: 'p2',
             <b class='link' title='ext.Panel#title'>title</b>: 'Panel 2',
             <b class='link' title='ext.BoxComponent#height'>height</b>: 150
         }
@@ -381,22 +378,22 @@ p2 = p1.<b class='link' title='#ownerCt'>ownerCt</b>.<b class='link' title='ext.
      * <b class='link'>ext.Element#applyStyles</b>.
      * <pre><code>
 new ext.Panel({
-    title&#58; 'Some Title',
-    renderTo&#58; Ext.getBody(),
-    width&#58; 400, height: 300,
-    layout&#58; 'form',
-    items&#58; [{
-        xtype&#58; 'textarea',
-        style&#58; {
-            width&#58; '95%',
-            marginBottom&#58; '10px'
+    title: 'Some Title',
+    renderTo: Ext.getBody(),
+    width: 400, height: 300,
+    layout: 'form',
+    items: [{
+        xtype: 'textarea',
+        style: {
+            width: '95%',
+            marginBottom: '10px'
         }
     },
         new ext.Button({
-            text&#58; 'Send',
-            minWidth&#58; '100',
-            style&#58; {
-                marginBottom&#58; '10px'
+            text: 'Send',
+            minWidth: '100',
+            style: {
+                marginBottom: '10px'
             }
         })
     ]
@@ -488,7 +485,7 @@ new ext.Panel({
      * <p>To set the state provider for the current page:</p>
      * <pre><code>
 ext.state.Manager.setProvider(new ext.state.CookieProvider({
-    expires&#58; new Date(new Date().getTime()+(1000*60*60*24*7)), //7 days from now
+    expires: new Date(new Date().getTime()+(1000*60*60*24*7)), //7 days from now
 }));
      * </code></pre>
      * <p>A stateful Component attempts to save state when one of the events
@@ -540,25 +537,25 @@ ext.state.Manager.setProvider(new ext.state.CookieProvider({
      * <p>This is intended to allow the developer to create application-specific utility Components encapsulated by
      * different DOM elements. Example usage:</p><pre><code>
 {
-    xtype&#58; 'box',
-    autoEl&#58; {
-        tag&#58; 'img',
-        src&#58; 'http://www.example.com/example.jpg'
+    xtype: 'box',
+    autoEl: {
+        tag: 'img',
+        src: 'http://www.example.com/example.jpg'
     }
 }, {
-    xtype&#58; 'box',
-    autoEl&#58; {
-        tag&#58; 'blockquote',
-        html&#58; 'autoEl is cool!'
+    xtype: 'box',
+    autoEl: {
+        tag: 'blockquote',
+        html: 'autoEl is cool!'
     }
 }, {
-    xtype&#58; 'container',
-    autoEl&#58; 'ul',
-    cls&#58; 'ux-unordered-list',
-    items&#58; {
-        xtype&#58; 'box',
-        autoEl&#58; 'li',
-        html&#58; 'First list item'
+    xtype: 'container',
+    autoEl: 'ul',
+    cls: 'ux-unordered-list',
+    items: {
+        xtype: 'box',
+        autoEl: 'li',
+        html: 'First list item'
     }
 }
 </code></pre>
@@ -606,13 +603,13 @@ ext.state.Manager.setProvider(new ext.state.CookieProvider({
      * for this Component's own Observable events), see the <b class='link' title='ext.util.Observable#listeners'>listeners</b>
      * config for a suggestion, or use a render listener directly:</p><pre><code>
 new ext.Panel({
-    title&#58; 'The Clickable Panel',
-    listeners&#58; {
-        render&#58; function(p) {
-            &#47;/ Append the Panel to the click handler&#39;s argument list.
+    title: 'The Clickable Panel',
+    listeners: {
+        render: function(p) {
+            // Append the Panel to the click handler&#39;s argument list.
             p.getEl().on('click', handlePanelClick.createDelegate(null, [p], true));
         },
-        single&#58; true  // Remove the listener after first invocation
+        single: true  // Remove the listener after first invocation
     }
 });
 </code></pre>
@@ -678,18 +675,18 @@ new ext.Panel({
          * <p>The ancestor axis can be traversed by using '/' characters in the path.
          * For example, to put a reference to a Toolbar Button into <i>the Panel which owns the Toolbar</i>:</p><pre><code>
 var myGrid = new ext.grid.EditorGridPanel({
-    title&#58; 'My EditorGridPanel',
-    store&#58; myStore,
-    colModel&#58; myColModel,
-    tbar&#58; [{
-        text&#58; 'Save',
-        handler&#58; saveChanges,
-        disabled&#58; true,
-        ref&#58; '../saveButton'
+    title: 'My EditorGridPanel',
+    store: myStore,
+    colModel: myColModel,
+    tbar: [{
+        text: 'Save',
+        handler: saveChanges,
+        disabled: true,
+        ref: '../saveButton'
     }],
-    listeners&#58; {
-        afteredit&#58; function() {
-&#47;/          The button reference is in the GridPanel
+    listeners: {
+        afteredit: function() {
+//          The button reference is in the GridPanel
             myGrid.saveButton.enable();
         }
     }
@@ -756,13 +753,13 @@ var myGrid = new ext.grid.EditorGridPanel({
      * for this Component's own Observable events), see the <b class='link' title='#listeners'>listeners</b> config for a suggestion,
      * or use a render listener directly:</p><pre><code>
 new ext.Panel({
-    title&#58; 'The Clickable Panel',
-    listeners&#58; {
-        render&#58; function(p) {
-            &#47;/ Append the Panel to the click handler&#39;s argument list.
+    title: 'The Clickable Panel',
+    listeners: {
+        render: function(p) {
+            // Append the Panel to the click handler&#39;s argument list.
             p.getEl().on('click', handlePanelClick.createDelegate(null, [p], true));
         },
-        single&#58; true  // Remove the listener after first invocation
+        single: true  // Remove the listener after first invocation
     }
 });
 </code></pre>

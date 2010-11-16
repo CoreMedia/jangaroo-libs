@@ -22,7 +22,7 @@ myDiv.on(         // 'on' is shorthand for addListener
     "click",      // perform an action on click of myDiv
     handleClick   // reference to the action handler
 );  
-&#47;/ other methods to do the same:
+// other methods to do the same:
 ext.EventManager.on("myDiv", 'click', handleClick);
 ext.EventManager.addListener("myDiv", 'click', handleClick);
  </code></pre>

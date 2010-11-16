@@ -5,7 +5,7 @@ import ext.Element;
  * A simple element that adds extra horizontal space between items in a toolbar.
  * By default a 2px wide space is added via css specification:<pre><code>
 .x-toolbar .xtb-spacer {
-    width&#58;2px;
+    width:2px;
 }
  * </code></pre>
  * <p>Example usage:</p>
@@ -15,7 +15,7 @@ new ext.Panel({
         'Item 1',
         {xtype: 'tbspacer'}, // or ' '
         'Item 2',
-        &#47;/ space width is also configurable via javascript
+        // space width is also configurable via javascript
         {xtype: 'tbspacer', width: 50}, // add a 50px space
         'Item 3'
     ]

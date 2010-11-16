@@ -1,8 +1,8 @@
 package ext {
 /**
- * <p>Provides a convenient wrapper for normalized keyboard navigation.  KeyNav allows you to bind
+ * Provides a convenient wrapper for normalized keyboard navigation.  KeyNav allows you to bind
  * navigation keys to function calls that will get called when the keys are pressed, providing an easy
- * way to implement custom navigation schemes for any UI component.</p>
+ * way to implement custom navigation schemes for any UI component.
  * <p>The following are all of the possible keys that can be implemented: enter, left, right, up, down, tab, esc,
  * pageUp, pageDown, del, home, end.  Usage:</p>
  <pre><code>
@@ -26,9 +26,7 @@ public class KeyNav {
  * @param el The element to bind to
  * @param config The config
  */
-public function KeyNav(el : *, config : Object) {
-  super(el, config);
-}
+public native function KeyNav(el : *, config : Object);
     /**
      * @cfg {Boolean} disabled
      * True to disable this KeyNav instance (defaults to false)

@@ -13,9 +13,9 @@ var Employee = ext.data.Record.create([
    {name: 'occupation'}                 // This field will use "occupation" as the mapping.
 ]);
 var myReader = new ext.data.XmlReader({
-   totalRecords&#58; "results", // The element which contains the total dataset size (optional)
-   record&#58; "row",           // The repeated element which contains row information
-   id&#58; "id"                 // The element within the row that provides an ID for the record (optional)
+   totalRecords: "results", // The element which contains the total dataset size (optional)
+   record: "row",           // The repeated element which contains row information
+   id: "id"                 // The element within the row that provides an ID for the record (optional)
 }, Employee);
 </code></pre>
  * <p>

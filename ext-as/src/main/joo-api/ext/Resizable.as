@@ -3,10 +3,10 @@ package ext {
 import ext.util.Observable;
 
 /**
- * <p>Applies drag handles to an element to make it resizable. The drag handles are inserted into the element 
+ * Applies drag handles to an element to make it resizable. The drag handles are inserted into the element
  * and positioned absolute. Some elements, such as a textarea or image, don't support this. To overcome that, you can wrap
  * the textarea in a div and set 'resizeChild' to true (or to the id of the element), <b>or</b> set wrap:true in your config and
- * the element will be wrapped for you automatically.</p>
+ * the element will be wrapped for you automatically.
  * <p>Here is the list of valid resize handles:</p>
  * <pre>
 Value   Description
@@ -24,12 +24,12 @@ Value   Description
  * <p>Here's an example showing the creation of a typical Resizable:</p>
  * <pre><code>
 var resizer = new ext.Resizable('element-id', {
-    handles&#58; 'all',
-    minWidth&#58; 200,
-    minHeight&#58; 100,
-    maxWidth&#58; 500,
-    maxHeight&#58; 400,
-    pinned&#58; true
+    handles: 'all',
+    minWidth: 200,
+    minHeight: 100,
+    maxWidth: 500,
+    maxHeight: 400,
+    pinned: true
 });
 resizer.on('resize', myHandler);
 </code></pre>
@@ -43,11 +43,7 @@ public class Resizable extends Observable {
  * @param el The id or element to resize
  * @param config configuration options
   */
-public function Resizable(el : *, config : Object) {
-  super();
-  el++;
-  config++;
-}
+public native function Resizable(el : *, config : Object);
     /**
      * The proxy Element that is resized in place of the real Element during the resize operation.
      * This may be queried using <b class='link'>ext.Element#getBox</b> to provide the new area to resize to.
@@ -190,21 +186,21 @@ public function Resizable(el : *, config : Object) {
      * Element. Example:
 <pre><code>
 new ext.Panel({
-    title&#58; 'Resize me',
-    x&#58; 100,
-    y&#58; 100,
-    renderTo&#58; Ext.getBody(),
-    floating&#58; true,
-    frame&#58; true,
-    width&#58; 400,
-    height&#58; 200,
-    listeners&#58; {
-        render&#58; function(p) {
+    title: 'Resize me',
+    x: 100,
+    y: 100,
+    renderTo: Ext.getBody(),
+    floating: true,
+    frame: true,
+    width: 400,
+    height: 200,
+    listeners: {
+        render: function(p) {
             new ext.Resizable(p.getEl(), {
-                handles&#58; 'all',
-                pinned&#58; true,
-                transparent&#58; true,
-                resizeElement&#58; function() {
+                handles: 'all',
+                pinned: true,
+                transparent: true,
+                resizeElement: function() {
                     var box = this.proxy.getBox();
                     p.updateBox(box);
                     if (p.layout) {

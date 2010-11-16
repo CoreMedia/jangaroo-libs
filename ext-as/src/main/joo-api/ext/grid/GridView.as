@@ -16,10 +16,7 @@ public class GridView extends Observable {
  * @constructor
  * @param config
  */
-public function GridView(config : Object) {
-  super();
-  config++;
-}
+public native function GridView(config : Object);
     /**
      * Override this function to apply custom CSS classes to rows during rendering.  You can also supply custom
      * parameters to the row template for the current row to customize how it is rendered using the <b>rowParams</b>
@@ -27,11 +24,11 @@ public function GridView(config : Object) {
      * to the row's wrapping div.  To apply multiple class names, simply return them space-delimited within the string
      * (e.g., 'my-class another-class'). Example usage:
     <pre><code>
-viewConfig&#58; {
-    forceFit&#58; true,
-    showPreview&#58; true, // custom property
-    enableRowBody&#58; true, // required to create a second, full-width row to show expanded Record data
-    getRowClass&#58; function(record, rowIndex, rp, ds){ // rp = rowParams
+viewConfig: {
+    forceFit: true,
+    showPreview: true, // custom property
+    enableRowBody: true, // required to create a second, full-width row to show expanded Record data
+    getRowClass: function(record, rowIndex, rp, ds){ // rp = rowParams
         if(this.showPreview){
             rp.body = '&lt;p>'+record.data.excerpt+'&lt;/p>';
             return 'x-grid3-row-expanded';
@@ -144,7 +141,7 @@ viewConfig&#58; {
      * facets (like text) use something like:
     <pre><code>
     .x-grid3-row-selected .x-grid3-cell-inner {
-        color&#58; #FFCC00;
+        color: #FFCC00;
     }
     </code></pre>
      */

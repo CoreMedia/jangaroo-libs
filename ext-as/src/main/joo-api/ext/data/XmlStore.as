@@ -4,17 +4,17 @@ package ext.data {
  * A XmlStore will be automatically configured with a <b class='link'>ext.data.XmlReader</b>.</p>
  * <p>A store configuration would be something like:<pre><code>
 var store = new ext.data.XmlStore({
-    &#47;/ store configs
-    autoDestroy&#58; true,
-    storeId&#58; 'myStore',
-    url&#58; 'sheldon.xml', // automatically configures a HttpProxy
-    &#47;/ reader configs
-    record&#58; 'Item', // records will have an "Item" tag
-    idPath&#58; 'ASIN',
-    totalRecords&#58; '@TotalResults'
-    fields&#58; [
-        &#47;/ set up the fields mapping into the xml doc
-        &#47;/ The first needs mapping, the others are very basic
+    // store configs
+    autoDestroy: true,
+    storeId: 'myStore',
+    url: 'sheldon.xml', // automatically configures a HttpProxy
+    // reader configs
+    record: 'Item', // records will have an "Item" tag
+    idPath: 'ASIN',
+    totalRecords: '@TotalResults'
+    fields: [
+        // set up the fields mapping into the xml doc
+        // The first needs mapping, the others are very basic
         {name: 'Author', mapping: 'ItemAttributes > Author'},
         'Title', 'Manufacturer', 'ProductGroup'
     ]
@@ -36,7 +36,7 @@ var store = new ext.data.XmlStore({
         &#60Item>
             &#60ASIN>0446355453&#60/ASIN>
             &#60DetailPageURL>
-                http&#58;//www.amazon.com/
+                http://www.amazon.com/
             &#60/DetailPageURL>
             &#60ItemAttributes>
                 &#60Author>Sidney Sheldon&#60/Author>

@@ -21,37 +21,37 @@ package ext.layout {
  * with different percentages, the columnWidths must always add up to 1 (or 100%) when added together, otherwise your
  * layout may not render as expected.  Example usage:</p>
  * <pre><code>
-&#47;/ All columns are percentages -- they must add up to 1
+// All columns are percentages -- they must add up to 1
 var p = new ext.Panel({
-    title&#58; 'Column Layout - Percentage Only',
-    layout&#58;'column',
-    items&#58; [{
-        title&#58; 'Column 1',
-        columnWidth&#58; .25 
+    title: 'Column Layout - Percentage Only',
+    layout:'column',
+    items: [{
+        title: 'Column 1',
+        columnWidth: .25
     },{
-        title&#58; 'Column 2',
-        columnWidth&#58; .6
+        title: 'Column 2',
+        columnWidth: .6
     },{
-        title&#58; 'Column 3',
-        columnWidth&#58; .15
+        title: 'Column 3',
+        columnWidth: .15
     }]
 });
 
-&#47;/ Mix of width and columnWidth -- all columnWidth values must add up
-&#47;/ to 1. The first column will take up exactly 120px, and the last two
-&#47;/ columns will fill the remaining container width.
+// Mix of width and columnWidth -- all columnWidth values must add up
+// to 1. The first column will take up exactly 120px, and the last two
+// columns will fill the remaining container width.
 var p = new ext.Panel({
-    title&#58; 'Column Layout - Mixed',
-    layout&#58;'column',
-    items&#58; [{
-        title&#58; 'Column 1',
-        width&#58; 120
+    title: 'Column Layout - Mixed',
+    layout:'column',
+    items: [{
+        title: 'Column 1',
+        width: 120
     },{
-        title&#58; 'Column 2',
-        columnWidth&#58; .8
+        title: 'Column 2',
+        columnWidth: .8
     },{
-        title&#58; 'Column 3',
-        columnWidth&#58; .2
+        title: 'Column 3',
+        columnWidth: .2
     }]
 });
 </code></pre>

@@ -119,11 +119,11 @@ public function TextField(config : Object) {
      * entered into the field use <code><b class='link' title='ext.form.Field#autoCreate'>autoCreate</b></code> to add
      * any attributes you want to a field, for example:<pre><code>
 var myField = new ext.form.NumberField({
-    id&#58; 'mobile',
-    anchor&#58;'90%',
-    fieldLabel&#58; 'Mobile',
-    maxLength&#58; 16, // for validation
-    autoCreate&#58; {tag: 'input', type: 'text', size: '20', autocomplete: 'off', maxlength: '10'}
+    id: 'mobile',
+    anchor:'90%',
+    fieldLabel: 'Mobile',
+    maxLength: 16, // for validation
+    autoCreate: {tag: 'input', type: 'text', size: '20', autocomplete: 'off', maxlength: '10'}
 });
 </code></pre>
      */

@@ -5,10 +5,10 @@ import ext.form.Field;
 import ext.layout.ContainerLayout;
 
 /**
- * <p>Basic Toolbar class. Although the <code><b class='link' title='ext.Container#defaultType'>defaultType</b></code> for Toolbar
+ * Basic Toolbar class. Although the <code><b class='link' title='ext.Container#defaultType'>defaultType</b></code> for Toolbar
  * is <code><b class='link' title='ext.Button'>button</b></code>, Toolbar elements (child items for the Toolbar container) may
  * be virtually any type of Component. Toolbar elements can be created explicitly via their constructors,
- * or implicitly via their xtypes, and can be <code><b class='link' title='#add'>add</b></code>ed dynamically.</p>
+ * or implicitly via their xtypes, and can be <code><b class='link' title='#add'>add</b></code>ed dynamically.
  * <p>Some items have shortcut strings for creation:</p>
  * <pre>
 <u>Shortcut</u>  <u>xtype</u>          <u>Class</u>                  <u>Description</u>
@@ -20,26 +20,26 @@ import ext.layout.ContainerLayout;
  * Example usage of various elements:
  * <pre><code>
 var tb = new ext.Toolbar({
-    renderTo&#58; document.body,
-    width&#58; 600,
-    height&#58; 100,
-    items&#58; [
+    renderTo: document.body,
+    width: 600,
+    height: 100,
+    items: [
         {
-            &#47;/ xtype: 'button', // default for Toolbars, same as 'tbbutton'
-            text&#58; 'Button'
+            // xtype: 'button', // default for Toolbars, same as 'tbbutton'
+            text: 'Button'
         },
         {
-            xtype&#58; 'splitbutton', // same as 'tbsplitbutton'
-            text&#58; 'Split Button'
+            xtype: 'splitbutton', // same as 'tbsplitbutton'
+            text: 'Split Button'
         },
-        &#47;/ begin using the right-justified button container
+        // begin using the right-justified button container
         '->', // same as {xtype: 'tbfill'}, // Ext.toolbar.Fill
         {
-            xtype&#58; 'textfield',
-            name&#58; 'field1',
-            emptyText&#58; 'enter search term'
+            xtype: 'textfield',
+            name: 'field1',
+            emptyText: 'enter search term'
         },
-        &#47;/ add a vertical separator bar between toolbar items
+        // add a vertical separator bar between toolbar items
         '-', // same as {xtype: 'tbseparator'} to create ext.Toolbar.Separator
         'text 1', // same as {xtype: 'tbtext', text: 'text1'} to create ext.Toolbar.TextItem
         {xtype: 'tbspacer'},// same as ' ' to create ext.toolbar.Spacer
@@ -51,42 +51,42 @@ var tb = new ext.Toolbar({
  * </code></pre>
  * Example adding a ComboBox within a menu of a button:
  * <pre><code>
-&#47;/ ComboBox creation
+// ComboBox creation
 var combo = new ext.form.ComboBox({
-    store&#58; new ext.data.ArrayStore({
-        autoDestroy&#58; true,
-        fields&#58; ['initials', 'fullname'],
+    store: new ext.data.ArrayStore({
+        autoDestroy: true,
+        fields: ['initials', 'fullname'],
         data : [
             ['FF', 'Fred Flintstone'],
             ['BR', 'Barney Rubble']
         ]
     }),
-    displayField&#58; 'fullname',
-    typeAhead&#58; true,
-    mode&#58; 'local',
-    forceSelection&#58; true,
-    triggerAction&#58; 'all',
-    emptyText&#58; 'Select a name...',
-    selectOnFocus&#58; true,
-    width&#58; 135,
-    getListParent&#58; function() {
+    displayField: 'fullname',
+    typeAhead: true,
+    mode: 'local',
+    forceSelection: true,
+    triggerAction: 'all',
+    emptyText: 'Select a name...',
+    selectOnFocus: true,
+    width: 135,
+    getListParent: function() {
         return this.el.up('.x-menu');
     },
-    iconCls&#58; 'no-icon' //use iconCls if placing within menu to shift to right side of menu
+    iconCls: 'no-icon' //use iconCls if placing within menu to shift to right side of menu
 });
 
-&#47;/ put ComboBox in a Menu
+// put ComboBox in a Menu
 var menu = new Ext.menu.Menu({
-    id&#58; 'mainMenu',
-    items&#58; [
+    id: 'mainMenu',
+    items: [
         combo // A Field in a Menu
     ]
 });
 
-&#47;/ add a Button with the menu
+// add a Button with the menu
 tb.add({
-        text&#58;'Button w/ Menu',
-        menu&#58; menu  // assign menu by instance
+        text:'Button w/ Menu',
+        menu: menu  // assign menu by instance
     });
 tb.doLayout();
  * </code></pre>
@@ -100,7 +100,6 @@ public class Toolbar extends Container {
  */
   public function Toolbar(config : Object = null) {
     super(config);
-    config++;
   }
 
   public var layout : ContainerLayout;
@@ -129,7 +128,7 @@ public class Toolbar extends Container {
      * @param argn
      * @method add
      */
-    override public native function add(arg1 : *, arg2 : Object = null, argn : Object = null) : Component;
+    override public native function add(component : Object, ...components : Array) : Object;
     override protected native function lookupComponent(comp : Component) : void;
     override protected native function applyDefaults(c) : void;
     protected native function constructItem(item, type) : void;

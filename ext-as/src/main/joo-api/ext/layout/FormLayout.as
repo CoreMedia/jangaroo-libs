@@ -41,54 +41,54 @@ package ext.layout {
  *
  * <p>Example usage:</p>
  * <pre><code>
-&#47;/ Required if showing validation messages
+// Required if showing validation messages
 ext.QuickTips.init();
 
-&#47;/ While you can create a basic Panel with layout:'form', practically
-&#47;/ you should usually use a FormPanel to also get its form functionality
-&#47;/ since it already creates a FormLayout internally.
+// While you can create a basic Panel with layout:'form', practically
+// you should usually use a FormPanel to also get its form functionality
+// since it already creates a FormLayout internally.
 var form = new ext.form.FormPanel({
-    title&#58; 'Form Layout',
-    bodyStyle&#58; 'padding:15px',
-    width&#58; 350,
-    defaultType&#58; 'textfield',
-    defaults&#58; {
-        &#47;/ applied to each contained item
-        width&#58; 230,
-        msgTarget&#58; 'side'
+    title: 'Form Layout',
+    bodyStyle: 'padding:15px',
+    width: 350,
+    defaultType: 'textfield',
+    defaults: {
+        // applied to each contained item
+        width: 230,
+        msgTarget: 'side'
     },
-    items&#58; [{
-            fieldLabel&#58; 'First Name',
-            name&#58; 'first',
-            allowBlank&#58; false,
+    items: [{
+            fieldLabel: 'First Name',
+            name: 'first',
+            allowBlank: false,
             <b class='link' title='ext.Component#labelSeparator'>labelSeparator</b>: ':' // override labelSeparator layout config
         },{
-            fieldLabel&#58; 'Last Name',
-            name&#58; 'last'
+            fieldLabel: 'Last Name',
+            name: 'last'
         },{
-            fieldLabel&#58; 'Email',
-            name&#58; 'email',
-            vtype&#58;'email'
+            fieldLabel: 'Email',
+            name: 'email',
+            vtype:'email'
         }, {
-            xtype&#58; 'textarea',
-            hideLabel&#58; true,     // override hideLabels layout config
-            name&#58; 'msg',
-            anchor&#58; '100% -53'
+            xtype: 'textarea',
+            hideLabel: true,     // override hideLabels layout config
+            name: 'msg',
+            anchor: '100% -53'
         }
     ],
-    buttons&#58; [
+    buttons: [
         {text: 'Save'},
         {text: 'Cancel'}
     ],
-    layoutConfig&#58; {
+    layoutConfig: {
         <b class='link' title='#labelSeparator'>labelSeparator</b>: '~' // superseded by assignment below
     },
-    &#47;/ config options applicable to container when layout='form':
-    hideLabels&#58; false,
-    labelAlign&#58; 'left',   // or 'right' or 'top'
+    // config options applicable to container when layout='form':
+    hideLabels: false,
+    labelAlign: 'left',   // or 'right' or 'top'
     <b class='link' title='ext.form.FormPanel#labelSeparator'>labelSeparator</b>: '>>', // takes precedence over layoutConfig value
-    labelWidth&#58; 65,       // defaults to 100
-    labelPad&#58; 8           // defaults to 5, must specify labelWidth to be honored
+    labelWidth: 65,       // defaults to 100
+    labelPad: 8           // defaults to 5, must specify labelWidth to be honored
 });
 </code></pre>
  */

@@ -1,11 +1,11 @@
 package ext {
 
 /**
- * <p>A base error class. Future implementations are intended to provide more
+ * A base error class. Future implementations are intended to provide more
  * robust error handling throughout the framework (<b>in the debug build only</b>)
  * to check for common errors and problems. The messages issued by this class
  * will aid error checking. Error checks will be automatically removed in the
- * production build so that performance is not negatively impacted.</p>
+ * production build so that performance is not negatively impacted.
  * <p>Some sample messages currently implemented:</p><pre>
 "DataProxy attempted to execute an API-action but found an undefined
 url / function. Please review your Proxy url/api-configuration."
@@ -18,7 +18,7 @@ docs for additional assistance."
  * <p>An example of the code used for generating error messages:</p><pre><code>
 try {
     generateError({
-        foo&#58; 'bar'
+        foo: 'bar'
     });
 }
 catch (e) {
@@ -38,7 +38,7 @@ public class ExtError extends Error {
   }
 
   public var lang : String;
-  public var name : String;
+
   /**
    * getName
    * @return 

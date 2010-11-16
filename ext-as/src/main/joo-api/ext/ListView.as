@@ -1,8 +1,8 @@
 package ext {
 /**
- * <p>ext.ListView is a fast and light-weight implentation of a
- * <b class='link' title='Ext.grid.GridPanel'>Grid</b> like view with the following characteristics:</p>
- * <div class="mdetail-params"><ul>
+ * ListView is a fast and light-weight implentation of a <b class='link' title='Ext.grid.GridPanel'>Grid</b> like view.
+ * It has the following characteristics:
+ * <ul>
  * <li>resizable columns</li>
  * <li>selectable</li>
  * <li>column widths are initially proportioned by percentage based on the container
@@ -10,10 +10,10 @@ package ext {
  * <li>uses templates to render the data in any required format</li>
  * <li>no horizontal scrolling</li>
  * <li>no editing</li>
- * </ul></div>
+ * </ul>
  * <p>Example usage:</p>
  * <pre><code>
-&#47;/ consume JSON of this form:
+// consume JSON of this form:
 {
    "images":[
       {
@@ -31,9 +31,9 @@ package ext {
    ]
 } 
 var store = new ext.data.JsonStore({
-    url&#58; 'get-images.php',
-    root&#58; 'images',
-    fields&#58; [
+    url: 'get-images.php',
+    root: 'images',
+    fields: [
         'name', 'url',
         {name:'size', type: 'float'},
         {name:'lastmod', type:'date', dateFormat:'timestamp'}
@@ -42,40 +42,40 @@ var store = new ext.data.JsonStore({
 store.load();
 
 var listView = new ext.ListView({
-    store&#58; store,
-    multiSelect&#58; true,
-    emptyText&#58; 'No images to display',
-    reserveScrollOffset&#58; true,
-    columns&#58; [{
-        header&#58; 'File',
-        width&#58; .5,
-        dataIndex&#58; 'name'
+    store: store,
+    multiSelect: true,
+    emptyText: 'No images to display',
+    reserveScrollOffset: true,
+    columns: [{
+        header: 'File',
+        width: .5,
+        dataIndex: 'name'
     },{
-        header&#58; 'Last Modified',
-        width&#58; .35, 
-        dataIndex&#58; 'lastmod',
-        tpl&#58; '{lastmod:date("m-d h:i a")}'
+        header: 'Last Modified',
+        width: .35,
+        dataIndex: 'lastmod',
+        tpl: '{lastmod:date("m-d h:i a")}'
     },{
-        header&#58; 'Size',
-        dataIndex&#58; 'size',
-        tpl&#58; '{size:fileSize}', // format using Ext.util.Format.fileSize()
-        align&#58; 'right'
+        header: 'Size',
+        dataIndex: 'size',
+        tpl: '{size:fileSize}', // format using Ext.util.Format.fileSize()
+        align: 'right'
     }]
 });
 
-&#47;/ put it in a Panel so it looks pretty
+// put it in a Panel so it looks pretty
 var panel = new ext.Panel({
-    id&#58;'images-view',
-    width&#58;425,
-    height&#58;250,
-    collapsible&#58;true,
-    layout&#58;'fit',
-    title&#58;'Simple ListView <i>(0 items selected)</i>',
-    items&#58; listView
+    id:'images-view',
+    width:425,
+    height:250,
+    collapsible:true,
+    layout:'fit',
+    title:'Simple ListView <i>(0 items selected)</i>',
+    items: listView
 });
 panel.render(document.body);
 
-&#47;/ little bit of feedback
+// little bit of feedback
 listView.on('selectionchange', function(view, nodes){
     var l = nodes.length;
     var s = l != 1 ? 's' : '';
@@ -146,11 +146,11 @@ public function ListView(config : Object) {
      * @cfg {Array} columns An array of column configuration objects, for example:
      * <pre><code>
 {
-    align&#58; 'right',
-    dataIndex&#58; 'size',
-    header&#58; 'Size',
-    tpl&#58; '{size:fileSize}',
-    width&#58; .35
+    align: 'right',
+    dataIndex: 'size',
+    header: 'Size',
+    tpl: '{size:fileSize}',
+    width: .35
 }
      * </code></pre> 
      * Acceptable properties for each column configuration object are:

@@ -5,12 +5,12 @@ package ext {
  * any container. Example usage:
 <pre><code>
 new ext.Slider({
-    renderTo&#58; Ext.getBody(),
-    width&#58; 200,
-    value&#58; 50,
-    increment&#58; 10,
-    minValue&#58; 0,
-    maxValue&#58; 100
+    renderTo: Ext.getBody(),
+    width: 200,
+    value: 50,
+    increment: 10,
+    minValue: 0,
+    maxValue: 100
 });
 </code></pre>
  */

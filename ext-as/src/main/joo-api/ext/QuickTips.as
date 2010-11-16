@@ -1,9 +1,9 @@
 package ext {
 /**
- * <p>Provides attractive and customizable tooltips for any element. The QuickTips
+ * Provides attractive and customizable tooltips for any element. The QuickTips
  * singleton is used to configure and manage tooltips globally for multiple elements
  * in a generic manner.  To create individual tooltips with maximum customizability,
- * you should consider either <b class='link'>ext.Tip</b> or <b class='link'>ext.ToolTip</b>.</p>
+ * you should consider either <b class='link'>ext.Tip</b> or <b class='link'>ext.ToolTip</b>.
  * <p>Quicktips can be configured via tag attributes directly in markup, or by
  * registering quick tips programmatically via the <b class='link' title='#register'>register</b> method.</p>
  * <p>The singleton's instance of <b class='link'>ext.QuickTip</b> is available via
@@ -29,24 +29,24 @@ package ext {
  * <li>width</li></ul></div>
  * <p>Here is an example showing how some of these config options could be used:</p>
  * <pre><code>
-&#47;/ Init the singleton.  Any tag-based quick tips will start working.
+// Init the singleton.  Any tag-based quick tips will start working.
 ext.QuickTips.init();
 
-&#47;/ Apply a set of config properties to the singleton
+// Apply a set of config properties to the singleton
 Ext.apply(ext.QuickTips.getQuickTip(), {
-    maxWidth&#58; 200,
-    minWidth&#58; 100,
-    showDelay&#58; 50,
-    trackMouse&#58; true
+    maxWidth: 200,
+    minWidth: 100,
+    showDelay: 50,
+    trackMouse: true
 });
 
-&#47;/ Manually register a quick tip for a specific element
+// Manually register a quick tip for a specific element
 ext.QuickTips.register({
-    target&#58; 'my-div',
-    title&#58; 'My Tooltip',
-    text&#58; 'This tooltip was added in code',
-    width&#58; 100,
-    dismissDelay&#58; 20
+    target: 'my-div',
+    title: 'My Tooltip',
+    text: 'This tooltip was added in code',
+    width: 100,
+    dismissDelay: 20
 });
 </code></pre>
  * <p>To register a quick tip in markup, you simply add one or more of the valid QuickTip attributes prefixed with
@@ -60,9 +60,9 @@ ext.QuickTips.register({
  * <li><b>qwidth</b>: The quick tip width (equivalent to the 'width' target element config).</li></ul>
  * <p>Here is an example of configuring an HTML element to display a tooltip from markup:</p>
  * <pre><code>
-&#47;/ Add a quick tip to an HTML button
+// Add a quick tip to an HTML button
 &lt;input type="button" value="OK" ext:qtitle="OK Button" ext:qwidth="100"
-     ext&#58;qtip="This is a quick tip from markup!">&lt;/input>
+     ext:qtip="This is a quick tip from markup!">&lt;/input>
 </code></pre>
 */
 public class QuickTips {

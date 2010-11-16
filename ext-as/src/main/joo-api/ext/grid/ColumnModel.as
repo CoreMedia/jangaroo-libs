@@ -44,19 +44,19 @@ import ext.util.Observable;
  * config property. The <code><b class='link' title='#defaults'>defaults</b></code> config property can be used to apply defaults
  * for all columns, e.g.:</p><pre><code>
  var colModel = new Ext.grid.ColumnModel({
-    columns&#58; [
+    columns: [
         { header: "Ticker", width: 60, menuDisabled: false},
         { header: "Company Name", width: 150, id: 'company'},
         { header: "Market Cap."},
         { header: "$ Sales", renderer: money},
         { header: "Employees", resizable: false}
     ],
-    defaults&#58; {
-        sortable&#58; true,
-        menuDisabled&#58; true,
-        width&#58; 100
+    defaults: {
+        sortable: true,
+        menuDisabled: true,
+        width: 100
     },
-    listeners&#58; {
+    listeners: {
         <b class='link' title='#hiddenchange'>hiddenchange</b>: function(cm, colIndex, hidden) {
             saveConfig(colIndex, hidden);
         }
@@ -66,13 +66,13 @@ import ext.util.Observable;
  * <p>In both examples above, the ability to apply a CSS class to all cells in a column (including the
  * header) is demonstrated through the use of the <b><code><b class='link' title='Ext.grid.Column#id'>id</b></code></b> config
  * option. This column could be styled by including the following css:</p><pre><code>
- &#47;/add this css *after* the core css is loaded
+ //add this css *after* the core css is loaded
 .x-grid3-td-company {
-    color&#58; red; // entire column will have red font
+    color: red; // entire column will have red font
 }
-&#47;/ modify the header row only, adding an icon to the column header
+// modify the header row only, adding an icon to the column header
 .x-grid3-hd-company {
-    background&#58; transparent
+    background: transparent
         url(../../resources/images/icons/silk/building.png)
         no-repeat 3px 3px ! important;
         padding-left:20px;
@@ -166,7 +166,7 @@ public function ColumnModel(config : *) {
      * Returns the column configs that return true by the passed function that is called
      * with (columnConfig, index)
 <pre><code>
-&#47;/ returns an array of column config objects for all hidden columns
+// returns an array of column config objects for all hidden columns
 var columns = grid.getColumnModel().getColumnsBy(function(c){
   return c.hidden;
 });
@@ -195,7 +195,7 @@ var columns = grid.getColumnModel().getColumnsBy(function(c){
      */
     public native function getRenderer(col : Number) : Function;
     /**
-     * Sets the rendering (formatting) function for a column.  See <b class='link'>Ext.util.Format</b> for some
+     * Sets the rendering (formatting) function for a column.  See <b class='link'>ext.util.Format</b> for some
      * default formatting functions.
      * @param col The column index
      * @param fn The function to use to process the cell's raw data
@@ -259,7 +259,7 @@ var columns = grid.getColumnModel().getColumnsBy(function(c){
     /**
      * Returns the dataIndex for the specified column.
 <pre><code>
-&#47;/ Get field name for the column
+// Get field name for the column
 var fieldName = grid.getColumnModel().getDataIndex(columnIndex);
 </code></pre>
      * @param col The column index
@@ -283,8 +283,8 @@ var fieldName = grid.getColumnModel().getDataIndex(columnIndex);
 <pre><code>
 var store = new ext.data.Store({...});
 var colModel = new Ext.grid.ColumnModel({
-  columns&#58; [...],
-  isCellEditable&#58; function(col, row) {
+  columns: [...],
+  isCellEditable: function(col, row) {
     var record = store.getAt(row);
     if (record.get('readonly')) { // replace with your condition
       return false;
@@ -293,8 +293,8 @@ var colModel = new Ext.grid.ColumnModel({
   }
 });
 var grid = new Ext.grid.GridPanel({
-  store&#58; store,
-  colModel&#58; colModel,
+  store: store,
+  colModel: colModel,
   ...
 });
 </code></pre>

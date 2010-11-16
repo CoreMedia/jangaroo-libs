@@ -25,9 +25,9 @@ Provider
      * <pre><code>
 ext.Direct.addProvider(
     {
-        type&#58; 'polling',
-        url&#58;  'php/poll.php',
-        id&#58;   'poll-provider'
+        type: 'polling',
+        url:  'php/poll.php',
+        id:   'poll-provider'
     }
 );
      

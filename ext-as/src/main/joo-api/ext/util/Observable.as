@@ -6,28 +6,28 @@ package ext.util {
  * For example:
  * <pre><code>
 Employee = Ext.extend(Ext.util.Observable, {
-    constructor&#58; function(config){
+    constructor: function(config){
         this.name = config.name;
         this.addEvents({
             "fired" : true,
             "quit" : true
         });
 
-        &#47;/ Copy configured listeners into *this* object so that the base class&#39;s
-        &#47;/ constructor will add them.
+        // Copy configured listeners into *this* object so that the base class&#39;s
+        // constructor will add them.
         this.listeners = config.listeners;
 
-        &#47;/ Call our superclass constructor to complete construction process.
+        // Call our superclass constructor to complete construction process.
         Employee.superclass.constructor.call(config)
     }
 });
 </code></pre>
  * This could then be used like this:<pre><code>
 var newEmployee = new Employee({
-    name&#58; employeeName,
-    listeners&#58; {
-        quit&#58; function() {
-            &#47;/ By default, "this" will be the object that fired the event.
+    name: employeeName,
+    listeners: {
+        quit: function() {
+            // By default, "this" will be the object that fired the event.
             alert(this.name + " has quit!");
         }
     }
@@ -45,15 +45,15 @@ public class Observable {
      * <b><code><b class='link' title='ext.DataView#click'>click</b></code></b> event passing the node clicked on. To access DOM
      * events directly from a Component's HTMLElement, listeners must be added to the <i><b class='link' title='ext.Component#getEl'>Element</b></i> after the Component
      * has been rendered. A plugin can simplify this step:<pre><code>
-&#47;/ Plugin is configured with a listeners config object.
-&#47;/ The Component is appended to the argument list of all handler functions.
+// Plugin is configured with a listeners config object.
+// The Component is appended to the argument list of all handler functions.
 ext.DomObserver = Ext.extend(Object, {
-    constructor&#58; function(config) {
+    constructor: function(config) {
         this.listeners = config.listeners ? config.listeners : config;
     },
 
-    &#47;/ Component passes itself into plugin&#39;s init method
-    init&#58; function(c) {
+    // Component passes itself into plugin&#39;s init method
+    init: function(c) {
         var p, l = this.listeners;
         for (p in l) {
             if (Ext.isFunction(l[p])) {
@@ -63,7 +63,7 @@ ext.DomObserver = Ext.extend(Object, {
             }
         }
 
-        &#47;/ Add the listeners to the Element immediately following the render call
+        // Add the listeners to the Element immediately following the render call
         c.render = c.render.<b class='link' title='Function#createSequence'>createSequence</b>(function() {
             var e = c.getEl();
             if (e) {
@@ -72,7 +72,7 @@ ext.DomObserver = Ext.extend(Object, {
         });
     },
 
-    createHandler&#58; function(fn, c) {
+    createHandler: function(fn, c) {
         return function(e) {
             fn.call(this, e, c);
         };
@@ -81,16 +81,16 @@ ext.DomObserver = Ext.extend(Object, {
 
 var combo = new ext.form.ComboBox({
 
-    &#47;/ Collapse combo when its element is clicked on
-    plugins&#58; [ new ext.DomObserver({
-        click&#58; function(evt, comp) {
+    // Collapse combo when its element is clicked on
+    plugins: [ new ext.DomObserver({
+        click: function(evt, comp) {
             comp.collapse();
         }
     })],
-    store&#58; myStore,
-    typeAhead&#58; true,
-    mode&#58; 'local',
-    triggerAction&#58; 'all'
+    store: myStore,
+    typeAhead: true,
+    mode: 'local',
+    triggerAction: 'all'
 });
      * </code></pre></p>
      */
@@ -133,8 +133,8 @@ var combo = new ext.form.ComboBox({
          * A delayed, one-time listener.
          * <pre><code>
 myDataView.on('click', this.onClick, this, {
-    single&#58; true,
-    delay&#58; 100
+    single: true,
+    delay: 100
 });</code></pre>
          * <p>
          * <b>Attaching multiple handlers in 1 call</b><br>
@@ -144,17 +144,17 @@ myDataView.on('click', this.onClick, this, {
          * <pre><code>
 myGridPanel.on({
     'click' : {
-        fn&#58; this.onClick,
-        scope&#58; this,
-        delay&#58; 100
+        fn: this.onClick,
+        scope: this,
+        delay: 100
     },
     'mouseover' : {
-        fn&#58; this.onMouseOver,
-        scope&#58; this
+        fn: this.onMouseOver,
+        scope: this
     },
     'mouseout' : {
-        fn&#58; this.onMouseOut,
-        scope&#58; this
+        fn: this.onMouseOut,
+        scope: this
     }
 });</code></pre>
      * <p>
@@ -164,7 +164,7 @@ myGridPanel.on({
     'click' : this.onClick,
     'mouseover' : this.onMouseOver,
     'mouseout' : this.onMouseOut,
-     scope&#58; this
+     scope: this
 });</code></pre>
          */
         public native function addListener(eventName : String, handler : Function, scope : Object = undefined, options : Object = undefined) : void;

@@ -3,36 +3,36 @@ package ext {
  * Container for a group of buttons. Example usage:
  * <pre><code>
 var p = new ext.Panel({
-    title&#58; 'Panel with Button Group',
-    width&#58; 300,
-    height&#58;200,
-    renderTo&#58; document.body,
-    html&#58; 'whatever',
-    tbar&#58; [{
-        xtype&#58; 'buttongroup',
+    title: 'Panel with Button Group',
+    width: 300,
+    height:200,
+    renderTo: document.body,
+    html: 'whatever',
+    tbar: [{
+        xtype: 'buttongroup',
         <b class='link' title='#columns'>columns</b>: 3,
-        title&#58; 'Clipboard',
-        items&#58; [{
-            text&#58; 'Paste',
-            scale&#58; 'large',
-            rowspan&#58; 3, iconCls: 'add',
-            iconAlign&#58; 'top',
-            cls&#58; 'x-btn-as-arrow'
+        title: 'Clipboard',
+        items: [{
+            text: 'Paste',
+            scale: 'large',
+            rowspan: 3, iconCls: 'add',
+            iconAlign: 'top',
+            cls: 'x-btn-as-arrow'
         },{
-            xtype&#58;'splitbutton',
-            text&#58; 'Menu Button',
-            scale&#58; 'large',
-            rowspan&#58; 3,
-            iconCls&#58; 'add',
-            iconAlign&#58; 'top',
-            arrowAlign&#58;'bottom',
-            menu&#58; [{text: 'Menu Item 1'}]
+            xtype:'splitbutton',
+            text: 'Menu Button',
+            scale: 'large',
+            rowspan: 3,
+            iconCls: 'add',
+            iconAlign: 'top',
+            arrowAlign:'bottom',
+            menu: [{text: 'Menu Item 1'}]
         },{
-            xtype&#58;'splitbutton', text: 'Cut', iconCls: 'add16', menu: [{text: 'Cut Menu Item'}]
+            xtype:'splitbutton', text: 'Cut', iconCls: 'add16', menu: [{text: 'Cut Menu Item'}]
         },{
-            text&#58; 'Copy', iconCls: 'add16'
+            text: 'Copy', iconCls: 'add16'
         },{
-            text&#58; 'Format', iconCls: 'add16'
+            text: 'Format', iconCls: 'add16'
         }]
     }]
 });

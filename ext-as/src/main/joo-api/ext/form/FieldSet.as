@@ -6,53 +6,53 @@ import ext.Panel;
  * Standard container used for grouping items within a <b class='link' title='ext.form.FormPanel'>form</b>.
  * <pre><code>
 var form = new ext.FormPanel({
-    title&#58; 'Simple Form with FieldSets',
-    labelWidth&#58; 75, // label settings here cascade unless overridden
-    url&#58; 'save-form.php',
-    frame&#58;true,
-    bodyStyle&#58;'padding:5px 5px 0',
-    width&#58; 700,
-    renderTo&#58; document.body,
-    layout&#58;'column', // arrange items in columns
-    defaults&#58; {      // defaults applied to items
-        layout&#58; 'form',
-        border&#58; false,
-        bodyStyle&#58; 'padding:4px'
+    title: 'Simple Form with FieldSets',
+    labelWidth: 75, // label settings here cascade unless overridden
+    url: 'save-form.php',
+    frame:true,
+    bodyStyle:'padding:5px 5px 0',
+    width: 700,
+    renderTo: document.body,
+    layout:'column', // arrange items in columns
+    defaults: {      // defaults applied to items
+        layout: 'form',
+        border: false,
+        bodyStyle: 'padding:4px'
     },
-    items&#58; [{
-        &#47;/ Fieldset in Column 1
-        xtype&#58;'fieldset',
-        columnWidth&#58; 0.5,
-        title&#58; 'Fieldset 1',
-        collapsible&#58; true,
-        autoHeight&#58;true,
-        defaults&#58; {
-            anchor&#58; '-20' // leave room for error icon
+    items: [{
+        // Fieldset in Column 1
+        xtype:'fieldset',
+        columnWidth: 0.5,
+        title: 'Fieldset 1',
+        collapsible: true,
+        autoHeight:true,
+        defaults: {
+            anchor: '-20' // leave room for error icon
         },
-        defaultType&#58; 'textfield',
+        defaultType: 'textfield',
         items :[{
-                fieldLabel&#58; 'Field 1'
+                fieldLabel: 'Field 1'
             }, {
-                fieldLabel&#58; 'Field 2'
+                fieldLabel: 'Field 2'
             }, {
-                fieldLabel&#58; 'Field 3'
+                fieldLabel: 'Field 3'
             }
         ]
     },{
-        &#47;/ Fieldset in Column 2 - Panel inside
-        xtype&#58;'fieldset',
-        title&#58; 'Show Panel', // title, header, or checkboxToggle creates fieldset header
-        autoHeight&#58;true,
-        columnWidth&#58; 0.5,
-        checkboxToggle&#58; true,
-        collapsed&#58; true, // fieldset initially collapsed
-        layout&#58;'anchor',
+        // Fieldset in Column 2 - Panel inside
+        xtype:'fieldset',
+        title: 'Show Panel', // title, header, or checkboxToggle creates fieldset header
+        autoHeight:true,
+        columnWidth: 0.5,
+        checkboxToggle: true,
+        collapsed: true, // fieldset initially collapsed
+        layout:'anchor',
         items :[{
-            xtype&#58; 'panel',
-            anchor&#58; '100%',
-            title&#58; 'Panel inside a fieldset',
-            frame&#58; true,
-            height&#58; 100
+            xtype: 'panel',
+            anchor: '100%',
+            title: 'Panel inside a fieldset',
+            frame: true,
+            height: 100
         }]
     }]
 });

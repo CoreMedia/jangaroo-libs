@@ -1,9 +1,9 @@
 package ext {
 
 /**
- * <p>A specialized panel intended for use as an application window.  Windows are floated, <b class='link' title='#resizable'>resizable</b>, and
+ * A specialized panel intended for use as an application window. Windows are floated, <b class='link' title='#resizable'>resizable</b>, and
  * <b class='link' title='#draggable'>draggable</b> by default.  Windows can be <b class='link' title='#maximizable'>maximized</b> to fill the viewport,
- * restored to their prior size, and can be <b class='link' title='#minimize'>minimize</b>d.</p>
+ * restored to their prior size, and can be <b class='link' title='#minimize'>minimize</b>d.
  * <p>Windows can also be linked to a <b class='link'>ext.WindowGroup</b> or managed by the <b class='link'>ext.WindowMgr</b> to provide 
  * grouping, activation, to front, to back and other application-specific behavior.</p>
  * <p>By default, Windows will be rendered to document.body. To <b class='link' title='#constrain'>constrain</b> a Window to another element

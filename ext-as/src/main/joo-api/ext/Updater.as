@@ -11,8 +11,8 @@ import ext.util.Observable;
  * var el = Ext.get("foo"); // Get ext.Element object
  * var mgr = el.getUpdater();
  * mgr.update({
-        url&#58; "http://myserver.com/index.php",
-        params&#58; {
+        url: "http://myserver.com/index.php",
+        params: {
             param1: "foo",
             param2: "bar"
         }
@@ -27,10 +27,10 @@ import ext.util.Observable;
  * <br>
  * // short handed call directly from the element object
  * Ext.get("foo").load({
-        url&#58; "bar.php",
-        scripts&#58; true,
-        params&#58; "param1=foo&amp;param2=bar",
-        text&#58; "Loading Foo..."
+        url: "bar.php",
+        scripts: true,
+        params: "param1=foo&amp;param2=bar",
+        text: "Loading Foo..."
  * });
  * </code></pre>
 */
@@ -159,15 +159,15 @@ public class Updater extends Observable {
 	     * For example:
 	<pre><code>
 	um.update({
-	    url&#58; "your-url.php",
-	    params&#58; {param1: "foo", param2: "bar"}, // or a URL encoded string
-	    callback&#58; yourFunction,
-	    scope&#58; yourObject, //(optional scope)
-	    discardUrl&#58; true,
-	    nocache&#58; true,
-	    text&#58; "Loading...",
-	    timeout&#58; 60,
-	    scripts&#58; false // Save time by avoiding RegExp execution.
+	    url: "your-url.php",
+	    params: {param1: "foo", param2: "bar"}, // or a URL encoded string
+	    callback: yourFunction,
+	    scope: yourObject, //(optional scope)
+	    discardUrl: true,
+	    nocache: true,
+	    text: "Loading...",
+	    timeout: 60,
+	    scripts: false // Save time by avoiding RegExp execution.
 	});
 	</code></pre>
 	     */

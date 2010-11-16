@@ -24,22 +24,22 @@ import ext.util.Observable;
  * creates a reader commensurate to an Array data object.</p>
  * <pre><code>
 var myStore = new ext.data.ArrayStore({
-    fields&#58; ['fullname', 'first'],
-    idIndex&#58; 0 // id for each record will be the first element
+    fields: ['fullname', 'first'],
+    idIndex: 0 // id for each record will be the first element
 });
  * </code></pre>
  * <p>For custom implementations create a basic <b class='link'>ext.data.Store</b> configured as needed:</p>
  * <pre><code>
-&#47;/ create a <b class='link' title='ext.data.Record'>Record</b> constructor:
+// create a <b class='link' title='ext.data.Record'>Record</b> constructor:
 var rt = ext.data.Record.create([
     {name: 'fullname'},
     {name: 'first'}
 ]);
 var myStore = new ext.data.Store({
-    &#47;/ explicitly create reader
-    reader&#58; new ext.data.ArrayReader(
+    // explicitly create reader
+    reader: new ext.data.ArrayReader(
         {
-            idIndex&#58; 0  // id for each record will be the first element
+            idIndex: 0  // id for each record will be the first element
         },
         rt // recordType
     )
@@ -57,8 +57,8 @@ myStore.loadData(myData);
  * a record to the store:</p>
  * <pre><code>
 var defaultData = {
-    fullname&#58; 'Full Name',
-    first&#58; 'First Name'
+    fullname: 'Full Name',
+    first: 'First Name'
 };
 var recId = 100; // provide unique id for the record
 var r = new myStore.recordType(defaultData, ++recId); // create new record
@@ -73,10 +73,7 @@ public class Store extends Observable {
  * and read the data into Records.
  * @xtype store
  */
-public function Store(config : Object) {
-  super();
-  config++;
-}
+public native function Store(config : Object);
     /**
      * See the <code><b class='link' title='#baseParams corresponding configuration'>option</b></code>
      * for a description of this property.
@@ -91,10 +88,10 @@ public function Store(config : Object) {
      * instead of a Record constructor, it will implicitly create a Record constructor from that Array (see
      * <b class='link'>ext.data.Record</b>.<b class='link' title='ext.data.Record#create'>create</b> for additional details).</p>
      * <p>This property may be used to create new Records of the type held in this Store, for example:</p><pre><code>
-&#47;/ create the data store
+// create the data store
 var store = new ext.data.ArrayStore({
-    autoDestroy&#58; true,
-    fields&#58; [
+    autoDestroy: true,
+    fields: [
        {name: 'company'},
        {name: 'price', type: 'float'},
        {name: 'change', type: 'float'},
@@ -104,37 +101,37 @@ var store = new ext.data.ArrayStore({
 });
 store.loadData(myData);
 
-&#47;/ create the Grid
+// create the Grid
 var grid = new Ext.grid.EditorGridPanel({
-    store&#58; store,
-    colModel&#58; new Ext.grid.ColumnModel({
-        columns&#58; [
+    store: store,
+    colModel: new Ext.grid.ColumnModel({
+        columns: [
             {id:'company', header: 'Company', width: 160, dataIndex: 'company'},
             {header: 'Price', renderer: 'usMoney', dataIndex: 'price'},
             {header: 'Change', renderer: change, dataIndex: 'change'},
             {header: '% Change', renderer: pctChange, dataIndex: 'pctChange'},
             {header: 'Last Updated', width: 85,
-                renderer&#58; Ext.util.Format.dateRenderer('m/d/Y'),
-                dataIndex&#58; 'lastChange'}
+                renderer: Ext.util.Format.dateRenderer('m/d/Y'),
+                dataIndex: 'lastChange'}
         ],
-        defaults&#58; {
-            sortable&#58; true,
-            width&#58; 75
+        defaults: {
+            sortable: true,
+            width: 75
         }
     }),
-    autoExpandColumn&#58; 'company', // match the id specified in the column model
-    height&#58;350,
-    width&#58;600,
-    title&#58;'Array Grid',
-    tbar&#58; [{
-        text&#58; 'Add Record',
+    autoExpandColumn: 'company', // match the id specified in the column model
+    height:350,
+    width:600,
+    title:'Array Grid',
+    tbar: [{
+        text: 'Add Record',
         handler : function(){
             var defaultData = {
-                change&#58; 0,
-                company&#58; 'New Company',
-                lastChange&#58; (new Date()).clearTime(),
-                pctChange&#58; 0,
-                price&#58; 10
+                change: 0,
+                company: 'New Company',
+                lastChange: (new Date()).clearTime(),
+                pctChange: 0,
+                price: 10
             };
             var recId = 3; // provide unique id
             var p = new store.recordType(defaultData, recId); // create new record
@@ -194,20 +191,20 @@ var grid = new Ext.grid.EditorGridPanel({
      * <br><p>Sample implementation:
      * <pre><code>
 var writer = new <b class='link'>ext.data.JsonWriter</b>({
-    encode&#58; true,
-    writeAllFields&#58; true // write all fields, not just those that changed
+    encode: true,
+    writeAllFields: true // write all fields, not just those that changed
 });
 
-&#47;/ Typical Store collecting the Proxy, Reader and Writer together.
+// Typical Store collecting the Proxy, Reader and Writer together.
 var store = new ext.data.Store({
-    storeId&#58; 'user',
-    root&#58; 'records',
-    proxy&#58; proxy,
-    reader&#58; reader,
-    writer&#58; writer,     // <-- plug a DataWriter into the store just as you would a Reader
-    paramsAsHash&#58; true,
-    autoSave&#58; false    // <-- false to delay executing create, update, destroy requests
-                        &#47;/     until specifically told to do so.
+    storeId: 'user',
+    root: 'records',
+    proxy: proxy,
+    reader: reader,
+    writer: writer,     // <-- plug a DataWriter into the store just as you would a Reader
+    paramsAsHash: true,
+    autoSave: false    // <-- false to delay executing create, update, destroy requests
+                        //     until specifically told to do so.
 });
      * </code></pre></p>
      */
@@ -229,9 +226,9 @@ var store = new ext.data.Store({
      * <b class='link' title='#load'>load</b> operation.  Note that for local sorting, the <code>direction</code> property is
      * case-sensitive. See also <b class='link' title='#remoteSort'>remoteSort</b> and <b class='link' title='#paramNames'>paramNames</b>.
      * For example:<pre><code>
-sortInfo&#58; {
-    field&#58; 'fieldName',
-    direction&#58; 'ASC' // or 'DESC' (case sensitive for local sorting)
+sortInfo: {
+    field: 'fieldName',
+    direction: 'ASC' // or 'DESC' (case sensitive for local sorting)
 }
 </code></pre>
      */

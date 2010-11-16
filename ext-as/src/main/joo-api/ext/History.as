@@ -34,7 +34,7 @@ public class History extends Observable {
          * commonly be the concatenation of a component id and another id marking the specifc history
          * state of that component.  Example usage:
          * <pre><code>
-&#47;/ Handle tab changes on a TabPanel
+// Handle tab changes on a TabPanel
 tabPanel.on('tabchange', function(tabPanel, tab){
     ext.History.add(tabPanel.id + ':' + tab.id);
 });

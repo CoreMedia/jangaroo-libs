@@ -21,12 +21,7 @@ public class Region extends ContainerLayout {
  * <code>east</code>, <code>west</code> and <code>center</code>.  Every <b class='link' title='Ext.layout.BorderLayout'>BorderLayout</b>
  * <b>must have a center region</b> for the primary content -- all other regions are optional.
  */
-public function Region(layout : BorderLayout, config : Object, position : String) {
-  super();
-  layout++;
-  config++;
-  position++;
-}
+public native function Region(layout : BorderLayout, config : Object, position : String);
     /**
      * @cfg {Boolean} animFloat
      * When a collapsed region's bar is clicked, the region's panel will be displayed as a floated
@@ -62,10 +57,10 @@ public function Region(layout : BorderLayout, config : Object, position : String
      * An object containing margins to apply to the region when in the expanded state in the
      * format:<pre><code>
 {
-    top&#58; (top margin),
-    right&#58; (right margin),
-    bottom&#58; (bottom margin),
-    left&#58; (left margin)
+    top: (top margin),
+    right: (right margin),
+    bottom: (bottom margin),
+    left: (left margin)
 }</code></pre>
      * <p>May also be a string containing space-separated, numeric margin values. The order of the
      * sides associated with each value matches the way CSS processes margin values:</p>
@@ -86,10 +81,10 @@ public function Region(layout : BorderLayout, config : Object, position : String
      * An object containing margins to apply to the region when in the collapsed state in the
      * format:<pre><code>
 {
-    top&#58; (top margin),
-    right&#58; (right margin),
-    bottom&#58; (bottom margin),
-    left&#58; (left margin)
+    top: (top margin),
+    right: (right margin),
+    bottom: (bottom margin),
+    left: (left margin)
 }</code></pre>
      * <p>May also be a string containing space-separated, numeric margin values. The order of the
      * sides associated with each value matches the way CSS processes margin values.</p>

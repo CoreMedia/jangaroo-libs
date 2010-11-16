@@ -5,11 +5,11 @@ package ext.grid {
  * as a set of name/value pairs in <b class='link'>Ext.grid.PropertyRecord</b>s.  Example usage:
  * <pre><code>
 var grid = new Ext.grid.PropertyGrid({
-    title&#58; 'Properties Grid',
-    autoHeight&#58; true,
-    width&#58; 300,
-    renderTo&#58; 'grid-ct',
-    source&#58; {
+    title: 'Properties Grid',
+    autoHeight: true,
+    width: 300,
+    renderTo: 'grid-ct',
+    source: {
         "(name)": "My Object",
         "Created": new Date(Date.parse('10/15/2006')),
         "Available": false,
@@ -43,10 +43,10 @@ public function PropertyGrid(config : Object) {
     * <pre><code>
 var grid = new Ext.grid.PropertyGrid({
     ...
-    customEditors&#58; {
+    customEditors: {
         'Start Time': new Ext.grid.GridEditor(new ext.form.TimeField({selectOnFocus:true}))
     },
-    source&#58; {
+    source: {
         'Start Time': '10:00 AM'
     }
 });

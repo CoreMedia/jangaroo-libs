@@ -31,7 +31,7 @@ public class EventManager {
 	     * <li>normalized : Boolean<div class="sub-desc">False to pass a browser event to the handler function instead of an ext.EventObjectClass</div></li>
 	     * <li>delay : Number<div class="sub-desc">The number of milliseconds to delay the invocation of the handler after te event fires.</div></li>
 	     * <li>single : Boolean<div class="sub-desc">True to add a handler to handle just the next firing of the event, and then remove itself.</div></li>
-	     * <li>buffer : Number<div class="sub-desc">Causes the handler to be scheduled to run in an <b class='link'>Ext.util.DelayedTask</b> delayed
+	     * <li>buffer : Number<div class="sub-desc">Causes the handler to be scheduled to run in an <b class='link'>ext.util.DelayedTask</b> delayed
 	     * by the specified number of milliseconds. If the event fires again within that time, the original
 	     * handler is <em>not</em> invoked, but the new handler is scheduled in its place.</div></li>
 	     * <li>target : Element<div class="sub-desc">Only call the handler if the event was fired on the target Element, <i>not</i> if the event was bubbled up from a child node.</div></li>

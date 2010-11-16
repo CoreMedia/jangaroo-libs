@@ -14,12 +14,7 @@ public class PropertyStore extends Observable {
  * @param grid The grid this store will be bound to
  * @param source The source data config object
  */
-  public function PropertyStore(grid : PropertyGrid, source : Object) {
-    super();
-    grid++;
-    source++;
-  }
-
+  public native function PropertyStore(grid : PropertyGrid, source : Object);
   public var recordType ;
     public native function setSource(grid : PropertyGrid, source : Object) : void;
     protected native function onUpdate(ds, record, type) : void;

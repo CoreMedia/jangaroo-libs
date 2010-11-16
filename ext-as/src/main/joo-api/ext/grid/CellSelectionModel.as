@@ -16,10 +16,7 @@ public class CellSelectionModel extends AbstractSelectionModel {
  * @constructor
  * @param config The object containing the configuration of this model.
  */
-public function CellSelectionModel(config : Object) {
-  super();
-  config++;
-}
+public native function CellSelectionModel(config : Object);
     public native function initEvents() : void;
 
 	protected native function beforeEdit(e);
@@ -37,9 +34,9 @@ public function CellSelectionModel(config : Object) {
      * Due to possible column reordering, the cellIndex should <b>not</b> be used as an
      * index into the Record's data. Instead, use the cellIndex to determine the <i>name</i>
      * of the selected cell and use the field name to retrieve the data value from the record:<pre><code>
-&#47;/ get name
+// get name
 var fieldName = grid.getColumnModel().getDataIndex(cellIndex);
-&#47;/ get data value based on name
+// get data value based on name
 var data = record.get(fieldName);
      * </code></pre></p></li>
      * </ul></div>

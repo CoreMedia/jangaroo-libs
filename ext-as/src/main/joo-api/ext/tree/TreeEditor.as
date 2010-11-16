@@ -15,16 +15,15 @@ public class TreeEditor extends Editor {
  * that will be applied to the default field instance (defaults to a <b class='link'>ext.form.TextField</b>).
  * @param config A TreeEditor config object
  */
-public function TreeEditor(tree : TreePanel, fieldConfig : Object = undefined, config : Object = undefined) {
+public function TreeEditor(tree : TreePanel, fieldConfig : Object = null, config : Object = null) {
   super(config);
-  tree++;
-  fieldConfig++;
 }
    /**
     * @cfg {String} alignment
     * The position to align to (see <b class='link'>ext.Element#alignTo</b> for more details, defaults to "l-l").
     */
-    public var alignment : String;
+    override public native function get alignment() : String;
+
     /**
      * @cfg {String} autoSize
      * True for the editor to automatically adopt the size of the underlying field, "width" to adopt the width only,

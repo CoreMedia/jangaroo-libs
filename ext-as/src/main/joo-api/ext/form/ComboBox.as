@@ -1,6 +1,7 @@
 package ext.form {
 import ext.DataView;
 import ext.Element;
+import ext.EventObjectClass;
 import ext.XTemplate;
 import ext.data.Store;
 
@@ -13,14 +14,14 @@ import ext.data.Store;
  * <p><b><u>Events</u></b></p>
  * <p>To do something when something in ComboBox is selected, configure the select event:<pre><code>
 var cb = new ext.form.ComboBox({
-    &#47;/ all of your config options
-    listeners&#58;{
-         scope&#58; yourScope,
+    // all of your config options
+    listeners:{
+         scope: yourScope,
          'select': yourFunction
     }
 });
 
-&#47;/ Alternatively, you can assign events after the object is created:
+// Alternatively, you can assign events after the object is created:
 var cb = new ext.form.ComboBox(yourOptions);
 cb.on('select', yourFunction, yourScope);
  * </code></pre></p>
@@ -29,7 +30,7 @@ cb.on('select', yourFunction, yourScope);
  * <p>If using a ComboBox in an <b class='link' title='Ext.grid.EditorGridPanel Editor'>Grid</b> a <b class='link' title='Ext.grid.Column#renderer'>renderer</b>
  * will be needed to show the displayField when the editor is not active.  Set up the renderer manually, or implement
  * a reusable render, for example:<pre><code>
-&#47;/ create reusable renderer
+// create reusable renderer
 Ext.util.Format.comboRenderer = function(combo){
     return function(value){
         var record = combo.findRecord(combo.<b class='link' title='#valueField'>valueField</b>, value);
@@ -37,33 +38,33 @@ Ext.util.Format.comboRenderer = function(combo){
     }
 }
 
-&#47;/ create the combo instance
+// create the combo instance
 var combo = new ext.form.ComboBox({
     <b class='link' title='#typeAhead'>typeAhead</b>: true,
     <b class='link' title='#triggerAction'>triggerAction</b>: 'all',
     <b class='link' title='#lazyRender'>lazyRender</b>:true,
     <b class='link' title='#mode'>mode</b>: 'local',
     <b class='link' title='#store'>store</b>: new ext.data.ArrayStore({
-        id&#58; 0,
-        fields&#58; [
+        id: 0,
+        fields: [
             'myId',
             'displayText'
         ],
-        data&#58; [[1, 'item1'], [2, 'item2']]
+        data: [[1, 'item1'], [2, 'item2']]
     }),
     <b class='link' title='#valueField'>valueField</b>: 'myId',
     <b class='link' title='#displayField'>displayField</b>: 'displayText'
 });
 
-&#47;/ snippet of column model used within grid
+// snippet of column model used within grid
 var cm = new Ext.grid.ColumnModel([{
        ...
     },{
-       header&#58; "Some Header",
-       dataIndex&#58; 'whatever',
-       width&#58; 130,
-       editor&#58; combo, // specify reference to combo instance
-       renderer&#58; Ext.util.Format.comboRenderer(combo) // pass combo instance to reusable renderer
+       header: "Some Header",
+       dataIndex: 'whatever',
+       width: 130,
+       editor: combo, // specify reference to combo instance
+       renderer: Ext.util.Format.comboRenderer(combo) // pass combo instance to reusable renderer
     },
     ...
 ]);
@@ -287,19 +288,19 @@ public function ComboBox(config : Object) {
      * <p class="sub-desc">ComboBox loads local data</p>
      * <pre><code>
 var combo = new ext.form.ComboBox({
-    renderTo&#58; document.body,
-    mode&#58; 'local',
-    store&#58; new ext.data.ArrayStore({
-        id&#58; 0,
-        fields&#58; [
+    renderTo: document.body,
+    mode: 'local',
+    store: new ext.data.ArrayStore({
+        id: 0,
+        fields: [
             'myId',  // numeric value is the key
             'displayText'
         ],
-        data&#58; [[1, 'item1'], [2, 'item2']]  // data is local
+        data: [[1, 'item1'], [2, 'item2']]  // data is local
     }),
-    valueField&#58; 'myId',
-    displayField&#58; 'displayText',
-    triggerAction&#58; 'all'
+    valueField: 'myId',
+    displayField: 'displayText',
+    triggerAction: 'all'
 });
      * </code></pre></li>
      * </ul></div>
@@ -336,12 +337,12 @@ var combo = new ext.form.ComboBox({
      * <pre><code>
 var combo = new ext.form.ComboBox({
     ...
-    mode&#58; 'remote',
+    mode: 'remote',
     ...
-    listeners&#58; {
-        &#47;/ delete the previous query in the beforequery event or set
-        &#47;/ combo.lastQuery = null (this will reload the store the next time it expands)
-        beforequery&#58; function(qe){
+    listeners: {
+        // delete the previous query in the beforequery event or set
+        // combo.lastQuery = null (this will reload the store the next time it expands)
+        beforequery: function(qe){
             delete qe.combo.lastQuery;
         }
     }
@@ -352,9 +353,9 @@ var combo = new ext.form.ComboBox({
      * <pre><code>
 var combo = new ext.form.ComboBox({
     ...
-    mode&#58; 'local',
-    triggerAction&#58; 'all',
-    lastQuery&#58; ''
+    mode: 'local',
+    triggerAction: 'all',
+    lastQuery: ''
 });
      * </code></pre>
      * @property lastQuery
@@ -402,8 +403,8 @@ var combo = new ext.form.ComboBox({
      * to a different Element. An example might be rendering the list inside a Menu so that clicking
      * the list does not hide the Menu:<pre><code>
 var store = new ext.data.ArrayStore({
-    autoDestroy&#58; true,
-    fields&#58; ['initials', 'fullname'],
+    autoDestroy: true,
+    fields: ['initials', 'fullname'],
     data : [
         ['FF', 'Fred Flintstone'],
         ['BR', 'Barney Rubble']
@@ -411,24 +412,24 @@ var store = new ext.data.ArrayStore({
 });
 
 var combo = new ext.form.ComboBox({
-    store&#58; store,
-    displayField&#58; 'fullname',
-    emptyText&#58; 'Select a name...',
-    forceSelection&#58; true,
-    getListParent&#58; function() {
+    store: store,
+    displayField: 'fullname',
+    emptyText: 'Select a name...',
+    forceSelection: true,
+    getListParent: function() {
         return this.el.up('.x-menu');
     },
-    iconCls&#58; 'no-icon', //use iconCls if placing within menu to shift to right side of menu
-    mode&#58; 'local',
-    selectOnFocus&#58; true,
-    triggerAction&#58; 'all',
-    typeAhead&#58; true,
-    width&#58; 135
+    iconCls: 'no-icon', //use iconCls if placing within menu to shift to right side of menu
+    mode: 'local',
+    selectOnFocus: true,
+    triggerAction: 'all',
+    typeAhead: true,
+    width: 135
 });
 
 var menu = new Ext.menu.Menu({
-    id&#58; 'mainMenu',
-    items&#58; [
+    id: 'mainMenu',
+    items: [
         combo // A Field in a Menu
     ]
 });
@@ -506,7 +507,7 @@ var menu = new Ext.menu.Menu({
     protected native function selectNext() : void;
     protected native function selectPrev() : void;
     override protected native function onKeyUp(e) : void;
-    override protected native function validateBlur(e) : void;
+    override protected native function validateBlur(e : EventObjectClass) : void;
     protected native function initQuery() : void;
     override protected native function beforeBlur() : void;
     /**
@@ -532,7 +533,7 @@ var menu = new Ext.menu.Menu({
      * @method onTriggerClick
      * @hide
      */
-    override public native function onTriggerClick(e : *) : void;
+    override public native function onTriggerClick(e : EventObjectClass) : void;
     /**
      * @hide
      * @method autoSize

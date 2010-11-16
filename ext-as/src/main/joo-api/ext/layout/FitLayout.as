@@ -9,12 +9,12 @@ package ext.layout {
  * multiple panels, only the first one will be displayed.  Example usage:</p>
  * <pre><code>
 var p = new ext.Panel({
-    title&#58; 'Fit Layout',
-    layout&#58;'fit',
-    items&#58; {
-        title&#58; 'Inner Panel',
-        html&#58; '&lt;p&gt;This is the inner panel content&lt;/p&gt;',
-        border&#58; false
+    title: 'Fit Layout',
+    layout:'fit',
+    items: {
+        title: 'Inner Panel',
+        html: '&lt;p&gt;This is the inner panel content&lt;/p&gt;',
+        border: false
     }
 });
 </code></pre>

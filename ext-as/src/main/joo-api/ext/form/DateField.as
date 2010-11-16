@@ -1,4 +1,6 @@
 package ext.form {
+import ext.EventObjectClass;
+
 /**
  * Provides a date input field with a <b class='link'>ext.DatePicker</b> dropdown and automatic date validation.
 */
@@ -79,26 +81,26 @@ public function DateField(config : Object) {
     /**
      * @cfg {Array} disabledDays
      * An array of days to disable, 0 based (defaults to null). Some examples:<pre><code>
-&#47;/ disable Sunday and Saturday:
-disabledDays&#58;  [0, 6]
-&#47;/ disable weekdays:
-disabledDays&#58; [1,2,3,4,5]
+// disable Sunday and Saturday:
+disabledDays:  [0, 6]
+// disable weekdays:
+disabledDays: [1,2,3,4,5]
      * </code></pre>
      */
     /**
      * @cfg {Array} disabledDates
      * An array of "dates" to disable, as strings. These strings will be used to build a dynamic regular
      * expression so they are very powerful. Some examples:<pre><code>
-&#47;/ disable these exact dates:
-disabledDates&#58; ["03/08/2003", "09/16/2003"]
-&#47;/ disable these days for every year:
-disabledDates&#58; ["03/08", "09/16"]
-&#47;/ only match the beginning (useful if you are using short years):
-disabledDates&#58; ["^03/08"]
-&#47;/ disable every day in March 2006:
-disabledDates&#58; ["03/../2006"]
-&#47;/ disable every day in every March:
-disabledDates&#58; ["^03"]
+// disable these exact dates:
+disabledDates: ["03/08/2003", "09/16/2003"]
+// disable these days for every year:
+disabledDates: ["03/08", "09/16"]
+// only match the beginning (useful if you are using short years):
+disabledDates: ["^03/08"]
+// disable every day in March 2006:
+disabledDates: ["03/../2006"]
+// disable every day in every March:
+disabledDates: ["^03"]
      * </code></pre>
      * Note that the format of the dates included in the array should exactly match the <b class='link' title='#format'>format</b> config.
      * In order to support regular expressions, if you are using a <b class='link' title='#format date'>format</b> that has "." in
@@ -137,7 +139,7 @@ disabledDates&#58; ["^03"]
      */
     public native function setMaxValue(value : Date) : void;
     override protected native function validateValue(value : *) : Boolean;
-    override protected native function validateBlur(e) : void;
+    override protected native function validateBlur(e : EventObjectClass) : void;
     /**
      * Returns the current date value of the date field.
      * @return The date value
@@ -149,16 +151,16 @@ disabledDates&#58; ["^03"]
      * to the same rules as <b class='link'>Date#parseDate</b> (the default format used is <code>"m/d/Y"</code>).
      * <br />Usage:
      * <pre><code>
-&#47;/All of these calls set the same date value (May 4, 2006)
+//All of these calls set the same date value (May 4, 2006)
 
-&#47;/Pass a date object:
+//Pass a date object:
 var dt = new Date('5/4/2006');
 dateField.setValue(dt);
 
-&#47;/Pass a date string (default format):
+//Pass a date string (default format):
 dateField.setValue('05/04/2006');
 
-&#47;/Pass a date string (custom format):
+//Pass a date string (custom format):
 dateField.format = 'Y-m-d';
 dateField.setValue('2006-05-04');
 </code></pre>
@@ -173,7 +175,7 @@ dateField.setValue('2006-05-04');
      * @method onTriggerClick
      * @hide
      */
-    override public native function onTriggerClick(e : *) : void;
+    override public native function onTriggerClick(e : EventObjectClass) : void;
     protected native function menuEvents(method) : void;
     public native function onSelect(m, d) : void;
     public native function onMenuHide() : void;

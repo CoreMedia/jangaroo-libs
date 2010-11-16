@@ -12,16 +12,16 @@ var writer = new ext.data.JsonWriter();
  * </code></pre>
  * <p>The proxy for a writer enabled store can be configured with a simple <code>url</code>:</p>
  * <pre><code>
-&#47;/ Create a standard HttpProxy instance.
+// Create a standard HttpProxy instance.
 var proxy = new ext.data.HttpProxy({
-    url&#58; 'app.php/users'
+    url: 'app.php/users'
 });
  * </code></pre>
  * <p>For finer grained control, the proxy may also be configured with an <code>api</code>:</p>
  * <pre><code>
-&#47;/ Use the api specification
+// Use the api specification
 var proxy = new ext.data.HttpProxy({
-    api&#58; {
+    api: {
         read    : 'app.php/users/read',
         create  : 'app.php/users/create',
         update  : 'app.php/users/update',
@@ -32,9 +32,9 @@ var proxy = new ext.data.HttpProxy({
  * <p>Creating a Writer enabled store:</p>
  * <pre><code>
 var store = new ext.data.Store({
-    proxy&#58; proxy,
-    reader&#58; reader,
-    writer&#58; writer
+    proxy: proxy,
+    reader: reader,
+    writer: writer
 });
  * </code></pre>
 */
@@ -46,9 +46,7 @@ public class DataWriter {
  * in <b class='link'>ext.data.Record#create</b>, or an <b class='link'>ext.data.Record</b> object created
  * using <b class='link'>ext.data.Record#create</b>.
  */
-public function DataWriter(meta : Object, recordType : Object) {
-  super(meta, recordType);
-}
+public native function DataWriter(meta : Object, recordType : Object);
     /**
      * This DataWriter's configured metadata as passed to the constructor.
      * @property meta

@@ -7,10 +7,10 @@ import ext.util.Observable;
      * <p>Requests made by this class are asynchronous, and will return immediately. No data from
      * the server will be available to the statement immediately following the <b class='link' title='#request'>request</b> call.
      * To process returned data, use a
-     * <a href="#request-option-success" ext:member="request-option-success" ext:cls="ext.data.Connection">success callback</a>
+     * <a href="#request-option-success" title="ext.data.Connection#request-option-success">success callback</a>
      * in the request options object,
      * or an <b class='link' title='#requestcomplete event'>listener</b>.</p>
-     * <p><h3>File Uploads</h3><a href="#request-option-isUpload" ext:member="request-option-isUpload" ext:cls="ext.data.Connection">File uploads</a> are not performed using normal "Ajax" techniques, that
+     * <p><h3>File Uploads</h3><a href="#request-option-isUpload" title="ext.data.Connection#request-option-isUpload">File uploads</a> are not performed using normal "Ajax" techniques, that
      * is they are <b>not</b> performed using XMLHttpRequests. Instead the form is submitted in the standard
      * manner with the DOM <code>&lt;form></code> element temporarily modified to have its
      * <a href="http://www.w3.org/TR/REC-html40/present/frames.html#adef-target">target</a> set to refer
@@ -34,16 +34,18 @@ public class Connection extends Observable {
      * @constructor
      * @param config a configuration object.
      */
-public function Connection(config : Object) {
-  super();
-  config++;
-}
+public native function Connection(config : Object);
             public var id;
             public var name;
             public var className;
             public var src;
             public var target;
-            public var method;
+  /**
+   * The default HTTP method to be used for requests. Note that this is case-sensitive and
+   * should be all caps (defaults to undefined; if not set but params are present will use
+   * <code>"POST"</code>, otherwise will use <code>"GET"</code>.)
+   */
+  public var method;
             public var enctype;
             public var encoding;
             public var action;
@@ -91,12 +93,12 @@ public function Connection(config : Object) {
          * in a callback function.</p>
          * <pre><code>
 ext.Ajax.request({
-   url&#58; 'ajax_demo/sample.json',
-   success&#58; function(response, opts) {
+   url: 'ajax_demo/sample.json',
+   success: function(response, opts) {
       var obj = Ext.decode(response.responseText);
       console.dir(obj);
    },
-   failure&#58; function(response, opts) {
+   failure: function(response, opts) {
       console.log('server-side failure with status code ' + response.status);
    }
 });

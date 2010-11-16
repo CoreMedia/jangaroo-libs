@@ -1,30 +1,30 @@
 package ext {
 /**
- * <p>Utility class for generating different styles of message boxes.  The alias ext.Msg can also be used.<p/>
+ * Utility class for generating different styles of message boxes. In JavaScript, the alias ext.Msg can also be used.
  * <p>Note that the MessageBox is asynchronous.  Unlike a regular JavaScript <code>alert</code> (which will halt
  * browser execution), showing a MessageBox will not cause the code to stop.  For this reason, if you have code
  * that should only run <em>after</em> some user feedback from the MessageBox, you must use a callback function
  * (see the <code>function</code> parameter for <b class='link' title='#show'>show</b> for more details).</p>
  * <p>Example usage:</p>
  *<pre><code>
-&#47;/ Basic alert:
+// Basic alert:
 ext.Msg.alert('Status', 'Changes saved successfully.');
 
-&#47;/ Prompt for user data and process the result using a callback:
+// Prompt for user data and process the result using a callback:
 ext.Msg.prompt('Name', 'Please enter your name:', function(btn, text){
     if (btn == 'ok'){
-        &#47;/ process text value and close...
+        // process text value and close...
     }
 });
 
-&#47;/ Show a dialog using config options:
+// Show a dialog using config options:
 ext.Msg.show({
-   title&#58;'Save Changes?',
-   msg&#58; 'You are closing a tab that has unsaved changes. Would you like to save your changes?',
-   buttons&#58; ext.Msg.YESNOCANCEL,
-   fn&#58; processResult,
-   animEl&#58; 'elId',
-   icon&#58; ext.MessageBox.QUESTION
+   title:'Save Changes?',
+   msg: 'You are closing a tab that has unsaved changes. Would you like to save your changes?',
+   buttons: ext.Msg.YESNOCANCEL,
+   fn: processResult,
+   animEl: 'elId',
+   icon: ext.MessageBox.QUESTION
 });
 </code></pre>
 */
@@ -122,14 +122,14 @@ public class MessageBox {
          * Example usage:
          * <pre><code>
 ext.Msg.show({
-   title&#58; 'Address',
-   msg&#58; 'Please enter your address:',
-   width&#58; 300,
-   buttons&#58; ext.MessageBox.OKCANCEL,
-   multiline&#58; true,
-   fn&#58; saveAddress,
-   animEl&#58; 'addAddressBtn',
-   icon&#58; ext.MessageBox.INFO
+   title: 'Address',
+   msg: 'Please enter your address:',
+   width: 300,
+   buttons: ext.MessageBox.OKCANCEL,
+   multiline: true,
+   fn: saveAddress,
+   animEl: 'addAddressBtn',
+   icon: ext.MessageBox.INFO
 });
 </code></pre>
          * @return this

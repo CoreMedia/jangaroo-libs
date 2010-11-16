@@ -1,16 +1,16 @@
 package ext {
 /**
- * <p>An Action is a piece of reusable functionality that can be abstracted out of any particular component so that it
+ * An Action is a piece of reusable functionality that can be abstracted out of any particular component so that it
  * can be usefully shared among multiple components.  Actions let you share handlers, configuration options and UI
  * updates across any components that support the Action interface (primarily <b class='link'>ext.Toolbar</b>, <b class='link'>ext.Button</b>
- * and <b class='link'>Ext.menu.Menu</b> components).</p>
+ * and <b class='link'>Ext.menu.Menu</b> components).
  * <p>Aside from supporting the config object interface, any component that needs to use Actions must also support
  * the following method list, as these will be called as needed by the Action class: setText(string), setIconCls(string),
  * setDisabled(boolean), setVisible(boolean) and setHandler(function).</p>
  * Example usage:<br>
  * <pre><code>
-&#47;/ Define the shared action.  Each component below will have the same
-&#47;/ display text and icon, and will display the same message on click.
+// Define the shared action.  Each component below will have the same
+// display text and icon, and will display the same message on click.
 var action = new ext.Action({
     <b class='link' title='#text'>text</b>: 'Do something',
     <b class='link' title='#handler'>handler</b>: function(){
@@ -21,29 +21,29 @@ var action = new ext.Action({
 });
 
 var panel = new ext.Panel({
-    title&#58; 'Actions',
-    width&#58; 500,
-    height&#58; 300,
-    tbar&#58; [
-        &#47;/ Add the action directly to a toolbar as a menu button
+    title: 'Actions',
+    width: 500,
+    height: 300,
+    tbar: [
+        // Add the action directly to a toolbar as a menu button
         action,
         {
-            text&#58; 'Action Menu',
-            &#47;/ Add the action to a menu as a text item
-            menu&#58; [action]
+            text: 'Action Menu',
+            // Add the action to a menu as a text item
+            menu: [action]
         }
     ],
-    items&#58; [
-        &#47;/ Add the action to the panel body as a standard button
+    items: [
+        // Add the action to the panel body as a standard button
         new ext.Button(action)
     ],
-    renderTo&#58; Ext.getBody()
+    renderTo: Ext.getBody()
 });
 
-&#47;/ Change the text for all components using the action
+// Change the text for all components using the action
 action.setText('Something else');
 
-&#47;/ Reference an action through a container using the itemId
+// Reference an action through a container using the itemId
 var btn = panel.getComponent('myAction');
 var aRef = btn.baseAction;
 aRef.setText('New text');
@@ -54,10 +54,7 @@ public class Action {
  * @constructor
  * @param config The configuration options
  */
-public function Action(config : Object) {
-  super(config);
-}
-
+public native function Action(config : Object);
     /**
      * This Action's initial configuration specification. Read-only.
      * @property initialConfig
@@ -73,11 +70,11 @@ public function Action(config : Object) {
      * all components using this action (defaults to '').
      * <p>An example of specifying a custom icon class would be something like:
      * </p><pre><code>
-&#47;/ specify the property in the config for the class:
+// specify the property in the config for the class:
      ...
-     iconCls&#58; 'do-something'
+     iconCls: 'do-something'
 
-&#47;/ css class that specifies background image to be used as the icon image:
+// css class that specifies background image to be used as the icon image:
 .do-something { background-image: url(../images/my-icon.gif) 0 6px no-repeat !important; }
 </code></pre>
      */

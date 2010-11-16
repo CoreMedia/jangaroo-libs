@@ -1,6 +1,6 @@
 package ext {
 /**
- * <p>Base class for any <b class='link' title='ext.Component'>Component</b> that is to be sized as a box, using width and height.</p>
+ * Base class for any <b class='link' title='ext.Component'>Component</b> that is to be sized as a box, using width and height.
  * <p>BoxComponent provides automatic box model adjustments for sizing and positioning and will work correctly
  * within the Component rendering model.</p>
  * <p>A BoxComponent may be created as a custom Component which encapsulates any HTML element, either a pre-existing
@@ -9,16 +9,16 @@ package ext {
  * <p>To use a pre-existing element as a BoxComponent, configure it so that you preset the <b>el</b> property to the
  * element to reference:<pre><code>
 var pageHeader = new ext.BoxComponent({
-    el&#58; 'my-header-div'
+    el: 'my-header-div'
 });</code></pre>
  * This may then be <b class='link' title='ext.Container#add'>added</b> to a <b class='link' title='ext.Container'>Container</b> as a child item.</p>
  * <p>To create a BoxComponent based around a HTML element to be created at render time, use the
  * <b class='link' title='ext.Component#autoEl'>autoEl</b> config option which takes the form of a
  * <b class='link' title='ext.DomHelper'>DomHelper</b> specification:<pre><code>
 var myImage = new ext.BoxComponent({
-    autoEl&#58; {
-        tag&#58; 'img',
-        src&#58; '/images/my-image.jpg'
+    autoEl: {
+        tag: 'img',
+        src: '/images/my-image.jpg'
     }
 });</code></pre></p>
 */
@@ -44,10 +44,10 @@ public function BoxComponent(config : *) {
      * <p>An object containing margins to apply to this BoxComponent in the
      * format:</p><pre><code>
 {
-    top&#58; (top margin),
-    right&#58; (right margin),
-    bottom&#58; (bottom margin),
-    left&#58; (left margin)
+    top: (top margin),
+    right: (right margin),
+    bottom: (bottom margin),
+    left: (left margin)
 }</code></pre>
      * <p>May also be a string containing space-separated, numeric margin values. The order of the
      * sides associated with each value matches the way CSS processes margin values:</p>
@@ -100,25 +100,25 @@ public function BoxComponent(config : *) {
      * to changes within the structure of the Component cannot be detected. Therefore changes to the height might
      * result in elements needing to be synchronized with the new height. Example:</p><pre><code>
 var w = new ext.Window({
-    title&#58; 'Window',
-    width&#58; 600,
-    autoHeight&#58; true,
-    items&#58; {
-        title&#58; 'Collapse Me',
-        height&#58; 400,
-        collapsible&#58; true,
-        border&#58; false,
-        listeners&#58; {
-            beforecollapse&#58; function() {
+    title: 'Window',
+    width: 600,
+    autoHeight: true,
+    items: {
+        title: 'Collapse Me',
+        height: 400,
+        collapsible: true,
+        border: false,
+        listeners: {
+            beforecollapse: function() {
                 w.el.shadow.hide();
             },
-            beforeexpand&#58; function() {
+            beforeexpand: function() {
                 w.el.shadow.hide();
             },
-            collapse&#58; function() {
+            collapse: function() {
                 w.syncShadow();
             },
-            expand&#58; function() {
+            expand: function() {
                 w.syncShadow();
             }
         }
@@ -141,24 +141,24 @@ var w = new ext.Window({
      * A Panel rendered into that target element must listen for browser window resize in order to relay its
       * child items when the browser changes its width:<pre><code>
 var myPanel = new ext.Panel({
-    renderTo&#58; 'grid-container',
-    monitorResize&#58; true, // relay on browser resize
-    title&#58; 'Panel',
-    height&#58; 400,
-    autoWidth&#58; true,
-    layout&#58; 'hbox',
-    layoutConfig&#58; {
-        align&#58; 'stretch'
+    renderTo: 'grid-container',
+    monitorResize: true, // relay on browser resize
+    title: 'Panel',
+    height: 400,
+    autoWidth: true,
+    layout: 'hbox',
+    layoutConfig: {
+        align: 'stretch'
     },
-    defaults&#58; {
-        flex&#58; 1
+    defaults: {
+        flex: 1
     },
-    items&#58; [{
-        title&#58; 'Box 1',
+    items: [{
+        title: 'Box 1',
     }, {
-        title&#58; 'Box 2'
+        title: 'Box 2'
     }, {
-        title&#58; 'Box 3'
+        title: 'Box 3'
     }],
 });
 </code></pre>

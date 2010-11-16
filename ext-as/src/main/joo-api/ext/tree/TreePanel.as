@@ -12,21 +12,21 @@ import ext.grid.AbstractSelectionModel;
  * specified using the <b class='link' title='#root'>root</b> config option, or using the <b class='link' title='#setRootNode'>setRootNode</b> method.
  * <p>An example of tree rendered to an existing div:</p><pre><code>
 var tree = new Ext.tree.TreePanel({
-    renderTo&#58; 'tree-div',
-    useArrows&#58; true,
-    autoScroll&#58; true,
-    animate&#58; true,
-    enableDD&#58; true,
-    containerScroll&#58; true,
-    border&#58; false,
-    &#47;/ auto create TreeLoader
-    dataUrl&#58; 'get-nodes.php',
+    renderTo: 'tree-div',
+    useArrows: true,
+    autoScroll: true,
+    animate: true,
+    enableDD: true,
+    containerScroll: true,
+    border: false,
+    // auto create TreeLoader
+    dataUrl: 'get-nodes.php',
 
-    root&#58; {
-        nodeType&#58; 'async',
-        text&#58; 'Ext JS',
-        draggable&#58; false,
-        id&#58; 'source'
+    root: {
+        nodeType: 'async',
+        text: 'Ext JS',
+        draggable: false,
+        id: 'source'
     }
 });
 
@@ -50,39 +50,39 @@ tree.getRootNode().expand();
  * </code></pre>
  * <p>An example of tree within a Viewport:</p><pre><code>
 new ext.Viewport({
-    layout&#58; 'border',
-    items&#58; [{
-        region&#58; 'west',
-        collapsible&#58; true,
-        title&#58; 'Navigation',
-        xtype&#58; 'treepanel',
-        width&#58; 200,
-        autoScroll&#58; true,
-        split&#58; true,
-        loader&#58; new Ext.tree.TreeLoader(),
-        root&#58; new Ext.tree.AsyncTreeNode({
-            expanded&#58; true,
-            children&#58; [{
-                text&#58; 'Menu Option 1',
-                leaf&#58; true
+    layout: 'border',
+    items: [{
+        region: 'west',
+        collapsible: true,
+        title: 'Navigation',
+        xtype: 'treepanel',
+        width: 200,
+        autoScroll: true,
+        split: true,
+        loader: new Ext.tree.TreeLoader(),
+        root: new Ext.tree.AsyncTreeNode({
+            expanded: true,
+            children: [{
+                text: 'Menu Option 1',
+                leaf: true
             }, {
-                text&#58; 'Menu Option 2',
-                leaf&#58; true
+                text: 'Menu Option 2',
+                leaf: true
             }, {
-                text&#58; 'Menu Option 3',
-                leaf&#58; true
+                text: 'Menu Option 3',
+                leaf: true
             }]
         }),
-        rootVisible&#58; false,
-        listeners&#58; {
-            click&#58; function(n) {
+        rootVisible: false,
+        listeners: {
+            click: function(n) {
                 ext.Msg.alert('Navigation Tree Click', 'You clicked: "' + n.attributes.text + '"');
             }
         }
     }, {
-        region&#58; 'center',
-        xtype&#58; 'tabpanel',
-        &#47;/ remaining code not shown ...
+        region: 'center',
+        xtype: 'tabpanel',
+        // remaining code not shown ...
     }]
 });
 </code></pre>

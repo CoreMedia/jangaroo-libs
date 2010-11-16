@@ -125,25 +125,25 @@ public class Column {
      * <li>An object specifying both the renderer function, and its execution scope (<code><b>this</b></code>
      * reference) e.g.:<pre style="margin-left:1.2em"><code>
 {
-    fn&#58; this.gridRenderer,
-    scope&#58; this
+    fn: this.gridRenderer,
+    scope: this
 }
 </code></pre></li></ul></div>
      * If not specified, the default renderer uses the raw data value.</p>
      * <p>For information about the renderer function (passed parameters, etc.), see
      * <b class='link'>Ext.grid.ColumnModel#setRenderer</b>. An example of specifying renderer function inline:</p><pre><code>
 var companyColumn = {
-   header&#58; 'Company Name',
-   dataIndex&#58; 'company',
-   renderer&#58; function(value, metaData, record, rowIndex, colIndex, store) {
-      &#47;/ provide the logic depending on business rules
-      &#47;/ name of your own choosing to manipulate the cell depending upon
-      &#47;/ the data in the underlying Record object.
+   header: 'Company Name',
+   dataIndex: 'company',
+   renderer: function(value, metaData, record, rowIndex, colIndex, store) {
+      // provide the logic depending on business rules
+      // name of your own choosing to manipulate the cell depending upon
+      // the data in the underlying Record object.
       if (value == 'whatever') {
-          &#47;/metaData.css : String : A CSS class name to add to the TD element of the cell.
-          &#47;/metaData.attr : String : An html attribute definition string to apply to
-          &#47;/                         the data container element within the table
-          &#47;/                         cell (e.g. 'style="color:red;"').
+          //metaData.css : String : A CSS class name to add to the TD element of the cell.
+          //metaData.attr : String : An html attribute definition string to apply to
+          //                         the data container element within the table
+          //                         cell (e.g. 'style="color:red;"').
           metaData.css = 'name-of-css-class-you-will-define';
       }
       return value;
@@ -168,14 +168,14 @@ var companyColumn = {
      * <pre><code>
 var grid = new Ext.grid.GridPanel({
     ...
-    columns&#58; [{
-        header&#58; 'Last Updated',
-        dataIndex&#58; 'lastChange',
-        width&#58; 85,
-        sortable&#58; true,
-        &#47;/renderer: Ext.util.Format.dateRenderer('m/d/Y'),
-        xtype&#58; 'datecolumn', // use xtype instead of renderer
-        format&#58; 'M/d/Y' // configuration property for <b class='link'>Ext.grid.DateColumn</b>
+    columns: [{
+        header: 'Last Updated',
+        dataIndex: 'lastChange',
+        width: 85,
+        sortable: true,
+        //renderer: Ext.util.Format.dateRenderer('m/d/Y'),
+        xtype: 'datecolumn', // use xtype instead of renderer
+        format: 'M/d/Y' // configuration property for <b class='link'>Ext.grid.DateColumn</b>
     }, {
         ...
     }]

@@ -5,10 +5,10 @@ package ext.tree {
  * Example usage:<br />
  * <pre><code>
 new Ext.tree.TreeSorter(myTree, {
-    folderSort&#58; true,
-    dir&#58; "desc",
-    sortType&#58; function(node) {
-        &#47;/ sort by a custom, typed attribute:
+    folderSort: true,
+    dir: "desc",
+    sortType: function(node) {
+        // sort by a custom, typed attribute:
         return parseInt(node.id, 10);
     }
 });
@@ -20,9 +20,7 @@ public class TreeSorter {
  * @param tree
  * @param config
  */
-public function TreeSorter(tree : TreePanel, config : Object) {
-  super(tree, config);
-}
+public native function TreeSorter(tree : TreePanel, config : Object);
     /**
      * @cfg {Boolean} folderSort True to sort leaf nodes under non-leaf nodes (defaults to false)
      */

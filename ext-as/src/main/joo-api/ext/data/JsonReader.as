@@ -11,17 +11,17 @@ var Employee = ext.data.Record.create([
 ]);
 var myReader = new ext.data.JsonReader(
     {                             // The metadata property, with configuration options:
-        totalProperty&#58; "results", //   the property which contains the total dataset size (optional)
-        root&#58; "rows",             //   the property which contains an Array of record data objects
-        idProperty&#58; "id"          //   the property within each row object that provides an ID for the record (optional)
+        totalProperty: "results", //   the property which contains the total dataset size (optional)
+        root: "rows",             //   the property which contains an Array of record data objects
+        idProperty: "id"          //   the property within each row object that provides an ID for the record (optional)
     },
     Employee  // <b class='link'>ext.data.Record</b> constructor that provides mapping for JSON object
 );
 </code></pre>
  * <p>This would consume a JSON data object of the form:</p><pre><code>
 {
-    results&#58; 2,  // Reader's configured totalProperty
-    rows&#58; [      // Reader's configured root
+    results: 2,  // Reader's configured totalProperty
+    rows: [      // Reader's configured root
         { id: 1, firstname: 'Bill', occupation: 'Gardener' },         // a row object
         { id: 2, firstname: 'Ben' , occupation: 'Horticulturalist' }  // another row object
     ]
@@ -54,19 +54,19 @@ var myReader = new ext.data.JsonReader();
  * the form:</p>
 <pre><code>
 {
-    metaData&#58; {
-        idProperty&#58; 'id',
-        root&#58; 'rows',
-        totalProperty&#58; 'results',
-        fields&#58; [
+    metaData: {
+        idProperty: 'id',
+        root: 'rows',
+        totalProperty: 'results',
+        fields: [
             {name: 'name'},
             {name: 'job', mapping: 'occupation'}
         ],
-        sortInfo&#58; {field: 'name', direction:'ASC'}, // used by store to set its sortInfo
-        foo&#58; 'bar' // custom property
+        sortInfo: {field: 'name', direction:'ASC'}, // used by store to set its sortInfo
+        foo: 'bar' // custom property
     },
-    results&#58; 2,
-    rows&#58; [ // an Array
+    results: 2,
+    rows: [ // an Array
         { 'id': 1, 'name': 'Bill', occupation: 'Gardener' },
         { 'id': 2, 'name': 'Ben', occupation: 'Horticulturalist' }
     ]

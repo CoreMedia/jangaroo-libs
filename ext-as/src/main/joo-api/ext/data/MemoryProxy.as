@@ -9,10 +9,7 @@ public class MemoryProxy extends DataProxy {
  * @constructor
  * @param data The data object which the Reader uses to construct a block of ext.data.Records.
  */
-public function MemoryProxy(data : Object) {
-  super();
-  data++;
-}
+public native function MemoryProxy(data : Object);
     /**
      * MemoryProxy implementation of DataProxy#doRequest
      * @param action

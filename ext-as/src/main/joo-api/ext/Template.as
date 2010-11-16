@@ -17,9 +17,7 @@ public class Template {
  * @constructor
  * @param html The HTML fragment or an array of fragments to join("") or multiple arguments to join("")
  */
-public function Template(html : *) {
-  super(html);
-}
+public native function Template(html : *);
 
     /**
      * Returns an HTML fragment of this template with the specified values applied.

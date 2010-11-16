@@ -35,7 +35,7 @@ public class Cookies {
      * example retrieves the cookie called "valid" and stores the String value
      * in the variable <code>validStatus</code>.
      * <pre><code>
-     * var validStatus = Ext.util.Cookies.get("valid");
+     * var validStatus = ext.util.Cookies.get("valid");
      * </code></pre>
      * @param name The name of the cookie to get
      * @return Returns the cookie value for the specified name;

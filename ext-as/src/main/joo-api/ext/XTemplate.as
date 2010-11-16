@@ -1,32 +1,32 @@
 package ext {
 
 /**
- * <p>A template class that supports advanced functionality like autofilling arrays, conditional processing with
+ * A template class that supports advanced functionality like autofilling arrays, conditional processing with
  * basic comparison operators, sub-templates, basic math function support, special built-in template variables,
- * inline code execution and more.  XTemplate also provides the templating mechanism built into <b class='link'>ext.DataView</b>.</p>
+ * inline code execution and more.  XTemplate also provides the templating mechanism built into <b class='link'>ext.DataView</b>.
  * <p>XTemplate supports many special tags and built-in operators that aren't defined as part of the API, but are
  * supported in the templates that can be created.  The following examples demonstrate all of the supported features.
  * This is the data object used for reference in each code example:</p>
  * <pre><code>
 var data = {
-    name&#58; 'Jack Slocum',
-    title&#58; 'Lead Developer',
-    company&#58; 'Ext JS, LLC',
-    email&#58; 'jack@extjs.com',
-    address&#58; '4 Red Bulls Drive',
-    city&#58; 'Cleveland',
-    state&#58; 'Ohio',
-    zip&#58; '44102',
-    drinks&#58; ['Red Bull', 'Coffee', 'Water'],
-    kids&#58; [{
-        name&#58; 'Sara Grace',
-        age&#58;3
+    name: 'Jack Slocum',
+    title: 'Lead Developer',
+    company: 'Ext JS, LLC',
+    email: 'jack@extjs.com',
+    address: '4 Red Bulls Drive',
+    city: 'Cleveland',
+    state: 'Ohio',
+    zip: '44102',
+    drinks: ['Red Bull', 'Coffee', 'Water'],
+    kids: [{
+        name: 'Sara Grace',
+        age:3
     },{
-        name&#58; 'Zachary',
-        age&#58;2
+        name: 'Zachary',
+        age:2
     },{
-        name&#58; 'John James',
-        age&#58;0
+        name: 'John James',
+        age:0
     }]
 };
  * </code></pre>
@@ -158,10 +158,10 @@ var tpl = new ext.XTemplate(
             '&lt;p>{name} is a baby!&lt;/p>',
         '&lt;/tpl>',
     '&lt;/tpl>&lt;/p>', {
-     isGirl&#58; function(name){
+     isGirl: function(name){
          return name == 'Sara Grace';
      },
-     isBaby&#58; function(age){
+     isBaby: function(age){
         return age < 1;
      }
 });

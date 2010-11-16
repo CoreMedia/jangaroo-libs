@@ -1,8 +1,8 @@
 package ext {
 
 /**
- * <p>Panel is a container that has specific functionality and structural components that make
- * it the perfect building block for application-oriented user interfaces.</p>
+ * Panel is a container that has specific functionality and structural components that make
+ * it the perfect building block for application-oriented user interfaces.
  * <p>Panels are, by virtue of their inheritance from <b class='link'>ext.Container</b>, capable
  * of being configured with a <b class='link' title='ext.Container#layout'>layout</b>, and containing child Components.</p>
  * <p>When either specifying child <b class='link' title='ext.Component#items'>items</b> of a Panel, or dynamically <b class='link' title='ext.Container#add'>adding</b> Components
@@ -84,21 +84,21 @@ public function Panel(config : Object) {
      * element:</p>
      * <pre><code>
 new ext.Panel({
-    title&#58; 'Message Title',
-    renderTo&#58; Ext.getBody(),
-    width&#58; 200, height: 130,
+    title: 'Message Title',
+    renderTo: Ext.getBody(),
+    width: 200, height: 130,
     <b>bodyCfg</b>: {
-        tag&#58; 'center',
-        cls&#58; 'x-panel-body',  // Default class not applied if Custom element specified
-        html&#58; 'Message'
+        tag: 'center',
+        cls: 'x-panel-body',  // Default class not applied if Custom element specified
+        html: 'Message'
     },
-    footerCfg&#58; {
-        tag&#58; 'h2',
-        cls&#58; 'x-panel-footer'        // same as the Default class
-        html&#58; 'footer html'
+    footerCfg: {
+        tag: 'h2',
+        cls: 'x-panel-footer'        // same as the Default class
+        html: 'footer html'
     },
-    footerCssClass&#58; 'custom-footer', // additional css class, see <b class='link' title='Ext.element#addClass'>addClass</b>
-    footerStyle&#58;    'background-color:red' // see <b class='link' title='#bodyStyle'>bodyStyle</b>
+    footerCssClass: 'custom-footer', // additional css class, see <b class='link' title='Ext.element#addClass'>addClass</b>
+    footerStyle:    'background-color:red' // see <b class='link' title='#bodyStyle'>bodyStyle</b>
 });
      * </code></pre>
      * <p>The example above also explicitly creates a <code><b class='link' title='#footer'>footer</b></code> with custom markup and
@@ -188,21 +188,21 @@ new ext.Panel({
      * The Panel's <code><b class='link' title='#buttonAlign'>buttonAlign</b></code> configuration affects the layout of these items, for example:
      * <pre><code>
 var w = new ext.Window({
-    height&#58; 250,
-    width&#58; 500,
-    bbar&#58; new ext.Toolbar({
-        items&#58; [{
-            text&#58; 'bbar Left'
+    height: 250,
+    width: 500,
+    bbar: new ext.Toolbar({
+        items: [{
+            text: 'bbar Left'
         },'->',{
-            text&#58; 'bbar Right'
+            text: 'bbar Right'
         }]
     }),
     <b class='link' title='#buttonAlign'>buttonAlign</b>: 'left', // anything but 'center' or 'right' and you can use "-", and "->"
-                                  &#47;/ to control the alignment of fbar items
-    fbar&#58; [{
-        text&#58; 'fbar Left'
+                                  // to control the alignment of fbar items
+    fbar: [{
+        text: 'fbar Left'
     },'->',{
-        text&#58; 'fbar Right'
+        text: 'fbar Right'
     }]
 }).show();
      * </code></pre>
@@ -256,7 +256,7 @@ var w = new ext.Window({
      * 9 elements, complete with custom rounded corners (also see <b class='link'>ext.Element#boxWrap</b>).
      * <p>The template generated for each condition is depicted below:</p><pre><code>
      *
-&#47;/ frame = false
+// frame = false
 &lt;div id="developer-specified-id-goes-here" class="x-panel">
 
     &lt;div class="x-panel-header">&lt;span class="x-panel-header-text">Title: (frame:false)&lt;/span>&lt;/div>
@@ -266,7 +266,7 @@ var w = new ext.Window({
     &lt;/div>
 &lt;/div>
 
-&#47;/ frame = true (create 9 elements)
+// frame = true (create 9 elements)
 &lt;div id="developer-specified-id-goes-here" class="x-panel">
     &lt;div class="x-panel-tl">&lt;div class="x-panel-tr">&lt;div class="x-panel-tc">
         &lt;div class="x-panel-header">&lt;span class="x-panel-header-text">Title: (frame:true)&lt;/span>&lt;/div>
@@ -308,11 +308,11 @@ var w = new ext.Window({
      * The CSS class selector that specifies a background image to be used as the header icon (defaults to '').
      * <p>An example of specifying a custom icon class would be something like:
      * </p><pre><code>
-&#47;/ specify the property in the config for the class:
+// specify the property in the config for the class:
      ...
-     iconCls&#58; 'my-icon'
+     iconCls: 'my-icon'
 
-&#47;/ css class that specifies background image to be used as the icon image:
+// css class that specifies background image to be used as the icon image:
 .my-icon { background-image: url(../images/my-icon.gif) 0 6px no-repeat !important; }
 </code></pre>
      */
@@ -372,19 +372,19 @@ var w = new ext.Window({
      * handlers that implement the necessary behavior.</p>
      * <p>Example usage:</p>
      * <pre><code>
-tools&#58;[{
-    id&#58;'refresh',
-    qtip&#58; 'Refresh form Data',
-    &#47;/ hidden:true,
-    handler&#58; function(event, toolEl, panel){
-        &#47;/ refresh logic
+tools:[{
+    id:'refresh',
+    qtip: 'Refresh form Data',
+    // hidden:true,
+    handler: function(event, toolEl, panel){
+        // refresh logic
     }
 },
 {
-    id&#58;'help',
-    qtip&#58; 'Get Help',
-    handler&#58; function(event, toolEl, panel){
-        &#47;/ whatever
+    id:'help',
+    qtip: 'Get Help',
+    handler: function(event, toolEl, panel){
+        // whatever
     }
 }]
 </code></pre>
@@ -393,7 +393,7 @@ tools&#58;[{
      * <pre><code>
 .x-tool-help {background-image: url(images/help.png);}
 .x-tool-help-over {background-image: url(images/help_over.png);}
-&#47;/ if using an image sprite:
+// if using an image sprite:
 .x-tool-help {background-image: url(images/help.png) no-repeat 0 0;}
 .x-tool-help-over {background-position:-15px 0;}
 </code></pre>
@@ -408,11 +408,11 @@ new ext.Template('&lt;div class="x-tool x-tool-{id}">&amp;#160;&lt;/div>')</code
      * as specified in <b class='link' title='#tools'>tools</b>.  In the following example an &lt;a> tag is used to provide a
      * visual indication when hovering over the tool:</p><pre><code>
 var win = new ext.Window({
-    tools&#58; [{
-        id&#58; 'download',
-        href&#58; '/MyPdfDoc.pdf'
+    tools: [{
+        id: 'download',
+        href: '/MyPdfDoc.pdf'
     }],
-    toolTemplate&#58; new ext.XTemplate(
+    toolTemplate: new ext.XTemplate(
         '&lt;tpl if="id==\'download\'">',
             '&lt;a class="x-tool x-tool-pdf" href="{href}">&lt;/a>',
         '&lt;/tpl>',
@@ -420,9 +420,9 @@ var win = new ext.Window({
             '&lt;div class="x-tool x-tool-{id}">&amp;#160;&lt;/div>',
         '&lt;/tpl>'
     ),
-    width&#58;500,
-    height&#58;300,
-    closeAction&#58;'hide'
+    width:500,
+    height:300,
+    closeAction:'hide'
 });</code></pre>
      * <p>Note that the CSS class "x-tool-pdf" should have an associated style rule which provides an
      * appropriate background image, something like:</p>
@@ -527,35 +527,35 @@ var win = new ext.Window({
      * added by implementing the interface methods of <b class='link'>Ext.dd.DragDrop</b> e.g.:
      * <pre><code>
 new ext.Panel({
-    title&#58; 'Drag me',
-    x&#58; 100,
-    y&#58; 100,
-    renderTo&#58; Ext.getBody(),
-    floating&#58; true,
-    frame&#58; true,
-    width&#58; 400,
-    height&#58; 200,
-    draggable&#58; {
-&#47;/      Config option of Ext.panel.DD class.
-&#47;/      It&#39;s a floating Panel, so do not show a placeholder proxy in the original position.
-        insertProxy&#58; false,
+    title: 'Drag me',
+    x: 100,
+    y: 100,
+    renderTo: Ext.getBody(),
+    floating: true,
+    frame: true,
+    width: 400,
+    height: 200,
+    draggable: {
+//      Config option of Ext.panel.DD class.
+//      It&#39;s a floating Panel, so do not show a placeholder proxy in the original position.
+        insertProxy: false,
 
-&#47;/      Called for each mousemove event while dragging the DD object.
+//      Called for each mousemove event while dragging the DD object.
         onDrag : function(e){
-&#47;/          Record the x,y position of the drag proxy so that we can
-&#47;/          position the Panel at end of drag.
+//          Record the x,y position of the drag proxy so that we can
+//          position the Panel at end of drag.
             var pel = this.proxy.getEl();
             this.x = pel.getLeft(true);
             this.y = pel.getTop(true);
 
-&#47;/          Keep the Shadow aligned if there is one.
+//          Keep the Shadow aligned if there is one.
             var s = this.panel.getEl().shadow;
             if (s) {
                 s.realign(this.x, this.y, pel.getWidth(), pel.getHeight());
             }
         },
 
-&#47;/      Called on the mouseup event.
+//      Called on the mouseup event.
         endDrag : function(e){
             this.panel.setPosition(this.x, this.y);
         }
@@ -579,12 +579,12 @@ new ext.Panel({
      * <pre><code>
 new ext.Panel({
     ...
-    listeners&#58; {
+    listeners: {
         'afterlayout': {
-            fn&#58; function(p){
+            fn: function(p){
                 p.disable();
             },
-            single&#58; true // important, as many layouts can occur
+            single: true // important, as many layouts can occur
         }
     }
 });
@@ -826,15 +826,15 @@ new ext.Panel({
      * @param config A config object containing any of the following options:
 <pre><code>
 panel.load({
-    url&#58; "your-url.php",
-    params&#58; {param1: "foo", param2: "bar"}, // or a URL encoded string
-    callback&#58; yourFunction,
-    scope&#58; yourObject, // optional scope for the callback
-    discardUrl&#58; false,
-    nocache&#58; false,
-    text&#58; "Loading...",
-    timeout&#58; 30,
-    scripts&#58; false
+    url: "your-url.php",
+    params: {param1: "foo", param2: "bar"}, // or a URL encoded string
+    callback: yourFunction,
+    scope: yourObject, // optional scope for the callback
+    discardUrl: false,
+    nocache: false,
+    text: "Loading...",
+    timeout: 30,
+    scripts: false
 });
 </code></pre>
      * The only required property is url. The optional properties nocache, text and scripts

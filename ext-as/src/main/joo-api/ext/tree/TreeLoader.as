@@ -8,16 +8,16 @@ import ext.util.Observable;
  * whose elements are node definition objects. e.g.:
  * <pre><code>
     [{
-        id&#58; 1,
-        text&#58; 'A leaf Node',
-        leaf&#58; true
+        id: 1,
+        text: 'A leaf Node',
+        leaf: true
     },{
-        id&#58; 2,
-        text&#58; 'A folder Node',
-        children&#58; [{
-            id&#58; 3,
-            text&#58; 'A child Node',
-            leaf&#58; true
+        id: 2,
+        text: 'A folder Node',
+        children: [{
+            id: 3,
+            text: 'A child Node',
+            leaf: true
         }]
    }]
 </code></pre>
@@ -42,10 +42,7 @@ public class TreeLoader extends Observable {
  * Creates a new Treeloader.
  * @param config A config object containing config properties.
  */
-public function TreeLoader(config : Object) {
-  super();
-  config++;
-}
+public native function TreeLoader(config : Object);
     /**
     * @cfg {String} dataUrl The URL from which to request a Json string which
     * specifies an array of node definition objects representing the child nodes
@@ -89,10 +86,10 @@ public function TreeLoader(config : Object) {
      * as either (1) an Array of String values, or (2) a String of params delimited by either whitespace,
      * comma, or pipe. For example,
      * any of the following would be acceptable:<pre><code>
-paramOrder&#58; ['param1','param2','param3']
-paramOrder&#58; 'param1 param2 param3'
-paramOrder&#58; 'param1,param2,param3'
-paramOrder&#58; 'param1|param2|param'
+paramOrder: ['param1','param2','param3']
+paramOrder: 'param1 param2 param3'
+paramOrder: 'param1,param2,param3'
+paramOrder: 'param1|param2|param'
      </code></pre>
      */
     public var paramOrder : *;
@@ -137,10 +134,10 @@ paramOrder&#58; 'param1|param2|param'
 new Ext.tree.TreePanel({
     ...
     new Ext.tree.TreeLoader({
-        url&#58; 'dataUrl',
-        createNode&#58; function(attr) {
-&#47;/          Allow consolidation consignments to have
-&#47;/          consignments dropped into them.
+        url: 'dataUrl',
+        createNode: function(attr) {
+//          Allow consolidation consignments to have
+//          consignments dropped into them.
             if (attr.isConsolidation) {
                 attr.iconCls = 'x-consol',
                 attr.allowDrop = true;

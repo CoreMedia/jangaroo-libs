@@ -15,9 +15,9 @@ import js.HTMLElement;
  * <p>The example below binds a DataView to a <b class='link'>ext.data.Store</b> and renders it into an <b class='link'>ext.Panel</b>.</p>
  * <pre><code>
 var store = new ext.data.JsonStore({
-    url&#58; 'get-images.php',
-    root&#58; 'images',
-    fields&#58; [
+    url: 'get-images.php',
+    root: 'images',
+    fields: [
         'name', 'url',
         {name:'size', type: 'float'},
         {name:'lastmod', type:'date', dateFormat:'timestamp'}
@@ -35,22 +35,22 @@ var tpl = new ext.XTemplate(
 );
 
 var panel = new ext.Panel({
-    id&#58;'images-view',
-    frame&#58;true,
-    width&#58;535,
-    autoHeight&#58;true,
-    collapsible&#58;true,
-    layout&#58;'fit',
-    title&#58;'Simple DataView',
+    id:'images-view',
+    frame:true,
+    width:535,
+    autoHeight:true,
+    collapsible:true,
+    layout:'fit',
+    title:'Simple DataView',
 
-    items&#58; new ext.DataView({
-        store&#58; store,
-        tpl&#58; tpl,
-        autoHeight&#58;true,
-        multiSelect&#58; true,
-        overClass&#58;'x-view-over',
-        itemSelector&#58;'div.thumb-wrap',
-        emptyText&#58; 'No images to display'
+    items: new ext.DataView({
+        store: store,
+        tpl: tpl,
+        autoHeight:true,
+        multiSelect: true,
+        overClass:'x-view-over',
+        itemSelector:'div.thumb-wrap',
+        emptyText: 'No images to display'
     })
 });
 panel.render(document.body);

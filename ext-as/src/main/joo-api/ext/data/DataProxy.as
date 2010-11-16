@@ -18,7 +18,7 @@ import ext.util.Observable;
  * <b class='link'>ext.data.HttpProxy</b>.<b class='link' title='ext.data.HttpProxy#load'>load</b> for additional details.</p>
  * <p><b><u>Example 1</u></b></p>
  * <pre><code>
-proxy&#58; new ext.data.ScriptTagProxy({
+proxy: new ext.data.ScriptTagProxy({
     <b class='link' title='ext.data.Connection#url'>url</b>: 'http://extjs.com/forum/topics-remote.php'
 }),
  * </code></pre>
@@ -29,7 +29,7 @@ proxy : new ext.data.HttpProxy({
     <b class='link' title='ext.data.HttpProxy#prettyUrls'>prettyUrls</b>: false,
     <b class='link' title='ext.data.Connection#url'>url</b>: 'local/default.php', // see options parameter for <b class='link'>ext.Ajax#request</b>
     <b class='link' title='#api'>api</b>: {
-        &#47;/ all actions except the following will use above url
+        // all actions except the following will use above url
         create  : 'local/new.php',
         update  : 'local/update.php'
     }
@@ -41,7 +41,7 @@ proxy : new ext.data.HttpProxy({
      * @cfg {Object} api
      * Specific urls to call on CRUD action methods "read", "create", "update" and "destroy".
      * Defaults to:<pre><code>
-api&#58; {
+api: {
     read    : undefined,
     create  : undefined,
     update  : undefined,
@@ -54,37 +54,37 @@ api&#58; {
      * property should be modified before the action is requested using the corresponding before
      * action event.  For example to modify the URL associated with the load action:
      * <pre><code>
-&#47;/ modify the url for the action
+// modify the url for the action
 myStore.on({
-    beforeload&#58; {
-        fn&#58; function (store, options) {
-            &#47;/ use <code><b class='link' title='ext.data.HttpProxy#setUrl'>setUrl</b></code> to change the URL for *just* this request.
+    beforeload: {
+        fn: function (store, options) {
+            // use <code><b class='link' title='ext.data.HttpProxy#setUrl'>setUrl</b></code> to change the URL for *just* this request.
             store.proxy.setUrl('changed1.php');
 
-            &#47;/ set optional second parameter to true to make this URL change
-            &#47;/ permanent, applying this URL for all subsequent requests.
+            // set optional second parameter to true to make this URL change
+            // permanent, applying this URL for all subsequent requests.
             store.proxy.setUrl('changed1.php', true);
 
-            &#47;/ manually set the <b>private</b> connection URL.
-            &#47;/ <b>Warning:</b>  Accessing the private URL property should be avoided.
-            &#47;/ Use the public method <code><b class='link' title='ext.data.HttpProxy#setUrl'>setUrl</b></code> instead, shown above.
-            &#47;/ It should be noted that changing the URL like this will affect
-            &#47;/ the URL for just this request.  Subsequent requests will use the
-            &#47;/ API or URL defined in your initial proxy configuration.
+            // manually set the <b>private</b> connection URL.
+            // <b>Warning:</b>  Accessing the private URL property should be avoided.
+            // Use the public method <code><b class='link' title='ext.data.HttpProxy#setUrl'>setUrl</b></code> instead, shown above.
+            // It should be noted that changing the URL like this will affect
+            // the URL for just this request.  Subsequent requests will use the
+            // API or URL defined in your initial proxy configuration.
             store.proxy.conn.url = 'changed1.php';
 
-            &#47;/ proxy URL will be superseded by API (only if proxy created to use ajax):
-            &#47;/ It should be noted that proxy API changes are permanent and will
-            &#47;/ be used for all subsequent requests.
+            // proxy URL will be superseded by API (only if proxy created to use ajax):
+            // It should be noted that proxy API changes are permanent and will
+            // be used for all subsequent requests.
             store.proxy.api.load = 'changed2.php';
 
-            &#47;/ However, altering the proxy API should be done using the public
-            &#47;/ method <code><b class='link' title='ext.data.DataProxy#setApi'>setApi</b></code> instead.
+            // However, altering the proxy API should be done using the public
+            // method <code><b class='link' title='ext.data.DataProxy#setApi'>setApi</b></code> instead.
             store.proxy.setApi('load', 'changed2.php');
 
-            &#47;/ Or set the entire API with a config-object.
-            &#47;/ When using the config-object option, you must redefine the <b>entire</b>
-            &#47;/ API -- not just a specific action of it.
+            // Or set the entire API with a config-object.
+            // When using the config-object option, you must redefine the <b>entire</b>
+            // API -- not just a specific action of it.
             store.proxy.setApi({
                 read    : 'changed_read.php',
                 create  : 'changed_create.php',
@@ -106,9 +106,9 @@ myStore.on({
      * <br><p>RESTful implementations enable the serverside framework to automatically route
      * actions sent to one url based upon the HTTP method, for example:
      * <pre><code>
-store&#58; new ext.data.Store({
-    restful&#58; true,
-    proxy&#58; new ext.data.HttpProxy({url:'/users'}); // all requests sent to /users
+store: new ext.data.Store({
+    restful: true,
+    proxy: new ext.data.HttpProxy({url:'/users'}); // all requests sent to /users
     ...
 )}
      * </code></pre>

@@ -1,6 +1,6 @@
 package ext {
 /**
- * <p>Used to provide a sizable space in a layout.</p>
+ * Used to provide a sizable space in a layout.
 */
 public class Spacer extends BoxComponent {
 /**

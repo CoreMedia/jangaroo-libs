@@ -4,7 +4,7 @@ package ext.state {
  * for state information if you don't pass them a custom state provider. In order for this class
  * to be useful, it must be initialized with a provider when your application initializes. Example usage:
  <pre><code>
-&#47;/ in your initialization function
+// in your initialization function
 init : function(){
    Ext.state.Manager.setProvider(new Ext.state.CookieProvider());
    var win = new Window(...);

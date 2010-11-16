@@ -12,10 +12,10 @@ package ext.layout {
      * <br><p>This property may be specified as an object containing margins
      * to apply in the format:</p><pre><code>
 {
-    top&#58; (top margin),
-    right&#58; (right margin),
-    bottom&#58; (bottom margin),
-    left&#58; (left margin)
+    top: (top margin),
+    right: (right margin),
+    bottom: (bottom margin),
+    left: (left margin)
 }</code></pre>
      * <p>This property may also be specified as a string containing
      * space-separated, numeric margin values. The order of the sides associated

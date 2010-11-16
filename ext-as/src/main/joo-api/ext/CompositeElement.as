@@ -9,13 +9,13 @@ package ext {
  * All methods return <i>this</i> and can be chained.
  <pre><code>
  var els = Ext.select("#some-el div.some-class", true);
- &#47;/ or select directly from an existing element
+ // or select directly from an existing element
  var el = Ext.get('some-el');
  el.select('div.some-class', true);
 
  els.setWidth(100); // all elements become 100 width
  els.hide(true); // all elements fade out and hide
- &#47;/ or
+ // or
  els.setWidth(100).hide(true);
  </code></pre>
  */

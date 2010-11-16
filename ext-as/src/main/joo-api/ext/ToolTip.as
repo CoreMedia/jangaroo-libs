@@ -73,12 +73,12 @@ myGrid.on('render', function(grid) {
     var store = grid.getStore();  // Capture the Store.
     var view = grid.getView();    // Capture the GridView.
     myGrid.tip = new ext.ToolTip({
-        target&#58; view.mainBody,    // The overall target element.
-        delegate&#58; '.x-grid3-row', // Each grid row causes its own seperate show and hide.
-        trackMouse&#58; true,         // Moving within the row should not hide the tip.
-        renderTo&#58; document.body,  // Render immediately so that tip.body can be referenced prior to the first show.
-        listeners&#58; {              // Change content dynamically depending on which element triggered the show.
-            beforeshow&#58; function updateTipBody(tip) {
+        target: view.mainBody,    // The overall target element.
+        delegate: '.x-grid3-row', // Each grid row causes its own seperate show and hide.
+        trackMouse: true,         // Moving within the row should not hide the tip.
+        renderTo: document.body,  // Render immediately so that tip.body can be referenced prior to the first show.
+        listeners: {              // Change content dynamically depending on which element triggered the show.
+            beforeshow: function updateTipBody(tip) {
                 var rowIndex = view.findRowIndex(tip.triggerElement);
                 tip.body.dom.innerHTML = "Over Record ID " + store.getAt(rowIndex).id;
             }
