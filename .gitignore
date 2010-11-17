@@ -5,5 +5,4 @@
 # Backups
 *.*~
 # Maven target dirs
-*/target/
-*/*/target/
+target/
