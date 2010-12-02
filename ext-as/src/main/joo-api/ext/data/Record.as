@@ -70,7 +70,7 @@ myStore.<b class='link' title='ext.data.Store#add'>add</b>(myNewRecord);
  * to the definition. The constructor has the same signature as <b class='link'>#ext.data.Record</b>.
  * @static
  */
-public native function create (o : Array) : Function;
+public static native function create (o : Array) : Function;
 public static var PREFIX : String = 'ext-record';
 public static var AUTO_ID : String = "1";
 public static var EDIT : String = 'edit';
