@@ -58,7 +58,7 @@ public class Document extends Node {
 
 
 
-  public native function createTextNode(text : String) : TextNode;
+  public native function createTextNode(text : String) : Text;
 
 
 
