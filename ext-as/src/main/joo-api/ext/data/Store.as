@@ -385,9 +385,9 @@ sortInfo: {
      * Returns a range of Records between specified indices.
      * @param startIndex The starting index (defaults to 0)
      * @param endIndex The ending index (defaults to the last Record in the Store)
-     * @return ]} An array of Records
+     * @return Array An array of Records
      */
-    public native function getRange(startIndex : Number = undefined, endIndex : Number = undefined) : Record;
+    public native function getRange(startIndex : Number = undefined, endIndex : Number = undefined) : Array/*Record*/;
     protected native function storeOptions(o) : void;
     /**
      * <p>Loads the Record cache from the configured <code><b class='link' title='#proxy'>proxy</b></code> using the configured <code><b class='link' title='#reader'>reader</b></code>.</p>
