@@ -559,11 +559,11 @@ sortInfo: {
      * persisted across load operations (e.g., during paging). <b>Note</b>: deleted records are not
      * included.  See also <code><b class='link' title='#pruneModifiedRecords'>pruneModifiedRecords</b></code> and
      * <b class='link'>ext.data.Record</b><code><b class='link' title='ext.data.Record#markDirty'>markDirty</b>.</code>.
-     * @return ]} An array of <b class='link' title='ext.data.Record'>Records</b> containing outstanding
+     * @return Array An array of <b class='link' title='ext.data.Record'>Records</b> containing outstanding
      * modifications.  To obtain modified fields within a modified record see
      *<b class='link'>ext.data.Record</b><code><b class='link' title='ext.data.Record#modified'>modified</b>.</code>.
      */
-    public native function getModifiedRecords() : Record;
+    public native function getModifiedRecords() : Array/*Record*/;
     protected native function createFilterFn(property, value, anyMatch, caseSensitive) : void;
     /**
      * Sums the value of <code>property</code> for each <b class='link' title='ext.data.Record'>record</b> between <code>start</code>
