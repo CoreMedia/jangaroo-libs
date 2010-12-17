@@ -155,7 +155,7 @@ public class DisplayObjectContainer extends InteractiveObject {
     if (child.parent) {
       child.parent.removeChild(child);
     }
-    var refChild : DisplayObject = this.children[index] as DisplayObject;
+    var refChild : DisplayObject = this.children[index];
     this.children.splice(index, 0, child);
     child.parent = this;
     // also add to DOM:
@@ -317,6 +317,111 @@ public class DisplayObjectContainer extends InteractiveObject {
         child.dispatchEvent(event);
       }
     });
+  }
+
+  /**
+   * Swaps the z-order (front-to-back order) of the two specified child objects.  All other child
+   * objects in the display object container remain in the same index positions.
+   *
+   * @example
+   * The following example creates a display object container named
+   * <code>container</code>, then adds two child display objects to the container,
+   * and then shows the effect of a call to the <code>swapChildren()</code> method:
+   * <pre>
+   * import flash.display.Sprite;
+   *
+   * var container:Sprite = new Sprite();
+   *
+   * var sprite1:Sprite = new Sprite();
+   * sprite1.name = "sprite1";
+   * var sprite2:Sprite = new Sprite();
+   * sprite2.name = "sprite2";
+   *
+   * container.addChild(sprite1);
+   * container.addChild(sprite2);
+   *
+   * trace(container.getChildAt(0).name); // sprite1
+   * trace(container.getChildAt(1).name); // sprite2
+   *
+   * container.swapChildren(sprite1, sprite2);
+   *
+   * trace(container.getChildAt(0).name); // sprite2
+   * trace(container.getChildAt(1).name); // sprite1
+   * </pre>
+
+   * @param child1 The first child object.
+   * @param child2 The second child object.
+   * @throws ArgumentError Throws if either child parameter is not a child of this object.
+   */
+  public function swapChildren(child1:DisplayObject, child2:DisplayObject):void {
+    var child1Index:int = children.indexOf(child1);
+    var child2Index:int = children.indexOf(child2);
+    if (child1Index === -1 || child2Index === -1) {
+      throw new ArgumentError;
+    }
+    swapChildrenAt(child1Index, child2Index);
+  }
+
+  /**
+   * Swaps the z-order (front-to-back order) of the child objects at the two specified index positions in the
+   * child list. All other child objects in the display object container remain in the same index positions.
+   *
+   * @example
+   * The following example creates a display object container named
+   * <code>container</code>, then adds three child display objects to the container,
+   * and then shows how a call to the <code>swapChildrenAt()</code> method rearranges
+   * the child list of the display object container:
+   * <pre>
+   * import flash.display.Sprite;
+   *
+   * var container:Sprite = new Sprite();
+   *
+   * var sprite1:Sprite = new Sprite();
+   * sprite1.name = "sprite1";
+   * var sprite2:Sprite = new Sprite();
+   * sprite2.name = "sprite2";
+   * var sprite3:Sprite = new Sprite();
+   * sprite3.name = "sprite3";
+   *
+   * container.addChild(sprite1);
+   * container.addChild(sprite2);
+   * container.addChild(sprite3);
+   *
+   * trace(container.getChildAt(0).name); // sprite1
+   * trace(container.getChildAt(1).name); // sprite2
+   * trace(container.getChildAt(2).name); // sprite3
+   *
+   * container.swapChildrenAt(0, 2);
+   *
+   * trace(container.getChildAt(0).name); // sprite3
+   * trace(container.getChildAt(1).name); // sprite2
+   * trace(container.getChildAt(2).name); // sprite1
+   * </pre>
+   *
+   * @param index1 The index position of the first child object.
+   * @param index2 The index position of the second child object.
+   * @throws RangeError If either index does not exist in the child list.
+   */
+  public function swapChildrenAt(index1:int, index2:int):void {
+    if (index1 > index2) {
+      swapChildrenAt(index2, index1);
+    } else if (index1 < index2) {
+      var child1 : DisplayObject = this.children[index1];
+      var child2 : DisplayObject = this.children[index2];
+      children.splice(index1, 1, child2);
+      children.splice(index2, 1, child1);
+      // also change in DOM, mind to insert left element first:
+      var containerElement:Element = this.getElement();
+      var child1Element:Element = child1.getElement();
+      var child2Element:Element = child2.getElement();
+      var refElement:Element = Element(child2Element.nextSibling); // since index1 < index2, refElement cannot be child1Element
+      containerElement.insertBefore(child2Element, child1Element); // this removes child2Element at its old position, but we still have refElement
+      if (refElement) {
+        containerElement.insertBefore(child1Element, refElement);
+      } else {
+        containerElement.appendChild(child1Element);
+      }
+    }
   }
 
   private var children : Array/*<DisplayObject>*/;

@@ -3,7 +3,8 @@ package flash.media {
 import flash.events.EventDispatcher;
 import flash.net.URLRequest;
 
-import js.HTMLElement;
+import js.Audio;
+import js.HTMLAudioElement;
 
 /**
  * The Sound class lets you work with sound in an application. The Sound class
@@ -82,11 +83,13 @@ public class Sound extends EventDispatcher {
    * @param context
    */
   public function Sound(stream:URLRequest = null, context:SoundLoaderContext = null) {
-    audio = new window['Audio']();
-    audio.addEventListener('error', function(e:*):void {
-      window.alert("error " + e);
-    }, false);
-    load(stream, context);
+    if (!audio) { // may have been set by subclass
+      audio = new Audio();
+      audio.addEventListener('error', function(e:*):void {
+        window.alert("error " + e);
+      }, false);
+      load(stream, context);
+    }
   }
 
   /**
@@ -220,12 +223,12 @@ public class Sound extends EventDispatcher {
     if (stream && stream.url) {
       var url:String = stream.url;
       var mp3ExtensionPos:int = url.indexOf(".mp3");
-      if (mp3ExtensionPos !== -1 && !audio['canPlayType']("audio/mp3")) {
-        var newExtension:String = audio['canPlayType']("audio/ogg") ? ".ogg" : ".wav";
+      if (mp3ExtensionPos !== -1 && audio.canPlayType("audio/mp3")) {
+        var newExtension:String = audio.canPlayType("audio/ogg") ? ".ogg" : ".wav";
         url = url.substring(0, mp3ExtensionPos) + newExtension + url.substring(mp3ExtensionPos + 4);
       }
-      audio['src'] = url;
-      audio['load']();
+      audio.src = url;
+      audio.load();
     }
   }
 
@@ -492,6 +495,161 @@ public class Sound extends EventDispatcher {
     return null;
   }
 
-  private var audio:HTMLElement;
+  /**
+   * Provides access to the metadata that is part of an MP3 file.
+
+     <p>MP3 sound files can contain ID3 tags, which provide metadata about the
+     file. If an MP3 sound that you load using the <code>Sound.load()</code>
+     method contains ID3 tags, you can query these properties. Only ID3 tags
+     that use the UTF-8 character set are supported.</p>
+
+     <p><span>Flash Player 9 and later and AIR support</span>
+      ID3 2.0 tags,
+     specifically 2.3 and 2.4. The following tables list the standard ID3 2.0 tags
+     and the type of content the tags represent. The <code>Sound.id3</code> property provides
+     access to these tags through the format
+     <code>my_sound.id3.COMM</code>, <code>my_sound.id3.TIME</code>, and so on. The first
+     table describes tags that can be accessed either through the ID3 2.0 property name or
+     the ActionScript property name. The second table describes ID3 tags that are supported but do not have
+     predefined properties in ActionScript. </p>
+
+     <table>
+       <tr><td><b>ID3 2.0 tag</b></td><td><b>Corresponding Sound class property</b></td></tr>
+       <tr><td>COMM</td><td>Sound.id3.comment</td></tr><tr><td>TALB</td><td>Sound.id3.album </td></tr>
+       <tr><td>TCON</td><td>Sound.id3.genre</td></tr><tr><td>TIT2</td><td>Sound.id3.songName </td></tr>
+       <tr><td>TPE1</td><td>Sound.id3.artist</td></tr><tr><td>TRCK</td><td>Sound.id3.track </td></tr>
+       <tr><td>TYER</td><td>Sound.id3.year </td></tr>
+     </table>
+
+     <p>The following table describes ID3 tags that are supported but do not have
+     predefined properties in the Sound class. You access them by calling
+     <code>mySound.id3.TFLT</code>, <code>mySound.id3.TIME</code>, and so on. <b>NOTE:</b> None of
+     these tags are supported in Flash Lite 4.</p>
+     <table>
+       <tr><td><b>Property</b></td><td><b>Description</b></td></tr>
+       <tr><td>TFLT</td><td>File type</td></tr><tr><td>TIME</td><td>Time</td></tr>
+       <tr><td>TIT1</td><td>Content group description</td></tr>
+       <tr><td>TIT2</td><td>Title/song name/content description</td></tr>
+       <tr><td>TIT3</td><td>Subtitle/description refinement</td></tr>
+       <tr><td>TKEY</td><td>Initial key</td></tr>
+       <tr><td>TLAN</td><td>Languages</td></tr>
+       <tr><td>TLEN</td><td>Length</td></tr>
+       <tr><td>TMED</td><td>Media type</td></tr>
+       <tr><td>TOAL</td><td>Original album/movie/show title</td></tr>
+       <tr><td>TOFN</td><td>Original filename</td></tr>
+       <tr><td>TOLY</td><td>Original lyricists/text writers</td></tr>
+       <tr><td>TOPE</td><td>Original artists/performers</td></tr>
+       <tr><td>TORY</td><td>Original release year</td></tr>
+       <tr><td>TOWN</td><td>File owner/licensee</td></tr>
+       <tr><td>TPE1</td><td>Lead performers/soloists</td></tr>
+       <tr><td>TPE2</td><td>Band/orchestra/accompaniment</td></tr>
+       <tr><td>TPE3</td><td>Conductor/performer refinement</td></tr>
+       <tr><td>TPE4</td><td>Interpreted, remixed, or otherwise modified by</td></tr>
+       <tr><td>TPOS</td><td>Part of a set</td></tr>
+       <tr><td>TPUB</td><td>Publisher</td></tr>
+       <tr><td>TRCK</td><td>Track number/position in set</td></tr>
+       <tr><td>TRDA</td><td>Recording dates</td></tr>
+       <tr><td>TRSN</td><td>Internet radio station name</td></tr><tr><td>TRSO</td><td>Internet radio station owner</td></tr><tr><td>TSIZ</td><td>Size</td></tr><tr><td>TSRC</td><td>ISRC (international standard recording code)</td></tr><tr><td>TSSE</td><td>Software/hardware and settings used for encoding</td></tr><tr><td>TYER</td><td>Year</td></tr><tr><td>WXXX</td><td>URL link frame</td></tr></tbody></table>
+
+
+
+     <p>When using this property, consider the Flash Player security model:</p>
+
+     <ul><li>The <code>id3</code> property of a Sound object is always permitted for SWF files
+     that are in the same security sandbox as the sound file. For files in other sandboxes, there
+     are security checks.</li><li>When you load the sound, using the <code>load()</code> method of the Sound class, you can
+     specify a <code>context</code> parameter, which is a SoundLoaderContext object. If you set the
+     <code>checkPolicyFile</code>  property of the SoundLoaderContext object to <code>true</code>, Flash Player
+     checks for a URL policy file on the server from which the sound is loaded. If a
+     policy file exists and permits access from the domain of the loading SWF file, then the file is allowed
+     to access the <code>id3</code> property of the Sound object; otherwise it is not.</li></ul>
+
+
+     <p>However, in Adobe AIR, content in the <code>application</code> security sandbox (content
+     installed with the AIR application) are not restricted by these security limitations.</p>
+
+     <p>For more information related to security, see the Flash Player Developer Center Topic:
+     <a href="http://www.adobe.com/go/devnet_security_en" target="external">Security</a>.</p>
+
+     @example
+   The following example reads the ID3 information from a sound file and displays
+ it in a text field.
+
+ <p>In the constructor, the sound file is loaded but it is not set to play. Here, it is
+ assumed that the file is in the SWF directory. The system must have permission
+ in order to read the ID3 tags of a loaded sound file. If there is ID3 information in
+ the file and the program is permitted to read it, an <code>Event.ID3</code> event will
+ be fired and the <code>id3</code> property of the sound file will be populated.
+ The <code>id3</code> property contains an <code>ID3Info</code> object with all
+ of the ID3 information.</p>
+
+ <p>In the <code>id3Handler()</code> method, the file's ID3 tags
+ are stored in <code>id3</code>, an ID3Info class object. A text field is
+ instantiated to display the list of the ID3 tags. The for loop iterates
+ through all the ID3 2.0 tags and appends the name and value to the content of
+ the text field. Using ID3 info (<code>ID3Info</code>) properties, the artist,
+ song name, and album are also appended. ActionScript 3.0
+ and Flash Player 9 and later support ID3 2.0 tags, specifically 2.3 and 2.4.
+ If you iterate through properties like in the for loop, only ID3 2.0 tags will appear.
+ However, the data from the earlier versions are also stored in the song's <code>id3</code>
+ property and can be accessed using ID3 info class properties.
+ The tags for the ID3 1.0 are at the end of the file while the ID3 2.0 tags are in
+ the beginning of the file. (Sometimes, the files may have both earlier and later version
+ tags in the same place.) If a file encoded with both version 1.0 and 2.0 tags at the
+ beginning and the end of the file, the method <code>id3Handler()</code> will be invoked twice.
+ It first reads the 2.0 version and then the version 1.0. If only ID3 1.0 tag is available,
+ then the information is accessible via the ID3 info properties, like <code>id3.songname</code>.
+ For ID3 2.0, <code>id3.TITS</code> property will retrieve the song name using the new tag (TITS).</p>
+
+
+ <p>Note that no error handling is written for this example and if the ID3 content is long,
+ the result may go beyond the viewable area.</p>
+
+<pre>package {
+    import flash.display.Sprite;
+    import flash.media.Sound;
+    import flash.net.URLRequest;
+    import flash.media.ID3Info;
+    import flash.text.TextField;
+    import flash.text.TextFieldAutoSize;
+    import flash.events.Event;
+
+    public class Sound_id3Example extends Sprite {
+        private var snd:Sound = new Sound();
+        private var myTextField:TextField = new TextField();
+
+        public function Sound_id3Example() {
+            snd.addEventListener(Event.ID3, id3Handler);
+            snd.load(new URLRequest("mySound.mp3"));
+        }
+
+        private function id3Handler(event:Event):void {
+            var id3:ID3Info = snd.id3;
+
+            myTextField.autoSize = TextFieldAutoSize.LEFT;
+            myTextField.border = true;
+
+            myTextField.appendText("Received ID3 Info: \n");
+
+            for (var propName:String in id3) {
+                myTextField.appendText(propName + " = " + id3[propName] + "\n");
+            }
+
+            myTextField.appendText("\n" + "Artist: " + id3.artist + "\n");
+            myTextField.appendText("Song name: " + id3.songName + "\n");
+            myTextField.appendText("Album: " + id3.album + "\n\n");
+
+            this.addChild(myTextField);
+        }
+    }
+}
+</pre>
+   @see SoundLoaderContext#checkPolicyFile
+   */
+  public function get id3():ID3Info {
+    return new ID3Info();
+  }
+
+  protected var audio:HTMLAudioElement;
 }
 }

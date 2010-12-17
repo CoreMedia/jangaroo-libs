@@ -44,7 +44,30 @@ package flash.text
     /// When set to true and the text field is not in focus, Flash Player highlights the selection in the text field in gray.
     public var alwaysShowSelection : Boolean;
 
-    /// The type of anti-aliasing used for this text field.
+    /**
+     * The type of anti-aliasing used for this text field. Use <code>flash.text.AntiAliasType</code>
+     * constants for this property. You can control this setting only if the font is
+     * embedded (with the <code>embedFonts</code> property set to <code>true</code>).
+     * The default setting is <code>flash.text.AntiAliasType.NORMAL</code>.</p>
+     *
+     * <p>To set values for this property, use the following string values:</p>
+     *
+     * <table>
+     * <tr><th>String value</th><th>Description</th></tr>
+     * <tr>
+     *   <td><code>flash.text.AntiAliasType.NORMAL</code></td>
+     *   <td>Applies the regular text anti-aliasing. This value matches the type of anti-aliasing that
+     *       Flash Player 7 and earlier versions used.</td></tr><tr><td><code>flash.text.AntiAliasType.ADVANCED</code></td><td>Applies advanced anti-aliasing, which makes text more legible. (This feature became
+     *       available in Flash Player 8.) Advanced anti-aliasing allows for high-quality rendering
+     *       of font faces at small sizes. It is best used with applications
+     *       with a lot of small text. Advanced anti-aliasing is not recommended for
+     *       fonts that are larger than 48 points.</td>
+     * </tr>
+     * </table>
+     *
+     * @see flash.text.AntiAliasType
+     * @see flash.text.TextField.embedFonts
+     */
     public var antiAliasType : String;
 
     /// Controls automatic sizing and alignment of text fields.
@@ -113,6 +136,11 @@ package flash.text
       updateElementProperty("style.fontWeight", val.bold ? "bold" : "normal");
       updateElementProperty("style.textAlign",  val.align || TextFormatAlign.LEFT);
       // TODO: listen to property changes of my defaultTextFormat object?
+    }
+
+    public function setTextFormat(format:TextFormat, beginIndex:int = -1, endIndex:int = -1):void {
+      // TODO
+      defaultTextFormat = format;
     }
 
     /// Specifies whether the text field is a password text field.
@@ -227,9 +255,6 @@ package flash.text
     /// A Boolean value that indicates whether the text field has word wrap.
     public var wordWrap : Boolean;
 
-    /// Appends text to the end of the existing text of the TextField.
-    //public function appendText (newText:String) : void;
-
     /// Returns a rectangle that is the bounding box of the character.
     //public function getCharBoundaries (charIndex:int) : Rectangle;
 
@@ -302,5 +327,149 @@ package flash.text
       }
     }
 
+    /**
+     * Appends the string specified by the <code>newText</code> parameter to the end of the text
+     of the text field. This method is more efficient than an addition assignment (<code>+=</code>) on
+     a <code>text</code> property (such as <code>someTextField.text += moreText</code>),
+     particularly for a text field that contains a significant amount of content.
+
+@example
+The following example displays the time if it's not the weekend or the text, "It's the weekend,"
+if it is. It also counts the number of characters up to a certain position and the number of lines in the text field.
+
+<p>The <code>outputText</code> text field is set to automatically fit the text and to resize as a
+left-justified text using <code>autoSize</code> property. The <code>outputText.text</code> property writes the first
+line of the content and the method <code>appendText()</code> appends the rest of the content. (It is not
+necessary to start with the <code>text</code> property. The <code>appendText()</code> method could also be
+used to append text from the outset.) Setting the <code>text</code> property a second time will overwrite
+the original text. Use <code>+=</code> operator to append content with the <code>text</code> property.</p>
+
+
+<p>The <code>if</code> statement checks if the date is Saturday (6) or Sunday (0). If it's not, the
+<code>toLocaleTimeString()</code> method returns the local time, which is appended to the text field's content.</p>
+
+<p>The text field's <code>length</code> property is used to read the number of characters until right
+before the function is called, and the property <code>numLines</code> is used to count the number of lines
+in the text field. Note that the empty lines are counted in the number of lines and the empty spaces and
+line breaks (\n) are counted in determining the content length.</p>
+ <pre>
+ package {
+ import flash.display.Sprite;
+ import flash.text.TextField;
+ import flash.text.TextFieldAutoSize;
+
+ public class TextField_appendTextExample extends Sprite {
+
+ public function TextField_appendTextExample() {
+     var outputText:TextField = new TextField();
+     var today:Date = new Date();
+
+     outputText.x = 10;
+     outputText.y = 10;
+     outputText.background = true;
+     outputText.autoSize = TextFieldAutoSize.LEFT;
+
+     outputText.text = "WHAT TIME IS IT?" + "\n\n";
+
+     if((today.day == 0) || (today.day == 6)) {
+         outputText.appendText("It's the weekend.");
+         outputText.appendText("\n\n");
+
+     } else {
+         outputText.appendText("The time is: ");
+         outputText.appendText(today.toLocaleTimeString() + ".\n\n");
+     }
+
+     outputText.appendText("Number of characters including line breaks and spaces so far: ");
+     outputText.appendText(outputText.length.toString() + "\n");
+     outputText.appendText("Number of lines in the outputText: ");
+     outputText.appendText(outputText.numLines.toString());
+
+     this.addChild(outputText);
+ }
+ }
+ }
+ </pre>
+
+     * @param newText The string to append to the existing text.
+     */
+    public function appendText(newText:String):void {
+      text = _text + newText;
+    }
+
+    /**
+     * Returns metrics information about a given text line.
+
+     <span class="usage"><a href="http://www.adobe.com/go/learn_as3_usingexamples_en"> How to use this example </a></span>)
+ </span><br><br><div class="detailBody"> The following example displays some line metrics values for two differently formatted lines of text.
+
+<p>The text appended is two lines from the <i>Song of Myself</i> by Walt Whitman. A new TextFormat object
+(<code>newFormat</code>) is used to set the format of the second line. The first line holds the
+default format. The <code>getLineMetrics()</code> method returns a <code>TextLineMetrics</code>
+object for a specific line. (Line index begins with 0.) Using <code>metrics1</code> and <code>metrics2</code>
+TextLineMetrics objects for the line one and two, respectively, the ascent, descent, height, and weight
+value of the line are retrieved and displayed. The result numbers are converted to
+string but not rounded. Note that this value is for the line and not a specific character. It
+reflects the range of characters for a line. For example, if a line has different characters with
+different height formats, the character with the highest height will determine the value. This also
+means that if one of the character's format is changes, some of the metrics values could also change.</p>
+
+
+ <div class="listing"><pre>package {
+ import flash.display.Sprite;
+ import flash.text.TextField;
+ import flash.text.TextLineMetrics;
+ import flash.text.TextFieldAutoSize;
+ import flash.text.AntiAliasType;
+ import flash.text.TextFormat;
+
+ public class TextField_getLineMetricsExample extends Sprite {
+
+ public function TextField_getLineMetricsExample() {
+ var myTextField:TextField = new TextField();
+ var newFormat:TextFormat = new TextFormat();
+
+ myTextField.x = 10;
+ myTextField.y = 10;
+ myTextField.background = true;
+ myTextField.wordWrap = false;
+ myTextField.autoSize = TextFieldAutoSize.LEFT;
+
+ myTextField.appendText("A child said What is the grass? fetching it to me with full hands;\n");
+ myTextField.appendText("How could I answer the child? I do not know what it is any more than he.\n\n");
+
+ newFormat.size = 14;
+ newFormat.font = "Arial";
+ newFormat.italic = true;
+ myTextField.setTextFormat(newFormat, 67, 139);
+
+ var metrics1:TextLineMetrics = myTextField.getLineMetrics(0);
+
+ myTextField.appendText("Metrics ascent for the line 1 is: " + metrics1.ascent.toString() + "\n");
+ myTextField.appendText("Metrics descent is: " + metrics1.descent.toString() + "\n");
+ myTextField.appendText("Metrics height is: " + metrics1.height.toString() + "\n");
+ myTextField.appendText("Metrics width is: " + metrics1.width.toString() + "\n\n");
+
+ var metrics2:TextLineMetrics = myTextField.getLineMetrics(1);
+
+ myTextField.appendText("Metrics ascent for the line 2 is: " + metrics2.ascent.toString() + "\n");
+ myTextField.appendText("Metrics descent is: " + metrics2.descent.toString() + "\n");
+ myTextField.appendText("Metrics height is: " + metrics2.height.toString() + "\n");
+ myTextField.appendText("Metrics width is: " + metrics2.width.toString() + "\n");
+
+ addChild(myTextField);
+ }
+ }
+ }
+ </pre>
+
+     * @param lineIndex The line number for which you want metrics information.
+     * @return A TextLineMetrics object.
+     * @throws RangeError The line number specified is out of range.
+     * @see flash.text.TextLineMetrics
+     */
+    public function getLineMetrics(lineIndex:int):TextLineMetrics {
+      return new TextLineMetrics(); // TODO
+    }
   }
 }

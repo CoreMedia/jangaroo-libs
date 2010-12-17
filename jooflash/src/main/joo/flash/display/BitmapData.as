@@ -7,6 +7,7 @@ import flash.geom.Rectangle;
 import js.CanvasRenderingContext2D;
 import js.HTMLCanvasElement;
 import js.HTMLElement;
+import js.HTMLImageElement;
 import js.ImageData;
 
 public class BitmapData implements IBitmapDrawable {
@@ -37,7 +38,13 @@ public class BitmapData implements IBitmapDrawable {
     canvas.height = _height = height;
     canvas.style.position = "absolute";
     context = canvas.getContext("2d") as CanvasRenderingContext2D;
-    // TODO: transparent, fillColor.
+    var alpha:Number = (fillColor >>> 24) / 0xFF;
+    if (alpha > 0 || !transparent) {
+      context.save();
+      context.fillStyle = Graphics.toRGBA(fillColor, alpha);
+      context.fillRect(0, 0, width, height);
+      context.restore();
+    }
   }
 
   /**
@@ -255,7 +262,16 @@ public class BitmapData implements IBitmapDrawable {
    */
   public function draw(source : IBitmapDrawable, matrix : Matrix = null, colorTransform : ColorTransform = null, 
                        blendMode : String = null, clipRect : Rectangle = null, smoothing : Boolean = false) : void {
-    var element : HTMLElement = HTMLElement(source is BitmapData ? (source as BitmapData).canvas : (source as DisplayObject).getElement());
+    var element:HTMLElement;
+    if (source is BitmapData) {
+      element = (source as BitmapData).canvas;
+    } else {
+      element = (source as DisplayObject).getElement();
+      if (!(element is HTMLImageElement || element is HTMLCanvasElement)) {
+        // TODO: Until I find out how to draw text, only images and canvas are supported.
+        return;
+      }
+    }
     if (matrix) {
       this.context.save();
       this.context.setTransform(matrix.a, matrix.b, matrix.c, matrix.d, matrix.tx, matrix.ty);
@@ -267,28 +283,24 @@ public class BitmapData implements IBitmapDrawable {
     this.invalidateImg();
   }
 
-  function drawImg(img:HTMLElement):void {
-    this.context.drawImage(img, 0, 0);
-    this.img = img;
+  public static function fromImg(img:HTMLImageElement):BitmapData {
+    var bitmapData:BitmapData = new BitmapData(img.width, img.height, true, 0);
+    bitmapData.img = img;
+    bitmapData.context.drawImage(img, 0, 0);
+    return bitmapData;
   }
 
   private function invalidateImg():void {
-    if (this.img) {
-      this.img.src = null;
+    if (img) {
+      img = null;
     }
   }
 
-  function getImg():HTMLElement {
-    if (!this.img) {
-      this.img = HTMLElement(window.document.createElement("img"));
-    }
-    if (!this.img.getAttribute('src')) {
-      this.img.setAttribute('src', this.canvas.toDataURL("image/png"));
-    }
-    return this.img;
+  function getDrawImageElement():HTMLElement {
+    return img || canvas;
   }
 
-  private var img:HTMLElement;
+  private var img:HTMLImageElement;
 
   /**
    * Returns an integer that represents an RGB pixel value from a BitmapData object at
@@ -643,7 +655,7 @@ picture.bitmapData = bitmapData;
     if (destRect.width > 0 && destRect.height > 0) {
       if (mergeAlpha) {
         // putImageData() does not support alpha channel, so use drawImage():
-        this.context.drawImage(sourceBitmapData.getImg(), sourceRect.x, sourceRect.y, destRect.width, destRect.height,
+        this.context.drawImage(sourceBitmapData.getDrawImageElement(), sourceRect.x, sourceRect.y, destRect.width, destRect.height,
           destPoint.x, destPoint.y, destRect.width, destRect.height);
       } else {
         var imageData:ImageData = sourceBitmapData.context.getImageData(sourceRect.x, sourceRect.y, destRect.width, destRect.height);
@@ -651,6 +663,56 @@ picture.bitmapData = bitmapData;
       }
       invalidateImg();
     }
+  }
+
+  /**
+   * Performs pixel-level hit detection between one bitmap image
+   * and a point, rectangle, or other bitmap image. A hit is defined as
+   * an overlap of a point or rectangle over an opaque pixel, or two
+   * overlapping opaque pixels. No stretching,
+   * rotation, or other transformation of either object is considered when
+   * the hit test is performed.
+   *
+   * <p>If an image is an opaque image, it is considered a fully opaque rectangle for this
+   * method. Both images must be transparent images to perform pixel-level hit testing that
+   * considers transparency. When you are testing two transparent images, the alpha threshold
+   * parameters control what alpha channel values, from 0 to 255, are considered opaque.</p>
+   *
+   * @example
+   * The following example creates a BitmapData object that is only opaque in a rectangular region
+   * (20, 20, 40, 40) and calls the <code>hitTest()</code> method with a Point object as the <code>secondObject</code>.
+   * In the first call, the Point object defines the upper-left corner of the BitmapData object, which is not opaque, and
+   * in the second call, the Point object defines the center of the BitmapData object, which is opaque.
+   * <pre>
+   * import flash.display.BitmapData;
+   * import flash.geom.Rectangle;
+   * import flash.geom.Point;
+   *
+   * var bmd1:BitmapData = new BitmapData(80, 80, true, 0x00000000);
+   * var rect:Rectangle = new Rectangle(20, 20, 40, 40);
+   * bmd1.fillRect(rect, 0xFF0000FF);
+   *
+   * var pt1:Point = new Point(1, 1);
+   * trace(bmd1.hitTest(pt1, 0xFF, pt1)); // false
+   * var pt2:Point = new Point(40, 40);
+   * trace(bmd1.hitTest(pt1, 0xFF, pt2)); // true
+   * </pre>
+   * @param firstPoint A position of the upper-left corner of the BitmapData image in an arbitrary coordinate space.
+   *   The same coordinate space is used in defining the <code>secondBitmapPoint</code> parameter.
+   * @param firstAlphaThreshold The smallest alpha channel value that is considered opaque for this hit test.
+   * @param secondObject A Rectangle, Point, Bitmap, or BitmapData object.
+   * @param secondBitmapDataPoint (default = <code>null</code>) A point that defines a pixel location in the second BitmapData object.
+   *   Use this parameter only when the value of <code>secondObject</code> is a
+   *   BitmapData object.
+   * @param secondAlphaThreshold (default = <code>1</code>) The smallest alpha channel value that is considered opaque in the second BitmapData object.
+   *   Use this parameter only when the value of <code>secondObject</code> is a
+   *   BitmapData object and both BitmapData objects are transparent.
+   * @return A value of <code>true</code> if a hit occurs; otherwise, <code>false</code>.
+   * @throws ArgumentError The <code>secondObject</code> parameter is not a Point, Rectangle, Bitmap, or BitmapData object.
+   * @throws TypeError The firstPoint is null.
+   */
+  public function hitTest(firstPoint:Point, firstAlphaThreshold:uint, secondObject:Object, secondBitmapDataPoint:Point = null, secondAlphaThreshold:uint = 1):Boolean {
+    return false; // TODO
   }
 
   private var _transparent : Boolean;
