@@ -1,9 +1,8 @@
 package ext {
-
 import ext.dd.DD;
 import ext.dd.DDProxy;
 import ext.dd.DDTarget;
-import ext.layout.borderlayout.Region;
+import ext.lib.Region;
 
 import js.HTMLElement;
 
