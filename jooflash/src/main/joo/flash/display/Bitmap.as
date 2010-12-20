@@ -18,7 +18,10 @@ public class Bitmap extends DisplayObject {
   }
 
   override protected function createElement() : HTMLElement {
-    return this._bitmapData.canvas;
+    if (!listenerAdded) {
+      _bitmapData.addElementChangeListener(setElement)
+    }
+    return _bitmapData.getElement();
   }
 
   /**
@@ -30,7 +33,13 @@ public class Bitmap extends DisplayObject {
   }
 
   public function set bitmapData(value : BitmapData) : void {
-    this._bitmapData = value;
+    if (listenerAdded) {
+      _bitmapData.removeElementChangeListener(setElement);
+    }
+    _bitmapData = value;
+    if (listenerAdded) {
+      _bitmapData.addElementChangeListener(setElement);
+    }
   }
 
   override public function get height():Number {
@@ -94,6 +103,7 @@ public class Bitmap extends DisplayObject {
   }
 
   private var _bitmapData : BitmapData;
+  private var listenerAdded : Boolean = false;
   private var _pixelSnapping : String;
   private var _smoothing : Boolean;
 

@@ -595,6 +595,17 @@ addChild(tf2);
     return _elem;
   }
 
+  protected function setElement(elem : HTMLElement):void {
+    if (_elem) {
+      elem.style.width = _elem.style.width;
+      elem.style.height = _elem.style.height;
+      if (_parent) {
+        _parent.getElement().replaceChild(elem, _elem);
+      }
+    }
+    _elem = elem;
+  }
+
   /**
    * An object with properties pertaining to a display object's matrix, color transform, and pixel bounds. The
    * specific properties � matrix, colorTransform, and three read-only properties (concatenatedMatrix,
