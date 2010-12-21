@@ -109,7 +109,7 @@ package ext.util {
  * processing each pattern every time a date is formatted. These functions are available
  * on every Date object.</p>
  */
-public class ExtDate { //extends Date {
+public class ExtDate extends Date {
 
   /**
    * Global flag which determines if strict date parsing should be used.
