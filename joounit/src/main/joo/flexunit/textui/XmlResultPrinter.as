@@ -26,11 +26,15 @@ public class XmlResultPrinter implements TestListener, Printer{
   }
 
   public function addError(test : Test, error : Error):void {
-    this.mCurrentTest.mError = error;
+    if (!this.mCurrentTest.mError) {
+      this.mCurrentTest.mError = error;
+    }
   }
 
   public function addFailure(test : Test, error : AssertionFailedError):void {
-    this.mCurrentTest.mFailure = error;    
+    if (!this.mCurrentTest.mFailure) {
+      this.mCurrentTest.mFailure = error;
+    }
   }
 
   public function endTest(test : Test):void {
