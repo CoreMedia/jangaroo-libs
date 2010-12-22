@@ -424,6 +424,14 @@ public class DisplayObjectContainer extends InteractiveObject {
     }
   }
 
+  override public function get height():Number {
+    return super.height || children.length && (DisplayObject(children[0]).y + DisplayObject(children[0]).height); // TODO: find max y+height in children.
+  }
+
+  override public function get width():Number {
+    return super.width || children.length && (DisplayObject(children[0]).x + DisplayObject(children[0]).width); // TODO: find max x+width in children.
+  }
+
   private var children : Array/*<DisplayObject>*/;
 }
 }

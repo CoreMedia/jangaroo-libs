@@ -502,6 +502,14 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
   public function set width(value : Number) : void {
     var style:Style = getElement().style;
     var oldWidth:Number = styleLengthToNumber(style.width);
+    if (!isNaN(value)) {
+      if (style.paddingLeft) {
+        value -= styleLengthToNumber(style.paddingLeft);
+      }
+      if (style.paddingRight) {
+        value -= styleLengthToNumber(style.paddingRight);
+      }
+    }
     style.width = numberToStyleLength(value);
     if (!isNaN(oldWidth) && !isNaN(value)) {
       _scaleX = value / oldWidth;
@@ -567,6 +575,14 @@ addChild(tf2);
   public function set height(value : Number) : void {
     var style:Style = getElement().style;
     var oldHeight:Number = styleLengthToNumber(style.height);
+    if (!isNaN(value)) {
+      if (style.paddingTop) {
+        value -= styleLengthToNumber(style.paddingTop);
+      }
+      if (style.paddingBottom) {
+        value -= styleLengthToNumber(style.paddingBottom);
+      }
+    }
     style.height = numberToStyleLength(value);
     if (!isNaN(oldHeight) && !isNaN(value)) {
       _scaleY = value / oldHeight;
@@ -577,6 +593,8 @@ addChild(tf2);
     var elem : HTMLElement = HTMLElement(window.document.createElement(getElementName()));
     elem.style.position = "absolute";
     elem.style.width = "100%";
+    elem.style.left = _x + "px";
+    elem.style.top  = _y + "px";
     elem.style['MozUserSelect'] = 'none';
     elem.style['KhtmlUserSelect'] = 'none';
     elem['unselectable'] = 'on';
@@ -588,6 +606,10 @@ addChild(tf2);
     return "div";
   }
 
+  public function hasElement() : Boolean {
+    return !!_elem;
+  }
+
   public function getElement() : HTMLElement {
     if (!_elem) {
       _elem = this.createElement();
@@ -596,6 +618,8 @@ addChild(tf2);
   }
 
   protected function setElement(elem : HTMLElement):void {
+    elem.style.left = _x + "px";
+    elem.style.top = _y + "px";
     if (_elem) {
       elem.style.width = _elem.style.width;
       elem.style.height = _elem.style.height;

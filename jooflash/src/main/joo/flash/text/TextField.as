@@ -1,14 +1,13 @@
 package flash.text
 {
-  import js.Element;
-  import flash.display.Graphics;
-  import flash.display.InteractiveObject;
-  //import flash.display.DisplayObject;
-  //import flash.geom.Rectangle;
-  //import flash.text.StyleSheet;
-  //import flash.text.TextLineMetrics;
+import flash.display.Graphics;
+import flash.display.InteractiveObject;
 
-  /**
+import js.CanvasRenderingContext2D;
+import js.HTMLCanvasElement;
+import js.HTMLElement;
+
+/**
    * Flash Player dispatches the textInput event when a user enters one or more characters of text.
    * @eventType flash.events.TextEvent.TEXT_INPUT
    */
@@ -18,7 +17,7 @@ package flash.text
    * Dispatched by a TextField object after the user scrolls.
    * @eventType flash.events.Event.SCROLL
    */
-  [Event(name="scroll", type="flash.events.Event")] 
+  [Event(name="scroll", type="flash.events.Event")]
 
   /**
    * Dispatched when a user clicks a hyperlink in an HTML-enabled text field, where the URL begins with "event:".
@@ -30,7 +29,7 @@ package flash.text
    * Dispatched after a control value is modified, unlike the textInput event, which is dispatched before the value is modified.
    * @eventType flash.events.Event.CHANGE
    */
-  [Event(name="change", type="flash.events.Event")] 
+  [Event(name="change", type="flash.events.Event")]
 
   /// The TextField class is used to create display objects for text display and input.
   public class TextField extends InteractiveObject {
@@ -38,7 +37,7 @@ package flash.text
     /// Creates a new TextField instance.
     public function TextField () {
       super();
-      defaultTextFormat = new TextFormat();
+      _lines = [""];
     }
 
     /// When set to true and the text field is not in focus, Flash Player highlights the selection in the text field in gray.
@@ -85,7 +84,7 @@ package flash.text
 
     public function set backgroundColor(val : uint) : void {
       _backgroundColor = val;
-      updateElementProperty("style.backgroundColor", Graphics.toRGBA(val));
+      updateElementProperty(getElement(), "style.backgroundColor", Graphics.toRGBA(val));
     }
 
     /// Specifies whether the text field has a border.
@@ -97,7 +96,7 @@ package flash.text
 
     public function set border(val:Boolean):void {
       _border = val;
-      updateElementProperty("style.borderWidth", val ? "1px" : "0");
+      updateElementProperty(getElement(), "style.borderWidth", val ? "1px" : "0");
     }
 
     /// The color of the text field border.
@@ -109,7 +108,7 @@ package flash.text
 
     public function set borderColor(val:uint):void {
       _borderColor = val;
-      updateElementProperty("style.borderColor", Graphics.toRGBA(val));
+      updateElementProperty(getElement(), "style.borderColor", Graphics.toRGBA(val));
     }
 
     /// An integer (1-based index) that indicates the bottommost line that is currently visible in the specified text field.
@@ -121,21 +120,55 @@ package flash.text
     /// A Boolean value that specifies whether extra white space (spaces, line breaks, and so on) in a text field with HTML text is removed.
     public var condenseWhite : Boolean;
 
-    /// Specifies the format applied to newly inserted text, such as text inserted with the replaceSelectedText() method or text entered by a user.
-    private var _defaultTextFormat : TextFormat;
+    private var _textFormat : TextFormat = new TextFormat("Times New Roman", 12, 0, false, false, false, "", "", TextFormatAlign.LEFT, 0, 0, 0, 0);
 
+    /// Specifies the format applied to newly inserted text, such as text inserted with the replaceSelectedText() method or text entered by a user.
     public function get defaultTextFormat() : TextFormat {
-      return _defaultTextFormat;
+      return _textFormat;
     }
 
-    public function set defaultTextFormat(val : TextFormat) : void {
-      _defaultTextFormat = val;
-      updateElementProperty("style.fontFamily", val.font || "serif");
-      updateElementProperty("style.fontSize",   (val.size || 12) + "px");
-      updateElementProperty("style.color",      val.color ? Graphics.toRGBA(uint(val.color)) : "black");
-      updateElementProperty("style.fontWeight", val.bold ? "bold" : "normal");
-      updateElementProperty("style.textAlign",  val.align || TextFormatAlign.LEFT);
-      // TODO: listen to property changes of my defaultTextFormat object?
+    private function asWebFont():String {
+      var webFont:String = _textFormat.size + "px ";
+      switch (_textFormat.font) {
+        case "Times New Roman":
+          webFont += "Times New Roman,serif"; break;
+        case "Arial":
+        case "Helvetica":
+          webFont += "Helvetica,Arial,sans-serif"; break;
+        case "system":
+          // system font cannot be resized when drawing into canvas, so use console or monospace instead:
+          webFont += "console,monospace"; break;
+      }
+      return webFont;
+    }
+
+    public function set defaultTextFormat(tf : TextFormat) : void {
+      for (var property:String in tf) {
+        if (tf.hasOwnProperty(property)) {
+          var value:* = tf[property];
+          if (typeof value !== "function" && value !== null && value !== "") {
+            _textFormat[property] = tf[property];
+          }
+        }
+      }
+      if (hasElement()) {
+        syncTextFormat(getElement());
+      }
+    }
+
+    override protected function createElement():HTMLElement {
+      var elem:HTMLElement = super.createElement();
+      elem.style.padding = "2px";
+      syncTextFormat(elem);
+      return elem;
+    }
+
+    private function syncTextFormat(element : HTMLElement) : void {
+      updateElementProperty(element, "style.font",       asWebFont());
+      updateElementProperty(element, "style.color",      Graphics.toRGBA(uint(_textFormat.color)));
+      updateElementProperty(element, "style.fontWeight", _textFormat.bold ? "bold" : "normal");
+      updateElementProperty(element, "style.fontStyle",  _textFormat.italic ? "italic" : "normal");
+      updateElementProperty(element, "style.textAlign",  _textFormat.align);
     }
 
     public function setTextFormat(format:TextFormat, beginIndex:int = -1, endIndex:int = -1):void {
@@ -162,7 +195,7 @@ package flash.text
     /// Sets the HTML representation of the text field contents.
     public function set htmlText(val:String):void {
       _htmlText = val;
-      updateElementProperty("innerHTML", val);
+      updateElementProperty(getElement(), "innerHTML", val);
     }
 
     /// The number of characters in a text field.
@@ -181,10 +214,12 @@ package flash.text
     public var mouseWheelEnabled : Boolean;
 
     /// Indicates whether field is a multiline text field.
-    public var multiline : Boolean;
+    public var multiline : Boolean = false;
 
     /// Defines the number of text lines in a multiline text field.
-    public var numLines : int;
+    public function get numLines() : int {
+      return _lines.length;
+    }
 
     /// Indicates the set of characters that a user can enter into the text field.
     public var restrict : String;
@@ -212,29 +247,27 @@ package flash.text
     /// Attaches a style sheet to the text field.
     //public var styleSheet : StyleSheet;
 
-    /// A string that is the current text in the text field.
-    private var _text : String;
+    private var _lines : Array/*String*/;
 
+    /// A string that is the current text in the text field.
     public function get text() : String {
-      return _text;
+      return _lines.join('\n');
     }
 
     public function set text(val:String) : void {
-      _text = val;
-      //updateElementProperty("firstChild.data", val); TODO: does not work if TextNode does not yet exit!
-      updateElementProperty("innerHTML", val.replace(/\n/g, '<br />'));
+      _lines = val.split('\n');
+      updateElementProperty(getElement(), "innerHTML", _lines.join('<br />'));
     }
 
-    /// The color of the text in a text field, in hexadecimal format.
-    public var _textColor : uint;
-
     public function get textColor() : uint {
-      return _textColor;
+      return uint(_textFormat.color);
     }
 
     public function set textColor(val:uint) : void {
-      _textColor = val;
-      updateElementProperty("style.color", Graphics.toRGBA(val));
+      _textFormat.color = val;
+      if (hasElement()) {
+        updateElementProperty(getElement(), "style.color", Graphics.toRGBA(val));
+      }
     }
 
     /// The height of the text in pixels.
@@ -274,10 +307,9 @@ package flash.text
     //public function getLineIndexOfChar (charIndex:int) : int;
 
     /// Returns the number of characters in a specific text line.
-    //public function getLineLength (lineIndex:int) : int;
-
-    /// Returns metrics information about a given text line.
-    //public function getLineMetrics (lineIndex:int) : TextLineMetrics;
+    public function getLineLength (lineIndex:int) : int {
+      return _lines[lineIndex].length;
+    }
 
     /// The zero-based index value of the first character in the line.
     //public function getLineOffset (lineIndex:int) : int;
@@ -315,16 +347,14 @@ package flash.text
       return "span";
     }
 
-    private function updateElementProperty(propertyPath : String, value : Object) : void {
-      var element : Element = this.getElement();
-      if (element) {
-        var propertyPathArcs : Array = propertyPath.split(".");
-        var lastIndex : uint = propertyPathArcs.length - 1;
-        for (var i:uint=0; i<lastIndex; ++i) {
-          element = element[propertyPathArcs[i]];
-        }
-        element[propertyPathArcs[lastIndex]] = value;
+    private static function updateElementProperty(element : HTMLElement, propertyPath : String, value : Object) : void {
+      var current : Object = element;
+      var propertyPathArcs : Array = propertyPath.split(".");
+      var lastIndex : uint = propertyPathArcs.length - 1;
+      for (var i:uint=0; i<lastIndex; ++i) {
+        current = current[propertyPathArcs[i]];
       }
+      current[propertyPathArcs[lastIndex]] = value;
     }
 
     /**
@@ -394,7 +424,7 @@ line breaks (\n) are counted in determining the content length.</p>
      * @param newText The string to append to the existing text.
      */
     public function appendText(newText:String):void {
-      text = _text + newText;
+      text = text + newText;
     }
 
     /**
@@ -469,7 +499,14 @@ means that if one of the character's format is changes, some of the metrics valu
      * @see flash.text.TextLineMetrics
      */
     public function getLineMetrics(lineIndex:int):TextLineMetrics {
-      return new TextLineMetrics(); // TODO
+      if (!lineMetricsContext) {
+        lineMetricsContext = CanvasRenderingContext2D(HTMLCanvasElement(window.document.createElement("CANVAS")).getContext("2d"));
+      }
+      lineMetricsContext.font = asWebFont();
+      var width:int = lineMetricsContext.measureText(_lines[lineIndex]).width;
+      return new TextLineMetrics(0, width, int(_textFormat.size), 0, 0, 0);
     }
+
+    private static var lineMetricsContext:CanvasRenderingContext2D;
   }
 }

@@ -38,7 +38,7 @@ public class BitmapData implements IBitmapDrawable {
     _transparent = transparent;
     _width = width;
     _height = height;
-    _alpha = (fillColor >>> 24) / 0xFF;
+    _alpha = transparent ? (fillColor >>> 24) / 0xFF : 1;
     _fillColor = fillColor & 0xFFFFFF;
   }
 
@@ -355,16 +355,26 @@ public class BitmapData implements IBitmapDrawable {
     var element:HTMLElement = bitmapData ?
       bitmapData.image || bitmapData.elem :
       DisplayObject(source).getElement();
-    if (!(element is HTMLImageElement || element is HTMLCanvasElement)) {
-      // TODO: Until I find out how to draw text, only images and canvas are supported.
-      return;
-    }
     var context:CanvasRenderingContext2D = getContext();
     if (matrix) {
       context.save();
       context.setTransform(matrix.a, matrix.b, matrix.c, matrix.d, matrix.tx, matrix.ty);
     }
-    context.drawImage(element, 0, 0);
+    if (element is HTMLImageElement || element is HTMLCanvasElement) {
+      context.drawImage(element, 0, 0);
+    } else {
+      var text:String = element['textContent'];
+      if (text) {
+        if (element.style.backgroundColor) {
+          context.fillStyle = element.style.backgroundColor;
+          context.fillRect(0, 0, _width, _height);
+        }
+        context.fillStyle = element.style.color;
+        context.font = element.style.font;
+        context.textBaseline = "top";
+        context.fillText(text, 0, 0);
+      }
+    }
     if (matrix) {
       context.restore();
     }
