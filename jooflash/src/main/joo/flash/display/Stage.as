@@ -3,7 +3,7 @@ import flash.events.Event;
 import flash.events.TimerEvent;
 import flash.utils.Timer;
 
-import js.Element;
+import js.HTMLElement;
 
 /**
  * The Stage class represents the main drawing area. The Stage represents the entire area where Flash� content is shown.
@@ -107,8 +107,8 @@ public class Stage extends DisplayObjectContainer {
     getElement().style.backgroundColor = Graphics.toRGBA(uint(value));
   }
 
-  override protected function createElement():Element {
-    var element : Element = window.document.getElementById(id);
+  override protected function createElement():HTMLElement {
+    var element : HTMLElement = HTMLElement(window.document.getElementById(id));
     element.style.position = "relative";
     element.style.overflow = "hidden";
     element.setAttribute("tabindex", "0");

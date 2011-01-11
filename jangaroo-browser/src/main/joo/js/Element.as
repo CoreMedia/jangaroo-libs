@@ -128,17 +128,13 @@ public class Element extends Node {
 
   public native function get scopeName() : String;   // IE only
 
+
+
   public native function getAttribute(name : String, iFlags:int = 0) : Object; // iFlags: IE only
 
 
 
   public native function removeAttribute(name : String) : void;
-
-
-
-  public native function get type() : String;
-
-  public native function set type(val : String) : void;
 
 
 
@@ -205,10 +201,6 @@ public class Element extends Node {
   public native function get selectedIndex() : Number; // <select>
 
   public native function set selectedIndex(value : Number) : void; // <select>
-
-  public native function get src() : String; // <script>, <img>
-
-  public native function set src(url : String) : void; // <script>, <img>
 
   public native function get href() : String; // <a>, <link>
 

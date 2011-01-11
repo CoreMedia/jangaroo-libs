@@ -45,4 +45,8 @@ var startTime = new Date().getTime();
 flash_utils.getTimer = function() {
       return new Date().getTime()-startTime;
 };
+joo.getOrCreatePackage("flash.net").navigateToURL = function (request, windowName) {
+  window.open(request.url, windowName || "_blank");
+};
+joo.classLoader.import_("joo.flash.Meta");
 })();

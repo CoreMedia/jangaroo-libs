@@ -1,17 +1,92 @@
 package flash.display {
 import flash.events.KeyboardEvent;
 
-import js.Element;
 import flash.events.EventDispatcher;
 import js.Event;
 import flash.events.Event;
 import flash.events.MouseEvent;
 import flash.geom.Transform;
 
+import js.HTMLElement;
+import js.Style;
+
 public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
 
   public function DisplayObject() {
     super();
+  }
+
+  /**
+   * Indicates the alpha transparency value of the object specified.
+   * Valid values are 0 (fully transparent) to 1 (fully opaque).
+   * The default value is 1. Display objects with <code>alpha</code>
+   * set to 0 <i>are</i> active, even though they are invisible.
+   *
+   * @example
+   * The following code sets the <code>alpha</code> property of a sprite
+   * to 50% when the mouse rolls over the sprite:
+   * <pre>
+   * import flash.display.Sprite;
+   * import flash.events.MouseEvent;
+   *
+   * var circle:Sprite = new Sprite();
+   * circle.graphics.beginFill(0xFF0000);
+   * circle.graphics.drawCircle(40, 40, 40);
+   * addChild(circle);
+   *
+   * circle.addEventListener(MouseEvent.MOUSE_OVER, dimObject);
+   * circle.addEventListener(MouseEvent.MOUSE_OUT, restoreObject);
+   *
+   * function dimObject(event:MouseEvent):void {
+   *     event.target.alpha = 0.5;
+   * }
+   *
+   * function restoreObject(event:MouseEvent):void {
+   *     event.target.alpha = 1.0;
+   * }
+   * </pre>
+   *
+   * @return the alpha transparency value of the object specified.
+   */
+  public function get alpha():Number {
+    return _alpha;
+  }
+
+  public var blendMode:String;
+
+  /**
+   * Indicates the alpha transparency value of the object specified.
+   * Valid values are 0 (fully transparent) to 1 (fully opaque).
+   * The default value is 1. Display objects with <code>alpha</code>
+   * set to 0 <i>are</i> active, even though they are invisible.
+   *
+   * @example
+   * The following code sets the <code>alpha</code> property of a sprite
+   * to 50% when the mouse rolls over the sprite:
+   * <pre>
+   * import flash.display.Sprite;
+   * import flash.events.MouseEvent;
+   *
+   * var circle:Sprite = new Sprite();
+   * circle.graphics.beginFill(0xFF0000);
+   * circle.graphics.drawCircle(40, 40, 40);
+   * addChild(circle);
+   *
+   * circle.addEventListener(MouseEvent.MOUSE_OVER, dimObject);
+   * circle.addEventListener(MouseEvent.MOUSE_OUT, restoreObject);
+   *
+   * function dimObject(event:MouseEvent):void {
+   *     event.target.alpha = 0.5;
+   * }
+   *
+   * function restoreObject(event:MouseEvent):void {
+   *     event.target.alpha = 1.0;
+   * }
+   * </pre>
+   */
+  public function set alpha(value:Number):void {
+    _alpha = value;
+    getElement().style.opacity = String(value);
   }
 
   /**
@@ -97,6 +172,60 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
   }
 
   /**
+   * For a display object in a loaded SWF file, the <code>root</code> property is the
+   * top-most display object in the portion of the display list's tree structure represented by that SWF file.
+   * For a Bitmap object representing a loaded image file, the <code>root</code> property is the Bitmap object
+   * itself. For the instance of the main class of the first SWF file loaded, the <code>root</code> property is the
+   * display object itself. The <code>root</code> property of the Stage object is the Stage object itself. The <code>root</code>
+   * property is set to <code>null</code> for any display object that has not been added to the display list, unless
+   * it has been added to a display object container that is off the display list but that is a child of the
+   * top-most display object in a loaded SWF file.</p>
+   *
+   * <p>For example, if you create a new Sprite object by calling the <code>Sprite()</code> constructor method,
+   * its <code>root</code> property is <code>null</code> until you add it to the display list (or to a display
+   * object container that is off the display list but that is a child of the top-most display object in a SWF file).</p>
+   *
+   * <p>For a loaded SWF file, even though the Loader object used to load the file may not be on the display list,
+   * the top-most display object in the SWF file has its <code>root</code> property set to itself.  The Loader object
+   * does not have its <code>root</code> property set until it is added as a child of a display object for which the
+   * <code>root</code> property is set.</p>
+   *
+   * @example
+   * The following code shows the difference between the <code>root</code>
+   * property for the Stage object, for a display object (a Loader object) that is not loaded (both before
+   * and after it has been added to the display list), and for a loaded object (a loaded Bitmap object):
+   * <pre>
+   * import flash.display.Loader;
+   * import flash.net.URLRequest;
+   * import flash.events.Event;
+   *
+   * trace(stage.root); // [object Stage]
+   *
+   * var ldr:Loader = new Loader();
+   * trace (ldr.root); // null
+   *
+   * addChild(ldr);
+   * trace (ldr.root); // [object ...]
+   *
+   * var urlReq:URLRequest = new URLRequest("example.jpg");
+   * ldr.load(urlReq);
+   *
+   * ldr.contentLoaderInfo.addEventListener(Event.COMPLETE, loaded);
+   *
+   * function loaded(event:Event):void {
+   *     trace(ldr.content.root); // [object Bitmap]
+   * }
+   * </pre>
+   */
+  public function get root():DisplayObject {
+    var root:DisplayObject = this;
+    while (root.parent) {
+      root = root.parent;
+    }
+    return root;
+  }
+
+  /**
    * Indicates the DisplayObjectContainer object that contains this display object. Use the parent property to
    * specify a relative path to display objects that are above the current display object in the display list
    * hierarchy.
@@ -151,6 +280,8 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
   private static const FLASH_EVENT_TO_DOM_EVENT : Object = merge(
     reverseMapping(DOM_EVENT_TO_MOUSE_EVENT),
     reverseMapping(DOM_EVENT_TO_KEYBOARD_EVENT));
+  private var _scaleX:Number = 1;
+  private var _scaleY:Number = 1;
 
   private static function merge(o1:Object, o2:Object):Object {
     var result:Object = {};
@@ -171,6 +302,9 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
     return result;
   }
 
+  /**
+   * @inheritDoc
+   */
   override public function addEventListener(type : String, listener : Function, useCapture : Boolean = false,
                                             priority : int = 0, useWeakReference : Boolean = false) : void {
     var newEventType : Boolean = !this.hasEventListener(type);
@@ -184,6 +318,9 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
     }
   }
 
+  /**
+   * @inheritDoc
+   */
   override public function removeEventListener(type : String, listener : Function, useCapture : Boolean = false):void {
     super.removeEventListener(type, listener, useCapture);
     if (!this.hasEventListener(type)) { // did we just remove the last event listener of this type?
@@ -265,7 +402,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
   public function set x(value:Number) : void {
     this._x = isNaN(value) ? 0 : value;
     if (this._elem) {
-      this._elem.style.left = value + "px";
+      this._elem.style.left = numberToStyleLength(value);
     }
   }
 
@@ -314,7 +451,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
   public function set y(value:Number) : void {
     this._y = isNaN(value) ? 0 : value;
     if (this._elem) {
-      this._elem.style.top = value+"px";
+      this._elem.style.top = numberToStyleLength(value);
     }
   }
 
@@ -363,7 +500,28 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * @see #width
    */
   public function set width(value : Number) : void {
-    getElement().style.width = isNaN(value) ? "auto" : (value + "px");
+    var style:Style = getElement().style;
+    var oldWidth:Number = styleLengthToNumber(style.width);
+    if (!isNaN(value)) {
+      if (style.paddingLeft) {
+        value -= styleLengthToNumber(style.paddingLeft);
+      }
+      if (style.paddingRight) {
+        value -= styleLengthToNumber(style.paddingRight);
+      }
+    }
+    style.width = numberToStyleLength(value);
+    if (!isNaN(oldWidth) && !isNaN(value)) {
+      _scaleX = value / oldWidth;
+    }
+  }
+
+  private static function numberToStyleLength(value:Number):String {
+    return isNaN(value) ? "auto" : (value + "px");
+  }
+
+  private static function styleLengthToNumber(length:String):* {
+    return length == "auto" ? NaN : Number(length.split("px")[0]);
   }
 
   /**
@@ -415,13 +573,28 @@ addChild(tf2);
    * @see #height
    */
   public function set height(value : Number) : void {
-    getElement().style.height = isNaN(value) ? "auto" : (value + "px");
+    var style:Style = getElement().style;
+    var oldHeight:Number = styleLengthToNumber(style.height);
+    if (!isNaN(value)) {
+      if (style.paddingTop) {
+        value -= styleLengthToNumber(style.paddingTop);
+      }
+      if (style.paddingBottom) {
+        value -= styleLengthToNumber(style.paddingBottom);
+      }
+    }
+    style.height = numberToStyleLength(value);
+    if (!isNaN(oldHeight) && !isNaN(value)) {
+      _scaleY = value / oldHeight;
+    }
   }
 
-  protected function createElement() : Element {
-    var elem : Element = window.document.createElement(getElementName());
+  protected function createElement() : HTMLElement {
+    var elem : HTMLElement = HTMLElement(window.document.createElement(getElementName()));
     elem.style.position = "absolute";
     elem.style.width = "100%";
+    elem.style.left = _x + "px";
+    elem.style.top  = _y + "px";
     elem.style['MozUserSelect'] = 'none';
     elem.style['KhtmlUserSelect'] = 'none';
     elem['unselectable'] = 'on';
@@ -433,11 +606,28 @@ addChild(tf2);
     return "div";
   }
 
-  public function getElement() : Element {
+  public function hasElement() : Boolean {
+    return !!_elem;
+  }
+
+  public function getElement() : HTMLElement {
     if (!_elem) {
       _elem = this.createElement();
     }
     return _elem;
+  }
+
+  protected function setElement(elem : HTMLElement):void {
+    elem.style.left = _x + "px";
+    elem.style.top = _y + "px";
+    if (_elem) {
+      elem.style.width = _elem.style.width;
+      elem.style.height = _elem.style.height;
+      if (_parent) {
+        _parent.getElement().replaceChild(elem, _elem);
+      }
+    }
+    _elem = elem;
   }
 
   /**
@@ -507,8 +697,90 @@ addChild(tf2);
     return _transform;
   }
 
+  /**
+   * Indicates the horizontal scale (percentage) of the object as applied from the registration point. The default
+   * registration point is (0,0). 1.0 equals 100% scale.
+   *
+   * <p>Scaling the local coordinate system changes the <code>x</code> and <code>y</code> property values, which are defined in
+   * whole pixels. </p>
+   *
+   * @example
+   * The following code creates a Sprite object with a rectangle drawn in its
+   * <code>graphics</code> property. When the user clicks the sprite, it scales by 10%:
+   * <pre>
+   * import flash.display.Sprite;
+   * import flash.events.MouseEvent;
+   *
+   * var square:Sprite = new Sprite();
+   * square.graphics.beginFill(0xFFCC00);
+   * square.graphics.drawRect(0, 0, 100, 100);
+   * addChild(square);
+   *
+   * square.addEventListener(MouseEvent.CLICK, scale);
+   *
+   * function scale(event:MouseEvent):void {
+   *     square.scaleX *= 1.10;
+   *     square.scaleY *= 1.10;
+   * }
+   * </pre>
+   */
+  public function get scaleX():Number {
+    return _scaleX;
+  }
+
+  public function set scaleX(value:Number):void {
+    width *= value / _scaleX; // sets _scaleX as a side-effect
+  }
+
+  /**
+   * Indicates the vertical scale (percentage) of an object as applied from the registration point of the object. The
+     default registration point is (0,0). 1.0 is 100% scale.
+
+     </p><p>Scaling the local coordinate system changes the <code>x</code> and <code>y</code> property values, which are defined in
+     whole pixels. </p>
+
+
+     <br><br><span class="label"> Implementation </span><br><code>&nbsp;&nbsp;&nbsp;&nbsp;public function get scaleY():<a href="../../Number.html">Number</a></code><br><code>&nbsp;&nbsp;&nbsp;&nbsp;public function set scaleY(value:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a></code><br><span id="pageFilter"><br><span class="label"> Example &nbsp;(
+                <span class="usage"><a href="http://www.adobe.com/go/learn_as3_usingexamples_en"> How to use this example </a></span>)
+            </span><br><div class="detailBody"> The following code creates a Sprite object with a rectangle drawn in its
+ <code>graphics</code> property. When the user clicks the sprite, it scales by 10%:
+
+<div class="listing"><pre>
+import flash.display.Sprite;
+import flash.events.MouseEvent;
+
+var square:Sprite = new Sprite();
+square.graphics.beginFill(0xFFCC00);
+square.graphics.drawRect(0, 0, 100, 100);
+addChild(square);
+
+square.addEventListener(MouseEvent.CLICK, scale);
+
+function scale(event:MouseEvent):void {
+    square.scaleX *= 1.10;
+    square.scaleY *= 1.10;
+}
+</pre>
+   * @return
+   */
+  public function get scaleY():Number {
+    return _scaleY;
+  }
+
+  public function set scaleY(value:Number):void {
+    height *= value / _scaleY; // sets _scaleY as a side-effect
+  }
+
   public function set transform(value:Transform) : void {
     _transform = value;
+  }
+
+   public function get visible():Boolean {
+     return _visible;
+   }
+  public function set visible(value:Boolean):void {
+    _visible = value;
+    getElement().style.display = _visible ? "" : "none";
   }
 
   /**
@@ -540,10 +812,74 @@ addChild(tf2);
   */
   public var rotation:Number;
 
+  public function get loaderInfo():LoaderInfo {
+    // TODO: ???
+    return new LoaderInfo();
+  }
+
+  /**
+   * Indicates the x coordinate of the mouse or user input device position, in pixels.
+   *
+   * <p><b>Note</b>: For a DisplayObject that has been rotated, the returned x coordinate will reflect the
+   * non-rotated object.</p>
+   *
+   * @example
+   * The following code creates a Sprite object and traces the <code>mouseX</code>
+   * and <code>mouseY</code> positions when the user clicks the sprite:
+   * <pre>
+   * import flash.display.Sprite;
+   * import flash.events.MouseEvent;
+   *
+   * var square:Sprite = new Sprite();
+   * square.graphics.beginFill(0xFF0000);
+   * square.graphics.drawRect(0, 0, 200, 200);
+   * addChild(square);
+   *
+   * square.addEventListener(MouseEvent.CLICK, traceCoordinates);
+   *
+   * function traceCoordinates(event:MouseEvent):void {
+   *     trace(square.mouseX, square.mouseY);
+   * }
+   * </pre>
+   */
+  public function get mouseX():Number {
+    return 0; // TODO
+  }
+
+  /**
+   * Indicates the y coordinate of the mouse or user input device position, in pixels.
+   *
+   * <p><b>Note</b>: For a DisplayObject that has been rotated, the returned y coordinate will reflect the
+   * non-rotated object.</p>
+   *
+   * The following code creates a Sprite object and traces the <code>mouseX</code>
+   * and <code>mouseY</code> positions when the user clicks the sprite:
+   * <pre>
+   * import flash.display.Sprite;
+   * import flash.events.MouseEvent;
+   *
+   * var square:Sprite = new Sprite();
+   * square.graphics.beginFill(0xFF0000);
+   * square.graphics.drawRect(0, 0, 200, 200);
+   * addChild(square);
+   *
+   * square.addEventListener(MouseEvent.CLICK, traceCoordinates);
+   *
+   * function traceCoordinates(event:MouseEvent):void {
+   *     trace(square.mouseX, square.mouseY);
+   * }
+   * </pre>
+   */
+  public function get mouseY():Number {
+    return 0; // TODO
+  }
+
   private var _parent : DisplayObjectContainer;
-  private var _elem : Element;
+  private var _elem : HTMLElement;
   private var _x : Number = 0, _y : Number = 0;
   private var _transform : Transform;
   private var _name : String;
+  private var _visible: Boolean;
+  private var _alpha: Number;
 }
 }

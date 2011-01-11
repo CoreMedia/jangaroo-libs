@@ -1,8 +1,5 @@
 package flash.events {
 
-import flash.events.IEventDispatcher;
-import flash.events.Event;
-
 /**
  * Dispatched when Flash Player gains operating system focus and becomes active.
  * <p>Defines the value of the type property of an activate event object.</p>
@@ -69,7 +66,10 @@ public class EventDispatcher extends Object implements IEventDispatcher {
     this.listeners = {};
   }
 
-  public function dispatchEvent(event : flash.events.Event) : Boolean {
+  /**
+   * @inheritDoc
+   */
+  public function dispatchEvent(event : Event) : Boolean {
     event.target = this.target || this;
     var listeners : Array = this.listeners[event.type];
     if (listeners) {
@@ -86,10 +86,16 @@ public class EventDispatcher extends Object implements IEventDispatcher {
     return event.isDefaultPrevented();
   }
 
+  /**
+   * @inheritDoc
+   */
   public function willTrigger(type : String) : Boolean {
     return this.hasEventListener(type);
   }
 
+  /**
+   * @inheritDoc
+   */
   public function addEventListener(type : String, listener : Function, useCapture : Boolean = false, priority : int = 0, useWeakReference : Boolean = false) : void {
     var listenersByType : Object = useCapture ? this.captureListeners : this.listeners;
     if (!(type in listenersByType)) {
@@ -99,6 +105,9 @@ public class EventDispatcher extends Object implements IEventDispatcher {
     }
   }
 
+  /**
+   * @inheritDoc
+   */
   public function removeEventListener(type : String, listener : Function, useCapture : Boolean = false) : void {
     var listenersByType : Object = useCapture ? this.captureListeners : this.listeners;
     var listeners : Array = listenersByType[type];
@@ -116,6 +125,9 @@ public class EventDispatcher extends Object implements IEventDispatcher {
     }
   }
 
+  /**
+   * @inheritDoc
+   */
   public function hasEventListener(type : String) : Boolean {
     return this.listeners[type] || this.captureListeners[type];
   }

@@ -6,6 +6,8 @@
  * the implementing code is notified about these important moments.
  */
 package ext.dd {
+import ext.lib.Region;
+
 /**
  * DragDropMgr is a singleton that tracks the element interaction for
  * all DragDrop items in the window.  Generally, you will not call
@@ -411,6 +413,7 @@ public class DragDropMgr {
          *                             the instance is configured for.
          * @static
          */
+         public native function getLocation():Region;
         /**
          * Checks the cursor location to see if it over the target
          * @method isOverTarget

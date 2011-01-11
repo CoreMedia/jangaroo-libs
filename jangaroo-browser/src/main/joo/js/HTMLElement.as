@@ -1,4 +1,4 @@
 package js{
-public class HTMLElement extends Element{
+public class HTMLElement extends Element {
 }
 }

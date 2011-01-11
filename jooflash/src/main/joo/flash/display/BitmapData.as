@@ -7,9 +7,13 @@ import flash.geom.Rectangle;
 import js.CanvasRenderingContext2D;
 import js.HTMLCanvasElement;
 import js.HTMLElement;
+import js.HTMLImageElement;
+import js.Image;
 import js.ImageData;
 
 public class BitmapData implements IBitmapDrawable {
+
+  private const elementChangeListeners:Array = [];
 
   /**
    * Creates a BitmapData object with a specified width and height. If you specify a value for the fillColor parameter,
@@ -32,12 +36,88 @@ public class BitmapData implements IBitmapDrawable {
    */
   public function BitmapData(width : int, height : int, transparent : Boolean = true, fillColor : uint = 0xFFFFFFFF) {
     _transparent = transparent;
-    canvas = window.document.createElement("canvas") as HTMLCanvasElement;
-    canvas.width = _width = width;
-    canvas.height = _height = height;
-    canvas.style.position = "absolute";
-    context = canvas.getContext("2d") as CanvasRenderingContext2D;
-    // TODO: transparent, fillColor.
+    _width = width;
+    _height = height;
+    _alpha = transparent ? (fillColor >>> 24) / 0xFF : 1;
+    _fillColor = fillColor & 0xFFFFFF;
+  }
+
+  function getElement():HTMLElement {
+    if (!elem) {
+      return asDiv();
+    }
+    return elem;
+  }
+
+  function getImage():HTMLImageElement {
+    if (image)
+      return image;
+    var img:HTMLImageElement = new Image();
+    if (isCanvas) {
+      img.src = HTMLCanvasElement(elem).toDataURL();
+    } else {
+      return null;
+    }
+    return img;
+  }
+
+  public function asDiv():HTMLElement {
+    if (!elem || isCanvas) {
+      isCanvas = false;
+      var div:HTMLElement = HTMLElement(window.document.createElement("DIV"));
+      div.style.position = "absolute";
+      div.style.width = _width + "px";
+      div.style.height = _height + "px";
+      changeElement(div);
+    }
+    elem.style.backgroundColor = Graphics.toRGBA(_fillColor, _alpha);
+    elem.style.backgroundImage = image ? "url('" + image.src + ")" : "none";
+    return elem;
+  }
+
+  private function getContext():CanvasRenderingContext2D {
+    return CanvasRenderingContext2D(asCanvas().getContext("2d"));
+  }
+
+  private function asCanvas():HTMLCanvasElement {
+    if (!isCanvas) {
+      isCanvas = true;
+      var canvas:HTMLCanvasElement = HTMLCanvasElement(window.document.createElement("canvas"));
+      canvas.width = _width;
+      canvas.height = _height;
+      canvas.style.position = "absolute";
+      var context : CanvasRenderingContext2D = CanvasRenderingContext2D(canvas.getContext("2d"));
+      if (_alpha > 0 || !transparent) {
+        context.save();
+        context.fillStyle = Graphics.toRGBA(_fillColor, _alpha);
+        context.fillRect(0, 0, _width, _height);
+        context.restore();
+      }
+      if (image) {
+        context.drawImage(image, imageOffsetX, imageOffsetY, _width, _height, 0, 0, _width, _height);
+        image = null;
+      }
+      changeElement(canvas);
+    }
+    return HTMLCanvasElement(elem);
+  }
+
+  function addElementChangeListener(listener:Function):void {
+    elementChangeListeners.push(listener);
+  }
+
+  function removeElementChangeListener(listener:Function):void {
+    var listenerIndex:int = elementChangeListeners.indexOf(listener);
+    if (listenerIndex !== -1) {
+      elementChangeListeners.slice(listenerIndex, 1);
+    }
+  }
+
+  private function changeElement(elem:HTMLElement):void {
+    this.elem = elem;
+    for (var i:int = 0; i < elementChangeListeners.length; i++) {
+      elementChangeListeners[i](elem);
+    }
   }
 
   /**
@@ -98,23 +178,33 @@ public class BitmapData implements IBitmapDrawable {
    * </pre>
    */
   public function fillRect(rect:Rectangle, color:uint):void {
+    var alpha:uint = (color >> 24 & 0xFF) / 0xFF;
+    color = color & 0xFFFFFF;
+    if (!isCanvas && rect.equals(this.rect)) { // TODO: what about alpha != 1?
+      _fillColor = color;
+      _alpha = alpha;
+      image = null;
+      if (elem) {
+        asDiv();
+      }
+      return;
+    }
+    var context:CanvasRenderingContext2D = getContext();
     context.save();
     context.setTransform(1, 0, 0, 1, 0, 0);
     // TODO: which other context attributes to reset?
-    var alpha:uint = (color >> 24 & 0xFF);
     if (alpha == 0) {
       // IE9 does not (yet?) support globalCompositeOperation, but at least we can clear:
       context.clearRect(rect.x, rect.y, rect.width, rect.height);
     } else {
       context.fillStyle = "rgba("+
-        [color >> 16 & 0xFF, color >> 8 & 0xFF, color & 0xFF, alpha / 0xFF]
+        [color >> 16 & 0xFF, color >> 8 & 0xFF, color & 0xFF, alpha]
           .join(",")+")";
       context.globalCompositeOperation = "copy";
       context.fillRect(rect.x, rect.y, rect.width, rect.height);
     }
     context.restore();
     context.globalCompositeOperation = "source-over";
-    this.invalidateImg();
   }
 
   /**
@@ -147,6 +237,7 @@ public class BitmapData implements IBitmapDrawable {
    * @see flash.geom.Rectangle
    */
   public function colorTransform(rect : Rectangle, colorTransform : ColorTransform) : void {
+    var context:CanvasRenderingContext2D = getContext();
     // check for all known faster methods to map colorTransform directly to canvas APIs:
     if (colorTransform.alphaOffset==0
       && colorTransform.redMultiplier>=0 && colorTransform.redMultiplier<=1
@@ -255,40 +346,45 @@ public class BitmapData implements IBitmapDrawable {
    */
   public function draw(source : IBitmapDrawable, matrix : Matrix = null, colorTransform : ColorTransform = null, 
                        blendMode : String = null, clipRect : Rectangle = null, smoothing : Boolean = false) : void {
-    var element : HTMLElement = HTMLElement(source is BitmapData ? (source as BitmapData).canvas : (source as DisplayObject).getElement());
+    var bitmapData:BitmapData;
+    if (source is Bitmap) {
+      bitmapData = Bitmap(source).bitmapData;
+    } else {
+      bitmapData = source as BitmapData;
+    }
+    var element:HTMLElement = bitmapData ?
+      bitmapData.image || bitmapData.elem :
+      DisplayObject(source).getElement();
+    var context:CanvasRenderingContext2D = getContext();
     if (matrix) {
-      this.context.save();
-      this.context.setTransform(matrix.a, matrix.b, matrix.c, matrix.d, matrix.tx, matrix.ty);
+      context.save();
+      context.setTransform(matrix.a, matrix.b, matrix.c, matrix.d, matrix.tx, matrix.ty);
     }
-    this.context.drawImage(element, 0, 0);
+    if (element is HTMLImageElement || element is HTMLCanvasElement) {
+      context.drawImage(element, 0, 0);
+    } else {
+      var text:String = element['textContent'];
+      if (text) {
+        if (element.style.backgroundColor) {
+          context.fillStyle = element.style.backgroundColor;
+          context.fillRect(0, 0, _width, _height);
+        }
+        context.fillStyle = element.style.color;
+        context.font = element.style.font;
+        context.textBaseline = "top";
+        context.fillText(text, 0, 0);
+      }
+    }
     if (matrix) {
-      this.context.restore();
-    }
-    this.invalidateImg();
-  }
-
-  function drawImg(img:HTMLElement):void {
-    this.context.drawImage(img, 0, 0);
-    this.img = img;
-  }
-
-  private function invalidateImg():void {
-    if (this.img) {
-      this.img.src = null;
+      context.restore();
     }
   }
 
-  function getImg():HTMLElement {
-    if (!this.img) {
-      this.img = HTMLElement(window.document.createElement("img"));
-    }
-    if (!this.img.getAttribute('src')) {
-      this.img.setAttribute('src', this.canvas.toDataURL("image/png"));
-    }
-    return this.img;
+  public static function fromImg(img:HTMLImageElement):BitmapData {
+    var bitmapData:BitmapData = new BitmapData(img.width, img.height, true, 0);
+    bitmapData.image = img;
+    return bitmapData;
   }
-
-  private var img:HTMLElement;
 
   /**
    * Returns an integer that represents an RGB pixel value from a BitmapData object at
@@ -326,7 +422,7 @@ public class BitmapData implements IBitmapDrawable {
    */
   public function getPixel(x:int, y:int):uint {
     if (rect.contains(x, y)) {
-      var data : Array = context.getImageData(x, y, 1, 1).data;
+      var data : Array = getContext().getImageData(x, y, 1, 1).data;
       return data[0] << 16 | data[1] << 8 | data[2];
     }
     return 0;
@@ -378,7 +474,7 @@ public class BitmapData implements IBitmapDrawable {
    */
   public function getPixel32(x:int, y:int):uint {
     if (rect.contains(x, y)) {
-      var data : Array = context.getImageData(x, y, 1, 1).data;
+      var data : Array = getContext().getImageData(x, y, 1, 1).data;
       return data[0] << 16 | data[1] << 8 | data[2] | data[3] << 24;
     }
     return 0;
@@ -426,13 +522,13 @@ public class BitmapData implements IBitmapDrawable {
    */
   public function setPixel(x:int, y:int, color:uint):void {
     if (rect.contains(x, y)) {
+      var context:CanvasRenderingContext2D = getContext();
       var imageData:ImageData = context.createImageData(1, 1);
       imageData.data[0] = color >> 16 & 0xFF;
       imageData.data[1] = color >>  8 & 0xFF;
       imageData.data[2] = color       & 0xFF;
       imageData.data[3] = 0xFF;
       context.putImageData(imageData, x, y);
-      this.invalidateImg();
     }
   }
 
@@ -489,13 +585,13 @@ addChild(bm);
    */
   public function setPixel32(x:int, y:int, color:uint):void {
     if (rect.contains(x, y)) {
+      var context:CanvasRenderingContext2D = getContext();
       var imageData:ImageData = context.createImageData(1, 1);
       imageData.data[0] = color >> 16 & 0xFF;
       imageData.data[1] = color >>  8 & 0xFF;
       imageData.data[2] = color       & 0xFF;
       imageData.data[3] = color >> 24 & 0xFF;
       context.putImageData(imageData, x, y);
-      this.invalidateImg();
     }
   }
 
@@ -638,25 +734,108 @@ picture.bitmapData = bitmapData;
    */
   public function copyPixels(sourceBitmapData:BitmapData, sourceRect:Rectangle, destPoint:Point,
                              alphaBitmapData:BitmapData = null, alphaPoint:Point = null, mergeAlpha:Boolean = false):void {
+    var context:CanvasRenderingContext2D;
     var destRect:Rectangle = new Rectangle(destPoint.x, destPoint.y, sourceRect.width, sourceRect.height);
-    destRect = destRect.intersection(this.rect);
+    destRect = destRect.intersection(rect);
     if (destRect.width > 0 && destRect.height > 0) {
-      if (mergeAlpha) {
-        // putImageData() does not support alpha channel, so use drawImage():
-        this.context.drawImage(sourceBitmapData.getImg(), sourceRect.x, sourceRect.y, destRect.width, destRect.height,
-          destPoint.x, destPoint.y, destRect.width, destRect.height);
+      if (!sourceBitmapData.isCanvas) {
+        if (destRect.equals(rect) && (!isCanvas || !mergeAlpha)) {
+          // the whole Bitmap is to become a copy of (a clipping of) the source bitmap
+          _fillColor = sourceBitmapData._fillColor;
+          _alpha = sourceBitmapData._alpha;
+          image = sourceBitmapData.image;
+          imageOffsetX = sourceRect.x + sourceBitmapData.imageOffsetX;
+          imageOffsetY = sourceRect.y + sourceBitmapData.imageOffsetY;
+          if (elem) {
+            asDiv(); // updates existing div
+          }
+        } else {
+          // only part of this BitmapData is painted from the source, or we paint transparently onto an existing canvas:
+          context = getContext(); // if not already one, become a canvas
+          // clear destination rectangle with source background color first:
+          if (sourceBitmapData._alpha > 0) {
+            context.fillStyle = Graphics.toRGBA(sourceBitmapData._fillColor, mergeAlpha ? sourceBitmapData._alpha : 1);
+            context.fillRect(destRect.x, destRect.y, destRect.width, destRect.height);
+          }
+          if (sourceBitmapData.image) {
+            // then, draw source image onto destination rectangle:
+            context.drawImage(sourceBitmapData.image, sourceRect.x, sourceRect.y, destRect.width, destRect.height,
+              destPoint.x, destPoint.y, destRect.width, destRect.height);
+          }
+        }
       } else {
-        var imageData:ImageData = sourceBitmapData.context.getImageData(sourceRect.x, sourceRect.y, destRect.width, destRect.height);
-        this.context.putImageData(imageData, destPoint.x, destPoint.y);
+        context = getContext();
+        if (mergeAlpha) {
+          // putImageData() does not support alpha channel, so use drawImage():
+          context.drawImage(sourceBitmapData.asCanvas(), sourceRect.x, sourceRect.y, destRect.width, destRect.height,
+            destPoint.x, destPoint.y, destRect.width, destRect.height);
+        } else {
+          var imageData:ImageData = sourceBitmapData.getContext().getImageData(sourceRect.x, sourceRect.y, destRect.width, destRect.height);
+          context.putImageData(imageData, destPoint.x, destPoint.y);
+        }
       }
-      invalidateImg();
     }
   }
 
+  /**
+   * Performs pixel-level hit detection between one bitmap image
+   * and a point, rectangle, or other bitmap image. A hit is defined as
+   * an overlap of a point or rectangle over an opaque pixel, or two
+   * overlapping opaque pixels. No stretching,
+   * rotation, or other transformation of either object is considered when
+   * the hit test is performed.
+   *
+   * <p>If an image is an opaque image, it is considered a fully opaque rectangle for this
+   * method. Both images must be transparent images to perform pixel-level hit testing that
+   * considers transparency. When you are testing two transparent images, the alpha threshold
+   * parameters control what alpha channel values, from 0 to 255, are considered opaque.</p>
+   *
+   * @example
+   * The following example creates a BitmapData object that is only opaque in a rectangular region
+   * (20, 20, 40, 40) and calls the <code>hitTest()</code> method with a Point object as the <code>secondObject</code>.
+   * In the first call, the Point object defines the upper-left corner of the BitmapData object, which is not opaque, and
+   * in the second call, the Point object defines the center of the BitmapData object, which is opaque.
+   * <pre>
+   * import flash.display.BitmapData;
+   * import flash.geom.Rectangle;
+   * import flash.geom.Point;
+   *
+   * var bmd1:BitmapData = new BitmapData(80, 80, true, 0x00000000);
+   * var rect:Rectangle = new Rectangle(20, 20, 40, 40);
+   * bmd1.fillRect(rect, 0xFF0000FF);
+   *
+   * var pt1:Point = new Point(1, 1);
+   * trace(bmd1.hitTest(pt1, 0xFF, pt1)); // false
+   * var pt2:Point = new Point(40, 40);
+   * trace(bmd1.hitTest(pt1, 0xFF, pt2)); // true
+   * </pre>
+   * @param firstPoint A position of the upper-left corner of the BitmapData image in an arbitrary coordinate space.
+   *   The same coordinate space is used in defining the <code>secondBitmapPoint</code> parameter.
+   * @param firstAlphaThreshold The smallest alpha channel value that is considered opaque for this hit test.
+   * @param secondObject A Rectangle, Point, Bitmap, or BitmapData object.
+   * @param secondBitmapDataPoint (default = <code>null</code>) A point that defines a pixel location in the second BitmapData object.
+   *   Use this parameter only when the value of <code>secondObject</code> is a
+   *   BitmapData object.
+   * @param secondAlphaThreshold (default = <code>1</code>) The smallest alpha channel value that is considered opaque in the second BitmapData object.
+   *   Use this parameter only when the value of <code>secondObject</code> is a
+   *   BitmapData object and both BitmapData objects are transparent.
+   * @return A value of <code>true</code> if a hit occurs; otherwise, <code>false</code>.
+   * @throws ArgumentError The <code>secondObject</code> parameter is not a Point, Rectangle, Bitmap, or BitmapData object.
+   * @throws TypeError The firstPoint is null.
+   */
+  public function hitTest(firstPoint:Point, firstAlphaThreshold:uint, secondObject:Object, secondBitmapDataPoint:Point = null, secondAlphaThreshold:uint = 1):Boolean {
+    return false; // TODO
+  }
+
   private var _transparent : Boolean;
+  private var _fillColor : uint;
+  private var _alpha : Number;
   private var _width : int;
   private var _height : int;
-  internal var canvas : HTMLCanvasElement;
-  private var context : CanvasRenderingContext2D;
+  private var elem : HTMLElement; // either div or canvas
+  private var isCanvas : Boolean; // whether elem is a canvas
+  private var image : HTMLImageElement; // only set if BitmapData if created from and image
+  private var imageOffsetX : int; // left offset in the image
+  private var imageOffsetY : int; // top offset in the image
 }
 }

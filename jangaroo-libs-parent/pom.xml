@@ -135,7 +135,7 @@
       <plugin>
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-lifecycle</artifactId>
-        <version>0.7.12</version>
+        <version>0.7.13-SNAPSHOT</version>
         <extensions>true</extensions>
       </plugin>
 
@@ -177,7 +177,7 @@
         <plugin>
           <groupId>net.jangaroo</groupId>
           <artifactId>jangaroo-maven-plugin</artifactId>
-          <version>0.7.12</version>
+          <version>0.7.13-SNAPSHOT</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -211,7 +211,7 @@
       <dependency>
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-runtime</artifactId>
-        <version>0.7.12</version>
+        <version>0.7.13-SNAPSHOT</version>
         <type>jangaroo</type>
       </dependency>
     </dependencies>

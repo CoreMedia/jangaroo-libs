@@ -1,5 +1,5 @@
 package flash.display {
-import js.Element;
+import js.HTMLElement;
 
 public class Bitmap extends DisplayObject {
 
@@ -17,8 +17,11 @@ public class Bitmap extends DisplayObject {
     this._smoothing = smoothing;
   }
 
-  override protected function createElement() : Element {
-    return this._bitmapData.canvas;
+  override protected function createElement() : HTMLElement {
+    if (!listenerAdded) {
+      _bitmapData.addElementChangeListener(setElement)
+    }
+    return _bitmapData.getElement();
   }
 
   /**
@@ -30,15 +33,21 @@ public class Bitmap extends DisplayObject {
   }
 
   public function set bitmapData(value : BitmapData) : void {
-    this._bitmapData = value;
+    if (listenerAdded) {
+      _bitmapData.removeElementChangeListener(setElement);
+    }
+    _bitmapData = value;
+    if (listenerAdded) {
+      _bitmapData.addElementChangeListener(setElement);
+    }
   }
 
   override public function get height():Number {
-    return _bitmapData.height;
+    return _bitmapData.height * scaleY;
   }
 
   override public function get width():Number {
-    return _bitmapData.width;
+    return _bitmapData.width * scaleX;
   }
 
   /**
@@ -90,9 +99,11 @@ public class Bitmap extends DisplayObject {
    */
   public function set smoothing(value : Boolean) : void {
     this._smoothing = value;
+    // TODO: can we use canvas.context.mozImageSmoothingEnabled = true / false to achieve smoothing?
   }
 
   private var _bitmapData : BitmapData;
+  private var listenerAdded : Boolean = false;
   private var _pixelSnapping : String;
   private var _smoothing : Boolean;
 

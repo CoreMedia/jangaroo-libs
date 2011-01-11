@@ -126,11 +126,18 @@ public native function id (rec : Record) : String;
      * @property phantom
      */
     public var phantom  : Boolean;
-    protected native function join(store) : void;
-        /**
-         * The <b class='link'>ext.data.Store</b> to which this Record belongs.
-         * @property store
-         */
+    /**
+     * Called by the Store to which this Record has just been added.
+     * Called with "null" when the Record is removed from its current Store.
+     * @param store the new Store to join or null to leave the current Store.
+     * @see #store
+     */
+      protected native function join(store : Store) : void;
+      /**
+       * The <b class='link'>ext.data.Store</b> to which this Record belongs.
+       * @property store
+       */
+      public var store : Store;
     /**
      * Set the <b class='link' title='ext.data.Field#name named'>field</b> to the specified value.  For example:
      * <pre><code>
@@ -248,6 +255,4 @@ rec.<b class='link' title='#commit'>commit</b>(); // updates the view
      * operations.</p>
      */
     public native function markDirty() : void;
-
-    protected var store : Store;
 }}

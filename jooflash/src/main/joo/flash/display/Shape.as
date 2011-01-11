@@ -1,8 +1,9 @@
 package flash.display {
 
-import js.Element;
 import flash.geom.Transform;
 import flash.geom.Matrix;
+
+import js.HTMLElement;
 
 /**
  * The Shape class is used to create lightweight shapes by using the ActionScript drawing application program interface
@@ -24,7 +25,7 @@ public class Shape extends DisplayObject {
     _graphics = new Graphics();
   }
 
-  override protected function createElement() : Element {
+  override protected function createElement() : HTMLElement {
     return graphics.canvas;
   }
 

@@ -6,7 +6,8 @@ import flash.utils.ByteArray;
 
 import joo.flash.util.Base64;
 
-import js.HTMLElement;
+import js.HTMLImageElement;
+import js.Image;
 
 /**
  * The Loader class is used to load SWF files or image (JPG, PNG, or GIF) files. Use the
@@ -341,7 +342,7 @@ public class Loader extends DisplayObjectContainer {
    *
    * @event unload:flash.events.Event Dispatched by the <code>contentLoaderInfo</code> object when a loaded object is removed.
    *
-   * @throws IOError The <code>digest</code> property of the <code>request</code> object is not
+   * @throws flash.errors.IOError The <code>digest</code> property of the <code>request</code> object is not
    * <code>null</code>. You should only set the <code>digest</code> property of a URLRequest object
    * when calling the <code>URLLoader.load()</code> method when loading a SWZ file (an Adobe
    * platform component).
@@ -374,7 +375,9 @@ public class Loader extends DisplayObjectContainer {
    * @see http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118a9b90204-7e13.html Loading display content dynamically
    * @see http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118a9b90204-7de0.html Specifying loading context
    */
-  public native function load(request:URLRequest, context:LoaderContext = null):void;
+  public function load(request:URLRequest, context:LoaderContext = null):void {
+    loadFromUrl(request.url);
+  }
 
   /**
    * Loads from binary data stored in a ByteArray object.
@@ -436,15 +439,18 @@ public class Loader extends DisplayObjectContainer {
    * @see http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118a9b90204-7de0.html Specifying loading context
    */
   public function loadBytes(bytes:ByteArray, context:LoaderContext = null):void {
-    var img:HTMLElement = window.document.createElement("img") as HTMLElement;
-    img.addEventListener("load", function(e):void {
+    _contentLoaderInfo._bytes = bytes;
+    loadFromUrl("data:image/gif;base64," + Base64.encodeBytes(bytes));
+  }
+
+  private function loadFromUrl(url:String):void {
+    var img:HTMLImageElement = new Image();
+    img.addEventListener("load", function():void {
       var bitmapData:BitmapData = new BitmapData(img['width'], img['height']);
-      _content = new Bitmap(bitmapData);
-      bitmapData.drawImg(img);
-      _contentLoaderInfo._bytes = bytes;
+      _content = new Bitmap(BitmapData.fromImg(img));
       _contentLoaderInfo.dispatchEvent(new Event(Event.COMPLETE));
     }, false);
-    img.setAttribute("src", "data:image/gif;base64," + Base64.encodeBytes(bytes));
+    img.src = url;
   }
 
   /**
