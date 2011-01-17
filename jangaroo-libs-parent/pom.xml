@@ -211,7 +211,7 @@
       <dependency>
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-runtime</artifactId>
-        <version>0.8.0-SNAPSHOT</version>
+        <version>0.8.0</version>
         <type>jangaroo</type>
       </dependency>
     </dependencies>
