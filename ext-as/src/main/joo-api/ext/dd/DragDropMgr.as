@@ -413,7 +413,7 @@ public class DragDropMgr {
          *                             the instance is configured for.
          * @static
          */
-         public native function getLocation():Region;
+         public static native function getLocation():Region;
         /**
          * Checks the cursor location to see if it over the target
          * @method isOverTarget
