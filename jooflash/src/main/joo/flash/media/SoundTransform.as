@@ -45,14 +45,15 @@ public final class SoundTransform {
    * The left-to-right panning of the sound, ranging from -1 (full pan left) to 1 (full pan right). A value of 0 represents no panning (balanced center between right and left).
    */
   public function get pan():Number {
-    throw new Error('not implemented'); // TODO: implement!
+    return _pan;
   }
 
   /**
    * @private
    */
   public function set pan(value:Number):void {
-    throw new Error('not implemented'); // TODO: implement!
+    _pan = value;
+    // TODO: can HTML5 Audio do this?
   }
 
   /**
@@ -87,14 +88,15 @@ public final class SoundTransform {
    * The volume, ranging from 0 (silent) to 1 (full volume).
    */
   public function get volume():Number {
-    throw new Error('not implemented'); // TODO: implement!
+    return _volume;
   }
 
   /**
    * @private
    */
   public function set volume(value:Number):void {
-    throw new Error('not implemented'); // TODO: implement!
+    _volume = value;
+    // TODO: can HTML5 Audio do this?
   }
 
   /**
@@ -137,7 +139,11 @@ public final class SoundTransform {
    * </listing>
    */
   public function SoundTransform(vol:Number = 1, panning:Number = 0) {
-    throw new Error('not implemented'); // TODO: implement!
+    volume = vol;
+    pan = panning;
   }
+
+  private var _volume:Number;
+  private var _pan:Number;
 }
 }
