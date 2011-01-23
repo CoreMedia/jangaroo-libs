@@ -16,23 +16,23 @@ public class XMLHttpRequest {
    * The OPENED state is the state of the object when the open() method has been successfully invoked. During this
    * state request headers can be set using setRequestHeader() and the request can be made using send().
    */
-  public native static function OPENED() : int;
+  public native static function get OPENED() : int;
 
   /**
    * The HEADERS_RECEIVED state is the state of the object when all response headers have been received.
    */
-  public native static function HEADERS_RECEIVED() : int;
+  public native static function get HEADERS_RECEIVED() : int;
 
   /**
    * The LOADING state is the state of the object when the response entity body is being received.
    */
-  public native static function LOADING() : int;
+  public native static function get LOADING() : int;
 
   /**
    * The DONE state is the state of the object when either the data transfer has been completed or something went
    * wrong during the transfer (infinite redirects for instance).
    */
-  public native static function DONE() : int;
+  public native static function get DONE() : int;
 
   /**
    * The state of the request.
