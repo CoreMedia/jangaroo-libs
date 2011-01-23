@@ -1,7 +1,5 @@
 package flash.accessibility {
-
-
-
+import flash.errors.IllegalOperationError;
 
 
 /**
@@ -27,7 +25,7 @@ public final class Accessibility {
    *
    */
   public static function get active():Boolean {
-    throw new Error('not implemented'); // TODO: implement!
+    return false; // TODO: can we implement this?
   }
 
   /**
@@ -41,7 +39,7 @@ public final class Accessibility {
    *
    */
   public static function updateProperties():void {
-    throw new Error('not implemented'); // TODO: implement!
+    throw new IllegalOperationError();
   }
 }
 }
