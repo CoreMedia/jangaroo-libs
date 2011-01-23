@@ -612,7 +612,7 @@ public class Stage extends DisplayObjectContainer {
    *
    */
   override public function get numChildren():int {
-    throw new Error('not implemented'); // TODO: implement!
+    return super.numChildren;
   }
 
   /**
@@ -749,14 +749,14 @@ public class Stage extends DisplayObjectContainer {
    *
    */
   override public function get tabChildren():Boolean {
-    throw new Error('not implemented'); // TODO: implement!
+    return super.tabChildren;
   }
 
   /**
    * @private
    */
   override public function set tabChildren(value:Boolean):void {
-    throw new Error('not implemented'); // TODO: implement!
+    super.tabChildren = value;
   }
 
   /**
@@ -765,7 +765,7 @@ public class Stage extends DisplayObjectContainer {
    *
    */
   override public function get textSnapshot():TextSnapshot {
-    throw new Error('not implemented'); // TODO: implement!
+    return super.textSnapshot;
   }
 
   /**
@@ -808,7 +808,7 @@ public class Stage extends DisplayObjectContainer {
    *
    */
   override public function addChild(child:DisplayObject):DisplayObject {
-    throw new Error('not implemented'); // TODO: implement!
+    return super.addChild(child);
   }
 
   /**
@@ -828,7 +828,7 @@ public class Stage extends DisplayObjectContainer {
    *
    */
   override public function addChildAt(child:DisplayObject, index:int):DisplayObject {
-    throw new Error('not implemented'); // TODO: implement!
+    return super.addChildAt(child, index);
   }
 
   /**
@@ -857,7 +857,7 @@ public class Stage extends DisplayObjectContainer {
    *
    */
   override public function addEventListener(type:String, listener:Function, useCapture:Boolean = false, priority:int = 0, useWeakReference:Boolean = false):void {
-    throw new Error('not implemented'); // TODO: implement!
+    super.addEventListener(type, listener, useCapture, priority, useWeakReference);
   }
 
   /**
@@ -870,7 +870,7 @@ public class Stage extends DisplayObjectContainer {
    *
    */
   override public function dispatchEvent(event:Event):Boolean {
-    throw new Error('not implemented'); // TODO: implement!
+    return super.dispatchEvent(event);
   }
 
   /**
@@ -885,7 +885,7 @@ public class Stage extends DisplayObjectContainer {
    *
    */
   override public function hasEventListener(type:String):Boolean {
-    throw new Error('not implemented'); // TODO: implement!
+    return super.hasEventListener(type);
   }
 
   /**
@@ -919,7 +919,7 @@ public class Stage extends DisplayObjectContainer {
    *
    */
   override public function removeChildAt(index:int):DisplayObject {
-    throw new Error('not implemented'); // TODO: implement!
+    return super.removeChildAt(index);
   }
 
   /**
@@ -937,7 +937,7 @@ public class Stage extends DisplayObjectContainer {
    *
    */
   override public function setChildIndex(child:DisplayObject, index:int):void {
-    throw new Error('not implemented'); // TODO: implement!
+    super.setChildIndex(child, index);
   }
 
   /**
@@ -949,7 +949,7 @@ public class Stage extends DisplayObjectContainer {
    *
    */
   override public function swapChildren(child1:DisplayObject, child2:DisplayObject):void {
-    throw new Error('not implemented'); // TODO: implement!
+    super.swapChildren(child1, child2);
   }
 
   /**
@@ -964,7 +964,7 @@ public class Stage extends DisplayObjectContainer {
    *
    */
   override public function willTrigger(type:String):Boolean {
-    throw new Error('not implemented'); // TODO: implement!
+    return super.willTrigger(type);
   }
 
   // ************************** Jangaroo part **************************
