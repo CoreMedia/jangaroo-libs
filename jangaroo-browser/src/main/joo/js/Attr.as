@@ -1,6 +1,6 @@
 package js {
 
-public class Attribute extends Node {
+public class Attr extends Node {
 
   /**
    * True if this attribute was explicitly given a value in the instance document, false otherwise.
