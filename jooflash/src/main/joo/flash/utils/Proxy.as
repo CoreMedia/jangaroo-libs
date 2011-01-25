@@ -33,7 +33,7 @@ public class Proxy {
    * @see http://www.ecma-international.org/publications/standards/Ecma-262.htm ECMA-262 Language Specification, 3rd Edition, section 15
    *
    */
-  public/*flash_proxy*/ function callProperty(name:*, ...rest):* {
+  flash_proxy function callProperty(name:*, ...rest):* {
     throw new Error('not implemented'); // TODO: implement!
   }
 
@@ -43,11 +43,11 @@ public class Proxy {
    *
    * @return If the property was deleted, <code>true</code>; otherwise <code>false</code>.
    *
-   * @see operators#delete
+   * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/operators.html#delete
    * @see http://www.ecma-international.org/publications/standards/Ecma-262.htm ECMA-262 Language Specification, 3rd Edition, 8.6.2.5
    *
    */
-  public/*flash_proxy*/ function deleteProperty(name:*):Boolean {
+  flash_proxy function deleteProperty(name:*):Boolean {
     throw new Error('not implemented'); // TODO: implement!
   }
 
@@ -57,11 +57,11 @@ public class Proxy {
    *
    * @return The results of the <code>descendant</code> operator.
    *
-   * @see operators#descendant_accessor
+   * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/operators.html#descendant_accessor
    * @see http://www.ecma-international.org/publications/standards/Ecma-357.htm E4X Specification
    *
    */
-  public/*flash_proxy*/ function getDescendants(name:*):* {
+  flash_proxy function getDescendants(name:*):* {
     throw new Error('not implemented'); // TODO: implement!
   }
 
@@ -75,7 +75,7 @@ public class Proxy {
    * @see http://www.ecma-international.org/publications/standards/Ecma-262.htm ECMA-262 Language Specification, 3rd Edition, section 8.6.2.1
    *
    */
-  public/*flash_proxy*/ function getProperty(name:*):* {
+  flash_proxy function getProperty(name:*):* {
     throw new Error('not implemented'); // TODO: implement!
   }
 
@@ -89,7 +89,7 @@ public class Proxy {
    * @see http://www.ecma-international.org/publications/standards/Ecma-262.htm ECMA-262 Language Specification, 3rd Edition, section 8.6.2.4
    *
    */
-  public/*flash_proxy*/ function hasProperty(name:*):Boolean {
+  flash_proxy function hasProperty(name:*):Boolean {
     throw new Error('not implemented'); // TODO: implement!
   }
 
@@ -102,7 +102,7 @@ public class Proxy {
    * @see QName
    *
    */
-  public/*flash_proxy*/ function isAttribute(name:*):Boolean {
+  flash_proxy function isAttribute(name:*):Boolean {
     throw new Error('not implemented'); // TODO: implement!
   }
 
@@ -138,7 +138,7 @@ public class Proxy {
    * @see #nextValue()
    *
    */
-  public/*flash_proxy*/ function nextName(index:int):String {
+  flash_proxy function nextName(index:int):String {
     throw new Error('not implemented'); // TODO: implement!
   }
 
@@ -174,7 +174,7 @@ public class Proxy {
    * @see #nextValue()
    *
    */
-  public/*flash_proxy*/ function nextNameIndex(index:int):int {
+  flash_proxy function nextNameIndex(index:int):int {
     throw new Error('not implemented'); // TODO: implement!
   }
 
@@ -210,7 +210,7 @@ public class Proxy {
    * @see #nextName()
    *
    */
-  public/*flash_proxy*/ function nextValue(index:int):* {
+  flash_proxy function nextValue(index:int):* {
     throw new Error('not implemented'); // TODO: implement!
   }
 
@@ -223,7 +223,7 @@ public class Proxy {
    * @see http://www.ecma-international.org/publications/standards/Ecma-262.htm ECMA-262 Language Specification, 3rd Edition, section 8.6.2.2
    *
    */
-  public/*flash_proxy*/ function setProperty(name:*, value:*):void {
+  flash_proxy function setProperty(name:*, value:*):void {
     throw new Error('not implemented'); // TODO: implement!
   }
 }
