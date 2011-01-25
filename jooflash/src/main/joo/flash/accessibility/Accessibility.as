@@ -1,4 +1,5 @@
 package flash.accessibility {
+import flash.display.DisplayObject;
 import flash.errors.IllegalOperationError;
 
 
@@ -26,6 +27,26 @@ public final class Accessibility {
    */
   public static function get active():Boolean {
     return false; // TODO: can we implement this?
+  }
+
+  /**
+   * Sends an event to the Microsoft Active Accessibility API. Microsoft Active
+   * Accessibility handles that event and sends the event to any active screen reader
+   * application, which in turn reports the change to the user.  For example, when a
+   * user toggles a RadioButton instance, the RadioButton's Accessibility Implementation
+   * calls Accessibility.sendEvent() with the eventType EVENT_OBJECT_STATECHANGE.
+   *
+   * @param source The DisplayObject from which the accessibility event is being sent.
+   * @param childID The child id of the accessibility interface element to which the event applies (for example, an individual list item in a list box). Use 0 to indicate that the event applies to the DisplayObject supplied in the <code>source</code> parameter.
+   * @param eventType A constant indicating the event type. Event names and values are a subset of the <a href="constants.html#events">MSAA event constants</a>.
+   * @param nonHTML A Boolean indication of whether or not the event is one of the standard event types that can be generated from an HTML form. When set to <code>true</code>, this parameter helps prevent some problems that may occur with screen readers that interperet Flash content as part of the HTML page.  The default value is <code>false</code>.
+   *
+   * @see AccessibilityImplementation
+   * @see mx.accessibility.AccImpl
+   *
+   */
+  public static function sendEvent(source:DisplayObject, childID:uint, eventType:uint, nonHTML:Boolean = false):void {
+    throw new IllegalOperationError();
   }
 
   /**
