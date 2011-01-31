@@ -198,7 +198,7 @@ public class DomHelper {
 	     * @param o The DOM object spec (and children)
 	     * @return The new template
 	     */
-	    public native function createTemplate(o : Object) : Template;
+	    public static native function createTemplate(o : Object) : Template;
 	    public var useDom : Boolean;
 
 	    /**
@@ -207,7 +207,7 @@ public class DomHelper {
 	     * @param styles A style specification string e.g. 'width:100px', or object in the form {width:'100px'}, or
 	     * a function which returns such a specification.
 	     */
-	    public native function applyStyles(el : *, styles : *) : void;
+	    public static native function applyStyles(el : *, styles : *) : void;
 	    /**
 	     * Creates new DOM element(s) and inserts them before el.
 	     * @param el The context element
@@ -216,7 +216,7 @@ public class DomHelper {
 	     * @return The new node
          * @hide (repeat)
 	     */
-	    public native function insertBefore(el : *, o : *, returnElement : Boolean = undefined) : *;
+	    public static native function insertBefore(el : *, o : *, returnElement : Boolean = undefined) : *;
 	    /**
 	     * Creates new DOM element(s) and inserts them after el.
 	     * @param el The context element
@@ -225,7 +225,7 @@ public class DomHelper {
 	     * @return The new node
          * @hide (repeat)
 	     */
-	    public native function insertAfter(el : *, o : Object, returnElement : Boolean = undefined) : *;
+	    public static native function insertAfter(el : *, o : Object, returnElement : Boolean = undefined) : *;
 	    /**
 	     * Creates new DOM element(s) and inserts them as the first child of el.
 	     * @param el The context element
@@ -234,7 +234,7 @@ public class DomHelper {
 	     * @return The new node
          * @hide (repeat)
 	     */
-	    public native function insertFirst(el : *, o : *, returnElement : Boolean = undefined) : *;
+	    public static native function insertFirst(el : *, o : *, returnElement : Boolean = undefined) : *;
 	    /**
 	     * Creates new DOM element(s) and appends them to el.
 	     * @param el The context element
@@ -243,11 +243,11 @@ public class DomHelper {
 	     * @return The new node
          * @hide (repeat)
 	     */
-	    public native function append(el : *, o : *, returnElement : Boolean = undefined) : *;
+	    public static native function append(el : *, o : *, returnElement : Boolean = undefined) : *;
 	    /**
 	     * Creates new DOM element(s) without inserting them to the document.
 	     * @param o The DOM object spec (and children) or raw HTML blob
 	     * @return The new uninserted node
 	     */
-        public native function createDom(o:*) : Node;
+      public static native function createDom(o:*) : Node;
 }}
