@@ -1,5 +1,5 @@
 package flash.utils {
-import joo.getQualifiedObject;
+//import joo.getQualifiedObject;
 
 /**
  * Runs a function at a specified interval (in milliseconds).
@@ -33,11 +33,11 @@ import joo.getQualifiedObject;
  * }
  * </listing>
  */
-public function setInterval(closure:Function, delay:Number, ...rest):uint {
+public native function setInterval(closure:Function, delay:Number, ...rest):uint; /*{
   var fn:Function = rest.length === 0  ? closure :
     function():void {
       closure.apply(null, rest);
     };
   return getQualifiedObject("setInterval")(fn, delay);
-}
+}*/
 }

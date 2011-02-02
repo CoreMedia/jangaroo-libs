@@ -56,7 +56,7 @@ public class XMLNode {
   public var lastChild:XMLNode;
 
   /**
-   * The local name portion of the XML node's name. This is the element name without the namespace prefix. For example, the node <code><contact:mailbox/>bob@example.com</contact:mailbox></code> has the local name "mailbox", and the prefix "contact", which comprise the full element name "contact.mailbox".
+   * The local name portion of the XML node's name. This is the element name without the namespace prefix. For example, the node <code>&lt;contact:mailbox/>bob&#64;example.com&lt;/contact:mailbox></code> has the local name "mailbox", and the prefix "contact", which comprise the full element name "contact.mailbox".
    * <p>You can access the namespace prefix through the <code>prefix</code> property of the XML node object. The <code>nodeName</code> property returns the full name (including the prefix and the local name).</p>
    */
   public function get localName():String {
@@ -135,7 +135,7 @@ public class XMLNode {
   public var parentNode:XMLNode;
 
   /**
-   * The prefix portion of the XML node name. For example, the node <code><contact:mailbox/>bob@example.com</contact:mailbox></code> prefix "contact" and the local name "mailbox", which comprise the full element name "contact.mailbox".
+   * The prefix portion of the XML node name. For example, the node <code>&lt;contact:mailbox/>bob&#64;example.com&lt;/contact:mailbox></code> prefix "contact" and the local name "mailbox", which comprise the full element name "contact.mailbox".
    * <p>The <code>nodeName</code> property of an XML node object returns the full name (including the prefix and the local name). You can access the local name portion of the element's name via the <code>localName</code> property.</p>
    */
   public function get prefix():String {

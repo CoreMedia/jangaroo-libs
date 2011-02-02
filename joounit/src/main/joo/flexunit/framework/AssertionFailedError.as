@@ -38,10 +38,5 @@ package flexunit.framework
            super( message );
        }
 
-      public override function toString() : String
-      {
-          return message;
-      }
-
    }
 }

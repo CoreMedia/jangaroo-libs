@@ -7,7 +7,5 @@ package flash.utils {
  * @return An unescaped copy of the input string. If System.useCodePage is <code>true</code>, the escaped string is decoded from the system code page. If System.useCodePage is <code>false</code>, the escaped string is decoded from UTF-8. For example, if the input string is "Crüe" and System.useCodePage is <code>false</code>, the result will be "CrÃ¼e" on all systems. If System.useCodePage is <code>true</code> and the input string is "Cr%FCe", and the system uses a Latin code page, the result will also be "CrÃ¼e". Unescaping "Cr%C3%BCe" with System.useCodePage set to <code>true</code> will produce different undesired results on different systems, such as "CrÃÂ¼e" on a Latin system. Similarly, unescaping "Cr%FCe" with System.useCodePage set to <code>false</code> could produce "Cre" or "Cr?e" or other variations depending on the code page of the system.
  *
  */
-public function unescapeMultiByte(value:String):String {
-  throw new Error('not implemented'); // TODO: implement!
-}
+public native function unescapeMultiByte(value:String):String;
 }

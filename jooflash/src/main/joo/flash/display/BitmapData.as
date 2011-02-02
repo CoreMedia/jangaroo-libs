@@ -100,11 +100,11 @@ public class BitmapData implements IBitmapDrawable {
    * @param destPoint The point within the destination image (the current BitmapData instance) that corresponds to the upper-left corner of the source rectangle.
    * @param filter The filter object that you use to perform the filtering operation. Each type of filter has certain requirements, as follows:
    * <ul>
-   * <li><b>BlurFilter</b> — This filter can use source and destination images that are either opaque or transparent. If the formats of the images do not match, the copy of the source image that is made during the filtering matches the format of the destination image.</li>
-   * <li><b>BevelFilter, DropShadowFilter, GlowFilter, ChromeFilter</b> — The destination image of these filters must be a transparent image. Calling DropShadowFilter or GlowFilter creates an image that contains the alpha channel data of the drop shadow or glow. It does not create the drop shadow onto the destination image. If you use any of these filters with an opaque destination image, an exception is thrown.</li>
-   * <li><b>ConvolutionFilter</b> — This filter can use source and destination images that are either opaque or transparent.</li>
-   * <li><b>ColorMatrixFilter</b> — This filter can use source and destination images that are either opaque or transparent.</li>
-   * <li><b>DisplacementMapFilter</b> — This filter can use source and destination images that are either opaque or transparent, but the source and destination image formats must be the same.</li></ul>
+   * <li><b>BlurFilter</b> ï¿½ This filter can use source and destination images that are either opaque or transparent. If the formats of the images do not match, the copy of the source image that is made during the filtering matches the format of the destination image.</li>
+   * <li><b>BevelFilter, DropShadowFilter, GlowFilter, ChromeFilter</b> ï¿½ The destination image of these filters must be a transparent image. Calling DropShadowFilter or GlowFilter creates an image that contains the alpha channel data of the drop shadow or glow. It does not create the drop shadow onto the destination image. If you use any of these filters with an opaque destination image, an exception is thrown.</li>
+   * <li><b>ConvolutionFilter</b> ï¿½ This filter can use source and destination images that are either opaque or transparent.</li>
+   * <li><b>ColorMatrixFilter</b> ï¿½ This filter can use source and destination images that are either opaque or transparent.</li>
+   * <li><b>DisplacementMapFilter</b> ï¿½ This filter can use source and destination images that are either opaque or transparent, but the source and destination image formats must be the same.</li></ul>
    *
    * @throws TypeError The sourceBitmapData, sourceRect, destPoint or filter are null.
    * @throws flash.errors.IllegalOperationError The transparency of the BitmapData objects are not compatible with the filter operation.
@@ -591,7 +591,7 @@ public class BitmapData implements IBitmapDrawable {
    * @param y The <i>y</i> coordinate of the image.
    * @param color The ARGB color to use as a fill.
    *
-   * @example The following example shows how to fill a region of a BitmapData object — that is, the region surrounding the pixel defined by the point <code>(10, 10)</code> iin which all colors march the color at that point — with red
+   * @example The following example shows how to fill a region of a BitmapData object ï¿½ that is, the region surrounding the pixel defined by the point <code>(10, 10)</code> iin which all colors march the color at that point ï¿½ with red
    * <listing>
    * import flash.display.Bitmap;
    * import flash.display.BitmapData;
@@ -1279,7 +1279,7 @@ public class BitmapData implements IBitmapDrawable {
 
   private const elementChangeListeners:Array = [];
 
-  function getElement():HTMLElement {
+  internal function getElement():HTMLElement {
     if (!elem) {
       return asDiv();
     }
@@ -1292,7 +1292,7 @@ public class BitmapData implements IBitmapDrawable {
     return bitmapData;
   }
 
-  function getImage():HTMLImageElement {
+  internal function getImage():HTMLImageElement {
     if (image)
       return image;
     var img:HTMLImageElement = new Image();
@@ -1345,11 +1345,11 @@ public class BitmapData implements IBitmapDrawable {
     return HTMLCanvasElement(elem);
   }
 
-  function addElementChangeListener(listener:Function):void {
+  internal function addElementChangeListener(listener:Function):void {
     elementChangeListeners.push(listener);
   }
 
-  function removeElementChangeListener(listener:Function):void {
+  internal function removeElementChangeListener(listener:Function):void {
     var listenerIndex:int = elementChangeListeners.indexOf(listener);
     if (listenerIndex !== -1) {
       elementChangeListeners.slice(listenerIndex, 1);

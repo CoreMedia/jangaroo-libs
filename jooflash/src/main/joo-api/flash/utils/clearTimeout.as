@@ -1,5 +1,5 @@
 package flash.utils {
-import joo.getQualifiedObject;
+//import joo.getQualifiedObject;
 
 /**
  * Cancels a specified <code>setTimeout()</code> call.
@@ -42,7 +42,7 @@ import joo.getQualifiedObject;
  * }
  * </listing>
  */
-public function clearTimeout(id:uint):void {
+public native function clearTimeout(id:uint):void; /* {
   getQualifiedObject("clearTimeout")(id);
-}
+}*/
 }

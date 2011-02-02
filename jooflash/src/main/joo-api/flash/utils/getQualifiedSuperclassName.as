@@ -13,7 +13,7 @@ package flash.utils {
  * @see #getQualifiedSuperclassName
  *
  */
-  public function getQualifiedSuperclassName(value:*):String {
+  public native function getQualifiedSuperclassName(value:*):String; /*{
       throw new Error('not implemented'); // TODO: implement!
-    }
+    }*/
 }

@@ -162,7 +162,7 @@ package flash.utils {
  * }
  * </pre>
  */
-public function describeType(value:*):XML {
+public native function describeType(value:*):XML /*{
   var type:Class = typeof value == "function" ? value : value.constructor;
   var methods:Array = [];
   if (type && type.prototype) {
@@ -183,5 +183,5 @@ public function describeType(value:*):XML {
       "@name": methods
     }
   };
-}
+}*/
 }

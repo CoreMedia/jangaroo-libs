@@ -31,7 +31,6 @@ package flexunit.utils
 {
    public interface Iterator
    {
-      function Iterator(); // this is a compiler bug workaround
       function hasNext():Boolean;
       function next():Object;
    }

@@ -778,18 +778,18 @@ public function seek(offset:Number):void {
  * <p>Flash Player or AIR does not serialize methods or their data, object prototype variables, or non-enumerable variables. For display objects, Flash Player or AIR serializes the path but none of the data.</p>
  * <p>You can call the <code>send()</code> method to add data keyframes to a live stream published to Flash Media Server. A data keyframe is a message a publisher adds to a live stream. Data keyframes are typically used to add metadata to a live stream before data is captured for the stream from camera and microphone. A publisher can add a data keyframe at any time while the live stream is being published. The data keyframe is saved in the server's memory as long as the publisher is connected to the server.</p>
  * <p>Clients who are subscribed to the live stream before a data keyframe is added receive the keyframe as soon as it is added. Clients who subscribe to the live stream after the data keyframe is added receive the keyframe when they subscribe.</p>
- * <p>To add a keyframe of metadata to a live stream sent to Flash Media Server, use <code>@setDataFrame</code> as the handler name, followed by two additional arguments, for example:</p>
+ * <p>To add a keyframe of metadata to a live stream sent to Flash Media Server, use <code>&#64;setDataFrame</code> as the handler name, followed by two additional arguments, for example:</p>
  * <listing>
  *      var ns:NetStream = new NetStream(nc);
- *      ns.send("@setDataFrame", "onMetaData", metaData);
+ *      ns.send("&#64;setDataFrame", "onMetaData", metaData);
  *     </listing>
- * <p>The <code>@setDataFrame</code> argument refers to a special handler built in to Flash Media Server. The <code>onMetaData</code> argument is the name of a callback function in your client application that listens for the <code>onMetaData</code> event and retrieves the metadata. The third item, <code>metaData</code>, is an instance of <code>Object</code> or <code>Array</code> with properties that define the metadata values.</p>
- * <p>Use <code>@clearDataFrame</code> to clear a keyframe of metadata that has already been set in the stream:</p>
+ * <p>The <code>&#64;setDataFrame</code> argument refers to a special handler built in to Flash Media Server. The <code>onMetaData</code> argument is the name of a callback function in your client application that listens for the <code>onMetaData</code> event and retrieves the metadata. The third item, <code>metaData</code>, is an instance of <code>Object</code> or <code>Array</code> with properties that define the metadata values.</p>
+ * <p>Use <code>&#64;clearDataFrame</code> to clear a keyframe of metadata that has already been set in the stream:</p>
  * <listing>
  *      ns.send("@clearDataFrame", "onMetaData");
  *     </listing>
- * @param handlerName The message to send; also the name of the ActionScript handler to receive the message. The handler name can be only one level deep (that is, it can't be of the form parent/child) and is relative to the stream object. Do not use a reserved term for a handler name. For example, using "<code>close</code>" as a handler name causes the method to fail. With Flash Media Server, use <code>@setDataFrame</code> to add a keyframe of metadata to a live stream or <code>@clearDataFrame</code> to remove a keyframe.
- * @param rest Optional arguments that can be of any type. They are serialized and sent over the connection, and the receiving handler receives them in the same order. If a parameter is a circular object (for example, a linked list that is circular), the serializer handles the references correctly. With Flash Media Server, if <code>@setDataFrame</code> is the first argument, use <code>onMetaData</code> as the second argument; for the third argument, pass an instance of <code>Object</code> or <code>Array</code> that has the metadata set as properties. See the <a href="http://www.adobe.com/go/learn_fms_devguide_en">Flash Media Server Developer Guide</a> for a list of suggested property names. With <code>@clearDataFrame</code> as the first argument, use <code>onMetaData</code> as the second argument and no third argument.
+ * @param handlerName The message to send; also the name of the ActionScript handler to receive the message. The handler name can be only one level deep (that is, it can't be of the form parent/child) and is relative to the stream object. Do not use a reserved term for a handler name. For example, using "<code>close</code>" as a handler name causes the method to fail. With Flash Media Server, use <code>&#64;setDataFrame</code> to add a keyframe of metadata to a live stream or <code>&#64;clearDataFrame</code> to remove a keyframe.
+ * @param rest Optional arguments that can be of any type. They are serialized and sent over the connection, and the receiving handler receives them in the same order. If a parameter is a circular object (for example, a linked list that is circular), the serializer handles the references correctly. With Flash Media Server, if <code>&#64;setDataFrame</code> is the first argument, use <code>onMetaData</code> as the second argument; for the third argument, pass an instance of <code>Object</code> or <code>Array</code> that has the metadata set as properties. See the <a href="http://www.adobe.com/go/learn_fms_devguide_en">Flash Media Server Developer Guide</a> for a list of suggested property names. With <code>&#64;clearDataFrame</code> as the first argument, use <code>onMetaData</code> as the second argument and no third argument.
  *
  * @see #client
  * @see #dataReliable
@@ -864,7 +864,7 @@ public function seek(offset:Number):void {
  *             metaData.title = "myStream";
  *             metaData.width = 400;
  *             metaData.height = 200;
- *             ns.send("@setDataFrame", "onMetaData", metaData);
+ *             ns.send("&#64;setDataFrame", "onMetaData", metaData);
  *             ns.attachCamera( Camera.getCamera() );
  *             ns.attachAudio( Microphone.getMicrophone() );
  *     }
