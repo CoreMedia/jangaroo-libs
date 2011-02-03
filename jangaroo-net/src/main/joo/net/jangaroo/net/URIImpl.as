@@ -7,15 +7,29 @@ package net.jangaroo.net {
  */
 class URIImpl implements URI {
 
-  // we will transform these into getters with internal slots as soon as Jangaroo supports getter/setter on all target platforms
-  public var scheme:String;
-  public var authority:String;
-  public var path:String;
-  public var query:String;
-  public var fragment:String;
+  // native getters and setters are used to officially implement the interface (makes ASDoc compiler work),
+  // but at runtime, these are just public fields!
 
-  public var isRelative:Boolean;
-  public var isAbsolute:Boolean;
+  public native function get scheme():String;
+  public native function set scheme(value:String):void;
+
+  public native function get authority():String;
+  public native function set authority(value:String):void;
+
+  public native function get path():String;
+  public native function set path(value:String):void;
+
+  public native function get query():String;
+  public native function set query(value:String):void;
+
+  public native function get fragment():String;
+  public native function set fragment(value:String):void;
+
+  public native function get isRelative():Boolean;
+  public native function set isRelative(value:Boolean):void;
+
+  public native function get isAbsolute():Boolean;
+  public native function set isAbsolute(value:Boolean):void;
 
   /**
    * Construct a new URIImpl instance.
