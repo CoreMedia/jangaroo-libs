@@ -191,7 +191,8 @@ public class DomHelper {
 	     * @return The new node
 	     */
 	    public static native function overwrite(el : *, o : *, returnElement : Boolean = undefined) : *;
-	    public static var createHtml ;
+
+	    public static native function createHtml(o : *) : String;
 
 		/**
 	     * Creates a new ext.Template from the DOM object spec.
@@ -208,42 +209,6 @@ public class DomHelper {
 	     * a function which returns such a specification.
 	     */
 	    public static native function applyStyles(el : *, styles : *) : void;
-	    /**
-	     * Creates new DOM element(s) and inserts them before el.
-	     * @param el The context element
-	     * @param o The DOM object spec (and children) or raw HTML blob
-	     * @param returnElement true to return a ext.Element
-	     * @return The new node
-         * @hide (repeat)
-	     */
-	    public static native function insertBefore(el : *, o : *, returnElement : Boolean = undefined) : *;
-	    /**
-	     * Creates new DOM element(s) and inserts them after el.
-	     * @param el The context element
-	     * @param o The DOM object spec (and children)
-	     * @param returnElement true to return a ext.Element
-	     * @return The new node
-         * @hide (repeat)
-	     */
-	    public static native function insertAfter(el : *, o : Object, returnElement : Boolean = undefined) : *;
-	    /**
-	     * Creates new DOM element(s) and inserts them as the first child of el.
-	     * @param el The context element
-	     * @param o The DOM object spec (and children) or raw HTML blob
-	     * @param returnElement true to return a ext.Element
-	     * @return The new node
-         * @hide (repeat)
-	     */
-	    public static native function insertFirst(el : *, o : *, returnElement : Boolean = undefined) : *;
-	    /**
-	     * Creates new DOM element(s) and appends them to el.
-	     * @param el The context element
-	     * @param o The DOM object spec (and children) or raw HTML blob
-	     * @param returnElement true to return a ext.Element
-	     * @return The new node
-         * @hide (repeat)
-	     */
-	    public static native function append(el : *, o : *, returnElement : Boolean = undefined) : *;
 	    /**
 	     * Creates new DOM element(s) without inserting them to the document.
 	     * @param o The DOM object spec (and children) or raw HTML blob
