@@ -70,7 +70,7 @@ public function TreeEditor(tree : TreePanel, fieldConfig : Object = null, config
      * Edit the text of the passed <b class='link' title='Ext.tree.TreeNode'>TreeNode</b>.
      * @param node {ext.tree.TreeNode} The TreeNode to edit. The TreeNode must be <b class='link' title='ext.tree.TreeNode#editable'>editable</b>.
      */
-    public native function triggerEdit(node, defer) : void;
+    public native function triggerEdit(node:TreeNode, defer:Boolean = false) : void;
     /**
      * The <b class='link' title='Ext.tree.TreeNode'>TreeNode</b> this editor is bound to. Read-only.
      */

@@ -11,7 +11,6 @@
 
 package mx.collections
 {
-import flash.events.Event;
 
 /**
  *  The ArrayCollection class is a wrapper class that exposes an Array as
@@ -47,7 +46,7 @@ import flash.events.Event;
  *        doCelebration();
  *  </pre>
  */
-public class ArrayCollection extends Array implements ListCollectionView
+public class ArrayCollection extends ListCollectionView
 {
   include "../core/Version.asfragment";
 
@@ -84,7 +83,7 @@ public class ArrayCollection extends Array implements ListCollectionView
   /**
    * @inheritDoc
    */
-  public function getItemAt(index:int, prefetch:int = 0):Object {
+  override public function getItemAt(index:int, prefetch:int = 0):Object {
     if (index < 0 || index >= length)
     {
       throw new /*Range*/Error("[collections] outOfBounds: " + index);
@@ -96,14 +95,14 @@ public class ArrayCollection extends Array implements ListCollectionView
   /**
    * @inheritDoc
    */
-  public function addItem(item:Object):void {
+  override public function addItem(item:Object):void {
     this[length++] = item;
   }
 
   /**
    * @inheritDoc
    */
-  public function toArray():Array {
+  override public function toArray():Array {
     var result:Array = [];
     for (var i:uint = 0; i < length; ++i) {
       result[i] = this[i];
@@ -114,62 +113,25 @@ public class ArrayCollection extends Array implements ListCollectionView
   /**
    * @inheritDoc
    */
-  public function getItemIndex(item:Object):int {
+  override public function getItemIndex(item:Object):int {
     return indexOf(item);
   }
 
   /**
    * @inheritDoc
    */
-  public function removeAll():void {
+  override public function removeAll():void {
     length = 0;
   }
 
   /**
    * @inheritDoc
    */
-  public function setItemAt(item:Object, index:int):Object {
+  override public function setItemAt(item:Object, index:int):Object {
     var oldItem:Object = getItemAt(index);
     this[index] = item;
     return oldItem;
   }
 
-  //--------------------------------------------------------------------------
-  //
-  // IList Methods
-  //
-  //--------------------------------------------------------------------------
-
-  public function addItemAt(item:Object, index:int):void {
-    throw new Error("not implemented");
-  }
-
-  public function itemUpdated(item:Object, property:Object = null, oldValue:Object = null, newValue:Object = null):void {
-    throw new Error("not implemented");
-  }
-
-  public function removeItemAt(index:int):Object {
-    throw new Error("not implemented");
-  }
-
-  public function dispatchEvent(event:Event):Boolean {
-    throw new Error("not implemented");
-  }
-
-  public function hasEventListener(type:String):Boolean {
-    throw new Error("not implemented");
-  }
-
-  public function willTrigger(type:String):Boolean {
-    throw new Error("not implemented");
-  }
-
-  public function removeEventListener(type:String, listener:Function, useCapture:Boolean = false):void {
-    throw new Error("not implemented");
-  }
-
-  public function addEventListener(type:String, listener:Function, useCapture:Boolean = false, priority:int = 0, useWeakReference:Boolean = false):void {
-    throw new Error("not implemented");
-  }
 }
 }

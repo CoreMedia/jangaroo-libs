@@ -4,7 +4,7 @@
   <groupId>net.jangaroo</groupId>
   <artifactId>jangaroo-libs-parent</artifactId>
   <packaging>pom</packaging>
-  <version>0.7.14-SNAPSHOT</version>
+  <version>0.8.2-SNAPSHOT</version>
 
   <name>Jangaroo standard libraries parent</name>
 
@@ -118,10 +118,8 @@
         <targetPath>META-INF/joo-api</targetPath>
       </resource>
     </resources>
-    <outputDirectory>target/joo</outputDirectory>
     <sourceDirectory>src/main/joo</sourceDirectory>
     <testSourceDirectory>src/test/joo</testSourceDirectory>
-    <testOutputDirectory>target/joo-test</testOutputDirectory>
 
     <plugins>
       <plugin>
@@ -134,9 +132,9 @@
       </plugin>
       <plugin>
         <groupId>net.jangaroo</groupId>
-        <artifactId>jangaroo-lifecycle</artifactId>
-        <version>0.7.13-SNAPSHOT</version>
+        <artifactId>jangaroo-maven-plugin</artifactId>
         <extensions>true</extensions>
+        <version>0.8.1-SNAPSHOT</version>
       </plugin>
 
       <plugin>
@@ -175,11 +173,6 @@
           <version>2.1</version>
         </plugin>
         <plugin>
-          <groupId>net.jangaroo</groupId>
-          <artifactId>jangaroo-maven-plugin</artifactId>
-          <version>0.7.13-SNAPSHOT</version>
-        </plugin>
-        <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-deploy-plugin</artifactId>
           <version>2.5</version>
@@ -211,7 +204,7 @@
       <dependency>
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-runtime</artifactId>
-        <version>0.7.13-SNAPSHOT</version>
+        <version>0.8.1-SNAPSHOT</version>
         <type>jangaroo</type>
       </dependency>
     </dependencies>

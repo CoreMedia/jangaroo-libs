@@ -1,21 +1,27 @@
 package flash.display {
-
-import flash.geom.Transform;
 import flash.geom.Matrix;
+import flash.geom.Transform;
 
 import js.HTMLElement;
 
+
 /**
- * The Shape class is used to create lightweight shapes by using the ActionScript drawing application program interface
- * (API). The Shape class includes a graphics property, which lets you access methods from the Graphics class.
- * <p>The Sprite class also includes a graphics property, and it includes other features not available to the Shape
- * class. For example, a Sprite object is a display object container, whereas a Shape object is not (and cannot contain
- * child display objects). For this reason, Shape objects consume less memory than Sprite objects that contain the same
- * graphics. However, a Sprite object supports mouse click events, while a Shape object does not.</p>
- * @see flash.display.Graphics
- * @see flash.display.Sprite
+ * This class is used to create lightweight shapes using the ActionScript drawing application program interface (API). The Shape class includes a <code>graphics</code> property, which lets you access methods from the Graphics class.
+ * <p>The Sprite class also includes a <code>graphics</code>property, and it includes other features not available to the Shape class. For example, a Sprite object is a display object container, whereas a Shape object is not (and cannot contain child display objects). For this reason, Shape objects consume less memory than Sprite objects that contain the same graphics. However, a Sprite object supports user input events, while a Shape object does not.</p>
+ * <p><a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/Shape.html#includeExamplesSummary">View the examples</a></p>
+ * @see Graphics
+ * @see Sprite
+ * @see http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118a9b90204-7e3c.html Core display classes
+ * @see http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118a9b90204-7dce.html Basics of the drawing API
+ *
  */
 public class Shape extends DisplayObject {
+  /**
+   * Specifies the Graphics object belonging to this Shape object, where vector drawing commands can occur.
+   */
+  public function get graphics():Graphics {
+    return this._graphics;
+  }
 
   /**
    * Creates a new Shape object.
@@ -25,18 +31,9 @@ public class Shape extends DisplayObject {
     _graphics = new Graphics();
   }
 
-  override protected function createElement() : HTMLElement {
-    return graphics.canvas;
-  }
-
   /**
-   * Specifies the Graphics object belonging to this Shape object, where vector drawing commands can occur.
-   * @return  the Graphics object belonging to this Shape object
+   * @inheritDoc
    */
-  public function get graphics() : Graphics {
-    return this._graphics;
-  }
-
   override public function set transform(value:Transform):void {
     super.transform = value;
     var m : Matrix = value.matrix;
@@ -45,12 +42,27 @@ public class Shape extends DisplayObject {
     }
   }
 
+  /**
+   * @inheritDoc
+   */
   override public function get width():Number {
     return _graphics.width;
   }
 
+  /**
+   * @inheritDoc
+   */
   override public function get height():Number {
     return _graphics.height;
+  }
+
+  // ************************** Jangaroo part **************************
+
+  /**
+   * @private
+   */
+  override protected function createElement() : HTMLElement {
+    return graphics.canvas;
   }
 
   private var _graphics : Graphics;

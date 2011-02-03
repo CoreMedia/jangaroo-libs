@@ -54,9 +54,11 @@ public interface IList extends IEventDispatcher
 
     /**
      *  The number of items in this collection. 
-     *  0 means no items while -1 means the length is unknown. 
+     *  0 means no items while -1 means the length is unknown.
+     * <p><b>Note:</b> In Jangaroo, <code>IList</code> implementations extend <code>Array</code>, so
+     * we had to change the signature to return <code>int</code>, thus "unknown" -1 is not supported.</p>
      */
-    function get length():int;
+    function get length():uint;
 
     //--------------------------------------------------------------------------
     //

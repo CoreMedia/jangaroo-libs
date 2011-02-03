@@ -600,7 +600,7 @@ el.un('click', this.handlerFn);
  * @member ext.Element
  * @method fly
  */
-  public static native function fly(el : *, named : String) : Element;
+  public static native function fly(el : *, named : String = null) : Element;
 //    public var select;
     public var input;
 	/**

@@ -10,36 +10,36 @@ public class XMLHttpRequest {
   /**
    * When constructed, the XMLHttpRequest object is be in the UNSENT state.
    */
-  public static const UNSENT : int = 0;
+  public native static function get UNSENT() : int;
 
   /**
    * The OPENED state is the state of the object when the open() method has been successfully invoked. During this
    * state request headers can be set using setRequestHeader() and the request can be made using send().
    */
-  public static const OPENED : int = 1;
+  public native static function get OPENED() : int;
 
   /**
    * The HEADERS_RECEIVED state is the state of the object when all response headers have been received.
    */
-  public static const HEADERS_RECEIVED : int = 2;
+  public native static function get HEADERS_RECEIVED() : int;
 
   /**
    * The LOADING state is the state of the object when the response entity body is being received.
    */
-  public static const LOADING : int = 3;
+  public native static function get LOADING() : int;
 
   /**
    * The DONE state is the state of the object when either the data transfer has been completed or something went
    * wrong during the transfer (infinite redirects for instance).
    */
-  public static const DONE : int = 4;
+  public native static function get DONE() : int;
 
   /**
    * The state of the request.
    * The XMLHttpRequest object can be in five states: UNSENT, OPENED, HEADERS_RECEIVED, LOADING and DONE.
    * The current state is exposed through the readyState attribute.
    */
-  public var readyState : int;
+  public native function get readyState() : int;
 
   /**
    * The response to the request as text, or null if the request was unsucessful or has not yet been sent.

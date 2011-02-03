@@ -31,7 +31,6 @@ package flexunit.utils
 {
    public interface Collection
    {
-      function Collection(); // this is a compiler bug workaround
       function addItem( item:Object ) : Boolean;
       function clear() : void;
       function contains( item:Object ) : Boolean;

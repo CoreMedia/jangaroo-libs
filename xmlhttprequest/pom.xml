@@ -4,11 +4,11 @@
   <groupId>net.jangaroo</groupId>
   <artifactId>xmlhttprequest</artifactId>
   <packaging>jangaroo</packaging>
-  <version>0.7.14-SNAPSHOT</version>
+  <version>0.8.2-SNAPSHOT</version>
   <parent>
     <groupId>net.jangaroo</groupId>
     <artifactId>jangaroo-libs-parent</artifactId>
-    <version>0.7.14-SNAPSHOT</version>
+    <version>0.8.2-SNAPSHOT</version>
     <relativePath>../jangaroo-libs-parent/pom.xml</relativePath>
   </parent>
   <name>xmlhttprequest</name>
@@ -30,13 +30,6 @@
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>jangaroo-runtime</artifactId>
-      <type>jangaroo</type>
-    </dependency>
-
-    <dependency>
-      <groupId>net.jangaroo</groupId>
-      <artifactId>jangaroo-browser</artifactId>
-      <version>0.7.14-SNAPSHOT</version>
       <type>jangaroo</type>
     </dependency>
   </dependencies>

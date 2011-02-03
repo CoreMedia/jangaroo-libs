@@ -6,7 +6,7 @@ import flash.media.Sound;
 
 import joo.DynamicClassLoader;
 import joo.MemberDeclaration;
-import joo.SystemClassDeclaration;
+import joo.JooClassDeclaration;
 import joo.getOrCreatePackage;
 
 import js.HTMLAudioElement;
@@ -18,11 +18,12 @@ public class Meta {
     getOrCreatePackage("joo.meta").Embed = embed;
   }
 
-  public static function embed(classDeclaration:SystemClassDeclaration, memberDeclaration:MemberDeclaration, parameters:Object):void {
+  //noinspection JSUnusedLocalSymbols
+  public static function embed(classDeclaration:JooClassDeclaration, memberDeclaration:MemberDeclaration, parameters:Object):void {
     var relativeUrl:String = parameters['source'];
     var resource:Object = DynamicClassLoader.INSTANCE.getResource(relativeUrl);
     var EmbedClass:Class;
-    var superClassDeclaration:SystemClassDeclaration;
+    var superClassDeclaration:JooClassDeclaration;
     if (resource) {
       if (resource is HTMLImageElement) {
         superClassDeclaration = Bitmap['$class'];

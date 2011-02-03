@@ -49,10 +49,65 @@ import flash.events.Event;
  *  /&gt;
  *  </pre>
  */
-public interface ListCollectionView
-       extends IList
+public class ListCollectionView extends Array
+       implements IList
 {
     include "../core/Version.asfragment";
 
+  public function addItem(item:Object):void {
+    throw new Error("not implemented!");
+  }
+
+  public function addItemAt(item:Object, index:int):void {
+    throw new Error("not implemented!");
+  }
+
+  public function getItemAt(index:int, prefetch:int = 0):Object {
+    throw new Error("not implemented!");
+  }
+
+  public function getItemIndex(item:Object):int {
+    throw new Error("not implemented!");
+  }
+
+  public function itemUpdated(item:Object, property:Object = null, oldValue:Object = null, newValue:Object = null):void {
+    throw new Error("not implemented!");
+  }
+
+  public function removeAll():void {
+    throw new Error("not implemented!");
+  }
+
+  public function removeItemAt(index:int):Object {
+    throw new Error("not implemented!");
+  }
+
+  public function setItemAt(item:Object, index:int):Object {
+    throw new Error("not implemented!");
+  }
+
+  public function toArray():Array {
+    throw new Error("not implemented!");
+  }
+
+  public function addEventListener(type:String, listener:Function, useCapture:Boolean = false, priority:int = 0, useWeakReference:Boolean = false):void {
+    throw new Error("not implemented!");
+  }
+
+  public function dispatchEvent(event:Event):Boolean {
+    throw new Error("not implemented!");
+  }
+
+  public function hasEventListener(type:String):Boolean {
+    throw new Error("not implemented!");
+  }
+
+  public function removeEventListener(type:String, listener:Function, useCapture:Boolean = false):void {
+    throw new Error("not implemented!");
+  }
+
+  public function willTrigger(type:String):Boolean {
+    throw new Error("not implemented!");
+  }
 }
 }

@@ -5,7 +5,7 @@ import flash.display.Stage;
 import flash.utils.getDefinitionByName;
 
 import joo.DynamicClassLoader;
-import joo.SystemClassDeclaration;
+import joo.JooClassDeclaration;
 
 public class Run {
 
@@ -17,7 +17,7 @@ public class Run {
         trace("[INFO] Loaded Flash main class " + primaryDisplayObjectClassName + ".");
       }
       var primaryDisplayObjectClass : Object = getDefinitionByName(primaryDisplayObjectClassName);
-      var cd:SystemClassDeclaration = primaryDisplayObjectClass['$class'];
+      var cd:JooClassDeclaration = primaryDisplayObjectClass['$class'];
       var metadata:Object = cd.metadata;
       var swf:Object = metadata['SWF'];
       var stage : Stage = new Stage(id, swf);
