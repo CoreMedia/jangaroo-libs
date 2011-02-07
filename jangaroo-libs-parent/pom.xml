@@ -134,7 +134,7 @@
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-maven-plugin</artifactId>
         <extensions>true</extensions>
-        <version>0.8.1-SNAPSHOT</version>
+        <version>0.8.1</version>
       </plugin>
 
       <plugin>
@@ -204,7 +204,7 @@
       <dependency>
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-runtime</artifactId>
-        <version>0.8.1-SNAPSHOT</version>
+        <version>0.8.1</version>
         <type>jangaroo</type>
       </dependency>
     </dependencies>
