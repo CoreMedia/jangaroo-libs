@@ -196,6 +196,7 @@ public class Element extends Node {
 
   public native function get disabled() : Boolean;
 
+  public native function set disabled(value : Boolean) : void;
 
 
   public native function get selectedIndex() : Number; // <select>
