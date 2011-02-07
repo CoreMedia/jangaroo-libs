@@ -13,16 +13,12 @@ public class ActivityEvent extends Event {
   /**
    * Indicates whether the device is activating (<code>true</code>) or deactivating (<code>false</code>).
    */
-  public function get activating():Boolean {
-    return _activating;
-  }
+  public native function get activating():Boolean;
 
   /**
    * @private
    */
-  public function set activating(value:Boolean):void {
-    _activating = value;
-  }
+  public native function set activating(value:Boolean):void
 
   /**
    * Creates an event object that contains information about activity events. Event objects are passed as parameters to Event listeners.
@@ -36,7 +32,7 @@ public class ActivityEvent extends Event {
    */
   public function ActivityEvent(type:String, bubbles:Boolean = false, cancelable:Boolean = false, activating:Boolean = false) {
     super(ACTIVITY, bubbles, cancelable);
-    _activating = activating;
+    this.activating = activating;
   }
 
   /**
@@ -45,7 +41,7 @@ public class ActivityEvent extends Event {
    *
    */
   override public function clone():Event {
-    return new ActivityEvent(type, bubbles, cancelable, _activating);
+    return new ActivityEvent(type, bubbles, cancelable, activating);
   }
 
   /**
@@ -83,7 +79,5 @@ public class ActivityEvent extends Event {
    *
    */
   public static const ACTIVITY:String = "activity";
-
-  private var _activating:Boolean;
 }
 }

@@ -18,16 +18,12 @@ public class KeyboardEvent extends Event {
   /**
    * Indicates whether the Alt key is active (<code>true</code>) or inactive (<code>false</code>) on Windows; indicates whether the Option key is active on Mac OS.
    */
-  public function get altKey():Boolean {
-    return _altKey;
-  }
+  public native function get altKey():Boolean;
 
   /**
    * @private
    */
-  public function set altKey(value:Boolean):void {
-    _altKey = value;
-  }
+  public native function set altKey(value:Boolean):void;
 
   /**
    * Contains the character code value of the key pressed or released. The character code values are English keyboard values. For example, if you press Shift+3, <code>charCode</code> is # on a Japanese keyboard, just as it is on an English keyboard.
@@ -35,30 +31,22 @@ public class KeyboardEvent extends Event {
    * @see flash.system.IME
    *
    */
-  public function get charCode():uint {
-    return _charCode;
-  }
+  public native function get charCode():uint;
 
   /**
    * @private
    */
-  public function set charCode(value:uint):void {
-    _charCode = value;
-  }
+  public native function set charCode(value:uint):void;
 
   /**
    * On Windows and Linux, indicates whether the Ctrl key is active (<code>true</code>) or inactive (<code>false</code>); On Mac OS, indicates whether either the Ctrl key or the Command key is active.
    */
-  public function get ctrlKey():Boolean {
-    return _ctrlKey;
-  }
+  public native function get ctrlKey():Boolean;
 
   /**
    * @private
    */
-  public function set ctrlKey(value:Boolean):void {
-    _ctrlKey = value;
-  }
+  public native function set ctrlKey(value:Boolean):void;
 
   /**
    * The key code value of the key pressed or released.
@@ -66,44 +54,32 @@ public class KeyboardEvent extends Event {
    * @see flash.system.IME
    *
    */
-  public function get keyCode():uint {
-    return _keyCode;
-  }
+  public native function get keyCode():uint;
 
   /**
    * @private
    */
-  public function set keyCode(value:uint):void {
-    _keyCode = value;
-  }
+  public native function set keyCode(value:uint):void;
 
   /**
    * Indicates the location of the key on the keyboard. This is useful for differentiating keys that appear more than once on a keyboard. For example, you can differentiate between the left and right Shift keys by the value of this property: <code>KeyLocation.LEFT</code> for the left and <code>KeyLocation.RIGHT</code> for the right. Another example is differentiating between number keys pressed on the standard keyboard (<code>KeyLocation.STANDARD</code>) versus the numeric keypad (<code>KeyLocation.NUM_PAD</code>).
    */
-  public function get keyLocation():uint {
-    return _keyLocation;
-  }
+  public native function get keyLocation():uint;
 
   /**
    * @private
    */
-  public function set keyLocation(value:uint):void {
-    _keyLocation = value;
-  }
+  public native function set keyLocation(value:uint):void;
 
   /**
    * Indicates whether the Shift key modifier is active (<code>true</code>) or inactive (<code>false</code>).
    */
-  public function get shiftKey():Boolean {
-    return _shiftKey;
-  }
+  public native function get shiftKey():Boolean;
 
   /**
    * @private
    */
-  public function set shiftKey(value:Boolean):void {
-    _shiftKey = value;
-  }
+  public native function set shiftKey(value:Boolean):void;
 
   /**
    * Creates an Event object that contains specific information about keyboard events. Event objects are passed as parameters to event listeners.
@@ -126,14 +102,12 @@ public class KeyboardEvent extends Event {
    */
   public function KeyboardEvent(type:String, bubbles:Boolean = true, cancelable:Boolean = false, charCodeValue:uint = 0, keyCodeValue:uint = 0, keyLocationValue:uint = 0, ctrlKeyValue:Boolean = false, altKeyValue:Boolean = false, shiftKeyValue:Boolean = false, controlKeyValue:Boolean = false, commandKeyValue:Boolean = false) {
     super(type, bubbles, cancelable);
-    _charCode = charCodeValue;
-    _keyCode = keyCodeValue;
-    _keyLocation = keyLocationValue;
-    _ctrlKey = ctrlKeyValue;
-    _altKey = altKeyValue;
-    _shiftKey = shiftKeyValue;
-    _controlKey = controlKeyValue;
-    _commandKey = commandKeyValue;
+    this.charCode = charCodeValue;
+    this.keyCode = keyCodeValue;
+    this.keyLocation = keyLocationValue;
+    this.ctrlKey = ctrlKeyValue || controlKeyValue || commandKeyValue; // TODO: Is this the intended semantics?
+    this.altKey = altKeyValue;
+    this.shiftKey = shiftKeyValue;
   }
 
   /**
@@ -142,8 +116,8 @@ public class KeyboardEvent extends Event {
    *
    */
   override public function clone():Event {
-    return new KeyboardEvent(type, bubbles, cancelable, _charCode, _keyCode, _keyLocation, _ctrlKey, _altKey,
-      _shiftKey, _controlKey, _commandKey);
+    return new KeyboardEvent(type, bubbles, cancelable, charCode, keyCode, keyLocation, ctrlKey, altKey,
+      shiftKey, ctrlKey, ctrlKey);
   }
 
   /**
@@ -248,15 +222,6 @@ public class KeyboardEvent extends Event {
    *
    */
   public static const KEY_UP:String = "keyUp";
-
-  private var _altKey:Boolean;
-  private var _charCode:uint;
-  private var _commandKey:Boolean;
-  private var _controlKey:Boolean;
-  private var _ctrlKey:Boolean;
-  private var _keyCode:uint;
-  private var _keyLocation:uint;
-  private var _shiftKey:Boolean;
 
 }
 }

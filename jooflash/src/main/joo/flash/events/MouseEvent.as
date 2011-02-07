@@ -13,88 +13,64 @@ public class MouseEvent extends Event {
   /**
    * Indicates whether the Alt key is active (<code>true</code>) or inactive (<code>false</code>). Supported for Windows only. On other operating systems, this property is always set to <code>false</code>.
    */
-  public function get altKey():Boolean {
-    return _altKey;
-  }
+  public native function get altKey():Boolean;
 
   /**
    * @private
    */
-  public function set altKey(value:Boolean):void {
-    _altKey = value;
-  }
+  public native function set altKey(value:Boolean):void;
 
   /**
    * Indicates whether the primary mouse button is pressed (<code>true</code>) or not (<code>false</code>).
    */
-  public function get buttonDown():Boolean {
-    return _buttonDown;
-  }
+  public native function get buttonDown():Boolean;
 
   /**
    * @private
    */
-  public function set buttonDown(value:Boolean):void {
-    _buttonDown = value;
-  }
+  public native function set buttonDown(value:Boolean):void;
 
   /**
    * On Windows or Linux, indicates whether the Ctrl key is active (<code>true</code>) or inactive (<code>false</code>). On Macintosh, indicates whether either the Control key or the Command key is activated.
    */
-  public function get ctrlKey():Boolean {
-    return _ctrlKey;
-  }
+  public native function get ctrlKey():Boolean;
 
   /**
    * @private
    */
-  public function set ctrlKey(value:Boolean):void {
-    _ctrlKey = value;
-  }
+  public native function set ctrlKey(value:Boolean):void;
 
   /**
    * Indicates how many lines should be scrolled for each unit the user rotates the mouse wheel. A positive delta value indicates an upward scroll; a negative value indicates a downward scroll. Typical values are 1 to 3, but faster rotation may produce larger values. This setting depends on the device and operating system and is usually configurable by the user. This property applies only to the <code>MouseEvent.mouseWheel</code> event.
    */
-  public function get delta():int {
-    return _delta;
-  }
+  public native function get delta():int;
 
   /**
    * @private
    */
-  public function set delta(value:int):void {
-    _delta = value;
-  }
+  public native function set delta(value:int):void;
 
   /**
    * The horizontal coordinate at which the event occurred relative to the containing sprite.
    * @example <a href="http://www.adobe.com/go/learn_as3_usingexamples_en">How to use this example</a>Please see the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/MouseEvent.html#MOUSE_MOVE">MOUSE_MOVE</a> constant's example for an illustration of how to use this property.
    */
-  public function get localX():Number {
-    return _localX;
-  }
+  public native function get localX():Number;
 
   /**
    * @private
    */
-  public function set localX(value:Number):void {
-    _localX = value;
-  }
+  public native function set localX(value:Number):void;
 
   /**
    * The vertical coordinate at which the event occurred relative to the containing sprite.
    * @example <a href="http://www.adobe.com/go/learn_as3_usingexamples_en">How to use this example</a>Please see the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/MouseEvent.html#MOUSE_MOVE">MOUSE_MOVE</a> constant's example for an illustration of how to use this property.
    */
-  public function get localY():Number {
-    return _localY;
-  }
+  public native function get localY():Number;
 
   /**
    * @private
    */
-  public function set localY(value:Number):void {
-    _localY = value;
-  }
+  public native function set localY(value:Number):void;
 
   /**
    * A reference to a display list object that is related to the event. For example, when a <code>mouseOut</code> event occurs, <code>relatedObject</code> represents the display list object to which the pointing device now points. This property applies to the <code>mouseOut</code>, <code>mouseOver</code>, <code>rollOut</code>, and <code>rollOver</code> events.
@@ -102,30 +78,22 @@ public class MouseEvent extends Event {
    * @see #isRelatedObjectInaccessible
    *
    */
-  public function get relatedObject():InteractiveObject {
-    return _relatedObject;
-  }
+  public native function get relatedObject():InteractiveObject;
 
   /**
    * @private
    */
-  public function set relatedObject(value:InteractiveObject):void {
-    _relatedObject = value;
-  }
+  public native function set relatedObject(value:InteractiveObject):void;
 
   /**
    * Indicates whether the Shift key is active (<code>true</code>) or inactive (<code>false</code>).
    */
-  public function get shiftKey():Boolean {
-    return _shiftKey;
-  }
+  public native function get shiftKey():Boolean;
 
   /**
    * @private
    */
-  public function set shiftKey(value:Boolean):void {
-    _shiftKey = value;
-  }
+  public native function set shiftKey(value:Boolean):void;
 
   /**
    * The horizontal coordinate at which the event occurred in global Stage coordinates. This property is calculated when the <code>localX</code> property is set.
@@ -163,14 +131,14 @@ public class MouseEvent extends Event {
    */
   public function MouseEvent(type:String, bubbles:Boolean = true, cancelable:Boolean = false, localX:Number = NaN, localY:Number = NaN, relatedObject:InteractiveObject = null, ctrlKey:Boolean = false, altKey:Boolean = false, shiftKey:Boolean = false, buttonDown:Boolean = false, delta:int = 0, commandKey:Boolean = false, controlKey:Boolean = false, clickCount:int = 0) {
     super(type, bubbles, cancelable);
-    this._localX = localX;
-    this._localY = localY;
-    this._relatedObject = relatedObject;
-    this._ctrlKey = ctrlKey;
-    this._altKey = altKey;
-    this._shiftKey = shiftKey;
-    this._buttonDown = buttonDown;
-    this._delta = delta;
+    this.localX = localX;
+    this.localY = localY;
+    this.relatedObject = relatedObject;
+    this.ctrlKey = ctrlKey;
+    this.altKey = altKey;
+    this.shiftKey = shiftKey;
+    this.buttonDown = buttonDown;
+    this.delta = delta;
   }
 
   /**
@@ -787,14 +755,5 @@ public class MouseEvent extends Event {
    *
    */
   public static const ROLL_OVER:String = "rollOver";
-
-  private var _altKey:Boolean;
-  private var _buttonDown:Boolean;
-  private var _ctrlKey:Boolean;
-  private var _delta:int;
-  private var _localX:Number;
-  private var _localY:Number;
-  private var _relatedObject:InteractiveObject;
-  private var _shiftKey:Boolean;
 }
 }

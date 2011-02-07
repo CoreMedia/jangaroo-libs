@@ -22,16 +22,12 @@ public class SyncEvent extends Event {
    * @see flash.net.NetStream
    *
    */
-  public function get changeList():Array {
-    return _changeList;
-  }
+  public native function get changeList():Array;
 
   /**
    * @private
    */
-  public function set changeList(value:Array):void {
-    _changeList = value;
-  }
+  public native function set changeList(value:Array):void;
 
   /**
    * Creates an Event object that contains information about <code>sync</code> events. Event objects are passed as parameters to event listeners.
@@ -45,7 +41,7 @@ public class SyncEvent extends Event {
    */
   public function SyncEvent(type:String, bubbles:Boolean = false, cancelable:Boolean = false, changeList:Array = null) {
     super(type, bubbles, cancelable);
-    _changeList = changeList;
+    this.changeList = changeList;
   }
 
   /**
@@ -54,7 +50,7 @@ public class SyncEvent extends Event {
    *
    */
   override public function clone():Event {
-    return new SyncEvent(type, bubbles, cancelable, _changeList);
+    return new SyncEvent(type, bubbles, cancelable, changeList);
   }
 
   /**
@@ -64,7 +60,7 @@ public class SyncEvent extends Event {
    *
    */
   override public function toString():String {
-    return this.formatToString("SyncEvent", "type", "bubbles", "cancelable", "changeList");
+    return formatToString("SyncEvent", "type", "bubbles", "cancelable", "changeList");
   }
 
   /**
@@ -92,6 +88,5 @@ public class SyncEvent extends Event {
    */
   public static const SYNC:String = "sync";
 
-  private var _changeList:Array;
 }
 }

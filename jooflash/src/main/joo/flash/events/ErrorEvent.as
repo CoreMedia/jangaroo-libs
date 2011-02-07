@@ -22,7 +22,7 @@ public class ErrorEvent extends TextEvent {
    */
   public function ErrorEvent(type:String, bubbles:Boolean = false, cancelable:Boolean = false, text:String = "", id:int = 0) {
     super(type, bubbles, cancelable, text);
-    _id = id;
+    this['id'] = id;
   }
 
   /**
@@ -31,7 +31,7 @@ public class ErrorEvent extends TextEvent {
    *
    */
   override public function clone():Event {
-    return new ErrorEvent(type, bubbles, cancelable, text, _id);
+    return new ErrorEvent(type, bubbles, cancelable, text, id);
   }
 
   /**
@@ -71,10 +71,6 @@ public class ErrorEvent extends TextEvent {
   /**
    * @private
    */
-  protected function get id():int {
-    return _id;
-  }
-
-  private var _id:int;
+  protected native function get id():int;
 }
 }

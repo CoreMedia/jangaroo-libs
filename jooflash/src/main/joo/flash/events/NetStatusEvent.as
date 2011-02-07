@@ -309,17 +309,13 @@ public class NetStatusEvent extends Event {
    * }
    * </listing>
    */
-  public function get info():Object {
-    return _info;
-  }
+  public native function get info():Object;
 
   /**
    * @private
    */
 
-  public function set info(value:Object):void {
-    _info = value;
-  }
+  public native function set info(value:Object):void;
 
   /**
    * Creates an Event object that contains information about <code>netStatus</code> events. Event objects are passed as parameters to event listeners.
@@ -333,7 +329,7 @@ public class NetStatusEvent extends Event {
    */
   public function NetStatusEvent(type:String, bubbles:Boolean = false, cancelable:Boolean = false, info:Object = null) {
     super(type, bubbles, cancelable);
-    _info = info;
+    this.info = info;
   }
 
   /**
@@ -342,7 +338,7 @@ public class NetStatusEvent extends Event {
    *
    */
   override public function clone():Event {
-    return new NetStatusEvent(type, bubbles, cancelable, _info);
+    return new NetStatusEvent(type, bubbles, cancelable, info);
   }
 
   /**
@@ -383,7 +379,5 @@ public class NetStatusEvent extends Event {
    */
   public static const NET_STATUS:String = "netStatus";
 
-
-  private var _info:Object;
 }
 }

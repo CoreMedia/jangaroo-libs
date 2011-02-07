@@ -14,16 +14,12 @@ public class FocusEvent extends Event {
   /**
    * The key code value of the key pressed to trigger a <code>keyFocusChange</code> event.
    */
-  public function get keyCode():uint {
-    return _keyCode;
-  }
+  public native function get keyCode():uint;
 
   /**
    * @private
    */
-  public function set keyCode(value:uint):void {
-    _keyCode = value;
-  }
+  public native function set keyCode(value:uint):void;
 
   /**
    * A reference to the complementary InteractiveObject instance that is affected by the change in focus. For example, when a <code>focusOut</code> event occurs, the <code>relatedObject</code> represents the InteractiveObject instance that has gained focus.
@@ -31,30 +27,22 @@ public class FocusEvent extends Event {
    * @see #isRelatedObjectInaccessible
    *
    */
-  public function get relatedObject():InteractiveObject {
-    return _relatedObject;
-  }
+  public native function get relatedObject():InteractiveObject;
 
   /**
    * @private
    */
-  public function set relatedObject(value:InteractiveObject):void {
-    _relatedObject = value;
-  }
+  public native function set relatedObject(value:InteractiveObject):void;
 
   /**
    * Indicates whether the Shift key modifier is activated, in which case the value is <code>true</code>. Otherwise, the value is <code>false</code>. This property is used only if the FocusEvent is of type <code>keyFocusChange</code>.
    */
-  public function get shiftKey():Boolean {
-    return _shiftKey;
-  }
+  public native function get shiftKey():Boolean;
 
   /**
    * @private
    */
-  public function set shiftKey(value:Boolean):void {
-    _shiftKey = value;
-  }
+  public native function set shiftKey(value:Boolean):void;
 
   /**
    * Creates an Event object with specific information relevant to focus events. Event objects are passed as parameters to event listeners.
@@ -75,10 +63,10 @@ public class FocusEvent extends Event {
    */
   public function FocusEvent(type:String, bubbles:Boolean = true, cancelable:Boolean = false, relatedObject:InteractiveObject = null, shiftKey:Boolean = false, keyCode:uint = 0, direction:String = "none") {
     super(type, bubbles, cancelable);
-    _relatedObject = relatedObject;
-    _shiftKey = shiftKey;
-    _keyCode = keyCode;
-    _direction = direction;
+    this.relatedObject = relatedObject;
+    this.shiftKey = shiftKey;
+    this.keyCode = keyCode;
+    // TODO: no getter for "direction" - what is it for at all?
   }
 
   /**
@@ -87,7 +75,7 @@ public class FocusEvent extends Event {
    *
    */
   override public function clone():Event {
-    return new FocusEvent(type, bubbles, cancelable, relatedObject, shiftKey, keyCode, _direction);
+    return new FocusEvent(type, bubbles, cancelable, relatedObject, shiftKey, keyCode);
   }
 
   /**
@@ -223,10 +211,5 @@ public class FocusEvent extends Event {
    *
    */
   public static const MOUSE_FOCUS_CHANGE:String = "mouseFocusChange";
-
-  private var _keyCode:uint;
-  private var _relatedObject:InteractiveObject;
-  private var _shiftKey:Boolean;
-  private var _direction:String;
 }
 }

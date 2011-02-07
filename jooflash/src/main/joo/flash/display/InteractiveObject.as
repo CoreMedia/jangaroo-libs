@@ -126,16 +126,12 @@ public class InteractiveObject extends DisplayObject {
    * @see flash.accessibility.AccessibilityImplementation
    *
    */
-  public function get accessibilityImplementation():AccessibilityImplementation {
-    return _accessibilityImplementation;
-  }
+  public native function get accessibilityImplementation():AccessibilityImplementation;
 
   /**
    * @private
    */
-  public function set accessibilityImplementation(value:AccessibilityImplementation):void {
-    _accessibilityImplementation = value;
-  }
+  public native function set accessibilityImplementation(value:AccessibilityImplementation):void;
 
   /**
    * Specifies the context menu associated with this object.
@@ -167,16 +163,12 @@ public class InteractiveObject extends DisplayObject {
    * }
    * </listing>
    */
-  public function get contextMenu():ContextMenu {
-    return _contextMenu;
-  }
+  public native function get contextMenu():ContextMenu;
 
   /**
    * @private
    */
-  public function set contextMenu(value:ContextMenu):void {
-    _contextMenu = value;
-  }
+  public native function set contextMenu(value:ContextMenu):void;
 
   /**
    * Specifies whether the object receives <code>doubleClick</code> events. The default value is <code>false</code>, which means that by default an InteractiveObject instance does not receive <code>doubleClick</code> events. If the <code>doubleClickEnabled</code> property is set to <code>true</code>, the instance receives <code>doubleClick</code> events within its bounds. The <code>mouseEnabled</code> property of the InteractiveObject instance must also be set to <code>true</code> for the object to receive <code>doubleClick</code> events.
@@ -186,16 +178,12 @@ public class InteractiveObject extends DisplayObject {
    * @see DisplayObjectContainer#mouseChildren
    *
    */
-  public function get doubleClickEnabled():Boolean {
-    return _doubleClickEnabled;
-  }
+  public native function get doubleClickEnabled():Boolean;
 
   /**
    * @private
    */
-  public function set doubleClickEnabled(value:Boolean):void {
-    _doubleClickEnabled = value;
-  }
+  public native function set doubleClickEnabled(value:Boolean):void;
 
   /**
    * Specifies whether this object displays a focus rectangle. It can take one of three values: <code>true</code>, <code>false</code>, or <code>null</code>. Values of <code>true</code> and <code>false</code> work as expected, specifying whether or not the focus rectangle appears. A value of <code>null</code> indicates that this object obeys the <code>stageFocusRect</code> property of the Stage.
@@ -217,16 +205,12 @@ public class InteractiveObject extends DisplayObject {
    * @see DisplayObjectContainer#mouseChildren
    *
    */
-  public function get mouseEnabled():Boolean {
-    return _mouseEnabled;
-  }
+  public native function get mouseEnabled():Boolean;
 
   /**
    * @private
    */
-  public function set mouseEnabled(value:Boolean):void {
-    _mouseEnabled = value; // TODO: implement!
-  }
+  public native function set mouseEnabled(value:Boolean):void;
 
   /**
    * Specifies whether this object is in the tab order. If this object is in the tab order, the value is <code>true</code>; otherwise, the value is <code>false</code>. By default, the value is <code>false</code>, except for the following:
@@ -235,16 +219,12 @@ public class InteractiveObject extends DisplayObject {
    * <li>For a TextField object with <code>type = "input"</code>, the value is <code>true</code>.</li>
    * <li>For a Sprite object or MovieClip object with <code>buttonMode = true</code>, the value is <code>true</code>.</li></ul>
    */
-  public function get tabEnabled():Boolean {
-    return _tabEnabled;
-  }
+  public native function get tabEnabled():Boolean;
 
   /**
    * @private
    */
-  public function set tabEnabled(value:Boolean):void {
-    _tabEnabled = value;
-  }
+  public native function set tabEnabled(value:Boolean):void;
 
   /**
    * Specifies the tab ordering of objects in a SWF file. The <code>tabIndex</code> property is -1 by default, meaning no tab index is set for the object.
@@ -259,16 +239,12 @@ public class InteractiveObject extends DisplayObject {
    InteractiveObject(tlfInstance3.getChildAt(1)).tabIndex = 1;
    </pre>
    */
-  public function get tabIndex():int {
-    return _tabIndex;
-  }
+  public native function get tabIndex():int;
 
   /**
    * @private
    */
-  public function set tabIndex(value:int):void {
-    _tabIndex = value;
-  }
+  public native function set tabIndex(value:int):void;
 
   /**
    * Calling the <code>new InteractiveObject()</code> constructor throws an <code>ArgumentError</code> exception. You can, however, call constructors for the following subclasses of InteractiveObject:
@@ -280,18 +256,14 @@ public class InteractiveObject extends DisplayObject {
    * <li><code>new MovieClip()</code></li></ul>
    */
   public function InteractiveObject() {
-    // TODO: implement!
+    if (this['constructor'] === InteractiveObject) {
+      throw new ArgumentError();
+    }
   }
 
   // ************************** Jangaroo part **************************
 
-  private var _accessibilityImplementation:AccessibilityImplementation;
-  private var _contextMenu:ContextMenu;
-  private var _doubleClickEnabled:Boolean;
   private var _focusRect:Object;
-  private var _mouseEnabled:Boolean;
-  private var _tabEnabled:Boolean;
-  private var _tabIndex:int;
 
 }
 }

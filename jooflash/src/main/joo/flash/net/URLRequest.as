@@ -40,16 +40,12 @@ public final class URLRequest {
    * @see #data
    *
    */
-  public function get contentType():String {
-    return _contentType;
-  }
+  public native function get contentType():String;
 
   /**
    * @private
    */
-  public function set contentType(value:String):void {
-    _contentType = value;
-  }
+  public native function set contentType(value:String):void;
 
   /**
    * An object containing data to be transmitted with the URL request.
@@ -98,16 +94,12 @@ public final class URLRequest {
    * }
    * </listing>
    */
-  public function get data():Object {
-    return _data;
-  }
+  public native function get data():Object;
 
   /**
    * @private
    */
-  public function set data(value:Object):void {
-    _data = value;
-  }
+  public native function set data(value:Object):void;
 
   /**
    * A string that uniquely identifies the signed Adobe platform component to be stored to (or retrieved from) the Flash Player cache. An Adobe platform component is a signed file (a SWZ file) that contains SWF content that is cached persistently on a user's machine. All SWZ files are signed by Adobe. A digest corresponds to a single cached file; if you change the file in any way, its digest will change in an unpredictable way. By using a digest, you can verify the cached file across multiple domains. Two files with the same digest are the same file, and two files with different digests are not the same file. A file cannot (practically) be created to "spoof" a digest and pretend to be another digest.
@@ -136,16 +128,12 @@ public final class URLRequest {
    *
    * </listing>
    */
-  public function get digest():String {
-    return _digest;
-  }
+  public native function get digest():String;
 
   /**
    * @private
    */
-  public function set digest(value:String):void {
-    _digest = value;
-  }
+  public native function set digest(value:String):void;
 
   /**
    * Controls the HTTP form submission method.
@@ -193,16 +181,12 @@ public final class URLRequest {
    * }
    * </listing>
    */
-  public function get method():String {
-    return _method;
-  }
+  public native function get method():String;
 
   /**
    * @private
    */
-  public function set method(value:String):void {
-    _method = value;
-  }
+  public native function set method(value:String):void;
 
   /**
    * The array of HTTP request headers to be appended to the HTTP request. The array is composed of URLRequestHeader objects. Each object in the array must be a URLRequestHeader object that contains a name string and a value string, as follows:
@@ -215,16 +199,12 @@ public final class URLRequest {
    * @see URLRequestHeader
    *
    */
-  public function get requestHeaders():Array {
-    return _requestHeaders;
-  }
+  public native function get requestHeaders():Array;
 
   /**
    * @private
    */
-  public function set requestHeaders(value:Array):void {
-    _requestHeaders = value;
-  }
+  public native function set requestHeaders(value:Array):void;
 
   /**
    * The URL to be requested.
@@ -251,16 +231,12 @@ public final class URLRequest {
    * addChild(loader);
    * </listing>
    */
-  public function get url():String {
-    return _url;
-  }
+  public native function get url():String;
 
   /**
    * @private
    */
-  public function set url(value:String):void {
-    _url = value;
-  }
+  public native function set url(value:String):void;
 
   /**
    * Creates a URLRequest object. If <code>System.useCodePage</code> is <code>true</code>, the request is encoded using the system code page, rather than Unicode. If <code>System.useCodePage</code> is <code>false</code>, the request is encoded using Unicode, rather than the system code page.
@@ -282,14 +258,9 @@ public final class URLRequest {
    * </listing>
    */
   public function URLRequest(url:String = null) {
-    _url = url;
+    this.method = URLRequestMethod.GET;
+    this.url = url;
   }
 
-  private var _contentType:String;
-  private var _data:Object;
-  private var _digest:String;
-  private var _method:String = "GET"; // URLRequestMethod.GET;
-  private var _requestHeaders:Array;
-  private var _url:String;
 }
 }

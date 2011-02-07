@@ -1,7 +1,11 @@
 package flash.display {
+import flash.events.Event;
 import flash.events.EventDispatcher;
 import flash.system.ApplicationDomain;
 import flash.utils.ByteArray;
+
+import js.HTMLImageElement;
+import js.Image;
 
 /**
  * Dispatched when data has loaded successfully. In other words, it is dispatched when all the content has been downloaded and the loading has finished. The <code>complete</code> event is always dispatched after the <code>init</code> event. The <code>init</code> event is dispatched when the object is ready to access, though the content may still be downloading.
@@ -49,11 +53,11 @@ import flash.utils.ByteArray;
  * The LoaderInfo class provides information about a loaded SWF file or a loaded image file (JPEG, GIF, or PNG). LoaderInfo objects are available for any display object. The information provided includes load progress, the URLs of the loader and loaded content, the number of bytes total for the media, and the nominal height and width of the media.
  * <p>You can access LoaderInfo objects in two ways:</p>
  * <ul>
- * <li>The <code>contentLoaderInfo</code> property of a flash.display.Loader object— The <code>contentLoaderInfo</code> property is always available for any Loader object. For a Loader object that has not called the <code>load()</code> or <code>loadBytes()</code> method, or that has not sufficiently loaded, attempting to access many of the properties of the <code>contentLoaderInfo</code> property throws an error.</li>
+ * <li>The <code>contentLoaderInfo</code> property of a flash.display.Loader objectï¿½ The <code>contentLoaderInfo</code> property is always available for any Loader object. For a Loader object that has not called the <code>load()</code> or <code>loadBytes()</code> method, or that has not sufficiently loaded, attempting to access many of the properties of the <code>contentLoaderInfo</code> property throws an error.</li>
  * <li>The <code>loaderInfo</code> property of a display object.</li></ul>
  * <p>The <code>contentLoaderInfo</code> property of a Loader object provides information about the content that the Loader object is loading, whereas the <code>loaderInfo</code> property of a DisplayObject provides information about the root SWF file for that display object.</p>
  * <p>When you use a Loader object to load a display object (such as a SWF file or a bitmap), the <code>loaderInfo</code> property of the display object is the same as the <code>contentLoaderInfo</code> property of the Loader object (<code>DisplayObject.loaderInfo = Loader.contentLoaderInfo</code>). Because the instance of the main class of the SWF file has no Loader object, the <code>loaderInfo</code> property is the only way to access the LoaderInfo for the instance of the main class of the SWF file.</p>
- * <p>The following diagram shows the different uses of the LoaderInfo object—for the instance of the main class of the SWF file, for the <code>contentLoaderInfo</code> property of a Loader object, and for the <code>loaderInfo</code> property of a loaded object:</p>
+ * <p>The following diagram shows the different uses of the LoaderInfo objectï¿½for the instance of the main class of the SWF file, for the <code>contentLoaderInfo</code> property of a Loader object, and for the <code>loaderInfo</code> property of a loaded object:</p>
  * <p><img src="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/images/loaderInfo_object.jpg" /></p>
  * <p>When a loading operation is not complete, some properties of the <code>contentLoaderInfo</code> property of a Loader object are not available. You can obtain some properties, such as <code>bytesLoaded</code>, <code>bytesTotal</code>, <code>url</code>, <code>loaderURL</code>, and <code>applicationDomain</code>. When the <code>loaderInfo</code> object dispatches the <code>init</code> event, you can access all properties of the <code>loaderInfo</code> object and the loaded image or SWF file.</p>
  * <p><b>Note:</b> All properties of LoaderInfo objects are read-only.</p>
@@ -104,8 +108,10 @@ public class LoaderInfo extends EventDispatcher {
    * <p>For more information related to security, see the Flash Player Developer Center Topic: <a href="http://www.adobe.com/go/devnet_security_en">Security</a>.</p>
    *
    */
-  public function get bytes():ByteArray {
-    return _bytes;
+  public native function get bytes():ByteArray;
+
+  internal function setBytes(value:ByteArray):void {
+    this['bytes'] = value;
   }
 
   /**
@@ -142,8 +148,10 @@ public class LoaderInfo extends EventDispatcher {
    * <p>For more information related to security, see the Flash Player Developer Center Topic: <a href="http://www.adobe.com/go/devnet_security_en">Security</a>.</p>
    *
    */
-  public function get content():DisplayObject {
-    throw new Error('not implemented'); // TODO: implement!
+  public native function get content():DisplayObject;
+
+  internal function setContent(content:DisplayObject):void {
+    this['content'] = content;
   }
 
   /**
@@ -175,7 +183,7 @@ public class LoaderInfo extends EventDispatcher {
    *
    */
   public function get height():int {
-    throw new Error('not implemented'); // TODO: implement!
+    return content.height;
   }
 
   /**
@@ -184,9 +192,7 @@ public class LoaderInfo extends EventDispatcher {
    * <p>For more information related to security, see the Flash Player Developer Center Topic: <a href="http://www.adobe.com/go/devnet_security_en">Security</a>.</p>
    *
    */
-  public function get loader():Loader {
-    throw new Error('not implemented'); // TODO: implement!
-  }
+  public native function get loader():Loader;
 
   /**
    * The URL of the SWF file that initiated the loading of the media described by this LoaderInfo object. For the instance of the main class of the SWF file, this URL is the same as the SWF file's own URL.
@@ -252,8 +258,10 @@ public class LoaderInfo extends EventDispatcher {
    * @see Loader#load()
    *
    */
-  public function get url():String {
-    throw new Error('not implemented'); // TODO: implement!
+  public native function get url():String;
+
+  internal function setUrl(url:String):void {
+    this['url'] = url;
   }
 
   /**
@@ -262,7 +270,7 @@ public class LoaderInfo extends EventDispatcher {
    *
    */
   public function get width():int {
-    throw new Error('not implemented'); // TODO: implement!
+    return content.width;
   }
 
   /**
@@ -283,9 +291,17 @@ public class LoaderInfo extends EventDispatcher {
   /**
    * @private
    */
-  public function LoaderInfo() {
+  public function LoaderInfo(loader:Loader = null) {
+    this['loader'] = loader;
   }
 
-  internal var _bytes:ByteArray;
+  internal function load():void {
+    var img:HTMLImageElement = new Image();
+    img.addEventListener("load", function():void {
+      setContent(new Bitmap(BitmapData.fromImg(img)));
+      dispatchEvent(new Event(Event.COMPLETE));
+    }, false);
+    img.src = url;
+  }
 }
 }

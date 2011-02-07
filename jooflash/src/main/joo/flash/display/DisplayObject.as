@@ -570,16 +570,12 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * }
    * </listing>
    */
-  public function get name():String {
-    return _name;
-  }
+  public native function get name():String;
 
   /**
    * @private
    */
-  public function set name(value:String):void {
-    _name = value;
-  }
+  public native function set name(value:String):void;
 
   /**
    * Specifies whether the display object is opaque with a certain background color. A transparent bitmap contains alpha channel data and is drawn transparently. An opaque bitmap has no alpha channel (and renders faster than a transparent bitmap). If the bitmap is opaque, you specify its own background color to use.
@@ -639,9 +635,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * trace(sprite3.parent.parent.name); // sprite1
    * </listing>
    */
-  public function get parent():DisplayObjectContainer {
-    return _parent;
-  }
+  public native function get parent():DisplayObjectContainer;
 
   /**
    * For a display object in a loaded SWF file, the <code>root</code> property is the top-most display object in the portion of the display list's tree structure represented by that SWF file. For a Bitmap object representing a loaded image file, the <code>root</code> property is the Bitmap object itself. For the instance of the main class of the first SWF file loaded, the <code>root</code> property is the display object itself. The <code>root</code> property of the Stage object is the Stage object itself. The <code>root</code> property is set to <code>null</code> for any display object that has not been added to the display list, unless it has been added to a display object container that is off the display list but that is a child of the top-most display object in a loaded SWF file.
@@ -944,7 +938,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * </listing>
    */
   public function get stage():Stage {
-    return this._parent ? this._parent.stage : null;
+    return parent ? parent.stage : null;
   }
 
   /**
@@ -1414,9 +1408,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
   /**
    * @private
    */
-  public function set parent(parent : DisplayObjectContainer) : void {
-    _parent = parent;
-  }
+  public native function set parent(parent : DisplayObjectContainer) : void;
 
   private static const DOM_EVENT_TO_MOUSE_EVENT : Object/*<String,String>*/ = {
     'click':     MouseEvent.CLICK,
@@ -1561,8 +1553,8 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
     if (_elem) {
       elem.style.width = _elem.style.width;
       elem.style.height = _elem.style.height;
-      if (_parent) {
-        _parent.getElement().replaceChild(elem, _elem);
+      if (parent) {
+        parent.getElement().replaceChild(elem, _elem);
       }
     }
     _elem = elem;
@@ -1576,11 +1568,9 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
   }
 
 
-  private var _parent : DisplayObjectContainer;
   private var _elem : HTMLElement;
   private var _x : Number = 0, _y : Number = 0;
   private var _transform : Transform;
-  private var _name : String;
   private var _visible: Boolean;
   private var _alpha: Number;
 }

@@ -19,16 +19,12 @@ public class SimpleButton extends InteractiveObject {
    * @see #upState
    *
    */
-  public function get downState():DisplayObject {
-    return _downState;
-  }
+  public native function get downState():DisplayObject;
 
   /**
    * @private
    */
-  public function set downState(value:DisplayObject):void {
-    _downState = value;
-  }
+  public native function set downState(value:DisplayObject):void;
 
   /**
    * A Boolean value that specifies whether a button is enabled. When a button is disabled (the enabled property is set to <code>false</code>), the button is visible but cannot be clicked. The default value is <code>true</code>. This property is useful if you want to disable part of your navigation; for example, you might want to disable a button in the currently displayed page so that it can't be clicked and the page cannot be reloaded.
@@ -43,25 +39,22 @@ public class SimpleButton extends InteractiveObject {
    */
   public function set enabled(value:Boolean):void {
     _enabled = value;
+    getElement().disabled = !value;
   }
 
   /**
-   * Specifies a display object that is used as the hit testing object for the button. For a basic button, set the <code>hitTestState</code> property to the same display object as the <code>overState</code> property. If you do not set the <code>hitTestState</code> property, the SimpleButton is inactive � it does not respond to user input events.
+   * Specifies a display object that is used as the hit testing object for the button. For a basic button, set the <code>hitTestState</code> property to the same display object as the <code>overState</code> property. If you do not set the <code>hitTestState</code> property, the SimpleButton is inactive &mdash; it does not respond to user input events.
    * @see #downState
    * @see #overState
    * @see #upState
    *
    */
-  public function get hitTestState():DisplayObject {
-    return _hitTestState;
-  }
+  public native function get hitTestState():DisplayObject;
 
   /**
    * @private
    */
-  public function set hitTestState(value:DisplayObject):void {
-    _hitTestState = value;
-  }
+  public native function set hitTestState(value:DisplayObject):void;
 
   /**
    * Specifies a display object that is used as the visual object for the button over state � the state that the button is in when the pointer is positioned over the button.
@@ -70,47 +63,35 @@ public class SimpleButton extends InteractiveObject {
    * @see #upState
    *
    */
-  public function get overState():DisplayObject {
-    return _overState;
-  }
+  public native function get overState():DisplayObject;
 
   /**
    * @private
    */
-  public function set overState(value:DisplayObject):void {
-    _overState = value;
-  }
+  public native function set overState(value:DisplayObject):void;
 
   /**
    * The SoundTransform object assigned to this button. A SoundTransform object includes properties for setting volume, panning, left speaker assignment, and right speaker assignment. This SoundTransform object applies to all states of the button. This SoundTransform object affects only embedded sounds.
    * @see flash.media.SoundTransform
    *
    */
-  public function get soundTransform():SoundTransform {
-    return _soundTransform;
-  }
+  public native function get soundTransform():SoundTransform;
 
   /**
    * @private
    */
-  public function set soundTransform(value:SoundTransform):void {
-    _soundTransform = value;
-  }
+  public native function set soundTransform(value:SoundTransform):void;
 
   /**
    * Indicates whether other display objects that are SimpleButton or MovieClip objects can receive user input release events. The <code>trackAsMenu</code> property lets you create menus. You can set the <code>trackAsMenu</code> property on any SimpleButton or MovieClip object. If the <code>trackAsMenu</code> property does not exist, the default behavior is <code>false</code>.
    * <p>You can change the <code>trackAsMenu</code> property at any time; the modified button immediately takes on the new behavior.</p>
    */
-  public function get trackAsMenu():Boolean {
-    return _trackAsMenu;
-  }
+  public native function get trackAsMenu():Boolean;
 
   /**
    * @private
    */
-  public function set trackAsMenu(value:Boolean):void {
-    _trackAsMenu = value;
-  }
+  public native function set trackAsMenu(value:Boolean):void;
 
   /**
    * Specifies a display object that is used as the visual object for the button up state � the state that the button is in when the pointer is not positioned over the button.
@@ -119,31 +100,23 @@ public class SimpleButton extends InteractiveObject {
    * @see #overState
    *
    */
-  public function get upState():DisplayObject {
-    return _upState;
-  }
+  public native function get upState():DisplayObject;
 
   /**
    * @private
    */
-  public function set upState(value:DisplayObject):void {
-    _upState = value;
-  }
+  public native function set upState(value:DisplayObject):void;
 
   /**
    * A Boolean value that, when set to <code>true</code>, indicates whether the hand cursor is shown when the pointer rolls over a button. If this property is set to <code>false</code>, the arrow pointer cursor is displayed instead. The default is <code>true</code>.
    * <p>You can change the <code>useHandCursor</code> property at any time; the modified button immediately uses the new cursor behavior.</p>
    */
-  public function get useHandCursor():Boolean {
-    return _useHandCursor;
-  }
+  public native function get useHandCursor():Boolean;
 
   /**
    * @private
    */
-  public function set useHandCursor(value:Boolean):void {
-    _useHandCursor = value;
-  }
+  public native function set useHandCursor(value:Boolean):void;
 
   /**
    * Creates a new SimpleButton instance. Any or all of the display objects that represent the various button states can be set as parameters in the constructor.
@@ -155,10 +128,10 @@ public class SimpleButton extends InteractiveObject {
    */
   public function SimpleButton(upState:DisplayObject = null, overState:DisplayObject = null, downState:DisplayObject = null, hitTestState:DisplayObject = null) {
     super();
-    _upState = upState;
-    _overState = overState;
-    _downState = downState;
-    _hitTestState = hitTestState;
+    this.upState = upState;
+    this.overState = overState;
+    this.downState = downState;
+    this.hitTestState = hitTestState;
   }
 
   // ************************** Jangaroo part **************************
@@ -170,13 +143,6 @@ public class SimpleButton extends InteractiveObject {
     return "button";
   }
 
-  private var _upState : DisplayObject;
-  private var _overState : DisplayObject;
-  private var _downState : DisplayObject;
-  private var _hitTestState : DisplayObject;
-  private var _soundTransform : SoundTransform;
   private var _enabled : Boolean = true;
-  private var _trackAsMenu : Boolean;
-  private var _useHandCursor : Boolean;
 }
 }

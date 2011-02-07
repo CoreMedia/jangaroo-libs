@@ -9,9 +9,7 @@ public class FullScreenEvent extends ActivityEvent {
   /**
    * Indicates whether the Stage object is in full-screen mode (<code>true</code>) or not (<code>false</code>).
    */
-  public function get fullScreen():Boolean {
-    return _fullScreen;
-  }
+  public native function get fullScreen():Boolean;
 
   /**
    * Creates an event object that contains information about <code>fullScreen</code> events. Event objects are passed as parameters to event listeners.
@@ -25,7 +23,7 @@ public class FullScreenEvent extends ActivityEvent {
    */
   public function FullScreenEvent(type:String, bubbles:Boolean = false, cancelable:Boolean = false, fullScreen:Boolean = false) {
     super(type, bubbles, cancelable);
-    _fullScreen = fullScreen;
+    this['fullScreen'] = fullScreen;
   }
 
   /**
@@ -71,7 +69,5 @@ public class FullScreenEvent extends ActivityEvent {
    *
    */
   public static const FULL_SCREEN:String = "fullScreen";
-
-  private var _fullScreen:Boolean;
 }
 }

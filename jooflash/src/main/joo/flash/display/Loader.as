@@ -1,18 +1,14 @@
 package flash.display {
-import flash.events.Event;
 import flash.net.URLRequest;
 import flash.system.LoaderContext;
 import flash.utils.ByteArray;
 
 import joo.flash.util.Base64;
 
-import js.HTMLImageElement;
-import js.Image;
-
 /**
  * The Loader class is used to load SWF files or image (JPG, PNG, or GIF) files. Use the <code>load()</code> method to initiate loading. The loaded display object is added as a child of the Loader object.
  * <p>Use the URLLoader class to load text or binary data.</p>
- * <p>The Loader class overrides the following methods that it inherits, because a Loader object can only have one child display object—the display object that it loads. Calling the following methods throws an exception: <code>addChild()</code>, <code>addChildAt()</code>, <code>removeChild()</code>, <code>removeChildAt()</code>, and <code>setChildIndex()</code>. To remove a loaded display object, you must remove the <i>Loader</i> object from its parent DisplayObjectContainer child array.</p>
+ * <p>The Loader class overrides the following methods that it inherits, because a Loader object can only have one child display objectâ€”the display object that it loads. Calling the following methods throws an exception: <code>addChild()</code>, <code>addChildAt()</code>, <code>removeChild()</code>, <code>removeChildAt()</code>, and <code>setChildIndex()</code>. To remove a loaded display object, you must remove the <i>Loader</i> object from its parent DisplayObjectContainer child array.</p>
  * <p><b>Note:</b> The ActionScript 2.0 MovieClipLoader and LoadVars classes are not used in ActionScript 3.0. The Loader and URLLoader classes replace them.</p>
  * <p>When you use the Loader class, consider the Flash Player and Adobe AIR security model:</p>
  * <ul>
@@ -61,7 +57,7 @@ public class Loader extends DisplayObjectContainer {
    *
    */
   public function get content():DisplayObject {
-    return _content;
+    return contentLoaderInfo.content;
   }
 
   /**
@@ -87,9 +83,7 @@ public class Loader extends DisplayObjectContainer {
    *
    * </listing>
    */
-  public function get contentLoaderInfo():LoaderInfo {
-    return _contentLoaderInfo;
-  }
+  public native function get contentLoaderInfo():LoaderInfo;
 
   /**
    * Creates a Loader object that you can use to load files, such as SWF, JPEG, GIF, or PNG files. Call the <code>load()</code> method to load the asset as a child of the Loader instance. You can then add the Loader object to the display list (for instance, by using the <code>addChild()</code> method of a DisplayObjectContainer instance). The asset appears on the Stage as it loads.
@@ -107,7 +101,7 @@ public class Loader extends DisplayObjectContainer {
    *
    */
   public function Loader() {
-    _contentLoaderInfo = new LoaderInfo();
+    this['contentLoaderInfo'] = new LoaderInfo(this);
   }
 
   /**
@@ -116,7 +110,7 @@ public class Loader extends DisplayObjectContainer {
    *
    */
   public function close():void {
-    throw new Error('not implemented'); // TODO: implement!
+    // seems you cannot cancel an image load in JavaScript :-(
   }
 
   /**
@@ -143,35 +137,35 @@ public class Loader extends DisplayObjectContainer {
    * Events
    * <table>
    * <tr>
-   * <td><code><b>complete</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/Event.html"><code>Event</code></a></code> — Dispatched by the <code>contentLoaderInfo</code> object when the file has completed loading. The <code>complete</code> event is always dispatched after the <code>init</code> event.</td></tr>
+   * <td><code><b>complete</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/Event.html"><code>Event</code></a></code> â€” Dispatched by the <code>contentLoaderInfo</code> object when the file has completed loading. The <code>complete</code> event is always dispatched after the <code>init</code> event.</td></tr>
    * <tr>
-   * <td> </td></tr>
+   * <td>Â </td></tr>
    * <tr>
-   * <td><code><b>httpStatus</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/HTTPStatusEvent.html"><code>HTTPStatusEvent</code></a></code> — Dispatched by the <code>contentLoaderInfo</code> object when a network request is made over HTTP and Flash Player can detect the HTTP status code.</td></tr>
+   * <td><code><b>httpStatus</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/HTTPStatusEvent.html"><code>HTTPStatusEvent</code></a></code> â€” Dispatched by the <code>contentLoaderInfo</code> object when a network request is made over HTTP and Flash Player can detect the HTTP status code.</td></tr>
    * <tr>
-   * <td> </td></tr>
+   * <td>Â </td></tr>
    * <tr>
-   * <td><code><b>init</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/Event.html"><code>Event</code></a></code> — Dispatched by the <code>contentLoaderInfo</code> object when the properties and methods of the loaded SWF file are accessible. The <code>init</code> event always precedes the <code>complete</code> event.</td></tr>
+   * <td><code><b>init</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/Event.html"><code>Event</code></a></code> â€” Dispatched by the <code>contentLoaderInfo</code> object when the properties and methods of the loaded SWF file are accessible. The <code>init</code> event always precedes the <code>complete</code> event.</td></tr>
    * <tr>
-   * <td> </td></tr>
+   * <td>Â </td></tr>
    * <tr>
-   * <td><code><b>ioError</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/IOErrorEvent.html"><code>IOErrorEvent</code></a></code> — Dispatched by the <code>contentLoaderInfo</code> object when an input or output error occurs that causes a load operation to fail.</td></tr>
+   * <td><code><b>ioError</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/IOErrorEvent.html"><code>IOErrorEvent</code></a></code> â€” Dispatched by the <code>contentLoaderInfo</code> object when an input or output error occurs that causes a load operation to fail.</td></tr>
    * <tr>
-   * <td> </td></tr>
+   * <td>Â </td></tr>
    * <tr>
-   * <td><code><b>open</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/Event.html"><code>Event</code></a></code> — Dispatched by the <code>contentLoaderInfo</code> object when the loading operation starts.</td></tr>
+   * <td><code><b>open</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/Event.html"><code>Event</code></a></code> â€” Dispatched by the <code>contentLoaderInfo</code> object when the loading operation starts.</td></tr>
    * <tr>
-   * <td> </td></tr>
+   * <td>Â </td></tr>
    * <tr>
-   * <td><code><b>progress</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/ProgressEvent.html"><code>ProgressEvent</code></a></code> — Dispatched by the <code>contentLoaderInfo</code> object as data is received while load operation progresses.</td></tr>
+   * <td><code><b>progress</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/ProgressEvent.html"><code>ProgressEvent</code></a></code> â€” Dispatched by the <code>contentLoaderInfo</code> object as data is received while load operation progresses.</td></tr>
    * <tr>
-   * <td> </td></tr>
+   * <td>Â </td></tr>
    * <tr>
-   * <td><code><b>securityError</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/SecurityErrorEvent.html"><code>SecurityErrorEvent</code></a></code> — Dispatched by the <code>contentLoaderInfo</code> object if a SWF file in the local-with-filesystem sandbox attempts to load content in the local-with-networking sandbox, or vice versa.</td></tr>
+   * <td><code><b>securityError</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/SecurityErrorEvent.html"><code>SecurityErrorEvent</code></a></code> â€” Dispatched by the <code>contentLoaderInfo</code> object if a SWF file in the local-with-filesystem sandbox attempts to load content in the local-with-networking sandbox, or vice versa.</td></tr>
    * <tr>
-   * <td> </td></tr>
+   * <td>Â </td></tr>
    * <tr>
-   * <td><code><b>unload</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/Event.html"><code>Event</code></a></code> — Dispatched by the <code>contentLoaderInfo</code> object when a loaded object is removed.</td></tr></table>
+   * <td><code><b>unload</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/Event.html"><code>Event</code></a></code> â€” Dispatched by the <code>contentLoaderInfo</code> object when a loaded object is removed.</td></tr></table>
    * @throws flash.errors.IOError The <code>digest</code> property of the <code>request</code> object is not <code>null</code>. You should only set the <code>digest</code> property of a URLRequest object when calling the <code>URLLoader.load()</code> method when loading a SWZ file (an Adobe platform component).
    * @throws SecurityError The value of <code>LoaderContext.securityDomain</code> must be either <code>null</code> or <code>SecurityDomain.currentDomain</code>. This reflects the fact that you can only place the loaded media in its natural security sandbox or your own (the latter requires a policy file).
    * @throws SecurityError Local SWF files may not set LoaderContext.securityDomain to anything other than <code>null</code>. It is not permitted to import non-local media into a local sandbox, or to place other local media in anything other than its natural sandbox.
@@ -190,7 +184,8 @@ public class Loader extends DisplayObjectContainer {
    *
    */
   public function load(request:URLRequest, context:LoaderContext = null):void {
-    loadFromUrl(request.url);
+    contentLoaderInfo.setUrl(request.url);
+    contentLoaderInfo.load();
   }
 
   /**
@@ -199,32 +194,32 @@ public class Loader extends DisplayObjectContainer {
    * <p>When you use this method, consider the Flash Player security model, which is described in the Loader class description.</p>
    * @param bytes A ByteArray object. The contents of the ByteArray can be any of the file formats supported by the Loader class: SWF, GIF, JPEG, or PNG.
    * @param context A LoaderContext object. Only the <code>applicationDomain</code> property of the LoaderContext object applies; the <code>checkPolicyFile</code> and <code>securityDomain</code> properties of the LoaderContext object do not apply.
-   * <p>If the <code>context</code> parameter is not specified or refers to a null object, the content is loaded into the current security domain— a process referred to as "import loading" in Flash Player security documentation. Specifically, if the loading SWF file trusts the remote SWF by incorporating the remote SWF into its code, then the loading SWF can import it directly into its own security domain.</p>
+   * <p>If the <code>context</code> parameter is not specified or refers to a null object, the content is loaded into the current security domainâ€” a process referred to as "import loading" in Flash Player security documentation. Specifically, if the loading SWF file trusts the remote SWF by incorporating the remote SWF into its code, then the loading SWF can import it directly into its own security domain.</p>
    * <p>For more information related to security, see the Flash Player Developer Center Topic: <a href="http://www.adobe.com/go/devnet_security_en">Security</a>.</p>
    * Events
    * <table>
    * <tr>
-   * <td><code><b>complete</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/Event.html"><code>Event</code></a></code> — Dispatched by the <code>contentLoaderInfo</code> object when the operation is complete. The <code>complete</code> event is always dispatched after the <code>init</code> event.</td></tr>
+   * <td><code><b>complete</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/Event.html"><code>Event</code></a></code> â€” Dispatched by the <code>contentLoaderInfo</code> object when the operation is complete. The <code>complete</code> event is always dispatched after the <code>init</code> event.</td></tr>
    * <tr>
-   * <td> </td></tr>
+   * <td>Â </td></tr>
    * <tr>
-   * <td><code><b>init</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/Event.html"><code>Event</code></a></code> — Dispatched by the <code>contentLoaderInfo</code> object when the properties and methods of the loaded data are accessible. The <code>init</code> event always precedes the <code>complete</code> event.</td></tr>
+   * <td><code><b>init</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/Event.html"><code>Event</code></a></code> â€” Dispatched by the <code>contentLoaderInfo</code> object when the properties and methods of the loaded data are accessible. The <code>init</code> event always precedes the <code>complete</code> event.</td></tr>
    * <tr>
-   * <td> </td></tr>
+   * <td>Â </td></tr>
    * <tr>
-   * <td><code><b>ioError</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/IOErrorEvent.html"><code>IOErrorEvent</code></a></code> — Dispatched by the <code>contentLoaderInfo</code> object when the runtime cannot parse the data in the byte array.</td></tr>
+   * <td><code><b>ioError</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/IOErrorEvent.html"><code>IOErrorEvent</code></a></code> â€” Dispatched by the <code>contentLoaderInfo</code> object when the runtime cannot parse the data in the byte array.</td></tr>
    * <tr>
-   * <td> </td></tr>
+   * <td>Â </td></tr>
    * <tr>
-   * <td><code><b>open</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/Event.html"><code>Event</code></a></code> — Dispatched by the <code>contentLoaderInfo</code> object when the operation starts.</td></tr>
+   * <td><code><b>open</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/Event.html"><code>Event</code></a></code> â€” Dispatched by the <code>contentLoaderInfo</code> object when the operation starts.</td></tr>
    * <tr>
-   * <td> </td></tr>
+   * <td>Â </td></tr>
    * <tr>
-   * <td><code><b>progress</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/ProgressEvent.html"><code>ProgressEvent</code></a></code> — Dispatched by the <code>contentLoaderInfo</code> object as data is transfered in memory.</td></tr>
+   * <td><code><b>progress</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/ProgressEvent.html"><code>ProgressEvent</code></a></code> â€” Dispatched by the <code>contentLoaderInfo</code> object as data is transfered in memory.</td></tr>
    * <tr>
-   * <td> </td></tr>
+   * <td>Â </td></tr>
    * <tr>
-   * <td><code><b>unload</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/Event.html"><code>Event</code></a></code> — Dispatched by the <code>contentLoaderInfo</code> object when a loaded object is removed.</td></tr></table>
+   * <td><code><b>unload</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/Event.html"><code>Event</code></a></code> â€” Dispatched by the <code>contentLoaderInfo</code> object when a loaded object is removed.</td></tr></table>
    * @throws ArgumentError If the <code>length</code> property of the ByteArray object is not greater than 0.
    * @throws flash.errors.IllegalOperationError If the <code>checkPolicyFile</code> or <code>securityDomain</code> property of the <code>context</code> parameter are non-null.
    * @throws SecurityError If the provided <code>applicationDomain</code> property of the <code>context</code> property is from a disallowed domain.
@@ -237,8 +232,9 @@ public class Loader extends DisplayObjectContainer {
    *
    */
   public function loadBytes(bytes:ByteArray, context:LoaderContext = null):void {
-    _contentLoaderInfo._bytes = bytes;
-    loadFromUrl("data:image/gif;base64," + Base64.encodeBytes(bytes));
+    contentLoaderInfo.setBytes(bytes);
+    contentLoaderInfo.setUrl("data:image/gif;base64," + Base64.encodeBytes(bytes));
+    contentLoaderInfo.load();
   }
 
   /**
@@ -261,22 +257,8 @@ public class Loader extends DisplayObjectContainer {
    *
    */
   public function unload():void {
-    throw new Error('not implemented'); // TODO: implement!
+    contentLoaderInfo.setContent(null);
   }
 
-  // ************************** Jangaroo part **************************
-
-  private function loadFromUrl(url:String):void {
-    var img:HTMLImageElement = new Image();
-    img.addEventListener("load", function():void {
-      var bitmapData:BitmapData = new BitmapData(img['width'], img['height']);
-      _content = new Bitmap(BitmapData.fromImg(img));
-      _contentLoaderInfo.dispatchEvent(new Event(Event.COMPLETE));
-    }, false);
-    img.src = url;
-  }
-
-  private var _contentLoaderInfo: LoaderInfo;
-  private var _content: DisplayObject;
 }
 }

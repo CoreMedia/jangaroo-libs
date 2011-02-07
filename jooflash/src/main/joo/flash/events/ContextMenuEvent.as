@@ -15,16 +15,12 @@ public class ContextMenuEvent extends Event {
   /**
    * The display list object to which the menu is attached. This could be the mouse target (<code>mouseTarget</code>) or one of its ancestors in the display list.
    */
-  public function get contextMenuOwner():InteractiveObject {
-    return _contextMenuOwner;
-  }
+  public native function get contextMenuOwner():InteractiveObject;
 
   /**
    * @private
    */
-  public function set contextMenuOwner(value:InteractiveObject):void {
-    _contextMenuOwner = value;
-  }
+  public native function set contextMenuOwner(value:InteractiveObject):void;
 
   /**
    * The display list object on which the user right-clicked to display the context menu. This could be the display list object to which the menu is attached (<code>contextMenuOwner</code>) or one of its display list descendants.
@@ -32,16 +28,12 @@ public class ContextMenuEvent extends Event {
    * @see #isMouseTargetInaccessible
    *
    */
-  public function get mouseTarget():InteractiveObject {
-    return _mouseTarget;
-  }
+  public native function get mouseTarget():InteractiveObject;
 
   /**
    * @private
    */
-  public function set mouseTarget(value:InteractiveObject):void {
-    _mouseTarget = value;
-  }
+  public native function set mouseTarget(value:InteractiveObject):void;
 
   /**
    * Creates an Event object that contains specific information about menu events. Event objects are passed as parameters to event listeners.
@@ -60,8 +52,8 @@ public class ContextMenuEvent extends Event {
    */
   public function ContextMenuEvent(type:String, bubbles:Boolean = false, cancelable:Boolean = false, mouseTarget:InteractiveObject = null, contextMenuOwner:InteractiveObject = null) {
     super(type, bubbles, cancelable);
-    _mouseTarget = mouseTarget;
-    _contextMenuOwner = contextMenuOwner;
+    this.mouseTarget = mouseTarget;
+    this.contextMenuOwner = contextMenuOwner;
   }
 
   /**
@@ -70,7 +62,7 @@ public class ContextMenuEvent extends Event {
    *
    */
   override public function clone():Event {
-    return new ContextMenuEvent(type, bubbles, cancelable, _mouseTarget, _contextMenuOwner);
+    return new ContextMenuEvent(type, bubbles, cancelable, mouseTarget, contextMenuOwner);
   }
 
   /**
@@ -137,8 +129,5 @@ public class ContextMenuEvent extends Event {
    *
    */
   public static const MENU_SELECT:String = "menuSelect";
-
-  private var _contextMenuOwner:InteractiveObject;
-  private var _mouseTarget:InteractiveObject;
 }
 }

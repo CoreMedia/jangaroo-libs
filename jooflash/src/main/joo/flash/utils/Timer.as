@@ -62,14 +62,15 @@ public class Timer extends EventDispatcher {
    * @private
    */
   public function set repeatCount(value:int):void {
-    throw new Error('not implemented'); // TODO: implement!
+    _repeatCount = value;
+    checkComplete();
   }
 
   /**
    * The timer's current state; <code>true</code> if the timer is running, otherwise <code>false</code>.
    */
   public function get running():Boolean {
-    return this.timer!=null;
+    return timer != null;
   }
 
   /**
@@ -178,7 +179,7 @@ public class Timer extends EventDispatcher {
     }
   }
 
-  private function tick() : void {
+  private function tick():void {
     if (!timer) {
       // oops, a tick occurred although timer has been stopped:
       return;
@@ -191,17 +192,17 @@ public class Timer extends EventDispatcher {
     }
   }
 
-  private function checkComplete() : void {
+  private function checkComplete():void {
     if (_repeatCount > 0 && _currentCount >= _repeatCount) {
       stop();
       this.dispatchEvent(new TimerEvent(TimerEvent.TIMER_COMPLETE));
     }
   }
 
-  private var timer : Object = null;
-  private var _delay : Number;
-  private var _repeatCount : int;
-  private var _currentCount : int = 0;
+  private var timer:Object = null;
+  private var _delay:Number;
+  private var _repeatCount:int;
+  private var _currentCount:int = 0;
 
 }
 }

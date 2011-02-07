@@ -29,27 +29,21 @@ public class Event {
    * <p>When an event occurs, it moves through the three phases of the event flow: the capture phase, which flows from the top of the display list hierarchy to the node just before the target node; the target phase, which comprises the target node; and the bubbling phase, which flows from the node subsequent to the target node back up the display list hierarchy.</p>
    * <p>Some events, such as the <code>activate</code> and <code>unload</code> events, do not have a bubbling phase. The <code>bubbles</code> property has a value of <code>false</code> for events that do not have a bubbling phase.</p>
    */
-  public function get bubbles():Boolean {
-    return _bubbles;
-  }
+  public native function get bubbles():Boolean;
 
   /**
    * Indicates whether the behavior associated with the event can be prevented. If the behavior can be canceled, this value is <code>true</code>; otherwise it is <code>false</code>.
    * @see #preventDefault()
    *
    */
-  public function get cancelable():Boolean {
-    return _cancelable;
-  }
+  public native function get cancelable():Boolean;
 
   /**
    * The object that is actively processing the Event object with an event listener. For example, if a user clicks an OK button, the current target could be the node containing that button or one of its ancestors that has registered an event listener for that event.
    * @see http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118a9b90204-7e55.html Event objects
    *
    */
-  public function get currentTarget():Object {
-    return _currentTarget;
-  }
+  public native function get currentTarget():Object;
 
   /**
    * The current phase in the event flow. This property can contain the following numeric values:
@@ -58,27 +52,21 @@ public class Event {
    * <li>The target phase (<code>EventPhase.AT_TARGET</code>).</li>
    * <li>The bubbling phase (<code>EventPhase.BUBBLING_PHASE</code>).</li></ul>
    */
-  public function get eventPhase():uint {
-    return _eventPhase;
-  }
+  public native function get eventPhase():uint;
 
   /**
    * The event target. This property contains the target node. For example, if a user clicks an OK button, the target node is the display list node containing that button.
    * @see http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118a9b90204-7e55.html Event objects
    *
    */
-  public function get target():Object {
-    return _target;
-  }
+  public native function get target():Object;
 
   /**
    * The type of event. The type is case-sensitive.
    * @see http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118a9b90204-7e55.html Event objects
    *
    */
-  public function get type():String {
-    return _type;
-  }
+  public native function get type():String;
 
   /**
    * Creates an Event object to pass as a parameter to event listeners.
@@ -88,9 +76,9 @@ public class Event {
    *
    */
   public function Event(type:String, bubbles:Boolean = false, cancelable:Boolean = false) {
-    _type = type;
-    _bubbles = bubbles;
-    _cancelable = cancelable;
+    this['type'] = type;
+    this['bubbles'] = bubbles;
+    this['cancelable'] = cancelable;
   }
 
   /**
@@ -843,17 +831,14 @@ public class Event {
     return immediatePropagationStopped;
   }
 
-  private var _type:String;
-
-  private var _bubbles:Boolean;
-
-  private var _cancelable:Boolean;
-
-  private var _eventPhase:uint;
-
-  internal var _target:Object;
-
-  private var _currentTarget:Object;
+  /**
+   * @private
+   */
+  internal function withTarget(target:Object):Event {
+    var event:Event = this.target ? clone() : this;
+    event['target'] = target;
+    return event;
+  }
 
   private var defaultPrevented:Boolean = false;
   private var propagationStopped:Boolean;

@@ -27,16 +27,12 @@ public class TextEvent extends Event {
    *     }
    *    </listing>
    */
-  public function get text():String {
-    return _text;
-  }
+  public native function get text():String;
 
   /**
    * @private
    */
-  public function set text(value:String):void {
-    _text = value;
-  }
+  public native function set text(value:String):void;
 
   /**
    * Creates an Event object that contains information about text events. Event objects are passed as parameters to event listeners.
@@ -50,7 +46,7 @@ public class TextEvent extends Event {
    */
   public function TextEvent(type:String, bubbles:Boolean = false, cancelable:Boolean = false, text:String = "") {
     super(type, bubbles, cancelable);
-    _text = text;
+    this.text = text;
   }
 
   /**
@@ -59,7 +55,7 @@ public class TextEvent extends Event {
    *
    */
   override public function clone():Event {
-    return new TextEvent(type, bubbles, cancelable, _text);
+    return new TextEvent(type, bubbles, cancelable, text);
   }
 
   /**
@@ -269,7 +265,5 @@ public class TextEvent extends Event {
    * </listing>
    */
   public static const TEXT_INPUT:String = "textInput";
-
-  private var _text:String;
 }
 }

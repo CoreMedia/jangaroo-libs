@@ -12,30 +12,22 @@ public class ProgressEvent extends Event {
   /**
    * The number of items or bytes loaded when the listener processes the event.
    */
-  public function get bytesLoaded():Number {
-    return _bytesLoaded;
-  }
+  public native function get bytesLoaded():Number;
 
   /**
    * @private
    */
-  public function set bytesLoaded(value:Number):void {
-    _bytesLoaded = value;
-  }
+  public native function set bytesLoaded(value:Number):void;
 
   /**
    * The total number of items or bytes that will be loaded if the loading process succeeds. If the progress event is dispatched/attached to a Socket object, the bytesTotal will always be 0 unless a value is specified in the bytesTotal parameter of the constructor. The actual number of bytes sent back or forth is not set and is up to the application developer.
    */
-  public function get bytesTotal():Number {
-    return _bytesTotal;
-  }
+  public native function get bytesTotal():Number;
 
   /**
    * @private
    */
-  public function set bytesTotal(value:Number):void {
-    _bytesTotal = value;
-  }
+  public native function set bytesTotal(value:Number):void;
 
   /**
    * Creates an Event object that contains information about progress events. Event objects are passed as parameters to event listeners.
@@ -48,8 +40,8 @@ public class ProgressEvent extends Event {
    */
   public function ProgressEvent(type:String, bubbles:Boolean = false, cancelable:Boolean = false, bytesLoaded:Number = 0, bytesTotal:Number = 0) {
     super(type, bubbles, cancelable);
-    this._bytesLoaded = bytesLoaded;
-    this._bytesTotal = bytesTotal;
+    this.bytesLoaded = bytesLoaded;
+    this.bytesTotal = bytesTotal;
   }
 
   /**
@@ -58,7 +50,7 @@ public class ProgressEvent extends Event {
    *
    */
   override public function clone():Event {
-    return new ProgressEvent(type, bubbles, cancelable, _bytesLoaded, _bytesTotal);
+    return new ProgressEvent(type, bubbles, cancelable, bytesLoaded, bytesTotal);
   }
 
   /**
@@ -68,7 +60,7 @@ public class ProgressEvent extends Event {
    *
    */
   override public function toString():String {
-    return this.formatToString("TimerEvent", "type", "bubbles", "cancelable", "bytesLoaded", "bytesTotal");
+    return formatToString("TimerEvent", "type", "bubbles", "cancelable", "bytesLoaded", "bytesTotal");
   }
 
   /**
@@ -130,7 +122,5 @@ public class ProgressEvent extends Event {
    */
   public static const SOCKET_DATA:String = "socketData";
 
-  private var _bytesLoaded:Number;
-  private var _bytesTotal:Number;
 }
 }

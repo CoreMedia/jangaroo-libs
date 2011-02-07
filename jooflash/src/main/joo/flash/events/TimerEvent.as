@@ -24,7 +24,7 @@ public class TimerEvent extends Event {
    *
    */
   override public function clone():Event {
-    return new TimerEvent(this.type, this.bubbles, this.cancelable);
+    return new TimerEvent(type, bubbles, cancelable);
   }
 
   /**
@@ -34,7 +34,7 @@ public class TimerEvent extends Event {
    *
    */
   override public function toString():String {
-    return this.formatToString("TimerEvent", "type", "bubbles", "cancelable");
+    return formatToString("TimerEvent", "type", "bubbles", "cancelable");
   }
 
   /**

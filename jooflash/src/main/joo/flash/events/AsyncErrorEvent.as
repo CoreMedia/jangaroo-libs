@@ -67,10 +67,5 @@ public class AsyncErrorEvent extends ErrorEvent {
    * <td>The error that triggered the event.</td></tr></table>
    */
   public static const ASYNC_ERROR:String = "asyncError";
-
-  public function get errorID():int {
-    return 0;
-  }
-
 }
 }

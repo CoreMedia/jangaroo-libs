@@ -14,16 +14,12 @@ public class DataEvent extends TextEvent {
   /**
    * The raw data loaded into Flash Player or Adobe AIR.
    */
-  public function get data():String {
-    return _data;
-  }
+  public native function get data():String;
 
   /**
    * @private
    */
-  public function set data(value:String):void {
-    _data = value;
-  }
+  public native function set data(value:String):void;
 
   /**
    * Creates an event object that contains information about data events. Event objects are passed as parameters to event listeners.
@@ -38,7 +34,7 @@ public class DataEvent extends TextEvent {
    */
   public function DataEvent(type:String, bubbles:Boolean = false, cancelable:Boolean = false, data:String = "") {
     super(type, bubbles, cancelable);
-    _data = data;
+    this.data = data;
   }
 
   /**
@@ -47,7 +43,7 @@ public class DataEvent extends TextEvent {
    *
    */
   override public function clone():Event {
-    return new DataEvent(type, bubbles, cancelable, _data);
+    return new DataEvent(type, bubbles, cancelable, data);
   }
 
   /**
@@ -108,7 +104,5 @@ public class DataEvent extends TextEvent {
    *
    */
   public static const UPLOAD_COMPLETE_DATA:String = "uploadCompleteData";
-
-  private var _data:String;
 }
 }

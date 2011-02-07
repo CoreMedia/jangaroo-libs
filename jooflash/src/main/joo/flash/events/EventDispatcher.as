@@ -73,7 +73,7 @@ public class EventDispatcher implements IEventDispatcher {
    *
    */
   public function dispatchEvent(event:Event):Boolean {
-    event._target = this.target || this;
+    event.withTarget(this.target || this);
     var listeners:Array = this.listeners[event.type];
     if (listeners) {
       for (var i:int = 0; i < listeners.length; ++i) {

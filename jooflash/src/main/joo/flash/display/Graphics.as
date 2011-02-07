@@ -92,7 +92,12 @@ public final class Graphics {
    * </listing>
    */
   public function beginBitmapFill(bitmap:BitmapData, matrix:Matrix = null, repeat:Boolean = true, smooth:Boolean = false):void {
-    throw new Error('not implemented'); // TODO: implement!
+    _beginFill(createPattern(bitmap, matrix, repeat, smooth));
+  }
+
+  private function createPattern(bitmap:BitmapData, matrix:Matrix, repeat:Boolean, smooth:Boolean):Object {
+    // TODO: matrix, smooth
+    return context.createPattern(bitmap.getElement(), repeat ? "repeat" : "no-repeat");
   }
 
   /**
@@ -260,7 +265,7 @@ public final class Graphics {
    */
   public function curveTo(controlX:Number, controlY:Number, anchorX:Number, anchorY:Number):void {
     // TODO: more accurate computation of maximum x and y coordinate occupied by this curve!
-    createSpace(Math.max(this.x, anchorX), Math.max(this.y, anchorY));
+    createSpace(Math.max(this.x, controlX, anchorX), Math.max(this.y, controlY, anchorY));
     this.x = anchorX;
     this.y = anchorY;
     this.context.quadraticCurveTo(controlX, controlY, anchorX, anchorY);
@@ -362,7 +367,27 @@ public final class Graphics {
    * </listing>
    */
   public function drawEllipse(x:Number, y:Number, width:Number, height:Number):void {
-    throw new Error('not implemented'); // TODO: implement!
+    var rx:Number = width / 2;
+    var ry:Number = height / 2;
+
+    var cx:Number = x + rx;
+    var cy:Number = y + ry;
+
+    createSpace(x + width, y + height);
+
+    context.beginPath();
+    context.moveTo(cx, cy - ry);
+    context.bezierCurveTo(cx + (KAPPA * rx), cy - ry,  cx + rx, cy - (KAPPA * ry), cx + rx, cy);
+    context.bezierCurveTo(cx + rx, cy + (KAPPA * ry), cx + (KAPPA * rx), cy + ry, cx, cy + ry);
+    context.bezierCurveTo(cx - (KAPPA * rx), cy + ry, cx - rx, cy + (KAPPA * ry), cx - rx, cy);
+    context.bezierCurveTo(cx - rx, cy - (KAPPA * ry), cx - (KAPPA * rx), cy - ry, cx, cy - ry);
+
+    if (this.insideFill) {
+      this.context.fill();
+    }
+    this.context.stroke();
+    this.context.beginPath();
+    this.context.moveTo(x, y);
   }
 
   /**
@@ -569,11 +594,11 @@ public final class Graphics {
    * <p>If a value is not supplied, the line does not use pixel hinting.</p>
    * @param scaleMode (Not supported in Flash Lite 4) A value from the LineScaleMode class that specifies which scale mode to use:
    * <ul>
-   * <li><code>LineScaleMode.NORMAL</code>—Always scale the line thickness when the object is scaled (the default).</li>
-   * <li><code>LineScaleMode.NONE</code>—Never scale the line thickness.</li>
-   * <li><code>LineScaleMode.VERTICAL</code>—Do not scale the line thickness if the object is scaled vertically <i>only</i>. For example, consider the following circles, drawn with a one-pixel line, and each with the <code>scaleMode</code> parameter set to <code>LineScaleMode.VERTICAL</code>. The circle on the left is scaled vertically only, and the circle on the right is scaled both vertically and horizontally:
+   * <li><code>LineScaleMode.NORMAL</code>ï¿½Always scale the line thickness when the object is scaled (the default).</li>
+   * <li><code>LineScaleMode.NONE</code>ï¿½Never scale the line thickness.</li>
+   * <li><code>LineScaleMode.VERTICAL</code>ï¿½Do not scale the line thickness if the object is scaled vertically <i>only</i>. For example, consider the following circles, drawn with a one-pixel line, and each with the <code>scaleMode</code> parameter set to <code>LineScaleMode.VERTICAL</code>. The circle on the left is scaled vertically only, and the circle on the right is scaled both vertically and horizontally:
    * <p><img src="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/images/LineScaleMode_VERTICAL.jpg" /></p></li>
-   * <li><code>LineScaleMode.HORIZONTAL</code>—Do not scale the line thickness if the object is scaled horizontally <i>only</i>. For example, consider the following circles, drawn with a one-pixel line, and each with the <code>scaleMode</code> parameter set to <code>LineScaleMode.HORIZONTAL</code>. The circle on the left is scaled horizontally only, and the circle on the right is scaled both vertically and horizontally:
+   * <li><code>LineScaleMode.HORIZONTAL</code>ï¿½Do not scale the line thickness if the object is scaled horizontally <i>only</i>. For example, consider the following circles, drawn with a one-pixel line, and each with the <code>scaleMode</code> parameter set to <code>LineScaleMode.HORIZONTAL</code>. The circle on the left is scaled horizontally only, and the circle on the right is scaled both vertically and horizontally:
    * <p><img src="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/images/LineScaleMode_HORIZONTAL.jpg" /></p></li></ul>
    * @param caps (Not supported in Flash Lite 4) A value from the CapsStyle class that specifies the type of caps at the end of lines. Valid values are: <code>CapsStyle.NONE</code>, <code>CapsStyle.ROUND</code>, and <code>CapsStyle.SQUARE</code>. If a value is not indicated, Flash uses round caps.
    * <p>For example, the following illustrations show the different <code>capsStyle</code> settings. For each setting, the illustration shows a blue line with a thickness of 30 (for which the <code>capsStyle</code> applies), and a superimposed black line with a thickness of 1 (for which no <code>capsStyle</code> applies):</p>
@@ -848,5 +873,8 @@ public final class Graphics {
                      :  "rgb(" + params + ")";
     
   }
+
+  private static const KAPPA:Number = 4 * ((Math.sqrt(2) -1) / 3);
+
 }
 }

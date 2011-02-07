@@ -18,16 +18,12 @@ public class StatusEvent extends Event {
    * @see flash.net.LocalConnection
    *
    */
-  public function get code():String {
-    return _code;
-  }
+  public native function get code():String;
 
   /**
    * @private
    */
-  public function set code(value:String):void {
-    _code = value;
-  }
+  public native function set code(value:String):void;
 
   /**
    * The category of the message, such as <code>"status"</code>, <code>"warning"</code> or <code>"error"</code>.
@@ -36,16 +32,12 @@ public class StatusEvent extends Event {
    * @see flash.net.LocalConnection
    *
    */
-  public function get level():String {
-    return _level;
-  }
+  public native function get level():String;
 
   /**
    * @private
    */
-  public function set level(value:String):void {
-    _level = value;
-  }
+  public native function set level(value:String):void;
 
   /**
    * Creates an Event object that contains information about status events. Event objects are passed as parameters to event listeners.
@@ -60,8 +52,8 @@ public class StatusEvent extends Event {
    */
   public function StatusEvent(type:String, bubbles:Boolean = false, cancelable:Boolean = false, code:String = "", level:String = "") {
     super(type, bubbles, cancelable);
-    _code = code;
-    _level = level;
+    this.code = code;
+    this.level = level;
   }
 
   /**
@@ -70,7 +62,7 @@ public class StatusEvent extends Event {
    *
    */
   override public function clone():Event {
-    return new StatusEvent(type, bubbles, cancelable, _code, _level);
+    return new StatusEvent(type, bubbles, cancelable, code, level);
   }
 
   /**
@@ -116,7 +108,5 @@ public class StatusEvent extends Event {
    */
   public static const STATUS:String = "status";
 
-  private var _code:String;
-  private var _level:String;
 }
 }
