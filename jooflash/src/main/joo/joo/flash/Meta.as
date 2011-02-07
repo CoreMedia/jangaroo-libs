@@ -22,7 +22,7 @@ public class Meta {
   public static function embed(classDeclaration:JooClassDeclaration, memberDeclaration:MemberDeclaration, parameters:Object):void {
     var relativeUrl:String = parameters['source'];
     var resource:Object = DynamicClassLoader.INSTANCE.getResource(relativeUrl);
-    var EmbedClass:Class;
+    var EmbedClass:Function;
     var superClassDeclaration:JooClassDeclaration;
     if (resource) {
       if (resource is HTMLImageElement) {

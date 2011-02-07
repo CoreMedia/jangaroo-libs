@@ -22,7 +22,7 @@ public class Run {
       var swf:Object = metadata['SWF'];
       var stage : Stage = new Stage(id, swf);
       // use Jangaroo tricks to add the DisplayObject to the Stage before its constructor is called:
-      var displayObject:DisplayObject = new cd.Public();
+      var displayObject:DisplayObject = DisplayObject(new cd.Public());
       stage.addChild(displayObject);
       cd.constructor_.call(displayObject);
     });
