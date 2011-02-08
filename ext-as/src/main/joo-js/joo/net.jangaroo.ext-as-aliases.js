@@ -21,7 +21,7 @@ Ext.iterate({getTimezone: 0, getDayOfYear:0, getWeekOfYear:0, isLeapYear:0, getF
   function(method, arity) {
     // We could do this in a general fashion, but that would mean using apply() combined with Array#slice(),
     // which is more runtime overhead.
-    Date[method] =
+    ext.util.DateUtil[method] =
       arity === 0 ?
         function(date) {
           return date[method]();
@@ -36,6 +36,20 @@ Ext.iterate({getTimezone: 0, getDayOfYear:0, getWeekOfYear:0, isLeapYear:0, getF
         };
   });
 ext.util.StringUtil = String;
+ext.util.FunctionUtil = {
+  createCallback:  function createCallback(fn) {
+    return fn.createCallback.apply(fn, Array.prototype.slice.call(arguments, 1));
+  },
+  createDelegate: function createDelegate(fn, scope, args, appendArgs) {
+    return fn.createDelegate(scope, args, appendArgs);
+  },
+  createInterceptor: function createInterceptor(fn, fcn, scope) {
+    return fn.createInterceptor(fcn, scope);
+  },
+  defer: function defer(fn, millis, scope, args, appendArgs) {
+    return fn.defer(millis, scope, args, appendArgs);
+  }
+};
 // aliases for overloaded methods, renamed in Ext AS API:
 ext.menu.Menu.prototype.showMenu = Ext.menu.Menu.prototype.show;
 ext.Component.prototype.addClasses = Ext.Component.prototype.addClass;
