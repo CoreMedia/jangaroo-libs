@@ -1,16 +1,14 @@
 package flash.display {
 import flash.accessibility.AccessibilityProperties;
-import flash.events.KeyboardEvent;
-
+import flash.events.Event;
 import flash.events.EventDispatcher;
+import flash.events.KeyboardEvent;
+import flash.events.MouseEvent;
 import flash.geom.Point;
 import flash.geom.Rectangle;
-
-import js.Event;
-import flash.events.Event;
-import flash.events.MouseEvent;
 import flash.geom.Transform;
 
+import js.Event;
 import js.HTMLElement;
 import js.Style;
 
@@ -1409,6 +1407,13 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * @private
    */
   public native function set parent(parent : DisplayObjectContainer) : void;
+
+  /**
+   * @private
+   */
+  protected function broadcastEvent(event:flash.events.Event):Boolean {
+    return dispatchEvent(event);
+  }
 
   private static const DOM_EVENT_TO_MOUSE_EVENT : Object/*<String,String>*/ = {
     'click':     MouseEvent.CLICK,

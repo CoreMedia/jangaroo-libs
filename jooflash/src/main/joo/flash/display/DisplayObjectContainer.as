@@ -1,6 +1,5 @@
 package flash.display {
 import flash.events.Event;
-
 import flash.geom.Point;
 import flash.text.TextSnapshot;
 
@@ -258,6 +257,9 @@ public class DisplayObjectContainer extends InteractiveObject {
       containerElement.insertBefore(childElement, refChild.getElement());
     } else {
       containerElement.appendChild(childElement);
+    }
+    if (stage) {
+      child.broadcastEvent(new Event(Event.ADDED_TO_STAGE, false, false));
     }
     return child;
   }
@@ -735,16 +737,14 @@ public class DisplayObjectContainer extends InteractiveObject {
   /**
    * @private
    */
-  protected function broadcastEvent(event:Event):void {
-    this.dispatchEvent(event);
-    children.forEach(function(child:DisplayObject):void {
-      var subContainer:DisplayObjectContainer = child as DisplayObjectContainer;
-      if (subContainer) {
-        subContainer.broadcastEvent(event);
-      } else {
-        child.dispatchEvent(event);
-      }
-    });
+  override protected function broadcastEvent(event:Event):Boolean {
+    if (dispatchEvent(event)) { // same as super.broadcastEvent(event), but more efficient
+      children.every(function(child:DisplayObject):Boolean {
+        return child.broadcastEvent(event);
+      });
+      return true;
+    }
+    return false;
   }
 
   private var children : Array/*<DisplayObject>*/;

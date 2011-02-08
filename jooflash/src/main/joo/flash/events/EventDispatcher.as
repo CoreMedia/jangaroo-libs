@@ -73,6 +73,10 @@ public class EventDispatcher implements IEventDispatcher {
    *
    */
   public function dispatchEvent(event:Event):Boolean {
+    if (!this.listeners) {
+      // someone tries to fire an event before having called super(), ignore:
+      return false;
+    }
     event.withTarget(this.target || this);
     var listeners:Array = this.listeners[event.type];
     if (listeners) {
@@ -82,11 +86,11 @@ public class EventDispatcher implements IEventDispatcher {
           event.preventDefault();
         }
         if (event.isImmediatePropagationStopped()) {
-          return false;
+          break;
         }
       }
     }
-    return event.isDefaultPrevented();
+    return !event.isDefaultPrevented();
   }
 
   /**
