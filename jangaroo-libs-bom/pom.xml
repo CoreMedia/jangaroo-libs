@@ -72,6 +72,12 @@
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
+        <artifactId>jangaroo-net</artifactId>
+        <version>${project.version}</version>
+        <type>jangaroo</type>
+      </dependency>
+      <dependency>
+        <groupId>net.jangaroo</groupId>
         <artifactId>com.schillmania.soundmanager2</artifactId>
         <version>${project.version}</version>
         <type>jangaroo</type>
