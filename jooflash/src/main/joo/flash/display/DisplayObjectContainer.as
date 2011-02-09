@@ -4,6 +4,7 @@ import flash.geom.Point;
 import flash.text.TextSnapshot;
 
 import js.Element;
+import js.HTMLElement;
 
 /**
  * The DisplayObjectContainer class is the base class for all objects that can serve as display object containers on the display list. The display list manages all objects displayed in the Flash runtimes. Use the DisplayObjectContainer class to arrange the display objects in the display list. Each DisplayObjectContainer object has its own child list for organizing the z-order of the objects. The z-order is the front-to-back order that determines which object is drawn in front, which is behind, and so on.
@@ -244,24 +245,38 @@ public class DisplayObjectContainer extends InteractiveObject {
    * </listing>
    */
   public function addChildAt(child:DisplayObject, index:int):DisplayObject {
-    if (child.parent) {
-      child.parent.removeChild(child);
+    var wasInStage:Boolean = !!child.stage;
+    internalAddChildAt(child, index);
+    var isInStage:Boolean = !!stage;
+    if (wasInStage !== isInStage) {
+      child.broadcastEvent(new Event(isInStage ? Event.ADDED_TO_STAGE : Event.REMOVED_FROM_STAGE, false, false));
     }
-    var refChild : DisplayObject = this.children[index];
+    return child;
+  }
+
+  /**
+   * @private
+   */
+  public function internalAddChildAt(child:DisplayObject, index:int):void {
+    var containerElement:Element = this.getElement();
+    var childElement:Element = child.getElement();
+    assert(containerElement.childNodes.length === children.length);
+    var oldParent:DisplayObjectContainer = child.parent;
+    if (oldParent) {
+      oldParent.removeChild(child);
+    } else {
+      assert(!childElement.parentNode);
+    }
+    var refChild:DisplayObject = this.children[index];
     this.children.splice(index, 0, child);
     child.parent = this;
     // also add to DOM:
-    var containerElement:Element = this.getElement();
-    var childElement:Element = child.getElement();
     if (refChild) {
       containerElement.insertBefore(childElement, refChild.getElement());
     } else {
       containerElement.appendChild(childElement);
     }
-    if (stage) {
-      child.broadcastEvent(new Event(Event.ADDED_TO_STAGE, false, false));
-    }
-    return child;
+    assert(containerElement.childNodes.length === children.length);
   }
 
   /**
@@ -335,7 +350,11 @@ public class DisplayObjectContainer extends InteractiveObject {
    * </listing>
    */
   public function contains(child:DisplayObject):Boolean {
-    throw new Error('not implemented'); // TODO: implement!
+    return child === this || children.some(function(someChild:DisplayObject):Boolean {
+      var container:DisplayObjectContainer = someChild as DisplayObjectContainer;
+      return container ? container.contains(child) : someChild === child;
+    });
+
   }
 
   /**
@@ -406,7 +425,13 @@ public class DisplayObjectContainer extends InteractiveObject {
    * </listing>
    */
   public function getChildByName(name:String):DisplayObject {
-    throw new Error('not implemented'); // TODO: implement!
+    for (var i:int = 0; i < children.length; i++) {
+      var child:DisplayObject = children[i];
+      if (child.name === name) {
+        return child;
+      }
+    }
+    return null;
   }
 
   /**
@@ -437,7 +462,11 @@ public class DisplayObjectContainer extends InteractiveObject {
    * </listing>
    */
   public function getChildIndex(child:DisplayObject):int {
-    throw new Error('not implemented'); // TODO: implement!
+    var index:int = children.indexOf(child);
+    if (index == -1) {
+      throw new ArgumentError();
+    }
+    return index;
   }
 
   /**
@@ -520,11 +549,7 @@ public class DisplayObjectContainer extends InteractiveObject {
    * </listing>
    */
   public function removeChild(child:DisplayObject):DisplayObject {
-    var index:int = children.indexOf(child);
-    if (index == -1) {
-      throw new ArgumentError;
-    }
-    return removeChildAt(index);
+    return removeChildAt(getChildIndex(child));
   }
 
   /**
@@ -558,11 +583,15 @@ public class DisplayObjectContainer extends InteractiveObject {
    * </listing>
    */
   public function removeChildAt(index:int):DisplayObject {
+    var containerElement:HTMLElement = getElement();
+    assert(containerElement.childNodes.length === children.length);
     var child:DisplayObject = children.splice(index, 1)[0];
     child.parent = null;
     // if successful, remove in DOM, too:
     var childElement:Element = child.getElement();
-    getElement().removeChild(childElement);
+    containerElement.removeChild(childElement);
+    assert(!childElement.parentNode);
+    assert(containerElement.childNodes.length === children.length);
     return child;
   }
 
@@ -619,7 +648,8 @@ public class DisplayObjectContainer extends InteractiveObject {
    * </listing>
    */
   public function setChildIndex(child:DisplayObject, index:int):void {
-    throw new Error('not implemented'); // TODO: implement!
+    removeChild(child);
+    addChildAt(child, index);
   }
 
   /**
@@ -700,12 +730,13 @@ public class DisplayObjectContainer extends InteractiveObject {
     if (index1 > index2) {
       swapChildrenAt(index2, index1);
     } else if (index1 < index2) {
+      var containerElement:Element = this.getElement();
+      assert(containerElement.childNodes.length === children.length);
       var child1 : DisplayObject = this.children[index1];
       var child2 : DisplayObject = this.children[index2];
       children.splice(index1, 1, child2);
       children.splice(index2, 1, child1);
       // also change in DOM, mind to insert left element first:
-      var containerElement:Element = this.getElement();
       var child1Element:Element = child1.getElement();
       var child2Element:Element = child2.getElement();
       var refElement:Element = Element(child2Element.nextSibling); // since index1 < index2, refElement cannot be child1Element
@@ -715,6 +746,7 @@ public class DisplayObjectContainer extends InteractiveObject {
       } else {
         containerElement.appendChild(child1Element);
       }
+      assert(containerElement.childNodes.length === children.length);
     }
   }
 
@@ -737,7 +769,7 @@ public class DisplayObjectContainer extends InteractiveObject {
   /**
    * @private
    */
-  override protected function broadcastEvent(event:Event):Boolean {
+  override public function broadcastEvent(event:Event):Boolean {
     if (dispatchEvent(event)) { // same as super.broadcastEvent(event), but more efficient
       children.every(function(child:DisplayObject):Boolean {
         return child.broadcastEvent(event);

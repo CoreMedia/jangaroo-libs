@@ -1125,9 +1125,9 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * @private
    */
   public function set x(value:Number):void {
-    this._x = isNaN(value) ? 0 : value;
+    this._x = value || 0;
     if (this._elem) {
-      this._elem.style.left = numberToStyleLength(value);
+      this._elem.style.left = this._x + "px";
     }
   }
 
@@ -1163,9 +1163,9 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * @private
    */
   public function set y(value:Number):void {
-    this._y = isNaN(value) ? 0 : value;
+    this._y = value || 0;
     if (this._elem) {
-      this._elem.style.top = numberToStyleLength(value);
+      this._elem.style.top = this._y + "px";
     }
   }
 
@@ -1411,7 +1411,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
   /**
    * @private
    */
-  protected function broadcastEvent(event:flash.events.Event):Boolean {
+  public function broadcastEvent(event:flash.events.Event):Boolean {
     return dispatchEvent(event);
   }
 
