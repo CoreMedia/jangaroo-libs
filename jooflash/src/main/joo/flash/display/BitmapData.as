@@ -382,15 +382,19 @@ public class BitmapData implements IBitmapDrawable {
     var context:CanvasRenderingContext2D;
     var destRect:Rectangle = new Rectangle(destPoint.x, destPoint.y, sourceRect.width, sourceRect.height);
     destRect = destRect.intersection(rect);
+    destRect.width = Math.floor(destRect.width);
+    destRect.height = Math.floor(destRect.height);
     if (destRect.width > 0 && destRect.height > 0) {
+      var sx:Number = sourceRect.x + (destRect.left - destPoint.x);
+      var sy:Number = sourceRect.y + (destRect.top - destPoint.y);
       if (!sourceBitmapData.isCanvas) {
         if (destRect.equals(rect) && (!isCanvas || !mergeAlpha)) {
           // the whole Bitmap is to become a copy of (a clipping of) the source bitmap
           _fillColor = sourceBitmapData._fillColor;
           _alpha = sourceBitmapData._alpha;
           image = sourceBitmapData.image;
-          imageOffsetX = sourceRect.x + sourceBitmapData.imageOffsetX;
-          imageOffsetY = sourceRect.y + sourceBitmapData.imageOffsetY;
+          imageOffsetX = sx + sourceBitmapData.imageOffsetX;
+          imageOffsetY = sy + sourceBitmapData.imageOffsetY;
           if (elem) {
             asDiv(); // updates existing div
           }
@@ -404,18 +408,18 @@ public class BitmapData implements IBitmapDrawable {
           }
           if (sourceBitmapData.image) {
             // then, draw source image onto destination rectangle:
-            context.drawImage(sourceBitmapData.image, sourceRect.x, sourceRect.y, destRect.width, destRect.height,
-              destPoint.x, destPoint.y, destRect.width, destRect.height);
+            context.drawImage(sourceBitmapData.image, sx, sy, destRect.width, destRect.height,
+              destRect.left, destRect.top, destRect.width, destRect.height);
           }
         }
       } else {
         context = getContext();
         if (mergeAlpha) {
           // putImageData() does not support alpha channel, so use drawImage():
-          context.drawImage(sourceBitmapData.asCanvas(), sourceRect.x, sourceRect.y, destRect.width, destRect.height,
+          context.drawImage(sourceBitmapData.asCanvas(), sx, sy, destRect.width, destRect.height,
             destPoint.x, destPoint.y, destRect.width, destRect.height);
         } else {
-          var imageData:ImageData = sourceBitmapData.getContext().getImageData(sourceRect.x, sourceRect.y, destRect.width, destRect.height);
+          var imageData:ImageData = sourceBitmapData.getContext().getImageData(sx, sy, destRect.width, destRect.height);
           context.putImageData(imageData, destPoint.x, destPoint.y);
         }
       }
@@ -1323,7 +1327,7 @@ public class BitmapData implements IBitmapDrawable {
       changeElement(div);
     }
     elem.style.backgroundColor = Graphics.toRGBA(_fillColor, _alpha);
-    elem.style.backgroundImage = image ? "url('" + image.src + ")" : "none";
+    elem.style.backgroundImage = image ? "url('" + image.src + "')" : "none";
     return elem;
   }
 
