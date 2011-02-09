@@ -31,7 +31,7 @@ public class FunctionUtil {
    * @param args the arguments that are passed to the original function when invoking the returned function
    * @return The new function
    *
-   * @see #createDelegate
+   * @see #createDelegate()
    */
   public static native function createCallback(fn:Function, ...args):Function;
 
@@ -125,7 +125,7 @@ public class FunctionUtil {
    * if a number, the args are inserted at the specified position
    * @return The timeout id that can be used with clearTimeout
    *
-   * @see js.Window#clearTimeout
+   * @see js.Window#clearTimeout()
    */
   public static native function defer(fn:Function, millis:Number, scope:Object = undefined, args:Array = undefined, appendArgs:* = undefined):Number;
 
