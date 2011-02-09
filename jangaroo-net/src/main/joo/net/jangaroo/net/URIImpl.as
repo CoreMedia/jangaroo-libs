@@ -80,7 +80,7 @@ class URIImpl implements URI {
    *
    * @param reference the URI to relativize. Must be an absolute URI.
    * @return an URI which yields the reference URI when resolved against the given base URI
-   * @throws Error (todo IllegalArgumentException) if base or reference are relative URIs
+   * @throws URIError (todo IllegalArgumentException) if base or reference are relative URIs
    */
   public function relativize(reference:URI):URI {
     if (!isAbsolute) {
@@ -119,16 +119,18 @@ class URIImpl implements URI {
                   targetFragment !== null &&
                   targetFragment.length > 0) {
             // reference to 'current document'
-            targetPath = null;
+            targetPath = "";
             targetQuery = null;
           } else {
             if (equalPaths) {
               // relative reference to directory
-              targetPath = targetQuery === null
-                      ? targetPathSegments[targetPathSegments.length - 1]
-                      : null;
-              if ("" === targetPath) {
-                targetPath = ".";
+              if (targetQuery === null) {
+                targetPath = targetPathSegments[targetPathSegments.length - 1];
+                if ("" === targetPath) {
+                  targetPath = ".";
+                }
+              } else {
+                targetPath = "";
               }
             } else {
               targetPath = relativizePath(baseSegments, targetPathSegments);

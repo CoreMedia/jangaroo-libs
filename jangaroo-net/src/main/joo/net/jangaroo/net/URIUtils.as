@@ -28,7 +28,7 @@ public class URIUtils {
   /**
    * Create an URI from its components
    */
-  public function create(scheme:String, authority:String, path:String, query:String, fragment:String):URI {
+  public function create(scheme:String = null, authority:String = null, path:String = "", query:String = null, fragment:String = null):URI {
     return new URIImpl(scheme, authority, path, query, fragment);
   }
 
@@ -44,14 +44,14 @@ public class URIUtils {
     return new URIImpl(
             ifPresentOrNull(match, URI_PATTERN_GROUP_SCHEME, URI_PATTERN_GROUP_SCHEME_PRESENT),
             ifPresentOrNull(match, URI_PATTERN_GROUP_AUTHORITY, URI_PATTERN_GROUP_AUTHORITY_PRESENT),
-            ifPresentOrNull(match, URI_PATTERN_GROUP_PATH, URI_PATTERN_GROUP_PATH),
+            ifPresentOrNull(match, URI_PATTERN_GROUP_PATH, URI_PATTERN_GROUP_PATH, ""),
             ifPresentOrNull(match, URI_PATTERN_GROUP_QUERY, URI_PATTERN_GROUP_QUERY_PRESENT),
             ifPresentOrNull(match, URI_PATTERN_GROUP_FRAGMENT, URI_PATTERN_GROUP_FRAGMENT_PRESENT));
   }
 
-  private static function ifPresentOrNull(match:Array, valueGroup:int, presentGroup:int):String {
+  private static function ifPresentOrNull(match:Array, valueGroup:int, presentGroup:int, defaultValue:String = null):String {
     const present:String = match[presentGroup];
-    return present ? match[valueGroup] : null;
+    return present ? match[valueGroup] : defaultValue;
   }
 
   /**
