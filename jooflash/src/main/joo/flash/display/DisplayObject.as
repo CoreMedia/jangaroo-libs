@@ -414,7 +414,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    */
   public function set height(value:Number):void {
     var style:Style = getElement().style;
-    var oldHeight:Number = styleLengthToNumber(style.height);
+    var oldHeight:Number = this.height;
     if (!isNaN(value)) {
       if (style.paddingTop) {
         value -= styleLengthToNumber(style.paddingTop);
@@ -424,7 +424,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
       }
     }
     style.height = numberToStyleLength(value);
-    if (!isNaN(oldHeight) && !isNaN(value)) {
+    if (oldHeight && value) {
       _scaleY = value / oldHeight;
     }
   }
@@ -513,7 +513,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * </listing>
    */
   public function get mouseX():Number {
-    return 0; // TODO: implement!
+    return stage ? stage.mouseX / _scaleX : NaN;
   }
 
   /**
@@ -537,7 +537,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * </listing>
    */
   public function get mouseY():Number {
-    return 0; // TODO: implement!
+    return stage ? stage.mouseY / _scaleY : NaN;
   }
 
   /**
@@ -838,7 +838,12 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * @private
    */
   public function set scaleX(value:Number):void {
-    width *= value / _scaleX; // sets _scaleX as a side-effect
+    var width:Number = this.width;
+    if (width) {
+      this.width = width * value / _scaleX; // sets _scaleX as a side-effect
+    } else {
+      _scaleX = value;
+    }
   }
 
   /**
@@ -870,7 +875,12 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * @private
    */
   public function set scaleY(value:Number):void {
-    height *= value / _scaleY; // sets _scaleY as a side-effect
+    var height:Number = this.height;
+    if (height) {
+      this.height = height * value / _scaleY; // sets _scaleY as a side-effect
+    } else {
+      _scaleY = value;
+    }
   }
 
   /**
@@ -1072,7 +1082,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    */
   public function set width(value:Number):void {
     var style:Style = getElement().style;
-    var oldWidth:Number = styleLengthToNumber(style.width);
+    var oldWidth:Number = this.width;
     if (!isNaN(value)) {
       if (style.paddingLeft) {
         value -= styleLengthToNumber(style.paddingLeft);
@@ -1082,7 +1092,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
       }
     }
     style.width = numberToStyleLength(value);
-    if (!isNaN(oldWidth) && !isNaN(value)) {
+    if (oldWidth && value) {
       _scaleX = value / oldWidth;
     }
   }
