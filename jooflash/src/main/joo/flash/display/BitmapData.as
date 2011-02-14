@@ -417,10 +417,10 @@ public class BitmapData implements IBitmapDrawable {
         if (mergeAlpha) {
           // putImageData() does not support alpha channel, so use drawImage():
           context.drawImage(sourceBitmapData.asCanvas(), sx, sy, destRect.width, destRect.height,
-            destPoint.x, destPoint.y, destRect.width, destRect.height);
+            destRect.x, destRect.y, destRect.width, destRect.height);
         } else {
           var imageData:ImageData = sourceBitmapData.getContext().getImageData(sx, sy, destRect.width, destRect.height);
-          context.putImageData(imageData, destPoint.x, destPoint.y);
+          context.putImageData(imageData, destRect.x, destRect.y);
         }
       }
     }
@@ -502,7 +502,7 @@ public class BitmapData implements IBitmapDrawable {
       bitmapData = source as BitmapData;
     }
     var element:HTMLElement = bitmapData ?
-      bitmapData.image || bitmapData.elem :
+      bitmapData.image || bitmapData.elem || bitmapData.asDiv() :
       DisplayObject(source).getElement();
     var context:CanvasRenderingContext2D = getContext();
     if (matrix) {
@@ -512,12 +512,12 @@ public class BitmapData implements IBitmapDrawable {
     if (element is HTMLImageElement || element is HTMLCanvasElement) {
       context.drawImage(element, 0, 0);
     } else {
+      if (element.style.backgroundColor) {
+        context.fillStyle = element.style.backgroundColor;
+        context.fillRect(0, 0, bitmapData.width, bitmapData.height);
+      }
       var text:String = element['textContent'];
       if (text) {
-        if (element.style.backgroundColor) {
-          context.fillStyle = element.style.backgroundColor;
-          context.fillRect(0, 0, width, height);
-        }
         context.fillStyle = element.style.color;
         context.font = element.style.font;
         context.textBaseline = "top";
@@ -1318,7 +1318,11 @@ public class BitmapData implements IBitmapDrawable {
   }
 
   public function asDiv():HTMLElement {
+    var url:String;
     if (!elem || isCanvas) {
+      if (isCanvas) {
+        url = asCanvas().toDataURL();
+      }
       isCanvas = false;
       var div:HTMLElement = HTMLElement(window.document.createElement("DIV"));
       div.style.position = "absolute";
@@ -1326,8 +1330,11 @@ public class BitmapData implements IBitmapDrawable {
       div.style.height = height + "px";
       changeElement(div);
     }
+    if (image) {
+      url = image.src;
+    }
     elem.style.backgroundColor = Graphics.toRGBA(_fillColor, _alpha);
-    elem.style.backgroundImage = image ? "url('" + image.src + "')" : "none";
+    elem.style.backgroundImage = url ? "url('" + url + "')" : "none";
     return elem;
   }
 
