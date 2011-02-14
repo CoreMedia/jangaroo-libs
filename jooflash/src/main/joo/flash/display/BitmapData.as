@@ -408,7 +408,8 @@ public class BitmapData implements IBitmapDrawable {
           }
           if (sourceBitmapData.image) {
             // then, draw source image onto destination rectangle:
-            context.drawImage(sourceBitmapData.image, sx, sy, destRect.width, destRect.height,
+            context.drawImage(sourceBitmapData.image, sx + sourceBitmapData.imageOffsetX, sy + sourceBitmapData.imageOffsetY,
+              destRect.width, destRect.height,
               destRect.left, destRect.top, destRect.width, destRect.height);
           }
         }
@@ -514,7 +515,7 @@ public class BitmapData implements IBitmapDrawable {
     } else {
       if (element.style.backgroundColor) {
         context.fillStyle = element.style.backgroundColor;
-        context.fillRect(0, 0, bitmapData.width, bitmapData.height);
+        context.fillRect(0, 0, source['width'], source['height']);
       }
       var text:String = element['textContent'];
       if (text) {
