@@ -514,10 +514,14 @@ public class Matrix {
       var b : Number = this.b;
       var c : Number = this.c;
       var d : Number = this.d;
+      var tx : Number = this.tx;
+      var ty : Number = this.ty;
       this.a   = a*cos  - c*sin;
       this.b   = a*sin  + c*cos;
       this.c   = b*cos  - d*sin;
       this.d   = b*sin  + d*cos;
+      this.tx  = tx*cos - ty*sin;
+      this.ty  = tx*sin + ty*cos;
     }
   }
 
@@ -534,11 +538,11 @@ public class Matrix {
   public function scale(sx:Number, sy:Number):void {
     if (sx != 1) {
       a *= sx;
-      c *= sx;
+      tx *= sx;
     }
     if (sy != 1) {
-      b *= sy;
       d *= sy;
+      ty *= sy;
     }
   }
 
@@ -571,7 +575,8 @@ public class Matrix {
    *
    */
   public function translate(dx:Number, dy:Number):void {
-    tx += dx; ty += dy;
+    tx += dx;
+    ty += dy;
   }
 
   // ************************** Jangaroo part **************************
@@ -581,5 +586,8 @@ public class Matrix {
    */
   public static const MAGIC_GRADIENT_FACTOR:Number = 16384/10;
 
+  // TODO: Adobe's documentation of this class seems quite incomplete.
+  // I used http://www.senocular.com/flash/tutorials/transformmatrix/ to find out the implementation
+  // that matches Flash 9.
 }
 }
