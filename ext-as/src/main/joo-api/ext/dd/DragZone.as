@@ -104,5 +104,5 @@ public function DragZone(el : *, config : Object) {
      * @param e The mouse up event
      * @return The xy location (e.g. [100, 200])
      */
-     override protected native function getRepairXY(target : Object, e : EventObjectClass, id : String) : void;
+     override protected native function getRepairXY(target : Object, e : EventObjectClass, id : String) : Array;
 }}
