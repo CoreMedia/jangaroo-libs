@@ -340,7 +340,7 @@ public class TextField extends InteractiveObject {
    *
    */
   public function get defaultTextFormat():TextFormat {
-    return _textFormat;
+    return _defaultTextFormat;
   }
 
   /**
@@ -351,7 +351,7 @@ public class TextField extends InteractiveObject {
       if (value.hasOwnProperty(property)) {
         var val:* = value[property];
         if (typeof val !== "function" && val !== null && val !== "") {
-          _textFormat[property] = value[property];
+          _defaultTextFormat[property] = value[property];
         }
       }
     }
@@ -1108,14 +1108,14 @@ public class TextField extends InteractiveObject {
    * </listing>
    */
   public function get textColor():uint {
-    return uint(_textFormat.color);
+    return uint(_textFormat.color !== null ? _textFormat.color : _defaultTextFormat.color);
   }
 
   /**
    * @private
    */
   public function set textColor(value:uint):void {
-    _textFormat.color = value;
+    _defaultTextFormat.color = _textFormat.color = value;
     if (hasElement()) {
       updateElementProperty(getElement(), "style.color", Graphics.toRGBA(value));
     }
@@ -2020,7 +2020,11 @@ public class TextField extends InteractiveObject {
     }
     lineMetricsContext.font = asWebFont();
     var width:int = lineMetricsContext.measureText(_lines[lineIndex]).width;
-    return new TextLineMetrics(0, width, int(_textFormat.size), 0, 0, 0);
+    return new TextLineMetrics(0, width, getSize(), 0, 0, 0);
+  }
+
+  private function getSize():int {
+    return int(_textFormat.size !== null ? _textFormat.size : _defaultTextFormat.size);
   }
 
   /**
@@ -2510,14 +2514,17 @@ public class TextField extends InteractiveObject {
    */
   public function setTextFormat(format:TextFormat, beginIndex:int = -1, endIndex:int = -1):void {
     // TODO: beginIndex, endIndex
-    defaultTextFormat = format;
+    _textFormat = format;
+    if (hasElement()) {
+      syncTextFormat(getElement());
+    }
   }
 
   // ************************** Jangaroo part **************************
 
   private function asWebFont():String {
-    var webFont:String = _textFormat.size + "px ";
-    switch (_textFormat.font) {
+    var webFont:String = getSize() + "px ";
+    switch (_textFormat.font !== null ? _textFormat.font : _defaultTextFormat.font) {
       case "Times New Roman":
         webFont += "Times New Roman,serif"; break;
       case "Arial":
@@ -2542,10 +2549,13 @@ public class TextField extends InteractiveObject {
 
   private function syncTextFormat(element:HTMLElement):void {
     updateElementProperty(element, "style.font", asWebFont());
-    updateElementProperty(element, "style.color", Graphics.toRGBA(uint(_textFormat.color)));
-    updateElementProperty(element, "style.fontWeight", _textFormat.bold ? "bold" : "normal");
-    updateElementProperty(element, "style.fontStyle", _textFormat.italic ? "italic" : "normal");
-    updateElementProperty(element, "style.textAlign", _textFormat.align);
+    updateElementProperty(element, "style.color", Graphics.toRGBA(textColor));
+    var bold:Boolean = _textFormat.bold !== null ? _textFormat.bold : _defaultTextFormat.bold;
+    updateElementProperty(element, "style.fontWeight", bold ? "bold" : "normal");
+    var italic:Boolean = _textFormat.italic !== null ? _textFormat.italic : _defaultTextFormat.italic;
+    updateElementProperty(element, "style.fontStyle", italic ? "italic" : "normal");
+    var align:Boolean = _textFormat.align !== null ? _textFormat.align : _defaultTextFormat.align;
+    updateElementProperty(element, "style.textAlign", align);
   }
 
   /**
@@ -2592,7 +2602,8 @@ public class TextField extends InteractiveObject {
   private var _selectionBeginIndex:int;
   private var _selectionEndIndex:int;
   private var _sharpness:Number;
-  private var _textFormat:TextFormat = new TextFormat("Times New Roman", 12, 0, false, false, false, "", "", TextFormatAlign.LEFT, 0, 0, 0, 0);
+  private var _defaultTextFormat:TextFormat = new TextFormat("Times New Roman", 12, 0, false, false, false, "", "", TextFormatAlign.LEFT, 0, 0, 0, 0);
+  private var _textFormat:TextFormat = new TextFormat();
   private var _lines:Array/*String*/;
   private var _styleSheet:StyleSheet;
   private var _textHeight:Number;
