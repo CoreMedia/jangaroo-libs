@@ -22,6 +22,13 @@ public class Meta {
   public static function embed(classDeclaration:JooClassDeclaration, memberDeclaration:MemberDeclaration, parameters:Object):void {
     var relativeUrl:String = parameters['source'];
     var resource:Object = DynamicClassLoader.INSTANCE.getResource(relativeUrl);
+    if (resource is String) {
+      memberDeclaration.value = function():String {
+        // in order to replace the object created by "new", we have to return a String object, not a String literal:
+        return new String(resource);
+      };
+      return;
+    }
     var EmbedClass:Function;
     var superClassDeclaration:JooClassDeclaration;
     if (resource) {
