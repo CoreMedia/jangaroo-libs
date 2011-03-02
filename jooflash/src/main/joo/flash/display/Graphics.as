@@ -779,7 +779,7 @@ public final class Graphics {
       this.width = Math.max(this.width, width);
       this.height = Math.max(this.height, height);
       var canvas:HTMLCanvasElement = this.canvas;
-      if (width > canvas.width || height > canvas.height) {
+      if (this.width > canvas.width || this.height > canvas.height) {
         // backup all properties that will be reset by setting width / height:
         var backupStyle:Object = {
           fillStyle  : context.fillStyle,
@@ -793,8 +793,8 @@ public final class Graphics {
         if (canvas.width > 0 && canvas.height > 0) {
           var imageData:ImageData = context.getImageData(0, 0, canvas.width, canvas.height);
         }
-        canvas.width = Math.max(canvas.width, width + PIXEL_CHUNK_SIZE);
-        canvas.height = Math.max(canvas.height, height + PIXEL_CHUNK_SIZE);
+        canvas.width = Math.max(canvas.width, this.width + PIXEL_CHUNK_SIZE);
+        canvas.height = Math.max(canvas.height, this.height + PIXEL_CHUNK_SIZE);
 
         //trace("[INFO] enlarged canvas to " + canvas.width + " x " + canvas.height);
         // restore context properties:
