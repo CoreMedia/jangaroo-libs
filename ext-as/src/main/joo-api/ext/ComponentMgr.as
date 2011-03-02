@@ -75,7 +75,7 @@ public class ComponentMgr {
          * the config object does not contain a <code>xtype</code>. (Optional if the config contains a <code>xtype</code>).
          * @return The newly instantiated Component.
          */
-        public static native function create(config : Object, defaultType : Class) : Component;
+        public static native function create(config : Object, defaultType : Class = undefined) : Component;
         /**
          * <p>Registers a new Plugin constructor, keyed by a new
          * <b class='link'>ext.Component#ptype</b>.</p>
@@ -94,5 +94,5 @@ public class ComponentMgr {
          * the config object does not contain a <code>ptype</code>. (Optional if the config contains a <code>ptype</code>).
          * @return The newly instantiated Plugin.
          */
-        public static native function createPlugin(config : Object, defaultType : Class) : Component;
+        public static native function createPlugin(config : Object, defaultType : Class = undefined) : Component;
 }}
