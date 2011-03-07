@@ -2172,7 +2172,7 @@ renderer: Ext.util.Format.comboRenderer(combo) // pass combo instance to reusabl
     <xs:complexContent>
       <xs:extension base='ext:ext.util.Observable'>
         <xs:sequence>
-            <xs:element name='action' minOccurs="0" maxOccurs="1">
+            <xs:element name='baseAction' minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
    The action controlling this component, usually a button or menu item. If this property is set, all other

@@ -54,3 +54,21 @@ ext.util.FunctionUtil = {
 ext.menu.Menu.prototype.showMenu = Ext.menu.Menu.prototype.show;
 ext.Component.prototype.addClasses = Ext.Component.prototype.addClass;
 ext.Component.prototype.removeClasses = Ext.Component.prototype.removeClass;
+// patch for Actions being added to a Component via config's baseAction:
+ext.Action.prototype.addComponent = Ext.Action.prototype.addComponent.createInterceptor(function(component) {
+  if (component.initialConfig !== this.initialConfig) {
+    // Action has not been handed in as single constructor argument, thus initialConfig has not been reused:
+    Ext.apply(component.initialConfig, this.initialConfig);
+    Ext.apply(component, this.initialConfig);
+  }
+});
+// patch for Actions being copied when added to a Container:
+(function(ExtAction) {
+  var Action = ext.Action = function Action(config) {
+    config.baseAction = this; // self-reference, so that button references me, not my copy!
+    ExtAction.call(this, config);
+  };
+  Action.prototype = ExtAction.prototype;
+  Action.prototype.constructor = Action;
+  Action.superclass = ExtAction.superclass;
+})(Ext.Action);
