@@ -226,7 +226,7 @@ viewConfig: {
     protected native function removeRowClass(row, cls) : void;
     protected native function removeRow(row) : void;
     protected native function removeRows(firstRow, lastRow) : void;
-    protected native function getScrollState() : void;
+    public native function getScrollState() : Object;
     protected native function restoreScroll(state) : void;
     /**
      * Scrolls the grid to the top
