@@ -187,8 +187,10 @@ public class Timer extends EventDispatcher {
     ++_currentCount;
     try {
       this.dispatchEvent(new TimerEvent(TimerEvent.TIMER));
-    } finally {
       checkComplete();
+    } catch (e:*) {
+      stop();
+      throw e;
     }
   }
 
