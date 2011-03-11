@@ -58,8 +58,8 @@ ext.Component.prototype.removeClasses = Ext.Component.prototype.removeClass;
 ext.Action.prototype.addComponent = Ext.Action.prototype.addComponent.createInterceptor(function(component) {
   if (component.initialConfig !== this.initialConfig) {
     // Action has not been handed in as single constructor argument, thus initialConfig has not been reused:
-    Ext.apply(component.initialConfig, this.initialConfig);
-    Ext.apply(component, this.initialConfig);
+    Ext.applyIf(component.initialConfig, this.initialConfig);
+    Ext.applyIf(component, this.initialConfig);
   }
 });
 // patch for Actions being copied when added to a Container:
