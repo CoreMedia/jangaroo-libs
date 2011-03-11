@@ -4,7 +4,7 @@
   <groupId>net.jangaroo</groupId>
   <artifactId>jangaroo-libs-parent</artifactId>
   <packaging>pom</packaging>
-  <version>0.8.3-SNAPSHOT</version>
+  <version>0.8.4-SNAPSHOT</version>
 
   <name>Jangaroo standard libraries parent</name>
 
@@ -73,7 +73,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <jangaroo.version>0.8.2</jangaroo.version>
+    <jangaroo.version>0.8.3</jangaroo.version>
   </properties>
 
   <profiles>
