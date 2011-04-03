@@ -511,7 +511,20 @@ public class BitmapData implements IBitmapDrawable {
       context.setTransform(matrix.a, matrix.b, matrix.c, matrix.d, matrix.tx, matrix.ty);
     }
     if (element is HTMLImageElement || element is HTMLCanvasElement) {
-      context.drawImage(element, 0, 0);
+      var offsetX:int;
+      var offsetY:int;
+      if (bitmapData) {
+        offsetX = bitmapData.imageOffsetX;
+        offsetY = bitmapData.imageOffsetY;
+      } else {
+        // TODO: bounds!
+        //var bounds:Rectangle = DisplayObject(source).getBounds(DisplayObject(source).parent);
+        //offsetX = DisplayObject(source).x - bounds.left;
+        //offsetY = DisplayObject(source).y - bounds.top;
+        offsetX = parseInt(element.style.left, 10) || 0;
+        offsetY = parseInt(element.style.top, 10) || 0;
+      }
+      context.drawImage(element, offsetX, offsetY);
     } else {
       if (element.style.backgroundColor) {
         context.fillStyle = element.style.backgroundColor;

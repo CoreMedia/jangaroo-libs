@@ -252,16 +252,12 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * }
    * </listing>
    */
-  public function get blendMode():String {
-    throw new Error('not implemented'); // TODO: implement!
-  }
+  public native function get blendMode():String; // TODO: implement!
 
   /**
    * @private
    */
-  public function set blendMode(value:String):void {
-    throw new Error('not implemented'); // TODO: implement!
-  }
+  public native function set blendMode(value:String):void; // TODO: implement!
 
   /**
    * If set to <code>true</code>, Flash runtimes cache an internal bitmap representation of the display object. This caching can increase performance for display objects that contain complex vector content.
@@ -298,14 +294,14 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * </listing>
    */
   public function get cacheAsBitmap():Boolean {
-    throw new Error('not implemented'); // TODO: implement!
+    return _cacheAsBitmap;
   }
 
   /**
    * @private
    */
   public function set cacheAsBitmap(value:Boolean):void {
-    throw new Error('not implemented'); // TODO: implement!
+    _cacheAsBitmap = value; // TODO: implement!
   }
 
   /**
@@ -362,14 +358,19 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    *
    */
   public function get filters():Array {
-    throw new Error('not implemented'); // TODO: implement!
+    return _filters.concat();
   }
 
   /**
    * @private
    */
   public function set filters(value:Array):void {
-    throw new Error('not implemented'); // TODO: implement!
+    _filters = value.concat();
+    if (value.length > 0) {
+      // see documentation of "cacheAsBitmap": "automatically set to true when filter is set"
+      _cacheAsBitmap = true;
+    }
+    // TODO: update visual appearance!
   }
 
   /**
@@ -405,8 +406,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * </listing>
    */
   public function get height():Number {
-    // TODO: compute real height considering margins and borders!
-    return getElement().offsetHeight;
+    return _height * _scaleY;
   }
 
   /**
@@ -441,8 +441,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * </listing>
    */
   public function get loaderInfo():LoaderInfo {
-    // TODO: ???
-    return new LoaderInfo();
+    return _loaderInfo || (_loaderInfo = new LoaderInfo());
   }
 
   /**
@@ -693,14 +692,32 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * </listing>
    */
   public function get rotation():Number {
-    throw new Error('not implemented'); // TODO: implement!
+    return _rotation;
   }
 
   /**
    * @private
    */
   public function set rotation(value:Number):void {
-    throw new Error('not implemented'); // TODO: implement!
+    this._rotation = value || 0;
+    var style:Style = getElement().style;
+    setProprietaryStyle(style, 'transform', "rotate(" + rotation + "deg)");
+    setProprietaryStyle(style, 'transform-origin', vertical ? "top left" : "middle center");
+  }
+
+  private static const BROWSER_PREFIXES:Object = { '-moz-': 1, '-webkit-': 1, '-o': 1, '-ms-': 1 };
+  private static function setProprietaryStyle(style:Style, property:String, value:String):void {
+    for (var browserPrefix:String in BROWSER_PREFIXES) {
+      try {
+        style['setProperty'](browserPrefix + property, value, "");
+      } catch(e:*) {
+        // ignore
+      }
+    }
+  }
+
+  protected function get vertical():Boolean {
+    return _rotation === 90 || _rotation === 270;
   }
 
   /**
@@ -1073,8 +1090,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * </listing>
    */
   public function get width():Number {
-    // TODO: compute real width considering margins and borders!
-    return getElement().offsetWidth;
+    return _width * _scaleX;
   }
 
   /**
@@ -1206,7 +1222,12 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    *
    */
   public function getBounds(targetCoordinateSpace:DisplayObject):Rectangle {
-    throw new Error('not implemented'); // TODO: implement!
+    var stageOffset:Point = getStageOffset();
+    var targetStageOffset:Point = targetCoordinateSpace.getStageOffset();
+    return new Rectangle(
+      stageOffset.x - targetStageOffset.x,
+      stageOffset.y - targetStageOffset.y,
+      width, height); // TODO: implement correctly!
   }
 
   /**
@@ -1290,7 +1311,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * </listing>
    */
   public function globalToLocal(point:Point):Point {
-    throw new Error('not implemented'); // TODO: implement!
+    return point.subtract(getStageOffset());
   }
 
   /**
@@ -1408,7 +1429,8 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * </listing>
    */
   public function localToGlobal(point:Point):Point {
-    throw new Error('not implemented'); // TODO: implement!
+    // TODO: take into account scale, rotation etc.!
+    return point.add(getStageOffset());
   }
 
   // ************************** Jangaroo part **************************
@@ -1416,7 +1438,9 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
   /**
    * @private
    */
-  public native function set parent(parent : DisplayObjectContainer) : void;
+  protected function setParent(parent : DisplayObjectContainer) : void {
+    this['parent'] = parent;
+  }
 
   /**
    * @private
@@ -1440,8 +1464,6 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
   private static const FLASH_EVENT_TO_DOM_EVENT : Object = merge(
     reverseMapping(DOM_EVENT_TO_MOUSE_EVENT),
     reverseMapping(DOM_EVENT_TO_KEYBOARD_EVENT));
-  private var _scaleX:Number = 1;
-  private var _scaleY:Number = 1;
 
   private static function merge(o1:Object, o2:Object):Object {
     var result:Object = {};
@@ -1575,18 +1597,37 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
     _elem = elem;
   }
 
+  private function getStageOffset():Point {
+    var x:Number = _x;
+    var y:Number = _y;
+    for (var current:DisplayObjectContainer = parent; current ; current = current.parent) {
+      x += current.x;
+      y += current.y;
+    }
+    return new Point(x, y);
+  }
+
   /**
    * @private
    */
   public function DisplayObject() {
     super();
+    _filters = [];
   }
 
 
   private var _elem : HTMLElement;
   private var _x : Number = 0, _y : Number = 0;
+  protected var _width : Number = 0, _height : Number = 0; // unscaled
+  private var _scaleX:Number = 1;
+  private var _scaleY:Number = 1;
   private var _transform : Transform;
+  private var _rotation:Number = 0;
   private var _visible: Boolean;
-  private var _alpha: Number;
+  private var _alpha: Number = 1;
+  private var _filters: Array;
+  private var _cacheAsBitmap:Boolean;
+
+  private static var _loaderInfo:LoaderInfo;
 }
 }

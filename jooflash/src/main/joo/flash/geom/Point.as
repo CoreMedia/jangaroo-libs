@@ -165,7 +165,7 @@ public class Point {
    *
    */
   public function subtract(v:Point):Point {
-    throw new Error('not implemented'); // TODO: implement!
+    return new Point(x - v.x, y - v.y);
   }
 
   /**

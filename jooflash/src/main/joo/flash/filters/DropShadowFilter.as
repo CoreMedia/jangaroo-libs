@@ -15,133 +15,98 @@ package flash.filters {
  * @see flash.display.DisplayObject#filters
  * @see flash.display.DisplayObject#cacheAsBitmap
  *
+ * TODO: implement dummy class!
  */
 public final class DropShadowFilter extends BitmapFilter {
   /**
    * The alpha transparency value for the shadow color. Valid values are 0.0 to 1.0. For example, .25 sets a transparency value of 25%. The default value is 1.0.
    */
-  public function get alpha():Number {
-    throw new Error('not implemented'); // TODO: implement!
-  }
+  public native function get alpha():Number;
 
   /**
    * @private
    */
-  public function set alpha(value:Number):void {
-    throw new Error('not implemented'); // TODO: implement!
-  }
+  public native function set alpha(value:Number):void;
 
   /**
    * The angle of the shadow. Valid values are 0 to 360 degrees (floating point). The default value is 45.
    */
-  public function get angle():Number {
-    throw new Error('not implemented'); // TODO: implement!
-  }
+  public native function get angle():Number;
 
   /**
    * @private
    */
-  public function set angle(value:Number):void {
-    throw new Error('not implemented'); // TODO: implement!
-  }
+  public native function set angle(value:Number):void;
 
   /**
    * The amount of horizontal blur. Valid values are 0 to 255.0 (floating point). The default value is 4.0.
    */
-  public function get blurX():Number {
-    throw new Error('not implemented'); // TODO: implement!
-  }
+  public native function get blurX():Number;
 
   /**
    * @private
    */
-  public function set blurX(value:Number):void {
-    throw new Error('not implemented'); // TODO: implement!
-  }
+  public native function set blurX(value:Number):void;
 
   /**
    * The amount of vertical blur. Valid values are 0 to 255.0 (floating point). The default value is 4.0.
    */
-  public function get blurY():Number {
-    throw new Error('not implemented'); // TODO: implement!
-  }
+  public native function get blurY():Number;
 
   /**
    * @private
    */
-  public function set blurY(value:Number):void {
-    throw new Error('not implemented'); // TODO: implement!
-  }
+  public native function set blurY(value:Number):void;
 
   /**
    * The color of the shadow. Valid values are in hexadecimal format <i>0xRRGGBB</i>. The default value is 0x000000.
    */
-  public function get color():uint {
-    throw new Error('not implemented'); // TODO: implement!
-  }
+  public native function get color():uint;
 
   /**
    * @private
    */
-  public function set color(value:uint):void {
-    throw new Error('not implemented'); // TODO: implement!
-  }
+  public native function set color(value:uint):void;
 
   /**
    * The offset distance for the shadow, in pixels. The default value is 4.0 (floating point).
    */
-  public function get distance():Number {
-    throw new Error('not implemented'); // TODO: implement!
-  }
+  public native function get distance():Number;
 
   /**
    * @private
    */
-  public function set distance(value:Number):void {
-    throw new Error('not implemented'); // TODO: implement!
-  }
+  public native function set distance(value:Number):void;
 
   /**
    * Indicates whether or not the object is hidden. The value <code>true</code> indicates that the object itself is not drawn; only the shadow is visible. The default is <code>false</code> (the object is shown).
    */
-  public function get hideObject():Boolean {
-    throw new Error('not implemented'); // TODO: implement!
-  }
+  public native function get hideObject():Boolean;
 
   /**
    * @private
    */
-  public function set hideObject(value:Boolean):void {
-    throw new Error('not implemented'); // TODO: implement!
-  }
+  public native function set hideObject(value:Boolean):void;
 
   /**
    * Indicates whether or not the shadow is an inner shadow. The value <code>true</code> indicates an inner shadow. The default is <code>false</code>, an outer shadow (a shadow around the outer edges of the object).
    */
-  public function get inner():Boolean {
-    throw new Error('not implemented'); // TODO: implement!
-  }
+  public native function get inner():Boolean;
 
   /**
    * @private
    */
-  public function set inner(value:Boolean):void {
-    throw new Error('not implemented'); // TODO: implement!
-  }
+  public native function set inner(value:Boolean):void;
 
   /**
    * Applies a knockout effect (<code>true</code>), which effectively makes the object's fill transparent and reveals the background color of the document. The default is <code>false</code> (no knockout).
    */
-  public function get knockout():Boolean {
-    throw new Error('not implemented'); // TODO: implement!
-  }
+  public native function get knockout():Boolean;
 
   /**
    * @private
    */
-  public function set knockout(value:Boolean):void {
-    throw new Error('not implemented'); // TODO: implement!
-  }
+  public native function set knockout(value:Boolean):void;
 
   /**
    * The number of times to apply the filter. The default value is <code>BitmapFilterQuality.LOW</code>, which is equivalent to applying the filter once. The value <code>BitmapFilterQuality.MEDIUM</code> applies the filter twice; the value <code>BitmapFilterQuality.HIGH</code> applies it three times. Filters with lower values are rendered more quickly.
@@ -149,30 +114,22 @@ public final class DropShadowFilter extends BitmapFilter {
    * @see BitmapFilterQuality
    *
    */
-  public function get quality():int {
-    throw new Error('not implemented'); // TODO: implement!
-  }
+  public native function get quality():int;
 
   /**
    * @private
    */
-  public function set quality(value:int):void {
-    throw new Error('not implemented'); // TODO: implement!
-  }
+  public native function set quality(value:int):void;
 
   /**
    * The strength of the imprint or spread. The higher the value, the more color is imprinted and the stronger the contrast between the shadow and the background. Valid values are from 0 to 255.0. The default is 1.0.
    */
-  public function get strength():Number {
-    throw new Error('not implemented'); // TODO: implement!
-  }
+  public native function get strength():Number;
 
   /**
    * @private
    */
-  public function set strength(value:Number):void {
-    throw new Error('not implemented'); // TODO: implement!
-  }
+  public native function set strength(value:Number):void;
 
   /**
    * Creates a new DropShadowFilter instance with the specified parameters.
@@ -197,7 +154,17 @@ public final class DropShadowFilter extends BitmapFilter {
    *
    */
   public function DropShadowFilter(distance:Number = 4.0, angle:Number = 45, color:uint = 0, alpha:Number = 1.0, blurX:Number = 4.0, blurY:Number = 4.0, strength:Number = 1.0, quality:int = 1, inner:Boolean = false, knockout:Boolean = false, hideObject:Boolean = false) {
-    throw new Error('not implemented'); // TODO: implement!
+    this.distance = distance;
+    this.angle = angle;
+    this.color = color;
+    this.alpha = alpha;
+    this.blurX = blurX;
+    this.blurY = blurY;
+    this.strength = strength;
+    this.quality = quality;
+    this.inner = inner;
+    this.knockout = knockout;
+    this.hideObject = hideObject;
   }
 
   /**
@@ -206,7 +173,8 @@ public final class DropShadowFilter extends BitmapFilter {
    *
    */
   override public function clone():BitmapFilter {
-    throw new Error('not implemented'); // TODO: implement!
+    return new DropShadowFilter(distance, angle, color, alpha, blurX, blurY, strength, quality, inner,
+      knockout, hideObject);
   }
 }
 }

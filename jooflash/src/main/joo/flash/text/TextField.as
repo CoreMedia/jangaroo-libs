@@ -1,5 +1,6 @@
 package flash.text {
 import flash.display.DisplayObject;
+import flash.display.DisplayObjectContainer;
 import flash.display.Graphics;
 import flash.display.InteractiveObject;
 
@@ -2523,18 +2524,47 @@ public class TextField extends InteractiveObject {
   // ************************** Jangaroo part **************************
 
   private function asWebFont():String {
-    var webFont:String = getSize() + "px ";
     switch (_textFormat.font !== null ? _textFormat.font : _defaultTextFormat.font) {
       case "Times New Roman":
-        webFont += "Times New Roman,serif"; break;
-      case "Arial":
-      case "Helvetica":
-        webFont += "Helvetica,Arial,sans-serif"; break;
+        return "Times New Roman,serif";
       case "system":
         // system font cannot be resized when drawing into canvas, so use console or monospace instead:
-        webFont += "console,monospace"; break;
+        return "console,monospace";
+      case "Verdana":
+        return "Verdana";
     }
-    return webFont;
+    return "Helvetica,Arial,sans-serif";
+  }
+
+  override public function get width():Number {
+    // TODO: compute real width considering margins and borders!
+    var element:HTMLElement = ensureAddedToDOM();
+    return vertical ?
+      element.offsetHeight :
+      element.offsetWidth;
+  }
+
+  override public function get height():Number {
+    // TODO: compute real height considering margins and borders!
+    var element:HTMLElement = ensureAddedToDOM();
+    return vertical ? 
+      element.offsetWidth :
+      element.offsetHeight;
+  }
+
+  private function ensureAddedToDOM():HTMLElement {
+    var element:HTMLElement = getElement();
+    if (!parent) {
+      // add to DOM so it has an offsetHeight!
+      element.style.visibility = "hidden";
+      window.document.body.appendChild(element);
+    }
+    return element;
+  }
+
+  override protected function setParent(parent:DisplayObjectContainer):void {
+    getElement().style.visibility = "visible";
+    super.setParent(parent);
   }
 
   /**
@@ -2543,12 +2573,14 @@ public class TextField extends InteractiveObject {
   override protected function createElement():HTMLElement {
     var elem:HTMLElement = super.createElement();
     elem.style.padding = "2px";
+    elem.style.width = "auto";
     syncTextFormat(elem);
     return elem;
   }
 
   private function syncTextFormat(element:HTMLElement):void {
-    updateElementProperty(element, "style.font", asWebFont());
+    updateElementProperty(element, "style.fontFamily", asWebFont());
+    updateElementProperty(element, "style.fontSize", getSize() + "px");
     updateElementProperty(element, "style.color", Graphics.toRGBA(textColor));
     var bold:Boolean = _textFormat.bold !== null ? _textFormat.bold : _defaultTextFormat.bold;
     updateElementProperty(element, "style.fontWeight", bold ? "bold" : "normal");

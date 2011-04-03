@@ -1,5 +1,4 @@
 package flash.display {
-
 import flash.geom.Matrix;
 import flash.geom.Point;
 
@@ -197,9 +196,8 @@ public final class Graphics {
     this.context.fillStyle = "#000000";
     this.context.clearRect(0,0,this.context.canvas.width, this.context.canvas.height);
     this.context.restore();
-    this.insideFill = false;
+    this.fillCommands = null;
     this.context.moveTo(0, 0);
-    this.width = this.height = 0;
   }
 
   /**
@@ -265,13 +263,18 @@ public final class Graphics {
    */
   public function curveTo(controlX:Number, controlY:Number, anchorX:Number, anchorY:Number):void {
     // TODO: more accurate computation of maximum x and y coordinate occupied by this curve!
-    createSpace(Math.max(this.x, controlX, anchorX), Math.max(this.y, controlY, anchorY));
-    this.x = anchorX;
-    this.y = anchorY;
-    this.context.quadraticCurveTo(controlX, controlY, anchorX, anchorY);
-    if (!this.insideFill) {
-      this.context.stroke();
-    }
+    createSpace(x, y);
+    createSpace(controlX, controlY);
+    createSpace(anchorX, anchorY);
+    scheduleCommand(function():void {
+      this.x = anchorX;
+      this.y = anchorY;
+      this.context.quadraticCurveTo(controlX, controlY, anchorX, anchorY);
+      if (!fillCommands && thickness) {
+        // draw immediately:
+        this.context.stroke();
+      }
+    });
   }
 
   /**
@@ -290,13 +293,16 @@ public final class Graphics {
    * @example <a href="http://www.adobe.com/go/learn_as3_usingexamples_en">How to use this example</a>Please see the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/Graphics.html#includeExamplesSummary">example</a> at the end of this class for an illustration of how to use this method.
    */
   public function drawCircle(x:Number, y:Number, radius:Number):void {
+    createSpace(x - radius, y - radius);
     createSpace(x + radius, y + radius);
     this.context.moveTo(x + radius, y);
     this.context.arc(x, y, radius, 0 , 2*Math.PI, false);
-    if (this.insideFill) {
+    if (fillCommands) {
       this.context.fill();
     }
-    this.context.stroke();
+    if (!isNaN(thickness)) {
+      this.context.stroke();
+    }
     this.context.beginPath();
     this.context.moveTo(x, y);
   }
@@ -367,25 +373,28 @@ public final class Graphics {
    * </listing>
    */
   public function drawEllipse(x:Number, y:Number, width:Number, height:Number):void {
+    createSpace(x - width, y - height);
+    createSpace(x + width, y + height);
+
     var rx:Number = width / 2;
     var ry:Number = height / 2;
 
     var cx:Number = x + rx;
     var cy:Number = y + ry;
 
-    createSpace(x + width, y + height);
-
     context.beginPath();
     context.moveTo(cx, cy - ry);
-    context.bezierCurveTo(cx + (KAPPA * rx), cy - ry,  cx + rx, cy - (KAPPA * ry), cx + rx, cy);
+    context.bezierCurveTo(cx + (KAPPA * rx), cy - ry, cx + rx, cy - (KAPPA * ry), cx + rx, cy);
     context.bezierCurveTo(cx + rx, cy + (KAPPA * ry), cx + (KAPPA * rx), cy + ry, cx, cy + ry);
     context.bezierCurveTo(cx - (KAPPA * rx), cy + ry, cx - rx, cy + (KAPPA * ry), cx - rx, cy);
     context.bezierCurveTo(cx - rx, cy - (KAPPA * ry), cx - (KAPPA * rx), cy - ry, cx, cy - ry);
 
-    if (this.insideFill) {
+    if (fillCommands) {
       this.context.fill();
     }
-    this.context.stroke();
+    if (!isNaN(thickness)) {
+      this.context.stroke();
+    }
     this.context.beginPath();
     this.context.moveTo(x, y);
   }
@@ -418,11 +427,14 @@ public final class Graphics {
    * </listing>
    */
   public function drawRect(x:Number, y:Number, width:Number, height:Number):void {
+    createSpace(x, y);
     createSpace(x + width, y + height);
-    if (this.insideFill) {
+    if (this.fillCommands) {
       this.context.fillRect(x, y, width, height);
     }
-    this.context.strokeRect(x, y, width, height);
+    if (!isNaN(thickness)) {
+      this.context.strokeRect(x, y, width, height);
+    }
   }
 
   /**
@@ -446,6 +458,7 @@ public final class Graphics {
    * @example <a href="http://www.adobe.com/go/learn_as3_usingexamples_en">How to use this example</a>Please see the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/Graphics.html#includeExamplesSummary">example</a> at the end of this class for an illustration of how to use this method.
    */
   public function drawRoundRect(x:Number, y:Number, width:Number, height:Number, ellipseWidth:Number, ellipseHeight:Number = NaN):void {
+    createSpace(x, y);
     createSpace(x + width, y + height);
     if (ellipseHeight==0 || ellipseWidth==0) {
       this.drawRect(x, y, width, height);
@@ -471,10 +484,12 @@ public final class Graphics {
     this.context.lineTo(x, y_tw);
     this.context.quadraticCurveTo(x, y, x_lw, y);
     this.context.closePath();
-    if (this.insideFill) {
+    if (fillCommands) {
       this.context.fill();
     }
-    this.context.stroke();
+    if (!isNaN(thickness)) {
+      this.context.stroke();
+    }
   }
 
   /**
@@ -485,10 +500,16 @@ public final class Graphics {
    *
    */
   public function endFill():void {
+    this.context.beginPath();
+    for (var i:int = 0; i < fillCommands.length; i++) {
+      fillCommands[i]();
+    }
     this.context.closePath();
     this.context.fill();
-    this.context.stroke();
-    this.insideFill = false;
+    if (!isNaN(thickness)) {
+      this.context.stroke();
+    }
+    this.fillCommands = null;
   }
 
   /**
@@ -635,9 +656,8 @@ public final class Graphics {
    * @example <a href="http://www.adobe.com/go/learn_as3_usingexamples_en">How to use this example</a>Please see the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/Graphics.html#lineTo()">lineTo()</a> or <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/Graphics.html#moveTo()">moveTo()</a> method's example for illustrations of how to use the <code>getStyle()</code> method.
    */
   public function lineStyle(thickness:Number = NaN, color:uint = 0, alpha:Number = 1.0, pixelHinting:Boolean = false, scaleMode:String = "normal", caps:String = null, joints:String = null, miterLimit:Number = 3):void {
-    if (!isNaN(thickness)) {
-      this.context.lineWidth = thickness || 1;
-    }
+    this.thickness = thickness;
+    this.context.lineWidth = thickness > 0 ? thickness : 1;
     this.context.strokeStyle = toRGBA(color, alpha);
     this.context.lineCap = caps || CapsStyle.ROUND;
     this.context.lineJoin = joints || JointStyle.ROUND;
@@ -683,15 +703,23 @@ public final class Graphics {
    * </listing>
    */
   public function lineTo(x:Number, y:Number):void {
-    createSpace(Math.max(this.x, x), Math.max(this.y, y));
-    this.x = x;
-    this.y = y;
-    this.context.lineTo(x, y);
-    if (!this.insideFill) {
-      this.context.stroke();
-      this.context.beginPath();
-      this.context.moveTo(x, y);
-    }
+    createSpace(this.x, this.y);
+    createSpace(x, y);
+    scheduleCommand(function():void {
+      if (!this.fillCommands) {
+        this.context.beginPath();
+        this.context.moveTo(this.x, this.y);
+      }
+      this.context.lineTo(x, y);
+      this.x = x;
+      this.y = y;
+      if (!this.fillCommands) {
+        this.context.closePath();
+        if (!isNaN(thickness)) {
+          this.context.stroke();
+        }
+      }
+    });
   }
 
   /**
@@ -731,10 +759,11 @@ public final class Graphics {
    * </listing>
    */
   public function moveTo(x:Number, y:Number):void {
-    this.context.beginPath();
-    this.context.moveTo(x, y);
     this.x = x;
     this.y = y;
+    scheduleCommand(function():void {
+      this.context.moveTo(x, y);
+    });
   }
 
   // ************************** Jangaroo part **************************
@@ -742,11 +771,14 @@ public final class Graphics {
   private static const PIXEL_CHUNK_SIZE:int = 100;
 
   private var context : CanvasRenderingContext2D;
-  private var insideFill : Boolean = false;
+  private var thickness : Number = 0;
+  private var fillCommands : Array;
+  private var minX:Number;
+  private var minY:Number;
+  private var maxX:Number;
+  private var maxY:Number;
   private var x:Number = 0;
   private var y:Number = 0;
-  internal var width:Number = 0;
-  internal var height:Number = 0;
 
   /**
    * @private
@@ -761,6 +793,7 @@ public final class Graphics {
     // switch to Flash defaults:
     this.context.beginPath();
     this.context.moveTo(0, 0);
+    this.context.lineWidth = 1;
     this.context.lineCap = CapsStyle.ROUND;
     this.context.lineJoin = JointStyle.ROUND;
     this.context.miterLimit = 3;
@@ -774,12 +807,40 @@ public final class Graphics {
     return context;
   }
 
-  private function createSpace(width:Number, height:Number):void {
-    if (width > this.width || height > this.height) {
-      this.width = Math.max(this.width, width);
-      this.height = Math.max(this.height, height);
+  public function get width() : Number {
+    return isNaN(minX) ? 0 : maxX - minX + 1;
+  }
+
+  public function get height() : Number {
+    return isNaN(minY) ? 0 : maxY - minY + 1;
+  }
+
+  private function createSpace(x:Number, y:Number):void {
+    var thickness:Number = this.thickness || 0; // this.thickness may be NaN!
+    if (isNaN(minX)) {
+      minX = x - thickness;
+      minY = y - thickness;
+      maxX = x + thickness;
+      maxY = y + thickness;
+      translate(0, 0, Math.floor(minX), Math.floor(minY));
+      // TODO: theoretically, thickness could be more than our initial width/height!
+    } else {
+      var oldIntMinX:int = Math.floor(minX);
+      var oldIntMinY:int = Math.floor(minY);
+      var oldIntWidth:Number = Math.ceil(maxX) - oldIntMinX + 1;
+      var oldIntHeight:Number = Math.ceil(maxY) - oldIntMinY + 1;
+      minX = Math.min(minX, x - thickness);
+      minY = Math.min(minY, y - thickness);
+      maxX = Math.max(maxX, x + thickness);
+      maxY = Math.max(maxY, y + thickness);
+
+      var imageData:ImageData;
       var canvas:HTMLCanvasElement = this.canvas;
-      if (this.width > canvas.width || this.height > canvas.height) {
+      var intMinX:int = Math.floor(minX);
+      var intMinY:int = Math.floor(minY);
+      var intWidth:int = Math.ceil(maxX) - intMinX + 1;
+      var intHeight:int = Math.ceil(maxY) - intMinY + 1;
+      if (intWidth > canvas.width || intHeight > canvas.height) {
         // backup all properties that will be reset by setting width / height:
         var backupStyle:Object = {
           fillStyle  : context.fillStyle,
@@ -789,31 +850,37 @@ public final class Graphics {
           lineJoin   : context.lineJoin,
           miterLimit : context.miterLimit
         };
-
-        if (canvas.width > 0 && canvas.height > 0) {
-          var imageData:ImageData = context.getImageData(0, 0, canvas.width, canvas.height);
+        imageData = context.getImageData(0, 0, oldIntWidth, oldIntHeight);
+        canvas.width = Math.max(canvas.width, intWidth + PIXEL_CHUNK_SIZE);
+        canvas.height = Math.max(canvas.height, intHeight + PIXEL_CHUNK_SIZE);
+        translate(0, 0, intMinX, intMinY);
+        // restore image data:
+        if (imageData) {
+          context.putImageData(imageData, oldIntMinX - intMinX, oldIntMinY - intMinY);
         }
-        canvas.width = Math.max(canvas.width, this.width + PIXEL_CHUNK_SIZE);
-        canvas.height = Math.max(canvas.height, this.height + PIXEL_CHUNK_SIZE);
-
-        //trace("[INFO] enlarged canvas to " + canvas.width + " x " + canvas.height);
         // restore context properties:
         for (var m:String in backupStyle) {
           context[m] = backupStyle[m];
         }
-        if (imageData) {
-          context.putImageData(imageData, 0, 0);
-        }
-        this.context.beginPath();
-        this.context.moveTo(x, y);
+        //trace("[INFO] enlarged canvas to " + canvas.width + " x " + canvas.height);
+      } else if (intMinX < oldIntMinX || intMinY < oldIntMinY) {
+        imageData = context.getImageData(0, 0, oldIntWidth, oldIntHeight);
+        context.clearRect(oldIntMinX, oldIntMinY, oldIntWidth, oldIntHeight);
+        translate(oldIntMinX, oldIntMinY, intMinX, intMinY);
+        context.putImageData(imageData, oldIntMinX - intMinX, oldIntMinY - intMinY);
       }
     }
   }
 
+  private function translate(oldMinX:int, oldMinY:int, minX:int, minY:int):void {
+    context.translate(oldMinX - minX, oldMinY - minY);
+    canvas.style.left = minX + "px";
+    canvas.style.top = minY + "px";
+  }
+
   private function _beginFill(fillStyle : Object) : void {
-    this.context.beginPath();
-    this.context.fillStyle = fillStyle;
-    this.insideFill = true;
+    context.fillStyle = fillStyle;
+    fillCommands = [];
   }
 
   private function createGradientStyle(type:String, colors:Array, alphas:Array, ratios:Array,
@@ -872,6 +939,14 @@ public final class Graphics {
     return alpha < 1 ? ["rgba(", params, ",", alpha, ")"].join("")
                      :  "rgb(" + params + ")";
     
+  }
+
+  private function scheduleCommand(command:Function):void {
+    if (fillCommands) {
+      fillCommands.push(command);
+    } else {
+      command();
+    }
   }
 
   private static const KAPPA:Number = 4 * ((Math.sqrt(2) -1) / 3);

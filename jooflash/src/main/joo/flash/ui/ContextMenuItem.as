@@ -63,47 +63,35 @@ public final class ContextMenuItem extends EventDispatcher {
   /**
    * Specifies the menu item caption (text) displayed in the context menu. See the ContextMenuItem class overview for <code>caption</code> value restrictions.
    */
-  public function get caption():String {
-    throw new Error('not implemented'); // TODO: implement!
-  }
+  public native function get caption():String;
 
   /**
    * @private
    */
-  public function set caption(value:String):void {
-    throw new Error('not implemented'); // TODO: implement!
-  }
+  public native function set caption(value:String):void;
 
   /**
    * Indicates whether a separator bar should appear above the specified menu item.
    * <p><b>Note:</b> A separator bar always appears between any custom menu items and the built-in menu items.</p>
    * <p>The default value is <code>false.</code></p>
    */
-  public function get separatorBefore():Boolean {
-    throw new Error('not implemented'); // TODO: implement!
-  }
+  public native function get separatorBefore():Boolean;
 
   /**
    * @private
    */
-  public function set separatorBefore(value:Boolean):void {
-    throw new Error('not implemented'); // TODO: implement!
-  }
+  public native function set separatorBefore(value:Boolean):void;
 
   /**
    * Indicates whether the specified menu item is visible when the Flash Player context menu is displayed.
    * <p>The default value is <code>true.</code></p>
    */
-  public function get visible():Boolean {
-    throw new Error('not implemented'); // TODO: implement!
-  }
+  public native function get visible():Boolean;
 
   /**
    * @private
    */
-  public function set visible(value:Boolean):void {
-    throw new Error('not implemented'); // TODO: implement!
-  }
+  public native function set visible(value:Boolean):void;
 
   /**
    * Creates a new ContextMenuItem object that can be added to the <code>ContextMenu.customItems</code> array.
@@ -114,7 +102,10 @@ public final class ContextMenuItem extends EventDispatcher {
    *
    */
   public function ContextMenuItem(caption:String, separatorBefore:Boolean = false, enabled:Boolean = true, visible:Boolean = true) {
-    throw new Error('not implemented'); // TODO: implement!
+    this.caption = caption;
+    this.separatorBefore = separatorBefore;
+    // TODO: this.enabled = enabled;
+    this.visible = visible;
   }
 }
 }

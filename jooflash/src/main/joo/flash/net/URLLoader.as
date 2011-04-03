@@ -2,6 +2,8 @@ package flash.net {
 import flash.events.Event;
 import flash.events.EventDispatcher;
 
+import flash.events.IOErrorEvent;
+
 import js.XMLHttpRequest;
 
 /**
@@ -145,7 +147,7 @@ public class URLLoader extends EventDispatcher {
    *
    */
   override public function addEventListener(type:String, listener:Function, useCapture:Boolean = false, priority:int = 0, useWeakReference:Boolean = false):void {
-    throw new Error('not implemented'); // TODO: implement!
+    super.addEventListener(type, listener, useCapture, priority, useWeakReference);
   }
 
   /**
@@ -297,16 +299,19 @@ public class URLLoader extends EventDispatcher {
     if (xmlHttpRequest.readyState == XMLHttpRequest.DONE) {
       data = xmlHttpRequest.responseText;
     }
-    var event:Event = createEvent();
-    if (event) {
-      dispatchEvent(event);
+    var eventType:String = createEvent();
+    if (eventType) {
+      dispatchEvent(new Event(eventType, false, false));
     }
   }
 
-  private function createEvent():Event {
+  private function createEvent():String {
+    // trace("XHR " + xmlHttpRequest.readyState + "/" + xmlHttpRequest.status);
     switch (xmlHttpRequest.readyState) {
-      case XMLHttpRequest.OPENED: return new Event(Event.OPEN, false, false);
-      case XMLHttpRequest.DONE: return new Event(Event.COMPLETE, false, false);
+      case XMLHttpRequest.OPENED:
+        return Event.OPEN;
+      case XMLHttpRequest.DONE:
+        return xmlHttpRequest.status >= 200 && xmlHttpRequest.status < 400 ? Event.COMPLETE : IOErrorEvent.IO_ERROR;
     }
     return null;
   }

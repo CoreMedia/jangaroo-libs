@@ -208,9 +208,7 @@ public class LoaderInfo extends EventDispatcher {
    * <p>The <code>parameters</code> property replaces the ActionScript 1.0 and 2.0 technique of providing SWF file parameters as properties of the main timeline.</p>
    * <p>The value of the <code>parameters</code> property is null for Loader objects that contain SWF files that use ActionScript 1.0 or 2.0. It is only non-null for Loader objects that contain SWF files that use ActionScript 3.0.</p>
    */
-  public function get parameters():Object {
-    throw new Error('not implemented'); // TODO: implement!
-  }
+  public native function get parameters():Object;
 
   /**
    * Expresses the trust relationship from Loader (parent) to the content (child). If the parent has allowed the child access, <code>true</code>; otherwise, <code>false</code>. This property is set to <code>true</code> if the parent object called the <code>allowDomain()</code> method to grant permission to the child domain or if a URL policy file is loaded at the parent domain granting permission to the child domain. If child and parent are in the same domain, this property is set to <code>true</code>.
@@ -293,6 +291,12 @@ public class LoaderInfo extends EventDispatcher {
    */
   public function LoaderInfo(loader:Loader = null) {
     this['loader'] = loader;
+    setUrl(window.location.href); // TODO: does this make sense?
+    var parameters:Object = {};
+    if (window.location.search) {
+      var keyValuePairs:Array = window.location.search.split("&");
+    }    
+    this['parameters'] = parameters; // TODO: implement!
   }
 
   internal function load():void {

@@ -269,7 +269,7 @@ public class DisplayObjectContainer extends InteractiveObject {
     }
     var refChild:DisplayObject = this.children[index];
     this.children.splice(index, 0, child);
-    child.parent = this;
+    child.setParent(this);
     // also add to DOM:
     if (refChild) {
       containerElement.insertBefore(childElement, refChild.getElement());
@@ -586,7 +586,7 @@ public class DisplayObjectContainer extends InteractiveObject {
     var containerElement:HTMLElement = getElement();
     assert(containerElement.childNodes.length === children.length);
     var child:DisplayObject = children.splice(index, 1)[0];
-    child.parent = null;
+    child.setParent(null);
     // if successful, remove in DOM, too:
     var childElement:Element = child.getElement();
     containerElement.removeChild(childElement);
@@ -754,14 +754,30 @@ public class DisplayObjectContainer extends InteractiveObject {
    * @inheritDoc
    */
   override public function get height():Number {
-    return super.height || children.length && (DisplayObject(children[0]).y + DisplayObject(children[0]).height); // TODO: find max y+height in children.
+    var _height:Number = super.height || 0;
+    for (var i:int = 0; i < children.length; i++) {
+      var child:DisplayObject = children[i];
+      var childHeight:Number = child.y + child.height;
+      if (childHeight > _height) {
+        _height = childHeight;
+      }
+    }
+    return _height;
   }
 
   /**
    * @inheritDoc
    */
   override public function get width():Number {
-    return super.width || children.length && (DisplayObject(children[0]).x + DisplayObject(children[0]).width); // TODO: find max x+width in children.
+    var _width:Number = super.width || 0;
+    for (var i:int = 0; i < children.length; i++) {
+      var child:DisplayObject = children[i];
+      var childWidth:Number = child.x + child.width;
+      if (childWidth > _width) {
+        _width = childWidth;
+      }
+    }
+    return _width;
   }
 
   // ************************** Jangaroo part **************************

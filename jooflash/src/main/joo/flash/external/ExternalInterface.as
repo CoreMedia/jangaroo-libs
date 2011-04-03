@@ -1,5 +1,5 @@
 package flash.external {
-
+import js.Window;
 
 
 /**
@@ -93,7 +93,7 @@ public final class ExternalInterface {
    *     </listing>
    */
   public static function get available():Boolean {
-    throw new Error('not implemented'); // TODO: implement!
+    return true; // TODO: Maybe return false on cross-domain problems between frames?
   }
 
   /**
@@ -134,7 +134,7 @@ public final class ExternalInterface {
    *
    */
   public static function get objectID():String {
-    throw new Error('not implemented'); // TODO: implement!
+    return window.frameElement ? window.frameElement.id : window.document.body.id;
   }
 
   /**
@@ -158,7 +158,15 @@ public final class ExternalInterface {
    *
    */
   public static function addCallback(functionName:String, closure:Function):void {
-    throw new Error('not implemented'); // TODO: implement!
+    var global:Window = window.parent;
+    var proxy:Object = global[objectID];
+    if (!proxy) {
+      proxy = global[objectID] = {};
+    }
+    if (!global.document[objectID]) {
+      global.document[objectID] = proxy;
+    }
+    proxy[functionName] = closure;
   }
 
   /**
@@ -204,7 +212,16 @@ public final class ExternalInterface {
    * </listing>
    */
   public static function call(functionName:String, ...rest):* {
-    throw new Error('not implemented'); // TODO: implement!
+    var scope:* = window.parent;
+    var properties:Array = functionName.split('.');
+    for (var i:int = 0; i < properties.length - 1; i++) {
+      scope = scope[properties[i]];
+      if (typeof scope === "undefined" || scope === null) {
+        return null;
+      }
+    }
+    var fn:* = scope[properties[properties.length - 1]];
+    return typeof fn === 'function' ? Function(fn).apply(scope, rest) : null;
   }
 }
 }

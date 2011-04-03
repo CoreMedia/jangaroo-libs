@@ -73,7 +73,7 @@ public dynamic class StyleSheet extends EventDispatcher {
    * An array that contains the names (as strings) of all of the styles registered in this style sheet.
    */
   public function get styleNames():Array {
-    throw new Error('not implemented'); // TODO: implement!
+    return _styleNames;
   }
 
   /**
@@ -82,14 +82,15 @@ public dynamic class StyleSheet extends EventDispatcher {
    *
    */
   public function StyleSheet() {
-    throw new Error('not implemented'); // TODO: implement!
+    clear();
   }
 
   /**
    * Removes all styles from the style sheet object.
    */
   public function clear():void {
-    throw new Error('not implemented'); // TODO: implement!
+    _styleNames = [];
+    styles = {};
   }
 
   /**
@@ -103,7 +104,7 @@ public dynamic class StyleSheet extends EventDispatcher {
    * @example <a href="http://www.adobe.com/go/learn_as3_usingexamples_en">How to use this example</a>Please see the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StyleSheet.html#parseCSS()">parseCSS()</a> or <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StyleSheet.html#transform()">transform()</a> method's example for illustrations of how to use the <code>getStyle()</code> method.
    */
   public function getStyle(styleName:String):Object {
-    throw new Error('not implemented'); // TODO: implement!
+    return styles[styleName];
   }
 
   /**
@@ -210,7 +211,10 @@ public dynamic class StyleSheet extends EventDispatcher {
    *
    */
   public function setStyle(styleName:String, styleObject:Object):void {
-    throw new Error('not implemented'); // TODO: implement!
+    if (!(styleName in styles)) {
+      styleNames.push(styleName);
+    }
+    styles[styleName] = styleObject;
   }
 
   /**
@@ -278,5 +282,8 @@ public dynamic class StyleSheet extends EventDispatcher {
   public function transform(formatObject:Object):TextFormat {
     throw new Error('not implemented'); // TODO: implement!
   }
+
+  private var _styleNames:Array;
+  private var styles:Object;
 }
 }

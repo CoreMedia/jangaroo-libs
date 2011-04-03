@@ -51,16 +51,12 @@ public final class ContextMenu extends EventDispatcher {
    * @see flash.display.InteractiveObject#contextMenu
    *
    */
-  public function get customItems():Array {
-    throw new Error('not implemented'); // TODO: implement!
-  }
+  public native function get customItems():Array;
 
   /**
    * @private
    */
-  public function set customItems(value:Array):void {
-    throw new Error('not implemented'); // TODO: implement!
-  }
+  public native function set customItems(value:Array):void;
 
   /**
    * Creates a ContextMenu object.
@@ -69,7 +65,7 @@ public final class ContextMenu extends EventDispatcher {
    *
    */
   public function ContextMenu() {
-    throw new Error('not implemented'); // TODO: implement!
+    this['customItems'] = [];
   }
 
   /**
@@ -82,7 +78,9 @@ public final class ContextMenu extends EventDispatcher {
    *
    */
   public function hideBuiltInItems():void {
-    throw new Error('not implemented'); // TODO: implement!
+    hidden = true;
   }
+
+  private var hidden:Boolean;
 }
 }
