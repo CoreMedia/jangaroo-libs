@@ -252,12 +252,16 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * }
    * </listing>
    */
-  public native function get blendMode():String; // TODO: implement!
+  public function get blendMode():String {
+    return _blendMode;
+  }
 
   /**
    * @private
    */
-  public native function set blendMode(value:String):void; // TODO: implement!
+  public function set blendMode(value:String):void {
+    _blendMode = value;
+  }
 
   /**
    * If set to <code>true</code>, Flash runtimes cache an internal bitmap representation of the display object. This caching can increase performance for display objects that contain complex vector content.
@@ -702,7 +706,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
     this._rotation = value || 0;
     var style:Style = getElement().style;
     setProprietaryStyle(style, 'transform', "rotate(" + rotation + "deg)");
-    setProprietaryStyle(style, 'transform-origin', vertical ? "top left" : "middle center");
+    setProprietaryStyle(style, 'transform-origin', "0pt 0pt");
   }
 
   private static const BROWSER_PREFIXES:Object = { '-moz-': 1, '-webkit-': 1, '-o': 1, '-ms-': 1 };
@@ -1497,7 +1501,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
     var domEventType : String = FLASH_EVENT_TO_DOM_EVENT[type];
     if (newEventType) {
       if (domEventType) {
-        this._elem.addEventListener(domEventType, this.transformAndDispatch, useCapture);
+        this.getElement().addEventListener(domEventType, this.transformAndDispatch, useCapture);
         // TODO: maintain different event listeners for useCapture==true and useCapture==false (if supported by browser)!
       } else if (type === flash.events.Event.ENTER_FRAME) {
         Stage.addEnterFrameSource(this);
@@ -1620,6 +1624,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
   public function DisplayObject() {
     super();
     _filters = [];
+    _blendMode = BlendMode.NORMAL;
   }
 
 
@@ -1634,6 +1639,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
   private var _alpha: Number = 1;
   private var _filters: Array;
   private var _cacheAsBitmap:Boolean;
+  private var _blendMode:String;
 
   private static var _loaderInfo:LoaderInfo;
 }
