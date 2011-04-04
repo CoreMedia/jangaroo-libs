@@ -768,7 +768,7 @@ public final class Graphics {
 
   // ************************** Jangaroo part **************************
 
-  private static const PIXEL_CHUNK_SIZE:int = 100;
+  private static const PIXEL_CHUNK_SIZE:int = 0;
 
   private var context : CanvasRenderingContext2D;
   private var thickness : Number = 0;
@@ -822,8 +822,6 @@ public final class Graphics {
       minY = y - thickness;
       maxX = x + thickness;
       maxY = y + thickness;
-      translate(0, 0, Math.floor(minX), Math.floor(minY));
-      // TODO: theoretically, thickness could be more than our initial width/height!
     } else {
       var oldIntMinX:int = Math.floor(minX);
       var oldIntMinY:int = Math.floor(minY);
@@ -833,42 +831,41 @@ public final class Graphics {
       minY = Math.min(minY, y - thickness);
       maxX = Math.max(maxX, x + thickness);
       maxY = Math.max(maxY, y + thickness);
-
-      var imageData:ImageData;
-      var canvas:HTMLCanvasElement = this.canvas;
-      var intMinX:int = Math.floor(minX);
-      var intMinY:int = Math.floor(minY);
-      var intWidth:int = Math.ceil(maxX) - intMinX + 1;
-      var intHeight:int = Math.ceil(maxY) - intMinY + 1;
-      if (intWidth > canvas.width || intHeight > canvas.height) {
-        // backup all properties that will be reset by setting width / height:
-        var backupStyle:Object = {
-          fillStyle  : context.fillStyle,
-          lineWidth  : context.lineWidth,
-          strokeStyle: context.strokeStyle,
-          lineCap    : context.lineCap,
-          lineJoin   : context.lineJoin,
-          miterLimit : context.miterLimit
-        };
-        imageData = context.getImageData(0, 0, oldIntWidth, oldIntHeight);
-        canvas.width = Math.max(canvas.width, intWidth + PIXEL_CHUNK_SIZE);
-        canvas.height = Math.max(canvas.height, intHeight + PIXEL_CHUNK_SIZE);
-        translate(0, 0, intMinX, intMinY);
-        // restore image data:
-        if (imageData) {
-          context.putImageData(imageData, oldIntMinX - intMinX, oldIntMinY - intMinY);
-        }
-        // restore context properties:
-        for (var m:String in backupStyle) {
-          context[m] = backupStyle[m];
-        }
-        //trace("[INFO] enlarged canvas to " + canvas.width + " x " + canvas.height);
-      } else if (intMinX < oldIntMinX || intMinY < oldIntMinY) {
-        imageData = context.getImageData(0, 0, oldIntWidth, oldIntHeight);
-        context.clearRect(oldIntMinX, oldIntMinY, oldIntWidth, oldIntHeight);
-        translate(oldIntMinX, oldIntMinY, intMinX, intMinY);
+    }
+    var imageData:ImageData;
+    var canvas:HTMLCanvasElement = this.canvas;
+    var intMinX:int = Math.floor(minX);
+    var intMinY:int = Math.floor(minY);
+    var intWidth:int = Math.ceil(maxX) - intMinX + 1;
+    var intHeight:int = Math.ceil(maxY) - intMinY + 1;
+    if (intWidth > canvas.width || intHeight > canvas.height) {
+      // backup all properties that will be reset by setting width / height:
+      var backupStyle:Object = {
+        fillStyle  : context.fillStyle,
+        lineWidth  : context.lineWidth,
+        strokeStyle: context.strokeStyle,
+        lineCap    : context.lineCap,
+        lineJoin   : context.lineJoin,
+        miterLimit : context.miterLimit
+      };
+      imageData = oldIntWidth ? context.getImageData(0, 0, oldIntWidth, oldIntHeight) : null;
+      canvas.width = Math.max(canvas.width, intWidth + PIXEL_CHUNK_SIZE);
+      canvas.height = Math.max(canvas.height, intHeight + PIXEL_CHUNK_SIZE);
+      translate(0, 0, intMinX, intMinY);
+      // restore image data:
+      if (imageData) {
         context.putImageData(imageData, oldIntMinX - intMinX, oldIntMinY - intMinY);
       }
+      // restore context properties:
+      for (var m:String in backupStyle) {
+        context[m] = backupStyle[m];
+      }
+      //trace("[INFO] enlarged canvas to " + canvas.width + " x " + canvas.height);
+    } else if (intMinX < oldIntMinX || intMinY < oldIntMinY) {
+      imageData = context.getImageData(0, 0, oldIntWidth, oldIntHeight);
+      context.clearRect(oldIntMinX, oldIntMinY, oldIntWidth, oldIntHeight);
+      translate(oldIntMinX, oldIntMinY, intMinX, intMinY);
+      context.putImageData(imageData, oldIntMinX - intMinX, oldIntMinY - intMinY);
     }
   }
 
