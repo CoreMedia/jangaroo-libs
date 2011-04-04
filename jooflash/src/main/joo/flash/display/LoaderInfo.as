@@ -292,11 +292,14 @@ public class LoaderInfo extends EventDispatcher {
   public function LoaderInfo(loader:Loader = null) {
     this['loader'] = loader;
     setUrl(window.location.href); // TODO: does this make sense?
-    var parameters:Object = {};
-    if (window.location.search) {
-      var keyValuePairs:Array = window.location.search.split("&");
-    }    
-    this['parameters'] = parameters; // TODO: implement!
+    var params:Object = {};
+    var query:String = window.location.search.substr(1);
+    var keysValues:Array = query.split('&');
+    for (var i:int = 0; i < keysValues.length; i++) {
+      var keyValue:Array = String(keysValues[i]).split('=');
+      params[decodeURIComponent(keyValue[0])] = decodeURIComponent(keyValue[1]);
+    }
+    this['parameters'] = params;
   }
 
   internal function load():void {
