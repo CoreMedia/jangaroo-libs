@@ -500,16 +500,18 @@ public final class Graphics {
    *
    */
   public function endFill():void {
-    this.context.beginPath();
-    for (var i:int = 0; i < fillCommands.length; i++) {
-      fillCommands[i]();
+    if (fillCommands) {
+      this.context.beginPath();
+      for (var i:int = 0; i < fillCommands.length; i++) {
+        fillCommands[i]();
+      }
+      this.context.closePath();
+      this.context.fill();
+      if (!isNaN(thickness)) {
+        this.context.stroke();
+      }
+      this.fillCommands = null;
     }
-    this.context.closePath();
-    this.context.fill();
-    if (!isNaN(thickness)) {
-      this.context.stroke();
-    }
-    this.fillCommands = null;
   }
 
   /**
@@ -771,7 +773,7 @@ public final class Graphics {
   private static const PIXEL_CHUNK_SIZE:int = 0;
 
   private var context : CanvasRenderingContext2D;
-  private var thickness : Number = 0;
+  private var thickness : Number;
   private var fillCommands : Array;
   private var minX:Number;
   private var minY:Number;
@@ -785,8 +787,8 @@ public final class Graphics {
    */
   public function Graphics() {
     var canvas : HTMLCanvasElement = window.document.createElement("canvas") as HTMLCanvasElement;
-    canvas.width = PIXEL_CHUNK_SIZE;
-    canvas.height = PIXEL_CHUNK_SIZE;
+    canvas.width = 1; //PIXEL_CHUNK_SIZE;
+    canvas.height = 1; //PIXEL_CHUNK_SIZE;
     canvas.style.position = "absolute";
 
     this.context = CanvasRenderingContext2D(canvas.getContext("2d"));
