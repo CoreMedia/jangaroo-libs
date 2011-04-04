@@ -52,14 +52,15 @@ public class Sprite extends DisplayObjectContainer {
    * </listing>
    */
   public function get buttonMode():Boolean {
-    throw new Error('not implemented'); // TODO: implement!
+    return _buttonMode; // TODO: implement!
   }
 
   /**
    * @private
    */
   public function set buttonMode(value:Boolean):void {
-    throw new Error('not implemented'); // TODO: implement!
+    _buttonMode = value;
+    updateCursor();
   }
 
   /**
@@ -269,14 +270,15 @@ public class Sprite extends DisplayObjectContainer {
    * </listing>
    */
   public function get useHandCursor():Boolean {
-    throw new Error('not implemented'); // TODO: implement!
+    return _useHandCursor;
   }
 
   /**
    * @private
    */
   public function set useHandCursor(value:Boolean):void {
-    throw new Error('not implemented'); // TODO: implement!
+    _useHandCursor = value;
+    updateCursor();
   }
 
   /**
@@ -392,6 +394,12 @@ public class Sprite extends DisplayObjectContainer {
   }
 
   // ************************** Jangaroo part **************************
+  private function updateCursor():void {
+    getElement().style.cursor = buttonMode && useHandCursor ? 'pointer' : 'default';
+  }
+
   private var _graphics : Graphics;
+  private var _buttonMode:Boolean;
+  private var _useHandCursor:Boolean;
 }
 }
