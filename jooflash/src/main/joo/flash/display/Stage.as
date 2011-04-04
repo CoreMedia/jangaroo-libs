@@ -1044,10 +1044,6 @@ public class Stage extends DisplayObjectContainer {
     return _mouseY;
   }
 
-  private function enterFrame() : void {
-    this.broadcastEvent(new Event(Event.ENTER_FRAME, false, false));
-  }
-
   private var _stageHeight:int;
   private var _stageWidth:int;
   private var _mouseX:int;
@@ -1059,5 +1055,27 @@ public class Stage extends DisplayObjectContainer {
   private var _scaleMode : String = StageScaleMode.NO_SCALE;
   private var _align : String = StageAlign.TOP_LEFT;
   internal var buttonDown:Boolean = false;
+
+  private static var enterFrameSources:Array = [];
+
+  internal static function addEnterFrameSource(displayObject:DisplayObject):void {
+    enterFrameSources.push(displayObject);
+  }
+
+  internal static function removeEnterFrameSource(displayObject:DisplayObject):void {
+    var index:int = enterFrameSources.indexOf(displayObject);
+    if (index !== -1) {
+      enterFrameSources.splice(index, 1);
+    }
+  }
+
+  private static function enterFrame() : void {
+    var enterFrameEvent:Event = new Event(Event.ENTER_FRAME, false, false);
+    for (var i:int = 0; i < enterFrameSources.length; i++) {
+      var displayObject:DisplayObject = enterFrameSources[i];
+      displayObject.dispatchEvent(enterFrameEvent);
+    }
+  }
+
 }
 }

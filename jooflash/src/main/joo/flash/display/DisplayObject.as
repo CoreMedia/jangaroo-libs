@@ -1454,7 +1454,10 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
     'dblclick':  MouseEvent.DOUBLE_CLICK,
     'mousedown': MouseEvent.MOUSE_DOWN,
     'mouseup':   MouseEvent.MOUSE_UP,
-    'mousemove': MouseEvent.MOUSE_MOVE
+    'mousemove': MouseEvent.MOUSE_MOVE,
+    'mouseover': MouseEvent.MOUSE_OVER,
+    'mouseout':  MouseEvent.MOUSE_OUT,
+    'mousewheel':MouseEvent.MOUSE_WHEEL
     // TODO: map remaining MouseEvent constants to DOM events!
   };
   private static const DOM_EVENT_TO_KEYBOARD_EVENT : Object/*<String,String>*/ = {
@@ -1496,6 +1499,8 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
       if (domEventType) {
         this._elem.addEventListener(domEventType, this.transformAndDispatch, useCapture);
         // TODO: maintain different event listeners for useCapture==true and useCapture==false (if supported by browser)!
+      } else if (type === flash.events.Event.ENTER_FRAME) {
+        Stage.addEnterFrameSource(this);
       }
     }
   }
@@ -1510,6 +1515,8 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
       if (domEventType) {
         // remove the DOM element event listener, too:
         this._elem.removeEventListener(domEventType, this.transformAndDispatch, useCapture);
+      } else if (type === flash.events.Event.ENTER_FRAME) {
+        Stage.removeEnterFrameSource(this);
       }
     }
   }
