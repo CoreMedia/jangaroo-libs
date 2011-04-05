@@ -505,6 +505,9 @@ public final class Graphics {
       for (var i:int = 0; i < fillCommands.length; i++) {
         fillCommands[i]();
       }
+      if (x !== startX || y !== startY) {
+        this.context.lineTo(startX, startY);
+      }
       this.context.closePath();
       this.context.fill();
       if (!isNaN(thickness)) {
@@ -761,8 +764,8 @@ public final class Graphics {
    * </listing>
    */
   public function moveTo(x:Number, y:Number):void {
-    this.x = x;
-    this.y = y;
+    this.startX = this.x = x;
+    this.startY = this.y = y;
     scheduleCommand(function():void {
       this.context.moveTo(x, y);
     });
@@ -781,6 +784,8 @@ public final class Graphics {
   private var maxY:Number;
   private var x:Number = 0;
   private var y:Number = 0;
+  private var startX:Number = 0;
+  private var startY:Number = 0;
 
   /**
    * @private
