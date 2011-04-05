@@ -117,7 +117,7 @@ public function DragSource(el : *, config : Object) {
              * @param id The id of the dropped element
              * @method afterInvalidDrop
              */
-    protected native function getRepairXY(target : Object, e : EventObjectClass, id : String) : void;
+    protected native function getRepairXY(target : Object, e : EventObjectClass, id : String) : Array;
     override public native function onInvalidDrop(e:EventObjectClass) : void;
             /**
              * An empty function by default, but provided so that you can perform a custom action
