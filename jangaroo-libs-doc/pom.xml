@@ -6,8 +6,8 @@
   <parent>
     <groupId>net.jangaroo</groupId>
     <artifactId>jangaroo-libs-parent</artifactId>
-    <version>0.8.4-SNAPSHOT</version>
-    <relativePath>../pom.xml</relativePath>
+    <version>0.8.6-SNAPSHOT</version>
+    <relativePath>../jangaroo-libs-parent/pom.xml</relativePath>
   </parent>
 
   <artifactId>jangaroo-libs-doc</artifactId>
