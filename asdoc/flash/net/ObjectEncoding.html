@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../print.css" type="text/css" media="print">
+<meta content="ObjectEncoding,flash.net.ObjectEncoding,AMF0,AMF3,DEFAULT,dynamicPropertyWriter" name="keywords">
+<title>flash.net.ObjectEncoding</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'ObjectEncoding - API Documentation';
+				var baseRef = '../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">API Documentation</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../all-classes.html')" href="../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../all-classes.html')" href="../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../index-list.html')" href="../../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../../index.html?flash/net/ObjectEncoding.html&amp;flash/net/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;ObjectEncoding</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#constantSummary">Constants</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class ObjectEncoding"); titleBar_setSubNav(true,true,false,false,false,false,false,false,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">flash.net</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public final  class ObjectEncoding</td>
+</tr>
+</table>
+<p></p>
+ The ObjectEncoding class is used in defining serialization settings in classes that serialize objects (such as FileStream, NetStream, NetConnection, SharedObject, and ByteArray) to work with prior versions of ActionScript.
+ <p>Object encoding controls how objects are represented in Action Message Format (AMF). Flash Player uses AMF to enable efficient communication between an application and a remote server. AMF encodes remote procedure calls into a compact binary representation that can be transferred over HTTP/HTTPS or the RTMP/RTMPS protocol used by Flash Media Server. Objects and data values are serialized into this binary format, which is generally more compact than other representations, such as XML.</p>
+ <p>Adobe AIR and Flash Player 9 can serialize in two different formats: AMF3 and AMF0. AMF3, the default serialization developed for ActionScript 3.0, provides various advantages over AMF0, which is used for ActionScript 1.0 and 2.0. AMF3 sends data over the network more efficiently than AMF0. AMF3 supports sending <code>int</code> and <code>uint</code> objects as integers and supports data types that are available only in ActionScript 3.0, such as ByteArray, XML, and IExternalizable. It is available only in ActionScript 3.0 and with servers that use AMF3 encoding, such as Flex 2.</p>
+ <p>The ByteArray, FileStream, NetConnection, NetStream, SharedObject, Socket, and URLStream classes contain an <code>objectEncoding</code> property that is assigned a constant from the ObjectEncoding class. The behavior of the <code>objectEncoding</code> property differs depending on the object; each class's <code>objectEncoding</code> property description explains the behavior more thoroughly.</p>
+ <p></p>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#dynamicPropertyWriter">dynamicPropertyWriter</a> : <a href="../net/IDynamicPropertyWriter.html">IDynamicPropertyWriter</a>
+<div class="summaryTableDescription">[static]
+   Allows greater control over the serialization of dynamic properties of dynamic objects.</div>
+</td><td class="summaryTableOwnerCol">ObjectEncoding</td>
+</tr>
+</table>
+</div>
+<a name="constantSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Constants</div>
+<table id="summaryTableConstant" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Constant</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#AMF0">AMF0</a> : uint = 0<div class="summaryTableDescription">[static]
+   Specifies that objects are serialized using the Action Message Format for ActionScript 1.0 and 2.0.</div>
+</td><td class="summaryTableOwnerCol">ObjectEncoding</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#AMF3">AMF3</a> : uint = 3<div class="summaryTableDescription">[static]
+   Specifies that objects are serialized using the Action Message Format for ActionScript 3.0.</div>
+</td><td class="summaryTableOwnerCol">ObjectEncoding</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#DEFAULT">DEFAULT</a> : uint = 3<div class="summaryTableDescription">[static]
+   Specifies the default (latest) format for the current runtime (either Flash Player or AIR).</div>
+</td><td class="summaryTableOwnerCol">ObjectEncoding</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="dynamicPropertyWriter"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">dynamicPropertyWriter</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>dynamicPropertyWriter:<a href="../net/IDynamicPropertyWriter.html">IDynamicPropertyWriter</a></code>&nbsp;&nbsp;[read-write]<p>
+   Allows greater control over the serialization of dynamic properties of dynamic objects. When this property is set to <code>null</code>, the default value, dynamic properties are serialized using native code, which writes all dynamic properties excluding those whose value is a function.
+   </p><p>This value is called only for properties of a dynamic object (objects declared within a dynamic class) or for objects declared using the <code>new</code> operator.</p>
+   <p>You can use this property to exclude properties of dynamic objects from serialization; to write values to properties of dynamic objects; or to create new properties for dynamic objects. To do so, set this property to an object that implements the IDynamicPropertyWriter interface. For more information, see the IDynamicPropertyWriter interface.</p>
+   <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get dynamicPropertyWriter():<a href="../net/IDynamicPropertyWriter.html">IDynamicPropertyWriter</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set dynamicPropertyWriter(value:<a href="../net/IDynamicPropertyWriter.html">IDynamicPropertyWriter</a>):void</code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="IDynamicPropertyWriter.html" target="">IDynamicPropertyWriter</a>
+</div>
+</div>
+<a name="constantDetail"></a>
+<div class="detailSectionHeader">Constant detail</div>
+<a name="AMF0"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">AMF0</td><td class="detailHeaderType">constant</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const AMF0:uint = 0</code><p>
+   Specifies that objects are serialized using the Action Message Format for ActionScript 1.0 and 2.0.
+   </p></div>
+<a name="AMF3"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">AMF3</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const AMF3:uint = 3</code><p>
+   Specifies that objects are serialized using the Action Message Format for ActionScript 3.0.
+   </p></div>
+<a name="DEFAULT"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">DEFAULT</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const DEFAULT:uint = 3</code><p>
+   Specifies the default (latest) format for the current runtime (either Flash Player or AIR). Because object encoding control is only available in Flash Player 9 and later and Adobe AIR, the earliest format used will be the Action Message Format for ActionScript 3.0.
+   </p><p>For example, if an object has the <code>objectEncoding</code> property set to <code>ObjectEncoding.DEFAULT</code>, AMF3 encoding is used. If, in the future, a later version of Flash Player or Adobe AIR introduces a new AMF version and you republish your content, the application will use that new AMF version. You can use this constant only if you're not concerned at all about interoperability with previous versions.</p>
+   </div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<center class="copyright"> 
+</center>
+</div>
+</body>
+</html>
+<!-- -->

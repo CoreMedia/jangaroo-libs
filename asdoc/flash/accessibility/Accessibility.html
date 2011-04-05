@@ -1,0 +1,223 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../print.css" type="text/css" media="print">
+<meta content="Accessibility,flash.accessibility.Accessibility,active,sendEvent,updateProperties" name="keywords">
+<title>flash.accessibility.Accessibility</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'Accessibility - API Documentation';
+				var baseRef = '../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">API Documentation</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../all-classes.html')" href="../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../all-classes.html')" href="../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../index-list.html')" href="../../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../../index.html?flash/accessibility/Accessibility.html&amp;flash/accessibility/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;Accessibility</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class Accessibility"); titleBar_setSubNav(false,true,false,false,false,false,true,false,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">flash.accessibility</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public final  class Accessibility</td>
+</tr>
+</table>
+<p></p>
+ The Accessibility class manages communication with screen readers. Screen readers are a type of assistive technology for visually impaired users that provides an audio version of screen content. The methods of the Accessibility class are static—that is, you don't have to create an instance of the class to use its methods.
+ <p><b>Mobile Browser Support:</b> This class is not supported in mobile browsers.</p>
+ <p><i>AIR profile support:</i> This feature is supported on all desktop operating systems, but is not supported on mobile devices or on AIR for TV devices. See <a href="http://help.adobe.com/en_US/air/build/WS144092a96ffef7cc16ddeea2126bb46b82f-8000.html">AIR Profile Support</a> for more information regarding API support across multiple profiles.</p>
+ <p>To get and set accessible properties for a specific object, such as a button, movie clip, or text field, use the <code>DisplayObject.accessibilityProperties</code> property. To determine whether the player or runtime is running in an environment that supports accessibility aids, use the <code>Capabilities.hasAccessibility</code> property.</p>
+ <p><b>Note:</b> AIR 2 supports the JAWS 11 (or higher) screen reader software. For additional information, please see http://www.adobe.com/accessibility/.</p>
+ <p><a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/accessibility/Accessibility.html#includeExamplesSummary">View the examples</a></p>
+ <p></p>
+<p>
+<span class="classHeaderTableLabel">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../display/DisplayObject.html#accessibilityProperties" target="">flash.display.DisplayObject.accessibilityProperties</a>
+<br>
+<a href="../system/Capabilities.html#hasAccessibility" target="">flash.system.Capabilities.hasAccessibility</a>
+<br>
+<a href="../net/Socket.html" target="">flash.net.Socket</a>
+<br>
+<a href="http://www.adobe.com/accessibility/" target="mm_external">http://www.adobe.com/accessibility/</a>
+</div>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#active">active</a> : Boolean<div class="summaryTableDescription">[static][read-only]
+   Indicates whether a screen reader is active and the application is communicating with it.</div>
+</td><td class="summaryTableOwnerCol">Accessibility</td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#sendEvent()">sendEvent</a>(source:<a href="../display/DisplayObject.html">DisplayObject</a>, childID:uint, eventType:uint, nonHTML:Boolean = false):void</div>
+<div class="summaryTableDescription">[static]
+   Sends an event to the Microsoft Active Accessibility API.</div>
+</td><td class="summaryTableOwnerCol">Accessibility</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#updateProperties()">updateProperties</a>():void</div>
+<div class="summaryTableDescription">[static]
+   Tells Flash Player to apply any accessibility changes made by using the <code>DisplayObject.accessibilityProperties</code> property.</div>
+</td><td class="summaryTableOwnerCol">Accessibility</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="active"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">active</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>active:Boolean</code>&nbsp;&nbsp;[read-only]<p>
+   Indicates whether a screen reader is active and the application is communicating with it. Use this method when you want your application to behave differently in the presence of a screen reader.
+   </p><p>Once this property is set to <code>true</code>, it remains <code>true</code> for the duration of the application. (It is unusual for a user to turn off the screen reader once it is started.)</p>
+   <p><b>Note:</b> Before calling this method, wait 1 or 2 seconds after launching your AIR application or after the first appearance of the Flash<sup>®</sup> Player window in which your document is playing. Otherwise, you might get a return value of <code>false</code> even if there is an active accessibility client. This happens because of an asynchronous communication mechanism between accessibility clients and Flash Player or AIR.</p>To determine whether the player is running in an environment that supports screen readers, use the <code>Capabilities.hasAccessibility</code> property.
+   <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get active():Boolean</code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../system/Capabilities.html#hasAccessibility" target="">flash.system.Capabilities.hasAccessibility</a>
+<br>
+<a href="../accessibility/Accessibility.html#updateProperties()" target="">updateProperties()</a>
+</div>
+</div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="sendEvent()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">sendEvent</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function sendEvent(source:<a href="../display/DisplayObject.html">DisplayObject</a>, childID:uint, eventType:uint, nonHTML:Boolean = false):void</code><p>
+   Sends an event to the Microsoft Active Accessibility API. Microsoft Active
+   Accessibility handles that event and sends the event to any active screen reader
+   application, which in turn reports the change to the user.  For example, when a
+   user toggles a RadioButton instance, the RadioButton's Accessibility Implementation
+   calls Accessibility.sendEvent() with the eventType EVENT_OBJECT_STATECHANGE.
+      </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">source</span>:<a href="../display/DisplayObject.html">DisplayObject</a></code> &mdash; The DisplayObject from which the accessibility event is being sent.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">childID</span>:uint</code> &mdash; The child id of the accessibility interface element to which the event applies (for example, an individual list item in a list box). Use 0 to indicate that the event applies to the DisplayObject supplied in the <code>source</code> parameter.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">eventType</span>:uint</code> &mdash; A constant indicating the event type. Event names and values are a subset of the <a href="constants.html#events">MSAA event constants</a>.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">nonHTML</span>:Boolean</code> (default = <code>false</code>)<code></code> &mdash; A Boolean indication of whether or not the event is one of the standard event types that can be generated from an HTML form. When set to <code>true</code>, this parameter helps prevent some problems that may occur with screen readers that interperet Flash content as part of the HTML page.  The default value is <code>false</code>.
+      </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="AccessibilityImplementation.html" target="">AccessibilityImplementation</a>
+<br>mx.accessibility.AccImpl</div>
+</div>
+<a name="updateProperties()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">updateProperties</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function updateProperties():void</code><p>
+   Tells Flash Player to apply any accessibility changes made by using the <code>DisplayObject.accessibilityProperties</code> property. You need to call this method for your changes to take effect.
+   </p><p>If you modify the accessibility properties for multiple objects, only one call to the <code>Accessibility.updateProperties()</code> method is necessary; multiple calls can result in reduced performance and erroneous screen reader output.</p>
+   <br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../errors/IllegalOperationError.html">IllegalOperationError</a> </code> &mdash; Accessibility is not supported in this version of Flash Player. Do not call the <code>Accessibility.updateProperties()</code> method if the <code>flash.system.Capabilities.hasAccessibility</code> property is <code>false</code>.
+      </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../accessibility/Accessibility.html#active" target="">active</a>
+<br>
+<a href="../display/DisplayObject.html#accessibilityProperties" target="">flash.display.DisplayObject.accessibilityProperties</a>
+<br>
+<a href="../system/Capabilities.html#hasAccessibility" target="">flash.system.Capabilities.hasAccessibility</a>
+</div>
+</div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<center class="copyright"> 
+</center>
+</div>
+</body>
+</html>
+<!-- -->

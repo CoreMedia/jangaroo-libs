@@ -1,0 +1,1243 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../print.css" type="text/css" media="print">
+<meta content="Loader,flash.display.Loader,content,contentLoaderInfo,close,load,loadBytes,unload" name="keywords">
+<title>flash.display.Loader</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'Loader - API Documentation';
+				var baseRef = '../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">API Documentation</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../all-classes.html')" href="../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../all-classes.html')" href="../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../index-list.html')" href="../../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../../index.html?flash/display/Loader.html&amp;flash/display/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;Loader</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#eventSummary">Events</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class Loader"); titleBar_setSubNav(false,true,false,false,true,false,true,false,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">flash.display</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public class Loader</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">Loader <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../images/inherit-arrow.gif"> <a href="DisplayObjectContainer.html">DisplayObjectContainer</a> <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../images/inherit-arrow.gif"> <a href="InteractiveObject.html">InteractiveObject</a> <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../images/inherit-arrow.gif"> <a href="DisplayObject.html">DisplayObject</a> <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../images/inherit-arrow.gif"> <a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+</table>
+<p></p>
+ The Loader class is used to load SWF files or image (JPG, PNG, or GIF) files. Use the <code>load()</code> method to initiate loading. The loaded display object is added as a child of the Loader object.
+ <p>Use the URLLoader class to load text or binary data.</p>
+ <p>The Loader class overrides the following methods that it inherits, because a Loader object can only have one child display object—the display object that it loads. Calling the following methods throws an exception: <code>addChild()</code>, <code>addChildAt()</code>, <code>removeChild()</code>, <code>removeChildAt()</code>, and <code>setChildIndex()</code>. To remove a loaded display object, you must remove the <i>Loader</i> object from its parent DisplayObjectContainer child array.</p>
+ <p><b>Note:</b> The ActionScript 2.0 MovieClipLoader and LoadVars classes are not used in ActionScript 3.0. The Loader and URLLoader classes replace them.</p>
+ <p>When you use the Loader class, consider the Flash Player and Adobe AIR security model:</p>
+ <ul>
+ <li>You can load content from any accessible source.</li>
+ <li>Loading is not allowed if the calling SWF file is in a network sandbox and the file to be loaded is local.</li>
+ <li>If the loaded content is a SWF file written with ActionScript 3.0, it cannot be cross-scripted by a SWF file in another security sandbox unless that cross-scripting arrangement was approved through a call to the <code>System.allowDomain()</code> or the <code>System.allowInsecureDomain()</code> method in the loaded content file.</li>
+ <li>If the loaded content is an AVM1 SWF file (written using ActionScript 1.0 or 2.0), it cannot be cross-scripted by an AVM2 SWF file (written using ActionScript 3.0). However, you can communicate between the two SWF files by using the LocalConnection class.</li>
+ <li>If the loaded content is an image, its data cannot be accessed by a SWF file outside of the security sandbox, unless the domain of that SWF file was included in a URL policy file at the origin domain of the image.</li>
+ <li>Movie clips in the local-with-file-system sandbox cannot script movie clips in the local-with-networking sandbox, and the reverse is also prevented.</li>
+ <li>You cannot connect to commonly reserved ports. For a complete list of blocked ports, see "Restricting Networking APIs" in the <i>ActionScript 3.0 Developer's Guide</i>.</li></ul>
+ <p>However, in AIR, content in the <code>application</code> security sandbox (content installed with the AIR application) are not restricted by these security limitations.</p>
+ <p>For more information related to security, see the Flash Player Developer Center Topic: <a href="http://www.adobe.com/go/devnet_security_en">Security</a>.</p>
+ <p>When loading a SWF file from an untrusted source (such as a domain other than that of the Loader object's root SWF file), you may want to define a mask for the Loader object, to prevent the loaded content (which is a child of the Loader object) from drawing to portions of the Stage outside of that mask, as shown in the following code:</p>
+ <div class='listing'><pre>
+ import flash.display.
+  import flash.net.URLRequest;
+  var rect:Shape = new Shape();
+  rect.graphics.beginFill(0xFFFFFF);
+  rect.graphics.drawRect(0, 0, 100, 100);
+  rect.graphics.endFill();
+  addChild(rect);
+  var ldr:Loader = new Loader();
+  ldr.mask = rect;
+  var url:String = "http://www.unknown.example.com/content.swf";
+  var urlReq:URLRequest = new URLRequest(url);
+  ldr.load(urlReq);
+  addChild(ldr);
+ </pre></div>
+ <p><a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/Loader.html#includeExamplesSummary">View the examples</a></p>
+ <p></p>
+<p>
+<span class="classHeaderTableLabel">See also</span>
+</p>
+<div class="seeAlso">
+<a href="LoaderInfo.html" target="">LoaderInfo</a>
+<br>
+<a href="../net/URLLoader.html" target="">flash.net.URLLoader</a>
+<br>
+<a href="DisplayObject.html" target="">DisplayObject</a>
+<br>
+<a href="http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118a9b90204-7e3c.html" target="mm_external">Core display classes</a>
+<br>
+<a href="http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118a9b90204-7e13.html" target="mm_external">Loading display content dynamically</a>
+<br>
+<a href="http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118a9b90204-7d5b.html" target="mm_external">Taking advantage of mipmapping</a>
+<br>
+<a href="http://help.adobe.com/en_US/as3/dev/WS1EFE2EDA-026D-4d14-864E-79DFD56F87C6.html" target="mm_external">Restricting networking APIs</a>
+</div>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<div class="showHideLinks">
+<div class="hideInheritedProperty" id="hideInheritedProperty">
+<a onclick="javascript:setInheritedVisible(false,'Property');" href="#propertySummary" class="showHideLink"><img src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Properties</a>
+</div>
+<div class="showInheritedProperty" id="showInheritedProperty">
+<a onclick="javascript:setInheritedVisible(true,'Property');" href="#propertySummary" class="showHideLink"><img src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Properties</a>
+</div>
+</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="InteractiveObject.html#accessibilityImplementation">accessibilityImplementation</a> : <a href="../accessibility/AccessibilityImplementation.html">AccessibilityImplementation</a>
+<div class="summaryTableDescription">
+   The current accessibility implementation (AccessibilityImplementation) for this InteractiveObject instance.</div>
+</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObject.html#accessibilityProperties">accessibilityProperties</a> : <a href="../accessibility/AccessibilityProperties.html">AccessibilityProperties</a>
+<div class="summaryTableDescription">
+   The current accessibility options for this display object.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObject.html#alpha">alpha</a> : Number<div class="summaryTableDescription">
+   Indicates the alpha transparency value of the object specified.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObject.html#blendMode">blendMode</a> : String<div class="summaryTableDescription">
+   A value from the BlendMode class that specifies which blend mode to use.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObject.html#cacheAsBitmap">cacheAsBitmap</a> : Boolean<div class="summaryTableDescription">
+   If set to <code>true</code>, Flash runtimes cache an internal bitmap representation of the display object.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#content">content</a> : <a href="../display/DisplayObject.html">DisplayObject</a>
+<div class="summaryTableDescription">[read-only]
+   Contains the root display object of the SWF file or image (JPG, PNG, or GIF) file that was loaded by using the <code>load()</code> or <code>loadBytes()</code> methods.</div>
+</td><td class="summaryTableOwnerCol">Loader</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#contentLoaderInfo">contentLoaderInfo</a> : <a href="../display/LoaderInfo.html">LoaderInfo</a>
+<div class="summaryTableDescription">[read-only]
+   Returns a LoaderInfo object corresponding to the object being loaded.</div>
+</td><td class="summaryTableOwnerCol">Loader</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="InteractiveObject.html#contextMenu">contextMenu</a> : <a href="../ui/ContextMenu.html">ContextMenu</a>
+<div class="summaryTableDescription">
+   Specifies the context menu associated with this object.</div>
+</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="InteractiveObject.html#doubleClickEnabled">doubleClickEnabled</a> : Boolean<div class="summaryTableDescription">
+   Specifies whether the object receives <code>doubleClick</code> events.</div>
+</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObject.html#filters">filters</a> : Array<div class="summaryTableDescription">
+   An indexed array that contains each filter object currently associated with the display object.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="InteractiveObject.html#focusRect">focusRect</a> : Object<div class="summaryTableDescription">
+   Specifies whether this object displays a focus rectangle.</div>
+</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObjectContainer.html#height">height</a> : Number<div class="summaryTableDescription">
+   
+   Indicates the height of the display object, in pixels.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObjectContainer.html">DisplayObjectContainer</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObject.html#loaderInfo">loaderInfo</a> : <a href="../display/LoaderInfo.html">LoaderInfo</a>
+<div class="summaryTableDescription">
+   Returns a LoaderInfo object containing information about loading the file to which this display object belongs.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObject.html#mask">mask</a> : <a href="../display/DisplayObject.html">DisplayObject</a>
+<div class="summaryTableDescription">
+   The calling display object is masked by the specified <code>mask</code> object.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObjectContainer.html#mouseChildren">mouseChildren</a> : Boolean<div class="summaryTableDescription">
+   Determines whether or not the children of the object are mouse, or user input device, enabled.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObjectContainer.html">DisplayObjectContainer</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="InteractiveObject.html#mouseEnabled">mouseEnabled</a> : Boolean<div class="summaryTableDescription">
+   Specifies whether this object receives mouse, or other user input, messages.</div>
+</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObject.html#mouseX">mouseX</a> : Number<div class="summaryTableDescription">
+   Indicates the x coordinate of the mouse or user input device position, in pixels.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObject.html#mouseY">mouseY</a> : Number<div class="summaryTableDescription">
+   Indicates the y coordinate of the mouse or user input device position, in pixels.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObject.html#name">name</a> : String<div class="summaryTableDescription">
+   Indicates the instance name of the DisplayObject.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObjectContainer.html#numChildren">numChildren</a> : int<div class="summaryTableDescription">
+   Returns the number of children of this object.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObjectContainer.html">DisplayObjectContainer</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObject.html#opaqueBackground">opaqueBackground</a> : Object<div class="summaryTableDescription">
+   Specifies whether the display object is opaque with a certain background color.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObject.html#parent">parent</a> : <a href="../display/DisplayObjectContainer.html">DisplayObjectContainer</a>
+<div class="summaryTableDescription">
+   Indicates the DisplayObjectContainer object that contains this display object.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObject.html#root">root</a> : <a href="../display/DisplayObject.html">DisplayObject</a>
+<div class="summaryTableDescription">
+   For a display object in a loaded SWF file, the <code>root</code> property is the top-most display object in the portion of the display list's tree structure represented by that SWF file.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObject.html#rotation">rotation</a> : Number<div class="summaryTableDescription">
+   Indicates the rotation of the DisplayObject instance, in degrees, from its original orientation.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObject.html#scale9Grid">scale9Grid</a> : <a href="../geom/Rectangle.html">Rectangle</a>
+<div class="summaryTableDescription">
+   The current scaling grid that is in effect.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObject.html#scaleX">scaleX</a> : Number<div class="summaryTableDescription">
+   Indicates the horizontal scale (percentage) of the object as applied from the registration point.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObject.html#scaleY">scaleY</a> : Number<div class="summaryTableDescription">
+   Indicates the vertical scale (percentage) of an object as applied from the registration point of the object.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObject.html#scrollRect">scrollRect</a> : <a href="../geom/Rectangle.html">Rectangle</a>
+<div class="summaryTableDescription">
+   The scroll rectangle bounds of the display object.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObject.html#stage">stage</a> : <a href="../display/Stage.html">Stage</a>
+<div class="summaryTableDescription">
+   The Stage of the display object.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObjectContainer.html#tabChildren">tabChildren</a> : Boolean<div class="summaryTableDescription">
+   Determines whether the children of the object are tab enabled.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObjectContainer.html">DisplayObjectContainer</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="InteractiveObject.html#tabEnabled">tabEnabled</a> : Boolean<div class="summaryTableDescription">
+   Specifies whether this object is in the tab order.</div>
+</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="InteractiveObject.html#tabIndex">tabIndex</a> : int<div class="summaryTableDescription">
+   Specifies the tab ordering of objects in a SWF file.</div>
+</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObjectContainer.html#textSnapshot">textSnapshot</a> : <a href="../text/TextSnapshot.html">TextSnapshot</a>
+<div class="summaryTableDescription">
+   Returns a TextSnapshot object for this DisplayObjectContainer instance.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObjectContainer.html">DisplayObjectContainer</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObject.html#transform">transform</a> : <a href="../geom/Transform.html">Transform</a>
+<div class="summaryTableDescription">
+   An object with properties pertaining to a display object's matrix, color transform, and pixel bounds.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObject.html#visible">visible</a> : Boolean<div class="summaryTableDescription">
+   Whether or not the display object is visible.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObjectContainer.html#width">width</a> : Number<div class="summaryTableDescription">
+   
+   Indicates the width of the display object, in pixels.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObjectContainer.html">DisplayObjectContainer</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObject.html#x">x</a> : Number<div class="summaryTableDescription">
+   Indicates the <i>x</i> coordinate of the DisplayObject instance relative to the local coordinates of the parent DisplayObjectContainer.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObject.html#y">y</a> : Number<div class="summaryTableDescription">
+   Indicates the <i>y</i> coordinate of the DisplayObject instance relative to the local coordinates of the parent DisplayObjectContainer.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<div class="showHideLinks">
+<div class="hideInheritedMethod" id="hideInheritedMethod">
+<a onclick="javascript:setInheritedVisible(false,'Method');" href="#methodSummary" class="showHideLink"><img src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Methods</a>
+</div>
+<div class="showInheritedMethod" id="showInheritedMethod">
+<a onclick="javascript:setInheritedVisible(true,'Method');" href="#methodSummary" class="showHideLink"><img src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Methods</a>
+</div>
+</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#Loader()">Loader</a>()</div>
+<div class="summaryTableDescription">
+   Creates a Loader object that you can use to load files, such as SWF, JPEG, GIF, or PNG files.</div>
+</td><td class="summaryTableOwnerCol">Loader</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObjectContainer.html#addChild()">addChild</a>(child:<a href="../display/DisplayObject.html">DisplayObject</a>):<a href="../display/DisplayObject.html">DisplayObject</a>
+</div>
+<div class="summaryTableDescription">
+   Adds a child DisplayObject instance to this DisplayObjectContainer instance.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObjectContainer.html">DisplayObjectContainer</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObjectContainer.html#addChildAt()">addChildAt</a>(child:<a href="../display/DisplayObject.html">DisplayObject</a>, index:int):<a href="../display/DisplayObject.html">DisplayObject</a>
+</div>
+<div class="summaryTableDescription">
+   Adds a child DisplayObject instance to this DisplayObjectContainer instance.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObjectContainer.html">DisplayObjectContainer</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObject.html#addEventListener()">addEventListener</a>(type:String, listener:Function, useCapture:Boolean = false, priority:int = 0, useWeakReference:Boolean = false):void</div>
+<div class="summaryTableDescription">
+   
+   Registers an event listener object with an EventDispatcher object so that the listener receives notification of an event.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObjectContainer.html#areInaccessibleObjectsUnderPoint()">areInaccessibleObjectsUnderPoint</a>(point:<a href="../geom/Point.html">Point</a>):Boolean</div>
+<div class="summaryTableDescription">
+   Indicates whether the security restrictions would cause any display objects to be omitted from the list returned by calling the <code>DisplayObjectContainer.getObjectsUnderPoint()</code> method with the specified <code>point</code> point.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObjectContainer.html">DisplayObjectContainer</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#close()">close</a>():void</div>
+<div class="summaryTableDescription">
+   Cancels a <code>load()</code> method operation that is currently in progress for the Loader instance.</div>
+</td><td class="summaryTableOwnerCol">Loader</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObjectContainer.html#contains()">contains</a>(child:<a href="../display/DisplayObject.html">DisplayObject</a>):Boolean</div>
+<div class="summaryTableDescription">
+   Determines whether the specified display object is a child of the DisplayObjectContainer instance or the instance itself.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObjectContainer.html">DisplayObjectContainer</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#dispatchEvent()">dispatchEvent</a>(event:<a href="../events/Event.html">Event</a>):Boolean</div>
+<div class="summaryTableDescription">
+   Dispatches an event into the event flow.</div>
+</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObject.html#getBounds()">getBounds</a>(targetCoordinateSpace:<a href="../display/DisplayObject.html">DisplayObject</a>):<a href="../geom/Rectangle.html">Rectangle</a>
+</div>
+<div class="summaryTableDescription">
+   Returns a rectangle that defines the area of the display object relative to the coordinate system of the <code>targetCoordinateSpace</code> object.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObjectContainer.html#getChildAt()">getChildAt</a>(index:int):<a href="../display/DisplayObject.html">DisplayObject</a>
+</div>
+<div class="summaryTableDescription">
+   Returns the child display object instance that exists at the specified index.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObjectContainer.html">DisplayObjectContainer</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObjectContainer.html#getChildByName()">getChildByName</a>(name:String):<a href="../display/DisplayObject.html">DisplayObject</a>
+</div>
+<div class="summaryTableDescription">
+   Returns the child display object that exists with the specified name.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObjectContainer.html">DisplayObjectContainer</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObjectContainer.html#getChildIndex()">getChildIndex</a>(child:<a href="../display/DisplayObject.html">DisplayObject</a>):int</div>
+<div class="summaryTableDescription">
+   Returns the index position of a <code>child</code> DisplayObject instance.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObjectContainer.html">DisplayObjectContainer</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObjectContainer.html#getObjectsUnderPoint()">getObjectsUnderPoint</a>(point:<a href="../geom/Point.html">Point</a>):Array</div>
+<div class="summaryTableDescription">
+   Returns an array of objects that lie under the specified point and are children (or grandchildren, and so on) of this DisplayObjectContainer instance.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObjectContainer.html">DisplayObjectContainer</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObject.html#getRect()">getRect</a>(targetCoordinateSpace:<a href="../display/DisplayObject.html">DisplayObject</a>):<a href="../geom/Rectangle.html">Rectangle</a>
+</div>
+<div class="summaryTableDescription">
+   Returns a rectangle that defines the boundary of the display object, based on the coordinate system defined by the <code>targetCoordinateSpace</code> parameter, excluding any strokes on shapes.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObject.html#globalToLocal()">globalToLocal</a>(point:<a href="../geom/Point.html">Point</a>):<a href="../geom/Point.html">Point</a>
+</div>
+<div class="summaryTableDescription">
+   Converts the <code>point</code> object from the Stage (global) coordinates to the display object's (local) coordinates.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#hasEventListener()">hasEventListener</a>(type:String):Boolean</div>
+<div class="summaryTableDescription">
+   Checks whether the EventDispatcher object has any listeners registered for a specific type of event.</div>
+</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObject.html#hitTestObject()">hitTestObject</a>(obj:<a href="../display/DisplayObject.html">DisplayObject</a>):Boolean</div>
+<div class="summaryTableDescription">
+   Evaluates the bounding box of the display object to see if it overlaps or intersects with the bounding box of the <code>obj</code> display object.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObject.html#hitTestPoint()">hitTestPoint</a>(x:Number, y:Number, shapeFlag:Boolean = false):Boolean</div>
+<div class="summaryTableDescription">
+   Evaluates the display object to see if it overlaps or intersects with the point specified by the <code>x</code> and <code>y</code> parameters.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#load()">load</a>(request:<a href="../net/URLRequest.html">URLRequest</a>, context:<a href="../system/LoaderContext.html">LoaderContext</a> = null):void</div>
+<div class="summaryTableDescription">
+   Loads a SWF, JPEG, progressive JPEG, unanimated GIF, or PNG file into an object that is a child of this Loader object.</div>
+</td><td class="summaryTableOwnerCol">Loader</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#loadBytes()">loadBytes</a>(bytes:<a href="../utils/ByteArray.html">ByteArray</a>, context:<a href="../system/LoaderContext.html">LoaderContext</a> = null):void</div>
+<div class="summaryTableDescription">
+   Loads from binary data stored in a ByteArray object.</div>
+</td><td class="summaryTableOwnerCol">Loader</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObject.html#localToGlobal()">localToGlobal</a>(point:<a href="../geom/Point.html">Point</a>):<a href="../geom/Point.html">Point</a>
+</div>
+<div class="summaryTableDescription">
+   Converts the <code>point</code> object from the display object's (local) coordinates to the Stage (global) coordinates.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObjectContainer.html#removeChild()">removeChild</a>(child:<a href="../display/DisplayObject.html">DisplayObject</a>):<a href="../display/DisplayObject.html">DisplayObject</a>
+</div>
+<div class="summaryTableDescription">
+   Removes the specified <code>child</code> DisplayObject instance from the child list of the DisplayObjectContainer instance.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObjectContainer.html">DisplayObjectContainer</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObjectContainer.html#removeChildAt()">removeChildAt</a>(index:int):<a href="../display/DisplayObject.html">DisplayObject</a>
+</div>
+<div class="summaryTableDescription">
+   Removes a child DisplayObject from the specified <code>index</code> position in the child list of the DisplayObjectContainer.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObjectContainer.html">DisplayObjectContainer</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObject.html#removeEventListener()">removeEventListener</a>(type:String, listener:Function, useCapture:Boolean = false):void</div>
+<div class="summaryTableDescription">
+   
+   Removes a listener from the EventDispatcher object.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObjectContainer.html#setChildIndex()">setChildIndex</a>(child:<a href="../display/DisplayObject.html">DisplayObject</a>, index:int):void</div>
+<div class="summaryTableDescription">
+   Changes the position of an existing child in the display object container.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObjectContainer.html">DisplayObjectContainer</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObjectContainer.html#swapChildren()">swapChildren</a>(child1:<a href="../display/DisplayObject.html">DisplayObject</a>, child2:<a href="../display/DisplayObject.html">DisplayObject</a>):void</div>
+<div class="summaryTableDescription">
+   Swaps the z-order (front-to-back order) of the two specified child objects.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObjectContainer.html">DisplayObjectContainer</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObjectContainer.html#swapChildrenAt()">swapChildrenAt</a>(index1:int, index2:int):void</div>
+<div class="summaryTableDescription">
+   Swaps the z-order (front-to-back order) of the child objects at the two specified index positions in the child list.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObjectContainer.html">DisplayObjectContainer</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#toString()">toString</a>():String</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#unload()">unload</a>():void</div>
+<div class="summaryTableDescription">
+   Removes a child of this Loader object that was loaded by using the <code>load()</code> method.</div>
+</td><td class="summaryTableOwnerCol">Loader</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#willTrigger()">willTrigger</a>(type:String):Boolean</div>
+<div class="summaryTableDescription">
+   Checks whether an event listener is registered with this EventDispatcher object or any of its ancestors for the specified event type.</div>
+</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+</table>
+</div>
+<a name="eventSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Events</div>
+<div class="showHideLinks">
+<div class="hideInheritedEvent" id="hideInheritedEvent">
+<a onclick="javascript:setInheritedVisible(false,'Event');" href="#eventSummary" class="showHideLink"><img src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Events</a>
+</div>
+<div class="showInheritedEvent" id="showInheritedEvent">
+<a onclick="javascript:setInheritedVisible(true,'Event');" href="#eventSummary" class="showHideLink"><img src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Events</a>
+</div>
+</div>
+<table id="summaryTableEvent" class="summaryTable hideInheritedEvent" cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Event</th><th>Summary</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#event:activate">activate</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ [broadcast event] Dispatched when the Flash Player or AIR application gains operating system focus and becomes active.</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObject.html#event:added">added</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when a display object is added to the display list.</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObject.html#event:addedToStage">addedToStage</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when a display object is added to the on stage display list, either directly or through the addition of a sub tree in which the display object is contained.</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="InteractiveObject.html#event:click">click</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when a user presses and releases the main button of the user's pointing device over the same InteractiveObject.</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#event:deactivate">deactivate</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ [broadcast event] Dispatched when the Flash Player or AIR application operating loses system focus and is becoming inactive.</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="InteractiveObject.html#event:doubleClick">doubleClick</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when a user presses and releases the main button of a pointing device twice in rapid succession over the same InteractiveObject when that object's <code>doubleClickEnabled</code> flag is set to <code>true</code>.</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObject.html#event:enterFrame">enterFrame</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ [broadcast event] Dispatched when the playhead is entering a new frame.</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObject.html#event:exitFrame">exitFrame</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ [broadcast event] Dispatched when the playhead is exiting the current frame.</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="InteractiveObject.html#event:focusIn">focusIn</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched <i>after</i> a display object gains focus.</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="InteractiveObject.html#event:focusOut">focusOut</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched <i>after</i> a display object loses focus.</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObject.html#event:frameConstructed">frameConstructed</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ [broadcast event] Dispatched after the constructors of frame display objects have run but before frame scripts have run.</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="InteractiveObject.html#event:keyDown">keyDown</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when the user presses a key.</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="InteractiveObject.html#event:keyFocusChange">keyFocusChange</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when the user attempts to change focus by using keyboard navigation.</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="InteractiveObject.html#event:keyUp">keyUp</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when the user releases a key.</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="InteractiveObject.html#event:mouseDown">mouseDown</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when a user presses the pointing device button over an InteractiveObject instance.</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="InteractiveObject.html#event:mouseFocusChange">mouseFocusChange</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when the user attempts to change focus by using a pointer device.</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="InteractiveObject.html#event:mouseMove">mouseMove</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when a user moves the pointing device while it is over an InteractiveObject.</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="InteractiveObject.html#event:mouseOut">mouseOut</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when the user moves a pointing device away from an InteractiveObject instance.</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="InteractiveObject.html#event:mouseOver">mouseOver</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when the user moves a pointing device over an InteractiveObject instance.</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="InteractiveObject.html#event:mouseUp">mouseUp</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when a user releases the pointing device button over an InteractiveObject instance.</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="InteractiveObject.html#event:mouseWheel">mouseWheel</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when a mouse wheel is spun over an InteractiveObject instance.</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObject.html#event:removed">removed</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when a display object is about to be removed from the display list.</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObject.html#event:removedFromStage">removedFromStage</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when a display object is about to be removed from the display list, either directly or through the removal of a sub tree in which the display object is contained.</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObject.html#event:render">render</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ [broadcast event] Dispatched when the display list is about to be updated and rendered.</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="InteractiveObject.html#event:rollOut">rollOut</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when the user moves a pointing device away from an InteractiveObject instance.</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="InteractiveObject.html#event:rollOver">rollOver</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when the user moves a pointing device over an InteractiveObject instance.</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="InteractiveObject.html#event:tabChildrenChange">tabChildrenChange</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when the value of the object's <code>tabChildren</code> flag changes.</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="InteractiveObject.html#event:tabEnabledChange">tabEnabledChange</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when the object's <code>tabEnabled</code> flag changes.</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="InteractiveObject.html#event:tabIndexChange">tabIndexChange</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when the value of the object's <code>tabIndex</code> property changes.</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="InteractiveObject.html#event:textInput">textInput</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when a user enters one or more characters of text.</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="content"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">content</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>content:<a href="../display/DisplayObject.html">DisplayObject</a></code>&nbsp;&nbsp;[read-only]<p>
+   Contains the root display object of the SWF file or image (JPG, PNG, or GIF) file that was loaded by using the <code>load()</code> or <code>loadBytes()</code> methods.
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get content():<a href="../display/DisplayObject.html">DisplayObject</a></code>
+<br>
+<br>
+<span class="label">Throws</span>
+<br>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../SecurityError.html">SecurityError</a> </code> &mdash; The loaded SWF file or image file belongs to a security sandbox to which you do not have access. For a loaded SWF file, you can avoid this situation by having the file call the <code>Security.allowDomain()</code> method or by having the loading file specify a <code>loaderContext</code> parameter with its <code>securityDomain</code> property set to <code>SecurityDomain.currentDomain</code> when you call the <code>load()</code> or <code>loadBytes()</code> method.
+      </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="DisplayObject.html" target="">DisplayObject</a>
+<br>
+<a href="../display/Loader.html#load()" target="">load()</a>
+</div>
+</div>
+<a name="contentLoaderInfo"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">contentLoaderInfo</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>contentLoaderInfo:<a href="../display/LoaderInfo.html">LoaderInfo</a></code>&nbsp;&nbsp;[read-only]<p>
+   Returns a LoaderInfo object corresponding to the object being loaded. LoaderInfo objects are shared between the Loader object and the loaded content object. The LoaderInfo object supplies loading progress information and statistics about the loaded file.
+   </p><p>Events related to the load are dispatched by the LoaderInfo object referenced by the <code>contentLoaderInfo</code> property of the Loader object. The <code>contentLoaderInfo</code> property is set to a valid LoaderInfo object, even before the content is loaded, so that you can add event listeners to the object prior to the load.</p>
+   <p>To detect uncaught errors that happen in a loaded SWF, use the <code>Loader.uncaughtErrorEvents</code> property, not the <code>Loader.contentLoaderInfo.uncaughtErrorEvents</code> property.</p>
+   <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get contentLoaderInfo():<a href="../display/LoaderInfo.html">LoaderInfo</a></code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="LoaderInfo.html" target="">LoaderInfo</a>
+</div>
+<br>
+<span class="label">Example</span>
+<br>The following example shows how you can load and position an image in ActionScript 3.0 using the Loader class and the complete event on the Loader object's contentLoaderInfo property. Example provided by <a href="http://actionscriptexamples.com/2008/03/03/positioning-a-dynamically-loaded-image-in-actionscript-20-and-actionscript-30-using-the-moviecliploader-class-and-loader-class/">ActionScriptExamples.com</a>.
+   <div class='listing'><pre>
+   var url:String = "http://www.helpexamples.com/flash/images/image2.jpg";
+   var urlRequest:URLRequest = new URLRequest(url);
+   var loader:Loader = new Loader();
+   loader.contentLoaderInfo.addEventListener(Event.COMPLETE, loader_complete);
+   loader.load(urlRequest);
+   addChild(loader);
+      function loader_complete(evt:Event):void {
+       var target_mc:Loader = evt.currentTarget.loader as Loader;
+       target_mc.x = (stage.stageWidth - target_mc.width) / 2;
+       target_mc.y = (stage.stageHeight - target_mc.height) / 2;
+   }
+      </pre></div>
+   <p></p>
+</div>
+<a name="constructorDetail"></a>
+<div class="detailSectionHeader">Constructor detail</div>
+<a name="Loader()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">Loader</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">constructor</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function Loader()</code><p>
+   Creates a Loader object that you can use to load files, such as SWF, JPEG, GIF, or PNG files. Call the <code>load()</code> method to load the asset as a child of the Loader instance. You can then add the Loader object to the display list (for instance, by using the <code>addChild()</code> method of a DisplayObjectContainer instance). The asset appears on the Stage as it loads.
+   </p><p>You can also use a Loader instance "offlist," that is without adding it to a display object container on the display list. In this mode, the Loader instance might be used to load a SWF file that contains additional modules of an application.</p>
+   <p>To detect when the SWF file is finished loading, you can use the events of the LoaderInfo object associated with the <code>contentLoaderInfo</code> property of the Loader object. At that point, the code in the module SWF file can be executed to initialize and start the module. In the offlist mode, a Loader instance might also be used to load a SWF file that contains components or media assets. Again, you can use the LoaderInfo object event notifications to detect when the components are finished loading. At that point, the application can start using the components and media assets in the library of the SWF file by instantiating the ActionScript 3.0 classes that represent those components and assets.</p>
+   <p>To determine the status of a Loader object, monitor the following events that the LoaderInfo object associated with the <code>contentLoaderInfo</code> property of the Loader object:</p>
+   <ul>
+   <li>The <code>open</code> event is dispatched when loading begins.</li>
+   <li>The <code>ioError</code> or <code>securityError</code> event is dispatched if the file cannot be loaded or if an error occured during the load process.</li>
+   <li>The <code>progress</code> event fires continuously while the file is being loaded.</li>
+   <li>The <code>complete</code> event is dispatched when a file completes downloading, but before the loaded movie clip's methods and properties are available.</li>
+   <li>The <code>init</code> event is dispatched after the properties and methods of the loaded SWF file are accessible, so you can begin manipulating the loaded SWF file. This event is dispatched before the <code>complete</code> handler. In streaming SWF files, the <code>init</code> event can occur significantly earlier than the <code>complete</code> event. For most purposes, use the <code>init</code> handler.</li></ul>
+   <p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../display/Loader.html#load()" target="">load()</a>
+<br>
+<a href="LoaderInfo.html" target="">LoaderInfo</a>
+</div>
+</div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="close()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">close</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function close():void</code><p>
+   Cancels a <code>load()</code> method operation that is currently in progress for the Loader instance.
+   </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../display/Loader.html#load()" target="">load()</a>
+</div>
+</div>
+<a name="load()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">load</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function load(request:<a href="../net/URLRequest.html">URLRequest</a>, context:<a href="../system/LoaderContext.html">LoaderContext</a> = null):void</code><p>
+   Loads a SWF, JPEG, progressive JPEG, unanimated GIF, or PNG file into an object that is a child of this Loader object. If you load an animated GIF file, only the first frame is displayed. As the Loader object can contain only a single child, issuing a subsequent <code>load()</code> request terminates the previous request, if still pending, and commences a new load.
+   </p><p><b>Note</b>: In AIR 1.5 and Flash Player 10, the maximum size for a loaded image is 8,191 pixels in width or height, and the total number of pixels cannot exceed 16,777,215 pixels. (So, if an loaded image is 8,191 pixels wide, it can only be 2,048 pixels high.) In Flash Player 9 and earlier and AIR 1.1 and earlier, the limitation is 2,880 pixels in height and 2,880 pixels in width.</p>
+   <p>A SWF file or image loaded into a Loader object inherits the position, rotation, and scale properties of the parent display objects of the Loader object.</p>
+   <p>Use the <code>unload()</code> method to remove movies or images loaded with this method, or to cancel a load operation that is in progress.</p>
+   <p>You can prevent a SWF file from using this method by setting the <code>allowNetworking</code> parameter of the the <code>object</code> and <code>embed</code> tags in the HTML page that contains the SWF content.</p>
+   <p>When you use this method, consider the Flash Player security model, which is described in the Loader class description.</p>
+   <p>In Flash Player 10 and later, if you use a multipart Content-Type (for example "multipart/form-data") that contains an upload (indicated by a "filename" parameter in a "content-disposition" header within the POST body), the POST operation is subject to the security rules applied to uploads:</p>
+   <ul>
+   <li>The POST operation must be performed in response to a user-initiated action, such as a mouse click or key press.</li>
+   <li>If the POST operation is cross-domain (the POST target is not on the same server as the SWF file that is sending the POST request), the target server must provide a URL policy file that permits cross-domain access.</li></ul>
+   <p>Also, for any multipart Content-Type, the syntax must be valid (according to the RFC2046 standard). If the syntax appears to be invalid, the POST operation is subject to the security rules applied to uploads.</p>
+   <p>For more information related to security, see the Flash Player Developer Center Topic: <a href="http://www.adobe.com/go/devnet_security_en">Security</a>.</p>
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">request</span>:<a href="../net/URLRequest.html">URLRequest</a></code> &mdash; The absolute or relative URL of the SWF, JPEG, GIF, or PNG file to be loaded. A relative path must be relative to the main SWF file. Absolute URLs must include the protocol reference, such as http:// or file:///. Filenames cannot include disk drive specifications.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">context</span>:<a href="../system/LoaderContext.html">LoaderContext</a></code> (default = <code>null</code>)<code></code> &mdash; A LoaderContext object, which has properties that define the following:
+   <ul>
+   <li>Whether or not to check for the existence of a policy file upon loading the object</li>
+   <li>The ApplicationDomain for the loaded object</li>
+   <li>The SecurityDomain for the loaded object</li></ul>
+   <p>If the <code>context</code> parameter is not specified or refers to a null object, the loaded content remains in its own security domain.</p>
+   <p>For complete details, see the description of the properties in the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/system/LoaderContext.html">LoaderContext</a> class.</p>
+   Events
+   <table>
+   <tr>
+   <td><code><b>complete</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/Event.html"><code>Event</code></a></code> — Dispatched by the <code>contentLoaderInfo</code> object when the file has completed loading. The <code>complete</code> event is always dispatched after the <code>init</code> event.</td></tr>
+   <tr>
+   <td> </td></tr>
+   <tr>
+   <td><code><b>httpStatus</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/HTTPStatusEvent.html"><code>HTTPStatusEvent</code></a></code> — Dispatched by the <code>contentLoaderInfo</code> object when a network request is made over HTTP and Flash Player can detect the HTTP status code.</td></tr>
+   <tr>
+   <td> </td></tr>
+   <tr>
+   <td><code><b>init</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/Event.html"><code>Event</code></a></code> — Dispatched by the <code>contentLoaderInfo</code> object when the properties and methods of the loaded SWF file are accessible. The <code>init</code> event always precedes the <code>complete</code> event.</td></tr>
+   <tr>
+   <td> </td></tr>
+   <tr>
+   <td><code><b>ioError</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/IOErrorEvent.html"><code>IOErrorEvent</code></a></code> — Dispatched by the <code>contentLoaderInfo</code> object when an input or output error occurs that causes a load operation to fail.</td></tr>
+   <tr>
+   <td> </td></tr>
+   <tr>
+   <td><code><b>open</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/Event.html"><code>Event</code></a></code> — Dispatched by the <code>contentLoaderInfo</code> object when the loading operation starts.</td></tr>
+   <tr>
+   <td> </td></tr>
+   <tr>
+   <td><code><b>progress</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/ProgressEvent.html"><code>ProgressEvent</code></a></code> — Dispatched by the <code>contentLoaderInfo</code> object as data is received while load operation progresses.</td></tr>
+   <tr>
+   <td> </td></tr>
+   <tr>
+   <td><code><b>securityError</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/SecurityErrorEvent.html"><code>SecurityErrorEvent</code></a></code> — Dispatched by the <code>contentLoaderInfo</code> object if a SWF file in the local-with-filesystem sandbox attempts to load content in the local-with-networking sandbox, or vice versa.</td></tr>
+   <tr>
+   <td> </td></tr>
+   <tr>
+   <td><code><b>unload</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/Event.html"><code>Event</code></a></code> — Dispatched by the <code>contentLoaderInfo</code> object when a loaded object is removed.</td></tr></table>
+   </td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../errors/IOError.html">IOError</a> </code> &mdash; The <code>digest</code> property of the <code>request</code> object is not <code>null</code>. You should only set the <code>digest</code> property of a URLRequest object when calling the <code>URLLoader.load()</code> method when loading a SWZ file (an Adobe platform component).
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../SecurityError.html">SecurityError</a> </code> &mdash; The value of <code>LoaderContext.securityDomain</code> must be either <code>null</code> or <code>SecurityDomain.currentDomain</code>. This reflects the fact that you can only place the loaded media in its natural security sandbox or your own (the latter requires a policy file).
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../SecurityError.html">SecurityError</a> </code> &mdash; Local SWF files may not set LoaderContext.securityDomain to anything other than <code>null</code>. It is not permitted to import non-local media into a local sandbox, or to place other local media in anything other than its natural sandbox.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../SecurityError.html">SecurityError</a> </code> &mdash; You cannot connect to commonly reserved ports. For a complete list of blocked ports, see "Restricting Networking APIs" in the <i>ActionScript 3.0 Developer's Guide</i>.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../SecurityError.html">SecurityError</a> </code> &mdash; If the <code>applicationDomain</code> or <code>securityDomain</code> properties of the <code>context</code> parameter are from a disallowed domain.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../SecurityError.html">SecurityError</a> </code> &mdash; If a local SWF file is attempting to use the <code>securityDomain</code> property of the <code>context</code> parameter.
+      </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../display/Loader.html#contentLoaderInfo" target="">contentLoaderInfo</a>
+<br>
+<a href="../net/URLRequest.html" target="">flash.net.URLRequest</a>
+<br>
+<a href="DisplayObject.html" target="">DisplayObject</a>
+<br>
+<a href="../display/Loader.html#unload()" target="">unload()</a>
+<br>
+<a href="LoaderInfo.html" target="">LoaderInfo</a>
+<br>
+<a href="../system/LoaderContext.html" target="">flash.system.LoaderContext</a>
+<br>
+<a href="http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118a9b90204-7e13.html" target="mm_external">Loading display content dynamically</a>
+<br>
+<a href="http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118a9b90204-7de0.html" target="mm_external">Specifying loading context</a>
+</div>
+</div>
+<a name="loadBytes()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">loadBytes</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function loadBytes(bytes:<a href="../utils/ByteArray.html">ByteArray</a>, context:<a href="../system/LoaderContext.html">LoaderContext</a> = null):void</code><p>
+   Loads from binary data stored in a ByteArray object.
+   </p><p>The <code>loadBytes()</code> method is asynchronous. You must wait for the "init" event before accessing the properties of a loaded object.</p>
+   <p>When you use this method, consider the Flash Player security model, which is described in the Loader class description.</p>
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">bytes</span>:<a href="../utils/ByteArray.html">ByteArray</a></code> &mdash; A ByteArray object. The contents of the ByteArray can be any of the file formats supported by the Loader class: SWF, GIF, JPEG, or PNG.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">context</span>:<a href="../system/LoaderContext.html">LoaderContext</a></code> (default = <code>null</code>)<code></code> &mdash; A LoaderContext object. Only the <code>applicationDomain</code> property of the LoaderContext object applies; the <code>checkPolicyFile</code> and <code>securityDomain</code> properties of the LoaderContext object do not apply.
+   <p>If the <code>context</code> parameter is not specified or refers to a null object, the content is loaded into the current security domain— a process referred to as "import loading" in Flash Player security documentation. Specifically, if the loading SWF file trusts the remote SWF by incorporating the remote SWF into its code, then the loading SWF can import it directly into its own security domain.</p>
+   <p>For more information related to security, see the Flash Player Developer Center Topic: <a href="http://www.adobe.com/go/devnet_security_en">Security</a>.</p>
+   Events
+   <table>
+   <tr>
+   <td><code><b>complete</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/Event.html"><code>Event</code></a></code> — Dispatched by the <code>contentLoaderInfo</code> object when the operation is complete. The <code>complete</code> event is always dispatched after the <code>init</code> event.</td></tr>
+   <tr>
+   <td> </td></tr>
+   <tr>
+   <td><code><b>init</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/Event.html"><code>Event</code></a></code> — Dispatched by the <code>contentLoaderInfo</code> object when the properties and methods of the loaded data are accessible. The <code>init</code> event always precedes the <code>complete</code> event.</td></tr>
+   <tr>
+   <td> </td></tr>
+   <tr>
+   <td><code><b>ioError</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/IOErrorEvent.html"><code>IOErrorEvent</code></a></code> — Dispatched by the <code>contentLoaderInfo</code> object when the runtime cannot parse the data in the byte array.</td></tr>
+   <tr>
+   <td> </td></tr>
+   <tr>
+   <td><code><b>open</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/Event.html"><code>Event</code></a></code> — Dispatched by the <code>contentLoaderInfo</code> object when the operation starts.</td></tr>
+   <tr>
+   <td> </td></tr>
+   <tr>
+   <td><code><b>progress</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/ProgressEvent.html"><code>ProgressEvent</code></a></code> — Dispatched by the <code>contentLoaderInfo</code> object as data is transfered in memory.</td></tr>
+   <tr>
+   <td> </td></tr>
+   <tr>
+   <td><code><b>unload</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/Event.html"><code>Event</code></a></code> — Dispatched by the <code>contentLoaderInfo</code> object when a loaded object is removed.</td></tr></table>
+   </td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; If the <code>length</code> property of the ByteArray object is not greater than 0.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../errors/IllegalOperationError.html">IllegalOperationError</a> </code> &mdash; If the <code>checkPolicyFile</code> or <code>securityDomain</code> property of the <code>context</code> parameter are non-null.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../SecurityError.html">SecurityError</a> </code> &mdash; If the provided <code>applicationDomain</code> property of the <code>context</code> property is from a disallowed domain.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../SecurityError.html">SecurityError</a> </code> &mdash; You cannot connect to commonly reserved ports. For a complete list of blocked ports, see "Restricting Networking APIs" in the <i>ActionScript 3.0 Developer's Guide</i>.
+      </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../utils/ByteArray.html" target="">flash.utils.ByteArray</a>
+<br>
+<a href="../system/LoaderContext.html#applicationDomain" target="">flash.system.LoaderContext.applicationDomain</a>
+<br>
+<a href="http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118a9b90204-7e13.html" target="mm_external">Loading display content dynamically</a>
+<br>
+<a href="http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118a9b90204-7de0.html" target="mm_external">Specifying loading context</a>
+</div>
+</div>
+<a name="unload()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">unload</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function unload():void</code><p>
+   Removes a child of this Loader object that was loaded by using the <code>load()</code> method. The <code>property</code> of the associated LoaderInfo object is reset to <code>null</code>. The child is not necessarily destroyed because other objects might have references to it; however, it is no longer a child of the Loader object.
+   </p><p>As a best practice, before you unload a child SWF file, you should explicitly close any streams in the child SWF file's objects, such as LocalConnection, NetConnection, NetStream, and Sound objects. Otherwise, audio in the child SWF file might continue to play, even though the child SWF file was unloaded. To close streams in the child SWF file, add an event listener to the child that listens for the <code>unload</code> event. When the parent calls <code>Loader.unload()</code>, the <code>unload</code> event is dispatched to the child. The following code shows how you might do this:</p>
+   <pre>function closeAllStreams(evt:Event) {
+   myNetStream.close();
+   mySound.close();
+   myNetConnection.close();
+   myLocalConnection.close();
+   }
+
+   myMovieClip.loaderInfo.addEventListener(Event.UNLOAD, closeAllStreams);</pre>
+   <p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../display/Loader.html#load()" target="">load()</a>
+<br>
+<a href="../media/Sound.html#close()" target="">flash.media.Sound.close()</a>
+<br>
+<a href="../net/LocalConnection.html#close()" target="">flash.net.LocalConnection.close()</a>
+<br>
+<a href="../net/NetConnection.html#close()" target="">flash.net.NetConnection.close()</a>
+<br>
+<a href="../net/NetStream.html#close()" target="">flash.net.NetStream.close()</a>
+<br>operators.delete</div>
+</div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<center class="copyright"> 
+</center>
+</div>
+</body>
+</html>
+<!-- -->

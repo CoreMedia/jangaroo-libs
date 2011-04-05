@@ -1,0 +1,639 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../print.css" type="text/css" media="print">
+<meta content="ResourceBundleAwareClassLoader,joo.ResourceBundleAwareClassLoader,INSTANCE,localeCookieDomain,createClassDeclaration,createSingleton,getDefaultLocale,getLocale,getSupportedLocales,setLocale" name="keywords">
+<title>joo.ResourceBundleAwareClassLoader</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../asdoc.js"></script><script type="text/javascript" language="javascript" src="../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'ResourceBundleAwareClassLoader - API Documentation';
+				var baseRef = '../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">API Documentation</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../all-classes.html')" href="../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../all-classes.html')" href="../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../index-list.html')" href="../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../index.html?joo/ResourceBundleAwareClassLoader.html&amp;joo/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;ResourceBundleAwareClassLoader</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#constantSummary">Constants</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class ResourceBundleAwareClassLoader"); titleBar_setSubNav(true,true,false,false,false,false,true,false,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">joo</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public class ResourceBundleAwareClassLoader</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">ResourceBundleAwareClassLoader <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../images/inherit-arrow.gif"> <a href="DynamicClassLoader.html">DynamicClassLoader</a> <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../images/inherit-arrow.gif"> <a href="StandardClassLoader.html">StandardClassLoader</a> <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../images/inherit-arrow.gif"> <a href="SystemClassLoader.html">SystemClassLoader</a></td>
+</tr>
+</table>
+<p></p>
+ A class loader that provides special treatment of resource bundle classes.
+ It maintains a current locale and loads a locale-specific subclass of any
+ class ending with <code>_properties</code>.
+ <p>The locale is saved in and retrieved from a Cookie whose name, path, and domain
+ can be configured.</p>
+ <p>In your JavaScript code, after including the Jangaroo Runtime, activate
+ locale-specific resource bundle class loading as follows:</p>
+ <pre>
+ new joo.ResourceBundleAwareClassLoader(["en", "de"]);
+ </pre>
+ <p>You can create resource bundle classes by creating <code><i>locale</i>.properties</code>
+ files below the <code>src/main/joo</code> directory. These files are translated to AS3
+ code by the Jangaroo properties compiler (Maven goal: <code>properties</code>).
+ Each resource bundle must consist of properties files for each supported locale, where
+ the default locale is suppressed.
+ For example for supported locales <code>["en", "de"]</code> (which makes <code>"en"</code>
+ the default locale), you need properties files <code>My.properties</code> and <code>My_de.properties</code>.</p>
+ <p>To change the locale, your application code must call</p>
+ <pre>
+ joo.ResourceBundleAwareClassLoader.INSTANCE.setLocale(newLocale);
+ </pre>
+  <p></p>
+<p>
+<span class="classHeaderTableLabel">See also</span>
+</p>
+<div class="seeAlso">
+<a href="joo/ResourceBundleAwareClassLoader.html#ResourceBundleAwareClassLoader" target="">ResourceBundleAwareClassLoader</a>
+<br>
+<a href="joo/ResourceBundleAwareClassLoader.html#getLocale" target="">getLocale</a>
+<br>
+<a href="joo/ResourceBundleAwareClassLoader.html#setLocale" target="">setLocale</a>
+</div>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<div class="showHideLinks">
+<div class="hideInheritedProperty" id="hideInheritedProperty">
+<a onclick="javascript:setInheritedVisible(false,'Property');" href="#propertySummary" class="showHideLink"><img src="../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Properties</a>
+</div>
+<div class="showInheritedProperty" id="showInheritedProperty">
+<a onclick="javascript:setInheritedVisible(true,'Property');" href="#propertySummary" class="showHideLink"><img src="../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Properties</a>
+</div>
+</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="SystemClassLoader.html#debug">debug</a> : Boolean<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="SystemClassLoader.html">SystemClassLoader</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#INSTANCE">INSTANCE</a> : <a href="joo/ResourceBundleAwareClassLoader.html">ResourceBundleAwareClassLoader</a>
+<div class="summaryTableDescription">[static]
+   The ResourceBundleAwareClassLoader singleton, which is created or overwritten
+   by invoking the constructor.</div>
+</td><td class="summaryTableOwnerCol">ResourceBundleAwareClassLoader</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#localeCookieDomain">localeCookieDomain</a> : String = "null"<div class="summaryTableDescription">
+   Set before any resource bundle is loaded.</div>
+</td><td class="summaryTableOwnerCol">ResourceBundleAwareClassLoader</td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<div class="showHideLinks">
+<div class="hideInheritedMethod" id="hideInheritedMethod">
+<a onclick="javascript:setInheritedVisible(false,'Method');" href="#methodSummary" class="showHideLink"><img src="../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Methods</a>
+</div>
+<div class="showInheritedMethod" id="showInheritedMethod">
+<a onclick="javascript:setInheritedVisible(true,'Method');" href="#methodSummary" class="showHideLink"><img src="../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Methods</a>
+</div>
+</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#ResourceBundleAwareClassLoader()">ResourceBundleAwareClassLoader</a>(supportedLocales:Array, localeCookieName:String, localeCookiePath:String, localeCookieDomain:String)</div>
+<div class="summaryTableDescription">
+   Create a new ResourceBundleAwareClassLoader with the given supported locales, default locale,
+   and locale Cookie name, and set it as the default Jangaroo class loader (<code>joo.classLoader</code>)
+   and as the singleton ResourceBundleAwareClassLoader (<code>INSTANCE</code>).</div>
+</td><td class="summaryTableOwnerCol">ResourceBundleAwareClassLoader</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DynamicClassLoader.html#addDependency()">addDependency</a>(dependency:String):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="DynamicClassLoader.html">DynamicClassLoader</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="SystemClassLoader.html#addToMetadata()">addToMetadata</a>(metadata:Object, annotation:*):void</div>
+<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol"><a href="SystemClassLoader.html">SystemClassLoader</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DynamicClassLoader.html#classLoadErrorHandler()">classLoadErrorHandler</a>(fullClassName:String, url:String):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="DynamicClassLoader.html">DynamicClassLoader</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DynamicClassLoader.html#complete()">complete</a>(onCompleteCallback:Function):void</div>
+<div class="summaryTableDescription">
+   Tell Jangaroo to load and initialize all required classes, then call the given function.</div>
+</td><td class="summaryTableOwnerCol"><a href="DynamicClassLoader.html">DynamicClassLoader</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#createSingleton()">createSingleton</a>(resourceBundle:Class):Object</div>
+<div class="summaryTableDescription">
+   Used internally by code generated by the properties compiler.</div>
+</td><td class="summaryTableOwnerCol">ResourceBundleAwareClassLoader</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DynamicClassLoader.html#fireDependency()">fireDependency</a>(dependency:String):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="DynamicClassLoader.html">DynamicClassLoader</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="SystemClassLoader.html#getClassDeclaration()">getClassDeclaration</a>(fullClassName:String):<a href="joo/NativeClassDeclaration.html">NativeClassDeclaration</a>
+</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="SystemClassLoader.html">SystemClassLoader</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getDefaultLocale()">getDefaultLocale</a>():String</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">ResourceBundleAwareClassLoader</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getLocale()">getLocale</a>():String</div>
+<div class="summaryTableDescription">
+   Return the locale currently used for resource bundle class loading.</div>
+</td><td class="summaryTableOwnerCol">ResourceBundleAwareClassLoader</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="SystemClassLoader.html#getRequiredClassDeclaration()">getRequiredClassDeclaration</a>(className:String):<a href="joo/NativeClassDeclaration.html">NativeClassDeclaration</a>
+</div>
+<div class="summaryTableDescription">
+   </div>
+</td><td class="summaryTableOwnerCol"><a href="SystemClassLoader.html">SystemClassLoader</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DynamicClassLoader.html#getResource()">getResource</a>(path:String):Object</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="DynamicClassLoader.html">DynamicClassLoader</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getSupportedLocales()">getSupportedLocales</a>():Array</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">ResourceBundleAwareClassLoader</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DynamicClassLoader.html#import_()">import_</a>(fullClassName:String):void</div>
+<div class="summaryTableDescription">
+   Import the class given by its fully qualified class name (package plus name).</div>
+</td><td class="summaryTableOwnerCol"><a href="DynamicClassLoader.html">DynamicClassLoader</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="StandardClassLoader.html#init()">init</a>(... classes):Function</div>
+<div class="summaryTableDescription">
+   Explicitly initialize the static members of the given class (constructor function).</div>
+</td><td class="summaryTableOwnerCol"><a href="StandardClassLoader.html">StandardClassLoader</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="SystemClassLoader.html#isRuntimeCompatible()">isRuntimeCompatible</a>(runtimeApiVersion:String, compilerVersion:String):Boolean</div>
+<div class="summaryTableDescription">[static]
+   </div>
+</td><td class="summaryTableOwnerCol"><a href="SystemClassLoader.html">SystemClassLoader</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DynamicClassLoader.html#prepare()">prepare</a>(... params):<a href="joo/JooClassDeclaration.html">JooClassDeclaration</a>
+</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="DynamicClassLoader.html">DynamicClassLoader</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DynamicClassLoader.html#run()">run</a>(mainClassName:String, ... args):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="DynamicClassLoader.html">DynamicClassLoader</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setLocale()">setLocale</a>(locale:String):String</div>
+<div class="summaryTableDescription">
+   Sets the current locale to the given locale or, if the given locale is not supported,
+   to the longest match in the supported locales, or the default locale if there is not match.</div>
+</td><td class="summaryTableOwnerCol">ResourceBundleAwareClassLoader</td>
+</tr>
+</table>
+</div>
+<a name="protectedMethodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Protected Methods</div>
+<div class="showHideLinks">
+<div class="hideInheritedProtectedMethod" id="hideInheritedProtectedMethod">
+<a onclick="javascript:setInheritedVisible(false,'ProtectedMethod');" href="#protectedMethodSummary" class="showHideLink"><img src="../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Protected Methods</a>
+</div>
+<div class="showInheritedProtectedMethod" id="showInheritedProtectedMethod">
+<a onclick="javascript:setInheritedVisible(true,'ProtectedMethod');" href="#protectedMethodSummary" class="showHideLink"><img src="../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Protected Methods</a>
+</div>
+</div>
+<table id="summaryTableProtectedMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="StandardClassLoader.html#completeAll()">completeAll</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="StandardClassLoader.html">StandardClassLoader</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#createClassDeclaration()">createClassDeclaration</a>(packageDef:String, classDef:String, inheritanceLevel:int, memberFactory:Function, publicStaticMethodNames:Array, dependencies:Array):<a href="joo/JooClassDeclaration.html">JooClassDeclaration</a>
+</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">ResourceBundleAwareClassLoader</td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="SystemClassLoader.html#createNativeClassDeclaration()">createNativeClassDeclaration</a>(fullClassName:String, nativeClass:Function):<a href="joo/NativeClassDeclaration.html">NativeClassDeclaration</a>
+</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="SystemClassLoader.html">SystemClassLoader</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DynamicClassLoader.html#doCompleteCallbacks()">doCompleteCallbacks</a>(onCompleteCallbacks:Array):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="DynamicClassLoader.html">DynamicClassLoader</a></td>
+</tr>
+</table>
+</div>
+<a name="constantSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Constants</div>
+<div class="showHideLinks">
+<div class="hideInheritedConstant" id="hideInheritedConstant">
+<a onclick="javascript:setInheritedVisible(false,'Constant');" href="#constantSummary" class="showHideLink"><img src="../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Constants</a>
+</div>
+<div class="showInheritedConstant" id="showInheritedConstant">
+<a onclick="javascript:setInheritedVisible(true,'Constant');" href="#constantSummary" class="showHideLink"><img src="../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Constants</a>
+</div>
+</div>
+<table id="summaryTableConstant" class="summaryTable hideInheritedConstant" cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Constant</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="SystemClassLoader.html#classDeclarationsByName">classDeclarationsByName</a> : Object<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol"><a href="SystemClassLoader.html">SystemClassLoader</a></td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="INSTANCE"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">INSTANCE</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var INSTANCE:<a href="joo/ResourceBundleAwareClassLoader.html">ResourceBundleAwareClassLoader</a></code><p>
+   The ResourceBundleAwareClassLoader singleton, which is created or overwritten
+   by invoking the constructor.
+   </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="joo/ResourceBundleAwareClassLoader.html#ResourceBundleAwareClassLoader" target="">ResourceBundleAwareClassLoader</a>
+</div>
+</div>
+<a name="localeCookieDomain"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">localeCookieDomain</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var localeCookieDomain:String = "null"</code><p>
+   Set before any resource bundle is loaded.
+   </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="joo/ResourceBundleAwareClassLoader.html#getLocale" target="">getLocale</a>
+</div>
+</div>
+<a name="constructorDetail"></a>
+<div class="detailSectionHeader">Constructor detail</div>
+<a name="ResourceBundleAwareClassLoader()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">ResourceBundleAwareClassLoader</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">constructor</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function ResourceBundleAwareClassLoader(supportedLocales:Array, localeCookieName:String, localeCookiePath:String, localeCookieDomain:String)</code><p>
+   Create a new ResourceBundleAwareClassLoader with the given supported locales, default locale,
+   and locale Cookie name, and set it as the default Jangaroo class loader (<code>joo.classLoader</code>)
+   and as the singleton ResourceBundleAwareClassLoader (<code>INSTANCE</code>).
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">supportedLocales</span>:Array</code> &mdash; (default: <code>["en"]</code>) An Array of supported locales (String).
+     The current locale is guaranteed to be an item of this list.
+     The first element of this list is used as the default locale to use when all other attempts to determine
+     a locale fail.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">localeCookieName</span>:String</code> &mdash; (default: <code>"joo.locale"</code>) The name of the Cookie to load and store locale
+     information on the client.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">localeCookiePath</span>:String</code> &mdash; (default: <code>window.location.pathname</code>) The path of the Cookie to load and
+     store locale information on the client.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">localeCookieDomain</span>:String</code> &mdash; (default: <code>null</code>) The domain of the Cookie to load and store locale
+     information on the client.
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">joo.classLoader<br>
+<a href="joo/ResourceBundleAwareClassLoader.html#INSTANCE" target="">INSTANCE</a>
+<br>
+<a href="joo/ResourceBundleAwareClassLoader.html#getLocale" target="">getLocale</a>
+</div>
+</div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="createClassDeclaration()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">createClassDeclaration</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function createClassDeclaration(packageDef:String, classDef:String, inheritanceLevel:int, memberFactory:Function, publicStaticMethodNames:Array, dependencies:Array):<a href="joo/JooClassDeclaration.html">JooClassDeclaration</a></code><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">packageDef</span>:String</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">classDef</span>:String</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">inheritanceLevel</span>:int</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">memberFactory</span>:Function</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">publicStaticMethodNames</span>:Array</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">dependencies</span>:Array</code></td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="joo/JooClassDeclaration.html">JooClassDeclaration</a></code></td>
+</tr>
+</table>
+</div>
+<a name="createSingleton()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">createSingleton</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function createSingleton(resourceBundle:Class):Object</code><p>
+   Used internally by code generated by the properties compiler.
+   In case your want to implement a custom resource bundle, use the following code to
+   generate a locale-specific instance of your bundle class:
+   <pre>
+   public static const INSTANCE:My_properties = My_properties(ResourceBundleAwareClassLoader.INSTANCE.createSingleton(My_properties));
+   </pre>
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">resourceBundle</span>:Class</code> &mdash; the resource bundle class for which the subclass corresponding to the current locale
+     is to be instantiated.
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Object</code> &mdash; Object an instance of the resource bundle class or the subclass corresponding to the current locale
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="joo/ResourceBundleAwareClassLoader.html#getLocale" target="">getLocale</a>
+</div>
+</div>
+<a name="getDefaultLocale()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getDefaultLocale</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function getDefaultLocale():String</code>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>String</code></td>
+</tr>
+</table>
+</div>
+<a name="getLocale()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getLocale</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function getLocale():String</code><p>
+   Return the locale currently used for resource bundle class loading.
+   On the first call of this method, the locale is read from the Cookie given by
+   <code>localeCookieName</code> (default "joo.locale"), <code>localeCookiePath</code>
+   (<code>window.location.pathname</code>) and <code>localeCookieDomain</code>
+   (<code>null</code>).
+   If there is no such Cookie, the browser's <code>navigator</code> object is asked for its
+   language. If the locale still is not determined, the <code>defaultLocale</code> is used.
+   This value if stored using <code>setLocale()</code>.
+      </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>String</code> &mdash; the locale currently used for resource bundle class loading.
+      </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="joo/ResourceBundleAwareClassLoader.html#ResourceBundleAwareClassLoader" target="">ResourceBundleAwareClassLoader</a>
+<br>
+<a href="joo/ResourceBundleAwareClassLoader.html#setLocale" target="">setLocale</a>
+</div>
+</div>
+<a name="getSupportedLocales()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getSupportedLocales</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function getSupportedLocales():Array</code>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Array</code></td>
+</tr>
+</table>
+</div>
+<a name="setLocale()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setLocale</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function setLocale(locale:String):String</code><p>
+   Sets the current locale to the given locale or, if the given locale is not supported,
+   to the longest match in the supported locales, or the default locale if there is not match.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">locale</span>:String</code> &mdash; the locale to use for resource bundle class loading
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>String</code> &mdash; String the supported locale that has actually been set
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="joo/ResourceBundleAwareClassLoader.html#ResourceBundleAwareClassLoader" target="">ResourceBundleAwareClassLoader</a>
+</div>
+</div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<center class="copyright"> 
+</center>
+</div>
+</body>
+</html>
+<!-- -->

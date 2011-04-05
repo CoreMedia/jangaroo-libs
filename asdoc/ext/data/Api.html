@@ -1,0 +1,350 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../print.css" type="text/css" media="print">
+<meta content="Api,ext.data.Api,actions,restActions,getVerb,hasUniqueUrl,isAction,isValid,prepare,restify" name="keywords">
+<title>ext.data.Api</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'Api - API Documentation';
+				var baseRef = '../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">API Documentation</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../all-classes.html')" href="../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../all-classes.html')" href="../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../index-list.html')" href="../../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../../index.html?ext/data/Api.html&amp;ext/data/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;Api</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class Api"); titleBar_setSubNav(false,true,false,false,false,false,true,false,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">ext.data</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public class Api</td>
+</tr>
+</table>
+<p></p>
+ ext.data.Api is a singleton designed to manage the data API including methods
+ for validating a developer's DataProxy API.  Defines variables for CRUD actions
+ create, read, update and destroy in addition to a mapping of RESTful HTTP methods
+ GET, POST, PUT and DELETE to CRUD actions.
+<p></p>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#actions">actions</a> : Object<div class="summaryTableDescription">[static]
+ </div>
+</td><td class="summaryTableOwnerCol">Api</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#restActions">restActions</a> : *<div class="summaryTableDescription">[static]
+         Defined {CRUD action}:{HTTP method} pairs to associate HTTP methods with the
+         corresponding actions for <b class='link' title='ext.data.DataProxy#restful RESTful'>proxies</b>.</div>
+</td><td class="summaryTableOwnerCol">Api</td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getVerb()">getVerb</a>(name:String):String</div>
+<div class="summaryTableDescription">[static]
+         Returns the actual CRUD action KEY "create", "read", "update" or "destroy" from the supplied action-name.</div>
+</td><td class="summaryTableOwnerCol">Api</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#hasUniqueUrl()">hasUniqueUrl</a>(proxy:<a href="DataProxy.html">DataProxy</a>, verb:String):Boolean</div>
+<div class="summaryTableDescription">[static]
+         Returns true if the supplied verb upon the supplied proxy points to a unique url in that none of the other api-actions
+         point to the same url.</div>
+</td><td class="summaryTableOwnerCol">Api</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#isAction()">isAction</a>(action:String, actions:Array = null):Boolean</div>
+<div class="summaryTableDescription">[static]
+         Returns true if supplied action-name is a valid API action defined in <code><b class='link' title='#actions'>actions</b></code> constants
+         </div>
+</td><td class="summaryTableOwnerCol">Api</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#isValid()">isValid</a>(api:*):String</div>
+<div class="summaryTableDescription">[static]
+         Returns true if the supplied API is valid; that is, check that all keys match defined actions
+         otherwise returns an array of mistakes.</div>
+</td><td class="summaryTableOwnerCol">Api</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#prepare()">prepare</a>(proxy:<a href="DataProxy.html">DataProxy</a>):void</div>
+<div class="summaryTableDescription">[static]
+         This method is used internally by <code><b class='link' title='ext.data.DataProxy'>DataProxy</b></code> and should not generally need to be used directly.</div>
+</td><td class="summaryTableOwnerCol">Api</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#restify()">restify</a>(proxy:<a href="DataProxy.html">DataProxy</a>):void</div>
+<div class="summaryTableDescription">[static]
+         Prepares a supplied Proxy to be RESTful.</div>
+</td><td class="summaryTableOwnerCol">Api</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="actions"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">actions</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var actions:Object</code><p>
+ </p></div>
+<a name="restActions"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">restActions</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var restActions:*</code><p>
+         Defined {CRUD action}:{HTTP method} pairs to associate HTTP methods with the
+         corresponding actions for <b class='link' title='ext.data.DataProxy#restful RESTful'>proxies</b>.
+         Defaults to:
+         <pre><code>
+restActions : {
+    create  : 'POST',
+    read    : 'GET',
+    update  : 'PUT',
+    destroy : 'DELETE'
+},
+         </code></pre>
+         </p></div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="getVerb()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getVerb</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function getVerb(name:String):String</code><p>
+         Returns the actual CRUD action KEY "create", "read", "update" or "destroy" from the supplied action-name.  This method is used internally and shouldn't generally
+         need to be used directly.  The key/value pair of ext.data.Api.actions will often be identical but this is not necessarily true.  A developer can override this naming
+         convention if desired.  However, the framework internally calls methods based upon the KEY so a way of retrieving the the words "create", "read", "update" and "destroy" is
+         required.  This method will cache discovered KEYS into the private validActions hash.
+         </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">name</span>:String</code> &mdash; The runtime name of the action.
+         </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>String</code> &mdash; |null} returns the action-key, or verb of the user-action or null if invalid.
+         </td>
+</tr>
+</table>
+</div>
+<a name="hasUniqueUrl()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">hasUniqueUrl</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function hasUniqueUrl(proxy:<a href="DataProxy.html">DataProxy</a>, verb:String):Boolean</code><p>
+         Returns true if the supplied verb upon the supplied proxy points to a unique url in that none of the other api-actions
+         point to the same url.  The question is important for deciding whether to insert the "xaction" HTTP parameter within an
+         Ajax request.  This method is used internally and shouldn't generally need to be called directly.
+         </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">proxy</span>:<a href="DataProxy.html">DataProxy</a></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">verb</span>:String</code></td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code></td>
+</tr>
+</table>
+</div>
+<a name="isAction()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">isAction</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function isAction(action:String, actions:Array = null):Boolean</code><p>
+         Returns true if supplied action-name is a valid API action defined in <code><b class='link' title='#actions'>actions</b></code> constants
+         </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">action</span>:String</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">actions</span>:Array</code> (default = <code>null</code>)<code></code> &mdash; List of available CRUD actions.  Pass in list when executing multiple times for efficiency.
+         </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code></td>
+</tr>
+</table>
+</div>
+<a name="isValid()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">isValid</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function isValid(api:*):String</code><p>
+         Returns true if the supplied API is valid; that is, check that all keys match defined actions
+         otherwise returns an array of mistakes.
+         </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">api</span>:*</code></td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>String</code> &mdash; ]||true}
+         </td>
+</tr>
+</table>
+</div>
+<a name="prepare()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">prepare</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function prepare(proxy:<a href="DataProxy.html">DataProxy</a>):void</code><p>
+         This method is used internally by <code><b class='link' title='ext.data.DataProxy'>DataProxy</b></code> and should not generally need to be used directly.
+         Each action of a DataProxy api can be initially defined as either a String or an Object.  When specified as an object,
+         one can explicitly define the HTTP method (GET|POST) to use for each CRUD action.  This method will prepare the supplied API, setting
+         each action to the Object form.  If your API-actions do not explicitly define the HTTP method, the "method" configuration-parameter will
+         be used.  If the method configuration parameter is not specified, POST will be used.
+         <pre><code>
+new ext.data.HttpProxy({
+    method: "POST",     // <-- default HTTP method when not specified.
+    api: {
+        create: 'create.php',
+        load: 'read.php',
+        save: 'save.php',
+        destroy: 'destroy.php'
+    }
+});
+
+// Alternatively, one can use the object-form to specify the API
+new ext.data.HttpProxy({
+    api: {
+        load: {url: 'read.php', method: 'GET'},
+        create: 'create.php',
+        destroy: 'destroy.php',
+        save: 'update.php'
+    }
+});
+        </code></pre>
+                  </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">proxy</span>:<a href="DataProxy.html">DataProxy</a></code></td>
+</tr>
+</table>
+</div>
+<a name="restify()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">restify</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function restify(proxy:<a href="DataProxy.html">DataProxy</a>):void</code><p>
+         Prepares a supplied Proxy to be RESTful.  Sets the HTTP method for each api-action to be one of
+         GET, POST, PUT, DELETE according to the defined <b class='link' title='#restActions'>restActions</b>.
+         </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">proxy</span>:<a href="DataProxy.html">DataProxy</a></code></td>
+</tr>
+</table>
+</div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<center class="copyright"> 
+</center>
+</div>
+</body>
+</html>
+<!-- -->

@@ -1,0 +1,882 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../print.css" type="text/css" media="print">
+<meta content="Range,js.Range,END_TO_END,END_TO_START,START_TO_END,START_TO_START,collapsed,commonAncestorContainer,endContainer,endOffset,startContainer,startOffset,cloneContents,cloneRange,collapse,compareBoundaryPoints,comparePoint,createContextualFragment,deleteContents,detach,extractContents,insertNode,isPointInRange,selectNode,selectNodeContents,setEnd,setEndAfter,setEndBefore,setStart,setStartAfter,setStartBefore,surroundContents" name="keywords">
+<title>js.Range</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../asdoc.js"></script><script type="text/javascript" language="javascript" src="../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'Range - API Documentation';
+				var baseRef = '../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">API Documentation</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../all-classes.html')" href="../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../all-classes.html')" href="../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../index-list.html')" href="../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../index.html?js/Range.html&amp;js/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;Range</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class Range"); titleBar_setSubNav(false,true,false,false,false,false,true,false,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">js</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public class Range</td>
+</tr>
+</table>
+<p></p>
+<p></p>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#collapsed">collapsed</a> : Boolean<div class="summaryTableDescription">[read-only]
+   Returns a boolean indicating whether the range's start and end points are at the same position.</div>
+</td><td class="summaryTableOwnerCol">Range</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#commonAncestorContainer">commonAncestorContainer</a> : <a href="js/Node.html">Node</a>
+<div class="summaryTableDescription">[read-only]
+   Returns the deepest Node that contains the startContainer and endContainer Nodes.</div>
+</td><td class="summaryTableOwnerCol">Range</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#endContainer">endContainer</a> : <a href="js/Node.html">Node</a>
+<div class="summaryTableDescription">[read-only]
+   Returns the Node within which the Range ends.</div>
+</td><td class="summaryTableOwnerCol">Range</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#endOffset">endOffset</a> : Number<div class="summaryTableDescription">[read-only]
+   Returns a number representing where in the endContainer the Range ends.</div>
+</td><td class="summaryTableOwnerCol">Range</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#END_TO_END">END_TO_END</a> : Number<div class="summaryTableDescription">[static][read-only]
+    Use as <code>how</code> paramter in compareBoundaryPoints() to compare the end boundary-point of sourceRange to
+    the end boundary-point of range.</div>
+</td><td class="summaryTableOwnerCol">Range</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#END_TO_START">END_TO_START</a> : Number<div class="summaryTableDescription">[static][read-only]
+    Use as <code>how</code> paramter in compareBoundaryPoints() to compare the end boundary-point of sourceRange to
+    the start boundary-point of range.</div>
+</td><td class="summaryTableOwnerCol">Range</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#startContainer">startContainer</a> : <a href="js/Node.html">Node</a>
+<div class="summaryTableDescription">[read-only]
+   Returns the Node within which the Range starts.</div>
+</td><td class="summaryTableOwnerCol">Range</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#startOffset">startOffset</a> : Number<div class="summaryTableDescription">[read-only]
+   Returns a number representing where in the startContainer the Range starts.</div>
+</td><td class="summaryTableOwnerCol">Range</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#START_TO_END">START_TO_END</a> : Number<div class="summaryTableDescription">[static][read-only]
+    Use as <code>how</code> paramter in compareBoundaryPoints() to compare the start boundary-point of sourceRange to
+    the end boundary-point of range.</div>
+</td><td class="summaryTableOwnerCol">Range</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#START_TO_START">START_TO_START</a> : Number<div class="summaryTableDescription">[static][read-only]
+    Use as <code>how</code> paramter in compareBoundaryPoints() to compare the start boundary-point of sourceRange to
+    the start boundary-point of range.</div>
+</td><td class="summaryTableOwnerCol">Range</td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#cloneContents()">cloneContents</a>():Object</div>
+<div class="summaryTableDescription">
+   Returns a document fragment copying the nodes of a Range.</div>
+</td><td class="summaryTableOwnerCol">Range</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#cloneRange()">cloneRange</a>():<a href="js/Range.html">Range</a>
+</div>
+<div class="summaryTableDescription">
+   Returns a Range object with boundary points identical to the cloned Range.</div>
+</td><td class="summaryTableOwnerCol">Range</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#collapse()">collapse</a>(toStart:Boolean):void</div>
+<div class="summaryTableDescription">
+   Collapses the Range to one of its boundary points.</div>
+</td><td class="summaryTableOwnerCol">Range</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#compareBoundaryPoints()">compareBoundaryPoints</a>(how:Number, sourceRange:<a href="Range.html">Range</a>):Number</div>
+<div class="summaryTableDescription">
+   Compares the boundary points of two Ranges.</div>
+</td><td class="summaryTableOwnerCol">Range</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#comparePoint()">comparePoint</a>(referenceNode:<a href="Node.html">Node</a>, offset:Number):Number</div>
+<div class="summaryTableDescription">
+   Returns -1, 0, or 1 indicating whether the point occurs before, inside, or after the range.</div>
+</td><td class="summaryTableOwnerCol">Range</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#createContextualFragment()">createContextualFragment</a>(tagString:String):Object</div>
+<div class="summaryTableDescription">
+   Returns a document fragment created from a given string of code.</div>
+</td><td class="summaryTableOwnerCol">Range</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#deleteContents()">deleteContents</a>():void</div>
+<div class="summaryTableDescription">
+   Removes the contents of a Range from the document.</div>
+</td><td class="summaryTableOwnerCol">Range</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#detach()">detach</a>():void</div>
+<div class="summaryTableDescription">
+   Releases Range from use to improve performance.</div>
+</td><td class="summaryTableOwnerCol">Range</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#extractContents()">extractContents</a>():void</div>
+<div class="summaryTableDescription">
+   Moves contents of a Range from the document tree into a document fragment.</div>
+</td><td class="summaryTableOwnerCol">Range</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#insertNode()">insertNode</a>(newNode:<a href="Node.html">Node</a>):void</div>
+<div class="summaryTableDescription">
+   Insert a node at the start of a Range.</div>
+</td><td class="summaryTableOwnerCol">Range</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#isPointInRange()">isPointInRange</a>(referenceNode:<a href="Node.html">Node</a>, offset:Number):Boolean</div>
+<div class="summaryTableDescription">
+   Returns a boolean indicating whether the given point is in the range.</div>
+</td><td class="summaryTableOwnerCol">Range</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#selectNode()">selectNode</a>(referenceNode:<a href="Node.html">Node</a>):void</div>
+<div class="summaryTableDescription">
+   Sets the Range to contain the node and its contents.</div>
+</td><td class="summaryTableOwnerCol">Range</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#selectNodeContents()">selectNodeContents</a>(referenceNode:<a href="Node.html">Node</a>):void</div>
+<div class="summaryTableDescription">
+   Sets the Range to contain the contents of a Node.</div>
+</td><td class="summaryTableOwnerCol">Range</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setEnd()">setEnd</a>(endNode:<a href="Node.html">Node</a>, endOffset:Number):void</div>
+<div class="summaryTableDescription">
+   Sets the end position of a Range.</div>
+</td><td class="summaryTableOwnerCol">Range</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setEndAfter()">setEndAfter</a>(referenceNode:<a href="Node.html">Node</a>):void</div>
+<div class="summaryTableDescription">
+   Sets the end position of a Range relative to another Node.</div>
+</td><td class="summaryTableOwnerCol">Range</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setEndBefore()">setEndBefore</a>(referenceNode:<a href="Node.html">Node</a>):void</div>
+<div class="summaryTableDescription">
+   Sets the end position of a Range relative to another Node.</div>
+</td><td class="summaryTableOwnerCol">Range</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setStart()">setStart</a>(startNode:<a href="Node.html">Node</a>, startOffset:Number):void</div>
+<div class="summaryTableDescription">
+   Sets the start position of a Range.</div>
+</td><td class="summaryTableOwnerCol">Range</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setStartAfter()">setStartAfter</a>(referenceNode:<a href="Node.html">Node</a>):void</div>
+<div class="summaryTableDescription">
+   Sets the start position of a Range relative to another Node.</div>
+</td><td class="summaryTableOwnerCol">Range</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setStartBefore()">setStartBefore</a>(referenceNode:<a href="Node.html">Node</a>):void</div>
+<div class="summaryTableDescription">
+   Sets the start position of a Range relative to another Node.</div>
+</td><td class="summaryTableOwnerCol">Range</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#surroundContents()">surroundContents</a>(newNode:<a href="Node.html">Node</a>):void</div>
+<div class="summaryTableDescription">
+   Moves content of a Range into a new node.</div>
+</td><td class="summaryTableOwnerCol">Range</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="collapsed"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">collapsed</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>collapsed:Boolean</code>&nbsp;&nbsp;[read-only]<p>
+   Returns a boolean indicating whether the range's start and end points are at the same position.
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get collapsed():Boolean</code>
+<br>
+</div>
+<a name="commonAncestorContainer"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">commonAncestorContainer</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>commonAncestorContainer:<a href="js/Node.html">Node</a></code>&nbsp;&nbsp;[read-only]<p>
+   Returns the deepest Node that contains the startContainer and endContainer Nodes.
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get commonAncestorContainer():<a href="js/Node.html">Node</a></code>
+<br>
+</div>
+<a name="endContainer"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">endContainer</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>endContainer:<a href="js/Node.html">Node</a></code>&nbsp;&nbsp;[read-only]<p>
+   Returns the Node within which the Range ends.
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get endContainer():<a href="js/Node.html">Node</a></code>
+<br>
+</div>
+<a name="endOffset"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">endOffset</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>endOffset:Number</code>&nbsp;&nbsp;[read-only]<p>
+   Returns a number representing where in the endContainer the Range ends.
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get endOffset():Number</code>
+<br>
+</div>
+<a name="END_TO_END"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">END_TO_END</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>END_TO_END:Number</code>&nbsp;&nbsp;[read-only]<p>
+    Use as <code>how</code> paramter in compareBoundaryPoints() to compare the end boundary-point of sourceRange to
+    the end boundary-point of range.
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get END_TO_END():Number</code>
+<br>
+</div>
+<a name="END_TO_START"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">END_TO_START</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>END_TO_START:Number</code>&nbsp;&nbsp;[read-only]<p>
+    Use as <code>how</code> paramter in compareBoundaryPoints() to compare the end boundary-point of sourceRange to
+    the start boundary-point of range.
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get END_TO_START():Number</code>
+<br>
+</div>
+<a name="startContainer"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">startContainer</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>startContainer:<a href="js/Node.html">Node</a></code>&nbsp;&nbsp;[read-only]<p>
+   Returns the Node within which the Range starts.
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get startContainer():<a href="js/Node.html">Node</a></code>
+<br>
+</div>
+<a name="startOffset"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">startOffset</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>startOffset:Number</code>&nbsp;&nbsp;[read-only]<p>
+   Returns a number representing where in the startContainer the Range starts.
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get startOffset():Number</code>
+<br>
+</div>
+<a name="START_TO_END"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">START_TO_END</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>START_TO_END:Number</code>&nbsp;&nbsp;[read-only]<p>
+    Use as <code>how</code> paramter in compareBoundaryPoints() to compare the start boundary-point of sourceRange to
+    the end boundary-point of range.
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get START_TO_END():Number</code>
+<br>
+</div>
+<a name="START_TO_START"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">START_TO_START</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>START_TO_START:Number</code>&nbsp;&nbsp;[read-only]<p>
+    Use as <code>how</code> paramter in compareBoundaryPoints() to compare the start boundary-point of sourceRange to
+    the start boundary-point of range.
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get START_TO_START():Number</code>
+<br>
+</div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="cloneContents()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">cloneContents</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function cloneContents():Object</code><p>
+   Returns a document fragment copying the nodes of a Range.
+   </p><p>Event Listeners added using DOM Events are not copied during cloning. HTML attribute events are duplicated as
+    they are for the DOM Core cloneNode method. HTML id attributes are also cloned, which can lead to an invalid
+    document through cloning.</p>
+   <p>Partially selected nodes include the parent tags necessary to make the document fragment valid.</p>
+   <p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Object</code></td>
+</tr>
+</table>
+</div>
+<a name="cloneRange()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">cloneRange</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function cloneRange():<a href="js/Range.html">Range</a></code><p>
+   Returns a Range object with boundary points identical to the cloned Range.
+   </p><p>clone is copied by value, not reference, so a change in either Range does not effect the other.</p>
+   <p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="js/Range.html">Range</a></code></td>
+</tr>
+</table>
+</div>
+<a name="collapse()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">collapse</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function collapse(toStart:Boolean):void</code><p>
+   Collapses the Range to one of its boundary points.
+   </p><p>A collapsed Range is empty, containing no content, specifying a single-point in a DOM tree. To determine if a
+    Range is already collapsed, see the collapsed property.</p>
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">toStart</span>:Boolean</code> &mdash; A boolean, true collapses the Range to its start, false to its end.
+   </td>
+</tr>
+</table>
+</div>
+<a name="compareBoundaryPoints()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">compareBoundaryPoints</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function compareBoundaryPoints(how:Number, sourceRange:<a href="Range.html">Range</a>):Number</code><p>
+   Compares the boundary points of two Ranges.
+   </p><p>Any of the following constants can be passed as the value of how parameter:</p>
+   <ul>
+    <li>Range.END_TO_END compares the end boundary-point of sourceRange to the end boundary-point of range.</li>
+    <li>Range.END_TO_START compares the end boundary-point of sourceRange to the start boundary-point of range.</li>
+    <li>Range.START_TO_END compares the start boundary-point of sourceRange to the end boundary-point of range.</li>
+    <li>Range.START_TO_START compares the start boundary-point of sourceRange to the start boundary-point of range.</li>
+   </ul>
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">how</span>:Number</code> &mdash; A constant describing the comparison method, one of values described below.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceRange</span>:<a href="Range.html">Range</a></code> &mdash; A Range to compare boundary points with range
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Number</code> &mdash; A number, -1, 0, or 1, indicating whether the corresponding boundary-point of range is respectively
+    before, equal to, or after the corresponding boundary-point of sourceRange.
+   </td>
+</tr>
+</table>
+</div>
+<a name="comparePoint()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">comparePoint</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function comparePoint(referenceNode:<a href="Node.html">Node</a>, offset:Number):Number</code><p>
+   Returns -1, 0, or 1 indicating whether the point occurs before, inside, or after the range.
+   </p><p>If the referenceNode is a Node of type Text, Comment, or CDATASection, then offset is the number of characters
+    from the start of referenceNode. For other Node types, offset is the number of child nodes between the start of
+    the referenceNode.</p>
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">referenceNode</span>:<a href="Node.html">Node</a></code> &mdash; The Node to compare with the Range.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">offset</span>:Number</code> &mdash; An integer greater than or equal to zero representing the offset inside the referenceNode.
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Number</code> &mdash; -1, 0, or 1 indicating whether the point occurs before, inside, or after the range.
+   </td>
+</tr>
+</table>
+</div>
+<a name="createContextualFragment()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">createContextualFragment</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function createContextualFragment(tagString:String):Object</code><p>
+   Returns a document fragment created from a given string of code.
+   </p><p>This method takes a string and uses Mozilla's parser to convert it to a DOM tree.</p>
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">tagString</span>:String</code> &mdash; Text that contains text and tags to be converted to a document fragment.
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Object</code> &mdash; a document fragment created from a given string of code.
+   </td>
+</tr>
+</table>
+</div>
+<a name="deleteContents()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">deleteContents</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function deleteContents():void</code><p>
+   Removes the contents of a Range from the document.
+   </p><p>Unlike extractContents, this method does not return a documentFragment containing the deleted content.</p>
+   </div>
+<a name="detach()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">detach</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function detach():void</code><p>
+   Releases Range from use to improve performance.
+   </p><p>Allows the user agent to relinquish resources associated with this Range. Subsequent attempts to use the
+    detached range will result in a DOMException being thrown with an error code of INVALID_STATE_ERR.</p>
+   </div>
+<a name="extractContents()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">extractContents</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function extractContents():void</code><p>
+   Moves contents of a Range from the document tree into a document fragment.
+   </p><p>Event Listeners added using DOM Events are not retained during extraction. HTML attribute events are retained
+    or duplicated as they are for the DOM Core cloneNode method. HTML id attributes are also cloned, which can lead
+    to an invalid document if a partially-selected node is extracted and appened to the document.</p>
+   <p>Partially selected nodes are cloned to include the parent tags necessary to make the document fragment valid.</p>
+   </div>
+<a name="insertNode()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">insertNode</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function insertNode(newNode:<a href="Node.html">Node</a>):void</code><p>
+   Insert a node at the start of a Range.
+   </p><p>newNode is inserted at the start boundary point of the Range. If the newNodes is to be added to a text Node,
+    that Node is split at the insertion point, and the insertion occurs between the two text Nodes.</p>
+   <p>If newNode is a document fragment, the children of the document fragment are inserted instead.</p>
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">newNode</span>:<a href="Node.html">Node</a></code> &mdash; is a Node.
+   </td>
+</tr>
+</table>
+</div>
+<a name="isPointInRange()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">isPointInRange</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function isPointInRange(referenceNode:<a href="Node.html">Node</a>, offset:Number):Boolean</code><p>
+   Returns a boolean indicating whether the given point is in the range.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">referenceNode</span>:<a href="Node.html">Node</a></code> &mdash; The Node to compare with the Range.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">offset</span>:Number</code> &mdash; The offset into Node of the point to compare with the Range.
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code> &mdash; true if the point (cursor position) at offset within ReferenceNode is within this range.
+   </td>
+</tr>
+</table>
+</div>
+<a name="selectNode()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">selectNode</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function selectNode(referenceNode:<a href="Node.html">Node</a>):void</code><p>
+   Sets the Range to contain the node and its contents.
+   </p><p>The parent Node of the start and end of the Range will be the same as the parent of the referenceNode.</p>
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">referenceNode</span>:<a href="Node.html">Node</a></code> &mdash; The Node to select within a Range
+   </td>
+</tr>
+</table>
+</div>
+<a name="selectNodeContents()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">selectNodeContents</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function selectNodeContents(referenceNode:<a href="Node.html">Node</a>):void</code><p>
+   Sets the Range to contain the contents of a Node.
+   </p><p>The parent Node of the start and end of the Range will be the referenceNode. The startOffset is 0, and the
+    endOffset is the number of child Nodes or number of characters contained in the reference node.</p>
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">referenceNode</span>:<a href="Node.html">Node</a></code> &mdash; The Node whose contents will be selected within a Range
+   </td>
+</tr>
+</table>
+</div>
+<a name="setEnd()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setEnd</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function setEnd(endNode:<a href="Node.html">Node</a>, endOffset:Number):void</code><p>
+   Sets the end position of a Range.
+   </p><p>If the endNode is a Node of type Text, Comment, or CDATASection, then endOffset is the number of characters
+    from the start of endNode. For other Node types, endOffset is the number of child nodes between the start of
+    the endNode.</p>
+   <p>Setting the end point above (higher in the document) the start point will throw an
+    NS_ERROR_ILLEGAL_VALUE exception.</p>
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">endNode</span>:<a href="Node.html">Node</a></code> &mdash; The Node to end the Range
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">endOffset</span>:Number</code> &mdash; An integer greater than or equal to zero representing the offset for the end of the Range
+    from the start of endNode.
+   </td>
+</tr>
+</table>
+</div>
+<a name="setEndAfter()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setEndAfter</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function setEndAfter(referenceNode:<a href="Node.html">Node</a>):void</code><p>
+   Sets the end position of a Range relative to another Node.
+   </p><p>The parent Node of end of the Range will be the same as that for the referenceNode.</p>
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">referenceNode</span>:<a href="Node.html">Node</a></code> &mdash; The Node to end the Range after
+   </td>
+</tr>
+</table>
+</div>
+<a name="setEndBefore()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setEndBefore</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function setEndBefore(referenceNode:<a href="Node.html">Node</a>):void</code><p>
+   Sets the end position of a Range relative to another Node.
+   </p><p>The parent Node of end of the Range will be the same as that for the referenceNode.</p>
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">referenceNode</span>:<a href="Node.html">Node</a></code> &mdash; The Node to end the Range before
+   </td>
+</tr>
+</table>
+</div>
+<a name="setStart()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setStart</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function setStart(startNode:<a href="Node.html">Node</a>, startOffset:Number):void</code><p>
+   Sets the start position of a Range.
+   </p><p>If the startNode is a Node of type Text, Comment, or CDATASection, then startOffset is the number of characters
+   from the start of startNode. For other Node types, startOffset is the number of child nodes between the start of
+   the startNode.</p>
+   <p>Setting the start point below (further down in the document) than the end point will throw an
+    NS_ERROR_ILLEGAL_VALUE exception.</p>
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">startNode</span>:<a href="Node.html">Node</a></code> &mdash; The Node to start the Range
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">startOffset</span>:Number</code> &mdash; An integer greater than or equal to zero representing the offset for the start
+    of the Range from the start of startNode.
+   </td>
+</tr>
+</table>
+</div>
+<a name="setStartAfter()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setStartAfter</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function setStartAfter(referenceNode:<a href="Node.html">Node</a>):void</code><p>
+   Sets the start position of a Range relative to another Node.
+   </p><p>The parent Node of the start of the Range will be the same as that for the referenceNode.</p>
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">referenceNode</span>:<a href="Node.html">Node</a></code> &mdash; The Node to start the Range after
+   </td>
+</tr>
+</table>
+</div>
+<a name="setStartBefore()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setStartBefore</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function setStartBefore(referenceNode:<a href="Node.html">Node</a>):void</code><p>
+   Sets the start position of a Range relative to another Node.
+   </p><p>The parent Node of the start of the Range will be the same as that for the referenceNode.</p>
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">referenceNode</span>:<a href="Node.html">Node</a></code> &mdash; The Node to start the Range before
+   </td>
+</tr>
+</table>
+</div>
+<a name="surroundContents()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">surroundContents</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function surroundContents(newNode:<a href="Node.html">Node</a>):void</code><p>
+   Moves content of a Range into a new node.
+   </p><p><code>surroundContents</code> is equivalent to
+   <code>newNode.appendChild(range.extractContents()); range.insertNode(newNode)</code>.
+   After surrounding, the boundary points of the range include newNode.</p>
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">newNode</span>:<a href="Node.html">Node</a></code> &mdash; a Node
+   </td>
+</tr>
+</table>
+</div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<center class="copyright"> 
+</center>
+</div>
+</body>
+</html>
+<!-- -->

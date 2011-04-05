@@ -1,0 +1,546 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../print.css" type="text/css" media="print">
+<meta content="Selection,js.Selection,anchorNode,anchorOffset,focusNode,focusOffset,isCollapsed,rangeCount,addRange,collapse,collapseToEnd,collapseToStart,containsNode,deleteFromDocument,extend,getRangeAt,removeAllRanges,removeRange,selectAllChildren,selectionLanguageChange,toString" name="keywords">
+<title>js.Selection</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../asdoc.js"></script><script type="text/javascript" language="javascript" src="../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'Selection - API Documentation';
+				var baseRef = '../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">API Documentation</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../all-classes.html')" href="../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../all-classes.html')" href="../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../index-list.html')" href="../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../index.html?js/Selection.html&amp;js/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Interface&nbsp;Selection</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Interface Selection"); titleBar_setSubNav(false,true,false,false,false,false,true,false,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">js</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Interface</td><td class="classSignature">public interface Selection</td>
+</tr>
+</table>
+<p></p>
+ Interface for manipulating and querying the current selected range
+ of nodes within the document.
+ <p></p>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#anchorNode">anchorNode</a> : <a href="js/Node.html">Node</a>
+<div class="summaryTableDescription">[read-only]
+     Returns the node in which the selection begins.</div>
+</td><td class="summaryTableOwnerCol">Selection</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#anchorOffset">anchorOffset</a> : int<div class="summaryTableDescription">[read-only]
+     The offset within the (text) node where the selection begins.</div>
+</td><td class="summaryTableOwnerCol">Selection</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#focusNode">focusNode</a> : <a href="js/Node.html">Node</a>
+<div class="summaryTableDescription">[read-only]
+     Returns the node in which the selection ends.</div>
+</td><td class="summaryTableOwnerCol">Selection</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#focusOffset">focusOffset</a> : int<div class="summaryTableDescription">[read-only]
+     The offset within the (text) node where the selection ends.</div>
+</td><td class="summaryTableOwnerCol">Selection</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#isCollapsed">isCollapsed</a> : Boolean<div class="summaryTableDescription">[read-only]
+     Indicates if the selection is collapsed or not.</div>
+</td><td class="summaryTableOwnerCol">Selection</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#rangeCount">rangeCount</a> : int<div class="summaryTableDescription">[read-only]
+     Returns the number of ranges in the selection.</div>
+</td><td class="summaryTableOwnerCol">Selection</td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#addRange()">addRange</a>(range:<a href="Range.html">Range</a>):void</div>
+<div class="summaryTableDescription">
+      Adds a range to the current selection.</div>
+</td><td class="summaryTableOwnerCol">Selection</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#collapse()">collapse</a>(parentNode:<a href="Node.html">Node</a>, offset:int):void</div>
+<div class="summaryTableDescription">
+     Collapses the selection to a single point, at the specified offset
+     in the given DOM node.</div>
+</td><td class="summaryTableOwnerCol">Selection</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#collapseToEnd()">collapseToEnd</a>():void</div>
+<div class="summaryTableDescription">
+      Collapses the whole selection to a single point at the end
+      of the current selection (irrespective of direction).</div>
+</td><td class="summaryTableOwnerCol">Selection</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#collapseToStart()">collapseToStart</a>():void</div>
+<div class="summaryTableDescription">
+      Collapses the whole selection to a single point at the start
+      of the current selection (irrespective of direction).</div>
+</td><td class="summaryTableOwnerCol">Selection</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#containsNode()">containsNode</a>(node:<a href="Node.html">Node</a>, partlyContained:Boolean):Boolean</div>
+<div class="summaryTableDescription">
+      Indicates whether the node is part of the selection.</div>
+</td><td class="summaryTableOwnerCol">Selection</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#deleteFromDocument()">deleteFromDocument</a>():void</div>
+<div class="summaryTableDescription">
+      Deletes this selection from document the nodes belong to.</div>
+</td><td class="summaryTableOwnerCol">Selection</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#extend()">extend</a>(parentNode:<a href="Node.html">Node</a>, offset:int):void</div>
+<div class="summaryTableDescription">
+      Extends the selection by moving the selection end to the specified node and offset,
+      preserving the selection begin position.</div>
+</td><td class="summaryTableOwnerCol">Selection</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getRangeAt()">getRangeAt</a>(index:int):<a href="js/Range.html">Range</a>
+</div>
+<div class="summaryTableDescription">
+     Returns the range at the specified index.</div>
+</td><td class="summaryTableOwnerCol">Selection</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#removeAllRanges()">removeAllRanges</a>():void</div>
+<div class="summaryTableDescription">
+      Removes all ranges from the current selection.</div>
+</td><td class="summaryTableOwnerCol">Selection</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#removeRange()">removeRange</a>(range:<a href="Range.html">Range</a>):void</div>
+<div class="summaryTableDescription">
+      Removes a range from the current selection.</div>
+</td><td class="summaryTableOwnerCol">Selection</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#selectAllChildren()">selectAllChildren</a>(parentNode:<a href="Node.html">Node</a>):void</div>
+<div class="summaryTableDescription">
+      Adds all children of the specified node to the selection.</div>
+</td><td class="summaryTableOwnerCol">Selection</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#selectionLanguageChange()">selectionLanguageChange</a>(langRTL:Boolean):void</div>
+<div class="summaryTableDescription">
+      Modifies the cursor Bidi level after a change in keyboard direction
+      </div>
+</td><td class="summaryTableOwnerCol">Selection</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#toString()">toString</a>():String</div>
+<div class="summaryTableDescription">
+      Returns the whole selection into a plain text string.</div>
+</td><td class="summaryTableOwnerCol">Selection</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="anchorNode"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">anchorNode</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>anchorNode:<a href="js/Node.html">Node</a></code>&nbsp;&nbsp;[read-only]<p>
+     Returns the node in which the selection begins.
+     </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get anchorNode():<a href="js/Node.html">Node</a></code>
+<br>
+</div>
+<a name="anchorOffset"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">anchorOffset</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>anchorOffset:int</code>&nbsp;&nbsp;[read-only]<p>
+     The offset within the (text) node where the selection begins.
+     </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get anchorOffset():int</code>
+<br>
+</div>
+<a name="focusNode"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">focusNode</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>focusNode:<a href="js/Node.html">Node</a></code>&nbsp;&nbsp;[read-only]<p>
+     Returns the node in which the selection ends.
+     </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get focusNode():<a href="js/Node.html">Node</a></code>
+<br>
+</div>
+<a name="focusOffset"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">focusOffset</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>focusOffset:int</code>&nbsp;&nbsp;[read-only]<p>
+     The offset within the (text) node where the selection ends.
+     </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get focusOffset():int</code>
+<br>
+</div>
+<a name="isCollapsed"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">isCollapsed</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>isCollapsed:Boolean</code>&nbsp;&nbsp;[read-only]<p>
+     Indicates if the selection is collapsed or not.
+     </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get isCollapsed():Boolean</code>
+<br>
+</div>
+<a name="rangeCount"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">rangeCount</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>rangeCount:int</code>&nbsp;&nbsp;[read-only]<p>
+     Returns the number of ranges in the selection.
+     </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get rangeCount():int</code>
+<br>
+</div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="addRange()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">addRange</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function addRange(range:<a href="Range.html">Range</a>):void</code><p>
+      Adds a range to the current selection.
+      </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">range</span>:<a href="Range.html">Range</a></code></td>
+</tr>
+</table>
+</div>
+<a name="collapse()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">collapse</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function collapse(parentNode:<a href="Node.html">Node</a>, offset:int):void</code><p>
+     Collapses the selection to a single point, at the specified offset
+     in the given DOM node. When the selection is collapsed, and the content
+     is focused and editable, the caret will blink there.
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">parentNode</span>:<a href="Node.html">Node</a></code> &mdash;      The given dom node where the selection will be set
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">offset</span>:int</code> &mdash;          Where in given dom node to place the selection (the offset into the given node)
+     </td>
+</tr>
+</table>
+</div>
+<a name="collapseToEnd()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">collapseToEnd</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function collapseToEnd():void</code><p>
+      Collapses the whole selection to a single point at the end
+      of the current selection (irrespective of direction).  If content
+      is focused and editable, the caret will blink there.
+      </p></div>
+<a name="collapseToStart()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">collapseToStart</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function collapseToStart():void</code><p>
+      Collapses the whole selection to a single point at the start
+      of the current selection (irrespective of direction).  If content
+      is focused and editable, the caret will blink there.
+      </p></div>
+<a name="containsNode()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">containsNode</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function containsNode(node:<a href="Node.html">Node</a>, partlyContained:Boolean):Boolean</code><p>
+      Indicates whether the node is part of the selection. If partlyContained 
+      is set to PR_TRUE, the function returns true when some part of the node 
+      is part of the selection. If partlyContained is set to PR_FALSE, the
+      function only returns true when the entire node is part of the selection.
+      </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">node</span>:<a href="Node.html">Node</a></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">partlyContained</span>:Boolean</code></td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code></td>
+</tr>
+</table>
+</div>
+<a name="deleteFromDocument()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">deleteFromDocument</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function deleteFromDocument():void</code><p>
+      Deletes this selection from document the nodes belong to.
+      </p></div>
+<a name="extend()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">extend</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function extend(parentNode:<a href="Node.html">Node</a>, offset:int):void</code><p>
+      Extends the selection by moving the selection end to the specified node and offset,
+      preserving the selection begin position. The new selection end result will always
+      be from the anchorNode to the new focusNode, regardless of direction.
+      </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">parentNode</span>:<a href="Node.html">Node</a></code> &mdash;      The node where the selection will be extended to
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">offset</span>:int</code> &mdash;          Where in node to place the offset in the new selection end
+      </td>
+</tr>
+</table>
+</div>
+<a name="getRangeAt()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getRangeAt</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function getRangeAt(index:int):<a href="js/Range.html">Range</a></code><p>
+     Returns the range at the specified index.
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">index</span>:int</code></td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="js/Range.html">Range</a></code></td>
+</tr>
+</table>
+</div>
+<a name="removeAllRanges()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">removeAllRanges</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function removeAllRanges():void</code><p>
+      Removes all ranges from the current selection.
+      </p></div>
+<a name="removeRange()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">removeRange</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function removeRange(range:<a href="Range.html">Range</a>):void</code><p>
+      Removes a range from the current selection.
+      </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">range</span>:<a href="Range.html">Range</a></code></td>
+</tr>
+</table>
+</div>
+<a name="selectAllChildren()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">selectAllChildren</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function selectAllChildren(parentNode:<a href="Node.html">Node</a>):void</code><p>
+      Adds all children of the specified node to the selection.
+      </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">parentNode</span>:<a href="Node.html">Node</a></code> &mdash;  the parent of the children to be added to the selection.
+      </td>
+</tr>
+</table>
+</div>
+<a name="selectionLanguageChange()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">selectionLanguageChange</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function selectionLanguageChange(langRTL:Boolean):void</code><p>
+      Modifies the cursor Bidi level after a change in keyboard direction
+      </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">langRTL</span>:Boolean</code> &mdash; is PR_TRUE if the new language is right-to-left or
+                     PR_FALSE if the new language is left-to-right.
+      </td>
+</tr>
+</table>
+</div>
+<a name="toString()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">toString</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function toString():String</code><p>
+      Returns the whole selection into a plain text string.
+      </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>String</code></td>
+</tr>
+</table>
+</div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<center class="copyright"> 
+</center>
+</div>
+</body>
+</html>
+<!-- -->

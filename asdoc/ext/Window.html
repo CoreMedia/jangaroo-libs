@@ -1,0 +1,2932 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../print.css" type="text/css" media="print">
+<meta content="Window,ext.Window,closable,closeAction,collapsible,constrain,constrainHeader,draggable,expandOnShow,headerOffsets,initHidden,maximizable,minHeight,minWidth,minimizable,monitorResize,moveOnly,plain,resizable,DD,afterHide,afterShow,alignTo,anchorTo,animHide,animShow,beforeDestroy,beforeResize,beforeShow,center,close,doConstrain,endDrag,fitContainer,focus,getStateByWindow,ghost,handleResize,hideWindow,initComponent,initDraggable,initEvents,initTools,maximize,minimize,onDestroy,onDrag,onEsc,onRender,onWindowResize,resizerAction,restore,setActive,setAnimateTarget,setZIndex,showWindow,startDrag,toBack,toFront,toggleMaximize,unghost,updateHandles" name="keywords">
+<title>ext.Window</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../asdoc.js"></script><script type="text/javascript" language="javascript" src="../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'Window - API Documentation';
+				var baseRef = '../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">API Documentation</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../all-classes.html')" href="../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../all-classes.html')" href="../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../index-list.html')" href="../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../index.html?ext/Window.html&amp;ext/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;Window</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class Window"); titleBar_setSubNav(false,true,false,false,false,false,true,false,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">ext</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public class Window</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">Window <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../images/inherit-arrow.gif"> <a href="Panel.html">Panel</a> <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../images/inherit-arrow.gif"> <a href="Container.html">Container</a> <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../images/inherit-arrow.gif"> <a href="BoxComponent.html">BoxComponent</a> <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../images/inherit-arrow.gif"> <a href="Component.html">Component</a> <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../images/inherit-arrow.gif"> <a href="util/Observable.html">Observable</a></td>
+</tr>
+</table>
+<p></p>
+ A specialized panel intended for use as an application window. Windows are floated, <b class='link' title='#resizable'>resizable</b>, and
+ <b class='link' title='#draggable'>draggable</b> by default.  Windows can be <b class='link' title='#maximizable'>maximized</b> to fill the viewport,
+ restored to their prior size, and can be <b class='link' title='#minimize'>minimize</b>d.
+ <p>Windows can also be linked to a <b class='link'>ext.WindowGroup</b> or managed by the <b class='link'>ext.WindowMgr</b> to provide 
+ grouping, activation, to front, to back and other application-specific behavior.</p>
+ <p>By default, Windows will be rendered to document.body. To <b class='link' title='#constrain'>constrain</b> a Window to another element
+ specify <b class='link' title='ext.Component#renderTo'>renderTo</b>.</p>
+ <p><b>Note:</b> By default, the <code><b class='link' title='#closable'>close</b></code> header tool <i>destroys</i> the Window resulting in
+ destruction of any child Components. This makes the Window object, and all its descendants <b>unusable</b>. To enable
+ re-use of a Window, use <b><code><b class='link' title='#closeAction closeAction:'>'hide'</b></code></b>.</p>
+<p></p>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<div class="showHideLinks">
+<div class="hideInheritedProperty" id="hideInheritedProperty">
+<a onclick="javascript:setInheritedVisible(false,'Property');" href="#propertySummary" class="showHideLink"><img src="../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Properties</a>
+</div>
+<div class="showInheritedProperty" id="showInheritedProperty">
+<a onclick="javascript:setInheritedVisible(true,'Property');" href="#propertySummary" class="showHideLink"><img src="../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Properties</a>
+</div>
+</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Component.html#allowDomMove">allowDomMove</a> : Boolean<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Panel.html#animCollapse">animCollapse</a> : Boolean<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Container.html#autoDestroy">autoDestroy</a> : Boolean<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="Container.html">Container</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Component.html#autoEl">autoEl</a> : *<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Component.html#autoShow">autoShow</a> : Boolean<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Component.html#baseAction">baseAction</a> : <a href="ext/Action.html">Action</a>
+<div class="summaryTableDescription">
+     If this Component was created with a single Action argument, this Action
+     can be found in this read-only property.</div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Panel.html#baseCls">baseCls</a> : String<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Panel.html#body">body</a> : <a href="ext/Element.html">Element</a>
+<div class="summaryTableDescription">
+     The Panel's body <b class='link' title='ext.Element'>Element</b> which may be used to contain HTML content.</div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="BoxComponent.html#boxReady">boxReady</a> : Boolean<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="BoxComponent.html">BoxComponent</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Container.html#bufferResize">bufferResize</a> : *<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="Container.html">Container</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Panel.html#buttonAlign">buttonAlign</a> : String<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Panel.html#buttons">buttons</a> : Array<div class="summaryTableDescription">
+             This Panel's Array of buttons as created from the <code><b class='link' title='#buttons'>buttons</b></code>
+             config property.</div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Panel.html#bwrap">bwrap</a> : <a href="ext/Element.html">Element</a>
+<div class="summaryTableDescription">
+     The Panel's bwrap <b class='link' title='ext.Element'>Element</b> used to contain other Panel elements
+     (tbar, body, bbar, footer).</div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#closable">closable</a> : Boolean<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#closeAction">closeAction</a> : String<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Component.html#cls">cls</a> : String<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Panel.html#collapsed">collapsed</a> : Boolean<div class="summaryTableDescription">
+     True if this panel is collapsed.</div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Panel.html#collapsedCls">collapsedCls</a> : String<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Panel.html#collapseEl">collapseEl</a> : *<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Panel.html#collapseFirst">collapseFirst</a> : Boolean<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#collapsible">collapsible</a> : *<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#constrain">constrain</a> : Boolean<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#constrainHeader">constrainHeader</a> : Boolean<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Component.html#ctCls">ctCls</a> : String<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Container.html#defaultType">defaultType</a> : String<div class="summaryTableDescription"> </div>
+</td><td class="summaryTableOwnerCol"><a href="Container.html">Container</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="BoxComponent.html#deferHeight">deferHeight</a> : Boolean<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="BoxComponent.html">BoxComponent</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Component.html#disabled">disabled</a> : Boolean<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Component.html#disabledClass">disabledClass</a> : String<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#draggable">draggable</a> : Boolean<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Component.html#el">el</a> : <a href="ext/Element.html">Element</a>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Panel.html#elements">elements</a> : String<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="util/Observable.html#events">events</a> : Object<div class="summaryTableDescription">
+         This Objects contains all supported event names as its keys.</div>
+</td><td class="summaryTableOwnerCol"><a href="util/Observable.html">Observable</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#expandOnShow">expandOnShow</a> : Boolean<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Container.html#forceLayout">forceLayout</a> : Boolean<div class="summaryTableDescription"> </div>
+</td><td class="summaryTableOwnerCol"><a href="Container.html">Container</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Panel.html#header">header</a> : <a href="ext/Element.html">Element</a>
+<div class="summaryTableDescription">
+     The Panel's header <b class='link' title='ext.Element'>Element</b>.</div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Panel.html#headerAsText">headerAsText</a> : Boolean<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#headerOffsets">headerOffsets</a> : *<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Component.html#hidden">hidden</a> : Boolean<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Component.html#hideMode">hideMode</a> : String<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Component.html#hideParent">hideParent</a> : Boolean<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Panel.html#html">html</a> : String<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Component.html#id">id</a> : String<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#initHidden">initHidden</a> : Boolean<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Component.html#initialConfig">initialConfig</a> : Object<div class="summaryTableDescription">
+     This Component's initial configuration specification.</div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Component.html#itemId">itemId</a> : String<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Container.html#items">items</a> : <a href="util/MixedCollection.html">MixedCollection</a>
+<div class="summaryTableDescription">
+         The collection of components in this container as a <b class='link'>Ext.util.MixedCollection</b>
+         </div>
+</td><td class="summaryTableOwnerCol"><a href="Container.html">Container</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Container.html#LAYOUTS">LAYOUTS</a> : *<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol"><a href="Container.html">Container</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Panel.html#maskDisabled">maskDisabled</a> : Boolean<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#maximizable">maximizable</a> : Boolean<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Panel.html#minButtonWidth">minButtonWidth</a> : Number<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#minHeight">minHeight</a> : Number<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#minimizable">minimizable</a> : Boolean<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#minWidth">minWidth</a> : Number<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#monitorResize">monitorResize</a> : Boolean<div class="summaryTableDescription">
+    </div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#moveOnly">moveOnly</a> : Boolean<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Component.html#overCls">overCls</a> : String<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Component.html#ownerCt">ownerCt</a> : <a href="ext/Container.html">Container</a>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#plain">plain</a> : Boolean<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Component.html#plugins">plugins</a> : *<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Panel.html#preventBodyReset">preventBodyReset</a> : Boolean<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Component.html#ptype">ptype</a> : String<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Component.html#rendered">rendered</a> : Boolean<div class="summaryTableDescription">
+     <p>The <b class='link'>ext.Element</b> which encapsulates this Component.</div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#resizable">resizable</a> : Boolean<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Panel.html#slideAnchor">slideAnchor</a> : *<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Component.html#style">style</a> : String<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Panel.html#title">title</a> : String<div class="summaryTableDescription">
+ </div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Panel.html#tools">tools</a> : *<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Panel.html#toolTarget">toolTarget</a> : *<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Component.html#xtype">xtype</a> : String<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+</table>
+</div>
+<a name="protectedPropertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Protected Properties</div>
+<div class="showHideLinks">
+<div class="hideInheritedProtectedProperty" id="hideInheritedProtectedProperty">
+<a onclick="javascript:setInheritedVisible(false,'ProtectedProperty');" href="#protectedPropertySummary" class="showHideLink"><img src="../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Protected Properties</a>
+</div>
+<div class="showInheritedProtectedProperty" id="showInheritedProtectedProperty">
+<a onclick="javascript:setInheritedVisible(true,'ProtectedProperty');" href="#protectedPropertySummary" class="showHideLink"><img src="../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Protected Properties</a>
+</div>
+</div>
+<table id="summaryTableProtectedProperty" class="summaryTable hideInheritedProtectedProperty" cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="hideInheritedProtectedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Component.html#actionMode">actionMode</a> : *<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedProtectedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Component.html#AUTO_ID">AUTO_ID</a> : Object = 1000<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedProtectedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Panel.html#collapseDefaults">collapseDefaults</a> : *<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="hideInheritedProtectedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Component.html#ctype">ctype</a> : *<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedProtectedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Panel.html#expandDefaults">expandDefaults</a> : *<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<div class="showHideLinks">
+<div class="hideInheritedMethod" id="hideInheritedMethod">
+<a onclick="javascript:setInheritedVisible(false,'Method');" href="#methodSummary" class="showHideLink"><img src="../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Methods</a>
+</div>
+<div class="showInheritedMethod" id="showInheritedMethod">
+<a onclick="javascript:setInheritedVisible(true,'Method');" href="#methodSummary" class="showHideLink"><img src="../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Methods</a>
+</div>
+</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#Window()">Window</a>(config:Object)</div>
+<div class="summaryTableDescription">
+ </div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Container.html#add()">add</a>(component:Object, ... components):Object</div>
+<div class="summaryTableDescription">
+     <p>Adds <b class='link' title='ext.Component'>Component</b>(s) to this Container.</p>
+     <p><b>Description:</b></p>
+     <ul class="mdetail-params">
+     <li>Fires the <b class='link' title='#beforeadd'>beforeadd</b> event before adding</li>
+     <li>The Container's <b class='link' title='#defaults default config'>values</b> will be applied
+     accordingly (see <code><b class='link' title='#defaults'>defaults</b></code> for details).</li>
+     <li>Fires the <b class='link' title='#add'>add</b> event after the component has been added.</li>
+     </ul>
+     <p><b>Notes:</b></p>
+     <ul class="mdetail-params">
+     <li>If the Container is <i>already rendered</i> when <code>add</code>
+     is called, you may need to call <b class='link' title='#doLayout'>doLayout</b> to refresh the view which causes
+     any unrendered child Components to be rendered.</div>
+</td><td class="summaryTableOwnerCol"><a href="Container.html">Container</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Panel.html#addButton()">addButton</a>(config:*, handler:Function, scope:Object):<a href="ext/Button.html">Button</a>
+</div>
+<div class="summaryTableDescription">
+     Adds a button to this panel.</div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Component.html#addClass()">addClass</a>(cls:String):<a href="ext/Component.html">Component</a>
+</div>
+<div class="summaryTableDescription">
+     Adds a CSS class to the component's underlying element.</div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Component.html#addClasses()">addClasses</a>(classes:Array):<a href="ext/Component.html">Component</a>
+</div>
+<div class="summaryTableDescription">
+     Add the given CSS classes to the component's underlying element.</div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="util/Observable.html#addEvents()">addEvents</a>(object:Object):void</div>
+<div class="summaryTableDescription">
+         Used to define events on this Observable
+         </div>
+</td><td class="summaryTableOwnerCol"><a href="util/Observable.html">Observable</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="util/Observable.html#addListener()">addListener</a>(eventName:String, handler:Function, scope:Object, options:Object):void</div>
+<div class="summaryTableDescription">
+         Appends an event handler to this object.</div>
+</td><td class="summaryTableOwnerCol"><a href="util/Observable.html">Observable</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="util/Observable.html#afterMethod()">afterMethod</a>(method:String, fn:Function, scope:Object = null):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="util/Observable.html">Observable</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#alignTo()">alignTo</a>(element:*, position:String, offsets:Array):<a href="ext/Window.html">Window</a>
+</div>
+<div class="summaryTableDescription">
+     Aligns the window to the specified element
+     </div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#anchorTo()">anchorTo</a>(element:*, position:String, offsets:Array, monitorScroll:*):<a href="ext/Window.html">Window</a>
+</div>
+<div class="summaryTableDescription">
+     Anchors this window to another element and realigns it when the window is resized or scrolled.</div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Component.html#applyToMarkup()">applyToMarkup</a>(el:*):void</div>
+<div class="summaryTableDescription">
+     Apply this component to existing markup that is valid.</div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="util/Observable.html#beforeMethod()">beforeMethod</a>(method:String, fn:Function, scope:Object = null):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="util/Observable.html">Observable</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Container.html#bubble()">bubble</a>(fn:Function, scope:Object, args:Array):<a href="ext/Container.html">Container</a>
+</div>
+<div class="summaryTableDescription">
+     Bubbles up the component/container heirarchy, calling the specified function with each component.</div>
+</td><td class="summaryTableOwnerCol"><a href="Container.html">Container</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="util/Observable.html#capture()">capture</a>(o:<a href="util/Observable.html">Observable</a>, fn:Function, scope:Object):void</div>
+<div class="summaryTableDescription">
+ Starts capture on the specified Observable.</div>
+</td><td class="summaryTableOwnerCol"><a href="util/Observable.html">Observable</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Container.html#cascade()">cascade</a>(fn:Function, scope:Object, args:Array):<a href="ext/Container.html">Container</a>
+</div>
+<div class="summaryTableDescription">
+     Cascades down the component/container heirarchy from this component (called first), calling the specified function with
+     each component.</div>
+</td><td class="summaryTableOwnerCol"><a href="Container.html">Container</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#center()">center</a>():<a href="ext/Window.html">Window</a>
+</div>
+<div class="summaryTableDescription">
+     Centers this window in the viewport
+     </div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Component.html#cloneConfig()">cloneConfig</a>(overrides:Object):<a href="ext/Component.html">Component</a>
+</div>
+<div class="summaryTableDescription">
+     Clone the current component using the original config values passed into this instance by default.</div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#close()">close</a>():void</div>
+<div class="summaryTableDescription">
+     <p>Closes the Window, removes it from the DOM, <b class='link' title='ext.Component#destroy'>destroy</b>s
+     the Window object and all its descendant Components.</div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Panel.html#collapse()">collapse</a>(animate:Boolean):<a href="ext/Panel.html">Panel</a>
+</div>
+<div class="summaryTableDescription">
+     Collapses the panel body so that it becomes hidden.</div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Panel.html#createEffect()">createEffect</a>(a:*, cb:*, scope:*):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#DD()">DD</a>(win:*):void</div>
+<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Component.html#destroy()">destroy</a>():void</div>
+<div class="summaryTableDescription">
+     Destroys this component by purging any event listeners, removing the component's element from the DOM,
+     removing the component from its <b class='link'>ext.Container</b> (if applicable) and unregistering it from
+     <b class='link'>ext.ComponentMgr</b>.</div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Component.html#disable()">disable</a>(silent:*):<a href="ext/Component.html">Component</a>
+</div>
+<div class="summaryTableDescription">
+     Disable this component and fire the 'disable' event.</div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Container.html#doLayout()">doLayout</a>(shallow:Boolean, force:Boolean):<a href="ext/Container.html">Container</a>
+</div>
+<div class="summaryTableDescription">
+     Force this container's layout to be recalculated.</div>
+</td><td class="summaryTableOwnerCol"><a href="Container.html">Container</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Component.html#enable()">enable</a>():<a href="ext/Component.html">Component</a>
+</div>
+<div class="summaryTableDescription">
+     Enable this component and fire the 'enable' event.</div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="util/Observable.html#enableBubble()">enableBubble</a>(events:Object):void</div>
+<div class="summaryTableDescription">
+         Used to enable bubbling of events
+         </div>
+</td><td class="summaryTableOwnerCol"><a href="util/Observable.html">Observable</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#endDrag()">endDrag</a>(e:*):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Panel.html#expand()">expand</a>(animate:Boolean):<a href="ext/Panel.html">Panel</a>
+</div>
+<div class="summaryTableDescription">
+     Expands the panel body so that it becomes visible.</div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Container.html#find()">find</a>(prop:String, value:String):Array</div>
+<div class="summaryTableDescription">
+     Find a component under this container at any level by property
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="Container.html">Container</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Container.html#findBy()">findBy</a>(fn:Function, scope:Object):Array</div>
+<div class="summaryTableDescription">
+     Find a component under this container at any level by a custom function.</div>
+</td><td class="summaryTableOwnerCol"><a href="Container.html">Container</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Container.html#findById()">findById</a>(id:String):<a href="ext/Component.html">Component</a>
+</div>
+<div class="summaryTableDescription">
+     Find a component under this container at any level by id
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="Container.html">Container</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Container.html#findByType()">findByType</a>(xtype:*, shallow:Boolean):Array</div>
+<div class="summaryTableDescription">
+     Find a component under this container at any level by xtype or class
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="Container.html">Container</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Component.html#findParentBy()">findParentBy</a>(fn:Function):<a href="ext/Container.html">Container</a>
+</div>
+<div class="summaryTableDescription">
+     Find a container above this component at any level by a custom function.</div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Component.html#findParentByType()">findParentByType</a>(xtype:*):<a href="ext/Container.html">Container</a>
+</div>
+<div class="summaryTableDescription">
+     Find a container above this component at any level by xtype or class
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="util/Observable.html#fireEvent()">fireEvent</a>(eventName:String, ... args):Boolean</div>
+<div class="summaryTableDescription">
+         <p>Fires the specified event with the passed parameters (minus the event name).</p>
+         <p>An event may be set to bubble up an Observable parent hierarchy (See <b class='link'>ext.Component#getBubbleTarget</b>)
+         by calling <b class='link' title='#enableBubble'>enableBubble</b>.</p>
+         </div>
+</td><td class="summaryTableOwnerCol"><a href="util/Observable.html">Observable</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#focus()">focus</a>(selectText:Boolean, delay:*):<a href="ext/Component.html">Component</a>
+</div>
+<div class="summaryTableDescription">
+     Focuses the window.</div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Container.html#get()">get</a>(key:*):<a href="ext/Component.html">Component</a>
+</div>
+<div class="summaryTableDescription">
+     Get a component contained by this container (alias for items.get(key))
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="Container.html">Container</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Panel.html#getBottomToolbar()">getBottomToolbar</a>():<a href="ext/Toolbar.html">Toolbar</a>
+</div>
+<div class="summaryTableDescription">
+     Returns the <b class='link' title='ext.Toolbar'>toolbar</b> from the bottom (<code><b class='link' title='#bbar'>bbar</b></code>) section of the panel.</div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="BoxComponent.html#getBox()">getBox</a>(local:Boolean):Object</div>
+<div class="summaryTableDescription">
+     Gets the current box measurements of the component's underlying element.</div>
+</td><td class="summaryTableOwnerCol"><a href="BoxComponent.html">BoxComponent</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Component.html#getBubbleTarget()">getBubbleTarget</a>():<a href="ext/Container.html">Container</a>
+</div>
+<div class="summaryTableDescription">
+     Provides the link for Observable's fireEvent method to bubble up the ownership hierarchy.</div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Container.html#getComponent()">getComponent</a>(comp:*):<a href="ext/Component.html">Component</a>
+</div>
+<div class="summaryTableDescription">
+     Examines this container's <code><b class='link' title='#items'>items</b></code> <b>property</b>
+     and gets a direct child component of this container.</div>
+</td><td class="summaryTableOwnerCol"><a href="Container.html">Container</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Container.html#getComponentId()">getComponentId</a>(comp:<a href="ext/Component.html">Component</a>):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Container.html">Container</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Component.html#getDomPositionEl()">getDomPositionEl</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Component.html#getEl()">getEl</a>():<a href="ext/Element.html">Element</a>
+</div>
+<div class="summaryTableDescription">
+     <p>Returns the <b class='link'>ext.Element</b> which encapsulates this Component.</p>
+     <p>This will <i>usually</i> be a &lt;DIV> element created by the class's onRender method, but
+     that may be overridden using the <b class='link' title='#autoEl'>autoEl</b> config.</p>
+     <br><p><b>Note</b>: this element will not be available until this Component has been rendered.</p><br>
+     <p>To add listeners for <b>DOM events</b> to this Component (as opposed to listeners
+     for this Component's own Observable events), see the <b class='link' title='#listeners'>listeners</b> config for a suggestion,
+     or use a render listener directly:</p><pre><code>
+new ext.Panel({
+    title: 'The Clickable Panel',
+    listeners: {
+        render: function(p) {
+            // Append the Panel to the click handler&#39;s argument list.</div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Panel.html#getFrameHeight()">getFrameHeight</a>():Number</div>
+<div class="summaryTableDescription">
+     Returns the height in pixels of the framing elements of this panel (including any top and bottom bars and
+     header and footer elements, but not including the body height).</div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Panel.html#getFrameWidth()">getFrameWidth</a>():Number</div>
+<div class="summaryTableDescription">
+     Returns the width in pixels of the framing elements of this panel (not including the body width).</div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="BoxComponent.html#getHeight()">getHeight</a>():Number</div>
+<div class="summaryTableDescription">
+     Gets the current height of the component's underlying element.</div>
+</td><td class="summaryTableOwnerCol"><a href="BoxComponent.html">BoxComponent</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Component.html#getId()">getId</a>():String</div>
+<div class="summaryTableDescription">
+     Returns the <code>id</code> of this component or automatically generates and
+     returns an <code>id</code> if an <code>id</code> is not defined yet:<pre><code>
+     'ext-comp-' + (++ext.Component.AUTO_ID)
+     </code></pre>
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Panel.html#getInnerHeight()">getInnerHeight</a>():Number</div>
+<div class="summaryTableDescription">
+     Returns the height in pixels of the body element (not including the height of any framing elements).</div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Panel.html#getInnerWidth()">getInnerWidth</a>():Number</div>
+<div class="summaryTableDescription">
+     Returns the width in pixels of the body element (not including the width of any framing elements).</div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Component.html#getItemId()">getItemId</a>():String</div>
+<div class="summaryTableDescription">
+     Returns the <code><b class='link' title='#itemId'>itemId</b></code> of this component.</div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Container.html#getLayout()">getLayout</a>():<a href="layout/ContainerLayout.html">ContainerLayout</a>
+</div>
+<div class="summaryTableDescription">
+     Returns the layout currently in use by the container.</div>
+</td><td class="summaryTableOwnerCol"><a href="Container.html">Container</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Panel.html#getLayoutTarget()">getLayoutTarget</a>():<a href="ext/Element.html">Element</a>
+</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="BoxComponent.html#getOuterSize()">getOuterSize</a>():Object</div>
+<div class="summaryTableDescription">
+     Gets the current size of the component's underlying element, including space taken by its margins.</div>
+</td><td class="summaryTableOwnerCol"><a href="BoxComponent.html">BoxComponent</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="BoxComponent.html#getPosition()">getPosition</a>(local:Boolean):Array</div>
+<div class="summaryTableDescription">
+     Gets the current XY position of the component's underlying element.</div>
+</td><td class="summaryTableOwnerCol"><a href="BoxComponent.html">BoxComponent</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="BoxComponent.html#getPositionEl()">getPositionEl</a>():<a href="ext/Element.html">Element</a>
+</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="BoxComponent.html">BoxComponent</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="BoxComponent.html#getResizeEl()">getResizeEl</a>():<a href="ext/Element.html">Element</a>
+</div>
+<div class="summaryTableDescription">
+     <p>Returns the outermost Element of this Component which defines the Components overall size.</p>
+     <p><i>Usually</i> this will return the same Element as <code><b class='link' title='#getEl'>getEl</b></code>,
+     but in some cases, a Component may have some more wrapping Elements around its main
+     active Element.</p>
+     <p>An example is a ComboBox.</div>
+</td><td class="summaryTableOwnerCol"><a href="BoxComponent.html">BoxComponent</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="BoxComponent.html#getSize()">getSize</a>():Object</div>
+<div class="summaryTableDescription">
+     Gets the current size of the component's underlying element.</div>
+</td><td class="summaryTableOwnerCol"><a href="BoxComponent.html">BoxComponent</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Panel.html#getTool()">getTool</a>(id:String):Object</div>
+<div class="summaryTableDescription">
+     Retrieve a tool by id.</div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Panel.html#getTopToolbar()">getTopToolbar</a>():<a href="ext/Toolbar.html">Toolbar</a>
+</div>
+<div class="summaryTableDescription">
+     Returns the <b class='link' title='ext.Toolbar'>toolbar</b> from the top (<code><b class='link' title='#tbar'>tbar</b></code>) section of the panel.</div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Panel.html#getUpdater()">getUpdater</a>():<a href="ext/Updater.html">Updater</a>
+</div>
+<div class="summaryTableDescription">
+     Get the <b class='link'>ext.Updater</b> for this panel.</div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="BoxComponent.html#getWidth()">getWidth</a>():Number</div>
+<div class="summaryTableDescription">
+     Gets the current width of the component's underlying element.</div>
+</td><td class="summaryTableOwnerCol"><a href="BoxComponent.html">BoxComponent</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Component.html#getXType()">getXType</a>():String</div>
+<div class="summaryTableDescription">
+     Gets the xtype for this component as registered with <b class='link'>ext.ComponentMgr</b>.</div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Component.html#getXTypes()">getXTypes</a>():String</div>
+<div class="summaryTableDescription">
+     <p>Returns this Component's xtype hierarchy as a slash-delimited string.</div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#ghost()">ghost</a>(cls:*):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="util/Observable.html#hasListener()">hasListener</a>(eventName:String):Boolean</div>
+<div class="summaryTableDescription">
+         Checks to see if this object has any listeners for a specified event
+         </div>
+</td><td class="summaryTableOwnerCol"><a href="util/Observable.html">Observable</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Component.html#hide()">hide</a>():<a href="ext/Component.html">Component</a>
+</div>
+<div class="summaryTableDescription">
+     Hide this component.</div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#hideWindow()">hideWindow</a>(animateTarget:*, callback:Function, scope:Object):<a href="ext/Window.html">Window</a>
+</div>
+<div class="summaryTableDescription">
+     Hides the window, setting it to invisible and applying negative offsets.</div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Component.html#initPlugin()">initPlugin</a>(p:*):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Component.html#initRef()">initRef</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Container.html#insert()">insert</a>(index:Number, component:Object):Object</div>
+<div class="summaryTableDescription">
+     Inserts a Component into this Container at a specified index.</div>
+</td><td class="summaryTableOwnerCol"><a href="Container.html">Container</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Component.html#isVisible()">isVisible</a>():Boolean</div>
+<div class="summaryTableDescription">
+     Returns true if this component is visible.</div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Component.html#isXType()">isXType</a>(xtype:String, shallow:Boolean):Boolean</div>
+<div class="summaryTableDescription">
+     <p>Tests whether or not this Component is of a specific xtype.</div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Panel.html#load()">load</a>(config:*):<a href="ext/Panel.html">Panel</a>
+</div>
+<div class="summaryTableDescription">
+     Loads this content panel immediately with content returned from an XHR call.</div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#maximize()">maximize</a>():<a href="ext/Window.html">Window</a>
+</div>
+<div class="summaryTableDescription">
+     Fits the window within its current container and automatically replaces
+     the <b class='link' title='#maximizable 'maximize' tool'>button</b> with the 'restore' tool button.</div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#minimize()">minimize</a>():<a href="ext/Window.html">Window</a>
+</div>
+<div class="summaryTableDescription">
+     Placeholder method for minimizing the window.</div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Component.html#mon()">mon</a>(item:*, ename:Function, fn:Object, scope:Object, opt:*):void</div>
+<div class="summaryTableDescription">
+          Adds listeners to any Observable object (or Elements) which are automatically removed when this Component
+     is destroyed.</div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Component.html#mun()">mun</a>(item:*, ename:Function, fn:Object, scope:*):void</div>
+<div class="summaryTableDescription">
+     Removes listeners that were added by the {</div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Component.html#nextSibling()">nextSibling</a>():<a href="ext/Component.html">Component</a>
+</div>
+<div class="summaryTableDescription">
+     Returns the next component in the owning container
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="util/Observable.html#observeClass()">observeClass</a>(c:Function):void</div>
+<div class="summaryTableDescription">
+ Sets observability on the passed class constructor.<p>
+ <p>This makes any event fired on any instance of the passed class also fire a single event through
+ the <i>class</i> allowing for central handling of events on many instances at once.</p>
+ <p>Usage:</p><pre><code>
+Ext.util.Observable.observeClass(ext.data.Connection);
+ext.data.Connection.on('beforerequest', function(con, options) {
+    console.log("Ajax request made to " + options.url);
+});</code></pre>
+ </div>
+</td><td class="summaryTableOwnerCol"><a href="util/Observable.html">Observable</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onDrag()">onDrag</a>(e:*):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Panel.html#onPosition()">onPosition</a>(x:*, y:*):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Panel.html#onResize()">onResize</a>(adjWidth:*, adjHeight:*, rawWidth:*, rawHeight:*):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Component.html#previousSibling()">previousSibling</a>():<a href="ext/Component.html">Component</a>
+</div>
+<div class="summaryTableDescription">
+     Returns the previous component in the owning container
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Component.html#purgeListeners()">purgeListeners</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="util/Observable.html#relayEvents()">relayEvents</a>(o:Object, events:Array):void</div>
+<div class="summaryTableDescription">
+         Relays selected events from the specified Observable as if the events were fired by <code><b>this</b></code>.</div>
+</td><td class="summaryTableOwnerCol"><a href="util/Observable.html">Observable</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Container.html#remove()">remove</a>(component:*, autoDestroy:Boolean = false):<a href="ext/Component.html">Component</a>
+</div>
+<div class="summaryTableDescription">
+     Removes a component from this container.</div>
+</td><td class="summaryTableOwnerCol"><a href="Container.html">Container</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Container.html#removeAll()">removeAll</a>(autoDestroy:Boolean = false):Array</div>
+<div class="summaryTableDescription">
+     Removes all components from this container.</div>
+</td><td class="summaryTableOwnerCol"><a href="Container.html">Container</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Component.html#removeClass()">removeClass</a>(cls:String):<a href="ext/Component.html">Component</a>
+</div>
+<div class="summaryTableDescription">
+     Removes a CSS class from the component's underlying element.</div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Component.html#removeClasses()">removeClasses</a>(classes:Array):<a href="ext/Component.html">Component</a>
+</div>
+<div class="summaryTableDescription">
+     Removes the given CSS classes from the component's underlying element.</div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="util/Observable.html#removeListener()">removeListener</a>(eventName:String, handler:Function, scope:Object):void</div>
+<div class="summaryTableDescription">
+         Removes an event handler.</div>
+</td><td class="summaryTableOwnerCol"><a href="util/Observable.html">Observable</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="util/Observable.html#removeMethodListener()">removeMethodListener</a>(method:String, fn:Function, scope:Object = null):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="util/Observable.html">Observable</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Container.html#render()">render</a>(container:*, position:*):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Container.html">Container</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#restore()">restore</a>():<a href="ext/Window.html">Window</a>
+</div>
+<div class="summaryTableDescription">
+     Restores a <b class='link' title='#maximizable'>maximized</b>  window back to its original
+     size and position prior to being maximized and also replaces
+     the 'restore' tool button with the 'maximize' tool button.</div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="util/Observable.html#resumeEvents()">resumeEvents</a>():void</div>
+<div class="summaryTableDescription">
+         Resume firing events.</div>
+</td><td class="summaryTableOwnerCol"><a href="util/Observable.html">Observable</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setActive()">setActive</a>(active:Boolean):void</div>
+<div class="summaryTableDescription">
+     Makes this the active window by showing its shadow, or deactivates it by hiding its shadow.</div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setAnimateTarget()">setAnimateTarget</a>(el:*):void</div>
+<div class="summaryTableDescription">
+     Sets the target element from which the window should animate while opening.</div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Component.html#setDisabled()">setDisabled</a>(disabled:Boolean):<a href="ext/Component.html">Component</a>
+</div>
+<div class="summaryTableDescription">
+     Convenience function for setting disabled/enabled by boolean.</div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="BoxComponent.html#setHeight()">setHeight</a>(height:Number):<a href="ext/BoxComponent.html">BoxComponent</a>
+</div>
+<div class="summaryTableDescription">
+     Sets the height of the component.</div>
+</td><td class="summaryTableOwnerCol"><a href="BoxComponent.html">BoxComponent</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Panel.html#setIconClass()">setIconClass</a>(cls:String):void</div>
+<div class="summaryTableDescription">
+     Sets the CSS class that provides the icon image for this panel.</div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="BoxComponent.html#setPagePosition()">setPagePosition</a>(x:Number, y:Number):<a href="ext/BoxComponent.html">BoxComponent</a>
+</div>
+<div class="summaryTableDescription">
+     Sets the page XY position of the component.</div>
+</td><td class="summaryTableOwnerCol"><a href="BoxComponent.html">BoxComponent</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="BoxComponent.html#setPosition()">setPosition</a>(left:Number, top:Number):<a href="ext/BoxComponent.html">BoxComponent</a>
+</div>
+<div class="summaryTableDescription">
+     Sets the left and top of the component.</div>
+</td><td class="summaryTableOwnerCol"><a href="BoxComponent.html">BoxComponent</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="BoxComponent.html#setSize()">setSize</a>(width:*, height:*):<a href="ext/BoxComponent.html">BoxComponent</a>
+</div>
+<div class="summaryTableDescription">
+     Sets the width and height of this BoxComponent.</div>
+</td><td class="summaryTableOwnerCol"><a href="BoxComponent.html">BoxComponent</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Panel.html#setTitle()">setTitle</a>(title:String, iconCls:String):void</div>
+<div class="summaryTableDescription">
+     <p>Sets the title text for the panel and optionally the <b class='link' title='#iconCls'>icon class</b>.</p>
+     <p>In order to be able to set the title, a header element must have been created
+     for the Panel.</div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Component.html#setVisible()">setVisible</a>(visible:Boolean):<a href="ext/Component.html">Component</a>
+</div>
+<div class="summaryTableDescription">
+     Convenience function to hide or show this component by boolean.</div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="BoxComponent.html#setWidth()">setWidth</a>(width:Number):<a href="ext/BoxComponent.html">BoxComponent</a>
+</div>
+<div class="summaryTableDescription">
+     Sets the width of the component.</div>
+</td><td class="summaryTableOwnerCol"><a href="BoxComponent.html">BoxComponent</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Component.html#show()">show</a>():<a href="ext/Component.html">Component</a>
+</div>
+<div class="summaryTableDescription">
+     Show this component.</div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#showWindow()">showWindow</a>(animateTarget:*, callback:Function, scope:Object):<a href="ext/Window.html">Window</a>
+</div>
+<div class="summaryTableDescription">
+     Shows the window, rendering it first if necessary, or activates it and brings it to front if hidden.</div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#startDrag()">startDrag</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="util/Observable.html#suspendEvents()">suspendEvents</a>(queueSuspended:Boolean):void</div>
+<div class="summaryTableDescription">
+         Suspend the firing of all events.</div>
+</td><td class="summaryTableOwnerCol"><a href="util/Observable.html">Observable</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Panel.html#syncHeight()">syncHeight</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="BoxComponent.html#syncSize()">syncSize</a>():<a href="ext/BoxComponent.html">BoxComponent</a>
+</div>
+<div class="summaryTableDescription">
+     Force the component's size to recalculate based on the underlying element's current height and width.</div>
+</td><td class="summaryTableOwnerCol"><a href="BoxComponent.html">BoxComponent</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#toBack()">toBack</a>():<a href="ext/Window.html">Window</a>
+</div>
+<div class="summaryTableDescription">
+     Sends this window to the back of (lower z-index than) any other visible windows
+     </div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#toFront()">toFront</a>(e:Boolean):<a href="ext/Window.html">Window</a>
+</div>
+<div class="summaryTableDescription">
+     Brings this window to the front of any other visible windows
+     </div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Panel.html#toggleCollapse()">toggleCollapse</a>(animate:Boolean):<a href="ext/Panel.html">Panel</a>
+</div>
+<div class="summaryTableDescription">
+     Shortcut for performing an <b class='link' title='#expand'>expand</b> or <b class='link' title='#collapse'>collapse</b> based on the current state of the panel.</div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#toggleMaximize()">toggleMaximize</a>():<a href="ext/Window.html">Window</a>
+</div>
+<div class="summaryTableDescription">
+     A shortcut method for toggling between <b class='link' title='#maximize'>maximize</b> and <b class='link' title='#restore'>restore</b> based on the current maximized
+     state of the window.</div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="BoxComponent.html#updateBox()">updateBox</a>(box:Object):<a href="ext/BoxComponent.html">BoxComponent</a>
+</div>
+<div class="summaryTableDescription">
+     Sets the current box measurements of the component's underlying element.</div>
+</td><td class="summaryTableOwnerCol"><a href="BoxComponent.html">BoxComponent</a></td>
+</tr>
+</table>
+</div>
+<a name="protectedMethodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Protected Methods</div>
+<div class="showHideLinks">
+<div class="hideInheritedProtectedMethod" id="hideInheritedProtectedMethod">
+<a onclick="javascript:setInheritedVisible(false,'ProtectedMethod');" href="#protectedMethodSummary" class="showHideLink"><img src="../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Protected Methods</a>
+</div>
+<div class="showInheritedProtectedMethod" id="showInheritedProtectedMethod">
+<a onclick="javascript:setInheritedVisible(true,'ProtectedMethod');" href="#protectedMethodSummary" class="showHideLink"><img src="../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Protected Methods</a>
+</div>
+</div>
+<table id="summaryTableProtectedMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Panel.html#addTool()">addTool</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Panel.html#adjustBodyHeight()">adjustBodyHeight</a>(h:*):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Panel.html#adjustBodyWidth()">adjustBodyWidth</a>(w:*):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="BoxComponent.html#adjustPosition()">adjustPosition</a>(x:*, y:*):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="BoxComponent.html">BoxComponent</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="BoxComponent.html#adjustSize()">adjustSize</a>(w:*, h:*):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="BoxComponent.html">BoxComponent</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Panel.html#afterCollapse()">afterCollapse</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Panel.html#afterEffect()">afterEffect</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Panel.html#afterExpand()">afterExpand</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#afterHide()">afterHide</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Panel.html#afterRender()">afterRender</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#afterShow()">afterShow</a>(isAnim:*):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#animHide()">animHide</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#animShow()">animShow</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Container.html#applyDefaults()">applyDefaults</a>(c:*):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Container.html">Container</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Component.html#applyState()">applyState</a>(state:*):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#beforeDestroy()">beforeDestroy</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Panel.html#beforeEffect()">beforeEffect</a>():void</div>
+<div class="summaryTableDescription">
+         <p>If this Panel is configured <b class='link' title='#draggable'>draggable</b>, this property will contain
+         an instance of <b class='link'>Ext.dd.DragSource</b> which handles dragging the Panel.</p>
+         The developer must provide implementations of the abstract methods of <b class='link'>Ext.dd.DragSource</b>
+         in order to supply behaviour for each stage of the drag/drop process.</div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#beforeResize()">beforeResize</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#beforeShow()">beforeShow</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Component.html#blur()">blur</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Component.html#clearMons()">clearMons</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Panel.html#createClasses()">createClasses</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Container.html#createComponent()">createComponent</a>(config:Object):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Container.html">Container</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Panel.html#createElement()">createElement</a>(name:*, pnode:*):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Panel.html#createGhost()">createGhost</a>(cls:*, useShim:*, appendTo:*):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Panel.html#createToolHandler()">createToolHandler</a>(t:*, tc:*, overCls:*, panel:*):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Panel.html#doAutoLoad()">doAutoLoad</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#doConstrain()">doConstrain</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Component.html#doHide()">doHide</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#fitContainer()">fitContainer</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Component.html#getActionEl()">getActionEl</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Component.html#getAutoCreate()">getAutoCreate</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Panel.html#getKeyMap()">getKeyMap</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Component.html#getState()">getState</a>():*</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getStateByWindow()">getStateByWindow</a>(window:<a href="Window.html">Window</a>):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Component.html#getStateId()">getStateId</a>():String</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Component.html#getVisibiltyEl()">getVisibiltyEl</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#handleResize()">handleResize</a>(box:*):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#initComponent()">initComponent</a>():void</div>
+<div class="summaryTableDescription"> </div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#initDraggable()">initDraggable</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#initEvents()">initEvents</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Container.html#initItems()">initItems</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Container.html">Container</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Component.html#initState()">initState</a>(config:*):void</div>
+<div class="summaryTableDescription">
+         </div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Component.html#initStateEvents()">initStateEvents</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#initTools()">initTools</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Container.html#lookupComponent()">lookupComponent</a>(comp:<a href="ext/Component.html">Component</a>):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Container.html">Container</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Panel.html#makeFloating()">makeFloating</a>(cfg:*):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Container.html#onBeforeAdd()">onBeforeAdd</a>(item:*):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Container.html">Container</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Panel.html#onCollapse()">onCollapse</a>(doAnim:*, animArg:*):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onDestroy()">onDestroy</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Panel.html#onDisable()">onDisable</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Panel.html#onEnable()">onEnable</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onEsc()">onEsc</a>():void</div>
+<div class="summaryTableDescription">
+         If this Window is configured <b class='link' title='#draggable'>draggable</b>, this property will contain
+         an instance of <b class='link'>Ext.dd.DD</b> which handles dragging the Window's DOM Element.</div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Panel.html#onExpand()">onExpand</a>(doAnim:*, animArg:*):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Panel.html#onHide()">onHide</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Panel.html#onLayout()">onLayout</a>(shallow:Boolean = false, force:Boolean = false):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onRender()">onRender</a>(container:<a href="Element.html">Element</a>, position:<a href="Element.html">Element</a>):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Panel.html#onShow()">onShow</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onWindowResize()">onWindowResize</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#resizerAction()">resizerAction</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Component.html#saveState()">saveState</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Component.html">Component</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Panel.html#setAutoScroll()">setAutoScroll</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Container.html#setLayout()">setLayout</a>(layout:*):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Container.html">Container</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setZIndex()">setZIndex</a>(index:*):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Panel.html#syncShadow()">syncShadow</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="Panel.html">Panel</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#unghost()">unghost</a>(show:*, matchPosition:*):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#updateHandles()">updateHandles</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Window</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="closable"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">closable</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var closable:Boolean</code><p>
+     </p></div>
+<a name="closeAction"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">closeAction</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var closeAction:String</code><p>
+     </p></div>
+<a name="collapsible"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">collapsible</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var collapsible:*</code>
+</div>
+<a name="constrain"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">constrain</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var constrain:Boolean</code><p>
+     </p></div>
+<a name="constrainHeader"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">constrainHeader</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var constrainHeader:Boolean</code><p>
+     </p></div>
+<a name="draggable"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">draggable</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var draggable:Boolean</code><p>
+     </p></div>
+<a name="expandOnShow"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">expandOnShow</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var expandOnShow:Boolean</code><p>
+     </p></div>
+<a name="headerOffsets"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">headerOffsets</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var headerOffsets:*</code>
+</div>
+<a name="initHidden"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">initHidden</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var initHidden:Boolean</code><p>
+     </p></div>
+<a name="maximizable"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">maximizable</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var maximizable:Boolean</code><p>
+     </p></div>
+<a name="minHeight"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">minHeight</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var minHeight:Number</code><p>
+     </p></div>
+<a name="minimizable"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">minimizable</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var minimizable:Boolean</code><p>
+     </p></div>
+<a name="minWidth"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">minWidth</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var minWidth:Number</code><p>
+     </p></div>
+<a name="monitorResize"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">monitorResize</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var monitorResize:Boolean</code><p>
+    </p></div>
+<a name="moveOnly"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">moveOnly</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var moveOnly:Boolean</code>
+</div>
+<a name="plain"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">plain</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var plain:Boolean</code><p>
+     </p></div>
+<a name="resizable"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">resizable</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var resizable:Boolean</code><p>
+     </p></div>
+<a name="constructorDetail"></a>
+<div class="detailSectionHeader">Constructor detail</div>
+<a name="Window()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">Window</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">constructor</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function Window(config:Object)</code><p>
+ </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">config</span>:Object</code> &mdash; The config object
+ </td>
+</tr>
+</table>
+</div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="afterHide()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">afterHide</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function afterHide():void</code>
+</div>
+<a name="afterShow()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">afterShow</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function afterShow(isAnim:*):void</code><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">isAnim</span>:*</code></td>
+</tr>
+</table>
+</div>
+<a name="alignTo()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">alignTo</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function alignTo(element:*, position:String, offsets:Array):<a href="ext/Window.html">Window</a></code><p>
+     Aligns the window to the specified element
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">element</span>:*</code> &mdash; The element to align to.
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">position</span>:String</code> &mdash; The position to align to (see <b class='link'>ext.Element#alignTo</b> for more details).
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">offsets</span>:Array</code> &mdash; Offset the positioning by [x, y]
+     </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="ext/Window.html">Window</a></code> &mdash; 
+                        this
+     
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="anchorTo()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">anchorTo</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function anchorTo(element:*, position:String, offsets:Array, monitorScroll:*):<a href="ext/Window.html">Window</a></code><p>
+     Anchors this window to another element and realigns it when the window is resized or scrolled.
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">element</span>:*</code> &mdash; The element to align to.
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">position</span>:String</code> &mdash; The position to align to (see <b class='link'>ext.Element#alignTo</b> for more details)
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">offsets</span>:Array</code> &mdash; Offset the positioning by [x, y]
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">monitorScroll</span>:*</code> &mdash; true to monitor body scroll and reposition. If this parameter
+     is a number, it is used as the buffer delay (defaults to 50ms).
+     </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="ext/Window.html">Window</a></code> &mdash; 
+                        this
+     
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="animHide()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">animHide</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function animHide():void</code>
+</div>
+<a name="animShow()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">animShow</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function animShow():void</code>
+</div>
+<a name="beforeDestroy()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">beforeDestroy</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function beforeDestroy():void</code>
+</div>
+<a name="beforeResize()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">beforeResize</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function beforeResize():void</code>
+</div>
+<a name="beforeShow()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">beforeShow</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function beforeShow():void</code>
+</div>
+<a name="center()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">center</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function center():<a href="ext/Window.html">Window</a></code><p>
+     Centers this window in the viewport
+     </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="ext/Window.html">Window</a></code> &mdash; 
+                        this
+     
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="close()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">close</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function close():void</code><p>
+     </p><p>Closes the Window, removes it from the DOM, <b class='link' title='ext.Component#destroy'>destroy</b>s
+     the Window object and all its descendant Components. The <b class='link' title='ext.Panel#beforeclose'>beforeclose</b>
+     event is fired before the close happens and will cancel the close action if it returns false.<p>
+     <p><b>Note:</b> This method is not affected by the <b class='link' title='#closeAction'>closeAction</b> setting which
+     only affects the action triggered when clicking the <b class='link' title='#closable 'close' tool in the'>header</b>.
+     To hide the Window without destroying it, call <b class='link' title='#hide'>hide</b>.</p>
+     </div>
+<a name="DD()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">DD</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function DD(win:*):void</code><p>
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">win</span>:*</code></td>
+</tr>
+</table>
+</div>
+<a name="doConstrain()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">doConstrain</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function doConstrain():void</code>
+</div>
+<a name="endDrag()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">endDrag</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function endDrag(e:*):void</code><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">e</span>:*</code></td>
+</tr>
+</table>
+</div>
+<a name="fitContainer()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">fitContainer</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function fitContainer():void</code>
+</div>
+<a name="focus()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">focus</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public override function focus(selectText:Boolean, delay:*):<a href="ext/Component.html">Component</a></code><p>
+     Focuses the window.  If a defaultButton is set, it will receive focus, otherwise the
+     window itself will receive focus.
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">selectText</span>:Boolean</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">delay</span>:*</code></td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="ext/Component.html">Component</a></code></td>
+</tr>
+</table>
+</div>
+<a name="getStateByWindow()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getStateByWindow</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function getStateByWindow(window:<a href="Window.html">Window</a>):void</code><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">window</span>:<a href="Window.html">Window</a></code></td>
+</tr>
+</table>
+</div>
+<a name="ghost()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">ghost</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function ghost(cls:*):void</code><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">cls</span>:*</code></td>
+</tr>
+</table>
+</div>
+<a name="handleResize()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">handleResize</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function handleResize(box:*):void</code><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">box</span>:*</code></td>
+</tr>
+</table>
+</div>
+<a name="hideWindow()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">hideWindow</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function hideWindow(animateTarget:*, callback:Function, scope:Object):<a href="ext/Window.html">Window</a></code><p>
+     Hides the window, setting it to invisible and applying negative offsets.
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">animateTarget</span>:*</code> &mdash; The target element or id to which the window should
+     animate while hiding (defaults to null with no animation)
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">callback</span>:Function</code> &mdash; A callback function to call after the window is hidden
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">scope</span>:Object</code> &mdash; The scope in which to execute the callback
+     </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="ext/Window.html">Window</a></code> &mdash; 
+                        this
+     
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="initComponent()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">initComponent</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function initComponent():void</code><p> </p></div>
+<a name="initDraggable()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">initDraggable</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function initDraggable():void</code>
+</div>
+<a name="initEvents()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">initEvents</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function initEvents():void</code>
+</div>
+<a name="initTools()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">initTools</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function initTools():void</code>
+</div>
+<a name="maximize()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">maximize</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function maximize():<a href="ext/Window.html">Window</a></code><p>
+     Fits the window within its current container and automatically replaces
+     the <b class='link' title='#maximizable 'maximize' tool'>button</b> with the 'restore' tool button.
+     Also see <b class='link' title='#toggleMaximize'>toggleMaximize</b>.
+     </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="ext/Window.html">Window</a></code> &mdash; 
+                        this
+     
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="minimize()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">minimize</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function minimize():<a href="ext/Window.html">Window</a></code><p>
+     Placeholder method for minimizing the window.  By default, this method simply fires the <b class='link' title='#minimize'>minimize</b> event
+     since the behavior of minimizing a window is application-specific.  To implement custom minimize behavior,
+     either the minimize event can be handled or this method can be overridden.
+     </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="ext/Window.html">Window</a></code> &mdash; 
+                        this
+     
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="onDestroy()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onDestroy</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function onDestroy():void</code>
+</div>
+<a name="onDrag()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onDrag</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function onDrag(e:*):void</code><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">e</span>:*</code></td>
+</tr>
+</table>
+</div>
+<a name="onEsc()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onEsc</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onEsc():void</code><p>
+         If this Window is configured <b class='link' title='#draggable'>draggable</b>, this property will contain
+         an instance of <b class='link'>Ext.dd.DD</b> which handles dragging the Window's DOM Element.
+         </p></div>
+<a name="onRender()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onRender</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function onRender(container:<a href="Element.html">Element</a>, position:<a href="Element.html">Element</a>):void</code><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">container</span>:<a href="Element.html">Element</a></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">position</span>:<a href="Element.html">Element</a></code></td>
+</tr>
+</table>
+</div>
+<a name="onWindowResize()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onWindowResize</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onWindowResize():void</code>
+</div>
+<a name="resizerAction()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">resizerAction</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function resizerAction():void</code>
+</div>
+<a name="restore()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">restore</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function restore():<a href="ext/Window.html">Window</a></code><p>
+     Restores a <b class='link' title='#maximizable'>maximized</b>  window back to its original
+     size and position prior to being maximized and also replaces
+     the 'restore' tool button with the 'maximize' tool button.
+     Also see <b class='link' title='#toggleMaximize'>toggleMaximize</b>.
+     </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="ext/Window.html">Window</a></code> &mdash; 
+                        this
+     
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="setActive()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setActive</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function setActive(active:Boolean):void</code><p>
+     Makes this the active window by showing its shadow, or deactivates it by hiding its shadow.  This method also
+     fires the <b class='link' title='#activate'>activate</b> or <b class='link' title='#deactivate'>deactivate</b> event depending on which action occurred.
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">active</span>:Boolean</code> &mdash; True to activate the window, false to deactivate it (defaults to false)
+     </td>
+</tr>
+</table>
+</div>
+<a name="setAnimateTarget()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setAnimateTarget</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function setAnimateTarget(el:*):void</code><p>
+     Sets the target element from which the window should animate while opening.
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">el</span>:*</code> &mdash; The target element or id
+     </td>
+</tr>
+</table>
+</div>
+<a name="setZIndex()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setZIndex</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function setZIndex(index:*):void</code><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">index</span>:*</code></td>
+</tr>
+</table>
+</div>
+<a name="showWindow()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">showWindow</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function showWindow(animateTarget:*, callback:Function, scope:Object):<a href="ext/Window.html">Window</a></code><p>
+     Shows the window, rendering it first if necessary, or activates it and brings it to front if hidden.
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">animateTarget</span>:*</code> &mdash; The target element or id from which the window should
+     animate while opening (defaults to null with no animation)
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">callback</span>:Function</code> &mdash; A callback function to call after the window is displayed
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">scope</span>:Object</code> &mdash; The scope in which to execute the callback
+     </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="ext/Window.html">Window</a></code> &mdash; 
+                        this
+     
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="startDrag()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">startDrag</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function startDrag():void</code>
+</div>
+<a name="toBack()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">toBack</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function toBack():<a href="ext/Window.html">Window</a></code><p>
+     Sends this window to the back of (lower z-index than) any other visible windows
+     </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="ext/Window.html">Window</a></code> &mdash; 
+                        this
+     
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="toFront()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">toFront</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function toFront(e:Boolean):<a href="ext/Window.html">Window</a></code><p>
+     Brings this window to the front of any other visible windows
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">e</span>:Boolean</code> &mdash; Specify <code>false</code> to prevent the window from being focused.
+     </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="ext/Window.html">Window</a></code> &mdash; 
+                        this
+     
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="toggleMaximize()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">toggleMaximize</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function toggleMaximize():<a href="ext/Window.html">Window</a></code><p>
+     A shortcut method for toggling between <b class='link' title='#maximize'>maximize</b> and <b class='link' title='#restore'>restore</b> based on the current maximized
+     state of the window.
+     </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="ext/Window.html">Window</a></code> &mdash; 
+                        this
+     
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="unghost()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">unghost</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function unghost(show:*, matchPosition:*):void</code><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">show</span>:*</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">matchPosition</span>:*</code></td>
+</tr>
+</table>
+</div>
+<a name="updateHandles()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">updateHandles</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function updateHandles():void</code>
+</div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<center class="copyright"> 
+</center>
+</div>
+</body>
+</html>
+<!-- -->

@@ -1,0 +1,230 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../print.css" type="text/css" media="print">
+<meta content="Transform,flash.geom.Transform,colorTransform,concatenatedColorTransform,concatenatedMatrix,matrix,pixelBounds" name="keywords">
+<title>flash.geom.Transform</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'Transform - API Documentation';
+				var baseRef = '../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">API Documentation</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../all-classes.html')" href="../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../all-classes.html')" href="../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../index-list.html')" href="../../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../../index.html?flash/geom/Transform.html&amp;flash/geom/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;Transform</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class Transform"); titleBar_setSubNav(false,true,false,false,false,false,false,false,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">flash.geom</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public class Transform</td>
+</tr>
+</table>
+<p></p>
+ The Transform class provides access to color adjustment properties and two- or three-dimensional transformation objects that can be applied to a display object. During the transformation, the color or the orientation and position of a display object is adjusted (offset) from the current values or coordinates to new values or coordinates. The Transform class also collects data about color and two-dimensional matrix transformations that are applied to a display object and all of its parent objects. You can access these combined transformations through the <code>concatenatedColorTransform</code> and <code>concatenatedMatrix</code> properties.
+ <p>To apply color transformations: create a ColorTransform object, set the color adjustments using the object's methods and properties, and then assign the <code>colorTransformation</code> property of the <code>transform</code> property of the display object to the new ColorTransformation object.</p>
+ <p>To apply two-dimensional transformations: create a Matrix object, set the matrix's two-dimensional transformation, and then assign the <code>transform.matrix</code> property of the display object to the new Matrix object.</p>
+ <p>To apply three-dimensional transformations: start with a three-dimensional display object. A three-dimensional display object has a <code>z</code> property value other than zero. You do not need to create the Matrix3D object. For all three-dimensional objects, a Matrix3D object is created automatically when you assign a <code>z</code> value to a display object. You can access the display object's Matrix3D object through the display object's <code>transform</code> property. Using the methods of the Matrix3D class, you can add to or modify the existing transformation settings. Also, you can create a custom Matrix3D object, set the custom Matrix3D object's transformation elements, and then assign the new Matrix3D object to the display object using the <code>transform.matrix</code> property.</p>
+ <p>To modify a perspective projection of the stage or root object: use the <code>transform.matrix</code> property of the root display object to gain access to the PerspectiveProjection object. Or, apply different perspective projection properties to a display object by setting the perspective projection properties of the display object's parent. The child display object inherits the new properties. Specifically, create a PerspectiveProjection object and set its properties, then assign the PerspectiveProjection object to the <code>perspectiveProjection</code> property of the parent display object's <code>transform</code> property. The specified projection transformation then applies to all the display object's three-dimensional children.</p>
+ <p>Since both PerspectiveProjection and Matrix3D objects perform perspective transformations, do not assign both to a display object at the same time. Use the PerspectiveProjection object for focal length and projection center changes. For more control over the perspective transformation, create a perspective projection Matrix3D object.</p>
+ <p><a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/geom/Transform.html#includeExamplesSummary">View the examples</a></p>
+ <p></p>
+<p>
+<span class="classHeaderTableLabel">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../display/DisplayObject.html#transform" target="">flash.display.DisplayObject.transform</a>
+<br>
+<a href="ColorTransform.html" target="">ColorTransform</a>
+<br>
+<a href="Matrix.html" target="">Matrix</a>
+<br>Matrix3D<br>PerspectiveProjection</div>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#colorTransform">colorTransform</a> : <a href="../geom/ColorTransform.html">ColorTransform</a>
+<div class="summaryTableDescription">
+   A ColorTransform object containing values that universally adjust the colors in the display object.</div>
+</td><td class="summaryTableOwnerCol">Transform</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#concatenatedColorTransform">concatenatedColorTransform</a> : <a href="../geom/ColorTransform.html">ColorTransform</a>
+<div class="summaryTableDescription">[read-only]
+   A ColorTransform object representing the combined color transformations applied to the display object and all of its parent objects, back to the root level.</div>
+</td><td class="summaryTableOwnerCol">Transform</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#concatenatedMatrix">concatenatedMatrix</a> : <a href="../geom/Matrix.html">Matrix</a>
+<div class="summaryTableDescription">[read-only]
+   A Matrix object representing the combined transformation matrixes of the display object and all of its parent objects, back to the root level.</div>
+</td><td class="summaryTableOwnerCol">Transform</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#matrix">matrix</a> : <a href="../geom/Matrix.html">Matrix</a>
+<div class="summaryTableDescription">
+   A Matrix object containing values that alter the scaling, rotation, and translation of the display object.</div>
+</td><td class="summaryTableOwnerCol">Transform</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#pixelBounds">pixelBounds</a> : <a href="../geom/Rectangle.html">Rectangle</a>
+<div class="summaryTableDescription">[read-only]
+   A Rectangle object that defines the bounding rectangle of the display object on the stage.</div>
+</td><td class="summaryTableOwnerCol">Transform</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="colorTransform"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">colorTransform</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>colorTransform:<a href="../geom/ColorTransform.html">ColorTransform</a></code>&nbsp;&nbsp;[read-write]<p>
+   A ColorTransform object containing values that universally adjust the colors in the display object.
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get colorTransform():<a href="../geom/ColorTransform.html">ColorTransform</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set colorTransform(value:<a href="../geom/ColorTransform.html">ColorTransform</a>):void</code>
+<br>
+<br>
+<span class="label">Throws</span>
+<br>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../TypeError.html">TypeError</a> </code> &mdash; The colorTransform is null when being set
+      </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="ColorTransform.html" target="">ColorTransform</a>
+</div>
+</div>
+<a name="concatenatedColorTransform"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">concatenatedColorTransform</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>concatenatedColorTransform:<a href="../geom/ColorTransform.html">ColorTransform</a></code>&nbsp;&nbsp;[read-only]<p>
+   A ColorTransform object representing the combined color transformations applied to the display object and all of its parent objects, back to the root level. If different color transformations have been applied at different levels, all of those transformations are concatenated into one ColorTransform object for this property.
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get concatenatedColorTransform():<a href="../geom/ColorTransform.html">ColorTransform</a></code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="ColorTransform.html" target="">ColorTransform</a>
+</div>
+</div>
+<a name="concatenatedMatrix"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">concatenatedMatrix</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>concatenatedMatrix:<a href="../geom/Matrix.html">Matrix</a></code>&nbsp;&nbsp;[read-only]<p>
+   A Matrix object representing the combined transformation matrixes of the display object and all of its parent objects, back to the root level. If different transformation matrixes have been applied at different levels, all of those matrixes are concatenated into one matrix for this property. Also, for resizeable SWF content running in the browser, this property factors in the difference between stage coordinates and window coordinates due to window resizing. Thus, the property converts local coordinates to window coordinates, which may not be the same coordinate space as that of the Stage.
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get concatenatedMatrix():<a href="../geom/Matrix.html">Matrix</a></code>
+<br>
+</div>
+<a name="matrix"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">matrix</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>matrix:<a href="../geom/Matrix.html">Matrix</a></code>&nbsp;&nbsp;[read-write]<p>
+   A Matrix object containing values that alter the scaling, rotation, and translation of the display object.
+   </p><p>If the <code>matrix</code> property is set to a value (not <code>null</code>), the <code>matrix3D</code> property is <code>null</code>. And if the <code>matrix3D</code> property is set to a value (not <code>null</code>), the <code>matrix</code> property is <code>null</code>.</p>
+   <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get matrix():<a href="../geom/Matrix.html">Matrix</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set matrix(value:<a href="../geom/Matrix.html">Matrix</a>):void</code>
+<br>
+<br>
+<span class="label">Throws</span>
+<br>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../TypeError.html">TypeError</a> </code> &mdash; The matrix is null when being set
+      </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="Matrix.html" target="">Matrix</a>
+</div>
+</div>
+<a name="pixelBounds"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">pixelBounds</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>pixelBounds:<a href="../geom/Rectangle.html">Rectangle</a></code>&nbsp;&nbsp;[read-only]<p>
+   A Rectangle object that defines the bounding rectangle of the display object on the stage.
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get pixelBounds():<a href="../geom/Rectangle.html">Rectangle</a></code>
+<br>
+</div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<center class="copyright"> 
+</center>
+</div>
+</body>
+</html>
+<!-- -->

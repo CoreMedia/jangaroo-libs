@@ -1,0 +1,214 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../print.css" type="text/css" media="print">
+<meta content="AccessibilityProperties,flash.accessibility.AccessibilityProperties,description,forceSimple,name,noAutoLabeling,shortcut,silent" name="keywords">
+<title>flash.accessibility.AccessibilityProperties</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'AccessibilityProperties - API Documentation';
+				var baseRef = '../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">API Documentation</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../all-classes.html')" href="../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../all-classes.html')" href="../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../index-list.html')" href="../../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../../index.html?flash/accessibility/AccessibilityProperties.html&amp;flash/accessibility/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;AccessibilityProperties</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class AccessibilityProperties"); titleBar_setSubNav(false,true,false,false,false,false,true,false,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">flash.accessibility</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public class AccessibilityProperties</td>
+</tr>
+</table>
+<p></p>
+ The AccessibilityProperties class lets you control the presentation of Flash objects to accessibility aids, such as screen readers.
+ <p>You can attach an AccessibilityProperties object to any display object, but Flash Player will read your AccessibilityProperties object only for certain kinds of objects: entire SWF files (as represented by <code>DisplayObject.root</code>), container objects (<code>DisplayObjectContainer</code> and subclasses), buttons (<code>SimpleButton</code> and subclasses), and text (<code>TextField</code> and subclasses).</p>
+ <p>The <code>name</code> property of these objects is the most important property to specify because accessibility aids provide the names of objects to users as a basic means of navigation. Do not confuse <code>AccessibilityProperties.name</code> with <code>DisplayObject.name</code>; these are separate and unrelated. The <code>AccessibilityProperties.name</code> property is a name that is read aloud by the accessibility aids, whereas <code>DisplayObject.name</code> is essentially a variable name visible only to ActionScript code.</p>
+ <p>In Flash Professional, the properties of <code>AccessibilityProperties</code> objects override the corresponding settings available in the Accessibility panel during authoring.</p>
+ <p>To determine whether Flash Player is running in an environment that supports accessibility aids, use the <code>Capabilities.hasAccessibility</code> property. If you modify AccessibilityProperties objects, you need to call the <code>Accessibility.updateProperties()</code> method for the changes to take effect.</p>
+ <p><a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/accessibility/AccessibilityProperties.html#includeExamplesSummary">View the examples</a></p>
+ <p></p>
+<p>
+<span class="classHeaderTableLabel">See also</span>
+</p>
+<div class="seeAlso">
+<a href="Accessibility.html#updateProperties()" target="">Accessibility.updateProperties()</a>
+<br>
+<a href="../display/DisplayObject.html#accessibilityProperties" target="">flash.display.DisplayObject.accessibilityProperties</a>
+<br>
+<a href="../display/InteractiveObject.html#tabIndex" target="">flash.display.InteractiveObject.tabIndex</a>
+<br>
+<a href="../system/Capabilities.html#hasAccessibility" target="">flash.system.Capabilities.hasAccessibility</a>
+</div>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#description">description</a> : String<div class="summaryTableDescription">
+   Provides a description for this display object in the accessible presentation.</div>
+</td><td class="summaryTableOwnerCol">AccessibilityProperties</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#forceSimple">forceSimple</a> : Boolean<div class="summaryTableDescription">
+   If <code>true</code>, causes Flash Player to exclude child objects within this display object from the accessible presentation.</div>
+</td><td class="summaryTableOwnerCol">AccessibilityProperties</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#name">name</a> : String<div class="summaryTableDescription">
+   Provides a name for this display object in the accessible presentation.</div>
+</td><td class="summaryTableOwnerCol">AccessibilityProperties</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#noAutoLabeling">noAutoLabeling</a> : Boolean<div class="summaryTableDescription">
+   If <code>true</code>, disables the Flash Player default auto-labeling system.</div>
+</td><td class="summaryTableOwnerCol">AccessibilityProperties</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#shortcut">shortcut</a> : String<div class="summaryTableDescription">
+   Indicates a keyboard shortcut associated with this display object.</div>
+</td><td class="summaryTableOwnerCol">AccessibilityProperties</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#silent">silent</a> : Boolean<div class="summaryTableDescription">
+   If <code>true</code>, excludes this display object from accessible presentation.</div>
+</td><td class="summaryTableOwnerCol">AccessibilityProperties</td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#AccessibilityProperties()">AccessibilityProperties</a>()</div>
+<div class="summaryTableDescription">
+   Creates a new AccessibilityProperties object.</div>
+</td><td class="summaryTableOwnerCol">AccessibilityProperties</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="description"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">description</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var description:String</code><p>
+   Provides a description for this display object in the accessible presentation. If you have a lot of information to present about the object, it is best to choose a concise name and put most of your content in the <code>description</code> property. Applies to whole SWF files, containers, buttons, and text. The default value is an empty string.
+   </p><p>In Flash Professional, this property corresponds to the Description field in the Accessibility panel.</p>
+   </div>
+<a name="forceSimple"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">forceSimple</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var forceSimple:Boolean</code><p>
+   If <code>true</code>, causes Flash Player to exclude child objects within this display object from the accessible presentation. The default is <code>false</code>. Applies to whole SWF files and containers.
+   </p></div>
+<a name="name"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">name</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var name:String</code><p>
+   Provides a name for this display object in the accessible presentation. Applies to whole SWF files, containers, buttons, and text. Do not confuse with <code>DisplayObject.name</code>, which is unrelated. The default value is an empty string.
+   </p><p>In Flash Professional, this property corresponds to the Name field in the Accessibility panel.</p>
+   </div>
+<a name="noAutoLabeling"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">noAutoLabeling</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var noAutoLabeling:Boolean</code><p>
+   If <code>true</code>, disables the Flash Player default auto-labeling system. Auto-labeling causes text objects inside buttons to be treated as button names, and text objects near text fields to be treated as text field names. The default is <code>false</code>. Applies only to whole SWF files.
+   </p><p>The <code>noAutoLabeling</code> property value is ignored unless you specify it before the first time an accessibility aid examines your SWF file. If you plan to set <code>noAutoLabeling</code> to <code>true</code>, you should do so as early as possible in your code.</p>
+   </div>
+<a name="shortcut"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">shortcut</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var shortcut:String</code><p>
+   Indicates a keyboard shortcut associated with this display object. Supply this string only for UI controls that you have associated with a shortcut key. Applies to containers, buttons, and text. The default value is an empty string.
+   </p><p><b>Note</b>: Assigning this property does not automatically assign the specified key combination to this object; you must do that yourself, for example, by listening for a <code>KeyboardEvent</code>.</p>
+   <p>The syntax for this string uses long names for modifier keys, and the plus(+) character to indicate key combination. Examples of valid strings are "Ctrl+F", "Ctrl+Shift+Z", and so on.</p>
+   </div>
+<a name="silent"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">silent</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var silent:Boolean</code><p>
+   If <code>true</code>, excludes this display object from accessible presentation. The default is <code>false</code>. Applies to whole SWF files, containers, buttons, and text.
+   </p></div>
+<a name="constructorDetail"></a>
+<div class="detailSectionHeader">Constructor detail</div>
+<a name="AccessibilityProperties()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">AccessibilityProperties</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">constructor</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function AccessibilityProperties()</code><p>
+   Creates a new AccessibilityProperties object.
+   </p></div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<center class="copyright"> 
+</center>
+</div>
+</body>
+</html>
+<!-- -->

@@ -1,0 +1,654 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../print.css" type="text/css" media="print">
+<meta content="Action,ext.Action,isAction,initialConfig,addComponent,callEach,disable,each,enable,execute,getIconClass,getText,hide,isDisabled,isHidden,removeComponent,setDisabled,setHandler,setHidden,setIconClass,setText,show" name="keywords">
+<title>ext.Action</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../asdoc.js"></script><script type="text/javascript" language="javascript" src="../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'Action - API Documentation';
+				var baseRef = '../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">API Documentation</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../all-classes.html')" href="../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../all-classes.html')" href="../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../index-list.html')" href="../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../index.html?ext/Action.html&amp;ext/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;Action</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#constantSummary">Constants</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class Action"); titleBar_setSubNav(true,true,false,false,false,false,true,false,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">ext</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public class Action</td>
+</tr>
+</table>
+<p></p>
+ An Action is a piece of reusable functionality that can be abstracted out of any particular component so that it
+ can be usefully shared among multiple components.  Actions let you share handlers, configuration options and UI
+ updates across any components that support the Action interface (primarily <b class='link'>ext.Toolbar</b>, <b class='link'>ext.Button</b>
+ and <b class='link'>Ext.menu.Menu</b> components).
+ <p>Aside from supporting the config object interface, any component that needs to use Actions must also support
+ the following method list, as these will be called as needed by the Action class: setText(string), setIconCls(string),
+ setDisabled(boolean), setVisible(boolean) and setHandler(function).</p>
+ Example usage:<br>
+ <pre><code>
+// Define the shared action.  Each component below will have the same
+// display text and icon, and will display the same message on click.
+var action = new ext.Action({
+    <b class='link' title='#text'>text</b>: 'Do something',
+    <b class='link' title='#handler'>handler</b>: function(){
+        ext.Msg.alert('Click', 'You did something.');
+    },
+    <b class='link' title='#iconCls'>iconCls</b>: 'do-something',
+    <b class='link' title='#itemId'>itemId</b>: 'myAction'
+});
+
+var panel = new ext.Panel({
+    title: 'Actions',
+    width: 500,
+    height: 300,
+    tbar: [
+        // Add the action directly to a toolbar as a menu button
+        action,
+        {
+            text: 'Action Menu',
+            // Add the action to a menu as a text item
+            menu: [action]
+        }
+    ],
+    items: [
+        // Add the action to the panel body as a standard button
+        new ext.Button(action)
+    ],
+    renderTo: Ext.getBody()
+});
+
+// Change the text for all components using the action
+action.setText('Something else');
+
+// Reference an action through a container using the itemId
+var btn = panel.getComponent('myAction');
+var aRef = btn.baseAction;
+aRef.setText('New text');
+</code></pre>
+<p></p>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#initialConfig">initialConfig</a> : Object<div class="summaryTableDescription">[read-only]
+     This Action's initial configuration specification.</div>
+</td><td class="summaryTableOwnerCol">Action</td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#Action()">Action</a>(config:Object)</div>
+<div class="summaryTableDescription">
+ </div>
+</td><td class="summaryTableOwnerCol">Action</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#addComponent()">addComponent</a>(comp:<a href="Component.html">Component</a>):void</div>
+<div class="summaryTableDescription">
+     Only for internal use.</div>
+</td><td class="summaryTableOwnerCol">Action</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#disable()">disable</a>():void</div>
+<div class="summaryTableDescription">
+     Disables all components using this action.</div>
+</td><td class="summaryTableOwnerCol">Action</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#each()">each</a>(fn:Function, scope:Object = null):void</div>
+<div class="summaryTableDescription">
+     Executes the specified function once for each component currently tied to this action.</div>
+</td><td class="summaryTableOwnerCol">Action</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#enable()">enable</a>():void</div>
+<div class="summaryTableDescription">
+     Enables all components using this action.</div>
+</td><td class="summaryTableOwnerCol">Action</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#execute()">execute</a>(... args):void</div>
+<div class="summaryTableDescription">
+     Executes this action manually using the handler function specified in the original config object
+     or the handler function set with <code><b class='link' title='#setHandler'>setHandler</b></code>.</div>
+</td><td class="summaryTableOwnerCol">Action</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getIconClass()">getIconClass</a>():String</div>
+<div class="summaryTableDescription">
+     Gets the icon CSS class currently used by all components using this action.</div>
+</td><td class="summaryTableOwnerCol">Action</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getText()">getText</a>():String</div>
+<div class="summaryTableDescription">
+     Gets the text currently displayed by all components using this action.</div>
+</td><td class="summaryTableOwnerCol">Action</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#hide()">hide</a>():void</div>
+<div class="summaryTableDescription">
+     Hides all components using this action.</div>
+</td><td class="summaryTableOwnerCol">Action</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#isDisabled()">isDisabled</a>():Boolean</div>
+<div class="summaryTableDescription">
+     Returns true if the components using this action are currently disabled, else returns false.</div>
+</td><td class="summaryTableOwnerCol">Action</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#isHidden()">isHidden</a>():Boolean</div>
+<div class="summaryTableDescription">
+     Returns true if the components using this action are currently hidden, else returns false.</div>
+</td><td class="summaryTableOwnerCol">Action</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#removeComponent()">removeComponent</a>(comp:<a href="Component.html">Component</a>):void</div>
+<div class="summaryTableDescription">
+     Only for internal use.</div>
+</td><td class="summaryTableOwnerCol">Action</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setDisabled()">setDisabled</a>(disabled:Boolean):void</div>
+<div class="summaryTableDescription">
+     Sets the disabled state of all components using this action.</div>
+</td><td class="summaryTableOwnerCol">Action</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setHandler()">setHandler</a>(fn:Function, scope:Object):void</div>
+<div class="summaryTableDescription">
+     Sets the function that will be called by each component using this action when its primary event is triggered.</div>
+</td><td class="summaryTableOwnerCol">Action</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setHidden()">setHidden</a>(hidden:Boolean):void</div>
+<div class="summaryTableDescription">
+     Sets the hidden state of all components using this action.</div>
+</td><td class="summaryTableOwnerCol">Action</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setIconClass()">setIconClass</a>(cls:String):void</div>
+<div class="summaryTableDescription">
+     Sets the icon CSS class for all components using this action.</div>
+</td><td class="summaryTableOwnerCol">Action</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setText()">setText</a>(text:String):void</div>
+<div class="summaryTableDescription">
+     Sets the text to be displayed by all components using this action.</div>
+</td><td class="summaryTableOwnerCol">Action</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#show()">show</a>():void</div>
+<div class="summaryTableDescription">
+     Shows all components using this action.</div>
+</td><td class="summaryTableOwnerCol">Action</td>
+</tr>
+</table>
+</div>
+<a name="protectedMethodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Protected Methods</div>
+<table id="summaryTableProtectedMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#callEach()">callEach</a>(fnName:String, args:Array):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Action</td>
+</tr>
+</table>
+</div>
+<a name="constantSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Constants</div>
+<table id="summaryTableConstant" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Constant</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#isAction">isAction</a> : Boolean = true<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol">Action</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="initialConfig"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">initialConfig</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>initialConfig:Object</code>&nbsp;&nbsp;[read-only]<p>
+     This Action's initial configuration specification. Read-only.
+     </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get initialConfig():Object</code>
+<br>
+</div>
+<a name="constructorDetail"></a>
+<div class="detailSectionHeader">Constructor detail</div>
+<a name="Action()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">Action</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">constructor</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function Action(config:Object)</code><p>
+ </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">config</span>:Object</code> &mdash; The configuration options
+ </td>
+</tr>
+</table>
+</div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="addComponent()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">addComponent</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function addComponent(comp:<a href="Component.html">Component</a>):void</code><p>
+     Only for internal use.
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">comp</span>:<a href="Component.html">Component</a></code></td>
+</tr>
+</table>
+</div>
+<a name="callEach()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">callEach</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function callEach(fnName:String, args:Array):void</code><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">fnName</span>:String</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">args</span>:Array</code></td>
+</tr>
+</table>
+</div>
+<a name="disable()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">disable</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function disable():void</code><p>
+     Disables all components using this action.
+     </p></div>
+<a name="each()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">each</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function each(fn:Function, scope:Object = null):void</code><p>
+     Executes the specified function once for each component currently tied to this action.  The function passed
+     in should accept a single argument that will be an object that supports the basic Action config/method interface.
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">fn</span>:Function</code> &mdash; The function to execute for each component
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">scope</span>:Object</code> (default = <code>null</code>)<code></code> &mdash; The scope (<code>this</code> reference) in which the function is executed.  Defaults to the Component.
+     </td>
+</tr>
+</table>
+</div>
+<a name="enable()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">enable</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function enable():void</code><p>
+     Enables all components using this action.
+     </p></div>
+<a name="execute()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">execute</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function execute(... args):void</code><p>
+     Executes this action manually using the handler function specified in the original config object
+     or the handler function set with <code><b class='link' title='#setHandler'>setHandler</b></code>.  Any arguments passed to this
+     function will be passed on to the handler function.
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code>... <span class="label">args</span></code> &mdash; Variable number of arguments passed to the handler function
+     </td>
+</tr>
+</table>
+</div>
+<a name="getIconClass()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getIconClass</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function getIconClass():String</code><p>
+     Gets the icon CSS class currently used by all components using this action.
+     </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>String</code></td>
+</tr>
+</table>
+</div>
+<a name="getText()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getText</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function getText():String</code><p>
+     Gets the text currently displayed by all components using this action.
+     </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>String</code></td>
+</tr>
+</table>
+</div>
+<a name="hide()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">hide</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function hide():void</code><p>
+     Hides all components using this action.
+     </p></div>
+<a name="isDisabled()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">isDisabled</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function isDisabled():Boolean</code><p>
+     Returns true if the components using this action are currently disabled, else returns false.  
+     </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code></td>
+</tr>
+</table>
+</div>
+<a name="isHidden()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">isHidden</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function isHidden():Boolean</code><p>
+     Returns true if the components using this action are currently hidden, else returns false.  
+     </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code></td>
+</tr>
+</table>
+</div>
+<a name="removeComponent()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">removeComponent</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function removeComponent(comp:<a href="Component.html">Component</a>):void</code><p>
+     Only for internal use.
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">comp</span>:<a href="Component.html">Component</a></code></td>
+</tr>
+</table>
+</div>
+<a name="setDisabled()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setDisabled</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function setDisabled(disabled:Boolean):void</code><p>
+     Sets the disabled state of all components using this action.  Shortcut method
+     for <b class='link' title='#enable'>enable</b> and <b class='link' title='#disable'>disable</b>.
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">disabled</span>:Boolean</code> &mdash; True to disable the component, false to enable it
+     </td>
+</tr>
+</table>
+</div>
+<a name="setHandler()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setHandler</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function setHandler(fn:Function, scope:Object):void</code><p>
+     Sets the function that will be called by each component using this action when its primary event is triggered.
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">fn</span>:Function</code> &mdash; The function that will be invoked by the action's components.  The function
+     will be called with no arguments.
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">scope</span>:Object</code> &mdash; The scope in which the function will execute
+     </td>
+</tr>
+</table>
+</div>
+<a name="setHidden()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setHidden</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function setHidden(hidden:Boolean):void</code><p>
+     Sets the hidden state of all components using this action.  Shortcut method
+     for <code><b class='link' title='#hide'>hide</b></code> and <code><b class='link' title='#show'>show</b></code>.
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">hidden</span>:Boolean</code> &mdash; True to hide the component, false to show it
+     </td>
+</tr>
+</table>
+</div>
+<a name="setIconClass()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setIconClass</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function setIconClass(cls:String):void</code><p>
+     Sets the icon CSS class for all components using this action.  The class should supply
+     a background image that will be used as the icon image.
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">cls</span>:String</code> &mdash; The CSS class supplying the icon image
+     </td>
+</tr>
+</table>
+</div>
+<a name="setText()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setText</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function setText(text:String):void</code><p>
+     Sets the text to be displayed by all components using this action.
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">text</span>:String</code> &mdash; The text to display
+     </td>
+</tr>
+</table>
+</div>
+<a name="show()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">show</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function show():void</code><p>
+     Shows all components using this action.
+     </p></div>
+<a name="constantDetail"></a>
+<div class="detailSectionHeader">Constant detail</div>
+<a name="isAction"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">isAction</td><td class="detailHeaderType">constant</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public const isAction:Boolean = true</code><p>
+     </p></div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<center class="copyright"> 
+</center>
+</div>
+</body>
+</html>
+<!-- -->

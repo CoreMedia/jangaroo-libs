@@ -1,0 +1,521 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../print.css" type="text/css" media="print">
+<meta content="FormLayout,ext.layout.FormLayout,labelSeparator,adjustWidthAnchor,getLabelStyle,getTemplateArgs,isValidParent,renderItem,setContainer" name="keywords">
+<title>ext.layout.FormLayout</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'FormLayout - API Documentation';
+				var baseRef = '../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">API Documentation</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../all-classes.html')" href="../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../all-classes.html')" href="../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../index-list.html')" href="../../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../../index.html?ext/layout/FormLayout.html&amp;ext/layout/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;FormLayout</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class FormLayout"); titleBar_setSubNav(false,true,false,false,false,false,true,false,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">ext.layout</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public class FormLayout</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">FormLayout <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../images/inherit-arrow.gif"> <a href="AnchorLayout.html">AnchorLayout</a> <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../images/inherit-arrow.gif"> <a href="ContainerLayout.html">ContainerLayout</a></td>
+</tr>
+</table>
+<p></p>
+ <p>This layout manager is specifically designed for rendering and managing child Components of
+ <b class='link' title='ext.form.FormPanel'>forms</b>. It is responsible for rendering the labels of
+ <b class='link' title='ext.form.Field'>Field</b>s.</p>
+  <p>This layout manager is used when a Container is configured with the <code>layout:'form'</code>
+ <b class='link' title='ext.Container#layout'>layout</b> config option, and should generally not need to be created directly
+ via the new keyword. See <code><b class='link'>ext.Container#layout</b></code> for additional details.</p>
+  <p>In an application, it will usually be preferrable to use a <b class='link' title='ext.form.FormPanel'>FormPanel</b>
+ (which is configured with FormLayout as its layout class by default) since it also provides built-in
+ functionality for <b class='link' title='ext.form.BasicForm#doAction loading, validating and'>submitting</b> the form.</p>
+  <p>A <b class='link' title='ext.Container'>Container</b> <i>using</i> the FormLayout layout manager (e.g.
+ <b class='link'>ext.form.FormPanel</b> or specifying <code>layout:'form'</code>) can also accept the following
+ layout-specific config properties:<div class="mdetail-params"><ul>
+ <li><b><code><b class='link' title='ext.form.FormPanel#hideLabels'>hideLabels</b></code></b></li>
+ <li><b><code><b class='link' title='ext.form.FormPanel#labelAlign'>labelAlign</b></code></b></li>
+ <li><b><code><b class='link' title='ext.form.FormPanel#labelPad'>labelPad</b></code></b></li>
+ <li><b><code><b class='link' title='ext.form.FormPanel#labelSeparator'>labelSeparator</b></code></b></li>
+ <li><b><code><b class='link' title='ext.form.FormPanel#labelWidth'>labelWidth</b></code></b></li>
+ </ul></div></p>
+  <p>Any Component (including Fields) managed by FormLayout accepts the following as a config option:
+ <div class="mdetail-params"><ul>
+ <li><b><code><b class='link' title='ext.Component#anchor'>anchor</b></code></b></li>
+ </ul></div></p>
+  <p>Any Component managed by FormLayout may be rendered as a form field (with an associated label) by
+ configuring it with a non-null <b><code><b class='link' title='ext.Component#fieldLabel'>fieldLabel</b></code></b>. Components configured
+ in this way may be configured with the following options which affect the way the FormLayout renders them:
+ <div class="mdetail-params"><ul>
+ <li><b><code><b class='link' title='ext.Component#clearCls'>clearCls</b></code></b></li>
+ <li><b><code><b class='link' title='ext.Component#fieldLabel'>fieldLabel</b></code></b></li>
+ <li><b><code><b class='link' title='ext.Component#hideLabel'>hideLabel</b></code></b></li>
+ <li><b><code><b class='link' title='ext.Component#itemCls'>itemCls</b></code></b></li>
+ <li><b><code><b class='link' title='ext.Component#labelSeparator'>labelSeparator</b></code></b></li>
+ <li><b><code><b class='link' title='ext.Component#labelStyle'>labelStyle</b></code></b></li>
+ </ul></div></p>
+  <p>Example usage:</p>
+ <pre><code>
+// Required if showing validation messages
+ext.QuickTips.init();
+
+// While you can create a basic Panel with layout:'form', practically
+// you should usually use a FormPanel to also get its form functionality
+// since it already creates a FormLayout internally.
+var form = new ext.form.FormPanel({
+    title: 'Form Layout',
+    bodyStyle: 'padding:15px',
+    width: 350,
+    defaultType: 'textfield',
+    defaults: {
+        // applied to each contained item
+        width: 230,
+        msgTarget: 'side'
+    },
+    items: [{
+            fieldLabel: 'First Name',
+            name: 'first',
+            allowBlank: false,
+            <b class='link' title='ext.Component#labelSeparator'>labelSeparator</b>: ':' // override labelSeparator layout config
+        },{
+            fieldLabel: 'Last Name',
+            name: 'last'
+        },{
+            fieldLabel: 'Email',
+            name: 'email',
+            vtype:'email'
+        }, {
+            xtype: 'textarea',
+            hideLabel: true,     // override hideLabels layout config
+            name: 'msg',
+            anchor: '100% -53'
+        }
+    ],
+    buttons: [
+        {text: 'Save'},
+        {text: 'Cancel'}
+    ],
+    layoutConfig: {
+        <b class='link' title='#labelSeparator'>labelSeparator</b>: '~' // superseded by assignment below
+    },
+    // config options applicable to container when layout='form':
+    hideLabels: false,
+    labelAlign: 'left',   // or 'right' or 'top'
+    <b class='link' title='ext.form.FormPanel#labelSeparator'>labelSeparator</b>: '>>', // takes precedence over layoutConfig value
+    labelWidth: 65,       // defaults to 100
+    labelPad: 8           // defaults to 5, must specify labelWidth to be honored
+});
+</code></pre>
+ <p></p>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<div class="showHideLinks">
+<div class="hideInheritedProperty" id="hideInheritedProperty">
+<a onclick="javascript:setInheritedVisible(false,'Property');" href="#propertySummary" class="showHideLink"><img src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Properties</a>
+</div>
+<div class="showInheritedProperty" id="showInheritedProperty">
+<a onclick="javascript:setInheritedVisible(true,'Property');" href="#propertySummary" class="showHideLink"><img src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Properties</a>
+</div>
+</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="ContainerLayout.html#fieldTpl">fieldTpl</a> : <a href="../ext/Template.html">Template</a>
+<div class="summaryTableDescription">
+     The <b class='link' title='Template'>ext.Template</b> used by Field rendering layout classes (such as
+     <b class='link'>Ext.layout.FormLayout</b>) to create the DOM structure of a fully wrapped,
+     labeled and styled form Field.</div>
+</td><td class="summaryTableOwnerCol"><a href="ContainerLayout.html">ContainerLayout</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#labelSeparator">labelSeparator</a> : *<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol">FormLayout</td>
+</tr>
+</table>
+</div>
+<a name="protectedPropertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Protected Properties</div>
+<div class="showHideLinks">
+<div class="hideInheritedProtectedProperty" id="hideInheritedProtectedProperty">
+<a onclick="javascript:setInheritedVisible(false,'ProtectedProperty');" href="#protectedPropertySummary" class="showHideLink"><img src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Protected Properties</a>
+</div>
+<div class="showInheritedProtectedProperty" id="showInheritedProtectedProperty">
+<a onclick="javascript:setInheritedVisible(true,'ProtectedProperty');" href="#protectedPropertySummary" class="showHideLink"><img src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Protected Properties</a>
+</div>
+</div>
+<table id="summaryTableProtectedProperty" class="summaryTable hideInheritedProtectedProperty" cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="hideInheritedProtectedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="ContainerLayout.html#activeItem">activeItem</a> : <a href="../ext/Component.html">Component</a>
+<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="ContainerLayout.html">ContainerLayout</a></td>
+</tr>
+<tr class="hideInheritedProtectedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="ContainerLayout.html#monitorResize">monitorResize</a> : Boolean<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="ContainerLayout.html">ContainerLayout</a></td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<div class="showHideLinks">
+<div class="hideInheritedMethod" id="hideInheritedMethod">
+<a onclick="javascript:setInheritedVisible(false,'Method');" href="#methodSummary" class="showHideLink"><img src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Methods</a>
+</div>
+<div class="showInheritedMethod" id="showInheritedMethod">
+<a onclick="javascript:setInheritedVisible(true,'Method');" href="#methodSummary" class="showHideLink"><img src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Methods</a>
+</div>
+</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="ContainerLayout.html#destroy()">destroy</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="ContainerLayout.html">ContainerLayout</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getTemplateArgs()">getTemplateArgs</a>(field:*):Object</div>
+<div class="summaryTableDescription">
+     <p>Provides template arguments for rendering the fully wrapped, labeled and styled form Field.</p>
+     <p>This method returns an object hash containing properties used by the layout's <b class='link' title='#fieldTpl'>fieldTpl</b>
+     to create a correctly wrapped, labeled and styled form Field.</div>
+</td><td class="summaryTableOwnerCol">FormLayout</td>
+</tr>
+</table>
+</div>
+<a name="protectedMethodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Protected Methods</div>
+<div class="showHideLinks">
+<div class="hideInheritedProtectedMethod" id="hideInheritedProtectedMethod">
+<a onclick="javascript:setInheritedVisible(false,'ProtectedMethod');" href="#protectedMethodSummary" class="showHideLink"><img src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Protected Methods</a>
+</div>
+<div class="showInheritedProtectedMethod" id="showInheritedProtectedMethod">
+<a onclick="javascript:setInheritedVisible(true,'ProtectedMethod');" href="#protectedMethodSummary" class="showHideLink"><img src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Protected Methods</a>
+</div>
+</div>
+<table id="summaryTableProtectedMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AnchorLayout.html#adjustHeightAnchor()">adjustHeightAnchor</a>(value:*, comp:*):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="AnchorLayout.html">AnchorLayout</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#adjustWidthAnchor()">adjustWidthAnchor</a>(value:*, comp:*):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">FormLayout</td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="ContainerLayout.html#configureItem()">configureItem</a>(c:*, position:*):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="ContainerLayout.html">ContainerLayout</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AnchorLayout.html#getAnchorViewSize()">getAnchorViewSize</a>(ct:*, target:*):void</div>
+<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="AnchorLayout.html">AnchorLayout</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getLabelStyle()">getLabelStyle</a>(s:*):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">FormLayout</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#isValidParent()">isValidParent</a>(c:*, target:*):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">FormLayout</td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="ContainerLayout.html#layout()">layout</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="ContainerLayout.html">ContainerLayout</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AnchorLayout.html#onLayout()">onLayout</a>(ct:*, target:*):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="AnchorLayout.html">AnchorLayout</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="ContainerLayout.html#onResize()">onResize</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="ContainerLayout.html">ContainerLayout</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="AnchorLayout.html#parseAnchor()">parseAnchor</a>(a:*, start:*, cstart:*):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="AnchorLayout.html">AnchorLayout</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="ContainerLayout.html#parseMargins()">parseMargins</a>(v:*):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="ContainerLayout.html">ContainerLayout</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="ContainerLayout.html#renderAll()">renderAll</a>(ct:*, target:*):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="ContainerLayout.html">ContainerLayout</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#renderItem()">renderItem</a>(c:*, position:*, target:*):void</div>
+<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol">FormLayout</td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="ContainerLayout.html#runLayout()">runLayout</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="ContainerLayout.html">ContainerLayout</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setContainer()">setContainer</a>(ct:*):void</div>
+<div class="summaryTableDescription">
+     Read only.</div>
+</td><td class="summaryTableOwnerCol">FormLayout</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="labelSeparator"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">labelSeparator</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var labelSeparator:*</code><p>
+     </p></div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="adjustWidthAnchor()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">adjustWidthAnchor</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function adjustWidthAnchor(value:*, comp:*):void</code><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">value</span>:*</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">comp</span>:*</code></td>
+</tr>
+</table>
+</div>
+<a name="getLabelStyle()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getLabelStyle</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function getLabelStyle(s:*):void</code><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">s</span>:*</code></td>
+</tr>
+</table>
+</div>
+<a name="getTemplateArgs()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getTemplateArgs</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function getTemplateArgs(field:*):Object</code><p>
+     </p><p>Provides template arguments for rendering the fully wrapped, labeled and styled form Field.</p>
+     <p>This method returns an object hash containing properties used by the layout's <b class='link' title='#fieldTpl'>fieldTpl</b>
+     to create a correctly wrapped, labeled and styled form Field. This may be overriden to
+     create custom layouts. The properties which must be returned are:</p><div class="mdetail-params"><ul>
+     <li><b><code>itemCls</code></b> : String<div class="sub-desc">The CSS class applied to the outermost div wrapper
+     that contains this field label and field element (the default class is <code>'x-form-item'</code> and <code>itemCls</code>
+     will be added to that). If supplied, <code>itemCls</code> at the field level will override the default <code>itemCls</code>
+     supplied at the container level.</div></li>
+     <li><b><code>id</code></b> : String<div class="sub-desc">The id of the Field</div></li>
+     <li><b><code><b class='link' title='#labelStyle'>labelStyle</b></code></b> : String<div class="sub-desc">
+     A CSS style specification string to add to the field label for this field (defaults to <code>''</code> or the
+     <b class='link' title='#labelStyle layout's value for'><code>labelStyle</code></b>).</div></li>
+     <li><b><code>label</code></b> : String<div class="sub-desc">The text to display as the label for this
+     field (defaults to <code>''</code>)</div></li>
+     <li><b><code><b class='link' title='#labelSeparator'>labelSeparator</b></code></b> : String<div class="sub-desc">The separator to display after
+     the text of the label for this field (defaults to a colon <code>':'</code> or the
+     <b class='link' title='#labelSeparator layout's value for'>labelSeparator</b>). To hide the separator use empty string ''.</div></li>
+     <li><b><code>elementStyle</code></b> : String<div class="sub-desc">The styles text for the input element's wrapper.</div></li>
+     <li><b><code>clearCls</code></b> : String<div class="sub-desc">The CSS class to apply to the special clearing div
+     rendered directly after each form field wrapper (defaults to <code>'x-form-clear-left'</code>)</div></li>
+     </ul></div>
+     <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">field</span>:*</code> &mdash; The <b class='link' title='Field'>ext.form.Field</b> being rendered.
+     </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Object</code> &mdash; An object hash containing the properties required to render the Field.
+     </td>
+</tr>
+</table>
+</div>
+<a name="isValidParent()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">isValidParent</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function isValidParent(c:*, target:*):void</code><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">c</span>:*</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">target</span>:*</code></td>
+</tr>
+</table>
+</div>
+<a name="renderItem()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">renderItem</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function renderItem(c:*, position:*, target:*):void</code><p>
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">c</span>:*</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">position</span>:*</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">target</span>:*</code></td>
+</tr>
+</table>
+</div>
+<a name="setContainer()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setContainer</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function setContainer(ct:*):void</code><p>
+     Read only. The CSS style specification string added to field labels in this layout if not
+     otherwise <b class='link' title='ext.Component#labelStyle specified by each contained'>field</b>.
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">ct</span>:*</code></td>
+</tr>
+</table>
+</div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<center class="copyright"> 
+</center>
+</div>
+</body>
+</html>
+<!-- -->

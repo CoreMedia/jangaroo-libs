@@ -1,0 +1,362 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../print.css" type="text/css" media="print">
+<meta content="ContextMenuItem,flash.ui.ContextMenuItem,caption,separatorBefore,visible" name="keywords">
+<title>flash.ui.ContextMenuItem</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'ContextMenuItem - API Documentation';
+				var baseRef = '../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">API Documentation</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../all-classes.html')" href="../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../all-classes.html')" href="../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../index-list.html')" href="../../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../../index.html?flash/ui/ContextMenuItem.html&amp;flash/ui/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;ContextMenuItem</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#eventSummary">Events</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class ContextMenuItem"); titleBar_setSubNav(false,true,false,false,true,false,true,false,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">flash.ui</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public final  class ContextMenuItem</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">ContextMenuItem <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../images/inherit-arrow.gif"> <a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+</table>
+<p></p>
+ The ContextMenuItem class represents an item in the context menu. Each ContextMenuItem object has a caption (text) that is displayed in the context menu. To add a new item to a context menu, you add it to the <code>customItems</code> array of a ContextMenu object.
+ <p>With the properties of the ContextMenuItem class you can enable or disable specific menu items, and you can make items visible or invisible.</p>You write an event handler for the <code>menuItemSelect</code> event to add functionality to the menu item when the user selects it.
+ <p>Custom menu items appear at the top of the context menu, above any built-in items. A separator bar divides custom menu items from built-in items. In AIR, there are no built-in items and the following restrictions do not apply to content in the AIR application sandbox.</p>
+ <p>Restrictions:</p>
+ <ul>
+ <li>You can add no more than 15 custom items to a context menu.</li>
+ <li>Each caption must contain at least one visible character.</li>
+ <li>Control characters, newlines, and other white space characters are ignored.</li>
+ <li>No caption can be more than 100 characters long.</li>
+ <li>Captions that are identical to any built-in menu item, or to another custom item, are ignored, whether the matching item is visible or not. Menu captions are compared to built-in captions or existing custom captions without regard to case, punctuation, or white space.</li>
+ <li>The following captions are not allowed, but the words may be used in conjunction with other words to form a custom caption (for example, although "Paste" is not allowed, "Paste tastes great" is allowed):
+ <pre> Save
+ Zoom In
+ Zoom Out
+ 100%
+ Show All
+ Quality
+ Play
+ Loop
+ Rewind
+ Forward
+ Back
+ Movie not loaded
+ About
+ Print
+ Show Redraw Regions
+ Debugger
+ Undo
+ Cut
+ Copy
+ Paste
+ Delete
+ Select All
+ Open
+ Open in new window
+ Copy link
+ </pre></li>
+ <li>None of the following words can appear in a custom caption on their own or in conjunction with other words:
+ <pre> Adobe
+ Macromedia
+ Flash Player
+ Settings
+ </pre></li></ul>
+ <p><b>Note:</b> When the player is running on a non-English system, the caption strings are compared to both the English list and the localized equivalents.</p>
+ <p><a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/ui/ContextMenuItem.html#includeExamplesSummary">View the examples</a></p>
+ <p></p>
+<p>
+<span class="classHeaderTableLabel">See also</span>
+</p>
+<div class="seeAlso">
+<a href="ContextMenu.html" target="">ContextMenu</a>
+<br>
+<a href="ContextMenuBuiltInItems.html" target="">ContextMenuBuiltInItems</a>
+<br>
+<a href="http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118676a48d0-8000.html" target="mm_external">Working with menus</a>
+</div>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#caption">caption</a> : String<div class="summaryTableDescription">
+   Specifies the menu item caption (text) displayed in the context menu.</div>
+</td><td class="summaryTableOwnerCol">ContextMenuItem</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#separatorBefore">separatorBefore</a> : Boolean<div class="summaryTableDescription">
+   Indicates whether a separator bar should appear above the specified menu item.</div>
+</td><td class="summaryTableOwnerCol">ContextMenuItem</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#visible">visible</a> : Boolean<div class="summaryTableDescription">
+   Indicates whether the specified menu item is visible when the Flash Player context menu is displayed.</div>
+</td><td class="summaryTableOwnerCol">ContextMenuItem</td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<div class="showHideLinks">
+<div class="hideInheritedMethod" id="hideInheritedMethod">
+<a onclick="javascript:setInheritedVisible(false,'Method');" href="#methodSummary" class="showHideLink"><img src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Methods</a>
+</div>
+<div class="showInheritedMethod" id="showInheritedMethod">
+<a onclick="javascript:setInheritedVisible(true,'Method');" href="#methodSummary" class="showHideLink"><img src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Methods</a>
+</div>
+</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#ContextMenuItem()">ContextMenuItem</a>(caption:String, separatorBefore:Boolean = false, enabled:Boolean = true, visible:Boolean = true)</div>
+<div class="summaryTableDescription">
+   Creates a new ContextMenuItem object that can be added to the <code>ContextMenu.customItems</code> array.</div>
+</td><td class="summaryTableOwnerCol">ContextMenuItem</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#addEventListener()">addEventListener</a>(type:String, listener:Function, useCapture:Boolean = false, priority:int = 0, useWeakReference:Boolean = false):void</div>
+<div class="summaryTableDescription">
+   Registers an event listener object with an EventDispatcher object so that the listener receives notification of an event.</div>
+</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#dispatchEvent()">dispatchEvent</a>(event:<a href="../events/Event.html">Event</a>):Boolean</div>
+<div class="summaryTableDescription">
+   Dispatches an event into the event flow.</div>
+</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#hasEventListener()">hasEventListener</a>(type:String):Boolean</div>
+<div class="summaryTableDescription">
+   Checks whether the EventDispatcher object has any listeners registered for a specific type of event.</div>
+</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#removeEventListener()">removeEventListener</a>(type:String, listener:Function, useCapture:Boolean = false):void</div>
+<div class="summaryTableDescription">
+   Removes a listener from the EventDispatcher object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#toString()">toString</a>():String</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#willTrigger()">willTrigger</a>(type:String):Boolean</div>
+<div class="summaryTableDescription">
+   Checks whether an event listener is registered with this EventDispatcher object or any of its ancestors for the specified event type.</div>
+</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+</table>
+</div>
+<a name="eventSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Events</div>
+<div class="showHideLinks">
+<div class="hideInheritedEvent" id="hideInheritedEvent">
+<a onclick="javascript:setInheritedVisible(false,'Event');" href="#eventSummary" class="showHideLink"><img src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Events</a>
+</div>
+<div class="showInheritedEvent" id="showInheritedEvent">
+<a onclick="javascript:setInheritedVisible(true,'Event');" href="#eventSummary" class="showHideLink"><img src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Events</a>
+</div>
+</div>
+<table id="summaryTableEvent" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Event</th><th>Summary</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#event:activate">activate</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ [broadcast event] Dispatched when the Flash Player or AIR application gains operating system focus and becomes active.</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#event:deactivate">deactivate</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ [broadcast event] Dispatched when the Flash Player or AIR application operating loses system focus and is becoming inactive.</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:menuItemSelect">menuItemSelect</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when a user selects an item from a context menu.</td><td class="summaryTableOwnerCol">ContextMenuItem</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="caption"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">caption</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>caption:String</code>&nbsp;&nbsp;[read-write]<p>
+   Specifies the menu item caption (text) displayed in the context menu. See the ContextMenuItem class overview for <code>caption</code> value restrictions.
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get caption():String</code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set caption(value:String):void</code>
+<br>
+</div>
+<a name="separatorBefore"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">separatorBefore</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>separatorBefore:Boolean</code>&nbsp;&nbsp;[read-write]<p>
+   Indicates whether a separator bar should appear above the specified menu item.
+   </p><p><b>Note:</b> A separator bar always appears between any custom menu items and the built-in menu items.</p>
+   <p>The default value is <code>false.</code></p>
+   <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get separatorBefore():Boolean</code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set separatorBefore(value:Boolean):void</code>
+<br>
+</div>
+<a name="visible"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">visible</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>visible:Boolean</code>&nbsp;&nbsp;[read-write]<p>
+   Indicates whether the specified menu item is visible when the Flash Player context menu is displayed.
+   </p><p>The default value is <code>true.</code></p>
+   <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get visible():Boolean</code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set visible(value:Boolean):void</code>
+<br>
+</div>
+<a name="constructorDetail"></a>
+<div class="detailSectionHeader">Constructor detail</div>
+<a name="ContextMenuItem()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">ContextMenuItem</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">constructor</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function ContextMenuItem(caption:String, separatorBefore:Boolean = false, enabled:Boolean = true, visible:Boolean = true)</code><p>
+   Creates a new ContextMenuItem object that can be added to the <code>ContextMenu.customItems</code> array.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">caption</span>:String</code> &mdash; Specifies the text associated with the menu item. See the ContextMenuItem class overview for <code>caption</code> value restrictions.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">separatorBefore</span>:Boolean</code> (default = <code>false</code>)<code></code> &mdash; Specifies whether a separator bar appears above the menu item in the context menu. The default value is <code>false</code>.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">enabled</span>:Boolean</code> (default = <code>true</code>)<code></code> &mdash; Specifies whether the menu item is enabled or disabled in the context menu. The default value is <code>true</code> (enabled). This parameter is optional.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">visible</span>:Boolean</code> (default = <code>true</code>)<code></code> &mdash; Specifies whether the menu item is visible or invisible. The default value is <code>true</code> (visible).
+      </td>
+</tr>
+</table>
+</div>
+<div class="detailSectionHeader">Event detail</div>
+<a name="event:menuItemSelect"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">menuItemSelect</td><td class="detailHeaderType">event&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="../events/ContextMenuEvent.html"><code>flash.events.ContextMenuEvent</code></a>
+<br>
+<p></p><p>
+ Dispatched when a user selects an item from a context menu. The user generates the context menu by clicking the secondary button of the user's pointing device.
+ </p></div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<center class="copyright"> 
+</center>
+</div>
+</body>
+</html>
+<!-- -->

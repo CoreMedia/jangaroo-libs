@@ -1,0 +1,438 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../print.css" type="text/css" media="print">
+<meta content="ExternalInterface,flash.external.ExternalInterface,marshallExceptions,available,objectID,addCallback,call" name="keywords">
+<title>flash.external.ExternalInterface</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'ExternalInterface - API Documentation';
+				var baseRef = '../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">API Documentation</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../all-classes.html')" href="../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../all-classes.html')" href="../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../index-list.html')" href="../../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../../index.html?flash/external/ExternalInterface.html&amp;flash/external/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;ExternalInterface</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class ExternalInterface"); titleBar_setSubNav(false,true,false,false,false,false,true,false,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">flash.external</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public final  class ExternalInterface</td>
+</tr>
+</table>
+<p></p>
+ The ExternalInterface class is an application programming interface that enables straightforward communication between ActionScript and the SWF containerâ€“ for example, an HTML page with JavaScript or a desktop application that uses Flash Player to display a SWF file.
+ <p>Using the ExternalInterface class, you can call an ActionScript function in the Flash runtime, using JavaScript in the HTML page. The ActionScript function can return a value, and JavaScript receives it immediately as the return value of the call.</p>
+ <p>This functionality replaces the <code>fscommand()</code> method.</p>
+ <p>Use the ExternalInterface class in the following combinations of browser and operating system:</p>
+ <table>
+ <tr><th>Browser</th><th>Operating System</th><th>Operating System</th></tr>
+ <tr>
+ <td>Internet Explorer 5.0 and later</td>
+ <td> Windows </td>
+ <td> </td></tr>
+ <tr>
+ <td>Netscape 8.0 and later</td>
+ <td> Windows </td>
+ <td> MacOS </td></tr>
+ <tr>
+ <td>Mozilla 1.7.5 and later</td>
+ <td> Windows </td>
+ <td> MacOS </td></tr>
+ <tr>
+ <td>Firefox 1.0 and later</td>
+ <td> Windows </td>
+ <td> MacOS </td></tr>
+ <tr>
+ <td>Safari 1.3 and later</td>
+ <td> </td>
+ <td> MacOS </td></tr></table>
+ <p>Flash Player for Linux version 9.0.31.0 and later supports the ExternalInterface class in the following browsers:</p>
+ <table>
+ <tr><th>Browser</th></tr>
+ <tr>
+ <td>Mozilla 1.7.x and later</td></tr>
+ <tr>
+ <td>Firefox 1.5.0.7 and later</td></tr>
+ <tr>
+ <td>SeaMonkey 1.0.5 and later</td></tr></table>
+ <p>The ExternalInterface class requires the user's web browser to support either ActiveX<sup>®</sup> or the NPRuntime API that is exposed by some browsers for plug-in scripting. Even if a browser and operating system combination are not listed above, they should support the ExternalInterface class if they support the NPRuntime API. See <a href="http://www.mozilla.org/projects/plugins/npruntime.html">http://www.mozilla.org/projects/plugins/npruntime.html</a>.</p>
+ <p><b>Note:</b> When embedding SWF files within an HTML page, make sure that the <code>id</code> attribute is set and the <code>id</code> and <code>name</code> attributes of the <code>object</code> and <code>embed</code> tags do not include the following characters:</p>
+ <pre> . - + / \
+ </pre>
+ <p><b>Note for Flash Player applications:</b> Flash Player version 9.0.115.0 and later allows the <code>.</code> (period) character within the <code>id</code> and <code>name</code> attributes.</p>
+ <p><b>Note for Flash Player applications:</b> In Flash Player 10 and later running in a browser, using this class programmatically to open a pop-up window may not be successful. Various browsers (and browser configurations) may block pop-up windows at any time; it is not possible to guarantee any pop-up window will appear. However, for the best chance of success, use this class to open a pop-up window only in code that executes as a direct result of a user action (for example, in an event handler for a mouse click or key-press event.)</p>
+ <p>From ActionScript, you can do the following on the HTML page:</p>
+ <ul>
+ <li>Call any JavaScript function.</li>
+ <li>Pass any number of arguments, with any names.</li>
+ <li>Pass various data types (Boolean, Number, String, and so on).</li>
+ <li>Receive a return value from the JavaScript function.</li></ul>
+ <p>From JavaScript on the HTML page, you can:</p>
+ <ul>
+ <li>Call an ActionScript function.</li>
+ <li>Pass arguments using standard function call notation.</li>
+ <li>Return a value to the JavaScript function.</li></ul>
+ <p><b>Note for Flash Player applications:</b> Flash Player does not currently support SWF files embedded within HTML forms.</p>
+ <p><b>Note for AIR applications:</b> In Adobe AIR, the ExternalInterface class can be used to communicate between JavaScript in an HTML page loaded in the HTMLLoader control and ActionScript in SWF content embedded in that HTML page.</p>
+ <p><a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/external/ExternalInterface.html#includeExamplesSummary">View the examples</a></p>
+ <p></p>
+<p>
+<span class="classHeaderTableLabel">See also</span>
+</p>
+<div class="seeAlso">flash.system.package.fscommand()<br>
+<a href="http://help.adobe.com/en_US/Flex/4.0/UsingSDK/WS2db454920e96a9e51e63e3d11c0bf69084-7f31.html" target="mm_external">Using the ExternalInterface API to access JavaScript</a>
+<br>
+<a href="http://help.adobe.com/en_US/Flex/4.0/UsingSDK/WS2db454920e96a9e51e63e3d11c0bf69084-7e92.html" target="mm_external">Accessing Flex from JavaScript</a>
+<br>
+<a href="http://help.adobe.com/en_US/Flex/4.0/UsingSDK/WS2db454920e96a9e51e63e3d11c0bf69084-7ea6.html" target="mm_external">About ExternalInterface API security in Flex</a>
+<br>
+<a href="http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118a9b90204-7cab.html" target="mm_external">External API requirements and advantages</a>
+<br>
+<a href="http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118a9b90204-7cb2.html" target="mm_external">Using the ExternalInterface class</a>
+<br>
+<a href="http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118a9b90204-7c9b.html" target="mm_external">Controlling outbound URL access</a>
+</div>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#available">available</a> : Boolean<div class="summaryTableDescription">[static][read-only]
+   Indicates whether this player is in a container that offers an external interface.</div>
+</td><td class="summaryTableOwnerCol">ExternalInterface</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#marshallExceptions">marshallExceptions</a> : Boolean = false<div class="summaryTableDescription">[static]
+   Indicates whether the external interface should attempt to pass ActionScript exceptions to the current browser and JavaScript exceptions to the player.</div>
+</td><td class="summaryTableOwnerCol">ExternalInterface</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#objectID">objectID</a> : String<div class="summaryTableDescription">[static][read-only]
+   Returns the <code>id</code> attribute of the <code>object</code> tag in Internet Explorer, or the <code>name</code> attribute of the <code>embed</code> tag in Netscape.</div>
+</td><td class="summaryTableOwnerCol">ExternalInterface</td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#addCallback()">addCallback</a>(functionName:String, closure:Function):void</div>
+<div class="summaryTableDescription">[static]
+   Registers an ActionScript method as callable from the container.</div>
+</td><td class="summaryTableOwnerCol">ExternalInterface</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#call()">call</a>(functionName:String, ... rest):*</div>
+<div class="summaryTableDescription">[static]
+   Calls a function exposed by the SWF container, passing zero or more arguments.</div>
+</td><td class="summaryTableOwnerCol">ExternalInterface</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="available"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">available</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>available:Boolean</code>&nbsp;&nbsp;[read-only]<p>
+   Indicates whether this player is in a container that offers an external interface. If the external interface is available, this property is <code>true</code>; otherwise, it is <code>false</code>.
+   </p><p><b>Note:</b> When using the External API with HTML, always check that the HTML has finished loading before you attempt to call any JavaScript methods.</p>
+   <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get available():Boolean</code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118a9b90204-7cb2.html" target="mm_external">Using the ExternalInterface class</a>
+<br>
+<a href="http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118a9b90204-7ca9.html" target="mm_external">Getting information about the external container</a>
+</div>
+<br>
+<span class="label">Example</span>
+<br>The following example uses the <code>available</code> property to determine whether the player is in a container that offers an external interface.
+   <div class='listing'><pre>
+        package {
+          import flash.text.TextField;
+          import flash.display.MovieClip;
+          import flash.external.ExternalInterface;
+             public class extint_test extends MovieClip {
+            public function extint_test() {
+              var isAvailable:Boolean = ExternalInterface.available;
+              var availTxt:TextField = new TextField();
+              availTxt.text = isAvailable.toString();
+              addChild(availTxt);
+            }
+          }
+        }
+       </pre></div>
+   <p></p>
+</div>
+<a name="marshallExceptions"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">marshallExceptions</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var marshallExceptions:Boolean = false</code><p>
+   Indicates whether the external interface should attempt to pass ActionScript exceptions to the current browser and JavaScript exceptions to the player. You must explicitly set this property to <code>true</code> to catch JavaScript exceptions in ActionScript and to catch ActionScript exceptions in JavaScript.
+   </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../external/ExternalInterface.html#addCallBack()" target="">addCallBack()</a>
+<br>
+<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/statements.html#try..catch..finally" target="mm_external">try..catch..finally statement</a>
+</div>
+<br>
+<span class="label">Example</span>
+<br>The following example creates an ActionScript function and registers it with the containing browser by using the <code>addCallback()</code> method. The new function throws an exception so that JavaScript code running in the browser can catch it. This example also contains a <code>try..catch</code> statement to catch any exceptions thrown by the browser when the <code>throwit()</code> function is called.
+   <div class='listing'><pre>
+   package
+   {
+       import flash.external.       import flash.net.
+       import flash.display.
+       import flash.system.System;
+       public class ext_test extends Sprite {
+       function ext_test():void {
+           ExternalInterface.marshallExceptions = true;
+           ExternalInterface.addCallback("g", g);
+              try {
+           ExternalInterface.call("throwit");
+           } catch(e:Error) {
+           trace(e)
+           }
+       }
+       function g() { throw new Error("exception from actionscript!!!!") }
+       }
+   }
+   </pre></div>
+   <p></p>
+</div>
+<a name="objectID"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">objectID</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>objectID:String</code>&nbsp;&nbsp;[read-only]<p>
+   Returns the <code>id</code> attribute of the <code>object</code> tag in Internet Explorer, or the <code>name</code> attribute of the <code>embed</code> tag in Netscape.
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get objectID():String</code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118a9b90204-7cb2.html" target="mm_external">Using the ExternalInterface class</a>
+<br>
+<a href="http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118a9b90204-7ca9.html" target="mm_external">Getting information about the external container</a>
+</div>
+</div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="addCallback()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">addCallback</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function addCallback(functionName:String, closure:Function):void</code><p>
+   Registers an ActionScript method as callable from the container. After a successful invocation of <code>addCallBack()</code>, the registered function in the player can be called by JavaScript or ActiveX code in the container.
+   </p><p><b>Note:</b> For <i>local</i> content running in a browser, calls to the <code>ExternalInterface.addCallback()</code> method work only if the SWF file and the containing web page are in the local-trusted security sandbox. For more information, see the Flash Player Developer Center Topic: <a href="http://www.adobe.com/go/devnet_security_en">Security</a>.</p>
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">functionName</span>:String</code> &mdash; The name by which the container can invoke the function.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">closure</span>:Function</code> &mdash; The function closure to invoke. This could be a free-standing function, or it could be a method closure referencing a method of an object instance. By passing a method closure, you can direct the callback at a method of a particular object instance.
+   <p><b>Note:</b> Repeating <code>addCallback()</code> on an existing callback function with a <code>null</code> closure value removes the callback.</p>
+      </td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code></code> &mdash; The container does not support incoming calls. Incoming calls are supported only in Internet Explorer for Windows and browsers that use the NPRuntime API such as Mozilla 1.7.5 and later or Firefox 1.0 and later.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../SecurityError.html">SecurityError</a> </code> &mdash; A callback with the specified name has already been added by ActionScript in a sandbox to which you do not have access; you cannot overwrite that callback. To work around this problem, rewrite the ActionScript that originally called the <code>addCallback()</code> method so that it also calls the <code>Security.allowDomain()</code> method.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../SecurityError.html">SecurityError</a> </code> &mdash; The containing environment belongs to a security sandbox to which the calling code does not have access. To fix this problem, follow these steps: <ol>
+   <li>In the <code>object</code> tag for the SWF file in the containing HTML page, set the following parameter:
+   <p><code><param name="allowScriptAccess" value="always" /></code></p></li>
+   <li>In the SWF file, add the following ActionScript:
+   <p><code>flash.system.Security.allowDomain(<i>sourceDomain</i>)</code></p></li></ol>
+      </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../system/Security.html#allowDomain()" target="">flash.system.Security.allowDomain()</a>
+<br>
+<a href="http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118a9b90204-7cb2.html" target="mm_external">Using the ExternalInterface class</a>
+<br>
+<a href="http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118a9b90204-7ca7.html" target="mm_external">Calling ActionScript code from the container</a>
+</div>
+</div>
+<a name="call()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">call</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function call(functionName:String, ... rest):*</code><p>
+   Calls a function exposed by the SWF container, passing zero or more arguments. If the function is not available, the call returns <code>null</code>; otherwise it returns the value provided by the function. Recursion is <i>not</i> permitted on Opera or Netscape browsers; on these browsers a recursive call produces a <code>null</code> response. (Recursion is supported on Internet Explorer and Firefox browsers.)
+   </p><p>If the container is an HTML page, this method invokes a JavaScript function in a <code>script</code> element.</p>
+   <p>If the container is another ActiveX container, this method dispatches the FlashCall ActiveX event with the specified name, and the container processes the event.</p>
+   <p>If the container is hosting the Netscape plug-in, you can either write custom support for the new NPRuntime interface or embed an HTML control and embed the player within the HTML control. If you embed an HTML control, you can communicate with the player through a JavaScript interface to the native container application.</p>
+   <p><b>Note:</b> For <i>local</i> content running in a browser, calls to the <code>ExternalInterface.call()</code> method are permitted only if the SWF file and the containing web page (if there is one) are in the local-trusted security sandbox. Also, you can prevent a SWF file from using this method by setting the <code>allowNetworking</code> parameter of the <code>object</code> and <code>embed</code> tags in the HTML page that contains the SWF content. For more information, see the Flash Player Developer Center Topic: <a href="http://www.adobe.com/go/devnet_security_en">Security</a>.</p>
+   <p><b>Note for Flash Player applications:</b> In Flash Player 10 and Flash Player 9 Update 5, some web browsers restrict this method if a pop-up blocker is enabled. In this scenario, you can only call this method successfully in response to a user event (for example, in an event handler for a mouse click or keypress event).</p>
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">functionName</span>:String</code> &mdash; The alphanumeric name of the function to call in the container. Using a non-alphanumeric function name causes a runtime error (error 2155). You can use a <code>try..catch</code> block to handle the error.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code>... <span class="label">rest</span></code> &mdash; The arguments to pass to the function in the container. You can specify zero or more parameters, separating them with commas. They can be of any ActionScript data type. When the call is to a JavaScript function, the ActionScript types are automatically converted into JavaScript types; when the call is to some other ActiveX container, the parameters are encoded in the request message.
+      </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>*</code> &mdash; The response received from the container. If the call failedâ€“ for example, if there is no such function in the container, the interface is not available, a recursion occurred (with a Netscape or Opera browser), or there is a security issueâ€“ <code>null</code> is returned and an error is thrown.
+      </td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code></code> &mdash; The container does not support outgoing calls. Outgoing calls are supported only in Internet Explorer for Windows and browsers that use the NPRuntime API such as Mozilla 1.7.5 and later or Firefox 1.0 and later.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../SecurityError.html">SecurityError</a> </code> &mdash; The containing environment belongs to a security sandbox to which the calling code does not have access. To fix this problem, follow these steps: <ol>
+   <li>In the <code>object</code> tag for the SWF file in the containing HTML page, set the following parameter:
+   <p><code><param name="allowScriptAccess" value="always" /></code></p></li>
+   <li>In the SWF file, add the following ActionScript:
+   <p><code>flash.system.Security.allowDomain(<i>sourceDomain</i>)</code></p></li></ol>
+      </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118a9b90204-7cb2.html" target="mm_external">Using the ExternalInterface class</a>
+<br>
+<a href="http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118a9b90204-7ca8.html" target="mm_external">Calling external code from ActionScript</a>
+<br>
+<a href="http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118a9b90204-7c9b.html" target="mm_external">Controlling outbound URL access</a>
+</div>
+<br>
+<span class="label">Example</span>
+<br>The following example shows how you can use the ExternalInterface class (flash.external.ExternalInterface) to send a string from Flash Player to the HTML container where it is displayed using the JavaScript alert() function. Example provided by <a href="http://actionscriptexamples.com/2008/02/28/using-the-externalinterface-class-in-actionscript-20-and-actionscript-30/">ActionScriptExamples.com</a>.
+   <div class='listing'><pre>
+   //
+   // Requires:
+   //   - A Flash Professional Label component on the Stage with an instance name of "lbl".
+   //   - A Flash Professional Button component on the Stage with an instance name of "button".
+   //
+   var xmlResponse:String = "<invoke name=\"isReady\" returntype=\"xml\"><arguments><number>1</number><number>" + stage.stageWidth + "</number><number>" + stage.stageHeight + "</number></arguments></invoke>";
+      lbl.text = "ExternalInterface.available: " + ExternalInterface.available;
+   lbl.width = 200;
+   button.enabled = ExternalInterface.available;
+   button.addEventListener(MouseEvent.CLICK, button_click);
+      function button_click(evt:MouseEvent):void {
+       ExternalInterface.call("alert", xmlResponse);
+   }
+   </pre></div>
+   <p></p>
+</div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<center class="copyright"> 
+</center>
+</div>
+</body>
+</html>
+<!-- -->

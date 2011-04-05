@@ -1,0 +1,1034 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../print.css" type="text/css" media="print">
+<meta content="LoaderInfo,flash.display.LoaderInfo,actionScriptVersion,applicationDomain,bytes,bytesLoaded,bytesTotal,childAllowsParent,content,contentType,frameRate,height,loader,loaderURL,parameters,parentAllowsChild,sameDomain,sharedEvents,swfVersion,url,width,getLoaderInfoByDefinition,load,setBytes,setContent,setUrl" name="keywords">
+<title>flash.display.LoaderInfo</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'LoaderInfo - API Documentation';
+				var baseRef = '../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">API Documentation</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../all-classes.html')" href="../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../all-classes.html')" href="../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../index-list.html')" href="../../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../../index.html?flash/display/LoaderInfo.html&amp;flash/display/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;LoaderInfo</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#eventSummary">Events</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class LoaderInfo"); titleBar_setSubNav(false,true,false,false,true,false,true,false,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">flash.display</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public class LoaderInfo</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">LoaderInfo <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../images/inherit-arrow.gif"> <a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+</table>
+<p></p>
+ The LoaderInfo class provides information about a loaded SWF file or a loaded image file (JPEG, GIF, or PNG). LoaderInfo objects are available for any display object. The information provided includes load progress, the URLs of the loader and loaded content, the number of bytes total for the media, and the nominal height and width of the media.
+ <p>You can access LoaderInfo objects in two ways:</p>
+ <ul>
+ <li>The <code>contentLoaderInfo</code> property of a flash.display.Loader object� The <code>contentLoaderInfo</code> property is always available for any Loader object. For a Loader object that has not called the <code>load()</code> or <code>loadBytes()</code> method, or that has not sufficiently loaded, attempting to access many of the properties of the <code>contentLoaderInfo</code> property throws an error.</li>
+ <li>The <code>loaderInfo</code> property of a display object.</li></ul>
+ <p>The <code>contentLoaderInfo</code> property of a Loader object provides information about the content that the Loader object is loading, whereas the <code>loaderInfo</code> property of a DisplayObject provides information about the root SWF file for that display object.</p>
+ <p>When you use a Loader object to load a display object (such as a SWF file or a bitmap), the <code>loaderInfo</code> property of the display object is the same as the <code>contentLoaderInfo</code> property of the Loader object (<code>DisplayObject.loaderInfo = Loader.contentLoaderInfo</code>). Because the instance of the main class of the SWF file has no Loader object, the <code>loaderInfo</code> property is the only way to access the LoaderInfo for the instance of the main class of the SWF file.</p>
+ <p>The following diagram shows the different uses of the LoaderInfo object�for the instance of the main class of the SWF file, for the <code>contentLoaderInfo</code> property of a Loader object, and for the <code>loaderInfo</code> property of a loaded object:</p>
+ <p><img src="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/images/loaderInfo_object.jpg" /></p>
+ <p>When a loading operation is not complete, some properties of the <code>contentLoaderInfo</code> property of a Loader object are not available. You can obtain some properties, such as <code>bytesLoaded</code>, <code>bytesTotal</code>, <code>url</code>, <code>loaderURL</code>, and <code>applicationDomain</code>. When the <code>loaderInfo</code> object dispatches the <code>init</code> event, you can access all properties of the <code>loaderInfo</code> object and the loaded image or SWF file.</p>
+ <p><b>Note:</b> All properties of LoaderInfo objects are read-only.</p>
+ <p>The <code>EventDispatcher.dispatchEvent()</code> method is not applicable to LoaderInfo objects. If you call <code>dispatchEvent()</code> on a LoaderInfo object, an IllegalOperationError exception is thrown.</p>
+ <p><a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/LoaderInfo.html#includeExamplesSummary">View the examples</a></p>
+ <p></p>
+<p>
+<span class="classHeaderTableLabel">See also</span>
+</p>
+<div class="seeAlso">
+<a href="Loader.html" target="">Loader</a>
+<br>
+<a href="Loader.html#content" target="">Loader.content</a>
+<br>
+<a href="DisplayObject.html" target="">DisplayObject</a>
+<br>
+<a href="DisplayObject.html#loaderInfo" target="">DisplayObject.loaderInfo</a>
+<br>
+<a href="http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118a9b90204-7e13.html" target="mm_external">Loading display content dynamically</a>
+<br>
+<a href="http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118a9b90204-7de1.html" target="mm_external">Monitoring loading progress</a>
+</div>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#actionScriptVersion">actionScriptVersion</a> : uint<div class="summaryTableDescription">[read-only]
+   The ActionScript version of the loaded SWF file.</div>
+</td><td class="summaryTableOwnerCol">LoaderInfo</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#applicationDomain">applicationDomain</a> : <a href="../system/ApplicationDomain.html">ApplicationDomain</a>
+<div class="summaryTableDescription">[read-only]
+   When an external SWF file is loaded, all ActionScript 3.0 definitions contained in the loaded class are stored in the <code>applicationDomain</code> property.</div>
+</td><td class="summaryTableOwnerCol">LoaderInfo</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#bytes">bytes</a> : <a href="../utils/ByteArray.html">ByteArray</a>
+<div class="summaryTableDescription">[read-only]
+   The bytes associated with a LoaderInfo object.</div>
+</td><td class="summaryTableOwnerCol">LoaderInfo</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#bytesLoaded">bytesLoaded</a> : uint<div class="summaryTableDescription">[read-only]
+   The number of bytes that are loaded for the media.</div>
+</td><td class="summaryTableOwnerCol">LoaderInfo</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#bytesTotal">bytesTotal</a> : uint<div class="summaryTableDescription">[read-only]
+   The number of compressed bytes in the entire media file.</div>
+</td><td class="summaryTableOwnerCol">LoaderInfo</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#childAllowsParent">childAllowsParent</a> : Boolean<div class="summaryTableDescription">[read-only]
+   Expresses the trust relationship from content (child) to the Loader (parent).</div>
+</td><td class="summaryTableOwnerCol">LoaderInfo</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#content">content</a> : <a href="../display/DisplayObject.html">DisplayObject</a>
+<div class="summaryTableDescription">[read-only]
+   The loaded object associated with this LoaderInfo object.</div>
+</td><td class="summaryTableOwnerCol">LoaderInfo</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#contentType">contentType</a> : String<div class="summaryTableDescription">[read-only]
+   The MIME type of the loaded file.</div>
+</td><td class="summaryTableOwnerCol">LoaderInfo</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#frameRate">frameRate</a> : Number<div class="summaryTableDescription">[read-only]
+   The nominal frame rate, in frames per second, of the loaded SWF file.</div>
+</td><td class="summaryTableOwnerCol">LoaderInfo</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#height">height</a> : int<div class="summaryTableDescription">[read-only]
+   The nominal height of the loaded file.</div>
+</td><td class="summaryTableOwnerCol">LoaderInfo</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#loader">loader</a> : <a href="../display/Loader.html">Loader</a>
+<div class="summaryTableDescription">[read-only]
+   The Loader object associated with this LoaderInfo object.</div>
+</td><td class="summaryTableOwnerCol">LoaderInfo</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#loaderURL">loaderURL</a> : String<div class="summaryTableDescription">[read-only]
+   The URL of the SWF file that initiated the loading of the media described by this LoaderInfo object.</div>
+</td><td class="summaryTableOwnerCol">LoaderInfo</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#parameters">parameters</a> : Object<div class="summaryTableDescription">[read-only]
+   An object that contains name-value pairs that represent the parameters provided to the loaded SWF file.</div>
+</td><td class="summaryTableOwnerCol">LoaderInfo</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#parentAllowsChild">parentAllowsChild</a> : Boolean<div class="summaryTableDescription">[read-only]
+   Expresses the trust relationship from Loader (parent) to the content (child).</div>
+</td><td class="summaryTableOwnerCol">LoaderInfo</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#sameDomain">sameDomain</a> : Boolean<div class="summaryTableDescription">[read-only]
+   Expresses the domain relationship between the loader and the content: <code>true</code> if they have the same origin domain; <code>false</code> otherwise.</div>
+</td><td class="summaryTableOwnerCol">LoaderInfo</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#sharedEvents">sharedEvents</a> : <a href="../events/EventDispatcher.html">EventDispatcher</a>
+<div class="summaryTableDescription">[read-only]
+   An EventDispatcher instance that can be used to exchange events across security boundaries.</div>
+</td><td class="summaryTableOwnerCol">LoaderInfo</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#swfVersion">swfVersion</a> : uint<div class="summaryTableDescription">[read-only]
+   The file format version of the loaded SWF file.</div>
+</td><td class="summaryTableOwnerCol">LoaderInfo</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#url">url</a> : String<div class="summaryTableDescription">[read-only]
+   The URL of the media being loaded.</div>
+</td><td class="summaryTableOwnerCol">LoaderInfo</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#width">width</a> : int<div class="summaryTableDescription">[read-only]
+   The nominal width of the loaded content.</div>
+</td><td class="summaryTableOwnerCol">LoaderInfo</td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<div class="showHideLinks">
+<div class="hideInheritedMethod" id="hideInheritedMethod">
+<a onclick="javascript:setInheritedVisible(false,'Method');" href="#methodSummary" class="showHideLink"><img src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Methods</a>
+</div>
+<div class="showInheritedMethod" id="showInheritedMethod">
+<a onclick="javascript:setInheritedVisible(true,'Method');" href="#methodSummary" class="showHideLink"><img src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Methods</a>
+</div>
+</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#addEventListener()">addEventListener</a>(type:String, listener:Function, useCapture:Boolean = false, priority:int = 0, useWeakReference:Boolean = false):void</div>
+<div class="summaryTableDescription">
+   Registers an event listener object with an EventDispatcher object so that the listener receives notification of an event.</div>
+</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#dispatchEvent()">dispatchEvent</a>(event:<a href="../events/Event.html">Event</a>):Boolean</div>
+<div class="summaryTableDescription">
+   Dispatches an event into the event flow.</div>
+</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getLoaderInfoByDefinition()">getLoaderInfoByDefinition</a>(object:Object):<a href="../display/LoaderInfo.html">LoaderInfo</a>
+</div>
+<div class="summaryTableDescription">[static]
+   Returns the LoaderInfo object associated with a SWF file defined as an object.</div>
+</td><td class="summaryTableOwnerCol">LoaderInfo</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#hasEventListener()">hasEventListener</a>(type:String):Boolean</div>
+<div class="summaryTableDescription">
+   Checks whether the EventDispatcher object has any listeners registered for a specific type of event.</div>
+</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#load()">load</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">LoaderInfo</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#removeEventListener()">removeEventListener</a>(type:String, listener:Function, useCapture:Boolean = false):void</div>
+<div class="summaryTableDescription">
+   Removes a listener from the EventDispatcher object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setBytes()">setBytes</a>(value:<a href="../utils/ByteArray.html">ByteArray</a>):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">LoaderInfo</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setContent()">setContent</a>(content:<a href="DisplayObject.html">DisplayObject</a>):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">LoaderInfo</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setUrl()">setUrl</a>(url:String):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">LoaderInfo</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#toString()">toString</a>():String</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#willTrigger()">willTrigger</a>(type:String):Boolean</div>
+<div class="summaryTableDescription">
+   Checks whether an event listener is registered with this EventDispatcher object or any of its ancestors for the specified event type.</div>
+</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+</table>
+</div>
+<a name="eventSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Events</div>
+<div class="showHideLinks">
+<div class="hideInheritedEvent" id="hideInheritedEvent">
+<a onclick="javascript:setInheritedVisible(false,'Event');" href="#eventSummary" class="showHideLink"><img src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Events</a>
+</div>
+<div class="showInheritedEvent" id="showInheritedEvent">
+<a onclick="javascript:setInheritedVisible(true,'Event');" href="#eventSummary" class="showHideLink"><img src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Events</a>
+</div>
+</div>
+<table id="summaryTableEvent" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Event</th><th>Summary</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#event:activate">activate</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ [broadcast event] Dispatched when the Flash Player or AIR application gains operating system focus and becomes active.</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:complete">complete</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when data has loaded successfully.</td><td class="summaryTableOwnerCol">LoaderInfo</td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#event:deactivate">deactivate</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ [broadcast event] Dispatched when the Flash Player or AIR application operating loses system focus and is becoming inactive.</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:httpStatus">httpStatus</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ property HTTPStatusEvent.type =
+ </td><td class="summaryTableOwnerCol">LoaderInfo</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:init">init</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when the properties and methods of a loaded SWF file are accessible and ready for use.</td><td class="summaryTableOwnerCol">LoaderInfo</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:ioError">ioError</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ property IOErrorEvent.type =
+ </td><td class="summaryTableOwnerCol">LoaderInfo</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:open">open</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when a load operation starts.</td><td class="summaryTableOwnerCol">LoaderInfo</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:progress">progress</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ property ProgressEvent.type =
+ </td><td class="summaryTableOwnerCol">LoaderInfo</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:unload">unload</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched by a LoaderInfo object whenever a loaded object is removed by using the <code>unload()</code> method of the Loader object, or when a second load is performed by the same Loader object and the original content is removed prior to the load beginning.</td><td class="summaryTableOwnerCol">LoaderInfo</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="actionScriptVersion"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">actionScriptVersion</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>actionScriptVersion:uint</code>&nbsp;&nbsp;[read-only]<p>
+   The ActionScript version of the loaded SWF file. The language version is specified by using the enumerations in the ActionScriptVersion class, such as <code>ActionScriptVersion.ACTIONSCRIPT2</code> and <code>ActionScriptVersion.ACTIONSCRIPT3</code>.
+   </p><p><b>Note:</b> This property always has a value of either <code>ActionScriptVersion.ACTIONSCRIPT2</code> or <code>ActionScriptVersion.ACTIONSCRIPT3</code>. ActionScript 1.0 and 2.0 are both reported as <code>ActionScriptVersion.ACTIONSCRIPT2</code> (version 2.0). This property only distinguishes ActionScript 1.0 and 2.0 from ActionScript 3.0.</p>
+   <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get actionScriptVersion():uint</code>
+<br>
+<br>
+<span class="label">Throws</span>
+<br>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code></code> &mdash; If the file is not downloaded sufficiently to retrieve the requested information.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code></code> &mdash; If the file is not a SWF file.
+      </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="ActionScriptVersion.html" target="">ActionScriptVersion</a>
+</div>
+</div>
+<a name="applicationDomain"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">applicationDomain</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>applicationDomain:<a href="../system/ApplicationDomain.html">ApplicationDomain</a></code>&nbsp;&nbsp;[read-only]<p>
+   When an external SWF file is loaded, all ActionScript 3.0 definitions contained in the loaded class are stored in the <code>applicationDomain</code> property.
+   </p><p>All code in a SWF file is defined to exist in an application domain. The current application domain is where your main application runs. The system domain contains all application domains, including the current domain and all classes used by Flash Player or Adobe AIR.</p>
+   <p>All application domains, except the system domain, have an associated parent domain. The parent domain of your main application's <code>applicationDomain</code> is the system domain. Loaded classes are defined only when their parent doesn't already define them. You cannot override a loaded class definition with a newer definition.</p>
+   <p>For usage examples of application domains, see the "Client System Environment" chapter in the <i>ActionScript 3.0 Developer's Guide</i>.</p>
+   <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get applicationDomain():<a href="../system/ApplicationDomain.html">ApplicationDomain</a></code>
+<br>
+<br>
+<span class="label">Throws</span>
+<br>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../SecurityError.html">SecurityError</a> </code> &mdash; This security sandbox of the caller is not allowed to access this ApplicationDomain.
+      </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../system/ApplicationDomain.html" target="">flash.system.ApplicationDomain</a>
+<br>
+<a href="http://help.adobe.com/en_US/as3/dev/WSd75bf4610ec9e22f43855da312214da1d8f-8000.html" target="mm_external">Working with application domains</a>
+<br>
+<a href="http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118a9b90204-7e13.html" target="mm_external">Loading display content dynamically</a>
+<br>
+<a href="http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118a9b90204-7de0.html" target="mm_external">Specifying loading context</a>
+</div>
+</div>
+<a name="bytes"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">bytes</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>bytes:<a href="../utils/ByteArray.html">ByteArray</a></code>&nbsp;&nbsp;[read-only]<p>
+   The bytes associated with a LoaderInfo object.
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get bytes():<a href="../utils/ByteArray.html">ByteArray</a></code>
+<br>
+<br>
+<span class="label">Throws</span>
+<br>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../SecurityError.html">SecurityError</a> </code> &mdash; If the object accessing this API is prevented from accessing the loaded object due to security restrictions. This situation can occur, for instance, when a Loader object attempts to access the <code>contentLoaderInfo.content</code> property and it is not granted security permission to access the loaded content.
+   <p>For more information related to security, see the Flash Player Developer Center Topic: <a href="http://www.adobe.com/go/devnet_security_en">Security</a>.</p>
+      </td>
+</tr>
+</table>
+</div>
+<a name="bytesLoaded"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">bytesLoaded</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>bytesLoaded:uint</code>&nbsp;&nbsp;[read-only]<p>
+   The number of bytes that are loaded for the media. When this number equals the value of <code>bytesTotal</code>, all of the bytes are loaded.
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get bytesLoaded():uint</code>
+<br>
+</div>
+<a name="bytesTotal"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">bytesTotal</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>bytesTotal:uint</code>&nbsp;&nbsp;[read-only]<p>
+   The number of compressed bytes in the entire media file.
+   </p><p>Before the first <code>progress</code> event is dispatched by this LoaderInfo object's corresponding Loader object, <code>bytesTotal</code> is 0. After the first <code>progress</code> event from the Loader object, <code>bytesTotal</code> reflects the actual number of bytes to be downloaded.</p>
+   <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get bytesTotal():uint</code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../events/ProgressEvent.html" target="">flash.events.ProgressEvent</a>
+<br>
+<a href="Loader.html" target="">Loader</a>
+</div>
+</div>
+<a name="childAllowsParent"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">childAllowsParent</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>childAllowsParent:Boolean</code>&nbsp;&nbsp;[read-only]<p>
+   Expresses the trust relationship from content (child) to the Loader (parent). If the child has allowed the parent access, <code>true</code>; otherwise, <code>false</code>. This property is set to <code>true</code> if the child object has called the <code>allowDomain()</code> method to grant permission to the parent domain or if a URL policy is loaded at the child domain that grants permission to the parent domain. If child and parent are in the same domain, this property is set to <code>true</code>.
+   </p><p>For more information related to security, see the Flash Player Developer Center Topic: <a href="http://www.adobe.com/go/devnet_security_en">Security</a>.</p>
+   <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get childAllowsParent():Boolean</code>
+<br>
+<br>
+<span class="label">Throws</span>
+<br>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code></code> &mdash; Thrown if the file is not downloaded sufficiently to retrieve the requested information.
+      </td>
+</tr>
+</table>
+</div>
+<a name="content"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">content</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>content:<a href="../display/DisplayObject.html">DisplayObject</a></code>&nbsp;&nbsp;[read-only]<p>
+   The loaded object associated with this LoaderInfo object.
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get content():<a href="../display/DisplayObject.html">DisplayObject</a></code>
+<br>
+<br>
+<span class="label">Throws</span>
+<br>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../SecurityError.html">SecurityError</a> </code> &mdash; If the object accessing this API is prevented from accessing the loaded object due to security restrictions. This situation can occur, for instance, when a Loader object attempts to access the <code>contentLoaderInfo.content</code> property and it is not granted security permission to access the loaded content.
+   <p>For more information related to security, see the Flash Player Developer Center Topic: <a href="http://www.adobe.com/go/devnet_security_en">Security</a>.</p>
+      </td>
+</tr>
+</table>
+</div>
+<a name="contentType"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">contentType</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>contentType:String</code>&nbsp;&nbsp;[read-only]<p>
+   The MIME type of the loaded file. The value is <code>null</code> if not enough of the file has loaded in order to determine the type. The following list gives the possible values:
+   <ul>
+   <li><code>"application/x-shockwave-flash"</code></li>
+   <li><code>"image/jpeg"</code></li>
+   <li><code>"image/gif"</code></li>
+   <li><code>"image/png"</code></li></ul>
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get contentType():String</code>
+<br>
+</div>
+<a name="frameRate"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">frameRate</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>frameRate:Number</code>&nbsp;&nbsp;[read-only]<p>
+   The nominal frame rate, in frames per second, of the loaded SWF file. This number is often an integer, but need not be.
+   </p><p>This value may differ from the actual frame rate in use. Flash Player or Adobe AIR only uses a single frame rate for all loaded SWF files at any one time, and this frame rate is determined by the nominal frame rate of the main SWF file. Also, the main frame rate may not be able to be achieved, depending on hardware, sound synchronization, and other factors.</p>
+   <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get frameRate():Number</code>
+<br>
+<br>
+<span class="label">Throws</span>
+<br>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code></code> &mdash; If the file is not downloaded sufficiently to retrieve the requested information.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code></code> &mdash; If the file is not a SWF file.
+      </td>
+</tr>
+</table>
+</div>
+<a name="height"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">height</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>height:int</code>&nbsp;&nbsp;[read-only]<p>
+   The nominal height of the loaded file. This value might differ from the actual height at which the content is displayed, since the loaded content or its parent display objects might be scaled.
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get height():int</code>
+<br>
+<br>
+<span class="label">Throws</span>
+<br>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code></code> &mdash; If the file is not downloaded sufficiently to retrieve the requested information.
+      </td>
+</tr>
+</table>
+</div>
+<a name="loader"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">loader</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>loader:<a href="../display/Loader.html">Loader</a></code>&nbsp;&nbsp;[read-only]<p>
+   The Loader object associated with this LoaderInfo object. If this LoaderInfo object is the <code>loaderInfo</code> property of the instance of the main class of the SWF file, no Loader object is associated.
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get loader():<a href="../display/Loader.html">Loader</a></code>
+<br>
+<br>
+<span class="label">Throws</span>
+<br>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../SecurityError.html">SecurityError</a> </code> &mdash; If the object accessing this API is prevented from accessing the Loader object because of security restrictions. This can occur, for instance, when a loaded SWF file attempts to access its <code>loaderInfo.loader</code> property and it is not granted security permission to access the loading SWF file.
+   <p>For more information related to security, see the Flash Player Developer Center Topic: <a href="http://www.adobe.com/go/devnet_security_en">Security</a>.</p>
+      </td>
+</tr>
+</table>
+</div>
+<a name="loaderURL"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">loaderURL</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>loaderURL:String</code>&nbsp;&nbsp;[read-only]<p>
+   The URL of the SWF file that initiated the loading of the media described by this LoaderInfo object. For the instance of the main class of the SWF file, this URL is the same as the SWF file's own URL.
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get loaderURL():String</code>
+<br>
+</div>
+<a name="parameters"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">parameters</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>parameters:Object</code>&nbsp;&nbsp;[read-only]<p>
+   An object that contains name-value pairs that represent the parameters provided to the loaded SWF file.
+   </p><p>You can use a <code>for-in</code> loop to extract all the names and values from the <code>parameters</code> object.</p>
+   <p>The two sources of parameters are: the query string in the URL of the main SWF file, and the value of the <code>FlashVars</code> HTML parameter (this affects only the main SWF file).</p>
+   <p>The <code>parameters</code> property replaces the ActionScript 1.0 and 2.0 technique of providing SWF file parameters as properties of the main timeline.</p>
+   <p>The value of the <code>parameters</code> property is null for Loader objects that contain SWF files that use ActionScript 1.0 or 2.0. It is only non-null for Loader objects that contain SWF files that use ActionScript 3.0.</p>
+   <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get parameters():Object</code>
+<br>
+</div>
+<a name="parentAllowsChild"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">parentAllowsChild</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>parentAllowsChild:Boolean</code>&nbsp;&nbsp;[read-only]<p>
+   Expresses the trust relationship from Loader (parent) to the content (child). If the parent has allowed the child access, <code>true</code>; otherwise, <code>false</code>. This property is set to <code>true</code> if the parent object called the <code>allowDomain()</code> method to grant permission to the child domain or if a URL policy file is loaded at the parent domain granting permission to the child domain. If child and parent are in the same domain, this property is set to <code>true</code>.
+   </p><p>For more information related to security, see the Flash Player Developer Center Topic: <a href="http://www.adobe.com/go/devnet_security_en">Security</a>.</p>
+   <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get parentAllowsChild():Boolean</code>
+<br>
+<br>
+<span class="label">Throws</span>
+<br>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code></code> &mdash; Thrown if the file is not downloaded sufficiently to retrieve the requested information.
+      </td>
+</tr>
+</table>
+</div>
+<a name="sameDomain"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">sameDomain</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>sameDomain:Boolean</code>&nbsp;&nbsp;[read-only]<p>
+   Expresses the domain relationship between the loader and the content: <code>true</code> if they have the same origin domain; <code>false</code> otherwise.
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get sameDomain():Boolean</code>
+<br>
+<br>
+<span class="label">Throws</span>
+<br>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code></code> &mdash; Thrown if the file is not downloaded sufficiently to retrieve the requested information.
+      </td>
+</tr>
+</table>
+</div>
+<a name="sharedEvents"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">sharedEvents</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>sharedEvents:<a href="../events/EventDispatcher.html">EventDispatcher</a></code>&nbsp;&nbsp;[read-only]<p>
+   An EventDispatcher instance that can be used to exchange events across security boundaries. Even when the Loader object and the loaded content originate from security domains that do not trust one another, both can access <code>sharedEvents</code> and send and receive events via this object.
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get sharedEvents():<a href="../events/EventDispatcher.html">EventDispatcher</a></code>
+<br>
+</div>
+<a name="swfVersion"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">swfVersion</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>swfVersion:uint</code>&nbsp;&nbsp;[read-only]<p>
+   The file format version of the loaded SWF file. The file format is specified using the enumerations in the SWFVersion class, such as <code>SWFVersion.FLASH7</code> and <code>SWFVersion.FLASH9</code>.
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get swfVersion():uint</code>
+<br>
+<br>
+<span class="label">Throws</span>
+<br>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code></code> &mdash; If the file is not downloaded sufficiently to retrieve the requested information.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code></code> &mdash; If the file is not a SWF file.
+      </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="SWFVersion.html" target="">SWFVersion</a>
+</div>
+</div>
+<a name="url"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">url</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>url:String</code>&nbsp;&nbsp;[read-only]<p>
+   The URL of the media being loaded.
+   </p><p>Before the first <code>progress</code> event is dispatched by this LoaderInfo object's corresponding Loader object, the value of the <code>url</code> property might reflect only the initial URL specified in the call to the <code>load()</code> method of the Loader object. After the first <code>progress</code> event, the <code>url</code> property reflects the media's final URL, after any redirects and relative URLs are resolved.</p>
+   <p>In some cases, the value of the <code>url</code> property is truncated; see the <code>isURLInaccessible</code> property for details.</p>
+   <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get url():String</code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../display/LoaderInfo.html#isURLInaccessible" target="">isURLInaccessible</a>
+<br>
+<a href="Loader.html#load()" target="">Loader.load()</a>
+</div>
+</div>
+<a name="width"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">width</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>width:int</code>&nbsp;&nbsp;[read-only]<p>
+   The nominal width of the loaded content. This value might differ from the actual width at which the content is displayed, since the loaded content or its parent display objects might be scaled.
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get width():int</code>
+<br>
+<br>
+<span class="label">Throws</span>
+<br>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code></code> &mdash; If the file is not downloaded sufficiently to retrieve the requested information.
+      </td>
+</tr>
+</table>
+</div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="getLoaderInfoByDefinition()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getLoaderInfoByDefinition</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function getLoaderInfoByDefinition(object:Object):<a href="../display/LoaderInfo.html">LoaderInfo</a></code><p>
+   Returns the LoaderInfo object associated with a SWF file defined as an object.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">object</span>:Object</code> &mdash; The object for which you want to get an associated LoaderInfo object.
+      </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../display/LoaderInfo.html">LoaderInfo</a></code> &mdash; 
+                        The associated LoaderInfo object. Returns <code>null</code> when called in non-debugger builds (or when debugging is not enabled) or if the referenced <code>object</code> does not have an associated LoaderInfo object (such as some objects used by the AIR runtime).
+      
+                        
+                     </td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../SecurityError.html">SecurityError</a> </code> &mdash; The caller is not running in the local trusted sandbox.
+      </td>
+</tr>
+</table>
+</div>
+<a name="load()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">load</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function load():void</code>
+</div>
+<a name="setBytes()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setBytes</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function setBytes(value:<a href="../utils/ByteArray.html">ByteArray</a>):void</code><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">value</span>:<a href="../utils/ByteArray.html">ByteArray</a></code></td>
+</tr>
+</table>
+</div>
+<a name="setContent()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setContent</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function setContent(content:<a href="DisplayObject.html">DisplayObject</a>):void</code><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">content</span>:<a href="DisplayObject.html">DisplayObject</a></code></td>
+</tr>
+</table>
+</div>
+<a name="setUrl()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setUrl</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function setUrl(url:String):void</code><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">url</span>:String</code></td>
+</tr>
+</table>
+</div>
+<div class="detailSectionHeader">Event detail</div>
+<a name="event:complete"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">complete</td><td class="detailHeaderType">event&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="../events/Event.html"><code>flash.events.Event</code></a>
+<br>
+<p></p><p>
+ Dispatched when data has loaded successfully. In other words, it is dispatched when all the content has been downloaded and the loading has finished. The <code>complete</code> event is always dispatched after the <code>init</code> event. The <code>init</code> event is dispatched when the object is ready to access, though the content may still be downloading.
+ </p></div>
+<a name="event:httpStatus"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">httpStatus</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="../events/HTTPStatusEvent.html"><code>flash.events.HTTPStatusEvent</code></a>
+<br>
+<p></p><p>
+ property HTTPStatusEvent.type =
+ </p></div>
+<a name="event:init"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">init</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="../events/Event.html"><code>flash.events.Event</code></a>
+<br>
+<p></p><p>
+ Dispatched when the properties and methods of a loaded SWF file are accessible and ready for use. The content, however, can still be downloading. A LoaderInfo object dispatches the <code>init</code> event when the following conditions exist:
+ <ul>
+ <li>All properties and methods associated with the loaded object and those associated with the LoaderInfo object are accessible.</li>
+ <li>The constructors for all child objects have completed.</li>
+ <li>All ActionScript code in the first frame of the loaded SWF's main timeline has been executed.</li></ul>
+ </p><p>For example, an <code>Event.INIT</code> is dispatched when the first frame of a movie or animation is loaded. The movie is then accessible and can be added to the display list. The complete movie, however, can take longer to download. The <code>Event.COMPLETE</code> is only dispatched once the full movie is loaded.</p>
+ <p>The <code>init</code> event always precedes the <code>complete</code> event.</p>
+ </div>
+<a name="event:ioError"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">ioError</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="../events/IOErrorEvent.html"><code>flash.events.IOErrorEvent</code></a>
+<br>
+<p></p><p>
+ property IOErrorEvent.type =
+ </p></div>
+<a name="event:open"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">open</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="../events/Event.html"><code>flash.events.Event</code></a>
+<br>
+<p></p><p>
+ Dispatched when a load operation starts.
+ </p></div>
+<a name="event:progress"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">progress</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="../events/ProgressEvent.html"><code>flash.events.ProgressEvent</code></a>
+<br>
+<p></p><p>
+ property ProgressEvent.type =
+ </p></div>
+<a name="event:unload"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">unload</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="../events/Event.html"><code>flash.events.Event</code></a>
+<br>
+<p></p><p>
+ Dispatched by a LoaderInfo object whenever a loaded object is removed by using the <code>unload()</code> method of the Loader object, or when a second load is performed by the same Loader object and the original content is removed prior to the load beginning.
+ </p></div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<center class="copyright"> 
+</center>
+</div>
+</body>
+</html>
+<!-- -->

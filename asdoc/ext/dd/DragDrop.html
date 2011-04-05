@@ -1,0 +1,2306 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../print.css" type="text/css" media="print">
+<meta content="DragDrop,ext.dd.DragDrop,__ygDragDrop,_domRef,config,constrainX,constrainY,defaultPadding,dragElId,groups,handleElId,hasOuterHandles,id,ignoreSelf,invalidHandleClasses,invalidHandleIds,invalidHandleTypes,isTarget,locked,maintainOffset,maxX,maxY,minX,minY,moveOnly,padding,primaryButtonOnly,startPageX,startPageY,xTicks,yTicks,available,addInvalidHandleClass,addInvalidHandleId,addInvalidHandleType,addToGroup,applyConfig,b4Drag,b4DragDrop,b4DragOut,b4DragOver,b4EndDrag,b4MouseDown,b4StartDrag,clearConstraints,clearTicks,constrainTo,endDrag,getDragEl,getEl,getTick,handleMouseDown,handleOnAvailable,init,initTarget,isLocked,isValidHandleChild,lock,onAvailable,onDrag,onDragDrop,onDragEnter,onDragOut,onDragOver,onInvalidDrop,onMouseDown,onMouseUp,removeFromGroup,removeInvalidHandleClass,removeInvalidHandleId,removeInvalidHandleType,resetConstraints,setDragElId,setHandleElId,setInitPosition,setOuterHandleElId,setPadding,setStartPosition,setXConstraint,setXTicks,setYConstraint,setYTicks,startDrag,toString,unlock,unreg" name="keywords">
+<title>ext.dd.DragDrop</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'DragDrop - API Documentation';
+				var baseRef = '../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">API Documentation</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../all-classes.html')" href="../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../all-classes.html')" href="../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../index-list.html')" href="../../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../../index.html?ext/dd/DragDrop.html&amp;ext/dd/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;DragDrop</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class DragDrop"); titleBar_setSubNav(false,true,false,false,false,false,true,false,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">ext.dd</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public class DragDrop</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Subclasses</td><td><a href="../dd/DD.html">DD</a>, <a href="../dd/DDTarget.html">DDTarget</a></td>
+</tr>
+</table>
+<p></p>
+ Defines the interface and base operation of items that can be
+ dragged or can be drop targets.  It was designed to be extended, overriding
+ the event handlers for startDrag, onDrag, onDragOver and onDragOut.
+ Up to three html elements can be associated with a DragDrop instance:
+ <ul>
+ <li>linked element: the element that is passed into the constructor.
+ This is the element which defines the boundaries for interaction with
+ other DragDrop objects.</li>
+ <li>handle element(s): The drag operation only occurs if the element that
+ was clicked matches a handle element.  By default this is the linked
+ element, but there are times that you will want only a portion of the
+ linked element to initiate the drag operation, and the setHandleElId()
+ method provides a way to define this.</li>
+ <li>drag element: this represents the element that would be moved along
+ with the cursor during a drag operation.  By default, this is the linked
+ element itself as in <b class='link'>Ext.dd.DD</b>.  setDragElId() lets you define
+ a separate element that would be moved, as in <b class='link'>Ext.dd.DDProxy</b>.
+ </li>
+ </ul>
+ This class should not be instantiated until the onload event to ensure that
+ the associated elements are available.
+ The following would define a DragDrop obj that would interact with any
+ other DragDrop obj in the "group1" group:
+ <pre>
+  dd = new Ext.dd.DragDrop("div1", "group1");
+ </pre>
+ Since none of the event handlers have been implemented, nothing would
+ actually happen if you were to run the code above.  Normally you would
+ override this class or one of the default implementations, but you can
+ also override the methods you want on an instance of the class...
+ <pre>
+  dd.onDragDrop = function(e, id) {
+    alert("dd was dropped on " + id);
+  }
+ </pre>
+<p></p>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#available">available</a> : Boolean<div class="summaryTableDescription">[read-only]
+     The availabe property is false until the linked dom element is accessible.</div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#config">config</a> : Object<div class="summaryTableDescription">
+     Configuration attributes passed into the constructor
+     </div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#defaultPadding">defaultPadding</a> : Object<div class="summaryTableDescription">
+     Provides default constraint padding to "constrainTo" elements (defaults to {left: 0, right:0, top:0, bottom:0}).</div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#groups">groups</a> : Object<div class="summaryTableDescription">
+     The group defines a logical collection of DragDrop objects that are
+     related.</div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#hasOuterHandles">hasOuterHandles</a> : Boolean = false<div class="summaryTableDescription">
+     By default, drags can only be initiated if the mousedown occurs in the
+     region the linked element is.</div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#id">id</a> : String<div class="summaryTableDescription">
+     The id of the element associated with this object.</div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#ignoreSelf">ignoreSelf</a> : Boolean = true<div class="summaryTableDescription">
+     Set to false to enable a DragDrop object to fire drag events while dragging
+     over its own Element.</div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#invalidHandleClasses">invalidHandleClasses</a> : Array<div class="summaryTableDescription">
+     An Array of CSS class names for elements to be considered in valid as drag handles.</div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#invalidHandleIds">invalidHandleIds</a> : Object<div class="summaryTableDescription">
+     An object who's property names identify the IDs of elements to be considered invalid as drag handles.</div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#invalidHandleTypes">invalidHandleTypes</a> : Object<div class="summaryTableDescription">
+     An object who's property names identify HTML tags to be considered invalid as drag handles.</div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#isTarget">isTarget</a> : Boolean = true<div class="summaryTableDescription">
+     By default, all instances can be a drop target.</div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#maintainOffset">maintainOffset</a> : Boolean<div class="summaryTableDescription">
+     Maintain offsets when we reset constraints.</div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#moveOnly">moveOnly</a> : Boolean = false<div class="summaryTableDescription">
+     When set to true, other DD objects in cooperating DDGroups do not receive
+     notification events when this DD object is dragged over them.</div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#padding">padding</a> : Array<div class="summaryTableDescription">
+     The padding configured for this drag and drop object for calculating
+     the drop zone intersection with this object.</div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#primaryButtonOnly">primaryButtonOnly</a> : Boolean<div class="summaryTableDescription">
+     By default the drag and drop instance will only respond to the primary
+     button click (left button for a right-handed mouse).</div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#xTicks">xTicks</a> : Array<div class="summaryTableDescription">
+     Array of pixel locations the element will snap to if we specified a
+     horizontal graduation/interval.</div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#yTicks">yTicks</a> : Array<div class="summaryTableDescription">
+     Array of pixel locations the element will snap to if we specified a
+     vertical graduation/interval.</div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+</table>
+</div>
+<a name="protectedPropertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Protected Properties</div>
+<table id="summaryTableProtectedProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#constrainX">constrainX</a> : Boolean<div class="summaryTableDescription">
+     Set to true when horizontal contraints are applied
+     </div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#constrainY">constrainY</a> : Boolean<div class="summaryTableDescription">
+     Set to true when vertical contraints are applied
+     </div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#_domRef">_domRef</a> : <a href="../../js/js/HTMLElement.html">HTMLElement</a>
+<div class="summaryTableDescription">
+     Cached reference to the linked element
+     </div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#dragElId">dragElId</a> : String<div class="summaryTableDescription">
+     The id of the element that will be dragged.</div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#handleElId">handleElId</a> : String<div class="summaryTableDescription">
+     The ID of the element that initiates the drag operation.</div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#locked">locked</a> : Boolean<div class="summaryTableDescription">
+     Individual drag/drop instances can be locked.</div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#maxX">maxX</a> : Number<div class="summaryTableDescription">
+     The right constraint
+     </div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#maxY">maxY</a> : Number<div class="summaryTableDescription">
+     The down constraint
+     </div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#minX">minX</a> : Number<div class="summaryTableDescription">
+     The left constraint
+     </div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#minY">minY</a> : Number<div class="summaryTableDescription">
+     The up constraint
+     </div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#startPageX">startPageX</a> : int<div class="summaryTableDescription">
+     The linked element's absolute X position at the time the drag was
+     started
+     </div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#startPageY">startPageY</a> : int<div class="summaryTableDescription">
+     The linked element's absolute X position at the time the drag was
+     started
+     </div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#__ygDragDrop">__ygDragDrop</a> : Boolean<div class="summaryTableDescription">
+     Internal typeof flag
+     </div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#DragDrop()">DragDrop</a>(id:String, sGroup:String, config:Object)</div>
+<div class="summaryTableDescription">
+ </div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#addInvalidHandleClass()">addInvalidHandleClass</a>(cssClass:String):void</div>
+<div class="summaryTableDescription">
+     Lets you specify a css class of elements that will not initiate a drag
+     </div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#addInvalidHandleId()">addInvalidHandleId</a>(id:String):void</div>
+<div class="summaryTableDescription">
+     Lets you to specify an element id for a child of a drag handle
+     that should not initiate a drag
+     </div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#addInvalidHandleType()">addInvalidHandleType</a>(tagName:String):void</div>
+<div class="summaryTableDescription">
+     Allows you to specify a tag name that should not start a drag operation
+     when clicked.</div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#addToGroup()">addToGroup</a>(sGroup:String):void</div>
+<div class="summaryTableDescription">
+     Add this instance to a group of related drag/drop objects.</div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#applyConfig()">applyConfig</a>():void</div>
+<div class="summaryTableDescription">
+     Applies the configuration parameters that were passed into the constructor.</div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#clearConstraints()">clearConstraints</a>():void</div>
+<div class="summaryTableDescription">
+     Clears any constraints applied to this instance.</div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#clearTicks()">clearTicks</a>():void</div>
+<div class="summaryTableDescription">
+     Clears any tick interval defined for this instance
+     </div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#constrainTo()">constrainTo</a>(constrainTo:*, pad:Boolean, inContent:* = false):void</div>
+<div class="summaryTableDescription">
+     Initializes the drag drop object's constraints to restrict movement to a certain element.</div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#endDrag()">endDrag</a>(e:<a href="../EventObjectClass.html">EventObjectClass</a>):void</div>
+<div class="summaryTableDescription">
+     Fired when we are done dragging the object
+     </div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getDragEl()">getDragEl</a>():<a href="../../js/js/HTMLElement.html">HTMLElement</a>
+</div>
+<div class="summaryTableDescription">
+     Returns a reference to the actual element to drag.</div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getEl()">getEl</a>():<a href="../../js/js/HTMLElement.html">HTMLElement</a>
+</div>
+<div class="summaryTableDescription">
+     Returns a reference to the linked element
+     </div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#init()">init</a>(id:String, sGroup:String = "default", config:Object = null):void</div>
+<div class="summaryTableDescription">
+     Sets up the DragDrop object.</div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#initTarget()">initTarget</a>(id:String, sGroup:String = "default", config:Object = null):void</div>
+<div class="summaryTableDescription">
+     Initializes Targeting functionality only...</div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#isLocked()">isLocked</a>():Boolean</div>
+<div class="summaryTableDescription">
+     Returns true if this instance is locked, or the drag drop mgr is locked
+     (meaning that all drag/drop is disabled on the page.)
+     </div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#isValidHandleChild()">isValidHandleChild</a>(node:<a href="../../js/HTMLElement.html">HTMLElement</a>):Boolean</div>
+<div class="summaryTableDescription">
+     Checks the tag exclusion list to see if this click should be ignored
+     </div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#lock()">lock</a>():void</div>
+<div class="summaryTableDescription">
+     Lock this instance
+     </div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onAvailable()">onAvailable</a>():void</div>
+<div class="summaryTableDescription">
+     Override the onAvailable method to do what is needed after the initial
+     position was determined.</div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onDrag()">onDrag</a>(e:<a href="../EventObjectClass.html">EventObjectClass</a>):void</div>
+<div class="summaryTableDescription">
+     Abstract method called during the onMouseMove event while dragging an
+     object.</div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onDragDrop()">onDragDrop</a>(e:<a href="../EventObjectClass.html">EventObjectClass</a>, id:Object):void</div>
+<div class="summaryTableDescription">
+     Abstract method called when this item is dropped on another DragDrop
+     obj
+     </div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onDragEnter()">onDragEnter</a>(e:<a href="../EventObjectClass.html">EventObjectClass</a>, id:Object):void</div>
+<div class="summaryTableDescription">
+     Abstract method called when this element fist begins hovering over
+     another DragDrop obj
+     </div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onDragOut()">onDragOut</a>(e:<a href="../EventObjectClass.html">EventObjectClass</a>, id:Object):void</div>
+<div class="summaryTableDescription">
+     Abstract method called when we are no longer hovering over an element
+     </div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onDragOver()">onDragOver</a>(e:<a href="../EventObjectClass.html">EventObjectClass</a>, id:Object):void</div>
+<div class="summaryTableDescription">
+     Abstract method called when this element is hovering over another
+     DragDrop obj
+     </div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onInvalidDrop()">onInvalidDrop</a>(e:<a href="../EventObjectClass.html">EventObjectClass</a>):void</div>
+<div class="summaryTableDescription">
+     Abstract method called when this item is dropped on an area with no
+     drop target
+     </div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onMouseDown()">onMouseDown</a>(e:<a href="../EventObjectClass.html">EventObjectClass</a>):void</div>
+<div class="summaryTableDescription">
+     Event handler that fires when a drag/drop obj gets a mousedown
+     </div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onMouseUp()">onMouseUp</a>(e:<a href="../EventObjectClass.html">EventObjectClass</a>):void</div>
+<div class="summaryTableDescription">
+     Event handler that fires when a drag/drop obj gets a mouseup
+     </div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#removeFromGroup()">removeFromGroup</a>(sGroup:String):void</div>
+<div class="summaryTableDescription">
+     Removes this instance from the supplied interaction group.</div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#removeInvalidHandleClass()">removeInvalidHandleClass</a>(cssClass:String):void</div>
+<div class="summaryTableDescription">
+     Unsets an invalid css class
+     </div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#removeInvalidHandleId()">removeInvalidHandleId</a>(id:String):void</div>
+<div class="summaryTableDescription">
+     Unsets an invalid handle id
+     </div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#removeInvalidHandleType()">removeInvalidHandleType</a>(tagName:String):void</div>
+<div class="summaryTableDescription">
+     Unsets an excluded tag name set by addInvalidHandleType
+     </div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#resetConstraints()">resetConstraints</a>():void</div>
+<div class="summaryTableDescription">
+     resetConstraints must be called if you manually reposition a dd element.</div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setDragElId()">setDragElId</a>(id:String):void</div>
+<div class="summaryTableDescription">
+     Allows you to specify that an element other than the linked element
+     will be moved with the cursor during a drag
+     </div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setHandleElId()">setHandleElId</a>(id:String):void</div>
+<div class="summaryTableDescription">
+     Allows you to specify a child of the linked element that should be
+     used to initiate the drag operation.</div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setInitPosition()">setInitPosition</a>(diffX:Number = 0, diffY:Number = 0):void</div>
+<div class="summaryTableDescription">
+     Stores the initial placement of the linked element.</div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setOuterHandleElId()">setOuterHandleElId</a>(id:String):void</div>
+<div class="summaryTableDescription">
+     Allows you to set an element outside of the linked element as a drag
+     handle
+     </div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setPadding()">setPadding</a>(iTop:int, iRight:int, iBot:int, iLeft:int):void</div>
+<div class="summaryTableDescription">
+     Configures the padding for the target zone in px.</div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setXConstraint()">setXConstraint</a>(iLeft:Number, iRight:Number, iTickSize:Number):void</div>
+<div class="summaryTableDescription">
+     By default, the element can be dragged any place on the screen.</div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setYConstraint()">setYConstraint</a>(iUp:Number, iDown:Number, iTickSize:Number):void</div>
+<div class="summaryTableDescription">
+     By default, the element can be dragged any place on the screen.</div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#startDrag()">startDrag</a>(x:Number, y:Number):void</div>
+<div class="summaryTableDescription">
+     Abstract method called after a drag/drop object is clicked
+     and the drag or mousedown time thresholds have beeen met.</div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#toString()">toString</a>():String</div>
+<div class="summaryTableDescription">
+     toString method
+     </div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#unlock()">unlock</a>():void</div>
+<div class="summaryTableDescription">
+     Unlock this instance.</div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#unreg()">unreg</a>():void</div>
+<div class="summaryTableDescription">
+     Remove all drag and drop hooks for this element
+     </div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+</table>
+</div>
+<a name="protectedMethodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Protected Methods</div>
+<table id="summaryTableProtectedMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#b4Drag()">b4Drag</a>(e:<a href="../EventObjectClass.html">EventObjectClass</a>):void</div>
+<div class="summaryTableDescription">
+     Code that executes immediately before the onDrag event
+     </div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#b4DragDrop()">b4DragDrop</a>(e:<a href="../EventObjectClass.html">EventObjectClass</a>):void</div>
+<div class="summaryTableDescription">
+     Code that executes immediately before the onDragDrop event
+     </div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#b4DragOut()">b4DragOut</a>(e:<a href="../EventObjectClass.html">EventObjectClass</a>):void</div>
+<div class="summaryTableDescription">
+     Code that executes immediately before the onDragOut event
+     </div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#b4DragOver()">b4DragOver</a>(e:<a href="../EventObjectClass.html">EventObjectClass</a>):void</div>
+<div class="summaryTableDescription">
+     Code that executes immediately before the onDragOver event
+     </div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#b4EndDrag()">b4EndDrag</a>(e:<a href="../EventObjectClass.html">EventObjectClass</a>):void</div>
+<div class="summaryTableDescription">
+     Code that executes immediately before the endDrag event
+     </div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#b4MouseDown()">b4MouseDown</a>(e:<a href="../EventObjectClass.html">EventObjectClass</a>):void</div>
+<div class="summaryTableDescription">
+     Code executed immediately before the onMouseDown event
+     </div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#b4StartDrag()">b4StartDrag</a>(x:Number, y:Number):void</div>
+<div class="summaryTableDescription">
+     Code that executes immediately before the startDrag event
+     </div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getTick()">getTick</a>(val:int, tickArray:Array = null):int</div>
+<div class="summaryTableDescription">
+     Normally the drag element is moved pixel by pixel, but we can specify
+     that it move a number of pixels at a time.</div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#handleMouseDown()">handleMouseDown</a>(e:<a href="../EventObjectClass.html">EventObjectClass</a>, oDD:<a href="DragDrop.html">DragDrop</a>):void</div>
+<div class="summaryTableDescription">
+     Fired when this object is clicked
+     </div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#handleOnAvailable()">handleOnAvailable</a>():void</div>
+<div class="summaryTableDescription">
+     Executed when the linked element is available
+     </div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setStartPosition()">setStartPosition</a>(pos:Array):void</div>
+<div class="summaryTableDescription">
+     Sets the start position of the element.</div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setXTicks()">setXTicks</a>(iStartX:*, iTickSize:int):Boolean</div>
+<div class="summaryTableDescription">
+     Create the array of horizontal tick marks if an interval was specified
+     in setXConstraint().</div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setYTicks()">setYTicks</a>(iStartY:*, iTickSize:int):Boolean</div>
+<div class="summaryTableDescription">
+     Create the array of vertical tick marks if an interval was specified in
+     setYConstraint().</div>
+</td><td class="summaryTableOwnerCol">DragDrop</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="available"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">available</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>available:Boolean</code>&nbsp;&nbsp;[read-only]<p>
+     The availabe property is false until the linked dom element is accessible.
+     </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get available():Boolean</code>
+<br>
+</div>
+<a name="config"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">config</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var config:Object</code><p>
+     Configuration attributes passed into the constructor
+     </p></div>
+<a name="constrainX"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">constrainX</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected var constrainX:Boolean</code><p>
+     Set to true when horizontal contraints are applied
+     </p></div>
+<a name="constrainY"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">constrainY</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected var constrainY:Boolean</code><p>
+     Set to true when vertical contraints are applied
+     </p></div>
+<a name="defaultPadding"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">defaultPadding</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var defaultPadding:Object</code><p>
+     Provides default constraint padding to "constrainTo" elements (defaults to {left: 0, right:0, top:0, bottom:0}).
+     </p></div>
+<a name="_domRef"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">_domRef</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected var _domRef:<a href="../../js/js/HTMLElement.html">HTMLElement</a></code><p>
+     Cached reference to the linked element
+     </p></div>
+<a name="dragElId"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">dragElId</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected var dragElId:String</code><p>
+     The id of the element that will be dragged.  By default this is same
+     as the linked element , but could be changed to another element. Ex:
+     Ext.dd.DDProxy
+     </p></div>
+<a name="groups"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">groups</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var groups:Object</code><p>
+     The group defines a logical collection of DragDrop objects that are
+     related.  Instances only get events when interacting with other
+     DragDrop object in the same group.  This lets us define multiple
+     groups using a single DragDrop subclass if we want.
+     </p></div>
+<a name="handleElId"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">handleElId</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected var handleElId:String</code><p>
+     The ID of the element that initiates the drag operation.  By default
+     this is the linked element, but could be changed to be a child of this
+     element.  This lets us do things like only starting the drag when the
+     header element within the linked html element is clicked.
+     </p></div>
+<a name="hasOuterHandles"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">hasOuterHandles</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var hasOuterHandles:Boolean = false</code><p>
+     By default, drags can only be initiated if the mousedown occurs in the
+     region the linked element is.  This is done in part to work around a
+     bug in some browsers that mis-report the mousedown if the previous
+     mouseup happened outside of the window.  This property is set to true
+     if outer handles are defined.
+     </p></div>
+<a name="id"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">id</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var id:String</code><p>
+     The id of the element associated with this object.  This is what we
+     refer to as the "linked element" because the size and position of
+     this element is used to determine when the drag and drop objects have
+     interacted.
+     </p></div>
+<a name="ignoreSelf"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">ignoreSelf</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var ignoreSelf:Boolean = true</code><p>
+     Set to false to enable a DragDrop object to fire drag events while dragging
+     over its own Element. Defaults to true - DragDrop objects do not by default
+     fire drag events to themselves.
+     </p></div>
+<a name="invalidHandleClasses"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">invalidHandleClasses</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var invalidHandleClasses:Array</code><p>
+     An Array of CSS class names for elements to be considered in valid as drag handles.
+     </p></div>
+<a name="invalidHandleIds"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">invalidHandleIds</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var invalidHandleIds:Object</code><p>
+     An object who's property names identify the IDs of elements to be considered invalid as drag handles.
+     A non-null property value identifies the ID as invalid. For example, to prevent
+     dragging from being initiated on element ID "foo", use:<pre><code>
+{
+    foo: true
+}</code></pre>
+     </p></div>
+<a name="invalidHandleTypes"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">invalidHandleTypes</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var invalidHandleTypes:Object</code><p>
+     An object who's property names identify HTML tags to be considered invalid as drag handles.
+     A non-null property value identifies the tag as invalid. Defaults to the 
+     following value which prevents drag operations from being initiated by &lt;a> elements:<pre><code>
+{
+    A: "A"
+}</code></pre>
+     </p></div>
+<a name="isTarget"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">isTarget</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var isTarget:Boolean = true</code><p>
+     By default, all instances can be a drop target.  This can be disabled by
+     setting isTarget to false.
+     </p></div>
+<a name="locked"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">locked</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected var locked:Boolean</code><p>
+     Individual drag/drop instances can be locked.  This will prevent
+     onmousedown start drag.
+     </p></div>
+<a name="maintainOffset"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">maintainOffset</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var maintainOffset:Boolean</code><p>
+     Maintain offsets when we reset constraints.  Set to true when you want
+     the position of the element relative to its parent to stay the same
+     when the page changes
+     </p></div>
+<a name="maxX"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">maxX</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected var maxX:Number</code><p>
+     The right constraint
+     </p></div>
+<a name="maxY"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">maxY</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected var maxY:Number</code><p>
+     The down constraint
+     </p></div>
+<a name="minX"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">minX</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected var minX:Number</code><p>
+     The left constraint
+     </p></div>
+<a name="minY"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">minY</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected var minY:Number</code><p>
+     The up constraint
+     </p></div>
+<a name="moveOnly"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">moveOnly</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var moveOnly:Boolean = false</code><p>
+     When set to true, other DD objects in cooperating DDGroups do not receive
+     notification events when this DD object is dragged over them. Defaults to false.
+     </p></div>
+<a name="padding"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">padding</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var padding:Array</code><p>
+     The padding configured for this drag and drop object for calculating
+     the drop zone intersection with this object.
+     </p></div>
+<a name="primaryButtonOnly"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">primaryButtonOnly</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var primaryButtonOnly:Boolean</code><p>
+     By default the drag and drop instance will only respond to the primary
+     button click (left button for a right-handed mouse).  Set to true to
+     allow drag and drop to start with any mouse click that is propogated
+     by the browser
+     </p></div>
+<a name="startPageX"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">startPageX</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected var startPageX:int</code><p>
+     The linked element's absolute X position at the time the drag was
+     started
+     </p></div>
+<a name="startPageY"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">startPageY</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected var startPageY:int</code><p>
+     The linked element's absolute X position at the time the drag was
+     started
+     </p></div>
+<a name="xTicks"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">xTicks</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var xTicks:Array</code><p>
+     Array of pixel locations the element will snap to if we specified a
+     horizontal graduation/interval.  This array is generated automatically
+     when you define a tick interval.
+     </p></div>
+<a name="__ygDragDrop"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">__ygDragDrop</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected var __ygDragDrop:Boolean</code><p>
+     Internal typeof flag
+     </p></div>
+<a name="yTicks"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">yTicks</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var yTicks:Array</code><p>
+     Array of pixel locations the element will snap to if we specified a
+     vertical graduation/interval.  This array is generated automatically
+     when you define a tick interval.
+     </p></div>
+<a name="constructorDetail"></a>
+<div class="detailSectionHeader">Constructor detail</div>
+<a name="DragDrop()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">DragDrop</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">constructor</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function DragDrop(id:String, sGroup:String, config:Object)</code><p>
+ </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">id</span>:String</code> &mdash; of the element that is linked to this instance
+ </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sGroup</span>:String</code> &mdash; the group of related DragDrop objects
+ </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">config</span>:Object</code> &mdash; an object containing configurable attributes
+                Valid properties for DragDrop:
+                    padding, isTarget, maintainOffset, primaryButtonOnly
+ </td>
+</tr>
+</table>
+</div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="addInvalidHandleClass()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">addInvalidHandleClass</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function addInvalidHandleClass(cssClass:String):void</code><p>
+     Lets you specify a css class of elements that will not initiate a drag
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">cssClass</span>:String</code> &mdash; the class of the elements you wish to ignore
+     </td>
+</tr>
+</table>
+</div>
+<a name="addInvalidHandleId()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">addInvalidHandleId</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function addInvalidHandleId(id:String):void</code><p>
+     Lets you to specify an element id for a child of a drag handle
+     that should not initiate a drag
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">id</span>:String</code> &mdash; the element id of the element you wish to ignore
+     </td>
+</tr>
+</table>
+</div>
+<a name="addInvalidHandleType()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">addInvalidHandleType</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function addInvalidHandleType(tagName:String):void</code><p>
+     Allows you to specify a tag name that should not start a drag operation
+     when clicked.  This is designed to facilitate embedding links within a
+     drag handle that do something other than start the drag.
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">tagName</span>:String</code> &mdash; the type of element to exclude
+     </td>
+</tr>
+</table>
+</div>
+<a name="addToGroup()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">addToGroup</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function addToGroup(sGroup:String):void</code><p>
+     Add this instance to a group of related drag/drop objects.  All
+     instances belong to at least one group, and can belong to as many
+     groups as needed.
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">sGroup</span>:String</code> &mdash; the name of the group
+     </td>
+</tr>
+</table>
+</div>
+<a name="applyConfig()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">applyConfig</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function applyConfig():void</code><p>
+     Applies the configuration parameters that were passed into the constructor.
+     This is supposed to happen at each level through the inheritance chain.  So
+     a DDProxy implentation will execute apply config on DDProxy, DD, and
+     DragDrop in order to get all of the parameters that are available in
+     each object.
+     </p></div>
+<a name="b4Drag()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">b4Drag</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function b4Drag(e:<a href="../EventObjectClass.html">EventObjectClass</a>):void</code><p>
+     Code that executes immediately before the onDrag event
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">e</span>:<a href="../EventObjectClass.html">EventObjectClass</a></code></td>
+</tr>
+</table>
+</div>
+<a name="b4DragDrop()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">b4DragDrop</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function b4DragDrop(e:<a href="../EventObjectClass.html">EventObjectClass</a>):void</code><p>
+     Code that executes immediately before the onDragDrop event
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">e</span>:<a href="../EventObjectClass.html">EventObjectClass</a></code></td>
+</tr>
+</table>
+</div>
+<a name="b4DragOut()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">b4DragOut</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function b4DragOut(e:<a href="../EventObjectClass.html">EventObjectClass</a>):void</code><p>
+     Code that executes immediately before the onDragOut event
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">e</span>:<a href="../EventObjectClass.html">EventObjectClass</a></code></td>
+</tr>
+</table>
+</div>
+<a name="b4DragOver()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">b4DragOver</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function b4DragOver(e:<a href="../EventObjectClass.html">EventObjectClass</a>):void</code><p>
+     Code that executes immediately before the onDragOver event
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">e</span>:<a href="../EventObjectClass.html">EventObjectClass</a></code></td>
+</tr>
+</table>
+</div>
+<a name="b4EndDrag()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">b4EndDrag</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function b4EndDrag(e:<a href="../EventObjectClass.html">EventObjectClass</a>):void</code><p>
+     Code that executes immediately before the endDrag event
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">e</span>:<a href="../EventObjectClass.html">EventObjectClass</a></code></td>
+</tr>
+</table>
+</div>
+<a name="b4MouseDown()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">b4MouseDown</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function b4MouseDown(e:<a href="../EventObjectClass.html">EventObjectClass</a>):void</code><p>
+     Code executed immediately before the onMouseDown event
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">e</span>:<a href="../EventObjectClass.html">EventObjectClass</a></code> &mdash; the mousedown event
+     </td>
+</tr>
+</table>
+</div>
+<a name="b4StartDrag()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">b4StartDrag</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function b4StartDrag(x:Number, y:Number):void</code><p>
+     Code that executes immediately before the startDrag event
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">x</span>:Number</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">y</span>:Number</code></td>
+</tr>
+</table>
+</div>
+<a name="clearConstraints()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">clearConstraints</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function clearConstraints():void</code><p>
+     Clears any constraints applied to this instance.  Also clears ticks
+     since they can't exist independent of a constraint at this time.
+     </p></div>
+<a name="clearTicks()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">clearTicks</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function clearTicks():void</code><p>
+     Clears any tick interval defined for this instance
+     </p></div>
+<a name="constrainTo()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">constrainTo</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function constrainTo(constrainTo:*, pad:Boolean, inContent:* = false):void</code><p>
+     Initializes the drag drop object's constraints to restrict movement to a certain element.
+  Usage:
+ <pre><code>
+ var dd = new ext.dd.DDProxy("dragDiv1", "proxytest",
+                { dragElId: "existingProxyDiv" });
+ dd.startDrag = function(){
+     this.constrainTo("parent-id");
+ };
+ </code></pre>
+ Or you can initalize it using the <b class='link'>ext.Element</b> object:
+ <pre><code>
+ Ext.get("dragDiv1").initDDProxy("proxytest", {dragElId: "existingProxyDiv"}, {
+     startDrag : function(){
+         this.constrainTo("parent-id");
+     }
+ });
+ </code></pre>
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">constrainTo</span>:*</code> &mdash; The element to constrain to.
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">pad</span>:Boolean</code> &mdash; Pad provides a way to specify "padding" of the constraints,
+     and can be either a number for symmetrical padding (4 would be equal to {left:4, right:4, top:4, bottom:4}) or
+     an object containing the sides to pad. For example: {right:10, bottom:10}
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">inContent</span>:*</code> (default = <code>false</code>)<code></code> &mdash; Constrain the draggable in the content box of the element (inside padding and borders)
+     </td>
+</tr>
+</table>
+</div>
+<a name="endDrag()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">endDrag</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function endDrag(e:<a href="../EventObjectClass.html">EventObjectClass</a>):void</code><p>
+     Fired when we are done dragging the object
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">e</span>:<a href="../EventObjectClass.html">EventObjectClass</a></code> &mdash; the mouseup event
+     </td>
+</tr>
+</table>
+</div>
+<a name="getDragEl()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getDragEl</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function getDragEl():<a href="../../js/js/HTMLElement.html">HTMLElement</a></code><p>
+     Returns a reference to the actual element to drag.  By default this is
+     the same as the html element, but it can be assigned to another
+     element. An example of this can be found in Ext.dd.DDProxy
+     </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../js/js/HTMLElement.html">HTMLElement</a></code> &mdash; 
+                        HTMLElement the html element
+     
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="getEl()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getEl</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function getEl():<a href="../../js/js/HTMLElement.html">HTMLElement</a></code><p>
+     Returns a reference to the linked element
+     </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../js/js/HTMLElement.html">HTMLElement</a></code> &mdash; 
+                        HTMLElement the html element
+     
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="getTick()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getTick</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function getTick(val:int, tickArray:Array = null):int</code><p>
+     Normally the drag element is moved pixel by pixel, but we can specify
+     that it move a number of pixels at a time.  This method resolves the
+     location when we have it set up like this.
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">val</span>:int</code> &mdash; where we want to place the object
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">tickArray</span>:Array</code> (default = <code>null</code>)<code></code> &mdash; sorted array of valid points
+     </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>int</code> &mdash; the closest tick
+     </td>
+</tr>
+</table>
+</div>
+<a name="handleMouseDown()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">handleMouseDown</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function handleMouseDown(e:<a href="../EventObjectClass.html">EventObjectClass</a>, oDD:<a href="DragDrop.html">DragDrop</a>):void</code><p>
+     Fired when this object is clicked
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">e</span>:<a href="../EventObjectClass.html">EventObjectClass</a></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">oDD</span>:<a href="DragDrop.html">DragDrop</a></code> &mdash; the clicked dd object (this dd obj)
+     </td>
+</tr>
+</table>
+</div>
+<a name="handleOnAvailable()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">handleOnAvailable</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function handleOnAvailable():void</code><p>
+     Executed when the linked element is available
+     </p></div>
+<a name="init()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">init</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function init(id:String, sGroup:String = "default", config:Object = null):void</code><p>
+     Sets up the DragDrop object.  Must be called in the constructor of any
+     Ext.dd.DragDrop subclass
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">id</span>:String</code> &mdash; the id of the linked element
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sGroup</span>:String</code> (default = "<code>default</code>")<code></code> &mdash; the group of related items
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">config</span>:Object</code> (default = <code>null</code>)<code></code> &mdash; configuration attributes
+     </td>
+</tr>
+</table>
+</div>
+<a name="initTarget()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">initTarget</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function initTarget(id:String, sGroup:String = "default", config:Object = null):void</code><p>
+     Initializes Targeting functionality only... the object does not
+     get a mousedown handler.
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">id</span>:String</code> &mdash; the id of the linked element
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sGroup</span>:String</code> (default = "<code>default</code>")<code></code> &mdash; the group of related items
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">config</span>:Object</code> (default = <code>null</code>)<code></code> &mdash; configuration attributes
+     </td>
+</tr>
+</table>
+</div>
+<a name="isLocked()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">isLocked</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function isLocked():Boolean</code><p>
+     Returns true if this instance is locked, or the drag drop mgr is locked
+     (meaning that all drag/drop is disabled on the page.)
+     </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code> &mdash; Boolean true if this obj or all drag/drop is locked, else
+     false
+     </td>
+</tr>
+</table>
+</div>
+<a name="isValidHandleChild()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">isValidHandleChild</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function isValidHandleChild(node:<a href="../../js/HTMLElement.html">HTMLElement</a>):Boolean</code><p>
+     Checks the tag exclusion list to see if this click should be ignored
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">node</span>:<a href="../../js/HTMLElement.html">HTMLElement</a></code> &mdash; the HTMLElement to evaluate
+     </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code> &mdash; Boolean true if this is a valid tag type, false if not
+     </td>
+</tr>
+</table>
+</div>
+<a name="lock()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">lock</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function lock():void</code><p>
+     Lock this instance
+     </p></div>
+<a name="onAvailable()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onAvailable</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function onAvailable():void</code><p>
+     Override the onAvailable method to do what is needed after the initial
+     position was determined.
+     </p></div>
+<a name="onDrag()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onDrag</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function onDrag(e:<a href="../EventObjectClass.html">EventObjectClass</a>):void</code><p>
+     Abstract method called during the onMouseMove event while dragging an
+     object.
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">e</span>:<a href="../EventObjectClass.html">EventObjectClass</a></code> &mdash; the mousemove event
+     </td>
+</tr>
+</table>
+</div>
+<a name="onDragDrop()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onDragDrop</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function onDragDrop(e:<a href="../EventObjectClass.html">EventObjectClass</a>, id:Object):void</code><p>
+     Abstract method called when this item is dropped on another DragDrop
+     obj
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">e</span>:<a href="../EventObjectClass.html">EventObjectClass</a></code> &mdash; the mouseup event
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">id</span>:Object</code> &mdash; In POINT mode, the element
+     id this was dropped on.  In INTERSECT mode, an array of dd items this
+     was dropped on.
+     </td>
+</tr>
+</table>
+</div>
+<a name="onDragEnter()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onDragEnter</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function onDragEnter(e:<a href="../EventObjectClass.html">EventObjectClass</a>, id:Object):void</code><p>
+     Abstract method called when this element fist begins hovering over
+     another DragDrop obj
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">e</span>:<a href="../EventObjectClass.html">EventObjectClass</a></code> &mdash; the mousemove event
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">id</span>:Object</code> &mdash; In POINT mode, the element
+     id this is hovering over.  In INTERSECT mode, an array of one or more
+     dragdrop items being hovered over.
+     </td>
+</tr>
+</table>
+</div>
+<a name="onDragOut()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onDragOut</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function onDragOut(e:<a href="../EventObjectClass.html">EventObjectClass</a>, id:Object):void</code><p>
+     Abstract method called when we are no longer hovering over an element
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">e</span>:<a href="../EventObjectClass.html">EventObjectClass</a></code> &mdash; the mousemove event
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">id</span>:Object</code> &mdash; In POINT mode, the element
+     id this was hovering over.  In INTERSECT mode, an array of dd items
+     that the mouse is no longer over.
+     </td>
+</tr>
+</table>
+</div>
+<a name="onDragOver()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onDragOver</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function onDragOver(e:<a href="../EventObjectClass.html">EventObjectClass</a>, id:Object):void</code><p>
+     Abstract method called when this element is hovering over another
+     DragDrop obj
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">e</span>:<a href="../EventObjectClass.html">EventObjectClass</a></code> &mdash; the mousemove event
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">id</span>:Object</code> &mdash; In POINT mode, the element
+     id this is hovering over.  In INTERSECT mode, an array of dd items
+     being hovered over.
+     </td>
+</tr>
+</table>
+</div>
+<a name="onInvalidDrop()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onInvalidDrop</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function onInvalidDrop(e:<a href="../EventObjectClass.html">EventObjectClass</a>):void</code><p>
+     Abstract method called when this item is dropped on an area with no
+     drop target
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">e</span>:<a href="../EventObjectClass.html">EventObjectClass</a></code> &mdash; the mouseup event
+     </td>
+</tr>
+</table>
+</div>
+<a name="onMouseDown()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onMouseDown</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function onMouseDown(e:<a href="../EventObjectClass.html">EventObjectClass</a>):void</code><p>
+     Event handler that fires when a drag/drop obj gets a mousedown
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">e</span>:<a href="../EventObjectClass.html">EventObjectClass</a></code> &mdash; the mousedown event
+     </td>
+</tr>
+</table>
+</div>
+<a name="onMouseUp()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onMouseUp</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function onMouseUp(e:<a href="../EventObjectClass.html">EventObjectClass</a>):void</code><p>
+     Event handler that fires when a drag/drop obj gets a mouseup
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">e</span>:<a href="../EventObjectClass.html">EventObjectClass</a></code> &mdash; the mouseup event
+     </td>
+</tr>
+</table>
+</div>
+<a name="removeFromGroup()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">removeFromGroup</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function removeFromGroup(sGroup:String):void</code><p>
+     Removes this instance from the supplied interaction group.
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">sGroup</span>:String</code> &mdash; sGroup  The group to drop
+     </td>
+</tr>
+</table>
+</div>
+<a name="removeInvalidHandleClass()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">removeInvalidHandleClass</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function removeInvalidHandleClass(cssClass:String):void</code><p>
+     Unsets an invalid css class
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">cssClass</span>:String</code> &mdash; the class of the element(s) you wish to
+     re-enable
+     </td>
+</tr>
+</table>
+</div>
+<a name="removeInvalidHandleId()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">removeInvalidHandleId</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function removeInvalidHandleId(id:String):void</code><p>
+     Unsets an invalid handle id
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">id</span>:String</code> &mdash; the id of the element to re-enable
+     </td>
+</tr>
+</table>
+</div>
+<a name="removeInvalidHandleType()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">removeInvalidHandleType</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function removeInvalidHandleType(tagName:String):void</code><p>
+     Unsets an excluded tag name set by addInvalidHandleType
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">tagName</span>:String</code> &mdash; the type of element to unexclude
+     </td>
+</tr>
+</table>
+</div>
+<a name="resetConstraints()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">resetConstraints</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function resetConstraints():void</code><p>
+     resetConstraints must be called if you manually reposition a dd element.
+     </p></div>
+<a name="setDragElId()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setDragElId</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function setDragElId(id:String):void</code><p>
+     Allows you to specify that an element other than the linked element
+     will be moved with the cursor during a drag
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">id</span>:String</code> &mdash; the id of the element that will be used to initiate the drag
+     </td>
+</tr>
+</table>
+</div>
+<a name="setHandleElId()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setHandleElId</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function setHandleElId(id:String):void</code><p>
+     Allows you to specify a child of the linked element that should be
+     used to initiate the drag operation.  An example of this would be if
+     you have a content div with text and links.  Clicking anywhere in the
+     content area would normally start the drag operation.  Use this method
+     to specify that an element inside of the content div is the element
+     that starts the drag operation.
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">id</span>:String</code> &mdash; the id of the element that will be used to
+     initiate the drag.
+     </td>
+</tr>
+</table>
+</div>
+<a name="setInitPosition()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setInitPosition</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function setInitPosition(diffX:Number = 0, diffY:Number = 0):void</code><p>
+     Stores the initial placement of the linked element.
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">diffX</span>:Number</code> (default = <code>0</code>)<code></code> &mdash;   the X offset, default 0
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">diffY</span>:Number</code> (default = <code>0</code>)<code></code> &mdash;   the Y offset, default 0
+     </td>
+</tr>
+</table>
+</div>
+<a name="setOuterHandleElId()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setOuterHandleElId</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function setOuterHandleElId(id:String):void</code><p>
+     Allows you to set an element outside of the linked element as a drag
+     handle
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">id</span>:String</code> &mdash; the id of the element that will be used to initiate the drag
+     </td>
+</tr>
+</table>
+</div>
+<a name="setPadding()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setPadding</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function setPadding(iTop:int, iRight:int, iBot:int, iLeft:int):void</code><p>
+     Configures the padding for the target zone in px.  Effectively expands
+     (or reduces) the virtual object size for targeting calculations.
+     Supports css-style shorthand; if only one parameter is passed, all sides
+     will have that padding, and if only two are passed, the top and bottom
+     will have the first param, the left and right the second.
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">iTop</span>:int</code> &mdash;    Top pad
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">iRight</span>:int</code> &mdash;  Right pad
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">iBot</span>:int</code> &mdash;    Bot pad
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">iLeft</span>:int</code> &mdash;   Left pad
+     </td>
+</tr>
+</table>
+</div>
+<a name="setStartPosition()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setStartPosition</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function setStartPosition(pos:Array):void</code><p>
+     Sets the start position of the element.  This is set when the obj
+     is initialized, the reset when a drag is started.
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">pos</span>:Array</code> &mdash; current position (from previous lookup)
+     </td>
+</tr>
+</table>
+</div>
+<a name="setXConstraint()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setXConstraint</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function setXConstraint(iLeft:Number, iRight:Number, iTickSize:Number):void</code><p>
+     By default, the element can be dragged any place on the screen.  Use
+     this method to limit the horizontal travel of the element.  Pass in
+     0,0 for the parameters if you want to lock the drag to the y axis.
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">iLeft</span>:Number</code> &mdash; the number of pixels the element can move to the left
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">iRight</span>:Number</code> &mdash; the number of pixels the element can move to the
+     right
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">iTickSize</span>:Number</code> &mdash; optional parameter for specifying that the
+     element
+     should move iTickSize pixels at a time.
+     </td>
+</tr>
+</table>
+</div>
+<a name="setXTicks()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setXTicks</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function setXTicks(iStartX:*, iTickSize:int):Boolean</code><p>
+     Create the array of horizontal tick marks if an interval was specified
+     in setXConstraint().
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">iStartX</span>:*</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">iTickSize</span>:int</code></td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code></td>
+</tr>
+</table>
+</div>
+<a name="setYConstraint()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setYConstraint</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function setYConstraint(iUp:Number, iDown:Number, iTickSize:Number):void</code><p>
+     By default, the element can be dragged any place on the screen.  Set
+     this to limit the vertical travel of the element.  Pass in 0,0 for the
+     parameters if you want to lock the drag to the x axis.
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">iUp</span>:Number</code> &mdash; the number of pixels the element can move up
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">iDown</span>:Number</code> &mdash; the number of pixels the element can move down
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">iTickSize</span>:Number</code> &mdash; optional parameter for specifying that the
+     element should move iTickSize pixels at a time.
+     </td>
+</tr>
+</table>
+</div>
+<a name="setYTicks()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setYTicks</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function setYTicks(iStartY:*, iTickSize:int):Boolean</code><p>
+     Create the array of vertical tick marks if an interval was specified in
+     setYConstraint().
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">iStartY</span>:*</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">iTickSize</span>:int</code></td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code></td>
+</tr>
+</table>
+</div>
+<a name="startDrag()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">startDrag</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function startDrag(x:Number, y:Number):void</code><p>
+     Abstract method called after a drag/drop object is clicked
+     and the drag or mousedown time thresholds have beeen met.
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">x</span>:Number</code> &mdash; click location
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">y</span>:Number</code> &mdash; click location
+     </td>
+</tr>
+</table>
+</div>
+<a name="toString()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">toString</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function toString():String</code><p>
+     toString method
+     </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>String</code> &mdash; string representation of the dd obj
+     </td>
+</tr>
+</table>
+</div>
+<a name="unlock()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">unlock</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function unlock():void</code><p>
+     Unlock this instance.
+     </p></div>
+<a name="unreg()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">unreg</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function unreg():void</code><p>
+     Remove all drag and drop hooks for this element
+     </p></div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<center class="copyright"> 
+</center>
+</div>
+</body>
+</html>
+<!-- -->

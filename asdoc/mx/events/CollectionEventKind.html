@@ -1,0 +1,197 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../print.css" type="text/css" media="print">
+<meta content="CollectionEventKind,mx.events.CollectionEventKind,ADD,MOVE,REFRESH,REMOVE,REPLACE,RESET,UPDATE" name="keywords">
+<title>mx.events.CollectionEventKind</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'CollectionEventKind - API Documentation';
+				var baseRef = '../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">API Documentation</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../all-classes.html')" href="../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../all-classes.html')" href="../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../index-list.html')" href="../../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../../index.html?mx/events/CollectionEventKind.html&amp;mx/events/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;CollectionEventKind</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#constantSummary">Constants</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class CollectionEventKind"); titleBar_setSubNav(true,false,false,false,false,false,false,false,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">mx.events</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public final  class CollectionEventKind</td>
+</tr>
+</table>
+<p></p>
+  The CollectionEventKind class contains constants for the valid values 
+  of the mx.events.CollectionEvent class <code>kind</code> property.
+  These constants indicate the kind of change that was made to the collection.
+   <p></p>
+<p>
+<span class="classHeaderTableLabel">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../events/CollectionEvent.html" target="">mx.events.CollectionEvent</a>
+</div>
+<br>
+<hr>
+</div>
+<a name="constantSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Constants</div>
+<table id="summaryTableConstant" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Constant</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#ADD">ADD</a> : String = "add"<div class="summaryTableDescription">[static]
+      Indicates that the collection added an item or items.</div>
+</td><td class="summaryTableOwnerCol">CollectionEventKind</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#MOVE">MOVE</a> : String = "move"<div class="summaryTableDescription">[static]
+      Indicates that the item has moved from the position identified
+      by the CollectionEvent <code>oldLocation</code> property to the 
+   position identified by the <code>location</code> property.</div>
+</td><td class="summaryTableOwnerCol">CollectionEventKind</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#REFRESH">REFRESH</a> : String = "refresh"<div class="summaryTableDescription">[static]
+      Indicates that the collection applied a sort, a filter, or both.</div>
+</td><td class="summaryTableOwnerCol">CollectionEventKind</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#REMOVE">REMOVE</a> : String = "remove"<div class="summaryTableDescription">[static]
+      Indicates that the collection removed an item or items.</div>
+</td><td class="summaryTableOwnerCol">CollectionEventKind</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#REPLACE">REPLACE</a> : String = "replace"<div class="summaryTableDescription">[static]
+      Indicates that the item at the position identified by the 
+      CollectionEvent <code>location</code> property has been replaced.</div>
+</td><td class="summaryTableOwnerCol">CollectionEventKind</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#RESET">RESET</a> : String = "reset"<div class="summaryTableDescription">[static]
+      Indicates that the collection has changed so drastically that
+      a reset is required.</div>
+</td><td class="summaryTableOwnerCol">CollectionEventKind</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#UPDATE">UPDATE</a> : String = "update"<div class="summaryTableDescription">[static]
+      Indicates that one or more items were updated within the collection.</div>
+</td><td class="summaryTableOwnerCol">CollectionEventKind</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="constantDetail"></a>
+<div class="detailSectionHeader">Constant detail</div>
+<a name="ADD"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">ADD</td><td class="detailHeaderType">constant</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const ADD:String = "add"</code><p>
+      Indicates that the collection added an item or items.
+     </p></div>
+<a name="MOVE"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">MOVE</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const MOVE:String = "move"</code><p>
+      Indicates that the item has moved from the position identified
+      by the CollectionEvent <code>oldLocation</code> property to the 
+   position identified by the <code>location</code> property.
+     </p></div>
+<a name="REFRESH"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">REFRESH</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const REFRESH:String = "refresh"</code><p>
+      Indicates that the collection applied a sort, a filter, or both.
+      This change can potentially be easier to handle than a RESET.
+     </p></div>
+<a name="REMOVE"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">REMOVE</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const REMOVE:String = "remove"</code><p>
+      Indicates that the collection removed an item or items.
+     </p></div>
+<a name="REPLACE"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">REPLACE</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const REPLACE:String = "replace"</code><p>
+      Indicates that the item at the position identified by the 
+      CollectionEvent <code>location</code> property has been replaced.
+     </p></div>
+<a name="RESET"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">RESET</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const RESET:String = "reset"</code><p>
+      Indicates that the collection has changed so drastically that
+      a reset is required.
+     </p></div>
+<a name="UPDATE"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">UPDATE</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const UPDATE:String = "update"</code><p>
+      Indicates that one or more items were updated within the collection.
+      The affected item(s) or their associated ObjectChangeEvent objects
+      are stored in the <code>items</code> property.
+     </p></div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<center class="copyright"> 
+</center>
+</div>
+</body>
+</html>
+<!-- -->

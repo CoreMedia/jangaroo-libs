@@ -1,0 +1,481 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../print.css" type="text/css" media="print">
+<meta content="Timer,flash.utils.Timer,currentCount,delay,repeatCount,running,reset,start,stop" name="keywords">
+<title>flash.utils.Timer</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'Timer - API Documentation';
+				var baseRef = '../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">API Documentation</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../all-classes.html')" href="../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../all-classes.html')" href="../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../index-list.html')" href="../../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../../index.html?flash/utils/Timer.html&amp;flash/utils/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;Timer</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#eventSummary">Events</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class Timer"); titleBar_setSubNav(false,true,false,false,true,false,true,false,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">flash.utils</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public class Timer</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">Timer <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../images/inherit-arrow.gif"> <a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+</table>
+<p></p>
+ The Timer class is the interface to timers, which let you run code on a specified time sequence. Use the <code>start()</code> method to start a timer. Add an event listener for the <code>timer</code> event to set up code to be run on the timer interval.
+ <p>You can create Timer objects to run once or repeat at specified intervals to execute code on a schedule. Depending on the SWF file's framerate or the runtime environment (available memory and other factors), the runtime may dispatch events at slightly offset intervals. For example, if a SWF file is set to play at 10 frames per second (fps), which is 100 millisecond intervals, but your timer is set to fire an event at 80 milliseconds, the event will be dispatched close to the 100 millisecond interval. Memory-intensive scripts may also offset the events.</p>
+ <p><a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/utils/Timer.html#includeExamplesSummary">View the examples</a></p>
+ <p></p>
+<p>
+<span class="classHeaderTableLabel">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118a9b90204-7f0f.html" target="mm_external">Controlling time intervals</a>
+<br>
+<a href="http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118a9b90204-7f07.html" target="mm_external">The Timer class</a>
+</div>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#currentCount">currentCount</a> : int<div class="summaryTableDescription">[read-only]
+   The total number of times the timer has fired since it started at zero.</div>
+</td><td class="summaryTableOwnerCol">Timer</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#delay">delay</a> : Number<div class="summaryTableDescription">
+   The delay, in milliseconds, between timer events.</div>
+</td><td class="summaryTableOwnerCol">Timer</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#repeatCount">repeatCount</a> : int<div class="summaryTableDescription">
+   The total number of times the timer is set to run.</div>
+</td><td class="summaryTableOwnerCol">Timer</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#running">running</a> : Boolean<div class="summaryTableDescription">[read-only]
+   The timer's current state; <code>true</code> if the timer is running, otherwise <code>false</code>.</div>
+</td><td class="summaryTableOwnerCol">Timer</td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<div class="showHideLinks">
+<div class="hideInheritedMethod" id="hideInheritedMethod">
+<a onclick="javascript:setInheritedVisible(false,'Method');" href="#methodSummary" class="showHideLink"><img src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Methods</a>
+</div>
+<div class="showInheritedMethod" id="showInheritedMethod">
+<a onclick="javascript:setInheritedVisible(true,'Method');" href="#methodSummary" class="showHideLink"><img src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Methods</a>
+</div>
+</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#Timer()">Timer</a>(delay:Number, repeatCount:int = 0)</div>
+<div class="summaryTableDescription">
+   Constructs a new Timer object with the specified <code>delay</code> and <code>repeatCount</code> states.</div>
+</td><td class="summaryTableOwnerCol">Timer</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#addEventListener()">addEventListener</a>(type:String, listener:Function, useCapture:Boolean = false, priority:int = 0, useWeakReference:Boolean = false):void</div>
+<div class="summaryTableDescription">
+   Registers an event listener object with an EventDispatcher object so that the listener receives notification of an event.</div>
+</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#dispatchEvent()">dispatchEvent</a>(event:<a href="../events/Event.html">Event</a>):Boolean</div>
+<div class="summaryTableDescription">
+   Dispatches an event into the event flow.</div>
+</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#hasEventListener()">hasEventListener</a>(type:String):Boolean</div>
+<div class="summaryTableDescription">
+   Checks whether the EventDispatcher object has any listeners registered for a specific type of event.</div>
+</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#removeEventListener()">removeEventListener</a>(type:String, listener:Function, useCapture:Boolean = false):void</div>
+<div class="summaryTableDescription">
+   Removes a listener from the EventDispatcher object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#reset()">reset</a>():void</div>
+<div class="summaryTableDescription">
+   Stops the timer, if it is running, and sets the <code>currentCount</code> property back to 0, like the reset button of a stopwatch.</div>
+</td><td class="summaryTableOwnerCol">Timer</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#start()">start</a>():void</div>
+<div class="summaryTableDescription">
+   Starts the timer, if it is not already running.</div>
+</td><td class="summaryTableOwnerCol">Timer</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#stop()">stop</a>():void</div>
+<div class="summaryTableDescription">
+   Stops the timer.</div>
+</td><td class="summaryTableOwnerCol">Timer</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#toString()">toString</a>():String</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#willTrigger()">willTrigger</a>(type:String):Boolean</div>
+<div class="summaryTableDescription">
+   Checks whether an event listener is registered with this EventDispatcher object or any of its ancestors for the specified event type.</div>
+</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+</table>
+</div>
+<a name="eventSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Events</div>
+<div class="showHideLinks">
+<div class="hideInheritedEvent" id="hideInheritedEvent">
+<a onclick="javascript:setInheritedVisible(false,'Event');" href="#eventSummary" class="showHideLink"><img src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Events</a>
+</div>
+<div class="showInheritedEvent" id="showInheritedEvent">
+<a onclick="javascript:setInheritedVisible(true,'Event');" href="#eventSummary" class="showHideLink"><img src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Events</a>
+</div>
+</div>
+<table id="summaryTableEvent" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Event</th><th>Summary</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#event:activate">activate</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ [broadcast event] Dispatched when the Flash Player or AIR application gains operating system focus and becomes active.</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#event:deactivate">deactivate</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ [broadcast event] Dispatched when the Flash Player or AIR application operating loses system focus and is becoming inactive.</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:timer">timer</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched whenever a Timer object reaches an interval specified according to the <code>Timer.delay</code> property.</td><td class="summaryTableOwnerCol">Timer</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:timerComplete">timerComplete</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched whenever it has completed the number of requests set by <code>Timer.repeatCount</code>.</td><td class="summaryTableOwnerCol">Timer</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="currentCount"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">currentCount</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>currentCount:int</code>&nbsp;&nbsp;[read-only]<p>
+   The total number of times the timer has fired since it started at zero. If the timer has been reset, only the fires since the reset are counted.
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get currentCount():int</code>
+<br>
+</div>
+<a name="delay"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">delay</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>delay:Number</code>&nbsp;&nbsp;[read-write]<p>
+   The delay, in milliseconds, between timer events. If you set the delay interval while the timer is running, the timer will restart at the same <code>repeatCount</code> iteration.
+   </p><p><b>Note:</b> A <code>delay</code> lower than 20 milliseconds is not recommended. Timer frequency is limited to 60 frames per second, meaning a delay lower than 16.6 milliseconds causes runtime problems.</p>
+   <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get delay():Number</code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set delay(value:Number):void</code>
+<br>
+<br>
+<span class="label">Throws</span>
+<br>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code></code> &mdash; Throws an exception if the delay specified is negative or not a finite number.
+      </td>
+</tr>
+</table>
+</div>
+<a name="repeatCount"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">repeatCount</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>repeatCount:int</code>&nbsp;&nbsp;[read-write]<p>
+   The total number of times the timer is set to run. If the repeat count is set to 0, the timer continues forever or until the <code>stop()</code> method is invoked or the program stops. If the repeat count is nonzero, the timer runs the specified number of times. If <code>repeatCount</code> is set to a total that is the same or less then <code>currentCount</code> the timer stops and will not fire again.
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get repeatCount():int</code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set repeatCount(value:int):void</code>
+<br>
+</div>
+<a name="running"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">running</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>running:Boolean</code>&nbsp;&nbsp;[read-only]<p>
+   The timer's current state; <code>true</code> if the timer is running, otherwise <code>false</code>.
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get running():Boolean</code>
+<br>
+</div>
+<a name="constructorDetail"></a>
+<div class="detailSectionHeader">Constructor detail</div>
+<a name="Timer()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">Timer</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">constructor</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function Timer(delay:Number, repeatCount:int = 0)</code><p>
+   Constructs a new Timer object with the specified <code>delay</code> and <code>repeatCount</code> states.
+   </p><p>The timer does not start automatically; you must call the <code>start()</code> method to start it.</p>
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">delay</span>:Number</code> &mdash; The delay between timer events, in milliseconds. A <code>delay</code> lower than 20 milliseconds is not recommended. Timer frequency is limited to 60 frames per second, meaning a delay lower than 16.6 milliseconds causes runtime problems.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">repeatCount</span>:int</code> (default = <code>0</code>)<code></code> &mdash; Specifies the number of repetitions. If zero, the timer repeats infinitely. If nonzero, the timer runs the specified number of times and then stops.
+      </td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code></code> &mdash; if the delay specified is negative or not a finite number
+      </td>
+</tr>
+</table>
+<br>
+<span class="label">Example</span>
+<br>In the following example, the user is given 90 seconds to enter a response in an input text field. Also, every 30 seconds, a status message lets the user know how many seconds are left.
+   <p>A Timer object is created that starts in 30 seconds (delay is set to 30000 milliseconds) and repeats three times, for a total of 90 seconds. (The timer stops after the third time.)</p>
+   <p>Two event listeners are added for the <code>myTimer</code> timer. The first is triggered by the <code>TimerEvent.TIMER</code> event, which occurs every time the timer is started. The <code>timerHandler()</code> method changes the text for the <code>statusTextField</code> text field to reflect the seconds remaining.</p>
+   <p><b>Note:</b> The Timer class keeps track of the number of times it has to start (<code>repeats</code>) by increasing the number in the <code>currentCount</code> property.)</p>
+   <p>After the timer is called for the last time, the <code>TimerEvent.TIMER_COMPLETE</code> event is dispatched and the <code>completeHandler()</code> method is called. The <code>completeHandler()</code> method changes the type of the <code>inputTextField</code> text field from <code>INPUT</code> to <code>DYNAMIC</code>, which means the user can no longer enter or change text.</p>
+   <div class='listing'><pre>
+   package {
+       import flash.display.Sprite;
+       import flash.text.TextField;
+       import flash.text.TextFieldType;
+       import flash.text.TextFieldAutoSize;
+       import flash.utils.Timer;
+       import flash.events.TimerEvent;
+       import flash.events.Event;
+          public class Timer_constructorExample extends Sprite {
+               private var statusTextField:TextField = new TextField();
+               private var inputTextField:TextField = new TextField();
+               private var delay:uint = 30000;
+               private var repeat:uint = 3;
+               private var myTimer:Timer = new Timer(delay, repeat);
+              public function Timer_constructorExample() {
+               inputTextField.x = 10;
+               inputTextField.y = 10;
+               inputTextField.border = true;
+               inputTextField.background = true;
+               inputTextField.height = 200;
+               inputTextField.width = 200;
+               inputTextField.multiline = true;
+               inputTextField.wordWrap = true;
+               inputTextField.type = TextFieldType.INPUT;
+                  statusTextField.x = 10;
+               statusTextField.y = 220;
+               statusTextField.background = true;
+               statusTextField.autoSize = TextFieldAutoSize.LEFT;
+                  myTimer.start();
+               statusTextField.text = "You have " + ((delay repeat) / 1000)
+                                    + " seconds to enter your response.";
+                  myTimer.addEventListener(TimerEvent.TIMER, timerHandler);
+               myTimer.addEventListener(TimerEvent.TIMER_COMPLETE, completeHandler);
+                  addChild(inputTextField);
+               addChild(statusTextField);
+           }
+              private function timerHandler(e:TimerEvent):void{
+               repeat--;
+               statusTextField.text = ((delay repeat) / 1000) + " seconds left.";
+           }
+              private function completeHandler(e:TimerEvent):void {
+               statusTextField.text = "Times Up.";
+               inputTextField.type = TextFieldType.DYNAMIC;
+           }
+       }
+   }
+   </pre></div>
+   <p></p>
+</div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="reset()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">reset</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function reset():void</code><p>
+   Stops the timer, if it is running, and sets the <code>currentCount</code> property back to 0, like the reset button of a stopwatch. Then, when <code>start()</code> is called, the timer instance runs for the specified number of repetitions, as set by the <code>repeatCount</code> value.
+   </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../utils/Timer.html#stop()" target="">stop()</a>
+</div>
+</div>
+<a name="start()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">start</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function start():void</code><p>
+   Starts the timer, if it is not already running.
+   </p></div>
+<a name="stop()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">stop</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function stop():void</code><p>
+   Stops the timer. When <code>start()</code> is called after <code>stop()</code>, the timer instance runs for the <i>remaining</i> number of repetitions, as set by the <code>repeatCount</code> property.
+   </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../utils/Timer.html#reset()" target="">reset()</a>
+</div>
+</div>
+<div class="detailSectionHeader">Event detail</div>
+<a name="event:timer"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">timer</td><td class="detailHeaderType">event&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="../events/TimerEvent.html"><code>flash.events.TimerEvent</code></a>
+<br>
+<p></p><p>
+ Dispatched whenever a Timer object reaches an interval specified according to the <code>Timer.delay</code> property.
+ </p></div>
+<a name="event:timerComplete"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">timerComplete</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="../events/TimerEvent.html"><code>flash.events.TimerEvent</code></a>
+<br>
+<p></p><p>
+ Dispatched whenever it has completed the number of requests set by <code>Timer.repeatCount</code>.
+ </p></div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<center class="copyright"> 
+</center>
+</div>
+</body>
+</html>
+<!-- -->

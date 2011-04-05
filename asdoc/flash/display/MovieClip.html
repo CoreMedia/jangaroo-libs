@@ -1,0 +1,1424 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../print.css" type="text/css" media="print">
+<meta content="MovieClip,flash.display.MovieClip,currentFrame,currentLabel,currentLabels,currentScene,enabled,framesLoaded,scenes,totalFrames,trackAsMenu,gotoAndPlay,gotoAndStop,nextFrame,nextScene,play,prevFrame,prevScene,stop" name="keywords">
+<title>flash.display.MovieClip</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'MovieClip - API Documentation';
+				var baseRef = '../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">API Documentation</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../all-classes.html')" href="../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../all-classes.html')" href="../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../index-list.html')" href="../../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../../index.html?flash/display/MovieClip.html&amp;flash/display/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;MovieClip</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#eventSummary">Events</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class MovieClip"); titleBar_setSubNav(false,true,false,false,true,false,true,false,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">flash.display</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public dynamic  class MovieClip</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">MovieClip <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../images/inherit-arrow.gif"> <a href="Sprite.html">Sprite</a> <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../images/inherit-arrow.gif"> <a href="DisplayObjectContainer.html">DisplayObjectContainer</a> <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../images/inherit-arrow.gif"> <a href="InteractiveObject.html">InteractiveObject</a> <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../images/inherit-arrow.gif"> <a href="DisplayObject.html">DisplayObject</a> <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../images/inherit-arrow.gif"> <a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+</table>
+<p></p>
+ The MovieClip class inherits from the following classes: Sprite, DisplayObjectContainer, InteractiveObject, DisplayObject, and EventDispatcher.
+ <p>Unlike the Sprite object, a MovieClip object has a timeline.</p>
+ <p>>In Flash Professional, the methods for the MovieClip class provide the same functionality as actions that target movie clips. Some additional methods do not have equivalent actions in the Actions toolbox in the Actions panel in the Flash authoring tool.</p>
+ <p>Children instances placed on the Stage in Flash Professional cannot be accessed by code from within the constructor of a parent instance since they have not been created at that point in code execution. Before accessing the child, the parent must instead either create the child instance by code or delay access to a callback function that listens for the child to dispatch its <code>Event.ADDED_TO_STAGE</code> event.</p>
+ <p>If you modify any of the following properties of a MovieClip object that contains a motion tween, the playhead is stopped in that MovieClip object: <code>alpha</code>, <code>blendMode</code>, <code>filters</code>, <code>height</code>, <code>opaqueBackground</code>, <code>rotation</code>, <code>scaleX</code>, <code>scaleY</code>, <code>scale9Grid</code>, <code>scrollRect</code>, <code>transform</code>, <code>visible</code>, <code>width</code>, <code>x</code>, or <code>y</code>. However, it does not stop the playhead in any child MovieClip objects of that MovieClip object.</p>
+ <p><b>Note:</b>Flash Lite 4 supports the MovieClip.opaqueBackground property only if FEATURE_BITMAPCACHE is defined. The default configuration of Flash Lite 4 does not define FEATURE_BITMAPCACHE. To enable the MovieClip.opaqueBackground property for a suitable device, define FEATURE_BITMAPCACHE in your project.</p>
+ <p><a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/MovieClip.html#includeExamplesSummary">View the examples</a></p>
+ <p></p>
+<p>
+<span class="classHeaderTableLabel">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118a9b90204-7e3c.html" target="mm_external">Core display classes</a>
+<br>
+<a href="http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118a9b90204-7d9c.html" target="mm_external">Basics of movie clips</a>
+</div>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<div class="showHideLinks">
+<div class="hideInheritedProperty" id="hideInheritedProperty">
+<a onclick="javascript:setInheritedVisible(false,'Property');" href="#propertySummary" class="showHideLink"><img src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Properties</a>
+</div>
+<div class="showInheritedProperty" id="showInheritedProperty">
+<a onclick="javascript:setInheritedVisible(true,'Property');" href="#propertySummary" class="showHideLink"><img src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Properties</a>
+</div>
+</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="InteractiveObject.html#accessibilityImplementation">accessibilityImplementation</a> : <a href="../accessibility/AccessibilityImplementation.html">AccessibilityImplementation</a>
+<div class="summaryTableDescription">
+   The current accessibility implementation (AccessibilityImplementation) for this InteractiveObject instance.</div>
+</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObject.html#accessibilityProperties">accessibilityProperties</a> : <a href="../accessibility/AccessibilityProperties.html">AccessibilityProperties</a>
+<div class="summaryTableDescription">
+   The current accessibility options for this display object.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObject.html#alpha">alpha</a> : Number<div class="summaryTableDescription">
+   Indicates the alpha transparency value of the object specified.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObject.html#blendMode">blendMode</a> : String<div class="summaryTableDescription">
+   A value from the BlendMode class that specifies which blend mode to use.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Sprite.html#buttonMode">buttonMode</a> : Boolean<div class="summaryTableDescription">
+   Specifies the button mode of this sprite.</div>
+</td><td class="summaryTableOwnerCol"><a href="Sprite.html">Sprite</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObject.html#cacheAsBitmap">cacheAsBitmap</a> : Boolean<div class="summaryTableDescription">
+   If set to <code>true</code>, Flash runtimes cache an internal bitmap representation of the display object.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="InteractiveObject.html#contextMenu">contextMenu</a> : <a href="../ui/ContextMenu.html">ContextMenu</a>
+<div class="summaryTableDescription">
+   Specifies the context menu associated with this object.</div>
+</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#currentFrame">currentFrame</a> : int<div class="summaryTableDescription">[read-only]
+   Specifies the number of the frame in which the playhead is located in the timeline of the MovieClip instance.</div>
+</td><td class="summaryTableOwnerCol">MovieClip</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#currentLabel">currentLabel</a> : String<div class="summaryTableDescription">[read-only]
+   The current label in which the playhead is located in the timeline of the MovieClip instance.</div>
+</td><td class="summaryTableOwnerCol">MovieClip</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#currentLabels">currentLabels</a> : Array<div class="summaryTableDescription">[read-only]
+   Returns an array of FrameLabel objects from the current scene.</div>
+</td><td class="summaryTableOwnerCol">MovieClip</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#currentScene">currentScene</a> : <a href="../display/Scene.html">Scene</a>
+<div class="summaryTableDescription">[read-only]
+   The current scene in which the playhead is located in the timeline of the MovieClip instance.</div>
+</td><td class="summaryTableOwnerCol">MovieClip</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="InteractiveObject.html#doubleClickEnabled">doubleClickEnabled</a> : Boolean<div class="summaryTableDescription">
+   Specifies whether the object receives <code>doubleClick</code> events.</div>
+</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Sprite.html#dropTarget">dropTarget</a> : <a href="../display/DisplayObject.html">DisplayObject</a>
+<div class="summaryTableDescription">
+   Specifies the display object over which the sprite is being dragged, or on which the sprite was dropped.</div>
+</td><td class="summaryTableOwnerCol"><a href="Sprite.html">Sprite</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#enabled">enabled</a> : Boolean<div class="summaryTableDescription">
+   A Boolean value that indicates whether a movie clip is enabled.</div>
+</td><td class="summaryTableOwnerCol">MovieClip</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObject.html#filters">filters</a> : Array<div class="summaryTableDescription">
+   An indexed array that contains each filter object currently associated with the display object.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="InteractiveObject.html#focusRect">focusRect</a> : Object<div class="summaryTableDescription">
+   Specifies whether this object displays a focus rectangle.</div>
+</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#framesLoaded">framesLoaded</a> : int<div class="summaryTableDescription">[read-only]
+   The number of frames that are loaded from a streaming SWF file.</div>
+</td><td class="summaryTableOwnerCol">MovieClip</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Sprite.html#graphics">graphics</a> : <a href="../display/Graphics.html">Graphics</a>
+<div class="summaryTableDescription">
+   Specifies the Graphics object that belongs to this sprite where vector drawing commands can occur.</div>
+</td><td class="summaryTableOwnerCol"><a href="Sprite.html">Sprite</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObjectContainer.html#height">height</a> : Number<div class="summaryTableDescription">
+   
+   Indicates the height of the display object, in pixels.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObjectContainer.html">DisplayObjectContainer</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Sprite.html#hitArea">hitArea</a> : <a href="../display/Sprite.html">Sprite</a>
+<div class="summaryTableDescription">
+   Designates another sprite to serve as the hit area for a sprite.</div>
+</td><td class="summaryTableOwnerCol"><a href="Sprite.html">Sprite</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObject.html#loaderInfo">loaderInfo</a> : <a href="../display/LoaderInfo.html">LoaderInfo</a>
+<div class="summaryTableDescription">
+   Returns a LoaderInfo object containing information about loading the file to which this display object belongs.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObject.html#mask">mask</a> : <a href="../display/DisplayObject.html">DisplayObject</a>
+<div class="summaryTableDescription">
+   The calling display object is masked by the specified <code>mask</code> object.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObjectContainer.html#mouseChildren">mouseChildren</a> : Boolean<div class="summaryTableDescription">
+   Determines whether or not the children of the object are mouse, or user input device, enabled.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObjectContainer.html">DisplayObjectContainer</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="InteractiveObject.html#mouseEnabled">mouseEnabled</a> : Boolean<div class="summaryTableDescription">
+   Specifies whether this object receives mouse, or other user input, messages.</div>
+</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObject.html#mouseX">mouseX</a> : Number<div class="summaryTableDescription">
+   Indicates the x coordinate of the mouse or user input device position, in pixels.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObject.html#mouseY">mouseY</a> : Number<div class="summaryTableDescription">
+   Indicates the y coordinate of the mouse or user input device position, in pixels.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObject.html#name">name</a> : String<div class="summaryTableDescription">
+   Indicates the instance name of the DisplayObject.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObjectContainer.html#numChildren">numChildren</a> : int<div class="summaryTableDescription">
+   Returns the number of children of this object.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObjectContainer.html">DisplayObjectContainer</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObject.html#opaqueBackground">opaqueBackground</a> : Object<div class="summaryTableDescription">
+   Specifies whether the display object is opaque with a certain background color.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObject.html#parent">parent</a> : <a href="../display/DisplayObjectContainer.html">DisplayObjectContainer</a>
+<div class="summaryTableDescription">
+   Indicates the DisplayObjectContainer object that contains this display object.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObject.html#root">root</a> : <a href="../display/DisplayObject.html">DisplayObject</a>
+<div class="summaryTableDescription">
+   For a display object in a loaded SWF file, the <code>root</code> property is the top-most display object in the portion of the display list's tree structure represented by that SWF file.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObject.html#rotation">rotation</a> : Number<div class="summaryTableDescription">
+   Indicates the rotation of the DisplayObject instance, in degrees, from its original orientation.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObject.html#scale9Grid">scale9Grid</a> : <a href="../geom/Rectangle.html">Rectangle</a>
+<div class="summaryTableDescription">
+   The current scaling grid that is in effect.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObject.html#scaleX">scaleX</a> : Number<div class="summaryTableDescription">
+   Indicates the horizontal scale (percentage) of the object as applied from the registration point.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObject.html#scaleY">scaleY</a> : Number<div class="summaryTableDescription">
+   Indicates the vertical scale (percentage) of an object as applied from the registration point of the object.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#scenes">scenes</a> : Array<div class="summaryTableDescription">[read-only]
+   An array of Scene objects, each listing the name, the number of frames, and the frame labels for a scene in the MovieClip instance.</div>
+</td><td class="summaryTableOwnerCol">MovieClip</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObject.html#scrollRect">scrollRect</a> : <a href="../geom/Rectangle.html">Rectangle</a>
+<div class="summaryTableDescription">
+   The scroll rectangle bounds of the display object.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Sprite.html#soundTransform">soundTransform</a> : <a href="../media/SoundTransform.html">SoundTransform</a>
+<div class="summaryTableDescription">
+   Controls sound within this sprite.</div>
+</td><td class="summaryTableOwnerCol"><a href="Sprite.html">Sprite</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObject.html#stage">stage</a> : <a href="../display/Stage.html">Stage</a>
+<div class="summaryTableDescription">
+   The Stage of the display object.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObjectContainer.html#tabChildren">tabChildren</a> : Boolean<div class="summaryTableDescription">
+   Determines whether the children of the object are tab enabled.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObjectContainer.html">DisplayObjectContainer</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="InteractiveObject.html#tabEnabled">tabEnabled</a> : Boolean<div class="summaryTableDescription">
+   Specifies whether this object is in the tab order.</div>
+</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="InteractiveObject.html#tabIndex">tabIndex</a> : int<div class="summaryTableDescription">
+   Specifies the tab ordering of objects in a SWF file.</div>
+</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObjectContainer.html#textSnapshot">textSnapshot</a> : <a href="../text/TextSnapshot.html">TextSnapshot</a>
+<div class="summaryTableDescription">
+   Returns a TextSnapshot object for this DisplayObjectContainer instance.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObjectContainer.html">DisplayObjectContainer</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#totalFrames">totalFrames</a> : int<div class="summaryTableDescription">[read-only]
+   The total number of frames in the MovieClip instance.</div>
+</td><td class="summaryTableOwnerCol">MovieClip</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#trackAsMenu">trackAsMenu</a> : Boolean<div class="summaryTableDescription">
+   Indicates whether other display objects that are SimpleButton or MovieClip objects can receive mouse release events or other user input release events.</div>
+</td><td class="summaryTableOwnerCol">MovieClip</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Sprite.html#transform">transform</a> : <a href="../geom/Transform.html">Transform</a>
+<div class="summaryTableDescription">
+   
+   </div>
+</td><td class="summaryTableOwnerCol"><a href="Sprite.html">Sprite</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Sprite.html#useHandCursor">useHandCursor</a> : Boolean<div class="summaryTableDescription">
+   A Boolean value that indicates whether the pointing hand (hand cursor) appears when the pointer rolls over a sprite in which the <code>buttonMode</code> property is set to <code>true</code>.</div>
+</td><td class="summaryTableOwnerCol"><a href="Sprite.html">Sprite</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObject.html#visible">visible</a> : Boolean<div class="summaryTableDescription">
+   Whether or not the display object is visible.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObjectContainer.html#width">width</a> : Number<div class="summaryTableDescription">
+   
+   Indicates the width of the display object, in pixels.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObjectContainer.html">DisplayObjectContainer</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObject.html#x">x</a> : Number<div class="summaryTableDescription">
+   Indicates the <i>x</i> coordinate of the DisplayObject instance relative to the local coordinates of the parent DisplayObjectContainer.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DisplayObject.html#y">y</a> : Number<div class="summaryTableDescription">
+   Indicates the <i>y</i> coordinate of the DisplayObject instance relative to the local coordinates of the parent DisplayObjectContainer.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<div class="showHideLinks">
+<div class="hideInheritedMethod" id="hideInheritedMethod">
+<a onclick="javascript:setInheritedVisible(false,'Method');" href="#methodSummary" class="showHideLink"><img src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Methods</a>
+</div>
+<div class="showInheritedMethod" id="showInheritedMethod">
+<a onclick="javascript:setInheritedVisible(true,'Method');" href="#methodSummary" class="showHideLink"><img src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Methods</a>
+</div>
+</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#MovieClip()">MovieClip</a>()</div>
+<div class="summaryTableDescription">
+   Creates a new MovieClip instance.</div>
+</td><td class="summaryTableOwnerCol">MovieClip</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObjectContainer.html#addChild()">addChild</a>(child:<a href="../display/DisplayObject.html">DisplayObject</a>):<a href="../display/DisplayObject.html">DisplayObject</a>
+</div>
+<div class="summaryTableDescription">
+   Adds a child DisplayObject instance to this DisplayObjectContainer instance.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObjectContainer.html">DisplayObjectContainer</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObjectContainer.html#addChildAt()">addChildAt</a>(child:<a href="../display/DisplayObject.html">DisplayObject</a>, index:int):<a href="../display/DisplayObject.html">DisplayObject</a>
+</div>
+<div class="summaryTableDescription">
+   Adds a child DisplayObject instance to this DisplayObjectContainer instance.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObjectContainer.html">DisplayObjectContainer</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObject.html#addEventListener()">addEventListener</a>(type:String, listener:Function, useCapture:Boolean = false, priority:int = 0, useWeakReference:Boolean = false):void</div>
+<div class="summaryTableDescription">
+   
+   Registers an event listener object with an EventDispatcher object so that the listener receives notification of an event.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObjectContainer.html#areInaccessibleObjectsUnderPoint()">areInaccessibleObjectsUnderPoint</a>(point:<a href="../geom/Point.html">Point</a>):Boolean</div>
+<div class="summaryTableDescription">
+   Indicates whether the security restrictions would cause any display objects to be omitted from the list returned by calling the <code>DisplayObjectContainer.getObjectsUnderPoint()</code> method with the specified <code>point</code> point.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObjectContainer.html">DisplayObjectContainer</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObjectContainer.html#contains()">contains</a>(child:<a href="../display/DisplayObject.html">DisplayObject</a>):Boolean</div>
+<div class="summaryTableDescription">
+   Determines whether the specified display object is a child of the DisplayObjectContainer instance or the instance itself.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObjectContainer.html">DisplayObjectContainer</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#dispatchEvent()">dispatchEvent</a>(event:<a href="../events/Event.html">Event</a>):Boolean</div>
+<div class="summaryTableDescription">
+   Dispatches an event into the event flow.</div>
+</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObject.html#getBounds()">getBounds</a>(targetCoordinateSpace:<a href="../display/DisplayObject.html">DisplayObject</a>):<a href="../geom/Rectangle.html">Rectangle</a>
+</div>
+<div class="summaryTableDescription">
+   Returns a rectangle that defines the area of the display object relative to the coordinate system of the <code>targetCoordinateSpace</code> object.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObjectContainer.html#getChildAt()">getChildAt</a>(index:int):<a href="../display/DisplayObject.html">DisplayObject</a>
+</div>
+<div class="summaryTableDescription">
+   Returns the child display object instance that exists at the specified index.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObjectContainer.html">DisplayObjectContainer</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObjectContainer.html#getChildByName()">getChildByName</a>(name:String):<a href="../display/DisplayObject.html">DisplayObject</a>
+</div>
+<div class="summaryTableDescription">
+   Returns the child display object that exists with the specified name.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObjectContainer.html">DisplayObjectContainer</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObjectContainer.html#getChildIndex()">getChildIndex</a>(child:<a href="../display/DisplayObject.html">DisplayObject</a>):int</div>
+<div class="summaryTableDescription">
+   Returns the index position of a <code>child</code> DisplayObject instance.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObjectContainer.html">DisplayObjectContainer</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObjectContainer.html#getObjectsUnderPoint()">getObjectsUnderPoint</a>(point:<a href="../geom/Point.html">Point</a>):Array</div>
+<div class="summaryTableDescription">
+   Returns an array of objects that lie under the specified point and are children (or grandchildren, and so on) of this DisplayObjectContainer instance.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObjectContainer.html">DisplayObjectContainer</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObject.html#getRect()">getRect</a>(targetCoordinateSpace:<a href="../display/DisplayObject.html">DisplayObject</a>):<a href="../geom/Rectangle.html">Rectangle</a>
+</div>
+<div class="summaryTableDescription">
+   Returns a rectangle that defines the boundary of the display object, based on the coordinate system defined by the <code>targetCoordinateSpace</code> parameter, excluding any strokes on shapes.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObject.html#globalToLocal()">globalToLocal</a>(point:<a href="../geom/Point.html">Point</a>):<a href="../geom/Point.html">Point</a>
+</div>
+<div class="summaryTableDescription">
+   Converts the <code>point</code> object from the Stage (global) coordinates to the display object's (local) coordinates.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#gotoAndPlay()">gotoAndPlay</a>(frame:Object, scene:String = null):void</div>
+<div class="summaryTableDescription">
+   Starts playing the SWF file at the specified frame.</div>
+</td><td class="summaryTableOwnerCol">MovieClip</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#gotoAndStop()">gotoAndStop</a>(frame:Object, scene:String = null):void</div>
+<div class="summaryTableDescription">
+   Brings the playhead to the specified frame of the movie clip and stops it there.</div>
+</td><td class="summaryTableOwnerCol">MovieClip</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#hasEventListener()">hasEventListener</a>(type:String):Boolean</div>
+<div class="summaryTableDescription">
+   Checks whether the EventDispatcher object has any listeners registered for a specific type of event.</div>
+</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObject.html#hitTestObject()">hitTestObject</a>(obj:<a href="../display/DisplayObject.html">DisplayObject</a>):Boolean</div>
+<div class="summaryTableDescription">
+   Evaluates the bounding box of the display object to see if it overlaps or intersects with the bounding box of the <code>obj</code> display object.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObject.html#hitTestPoint()">hitTestPoint</a>(x:Number, y:Number, shapeFlag:Boolean = false):Boolean</div>
+<div class="summaryTableDescription">
+   Evaluates the display object to see if it overlaps or intersects with the point specified by the <code>x</code> and <code>y</code> parameters.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObject.html#localToGlobal()">localToGlobal</a>(point:<a href="../geom/Point.html">Point</a>):<a href="../geom/Point.html">Point</a>
+</div>
+<div class="summaryTableDescription">
+   Converts the <code>point</code> object from the display object's (local) coordinates to the Stage (global) coordinates.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#nextFrame()">nextFrame</a>():void</div>
+<div class="summaryTableDescription">
+   Sends the playhead to the next frame and stops it.</div>
+</td><td class="summaryTableOwnerCol">MovieClip</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#nextScene()">nextScene</a>():void</div>
+<div class="summaryTableDescription">
+   Moves the playhead to the next scene of the MovieClip instance.</div>
+</td><td class="summaryTableOwnerCol">MovieClip</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#play()">play</a>():void</div>
+<div class="summaryTableDescription">
+   Moves the playhead in the timeline of the movie clip.</div>
+</td><td class="summaryTableOwnerCol">MovieClip</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#prevFrame()">prevFrame</a>():void</div>
+<div class="summaryTableDescription">
+   Sends the playhead to the previous frame and stops it.</div>
+</td><td class="summaryTableOwnerCol">MovieClip</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#prevScene()">prevScene</a>():void</div>
+<div class="summaryTableDescription">
+   Moves the playhead to the previous scene of the MovieClip instance.</div>
+</td><td class="summaryTableOwnerCol">MovieClip</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObjectContainer.html#removeChild()">removeChild</a>(child:<a href="../display/DisplayObject.html">DisplayObject</a>):<a href="../display/DisplayObject.html">DisplayObject</a>
+</div>
+<div class="summaryTableDescription">
+   Removes the specified <code>child</code> DisplayObject instance from the child list of the DisplayObjectContainer instance.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObjectContainer.html">DisplayObjectContainer</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObjectContainer.html#removeChildAt()">removeChildAt</a>(index:int):<a href="../display/DisplayObject.html">DisplayObject</a>
+</div>
+<div class="summaryTableDescription">
+   Removes a child DisplayObject from the specified <code>index</code> position in the child list of the DisplayObjectContainer.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObjectContainer.html">DisplayObjectContainer</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObject.html#removeEventListener()">removeEventListener</a>(type:String, listener:Function, useCapture:Boolean = false):void</div>
+<div class="summaryTableDescription">
+   
+   Removes a listener from the EventDispatcher object.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObjectContainer.html#setChildIndex()">setChildIndex</a>(child:<a href="../display/DisplayObject.html">DisplayObject</a>, index:int):void</div>
+<div class="summaryTableDescription">
+   Changes the position of an existing child in the display object container.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObjectContainer.html">DisplayObjectContainer</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Sprite.html#startDrag()">startDrag</a>(lockCenter:Boolean = false, bounds:<a href="../geom/Rectangle.html">Rectangle</a> = null):void</div>
+<div class="summaryTableDescription">
+   Lets the user drag the specified sprite.</div>
+</td><td class="summaryTableOwnerCol"><a href="Sprite.html">Sprite</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#stop()">stop</a>():void</div>
+<div class="summaryTableDescription">
+   Stops the playhead in the movie clip.</div>
+</td><td class="summaryTableOwnerCol">MovieClip</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Sprite.html#stopDrag()">stopDrag</a>():void</div>
+<div class="summaryTableDescription">
+   Ends the <code>startDrag()</code> method.</div>
+</td><td class="summaryTableOwnerCol"><a href="Sprite.html">Sprite</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObjectContainer.html#swapChildren()">swapChildren</a>(child1:<a href="../display/DisplayObject.html">DisplayObject</a>, child2:<a href="../display/DisplayObject.html">DisplayObject</a>):void</div>
+<div class="summaryTableDescription">
+   Swaps the z-order (front-to-back order) of the two specified child objects.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObjectContainer.html">DisplayObjectContainer</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObjectContainer.html#swapChildrenAt()">swapChildrenAt</a>(index1:int, index2:int):void</div>
+<div class="summaryTableDescription">
+   Swaps the z-order (front-to-back order) of the child objects at the two specified index positions in the child list.</div>
+</td><td class="summaryTableOwnerCol"><a href="DisplayObjectContainer.html">DisplayObjectContainer</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#toString()">toString</a>():String</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#willTrigger()">willTrigger</a>(type:String):Boolean</div>
+<div class="summaryTableDescription">
+   Checks whether an event listener is registered with this EventDispatcher object or any of its ancestors for the specified event type.</div>
+</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+</table>
+</div>
+<a name="eventSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Events</div>
+<div class="showHideLinks">
+<div class="hideInheritedEvent" id="hideInheritedEvent">
+<a onclick="javascript:setInheritedVisible(false,'Event');" href="#eventSummary" class="showHideLink"><img src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Events</a>
+</div>
+<div class="showInheritedEvent" id="showInheritedEvent">
+<a onclick="javascript:setInheritedVisible(true,'Event');" href="#eventSummary" class="showHideLink"><img src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Events</a>
+</div>
+</div>
+<table id="summaryTableEvent" class="summaryTable hideInheritedEvent" cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Event</th><th>Summary</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#event:activate">activate</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ [broadcast event] Dispatched when the Flash Player or AIR application gains operating system focus and becomes active.</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObject.html#event:added">added</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when a display object is added to the display list.</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObject.html#event:addedToStage">addedToStage</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when a display object is added to the on stage display list, either directly or through the addition of a sub tree in which the display object is contained.</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="InteractiveObject.html#event:click">click</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when a user presses and releases the main button of the user's pointing device over the same InteractiveObject.</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#event:deactivate">deactivate</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ [broadcast event] Dispatched when the Flash Player or AIR application operating loses system focus and is becoming inactive.</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="InteractiveObject.html#event:doubleClick">doubleClick</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when a user presses and releases the main button of a pointing device twice in rapid succession over the same InteractiveObject when that object's <code>doubleClickEnabled</code> flag is set to <code>true</code>.</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObject.html#event:enterFrame">enterFrame</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ [broadcast event] Dispatched when the playhead is entering a new frame.</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObject.html#event:exitFrame">exitFrame</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ [broadcast event] Dispatched when the playhead is exiting the current frame.</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="InteractiveObject.html#event:focusIn">focusIn</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched <i>after</i> a display object gains focus.</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="InteractiveObject.html#event:focusOut">focusOut</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched <i>after</i> a display object loses focus.</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObject.html#event:frameConstructed">frameConstructed</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ [broadcast event] Dispatched after the constructors of frame display objects have run but before frame scripts have run.</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="InteractiveObject.html#event:keyDown">keyDown</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when the user presses a key.</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="InteractiveObject.html#event:keyFocusChange">keyFocusChange</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when the user attempts to change focus by using keyboard navigation.</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="InteractiveObject.html#event:keyUp">keyUp</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when the user releases a key.</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="InteractiveObject.html#event:mouseDown">mouseDown</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when a user presses the pointing device button over an InteractiveObject instance.</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="InteractiveObject.html#event:mouseFocusChange">mouseFocusChange</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when the user attempts to change focus by using a pointer device.</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="InteractiveObject.html#event:mouseMove">mouseMove</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when a user moves the pointing device while it is over an InteractiveObject.</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="InteractiveObject.html#event:mouseOut">mouseOut</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when the user moves a pointing device away from an InteractiveObject instance.</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="InteractiveObject.html#event:mouseOver">mouseOver</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when the user moves a pointing device over an InteractiveObject instance.</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="InteractiveObject.html#event:mouseUp">mouseUp</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when a user releases the pointing device button over an InteractiveObject instance.</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="InteractiveObject.html#event:mouseWheel">mouseWheel</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when a mouse wheel is spun over an InteractiveObject instance.</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObject.html#event:removed">removed</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when a display object is about to be removed from the display list.</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObject.html#event:removedFromStage">removedFromStage</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when a display object is about to be removed from the display list, either directly or through the removal of a sub tree in which the display object is contained.</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DisplayObject.html#event:render">render</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ [broadcast event] Dispatched when the display list is about to be updated and rendered.</td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="InteractiveObject.html#event:rollOut">rollOut</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when the user moves a pointing device away from an InteractiveObject instance.</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="InteractiveObject.html#event:rollOver">rollOver</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when the user moves a pointing device over an InteractiveObject instance.</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="InteractiveObject.html#event:tabChildrenChange">tabChildrenChange</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when the value of the object's <code>tabChildren</code> flag changes.</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="InteractiveObject.html#event:tabEnabledChange">tabEnabledChange</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when the object's <code>tabEnabled</code> flag changes.</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="InteractiveObject.html#event:tabIndexChange">tabIndexChange</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when the value of the object's <code>tabIndex</code> property changes.</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="InteractiveObject.html#event:textInput">textInput</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when a user enters one or more characters of text.</td><td class="summaryTableOwnerCol"><a href="InteractiveObject.html">InteractiveObject</a></td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="currentFrame"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">currentFrame</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>currentFrame:int</code>&nbsp;&nbsp;[read-only]<p>
+   Specifies the number of the frame in which the playhead is located in the timeline of the MovieClip instance. If the movie clip has multiple scenes, this value is the frame number in the current scene.
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get currentFrame():int</code>
+<br>
+<br>
+<span class="label">Example</span>
+<br>The following code uses the <code>gotoAndStop()</code> method and the <code>currentFrame</code> property to direct the playhead of the <code>mc1</code> movie clip to advance five frames ahead of its current location and stop:
+   <div class='listing'><pre>
+   mc1.gotoAndStop(mc1.currentFrame + 5);
+   </pre></div>
+   <p></p>
+</div>
+<a name="currentLabel"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">currentLabel</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>currentLabel:String</code>&nbsp;&nbsp;[read-only]<p>
+   The current label in which the playhead is located in the timeline of the MovieClip instance. If the current frame has no label, <code>currentLabel</code> is set to the name of the previous frame that includes a label. If the current frame and previous frames do not include a label, <code>currentLabel</code> returns <code>null</code>.
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get currentLabel():String</code>
+<br>
+<br>
+<span class="label">Example</span>
+<br>The following code illustrates how to access the <code>currentLabel</code> property of a MovieClip object named <code>mc1</code>:
+   <div class='listing'><pre>
+   trace(mc1.currentLabel);
+   </pre></div>
+   <p></p>
+</div>
+<a name="currentLabels"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">currentLabels</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>currentLabels:Array</code>&nbsp;&nbsp;[read-only]<p>
+   Returns an array of FrameLabel objects from the current scene. If the MovieClip instance does not use scenes, the array includes all frame labels from the entire MovieClip instance.
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get currentLabels():Array</code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="FrameLabel.html" target="">FrameLabel</a>
+</div>
+<br>
+<span class="label">Example</span>
+<br>The following code illustrates how to use the <code>currentLabels</code> property of a MovieClip object named <code>mc1</code>:
+   <div class='listing'><pre>
+   import flash.display.FrameLabel;
+      var labels:Array = mc1.currentLabels;
+      for (var i:uint = 0; i < labels.length; i++) {
+       var label:FrameLabel = labels[i];
+       trace("frame " + label.frame + ": " + label.name);
+   }
+   </pre></div>
+   <p></p>
+</div>
+<a name="currentScene"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">currentScene</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>currentScene:<a href="../display/Scene.html">Scene</a></code>&nbsp;&nbsp;[read-only]<p>
+   The current scene in which the playhead is located in the timeline of the MovieClip instance.
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get currentScene():<a href="../display/Scene.html">Scene</a></code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="Scene.html" target="">Scene</a>
+</div>
+<br>
+<span class="label">Example</span>
+<br>The following code illustrates how to use the <code>currentScene</code> property of a MovieClip object named <code>mc1</code>:
+   <div class='listing'><pre>
+   import flash.display.Scene;
+      var scene:Scene = mc1.currentScene;
+   trace(scene.name + ": " + scene.numFrames + " frames");
+   </pre></div>
+   <p></p>
+</div>
+<a name="enabled"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">enabled</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>enabled:Boolean</code>&nbsp;&nbsp;[read-write]<p>
+   A Boolean value that indicates whether a movie clip is enabled. The default value of <code>enabled</code> is <code>true</code>. If <code>enabled</code> is set to <code>false</code>, the movie clip's Over, Down, and Up frames are disabled. The movie clip continues to receive events (for example, <code>mouseDown</code>, <code>mouseUp</code>, <code>keyDown</code>, and <code>keyUp</code>).
+   </p><p>The <code>enabled</code> property governs only the button-like properties of a movie clip. You can change the <code>enabled</code> property at any time; the modified movie clip is immediately enabled or disabled. If <code>enabled</code> is set to <code>false</code>, the object is not included in automatic tab ordering.</p>
+   <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get enabled():Boolean</code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set enabled(value:Boolean):void</code>
+<br>
+<br>
+<span class="label">Example</span>
+<br>The following code illustrates how to use the <code>enabled</code> property to disable the button-like properties of a MovieClip object named <code>mc1</code>:
+   <div class='listing'><pre>
+   mc1.enabled = false;
+   </pre></div>
+   <p></p>
+</div>
+<a name="framesLoaded"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">framesLoaded</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>framesLoaded:int</code>&nbsp;&nbsp;[read-only]<p>
+   The number of frames that are loaded from a streaming SWF file. You can use the <code>framesLoaded</code> property to determine whether the contents of a specific frame and all the frames before it loaded and are available locally in the browser. You can also use it to monitor the downloading of large SWF files. For example, you might want to display a message to users indicating that the SWF file is loading until a specified frame in the SWF file finishes loading.
+   </p><p>If the movie clip contains multiple scenes, the <code>framesLoaded</code> property returns the number of frames loaded for <i>all</i> scenes in the movie clip.</p>
+   <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get framesLoaded():int</code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="Loader.html" target="">Loader</a>
+</div>
+<br>
+<span class="label">Example</span>
+<br>The following code illustrates how to use the <code>framesLoaded</code> property and the <code>totalFrames</code> property to determine if a streaming MovieClip object named <code>mc1</code> is fully loaded:
+   <div class='listing'><pre>
+   if (mc1.framesLoaded == mc1.totalFrames) {
+       trace("OK.");
+   }
+   </pre></div>
+   <p></p>
+</div>
+<a name="scenes"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">scenes</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>scenes:Array</code>&nbsp;&nbsp;[read-only]<p>
+   An array of Scene objects, each listing the name, the number of frames, and the frame labels for a scene in the MovieClip instance.
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get scenes():Array</code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="Scene.html" target="">Scene</a>
+</div>
+<br>
+<span class="label">Example</span>
+<br>The following code illustrates how to use the <code>scenes</code> property of a MovieClip object named <code>mc1</code>:
+   <div class='listing'><pre>
+   import flash.display.Scene;
+      for (var i:uint = 0; i < mc1.scenes.length; i++) {
+       var scene:Scene = mc1.scenes[i];
+       trace("scene " + scene.name + ": " + scene.numFrames + " frames");
+   }
+   </pre></div>
+   <p></p>
+</div>
+<a name="totalFrames"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">totalFrames</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>totalFrames:int</code>&nbsp;&nbsp;[read-only]<p>
+   The total number of frames in the MovieClip instance.
+   </p><p>If the movie clip contains multiple frames, the <code>totalFrames</code> property returns the total number of frames in <i>all</i> scenes in the movie clip.</p>
+   <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get totalFrames():int</code>
+<br>
+<br>
+<span class="label">Example</span>
+<br>The following code illustrates the use of the <code>totalFrames</code> property of a MovieClip object named <code>mc1</code>:
+   <div class='listing'><pre>
+    trace(mc1.totalFrames);
+   </pre></div>
+   <p></p>
+</div>
+<a name="trackAsMenu"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">trackAsMenu</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>trackAsMenu:Boolean</code>&nbsp;&nbsp;[read-write]<p>
+   Indicates whether other display objects that are SimpleButton or MovieClip objects can receive mouse release events or other user input release events. The <code>trackAsMenu</code> property lets you create menus. You can set the <code>trackAsMenu</code> property on any SimpleButton or MovieClip object. The default value of the <code>trackAsMenu</code> property is <code>false</code>.
+   </p><p>You can change the <code>trackAsMenu</code> property at any time; the modified movie clip immediately uses the new behavior.</p>
+   <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get trackAsMenu():Boolean</code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set trackAsMenu(value:Boolean):void</code>
+<br>
+<br>
+<span class="label">Example</span>
+<br>The following code illustrates how to use the <code>trackAsMenu</code> property to enable mouse release events for a MovieClip object named <code>mc1</code>:
+   <div class='listing'><pre>
+    mc1.trackAsMenu = true;
+   </pre></div>
+   <p></p>
+</div>
+<a name="constructorDetail"></a>
+<div class="detailSectionHeader">Constructor detail</div>
+<a name="MovieClip()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">MovieClip</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">constructor</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function MovieClip()</code><p>
+   Creates a new MovieClip instance. After creating the MovieClip, call the <code>addChild()</code> or <code>addChildAt()</code> method of a display object container that is onstage.
+   </p></div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="gotoAndPlay()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">gotoAndPlay</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function gotoAndPlay(frame:Object, scene:String = null):void</code><p>
+   Starts playing the SWF file at the specified frame. This happens after all remaining actions in the frame have finished executing. To specify a scene as well as a frame, specify a value for the <code>scene</code> parameter.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">frame</span>:Object</code> &mdash; A number representing the frame number, or a string representing the label of the frame, to which the playhead is sent. If you specify a number, it is relative to the scene you specify. If you do not specify a scene, the current scene determines the global frame number to play. If you do specify a scene, the playhead jumps to the frame number in the specified scene.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">scene</span>:String</code> (default = <code>null</code>)<code></code> &mdash; The name of the scene to play. This parameter is optional.
+      </td>
+</tr>
+</table>
+<br>
+<span class="label">Example</span>
+<br>The following code uses the <code>gotoAndPlay()</code> method to direct the playhead of the <code>mc1</code> movie clip to advance five frames ahead of its current location:
+   <div class='listing'><pre>
+   mc1.gotoAndPlay(mc1.currentFrame + 5);
+   </pre></div>
+   <div>The following code uses the <code>gotoAndPlay()</code> method to direct the playhead of the <code>mc1</code> movie clip to the frame labeled <code>"intro"</code> in the scene named <code>"Scene 12"</code>:
+   <div class='listing'><pre>
+   mc1.gotoAndPlay("intro", "Scene 12");
+   </pre></div></div>
+   <p></p>
+</div>
+<a name="gotoAndStop()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">gotoAndStop</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function gotoAndStop(frame:Object, scene:String = null):void</code><p>
+   Brings the playhead to the specified frame of the movie clip and stops it there. This happens after all remaining actions in the frame have finished executing. If you want to specify a scene in addition to a frame, specify a <code>scene</code> parameter.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">frame</span>:Object</code> &mdash; A number representing the frame number, or a string representing the label of the frame, to which the playhead is sent. If you specify a number, it is relative to the scene you specify. If you do not specify a scene, the current scene determines the global frame number at which to go to and stop. If you do specify a scene, the playhead goes to the frame number in the specified scene and stops.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">scene</span>:String</code> (default = <code>null</code>)<code></code> &mdash; The name of the scene. This parameter is optional.
+      </td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; If the <code>scene</code> or <code>frame</code> specified are not found in this movie clip.
+      </td>
+</tr>
+</table>
+<br>
+<span class="label">Example</span>
+<br>The following code uses the <code>gotoAndStop()</code> method and the <code>currentFrame</code> property to direct the playhead of the <code>mc1</code> movie clip to advance five frames ahead of its current location and stop:
+   <div class='listing'><pre>
+   mc1.gotoAndStop(mc1.currentFrame + 5);
+   </pre></div>
+   <div>The following code uses the <code>gotoAndStop()</code> to direct the playhead of the <code>mc1</code> movie clip to the frame labeled <code>"finale"</code> in the scene named <code>"Scene 12"</code> and stop the playhead:
+   <div class='listing'><pre>
+   mc1.gotoAndStop("finale", "Scene 12");
+   </pre></div></div>
+   <p></p>
+</div>
+<a name="nextFrame()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">nextFrame</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function nextFrame():void</code><p>
+   Sends the playhead to the next frame and stops it. This happens after all remaining actions in the frame have finished executing.
+   </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../display/MovieClip.html#prevFrame()" target="">prevFrame()</a>
+</div>
+<br>
+<span class="label">Example</span>
+<br>In the following example, two SimpleButton objects control the timeline. The <code>prev</code> button moves the playhead to the previous frame, and the <code>nextBtn</code> button moves the playhead to the next frame:
+   <div class='listing'><pre>
+   import flash.events.MouseEvent;
+      mc1.stop();
+   prevBtn.addEventListener(MouseEvent.CLICK, goBack);
+   nextBtn.addEventListener(MouseEvent.CLICK, goForward);
+      function goBack(event:MouseEvent):void {
+       mc1.prevFrame();
+   }
+      function goForward(event:MouseEvent):void {
+       mc1.nextFrame();
+   }
+   </pre></div>
+   <p></p>
+</div>
+<a name="nextScene()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">nextScene</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function nextScene():void</code><p>
+   Moves the playhead to the next scene of the MovieClip instance. This happens after all remaining actions in the frame have finished executing.
+   </p><br>
+<span class="label">Example</span>
+<br>In the following example, two SimpleButton objects control the timeline. The <code>prevBtn</code> button moves the playhead to the previous scene, and the <code>nextBtn</code> button moves the playhead to the next scene:
+   <div class='listing'><pre>
+   import flash.events.MouseEvent;
+      mc1.stop();
+   prevBtn.addEventListener(MouseEvent.CLICK, goBack);
+   nextBtn.addEventListener(MouseEvent.CLICK, goForward);
+      function goBack(event:MouseEvent):void {
+       mc1.prevScene();
+   }
+      function goForward(event:MouseEvent):void {
+       mc1.nextScene();
+   }
+   </pre></div>
+   <p></p>
+</div>
+<a name="play()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">play</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function play():void</code><p>
+   Moves the playhead in the timeline of the movie clip.
+   </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../display/MovieClip.html#gotoAndPlay()" target="">gotoAndPlay()</a>
+</div>
+<br>
+<span class="label">Example</span>
+<br>The following code uses the <code>stop()</code> method to stop a movie clip named <code>mc1</code> and to resume playing when the user clicks the text field named <code>continueText</code>:
+   <div class='listing'><pre>
+   import flash.text.TextField;
+   import flash.events.MouseEvent;
+      var continueText:TextField = new TextField();
+   continueText.text = "Play movie...";
+   addChild(continueText);
+      mc1.stop();
+   continueText.addEventListener(MouseEvent.CLICK, resumeMovie);
+      function resumeMovie(event:MouseEvent):void {
+       mc1.play();
+   }
+   </pre></div>
+   <p></p>
+</div>
+<a name="prevFrame()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">prevFrame</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function prevFrame():void</code><p>
+   Sends the playhead to the previous frame and stops it. This happens after all remaining actions in the frame have finished executing.
+   </p><br>
+<span class="label">Example</span>
+<br>In the following example, two SimpleButton objects control the timeline. The <code>prev</code> button moves the playhead to the previous frame, and the <code>nextBtn</code> button moves the playhead to the next frame:
+   <div class='listing'><pre>
+   import flash.events.MouseEvent;
+      mc1.stop();
+   prevBtn.addEventListener(MouseEvent.CLICK, goBack);
+   nextBtn.addEventListener(MouseEvent.CLICK, goForward);
+      function goBack(event:MouseEvent):void {
+       mc1.prevFrame();
+   }
+      function goForward(event:MouseEvent):void {
+       mc1.nextFrame();
+   }
+   </pre></div>
+   <p></p>
+</div>
+<a name="prevScene()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">prevScene</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function prevScene():void</code><p>
+   Moves the playhead to the previous scene of the MovieClip instance. This happens after all remaining actions in the frame have finished executing.
+   </p><br>
+<span class="label">Example</span>
+<br>In the following example, two SimpleButton objects control the timeline. The <code>prevBtn</code> button moves the playhead to the previous scene, and the <code>nextBtn</code> button moves the playhead to the next scene:
+   <div class='listing'><pre>
+   import flash.events.MouseEvent;
+      mc1.stop();
+   prevBtn.addEventListener(MouseEvent.CLICK, goBack);
+   nextBtn.addEventListener(MouseEvent.CLICK, goForward);
+      function goBack(event:MouseEvent):void {
+       mc1.prevScene();
+   }
+      function goForward(event:MouseEvent):void {
+       mc1.nextScene();
+   }
+   </pre></div>
+   <p></p>
+</div>
+<a name="stop()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">stop</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function stop():void</code><p>
+   Stops the playhead in the movie clip.
+   </p></div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<center class="copyright"> 
+</center>
+</div>
+</body>
+</html>
+<!-- -->

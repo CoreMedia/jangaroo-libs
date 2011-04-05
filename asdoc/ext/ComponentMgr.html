@@ -1,0 +1,448 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../print.css" type="text/css" media="print">
+<meta content="ComponentMgr,ext.ComponentMgr,all,create,createPlugin,isRegistered,onAvailable,register,registerPlugin,registerType,unregister,get" name="keywords">
+<title>ext.ComponentMgr</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../asdoc.js"></script><script type="text/javascript" language="javascript" src="../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'ComponentMgr - API Documentation';
+				var baseRef = '../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">API Documentation</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../all-classes.html')" href="../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../all-classes.html')" href="../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../index-list.html')" href="../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../index.html?ext/ComponentMgr.html&amp;ext/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;ComponentMgr</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class ComponentMgr"); titleBar_setSubNav(false,true,false,false,false,false,true,false,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">ext</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public class ComponentMgr</td>
+</tr>
+</table>
+<p></p>
+ Provides a registry of all Components (instances of <b class='link'>ext.Component</b> or any subclass
+ thereof) on a page so that they can be easily accessed by <b class='link' title='ext.Component'>component</b>
+ <b class='link' title='ext.Component#id'>id</b> (see <b class='link' title='#get'>get</b>, or the convenience method
+ <b class='link' title='Ext#getCmp'>Ext.getCmp</b>).
+ <p>This object also provides a registry of available Component <i>classes</i>
+ indexed by a mnemonic code known as the Component's <b class='link' title='ext.Component#xtype'>xtype</b>.
+ The <code><b class='link' title='ext.Component#xtype'>xtype</b></code> provides a way to avoid instantiating child Components
+ when creating a full, nested config object for a complete Ext page.</p>
+ <p>A child Component may be specified simply as a <i>config object</i>
+ as long as the correct <code><b class='link' title='ext.Component#xtype'>xtype</b></code> is specified so that if and when the Component
+ needs rendering, the correct type can be looked up for lazy instantiation.</p>
+ <p>For a list of all available <code><b class='link' title='ext.Component#xtype'>xtypes</b></code>, see <b class='link'>ext.Component</b>.</p>
+<p></p>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#all">all</a> : <a href="util/MixedCollection.html">MixedCollection</a>
+<div class="summaryTableDescription">[static]
+         The MixedCollection used internally for the component cache.</div>
+</td><td class="summaryTableOwnerCol">ComponentMgr</td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#create()">create</a>(config:Object, defaultType:Class):<a href="ext/Component.html">Component</a>
+</div>
+<div class="summaryTableDescription">[static]
+         Creates a new Component from the specified config object using the
+         config object's <b class='link' title='Ext.component#xtype'>xtype</b> to determine the class to instantiate.</div>
+</td><td class="summaryTableOwnerCol">ComponentMgr</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#createPlugin()">createPlugin</a>(config:Object, defaultType:Class):<a href="ext/Component.html">Component</a>
+</div>
+<div class="summaryTableDescription">[static]
+         Creates a new Plugin from the specified config object using the
+         config object's <b class='link' title='Ext.component#ptype'>ptype</b> to determine the class to instantiate.</div>
+</td><td class="summaryTableOwnerCol">ComponentMgr</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#get()">get</a>(id:String):<a href="ext/Component.html">Component</a>
+</div>
+<div class="summaryTableDescription">[static]
+         Returns a component by <b class='link' title='ext.Component#id'>id</b>.</div>
+</td><td class="summaryTableOwnerCol">ComponentMgr</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#isRegistered()">isRegistered</a>(xtype:String):Boolean</div>
+<div class="summaryTableDescription">[static]
+         Checks if a Component type is registered.</div>
+</td><td class="summaryTableOwnerCol">ComponentMgr</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onAvailable()">onAvailable</a>(id:String, fn:Function, scope:Object):void</div>
+<div class="summaryTableDescription">[static]
+         Registers a function that will be called when a specified component is added to ComponentMgr
+         </div>
+</td><td class="summaryTableOwnerCol">ComponentMgr</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#register()">register</a>(c:<a href="Component.html">Component</a>):void</div>
+<div class="summaryTableDescription">[static]
+ </div>
+</td><td class="summaryTableOwnerCol">ComponentMgr</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#registerPlugin()">registerPlugin</a>(ptype:String, cls:Class):void</div>
+<div class="summaryTableDescription">[static]
+         <p>Registers a new Plugin constructor, keyed by a new
+         <b class='link'>ext.Component#ptype</b>.</p>
+         <p>Use this method (or its alias <b class='link' title='Ext#preg'>Ext.preg</b>) to register new
+         plugins for <b class='link'>ext.Component</b>s so that lazy instantiation may be used when specifying
+         Plugins.</p>
+         </div>
+</td><td class="summaryTableOwnerCol">ComponentMgr</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#registerType()">registerType</a>(xtype:String, cls:Class):void</div>
+<div class="summaryTableDescription">[static]
+         <p>Registers a new Component constructor, keyed by a new
+         <b class='link'>ext.Component#xtype</b>.</p>
+         <p>Use this method (or its alias <b class='link' title='Ext#reg'>Ext.reg</b>) to register new
+         subclasses of <b class='link'>ext.Component</b> so that lazy instantiation may be used when specifying
+         child Components.</div>
+</td><td class="summaryTableOwnerCol">ComponentMgr</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#unregister()">unregister</a>(c:<a href="Component.html">Component</a>):void</div>
+<div class="summaryTableDescription">[static]
+         Unregisters a component.</div>
+</td><td class="summaryTableOwnerCol">ComponentMgr</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="all"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">all</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var all:<a href="util/MixedCollection.html">MixedCollection</a></code><p>
+         The MixedCollection used internally for the component cache. An example usage may be subscribing to
+         events on the MixedCollection to monitor addition or removal.  Read-only.
+         </p></div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="create()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">create</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function create(config:Object, defaultType:Class):<a href="ext/Component.html">Component</a></code><p>
+         Creates a new Component from the specified config object using the
+         config object's <b class='link' title='Ext.component#xtype'>xtype</b> to determine the class to instantiate.
+         </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">config</span>:Object</code> &mdash; A configuration object for the Component you wish to create.
+         </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">defaultType</span>:Class</code> &mdash; The constructor to provide the default Component type if
+         the config object does not contain a <code>xtype</code>. (Optional if the config contains a <code>xtype</code>).
+         </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="ext/Component.html">Component</a></code> &mdash; 
+                        The newly instantiated Component.
+         
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="createPlugin()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">createPlugin</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function createPlugin(config:Object, defaultType:Class):<a href="ext/Component.html">Component</a></code><p>
+         Creates a new Plugin from the specified config object using the
+         config object's <b class='link' title='Ext.component#ptype'>ptype</b> to determine the class to instantiate.
+         </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">config</span>:Object</code> &mdash; A configuration object for the Plugin you wish to create.
+         </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">defaultType</span>:Class</code> &mdash; The constructor to provide the default Plugin type if
+         the config object does not contain a <code>ptype</code>. (Optional if the config contains a <code>ptype</code>).
+         </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="ext/Component.html">Component</a></code> &mdash; 
+                        The newly instantiated Plugin.
+         
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="get()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">get</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function get(id:String):<a href="ext/Component.html">Component</a></code><p>
+         Returns a component by <b class='link' title='ext.Component#id'>id</b>.
+         For additional details see <b class='link'>Ext.util.MixedCollection#get</b>.
+         </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">id</span>:String</code> &mdash; The component <b class='link' title='ext.Component#id'>id</b>
+         </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="ext/Component.html">Component</a></code> &mdash; 
+                        The Component, <code>undefined</code> if not found, or <code>null</code> if a
+         Class was found.
+         
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="isRegistered()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">isRegistered</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function isRegistered(xtype:String):Boolean</code><p>
+         Checks if a Component type is registered.
+         </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">xtype</span>:String</code> &mdash; The mnemonic string by which the Component class may be looked up
+         </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code> &mdash; Whether the type is registered.
+         </td>
+</tr>
+</table>
+</div>
+<a name="onAvailable()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onAvailable</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function onAvailable(id:String, fn:Function, scope:Object):void</code><p>
+         Registers a function that will be called when a specified component is added to ComponentMgr
+         </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">id</span>:String</code> &mdash; The component <b class='link' title='ext.Component#id'>id</b>
+         </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">fn</span>:Function</code> &mdash; The callback function
+         </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">scope</span>:Object</code> &mdash; The scope of the callback
+         </td>
+</tr>
+</table>
+</div>
+<a name="register()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">register</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function register(c:<a href="Component.html">Component</a>):void</code><p>
+ </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">c</span>:<a href="Component.html">Component</a></code></td>
+</tr>
+</table>
+</div>
+<a name="registerPlugin()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">registerPlugin</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function registerPlugin(ptype:String, cls:Class):void</code><p>
+         </p><p>Registers a new Plugin constructor, keyed by a new
+         <b class='link'>ext.Component#ptype</b>.</p>
+         <p>Use this method (or its alias <b class='link' title='Ext#preg'>Ext.preg</b>) to register new
+         plugins for <b class='link'>ext.Component</b>s so that lazy instantiation may be used when specifying
+         Plugins.</p>
+         <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">ptype</span>:String</code> &mdash; The mnemonic string by which the Plugin class may be looked up.
+         </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">cls</span>:Class</code> &mdash; The new Plugin class.
+         </td>
+</tr>
+</table>
+</div>
+<a name="registerType()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">registerType</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function registerType(xtype:String, cls:Class):void</code><p>
+         </p><p>Registers a new Component constructor, keyed by a new
+         <b class='link'>ext.Component#xtype</b>.</p>
+         <p>Use this method (or its alias <b class='link' title='Ext#reg'>Ext.reg</b>) to register new
+         subclasses of <b class='link'>ext.Component</b> so that lazy instantiation may be used when specifying
+         child Components.
+         see <b class='link'>ext.Container#items</b></p>
+         <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">xtype</span>:String</code> &mdash; The mnemonic string by which the Component class may be looked up.
+         </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">cls</span>:Class</code> &mdash; The new Component class.
+         </td>
+</tr>
+</table>
+</div>
+<a name="unregister()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">unregister</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function unregister(c:<a href="Component.html">Component</a>):void</code><p>
+         Unregisters a component.
+         </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">c</span>:<a href="Component.html">Component</a></code> &mdash; The component
+         </td>
+</tr>
+</table>
+</div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<center class="copyright"> 
+</center>
+</div>
+</body>
+</html>
+<!-- -->

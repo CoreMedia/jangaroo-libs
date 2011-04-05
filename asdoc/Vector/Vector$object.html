@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../print.css" type="text/css" media="print">
+<meta content="Vector$object,Vector$object" name="keywords">
+<title>Vector.Vector$object</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../asdoc.js"></script><script type="text/javascript" language="javascript" src="../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'Vector$object - API Documentation';
+				var baseRef = '../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">API Documentation</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../all-classes.html')" href="../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../all-classes.html')" href="../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../index-list.html')" href="../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../index.html?Vector/Vector$object.html&amp;Vector/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;Vector$object</td><td align="right" id="subNav" class="titleTableSubNav"></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class Vector$object"); titleBar_setSubNav(false,false,false,false,false,false,false,false,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">Vector</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public final  dynamic  class Vector$object</td>
+</tr>
+</table>
+<p></p>
+ The Vector class lets you access and manipulate a vector � an array whose elements all have the same data type. The data type of a Vector's elements is known as the Vector's <i>base type</i>. The base type can be any class, including built in classes and custom classes. The base type is specified when declaring a Vector variable as well as when creating an instance by calling the class constructor.
+ <p>As with an Array, you can use the array access operator (<code>[]</code>) to set or retrieve the value of a Vector element. Several Vector methods also provide mechanisms for setting and retrieving element values. These include <code>push()</code>, <code>pop()</code>, <code>shift()</code>, <code>unshift()</code>, and others. The properties and methods of a Vector object are similar � in most cases identical � to the properties and methods of an Array. In most cases where you would use an Array in which all the elements have the same data type, a Vector instance is preferable. However, Vector instances are dense arrays, meaning it must have a value (or <code>null</code>) in each index. Array instances don't have this same restriction.</p>
+ <p>The Vector's base type is specified using postfix type parameter syntax. Type parameter syntax is a sequence consisting of a dot (<code>.</code>), left angle bracket (<code><</code>), class name, then a right angle bracket (<code>></code>), as shown in this example:</p>
+ <p>In the first line of the example, the variable <code>v</code> is declared as a Vector.<String> instance. In other words, it represents a Vector (an array) that can only hold String instances and from which only String instances can be retrieved. The second line constructs an instance of the same Vector type (that is, a Vector whose elements are all String objects) and assigns it to <code>v</code>.</p>
+ <div class='listing'><pre>
+  var v:Vector.<String>;
+  v = new Vector.<String>();
+ </pre></div>
+ <p>A variable declared with the Vector.<T> data type can only store a Vector instance that is constructed with the same base type <code>T</code>. For example, a Vector that's constructed by calling <code>new Vector.<String>()</code> can't be assigned to a variable that's declared with the Vector.<int> data type. The base types must match exactly. For example, the following code doesn't compile because the object's base type isn't the same as the variable's declared base type (even though Sprite is a subclass of DisplayObject):</p>
+ <div class='listing'><pre>
+  // This code doesn't compile even though Sprite is a DisplayObject subclass
+  var v:Vector.<DisplayObject> = new Vector.<Sprite>();
+ </pre></div>
+ <p>To convert a Vector with base type <code>T</code> to a Vector of a superclass of <code>T</code>, use the <code>Vector()</code> global function.</p>
+ <p>In addition to the data type restriction, the Vector class has other restrictions that distinguish it from the Array class:</p>
+ <ul>
+ <li>A Vector is a dense array. Unlike an Array, which may have values in indices 0 and 7 even if there are no values in positions 1 through 6, a Vector must have a value (or <code>null</code>) in each index.</li>
+ <li>A Vector can optionally be fixed-length, meaning the number of elements it contains can't change.</li>
+ <li>Access to a Vector's elements is bounds-checked. You can never read a value from an index greater than the final element (<code>length - 1</code>). You can never set a value with an index more than one beyond the current final index (in other words, you can only set a value at an existing index or at index <code>[length]</code>).</li></ul>
+ <p>As a result of its restrictions, a Vector has three primary benefits over an Array instance whose elements are all instances of a single class:</p>
+ <ul>
+ <li>Performance: array element access and iteration are much faster when using a Vector instance than they are when using an Array.</li>
+ <li>Type safety: in strict mode the compiler can identify data type errors. Examples of data type errors include assigning a value of the incorrect data type to a Vector or expecting the wrong data type when reading a value from a Vector. Note, however, that when using the <code>push()</code> method or <code>unshift()</code> method to add values to a Vector, the arguments' data types are not checked at compile time. Instead, they are checked at run time.</li>
+ <li>Reliability: runtime range checking (or fixed-length checking) increases reliability significantly over Arrays.</li></ul>
+ <p></p>
+<p>
+<span class="classHeaderTableLabel">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/operators.html#array_access" target="mm_external">http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/operators.html#array_access</a>
+<br>Vector()<br>Array</div>
+<br>
+<hr>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<center class="copyright"> 
+</center>
+</div>
+</body>
+</html>
+<!-- -->

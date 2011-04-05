@@ -1,0 +1,1485 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../print.css" type="text/css" media="print">
+<meta content="DateUtil,ext.util.DateUtil,DAY,HOUR,MILLI,MINUTE,MONTH,SECOND,YEAR,dayNames,defaults,formatCodes,formatFunctions,monthNames,monthNumbers,parseFunctions,useStrict,y2kYear,add,between,clearTime,clone,format,getDayOfYear,getDaysInMonth,getFirstDateOfMonth,getFirstDayOfMonth,getGMTOffset,getLastDateOfMonth,getLastDayOfMonth,getMonthNumber,getShortDayName,getShortMonthName,getSuffix,getTimezone,getWeekOfYear,isDST,isLeapYear,isValid,parseDate" name="keywords">
+<title>ext.util.DateUtil</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'DateUtil - API Documentation';
+				var baseRef = '../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">API Documentation</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../all-classes.html')" href="../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../all-classes.html')" href="../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../index-list.html')" href="../../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../../index.html?ext/util/DateUtil.html&amp;ext/util/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;DateUtil</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#constantSummary">Constants</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class DateUtil"); titleBar_setSubNav(true,true,false,false,false,false,true,false,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">ext.util</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public class DateUtil</td>
+</tr>
+</table>
+<p></p>
+ The date parsing and formatting syntax contains a subset of
+ <a href="http://www.php.net/date">PHP's date() function</a>, and the formats that are
+ supported will provide results equivalent to their PHP versions.
+  <p>The following is a list of all currently supported formats:</p>
+ <pre>
+ Format  Description                                                               Example returned values
+ ------  -----------------------------------------------------------------------   -----------------------
+ d     Day of the month, 2 digits with leading zeros                             01 to 31
+ D     A short textual representation of the day of the week                     Mon to Sun
+ j     Day of the month without leading zeros                                    1 to 31
+ l     A full textual representation of the day of the week                      Sunday to Saturday
+ N     ISO-8601 numeric representation of the day of the week                    1 (for Monday) through 7 (for Sunday)
+ S     English ordinal suffix for the day of the month, 2 characters             st, nd, rd or th. Works well with j
+ w     Numeric representation of the day of the week                             0 (for Sunday) to 6 (for Saturday)
+ z     The day of the year (starting from 0)                                     0 to 364 (365 in leap years)
+ W     ISO-8601 week number of year, weeks starting on Monday                    01 to 53
+ F     A full textual representation of a month, such as January or March        January to December
+ m     Numeric representation of a month, with leading zeros                     01 to 12
+ M     A short textual representation of a month                                 Jan to Dec
+ n     Numeric representation of a month, without leading zeros                  1 to 12
+ t     Number of days in the given month                                         28 to 31
+ L     Whether it's a leap year                                                  1 if it is a leap year, 0 otherwise.
+ o     ISO-8601 year number (identical to (Y), but if the ISO week number (W)    Examples: 1998 or 2004
+       belongs to the previous or next year, that year is used instead)
+ Y     A full numeric representation of a year, 4 digits                         Examples: 1999 or 2003
+ y     A two digit representation of a year                                      Examples: 99 or 03
+ a     Lowercase Ante meridiem and Post meridiem                                 am or pm
+ A     Uppercase Ante meridiem and Post meridiem                                 AM or PM
+ g     12-hour format of an hour without leading zeros                           1 to 12
+ G     24-hour format of an hour without leading zeros                           0 to 23
+ h     12-hour format of an hour with leading zeros                              01 to 12
+ H     24-hour format of an hour with leading zeros                              00 to 23
+ i     Minutes, with leading zeros                                               00 to 59
+ s     Seconds, with leading zeros                                               00 to 59
+ u     Decimal fraction of a second                                              Examples:
+       (minimum 1 digit, arbitrary number of digits allowed)                     001 (i.e. 0.001s) or
+                                                                                 100 (i.e. 0.100s) or
+                                                                                 999 (i.e. 0.999s) or
+                                                                                 999876543210 (i.e. 0.999876543210s)
+ O     Difference to Greenwich time (GMT) in hours and minutes                   Example: +1030
+ P     Difference to Greenwich time (GMT) with colon between hours and minutes   Example: -08:00
+ T     Timezone abbreviation of the machine running the code                     Examples: EST, MDT, PDT ...
+ Z     Timezone offset in seconds (negative if west of UTC, positive if east)    -43200 to 50400
+ c     ISO 8601 date
+ Notes:                                                                    Examples:
+ 1) If unspecified, the month / day defaults to the current month / day,   1991 or
+    the time defaults to midnight, while the timezone defaults to the      1992-10 or
+    browser's timezone. If a time is specified, it must include both hours 1993-09-20 or
+    and minutes. The "T" delimiter, seconds, milliseconds and timezone     1994-08-19T16:20+01:00 or
+    are optional.                                                          1995-07-18T17:21:28-02:00 or
+ 2) The decimal fraction of a second, if specified, must contain at        1996-06-17T18:22:29.98765+03:00 or
+    least 1 digit (there is no limit to the maximum number                 1997-05-16T19:23:30,12345-0400 or
+    of digits allowed), and may be delimited by either a '.' or a ','      1998-04-15T20:24:31.2468Z or
+ Refer to the examples on the right for the various levels of              1999-03-14T20:24:32Z or
+ date-time granularity which are supported, or see                         2000-02-13T21:25:33
+ http://www.w3.org/TR/NOTE-datetime for more info.                         2001-01-12 22:26:34
+ U     Seconds since the Unix Epoch (January 1 1970 00:00:00 GMT)                1193432466 or -2138434463
+ M$    Microsoft AJAX serialized dates                                           \/Date(1238606590509)\/ (i.e. UTC milliseconds since epoch) or
+ \/Date(1238606590509+0800)\/
+ </pre>
+  Example usage (note that you must escape format specifiers with '\\' to render them as character literals):
+ <pre><code>
+ // Sample date:
+ // 'Wed Jan 10 2007 15:05:01 GMT-0600 (Central Standard Time)'
+  var dt = new Date('1/10/2007 03:05:01 PM GMT-0600');
+ document.write(DateUtil.format(dt, 'Y-m-d'));                           // 2007-01-10
+ document.write(DateUtil.format(dt, 'F j, Y, g:i a'));                   // January 10, 2007, 3:05 pm
+ document.write(DateUtil.format(dt, 'l, \\t\\he jS \\of F Y h:i:s A'));  // Wednesday, the 10th of January 2007 03:05:01 PM
+ </code></pre>
+  Here are some standard date/time patterns that you might find helpful.  They
+ are not part of DateUtil, but to use them you can simply copy this
+ block of code into any class that imports DateUtil and they will become
+ globally available on the DateUtil object.  Feel free to add or remove patterns as needed in your code.
+ <pre><code>
+ DateUtil.patterns = {
+   ISO8601Long:"Y-m-d H:i:s",
+   ISO8601Short:"Y-m-d",
+   ShortDate: "n/j/Y",
+   LongDate: "l, F d, Y",
+   FullDateTime: "l, F d, Y g:i:s A",
+   MonthDay: "F d",
+   ShortTime: "g:i A",
+   LongTime: "g:i:s A",
+   SortableDateTime: "Y-m-d\\TH:i:s",
+   UniversalSortableDateTime: "Y-m-d H:i:sO",
+   YearMonth: "F, Y"
+ };
+ </code></pre>
+  Example usage:
+ <pre><code>
+ var dt = new Date();
+ document.write(DateUtil.format(dt, DateUtil.patterns.ShortDate));
+ </code></pre>
+ <p>Developer-written, custom formats may be used by supplying both a formatting and a parsing function
+ which perform to specialized requirements. The functions are stored in <a href="#parseFunctions">parseFunctions</a>
+ and <a href="#formatFunctions">formatFunctions</a>.</p>
+  <p>Most of the date-formatting functions below are the excellent work of Baron Schwartz.
+ (see http://www.xaprb.com/blog/2005/12/12/javascript-closures-for-runtime-efficiency/)
+ They generate precompiled functions from format patterns instead of parsing and
+ processing each pattern every time a date is formatted. These functions are available
+ on every Date object.</p>
+ <p></p>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#dayNames">dayNames</a> : Array<div class="summaryTableDescription">[static]
+   An array of textual day names.</div>
+</td><td class="summaryTableOwnerCol">DateUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#monthNames">monthNames</a> : Array<div class="summaryTableDescription">[static]
+   An array of textual month names.</div>
+</td><td class="summaryTableOwnerCol">DateUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#monthNumbers">monthNumbers</a> : Object<div class="summaryTableDescription">[static]
+   An object hash of zero-based javascript month numbers (with short month names as keys.</div>
+</td><td class="summaryTableOwnerCol">DateUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#useStrict">useStrict</a> : Boolean = false<div class="summaryTableDescription">[static]
+   Global flag which determines if strict date parsing should be used.</div>
+</td><td class="summaryTableOwnerCol">DateUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#y2kYear">y2kYear</a> : int<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">DateUtil</td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#add()">add</a>(date:Date, interval:String, value:Number):Date</div>
+<div class="summaryTableDescription">[static]
+   Provides a convenient method for performing basic date arithmetic.</div>
+</td><td class="summaryTableOwnerCol">DateUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#between()">between</a>(date:Date, start:Date, end:Date):Boolean</div>
+<div class="summaryTableDescription">[static]
+   Checks if the given date falls on or between the given start and end dates.</div>
+</td><td class="summaryTableOwnerCol">DateUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#clearTime()">clearTime</a>(date:Date, clone:Boolean = false):Date</div>
+<div class="summaryTableDescription">[static]
+   Attempts to clear all time information from the given date by setting the time to midnight of the same day,
+   automatically adjusting for Daylight Saving Time (DST) where applicable.</div>
+</td><td class="summaryTableOwnerCol">DateUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#clone()">clone</a>(date:Date):Date</div>
+<div class="summaryTableDescription">[static]
+   Creates and returns a new Date instance with the exact same date value as the given date.</div>
+</td><td class="summaryTableOwnerCol">DateUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#format()">format</a>(date:Date, format:String):String</div>
+<div class="summaryTableDescription">[static]
+   Formats the given date with the supplied format string.</div>
+</td><td class="summaryTableOwnerCol">DateUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getDayOfYear()">getDayOfYear</a>(date:Date):Number</div>
+<div class="summaryTableDescription">[static]
+   Get the numeric day number of the year, adjusted for leap year.</div>
+</td><td class="summaryTableOwnerCol">DateUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getDaysInMonth()">getDaysInMonth</a>(date:Date):Number</div>
+<div class="summaryTableDescription">[static]
+   Get the number of days in the current month, adjusted for leap year.</div>
+</td><td class="summaryTableOwnerCol">DateUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getFirstDateOfMonth()">getFirstDateOfMonth</a>(date:Date):Date</div>
+<div class="summaryTableDescription">[static]
+   Get the date of the first day of the month in which the given date resides.</div>
+</td><td class="summaryTableOwnerCol">DateUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getFirstDayOfMonth()">getFirstDayOfMonth</a>(date:Date):Number</div>
+<div class="summaryTableDescription">[static]
+   Get the first day of the given date's month, adjusted for leap year.</div>
+</td><td class="summaryTableOwnerCol">DateUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getGMTOffset()">getGMTOffset</a>(date:Date, colon:Boolean = false):String</div>
+<div class="summaryTableDescription">[static]
+   Get the offset from GMT of the given date (equivalent to the format specifier 'O').</div>
+</td><td class="summaryTableOwnerCol">DateUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getLastDateOfMonth()">getLastDateOfMonth</a>(date:Date):Date</div>
+<div class="summaryTableDescription">[static]
+   Get the date of the last day of the month in which this date resides.</div>
+</td><td class="summaryTableOwnerCol">DateUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getLastDayOfMonth()">getLastDayOfMonth</a>(date:Date):Number</div>
+<div class="summaryTableDescription">[static]
+   Get the last day of the given date's month, adjusted for leap year.</div>
+</td><td class="summaryTableOwnerCol">DateUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getMonthNumber()">getMonthNumber</a>(name:String):Number</div>
+<div class="summaryTableDescription">[static]
+   Get the zero-based javascript month number for the given short/full month name.</div>
+</td><td class="summaryTableOwnerCol">DateUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getShortDayName()">getShortDayName</a>(day:Number):String</div>
+<div class="summaryTableDescription">[static]
+   Get the short day name for the given day number.</div>
+</td><td class="summaryTableOwnerCol">DateUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getShortMonthName()">getShortMonthName</a>(month:Number):String</div>
+<div class="summaryTableDescription">[static]
+   Get the short month name for the given month number.</div>
+</td><td class="summaryTableOwnerCol">DateUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getSuffix()">getSuffix</a>(date:Date):String</div>
+<div class="summaryTableDescription">[static]
+   Get the English ordinal suffix of the given date's day (equivalent to the format specifier 'S').</div>
+</td><td class="summaryTableOwnerCol">DateUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getTimezone()">getTimezone</a>(date:Date):String</div>
+<div class="summaryTableDescription">[static]
+   Get the timezone abbreviation of the given date (equivalent to the format specifier 'T').</div>
+</td><td class="summaryTableOwnerCol">DateUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getWeekOfYear()">getWeekOfYear</a>(date:Date):Number</div>
+<div class="summaryTableDescription">[static]
+   Get the numeric ISO-8601 week number of the year.</div>
+</td><td class="summaryTableOwnerCol">DateUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#isDST()">isDST</a>(date:Date):Boolean</div>
+<div class="summaryTableDescription">[static]
+   Checks if the given date is affected by Daylight Saving Time (DST).</div>
+</td><td class="summaryTableOwnerCol">DateUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#isLeapYear()">isLeapYear</a>(date:Date):Boolean</div>
+<div class="summaryTableDescription">[static]
+   Checks if the current date falls within a leap year.</div>
+</td><td class="summaryTableOwnerCol">DateUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#isValid()">isValid</a>(year:Number, month:Number, day:Number, hour:Number, minute:Number, second:Number, millisecond:Number):Boolean</div>
+<div class="summaryTableDescription">[static]
+   Checks if the passed Date parameters will cause a Date "rollover".</div>
+</td><td class="summaryTableOwnerCol">DateUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#parseDate()">parseDate</a>(input:String, format:String, strict:Boolean = false):Date</div>
+<div class="summaryTableDescription">[static]
+   Parses the passed string using the specified date format.</div>
+</td><td class="summaryTableOwnerCol">DateUtil</td>
+</tr>
+</table>
+</div>
+<a name="constantSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Constants</div>
+<table id="summaryTableConstant" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Constant</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#DAY">DAY</a> : String = "d"<div class="summaryTableDescription">[static]
+   Date interval constant.</div>
+</td><td class="summaryTableOwnerCol">DateUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#defaults">defaults</a> : Object<div class="summaryTableDescription">[static]
+   An object hash containing default date values used during date parsing.</div>
+</td><td class="summaryTableOwnerCol">DateUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#formatCodes">formatCodes</a> : Object<div class="summaryTableDescription">[static]
+   The base format-code to formatting-function hashmap used by the <code>format</code> method.</div>
+</td><td class="summaryTableOwnerCol">DateUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#formatFunctions">formatFunctions</a> : Object<div class="summaryTableDescription">[static]
+   An object hash in which each property is a date formatting function.</div>
+</td><td class="summaryTableOwnerCol">DateUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#HOUR">HOUR</a> : String = "h"<div class="summaryTableDescription">[static]
+   Date interval constant.</div>
+</td><td class="summaryTableOwnerCol">DateUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#MILLI">MILLI</a> : String = "ms"<div class="summaryTableDescription">[static]
+   Date interval constant.</div>
+</td><td class="summaryTableOwnerCol">DateUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#MINUTE">MINUTE</a> : String = "mi"<div class="summaryTableDescription">[static]
+   Date interval constant.</div>
+</td><td class="summaryTableOwnerCol">DateUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#MONTH">MONTH</a> : String = "mo"<div class="summaryTableDescription">[static]
+   Date interval constant.</div>
+</td><td class="summaryTableOwnerCol">DateUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#parseFunctions">parseFunctions</a> : Object<div class="summaryTableDescription">[static]
+   An object hash in which each property is a date parsing function.</div>
+</td><td class="summaryTableOwnerCol">DateUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#SECOND">SECOND</a> : String = "s"<div class="summaryTableDescription">[static]
+   Date interval constant.</div>
+</td><td class="summaryTableOwnerCol">DateUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#YEAR">YEAR</a> : String = "y"<div class="summaryTableDescription">[static]
+   Date interval constant.</div>
+</td><td class="summaryTableOwnerCol">DateUtil</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="dayNames"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">dayNames</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var dayNames:Array</code><p>
+   An array of textual day names.
+   Override these values for international dates.
+   Example:
+   <pre><code>
+   DateUtil.dayNames = [
+   'SundayInYourLang',
+   'MondayInYourLang',
+   ...
+   ];
+   </code></pre>
+   </p></div>
+<a name="monthNames"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">monthNames</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var monthNames:Array</code><p>
+   An array of textual month names.
+   Override these values for international dates.
+   Example:
+   <pre><code>
+   DateUtil.monthNames = [
+   'JanInYourLang',
+   'FebInYourLang',
+   ...
+   ];
+   </code></pre>
+   </p></div>
+<a name="monthNumbers"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">monthNumbers</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var monthNumbers:Object</code><p>
+   An object hash of zero-based javascript month numbers (with short month names as keys. note: keys are case-sensitive).
+   Override these values for international dates.
+   Example:
+   <pre><code>
+   DateUtil.monthNumbers = {
+     'ShortJanNameInYourLang':0,
+     'ShortFebNameInYourLang':1,
+     ...
+   };
+   </code></pre>
+   </p></div>
+<a name="useStrict"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">useStrict</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var useStrict:Boolean = false</code><p>
+   Global flag which determines if strict date parsing should be used.
+   Strict date parsing will not roll-over invalid dates, which is the
+   default behaviour of Date objects.
+   Defaults to <tt>false</tt>.
+   </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../util/DateUtil.html#parseDate" target="">parseDate</a>
+</div>
+</div>
+<a name="y2kYear"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">y2kYear</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static var y2kYear:int</code>
+</div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="add()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">add</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function add(date:Date, interval:String, value:Number):Date</code><p>
+   Provides a convenient method for performing basic date arithmetic. This method
+   does not modify the given Date instance - it creates and returns
+   a new Date instance containing the resulting date value.
+      Examples:
+   <pre><code>
+   // Basic usage:
+   var dt = new Date('10/29/2006').add(Date.DAY, 5);
+   document.write(dt); //returns 'Fri Nov 03 2006 00:00:00'
+      // Negative values will be subtracted:
+   var dt2 = new Date('10/1/2006').add(Date.DAY, -5);
+   document.write(dt2); //returns 'Tue Sep 26 2006 00:00:00'
+      // You can even chain several calls together in one line:
+   var dt3 = new Date('10/1/2006').add(Date.DAY, 5).add(Date.HOUR, 8).add(Date.MINUTE, -30);
+   document.write(dt3); //returns 'Fri Oct 06 2006 07:30:00'
+   </code></pre>
+      </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">date</span>:Date</code> &mdash; date the base Date
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">interval</span>:String</code> &mdash; interval A valid date interval enum value.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">value</span>:Number</code> &mdash; value The amount to add to the current date.
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Date</code> &mdash; {Date} The new Date instance.
+   </td>
+</tr>
+</table>
+</div>
+<a name="between()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">between</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function between(date:Date, start:Date, end:Date):Boolean</code><p>
+   Checks if the given date falls on or between the given start and end dates.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">date</span>:Date</code> &mdash; date the Date for which to checks if it falls on or between the given start and end dates
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">start</span>:Date</code> &mdash; start Start date
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">end</span>:Date</code> &mdash; end End date
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code> &mdash; {Boolean} true if this date falls on or between the given start and end dates.
+   </td>
+</tr>
+</table>
+</div>
+<a name="clearTime()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">clearTime</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function clearTime(date:Date, clone:Boolean = false):Date</code><p>
+   Attempts to clear all time information from the given date by setting the time to midnight of the same day,
+   automatically adjusting for Daylight Saving Time (DST) where applicable.
+   (note: DST timezone information for the browser's host operating system is assumed to be up-to-date)
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">date</span>:Date</code> &mdash; date the Date for which to clear all time information
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">clone</span>:Boolean</code> (default = <code>false</code>)<code></code> &mdash; clone true to create a clone of this date, clear the time and return it (defaults to false).
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Date</code> &mdash; {Date} this or the clone.
+   </td>
+</tr>
+</table>
+</div>
+<a name="clone()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">clone</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function clone(date:Date):Date</code><p>
+   Creates and returns a new Date instance with the exact same date value as the given date.
+   Dates are copied and passed by reference, so if a copied date variable is modified later, the original
+   variable will also be changed.  When the intention is to create a new variable that will not
+   modify the original instance, you should create a clone.
+      Example of correctly cloning a date:
+   <pre><code>
+   //wrong way:
+   var orig = new Date('10/1/2006');
+   var copy = orig;
+   copy.setDate(5);
+   document.write(orig);  //returns 'Thu Oct 05 2006'!
+      //correct way:
+   var orig = new Date('10/1/2006');
+   var copy = DateUtil.clone(orig);
+   copy.setDate(5);
+   document.write(orig);  //returns 'Thu Oct 01 2006'
+   </code></pre>
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">date</span>:Date</code> &mdash; date the Date to clone
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Date</code> &mdash; {Date} The new Date instance.
+   </td>
+</tr>
+</table>
+</div>
+<a name="format()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">format</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function format(date:Date, format:String):String</code><p>
+   Formats the given date with the supplied format string.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">date</span>:Date</code> &mdash; date the Date to format
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">format</span>:String</code> &mdash; format The format string.
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>String</code> &mdash; {String} The formatted date.
+   </td>
+</tr>
+</table>
+</div>
+<a name="getDayOfYear()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getDayOfYear</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function getDayOfYear(date:Date):Number</code><p>
+   Get the numeric day number of the year, adjusted for leap year.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">date</span>:Date</code> &mdash; date the Date for which to get the day number of the year
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Number</code> &mdash; {Number} 0 to 364 (365 in leap years).
+   </td>
+</tr>
+</table>
+</div>
+<a name="getDaysInMonth()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getDaysInMonth</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function getDaysInMonth(date:Date):Number</code><p>
+   Get the number of days in the current month, adjusted for leap year.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">date</span>:Date</code> &mdash; date the Date for which to get the number of days in its month
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Number</code> &mdash; {Number} The number of days in the month.
+   </td>
+</tr>
+</table>
+</div>
+<a name="getFirstDateOfMonth()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getFirstDateOfMonth</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function getFirstDateOfMonth(date:Date):Date</code><p>
+   Get the date of the first day of the month in which the given date resides.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">date</span>:Date</code> &mdash; date the Date for which to get the date of the first day of its month
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Date</code> &mdash; {Date} the Date of the first day of the given day's month
+   </td>
+</tr>
+</table>
+</div>
+<a name="getFirstDayOfMonth()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getFirstDayOfMonth</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function getFirstDayOfMonth(date:Date):Number</code><p>
+   Get the first day of the given date's month, adjusted for leap year.  The returned value
+   is the numeric day index within the week (0-6) which can be used in conjunction with
+   the <code>monthNames</code> array to retrieve the textual day name.
+   Example:
+   <pre><code>
+   var dt = new Date('1/10/2007');
+   document.write(Date.dayNames[dt.getFirstDayOfMonth()]); //output: 'Monday'
+   </code></pre>
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">date</span>:Date</code> &mdash; date the Date for which to get the first day of its month
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Number</code> &mdash; {Number} The day number (0-6).
+      </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../util/DateUtil.html#monthNames" target="">monthNames</a>
+</div>
+</div>
+<a name="getGMTOffset()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getGMTOffset</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function getGMTOffset(date:Date, colon:Boolean = false):String</code><p>
+   Get the offset from GMT of the given date (equivalent to the format specifier 'O').
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">date</span>:Date</code> &mdash; date the Date for which to get the GMT offset
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">colon</span>:Boolean</code> (default = <code>false</code>)<code></code> &mdash; colon (optional) true to separate the hours and minutes with a colon (defaults to false).
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>String</code> &mdash; {String} The 4-character offset string prefixed with + or - (e.g. '-0600').
+   </td>
+</tr>
+</table>
+</div>
+<a name="getLastDateOfMonth()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getLastDateOfMonth</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function getLastDateOfMonth(date:Date):Date</code><p>
+   Get the date of the last day of the month in which this date resides.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">date</span>:Date</code> &mdash; date the Date for which to get the date of the last day of its month
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Date</code> &mdash; {Date}  the date of the last day of the given date's month
+   </td>
+</tr>
+</table>
+</div>
+<a name="getLastDayOfMonth()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getLastDayOfMonth</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function getLastDayOfMonth(date:Date):Number</code><p>
+   Get the last day of the given date's month, adjusted for leap year.  The returned value
+   is the numeric day index within the week (0-6) which can be used in conjunction with
+   the <code>monthNames</code> array to retrieve the textual day name.
+   Example:
+   <pre><code>
+   var dt = new Date('1/10/2007');
+   document.write(Date.dayNames[dt.getLastDayOfMonth()]); //output: 'Wednesday'
+   </code></pre>
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">date</span>:Date</code> &mdash; date the Date for which to get the last day of its month
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Number</code> &mdash; {Number} The day number (0-6).
+      </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../util/DateUtil.html#monthNames" target="">monthNames</a>
+</div>
+</div>
+<a name="getMonthNumber()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getMonthNumber</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function getMonthNumber(name:String):Number</code><p>
+   Get the zero-based javascript month number for the given short/full month name.
+   Override this function for international dates.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">name</span>:String</code> &mdash; name The short/full month name.
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Number</code> &mdash; {Number} The zero-based javascript month number.
+   </td>
+</tr>
+</table>
+</div>
+<a name="getShortDayName()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getShortDayName</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function getShortDayName(day:Number):String</code><p>
+   Get the short day name for the given day number.
+   Override this function for international dates.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">day</span>:Number</code> &mdash; day A zero-based javascript day number.
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>String</code> &mdash; {String} The short day name.
+   </td>
+</tr>
+</table>
+</div>
+<a name="getShortMonthName()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getShortMonthName</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function getShortMonthName(month:Number):String</code><p>
+   Get the short month name for the given month number.
+   Override this function for international dates.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">month</span>:Number</code> &mdash; month A zero-based javascript month number.
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>String</code> &mdash; {String} The short month name.
+   </td>
+</tr>
+</table>
+</div>
+<a name="getSuffix()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getSuffix</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function getSuffix(date:Date):String</code><p>
+   Get the English ordinal suffix of the given date's day (equivalent to the format specifier 'S').
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">date</span>:Date</code> &mdash; date the Date for which to get the English ordinal suffix of its day
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>String</code> &mdash; {String} 'st, 'nd', 'rd' or 'th'.
+   </td>
+</tr>
+</table>
+</div>
+<a name="getTimezone()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getTimezone</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function getTimezone(date:Date):String</code><p>
+   Get the timezone abbreviation of the given date (equivalent to the format specifier 'T').
+      Note: The date string returned by the Date object's toString() method varies
+   between browsers (e.g. FF vs IE) and system region settings (e.g. IE in Asia vs IE in America).
+   For a given date string e.g. "Thu Oct 25 2007 22:55:35 GMT+0800 (Malay Peninsula Standard Time)",
+   getTimezone() first tries to get the timezone abbreviation from between a pair of parentheses
+   (which may or may not be present), failing which it proceeds to get the timezone abbreviation
+   from the GMT offset portion of the date string.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">date</span>:Date</code> &mdash; date the Date for which to get the timezone
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>String</code> &mdash; {String} The abbreviated timezone name (e.g. 'CST', 'PDT', 'EDT', 'MPST' ...).
+   </td>
+</tr>
+</table>
+</div>
+<a name="getWeekOfYear()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getWeekOfYear</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function getWeekOfYear(date:Date):Number</code><p>
+   Get the numeric ISO-8601 week number of the year.
+   (equivalent to the format specifier 'W', but without a leading zero).
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">date</span>:Date</code> &mdash; date the Date for which to get the numeric ISO-8601 week number of the year
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Number</code> &mdash; {Number} 1 to 53
+   </td>
+</tr>
+</table>
+</div>
+<a name="isDST()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">isDST</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function isDST(date:Date):Boolean</code><p>
+   Checks if the given date is affected by Daylight Saving Time (DST).
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">date</span>:Date</code> &mdash; date the Date for which to checks if it is affected by Daylight Saving Time
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code> &mdash; {Boolean} True if the current date is affected by DST.
+   </td>
+</tr>
+</table>
+</div>
+<a name="isLeapYear()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">isLeapYear</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function isLeapYear(date:Date):Boolean</code><p>
+   Checks if the current date falls within a leap year.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">date</span>:Date</code> &mdash; date the Date for which to check if it falls within a leap year
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code> &mdash; {Boolean} True if the current date falls within a leap year, false otherwise.
+   </td>
+</tr>
+</table>
+</div>
+<a name="isValid()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">isValid</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function isValid(year:Number, month:Number, day:Number, hour:Number, minute:Number, second:Number, millisecond:Number):Boolean</code><p>
+   Checks if the passed Date parameters will cause a Date "rollover".
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">year</span>:Number</code> &mdash; year 4-digit year
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">month</span>:Number</code> &mdash; month 1-based month-of-year
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">day</span>:Number</code> &mdash; day Day of month
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">hour</span>:Number</code> &mdash; hour (optional) Hour
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">minute</span>:Number</code> &mdash; minute (optional) Minute
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">second</span>:Number</code> &mdash; second (optional) Second
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">millisecond</span>:Number</code> &mdash; millisecond (optional) Millisecond
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code> &mdash; {Boolean} true if the passed parameters do not cause a Date "rollover", false otherwise.
+   </td>
+</tr>
+</table>
+</div>
+<a name="parseDate()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">parseDate</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function parseDate(input:String, format:String, strict:Boolean = false):Date</code><p>
+   Parses the passed string using the specified date format.
+   Note that this function expects normal calendar dates, meaning that months are 1-based (i.e. 1 = January).
+   The <code>defaults</code> hash will be used for any date value (i.e. year, month, day, hour, minute, second or millisecond)
+   which cannot be found in the passed string. If a corresponding default date value has not been specified in the <code>defaults</code> hash,
+   the current date's year, month, day or DST-adjusted zero-hour time value will be used instead.
+   Keep in mind that the input date string must precisely match the specified format string
+   in order for the parse operation to be successful (failed parse operations return a null value).
+   </p><p>Example:</p><pre><code>
+   //dt = Fri May 25 2007 (current date)
+   var dt = new Date();
+      //dt = Thu May 25 2006 (today&#39;s month/day in 2006)
+   dt = DateUtil.parseDate("2006", "Y");
+      //dt = Sun Jan 15 2006 (all date parts specified)
+   dt = DateUtil.parseDate("2006-01-15", "Y-m-d");
+      //dt = Sun Jan 15 2006 15:20:01
+   dt = DateUtil.parseDate("2006-01-15 3:20:01 PM", "Y-m-d g:i:s A");
+      // attempt to parse Sun Feb 29 2006 03:20:01 in strict mode
+   dt = DateUtil.parseDate("2006-02-29 03:20:01", "Y-m-d H:i:s", true); // returns null
+   </code></pre>
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">input</span>:String</code> &mdash; input The raw date string.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">format</span>:String</code> &mdash; format The expected date string format.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">strict</span>:Boolean</code> (default = <code>false</code>)<code></code> &mdash; strict (optional) True to validate date strings while parsing (i.e. prevents javascript Date "rollover")
+     (defaults to false). Invalid date strings will return null when parsed.
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Date</code> &mdash; {Date} The parsed Date.
+      </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../util/DateUtil.html#defaults" target="">defaults</a>
+</div>
+</div>
+<a name="constantDetail"></a>
+<div class="detailSectionHeader">Constant detail</div>
+<a name="DAY"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">DAY</td><td class="detailHeaderType">constant</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const DAY:String = "d"</code><p>
+   Date interval constant.
+   </p></div>
+<a name="defaults"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">defaults</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const defaults:Object</code><p>
+   An object hash containing default date values used during date parsing.
+   </p><p>The following properties are available:</p>
+   <ul>
+   <li><code>y</code> : Number<div class="sub-desc">The default year value. (defaults to undefined)</div></li>
+   <li><code>m</code> : Number<div class="sub-desc">The default 1-based month value. (defaults to undefined)</div></li>
+   <li><code>d</code> : Number<div class="sub-desc">The default day value. (defaults to undefined)</div></li>
+   <li><code>h</code> : Number<div class="sub-desc">The default hour value. (defaults to undefined)</div></li>
+   <li><code>i</code> : Number<div class="sub-desc">The default minute value. (defaults to undefined)</div></li>
+   <li><code>s</code> : Number<div class="sub-desc">The default second value. (defaults to undefined)</div></li>
+   <li><code>ms</code> : Number<div class="sub-desc">The default millisecond value. (defaults to undefined)</div></li>
+   </ul>
+   <p>Override these properties to customize the default date values used by the <code>parseDate</code> method.</p>
+   <p><b>Note: In countries which experience Daylight Saving Time (i.e. DST), the <tt>h</tt>, <tt>i</tt>, <tt>s</tt>
+   and <tt>ms</tt> properties may coincide with the exact time in which DST takes effect.
+   It is the responsiblity of the developer to account for this.</b></p>
+   Example Usage:
+   <pre><code>
+   // set default day value to the first day of the month
+   DateUtil.defaults.d = 1;
+      // parse a February date string containing only year and month values.
+   // setting the default day value to 1 prevents weird date rollover issues
+   // when attempting to parse the following date string on, for example, March 31st 2009.
+   DateUtil.parseDate('2009-02', 'Y-m'); // returns a Date object representing February 1st 2009
+   </code></pre>
+      <p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../util/DateUtil.html#parseDate" target="">parseDate</a>
+</div>
+</div>
+<a name="formatCodes"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">formatCodes</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const formatCodes:Object</code><p>
+   The base format-code to formatting-function hashmap used by the <code>format</code> method.
+   Formatting functions are strings (or functions which return strings) which
+   will return the appropriate value when evaluated in the context of the Date object
+   from which the <code>format</code> method is called.
+   Add to / override these mappings for custom date formatting.
+   Note: DateUtil.format() treats characters as literals if an appropriate mapping cannot be found.
+   Example:
+   <pre><code>
+   DateUtil.formatCodes.x = "String.leftPad(this.getDate(), 2, '0')";
+   DateUtil.format(new Date(), "X"); // returns the current day of the month
+   </code></pre>
+      </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../util/DateUtil.html#format" target="">format</a>
+</div>
+</div>
+<a name="formatFunctions"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">formatFunctions</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const formatFunctions:Object</code><p>
+   An object hash in which each property is a date formatting function. The property name is the
+   format string which corresponds to the produced formatted date string.
+   </p><p>This object is automatically populated with date formatting functions as
+   date formats are requested for Ext standard formatting strings.</p>
+   <p>Custom formatting functions may be inserted into this object, keyed by a name which from then on
+   may be used as a format string to <code>format</code>. Example:</p>
+   <pre><code>
+   DateUtil.formatFunctions['x-date-format'] = myDateFormatter;
+   </code></pre>
+   <p>A formatting function should return a string representation of the passed Date object, and is passed the following parameters:</p>
+   <ul>
+   <li><code>date : Date</code> The Date to format.</li>
+   </ul>
+   <p>To enable date strings to also be <i>parsed</i> according to that format, a corresponding
+   parsing function must be placed into the <code>parseFunctions</code> property.</p>
+      <p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../util/DateUtil.html#format" target="">format</a>
+<br>
+<a href="../util/DateUtil.html#parseFunctions" target="">parseFunctions</a>
+</div>
+</div>
+<a name="HOUR"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">HOUR</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const HOUR:String = "h"</code><p>
+   Date interval constant.
+   </p></div>
+<a name="MILLI"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">MILLI</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const MILLI:String = "ms"</code><p>
+   Date interval constant.
+   </p></div>
+<a name="MINUTE"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">MINUTE</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const MINUTE:String = "mi"</code><p>
+   Date interval constant.
+   </p></div>
+<a name="MONTH"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">MONTH</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const MONTH:String = "mo"</code><p>
+   Date interval constant.
+   </p></div>
+<a name="parseFunctions"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">parseFunctions</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const parseFunctions:Object</code><p>
+   An object hash in which each property is a date parsing function. The property name is the
+   format string which that function parses.
+   </p><p>This object is automatically populated with date parsing functions as
+   date formats are requested for Ext standard formatting strings.</p>
+   <p>Custom parsing functions may be inserted into this object, keyed by a name which from then on
+   may be used as a format string to <a href="#parseDate">parseDate</a>.</p>
+   <p>Example:</p>
+   <pre><code>
+   DateUtil.parseFunctions['x-date-format'] = myDateParser;
+   </code></pre>
+   <p>A parsing function should return a Date object, and is passed the following parameters:</p>
+   <ul>
+   <li><code>date : String</code> The date string to parse.</li>
+   <li><code>strict : Boolean</code> True to validate date strings while parsing
+   (i.e. prevent javascript Date "rollover") (The default must be false).
+   Invalid date strings should return null when parsed.</li>
+   </ul>
+   <p>To enable Dates to also be <i>formatted</i> according to that format, a corresponding
+   formatting function must be placed into the <code>formatFunctions</code> property.</p>
+      <p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../util/DateUtil.html#formatFunctions" target="">formatFunctions</a>
+</div>
+</div>
+<a name="SECOND"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">SECOND</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const SECOND:String = "s"</code><p>
+   Date interval constant.
+   </p></div>
+<a name="YEAR"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">YEAR</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const YEAR:String = "y"</code><p>
+   Date interval constant.
+   </p></div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<center class="copyright"> 
+</center>
+</div>
+</body>
+</html>
+<!-- -->

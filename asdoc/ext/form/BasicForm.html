@@ -1,0 +1,1321 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../print.css" type="text/css" media="print">
+<meta content="BasicForm,ext.form.BasicForm,activeAction,paramOrder,paramsAsHash,timeout,trackResetOnLoad,items,add,afterAction,applyIfToFields,applyToFields,beforeAction,callFieldMethod,clearInvalid,destroy,doAction,findField,getEl,getFieldValues,getValues,initEl,isDirty,isValid,load,loadRecord,markInvalid,onSubmit,remove,render,reset,setValues,submit,updateRecord" name="keywords">
+<title>ext.form.BasicForm</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'BasicForm - API Documentation';
+				var baseRef = '../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">API Documentation</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../all-classes.html')" href="../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../all-classes.html')" href="../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../index-list.html')" href="../../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../../index.html?ext/form/BasicForm.html&amp;ext/form/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;BasicForm</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class BasicForm"); titleBar_setSubNav(false,true,false,false,false,false,true,false,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">ext.form</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public class BasicForm</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">BasicForm <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../images/inherit-arrow.gif"> <a href="../util/Observable.html">Observable</a></td>
+</tr>
+</table>
+<p></p>
+ <p>Encapsulates the DOM &lt;form> element at the heart of the <b class='link' title='ext.form.FormPanel'>FormPanel</b> class, and provides
+ input field management, validation, submission, and form loading services.</p>
+ <p>By default, Ext Forms are submitted through Ajax, using an instance of <b class='link'>ext.form.action.Submit</b>.
+ To enable normal browser submission of an Ext Form, use the <b class='link' title='#standardSubmit'>standardSubmit</b> config option.</p>
+ <p><b><u>File Uploads</u></b></p>
+ <p><b class='link' title='#fileUpload File'>uploads</b> are not performed using Ajax submission, that
+ is they are <b>not</b> performed using XMLHttpRequests. Instead the form is submitted in the standard
+ manner with the DOM <code>&lt;form></code> element temporarily modified to have its
+ <a href="http://www.w3.org/TR/REC-html40/present/frames.html#adef-target">target</a> set to refer
+ to a dynamically generated, hidden <code>&lt;iframe></code> which is inserted into the document
+ but removed after the return data has been gathered.</p>
+ <p>The server response is parsed by the browser to create the document for the IFRAME. If the
+ server is using JSON to send the return object, then the
+ <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</a> header
+ must be set to "text/html" in order to tell the browser to insert the text unchanged into the document body.</p>
+ <p>Characters which are significant to an HTML parser must be sent as HTML entities, so encode
+ "&lt;" as "&amp;lt;", "&amp;" as "&amp;amp;" etc.</p>
+ <p>The response text is retrieved from the document, and a fake XMLHttpRequest object
+ is created containing a <code>responseText</code> property in order to conform to the
+ requirements of event handlers and callbacks.</p>
+ <p>Be aware that file upload packets are sent with the content type <a href="http://www.faqs.org/rfcs/rfc2388.html">multipart/form</a>
+ and some server technologies (notably JEE) may require some custom processing in order to
+ retrieve parameter names and parameter values from the packet content.</p>
+<p></p>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<div class="showHideLinks">
+<div class="hideInheritedProperty" id="hideInheritedProperty">
+<a onclick="javascript:setInheritedVisible(false,'Property');" href="#propertySummary" class="showHideLink"><img src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Properties</a>
+</div>
+<div class="showInheritedProperty" id="showInheritedProperty">
+<a onclick="javascript:setInheritedVisible(true,'Property');" href="#propertySummary" class="showHideLink"><img src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Properties</a>
+</div>
+</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="../util/Observable.html#events">events</a> : Object<div class="summaryTableDescription">
+         This Objects contains all supported event names as its keys.</div>
+</td><td class="summaryTableOwnerCol"><a href="../util/Observable.html">Observable</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#items">items</a> : <a href="../util/MixedCollection.html">MixedCollection</a>
+<div class="summaryTableDescription">[read-only]
+     A {</div>
+</td><td class="summaryTableOwnerCol">BasicForm</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#paramOrder">paramOrder</a> : *<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol">BasicForm</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#paramsAsHash">paramsAsHash</a> : Boolean<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol">BasicForm</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#timeout">timeout</a> : Number<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol">BasicForm</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#trackResetOnLoad">trackResetOnLoad</a> : Boolean<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol">BasicForm</td>
+</tr>
+</table>
+</div>
+<a name="protectedPropertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Protected Properties</div>
+<table id="summaryTableProtectedProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#activeAction">activeAction</a> : *<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">BasicForm</td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<div class="showHideLinks">
+<div class="hideInheritedMethod" id="hideInheritedMethod">
+<a onclick="javascript:setInheritedVisible(false,'Method');" href="#methodSummary" class="showHideLink"><img src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Methods</a>
+</div>
+<div class="showInheritedMethod" id="showInheritedMethod">
+<a onclick="javascript:setInheritedVisible(true,'Method');" href="#methodSummary" class="showHideLink"><img src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Methods</a>
+</div>
+</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#BasicForm()">BasicForm</a>(el:*, config:Object)</div>
+<div class="summaryTableDescription">
+ </div>
+</td><td class="summaryTableOwnerCol">BasicForm</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#add()">add</a>(field1:<a href="Field.html">Field</a>, field2:<a href="Field.html">Field</a>, etc:<a href="Field.html">Field</a>):<a href="../form/BasicForm.html">BasicForm</a>
+</div>
+<div class="summaryTableDescription">
+     Add Ext.form Components to this form's Collection.</div>
+</td><td class="summaryTableOwnerCol">BasicForm</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../util/Observable.html#addEvents()">addEvents</a>(object:Object):void</div>
+<div class="summaryTableDescription">
+         Used to define events on this Observable
+         </div>
+</td><td class="summaryTableOwnerCol"><a href="../util/Observable.html">Observable</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../util/Observable.html#addListener()">addListener</a>(eventName:String, handler:Function, scope:Object, options:Object):void</div>
+<div class="summaryTableDescription">
+         Appends an event handler to this object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../util/Observable.html">Observable</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../util/Observable.html#afterMethod()">afterMethod</a>(method:String, fn:Function, scope:Object = null):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="../util/Observable.html">Observable</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#applyIfToFields()">applyIfToFields</a>(values:Object):<a href="../form/BasicForm.html">BasicForm</a>
+</div>
+<div class="summaryTableDescription">
+     Calls <b class='link'>Ext#applyIf</b> for all field in this form with the passed object.</div>
+</td><td class="summaryTableOwnerCol">BasicForm</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#applyToFields()">applyToFields</a>(values:Object):<a href="../form/BasicForm.html">BasicForm</a>
+</div>
+<div class="summaryTableDescription">
+     Calls <b class='link'>Ext#apply</b> for all fields in this form with the passed object.</div>
+</td><td class="summaryTableOwnerCol">BasicForm</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../util/Observable.html#beforeMethod()">beforeMethod</a>(method:String, fn:Function, scope:Object = null):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="../util/Observable.html">Observable</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#callFieldMethod()">callFieldMethod</a>(fnName:*, args:*):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">BasicForm</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../util/Observable.html#capture()">capture</a>(o:<a href="../util/Observable.html">Observable</a>, fn:Function, scope:Object):void</div>
+<div class="summaryTableDescription">
+ Starts capture on the specified Observable.</div>
+</td><td class="summaryTableOwnerCol"><a href="../util/Observable.html">Observable</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#clearInvalid()">clearInvalid</a>():<a href="../form/BasicForm.html">BasicForm</a>
+</div>
+<div class="summaryTableDescription">
+     Clears all invalid messages in this form.</div>
+</td><td class="summaryTableOwnerCol">BasicForm</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#doAction()">doAction</a>(actionName:*, options:Object):<a href="../form/BasicForm.html">BasicForm</a>
+</div>
+<div class="summaryTableDescription">
+     Performs a predefined action (<b class='link'>ext.form.action.Submit</b> or
+     <b class='link'>ext.form.action.Load</b>) or a custom extension of <b class='link'>ext.form.Action</b>
+     to perform application-specific processing.</div>
+</td><td class="summaryTableOwnerCol">BasicForm</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../util/Observable.html#enableBubble()">enableBubble</a>(events:Object):void</div>
+<div class="summaryTableDescription">
+         Used to enable bubbling of events
+         </div>
+</td><td class="summaryTableOwnerCol"><a href="../util/Observable.html">Observable</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#findField()">findField</a>(id:String):<a href="../form/Field.html">Field</a>
+</div>
+<div class="summaryTableDescription">
+     Find a <b class='link'>ext.form.Field</b> in this form.</div>
+</td><td class="summaryTableOwnerCol">BasicForm</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../util/Observable.html#fireEvent()">fireEvent</a>(eventName:String, ... args):Boolean</div>
+<div class="summaryTableDescription">
+         <p>Fires the specified event with the passed parameters (minus the event name).</p>
+         <p>An event may be set to bubble up an Observable parent hierarchy (See <b class='link'>ext.Component#getBubbleTarget</b>)
+         by calling <b class='link' title='#enableBubble'>enableBubble</b>.</p>
+         </div>
+</td><td class="summaryTableOwnerCol"><a href="../util/Observable.html">Observable</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getEl()">getEl</a>():<a href="../ext/Element.html">Element</a>
+</div>
+<div class="summaryTableDescription">
+     Get the HTML form Element
+     </div>
+</td><td class="summaryTableOwnerCol">BasicForm</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getFieldValues()">getFieldValues</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">BasicForm</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getValues()">getValues</a>(asString:Boolean):*</div>
+<div class="summaryTableDescription">
+     <p>Returns the fields in this form as an object with key/value pairs as they would be submitted using a standard form submit.</div>
+</td><td class="summaryTableOwnerCol">BasicForm</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../util/Observable.html#hasListener()">hasListener</a>(eventName:String):Boolean</div>
+<div class="summaryTableDescription">
+         Checks to see if this object has any listeners for a specified event
+         </div>
+</td><td class="summaryTableOwnerCol"><a href="../util/Observable.html">Observable</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#isDirty()">isDirty</a>():Boolean</div>
+<div class="summaryTableDescription">
+     <p>Returns true if any fields in this form have changed from their original values.</p>
+     <p>Note that if this BasicForm was configured with <b class='link' title='#trackResetOnLoad'>trackResetOnLoad</b> then the
+     Fields' <i>original values</i> are updated when the values are loaded by <b class='link' title='#setValues'>setValues</b>
+     or <b class='link' title='#loadRecord'>loadRecord</b>.</p>
+     </div>
+</td><td class="summaryTableOwnerCol">BasicForm</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#isValid()">isValid</a>():Boolean</div>
+<div class="summaryTableDescription">
+     Returns true if client-side validation on the form is successful.</div>
+</td><td class="summaryTableOwnerCol">BasicForm</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#load()">load</a>(options:Object):<a href="../form/BasicForm.html">BasicForm</a>
+</div>
+<div class="summaryTableDescription">
+     Shortcut to <b class='link' title='#doAction'>do</b> a <b class='link' title='ext.form.action.Load load'>action</b>.</div>
+</td><td class="summaryTableOwnerCol">BasicForm</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#loadRecord()">loadRecord</a>(record:<a href="../data/Record.html">Record</a>):<a href="../form/BasicForm.html">BasicForm</a>
+</div>
+<div class="summaryTableDescription">
+     Loads an <b class='link'>ext.data.Record</b> into this form by calling <b class='link' title='#setValues'>setValues</b> with the
+     <b class='link' title='ext.data.Record#data record'>data</b>.</div>
+</td><td class="summaryTableOwnerCol">BasicForm</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#markInvalid()">markInvalid</a>(errors:*):<a href="../form/BasicForm.html">BasicForm</a>
+</div>
+<div class="summaryTableDescription">
+     Mark fields in this form invalid in bulk.</div>
+</td><td class="summaryTableOwnerCol">BasicForm</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../util/Observable.html#observeClass()">observeClass</a>(c:Function):void</div>
+<div class="summaryTableDescription">
+ Sets observability on the passed class constructor.<p>
+ <p>This makes any event fired on any instance of the passed class also fire a single event through
+ the <i>class</i> allowing for central handling of events on many instances at once.</p>
+ <p>Usage:</p><pre><code>
+Ext.util.Observable.observeClass(ext.data.Connection);
+ext.data.Connection.on('beforerequest', function(con, options) {
+    console.log("Ajax request made to " + options.url);
+});</code></pre>
+ </div>
+</td><td class="summaryTableOwnerCol"><a href="../util/Observable.html">Observable</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../util/Observable.html#purgeListeners()">purgeListeners</a>():void</div>
+<div class="summaryTableDescription">
+         Removes all listeners for this object
+         </div>
+</td><td class="summaryTableOwnerCol"><a href="../util/Observable.html">Observable</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../util/Observable.html#relayEvents()">relayEvents</a>(o:Object, events:Array):void</div>
+<div class="summaryTableDescription">
+         Relays selected events from the specified Observable as if the events were fired by <code><b>this</b></code>.</div>
+</td><td class="summaryTableOwnerCol"><a href="../util/Observable.html">Observable</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#remove()">remove</a>(field:<a href="Field.html">Field</a>):<a href="../form/BasicForm.html">BasicForm</a>
+</div>
+<div class="summaryTableDescription">
+     Removes a field from the items collection (does NOT remove its markup).</div>
+</td><td class="summaryTableOwnerCol">BasicForm</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../util/Observable.html#removeListener()">removeListener</a>(eventName:String, handler:Function, scope:Object):void</div>
+<div class="summaryTableDescription">
+         Removes an event handler.</div>
+</td><td class="summaryTableOwnerCol"><a href="../util/Observable.html">Observable</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../util/Observable.html#removeMethodListener()">removeMethodListener</a>(method:String, fn:Function, scope:Object = null):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="../util/Observable.html">Observable</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#render()">render</a>():<a href="../form/BasicForm.html">BasicForm</a>
+</div>
+<div class="summaryTableDescription">
+     Iterates through the <b class='link' title='ext.form.Field'>Field</b>s which have been <b class='link' title='#add'>add</b>ed to this BasicForm,
+     checks them for an id attribute, and calls <b class='link'>ext.form.Field#applyToMarkup</b> on the existing dom element with that id.</div>
+</td><td class="summaryTableOwnerCol">BasicForm</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#reset()">reset</a>():<a href="../form/BasicForm.html">BasicForm</a>
+</div>
+<div class="summaryTableDescription">
+     Resets this form.</div>
+</td><td class="summaryTableOwnerCol">BasicForm</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../util/Observable.html#resumeEvents()">resumeEvents</a>():void</div>
+<div class="summaryTableDescription">
+         Resume firing events.</div>
+</td><td class="summaryTableOwnerCol"><a href="../util/Observable.html">Observable</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setValues()">setValues</a>(values:*):<a href="../form/BasicForm.html">BasicForm</a>
+</div>
+<div class="summaryTableDescription">
+     Set values for fields in this form in bulk.</div>
+</td><td class="summaryTableOwnerCol">BasicForm</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#submit()">submit</a>(options:Object):<a href="../form/BasicForm.html">BasicForm</a>
+</div>
+<div class="summaryTableDescription">
+     Shortcut to <b class='link' title='#doAction'>do</b> a <b class='link' title='ext.form.action.Submit submit'>action</b>.</div>
+</td><td class="summaryTableOwnerCol">BasicForm</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../util/Observable.html#suspendEvents()">suspendEvents</a>(queueSuspended:Boolean):void</div>
+<div class="summaryTableDescription">
+         Suspend the firing of all events.</div>
+</td><td class="summaryTableOwnerCol"><a href="../util/Observable.html">Observable</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#updateRecord()">updateRecord</a>(record:<a href="../data/Record.html">Record</a>):<a href="../form/BasicForm.html">BasicForm</a>
+</div>
+<div class="summaryTableDescription">
+     Persists the values in this form into the passed <b class='link'>ext.data.Record</b> object in a beginEdit/endEdit block.</div>
+</td><td class="summaryTableOwnerCol">BasicForm</td>
+</tr>
+</table>
+</div>
+<a name="protectedMethodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Protected Methods</div>
+<table id="summaryTableProtectedMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#afterAction()">afterAction</a>(action:*, success:*):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">BasicForm</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#beforeAction()">beforeAction</a>(action:*):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">BasicForm</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#destroy()">destroy</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">BasicForm</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#initEl()">initEl</a>(el:*):void</div>
+<div class="summaryTableDescription">
+     </div>
+</td><td class="summaryTableOwnerCol">BasicForm</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#onSubmit()">onSubmit</a>(e:*):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">BasicForm</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="activeAction"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">activeAction</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected var activeAction:*</code>
+</div>
+<a name="items"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">items</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>items:<a href="../util/MixedCollection.html">MixedCollection</a></code>&nbsp;&nbsp;[read-only]<p>
+     A {</p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get items():<a href="../util/MixedCollection.html">MixedCollection</a></code>
+<br>
+</div>
+<a name="paramOrder"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">paramOrder</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var paramOrder:*</code><p>
+     </p></div>
+<a name="paramsAsHash"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">paramsAsHash</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var paramsAsHash:Boolean</code><p>
+     </p></div>
+<a name="timeout"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">timeout</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var timeout:Number</code><p>
+     </p></div>
+<a name="trackResetOnLoad"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">trackResetOnLoad</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var trackResetOnLoad:Boolean</code><p>
+     </p></div>
+<a name="constructorDetail"></a>
+<div class="detailSectionHeader">Constructor detail</div>
+<a name="BasicForm()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">BasicForm</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">constructor</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function BasicForm(el:*, config:Object)</code><p>
+ </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">el</span>:*</code> &mdash; The form element or its id
+ </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">config</span>:Object</code> &mdash; Configuration options
+ </td>
+</tr>
+</table>
+</div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="add()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">add</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function add(field1:<a href="Field.html">Field</a>, field2:<a href="Field.html">Field</a>, etc:<a href="Field.html">Field</a>):<a href="../form/BasicForm.html">BasicForm</a></code><p>
+     Add Ext.form Components to this form's Collection. This does not result in rendering of
+     the passed Component, it just enables the form to validate Fields, and distribute values to
+     Fields.
+     </p><p><b>You will not usually call this function. In order to be rendered, a Field must be added
+     to a <b class='link' title='ext.Container'>Container</b>, usually an <b class='link' title='ext.form.FormPanel'>FormPanel</b>.
+     The FormPanel to which the field is added takes care of adding the Field to the BasicForm's
+     collection.</b></p>
+     <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">field1</span>:<a href="Field.html">Field</a></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">field2</span>:<a href="Field.html">Field</a></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">etc</span>:<a href="Field.html">Field</a></code></td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../form/BasicForm.html">BasicForm</a></code> &mdash; 
+                        this
+     
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="afterAction()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">afterAction</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function afterAction(action:*, success:*):void</code><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">action</span>:*</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">success</span>:*</code></td>
+</tr>
+</table>
+</div>
+<a name="applyIfToFields()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">applyIfToFields</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function applyIfToFields(values:Object):<a href="../form/BasicForm.html">BasicForm</a></code><p>
+     Calls <b class='link'>Ext#applyIf</b> for all field in this form with the passed object.
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">values</span>:Object</code></td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../form/BasicForm.html">BasicForm</a></code> &mdash; 
+                        this
+     
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="applyToFields()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">applyToFields</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function applyToFields(values:Object):<a href="../form/BasicForm.html">BasicForm</a></code><p>
+     Calls <b class='link'>Ext#apply</b> for all fields in this form with the passed object.
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">values</span>:Object</code></td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../form/BasicForm.html">BasicForm</a></code> &mdash; 
+                        this
+     
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="beforeAction()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">beforeAction</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function beforeAction(action:*):void</code><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">action</span>:*</code></td>
+</tr>
+</table>
+</div>
+<a name="callFieldMethod()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">callFieldMethod</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function callFieldMethod(fnName:*, args:*):void</code><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">fnName</span>:*</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">args</span>:*</code></td>
+</tr>
+</table>
+</div>
+<a name="clearInvalid()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">clearInvalid</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function clearInvalid():<a href="../form/BasicForm.html">BasicForm</a></code><p>
+     Clears all invalid messages in this form.
+     </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../form/BasicForm.html">BasicForm</a></code> &mdash; 
+                        this
+     
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="destroy()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">destroy</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function destroy():void</code>
+</div>
+<a name="doAction()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">doAction</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function doAction(actionName:*, options:Object):<a href="../form/BasicForm.html">BasicForm</a></code><p>
+     Performs a predefined action (<b class='link'>ext.form.action.Submit</b> or
+     <b class='link'>ext.form.action.Load</b>) or a custom extension of <b class='link'>ext.form.Action</b>
+     to perform application-specific processing.
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">actionName</span>:*</code> &mdash; The name of the predefined action type,
+     or instance of <b class='link'>ext.form.Action</b> to perform.
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">options</span>:Object</code> &mdash; The options to pass to the <b class='link'>ext.form.Action</b>.
+     All of the config options listed below are supported by both the
+     <b class='link' title='ext.form.action.Submit'>submit</b> and <b class='link' title='ext.form.action.Load'>load</b>
+     actions unless otherwise noted (custom actions could also accept
+     other config options):<ul>
+          <li><b>url</b> : String<div class="sub-desc">The url for the action (defaults
+     to the form's <b class='link' title='#url'>url</b>.)</div></li>
+          <li><b>method</b> : String<div class="sub-desc">The form method to use (defaults
+     to the form's method, or POST if not defined)</div></li>
+          <li><b>params</b> : String/Object<div class="sub-desc"><p>The params to pass
+     (defaults to the form's baseParams, or none if not defined)</p>
+     <p>Parameters are encoded as standard HTTP parameters using <b class='link'>Ext#urlEncode</b>.</p></div></li>
+          <li><b>headers</b> : Object<div class="sub-desc">Request headers to set for the action
+     (defaults to the form's default headers)</div></li>
+          <li><b>success</b> : Function<div class="sub-desc">The callback that will
+     be invoked after a successful response (see top of
+     <b class='link' title='ext.form.action.Submit'>submit</b> and <b class='link' title='ext.form.action.Load'>load</b>
+     for a description of what constitutes a successful response).
+     The function is passed the following parameters:<ul>
+     <li><code>form</code> : ext.form.BasicForm<div class="sub-desc">The form that requested the action</div></li>
+     <li><code>action</code> : The <b class='link' title='ext.form.Action'>Action</b> object which performed the operation.
+     <div class="sub-desc">The action object contains these properties of interest:<ul>
+     <li><code><b class='link' title='ext.form.Action#response'>response</b></code></li>
+     <li><code><b class='link' title='ext.form.Action#result'>result</b></code> : interrogate for custom postprocessing</li>
+     <li><code><b class='link' title='ext.form.Action#type'>type</b></code></li>
+     </ul></div></li></ul></div></li>
+          <li><b>failure</b> : Function<div class="sub-desc">The callback that will be invoked after a
+     failed transaction attempt. The function is passed the following parameters:<ul>
+     <li><code>form</code> : The <b class='link'>ext.form.BasicForm</b> that requested the action.</li>
+     <li><code>action</code> : The <b class='link' title='ext.form.Action'>Action</b> object which performed the operation.
+     <div class="sub-desc">The action object contains these properties of interest:<ul>
+     <li><code><b class='link' title='ext.form.Action#failureType'>failureType</b></code></li>
+     <li><code><b class='link' title='ext.form.Action#response'>response</b></code></li>
+     <li><code><b class='link' title='ext.form.Action#result'>result</b></code> : interrogate for custom postprocessing</li>
+     <li><code><b class='link' title='ext.form.Action#type'>type</b></code></li>
+     </ul></div></li></ul></div></li>
+          <li><b>scope</b> : Object<div class="sub-desc">The scope in which to call the
+     callback functions (The <code>this</code> reference for the callback functions).</div></li>
+          <li><b>clientValidation</b> : Boolean<div class="sub-desc">Submit Action only.
+     Determines whether a Form's fields are validated in a final call to
+     <b class='link' title='ext.form.BasicForm#isValid'>isValid</b> prior to submission. Set to <code>false</code>
+     to prevent this. If undefined, pre-submission field validation is performed.</div></li></ul>
+          </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../form/BasicForm.html">BasicForm</a></code> &mdash; 
+                        this
+     
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="findField()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">findField</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function findField(id:String):<a href="../form/Field.html">Field</a></code><p>
+     Find a <b class='link'>ext.form.Field</b> in this form.
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">id</span>:String</code> &mdash; The value to search for (specify either a <b class='link' title='ext.Component#id'>id</b>,
+     <b class='link' title='Ext.grid.Column#dataIndex'>dataIndex</b>, <b class='link' title='ext.form.Field#getName name or'>hiddenName</b>).
+     </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../form/Field.html">Field</a></code></td>
+</tr>
+</table>
+</div>
+<a name="getEl()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getEl</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function getEl():<a href="../ext/Element.html">Element</a></code><p>
+     Get the HTML form Element
+     </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../ext/Element.html">Element</a></code></td>
+</tr>
+</table>
+</div>
+<a name="getFieldValues()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getFieldValues</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function getFieldValues():void</code>
+</div>
+<a name="getValues()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getValues</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function getValues(asString:Boolean):*</code><p>
+     </p><p>Returns the fields in this form as an object with key/value pairs as they would be submitted using a standard form submit.
+     If multiple fields exist with the same name they are returned as an array.</p>
+     <p><b>Note:</b> The values are collected from all enabled HTML input elements within the form, <u>not</u> from
+     the Ext Field objects. This means that all returned values are Strings (or Arrays of Strings) and that the
+     value can potentially be the emptyText of a field.</p>
+     <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">asString</span>:Boolean</code> &mdash; Pass true to return the values as a string. (defaults to false, returning an Object)
+     </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>*</code></td>
+</tr>
+</table>
+</div>
+<a name="initEl()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">initEl</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function initEl(el:*):void</code><p>
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">el</span>:*</code></td>
+</tr>
+</table>
+</div>
+<a name="isDirty()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">isDirty</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function isDirty():Boolean</code><p>
+     </p><p>Returns true if any fields in this form have changed from their original values.</p>
+     <p>Note that if this BasicForm was configured with <b class='link' title='#trackResetOnLoad'>trackResetOnLoad</b> then the
+     Fields' <i>original values</i> are updated when the values are loaded by <b class='link' title='#setValues'>setValues</b>
+     or <b class='link' title='#loadRecord'>loadRecord</b>.</p>
+     <p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code></td>
+</tr>
+</table>
+</div>
+<a name="isValid()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">isValid</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function isValid():Boolean</code><p>
+     Returns true if client-side validation on the form is successful.
+     </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code></td>
+</tr>
+</table>
+</div>
+<a name="load()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">load</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function load(options:Object):<a href="../form/BasicForm.html">BasicForm</a></code><p>
+     Shortcut to <b class='link' title='#doAction'>do</b> a <b class='link' title='ext.form.action.Load load'>action</b>.
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">options</span>:Object</code> &mdash; The options to pass to the action (see <b class='link' title='#doAction'>doAction</b> for details)
+     </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../form/BasicForm.html">BasicForm</a></code> &mdash; 
+                        this
+     
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="loadRecord()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">loadRecord</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function loadRecord(record:<a href="../data/Record.html">Record</a>):<a href="../form/BasicForm.html">BasicForm</a></code><p>
+     Loads an <b class='link'>ext.data.Record</b> into this form by calling <b class='link' title='#setValues'>setValues</b> with the
+     <b class='link' title='ext.data.Record#data record'>data</b>.
+     See also <b class='link' title='#trackResetOnLoad'>trackResetOnLoad</b>.
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">record</span>:<a href="../data/Record.html">Record</a></code> &mdash; The record to load
+     </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../form/BasicForm.html">BasicForm</a></code> &mdash; 
+                        this
+     
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="markInvalid()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">markInvalid</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function markInvalid(errors:*):<a href="../form/BasicForm.html">BasicForm</a></code><p>
+     Mark fields in this form invalid in bulk.
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">errors</span>:*</code> &mdash; Either an array in the form [{id:'fieldId', msg:'The message'},...] or an object hash of {id: msg, id2: msg2}
+     </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../form/BasicForm.html">BasicForm</a></code> &mdash; 
+                        this
+     
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="onSubmit()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">onSubmit</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function onSubmit(e:*):void</code><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">e</span>:*</code></td>
+</tr>
+</table>
+</div>
+<a name="remove()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">remove</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function remove(field:<a href="Field.html">Field</a>):<a href="../form/BasicForm.html">BasicForm</a></code><p>
+     Removes a field from the items collection (does NOT remove its markup).
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">field</span>:<a href="Field.html">Field</a></code></td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../form/BasicForm.html">BasicForm</a></code> &mdash; 
+                        this
+     
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="render()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">render</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function render():<a href="../form/BasicForm.html">BasicForm</a></code><p>
+     Iterates through the <b class='link' title='ext.form.Field'>Field</b>s which have been <b class='link' title='#add'>add</b>ed to this BasicForm,
+     checks them for an id attribute, and calls <b class='link'>ext.form.Field#applyToMarkup</b> on the existing dom element with that id.
+     </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../form/BasicForm.html">BasicForm</a></code> &mdash; 
+                        this
+     
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="reset()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">reset</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function reset():<a href="../form/BasicForm.html">BasicForm</a></code><p>
+     Resets this form.
+     </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../form/BasicForm.html">BasicForm</a></code> &mdash; 
+                        this
+     
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="setValues()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setValues</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function setValues(values:*):<a href="../form/BasicForm.html">BasicForm</a></code><p>
+     Set values for fields in this form in bulk.
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">values</span>:*</code> &mdash; Either an array in the form:<pre><code>
+[{id:'clientName', value:'Fred. Olsen Lines'},
+ {id:'portOfLoading', value:'FXT'},
+ {id:'portOfDischarge', value:'OSL'} ]</code></pre>
+     or an object hash of the form:<pre><code>
+{
+    clientName: 'Fred. Olsen Lines',
+    portOfLoading: 'FXT',
+    portOfDischarge: 'OSL'
+}</code></pre>
+     </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../form/BasicForm.html">BasicForm</a></code> &mdash; 
+                        this
+     
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="submit()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">submit</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function submit(options:Object):<a href="../form/BasicForm.html">BasicForm</a></code><p>
+     Shortcut to <b class='link' title='#doAction'>do</b> a <b class='link' title='ext.form.action.Submit submit'>action</b>.
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">options</span>:Object</code> &mdash; The options to pass to the action (see <b class='link' title='#doAction'>doAction</b> for details).<br>
+     <p><b>Note:</b> this is ignored when using the <b class='link' title='#standardSubmit'>standardSubmit</b> option.</p>
+     <p>The following code:</p><pre><code>
+myFormPanel.getForm().submit({
+    clientValidation: true,
+    url: 'updateConsignment.php',
+    params: {
+        newStatus: 'delivered'
+    },
+    success: function(form, action) {
+       ext.Msg.alert('Success', action.result.msg);
+    },
+    failure: function(form, action) {
+        switch (action.failureType) {
+            case ext.form.action.CLIENT_INVALID:
+                ext.Msg.alert('Failure', 'Form fields may not be submitted with invalid values');
+                break;
+            case ext.form.action.CONNECT_FAILURE:
+                ext.Msg.alert('Failure', 'Ajax communication failed');
+                break;
+            case ext.form.action.SERVER_INVALID:
+               ext.Msg.alert('Failure', action.result.msg);
+       }
+    }
+});
+</code></pre>
+     would process the following server response for a successful submission:<pre><code>
+{
+    "success":true, // note this is Boolean, not string
+    "msg":"Consignment updated"
+}
+</code></pre>
+     and the following server response for a failed submission:<pre><code>
+{
+    "success":false, // note this is Boolean, not string
+    "msg":"You do not have permission to perform this operation"
+}
+</code></pre>
+     </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../form/BasicForm.html">BasicForm</a></code> &mdash; 
+                        this
+     
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="updateRecord()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">updateRecord</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function updateRecord(record:<a href="../data/Record.html">Record</a>):<a href="../form/BasicForm.html">BasicForm</a></code><p>
+     Persists the values in this form into the passed <b class='link'>ext.data.Record</b> object in a beginEdit/endEdit block.
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">record</span>:<a href="../data/Record.html">Record</a></code> &mdash; The record to edit
+     </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../form/BasicForm.html">BasicForm</a></code> &mdash; 
+                        this
+     
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<center class="copyright"> 
+</center>
+</div>
+</body>
+</html>
+<!-- -->

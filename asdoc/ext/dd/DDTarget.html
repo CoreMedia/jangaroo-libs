@@ -1,0 +1,851 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../print.css" type="text/css" media="print">
+<meta content="DDTarget,ext.dd.DDTarget,toString" name="keywords">
+<title>ext.dd.DDTarget</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'DDTarget - API Documentation';
+				var baseRef = '../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">API Documentation</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../all-classes.html')" href="../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../all-classes.html')" href="../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../index-list.html')" href="../../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../../index.html?ext/dd/DDTarget.html&amp;ext/dd/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;DDTarget</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class DDTarget"); titleBar_setSubNav(false,true,false,false,false,false,true,false,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">ext.dd</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public class DDTarget</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">DDTarget <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../images/inherit-arrow.gif"> <a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Subclasses</td><td><a href="../dd/DropTarget.html">DropTarget</a></td>
+</tr>
+</table>
+<p></p>
+ A DragDrop implementation that does not move, but can be a drop
+ target.  You would get the same result by simply omitting implementation
+ for the event callbacks, but this way we reduce the processing cost of the
+ event listener and the callbacks.
+<p></p>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<div class="showHideLinks">
+<div class="hideInheritedProperty" id="hideInheritedProperty">
+<a onclick="javascript:setInheritedVisible(false,'Property');" href="#propertySummary" class="showHideLink"><img src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Properties</a>
+</div>
+<div class="showInheritedProperty" id="showInheritedProperty">
+<a onclick="javascript:setInheritedVisible(true,'Property');" href="#propertySummary" class="showHideLink"><img src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Properties</a>
+</div>
+</div>
+<table id="summaryTableProperty" class="summaryTable hideInheritedProperty" cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DragDrop.html#available">available</a> : Boolean<div class="summaryTableDescription">
+     The availabe property is false until the linked dom element is accessible.</div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DragDrop.html#config">config</a> : Object<div class="summaryTableDescription">
+     Configuration attributes passed into the constructor
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DragDrop.html#defaultPadding">defaultPadding</a> : Object<div class="summaryTableDescription">
+     Provides default constraint padding to "constrainTo" elements (defaults to {left: 0, right:0, top:0, bottom:0}).</div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DragDrop.html#groups">groups</a> : Object<div class="summaryTableDescription">
+     The group defines a logical collection of DragDrop objects that are
+     related.</div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DragDrop.html#hasOuterHandles">hasOuterHandles</a> : Boolean = false<div class="summaryTableDescription">
+     By default, drags can only be initiated if the mousedown occurs in the
+     region the linked element is.</div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DragDrop.html#id">id</a> : String<div class="summaryTableDescription">
+     The id of the element associated with this object.</div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DragDrop.html#ignoreSelf">ignoreSelf</a> : Boolean = true<div class="summaryTableDescription">
+     Set to false to enable a DragDrop object to fire drag events while dragging
+     over its own Element.</div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DragDrop.html#invalidHandleClasses">invalidHandleClasses</a> : Array<div class="summaryTableDescription">
+     An Array of CSS class names for elements to be considered in valid as drag handles.</div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DragDrop.html#invalidHandleIds">invalidHandleIds</a> : Object<div class="summaryTableDescription">
+     An object who's property names identify the IDs of elements to be considered invalid as drag handles.</div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DragDrop.html#invalidHandleTypes">invalidHandleTypes</a> : Object<div class="summaryTableDescription">
+     An object who's property names identify HTML tags to be considered invalid as drag handles.</div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DragDrop.html#isTarget">isTarget</a> : Boolean = true<div class="summaryTableDescription">
+     By default, all instances can be a drop target.</div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DragDrop.html#maintainOffset">maintainOffset</a> : Boolean<div class="summaryTableDescription">
+     Maintain offsets when we reset constraints.</div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DragDrop.html#moveOnly">moveOnly</a> : Boolean = false<div class="summaryTableDescription">
+     When set to true, other DD objects in cooperating DDGroups do not receive
+     notification events when this DD object is dragged over them.</div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DragDrop.html#padding">padding</a> : Array<div class="summaryTableDescription">
+     The padding configured for this drag and drop object for calculating
+     the drop zone intersection with this object.</div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DragDrop.html#primaryButtonOnly">primaryButtonOnly</a> : Boolean<div class="summaryTableDescription">
+     By default the drag and drop instance will only respond to the primary
+     button click (left button for a right-handed mouse).</div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DragDrop.html#xTicks">xTicks</a> : Array<div class="summaryTableDescription">
+     Array of pixel locations the element will snap to if we specified a
+     horizontal graduation/interval.</div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DragDrop.html#yTicks">yTicks</a> : Array<div class="summaryTableDescription">
+     Array of pixel locations the element will snap to if we specified a
+     vertical graduation/interval.</div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+</table>
+</div>
+<a name="protectedPropertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Protected Properties</div>
+<div class="showHideLinks">
+<div class="hideInheritedProtectedProperty" id="hideInheritedProtectedProperty">
+<a onclick="javascript:setInheritedVisible(false,'ProtectedProperty');" href="#protectedPropertySummary" class="showHideLink"><img src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Protected Properties</a>
+</div>
+<div class="showInheritedProtectedProperty" id="showInheritedProtectedProperty">
+<a onclick="javascript:setInheritedVisible(true,'ProtectedProperty');" href="#protectedPropertySummary" class="showHideLink"><img src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Protected Properties</a>
+</div>
+</div>
+<table id="summaryTableProtectedProperty" class="summaryTable hideInheritedProtectedProperty" cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="hideInheritedProtectedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DragDrop.html#constrainX">constrainX</a> : Boolean<div class="summaryTableDescription">
+     Set to true when horizontal contraints are applied
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedProtectedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DragDrop.html#constrainY">constrainY</a> : Boolean<div class="summaryTableDescription">
+     Set to true when vertical contraints are applied
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedProtectedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DragDrop.html#_domRef">_domRef</a> : <a href="../../js/js/HTMLElement.html">HTMLElement</a>
+<div class="summaryTableDescription">
+     Cached reference to the linked element
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedProtectedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DragDrop.html#dragElId">dragElId</a> : String<div class="summaryTableDescription">
+     The id of the element that will be dragged.</div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedProtectedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DragDrop.html#handleElId">handleElId</a> : String<div class="summaryTableDescription">
+     The ID of the element that initiates the drag operation.</div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedProtectedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DragDrop.html#locked">locked</a> : Boolean<div class="summaryTableDescription">
+     Individual drag/drop instances can be locked.</div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedProtectedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DragDrop.html#maxX">maxX</a> : Number<div class="summaryTableDescription">
+     The right constraint
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedProtectedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DragDrop.html#maxY">maxY</a> : Number<div class="summaryTableDescription">
+     The down constraint
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedProtectedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DragDrop.html#minX">minX</a> : Number<div class="summaryTableDescription">
+     The left constraint
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedProtectedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DragDrop.html#minY">minY</a> : Number<div class="summaryTableDescription">
+     The up constraint
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedProtectedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DragDrop.html#startPageX">startPageX</a> : int<div class="summaryTableDescription">
+     The linked element's absolute X position at the time the drag was
+     started
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedProtectedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DragDrop.html#startPageY">startPageY</a> : int<div class="summaryTableDescription">
+     The linked element's absolute X position at the time the drag was
+     started
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedProtectedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="DragDrop.html#__ygDragDrop">__ygDragDrop</a> : Boolean<div class="summaryTableDescription">
+     Internal typeof flag
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<div class="showHideLinks">
+<div class="hideInheritedMethod" id="hideInheritedMethod">
+<a onclick="javascript:setInheritedVisible(false,'Method');" href="#methodSummary" class="showHideLink"><img src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Methods</a>
+</div>
+<div class="showInheritedMethod" id="showInheritedMethod">
+<a onclick="javascript:setInheritedVisible(true,'Method');" href="#methodSummary" class="showHideLink"><img src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Methods</a>
+</div>
+</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#DDTarget()">DDTarget</a>(id:String, sGroup:String, config:Object)</div>
+<div class="summaryTableDescription">
+ </div>
+</td><td class="summaryTableOwnerCol">DDTarget</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#addInvalidHandleClass()">addInvalidHandleClass</a>(cssClass:String):void</div>
+<div class="summaryTableDescription">
+     Lets you specify a css class of elements that will not initiate a drag
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#addInvalidHandleId()">addInvalidHandleId</a>(id:String):void</div>
+<div class="summaryTableDescription">
+     Lets you to specify an element id for a child of a drag handle
+     that should not initiate a drag
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#addInvalidHandleType()">addInvalidHandleType</a>(tagName:String):void</div>
+<div class="summaryTableDescription">
+     Allows you to specify a tag name that should not start a drag operation
+     when clicked.</div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#addToGroup()">addToGroup</a>(sGroup:String):void</div>
+<div class="summaryTableDescription">
+     Add this instance to a group of related drag/drop objects.</div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#applyConfig()">applyConfig</a>():void</div>
+<div class="summaryTableDescription">
+     Applies the configuration parameters that were passed into the constructor.</div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#clearConstraints()">clearConstraints</a>():void</div>
+<div class="summaryTableDescription">
+     Clears any constraints applied to this instance.</div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#clearTicks()">clearTicks</a>():void</div>
+<div class="summaryTableDescription">
+     Clears any tick interval defined for this instance
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#constrainTo()">constrainTo</a>(constrainTo:*, pad:Boolean, inContent:* = false):void</div>
+<div class="summaryTableDescription">
+     Initializes the drag drop object's constraints to restrict movement to a certain element.</div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#endDrag()">endDrag</a>(e:<a href="../ext/EventObjectClass.html">EventObjectClass</a>):void</div>
+<div class="summaryTableDescription">
+     Fired when we are done dragging the object
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#getDragEl()">getDragEl</a>():<a href="../../js/js/HTMLElement.html">HTMLElement</a>
+</div>
+<div class="summaryTableDescription">
+     Returns a reference to the actual element to drag.</div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#getEl()">getEl</a>():<a href="../../js/js/HTMLElement.html">HTMLElement</a>
+</div>
+<div class="summaryTableDescription">
+     Returns a reference to the linked element
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#init()">init</a>(id:String, sGroup:String = "default", config:Object = null):void</div>
+<div class="summaryTableDescription">
+     Sets up the DragDrop object.</div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#initTarget()">initTarget</a>(id:String, sGroup:String = "default", config:Object = null):void</div>
+<div class="summaryTableDescription">
+     Initializes Targeting functionality only...</div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#isLocked()">isLocked</a>():Boolean</div>
+<div class="summaryTableDescription">
+     Returns true if this instance is locked, or the drag drop mgr is locked
+     (meaning that all drag/drop is disabled on the page.)
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#isValidHandleChild()">isValidHandleChild</a>(node:<a href="../../js/js/HTMLElement.html">HTMLElement</a>):Boolean</div>
+<div class="summaryTableDescription">
+     Checks the tag exclusion list to see if this click should be ignored
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#lock()">lock</a>():void</div>
+<div class="summaryTableDescription">
+     Lock this instance
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#onAvailable()">onAvailable</a>():void</div>
+<div class="summaryTableDescription">
+     Override the onAvailable method to do what is needed after the initial
+     position was determined.</div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#onDrag()">onDrag</a>(e:<a href="../ext/EventObjectClass.html">EventObjectClass</a>):void</div>
+<div class="summaryTableDescription">
+     Abstract method called during the onMouseMove event while dragging an
+     object.</div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#onDragDrop()">onDragDrop</a>(e:<a href="../ext/EventObjectClass.html">EventObjectClass</a>, id:Object):void</div>
+<div class="summaryTableDescription">
+     Abstract method called when this item is dropped on another DragDrop
+     obj
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#onDragEnter()">onDragEnter</a>(e:<a href="../ext/EventObjectClass.html">EventObjectClass</a>, id:Object):void</div>
+<div class="summaryTableDescription">
+     Abstract method called when this element fist begins hovering over
+     another DragDrop obj
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#onDragOut()">onDragOut</a>(e:<a href="../ext/EventObjectClass.html">EventObjectClass</a>, id:Object):void</div>
+<div class="summaryTableDescription">
+     Abstract method called when we are no longer hovering over an element
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#onDragOver()">onDragOver</a>(e:<a href="../ext/EventObjectClass.html">EventObjectClass</a>, id:Object):void</div>
+<div class="summaryTableDescription">
+     Abstract method called when this element is hovering over another
+     DragDrop obj
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#onInvalidDrop()">onInvalidDrop</a>(e:<a href="../ext/EventObjectClass.html">EventObjectClass</a>):void</div>
+<div class="summaryTableDescription">
+     Abstract method called when this item is dropped on an area with no
+     drop target
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#onMouseDown()">onMouseDown</a>(e:<a href="../ext/EventObjectClass.html">EventObjectClass</a>):void</div>
+<div class="summaryTableDescription">
+     Event handler that fires when a drag/drop obj gets a mousedown
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#onMouseUp()">onMouseUp</a>(e:<a href="../ext/EventObjectClass.html">EventObjectClass</a>):void</div>
+<div class="summaryTableDescription">
+     Event handler that fires when a drag/drop obj gets a mouseup
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#removeFromGroup()">removeFromGroup</a>(sGroup:String):void</div>
+<div class="summaryTableDescription">
+     Removes this instance from the supplied interaction group.</div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#removeInvalidHandleClass()">removeInvalidHandleClass</a>(cssClass:String):void</div>
+<div class="summaryTableDescription">
+     Unsets an invalid css class
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#removeInvalidHandleId()">removeInvalidHandleId</a>(id:String):void</div>
+<div class="summaryTableDescription">
+     Unsets an invalid handle id
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#removeInvalidHandleType()">removeInvalidHandleType</a>(tagName:String):void</div>
+<div class="summaryTableDescription">
+     Unsets an excluded tag name set by addInvalidHandleType
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#resetConstraints()">resetConstraints</a>():void</div>
+<div class="summaryTableDescription">
+     resetConstraints must be called if you manually reposition a dd element.</div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#setDragElId()">setDragElId</a>(id:String):void</div>
+<div class="summaryTableDescription">
+     Allows you to specify that an element other than the linked element
+     will be moved with the cursor during a drag
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#setHandleElId()">setHandleElId</a>(id:String):void</div>
+<div class="summaryTableDescription">
+     Allows you to specify a child of the linked element that should be
+     used to initiate the drag operation.</div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#setInitPosition()">setInitPosition</a>(diffX:Number = 0, diffY:Number = 0):void</div>
+<div class="summaryTableDescription">
+     Stores the initial placement of the linked element.</div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#setOuterHandleElId()">setOuterHandleElId</a>(id:String):void</div>
+<div class="summaryTableDescription">
+     Allows you to set an element outside of the linked element as a drag
+     handle
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#setPadding()">setPadding</a>(iTop:int, iRight:int, iBot:int, iLeft:int):void</div>
+<div class="summaryTableDescription">
+     Configures the padding for the target zone in px.</div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#setXConstraint()">setXConstraint</a>(iLeft:Number, iRight:Number, iTickSize:Number):void</div>
+<div class="summaryTableDescription">
+     By default, the element can be dragged any place on the screen.</div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#setYConstraint()">setYConstraint</a>(iUp:Number, iDown:Number, iTickSize:Number):void</div>
+<div class="summaryTableDescription">
+     By default, the element can be dragged any place on the screen.</div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#startDrag()">startDrag</a>(x:Number, y:Number):void</div>
+<div class="summaryTableDescription">
+     Abstract method called after a drag/drop object is clicked
+     and the drag or mousedown time thresholds have beeen met.</div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#toString()">toString</a>():String</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">DDTarget</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#unlock()">unlock</a>():void</div>
+<div class="summaryTableDescription">
+     Unlock this instance.</div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#unreg()">unreg</a>():void</div>
+<div class="summaryTableDescription">
+     Remove all drag and drop hooks for this element
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+</table>
+</div>
+<a name="protectedMethodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Protected Methods</div>
+<div class="showHideLinks">
+<div class="hideInheritedProtectedMethod" id="hideInheritedProtectedMethod">
+<a onclick="javascript:setInheritedVisible(false,'ProtectedMethod');" href="#protectedMethodSummary" class="showHideLink"><img src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Protected Methods</a>
+</div>
+<div class="showInheritedProtectedMethod" id="showInheritedProtectedMethod">
+<a onclick="javascript:setInheritedVisible(true,'ProtectedMethod');" href="#protectedMethodSummary" class="showHideLink"><img src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Protected Methods</a>
+</div>
+</div>
+<table id="summaryTableProtectedMethod" class="summaryTable hideInheritedProtectedMethod" cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#b4Drag()">b4Drag</a>(e:<a href="../ext/EventObjectClass.html">EventObjectClass</a>):void</div>
+<div class="summaryTableDescription">
+     Code that executes immediately before the onDrag event
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#b4DragDrop()">b4DragDrop</a>(e:<a href="../ext/EventObjectClass.html">EventObjectClass</a>):void</div>
+<div class="summaryTableDescription">
+     Code that executes immediately before the onDragDrop event
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#b4DragOut()">b4DragOut</a>(e:<a href="../ext/EventObjectClass.html">EventObjectClass</a>):void</div>
+<div class="summaryTableDescription">
+     Code that executes immediately before the onDragOut event
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#b4DragOver()">b4DragOver</a>(e:<a href="../ext/EventObjectClass.html">EventObjectClass</a>):void</div>
+<div class="summaryTableDescription">
+     Code that executes immediately before the onDragOver event
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#b4EndDrag()">b4EndDrag</a>(e:<a href="../ext/EventObjectClass.html">EventObjectClass</a>):void</div>
+<div class="summaryTableDescription">
+     Code that executes immediately before the endDrag event
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#b4MouseDown()">b4MouseDown</a>(e:<a href="../ext/EventObjectClass.html">EventObjectClass</a>):void</div>
+<div class="summaryTableDescription">
+     Code executed immediately before the onMouseDown event
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#b4StartDrag()">b4StartDrag</a>(x:Number, y:Number):void</div>
+<div class="summaryTableDescription">
+     Code that executes immediately before the startDrag event
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#getTick()">getTick</a>(val:int, tickArray:Array = null):int</div>
+<div class="summaryTableDescription">
+     Normally the drag element is moved pixel by pixel, but we can specify
+     that it move a number of pixels at a time.</div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#handleMouseDown()">handleMouseDown</a>(e:<a href="../ext/EventObjectClass.html">EventObjectClass</a>, oDD:<a href="../dd/DragDrop.html">DragDrop</a>):void</div>
+<div class="summaryTableDescription">
+     Fired when this object is clicked
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#handleOnAvailable()">handleOnAvailable</a>():void</div>
+<div class="summaryTableDescription">
+     Executed when the linked element is available
+     </div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#setStartPosition()">setStartPosition</a>(pos:Array):void</div>
+<div class="summaryTableDescription">
+     Sets the start position of the element.</div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#setXTicks()">setXTicks</a>(iStartX:*, iTickSize:int):Boolean</div>
+<div class="summaryTableDescription">
+     Create the array of horizontal tick marks if an interval was specified
+     in setXConstraint().</div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="DragDrop.html#setYTicks()">setYTicks</a>(iStartY:*, iTickSize:int):Boolean</div>
+<div class="summaryTableDescription">
+     Create the array of vertical tick marks if an interval was specified in
+     setYConstraint().</div>
+</td><td class="summaryTableOwnerCol"><a href="DragDrop.html">DragDrop</a></td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="constructorDetail"></a>
+<div class="detailSectionHeader">Constructor detail</div>
+<a name="DDTarget()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">DDTarget</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">constructor</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function DDTarget(id:String, sGroup:String, config:Object)</code><p>
+ </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">id</span>:String</code> &mdash; the id of the element that is a drop target
+ </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sGroup</span>:String</code> &mdash; the group of related DragDrop objects
+ </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">config</span>:Object</code> &mdash; an object containing configurable attributes
+                 Valid properties for DDTarget in addition to those in
+                 DragDrop:
+                    none
+ </td>
+</tr>
+</table>
+</div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="toString()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">toString</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public override function toString():String</code>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>String</code></td>
+</tr>
+</table>
+</div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<center class="copyright"> 
+</center>
+</div>
+</body>
+</html>
+<!-- -->
