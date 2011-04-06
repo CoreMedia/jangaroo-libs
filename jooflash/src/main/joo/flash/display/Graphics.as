@@ -883,6 +883,7 @@ public final class Graphics {
   }
 
   private function _beginFill(fillStyle : Object) : void {
+    endFill();
     context.fillStyle = fillStyle;
     fillCommands = [];
   }
