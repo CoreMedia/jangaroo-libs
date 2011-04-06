@@ -1635,7 +1635,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
   private var _scaleY:Number = 1;
   private var _transform : Transform;
   private var _rotation:Number = 0;
-  private var _visible: Boolean;
+  private var _visible: Boolean = true;
   private var _alpha: Number = 1;
   private var _filters: Array;
   private var _cacheAsBitmap:Boolean;
