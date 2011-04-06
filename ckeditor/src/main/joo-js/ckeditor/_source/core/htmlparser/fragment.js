@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2010, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2011, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.html or http://ckeditor.com/license
 */
 
@@ -118,20 +118,19 @@ CKEDITOR.htmlParser.fragment = function()
 		{
 			target = target || currentNode || fragment;
 
-			// If the target is the fragment and this element can't go inside
+			// If the target is the fragment and this inline element can't go inside
 			// body (if fixForBody).
 			if ( fixForBody && !target.type )
 			{
 				var elementName, realElementName;
 				if ( element.attributes
 					 && ( realElementName =
-						  element.attributes[ '_cke_real_element_type' ] ) )
+						  element.attributes[ 'data-cke-real-element-type' ] ) )
 					elementName = realElementName;
 				else
 					elementName =  element.name;
-				if ( elementName
-						&& !( elementName in CKEDITOR.dtd.$body )
-						&& !( elementName in CKEDITOR.dtd.$nonBodyContent )  )
+
+				if ( elementName && elementName in CKEDITOR.dtd.$inline )
 				{
 					var savedCurrent = currentNode;
 
@@ -236,6 +235,12 @@ CKEDITOR.htmlParser.fragment = function()
 				else if ( tagName == currentName )
 				{
 					addElement( currentNode, currentNode.parent );
+				}
+				else if ( tagName in CKEDITOR.dtd.$listItem )
+				{
+					parser.onTagOpen( 'ul', {} );
+					addPoint = currentNode;
+					reApply = true;
 				}
 				else
 				{
@@ -386,6 +391,8 @@ CKEDITOR.htmlParser.fragment = function()
 
 		parser.onComment = function( comment )
 		{
+			sendPendingBRs();
+			checkPending();
 			currentNode.add( new CKEDITOR.htmlParser.comment( comment ) );
 		};
 

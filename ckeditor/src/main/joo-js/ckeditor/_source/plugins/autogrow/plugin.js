@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2010, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2011, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.html or http://ckeditor.com/license
 */
 
@@ -14,8 +14,10 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 			newHeight;
 
 		// We can not use documentElement to calculate the height for IE (#6061).
-		if ( CKEDITOR.env.ie )
-			newHeight = doc.getBody().$.scrollHeight + 24;
+		// It is not good for IE Quirks, yet using offsetHeight would also not work as expected (#6408).
+		// We do the same for FF because of the html height workaround (#6341).
+		if ( CKEDITOR.env.ie || CKEDITOR.env.gecko )
+			newHeight = doc.getBody().$.scrollHeight + ( CKEDITOR.env.ie && CKEDITOR.env.quirks ? 0 : 24 );
 		else
 			newHeight = doc.getDocumentElement().$.offsetHeight;
 
@@ -41,9 +43,14 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 			{
 				editor.on( eventName, function( evt )
 				{
+					var maximize = editor.getCommand( 'maximize' );
 					// Some time is required for insertHtml, and it gives other events better performance as well.
-					if ( evt.editor.mode == 'wysiwyg' )
+					if ( evt.editor.mode == 'wysiwyg' &&
+						// Disable autogrow when the editor is maximized .(#6339)
+						( !maximize || maximize.state != CKEDITOR.TRISTATE_ON ) )
+					{
 						setTimeout( function(){ resizeEditor( evt.editor ); }, 100 );
+					}
 				});
 			}
 		}
@@ -71,7 +78,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 
 /**
  * Fired when the AutoGrow plugin is about to change the size of the editor.
- * @name CKEDITOR#autogrow
+ * @name CKEDITOR.editor#autogrow
  * @event
  * @param {Number} data.currentHeight The current height of the editor (before the resizing).
  * @param {Number} data.newHeight The new height of the editor (after the resizing). It can be changed

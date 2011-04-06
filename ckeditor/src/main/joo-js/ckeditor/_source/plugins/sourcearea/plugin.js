@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2010, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2011, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.html or http://ckeditor.com/license
 */
 
@@ -71,17 +71,6 @@ CKEDITOR.plugins.add( 'sourcearea',
 								editor.on( 'resize', onResize );
 								win.on( 'resize', onResize );
 								setTimeout( onResize, 0 );
-							}
-							else
-							{
-								// By some yet unknown reason, we must stop the
-								// mousedown propagation for the textarea,
-								// otherwise it's not possible to place the caret
-								// inside of it (non IE).
-								textarea.on( 'mousedown', function( evt )
-									{
-										evt.data.stopPropagation();
-									} );
 							}
 
 							// Reset the holder element and append the

@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2010, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2011, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.html or http://ckeditor.com/license
 */
 
@@ -66,9 +66,7 @@ CKEDITOR.plugins.load( CKEDITOR.config.corePlugins.split( ',' ), function()
 		}
 	});
 
-/*
-TODO: Enable the following and check if effective.
-
+// Needed for IE6 to not request image (HTTP 200 or 304) for every CSS background. (#6187)
 if ( CKEDITOR.env.ie )
 {
 	// Remove IE mouse flickering on IE6 because of background images.
@@ -82,7 +80,14 @@ if ( CKEDITOR.env.ie )
 		// line. For safety, let's just ignore errors.
 	}
 }
-*/
+
+/**
+ * Indicates that CKEditor is running on a High Contrast environment.
+ * @name CKEDITOR.env.hc
+ * @example
+ * if ( CKEDITOR.env.hc )
+ *     alert( 'You're running on High Contrast mode. The editor interface will get adapted to provide you a better experience.' );
+ */
 
 /**
  * Fired when a CKEDITOR core object is fully loaded and ready for interaction.
