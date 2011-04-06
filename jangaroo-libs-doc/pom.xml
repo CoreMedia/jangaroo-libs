@@ -14,6 +14,11 @@
   <packaging>swc</packaging>
   <name>jangaroo-libs-doc</name>
 
+  <properties>
+    <flexmojos.version>4.0-beta-7</flexmojos.version>
+    <flex.sdk.version>3.5.0.12683</flex.sdk.version>
+  </properties>
+
   <pluginRepositories>
     <pluginRepository>
       <id>flex-mojos-repository</id>
@@ -49,6 +54,7 @@
   </distributionManagement>
 
   <build>
+    <sourceDirectory>${project.build.directory}/temp/jangaroo-asdoc/META-INF/joo-api/</sourceDirectory>
     <plugins>
 
       <plugin>
@@ -104,6 +110,7 @@
                 META-INF/joo-api/decodeURIComponent.as,
                 META-INF/joo-api/encodeURI.as,
                 META-INF/joo-api/encodeURIComponent.as,
+                META-INF/joo-api/escape.as,
                 META-INF/joo-api/Error.as,
                 META-INF/joo-api/Function.as,
                 META-INF/joo-api/Infinity.as,
@@ -116,13 +123,30 @@
                 META-INF/joo-api/Object.as,
                 META-INF/joo-api/parseFloat.as,
                 META-INF/joo-api/parseInt.as,
+                META-INF/joo-api/QName.as,
                 META-INF/joo-api/RegExp.as,
+                META-INF/joo-api/SecurityError.as,
                 META-INF/joo-api/String.as,
                 META-INF/joo-api/trace.as,
                 META-INF/joo-api/uint.as,
                 META-INF/joo-api/undefined.as,
+                META-INF/joo-api/unescape.as,
+                META-INF/joo-api/isXMLName.as,
                 META-INF/joo-api/XML.as,
-                META-INF/joo-api/XMLList.as
+                META-INF/joo-api/XMLList.as,
+                META-INF/joo-api/ArgumentError.as,
+                META-INF/joo-api/Arguments.as,
+                META-INF/joo-api/assert.as,
+                META-INF/joo-api/DefinitionError.as,
+                META-INF/joo-api/EvalError.as,
+                META-INF/joo-api/RangeError.as,
+                META-INF/joo-api/ReferenceError.as,
+                META-INF/joo-api/SecurityError.as,
+                META-INF/joo-api/SyntaxError.as,
+                META-INF/joo-api/TypeError.as,
+                META-INF/joo-api/URIError.as,
+                META-INF/joo-api/Vector$object.as,
+                META-INF/joo-api/VerifyError.as
               </excludes>
               <outputDirectory>${project.build.directory}/temp/jangaroo-asdoc/</outputDirectory>
             </configuration>
@@ -132,7 +156,7 @@
       <plugin>
         <groupId>org.sonatype.flexmojos</groupId>
         <artifactId>flexmojos-maven-plugin</artifactId>
-        <version>3.8</version>
+        <version>${flexmojos.version}</version>
         <extensions>true</extensions>
         <executions>
           <execution>
@@ -143,24 +167,19 @@
             <phase>generate-resources</phase>
             <configuration>
               <outputDirectory>${project.build.directory}/site/asdoc/</outputDirectory>
-              <docSources>
-                <docSource>${project.build.directory}/temp/jangaroo-asdoc/META-INF/joo-api/</docSource>
-              </docSources>
-              <sourcePaths>
-                <sourcePath>${project.build.directory}/temp/jangaroo-asdoc/META-INF/joo-api/</sourcePath>
-              </sourcePaths>
             </configuration>
           </execution>
-          <!--execution>
+          <execution>
             <id>do-not-compile</id>
             <goals>
               <goal>compile-swc</goal>
             </goals>
             <configuration>
             </configuration>
-          </execution-->
+          </execution>
         </executions>
         <configuration>
+          <!--lenient>true</lenient-->
           <pureActionscriptProject>true</pureActionscriptProject>
           <storepass>foo</storepass>
           <configurationReport>true</configurationReport>
@@ -171,8 +190,7 @@
           <dependency>
             <groupId>com.adobe.flex</groupId>
             <artifactId>compiler</artifactId>
-            <version>3.5.0.12683</version>
-            <!--version>4.1.0.16076</version-->
+            <version>${flex.sdk.version}</version>
             <type>pom</type>
           </dependency>
         </dependencies>
@@ -184,21 +202,13 @@
     <dependency>
       <groupId>com.adobe.flex.framework</groupId>
       <artifactId>flex-framework</artifactId>
-      <version>3.5.0.12683</version>
-      <!--version>4.1.0.16076</version-->
+      <version>${flex.sdk.version}</version>
       <type>pom</type>
     </dependency>
 
     <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>ext-as</artifactId>
-      <version>${project.version}</version>
-      <type>jangaroo</type>
-    </dependency>
-
-    <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>jooflash</artifactId>
       <version>${project.version}</version>
       <type>jangaroo</type>
     </dependency>

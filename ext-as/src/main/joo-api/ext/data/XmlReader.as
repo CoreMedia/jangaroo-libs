@@ -35,7 +35,7 @@ var myReader = new ext.data.XmlReader({
    &lt;occupation>Horticulturalist&lt;/occupation>
  &lt;/row>
 &lt;/dataset>
-</code></pre>
+</code></pre></p>
 */
 public class XmlReader extends DataReader {
 /**

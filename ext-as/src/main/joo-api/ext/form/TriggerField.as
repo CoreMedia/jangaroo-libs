@@ -21,7 +21,7 @@ public class TriggerField extends TextField {
 /**
  * @constructor
  * Create a new TriggerField.
- * @param config Configuration options (valid {@ext.form.TextField} config options will also be applied
+ * @param config Configuration options (valid {&#64;ext.form.TextField} config options will also be applied
  * to the base TextField)
  * @xtype trigger
  */

@@ -10,123 +10,123 @@ package flash.utils {
  * <tr><th>Tag</th><th>Attribute</th><th>Description</th></tr>
  * <tr>
  * <td><code><type></code></td>
- * <td> </td>
+ * <td>ï¿½</td>
  * <td>The root tag of the XML object.</td></tr>
  * <tr>
- * <td> </td>
+ * <td>ï¿½</td>
  * <td>name</td>
  * <td>The name of the ActionScript object's data type.</td></tr>
  * <tr>
- * <td> </td>
+ * <td>ï¿½</td>
  * <td>base</td>
  * <td>The immediate superclass of the ActionScript object's defining class. If the ActionScript object is a class object, the value is <code>Class</code>.</td></tr>
  * <tr>
- * <td> </td>
+ * <td>ï¿½</td>
  * <td>isDynamic</td>
  * <td><code>true</code> if the ActionScript object's defining class is dynamic; <code>false</code> otherwise. If the ActionScript object is a class object, the value is <code>true</code> because the Class class is dynamic.</td></tr>
  * <tr>
- * <td> </td>
+ * <td>ï¿½</td>
  * <td>isFinal</td>
  * <td><code>true</code> if the ActionScript object's defining class is final; <code>false</code> otherwise.</td></tr>
  * <tr>
- * <td> </td>
+ * <td>ï¿½</td>
  * <td>isStatic</td>
  * <td><code>true</code> if the ActionScript object is a class object or constructor function; <code>false</code> otherwise. This attribute is named <code>isStatic</code> because if it is <code>true</code>, any tags that are not nested inside the <code>factory</code> tag are static.</td></tr>
  * <tr>
  * <td><code><extendsClass></code></td>
- * <td> </td>
+ * <td>ï¿½</td>
  * <td>There is a separate <code>extendsClass</code> tag for each superclass of the ActionScript object's defining class.</td></tr>
  * <tr>
- * <td> </td>
+ * <td>ï¿½</td>
  * <td>type</td>
  * <td>The name of a superclass that the ActionScript object's defining class extends.</td></tr>
  * <tr>
  * <td><code><implementsInterface></code></td>
- * <td> </td>
+ * <td>ï¿½</td>
  * <td>There is a separate <code>implementsInterface</code> tag for each interface implemented by the ActionScript object's defining class or any of its superclasses.</td></tr>
  * <tr>
- * <td> </td>
+ * <td>ï¿½</td>
  * <td>type</td>
  * <td>The name of an interface that the ActionScript object's defining class implements.</td></tr>
  * <tr>
  * <td><code><accessor></code></td>
- * <td> </td>
+ * <td>ï¿½</td>
  * <td>An accessor is a property defined by getter and setter functions.</td></tr>
  * <tr>
- * <td> </td>
+ * <td>ï¿½</td>
  * <td>name</td>
  * <td>The name of the accessor.</td></tr>
  * <tr>
- * <td> </td>
+ * <td>ï¿½</td>
  * <td>access</td>
  * <td>The access rights of the property. Possible values include <code>readonly</code>, <code>writeonly</code>, and <code>readwrite</code>.</td></tr>
  * <tr>
- * <td> </td>
+ * <td>ï¿½</td>
  * <td>type</td>
  * <td>The data type of the property.</td></tr>
  * <tr>
- * <td> </td>
+ * <td>ï¿½</td>
  * <td>declaredBy</td>
  * <td>The class that contains the associated getter or setter functions.</td></tr>
  * <tr>
  * <td><code><constant></code></td>
- * <td> </td>
+ * <td>ï¿½</td>
  * <td>A constant is a property defined with the <code>const</code> statement.</td></tr>
  * <tr>
- * <td> </td>
+ * <td>ï¿½</td>
  * <td>name</td>
  * <td>The name of the constant.</td></tr>
  * <tr>
- * <td> </td>
+ * <td>ï¿½</td>
  * <td>type</td>
  * <td>The data type of the constant.</td></tr>
  * <tr>
  * <td><code><method></code></td>
- * <td> </td>
+ * <td>ï¿½</td>
  * <td>A method is a function declared as part of a class definition.</td></tr>
  * <tr>
- * <td> </td>
+ * <td>ï¿½</td>
  * <td>name</td>
  * <td>The name of the method.</td></tr>
  * <tr>
- * <td> </td>
+ * <td>ï¿½</td>
  * <td>declaredBy</td>
  * <td>The class that contains the method definition.</td></tr>
  * <tr>
- * <td> </td>
+ * <td>ï¿½</td>
  * <td>returnType</td>
  * <td>The data type of the method's return value.</td></tr>
  * <tr>
  * <td><code><parameter></code></td>
- * <td> </td>
+ * <td>ï¿½</td>
  * <td>There is a separate <code>parameter</code> tag for each parameter that a method defines. This tag is always nested inside a <code><method></code> tag.</td></tr>
  * <tr>
- * <td> </td>
+ * <td>ï¿½</td>
  * <td>index</td>
  * <td>A number corresponding to the order in which the parameter appears in the method's parameter list. The first parameter has a value of 1.</td></tr>
  * <tr>
- * <td> </td>
+ * <td>ï¿½</td>
  * <td>type</td>
  * <td>The data type of the parameter.</td></tr>
  * <tr>
- * <td> </td>
+ * <td>ï¿½</td>
  * <td>optional</td>
  * <td><code>true</code> if the parameter is optional; <code>false</code> otherwise.</td></tr>
  * <tr>
  * <td><code><variable></code></td>
- * <td> </td>
+ * <td>ï¿½</td>
  * <td>A variable is a property defined with the <code>var</code> statement.</td></tr>
  * <tr>
- * <td> </td>
+ * <td>ï¿½</td>
  * <td>name</td>
  * <td>The name of the variable.</td></tr>
  * <tr>
- * <td> </td>
+ * <td>ï¿½</td>
  * <td>type</td>
  * <td>The data type of the variable.</td></tr>
  * <tr>
  * <td><code><factory></code></td>
- * <td> </td>
+ * <td>ï¿½</td>
  * <td>If the ActionScript object is a class object or constructor function, all instance properties and methods are nested inside this tag. If the <code>isStatic</code> attribute of the <code><type></code> tag is <code>true</code>, all properties and methods that are not nested within the <code><factory></code> tag are static. This tag appears only if the ActionScript object is a class object or constructor function.</td></tr></table>
  * @param value The object for which a type description is desired. Any ActionScript value may be passed to this method including all available ActionScript types, object instances, primitive types such as uint, and class objects.
  *
@@ -156,7 +156,7 @@ package flash.utils {
  *         public function DescribeTypeExample() {
  *             var child:Sprite = new Sprite();
  *             var description:XML = describeType(child);
- *             trace(description..accessor.@name.toXMLString());
+ *             trace(description..accessor.&#64;name.toXMLString());
  *         }
  *     }
  * }
@@ -180,7 +180,7 @@ public native function describeType(value:*):XML /*{
       return attr == "name" ? getQualifiedClassName(value) : null;
     },
     method: {
-      "@name": methods
+      "&#64;name": methods
     }
   };
 }*/

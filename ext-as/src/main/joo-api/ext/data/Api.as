@@ -76,7 +76,7 @@ restActions : {
          * be used.  If the method configuration parameter is not specified, POST will be used.
          <pre><code>
 new ext.data.HttpProxy({
-    method: "POST",     // <-- default HTTP method when not specified.
+    method: "POST",     // &lt;-- default HTTP method when not specified.
     api: {
         create: 'create.php',
         load: 'read.php',

@@ -55,7 +55,7 @@ package flexunit.framework
     *    </li>
     *    <li>
     *       Assert that the expected events actually occurred using the
-    *       <code>assertEvents() function.
+    *       <code>assertEvents()</code> function.
     *    </li>
     *    <li>
     *       Assert that the details of these events are correct using the

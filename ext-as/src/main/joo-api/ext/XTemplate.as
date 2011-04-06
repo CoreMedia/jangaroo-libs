@@ -12,7 +12,7 @@ var data = {
     name: 'Jack Slocum',
     title: 'Lead Developer',
     company: 'Ext JS, LLC',
-    email: 'jack@extjs.com',
+    email: 'jack&#64;extjs.com',
     address: '4 Red Bulls Drive',
     city: 'Cleveland',
     state: 'Ohio',

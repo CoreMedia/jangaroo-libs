@@ -394,7 +394,7 @@ sortInfo: {
      * <br><p>Notes:</p><div class="mdetail-params"><ul>
      * <li><b><u>Important</u></b>: loading is asynchronous! This call will return before the new data has been
      * loaded. To perform any post-processing where information from the load call is required, specify
-     * the <code>callback</code> function to be called, or use a <b class='link' title='Ext.util.Observable#listeners a 'load' event'>handler</b>.</li>
+     * the <code>callback</code> function to be called, or use a <b class='link' title='Ext.util.Observable#listeners'>'load' event handler</b>.</li>
      * <li>If using <b class='link' title='ext.PagingToolbar remote'>paging</b>, the first load call must specify the <code>start</code> and <code>limit</code>
      * properties in the <code>options.params</code> property to establish the initial position within the
      * dataset, and the number of Records to cache on each read from the Proxy.</li>
@@ -417,6 +417,7 @@ sortInfo: {
      * <li><b><code>add</code></b> : Boolean<div class="sub-desc"><p>Indicator to append loaded records rather than
      * replace the current cache.  <b>Note</b>: see note for <code><b class='link' title='#loadData'>loadData</b></code></p></div></li>
      * </ul>
+     *
      * @return If the <i>developer</i> provided <code><b class='link' title='#beforeload'>beforeload</b></code> event handler returns
      * <code>false</code>, the load call will abort and will return <code>false</code>; otherwise will return <code>true</code>.
      */
@@ -525,8 +526,8 @@ sortInfo: {
     /**
      * Returns an object describing the current sort state of this Store.
      * @return The sort state of the Store. An object with two properties:<ul>
-     * <li><b>field : String<p class="sub-desc">The name of the field by which the Records are sorted.</p></li>
-     * <li><b>direction : String<p class="sub-desc">The sort order, 'ASC' or 'DESC' (case-sensitive).</p></li>
+     * <li><b>field : String</b><p class="sub-desc">The name of the field by which the Records are sorted.</p></li>
+     * <li><b>direction : String</b><p class="sub-desc">The sort order, 'ASC' or 'DESC' (case-sensitive).</p></li>
      * </ul>
      * See <code><b class='link' title='#sortInfo'>sortInfo</b></code> for additional details.
      */
@@ -555,15 +556,17 @@ sortInfo: {
      */
     public native function each(fn : Function, scope : Object = undefined) : void;
     /**
-     * Gets all <b class='link' title='ext.data.Record'>records</b> modified since the last commit.  Modified records are
+     * Gets all <code>ext.data.Record</code> modified since the last commit. Modified records are
      * persisted across load operations (e.g., during paging). <b>Note</b>: deleted records are not
-     * included.  See also <code><b class='link' title='#pruneModifiedRecords'>pruneModifiedRecords</b></code> and
-     * <b class='link'>ext.data.Record</b><code><b class='link' title='ext.data.Record#markDirty'>markDirty</b>.</code>.
-     * @return Array An array of <b class='link' title='ext.data.Record'>Records</b> containing outstanding
-     * modifications.  To obtain modified fields within a modified record see
-     *<b class='link'>ext.data.Record</b><code><b class='link' title='ext.data.Record#modified'>modified</b>.</code>.
+     * included.  See also <code>#pruneModifiedRecords</code> and
+     * <code>ext.data.Record</code> and <code>ext.data.Record#markDirty</code>.
+     *
+     * @return Array An array of <b>Records</b> containing outstanding
+     * modifications. To obtain modified fields within a modified record see
+     * <code>ext.data.Record</code> and <code>ext.data.Record#modified'</code>.
      */
     public native function getModifiedRecords() : Array/*Record*/;
+
     protected native function createFilterFn(property, value, anyMatch, caseSensitive) : void;
     /**
      * Sums the value of <code>property</code> for each <b class='link' title='ext.data.Record'>record</b> between <code>start</code>
@@ -685,7 +688,7 @@ sortInfo: {
     protected native function onMetaChange(meta, rtype, o) : void;
     protected native function findInsertIndex(record) : void;
     /**
-     * Set the value for a property name in this store's <b class='link' title='#baseParams'>baseParams</b>.  Usage:</p><pre><code>
+     * <p>Set the value for a property name in this store's <b class='link' title='#baseParams'>baseParams</b>.  Usage:</p><pre><code>
 myStore.setBaseParam('foo', {bar:3});
 </code></pre>
      * @param name Name of the property to assign

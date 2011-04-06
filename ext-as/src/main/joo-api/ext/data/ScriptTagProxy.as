@@ -1,19 +1,23 @@
 package ext.data {
 /**
+ * <p>
  * An implementation of ext.data.DataProxy that reads a data object from a URL which may be in a domain
- * other than the originating domain of the running page.<br>
+ * other than the originating domain of the running page.
+ * </p>
  * <p>
  * <b>Note that if you are retrieving data from a page that is in a domain that is NOT the same as the originating domain
- * of the running page, you must use this class, rather than HttpProxy.</b><br>
+ * of the running page, you must use this class, rather than HttpProxy.</b>
+ * </p>
  * <p>
  * The content passed back from a server resource requested by a ScriptTagProxy <b>must</b> be executable JavaScript
- * source code because it is used as the source inside a &lt;script> tag.<br>
+ * source code because it is used as the source inside a &lt;script> tag.
+ * </p>
  * <p>
  * In order for the browser to process the returned data, the server must wrap the data object
  * with a call to a callback function, the name of which is passed as a parameter by the ScriptTagProxy.
  * Below is a Java example for a servlet which returns data for either a ScriptTagProxy, or an HttpProxy
  * depending on whether the callback name was passed:
- * <p>
+ * </p>
  * <pre><code>
 boolean scriptTag = false;
 String cb = request.getParameter("callback");
@@ -52,7 +56,7 @@ public static var TRANS_ID = 1000;
      * @cfg {String} callbackParam (Optional) The name of the parameter to pass to the server which tells
      * the server the name of the callback function set up by the load call to process the returned data object.
      * Defaults to "callback".<p>The server-side processing must read this parameter value, and generate
-     * javascript output which calls this named function passing the data object as its only parameter.
+     * javascript output which calls this named function passing the data object as its only parameter.</p>
      */
     public var callbackParam  : String;
     /**

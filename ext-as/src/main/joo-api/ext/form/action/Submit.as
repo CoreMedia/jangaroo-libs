@@ -32,7 +32,7 @@ import ext.form.Action;
  * <p>Alternatively, if an <b class='link' title='#errorReader'>errorReader</b> is specified as an <b class='link' title='ext.data.XmlReader'>XmlReader</b>:</p><pre><code>
     errorReader: new ext.data.XmlReader({
             record : 'field',
-            success: '@success'
+            success: '&#64;success'
         }, [
             'id', 'msg'
         ]
