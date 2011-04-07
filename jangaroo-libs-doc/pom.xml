@@ -11,7 +11,7 @@
   </parent>
 
   <artifactId>jangaroo-libs-doc</artifactId>
-  <packaging>swc</packaging>
+  <packaging>pom</packaging>
   <name>jangaroo-libs-doc</name>
 
   <properties>
@@ -91,7 +91,7 @@
         <artifactId>maven-dependency-plugin</artifactId>
         <executions>
           <execution>
-            <phase>generate-sources</phase>
+            <phase>pre-site</phase>
             <goals>
               <goal>unpack-dependencies</goal>
             </goals>
@@ -164,17 +164,9 @@
             <goals>
               <goal>asdoc</goal>
             </goals>
-            <phase>generate-resources</phase>
+            <phase>pre-site</phase>
             <configuration>
               <outputDirectory>${project.build.directory}/site/asdoc/</outputDirectory>
-            </configuration>
-          </execution>
-          <execution>
-            <id>do-not-compile</id>
-            <goals>
-              <goal>compile-swc</goal>
-            </goals>
-            <configuration>
             </configuration>
           </execution>
         </executions>

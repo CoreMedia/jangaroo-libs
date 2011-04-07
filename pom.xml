@@ -28,6 +28,7 @@
     <module>soundmanager2</module>
 
     <module>jangaroo-libs-bom</module>
+    <module>jangaroo-libs-doc</module>
   </modules>
 
   <build>
