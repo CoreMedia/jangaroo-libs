@@ -295,6 +295,7 @@ public final class Graphics {
   public function drawCircle(x:Number, y:Number, radius:Number):void {
     createSpace(x - radius, y - radius);
     createSpace(x + radius, y + radius);
+    createCanvasSpace();
     this.context.moveTo(x + radius, y);
     this.context.arc(x, y, radius, 0 , 2*Math.PI, false);
     if (fillCommands) {
@@ -375,6 +376,7 @@ public final class Graphics {
   public function drawEllipse(x:Number, y:Number, width:Number, height:Number):void {
     createSpace(x - width, y - height);
     createSpace(x + width, y + height);
+    createCanvasSpace();
 
     var rx:Number = width / 2;
     var ry:Number = height / 2;
@@ -429,6 +431,7 @@ public final class Graphics {
   public function drawRect(x:Number, y:Number, width:Number, height:Number):void {
     createSpace(x, y);
     createSpace(x + width, y + height);
+    createCanvasSpace();
     if (this.fillCommands) {
       this.context.fillRect(x, y, width, height);
     }
@@ -460,6 +463,7 @@ public final class Graphics {
   public function drawRoundRect(x:Number, y:Number, width:Number, height:Number, ellipseWidth:Number, ellipseHeight:Number = NaN):void {
     createSpace(x, y);
     createSpace(x + width, y + height);
+    createCanvasSpace();
     if (ellipseHeight==0 || ellipseWidth==0) {
       this.drawRect(x, y, width, height);
       return;
@@ -501,6 +505,7 @@ public final class Graphics {
    */
   public function endFill():void {
     if (fillCommands) {
+      createCanvasSpace();
       this.context.beginPath();
       for (var i:int = 0; i < fillCommands.length; i++) {
         fillCommands[i]();
@@ -836,7 +841,6 @@ public final class Graphics {
       maxX = Math.max(maxX, x + thickness);
       maxY = Math.max(maxY, y + thickness);
     }
-    createCanvasSpace();
   }
 
   private function createCanvasSpace():void {
@@ -954,6 +958,7 @@ public final class Graphics {
     if (fillCommands) {
       fillCommands.push(command);
     } else {
+      createCanvasSpace();
       command();
     }
   }
