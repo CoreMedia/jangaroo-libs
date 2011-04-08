@@ -773,8 +773,6 @@ public final class Graphics {
 
   // ************************** Jangaroo part **************************
 
-  private static const PIXEL_CHUNK_SIZE:int = 0;
-
   private var context : CanvasRenderingContext2D;
   private var thickness : Number;
   private var fillCommands : Array;
@@ -782,6 +780,9 @@ public final class Graphics {
   private var minY:Number;
   private var maxX:Number;
   private var maxY:Number;
+  private var oldIntMinX:int = 0;
+  private var oldIntMinY:int = 0;
+  private var canvasHasSize:Boolean; // additional flag needed because canvas does not allow width/height zero
   private var x:Number = 0;
   private var y:Number = 0;
   private var startX:Number = 0;
@@ -830,15 +831,15 @@ public final class Graphics {
       maxX = x + thickness;
       maxY = y + thickness;
     } else {
-      var oldIntMinX:int = Math.floor(minX);
-      var oldIntMinY:int = Math.floor(minY);
-      var oldIntWidth:Number = Math.ceil(maxX) - oldIntMinX + 1;
-      var oldIntHeight:Number = Math.ceil(maxY) - oldIntMinY + 1;
       minX = Math.min(minX, x - thickness);
       minY = Math.min(minY, y - thickness);
       maxX = Math.max(maxX, x + thickness);
       maxY = Math.max(maxY, y + thickness);
     }
+    createCanvasSpace();
+  }
+
+  private function createCanvasSpace():void {
     var imageData:ImageData;
     var canvas:HTMLCanvasElement = this.canvas;
     var intMinX:int = Math.floor(minX);
@@ -855,10 +856,16 @@ public final class Graphics {
         lineJoin   : context.lineJoin,
         miterLimit : context.miterLimit
       };
-      imageData = oldIntWidth ? context.getImageData(0, 0, oldIntWidth, oldIntHeight) : null;
-      canvas.width = Math.max(canvas.width, intWidth + PIXEL_CHUNK_SIZE);
-      canvas.height = Math.max(canvas.height, intHeight + PIXEL_CHUNK_SIZE);
-      translate(0, 0, intMinX, intMinY);
+      imageData = canvasHasSize ? context.getImageData(0, 0, canvas.width, canvas.height) : null;
+      if (intWidth > canvas.width) {
+        canvas.width = intWidth;
+        canvasHasSize = true;
+      }
+      if (intHeight > canvas.height) {
+        canvas.height = intHeight;
+        canvasHasSize = true;
+      }
+      translate(intMinX, intMinY);
       // restore image data:
       if (imageData) {
         context.putImageData(imageData, oldIntMinX - intMinX, oldIntMinY - intMinY);
@@ -868,16 +875,13 @@ public final class Graphics {
         context[m] = backupStyle[m];
       }
       //trace("[INFO] enlarged canvas to " + canvas.width + " x " + canvas.height);
-    } else if (intMinX < oldIntMinX || intMinY < oldIntMinY) {
-      imageData = context.getImageData(0, 0, oldIntWidth, oldIntHeight);
-      context.clearRect(oldIntMinX, oldIntMinY, oldIntWidth, oldIntHeight);
-      translate(oldIntMinX, oldIntMinY, intMinX, intMinY);
-      context.putImageData(imageData, oldIntMinX - intMinX, oldIntMinY - intMinY);
     }
+    oldIntMinX = intMinX;
+    oldIntMinY = intMinY;
   }
 
-  private function translate(oldMinX:int, oldMinY:int, minX:int, minY:int):void {
-    context.translate(oldMinX - minX, oldMinY - minY);
+  private function translate(minX:int, minY:int):void {
+    context.translate(-minX, -minY);
     canvas.style.left = minX + "px";
     canvas.style.top = minY + "px";
   }
