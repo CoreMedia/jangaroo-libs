@@ -703,10 +703,15 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * @private
    */
   public function set rotation(value:Number):void {
-    this._rotation = value || 0;
-    var style:Style = getElement().style;
-    setProprietaryStyle(style, 'transform', "rotate(" + rotation + "deg)");
-    setProprietaryStyle(style, 'transform-origin', "0pt 0pt");
+    if (!value) {
+      value = 0;
+    }
+    if (value !== this._rotation) {
+      this._rotation = value;
+      var style:Style = getElement().style;
+      setProprietaryStyle(style, 'transform', "rotate(" + rotation + "deg)");
+      setProprietaryStyle(style, 'transform-origin', "0pt 0pt");
+    }
   }
 
   private static const BROWSER_PREFIXES:Object = { '-moz-': 1, '-webkit-': 1, '-o': 1, '-ms-': 1 };
