@@ -198,6 +198,7 @@ public final class Graphics {
     this.context.restore();
     this.fillCommands = null;
     this.context.moveTo(0, 0);
+    empty = true;
   }
 
   /**
@@ -274,6 +275,7 @@ public final class Graphics {
         // draw immediately:
         this.context.stroke();
       }
+      empty = false;
     });
   }
 
@@ -304,6 +306,7 @@ public final class Graphics {
     if (!isNaN(thickness)) {
       this.context.stroke();
     }
+    empty = false;
     this.context.beginPath();
     this.context.moveTo(x, y);
   }
@@ -397,6 +400,7 @@ public final class Graphics {
     if (!isNaN(thickness)) {
       this.context.stroke();
     }
+    empty = false;
     this.context.beginPath();
     this.context.moveTo(x, y);
   }
@@ -438,6 +442,7 @@ public final class Graphics {
     if (!isNaN(thickness)) {
       this.context.strokeRect(x, y, width, height);
     }
+    empty = false;
   }
 
   /**
@@ -494,6 +499,7 @@ public final class Graphics {
     if (!isNaN(thickness)) {
       this.context.stroke();
     }
+    empty = false;
   }
 
   /**
@@ -729,6 +735,7 @@ public final class Graphics {
           this.context.stroke();
         }
       }
+      empty = false;
     });
   }
 
@@ -787,7 +794,7 @@ public final class Graphics {
   private var maxY:Number;
   private var oldIntMinX:int = 0;
   private var oldIntMinY:int = 0;
-  private var canvasHasSize:Boolean; // additional flag needed because canvas does not allow width/height zero
+  private var empty:Boolean = true; // anything drawn into canvas?
   private var x:Number = 0;
   private var y:Number = 0;
   private var startX:Number = 0;
@@ -860,16 +867,16 @@ public final class Graphics {
         lineJoin   : context.lineJoin,
         miterLimit : context.miterLimit
       };
-      imageData = canvasHasSize ? context.getImageData(0, 0, canvas.width, canvas.height) : null;
+      imageData = empty ? null : context.getImageData(0, 0, canvas.width, canvas.height);
       if (intWidth > canvas.width) {
         canvas.width = intWidth;
-        canvasHasSize = true;
       }
       if (intHeight > canvas.height) {
         canvas.height = intHeight;
-        canvasHasSize = true;
       }
-      translate(intMinX, intMinY);
+      context.translate(-intMinX, -intMinY);
+      canvas.style.left = intMinX + "px";
+      canvas.style.top = intMinY + "px";
       // restore image data:
       if (imageData) {
         context.putImageData(imageData, oldIntMinX - intMinX, oldIntMinY - intMinY);
@@ -882,12 +889,6 @@ public final class Graphics {
     }
     oldIntMinX = intMinX;
     oldIntMinY = intMinY;
-  }
-
-  private function translate(minX:int, minY:int):void {
-    context.translate(-minX, -minY);
-    canvas.style.left = minX + "px";
-    canvas.style.top = minY + "px";
   }
 
   private function _beginFill(fillStyle : Object) : void {
