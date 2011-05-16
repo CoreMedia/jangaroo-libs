@@ -104,7 +104,9 @@ CKEDITOR.STYLE_OBJECT = 3;
 			replaceVariables( styleDefinition.styles, variablesValues );
 		}
 
-		var element = this.element = ( styleDefinition.element || '*' ).toLowerCase();
+		var element = this.element = styleDefinition.element ?
+				( typeof styleDefinition.element == 'string' ? styleDefinition.element.toLowerCase() : styleDefinition.element )
+				: '*';
 
 		this.type =
 			( element == '#' || blockElements[ element ] ) ?
@@ -113,6 +115,10 @@ CKEDITOR.STYLE_OBJECT = 3;
 				CKEDITOR.STYLE_OBJECT
 			:
 				CKEDITOR.STYLE_INLINE;
+
+		// If the 'element' property is an object with a set of possible element, it will be applied like an object style: only to existing elements
+		if ( typeof this.element == 'object' )
+			this.type = CKEDITOR.STYLE_OBJECT;
 
 		this._ =
 		{
@@ -185,9 +191,12 @@ CKEDITOR.STYLE_OBJECT = 3;
 							  && ( element == elementPath.block || element == elementPath.blockLimit ) )
 							continue;
 
-						if( this.type == CKEDITOR.STYLE_OBJECT
-							 && !( element.getName() in objectElements ) )
+						if( this.type == CKEDITOR.STYLE_OBJECT )
+						{
+							var name = element.getName();
+							if ( !( typeof this.element == 'string' ? name == this.element : name in this.element ) )
 								continue;
+						}
 
 						if ( this.checkElementRemovable( element, true ) )
 							return true;
@@ -223,10 +232,11 @@ CKEDITOR.STYLE_OBJECT = 3;
 				return false;
 
 			var def = this._.definition,
-				attribs;
+				attribs,
+				name = element.getName();
 
 			// If the element name is the same as the style name.
-			if ( element.getName() == this.element )
+			if ( typeof this.element == 'string' ? name == this.element : name in this.element )
 			{
 				// If no attributes are defined in the element.
 				if ( !fullMatch && !element.hasAttributes() )
@@ -599,6 +609,21 @@ CKEDITOR.STYLE_OBJECT = 3;
 
 				for ( styleName in removeList.styles )
 					styleNode.removeStyle( styleName );
+
+
+			var className = def.className,
+				otherClasses = def.otherClasses;
+
+		// Remove other classes from this style group
+		if ( otherClasses )
+		{
+			for( var i=0; i < otherClasses.length; i++)
+				styleNode.removeClass( otherClasses[ i ] );
+		}
+
+		if ( className )
+			styleNode.addClass( className );
+
 
 				if ( styleHasAttrs && !styleNode.hasAttributes() )
 					styleNode = null;
@@ -1119,8 +1144,9 @@ CKEDITOR.STYLE_OBJECT = 3;
 	function removeFromElement( style, element )
 	{
 		var def = style._.definition,
-			attributes = CKEDITOR.tools.extend( {}, def.attributes, getOverrides( style )[ element.getName() ] ),
+			attributes = def.attributes,
 			styles = def.styles,
+			overrides = getOverrides( style )[ element.getName() ],
 			// If the style is only about the element itself, we have to remove the element.
 			removeEmpty = CKEDITOR.tools.isEmpty( attributes ) && CKEDITOR.tools.isEmpty( styles );
 
@@ -1145,6 +1171,12 @@ CKEDITOR.STYLE_OBJECT = 3;
 			removeEmpty = removeEmpty || !!element.getStyle( styleName );
 			element.removeStyle( styleName );
 		}
+
+			var className = def.className;
+		if ( className )
+			element.removeClass( className );
+
+		removeOverrides( element, overrides ) ;
 
 		if ( removeEmpty )
 		{
