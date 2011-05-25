@@ -75,7 +75,7 @@ public class GridPanel extends Panel {
  * @param config The config object
  * @xtype grid
  */
-public function GridPanel(config : Object) {
+public function GridPanel(config:Object = null) {
   super(config);
 }
     /**

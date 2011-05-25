@@ -54,7 +54,7 @@ public class Action {
  * @constructor
  * @param config The configuration options
  */
-public native function Action(config : Object);
+public native function Action(config:Object = null);
     /**
      * This Action's initial configuration specification. Read-only.
      * @property initialConfig

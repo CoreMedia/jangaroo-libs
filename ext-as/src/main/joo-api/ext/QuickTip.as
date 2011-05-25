@@ -9,7 +9,7 @@ public class QuickTip extends ToolTip {
  * Create a new Tip
  * @param config The configuration options
  */
-public function QuickTip(config : Object) {
+public function QuickTip(config:Object = null) {
   super(config);
 }
     /**

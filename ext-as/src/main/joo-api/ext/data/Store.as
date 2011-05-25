@@ -73,7 +73,7 @@ public class Store extends Observable {
  * and read the data into Records.
  * @xtype store
  */
-public native function Store(config : Object);
+public native function Store(config:Object = null);
     /**
      * See the <code><b class='link' title='#baseParams corresponding configuration'>option</b></code>
      * for a description of this property.

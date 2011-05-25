@@ -11,7 +11,7 @@ public class DateField extends TriggerField {
  * @param config
  * @xtype datefield
  */
-public function DateField(config : Object) {
+public function DateField(config:Object = null) {
   super(config);
 }
     /**

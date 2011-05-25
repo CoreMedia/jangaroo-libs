@@ -11,7 +11,7 @@ public class Hidden extends Field {
  * @param config Configuration options
  * @xtype hidden
  */
-  public function Hidden(config:Object) {
+  public function Hidden(config:Object = null) {
     super(config);
   }
 

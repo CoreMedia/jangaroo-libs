@@ -12,7 +12,7 @@ public class GroupingStore extends Store {
  * and read the data into Records.
  * @xtype groupingstore
  */
-    public function GroupingStore(config : Object) : void {
+    public function GroupingStore(config:Object = null) : void {
       super(config);
     }
     /**

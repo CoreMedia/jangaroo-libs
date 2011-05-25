@@ -4,7 +4,7 @@ package ext.menu {
  * @xtype colormenu
  */
     public class ColorMenu extends Menu {
-  public function ColorMenu(config:*) {
+  public function ColorMenu(config:Object = null) {
     super(config);
   }
     /**

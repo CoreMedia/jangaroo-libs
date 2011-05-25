@@ -12,7 +12,7 @@ public class TextArea extends TextField {
  * @param config Configuration options
  * @xtype textarea
  */
-public function TextArea(config : Object) {
+public function TextArea(config:Object = null) {
   super(config);
 }
     /**

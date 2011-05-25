@@ -81,7 +81,7 @@ public class ComboBox extends TriggerField {
  * @param config Configuration options
  * @xtype combo
  */
-public function ComboBox(config : Object) {
+public function ComboBox(config:Object = null) {
   super(config);
 }
     /**

@@ -25,7 +25,7 @@ public class TriggerField extends TextField {
  * to the base TextField)
  * @xtype trigger
  */
-public function TriggerField(config : Object) {
+public function TriggerField(config:Object = null) {
   super(config);
 }
     /**

@@ -26,7 +26,7 @@ public class CheckboxGroup extends Field {
  * @param config Configuration options
  * @xtype checkboxgroup
  */
-public function CheckboxGroup(config : Object) {
+public function CheckboxGroup(config:Object = null) {
   super(config);
 }
     /**

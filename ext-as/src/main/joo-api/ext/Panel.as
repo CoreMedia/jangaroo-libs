@@ -25,7 +25,7 @@ public class Panel extends Container {
  * @param config The config object
  * @xtype panel
  */
-public function Panel(config : Object) {
+public function Panel(config:Object = null) {
   super(config);
 }
     /**

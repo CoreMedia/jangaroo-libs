@@ -18,7 +18,7 @@ public class Window extends Panel {
  * @param config The config object
  * @xtype window
  */
-public function Window(config : Object) {
+public function Window(config:Object = null) {
   super(config);
 }
     /**

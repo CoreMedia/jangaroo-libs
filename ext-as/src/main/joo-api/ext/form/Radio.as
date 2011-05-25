@@ -10,7 +10,7 @@ public class Radio extends Checkbox {
  * @param config Configuration options
  * @xtype radio
  */
-public function Radio(config : Object) {
+public function Radio(config:Object = null) {
   super(config);
 }
   public var inputType;

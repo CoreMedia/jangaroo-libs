@@ -171,7 +171,7 @@ ext.Ajax.request({
  */
 public class Container extends BoxComponent {
 
-  public function Container(config:*) {
+  public function Container(config:Object = null) {
     super(config);
   }
 

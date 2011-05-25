@@ -13,7 +13,7 @@ public class Item extends BaseItem {
  * @param config Configuration options
  * @xtype menuitem
  */
-public function Item(config : Object) {
+public function Item(config:Object = null) {
   super(config);
 }
     /**

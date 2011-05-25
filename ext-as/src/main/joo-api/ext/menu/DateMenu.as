@@ -7,7 +7,7 @@ import ext.DatePicker;
  */
     public class DateMenu extends Menu {
 
-  public function DateMenu(config:*) {
+  public function DateMenu(config:Object = null) {
     super(config);
   }
     /**

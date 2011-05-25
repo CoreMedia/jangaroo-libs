@@ -16,7 +16,7 @@ public class CellSelectionModel extends AbstractSelectionModel {
  * @constructor
  * @param config The object containing the configuration of this model.
  */
-public native function CellSelectionModel(config : Object);
+public native function CellSelectionModel(config:Object = null);
     public native function initEvents() : void;
 
 	protected native function beforeEdit(e);

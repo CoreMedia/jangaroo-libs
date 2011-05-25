@@ -32,7 +32,7 @@ public class JsonStore extends Store {
  * @param config
  * @xtype jsonstore
  */
-public function JsonStore(config : Object) {
+public function JsonStore(config:Object = null) {
   super(config);
 }
     /**

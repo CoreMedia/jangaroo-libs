@@ -89,7 +89,7 @@ public class ListView extends DataView {
  * @param config
  * @xtype listview
  */
-public function ListView(config : Object) {
+public function ListView(config:Object = null) {
   super(config);
 }
     /**

@@ -62,7 +62,7 @@ public class PagingToolbar extends Toolbar {
  * @param config The config object
  * @xtype paging
  */
-public function PagingToolbar(config : Object) {
+public function PagingToolbar(config:Object = null) {
   super(config);
 }
     /**

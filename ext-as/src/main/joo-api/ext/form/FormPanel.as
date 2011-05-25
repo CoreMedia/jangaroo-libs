@@ -44,7 +44,7 @@ public class FormPanel extends Panel {
  * @param config Configuration options
  * @xtype form
  */
-public function FormPanel(config : Object) {
+public function FormPanel(config:Object = null) {
   super(config);
 }
 	/**

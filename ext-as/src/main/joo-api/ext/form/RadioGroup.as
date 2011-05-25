@@ -9,7 +9,7 @@ public class RadioGroup extends CheckboxGroup {
  * @param config Configuration options
  * @xtype radiogroup
  */
-public function RadioGroup(config : Object) {
+public function RadioGroup(config:Object = null) {
   super(config);
 }
     /**

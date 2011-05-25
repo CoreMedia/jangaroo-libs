@@ -7,7 +7,7 @@ public class CheckboxSelectionModel extends RowSelectionModel {
  * @constructor
  * @param config The configuration options
  */
-public function CheckboxSelectionModel(config : Object) {
+public function CheckboxSelectionModel(config:Object = null) {
   super(config);
 }
     /**

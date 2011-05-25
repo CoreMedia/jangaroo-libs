@@ -35,7 +35,7 @@ public class DirectStore extends Store {
  * @constructor
  * @param config
  */
-  public function DirectStore(config:Object) {
+  public function DirectStore(config:Object = null) {
     super(config);
   }
 

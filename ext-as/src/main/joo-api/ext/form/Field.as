@@ -12,7 +12,7 @@ public class Field extends BoxComponent {
  * @param config Configuration options
  * @xtype field
  */
-public function Field(config : Object) {
+public function Field(config:Object = null) {
   super(config);
 }
     /**

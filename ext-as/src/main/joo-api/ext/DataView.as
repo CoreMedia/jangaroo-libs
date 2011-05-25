@@ -63,7 +63,7 @@ public class DataView extends BoxComponent {
  * @param config The config object
  * @xtype dataview
  */
-public function DataView(config : Object) {
+public function DataView(config:Object = null) {
   super(config);
 }
     /**

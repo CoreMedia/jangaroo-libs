@@ -11,7 +11,7 @@ public class DatePicker extends Component {
  * @param config The config object
  * @xtype datepicker
  */
-public function DatePicker(config : Object) {
+public function DatePicker(config:Object = null) {
   super(config);
 }
     /**

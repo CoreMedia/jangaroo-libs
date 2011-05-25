@@ -38,7 +38,7 @@ public class SplitButton extends Button {
  * @param config The config object
  * @xtype splitbutton
  */
-  public function SplitButton(config:Object) {
+  public function SplitButton(config:Object = null) {
     super(config);
   }
 

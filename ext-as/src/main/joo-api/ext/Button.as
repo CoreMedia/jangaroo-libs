@@ -29,7 +29,7 @@ public class Button extends BoxComponent {
  * @param config The config object
  * @xtype button
  */
-public function Button(config : Object) {
+public function Button(config:Object = null) {
   super(config);
 }
     /**

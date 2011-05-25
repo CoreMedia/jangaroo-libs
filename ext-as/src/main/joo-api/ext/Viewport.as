@@ -59,7 +59,7 @@ public class Viewport extends Container {
  * @param config The config object
  * @xtype viewport
  */
-public function Viewport(config : Object) {
+public function Viewport(config:Object = null) {
   super(config);
 }
     /**

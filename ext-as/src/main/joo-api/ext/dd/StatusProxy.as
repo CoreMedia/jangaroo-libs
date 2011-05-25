@@ -14,7 +14,7 @@ public class StatusProxy {
  * @constructor
  * @param config
  */
-public native function StatusProxy(config : Object);
+public native function StatusProxy(config:Object = null);
     /**
      * @cfg {String} dropAllowed
      * The CSS class to apply to the status element when drop is allowed (defaults to "x-dd-drop-ok").

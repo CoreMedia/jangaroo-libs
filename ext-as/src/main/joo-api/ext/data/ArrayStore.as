@@ -38,7 +38,7 @@ public class ArrayStore extends Store {
  * @param config
  * @xtype arraystore
  */
-public function ArrayStore(config : Object) {
+public function ArrayStore(config:Object = null) {
   super(config);
 }
     /**

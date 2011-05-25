@@ -64,7 +64,7 @@ public class FieldSet extends Panel {
  * @param config Configuration options
  * @xtype fieldset
  */
-public function FieldSet(config : Object) {
+public function FieldSet(config:Object = null) {
   super(config);
 }
     /**

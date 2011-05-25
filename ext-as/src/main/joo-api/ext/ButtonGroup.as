@@ -40,7 +40,7 @@ var p = new ext.Panel({
  * @xtype buttongroup
  */
 public class ButtonGroup extends Panel {
-    public function ButtonGroup(config : Object) {
+    public function ButtonGroup(config:Object = null) {
     super(config);
   }
     /**

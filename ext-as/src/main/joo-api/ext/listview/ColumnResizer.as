@@ -10,7 +10,7 @@ public class ColumnResizer extends Observable {
  * @constructor
  * @param config
  */
-public native function ColumnResizer(config : Object);
+public native function ColumnResizer(config:Object = null);
     /**
      * @cfg {Number} minPct The minimum percentage to allot for any column (defaults to <code>.05</code>)
      */

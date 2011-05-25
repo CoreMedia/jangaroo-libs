@@ -14,7 +14,7 @@ public class BaseItem extends Component {
  * @param config Configuration options
  * @xtype menubaseitem
  */
-public function BaseItem(config : Object) {
+public function BaseItem(config:Object = null) {
   super(config);
 }
     /**

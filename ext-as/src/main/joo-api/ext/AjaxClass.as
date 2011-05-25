@@ -62,7 +62,7 @@ public class AjaxClass extends Connection {
    * @cfg {Boolean} autoAbort (Optional) @hide
    * @cfg {Boolean} disableCaching (Optional) @hide
    */
-  public function AjaxClass(config : Object) {
+  public function AjaxClass(config:Object = null) {
     super(config);
   }
     /**

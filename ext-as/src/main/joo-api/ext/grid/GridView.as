@@ -16,7 +16,7 @@ public class GridView extends Observable {
  * @constructor
  * @param config
  */
-public native function GridView(config : Object);
+public native function GridView(config:Object = null);
     /**
      * Override this function to apply custom CSS classes to rows during rendering.  You can also supply custom
      * parameters to the row template for the current row to customize how it is rendered using the <b>rowParams</b>

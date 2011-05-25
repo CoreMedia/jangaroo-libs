@@ -18,7 +18,7 @@ public class ColorPalette extends Component {
  * @param config The config object
  * @xtype colorpalette
  */
-public function ColorPalette(config : Object) {
+public function ColorPalette(config:Object = null) {
   super(config);
 }
 	/**

@@ -18,7 +18,7 @@ public class RowNumberer {
  * @constructor
  * @param config The configuration options
  */
-public native function RowNumberer(config : Object);
+public native function RowNumberer(config:Object = null);
     /**
      * @cfg {String} header Any valid text or HTML fragment to display in the header cell for the row
      * number column (defaults to '').

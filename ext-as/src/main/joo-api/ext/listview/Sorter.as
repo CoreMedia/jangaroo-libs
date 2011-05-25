@@ -10,7 +10,7 @@ public class Sorter extends Observable {
  * @constructor
  * @param config
  */
-public native function Sorter(config : Object);
+public native function Sorter(config:Object = null);
     /**
      * @cfg {Array} sortClasses
      * The CSS classes applied to a header when it is sorted. (defaults to <code>["sort-asc", "sort-desc"]</code>)

@@ -11,7 +11,7 @@ public class Separator extends BaseItem {
  * @param config Configuration options
  * @xtype menuseparator
  */
-public function Separator(config : Object) {
+public function Separator(config:Object = null) {
   super(config);
 }
     /**

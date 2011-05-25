@@ -23,7 +23,7 @@ public class EditorGridPanel extends GridPanel {
  * @param config The config object
  * @xtype editorgrid
  */
-public function EditorGridPanel(config : Object) {
+public function EditorGridPanel(config:Object = null) {
   super(config);
 }
     /**

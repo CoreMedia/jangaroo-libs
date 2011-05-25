@@ -10,7 +10,7 @@ public class Editor extends Component {
  * @param config The config object
  * @xtype editor
  */
-public function Editor(config : Object) {
+public function Editor(config:Object = null) {
   super(config);
 }
     /**

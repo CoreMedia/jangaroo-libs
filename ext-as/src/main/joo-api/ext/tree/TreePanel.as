@@ -119,7 +119,7 @@ public class TreePanel extends Panel {
  * @xtype treepanel
  */
 
-  public function TreePanel(config:Object) {
+  public function TreePanel(config:Object = null) {
     super(config);
   }
 

@@ -34,7 +34,7 @@ public class Connection extends Observable {
      * @constructor
      * @param config a configuration object.
      */
-public native function Connection(config : Object);
+public native function Connection(config:Object = null);
             public var id;
             public var name;
             public var className;

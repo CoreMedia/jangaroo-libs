@@ -58,7 +58,7 @@ public class XmlStore extends Store {
  * @param config
  * @xtype xmlstore
  */
-public function XmlStore(config : Object) {
+public function XmlStore(config:Object = null) {
   super(config);
 }
     /**

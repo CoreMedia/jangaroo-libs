@@ -9,7 +9,7 @@ public class DisplayField extends Field {
  * @param config Configuration options
  * @xtype displayfield
  */
-  public function DisplayField(config:Object) {
+  public function DisplayField(config:Object = null) {
     super(config);
   }
 

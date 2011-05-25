@@ -9,7 +9,7 @@ public class NumberField extends TextField {
  * @param config Configuration options
  * @xtype numberfield
  */
-public function NumberField(config : Object) {
+public function NumberField(config:Object = null) {
   super(config);
 }
     /**

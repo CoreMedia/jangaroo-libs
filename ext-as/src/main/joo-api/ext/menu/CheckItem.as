@@ -11,7 +11,7 @@ public class CheckItem extends Item {
  * @param config Configuration options
  * @xtype menucheckitem
  */
-public function CheckItem(config : Object) {
+public function CheckItem(config:Object = null) {
   super(config);
 }
     /**

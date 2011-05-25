@@ -48,7 +48,7 @@ public class HtmlEditor extends Field {
  * @param config
  * @xtype htmleditor
  */
-public function HtmlEditor(config : Object) {
+public function HtmlEditor(config:Object = null) {
   super(config);
 }
     /**

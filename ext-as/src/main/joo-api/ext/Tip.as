@@ -10,7 +10,7 @@ public class Tip extends Panel {
  * Create a new Tip
  * @param config The configuration options
  */
-public function Tip(config : Object) {
+public function Tip(config:Object = null) {
   super(config);
 }
     /**

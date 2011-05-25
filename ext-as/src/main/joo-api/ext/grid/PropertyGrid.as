@@ -24,7 +24,7 @@ public class PropertyGrid extends EditorGridPanel {
  * @constructor
  * @param config The grid config object
  */
-public function PropertyGrid(config : Object) {
+public function PropertyGrid(config:Object = null) {
   super(config);
 }
     /**

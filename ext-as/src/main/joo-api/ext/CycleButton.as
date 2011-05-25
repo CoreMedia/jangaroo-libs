@@ -32,7 +32,7 @@ public class CycleButton extends SplitButton {
  * @param config The config object
  * @xtype cycle
  */
-public function CycleButton(config : Object) {
+public function CycleButton(config:Object = null) {
   super(config);
 }
     /**

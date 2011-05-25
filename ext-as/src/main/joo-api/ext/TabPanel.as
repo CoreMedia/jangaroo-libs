@@ -89,7 +89,7 @@ public class TabPanel extends Panel {
  * @param config The configuration options
  * @xtype tabpanel
  */
-public function TabPanel(config : Object) {
+public function TabPanel(config:Object = null) {
   super(config);
 }
     /**

@@ -59,7 +59,7 @@ public class GroupingView extends GridView {
  * @constructor
  * @param config
  */
-public function GroupingView(config : Object) {
+public function GroupingView(config:Object = null) {
   super(config);
 }
     /**

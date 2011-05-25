@@ -17,7 +17,7 @@ import ext.Element;
  * @xtype menu
  */
     public class Menu extends Container {
-  public function Menu(config:*) {
+  public function Menu(config:Object = null) {
     super(config);
   }
 /**

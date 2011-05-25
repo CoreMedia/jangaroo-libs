@@ -62,7 +62,7 @@ public class TextField extends Field {
  * @param config Configuration options
  * @xtype textfield
  */
-public function TextField(config : Object) {
+public function TextField(config:Object = null) {
   super(config);
 }
     /**

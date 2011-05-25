@@ -16,7 +16,7 @@ public class TimeField extends ComboBox {
  * @param config
  * @xtype timefield
  */
-public function TimeField(config : Object) {
+public function TimeField(config:Object = null) {
   super(config);
 }
     /**

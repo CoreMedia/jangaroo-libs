@@ -11,7 +11,7 @@ public class Checkbox extends Field {
  * @param config Configuration options
  * @xtype checkbox
  */
-public function Checkbox(config : Object) {
+public function Checkbox(config:Object = null) {
   super(config);
 }
     /**

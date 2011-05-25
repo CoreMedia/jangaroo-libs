@@ -42,7 +42,7 @@ public class TreeLoader extends Observable {
  * Creates a new Treeloader.
  * @param config A config object containing config properties.
  */
-public native function TreeLoader(config : Object);
+public native function TreeLoader(config:Object = null);
     /**
     * @cfg {String} dataUrl The URL from which to request a Json string which
     * specifies an array of node definition objects representing the child nodes

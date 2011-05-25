@@ -20,5 +20,5 @@ public class PropertyRecord {
  * @param config A data object in the format: {name: [name], value: [value]}.  The specified value's type
  * will be read automatically by the grid to determine the type of editor to use when displaying it.
  */
-public native function PropertyRecord(config : Object);
+public native function PropertyRecord(config:Object = null);
 }}

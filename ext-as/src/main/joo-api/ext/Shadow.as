@@ -10,7 +10,7 @@ public class Shadow {
  * Create a new Shadow
  * @param config The config object
  */
-public native function Shadow(config : Object);
+public native function Shadow(config:Object = null);
     /**
      * @cfg {String} mode
      * The shadow display mode.  Supports the following options:<div class="mdetail-params"><ul>

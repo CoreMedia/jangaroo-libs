@@ -8,7 +8,7 @@ public class ToolTip extends Tip {
  * Create a new Tooltip
  * @param config The configuration options
  */
-public function ToolTip(config : Object) {
+public function ToolTip(config:Object = null) {
   super(config);
 }
     /**
