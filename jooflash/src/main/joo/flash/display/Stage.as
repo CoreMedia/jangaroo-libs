@@ -1024,8 +1024,8 @@ public class Stage extends DisplayObjectContainer {
       buttonDown = false;
     }, true);
     element.addEventListener('mousemove', function(e:js.Event):void {
-      this._mouseX = e.clientX;
-      this._mouseY = e.clientY;
+      _mouseX = e.clientX;
+      _mouseY = e.clientY;
     }, true);
     return element;
   }

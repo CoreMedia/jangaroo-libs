@@ -268,12 +268,12 @@ public final class Graphics {
     createSpace(controlX, controlY);
     createSpace(anchorX, anchorY);
     scheduleCommand(function():void {
-      this.x = anchorX;
-      this.y = anchorY;
-      this.context.quadraticCurveTo(controlX, controlY, anchorX, anchorY);
+      x = anchorX;
+      y = anchorY;
+      context.quadraticCurveTo(controlX, controlY, anchorX, anchorY);
       if (!fillCommands && thickness) {
         // draw immediately:
-        this.context.stroke();
+        context.stroke();
       }
       empty = false;
     });
@@ -722,17 +722,16 @@ public final class Graphics {
     createSpace(this.x, this.y);
     createSpace(x, y);
     scheduleCommand(function():void {
-      if (!this.fillCommands) {
-        this.context.beginPath();
-        this.context.moveTo(this.x, this.y);
+      if (!fillCommands) {
+        context.beginPath();
+        restorePosition();
       }
-      this.context.lineTo(x, y);
-      this.x = x;
-      this.y = y;
-      if (!this.fillCommands) {
-        this.context.closePath();
+      context.lineTo(x, y);
+      setPosition(x, y);
+      if (!fillCommands) {
+        context.closePath();
         if (!isNaN(thickness)) {
-          this.context.stroke();
+          context.stroke();
         }
       }
       empty = false;
@@ -776,10 +775,11 @@ public final class Graphics {
    * </listing>
    */
   public function moveTo(x:Number, y:Number):void {
-    this.startX = this.x = x;
-    this.startY = this.y = y;
+    this.startX = x;
+    this.startY = y;
+    setPosition(x, y);
     scheduleCommand(function():void {
-      this.context.moveTo(x, y);
+      context.moveTo(x, y);
     });
   }
 
@@ -805,8 +805,8 @@ public final class Graphics {
    */
   public function Graphics() {
     var canvas : HTMLCanvasElement = window.document.createElement("canvas") as HTMLCanvasElement;
-    canvas.width = 1; //PIXEL_CHUNK_SIZE;
-    canvas.height = 1; //PIXEL_CHUNK_SIZE;
+    canvas.width = 1;
+    canvas.height = 1;
     canvas.style.position = "absolute";
 
     this.context = CanvasRenderingContext2D(canvas.getContext("2d"));
@@ -953,6 +953,15 @@ public final class Graphics {
     return alpha < 1 ? ["rgba(", params, ",", alpha, ")"].join("")
                      :  "rgb(" + params + ")";
     
+  }
+
+  private function setPosition(x:Number, y:Number):void {
+    this.x = x;
+    this.y = y;
+  }
+
+  private function restorePosition():void {
+    context.moveTo(x, y);
   }
 
   private function scheduleCommand(command:Function):void {
