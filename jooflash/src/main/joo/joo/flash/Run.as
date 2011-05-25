@@ -1,5 +1,6 @@
 package joo.flash {
 import flash.display.DisplayObject;
+import flash.display.LoaderInfo;
 import flash.display.Stage;
 
 import flash.events.Event;
@@ -10,7 +11,7 @@ import joo.JooClassDeclaration;
 
 public class Run {
 
-  public static function main(id : String, primaryDisplayObjectClassName : String) : void {
+  public static function main(id : String, primaryDisplayObjectClassName : String, parameters:Object) : void {
     var classLoader:DynamicClassLoader = DynamicClassLoader.INSTANCE;
     classLoader.import_(primaryDisplayObjectClassName);
     classLoader.complete(function() : void {
@@ -25,6 +26,9 @@ public class Run {
       // use Jangaroo tricks to add the DisplayObject to the Stage before its constructor is called:
       var displayObject:DisplayObject = DisplayObject(new cd.Public());
       stage.internalAddChildAt(displayObject, 0);
+      var loaderInfo:LoaderInfo = new LoaderInfo();
+      loaderInfo['parameters'] = parameters;
+      displayObject['loaderInfo'] = loaderInfo;
       cd.constructor_.call(displayObject);
       displayObject.broadcastEvent(new Event(Event.ADDED_TO_STAGE, false, false));
     });

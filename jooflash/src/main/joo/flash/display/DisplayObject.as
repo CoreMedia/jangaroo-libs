@@ -444,9 +444,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    *
    * </listing>
    */
-  public function get loaderInfo():LoaderInfo {
-    return _loaderInfo || (_loaderInfo = new LoaderInfo());
-  }
+  public native function get loaderInfo():LoaderInfo;
 
   /**
    * The calling display object is masked by the specified <code>mask</code> object. To ensure that masking works when the Stage is scaled, the <code>mask</code> display object must be in an active part of the display list. The <code>mask</code> object itself is not drawn. Set <code>mask</code> to <code>null</code> to remove the mask.
