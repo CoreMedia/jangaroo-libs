@@ -225,9 +225,8 @@ myGridPanel.on({
  * @param o The Observable to capture
  * @param fn The function to call
  * @param scope The scope (this object) for the fn
- * @static
  */
-public native function capture (o : Observable, fn : Function, scope : Object = undefined) : void;
+public static native function capture (o : Observable, fn : Function, scope : Object = undefined) : void;
 /**
  * Sets observability on the passed class constructor.<p>
  * <p>This makes any event fired on any instance of the passed class also fire a single event through
@@ -238,8 +237,7 @@ ext.data.Connection.on('beforerequest', function(con, options) {
     console.log("Ajax request made to " + options.url);
 });</code></pre>
  * @param c The class constructor to make observable.
- * @static
  */
-public native function observeClass (c : Function) : void;
+public static native function observeClass (c : Class) : void;
 }
 }
