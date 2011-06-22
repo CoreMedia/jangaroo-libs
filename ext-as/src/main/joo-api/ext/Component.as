@@ -667,6 +667,21 @@ new ext.Panel({
      * which this component will be inserted (defaults to appending to the end of the container)
      */
     public native function render(container : * = undefined, position : * = undefined) : void;
+
+    /**
+     * <p>Update the content area of a component.</p>
+     * @param {Mixed} htmlOrData
+     * If this component has been configured with a template via the tpl config
+     * then it will use this argument as data to populate the template.
+     * If this component was not configured with a template, the components
+     * content area will be updated via Ext.Element update
+     * @param {Boolean} loadScripts
+     * (optional) Only legitimate when using the html configuration. Defaults to false
+     * @param {Function} cb
+     * (optional) Only legitimate when using the html configuration. Callback to execute when scripts have finished loading
+     */
+    public native function update(htmlOrData : *, loadScripts : Boolean = false, cb : Function = undefined) : void;
+
     public native function initRef() : void;
         /**
          * @cfg {String} ref
