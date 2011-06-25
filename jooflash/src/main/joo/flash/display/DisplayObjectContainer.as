@@ -265,7 +265,7 @@ public class DisplayObjectContainer extends InteractiveObject {
     if (oldParent) {
       oldParent.removeChild(child);
     } else {
-      assert(!childElement.parentNode);
+      assert(!childElement.parentNode || childElement.parentNode === childElement.ownerDocument.body);
     }
     var refChild:DisplayObject = this.children[index];
     this.children.splice(index, 0, child);
