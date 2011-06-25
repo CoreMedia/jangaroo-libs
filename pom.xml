@@ -29,6 +29,7 @@
 
     <module>jangaroo-libs-bom</module>
     <module>jangaroo-libs-doc</module>
+    <module>jangaroo-sdk</module>
   </modules>
 
   <build>
