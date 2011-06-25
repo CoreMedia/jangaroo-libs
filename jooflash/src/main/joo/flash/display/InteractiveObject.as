@@ -256,7 +256,7 @@ public class InteractiveObject extends DisplayObject {
    * <li><code>new MovieClip()</code></li></ul>
    */
   public function InteractiveObject() {
-    if (this['constructor'] === InteractiveObject) {
+    if (this['constructor'] === flash.display.InteractiveObject) {
       throw new ArgumentError();
     }
   }
