@@ -3,14 +3,13 @@
   <parent>
     <artifactId>jangaroo-libs-parent</artifactId>
     <groupId>net.jangaroo</groupId>
-    <version>0.8.8</version>
+    <version>0.8.9-SNAPSHOT</version>
     <relativePath>../jangaroo-libs-parent/pom.xml</relativePath>
   </parent>
   <packaging>pom</packaging>
   <modelVersion>4.0.0</modelVersion>
   <groupId>net.jangaroo</groupId>
   <artifactId>jangaroo-sdk</artifactId>
-  <version>0.8.8</version>
   <name>jangaroo-sdk</name>
   <description>All Jangaroo binaries and standard libraries as a single download</description>
 
@@ -18,7 +17,7 @@
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>jangaroo-distribution</artifactId>
-      <version>${jangaroo.version}</version>
+      <version>${project.version}</version>
       <type>zip</type>
     </dependency>
     <dependency>
