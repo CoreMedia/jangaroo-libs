@@ -1,5 +1,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
+  <!-- Build ASDoc in the jangaroo-libs root directory, invoking
+         mvn site -Djavax.xml.transform.TransformerFactory=org.apache.xalan.processor.TransformerFactoryImpl
+       The explicit transformer is a workaround for flex-mojos bug https://issues.sonatype.org/browse/FLEXMOJOS-405
+  -->
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
@@ -15,7 +19,7 @@
 
   <properties>
     <flexmojos.version>4.0-beta-7</flexmojos.version>
-    <flex.sdk.version>3.5.0.12683</flex.sdk.version>
+    <flex.sdk.version>4.5.0.19786</flex.sdk.version>
   </properties>
 
   <pluginRepositories>
@@ -170,7 +174,8 @@
           </execution>
         </executions>
         <configuration>
-          <!--lenient>true</lenient-->
+          <keepXml>true</keepXml>
+          <lenient>true</lenient>
           <pureActionscriptProject>true</pureActionscriptProject>
           <storepass>foo</storepass>
           <configurationReport>true</configurationReport>
@@ -211,12 +216,12 @@
       <type>jangaroo</type>
     </dependency>
 
-    <dependency>
+    <!--dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>joounit</artifactId>
       <version>${project.version}</version>
       <type>jangaroo</type>
-    </dependency>
+    </dependency-->
 
   </dependencies>
 
