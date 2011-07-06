@@ -1,13 +1,20 @@
 package ext.chart {
+
+
 /**
  * ColumnSeries class for the charts widget.
-*/
-public class ColumnSeries extends CartesianSeries {
-/**
- * @constructor
+ * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Chart.html#cls-Ext.chart.ColumnSeries Ext JS source
  */
-public function ColumnSeries() {
-  super();
+public class ColumnSeries extends CartesianSeries {
+
+  /**
+   *
+   *
+   */
+  public function ColumnSeries() {
+    super();
+  }
+
 }
-//  public var type;
-}}
+}
+    

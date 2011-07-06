@@ -1,47 +1,55 @@
 package ext.grid {
+
+
 /**
  * A custom selection model that renders a column of checkboxes that can be toggled to select or deselect rows.
-*/
-public class CheckboxSelectionModel extends RowSelectionModel {
-/**
- * @constructor
- * @param config The configuration options
+ * @see ext.config.checkboxselectionmodel
+ * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CheckboxSelectionModel.html#cls-Ext.grid.CheckboxSelectionModel Ext JS source
  */
-public function CheckboxSelectionModel(config:Object = null) {
-  super(config);
+public class CheckboxSelectionModel extends RowSelectionModel {
+
+  /**
+   *
+   *
+   * @param config The configuration options
+   * @see ext.config.checkboxselectionmodel
+   */
+  public function CheckboxSelectionModel(config:Object) {
+    super(null);
+  }
+
+  /**
+   <tt>true</tt> if rows can only be selected by clicking on the checkbox column (defaults to <tt>false</tt>).
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get checkOnly():Boolean;
+
+  /**
+   Any valid text or HTML fragment to display in the header cell for the checkbox column. Defaults to:<pre><code>'&lt;div class="x-grid3-hd-checker"&gt;&amp;#160;&lt;/div&gt;'</code>
+   </pre>The default CSS class of <tt>'x-grid3-hd-checker'</tt> displays a checkbox in the header and provides support for automatic check all/none behavior on header click. This string can be replaced by any valid HTML fragment, including a simple text string (e.g., <tt>'Select Rows'</tt>), but the automatic check all/none behavior will only work if the <tt>'x-grid3-hd-checker'</tt> class is supplied.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get header():String;
+
+  /**
+   <tt>true</tt> if the checkbox column is sortable (defaults to <tt>false</tt>).
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get sortable():Boolean;
+
+  /**
+   The default width in pixels of the checkbox column (defaults to <tt>20</tt>).
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get width():Number;
+
+  /**
+   *
+   *
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CheckboxSelectionModel.html#method-Ext.grid.CheckboxSelectionModel-processEvent Ext JS source
+   */
+  public native function processEvent():void;
+
 }
-    /**
-     * @cfg {Boolean} checkOnly <code>true</code> if rows can only be selected by clicking on the
-     * checkbox column (defaults to <code>false</code>).
-     */
-    /**
-     * @cfg {String} header Any valid text or HTML fragment to display in the header cell for the
-     * checkbox column.  Defaults to:<pre><code>
-     * '&lt;div class="x-grid3-hd-checker">&#38;#160;&lt;/div>'</code>
-     * </code></pre>
-     * The default CSS class of <code>'x-grid3-hd-checker'</code> displays a checkbox in the header
-     * and provides support for automatic check all/none behavior on header click. This string
-     * can be replaced by any valid HTML fragment, including a simple text string (e.g.,
-     * <code>'Select Rows'</code>), but the automatic check all/none behavior will only work if the
-     * <code>'x-grid3-hd-checker'</code> class is supplied.
-     */
-    public var header : String;
-    /**
-     * @cfg {Number} width The default width in pixels of the checkbox column (defaults to <code>20</code>).
-     */
-    public var width : Number;
-    /**
-     * @cfg {Boolean} sortable <code>true</code> if the checkbox column is sortable (defaults to
-     * <code>false</code>).
-     */
-    public var sortable : Boolean;
-    protected var menuDisabled;
-    public var fixed;
-    public var dataIndex;
-    public var id;
-    public native function constructor() : void;
-    override protected native function initEvents() : void;
-    protected native function onMouseDown(e, t) : void;
-    protected native function onHdMouseDown(e, t) : void;
-    protected native function renderer(v, p, record) : void;
-}}
+}
+    

@@ -8,10 +8,10 @@ package ext.lib {
 
 public class Point extends Region {
 
-  public function Point(x : *, y : Number = undefined) {
+  public function Point(x:*, y:Number = undefined) {
     super(y, x, y, x);
   }
 
-  public var x : Number, y : Number;
+  public var x:Number, y:Number;
 }
 }

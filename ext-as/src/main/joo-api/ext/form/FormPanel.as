@@ -1,144 +1,137 @@
 package ext.form {
-import ext.Element;
+
 import ext.Panel;
 
 /**
- * <p>Standard form container.</p>
- * 
- * <p><b><u>Layout</u></b></p>
- * <p>By default, FormPanel is configured with <code>layout:'form'</code> to use an <b class='link'>Ext.layout.FormLayout</b>
- * layout manager, which styles and renders fields and labels correctly. When nesting additional Containers
- * within a FormPanel, you should ensure that any descendant Containers which host input Fields use the
- * <b class='link'>Ext.layout.FormLayout</b> layout manager.</p>
- * 
- * <p><b><u>BasicForm</u></b></p>
- * <p>Although <b>not listed</b> as configuration options of FormPanel, the FormPanel class accepts all
- * of the config options required to configure its internal <b class='link'>ext.form.BasicForm</b> for:
- * <div class="mdetail-params"><ul>
- * <li><b class='link' title='ext.form.BasicForm#fileUpload file'>uploads</b></li>
- * <li>functionality for <b class='link' title='ext.form.BasicForm#doAction loading, validating and'>submitting</b> the form</li>
- * </ul></div>
- *  
- * <p><b>Note</b>: If subclassing FormPanel, any configuration options for the BasicForm must be applied to
- * the <code><b>initialConfig</b></code> property of the FormPanel. Applying <b class='link' title='ext.form.BasicForm'>BasicForm</b>
- * configuration settings to <b><code>this</code></b> will <b>not</b> affect the BasicForm's configuration.</p>
- * 
- * <p><b><u>Form Validation</u></b></p>
- * <p>For information on form validation see the following:</p>
- * <div class="mdetail-params"><ul>
- * <li><b class='link'>ext.form.TextField</b></li>
- * <li><b class='link'>ext.form.VTypes</b></li>
- * <li><b class='link' title='ext.form.BasicForm#doAction BasicForm.doAction'><b>clientValidation</b> notes</b></li>
- * <li><code><b class='link' title='ext.form.FormPanel#monitorValid'>monitorValid</b></code></li>
- * </ul></div>
- * 
- * <p><b><u>Form Submission</u></b></p>
- * <p>By default, Ext Forms are submitted through Ajax, using <b class='link'>ext.form.Action</b>. To enable normal browser
- * submission of the <b class='link' title='ext.form.BasicForm'>BasicForm</b> contained in this FormPanel, see the
- * <code><b class='link' title='ext.form.BasicForm#standardSubmit'>standardSubmit</b></code> option.</p>
- * 
-*/
-public class FormPanel extends Panel {
-/**
- * @constructor
- * @param config Configuration options
- * @xtype form
+ * If the monitorValid config option is true, this event fires repetitively to notify of valid state
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:ext.form.FormPanel</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>valid:Boolean</code>
+ true if the form has passed client-side validation
+ *       </li>
+
+ * </ul>
  */
-public function FormPanel(config:Object = null) {
-  super(config);
+[Event(name="clientvalidation")]
+
+
+/**
+ * Standard form container.
+ <p style="font-weight: bold"><u>Layout</u></p><p>By default, FormPanel is configured with <tt>layout:'form'</tt> to use an <a href="Ext.layout.FormLayout.html">Ext.layout.FormLayout</a> layout manager, which styles and renders fields and labels correctly. When nesting additional Containers within a FormPanel, you should ensure that any descendant Containers which host input Fields use the <a href="Ext.layout.FormLayout.html">Ext.layout.FormLayout</a> layout manager.</p><p style="font-weight: bold"><u>BasicForm</u></p><p>Although <b>not listed</b> as configuration options of FormPanel, the FormPanel class accepts all of the config options required to configure its internal <a href="Ext.form.BasicForm.html">Ext.form.BasicForm</a> for:</p><div class="mdetail-params"><ul><li><a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-fileUpload">file uploads</a></li><li>functionality for <a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-doAction">loading, validating and submitting</a> the form</li></ul></div><p><b>Note</b>: If subclassing FormPanel, any configuration options for the BasicForm must be applied to the <tt><b>initialConfig</b></tt> property of the FormPanel. Applying <a href="Ext.form.BasicForm.html">BasicForm</a> configuration settings to <b><tt>this</tt></b> will <b>not</b> affect the BasicForm's configuration.</p><p style="font-weight: bold"><u>Form Validation</u></p><p>For information on form validation see the following:</p><div class="mdetail-params"><ul><li><a href="Ext.form.TextField.html">Ext.form.TextField</a></li><li><a href="Ext.form.VTypes.html">Ext.form.VTypes</a></li><li><a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-doAction">BasicForm.doAction <b>clientValidation</b> notes</a></li><li><tt><a href="output/Ext.form.FormPanel.html#Ext.form.FormPanel-monitorValid">monitorValid</a></tt></li></ul></div><p style="font-weight: bold"><u>Form Submission</u></p><p>By default, Ext Forms are submitted through Ajax, using <a href="Ext.form.Action.html">Ext.form.Action</a>. To enable normal browser submission of the <a href="Ext.form.BasicForm.html">BasicForm</a> contained in this FormPanel, see the <tt><b><a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-standardSubmit">standardSubmit</a></b></tt> option.</p>
+ * <p>This component is created by the xtype 'form' / the EXML element &lt;form>.</p>
+ * @see ext.config.form
+ * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Form.html#cls-Ext.form.FormPanel Ext JS source
+ */
+public class FormPanel extends Panel {
+
+  /**
+   *
+   *
+   * @param config Configuration options
+   * @see ext.config.form
+   */
+  public function FormPanel(config:Object) {
+    super(null);
+  }
+
+  /**
+   The id of the FORM tag (defaults to an auto-generated id).
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get formId():String;
+
+  /**
+   <tt>true</tt> to hide field labels by default (sets <tt>display:none</tt>). Defaults to <tt>false</tt>.
+   <p>Also see <a href="Ext.Component.html">Ext.Component</a>.<tt><a href="output/Ext.Component.html#Ext.Component-hideLabel">hideLabel</a></tt>.</p>
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get hideLabels():Boolean;
+
+  /**
+   The label alignment value used for the <tt>text-align</tt> specification for the <b>container</b>. Valid values are <tt>"left</tt>", <tt>"top"</tt> or <tt>"right"</tt> (defaults to <tt>"left"</tt>). This property cascades to child <b>containers</b> and can be overridden on any child <b>container</b> (e.g., a fieldset can specify a different <tt>labelAlign</tt> for its fields).
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get labelAlign():String;
+
+  /**
+   The default padding in pixels for field labels (defaults to <tt>5</tt>). <tt>labelPad</tt> only applies if <tt><a href="output/Ext.form.FormPanel.html#Ext.form.FormPanel-labelWidth">labelWidth</a></tt> is also specified, otherwise it will be ignored.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get labelPad():Number;
+
+  /**
+   The width of labels in pixels. This property cascades to child containers and can be overridden on any child container (e.g., a fieldset can specify a different <tt>labelWidth</tt> for its fields) (defaults to <tt>100</tt>).
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get labelWidth():Number;
+
+  /**
+   Minimum width of all buttons in pixels (defaults to <tt>75</tt>).
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  override public native function get minButtonWidth():Number;
+
+  /**
+   The milliseconds to poll valid state, ignored if monitorValid is not true (defaults to 200)
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get monitorPoll():Number;
+
+  /**
+   If <tt>true</tt>, the form monitors its valid state <b>client-side</b> and regularly fires the <a href="output/Ext.form.FormPanel.html#Ext.form.FormPanel-clientvalidation">clientvalidation</a> event passing that state.<br/><p>When monitoring valid state, the FormPanel enables/disables any of its configured <a href="output/Ext.form.FormPanel.html#Ext.form.FormPanel-buttons">buttons</a> which have been configured with <code>formBind: true</code> depending on whether the <a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-isValid">form is valid</a> or not. Defaults to <tt>false</tt></p>
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get monitorValid():Boolean;
+
+  /**
+   * Provides access to the <a href="Ext.form.BasicForm.html">Form</a> which this Panel contains.
+   *
+   * @return The <a href="Ext.form.BasicForm.html">Form</a> which this Panel contains.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Form.html#method-Ext.form.FormPanel-getForm Ext JS source
+   */
+  public native function getForm():BasicForm;
+
+  /**
+   * This is a proxy for the underlying BasicForm's <a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-load">Ext.form.BasicForm.load</a> call.
+   *
+   * @param config A config object containing any of the following options: <pre><code>panel.load({
+   url: 'your-url.php',
+   params: {param1: 'foo', param2: 'bar'}, // or a URL encoded string
+   callback: yourFunction,
+   scope: yourObject, // optional scope for the callback
+   discardUrl: false,
+   nocache: false,
+   text: 'Loading...',
+   timeout: 30,
+   scripts: false
+   });
+   </code></pre>The only required property is url. The optional properties nocache, text and scripts are shorthand for disableCaching, indicatorText and loadScripts and are used to set their associated property on this panel Updater instance.
+   * @return
+    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Form.html#method-Ext.form.FormPanel-load Ext JS source
+   */
+  override public native function load(config:*):Panel;
+
+  /**
+   * Starts monitoring of the valid state of this form. Usually this is done by passing the config option "monitorValid"
+   *
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Form.html#method-Ext.form.FormPanel-startMonitoring Ext JS source
+   */
+  public native function startMonitoring():void;
+
+  /**
+   * Stops monitoring of the valid state of this form
+   *
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Form.html#method-Ext.form.FormPanel-stopMonitoring Ext JS source
+   */
+  public native function stopMonitoring():void;
+
 }
-	/**
-	 * @cfg {String} formId (optional) The id of the FORM tag (defaults to an auto-generated id).
-	 */
-    /**
-     * @cfg {Boolean} hideLabels
-     * <p><code>true</code> to hide field labels by default (sets <code>display:none</code>). Defaults to
-     * <code>false</code>.</p>
-     * <p>Also see <b class='link'>ext.Component</b>.<code><b class='link' title='ext.Component#hideLabel'>hideLabel</b></code>.
-     */
-    /**
-     * @cfg {Number} labelPad
-     * The default padding in pixels for field labels (defaults to <code>5</code>). <code>labelPad</code> only
-     * applies if <code><b class='link' title='#labelWidth'>labelWidth</b></code> is also specified, otherwise it will be ignored.
-     */
-    /**
-     * @cfg {String} labelSeparator
-     * See <b class='link'>ext.Component</b>.<code><b class='link' title='ext.Component#labelSeparator'>labelSeparator</b></code>
-     */
-    /**
-     * @cfg {Number} labelWidth The width of labels in pixels. This property cascades to child containers
-     * and can be overridden on any child container (e.g., a fieldset can specify a different <code>labelWidth</code>
-     * for its fields) (defaults to <code>100</code>).
-     */
-    /**
-     * @cfg {String} itemCls A css class to apply to the x-form-item of fields. This property cascades to child containers.
-     */
-    /**
-     * @cfg {Array} buttons
-     * An array of <b class='link'>ext.Button</b>s or <b class='link'>ext.Button</b> configs used to add buttons to the footer of this FormPanel.<br>
-     * <p>Buttons in the footer of a FormPanel may be configured with the option <code>formBind: true</code>. This causes
-     * the form's <b class='link' title='#monitorValid valid state monitor'>task</b> to enable/disable those Buttons depending on
-     * the form's valid/invalid state.</p>
-     */
-    /**
-     * @cfg {Number} minButtonWidth Minimum width of all buttons in pixels (defaults to <code>75</code>).
-     */
-    //public var minButtonWidth  : Number;
-    /**
-     * @cfg {String} labelAlign The label alignment value used for the <code>text-align</code> specification
-     * for the <b>container</b>. Valid values are <code>"left</code>", <code>"top"</code> or <code>"right"</code>
-     * (defaults to <code>"left"</code>). This property cascades to child <b>containers</b> and can be
-     * overridden on any child <b>container</b> (e.g., a fieldset can specify a different <code>labelAlign</code>
-     * for its fields).
-     */
-    public var labelAlign  : String;
-    /**
-     * @cfg {Boolean} monitorValid If <code>true</code>, the form monitors its valid state <b>client-side</b> and
-     * regularly fires the <b class='link' title='#clientvalidation'>clientvalidation</b> event passing that state.<br>
-     * <p>When monitoring valid state, the FormPanel enables/disables any of its configured
-     * <b class='link' title='#buttons'>buttons</b> which have been configured with <code>formBind: true</code> depending
-     * on whether the <b class='link' title='ext.form.BasicForm#isValid form is'>valid</b> or not. Defaults to <code>false</code></p>
-     */
-    public var monitorValid  : Boolean;
-    /**
-     * @cfg {Number} monitorPoll The milliseconds to poll valid state, ignored if monitorValid is not true (defaults to 200)
-     */
-    public var monitorPoll  : Number;
-    /**
-     * @cfg {String} layout Defaults to <code>'form'</code>.  Normally this configuration property should not be altered. 
-     * For additional details see <b class='link'>Ext.layout.FormLayout</b> and <b class='link' title='ext.Container#layout'>ext.Container.layout</b>.
-     */
-    public var layout  : String;
-    override protected native function initComponent() : void;
-    protected native function createForm() : void;
-    protected native function initFields() : void;
-  override public native function getLayoutTarget() : Element;
-    /**
-     * Provides access to the <b class='link' title='ext.form.BasicForm'>Form</b> which this Panel contains.
-     * @return {BasicForm} The <b class='link' title='ext.form.BasicForm'>Form</b> which this Panel contains.
-     */
-    public native function getForm() : BasicForm;
-    override protected native function onRender(container : Element, position : Element) : void;
-    override protected native function beforeDestroy() : void;
-    public native function isField(c) : void;
-    override protected native function initEvents() : void;
-    protected native function onAdd(ct, c) : void;
-    protected native function onRemove(ct, c) : void;
-    /**
-     * Starts monitoring of the valid state of this form. Usually this is done by passing the config
-     * option "monitorValid"
-     */
-    public native function startMonitoring() : void;
-    /**
-     * Stops monitoring of the valid state of this form
-     */
-    public native function stopMonitoring() : void;
-    /**
-     * This is a proxy for the underlying BasicForm's <b class='link'>ext.form.BasicForm#load</b> call.
-     * @param options The options to pass to the action (see <b class='link'>ext.form.BasicForm#doAction</b> for details)
-     */
-    override public native function load(options : *) : Panel;
-    override protected native function onDisable() : void;
-    override protected native function onEnable() : void;
-    protected native function bindHandler() : void;
-}}
+}
+    

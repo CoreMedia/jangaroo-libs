@@ -1,31 +1,24 @@
 package ext.menu {
-import ext.Element;
+
 
 /**
- * Adds a separator bar to a menu, used to divide logical groups of menu items. Generally you will
- * add one of these by using "-" in you call to add() or in your items config rather than creating one directly.
-*/
-public class Separator extends BaseItem {
-/**
- * @constructor
- * @param config Configuration options
- * @xtype menuseparator
+ * Adds a separator bar to a menu, used to divide logical groups of menu items. Generally you will add one of these by using "-" in you call to add() or in your items config rather than creating one directly.
+ * <p>This component is created by the xtype 'menuseparator' / the EXML element &lt;menuseparator>.</p>
+ * @see ext.config.menuseparator
+ * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Separator.html#cls-Ext.menu.Separator Ext JS source
  */
-public function Separator(config:Object = null) {
-  super(config);
+public class Separator extends BaseItem {
+
+  /**
+   *
+   *
+   * @param config Configuration options
+   * @see ext.config.menuseparator
+   */
+  public function Separator(config:Object) {
+    super(null);
+  }
+
 }
-    /**
-     * @cfg {String} itemCls The default CSS class to use for separators (defaults to "x-menu-sep")
-     */
-    public var itemCls  : String;
-    /**
-     * @cfg {Boolean} hideOnClick True to hide the containing menu after this item is clicked (defaults to false)
-     */
-    //public var hideOnClick  : Boolean;
-    /** 
-     * @cfg {String} activeClass
-     * @hide 
-     */
-    //public var activeClass : String;
-    override protected native function onRender(container : Element, position : Element) : void;
-}}
+}
+    

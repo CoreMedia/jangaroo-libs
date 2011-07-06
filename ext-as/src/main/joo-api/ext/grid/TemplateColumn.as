@@ -1,20 +1,29 @@
 package ext.grid {
+
+
 /**
- * <p>A Column definition class which renders a value by processing a <b class='link' title='ext.data.Record'>Record</b>'s
- * <b class='link' title='ext.data.Record#data'>data</b> using a <b class='link' title='#tpl'>configured</b> <b class='link' title='ext.XTemplate'>XTemplate</b>.
- * See the <b class='link' title='Ext.grid.ColumnModel#xtype'>xtype</b> config option of <b class='link'>Ext.grid.ColumnModel</b> for more
- * details.</p>
+ * A Column definition class which renders a value by processing a <a href="Ext.data.Record.html">Record</a>'s <a href="output/Ext.data.Record.html#Ext.data.Record-data">data</a> using a <a href="output/Ext.grid.TemplateColumn.html#Ext.grid.TemplateColumn-tpl">configured</a> <a href="Ext.XTemplate.html">XTemplate</a>. See the <a href="output/Ext.grid.Column.html#Ext.grid.Column-xtype">xtype</a> config option of <a href="Ext.grid.Column.html">Ext.grid.Column</a> for more details.
+
+ * @see ext.config.templatecolumn
+ * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Column.html#cls-Ext.grid.TemplateColumn Ext JS source
  */
-    public class TemplateColumn extends Column {
-/**
-     * @cfg {String/XTemplate} tpl
-     * An <b class='link' title='ext.XTemplate'>XTemplate</b>, or an XTemplate <i>definition string</i> to use to process a
-     * <b class='link' title='ext.data.Record'>Record</b>'s <b class='link' title='ext.data.Record#data'>data</b> to produce a column's rendered value.
-     */
-    public native function constructor(cfg) : void;
-    public var gridcolumn ;
-    public var booleancolumn;
-    public var numbercolumn;
-    public var datecolumn;
-    public var templatecolumn;
-}}
+public class TemplateColumn extends Column {
+
+  /**
+   *
+   *
+   * @see ext.config.templatecolumn
+   */
+  public function TemplateColumn() {
+    super();
+  }
+
+  /**
+   An <a href="Ext.XTemplate.html">XTemplate</a>, or an XTemplate <i>definition string</i> to use to process a <a href="Ext.data.Record.html">Record</a>'s <a href="output/Ext.data.Record.html#Ext.data.Record-data">data</a> to produce a column's rendered value.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get tpl():*;
+
+}
+}
+    

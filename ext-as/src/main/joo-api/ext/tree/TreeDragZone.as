@@ -1,30 +1,36 @@
 package ext.tree {
+
 import ext.dd.DragZone;
 
-public class TreeDragZone extends DragZone {
 /**
- * @constructor
- * @param tree The <b class='link'>Ext.tree.TreePanel</b> for which to enable dragging
- * @param config
+ *
+ * @see ext.config.treedragzone
+ * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeDragZone.html#cls-Ext.tree.TreeDragZone Ext JS source
  */
-public function TreeDragZone(tree : *, config : Object) {
-  super(tree, config);
+public class TreeDragZone extends DragZone {
+
+  /**
+   *
+   *
+   * @param tree The <a href="Ext.tree.TreePanel.html">Ext.tree.TreePanel</a> for which to enable dragging
+   * @param config
+   * @see ext.config.treedragzone
+   */
+  public function TreeDragZone(tree:*, config:Object) {
+    super(null, null);
+  }
+
+  /**
+   The TreePanel for this drag zone
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeDragZone.html#prop-Ext.tree.TreeDragZone-tree Ext JS source
+   */
+  public native function get tree():TreePanel;
+
+  /**
+   * @private
+   */
+  public native function set tree(value:TreePanel):void;
+
 }
-    /**
-    * The TreePanel for this drag zone
-    * @property
-    */
-    /**
-     * @cfg {String} ddGroup
-     * A named drag drop group to which this object belongs.  If a group is specified, then this object will only
-     * interact with other drag drop objects in the same group (defaults to 'TreeDD').
-     */
-    public var ddGroup  : String;
-    //override protected native function onBeforeDrag(data, e) : void;
-    //override protected native function onInitDrag(e) : void;
-    //override protected native function getRepairXY(e, data) : void;
-    //override protected native function onEndDrag(data, e) : void;
-    //override protected native function onValidDrop(dd, e, id) : void;
-    //override protected native function beforeInvalidDrop(e, id) : void;
-    //override protected native function afterRepair() : void;
-}}
+}
+    

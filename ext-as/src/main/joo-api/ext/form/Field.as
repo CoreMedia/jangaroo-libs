@@ -1,215 +1,481 @@
 package ext.form {
+
 import ext.BoxComponent;
 import ext.Element;
 
 /**
- * Base class for form fields that provides default event handling, sizing, value handling and other functionality.
-*/
-public class Field extends BoxComponent {
-/**
- * @constructor
- * Creates a new Field
- * @param config Configuration options
- * @xtype field
+ * Fires when this field loses input focus.
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:ext.form.Field</code>
+
+ *       </li>
+
+ * </ul>
  */
-public function Field(config:Object = null) {
-  super(config);
+[Event(name="blur")]
+
+/**
+ * Fires just before the field blurs if the field value has changed.
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:ext.form.Field</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>newValue:&#42;</code>
+ The new value
+ *       </li>
+
+ *       <li>
+ *           <code>oldValue:&#42;</code>
+ The original value
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="change")]
+
+/**
+ * Fires when this field receives input focus.
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:ext.form.Field</code>
+
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="focus")]
+
+/**
+ * Fires after the field has been marked as invalid.
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:ext.form.Field</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>msg:String</code>
+ The validation message
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="invalid")]
+
+/**
+ * Fires when any key related to navigation (arrows, tab, enter, esc, etc.) is pressed. To handle other keys see <a href="output/Ext.Panel.html#Ext.Panel-keys">Ext.Panel.keys</a> or <a href="Ext.KeyMap.html">Ext.KeyMap</a>. You can check <a href="output/Ext.EventObject.html#Ext.EventObject-getKey">Ext.EventObject.getKey</a> to determine which key was pressed. For example: <pre><code>var form = new Ext.form.FormPanel({
+ ...
+ items: [{
+ fieldLabel: 'Field 1',
+ name: 'field1',
+ allowBlank: false
+ },{
+ fieldLabel: 'Field 2',
+ name: 'field2',
+ listeners: {
+ specialkey: function(field, e){
+ // e.HOME, e.END, e.PAGE_UP, e.PAGE_DOWN,
+ // e.TAB, e.ESC, arrow keys: e.LEFT, e.RIGHT, e.UP, e.DOWN
+ if (e.<a href="output/Ext.EventObject.html#Ext.EventObject-getKey">getKey()</a> == e.ENTER) {
+ var form = field.ownerCt.getForm();
+ form.submit();
+ }
+ }
+ }
+ }
+ ],
+ ...
+ });
+ </code></pre>
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:ext.form.Field</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>e:ext.IEventObject</code>
+ The event object
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="specialkey")]
+
+/**
+ * Fires after the field has been validated with no errors.
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:ext.form.Field</code>
+
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="valid")]
+
+
+/**
+ * Base class for form fields that provides default event handling, sizing, value handling and other functionality.
+ * <p>This component is created by the xtype 'field' / the EXML element &lt;field>.</p>
+ * @see ext.config.field
+ * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Field.html#cls-Ext.form.Field Ext JS source
+ */
+public class Field extends BoxComponent {
+
+  /**
+   * Creates a new Field
+   *
+   * @param config Configuration options
+   * @see ext.config.field
+   */
+  public function Field(config:Object) {
+    super(null);
+  }
+
+  /**
+   The label Element associated with this Field. <b>Only available after this Field has been rendered by a <a href="form.html">Ext.layout.FormLayout</a> layout manager.</b>
+
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Field.html#prop-Ext.form.Field-label Ext JS source
+   */
+  public native function get label():Element;
+
+  /**
+   * @private
+   */
+  public native function set label(value:Element):void;
+
+  /**
+   The original value of the field as configured in the <a href="output/Ext.form.Field.html#Ext.form.Field-value">value</a> configuration, or as loaded by the last form load operation if the form's <a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-trackResetOnLoad">trackResetOnLoad</a> setting is <code>true</code>.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Field.html#prop-Ext.form.Field-originalValue Ext JS source
+   */
+  public native function get originalValue():*;
+
+  /**
+   * @private
+   */
+  public native function set originalValue(value:*):void;
+
+  /**
+   The value that the Field had at the time it was last focused. This is the value that is passed to the <a href="output/Ext.form.Field.html#Ext.form.Field-change">change</a> event which is fired if the value has been changed when the Field is blurred.
+   <p><b>This will be undefined until the Field has been visited.</b> Compare <a href="output/Ext.form.Field.html#Ext.form.Field-originalValue">originalValue</a>.</p>
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Field.html#prop-Ext.form.Field-startValue Ext JS source
+   */
+  public native function get startValue():*;
+
+  /**
+   * @private
+   */
+  public native function set startValue(value:*):void;
+
+  /**
+   A <a href="Ext.DomHelper.html">DomHelper</a> element spec, or true for a default element spec. Used to create the <a href="output/Ext.Component.html#Ext.Component-getEl">Element</a> which will encapsulate this Component. See <tt><a href="output/Ext.Component.html#Ext.Component-autoEl">autoEl</a></tt> for details. Defaults to:
+   <pre><code>{tag: 'input', type: 'text', size: '20', autocomplete: 'off'}</code></pre>
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get autoCreate():*;
+
+  /**
+   The default CSS class for the field (defaults to 'x-form-field')
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get fieldClass():String;
+
+  /**
+   The CSS class to use when the field receives focus (defaults to 'x-form-focus')
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get focusClass():String;
+
+  /**
+   The type attribute for input fields -- e.g. radio, text, password, file (defaults to 'text'). The types 'file' and 'password' must be used to render those field types currently -- there are no separate Ext components for those. Note that if you use <tt>inputType:'file'</tt>, <a href="output/Ext.form.Field.html#Ext.form.Field-emptyText">emptyText</a> is not supported and should be avoided.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get inputType():String;
+
+  /**
+   The CSS class to use when marking a field invalid (defaults to 'x-form-invalid')
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get invalidClass():String;
+
+  /**
+   The error text to use when marking a field invalid and no message is provided (defaults to 'The value in this field is invalid')
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get invalidText():String;
+
+  /**
+   <b>Experimental</b> The effect used when displaying a validation message under the field (defaults to 'normal').
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get msgFx():String;
+
+  /**
+   The location where the message text set through <a href="output/Ext.form.Field.html#Ext.form.Field-markInvalid">markInvalid</a> should display. Must be one of the following values:
+   <div class="mdetail-params"><ul><li><code>qtip</code> Display a quick tip containing the message when the user hovers over the field. This is the default. <div style="font-weight: bold" class="subdesc"><a href="output/Ext.QuickTips.html#Ext.QuickTips-init">Ext.QuickTips.init</a> must have been called for this setting to work.</div></li><li><code>title</code> Display the message in a default browser title attribute popup.</li><li><code>under</code> Add a block div beneath the field containing the error message.</li><li><code>side</code> Add an error icon to the right of the field, displaying the message in a popup on hover.</li><li><code>[element id]</code> Add the error message directly to the innerHTML of the specified element.</li></ul></div>
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get msgTarget():String;
+
+  /**
+   <tt>true</tt> to disable <a href="output/Ext.form.Field.html#Ext.form.Field-markInvalid">marking the field invalid</a>. Defaults to <tt>false</tt>.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get preventMark():Boolean;
+
+  /**
+   <tt>true</tt> to mark the field as readOnly in HTML (defaults to <tt>false</tt>). <br/><p><b>Note</b>: this only sets the element's readOnly DOM attribute. Setting <code>readOnly=true</code>, for example, will not disable triggering a ComboBox or DateField; it gives you the option of forcing the user to choose via the trigger without typing in the text box. To hide the trigger use <code><a href="output/Ext.form.TriggerField.html#Ext.form.TriggerField-hideTrigger">hideTrigger</a></code>.</p>
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get readOnly():Boolean;
+
+  /**
+   False to clear the name attribute on the field so that it is not submitted during a form post. Defaults to <tt>true</tt>.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get submitValue():Boolean;
+
+  /**
+   The tabIndex for this field. Note this only applies to fields that are rendered, not those which are built via applyTo (defaults to undefined).
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get tabIndex():Number;
+
+  /**
+   Whether the field should validate when it loses focus (defaults to true).
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get validateOnBlur():Boolean;
+
+  /**
+   The length of time in milliseconds after user input begins until validation is initiated (defaults to 250)
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get validationDelay():Number;
+
+  /**
+   The event that should initiate field validation. Set to false to disable automatic validation (defaults to 'keyup').
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get validationEvent():*;
+
+  /**
+   * Alignment for 'side' target
+   *
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Field.html#method-Ext.form.Field-alignErrorIcon Ext JS source
+   */
+  protected native function alignErrorIcon():void;
+
+  /**
+   *
+   *
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Field.html#method-Ext.form.Field-beforeBlur Ext JS source
+   */
+  protected native function beforeBlur():void;
+
+  /**
+   * Clear any invalid styles/messages for this field
+   *
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Field.html#method-Ext.form.Field-clearInvalid Ext JS source
+   */
+  public native function clearInvalid():void;
+
+  /**
+   * Gets the active error message for this field.
+   *
+   * @return Returns the active error message on the field, if there is no error, an empty string is returned.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Field.html#method-Ext.form.Field-getActiveError Ext JS source
+   */
+  public native function getActiveError():String;
+
+  /**
+   * Runs this field's validators and returns an array of error messages for any validation failures. This is called internally during validation and would not usually need to be used manually. Each subclass should override or augment the return value to provide their own errors
+   *
+   * @param value The value to validate. The processed raw value will be used if nothing is passed
+   * @return All error messages for this field
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Field.html#method-Ext.form.Field-getErrors Ext JS source
+   */
+  public native function getErrors(value:* = null):Array;
+
+  /**
+   * Returns the <a href="output/Ext.form.Field.html#Ext.form.Field-name">name</a> or <a href="output/Ext.form.ComboBox.html#Ext.form.ComboBox-hiddenName">hiddenName</a> attribute of the field if available.
+   *
+   * @return name The field <a href="output/Ext.form.Field.html#Ext.form.Field-name">name</a> or <a href="output/Ext.form.ComboBox.html#Ext.form.ComboBox-hiddenName">hiddenName</a>
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Field.html#method-Ext.form.Field-getName Ext JS source
+   */
+  public native function getName():String;
+
+  /**
+   * Returns the raw data value which may or may not be a valid, defined value. To return a normalized value see <a href="output/Ext.form.Field.html#Ext.form.Field-getValue">getValue</a>.
+   *
+   * @return value The field value
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Field.html#method-Ext.form.Field-getRawValue Ext JS source
+   */
+  public native function getRawValue():*;
+
+  /**
+   * Returns the normalized data value (undefined or emptyText will be returned as ''). To return the raw value see <a href="output/Ext.form.Field.html#Ext.form.Field-getRawValue">getRawValue</a>.
+   *
+   * @return value The field value
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Field.html#method-Ext.form.Field-getValue Ext JS source
+   */
+  public native function getValue():*;
+
+  /**
+   *
+   *
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Field.html#method-Ext.form.Field-initEvents Ext JS source
+   */
+  protected native function initEvents():void;
+
+  /**
+   * Returns true if the value of this Field has been changed from its original value. Will return false if the field is disabled or has not been rendered yet.
+   <p>Note that if the owning <a href="Ext.form.BasicForm.html">form</a> was configured with <a href="Ext.form.BasicForm.html">Ext.form.BasicForm</a>.<a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-trackResetOnLoad">trackResetOnLoad</a> then the <i>original value</i> is updated when the values are loaded by <a href="Ext.form.BasicForm.html">Ext.form.BasicForm</a>.<a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-setValues">setValues</a>.</p>
+   *
+   * @return True if this field has been changed from its original value (and is not disabled), false otherwise.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Field.html#method-Ext.form.Field-isDirty Ext JS source
+   */
+  public native function isDirty():Boolean;
+
+  /**
+   * Returns whether or not the field value is currently valid by <a href="output/Ext.form.Field.html#Ext.form.Field-validateValue">validating</a> the <a href="output/Ext.form.Field.html#Ext.form.Field-processValue">processed value</a> of the field. <b>Note</b>: <a href="output/Ext.form.Field.html#Ext.form.Field-disabled">disabled</a> fields are ignored.
+   *
+   * @param preventMark True to disable marking the field invalid
+   * @return True if the value is valid, else false
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Field.html#method-Ext.form.Field-isValid Ext JS source
+   */
+  public native function isValid(preventMark:Boolean):Boolean;
+
+  /**
+   * Display an error message associated with this field, using <a href="output/Ext.form.Field.html#Ext.form.Field-msgTarget">msgTarget</a> to determine how to display the message and applying <a href="output/Ext.form.Field.html#Ext.form.Field-invalidClass">invalidClass</a> to the field's UI element.
+   <p><b>Note</b>: this method does not cause the Field's <a href="output/Ext.form.Field.html#Ext.form.Field-validate">validate</a> method to return <code>false</code> if the value does <i>pass</i> validation. So simply marking a Field as invalid will not prevent submission of forms submitted with the <a href="output/Ext.form.Action.Submit.html#Ext.form.Action.Submit-clientValidation">Ext.form.Action.Submit.clientValidation</a> option set.</p><a href="output/Ext.form.Field.html#Ext.form.Field-isValid">invalid</a>.
+   *
+   * @param msg The validation message (defaults to <a href="output/Ext.form.Field.html#Ext.form.Field-invalidText">invalidText</a>)
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Field.html#method-Ext.form.Field-markInvalid Ext JS source
+   */
+  public native function markInvalid(msg:String = null):void;
+
+  /**
+   *
+   *
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Field.html#method-Ext.form.Field-onBlur Ext JS source
+   */
+  protected native function onBlur():void;
+
+  /**
+   *
+   *
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Field.html#method-Ext.form.Field-onFocus Ext JS source
+   */
+  protected native function onFocus():void;
+
+  /**
+   *
+   *
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Field.html#method-Ext.form.Field-postBlur Ext JS source
+   */
+  protected native function postBlur():void;
+
+  /**
+   *
+   *
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Field.html#method-Ext.form.Field-preFocus Ext JS source
+   */
+  protected native function preFocus():void;
+
+  /**
+   * This method should only be overridden if necessary to prepare raw values for validation (see <a href="output/Ext.form.Field.html#Ext.form.Field-validate">validate</a> and <a href="output/Ext.form.Field.html#Ext.form.Field-isValid">isValid</a>). This method is expected to return the processed value for the field which will be used for validation (see validateValue method).
+   *
+   * @param value
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Field.html#method-Ext.form.Field-processValue Ext JS source
+   */
+  public native function processValue(value:*):void;
+
+  /**
+   * Resets the current field value to the originally loaded value and clears any validation messages. See <a href="Ext.form.BasicForm.html">Ext.form.BasicForm</a>.<a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-trackResetOnLoad">trackResetOnLoad</a>
+   *
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Field.html#method-Ext.form.Field-reset Ext JS source
+   */
+  public native function reset():void;
+
+  /**
+   * Sets the current activeError to the given string. Fires the 'invalid' event. This does not set up the error icon, only sets the message and fires the event. To show the error icon, use markInvalid instead, which calls this method internally
+   *
+   * @param msg The error message
+   * @param suppressEvent True to suppress the 'invalid' event from being fired
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Field.html#method-Ext.form.Field-setActiveError Ext JS source
+   */
+  public native function setActiveError(msg:String, suppressEvent:Boolean):void;
+
+  /**
+   * Sets the underlying DOM field's value directly, bypassing validation. To set the value with validation see <a href="output/Ext.form.Field.html#Ext.form.Field-setValue">setValue</a>.
+   *
+   * @param value The value to set
+   * @return value The field value that is set
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Field.html#method-Ext.form.Field-setRawValue Ext JS source
+   */
+  public native function setRawValue(value:*):*;
+
+  /**
+   * Sets the read only state of this field.
+   *
+   * @param readOnly Whether the field should be read only.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Field.html#method-Ext.form.Field-setReadOnly Ext JS source
+   */
+  public native function setReadOnly(readOnly:Boolean):void;
+
+  /**
+   * Sets a data value into the field and validates it. To set the value directly without validation see <a href="output/Ext.form.Field.html#Ext.form.Field-setRawValue">setRawValue</a>.
+   *
+   * @param value The value to set
+   * @param flag a boolean flag used by some subclasses
+   * @return this
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Field.html#method-Ext.form.Field-setValue Ext JS source
+   */
+  public native function setValue(value:*, flag:Boolean = false):Field;
+
+  /**
+   * Clears the activeError and fires the 'valid' event. This is called internally by clearInvalid and would not usually need to be called manually
+   *
+   * @param suppressEvent True to suppress the 'invalid' event from being fired
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Field.html#method-Ext.form.Field-unsetActiveError Ext JS source
+   */
+  public native function unsetActiveError(suppressEvent:Boolean):void;
+
+  /**
+   * Validates the field value
+   *
+   * @return True if the value is valid, else false
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Field.html#method-Ext.form.Field-validate Ext JS source
+   */
+  public native function validate():Boolean;
+
+  /**
+   * Uses getErrors to build an array of validation errors. If any errors are found, markInvalid is called with the first and false is returned, otherwise true is returned. Previously, subclasses were invited to provide an implementation of this to process validations - from 3.2 onwards getErrors should be overridden instead.
+   *
+   * @param value The current value of the field
+   * @return True if all validations passed, false if one or more failed
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Field.html#method-Ext.form.Field-validateValue Ext JS source
+   */
+  public native function validateValue(value:*):Boolean;
+
 }
-    /**
-     * @cfg {String} inputType The type attribute for input fields -- e.g. radio, text, password, file (defaults
-     * to "text"). The types "file" and "password" must be used to render those field types currently -- there are
-     * no separate Ext components for those. Note that if you use <code>inputType:'file'</code>, <b class='link' title='#emptyText'>emptyText</b>
-     * is not supported and should be avoided.
-     */
-    /**
-     * @cfg {Number} tabIndex The tabIndex for this field. Note this only applies to fields that are rendered,
-     * not those which are built via applyTo (defaults to undefined).
-     */
-    /**
-     * @cfg {Mixed} value A value to initialize this field with (defaults to undefined).
-     */
-    /**
-     * @cfg {String} name The field's HTML name attribute (defaults to "").
-     * <b>Note</b>: this property must be set if this field is to be automatically included with
-     * <b class='link' title='ext.form.BasicForm#submit form'>submit()</b>.
-     */
-    /**
-     * @cfg {String} cls A custom CSS class to apply to the field's underlying element (defaults to "").
-     */
-    /**
-     * @cfg {String} invalidClass The CSS class to use when marking a field invalid (defaults to "x-form-invalid")
-     */
-    public var invalidClass  : String;
-    /**
-     * @cfg {String} invalidText The error text to use when marking a field invalid and no message is provided
-     * (defaults to "The value in this field is invalid")
-     */
-    public var invalidText  : String;
-    /**
-     * @cfg {String} focusClass The CSS class to use when the field receives focus (defaults to "x-form-focus")
-     */
-    public var focusClass  : String;
-    /**
-     * @cfg {String/Boolean} validationEvent The event that should initiate field validation. Set to false to disable
-      automatic validation (defaults to "keyup").
-     */
-    public var validationEvent  : *;
-    /**
-     * @cfg {Boolean} validateOnBlur Whether the field should validate when it loses focus (defaults to true).
-     */
-    public var validateOnBlur  : Boolean;
-    /**
-     * @cfg {Number} validationDelay The length of time in milliseconds after user input begins until validation
-     * is initiated (defaults to 250)
-     */
-    public var validationDelay  : Number;
-    /**
-     * @cfg {String/Object} autoCreate <p>A <b class='link' title='ext.DomHelper'>DomHelper</b> element spec, or true for a default
-     * element spec. Used to create the <b class='link' title='ext.Component#getEl'>Element</b> which will encapsulate this Component.
-     * See <code><b class='link' title='ext.Component#autoEl'>autoEl</b></code> for details.  Defaults to:</p>
-     * <pre><code>{tag: "input", type: "text", size: "20", autocomplete: "off"}</code></pre>
-     */
-    public var defaultAutoCreate  : *;
-    /**
-     * @cfg {String} fieldClass The default CSS class for the field (defaults to "x-form-field")
-     */
-    public var fieldClass  : String;
-    /**
-     * @cfg {String} msgTarget The location where error text should display.  Should be one of the following values
-     * (defaults to 'qtip'):
-     *<pre>
-Value         Description
------------   ----------------------------------------------------------------------
-qtip          Display a quick tip when the user hovers over the field
-title         Display a default browser title attribute popup
-under         Add a block div beneath the field containing the error text
-side          Add an error icon to the right of the field with a popup on hover
-[element id]  Add the error text directly to the innerHTML of the specified element
-</pre>
-     */
-    public var msgTarget  : String;
-    /**
-     * @cfg {String} msgFx <b>Experimental</b> The effect used when displaying a validation message under the field
-     * (defaults to 'normal').
-     */
-    public var msgFx  : String;
-    /**
-     * @cfg {Boolean} readOnly <code>true</code> to mark the field as readOnly in HTML
-     * (defaults to <code>false</code>).
-     * <br><p><b>Note</b>: this only sets the element's readOnly DOM attribute.
-     * Setting <code>readOnly=true</code>, for example, will not disable triggering a
-     * ComboBox or DateField; it gives you the option of forcing the user to choose
-     * via the trigger without typing in the text box. To hide the trigger use
-     * <code><b class='link' title='ext.form.TriggerField#hideTrigger'>hideTrigger</b></code>.</p>
-     */
-    public var readOnly  : Boolean;
-    /**
-     * @cfg {Boolean} disabled True to disable the field (defaults to false).
-     * <p>Be aware that conformant with the <a href="http://www.w3.org/TR/html401/interact/forms.html#h-17.12.1">HTML specification</a>,
-     * disabled Fields will not be <b class='link' title='ext.form.BasicForm#submit'>submitted</b>.</p>
-     */
-    //public var disabled  : Boolean;
-    protected var isFormField : Boolean;
-    protected var hasFocus : Boolean;
-    override protected native function initComponent() : void;
-    /**
-     * Returns the <b class='link' title='ext.form.Field#name'>name</b> or <b class='link' title='ext.form.ComboBox#hiddenName'>hiddenName</b>
-     * attribute of the field if available.
-     * @return name The field <b class='link' title='ext.form.Field#name'>name</b> or <b class='link' title='ext.form.ComboBox#hiddenName'>hiddenName</b>  
-     */
-    public native function getName() : String;
-    override protected native function onRender(container : Element, position : Element) : void;
-    protected native function getItemCt() : void;
-    protected native function initValue() : void;
-        /**
-         * The original value of the field as configured in the <b class='link' title='#value'>value</b> configuration, or
-         * as loaded by the last form load operation if the form's <b class='link' title='ext.form.BasicForm#trackResetOnLoad'>trackResetOnLoad</b>
-         * setting is <code>true</code>.
-         * @property originalValue
-         */
-    /**
-     * <p>Returns true if the value of this Field has been changed from its original value.
-     * Will return false if the field is disabled or has not been rendered yet.</p>
-     * <p>Note that if the owning <b class='link' title='ext.form.BasicForm'>form</b> was configured with
-     * <b class='link'>ext.form.BasicForm</b>.<b class='link' title='ext.form.BasicForm#trackResetOnLoad'>trackResetOnLoad</b>
-     * then the <i>original value</i> is updated when the values are loaded by
-     * <b class='link'>ext.form.BasicForm</b>.<b class='link' title='ext.form.BasicForm#setValues'>setValues</b>.</p>
-     * @return True if this field has been changed from its original value (and
-     * is not disabled), false otherwise.
-     */
-    public native function isDirty() : Boolean;
-    override protected native function afterRender() : void;
-    protected native function fireKey(e) : void;
-    /**
-     * Resets the current field value to the originally loaded value and clears any validation messages.
-     * See <b class='link'>ext.form.BasicForm</b>.<b class='link' title='ext.form.BasicForm#trackResetOnLoad'>trackResetOnLoad</b>
-     */
-    public native function reset() : void;
-    protected native function initEvents() : void;
-    protected native function onFocus() : void;
-    protected native function beforeBlur()  : void;
-    protected native function onBlur() : void;
-    /**
-     * Returns whether or not the field value is currently valid
-     * @param preventMark True to disable marking the field invalid
-     * @return True if the value is valid, else false
-     */
-    public native function isValid(preventMark : Boolean = false) : Boolean;
-    /**
-     * Validates the field value
-     * @return True if the value is valid, else false
-     */
-    public native function validate() : Boolean;
-    public native function processValue(value : *) : void;
-    protected native function validateValue(value : *) : Boolean;
-    /**
-     * Mark this field as invalid, using <b class='link' title='#msgTarget'>msgTarget</b> to determine how to display the error and
-     * applying <b class='link' title='#invalidClass'>invalidClass</b> to the field's element.
-     * @param msg The validation message (defaults to <b class='link' title='#invalidText'>invalidText</b>)
-     */
-    public native function markInvalid(msg : String = undefined) : void;
-    /**
-     * Clear any invalid styles/messages for this field
-     */
-    public native function clearInvalid() : void;
-    protected native function getMessageHandler() : void;
-    protected native function getErrorCt() : void;
-    protected native function alignErrorIcon() : void;
-    /**
-     * Returns the raw data value which may or may not be a valid, defined value.  To return a normalized value see <b class='link' title='#getValue'>getValue</b>.
-     * @return value The field value
-     */
-    public native function getRawValue() : *;
-    /**
-     * Returns the normalized data value (undefined or emptyText will be returned as '').  To return the raw value see <b class='link' title='#getRawValue'>getRawValue</b>.
-     * @return value The field value
-     */
-    public native function getValue() : *;
-    /**
-     * Sets the underlying DOM field's value directly, bypassing validation.  To set the value with validation see <b class='link' title='#setValue'>setValue</b>.
-     * @param value The value to set
-     * @return value The field value that is set
-     */
-    public native function setRawValue(value : *) : *;
-    /**
-     * Sets a data value into the field and validates it.  To set the value directly without validation see <b class='link' title='#setRawValue'>setRawValue</b>.
-     * @param value The value to set
-     * @return this
-     */
-    public native function setValue(value : *) : Field;
-    public native function append(v) : void;
-    protected override native function adjustSize(w, h) : void;
-    protected native function adjustWidth(tag, w) : void;
-    /**
-     * @cfg {Boolean} autoWidth @hide
-     */
-    /**
-     * @cfg {Boolean} autoHeight @hide
-     */
-    /**
-     * @cfg {String} autoEl @hide
-     */
-    public var normal  : String;
-    public var slide ;
-    public var slideRight ;
-}}
+}
+    

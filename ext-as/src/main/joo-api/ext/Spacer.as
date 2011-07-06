@@ -1,16 +1,24 @@
 package ext {
+
+
 /**
  * Used to provide a sizable space in a layout.
-*/
-public class Spacer extends BoxComponent {
-/**
- * @constructor
- * @param config
+
+ * @see ext.config.spacer
+ * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BoxComponent.html#cls-Ext.Spacer Ext JS source
  */
-  public function Spacer(config : *) {
-    super(config);
+public class Spacer extends BoxComponent {
+
+  /**
+   *
+   *
+   * @param config
+   * @see ext.config.spacer
+   */
+  public function Spacer(config:Object) {
+    super(null);
   }
 
-  //public var autoEl;
-
-}}
+}
+}
+    

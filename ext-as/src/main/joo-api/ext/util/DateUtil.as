@@ -167,42 +167,42 @@ public class DateUtil {
    */
   public static const formatFunctions:Object = {};
 
-  public static var y2kYear : int;
+  public static var y2kYear:int;
 
   /**
    * Date interval constant.
    */
-  public static const MILLI : String = "ms";
+  public static const MILLI:String = "ms";
 
   /**
    * Date interval constant.
    */
-  public static const SECOND : String = "s";
+  public static const SECOND:String = "s";
 
   /**
    * Date interval constant.
    */
-  public static const MINUTE : String = "mi";
+  public static const MINUTE:String = "mi";
 
   /**
    * Date interval constant.
    */
-  public static const HOUR : String = "h";
+  public static const HOUR:String = "h";
 
   /**
    * Date interval constant.
    */
-  public static const DAY : String = "d";
+  public static const DAY:String = "d";
 
   /**
    * Date interval constant.
    */
-  public static const MONTH : String = "mo";
+  public static const MONTH:String = "mo";
 
   /**
    * Date interval constant.
    */
-  public static const YEAR : String = "y";
+  public static const YEAR:String = "y";
 
   /**
    * An object hash containing default date values used during date parsing.
@@ -233,7 +233,7 @@ public class DateUtil {
    *
    * @see #parseDate
    */
-  public static const defaults : Object = {};
+  public static const defaults:Object = {};
 
   /**
    * An array of textual day names.
@@ -247,7 +247,7 @@ public class DateUtil {
    * ];
    * </code></pre>
    */
-  public static var dayNames : Array;
+  public static var dayNames:Array;
 
   /**
    * An array of textual month names.
@@ -261,7 +261,7 @@ public class DateUtil {
    * ];
    * </code></pre>
    */
-  public static var monthNames : Array;
+  public static var monthNames:Array;
 
   /**
    * An object hash of zero-based javascript month numbers (with short month names as keys. note: keys are case-sensitive).
@@ -275,7 +275,7 @@ public class DateUtil {
    * };
    * </code></pre>
    */
-  public static var monthNumbers : Object;
+  public static var monthNumbers:Object;
 
   /**
    * Get the short month name for the given month number.
@@ -316,7 +316,7 @@ public class DateUtil {
    *
    * @see #format
    */
-  public static const formatCodes : Object = {};
+  public static const formatCodes:Object = {};
 
   /**
    * Checks if the passed Date parameters will cause a Date "rollover".
@@ -329,9 +329,7 @@ public class DateUtil {
    * @param {Number} millisecond (optional) Millisecond
    * @return {Boolean} true if the passed parameters do not cause a Date "rollover", false otherwise.
    */
-  public static native function isValid(year:Number, month:Number, day:Number,
-                                        hour:Number = undefined, minute:Number = undefined,
-                                        second:Number = undefined, millisecond:Number = undefined):Boolean;
+  public static native function isValid(year:Number, month:Number, day:Number, hour:Number = undefined, minute:Number = undefined, second:Number = undefined, millisecond:Number = undefined):Boolean;
 
   /**
    * Parses the passed string using the specified date format.

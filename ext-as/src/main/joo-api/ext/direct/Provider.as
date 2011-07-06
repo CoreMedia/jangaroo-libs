@@ -1,67 +1,139 @@
 package ext.direct {
+
 import ext.util.Observable;
 
 /**
- * <p>Ext.direct.Provider is an abstract class meant to be extended.</p>
- * 
- * <p>For example ExtJs implements the following subclasses:</p>
- * <pre><code>
-Provider
-|
-+---<b class='link' title='Ext.direct.JsonProvider'>JsonProvider</b> 
-    |
-    +---<b class='link' title='Ext.direct.PollingProvider'>PollingProvider</b>   
-    |
-    +---<b class='link' title='Ext.direct.RemotingProvider'>RemotingProvider</b>   
- * </code></pre>
- * @abstract
+ * Fires when the Provider connects to the server-side
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>provider:ext.direct.Provider</code>
+ The <a href="Ext.direct.Provider.html">Provider</a>.
+ *       </li>
+
+ * </ul>
  */
-    public class Provider extends Observable {
+[Event(name="connect")]
+
 /**
-     * @cfg {String} id
-     * The unique id of the provider (defaults to an <b class='link' title='Ext#id auto-assigned'>id</b>).
-     * You should assign an id if you need to be able to access the provider later and you do
-     * not have an object reference available, for example:
-     * <pre><code>
-ext.Direct.addProvider(
-    {
-        type: 'polling',
-        url:  'php/poll.php',
-        id:   'poll-provider'
-    }
-);
-     
-var p = <b class='link' title='ext.Direct'>ext.Direct</b>.<b class='link' title='ext.Direct#getProvider'>getProvider</b>('poll-provider');
-p.disconnect();
-     * </code></pre>
-     */
-    /**
-     * @cfg {Number} priority
-     * Priority of the request. Lower is higher priority, <code>0</code> means "duplex" (always on).
-     * All Providers default to <code>1</code> except for PollingProvider which defaults to <code>3</code>.
-     */    
-    public var priority : Number;
-    /**
-     * @cfg {String} type
-     * <b>Required</b>, <code>undefined</code> by default.  The <code>type</code> of provider specified
-     * to <b class='link' title='ext.Direct'>ext.Direct</b>.<b class='link' title='ext.Direct#addProvider'>addProvider</b> to create a
-     * new Provider. Acceptable values by default are:<div class="mdetail-params"><ul>
-     * <li><b><code>polling</code></b> : <b class='link' title='Ext.direct.PollingProvider'>PollingProvider</b></li>
-     * <li><b><code>remoting</code></b> : <b class='link' title='Ext.direct.RemotingProvider'>RemotingProvider</b></li>
-     * </ul></div>
-     */    
-    protected native function constructor(config) : void;
-    /**
-     * Returns whether or not the server-side is currently connected.
-     * Abstract method for subclasses to implement.
-     */
-    public native function isConnected() : void;
-    /**
-     * Abstract methods for subclasses to implement.
-     */
-    public native function connect() : void;
-    /**
-     * Abstract methods for subclasses to implement.
-     */
-    public native function disconnect() : void;
-}}
+ * Fires when the Provider receives data from the server-side
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>provider:ext.direct.Provider</code>
+ The <a href="Ext.direct.Provider.html">Provider</a>.
+ *       </li>
+
+ *       <li>
+ *           <code>e:js.Event</code>
+ The <a href="output/Ext.Direct.html#Ext.Direct-eventTypes">Ext.Direct.Event type</a> that occurred.
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="data")]
+
+/**
+ * Fires when the Provider disconnects from the server-side
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>provider:ext.direct.Provider</code>
+ The <a href="Ext.direct.Provider.html">Provider</a>.
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="disconnect")]
+
+/**
+ * Fires when the Provider receives an exception from the server-side
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>None.</li>
+ *
+ * </ul>
+ */
+[Event(name="exception")]
+
+
+/**
+ * Ext.direct.Provider is an abstract class meant to be extended.
+ <p>For example ExtJs implements the following subclasses:</p><pre><code>Provider
+ |
+ +---<a href="Ext.direct.JsonProvider.html">JsonProvider</a>
+ |
+ +---<a href="Ext.direct.PollingProvider.html">PollingProvider</a>
+ |
+ +---<a href="Ext.direct.RemotingProvider.html">RemotingProvider</a>
+ </code></pre>
+ * @see ext.config.provider
+ * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Provider.html#cls-Ext.direct.Provider Ext JS source
+ */
+public class Provider extends Observable {
+
+  /**
+   *
+   *
+   * @see ext.config.provider
+   */
+  public function Provider() {
+    super();
+  }
+
+  /**
+   The unique id of the provider (defaults to an <a href="output/Ext.html#Ext-id">auto-assigned id</a>). You should assign an id if you need to be able to access the provider later and you do not have an object reference available, for example: <pre><code>Ext.Direct.addProvider(
+   {
+   type: 'polling',
+   url:  'php/poll.php',
+   id:   'poll-provider'
+   }
+   );
+
+   var p = <a href="Ext.Direct.html">Ext.Direct</a>.<a href="output/Ext.Direct.html#Ext.Direct-getProvider">getProvider</a>('poll-provider');
+   p.disconnect();
+   </code></pre>
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get id():String;
+
+  /**
+   Priority of the request. Lower is higher priority, <tt>0</tt> means "duplex" (always on). All Providers default to <tt>1</tt> except for PollingProvider which defaults to <tt>3</tt>.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get priority():Number;
+
+  /**
+   <b>Required</b>, <tt>undefined</tt> by default. The <tt>type</tt> of provider specified to <a href="Ext.Direct.html">Ext.Direct</a>.<a href="output/Ext.Direct.html#Ext.Direct-addProvider">addProvider</a> to create a new Provider. Acceptable values by default are:<div class="mdetail-params"><ul><li><b><tt>polling</tt></b> : <a href="Ext.direct.PollingProvider.html">PollingProvider</a></li><li><b><tt>remoting</tt></b> : <a href="Ext.direct.RemotingProvider.html">RemotingProvider</a></li></ul></div>
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get type():String;
+
+  /**
+   * Abstract methods for subclasses to implement.
+   *
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Provider.html#method-Ext.direct.Provider-connect Ext JS source
+   */
+  public native function connect():void;
+
+  /**
+   * Abstract methods for subclasses to implement.
+   *
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Provider.html#method-Ext.direct.Provider-disconnect Ext JS source
+   */
+  public native function disconnect():void;
+
+  /**
+   * Returns whether or not the server-side is currently connected. Abstract method for subclasses to implement.
+   *
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Provider.html#method-Ext.direct.Provider-isConnected Ext JS source
+   */
+  public native function isConnected():void;
+
+}
+}
+    

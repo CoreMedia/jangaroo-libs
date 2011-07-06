@@ -1,79 +1,93 @@
 package ext.menu {
-import ext.Element;
+
 
 /**
- * A base class for all menu items that require menu-related functionality (like sub-menus) and are not static
- * display items.  Item extends the base functionality of <b class='link'>Ext.menu.BaseItem</b> by adding menu-specific
- * activation and click handling.
-*/
-public class Item extends BaseItem {
-/**
- * @constructor
- * Creates a new Item
- * @param config Configuration options
- * @xtype menuitem
+ * A base class for all menu items that require menu-related functionality (like sub-menus) and are not static display items. Item extends the base functionality of <a href="Ext.menu.BaseItem.html">Ext.menu.BaseItem</a> by adding menu-specific activation and click handling.
+ * <p>This component is created by the xtype 'menuitem' / the EXML element &lt;menuitem>.</p>
+ * @see ext.config.menuitem
+ * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Item.html#cls-Ext.menu.Item Ext JS source
  */
-public function Item(config:Object = null) {
-  super(config);
+public class Item extends BaseItem {
+
+  /**
+   * Creates a new Item
+   *
+   * @param config Configuration options
+   * @see ext.config.menuitem
+   */
+  public function Item(config:Object) {
+    super(null);
+  }
+
+  /**
+   The submenu associated with this Item if one was configured.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Item.html#prop-Ext.menu.Item-menu Ext JS source
+   */
+  public native function get menu():Menu;
+
+  /**
+   * @private
+   */
+  public native function set menu(value:Menu):void;
+
+  /**
+   The altText to use for the icon, if it exists. Defaults to <tt>''</tt>.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get altText():String;
+
+  /**
+   The href attribute to use for the underlying anchor link (defaults to '#').
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get href():String;
+
+  /**
+   The target attribute to use for the underlying anchor link (defaults to '').
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get hrefTarget():String;
+
+  /**
+   The path to an icon to display in this item (defaults to Ext.BLANK_IMAGE_URL). If icon is specified <a href="output/Ext.menu.Item.html#Ext.menu.Item-iconCls">iconCls</a> should not be.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get icon():String;
+
+  /**
+   A CSS class that specifies a background image that will be used as the icon for this item (defaults to ''). If iconCls is specified <a href="output/Ext.menu.Item.html#Ext.menu.Item-icon">icon</a> should not be.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get iconCls():String;
+
+  /**
+   Length of time in milliseconds to wait before showing this item (defaults to 200)
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get showDelay():Number;
+
+  /**
+   The text to display in this item (defaults to '').
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get text():String;
+
+  /**
+   * Sets the CSS class to apply to the item's icon element
+   *
+   * @param cls The CSS class to apply
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Item.html#method-Ext.menu.Item-setIconClass Ext JS source
+   */
+  public native function setIconClass(cls:String):void;
+
+  /**
+   * Sets the text to display in this menu item
+   *
+   * @param text The text to display
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Item.html#method-Ext.menu.Item-setText Ext JS source
+   */
+  public native function setText(text:String):void;
+
 }
-    /**
-     * @property menu
-     * The submenu associated with this Item if one was configured.
-     */
-    /**
-     * @cfg {Mixed} menu (optional) Either an instance of <b class='link'>Ext.menu.Menu</b> or the config object for an
-     * <b class='link'>Ext.menu.Menu</b> which acts as the submenu when this item is activated.
-     */
-    /**
-     * @cfg {String} icon The path to an icon to display in this item (defaults to ext.BLANK_IMAGE_URL).  If
-     * icon is specified <b class='link' title='#iconCls'>iconCls</b> should not be.
-     */
-    /**
-     * @cfg {String} iconCls A CSS class that specifies a background image that will be used as the icon for
-     * this item (defaults to '').  If iconCls is specified <b class='link' title='#icon'>icon</b> should not be.
-     */
-    /**
-     * @cfg {String} text The text to display in this item (defaults to '').
-     */
-    /**
-     * @cfg {String} href The href attribute to use for the underlying anchor link (defaults to '#').
-     */
-    /**
-     * @cfg {String} hrefTarget The target attribute to use for the underlying anchor link (defaults to '').
-     */
-    /**
-     * @cfg {String} itemCls The default CSS class to use for menu items (defaults to 'x-menu-item')
-     */
-    public var itemCls  : String;
-    /**
-     * @cfg {Boolean} canActivate True if this item can be visually activated (defaults to true)
-     */
-    //public var canActivate  : Boolean;
-    /**
-     * @cfg {Number} showDelay Length of time in milliseconds to wait before showing this item (defaults to 200)
-     */
-    public var showDelay : Number;
-    public var hideDelay;
-    //protected var ctype;
-    override protected native function onRender(container : Element, position : Element) : void;
-    public native function getTemplateArgs() : void;
-    /**
-     * Sets the text to display in this menu item
-     * @param text The text to display
-     */
-    public native function setText(text : String) : void;
-    /**
-     * Sets the CSS class to apply to the item's icon element
-     * @param cls The CSS class to apply
-     */
-    public native function setIconClass(cls : String) : void;
-    override protected native function beforeDestroy() : void;
-    override protected native function handleClick(e) : void;
-    override protected native function activate() : void;
-    override protected native function shouldDeactivate(e) : void;
-    override protected native function deactivate() : void;
-    override protected native function expandMenu(autoActivate : Boolean) : void;
-    protected native function deferExpand(autoActivate) : void;
-    override protected native function hideMenu() : void;
-    protected native function deferHide() : void;
-}}
+}
+    

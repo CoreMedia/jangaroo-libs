@@ -1,13 +1,22 @@
 package ext.direct {
+
+
 /**
- * <p>Supporting Class for ext.Direct (not intended to be used directly).</p>
-*/
-public class Transaction extends Object {
-/**
- * @constructor
- * @param config
+ * Supporting Class for Ext.Direct (not intended to be used directly).
+
+ * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Transaction.html#cls-Ext.Direct.Transaction Ext JS source
  */
-    public native function send(config : Object) : void;
-    public native function retry() : void;
-    public native function getProvider() : void;
-}}
+public class Transaction {
+
+  /**
+   *
+   *
+   * @param config
+   */
+  public function Transaction(config:Object) {
+    super();
+  }
+
+}
+}
+    

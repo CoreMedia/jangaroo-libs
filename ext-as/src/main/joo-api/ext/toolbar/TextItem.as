@@ -1,30 +1,43 @@
 package ext.toolbar {
+
+
 /**
- * A simple class that renders text directly into a toolbar
- * (with css class:<code>'xtb-text'</code>). Example usage:
- * <pre><code>
-new ext.Panel({
-    tbar : [
-        {xtype: 'tbtext', text: 'Item 1'} // or simply 'Item 1'
-    ]
-});
-</code></pre>
-*/
-public class TextItem extends Item {
-/**
- * @constructor
- * Creates a new TextItem
- * @param text A text string, or a config object containing a <code>text</code> property
- * @xtype tbtext
+ * A simple class that renders text directly into a toolbar (with css class:<tt>'xtb-text'</tt>). Example usage: <pre><code>new Ext.Panel({
+ tbar : [
+ {xtype: 'tbtext', text: 'Item 1'} // or simply 'Item 1'
+ ]
+ });
+ </code></pre>
+ * <p>This component is created by the xtype 'tbtext' / the EXML element &lt;tbtext>.</p>
+ * @see ext.config.tbtext
+ * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Toolbar.html#cls-Ext.Toolbar.TextItem Ext JS source
  */
-  public function TextItem(text : *) {
-    super(text);
+public class TextItem extends Item {
+
+  /**
+   * Creates a new TextItem
+   *
+   * @param text A text string, or a config object containing a <tt>text</tt> property
+   * @see ext.config.tbtext
+   */
+  public function TextItem(text:*) {
+    super(null);
   }
 
-  public native function constructor(text : *) : void;
-    /**
-     * Updates this item's text, setting the text to be used as innerHTML.
-     * @param t The text to display (html accepted).
-     */
-    public native function setText(t : String) : void;
-}}
+  /**
+   The text to be used as innerHTML (html tags are accepted)
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get text():String;
+
+  /**
+   * Updates this item's text, setting the text to be used as innerHTML.
+   *
+   * @param t The text to display (html accepted).
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Toolbar.html#method-Ext.Toolbar.TextItem-setText Ext JS source
+   */
+  public native function setText(t:String):void;
+
+}
+}
+    

@@ -1,61 +1,36 @@
 package ext.form {
+
+
 /**
  * A display-only text field which is not validated and not submitted.
-*/
-public class DisplayField extends Field {
-/**
- * @constructor
- * Creates a new DisplayField.
- * @param config Configuration options
- * @xtype displayfield
+ * <p>This component is created by the xtype 'displayfield' / the EXML element &lt;displayfield>.</p>
+ * @see ext.config.displayfield
+ * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DisplayField.html#cls-Ext.form.DisplayField Ext JS source
  */
-  public function DisplayField(config:Object = null) {
-    super(config);
+public class DisplayField extends Field {
+
+  /**
+   * Creates a new DisplayField.
+   *
+   * @param config Configuration options
+   * @see ext.config.displayfield
+   */
+  public function DisplayField(config:Object) {
+    super(null);
   }
 
-  //public var validationEvent ;
-  //public var validateOnBlur ;
-  //public var defaultAutoCreate ;
-    /**
-     * @cfg {String} fieldClass The default CSS class for the field (defaults to <code>"x-form-display-field"</code>)
-     */
-  //public var fieldClass  : String;
-    /**
-     * @cfg {Boolean} htmlEncode <code>false</code> to skip HTML-encoding the text when rendering it (defaults to
-     * <code>false</code>). This might be useful if you want to include tags in the field's innerHTML rather than
-     * rendering them as string literals per the default logic.
-     */
-    public var htmlEncode : Boolean;
-    //protected var initEvents ;
-    //override public native function isValid() : void;
-    //override public native function validate() : void;
-    //override public native function getRawValue() : void;
-    //override public native function getValue() : void;
-    //override public native function getName() : void;
-    //override public native function setRawValue(v) : void;
-    //override public native function setValue(v) : void;
-    /** 
-     * @cfg {String} inputType 
-     * @hide
-     */
-    /** 
-     * @cfg {Boolean} disabled 
-     * @hide
-     */
-    /** 
-     * @cfg {Boolean} readOnly 
-     * @hide
-     */
-    /** 
-     * @cfg {Boolean} validateOnBlur 
-     * @hide
-     */
-    /** 
-     * @cfg {Number} validationDelay 
-     * @hide
-     */
-    /** 
-     * @cfg {String/Boolean} validationEvent 
-     * @hide
-     */
-}}
+  /**
+   The default CSS class for the field (defaults to <tt>"x-form-display-field"</tt>)
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  override public native function get fieldClass():String;
+
+  /**
+   <tt>false</tt> to skip HTML-encoding the text when rendering it (defaults to <tt>false</tt>). This might be useful if you want to include tags in the field's innerHTML rather than rendering them as string literals per the default logic.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get htmlEncode():Boolean;
+
+}
+}
+    

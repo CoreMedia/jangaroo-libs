@@ -1,472 +1,1145 @@
 package ext.grid {
+
 import ext.Element;
 import ext.Panel;
 import ext.data.Store;
 
 /**
- * <p>This class represents the primary interface of a component based grid control to represent data
- * in a tabular format of rows and columns. The GridPanel is composed of the following:</p>
- * <div class="mdetail-params"><ul>
- * <li><b class='link' title='ext.data.Store'>Store</b> : The Model holding the data records (rows)
- * <div class="sub-desc"></div></li>
- * <li><b class='link' title='Ext.grid.ColumnModel Column'>model</b> : Column makeup
- * <div class="sub-desc"></div></li>
- * <li><b class='link' title='Ext.grid.GridView'>View</b> : Encapsulates the user interface 
- * <div class="sub-desc"></div></li>
- * <li><b class='link' title='Ext.grid.AbstractSelectionModel selection'>model</b> : Selection behavior 
- * <div class="sub-desc"></div></li>
- * </ul></div>
- * <p>Example usage:</p>
- * <pre><code>
-var grid = new Ext.grid.GridPanel({
-    <b class='link' title='#store'>store</b>: new <b class='link'>ext.data.Store</b>({
-        <b class='link' title='ext.data.Store#autoDestroy'>autoDestroy</b>: true,
-        <b class='link' title='ext.data.Store#reader'>reader</b>: reader,
-        <b class='link' title='ext.data.Store#data'>data</b>: xg.dummyData
-    }),
-    <b class='link' title='#columns'>columns</b>: [
-        {id: 'company', header: 'Company', width: 200, sortable: true, dataIndex: 'company'},
-        {header: 'Price', width: 120, sortable: true, renderer: Ext.util.Format.usMoney, dataIndex: 'price'},
-        {header: 'Change', width: 120, sortable: true, dataIndex: 'change'},
-        {header: '% Change', width: 120, sortable: true, dataIndex: 'pctChange'},
-        // instead of specifying renderer: Ext.util.Format.dateRenderer('m/d/Y') use xtype
-        {header: 'Last Updated', width: 135, sortable: true, dataIndex: 'lastChange', xtype: 'datecolumn', format: 'M d, Y'}
-    ],
-    <b class='link' title='#viewConfig'>viewConfig</b>: {
-        <b class='link' title='Ext.grid.GridView#forceFit'>forceFit</b>: true,
+ * Fires when the body element is scrolled
+ * Listeners will be called with the following arguments:
+ * <ul>
 
-//      Return CSS class to apply to rows depending upon data values
-        <b class='link' title='Ext.grid.GridView#getRowClass'>getRowClass</b>: function(record, index) {
-            var c = record.<b class='link' title='ext.data.Record#get'>get</b>('change');
-            if (c < 0) {
-                return 'price-fall';
-            } else if (c > 0) {
-                return 'price-rise';
-            }
-        }
-    },
-    <b class='link' title='#sm}: new'>Ext.grid.RowSelectionModel({singleSelect:true</b>),
-    width: 600,
-    height: 300,
-    frame: true,
-    title: 'Framed with Row Selection and Horizontal Scrolling',
-    iconCls: 'icon-grid'
-});
- * </code></pre>
- * <p><b><u>Notes:</u></b></p>
- * <div class="mdetail-params"><ul>
- * <li>Although this class inherits many configuration options from base classes, some of them
- * (such as autoScroll, autoWidth, layout, items, etc) are not used by this class, and will
- * have no effect.</li>
- * <li>A grid <b>requires</b> a width in which to scroll its columns, and a height in which to
- * scroll its rows. These dimensions can either be set explicitly through the
- * <code><b class='link' title='ext.BoxComponent#height'>height</b></code> and <code><b class='link' title='ext.BoxComponent#width'>width</b></code>
- * configuration options or implicitly set by using the grid as a child item of a
- * <b class='link' title='ext.Container'>Container</b> which will have a <b class='link' title='ext.Container#layout layout'>manager</b>
- * provide the sizing of its child items (for example the Container of the Grid may specify
- * <code><b class='link' title='ext.Container#layout'>layout</b>:'fit'</code>).</li>
- * <li>To access the data in a Grid, it is necessary to use the data model encapsulated
- * by the <b class='link' title='#store'>Store</b>. See the <b class='link' title='#cellclick'>cellclick</b> event for more details.</li>
- * </ul></div>
-*/
-public class GridPanel extends Panel {
-/**
- * @constructor
- * @param config The config object
- * @xtype grid
+ *       <li>
+ *           <code>scrollLeft:Number</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>scrollTop:Number</code>
+
+ *       </li>
+
+ * </ul>
  */
-public function GridPanel(config:Object = null) {
-  super(config);
+[Event(name="bodyscroll")]
+
+/**
+ * Fires when a cell is clicked. The data for the cell is drawn from the <a href="Ext.data.Record.html">Record</a> for this row. To access the data in the listener function use the following technique: <pre><code>function(grid, rowIndex, columnIndex, e) {
+ var record = grid.getStore().getAt(rowIndex);  // Get the Record
+ var fieldName = grid.getColumnModel().getDataIndex(columnIndex); // Get field name
+ var data = record.get(fieldName);
+ }
+ </code></pre>
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:Grid</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>rowIndex:Number</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>columnIndex:Number</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>e:ext.IEventObject</code>
+
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="cellclick")]
+
+/**
+ * Fires when a cell is right clicked
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:Grid</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>rowIndex:Number</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>cellIndex:Number</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>e:ext.IEventObject</code>
+
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="cellcontextmenu")]
+
+/**
+ * Fires when a cell is double clicked
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:Grid</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>rowIndex:Number</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>columnIndex:Number</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>e:ext.IEventObject</code>
+
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="celldblclick")]
+
+/**
+ * Fires before a cell is clicked
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:Grid</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>rowIndex:Number</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>columnIndex:Number</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>e:ext.IEventObject</code>
+
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="cellmousedown")]
+
+/**
+ * The raw click event for the entire grid.
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>e:ext.IEventObject</code>
+
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="click")]
+
+/**
+ * Fires when the user moves a column
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>oldIndex:Number</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>newIndex:Number</code>
+
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="columnmove")]
+
+/**
+ * Fires when the user resizes a column
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>columnIndex:Number</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>newSize:Number</code>
+
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="columnresize")]
+
+/**
+ * Fires when the container is clicked. The container consists of any part of the grid body that is not covered by a row.
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:Grid</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>e:ext.IEventObject</code>
+
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="containerclick")]
+
+/**
+ * Fires when the container is right clicked. The container consists of any part of the grid body that is not covered by a row.
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:Grid</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>e:ext.IEventObject</code>
+
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="containercontextmenu")]
+
+/**
+ * Fires when the container is double clicked. The container consists of any part of the grid body that is not covered by a row.
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:Grid</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>e:ext.IEventObject</code>
+
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="containerdblclick")]
+
+/**
+ * Fires before the container is clicked. The container consists of any part of the grid body that is not covered by a row.
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:Grid</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>e:ext.IEventObject</code>
+
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="containermousedown")]
+
+/**
+ * The raw contextmenu event for the entire grid.
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>e:ext.IEventObject</code>
+
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="contextmenu")]
+
+/**
+ * The raw dblclick event for the entire grid.
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>e:ext.IEventObject</code>
+
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="dblclick")]
+
+/**
+ * Fires when the grid's grouping changes (only applies for grids with a <a href="Ext.grid.GroupingView.html">GroupingView</a>)
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:Grid</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>groupField:String</code>
+ A string with the grouping field, null if the store is not grouped.
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="groupchange")]
+
+/**
+ * Fires when group header is clicked. <b>Only applies for grids with a <a href="Ext.grid.GroupingView.html">GroupingView</a></b>.
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:Grid</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>groupField:String</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>groupValue:String</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>e:ext.IEventObject</code>
+
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="groupclick")]
+
+/**
+ * Fires when group header is right clicked. <b>Only applies for grids with a <a href="Ext.grid.GroupingView.html">GroupingView</a></b>.
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:Grid</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>groupField:String</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>groupValue:String</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>e:ext.IEventObject</code>
+
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="groupcontextmenu")]
+
+/**
+ * Fires when group header is double clicked. <b>Only applies for grids with a <a href="Ext.grid.GroupingView.html">GroupingView</a></b>.
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:Grid</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>groupField:String</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>groupValue:String</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>e:ext.IEventObject</code>
+
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="groupdblclick")]
+
+/**
+ * Fires before a group header is clicked. <b>Only applies for grids with a <a href="Ext.grid.GroupingView.html">GroupingView</a></b>.
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:Grid</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>groupField:String</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>groupValue:String</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>e:ext.IEventObject</code>
+
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="groupmousedown")]
+
+/**
+ * Fires when a header is clicked
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:Grid</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>columnIndex:Number</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>e:ext.IEventObject</code>
+
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="headerclick")]
+
+/**
+ * Fires when a header is right clicked
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:Grid</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>columnIndex:Number</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>e:ext.IEventObject</code>
+
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="headercontextmenu")]
+
+/**
+ * Fires when a header cell is double clicked
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:Grid</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>columnIndex:Number</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>e:ext.IEventObject</code>
+
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="headerdblclick")]
+
+/**
+ * Fires before a header is clicked
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:Grid</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>columnIndex:Number</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>e:ext.IEventObject</code>
+
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="headermousedown")]
+
+/**
+ * The raw keydown event for the entire grid.
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>e:ext.IEventObject</code>
+
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="keydown")]
+
+/**
+ * The raw keypress event for the entire grid.
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>e:ext.IEventObject</code>
+
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="keypress")]
+
+/**
+ * The raw mousedown event for the entire grid.
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>e:ext.IEventObject</code>
+
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="mousedown")]
+
+/**
+ * The raw mouseout event for the entire grid.
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>e:ext.IEventObject</code>
+
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="mouseout")]
+
+/**
+ * The raw mouseover event for the entire grid.
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>e:ext.IEventObject</code>
+
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="mouseover")]
+
+/**
+ * The raw mouseup event for the entire grid.
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>e:ext.IEventObject</code>
+
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="mouseup")]
+
+/**
+ * Fires when the grid is reconfigured with a new store and/or column model.
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:Grid</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>store:ext.data.Store</code>
+ The new store
+ *       </li>
+
+ *       <li>
+ *           <code>colModel:ext.grid.ColumnModel</code>
+ The new column model
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="reconfigure")]
+
+/**
+ * Fires when the row body is clicked. <b>Only applies for grids with <a href="output/Ext.grid.GridView.html#Ext.grid.GridView-enableRowBody">enableRowBody</a> configured.</b>
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:Grid</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>rowIndex:Number</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>e:ext.IEventObject</code>
+
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="rowbodyclick")]
+
+/**
+ * Fires when the row body is right clicked. <b>Only applies for grids with <a href="output/Ext.grid.GridView.html#Ext.grid.GridView-enableRowBody">enableRowBody</a> configured.</b>
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:Grid</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>rowIndex:Number</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>e:ext.IEventObject</code>
+
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="rowbodycontextmenu")]
+
+/**
+ * Fires when the row body is double clicked. <b>Only applies for grids with <a href="output/Ext.grid.GridView.html#Ext.grid.GridView-enableRowBody">enableRowBody</a> configured.</b>
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:Grid</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>rowIndex:Number</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>e:ext.IEventObject</code>
+
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="rowbodydblclick")]
+
+/**
+ * Fires before the row body is clicked. <b>Only applies for grids with <a href="output/Ext.grid.GridView.html#Ext.grid.GridView-enableRowBody">enableRowBody</a> configured.</b>
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:Grid</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>rowIndex:Number</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>e:ext.IEventObject</code>
+
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="rowbodymousedown")]
+
+/**
+ * Fires when a row is clicked
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:Grid</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>rowIndex:Number</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>e:ext.IEventObject</code>
+
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="rowclick")]
+
+/**
+ * Fires when a row is right clicked
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:Grid</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>rowIndex:Number</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>e:ext.IEventObject</code>
+
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="rowcontextmenu")]
+
+/**
+ * Fires when a row is double clicked
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:Grid</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>rowIndex:Number</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>e:ext.IEventObject</code>
+
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="rowdblclick")]
+
+/**
+ * Fires before a row is clicked
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:Grid</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>rowIndex:Number</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>e:ext.IEventObject</code>
+
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="rowmousedown")]
+
+/**
+ * Fires when the grid's store sort changes
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:Grid</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>sortInfo:Object</code>
+ An object with the keys field and direction
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="sortchange")]
+
+/**
+ * Fires when the grid view is available (use this for selecting a default row).
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:Grid</code>
+
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="viewready")]
+
+
+/**
+ * This class represents the primary interface of a component based grid control to represent data in a tabular format of rows and columns. The GridPanel is composed of the following:
+ <div class="mdetail-params"><ul><li><b><a href="Ext.data.Store.html">Store</a></b> : The Model holding the data records (rows)</li><li><b><a href="Ext.grid.ColumnModel.html">Column model</a></b> : Column makeup</li><li><b><a href="Ext.grid.GridView.html">View</a></b> : Encapsulates the user interface</li><li><b><a href="Ext.grid.AbstractSelectionModel.html">selection model</a></b> : Selection behavior</li></ul></div><p>Example usage:</p><pre><code>var grid = new Ext.grid.GridPanel({
+ <a href="output/Ext.grid.GridPanel.html#Ext.grid.GridPanel-store">store</a>: new <a href="Ext.data.Store.html">Ext.data.Store</a>({
+ <a href="output/Ext.data.Store.html#Ext.data.Store-autoDestroy">autoDestroy</a>: true,
+ <a href="output/Ext.data.Store.html#Ext.data.Store-reader">reader</a>: reader,
+ <a href="output/Ext.data.Store.html#Ext.data.Store-data">data</a>: xg.dummyData
+ }),
+ <a href="output/Ext.grid.GridPanel.html#Ext.grid.GridPanel-colModel">colModel</a>: new <a href="Ext.grid.ColumnModel.html">Ext.grid.ColumnModel</a>({
+ <a href="output/Ext.grid.ColumnModel.html#Ext.grid.ColumnModel-defaults">defaults</a>: {
+ width: 120,
+ sortable: true
+ },
+ <a href="output/Ext.grid.ColumnModel.html#Ext.grid.ColumnModel-columns">columns</a>: [
+ {id: 'company', header: 'Company', width: 200, sortable: true, dataIndex: 'company'},
+ {header: 'Price', renderer: Ext.util.Format.usMoney, dataIndex: 'price'},
+ {header: 'Change', dataIndex: 'change'},
+ {header: '% Change', dataIndex: 'pctChange'},
+ // instead of specifying renderer: Ext.util.Format.dateRenderer('m/d/Y') use xtype
+ {
+ header: 'Last Updated', width: 135, dataIndex: 'lastChange',
+ xtype: 'datecolumn', format: 'M d, Y'
+ }
+ ]
+ }),
+ <a href="output/Ext.grid.GridPanel.html#Ext.grid.GridPanel-viewConfig">viewConfig</a>: {
+ <a href="output/Ext.grid.GridView.html#Ext.grid.GridView-forceFit">forceFit</a>: true,
+
+ //      Return CSS class to apply to rows depending upon data values
+ <a href="output/Ext.grid.GridView.html#Ext.grid.GridView-getRowClass">getRowClass</a>: function(record, index) {
+ var c = record.<a href="output/Ext.data.Record.html#Ext.data.Record-get">get</a>('change');
+ if (c &lt; 0) {
+ return 'price-fall';
+ } else if (c &gt; 0) {
+ return 'price-rise';
+ }
+ }
+ },
+ <a href="output/Ext.grid.GridPanel.html#Ext.grid.GridPanel-sm">sm</a>: new Ext.grid.RowSelectionModel({singleSelect:true}),
+ width: 600,
+ height: 300,
+ frame: true,
+ title: 'Framed with Row Selection and Horizontal Scrolling',
+ iconCls: 'icon-grid'
+ });
+ </code></pre><p style="font-weight: bold"><u>Notes:</u></p><div class="mdetail-params"><ul><li>Although this class inherits many configuration options from base classes, some of them (such as autoScroll, autoWidth, layout, items, etc) are not used by this class, and will have no effect.</li><li>A grid <b>requires</b> a width in which to scroll its columns, and a height in which to scroll its rows. These dimensions can either be set explicitly through the <tt><a href="output/Ext.BoxComponent.html#Ext.BoxComponent-height">height</a></tt> and <tt><a href="output/Ext.BoxComponent.html#Ext.BoxComponent-width">width</a></tt> configuration options or implicitly set by using the grid as a child item of a <a href="Ext.Container.html">Container</a> which will have a <a href="output/Ext.Container.html#Ext.Container-layout">layout manager</a> provide the sizing of its child items (for example the Container of the Grid may specify <tt><a href="output/Ext.Container.html#Ext.Container-layout">layout</a>:'fit'</tt>).</li><li>To access the data in a Grid, it is necessary to use the data model encapsulated by the <a href="output/Ext.grid.GridPanel.html#Ext.grid.GridPanel-store">Store</a>. See the <a href="output/Ext.grid.GridPanel.html#Ext.grid.GridPanel-cellclick">cellclick</a> event for more details.</li></ul></div>
+ * <p>This component is created by the xtype 'grid' / the EXML element &lt;grid>.</p>
+ * @see ext.config.grid
+ * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridPanel.html#cls-Ext.grid.GridPanel Ext JS source
+ */
+public class GridPanel extends Panel {
+
+  /**
+   *
+   *
+   * @param config The config object
+   * @see ext.config.grid
+   */
+  public function GridPanel(config:Object) {
+    super(null);
+  }
+
+  /**
+   The <tt><a href="output/Ext.grid.Column.html#Ext.grid.Column-id">id</a></tt> of a <a href="Ext.grid.Column.html">column</a> in this grid that should expand to fill unused space. This value specified here can not be <tt>0</tt>.
+   <br/><p><b>Note</b>: If the Grid's <a href="Ext.grid.GridView.html">view</a> is configured with <tt><a href="output/Ext.grid.GridView.html#Ext.grid.GridView-forceFit">forceFit</a>=true</tt> the <tt>autoExpandColumn</tt> is ignored. See <a href="Ext.grid.Column.html">Ext.grid.Column</a>.<tt><a href="output/Ext.grid.Column.html#Ext.grid.Column-width">width</a></tt> for additional details.</p><p>See <tt><a href="output/Ext.grid.GridPanel.html#Ext.grid.GridPanel-autoExpandMax">autoExpandMax</a></tt> and <tt><a href="output/Ext.grid.GridPanel.html#Ext.grid.GridPanel-autoExpandMin">autoExpandMin</a></tt> also.</p>
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get autoExpandColumn():String;
+
+  /**
+   The maximum width the <tt><a href="output/Ext.grid.GridPanel.html#Ext.grid.GridPanel-autoExpandColumn">autoExpandColumn</a></tt> can have (if enabled). Defaults to <tt>1000</tt>.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get autoExpandMax():Number;
+
+  /**
+   The minimum width the <tt><a href="output/Ext.grid.GridPanel.html#Ext.grid.GridPanel-autoExpandColumn">autoExpandColumn</a></tt> can have (if enabled). Defaults to <tt>50</tt>.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get autoExpandMin():Number;
+
+  /**
+   Shorthand for <tt><a href="output/Ext.grid.GridPanel.html#Ext.grid.GridPanel-colModel">colModel</a></tt>.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get cm():Object;
+
+  /**
+   The <a href="Ext.grid.ColumnModel.html">Ext.grid.ColumnModel</a> to use when rendering the grid (required).
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get colModel():Object;
+
+  /**
+   <tt>true</tt> to add css for column separation lines. Default is <tt>false</tt>.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get columnLines():Boolean;
+
+  /**
+   An array of <a href="Ext.grid.Column.html">columns</a> to auto create a <a href="Ext.grid.ColumnModel.html">Ext.grid.ColumnModel</a>. The ColumnModel may be explicitly created via the <tt><a href="output/Ext.grid.GridPanel.html#Ext.grid.GridPanel-colModel">colModel</a></tt> configuration property.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get columns():Array;
+
+  /**
+   The DD group this GridPanel belongs to. Defaults to <tt>'GridDD'</tt> if not specified.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get ddGroup():String;
+
+  /**
+   Configures the text in the drag proxy. Defaults to: <pre><code>ddText : '{0} selected row{1}'
+   </code></pre><tt>{0}</tt> is replaced with the number of selected rows.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get ddText():String;
+
+  /**
+   Defaults to <tt>true</tt> to enable deferred row rendering.
+   <p>This allows the GridPanel to be initially rendered empty, with the expensive update of the row structure deferred so that layouts with GridPanels appear more quickly.</p>
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get deferRowRender():Boolean;
+
+  /**
+   <tt>true</tt> to disable selections in the grid. Defaults to <tt>false</tt>.
+   <p>Ignored if a <a href="output/Ext.grid.GridPanel.html#Ext.grid.GridPanel-selModel">SelectionModel</a> is specified.</p>
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get disableSelection():Boolean;
+
+  /**
+   Defaults to <tt>true</tt> to enable <a href="output/Ext.grid.Column.html#Ext.grid.Column-hidden">hiding of columns</a> with the <a href="output/Ext.grid.GridPanel.html#Ext.grid.GridPanel-enableHdMenu">header menu</a>.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get enableColumnHide():Boolean;
+
+  /**
+   Defaults to <tt>true</tt> to enable drag and drop reorder of columns. <tt>false</tt> to turn off column reordering via drag drop.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get enableColumnMove():Boolean;
+
+  /**
+   <tt>false</tt> to turn off column resizing for the whole grid. Defaults to <tt>true</tt>.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get enableColumnResize():Boolean;
+
+  /**
+   Enables dragging of the selected rows of the GridPanel. Defaults to <tt>false</tt>.
+   <p>Setting this to <b><tt>true</tt></b> causes this GridPanel's <a href="output/Ext.grid.GridPanel.html#Ext.grid.GridPanel-getView">GridView</a> to create an instance of <a href="Ext.grid.GridDragZone.html">Ext.grid.GridDragZone</a>. <b>Note</b>: this is available only <b>after</b> the Grid has been rendered as the GridView's <tt><a href="output/Ext.grid.GridView.html#Ext.grid.GridView-dragZone">dragZone</a></tt> property.</p><p>A cooperating <a href="Ext.dd.DropZone.html">DropZone</a> must be created who's implementations of <a href="output/Ext.dd.DropZone.html#Ext.dd.DropZone-onNodeEnter">onNodeEnter</a>, <a href="output/Ext.dd.DropZone.html#Ext.dd.DropZone-onNodeOver">onNodeOver</a>, <a href="output/Ext.dd.DropZone.html#Ext.dd.DropZone-onNodeOut">onNodeOut</a> and <a href="output/Ext.dd.DropZone.html#Ext.dd.DropZone-onNodeDrop">onNodeDrop</a> are able to process the <a href="output/Ext.grid.GridDragZone.html#Ext.grid.GridDragZone-getDragData">data</a> which is provided.</p>
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get enableDragDrop():Boolean;
+
+  /**
+   Defaults to <tt>true</tt> to enable the drop down button for menu in the headers.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get enableHdMenu():Boolean;
+
+  /**
+   True to hide the grid's header. Defaults to <code>false</code>.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get hideHeaders():Boolean;
+
+  /**
+   An <a href="Ext.LoadMask.html">Ext.LoadMask</a> config or true to mask the grid while loading. Defaults to <code>false</code>.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get loadMask():Object;
+
+  /**
+   Sets the maximum height of the grid - ignored if <tt>autoHeight</tt> is not on.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get maxHeight():Number;
+
+  /**
+   The minimum width a column can be resized to. Defaults to <tt>25</tt>.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get minColumnWidth():Number;
+
+  /**
+   Any subclass of <a href="Ext.grid.AbstractSelectionModel.html">Ext.grid.AbstractSelectionModel</a> that will provide the selection model for the grid (defaults to <a href="Ext.grid.RowSelectionModel.html">Ext.grid.RowSelectionModel</a> if not specified).
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get selModel():Object;
+
+  /**
+   Shorthand for <tt><a href="output/Ext.grid.GridPanel.html#Ext.grid.GridPanel-selModel">selModel</a></tt>.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get sm():Object;
+
+  /**
+   <tt>true</tt> to stripe the rows. Default is <tt>false</tt>. <p>This causes the CSS class <tt><b>x-grid3-row-alt</b></tt> to be added to alternate rows of the grid. A default CSS rule is provided which sets a background colour, but you can override this with a rule which either overrides the <b>background-color</b> style using the '!important' modifier, or which uses a CSS selector of higher specificity.</p>
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get stripeRows():Boolean;
+
+  /**
+   True to highlight rows when the mouse is over. Default is <tt>true</tt> for GridPanel, but <tt>false</tt> for EditorGridPanel.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get trackMouseOver():Boolean;
+
+  /**
+   A config object that will be applied to the grid's UI view. Any of the config options available for <a href="Ext.grid.GridView.html">Ext.grid.GridView</a> can be specified here. This option is ignored if <tt><a href="output/Ext.grid.GridPanel.html#Ext.grid.GridPanel-view">view</a></tt> is specified.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get viewConfig():Object;
+
+  /**
+   * Returns the grid's ColumnModel.
+   *
+   * @return The column model
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridPanel.html#method-Ext.grid.GridPanel-getColumnModel Ext JS source
+   */
+  public native function getColumnModel():ColumnModel;
+
+  /**
+   * Called to get grid's drag proxy text, by default returns this.ddText.
+   *
+   * @return The text
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridPanel.html#method-Ext.grid.GridPanel-getDragDropText Ext JS source
+   */
+  public native function getDragDropText():String;
+
+  /**
+   * Returns the grid's underlying element.
+   *
+   * @return The element
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridPanel.html#method-Ext.grid.GridPanel-getGridEl Ext JS source
+   */
+  public native function getGridEl():Element;
+
+  /**
+   * Returns the grid's selection model configured by the <code><a href="output/Ext.grid.GridPanel.html#Ext.grid.GridPanel-selModel">selModel</a></code> configuration option. If no selection model was configured, this will create and return a <a href="Ext.grid.RowSelectionModel.html">RowSelectionModel</a>.
+   *
+   * @return
+    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridPanel.html#method-Ext.grid.GridPanel-getSelectionModel Ext JS source
+   */
+  public native function getSelectionModel():AbstractSelectionModel;
+
+  /**
+   * Returns the grid's data store.
+   *
+   * @return The store
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridPanel.html#method-Ext.grid.GridPanel-getStore Ext JS source
+   */
+  public native function getStore():Store;
+
+  /**
+   * Returns the grid's GridView object.
+   *
+   * @return The grid view
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridPanel.html#method-Ext.grid.GridPanel-getView Ext JS source
+   */
+  public native function getView():GridView;
+
+  /**
+   * Reconfigures the grid to use a different Store and Column Model and fires the 'reconfigure' event. The View will be bound to the new objects and refreshed.
+   <p>Be aware that upon reconfiguring a GridPanel, certain existing settings <i>may</i> become invalidated. For example the configured <a href="output/Ext.grid.GridPanel.html#Ext.grid.GridPanel-autoExpandColumn">autoExpandColumn</a> may no longer exist in the new ColumnModel. Also, an existing <a href="Ext.PagingToolbar.html">PagingToolbar</a> will still be bound to the old Store, and will need rebinding. Any <a href="output/Ext.grid.GridPanel.html#Ext.grid.GridPanel-plugins">plugins</a> might also need reconfiguring with the new data.</p>
+   *
+   * @param store The new <a href="Ext.data.Store.html">Ext.data.Store</a> object
+   * @param colModel The new <a href="Ext.grid.ColumnModel.html">Ext.grid.ColumnModel</a> object
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridPanel.html#method-Ext.grid.GridPanel-reconfigure Ext JS source
+   */
+  public native function reconfigure(store:Store, colModel:ColumnModel):void;
+
 }
-    /**
-     * @cfg {String} autoExpandColumn
-     * <p>The <code><b class='link' title='Ext.grid.Column#id'>id</b></code> of a <b class='link' title='Ext.grid.Column'>column</b> in
-     * this grid that should expand to fill unused space. This value specified here can not
-     * be <code>0</code>.</p>
-     * <br><p><b>Note</b>: If the Grid's <b class='link' title='Ext.grid.GridView'>view</b> is configured with
-     * <code><b class='link' title='Ext.grid.GridView#forceFit'>forceFit</b>=true</code> the <code>autoExpandColumn</code>
-     * is ignored. See <b class='link'>Ext.grid.Column</b>.<code><b class='link' title='Ext.grid.Column#width'>width</b></code>
-     * for additional details.</p>
-     * <p>See <code><b class='link' title='#autoExpandMax'>autoExpandMax</b></code> and <code><b class='link' title='#autoExpandMin'>autoExpandMin</b></code> also.</p>
-     */
-    public var autoExpandColumn  : String;
-    /**
-     * @cfg {Number} autoExpandMax The maximum width the <code><b class='link' title='#autoExpandColumn'>autoExpandColumn</b></code>
-     * can have (if enabled). Defaults to <code>1000</code>.
-     */
-    public var autoExpandMax  : Number;
-    /**
-     * @cfg {Number} autoExpandMin The minimum width the <code><b class='link' title='#autoExpandColumn'>autoExpandColumn</b></code>
-     * can have (if enabled). Defaults to <code>50</code>.
-     */
-    public var autoExpandMin  : Number;
-    /**
-     * @cfg {Boolean} columnLines <code>true</code> to add css for column separation lines.
-     * Default is <code>false</code>.
-     */
-    public var columnLines  : Boolean;
-    /**
-     * @cfg {Object} cm Shorthand for <code><b class='link' title='#colModel'>colModel</b></code>.
-     */
-    /**
-     * @cfg {Object} colModel The <b class='link'>Ext.grid.ColumnModel</b> to use when rendering the grid (required).
-     */
-    /**
-     * @cfg {Array} columns An array of <b class='link' title='Ext.grid.Column'>columns</b> to auto create a
-     * <b class='link'>Ext.grid.ColumnModel</b>.  The ColumnModel may be explicitly created via the
-     * <code><b class='link' title='#colModel'>colModel</b></code> configuration property.
-     */
-    /**
-     * @cfg {String} ddGroup The DD group this GridPanel belongs to. Defaults to <code>'GridDD'</code> if not specified.
-     */
-    /**
-     * @cfg {String} ddText
-     * Configures the text in the drag proxy.  Defaults to:
-     * <pre><code>
-     * ddText : '{0} selected row{1}'
-     * </code></pre>
-     * <code>{0}</code> is replaced with the number of selected rows.
-     */
-    public var ddText  : String;
-    /**
-     * @cfg {Boolean} deferRowRender <P>Defaults to <code>true</code> to enable deferred row rendering.</p>
-     * <p>This allows the GridPanel to be initially rendered empty, with the expensive update of the row
-     * structure deferred so that layouts with GridPanels appear more quickly.</p>
-     */
-    public var deferRowRender  : Boolean;
-    /**
-     * @cfg {Boolean} disableSelection <p><code>true</code> to disable selections in the grid. Defaults to <code>false</code>.</p>
-     * <p>Ignored if a <b class='link' title='#selModel'>SelectionModel</b> is specified.</p>
-     */
-    /**
-     * @cfg {Boolean} enableColumnResize <code>false</code> to turn off column resizing for the whole grid. Defaults to <code>true</code>.
-     */
-    /**
-     * @cfg {Boolean} enableColumnHide Defaults to <code>true</code> to enable hiding of columns with the header context menu.
-     */
-    public var enableColumnHide  : Boolean;
-    /**
-     * @cfg {Boolean} enableColumnMove Defaults to <code>true</code> to enable drag and drop reorder of columns. <code>false</code>
-     * to turn off column reordering via drag drop.
-     */
-    public var enableColumnMove  : Boolean;
-    /**
-     * @cfg {Boolean} enableDragDrop <p>Enables dragging of the selected rows of the GridPanel. Defaults to <code>false</code>.</p>
-     * <p>Setting this to <b><code>true</code></b> causes this GridPanel's <b class='link' title='#getView'>GridView</b> to
-     * create an instance of <b class='link'>Ext.grid.GridDragZone</b>. <b>Note</b>: this is available only <b>after</b>
-     * the Grid has been rendered as the GridView's <code><b class='link' title='Ext.grid.GridView#dragZone'>dragZone</b></code>
-     * property.</p>
-     * <p>A cooperating <b class='link' title='Ext.dd.DropZone'>DropZone</b> must be created who's implementations of
-     * <b class='link' title='Ext.dd.DropZone#onNodeEnter'>onNodeEnter</b>, <b class='link' title='Ext.dd.DropZone#onNodeOver'>onNodeOver</b>,
-     * <b class='link' title='Ext.dd.DropZone#onNodeOut'>onNodeOut</b> and <b class='link' title='Ext.dd.DropZone#onNodeDrop'>onNodeDrop</b> are able
-     * to process the <b class='link' title='Ext.grid.GridDragZone#getDragData'>data</b> which is provided.</p>
-     */
-    public var enableDragDrop  : Boolean;
-    /**
-     * @cfg {Boolean} enableHdMenu Defaults to <code>true</code> to enable the drop down button for menu in the headers.
-     */
-    public var enableHdMenu  : Boolean;
-    /**
-     * @cfg {Boolean} hideHeaders True to hide the grid's header. Defaults to <code>false</code>.
-     */
-    /**
-     * @cfg {Object} loadMask An <b class='link'>ext.LoadMask</b> config or true to mask the grid while
-     * loading. Defaults to <code>false</code>.
-     */
-    public var loadMask  : Object;
-    /**
-     * @cfg {Number} maxHeight Sets the maximum height of the grid - ignored if <code>autoHeight</code> is not on.
-     */
-    /**
-     * @cfg {Number} minColumnWidth The minimum width a column can be resized to. Defaults to <code>25</code>.
-     */
-    public var minColumnWidth  : Number;
-    /**
-     * @cfg {Object} sm Shorthand for <code><b class='link' title='#selModel'>selModel</b></code>.
-     */
-    /**
-     * @cfg {Object} selModel Any subclass of <b class='link'>Ext.grid.AbstractSelectionModel</b> that will provide
-     * the selection model for the grid (defaults to <b class='link'>Ext.grid.RowSelectionModel</b> if not specified).
-     */
-    /**
-     * @cfg {ext.data.Store} store The <b class='link'>ext.data.Store</b> the grid should use as its data source (required).
-     */
-    public var store  : Store;
-    /**
-     * @cfg {Boolean} stripeRows <code>true</code> to stripe the rows. Default is <code>false</code>.
-     * <p>This causes the CSS class <code><b>x-grid3-row-alt</b></code> to be added to alternate rows of
-     * the grid. A default CSS rule is provided which sets a background colour, but you can override this
-     * with a rule which either overrides the <b>background-color</b> style using the '!important'
-     * modifier, or which uses a CSS selector of higher specificity.</p>
-     */
-    public var stripeRows  : Boolean;
-    /**
-     * @cfg {Boolean} trackMouseOver True to highlight rows when the mouse is over. Default is <code>true</code>
-     * for GridPanel, but <code>false</code> for EditorGridPanel.
-     */
-    public var trackMouseOver  : Boolean;
-    /**
-     * @cfg {Array} stateEvents
-     * An array of events that, when fired, should trigger this component to save its state.
-     * Defaults to:<pre><code>
-     * stateEvents: ['columnmove', 'columnresize', 'sortchange']
-     * </code></pre>
-     * <p>These can be any types of events supported by this component, including browser or
-     * custom events (e.g., <code>['click', 'customerchange']</code>).</p>
-     * <p>See <b class='link'>ext.Component#stateful</b> for an explanation of saving and restoring
-     * Component state.</p>
-     */
-    public var stateEvents  : Array;
-    /**
-     * @cfg {Object} view The <b class='link'>Ext.grid.GridView</b> used by the grid. This can be set
-     * before a call to <b class='link' title='ext.Component#render'>render()</b>.
-     */
-    public var view  : Object;
-    /**
-     * @cfg {Object} viewConfig A config object that will be applied to the grid's UI view.  Any of
-     * the config options available for <b class='link'>Ext.grid.GridView</b> can be specified here. This option
-     * is ignored if <code><b class='link' title='#view'>view</b></code> is specified.
-     */
-    //protected var rendered  : Object;
-    protected var viewReady ;
-    override protected native function initComponent() : void;
-    override protected native function onRender(container : Element, position : Element) : void;
-    override protected native function initEvents() : void;
-    //override public native function initStateEvents() : void;
-    //override public native function applyState(state) : void;
-    //override public native function getState() : void;
-    override protected native function afterRender() : void;
-    /**
-     * <p>Reconfigures the grid to use a different Store and Column Model
-     * and fires the 'reconfigure' event. The View will be bound to the new
-     * objects and refreshed.</p>
-     * <p>Be aware that upon reconfiguring a GridPanel, certain existing settings <i>may</i> become
-     * invalidated. For example the configured <b class='link' title='#autoExpandColumn'>autoExpandColumn</b> may no longer exist in the
-     * new ColumnModel. Also, an existing <b class='link' title='ext.PagingToolbar'>PagingToolbar</b> will still be bound
-     * to the old Store, and will need rebinding. Any <b class='link' title='#plugins'>plugins</b> might also need reconfiguring
-     * with the new data.</p>
-     * @param store The new <b class='link'>ext.data.Store</b> object
-     * @param colModel The new <b class='link'>Ext.grid.ColumnModel</b> object
-     */
-    public native function reconfigure(store : Store, colModel : ColumnModel) : void;
-    protected native function onKeyDown(e) : void;
-    override protected native function onDestroy() : void;
-    protected native function processEvent(name, e) : void;
-    protected native function onClick(e) : void;
-    protected native function onMouseDown(e) : void;
-    protected native function onContextMenu(e, t) : void;
-    protected native function onDblClick(e) : void;
-    protected native function walkCells(row, col, step, fn, scope) : void;
-    //override protected native function onResize() : void;
-    /**
-     * Returns the grid's underlying element.
-     * @return The element
-     */
-    public native function getGridEl() : Element;
-    public native function stopEditing(cancel : Boolean = undefined) : void;
-    /**
-     * Returns the grid's selection model configured by the <code><b class='link' title='#selModel'>selModel</b></code>
-     * configuration option. If no selection model was configured, this will create
-     * and return a <b class='link' title='Ext.grid.RowSelectionModel'>RowSelectionModel</b>.
-     * @return 
-     */
-    public native function getSelectionModel() : AbstractSelectionModel;
-    /**
-     * Returns the grid's data store.
-     * @return The store
-     */
-    public native function getStore() : Store;
-    /**
-     * Returns the grid's ColumnModel.
-     * @return The column model
-     */
-    public native function getColumnModel() : ColumnModel;
-    /**
-     * Returns the grid's GridView object.
-     * @return The grid view
-     */
-    public native function getView() : GridView;
-    /**
-     * Called to get grid's drag proxy text, by default returns this.ddText.
-     * @return The text
-     */
-    public native function getDragDropText() : String;
-    /** 
-     * @cfg {String/Number} activeItem 
-     * @hide 
-     */
-    /** 
-     * @cfg {Boolean} autoDestroy 
-     * @hide 
-     */
-    /** 
-     * @cfg {Object/String/Function} autoLoad 
-     * @hide 
-     */
-    /** 
-     * @cfg {Boolean} autoWidth 
-     * @hide 
-     */
-    /** 
-     * @cfg {Boolean/Number} bufferResize 
-     * @hide 
-     */
-    /** 
-     * @cfg {String} defaultType 
-     * @hide 
-     */
-    /** 
-     * @cfg {Object} defaults 
-     * @hide 
-     */
-    /** 
-     * @cfg {Boolean} hideBorders 
-     * @hide 
-     */
-    /** 
-     * @cfg {Mixed} items 
-     * @hide 
-     */
-    /** 
-     * @cfg {String} layout 
-     * @hide 
-     */
-    /** 
-     * @cfg {Object} layoutConfig 
-     * @hide 
-     */
-    /** 
-     * @cfg {Boolean} monitorResize 
-     * @hide 
-     */
-    /** 
-     * @property items 
-     * @hide 
-     */
-    /** 
-     * @method add 
-     * @hide 
-     */
-    /** 
-     * @method cascade 
-     * @hide 
-     */
-    /** 
-     * @method doLayout 
-     * @hide 
-     */
-    /** 
-     * @method find 
-     * @hide 
-     */
-    /** 
-     * @method findBy 
-     * @hide 
-     */
-    /** 
-     * @method findById 
-     * @hide 
-     */
-    /** 
-     * @method findByType 
-     * @hide 
-     */
-    /** 
-     * @method getComponent 
-     * @hide 
-     */
-    /** 
-     * @method getLayout 
-     * @hide 
-     */
-    /** 
-     * @method getUpdater 
-     * @hide 
-     */
-    /** 
-     * @method insert 
-     * @hide 
-     */
-    /** 
-     * @method load 
-     * @hide 
-     */
-    /** 
-     * @method remove 
-     * @hide 
-     */
-    /** 
-     * @event add 
-     * @hide 
-     */
-    /** 
-     * @event afterLayout 
-     * @hide 
-     */
-    /** 
-     * @event beforeadd 
-     * @hide 
-     */
-    /** 
-     * @event beforeremove 
-     * @hide 
-     */
-    /** 
-     * @event remove 
-     * @hide 
-     */
-    /**
-     * @cfg {String} allowDomMove  @hide
-     */
-    /**
-     * @cfg {String} autoEl @hide
-     */
-    /**
-     * @cfg {String} applyTo  @hide
-     */
-    /**
-     * @cfg {String} autoScroll  @hide
-     */
-    /**
-     * @cfg {String} bodyBorder  @hide
-     */
-    /**
-     * @cfg {String} bodyStyle  @hide
-     */
-    /**
-     * @cfg {String} contentEl  @hide
-     */
-    /**
-     * @cfg {String} disabledClass  @hide
-     */
-    /**
-     * @cfg {String} elements  @hide
-     */
-    /**
-     * @cfg {String} html  @hide
-     */
-    /**
-     * @cfg {Boolean} preventBodyReset
-     * @hide
-     */
-    /**
-     * @property disabled
-     * @hide
-     */
-    /**
-     * @method applyToMarkup
-     * @hide
-     */
-    /**
-     * @method enable
-     * @hide
-     */
-    /**
-     * @method disable
-     * @hide
-     */
-    /**
-     * @method setDisabled
-     * @hide
-     */
-}}
+}
+    

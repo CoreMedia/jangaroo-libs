@@ -1,116 +1,91 @@
 package ext.form {
-import ext.Element;
-import ext.EventObjectClass;
+
+import ext.IEventObject;
 
 /**
- * Provides a convenient wrapper for TextFields that adds a clickable trigger button (looks like a combobox by default).
- * The trigger has no default action, so you must assign a function to implement the trigger click handler by
- * overriding <b class='link' title='#onTriggerClick'>onTriggerClick</b>. You can create a TriggerField directly, as it renders exactly like a combobox
- * for which you can provide a custom implementation.  For example:
- * <pre><code>
-var trigger = new ext.form.TriggerField();
-trigger.onTriggerClick = myTriggerFn;
-trigger.applyToMarkup('my-field');
-</code></pre>
- *
- * However, in general you will most likely want to use TriggerField as the base class for a reusable component.
- * <b class='link'>ext.form.DateField</b> and <b class='link'>ext.form.ComboBox</b> are perfect examples of this.
- * 
-*/
-public class TriggerField extends TextField {
-/**
- * @constructor
- * Create a new TriggerField.
- * @param config Configuration options (valid {&#64;ext.form.TextField} config options will also be applied
- * to the base TextField)
- * @xtype trigger
+ * Provides a convenient wrapper for TextFields that adds a clickable trigger button (looks like a combobox by default). The trigger has no default action, so you must assign a function to implement the trigger click handler by overriding <a href="output/Ext.form.TriggerField.html#Ext.form.TriggerField-onTriggerClick">onTriggerClick</a>. You can create a TriggerField directly, as it renders exactly like a combobox for which you can provide a custom implementation. For example: <pre><code>var trigger = new Ext.form.TriggerField();
+ trigger.onTriggerClick = myTriggerFn;
+ trigger.applyToMarkup('my-field');
+ </code></pre>However, in general you will most likely want to use TriggerField as the base class for a reusable component. <a href="Ext.form.DateField.html">Ext.form.DateField</a> and <a href="Ext.form.ComboBox.html">Ext.form.ComboBox</a> are perfect examples of this.
+ * <p>This component is created by the xtype 'trigger' / the EXML element &lt;trigger>.</p>
+ * @see ext.config.trigger
+ * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TriggerField.html#cls-Ext.form.TriggerField Ext JS source
  */
-public function TriggerField(config:Object = null) {
-  super(config);
+public class TriggerField extends TextField {
+
+  /**
+   * Create a new TriggerField.
+   *
+   * @param config Configuration options (valid {&#64;Ext.form.TextField} config options will also be applied to the base TextField)
+   * @see ext.config.trigger
+   */
+  public function TriggerField(config:Object) {
+    super(null);
+  }
+
+  /**
+   <tt>false</tt> to prevent the user from typing text directly into the field, the field will only respond to a click on the trigger to set the value. (defaults to <tt>true</tt>).
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get editable():Boolean;
+
+  /**
+   <tt>true</tt> to hide the trigger element and display only the base text field (defaults to <tt>false</tt>)
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get hideTrigger():Boolean;
+
+  /**
+   An additional CSS class used to style the trigger button. The trigger will always get the class <tt>'x-form-trigger'</tt> by default and <tt>triggerClass</tt> will be <b>appended</b> if specified.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get triggerClass():String;
+
+  /**
+   A <a href="Ext.DomHelper.html">DomHelper</a> config object specifying the structure of the trigger element for this Field. (Optional).
+   <p>Specify this when you need a customized element to act as the trigger button for a TriggerField.</p><p>Note that when using this option, it is the developer's responsibility to ensure correct sizing, positioning and appearance of the trigger. Defaults to:</p><pre><code>{tag: "img", src: Ext.BLANK_IMAGE_URL, cls: "x-form-trigger " + this.triggerClass}</code></pre>
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get triggerConfig():*;
+
+  /**
+   The class added to the to the wrap of the trigger element. Defaults to <tt>x-trigger-wrap-focus</tt>.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get wrapFocusClass():String;
+
+  /**
+   * The function that should handle the trigger's click event. This method does nothing by default until overridden by an implementing function. See Ext.form.ComboBox and Ext.form.DateField for sample implementations.
+   *
+   * @param e
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TriggerField.html#method-Ext.form.TriggerField-onTriggerClick Ext JS source
+   */
+  public native function onTriggerClick(e:IEventObject):void;
+
+  /**
+   * Allow or prevent the user from directly editing the field text. If false is passed, the user will only be able to modify the field using the trigger. Will also add a click event to the text field which will call the trigger. This method is the runtime equivalent of setting the <a href="output/Ext.form.TriggerField.html#Ext.form.TriggerField-editable">editable</a> config option at config time.
+   *
+   * @param value True to allow the user to directly edit the field text.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TriggerField.html#method-Ext.form.TriggerField-setEditable Ext JS source
+   */
+  public native function setEditable(value:Boolean):void;
+
+  /**
+   * Changes the hidden status of the trigger.
+   *
+   * @param hideTrigger True to hide the trigger, false to show it.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TriggerField.html#method-Ext.form.TriggerField-setHideTrigger Ext JS source
+   */
+  public native function setHideTrigger(hideTrigger:Boolean):void;
+
+  /**
+   * Setting this to true will supersede settings <a href="output/Ext.form.TriggerField.html#Ext.form.TriggerField-editable">editable</a> and <a href="output/Ext.form.TriggerField.html#Ext.form.TriggerField-hideTrigger">hideTrigger</a>. Setting this to false will defer back to <a href="output/Ext.form.TriggerField.html#Ext.form.TriggerField-editable">editable</a> and <a href="output/Ext.form.TriggerField.html#Ext.form.TriggerField-hideTrigger">hideTrigger</a>. This method is the runtime equivalent of setting the <a href="output/Ext.form.TriggerField.html#Ext.form.TriggerField-readOnly">readOnly</a> config option at config time.
+   *
+   * @param readOnly Whether the field should be read only.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TriggerField.html#method-Ext.form.TriggerField-setReadOnly Ext JS source
+   */
+  override public native function setReadOnly(readOnly:Boolean):void;
+
 }
-    /**
-     * @cfg {String} triggerClass
-     * An additional CSS class used to style the trigger button.  The trigger will always get the
-     * class <code>'x-form-trigger'</code> by default and <code>triggerClass</code> will be <b>appended</b> if specified.
-     */
-    /**
-     * @cfg {Mixed} triggerConfig
-     * <p>A <b class='link' title='ext.DomHelper'>DomHelper</b> config object specifying the structure of the
-     * trigger element for this Field. (Optional).</p>
-     * <p>Specify this when you need a customized element to act as the trigger button for a TriggerField.</p>
-     * <p>Note that when using this option, it is the developer's responsibility to ensure correct sizing, positioning
-     * and appearance of the trigger.  Defaults to:</p>
-     * <pre><code>{tag: "img", src: ext.BLANK_IMAGE_URL, cls: "x-form-trigger " + this.triggerClass}</code></pre>
-     */
-    /**
-     * @cfg {String/Object} autoCreate <p>A <b class='link' title='ext.DomHelper'>DomHelper</b> element spec, or true for a default
-     * element spec. Used to create the <b class='link' title='ext.Component#getEl'>Element</b> which will encapsulate this Component.
-     * See <code><b class='link' title='ext.Component#autoEl'>autoEl</b></code> for details.  Defaults to:</p>
-     * <pre><code>{tag: "input", type: "text", size: "16", autocomplete: "off"}</code></pre>
-     */
-    //public var defaultAutoCreate  : *;
-    /**
-     * @cfg {Boolean} hideTrigger <code>true</code> to hide the trigger element and display only the base
-     * text field (defaults to <code>false</code>)
-     */
-    public var hideTrigger : Boolean;
-    /**
-     * @cfg {Boolean} editable <code>false</code> to prevent the user from typing text directly into the field,
-     * the field will only respond to a click on the trigger to set the value. (defaults to <code>true</code>)
-     */
-    public var editable : Boolean;
-    /**
-     * @cfg {String} wrapFocusClass The class added to the to the wrap of the trigger element. Defaults to
-     * <code>x-trigger-wrap-focus</code>.
-     */
-    public var wrapFocusClass : String;
-    /**
-     * @hide 
-     * @method autoSize
-     */
-    //public var autoSize;
-    protected var monitorTab;
-    //protected var deferHeight ;
-    protected var mimicing:Boolean;
-    //public var actionMode;
-    //override protected native function onResize(w, h) : void;
-    //protected var adjustSize ;
-    override public native function getResizeEl() : Element;
-    override public native function getPositionEl() : Element;
-    override protected native function alignErrorIcon() : void;
-    override protected native function onRender(container : Element, position : Element) : void;
-    override protected native function afterRender() : void;
-    protected native function initTrigger() : void;
-    override protected native function onDestroy() : void;
-    override protected native function onFocus() : void;
-    protected native function checkTab(e : EventObjectClass) : void;
-    override protected native function onBlur() : void;
-    protected native function mimicBlur(e : EventObjectClass) : void;
-    protected native function triggerBlur() : void;
-    override protected native function beforeBlur():void;
-    /**
-     * Allow or prevent the user from directly editing the field text.  If false is passed,
-     * the user will only be able to modify the field using the trigger.  This method
-     * is the runtime equivalent of setting the 'editable' config option at config time.
-     * @param value True to allow the user to directly edit the field text
-     */
-    public native function setEditable(value : Boolean) : void;
-    protected native function validateBlur(e : EventObjectClass) : void;
-    /**
-     * The function that should handle the trigger's click event.  This method does nothing by default
-     * until overridden by an implementing function.  See ext.form.ComboBox and ext.form.DateField for
-     * sample implementations.
-     * @method
-     * @param e
-     */
-    public native function onTriggerClick(e : EventObjectClass) : void;
-    /**
-     * @cfg {Boolean} grow @hide
-     */
-    /**
-     * @cfg {Number} growMin @hide
-     */
-    /**
-     * @cfg {Number} growMax @hide
-     */
-}}
+}
+    

@@ -1,69 +1,123 @@
 package ext.menu {
 
 import ext.Component;
-import ext.Element;
 
 /**
- * The base class for all items that render into menus.  BaseItem provides default rendering, activated state
- * management and base configuration options shared by all menu components.
-*/
-public class BaseItem extends Component {
-/**
- * @constructor
- * Creates a new BaseItem
- * @param config Configuration options
- * @xtype menubaseitem
+ * Fires when this item is activated
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:ext.menu.BaseItem</code>
+
+ *       </li>
+
+ * </ul>
  */
-public function BaseItem(config:Object = null) {
-  super(config);
+[Event(name="activate")]
+
+/**
+ * Fires when this item is clicked
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:ext.menu.BaseItem</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>e:ext.IEventObject</code>
+
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="click")]
+
+/**
+ * Fires when this item is deactivated
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:ext.menu.BaseItem</code>
+
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="deactivate")]
+
+
+/**
+ * The base class for all items that render into menus. BaseItem provides default rendering, activated state management and base configuration options shared by all menu components.
+ * <p>This component is created by the xtype 'menubaseitem' / the EXML element &lt;menubaseitem>.</p>
+ * @see ext.config.menubaseitem
+ * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BaseItem.html#cls-Ext.menu.BaseItem Ext JS source
+ */
+public class BaseItem extends Component {
+
+  /**
+   * Creates a new BaseItem
+   *
+   * @param config Configuration options
+   * @see ext.config.menubaseitem
+   */
+  public function BaseItem(config:Object) {
+    super(null);
+  }
+
+  /**
+   The parent Menu of this Item.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BaseItem.html#prop-Ext.menu.BaseItem-parentMenu Ext JS source
+   */
+  public native function get parentMenu():Menu;
+
+  /**
+   * @private
+   */
+  public native function set parentMenu(value:Menu):void;
+
+  /**
+   The CSS class to use when the item becomes activated (defaults to "x-menu-item-active")
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get activeClass():String;
+
+  /**
+   True if this item can be visually activated (defaults to false)
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get canActivate():Boolean;
+
+  /**
+   Length of time in milliseconds to wait before hiding after a click (defaults to 1)
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get clickHideDelay():Number;
+
+  /**
+   True to hide the containing menu after this item is clicked (defaults to true)
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get hideOnClick():Boolean;
+
+  /**
+   The scope (<tt><b>this</b></tt> reference) in which the handler function will be called.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get scope():Object;
+
+  /**
+   * Sets the function that will handle click events for this item (equivalent to passing in the <a href="output/Ext.menu.BaseItem.html#Ext.menu.BaseItem-handler">handler</a> config property). If an existing handler is already registered, it will be unregistered for you.
+   *
+   * @param handler The function that should be called on click
+   * @param scope The scope (<code>this</code> reference) in which the handler function is executed. Defaults to this menu item.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BaseItem.html#method-Ext.menu.BaseItem-setHandler Ext JS source
+   */
+  public native function setHandler(handler:Function, scope:Object):void;
+
 }
-    /**
-     * @property parentMenu
-     * The parent Menu of this Item.
-     */
-    /**
-     * @cfg {Function} handler
-     * A function that will handle the click event of this menu item (optional).
-     * The handler is passed the following parameters:<div class="mdetail-params"><ul>
-     * <li><code>b</code> : Item<div class="sub-desc">This menu Item.</div></li>
-     * <li><code>e</code> : EventObjectClass<div class="sub-desc">The click event.</div></li>
-     * </ul></div>
-     */
-    /**
-     * @cfg {Object} scope
-     * The scope (<code><b>this</b></code> reference) in which the handler function will be called.
-     */
-    /**
-     * @cfg {Boolean} canActivate True if this item can be visually activated (defaults to false)
-     */
-    public var canActivate  : Boolean;
-    /**
-     * @cfg {String} activeClass The CSS class to use when the item becomes activated (defaults to "x-menu-item-active")
-     */
-    public var activeClass  : String;
-    /**
-     * @cfg {Boolean} hideOnClick True to hide the containing menu after this item is clicked (defaults to true)
-     */
-    public var hideOnClick  : Boolean;
-    /**
-     * @cfg {Number} clickHideDelay Length of time in milliseconds to wait before hiding after a click (defaults to 100)
-     */
-    public var clickHideDelay  : Number;
-    //protected var ctype ;
-    //protected var actionMode ;
-    override protected native function onRender(container : Element, position : Element) : void;
-    /**
-     * Sets the function that will handle click events for this item (equivalent to passing in the <b class='link' title='#handler'>handler</b>
-     * config property).  If an existing handler is already registered, it will be unregistered for you.
-     * @param handler The function that should be called on click
-     * @param scope The scope that should be passed to the handler
-     */
-    public native function setHandler(handler : Function, scope : Object) : void;
-    protected native function onClick(e) : void;
-    protected native function activate() : void;
-    protected native function deactivate() : void;
-    protected native function shouldDeactivate(e) : void;
-    protected native function handleClick(e) : void;
-    protected native function expandMenu(autoActivate : Boolean) : void;
-    protected native function hideMenu() : void;
-}}
+}
+    

@@ -1,287 +1,463 @@
 package ext {
+
 import ext.menu.Menu;
 
 /**
- * Simple Button class
-*/
-public class Button extends BoxComponent {
-/**
- * @cfg {String} text The button text to be used as innerHTML (html tags are accepted)
- * @cfg {String} icon The path to an image to display in the button (the image will be set as the background-image
- * CSS property of the button by default, so if you want a mixed icon/text button, set cls:'x-btn-text-icon')
- * @cfg {Function} handler A function called when the button is clicked (can be used instead of click event).
- * The handler is passed the following parameters:<div class="mdetail-params"><ul>
- * <li><code>b</code> : Button<div class="sub-desc">This Button.</div></li>
- * <li><code>e</code> : EventObjectClass<div class="sub-desc">The click event.</div></li>
- * </ul></div>
- * @cfg {Object} scope The scope (<code><b>this</b></code> reference) in which the handler is executed. Defaults to this Button.
- * @cfg {Number} minWidth The minimum width for this button (used to give a set of buttons a common width).
- * See also <b class='link'>ext.Panel</b>.<code><b class='link' title='ext.Panel#minButtonWidth'>minButtonWidth</b></code>.
- * @cfg {String/Object} tooltip The tooltip for the button - can be a string to be used as innerHTML (html tags are accepted) or QuickTips config object
- * @cfg {Boolean} hidden True to start hidden (defaults to false)
- * @cfg {Boolean} disabled True to start disabled (defaults to false)
- * @cfg {Boolean} pressed True to start pressed (only if enableToggle = true)
- * @cfg {String} toggleGroup The group this toggle button is a member of (only 1 per group can be pressed)
- * @cfg {Boolean/Object} repeat True to repeat fire the click event while the mouse is down. This can also be
- * a <b class='link' title='Ext.util.ClickRepeater'>ClickRepeater</b> config object (defaults to false).
- * @constructor
- * Create a new button
- * @param config The config object
- * @xtype button
- */
-public function Button(config:Object = null) {
-  super(config);
-}
-    /**
-     * Read-only. True if this button is hidden
-     */
-    override public native function get hidden()  : Boolean;
-    /**
-     * Read-only. True if this button is disabled
-     */
-    override public native function get disabled()  : Boolean;
-    /**
-     * Read-only. True if this button is pressed (only if enableToggle = true)
-     */
-    public var pressed  : Boolean;
-    /**
-     * The Button's owner <b class='link'>ext.Panel</b> (defaults to undefined, and is set automatically when
-     * the Button is added to a container).  Read-only.
-     * @property ownerCt
-     */
-    /**
-     * @cfg {Number} tabIndex Set a DOM tabIndex for this button (defaults to undefined)
-     */
-    /**
-     * @cfg {Boolean} allowDepress
-     * False to not allow a pressed Button to be depressed (defaults to undefined). Only valid when <b class='link' title='#enableToggle'>enableToggle</b> is true.
-     */
-    /**
-     * @cfg {Boolean} enableToggle
-     * True to enable pressed/not pressed toggling (defaults to false)
-     */
-    public var enableToggle : Boolean;
-    /**
-     * @cfg {Function} toggleHandler
-     * Function called when a Button with <b class='link' title='#enableToggle'>enableToggle</b> set to true is clicked. Two arguments are passed:<ul class="mdetail-params">
-     * <li><b>button</b> : ext.Button<div class="sub-desc">this Button object</div></li>
-     * <li><b>state</b> : Boolean<div class="sub-desc">The next state if the Button, true means pressed.</div></li>
-     * </ul>
-     */
-    /**
-     * @cfg {Mixed} menu
-     * Standard menu attribute consisting of a reference to a menu object, a menu id or a menu config blob (defaults to undefined).
-     */
-    /**
-     * @cfg {String} menuAlign
-     * The position to align the menu to (see <b class='link'>ext.Element#alignTo</b> for more details, defaults to 'tl-bl?').
-     */
-    public var menuAlign  : String;
-    /**
-     * @cfg {String} overflowText If used in a <b class='link' title='ext.Toolbar'>Toolbar</b>, the
-     * text to be used if this item is shown in the overflow menu. See also
-     * <b class='link'>ext.Toolbar.Item</b>.<code><b class='link' title='ext.Toolbar.Item#overflowText'>overflowText</b></code>.
-     */
-    /**
-     * @cfg {String} iconCls
-     * A css class which sets a background image to be used as the icon for this button
-     */
-    /**
-     * @cfg {String} type
-     * submit, reset or button - defaults to 'button'
-     */
-    public var type  : String;
-    protected var menuClassTarget;
-    /**
-     * @cfg {String} clickEvent
-     * The type of event to map to the button's event handler (defaults to 'click')
-     */
-    public var clickEvent  : String;
-    /**
-     * @cfg {Boolean} handleMouseEvents
-     * False to disable visual cues on mouseover, mouseout and mousedown (defaults to true)
-     */
-    public var handleMouseEvents  : Boolean;
-    /**
-     * @cfg {String} tooltipType
-     * The type of tooltip to use. Either 'qtip' (default) for QuickTips or 'title' for title attribute.
-     */
-    public var tooltipType  : String;
-    /**
-     * @cfg {String} buttonSelector
-     * <p>(Optional) A <b class='link' title='ext.DomQuery'>DomQuery</b> selector which is used to extract the active, clickable element from the
-     * DOM structure created.</p>
-     * <p>When a custom <b class='link' title='#template'>template</b> is used, you  must ensure that this selector results in the selection of
-     * a focussable element.</p>
-     * <p>Defaults to <b><code>"button:first-child"</code></b>.</p>
-     */
-    public var buttonSelector  : String;
-    /**
-     * @cfg {String} scale
-     * <p>(Optional) The size of the Button. Three values are allowed:</p>
-     * <ul class="mdetail-params">
-     * <li>'small'<div class="sub-desc">Results in the button element being 16px high.</div></li>
-     * <li>'medium'<div class="sub-desc">Results in the button element being 24px high.</div></li>
-     * <li>'large'<div class="sub-desc">Results in the button element being 32px high.</div></li>
-     * </ul>
-     * <p>Defaults to <b><code>'small'</code></b>.</p>
-     */
-    public var scale : String;
-    /**
-     * @cfg {String} iconAlign
-     * <p>(Optional) The side of the Button box to render the icon. Four values are allowed:</p>
-     * <ul class="mdetail-params">
-     * <li>'top'<div class="sub-desc"></div></li>
-     * <li>'right'<div class="sub-desc"></div></li>
-     * <li>'bottom'<div class="sub-desc"></div></li>
-     * <li>'left'<div class="sub-desc"></div></li>
-     * </ul>
-     * <p>Defaults to <b><code>'left'</code></b>.</p>
-     */
-    public var iconAlign  : String;
-    /**
-     * @cfg {String} arrowAlign
-     * <p>(Optional) The side of the Button box to render the arrow if the button has an associated <b class='link' title='#menu'>menu</b>.
-     * Two values are allowed:</p>
-     * <ul class="mdetail-params">
-     * <li>'right'<div class="sub-desc"></div></li>
-     * <li>'bottom'<div class="sub-desc"></div></li>
-     * </ul>
-     * <p>Defaults to <b><code>'right'</code></b>.</p>
-     */
-    public var arrowAlign  : String;
-    /**
-     * @cfg {ext.Template} template (Optional)
-     * <p>A <b class='link' title='ext.Template'>Template</b> used to create the Button's DOM structure.</p>
-     * Instances, or subclasses which need a different DOM structure may provide a different
-     * template layout in conjunction with an implementation of <b class='link' title='#getTemplateArgs'>getTemplateArgs</b>.
-     * @property template
-     */
-    /**
-     * @cfg {String} cls
-     * A CSS class string to apply to the button's main element.
-     */
-    /**
-     * @property menu
-     * The <b class='link' title='Ext.menu.Menu'>Menu</b> object associated with this Button when configured with the <b class='link' title='#menu'>menu</b> config option.
-     */
-    public var menu:Menu;
+ * Fires when this button is clicked
+ * Listeners will be called with the following arguments:
+ * <ul>
 
-    override protected native function initComponent() : void;
-/**
-  * <p>This method returns an object which provides substitution parameters for the <b class='link' title='#template'>Template</b> used
-  * to create this Button's DOM structure.</p>
-  * <p>Instances or subclasses which use a different Template to create a different DOM structure may need to provide their
-  * own implementation of this method.</p>
-  * <p>The default implementation which provides data for the default <b class='link' title='#template'>template</b> returns an Array containing the
-  * following items:</p><div class="mdetail-params"><ul>
-  * <li>The Button's <b class='link' title='#text'>text</b></li>
-  * <li>The &lt;button&gt;'s <b class='link' title='#type'>type</b></li>
-  * <li>The <b class='link'>iconCls</b> applied to the &lt;button&gt; <b class='link' title='#btnEl'>element</b></li>
-  * <li>The <b class='link' title='#cls'>cls</b> applied to the Button's main <b class='link' title='#getEl'>Element</b></li>
-  * <li>A CSS class name controlling the Button's <b class='link' title='#scale'>scale</b> and <b class='link' title='#iconAlign icon'>alignment</b></li>
-  * <li>A CSS class name which applies an arrow to the Button if configured with a <b class='link' title='#menu'>menu</b></li>
-  * </ul></div>
-  * @return Substitution data for a Template.
+ *       <li>
+ *           <code>this_:ext.Button</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>e:ext.IEventObject</code>
+ The click event
+ *       </li>
+
+ * </ul>
  */
-    public native function getTemplateArgs() : Object;
-    public native function getMenuClass() : void;
-    override protected native function onRender(container : Element, position : Element) : void;
-        /**
-         * An <b class='link' title='ext.Element'>Element</b> encapsulating the Button's clickable element. By default,
-         * this references a <code>&lt;button&gt;</code> element. Read only.
-         * @property btnEl
-         */
-    protected native function initButtonEl(btn, btnEl) : void;
-    override protected native function afterRender() : void;
-    /**
-     * Sets the CSS class that provides a background image to use as the button's icon.  This method also changes
-     * the value of the <b class='link'>iconCls</b> config internally.
-     * @param cls The CSS class providing the icon image
-     * @return this
-     */
-    public native function setIconClass(cls : String) : Button;
-    /**
-     * Sets the tooltip for this Button.
-     * @param tooltip. This may be:<div class="mdesc-details"><ul>
-     * <li><b>String</b> : A string to be used as innerHTML (html tags are accepted) to show in a tooltip</li>
-     * <li><b>Object</b> : A configuration object for <b class='link'>ext.QuickTips#register</b>.</li>
-     * </ul></div>
-     * @return this
-     */
-    public native function setTooltip(tooltip : *) : Button;
-    protected native function clearTip() : void;
-    override protected native function beforeDestroy() : void;
-    override protected native function onDestroy() : void;
-    protected native function doAutoWidth() : void;
-    /**
-     * Assigns this Button's click handler
-     * @param handler The function to call when the button is clicked
-     * @param scope Scope for the function passed in
-     * @return this
-     */
-    public native function setHandler(handler : Function, scope : Object = undefined) : Button;
-    /**
-     * Sets this Button's text
-     * @param text The button text
-     * @return this
-     */
-    public native function setText(text : String) : Button;
-    /**
-     * Gets the text for this Button
-     * @return The button text
-     */
-    public native function getText() : String;
-    /**
-     * If a state it passed, it becomes the pressed state otherwise the current state is toggled.
-     * @param state Force a particular state
-     * @param supressEvent True to stop events being fired when calling this method.
-     * @return this
-     */
-    public native function toggle(state : Boolean = undefined, supressEvent : Boolean = undefined) : Button;
-    /**
-     * Focus the button
-     */
-  override public native function focus(selectText : Boolean = undefined, delay : * = undefined) : Component;
-    override protected native function onDisable() : void;
-    override protected native function onEnable() : void;
-    public native function onDisableChange(disabled) : void;
-    /**
-     * Show this button's menu (if it has one)
-     */
-    public native function showMenu() : void;
-    /**
-     * Hide this button's menu (if it has one)
-     */
-    public native function hideMenu() : void;
-    /**
-     * Returns true if the button has a menu and it is visible
-     * @return boolean
-     */
-    public native function hasVisibleMenu() : Boolean;
-    protected native function onClick(e) : void;
-    protected native function isMenuTriggerOver(e, _internal) : void;
-    protected native function isMenuTriggerOut(e, _internal) : void;
-    protected native function onMouseOver(e) : void;
-    protected native function monitorMouseOver(e) : void;
-    protected native function onMouseOut(e) : void;
-    protected native function onFocus(e) : void;
-    protected native function onBlur(e) : void;
-    protected native function getClickEl(e, isUp) : void;
-    protected native function onMouseDown(e) : void;
-    protected native function onMouseUp(e) : void;
-    protected native function onMenuShow(e) : void;
-    protected native function onMenuHide(e) : void;
-    protected native function restoreClick() : void;
-    /**
-     * @cfg {String} autoEl @hide
-     */
-       public native function register(btn) : void;
-       public native function unregister(btn) : void;
-       /**
-        * Gets the pressed button in the passed group or null.
-        * @param group
-        * @return Button the pressed button in the passed group or null
-        */
-       public native function getPressed(group : String) : Button;
-}}
+[Event(name="click")]
+
+/**
+ * If this button has a menu, this event fires when it is hidden
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:ext.Button</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>menu:Menu</code>
+
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="menuhide")]
+
+/**
+ * If this button has a menu, this event fires when it is shown
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:ext.Button</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>menu:Menu</code>
+
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="menushow")]
+
+/**
+ * If this button has a menu, this event fires when the mouse leaves the menu triggering element
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:ext.Button</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>menu:Menu</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>e:ext.IEventObject</code>
+
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="menutriggerout")]
+
+/**
+ * If this button has a menu, this event fires when the mouse enters the menu triggering element
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:ext.Button</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>menu:Menu</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>e:ext.IEventObject</code>
+
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="menutriggerover")]
+
+/**
+ * Fires when the mouse exits the button
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:ext.Button</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>e:ext.IEventObject</code>
+ The event object
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="mouseout")]
+
+/**
+ * Fires when the mouse hovers over the button
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:ext.Button</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>e:ext.IEventObject</code>
+ The event object
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="mouseover")]
+
+/**
+ * Fires when the 'pressed' state of this button changes (only if enableToggle = true)
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:ext.Button</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>pressed:Boolean</code>
+
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="toggle")]
+
+
+/**
+ * Simple Button class
+ * <p>This component is created by the xtype 'button' / the EXML element &lt;button>.</p>
+ * @see ext.config.button
+ * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Button.html#cls-Ext.Button Ext JS source
+ */
+public class Button extends BoxComponent {
+
+  /**
+   * Create a new button
+   *
+   * @param config The config object
+   * @see ext.config.button
+   */
+  public function Button(config:Object) {
+    super(null);
+  }
+
+  /**
+   An <a href="Ext.Element.html">Element</a> encapsulating the Button's clickable element. By default, this references a <tt>&lt;button&gt;</tt> element. Read only.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Button.html#prop-Ext.Button-btnEl Ext JS source
+   */
+  public native function get btnEl():Element;
+
+  /**
+   * @private
+   */
+  public native function set btnEl(value:Element):void;
+
+  /**
+   True if this button is disabled
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Button.html#prop-Ext.Button-disabled Ext JS source
+   */
+  override public native function get disabled():Boolean;
+
+  /**
+   True if this button is hidden
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Button.html#prop-Ext.Button-hidden Ext JS source
+   */
+  override public native function get hidden():Boolean;
+
+  /**
+   The <a href="Ext.menu.Menu.html">Menu</a> object associated with this Button when configured with the <a href="output/Ext.Button.html#Ext.Button-menu">menu</a> config option.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Button.html#prop-Ext.Button-menu Ext JS source
+   */
+  public native function get menu():Menu;
+
+  /**
+   * @private
+   */
+  public native function set menu(value:Menu):void;
+
+  /**
+   True if this button is pressed (only if enableToggle = true)
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Button.html#prop-Ext.Button-pressed Ext JS source
+   */
+  public native function get pressed():Boolean;
+
+  /**
+   False to not allow a pressed Button to be depressed (defaults to undefined). Only valid when <a href="output/Ext.Button.html#Ext.Button-enableToggle">enableToggle</a> is true.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get allowDepress():Boolean;
+
+  /**
+   (Optional) The side of the Button box to render the arrow if the button has an associated <a href="output/Ext.Button.html#Ext.Button-menu">menu</a>. Two values are allowed:
+   <ul class="mdetail-params"><li>'right'</li><li>'bottom'</li></ul><p>Defaults to <b><tt>'right'</tt></b>.</p>
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get arrowAlign():String;
+
+  /**
+   (Optional) A <a href="Ext.DomQuery.html">DomQuery</a> selector which is used to extract the active, clickable element from the DOM structure created.
+   <p>When a custom <a href="output/Ext.Button.html#Ext.Button-template">template</a> is used, you must ensure that this selector results in the selection of a focussable element.</p><p>Defaults to <b><tt>'button:first-child'</tt></b>.</p>
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get buttonSelector():String;
+
+  /**
+   The DOM event that will fire the handler of the button. This can be any valid event name (dblclick, contextmenu). Defaults to <tt>'click'</tt>.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get clickEvent():String;
+
+  /**
+   True to enable pressed/not pressed toggling (defaults to false)
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get enableToggle():Boolean;
+
+  /**
+   False to disable visual cues on mouseover, mouseout and mousedown (defaults to true)
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get handleMouseEvents():Boolean;
+
+  /**
+   The path to an image to display in the button (the image will be set as the background-image CSS property of the button by default, so if you want a mixed icon/text button, set cls:'x-btn-text-icon')
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get icon():String;
+
+  /**
+   (Optional) The side of the Button box to render the icon. Four values are allowed:
+   <ul class="mdetail-params"><li>'top'</li><li>'right'</li><li>'bottom'</li><li>'left'</li></ul><p>Defaults to <b><tt>'left'</tt></b>.</p>
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get iconAlign():String;
+
+  /**
+   A css class which sets a background image to be used as the icon for this button
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get iconCls():String;
+
+  /**
+   The position to align the menu to (see <a href="output/Ext.Element.html#Ext.Element-alignTo">Ext.Element.alignTo</a> for more details, defaults to 'tl-bl?').
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get menuAlign():String;
+
+  /**
+   The minimum width for this button (used to give a set of buttons a common width). See also <a href="Ext.Panel.html">Ext.Panel</a>.<tt><a href="output/Ext.Panel.html#Ext.Panel-minButtonWidth">minButtonWidth</a></tt>.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get minWidth():Number;
+
+  /**
+   If used in a <a href="Ext.Toolbar.html">Toolbar</a>, the text to be used if this item is shown in the overflow menu. See also <a href="Ext.Toolbar.Item.html">Ext.Toolbar.Item</a>.<code><a href="output/Ext.Toolbar.Item.html#Ext.Toolbar.Item-overflowText">overflowText</a></code>.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get overflowText():String;
+
+  /**
+   True to repeat fire the click event while the mouse is down. This can also be a <a href="Ext.util.ClickRepeater.html">ClickRepeater</a> config object (defaults to false).
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get repeat():*;
+
+  /**
+   (Optional) The size of the Button. Three values are allowed:
+   <ul class="mdetail-params"><li>'small'<div class="sub-desc">Results in the button element being 16px high.</div></li><li>'medium'<div class="sub-desc">Results in the button element being 24px high.</div></li><li>'large'<div class="sub-desc">Results in the button element being 32px high.</div></li></ul><p>Defaults to <b><tt>'small'</tt></b>.</p>
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get scale():String;
+
+  /**
+   The scope (<tt><b>this</b></tt> reference) in which the <code><a href="output/Ext.Button.html#Ext.Button-handler">handler</a></code> and <code><a href="output/Ext.Button.html#Ext.Button-toggleHandler">toggleHandler</a></code> is executed. Defaults to this Button.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get scope():Object;
+
+  /**
+   Set a DOM tabIndex for this button (defaults to undefined)
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get tabIndex():Number;
+
+  /**
+   A <a href="Ext.Template.html">Template</a> used to create the Button's DOM structure.
+   Instances, or subclasses which need a different DOM structure may provide a different template layout in conjunction with an implementation of <a href="output/Ext.Button.html#Ext.Button-getTemplateArgs">getTemplateArgs</a>.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get template():Template;
+
+  /**
+   The group this toggle button is a member of (only 1 per group can be pressed)
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get toggleGroup():String;
+
+  /**
+   The tooltip for the button - can be a string to be used as innerHTML (html tags are accepted) or QuickTips config object
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get tooltip():*;
+
+  /**
+   The type of tooltip to use. Either 'qtip' (default) for QuickTips or 'title' for title attribute.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get tooltipType():String;
+
+  /**
+   submit, reset or button - defaults to 'button'
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get type():String;
+
+  /**
+   * Gets the pressed button in the passed group or null
+   *
+   * @param group
+   * @return
+    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Button.html#method-Ext.Button-getPressed Ext JS source
+   */
+  public native function getPressed(group:String):Button;
+
+  /**
+   * This method returns an Array which provides substitution parameters for the <a href="output/Ext.Button.html#Ext.Button-template">Template</a> used to create this Button's DOM structure.
+   <p>Instances or subclasses which use a different Template to create a different DOM structure may need to provide their own implementation of this method.</p><p>The default implementation which provides data for the default <a href="output/Ext.Button.html#Ext.Button-template">template</a> returns an Array containing the following items:</p><div class="mdetail-params"><ul><li>The &lt;button&gt;'s <a href="output/Ext.Button.html#Ext.Button-type">type</a></li><li>A CSS class name applied to the Button's main &lt;tbody&gt; element which determines the button's scale and icon alignment.</li><li>A CSS class to determine the presence and position of an arrow icon. (<code>'x-btn-arrow'</code> or <code>'x-btn-arrow-bottom'</code> or <code>''</code>)</li><li>The <a href="output/Ext.Button.html#Ext.Button-cls">cls</a> CSS class name applied to the button's wrapping &lt;table&gt; element.</li><li>The Component id which is applied to the button's wrapping &lt;table&gt; element.</li></ul></div>
+   *
+   * @return Substitution data for a Template.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Button.html#method-Ext.Button-getTemplateArgs Ext JS source
+   */
+  public native function getTemplateArgs():Array;
+
+  /**
+   * Gets the text for this Button
+   *
+   * @return The button text
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Button.html#method-Ext.Button-getText Ext JS source
+   */
+  public native function getText():String;
+
+  /**
+   * Returns true if the button has a menu and it is visible
+   *
+   * @return
+    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Button.html#method-Ext.Button-hasVisibleMenu Ext JS source
+   */
+  public native function hasVisibleMenu():Boolean;
+
+  /**
+   * Hide this button's menu (if it has one)
+   *
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Button.html#method-Ext.Button-hideMenu Ext JS source
+   */
+  public native function hideMenu():void;
+
+  /**
+   * Assigns this Button's click handler
+   *
+   * @param handler The function to call when the button is clicked
+   * @param scope The scope (<code>this</code> reference) in which the handler function is executed. Defaults to this Button.
+   * @return this
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Button.html#method-Ext.Button-setHandler Ext JS source
+   */
+  public native function setHandler(handler:Function, scope:Object = null):Button;
+
+  /**
+   * Sets the background image (inline style) of the button. This method also changes the value of the <a href="icon.html">icon</a> config internally.
+   *
+   * @param icon The path to an image to display in the button
+   * @return this
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Button.html#method-Ext.Button-setIcon Ext JS source
+   */
+  public native function setIcon(icon:String):Button;
+
+  /**
+   * Sets the CSS class that provides a background image to use as the button's icon. This method also changes the value of the <a href="iconCls.html">iconCls</a> config internally.
+   *
+   * @param cls The CSS class providing the icon image
+   * @return this
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Button.html#method-Ext.Button-setIconClass Ext JS source
+   */
+  public native function setIconClass(cls:String):Button;
+
+  /**
+   * Sets this Button's text
+   *
+   * @param text The button text
+   * @return this
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Button.html#method-Ext.Button-setText Ext JS source
+   */
+  public native function setText(text:String):Button;
+
+  /**
+   * Sets the tooltip for this Button.
+   *
+   * @param tooltip This may be:<div class="mdesc-details"><ul><li><b>String</b> : A string to be used as innerHTML (html tags are accepted) to show in a tooltip</li><li><b>Object</b> : A configuration object for <a href="output/Ext.QuickTips.html#Ext.QuickTips-register">Ext.QuickTips.register</a>.</li></ul></div>
+   * @return this
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Button.html#method-Ext.Button-setTooltip Ext JS source
+   */
+  public native function setTooltip(tooltip:*):Button;
+
+  /**
+   * Show this button's menu (if it has one)
+   *
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Button.html#method-Ext.Button-showMenu Ext JS source
+   */
+  public native function showMenu():void;
+
+  /**
+   * If a state it passed, it becomes the pressed state otherwise the current state is toggled.
+   *
+   * @param state Force a particular state
+   * @param suppressEvent True to stop events being fired when calling this method.
+   * @return this
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Button.html#method-Ext.Button-toggle Ext JS source
+   */
+  public native function toggle(state:Boolean = false, suppressEvent:Boolean = false):Button;
+
+}
+}
+    

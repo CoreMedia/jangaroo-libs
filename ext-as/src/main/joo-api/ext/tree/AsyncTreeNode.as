@@ -1,34 +1,99 @@
 package ext.tree {
-public class AsyncTreeNode extends TreeNode {
+
+
 /**
- * @cfg {TreeLoader} loader A TreeLoader to be used by this node (defaults to the loader defined on the tree)
- * @constructor
- * @param attributes The attributes/config for the node or just a string with the text for the node 
+ * Fires before this node is loaded, return false to cancel
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:ext.tree.AsyncTreeNode</code>
+ This node
+ *       </li>
+
+ * </ul>
  */
-public function AsyncTreeNode(attributes : *) {
-  super(attributes);
+[Event(name="beforeload")]
+
+/**
+ * Fires when this node is loaded
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:ext.tree.AsyncTreeNode</code>
+ This node
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="load")]
+
+
+/**
+ *
+ * @see ext.config.asynctreenode
+ * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/AsyncTreeNode.html#cls-Ext.tree.AsyncTreeNode Ext JS source
+ */
+public class AsyncTreeNode extends TreeNode {
+
+  /**
+   *
+   *
+   * @param attributes The attributes/config for the node or just a string with the text for the node
+   * @see ext.config.asynctreenode
+   */
+  public function AsyncTreeNode(attributes:*) {
+    super(null);
+  }
+
+  /**
+   The loader used by this node (defaults to using the tree's defined loader)
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/AsyncTreeNode.html#prop-Ext.tree.AsyncTreeNode-loader Ext JS source
+   */
+  public native function get loader():TreeLoader;
+
+  /**
+   * @private
+   */
+  public native function set loader(value:TreeLoader):void;
+
+  /**
+   * Returns true if this node has been loaded
+   *
+   * @return
+    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/AsyncTreeNode.html#method-Ext.tree.AsyncTreeNode-isLoaded Ext JS source
+   */
+  public native function isLoaded():Boolean;
+
+  /**
+   * Returns true if this node is currently loading
+   *
+   * @return
+    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/AsyncTreeNode.html#method-Ext.tree.AsyncTreeNode-isLoading Ext JS source
+   */
+  public native function isLoading():Boolean;
+
+  /**
+   *
+   *
+   * @param deep
+   * @param anim
+   * @param callback
+   * @param scope
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/AsyncTreeNode.html#method-Ext.tree.AsyncTreeNode-loadComplete Ext JS source
+   */
+  public native function loadComplete(deep:Boolean, anim:Boolean, callback:Function = null, scope:Object = null):void;
+
+  /**
+   * Trigger a reload for this node
+   *
+   * @param callback
+   * @param scope The scope (<code>this</code> reference) in which the callback is executed. Defaults to this Node.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/AsyncTreeNode.html#method-Ext.tree.AsyncTreeNode-reload Ext JS source
+   */
+  public native function reload(callback:Function, scope:Object = null):void;
+
 }
-    /**
-     * The loader used by this node (defaults to using the tree's defined loader)
-     * @property loader
-     */
-    override public native function expand(deep : Boolean = undefined, anim : Boolean = undefined, callback : Function = undefined, scope : Object = undefined) : void;
-    /**
-     * Returns true if this node is currently loading
-     * @return 
-     */
-    public native function isLoading() : Boolean;
-    public native function loadComplete(deep, anim, callback, scope) : void;
-    /**
-     * Returns true if this node has been loaded
-     * @return 
-     */
-    public native function isLoaded() : Boolean;
-    override public native function hasChildNodes() : Boolean;
-    /**
-     * Trigger a reload for this node
-     * @param callback
-     * @param scope The scope in which to execute the callback.
-     */
-    public native function reload(callback : Function, scope : Object = undefined) : void;
-}}
+}
+    

@@ -1,215 +1,289 @@
 package ext {
+
 import ext.data.Store;
 
 /**
- * As the amount of records increases, the time required for the browser to render
- * them increases. Paging is used to reduce the amount of data exchanged with the client.
- * Note: if there are more records/rows than can be viewed in the available screen area, vertical
- * scrollbars will be added.
- * <p>Paging is typically handled on the server side (see exception below). The client sends
- * parameters to the server side, which the server needs to interpret and then respond with the
- * approprate data.</p>
- * <p><b>ext.PagingToolbar</b> is a specialized toolbar that is bound to a <b class='link'>ext.data.Store</b>
- * and provides automatic paging control. This Component <b class='link' title='ext.data.Store#load'>load</b>s blocks
- * of data into the <code><b class='link' title='#store'>store</b></code> by passing <b class='link' title='ext.data.Store#paramNames'>paramNames</b> used for
- * paging criteria.</p>
- * <p>PagingToolbar is typically used as one of the Grid's toolbars:</p>
- * <pre><code>
-ext.QuickTips.init(); // to display button quicktips
+ * Fires just before the active page is changed. Return false to prevent the active page from being changed.
+ * Listeners will be called with the following arguments:
+ * <ul>
 
-var myStore = new ext.data.Store({
-    ...
-});
+ *       <li>
+ *           <code>this_:ext.PagingToolbar</code>
 
-var myPageSize = 25;  // server script should only send back 25 items
+ *       </li>
 
-var grid = new Ext.grid.GridPanel({
-    ...
-    store: myStore,
-    bbar: new ext.PagingToolbar({
-        <b class='link' title='#store'>store</b>: myStore,       // grid and PagingToolbar using same store
-        <b class='link' title='#displayInfo'>displayInfo</b>: true,
-        <b class='link' title='#pageSize'>pageSize</b>: myPageSize,
-        <b class='link' title='#prependButtons'>prependButtons</b>: true,
-        items: [
-            'text 1'
-        ]
-    })
-});
- * </code></pre>
- *
- * <p>To use paging, pass the paging requirements to the server when the store is first loaded.</p>
- * <pre><code>
-store.load({
-    params: {
-        start: 0,          // specify params for the first page load if using paging
-        limit: myPageSize,
-        foo:   'bar'
-    }
-});
- * </code></pre>
- * <p><u>Paging with Local Data</u></p>
- * <p>Paging can also be accomplished with local data using extensions:</p>
- * <div class="mdetail-params"><ul>
- * <li><a href="http://extjs.com/forum/showthread.php?t=57386">Ext.ux.data.PagingStore</a></li>
- * <li>Paging Memory Proxy (examples/ux/PagingMemoryProxy.js)</li>
- * </ul></div>
-*/
-public class PagingToolbar extends Toolbar {
-/**
- * @constructor
- * Create a new PagingToolbar
- * @param config The config object
- * @xtype paging
+ *       <li>
+ *           <code>params:Object</code>
+ An object hash of the parameters which the PagingToolbar will send when loading the required page. This will contain:<ul><li><code>start</code> : Number <div class="sub-desc">The starting row number for the next page of records to be retrieved from the server</div></li><li><code>limit</code> : Number <div class="sub-desc">The number of records to be retrieved from the server</div></li></ul><p>(note: the names of the <b>start</b> and <b>limit</b> properties are determined by the store's <a href="output/Ext.data.Store.html#Ext.data.Store-paramNames">paramNames</a> property.)</p><p>Parameters may be added as required in the event handler.</p>
+ *       </li>
+
+ * </ul>
  */
-public function PagingToolbar(config:Object = null) {
-  super(config);
+[Event(name="beforechange")]
+
+/**
+ * Fires after the active page has been changed.
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:ext.PagingToolbar</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>pageData:Object</code>
+ An object that has these properties:<ul><li><code>total</code> : Number <div class="sub-desc">The total number of records in the dataset as returned by the server</div></li><li><code>activePage</code> : Number <div class="sub-desc">The current page number</div></li><li><code>pages</code> : Number <div class="sub-desc">The total number of pages (calculated from the total number of records in the dataset as returned by the server and the current <a href="output/Ext.PagingToolbar.html#Ext.PagingToolbar-pageSize">pageSize</a>)</div></li></ul>
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="change")]
+
+
+/**
+ * As the amount of records increases, the time required for the browser to render them increases. Paging is used to reduce the amount of data exchanged with the client. Note: if there are more records/rows than can be viewed in the available screen area, vertical scrollbars will be added.
+ <p>Paging is typically handled on the server side (see exception below). The client sends parameters to the server side, which the server needs to interpret and then respond with the approprate data.</p><p><b>Ext.PagingToolbar</b> is a specialized toolbar that is bound to a <a href="Ext.data.Store.html">Ext.data.Store</a> and provides automatic paging control. This Component <a href="output/Ext.data.Store.html#Ext.data.Store-load">load</a>s blocks of data into the <tt><a href="output/Ext.PagingToolbar.html#Ext.PagingToolbar-store">store</a></tt> by passing <a href="output/Ext.data.Store.html#Ext.data.Store-paramNames">paramNames</a> used for paging criteria.</p><p>PagingToolbar is typically used as one of the Grid's toolbars:</p><pre><code>Ext.QuickTips.init(); // to display button quicktips
+
+ var myStore = new Ext.data.Store({
+ reader: new Ext.data.JsonReader({
+ <a href="output/Ext.data.JsonReader.html#Ext.data.JsonReader-totalProperty">totalProperty</a>: 'results',
+ ...
+ }),
+ ...
+ });
+
+ var myPageSize = 25;  // server script should only send back 25 items at a time
+
+ var grid = new Ext.grid.GridPanel({
+ ...
+ store: myStore,
+ bbar: new Ext.PagingToolbar({
+ <a href="output/Ext.PagingToolbar.html#Ext.PagingToolbar-store">store</a>: myStore,       // grid and PagingToolbar using same store
+ <a href="output/Ext.PagingToolbar.html#Ext.PagingToolbar-displayInfo">displayInfo</a>: true,
+ <a href="output/Ext.PagingToolbar.html#Ext.PagingToolbar-pageSize">pageSize</a>: myPageSize,
+ <a href="output/Ext.PagingToolbar.html#Ext.PagingToolbar-prependButtons">prependButtons</a>: true,
+ items: [
+ 'text 1'
+ ]
+ })
+ });
+ </code></pre><p>To use paging, pass the paging requirements to the server when the store is first loaded.</p><pre><code>store.load({
+ params: {
+ // specify params for the first page load if using paging
+ start: 0,
+ limit: myPageSize,
+ // other params
+ foo:   'bar'
+ }
+ });
+ </code></pre><p>If using <a href="output/Ext.data.Store.html#Ext.data.Store-autoLoad">store's autoLoad</a> configuration:</p><pre><code>var myStore = new Ext.data.Store({
+ <a href="output/Ext.data.Store.html#Ext.data.Store-autoLoad">autoLoad</a>: {params:{start: 0, limit: 25}},
+ ...
+ });
+ </code></pre><p>The packet sent back from the server would have this form:</p><pre><code>{
+ "success": true,
+ "results": 2000,
+ "rows": [ // <b>&#42;Note:</b> this must be an Array
+ { "id":  1, "name": "Bill", "occupation": "Gardener" },
+ { "id":  2, "name":  "Ben", "occupation": "Horticulturalist" },
+ ...
+ { "id": 25, "name":  "Sue", "occupation": "Botanist" }
+ ]
+ }
+ </code></pre><p><u>Paging with Local Data</u></p><p>Paging can also be accomplished with local data using extensions:</p><div class="mdetail-params"><ul><li><a href="http://extjs.com/forum/showthread.php?t=71532">Ext.ux.data.PagingStore</a></li><li>Paging Memory Proxy (examples/ux/PagingMemoryProxy.js)</li></ul></div>
+ * <p>This component is created by the xtype 'paging' / the EXML element &lt;paging>.</p>
+ * @see ext.config.paging
+ * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PagingToolbar.html#cls-Ext.PagingToolbar Ext JS source
+ */
+public class PagingToolbar extends Toolbar {
+
+  /**
+   * Create a new PagingToolbar
+   *
+   * @param config The config object
+   * @see ext.config.paging
+   */
+  public function PagingToolbar(config:Object) {
+    super(null);
+  }
+
+  /**
+   Indicator for the record position. This property might be used to get the active page number for example:<pre><code>// t is reference to the paging toolbar instance
+   var activePage = Math.ceil((t.cursor + t.pageSize) / t.pageSize);
+   </code></pre>
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PagingToolbar.html#prop-Ext.PagingToolbar-cursor Ext JS source
+   */
+  public native function get cursor():Number;
+
+  /**
+   * @private
+   */
+  public native function set cursor(value:Number):void;
+
+  /**
+   The number of records to display per page. See also <tt><a href="output/Ext.PagingToolbar.html#Ext.PagingToolbar-cursor">cursor</a></tt>.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PagingToolbar.html#prop-Ext.PagingToolbar-pageSize Ext JS source
+   */
+  public native function get pageSize():Number;
+
+  /**
+   * @private
+   */
+  public native function set pageSize(value:Number):void;
+
+  /**
+   <b>Deprecated</b>. <code>paramNames</code> should be set in the <b>data store</b> (see <a href="output/Ext.data.Store.html#Ext.data.Store-paramNames">Ext.data.Store.paramNames</a>).
+   <br/><p>Object mapping of parameter names used for load calls, initially set to:</p><pre>{start: 'start', limit: 'limit'}</pre>
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PagingToolbar.html#prop-Ext.PagingToolbar-paramNames Ext JS source
+   */
+  public native function get paramNames():Object;
+
+  /**
+   * @private
+   */
+  public native function set paramNames(value:Object):void;
+
+  /**
+   Customizable piece of the default paging text (defaults to <tt>'of {0}'</tt>). Note that this string is formatted using <tt>{0}</tt> as a token that is replaced by the number of total pages. This token should be preserved when overriding this string if showing the total page count is desired.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get afterPageText():String;
+
+  /**
+   The text displayed before the input item (defaults to <tt>'Page'</tt>).
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get beforePageText():String;
+
+  /**
+   <tt>true</tt> to display the displayMsg (defaults to <tt>false</tt>)
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get displayInfo():Boolean;
+
+  /**
+   The paging status message to display (defaults to <tt>'Displaying {0} - {1} of {2}'</tt>). Note that this string is formatted using the braced numbers <tt>{0}-{2}</tt> as tokens that are replaced by the values for start, end and total respectively. These tokens should be preserved when overriding this string if showing those values is desired.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get displayMsg():String;
+
+  /**
+   The message to display when no records are found (defaults to 'No data to display')
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get emptyMsg():String;
+
+  /**
+   The quicktip text displayed for the first page button (defaults to <tt>'First Page'</tt>). <b>Note</b>: quick tips must be initialized for the quicktip to show.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get firstText():String;
+
+  /**
+   The quicktip text displayed for the last page button (defaults to <tt>'Last Page'</tt>). <b>Note</b>: quick tips must be initialized for the quicktip to show.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get lastText():String;
+
+  /**
+   The quicktip text displayed for the next page button (defaults to <tt>'Next Page'</tt>). <b>Note</b>: quick tips must be initialized for the quicktip to show.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get nextText():String;
+
+  /**
+   <tt>true</tt> to insert any configured <tt>items</tt> <i>before</i> the paging buttons. Defaults to <tt>false</tt>.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get prependButtons():Boolean;
+
+  /**
+   The quicktip text displayed for the previous page button (defaults to <tt>'Previous Page'</tt>). <b>Note</b>: quick tips must be initialized for the quicktip to show.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get prevText():String;
+
+  /**
+   The quicktip text displayed for the Refresh button (defaults to <tt>'Refresh'</tt>). <b>Note</b>: quick tips must be initialized for the quicktip to show.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get refreshText():String;
+
+  /**
+   The <a href="Ext.data.Store.html">Ext.data.Store</a> the paging toolbar should use as its data source (required).
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get store():Store;
+
+  /**
+   * Binds the paging toolbar to the specified <a href="Ext.data.Store.html">Ext.data.Store</a> <b>(deprecated)</b>
+   *
+   * @param store The data store to bind
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PagingToolbar.html#method-Ext.PagingToolbar-bind Ext JS source
+   */
+  public native function bind(store:Store):void;
+
+  /**
+   * Binds the paging toolbar to the specified <a href="Ext.data.Store.html">Ext.data.Store</a>
+   *
+   * @param store The store to bind to this toolbar
+   * @param initial true to not remove listeners
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PagingToolbar.html#method-Ext.PagingToolbar-bindStore Ext JS source
+   */
+  public native function bindStore(store:Store, initial:Boolean = false):void;
+
+  /**
+   * Change the active page
+   *
+   * @param page The page to display
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PagingToolbar.html#method-Ext.PagingToolbar-changePage Ext JS source
+   */
+  public native function changePage(page:int):void;
+
+  /**
+   * Refresh the current page, has the same effect as clicking the 'refresh' button.
+   *
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PagingToolbar.html#method-Ext.PagingToolbar-doRefresh Ext JS source
+   */
+  public native function doRefresh():void;
+
+  /**
+   * Move to the first page, has the same effect as clicking the 'first' button.
+   *
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PagingToolbar.html#method-Ext.PagingToolbar-moveFirst Ext JS source
+   */
+  public native function moveFirst():void;
+
+  /**
+   * Move to the last page, has the same effect as clicking the 'last' button.
+   *
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PagingToolbar.html#method-Ext.PagingToolbar-moveLast Ext JS source
+   */
+  public native function moveLast():void;
+
+  /**
+   * Move to the next page, has the same effect as clicking the 'next' button.
+   *
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PagingToolbar.html#method-Ext.PagingToolbar-moveNext Ext JS source
+   */
+  public native function moveNext():void;
+
+  /**
+   * Move to the previous page, has the same effect as clicking the 'previous' button.
+   *
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PagingToolbar.html#method-Ext.PagingToolbar-movePrevious Ext JS source
+   */
+  public native function movePrevious():void;
+
+  /**
+   * Unbinds the paging toolbar from the specified <a href="Ext.data.Store.html">Ext.data.Store</a> <b>(deprecated)</b>
+   *
+   * @param store The data store to unbind
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PagingToolbar.html#method-Ext.PagingToolbar-unbind Ext JS source
+   */
+  public native function unbind(store:Store):void;
+
 }
-    /**
-     * @cfg {ext.data.Store} store
-     * The <b class='link'>ext.data.Store</b> the paging toolbar should use as its data source (required).
-     */
-    /**
-     * @cfg {Boolean} displayInfo
-     * <code>true</code> to display the displayMsg (defaults to <code>false</code>)
-     */
-    /**
-     * @cfg {Number} pageSize
-     * The number of records to display per page (defaults to <code>20</code>)
-     */
-    public var pageSize  : Number;
-    /**
-     * @cfg {Boolean} prependButtons
-     * <code>true</code> to insert any configured <code>items</code> <i>before</i> the paging buttons.
-     * Defaults to <code>false</code>.
-     */
-    /**
-     * @cfg {String} displayMsg
-     * The paging status message to display (defaults to <code>'Displaying {0} - {1} of {2}'</code>).
-     * Note that this string is formatted using the braced numbers <code>{0}-{2}</code> as tokens
-     * that are replaced by the values for start, end and total respectively. These tokens should
-     * be preserved when overriding this string if showing those values is desired.
-     */
-    public var displayMsg  : String;
-    /**
-     * @cfg {String} emptyMsg
-     * The message to display when no records are found (defaults to 'No data to display')
-     */
-    public var emptyMsg  : String;
-    /**
-     * @cfg {String} beforePageText
-     * The text displayed before the input item (defaults to <code>'Page'</code>).
-     */
-    public var beforePageText  : String;
-    /**
-     * @cfg {String} afterPageText
-     * Customizable piece of the default paging text (defaults to <code>'of {0}'</code>). Note that
-     * this string is formatted using <code>{0}</code> as a token that is replaced by the number of
-     * total pages. This token should be preserved when overriding this string if showing the
-     * total page count is desired.
-     */
-    public var afterPageText  : String;
-    /**
-     * @cfg {String} firstText
-     * The quicktip text displayed for the first page button (defaults to <code>'First Page'</code>).
-     * <b>Note</b>: quick tips must be initialized for the quicktip to show.
-     */
-    public var firstText  : String;
-    /**
-     * @cfg {String} prevText
-     * The quicktip text displayed for the previous page button (defaults to <code>'Previous Page'</code>).
-     * <b>Note</b>: quick tips must be initialized for the quicktip to show.
-     */
-    public var prevText  : String;
-    /**
-     * @cfg {String} nextText
-     * The quicktip text displayed for the next page button (defaults to <code>'Next Page'</code>).
-     * <b>Note</b>: quick tips must be initialized for the quicktip to show.
-     */
-    public var nextText  : String;
-    /**
-     * @cfg {String} lastText
-     * The quicktip text displayed for the last page button (defaults to <code>'Last Page'</code>).
-     * <b>Note</b>: quick tips must be initialized for the quicktip to show.
-     */
-    public var lastText  : String;
-    /**
-     * @cfg {String} refreshText
-     * The quicktip text displayed for the Refresh button (defaults to <code>'Refresh'</code>).
-     * <b>Note</b>: quick tips must be initialized for the quicktip to show.
-     */
-    public var refreshText  : String;
-    /**
-     * @deprecated
-     * <b>The defaults for these should be set in the data store.</b>
-     * Object mapping of parameter names used for load calls, initially set to:
-     * <pre>{start: 'start', limit: 'limit'}</pre>
-     */
-    /**
-     * The number of records to display per page.  See also <code><b class='link' title='#cursor'>cursor</b></code>.
-     * @property pageSize
-     */
-    /**
-     * Indicator for the record position.  This property might be used to get the active page
-     * number for example:<pre><code>
-     * // t is reference to the paging toolbar instance
-     * var activePage = Math.ceil((t.cursor + t.pageSize) / t.pageSize);
-     * </code></pre>
-     * @property cursor
-     */
-    override protected native function initComponent() : void;
-    protected native function onFirstLayout(thisToolbar : PagingToolbar, params : Object) : void;
-    protected native function updateInfo() : void;
-    protected native function onLoad(store, r, o) : void;
-    protected native function getPageData() : void;
-    /**
-     * Change the active page
-     * @param page The page to display
-     */
-    public native function changePage(page : int) : void;
-    protected native function onLoadError() : void;
-    protected native function readPage(d) : void;
-    public native function onPagingFocus() : void;
-    protected native function onPagingBlur(e) : void;
-    protected native function onPagingKeyDown(field, e) : void;
-    protected native function getParams() : void;
-    protected native function beforeLoad() : void;
-    protected native function doLoad(start) : void;
-    /**
-     * Move to the first page, has the same effect as clicking the 'first' button.
-     */
-    public native function moveFirst() : void;
-    /**
-     * Move to the previous page, has the same effect as clicking the 'previous' button.
-     */
-    public native function movePrevious() : void;
-    /**
-     * Move to the next page, has the same effect as clicking the 'next' button.
-     */
-    public native function moveNext() : void;
-    /**
-     * Move to the last page, has the same effect as clicking the 'last' button.
-     */
-    public native function moveLast() : void;
-    /**
-     * Refresh the current page, has the same effect as clicking the 'refresh' button.
-     */
-    public native function refresh() : void;
-    /**
-     * Binds the paging toolbar to the specified <b class='link'>ext.data.Store</b>
-     * @param store The store to bind to this toolbar
-     * @param initial true to not remove listeners
-     */
-    public native function bindStore(store : Store, initial : Boolean = undefined) : void;
-    /**
-     * Unbinds the paging toolbar from the specified <b class='link'>ext.data.Store</b> <b>(deprecated)</b>
-     * @param store The data store to unbind
-     */
-    public native function unbind(store : Store) : void;
-    /**
-     * Binds the paging toolbar to the specified <b class='link'>ext.data.Store</b> <b>(deprecated)</b>
-     * @param store The data store to bind
-     */
-    public native function bind(store : Store) : void;
-    override protected native function onDestroy() : void;
-}}
+}
+    

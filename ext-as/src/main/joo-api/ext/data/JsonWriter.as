@@ -1,51 +1,74 @@
 package ext.data {
 
+
 /**
- * DataWriter extension for writing an array or single <b class='link'>ext.data.Record</b> object(s) in preparation for executing a remote CRUD action.
+ * DataWriter extension for writing an array or single <a href="Ext.data.Record.html">Ext.data.Record</a> object(s) in preparation for executing a remote CRUD action.
+ * @see ext.config.jsonwriter
+ * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/JsonWriter.html#cls-Ext.data.JsonWriter Ext JS source
  */
 public class JsonWriter extends DataWriter {
-  public function JsonWriter(meta : Object, recordType : Object) {
-    super(meta, recordType);
-  }
-    /**
-     * @cfg {Boolean} returnJson <b>Deprecated.  Use <b class='link'>ext.data.JsonWriter#encode</b> instead.
-     */
-    public var returnJson ;
-    /**
-     * @cfg {Boolean} encode <code>true</code> to <b class='link' title='Ext.util.JSON#encode'>encode</b> the
-     * <b class='link' title='ext.data.DataWriter#toHash hashed'>data</b>. Defaults to <code>true</code>.  When using
-     * <b class='link'>ext.data.DirectProxy</b>, set this to <code>false</code> since ext.Direct.JsonProvider will perform
-     * its own json-encoding.  In addition, if you're using <b class='link'>ext.data.HttpProxy</b>, setting to <code>false</code>
-     * will cause HttpProxy to transmit data using the <b>jsonData</b> configuration-params of <b class='link'>ext.Ajax#request</b>
-     * instead of <b>params</b>.  When using a <b class='link'>ext.data.Store#restful</b> Store, some serverside frameworks are
-     * tuned to expect data through the jsonData mechanism.  In those cases, one will want to set <b>encode: <code>false</code></b>
-     */
-    public var encode  : Boolean;
-    /**
-     * Final action of a write event.  Apply the written data-object to params.
-     * @param action [ext.data.Api.actions.create|read|update|destroy]
-     * @param rs
-     * @param http params
-     * @param data object populated according to DataReader meta-data "root" and "idProperty"
-     */
-    override public native function render(action : String, rs : Array/*Record*/, http : Object, data : Object) : void;
-    /**
-     * createRecord
-     * @protected
-     * @param rec
-     */
-    override public native function createRecord(rec : Record) : void;
-    /**
-     * updateRecord
-     * @protected
-     * @param rec
-     */
-    override public native function updateRecord(rec : Record) : void;
-    /**
-     * destroyRecord
-     * @protected
-     * @param rec
-     */
-    override public native function destroyRecord(rec : Record) : void;
 
-}}
+  /**
+   *
+   *
+   * @see ext.config.jsonwriter
+   */
+  public function JsonWriter() {
+    super(null, null);
+  }
+
+  /**
+   <tt>true</tt> to <a href="output/Ext.util.JSON.html#Ext.util.JSON-encode">JSON encode</a> the <a href="output/Ext.data.DataWriter.html#Ext.data.DataWriter-toHash">hashed data</a> into a standard HTTP parameter named after this Reader's <code>meta.root</code> property which, by default is imported from the associated Reader. Defaults to <tt>true</tt>.
+   <p>If set to <code>false</code>, the hashed data is <a href="output/Ext.util.JSON.html#Ext.util.JSON-encode">JSON encoded</a>, along with the associated <a href="Ext.data.Store.html">Ext.data.Store</a>'s <a href="output/Ext.data.Store.html#Ext.data.Store-baseParams">baseParams</a>, into the POST body.</p><p>When using <a href="Ext.data.DirectProxy.html">Ext.data.DirectProxy</a>, set this to <tt>false</tt> since Ext.Direct.JsonProvider will perform its own json-encoding. In addition, if you're using <a href="Ext.data.HttpProxy.html">Ext.data.HttpProxy</a>, setting to <tt>false</tt> will cause HttpProxy to transmit data using the <b>jsonData</b> configuration-params of <a href="output/Ext.Ajax.html#Ext.Ajax-request">Ext.Ajax.request</a> instead of <b>params</b>.</p><p>When using a <a href="output/Ext.data.Store.html#Ext.data.Store-restful">Ext.data.Store.restful</a> Store, some serverside frameworks are tuned to expect data through the jsonData mechanism. In those cases, one will want to set <b>encode: <tt>false</tt></b>, as in let the lower-level connection object (eg: Ext.Ajax) do the encoding.</p>
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get encode():Boolean;
+
+  /**
+   False to send only the id to the server on delete, true to encode it in an object literal, eg: <pre><code>{id: 1}
+   </code></pre>Defaults to <tt>false</tt>
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get encodeDelete():Boolean;
+
+  /**
+   * Implements abstract Ext.data.DataWriter#createRecord
+   *
+   * @param rec
+   * @return
+    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/JsonWriter.html#method-Ext.data.JsonWriter-createRecord Ext JS source
+   */
+  protected native function createRecord(rec:Record):Object;
+
+  /**
+   * Implements abstract Ext.data.DataWriter#destroyRecord
+   *
+   * @param rec
+   * @return
+    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/JsonWriter.html#method-Ext.data.JsonWriter-destroyRecord Ext JS source
+   */
+  protected native function destroyRecord(rec:Record):Object;
+
+  /**
+   * This method should not need to be called by application code, however it may be useful on occasion to override it, or augment it with an <a href="output/Function.html#Function-createInterceptor">interceptor</a> or <a href="output/Function.html#Function-createSequence">sequence</a>.
+   <p>The provided implementation encodes the serialized data representing the Store's modified Records into the Ajax request's <code>params</code> according to the <code><a href="output/Ext.data.JsonWriter.html#Ext.data.JsonWriter-encode">encode</a></code> setting.</p>
+   *
+   * @param baseParams as defined by <a href="output/Ext.data.Store.html#Ext.data.Store-baseParams">Ext.data.Store.baseParams</a>. The baseParms must be encoded by the extending class, eg: <a href="Ext.data.JsonWriter.html">Ext.data.JsonWriter</a>, <a href="Ext.data.XmlWriter.html">Ext.data.XmlWriter</a>.
+   * @param params Http params to be sent to server.
+   * @param data object populated according to DataReader meta-data.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/JsonWriter.html#method-Ext.data.JsonWriter-render Ext JS source
+   */
+  override public native function render(baseParams:Object, params:Object, data:*):void;
+
+  /**
+   * Implements abstract Ext.data.DataWriter#updateRecord
+   *
+   * @param rec
+   * @return
+    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/JsonWriter.html#method-Ext.data.JsonWriter-updateRecord Ext JS source
+   */
+  protected native function updateRecord(rec:Record):Object;
+
+}
+}
+    

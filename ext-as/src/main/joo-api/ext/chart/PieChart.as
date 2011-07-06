@@ -1,11 +1,23 @@
 package ext.chart {
-public class PieChart extends Chart {
+
+
 /**
- * @constructor
- * @xtype piechart
+ *
+ * <p>This component is created by the xtype 'piechart' / the EXML element &lt;piechart>.</p>
+ * @see ext.config.piechart
+ * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Chart.html#cls-Ext.chart.PieChart Ext JS source
  */
-    public var type;
-    override protected native function onSwfReady(isReset : Boolean) : void;
-    public native function setDataField(field) : void;
-    public native function setCategoryField(field) : void;
-}}
+public class PieChart extends Chart {
+
+  /**
+   *
+   *
+   * @see ext.config.piechart
+   */
+  public function PieChart() {
+    super();
+  }
+
+}
+}
+    

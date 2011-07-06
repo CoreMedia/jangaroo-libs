@@ -1,170 +1,181 @@
 package ext.form {
 
-import js.XMLHttpRequest;
 
 /**
- * <p>The subclasses of this class provide actions to perform upon <b class='link' title='ext.form.BasicForm'>Form</b>s.</p>
- * <p>Instances of this class are only created by a <b class='link' title='ext.form.BasicForm'>Form</b> when
- * the Form needs to perform an action such as submit or load. The Configuration options
- * listed for this class are set through the Form's action methods: <b class='link' title='ext.form.BasicForm#submit'>submit</b>,
- * <b class='link' title='ext.form.BasicForm#load'>load</b> and <b class='link' title='ext.form.BasicForm#doAction'>doAction</b></p>
- * <p>The instance of Action which performed the action is passed to the success
- * and failure callbacks of the Form's action methods (<b class='link' title='ext.form.BasicForm#submit'>submit</b>,
- * <b class='link' title='ext.form.BasicForm#load'>load</b> and <b class='link' title='ext.form.BasicForm#doAction'>doAction</b>),
- * and to the <b class='link' title='ext.form.BasicForm#actioncomplete'>actioncomplete</b> and
- * <b class='link' title='ext.form.BasicForm#actionfailed'>actionfailed</b> event handlers.</p>
+ * The subclasses of this class provide actions to perform upon <a href="Ext.form.BasicForm.html">Form</a>s.
+ <p>Instances of this class are only created by a <a href="Ext.form.BasicForm.html">Form</a> when the Form needs to perform an action such as submit or load. The Configuration options listed for this class are set through the Form's action methods: <a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-submit">submit</a>, <a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-load">load</a> and <a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-doAction">doAction</a></p><p>The instance of Action which performed the action is passed to the success and failure callbacks of the Form's action methods (<a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-submit">submit</a>, <a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-load">load</a> and <a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-doAction">doAction</a>), and to the <a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-actioncomplete">actioncomplete</a> and <a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-actionfailed">actionfailed</a> event handlers.</p>
+ * @see ext.config.action
+ * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Action1.html#cls-Ext.form.Action Ext JS source
  */
 public class Action {
-/**
- * Failure type returned when client side validation of the Form fails
- * thus aborting a submit action. Client side validation is performed unless
- * <b class='link' title='#clientValidation'>clientValidation</b> is explicitly set to <code>false</code>.
- * @static
- */
-public static var CLIENT_INVALID  : String = 'client';
-/**
- * <p>Failure type returned when server side processing fails and the <b class='link' title='#result'>result</b>'s
- * <code><b>success</b></code> property is set to <code>false</code>.</p>
- * <p>In the case of a form submission, field-specific error messages may be returned in the
- * <b class='link' title='#result'>result</b>'s <code><b>errors</b></code> property.</p>
- * @static
- */
-public static var SERVER_INVALID  : String = 'server';
-/**
- * Failure type returned when a communication error happens when attempting
- * to send a request to the remote server. The <b class='link' title='#response'>response</b> may be examined to
- * provide further information.
- * @static
- */
-public static var CONNECT_FAILURE  : String = 'connect';
-/**
- * Failure type returned when the response's <code><b>success</b></code>
- * property is set to <code>false</code>, or no field values are returned in the response's
- * <code><b>data</b></code> property.
- * @static
- */
-public static var LOAD_FAILURE  : String = 'load';
-/**
- * @cfg {String} url The URL that the Action is to invoke.
- */
-/**
- * @cfg {Boolean} reset When set to <code><b>true</b></code>, causes the Form to be
- * <b class='link' title='ext.form.BasicForm.reset'>reset</b> on Action success. If specified, this happens
- * <b>before</b> the <b class='link' title='#success'>success</b> callback is called and before the Form's
- * <b class='link' title='ext.form.BasicForm.actioncomplete'>actioncomplete</b> event fires.
- */
-/**
- * @cfg {String} method The HTTP method to use to access the requested URL. Defaults to the
- * <b class='link'>ext.form.BasicForm</b>'s method, or if that is not specified, the underlying DOM form's method.
- */
-/**
- * @cfg {Mixed} params <p>Extra parameter values to pass. These are added to the Form's
- * <b class='link'>ext.form.BasicForm#baseParams</b> and passed to the specified URL along with the Form's
- * input fields.</p>
- * <p>Parameters are encoded as standard HTTP parameters using <b class='link'>Ext#urlEncode</b>.</p>
- */
-/**
- * @cfg {Number} timeout The number of seconds to wait for a server response before
- * failing with the <b class='link' title='#failureType'>failureType</b> as <b class='link'>#Action.CONNECT_FAILURE</b>. If not specified,
- * defaults to the configured <code><b class='link' title='ext.form.BasicForm#timeout'>timeout</b></code> of the
- * <b class='link' title='ext.form.BasicForm'>form</b>.
- */
-/**
- * @cfg {Function} success The function to call when a valid success return packet is recieved.
- * The function is passed the following parameters:<ul class="mdetail-params">
- * <li><b>form</b> : ext.form.BasicForm<div class="sub-desc">The form that requested the action</div></li>
- * <li><b>action</b> : ext.form.Action<div class="sub-desc">The Action class. The <b class='link' title='#result'>result</b>
- * property of this object may be examined to perform custom postprocessing.</div></li>
- * </ul>
- */
-/**
- * @cfg {Function} failure The function to call when a failure packet was recieved, or when an
- * error ocurred in the Ajax communication.
- * The function is passed the following parameters:<ul class="mdetail-params">
- * <li><b>form</b> : ext.form.BasicForm<div class="sub-desc">The form that requested the action</div></li>
- * <li><b>action</b> : ext.form.Action<div class="sub-desc">The Action class. If an Ajax
- * error ocurred, the failure type will be in <b class='link' title='#failureType'>failureType</b>. The <b class='link' title='#result'>result</b>
- * property of this object may be examined to perform custom postprocessing.</div></li>
- * </ul>
- */
-/**
- * @cfg {Object} scope The scope in which to call the callback functions (The <code>this</code> reference
- * for the callback functions).
- */
-/**
- * @cfg {String} waitMsg The message to be displayed by a call to <b class='link'>ext.MessageBox#wait</b>
- * during the time the action is being processed.
- */
-/**
- * @cfg {String} waitTitle The title to be displayed by a call to <b class='link'>ext.MessageBox#wait</b>
- * during the time the action is being processed.
- */
-/**
- * The type of action this Action instance performs.
- * Currently only "submit" and "load" are supported.
- */
-    public var type  : String;
-/**
- * The type of failure detected will be one of these: <b class='link' title='#CLIENT_INVALID'>CLIENT_INVALID</b>,
- * <b class='link' title='#SERVER_INVALID'>SERVER_INVALID</b>, <b class='link' title='#CONNECT_FAILURE'>CONNECT_FAILURE</b>, or <b class='link' title='#LOAD_FAILURE'>LOAD_FAILURE</b>.  Usage:
- * <pre><code>
-var fp = new ext.form.FormPanel({
-...
-buttons: [{
-    text: 'Save',
-    formBind: true,
-    handler: function(){
-        if(fp.getForm().isValid()){
-            fp.getForm().submit({
-                url: 'form-submit.php',
-                waitMsg: 'Submitting your data...',
-                success: function(form, action){
-                    // server responded with success = true
-                    var result = action.<b class='link' title='#result'>result</b>;
-                },
-                failure: function(form, action){
-                    if (action.<b class='link' title='#failureType'>failureType</b> === ext.form.Action.<b class='link' title='#CONNECT_FAILURE'>CONNECT_FAILURE</b>) {
-                        ext.Msg.alert('Error',
-                            'Status:'+action.<b class='link' title='#response'>response</b>.status+': '+
-                            action.<b class='link' title='#response'>response</b>.statusText);
-                    }
-                    if (action.failureType === ext.form.Action.<b class='link' title='#SERVER_INVALID'>SERVER_INVALID</b>){
-                        // server responded with success = false
-                        ext.Msg.alert('Invalid', action.<b class='link' title='#result'>result</b>.errormsg);
-                    }
-                }
-            });
-        }
-    }
-},{
-    text: 'Reset',
-    handler: function(){
-        fp.getForm().reset();
-    }
-}]
- * </code></pre>
- * @property failureType
- */
-  public native function get failureType() : String;
- /**
- * The XMLHttpRequest object used to perform the action.
- * @property response
- */
-  public native function get response() : XMLHttpRequest;
- /**
- * The decoded response object containing a boolean <code><b>success</b></code> property and
- * other, action-specific properties.
- * @property result
- */
-  public native function get result() : Object;
 
-    public native function run(options) : void;
-    public native function success(response) : void;
-    public native function handleResponse(response) : void;
-    public native function failure(response) : void;
-    protected native function processResponse(response) : void;
-    public native function getUrl(appendParams) : void;
-    protected native function getMethod() : void;
-    protected native function getParams() : void;
-    protected native function createCallback(opts) : void;
-}}
+  /**
+   *
+   *
+   * @see ext.config.action
+   */
+  public function Action() {
+    super();
+  }
+
+  /**
+   Failure type returned when client side validation of the Form fails thus aborting a submit action. Client side validation is performed unless <a href="output/Ext.form.Action.html#Ext.form.Action-clientValidation">clientValidation</a> is explicitly set to <tt>false</tt>.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Action1.html#prop-Ext.form.Action-CLIENT_INVALID Ext JS source
+   */
+  public static const CLIENT_INVALID:String;
+
+  /**
+   Failure type returned when a communication error happens when attempting to send a request to the remote server. The <a href="output/Ext.form.Action.html#Ext.form.Action-response">response</a> may be examined to provide further information.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Action1.html#prop-Ext.form.Action-CONNECT_FAILURE Ext JS source
+   */
+  public static const CONNECT_FAILURE:String;
+
+  /**
+   Failure type returned when the response's <tt style="font-weight:bold">success</tt> property is set to <tt>false</tt>, or no field values are returned in the response's <tt style="font-weight:bold">data</tt> property.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Action1.html#prop-Ext.form.Action-LOAD_FAILURE Ext JS source
+   */
+  public static const LOAD_FAILURE:String;
+
+  /**
+   Failure type returned when server side processing fails and the <a href="output/Ext.form.Action.html#Ext.form.Action-result">result</a>'s <tt style="font-weight:bold">success</tt> property is set to <tt>false</tt>.
+   <p>In the case of a form submission, field-specific error messages may be returned in the <a href="output/Ext.form.Action.html#Ext.form.Action-result">result</a>'s <tt style="font-weight:bold">errors</tt> property.</p>
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Action1.html#prop-Ext.form.Action-SERVER_INVALID Ext JS source
+   */
+  public static const SERVER_INVALID:String;
+
+  /**
+   The type of failure detected will be one of these: <a href="output/Ext.form.Action.html#Ext.form.Action-CLIENT_INVALID">CLIENT_INVALID</a>, <a href="output/Ext.form.Action.html#Ext.form.Action-SERVER_INVALID">SERVER_INVALID</a>, <a href="output/Ext.form.Action.html#Ext.form.Action-CONNECT_FAILURE">CONNECT_FAILURE</a>, or <a href="output/Ext.form.Action.html#Ext.form.Action-LOAD_FAILURE">LOAD_FAILURE</a>. Usage: <pre><code>var fp = new Ext.form.FormPanel({
+   ...
+   buttons: [{
+   text: 'Save',
+   formBind: true,
+   handler: function(){
+   if(fp.getForm().isValid()){
+   fp.getForm().submit({
+   url: 'form-submit.php',
+   waitMsg: 'Submitting your data...',
+   success: function(form, action){
+   // server responded with success = true
+   var result = action.<a href="output/Ext.form.Action.html#Ext.form.Action-result">result</a>;
+   },
+   failure: function(form, action){
+   if (action.<a href="output/Ext.form.Action.html#Ext.form.Action-failureType">failureType</a> === Ext.form.Action.<a href="output/Ext.form.Action.html#Ext.form.Action-CONNECT_FAILURE">CONNECT_FAILURE</a>) {
+   Ext.Msg.alert('Error',
+   'Status:'+action.<a href="output/Ext.form.Action.html#Ext.form.Action-response">response</a>.status+': '+
+   action.<a href="output/Ext.form.Action.html#Ext.form.Action-response">response</a>.statusText);
+   }
+   if (action.failureType === Ext.form.Action.<a href="output/Ext.form.Action.html#Ext.form.Action-SERVER_INVALID">SERVER_INVALID</a>){
+   // server responded with success = false
+   Ext.Msg.alert('Invalid', action.<a href="output/Ext.form.Action.html#Ext.form.Action-result">result</a>.errormsg);
+   }
+   }
+   });
+   }
+   }
+   },{
+   text: 'Reset',
+   handler: function(){
+   fp.getForm().reset();
+   }
+   }]
+   </code></pre>
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Action1.html#prop-Ext.form.Action-failureType Ext JS source
+   */
+  public native function get failureType():String;
+
+  /**
+   * @private
+   */
+  public native function set failureType(value:String):void;
+
+  /**
+   The XMLHttpRequest object used to perform the action.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Action1.html#prop-Ext.form.Action-response Ext JS source
+   */
+  public native function get response():Object;
+
+  /**
+   * @private
+   */
+  public native function set response(value:Object):void;
+
+  /**
+   The decoded response object containing a boolean <tt style="font-weight:bold">success</tt> property and other, action-specific properties.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Action1.html#prop-Ext.form.Action-result Ext JS source
+   */
+  public native function get result():Object;
+
+  /**
+   * @private
+   */
+  public native function set result(value:Object):void;
+
+  /**
+   The type of action this Action instance performs. Currently only "submit" and "load" are supported.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Action1.html#prop-Ext.form.Action-type Ext JS source
+   */
+  public native function get type():String;
+
+  /**
+   * @private
+   */
+  public native function set type(value:String):void;
+
+  /**
+   The HTTP method to use to access the requested URL. Defaults to the <a href="Ext.form.BasicForm.html">Ext.form.BasicForm</a>'s method, or if that is not specified, the underlying DOM form's method.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get method():String;
+
+  /**
+   Extra parameter values to pass. These are added to the Form's <a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-baseParams">Ext.form.BasicForm.baseParams</a> and passed to the specified URL along with the Form's input fields.
+   <p>Parameters are encoded as standard HTTP parameters using <a href="output/Ext.html#Ext-urlEncode">Ext.urlEncode</a>.</p>
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get params():*;
+
+  /**
+   When set to <tt><b>true</b></tt>, causes the Form to be <a href="Ext.form.BasicForm.reset.html">reset</a> on Action success. If specified, this happens <b>before</b> the <a href="output/Ext.form.Action.html#Ext.form.Action-success">success</a> callback is called and before the Form's <a href="Ext.form.BasicForm.actioncomplete.html">actioncomplete</a> event fires.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get reset():Boolean;
+
+  /**
+   The scope in which to call the callback functions (The <tt>this</tt> reference for the callback functions).
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get scope():Object;
+
+  /**
+   If set to <tt>true</tt>, the emptyText value will be sent with the form when it is submitted. Defaults to <tt>true</tt>.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get submitEmptyText():Boolean;
+
+  /**
+   The number of seconds to wait for a server response before failing with the <a href="output/Ext.form.Action.html#Ext.form.Action-failureType">failureType</a> as <a href="output/Ext.form.Action.html#Ext.form.Action-Action.CONNECT_FAILURE">Action.CONNECT_FAILURE</a>. If not specified, defaults to the configured <tt><a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-timeout">timeout</a></tt> of the <a href="Ext.form.BasicForm.html">form</a>.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get timeout():Number;
+
+  /**
+   The URL that the Action is to invoke.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get url():String;
+
+  /**
+   The message to be displayed by a call to <a href="output/Ext.MessageBox.html#Ext.MessageBox-wait">Ext.MessageBox.wait</a> during the time the action is being processed.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get waitMsg():String;
+
+  /**
+   The title to be displayed by a call to <a href="output/Ext.MessageBox.html#Ext.MessageBox-wait">Ext.MessageBox.wait</a> during the time the action is being processed.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get waitTitle():String;
+
+}
+}
+    

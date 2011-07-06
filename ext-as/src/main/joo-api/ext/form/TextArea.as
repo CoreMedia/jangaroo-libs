@@ -1,51 +1,49 @@
 package ext.form {
-import ext.Element;
+
 
 /**
- * Multiline text field.  Can be used as a direct replacement for traditional textarea fields, plus adds
- * support for auto-sizing.
-*/
-public class TextArea extends TextField {
-/**
- * @constructor
- * Creates a new TextArea
- * @param config Configuration options
- * @xtype textarea
+ * Multiline text field. Can be used as a direct replacement for traditional textarea fields, plus adds support for auto-sizing.
+ * <p>This component is created by the xtype 'textarea' / the EXML element &lt;textarea>.</p>
+ * @see ext.config.textarea
+ * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TextArea.html#cls-Ext.form.TextArea Ext JS source
  */
-public function TextArea(config:Object = null) {
-  super(config);
+public class TextArea extends TextField {
+
+  /**
+   * Creates a new TextArea
+   *
+   * @param config Configuration options
+   * @see ext.config.textarea
+   */
+  public function TextArea(config:Object) {
+    super(null);
+  }
+
+  /**
+   The maximum height to allow when <tt><a href="output/Ext.form.TextField.html#Ext.form.TextField-grow">grow</a>=true</tt> (defaults to <tt>1000</tt>)
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  override public native function get growMax():Number;
+
+  /**
+   The minimum height to allow when <tt><a href="output/Ext.form.TextField.html#Ext.form.TextField-grow">grow</a>=true</tt> (defaults to <tt>60</tt>)
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  override public native function get growMin():Number;
+
+  /**
+   <tt>true</tt> to prevent scrollbars from appearing regardless of how much text is in the field. This option is only relevant when <a href="output/Ext.form.TextArea.html#Ext.form.TextArea-grow">grow</a> is <tt>true</tt>. Equivalent to setting overflow: hidden, defaults to <tt>false</tt>.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  public native function get preventScrollbars():Boolean;
+
+  /**
+   * Automatically grows the field to accommodate the height of the text up to the maximum field height allowed. This only takes effect if grow = true, and fires the <a href="output/Ext.form.TextArea.html#Ext.form.TextArea-autosize">autosize</a> event if the height changes.
+   *
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TextArea.html#method-Ext.form.TextArea-autoSize Ext JS source
+   */
+  override public native function autoSize():void;
+
 }
-    /**
-     * @cfg {Number} growMin The minimum height to allow when <code><b class='link' title='ext.form.TextField#grow'>grow</b>=true</code>
-     * (defaults to <code>60</code>)
-     */
-    //public var growMin  : Number;
-    /**
-     * @cfg {Number} growMax The maximum height to allow when <code><b class='link' title='ext.form.TextField#grow'>grow</b>=true</code>
-     * (defaults to <code>1000</code>)
-     */
-    //public var growMax : Number;
-    public var growAppend ;
-    public var growPad ;
-    public var enterIsSpecial ;
-    /**
-     * @cfg {Boolean} preventScrollbars <code>true</code> to prevent scrollbars from appearing regardless of how much text is
-     * in the field (equivalent to setting overflow: hidden, defaults to <code>false</code>)
-     */
-    public var preventScrollbars : Boolean;
-    /**
-     * @cfg {String/Object} autoCreate <p>A <b class='link' title='ext.DomHelper'>DomHelper</b> element spec, or true for a default
-     * element spec. Used to create the <b class='link' title='ext.Component#getEl'>Element</b> which will encapsulate this Component.
-     * See <code><b class='link' title='ext.Component#autoEl'>autoEl</b></code> for details.  Defaults to:</p>
-     * <pre><code>{tag: "textarea", style: "width:100px;height:60px;", autocomplete: "off"}</code></pre>
-     */
-    override protected native function onRender(container : Element, position : Element) : void;
-    override protected native function onDestroy() : void;
-    override protected native function fireKey(e) : void;
-    override protected native function onKeyUp(e) : void;
-    /**
-     * Automatically grows the field to accomodate the height of the text up to the maximum field height allowed.
-     * This only takes effect if grow = true, and fires the <b class='link' title='#autosize'>autosize</b> event if the height changes.
-     */
-    override public native function autoSize() : void;
-}}
+}
+    
