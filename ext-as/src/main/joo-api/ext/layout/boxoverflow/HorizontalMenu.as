@@ -14,7 +14,7 @@ public class HorizontalMenu extends Menu {
    * @see ext.config.horizontalmenu
    */
   public function HorizontalMenu() {
-    super();
+    super(null);
   }
 
 }

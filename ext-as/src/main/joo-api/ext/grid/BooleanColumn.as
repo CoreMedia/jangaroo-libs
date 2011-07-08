@@ -15,7 +15,7 @@ public class BooleanColumn extends Column {
    * @see ext.config.booleancolumn
    */
   public function BooleanColumn() {
-    super();
+    super(null);
   }
 
   /**

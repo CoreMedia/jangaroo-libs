@@ -48,7 +48,7 @@ public class Load extends Action {
    * @see ext.config.load
    */
   public function Load() {
-    super();
+    super(null);
   }
 
 }

@@ -43,7 +43,7 @@ public class Submit extends Action {
    * @see ext.config.submit
    */
   public function Submit() {
-    super();
+    super(null);
   }
 
   /**

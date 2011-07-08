@@ -9,7 +9,7 @@ package ext.config {
  * @see ext.grid.TemplateColumn
  */
 [ExtConfig(target="ext.grid.TemplateColumn")]
-public class templatecolumn extends column {
+public class templatecolumn extends gridcolumn {
 
   public function templatecolumn(config:Object = null) {
 
@@ -20,12 +20,12 @@ public class templatecolumn extends column {
   /**
    An <a href="Ext.XTemplate.html">XTemplate</a>, or an XTemplate <i>definition string</i> to use to process a <a href="Ext.data.Record.html">Record</a>'s <a href="output/Ext.data.Record.html#Ext.data.Record-data">data</a> to produce a column's rendered value.
    */
-  override public native function get tpl():String;
+  public native function get tpl():String;
 
   /**
    * @private
    */
-  override public native function set tpl(value:String):void;
+  public native function set tpl(value:String):void;
 
 
 }

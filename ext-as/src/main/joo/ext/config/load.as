@@ -41,7 +41,7 @@ package ext.config {
  * @see ext.form.action.Load
  */
 [ExtConfig(target="ext.form.action.Load")]
-public class load extends action {
+public class load extends formaction {
 
   public function load(config:Object = null) {
 

@@ -3,13 +3,51 @@ package ext.config {
 import ext.Ext;
 
 /**
- * The subclasses of this class provide actions to perform upon <a href="Ext.form.BasicForm.html">Form</a>s.
- <p>Instances of this class are only created by a <a href="Ext.form.BasicForm.html">Form</a> when the Form needs to perform an action such as submit or load. The Configuration options listed for this class are set through the Form's action methods: <a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-submit">submit</a>, <a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-load">load</a> and <a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-doAction">doAction</a></p><p>The instance of Action which performed the action is passed to the success and failure callbacks of the Form's action methods (<a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-submit">submit</a>, <a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-load">load</a> and <a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-doAction">doAction</a>), and to the <a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-actioncomplete">actioncomplete</a> and <a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-actionfailed">actionfailed</a> event handlers.</p>
+ * An Action is a piece of reusable functionality that can be abstracted out of any particular component so that it can be usefully shared among multiple components. Actions let you share handlers, configuration options and UI updates across any components that support the Action interface (primarily <a href="Ext.Toolbar.html">Ext.Toolbar</a>, <a href="Ext.Button.html">Ext.Button</a> and <a href="Ext.menu.Menu.html">Ext.menu.Menu</a> components).
+ <p>Aside from supporting the config object interface, any component that needs to use Actions must also support the following method list, as these will be called as needed by the Action class: setText(string), setIconCls(string), setDisabled(boolean), setVisible(boolean) and setHandler(function).</p>Example usage:<br/><pre><code>// Define the shared action.  Each component below will have the same
+ // display text and icon, and will display the same message on click.
+ var action = new Ext.Action({
+ <a href="output/Ext.Action.html#Ext.Action-text">text</a>: 'Do something',
+ <a href="output/Ext.Action.html#Ext.Action-handler">handler</a>: function(){
+ Ext.Msg.alert('Click', 'You did something.');
+ },
+ <a href="output/Ext.Action.html#Ext.Action-iconCls">iconCls</a>: 'do-something',
+ <a href="output/Ext.Action.html#Ext.Action-itemId">itemId</a>: 'myAction'
+ });
+
+ var panel = new Ext.Panel({
+ title: 'Actions',
+ width: 500,
+ height: 300,
+ tbar: [
+ // Add the action directly to a toolbar as a menu button
+ action,
+ {
+ text: 'Action Menu',
+ // Add the action to a menu as a text item
+ menu: [action]
+ }
+ ],
+ items: [
+ // Add the action to the panel body as a standard button
+ new Ext.Button(action)
+ ],
+ renderTo: Ext.getBody()
+ });
+
+ // Change the text for all components using the action
+ action.setText('Something else');
+
+ // Reference an action through a container using the itemId
+ var btn = panel.getComponent('myAction');
+ var aRef = btn.baseAction;
+ aRef.setText('New text');
+ </code></pre>
  * <p>This class serves as a typed config object for constructor of class Action.</p>
  *
- * @see ext.form.Action
+ * @see ext.Action
  */
-[ExtConfig(target="ext.form.Action")]
+[ExtConfig(target="ext.Action")]
 public class action {
 
   public function action(config:Object = null) {
@@ -19,48 +57,63 @@ public class action {
 
 
   /**
-   The function to call when a failure packet was recieved, or when an error ocurred in the Ajax communication. The function is passed the following parameters:<ul class="mdetail-params"><li><b>form</b> : Ext.form.BasicForm<div class="sub-desc">The form that requested the action</div></li><li><b>action</b> : Ext.form.Action<div class="sub-desc">The Action class. If an Ajax error ocurred, the failure type will be in <a href="output/Ext.form.Action.html#Ext.form.Action-failureType">failureType</a>. The <a href="output/Ext.form.Action.html#Ext.form.Action-result">result</a> property of this object may be examined to perform custom postprocessing.</div></li></ul>
+   True to disable all components using this action, false to enable them (defaults to false).
    */
-  public native function get failure():Function;
+  public native function get disabled():Boolean;
 
   /**
    * @private
    */
-  public native function set failure(value:Function):void;
+  public native function set disabled(value:Boolean):void;
 
   /**
-   The HTTP method to use to access the requested URL. Defaults to the <a href="Ext.form.BasicForm.html">Ext.form.BasicForm</a>'s method, or if that is not specified, the underlying DOM form's method.
+   The function that will be invoked by each component tied to this action when the component's primary event is triggered (defaults to undefined).
    */
-  public native function get method():String;
+  public native function get handler():Function;
 
   /**
    * @private
    */
-  public native function set method(value:String):void;
+  public native function set handler(value:Function):void;
 
   /**
-   Extra parameter values to pass. These are added to the Form's <a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-baseParams">Ext.form.BasicForm.baseParams</a> and passed to the specified URL along with the Form's input fields.
-   <p>Parameters are encoded as standard HTTP parameters using <a href="output/Ext.html#Ext-urlEncode">Ext.urlEncode</a>.</p>
+   True to hide all components using this action, false to show them (defaults to false).
    */
-  public native function get params():*;
+  public native function get hidden():Boolean;
 
   /**
    * @private
    */
-  public native function set params(value:*):void;
+  public native function set hidden(value:Boolean):void;
 
   /**
-   When set to <tt><b>true</b></tt>, causes the Form to be <a href="Ext.form.BasicForm.reset.html">reset</a> on Action success. If specified, this happens <b>before</b> the <a href="output/Ext.form.Action.html#Ext.form.Action-success">success</a> callback is called and before the Form's <a href="Ext.form.BasicForm.actioncomplete.html">actioncomplete</a> event fires.
+   The CSS class selector that specifies a background image to be used as the header icon for all components using this action (defaults to ''). <p>An example of specifying a custom icon class would be something like:</p><pre><code>// specify the property in the config for the class:
+   ...
+   iconCls: 'do-something'
+
+   // css class that specifies background image to be used as the icon image:
+   .do-something { background-image: url(../images/my-icon.gif) 0 6px no-repeat !important; }
+   </code></pre>
    */
-  public native function get reset():Boolean;
+  public native function get iconCls():String;
 
   /**
    * @private
    */
-  public native function set reset(value:Boolean):void;
+  public native function set iconCls(value:String):void;
 
   /**
-   The scope in which to call the callback functions (The <tt>this</tt> reference for the callback functions).
+   See <a href="Ext.Component.html">Ext.Component</a>.<a href="output/Ext.Component.html#Ext.Component-itemId">itemId</a>.
+   */
+  public native function get itemId():String;
+
+  /**
+   * @private
+   */
+  public native function set itemId(value:String):void;
+
+  /**
+   The scope (<tt><b>this</b></tt> reference) in which the <code><a href="output/Ext.Action.html#Ext.Action-handler">handler</a></code> is executed. Defaults to this Button.
    */
   public native function get scope():Object;
 
@@ -70,66 +123,15 @@ public class action {
   public native function set scope(value:Object):void;
 
   /**
-   If set to <tt>true</tt>, the emptyText value will be sent with the form when it is submitted. Defaults to <tt>true</tt>.
+   The text to set for all components using this action (defaults to '').
    */
-  public native function get submitEmptyText():Boolean;
+  public native function get text():String;
 
   /**
    * @private
    */
-  public native function set submitEmptyText(value:Boolean):void;
-
-  /**
-   The function to call when a valid success return packet is recieved. The function is passed the following parameters:<ul class="mdetail-params"><li><b>form</b> : Ext.form.BasicForm<div class="sub-desc">The form that requested the action</div></li><li><b>action</b> : Ext.form.Action<div class="sub-desc">The Action class. The <a href="output/Ext.form.Action.html#Ext.form.Action-result">result</a> property of this object may be examined to perform custom postprocessing.</div></li></ul>
-   */
-  public native function get success():Function;
-
-  /**
-   * @private
-   */
-  public native function set success(value:Function):void;
-
-  /**
-   The number of seconds to wait for a server response before failing with the <a href="output/Ext.form.Action.html#Ext.form.Action-failureType">failureType</a> as <a href="output/Ext.form.Action.html#Ext.form.Action-Action.CONNECT_FAILURE">Action.CONNECT_FAILURE</a>. If not specified, defaults to the configured <tt><a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-timeout">timeout</a></tt> of the <a href="Ext.form.BasicForm.html">form</a>.
-   */
-  public native function get timeout():Number;
-
-  /**
-   * @private
-   */
-  public native function set timeout(value:Number):void;
-
-  /**
-   The URL that the Action is to invoke.
-   */
-  public native function get url():String;
-
-  /**
-   * @private
-   */
-  public native function set url(value:String):void;
-
-  /**
-   The message to be displayed by a call to <a href="output/Ext.MessageBox.html#Ext.MessageBox-wait">Ext.MessageBox.wait</a> during the time the action is being processed.
-   */
-  public native function get waitMsg():String;
-
-  /**
-   * @private
-   */
-  public native function set waitMsg(value:String):void;
-
-  /**
-   The title to be displayed by a call to <a href="output/Ext.MessageBox.html#Ext.MessageBox-wait">Ext.MessageBox.wait</a> during the time the action is being processed.
-   */
-  public native function get waitTitle():String;
-
-  /**
-   * @private
-   */
-  public native function set waitTitle(value:String):void;
+  public native function set text(value:String):void;
 
 
 }
 }
-    

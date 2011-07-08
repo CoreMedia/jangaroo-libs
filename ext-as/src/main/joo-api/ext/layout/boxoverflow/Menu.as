@@ -8,17 +8,19 @@ import ext.menu.Menu;
 
 /**
  * Description
- * @see ext.config.menu
+ * <p>This component is created by the xtype 'boxoverflowmenu' / the EXML element &lt;boxoverflowmenu>.</p>
+ * @see ext.config.boxoverflowmenu
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MenuOverflow.html#cls-Ext.layout.boxOverflow.Menu Ext JS source
  */
 public class Menu extends None {
 
   /**
+   * Create a new Menu.
    *
-   *
-   * @see ext.config.menu
+   * @param config The config object
+   * @see ext.config.boxoverflowmenu
    */
-  public function Menu() {
+  public function Menu(config:Object = null) {
     super();
   }
 

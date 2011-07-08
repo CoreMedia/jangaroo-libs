@@ -44,7 +44,7 @@ package ext.config {
  * @see ext.grid.ActionColumn
  */
 [ExtConfig(target="ext.grid.ActionColumn")]
-public class actioncolumn extends column {
+public class actioncolumn extends gridcolumn {
 
   public function actioncolumn(config:Object = null) {
 
@@ -115,12 +115,12 @@ public class actioncolumn extends column {
   /**
    The scope (<tt><b>this</b></tt> reference) in which the <code><a href="output/Ext.grid.ActionColumn.html#Ext.grid.ActionColumn-handler">handler</a></code> and <code><a href="output/Ext.grid.ActionColumn.html#Ext.grid.ActionColumn-getClass">getClass</a></code> fuctions are executed. Defaults to this Column.
    */
-  public native function get scope():Object;
+  override public native function get scope():Object;
 
   /**
    * @private
    */
-  public native function set scope(value:Object):void;
+  override public native function set scope(value:Object):void;
 
   /**
    Defaults to <code>true</code>. Prevent grid <i>row</i> selection upon mousedown.
@@ -135,12 +135,12 @@ public class actioncolumn extends column {
   /**
    A tooltip message to be displayed on hover. <a href="output/Ext.QuickTips.html#Ext.QuickTips-init">Ext.QuickTips</a> must have been initialized.
    */
-  public native function get tooltip():String;
+  override public native function get tooltip():String;
 
   /**
    * @private
    */
-  public native function set tooltip(value:String):void;
+  override public native function set tooltip(value:String):void;
 
 
 }

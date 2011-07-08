@@ -50,7 +50,7 @@ public class ActionColumn extends Column {
    * @see ext.config.actioncolumn
    */
   public function ActionColumn() {
-    super();
+    super(null);
   }
 
   /**

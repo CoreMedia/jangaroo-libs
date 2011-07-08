@@ -4,17 +4,19 @@ package ext.form {
 /**
  * The subclasses of this class provide actions to perform upon <a href="Ext.form.BasicForm.html">Form</a>s.
  <p>Instances of this class are only created by a <a href="Ext.form.BasicForm.html">Form</a> when the Form needs to perform an action such as submit or load. The Configuration options listed for this class are set through the Form's action methods: <a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-submit">submit</a>, <a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-load">load</a> and <a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-doAction">doAction</a></p><p>The instance of Action which performed the action is passed to the success and failure callbacks of the Form's action methods (<a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-submit">submit</a>, <a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-load">load</a> and <a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-doAction">doAction</a>), and to the <a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-actioncomplete">actioncomplete</a> and <a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-actionfailed">actionfailed</a> event handlers.</p>
- * @see ext.config.action
+ * <p>This component is created by the xtype 'formaction' / the EXML element &lt;formaction>.</p>
+ * @see ext.config.formaction
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Action1.html#cls-Ext.form.Action Ext JS source
  */
 public class Action {
 
   /**
+   * Create a new Action.
    *
-   *
-   * @see ext.config.action
+   * @param config The config object
+   * @see ext.config.formaction
    */
-  public function Action() {
+  public function Action(config:Object = null) {
     super();
   }
 

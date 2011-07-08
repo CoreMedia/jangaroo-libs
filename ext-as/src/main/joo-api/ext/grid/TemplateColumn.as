@@ -15,7 +15,7 @@ public class TemplateColumn extends Column {
    * @see ext.config.templatecolumn
    */
   public function TemplateColumn() {
-    super();
+    super(null);
   }
 
   /**

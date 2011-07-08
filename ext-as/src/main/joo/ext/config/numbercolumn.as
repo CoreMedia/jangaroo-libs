@@ -9,7 +9,7 @@ package ext.config {
  * @see ext.list.NumberColumn
  */
 [ExtConfig(target="ext.list.NumberColumn")]
-public class numbercolumn extends column {
+public class numbercolumn extends listcolumn {
 
   public function numbercolumn(config:Object = null) {
 

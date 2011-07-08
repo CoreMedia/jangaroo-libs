@@ -58,6 +58,12 @@ public class Action {
   }
 
   /**
+   This Action's initial configuration specification.
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Action.html#prop-Ext.Action-initialConfig Ext JS source
+   */
+  public native function get initialConfig():Object;
+
+  /**
    True to disable all components using this action, false to enable them (defaults to false).
    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */

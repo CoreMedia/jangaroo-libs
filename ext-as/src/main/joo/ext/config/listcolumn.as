@@ -10,9 +10,9 @@ import ext.Ext;
  * @see ext.list.Column
  */
 [ExtConfig(target="ext.list.Column")]
-public class column {
+public class listcolumn {
 
-  public function column(config:Object = null) {
+  public function listcolumn(config:Object = null) {
 
     Ext.apply(this, config);
   }

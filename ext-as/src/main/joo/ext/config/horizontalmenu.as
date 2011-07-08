@@ -8,7 +8,7 @@ package ext.config {
  * @see ext.layout.boxoverflow.HorizontalMenu
  */
 [ExtConfig(target="ext.layout.boxoverflow.HorizontalMenu")]
-public class horizontalmenu extends menu {
+public class horizontalmenu extends boxoverflowmenu {
 
   public function horizontalmenu(config:Object = null) {
 

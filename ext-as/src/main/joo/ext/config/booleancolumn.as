@@ -9,7 +9,7 @@ package ext.config {
  * @see ext.list.BooleanColumn
  */
 [ExtConfig(target="ext.list.BooleanColumn")]
-public class booleancolumn extends column {
+public class booleancolumn extends listcolumn {
 
   public function booleancolumn(config:Object = null) {
 

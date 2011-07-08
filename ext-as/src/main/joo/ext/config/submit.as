@@ -36,7 +36,7 @@ import ext.data.DataReader;
  * @see ext.form.action.Submit
  */
 [ExtConfig(target="ext.form.action.Submit")]
-public class submit extends action {
+public class submit extends formaction {
 
   public function submit(config:Object = null) {
 

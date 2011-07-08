@@ -9,7 +9,7 @@ package ext.config {
  * @see ext.list.DateColumn
  */
 [ExtConfig(target="ext.list.DateColumn")]
-public class datecolumn extends column {
+public class datecolumn extends listcolumn {
 
   public function datecolumn(config:Object = null) {
 

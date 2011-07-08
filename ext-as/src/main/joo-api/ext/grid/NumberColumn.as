@@ -15,7 +15,7 @@ public class NumberColumn extends Column {
    * @see ext.config.numbercolumn
    */
   public function NumberColumn() {
-    super();
+    super(null);
   }
 
   /**

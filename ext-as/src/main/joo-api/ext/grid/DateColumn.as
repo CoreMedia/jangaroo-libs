@@ -15,7 +15,7 @@ public class DateColumn extends Column {
    * @see ext.config.datecolumn
    */
   public function DateColumn() {
-    super();
+    super(null);
   }
 
   /**
