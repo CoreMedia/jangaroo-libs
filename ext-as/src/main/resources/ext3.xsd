@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://extjs.com/ext3" xmlns:ext="http://extjs.com/ext3" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:exml="http://net.jangaroo.com/extxml/0.1">
-  <xs:import namespace="http://net.jangaroo.com/extxml/0.1"/>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="exml:ext.config" xmlns:ext="exml:ext.config" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:exml="http://www.jangaroo.net/exml/0.8">
+  <xs:import namespace="http://www.jangaroo.net/exml/0.8"/>
   <xs:complexType name='ext.layout.AbsoluteLayout'>
     <xs:complexContent>
       <xs:extension base='ext:ext.layout.AnchorLayout'>
