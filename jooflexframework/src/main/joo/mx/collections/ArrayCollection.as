@@ -71,6 +71,8 @@ public class ArrayCollection extends ListCollectionView
         this[i] = source[i];
       }
       this.length = source.length;
+    } else {
+      this.length = 0;
     }
   }
 
