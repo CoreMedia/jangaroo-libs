@@ -18,7 +18,7 @@ public class ActivityEvent extends Event {
   /**
    * @private
    */
-  public native function set activating(value:Boolean):void
+  public native function set activating(value:Boolean):void;
 
   /**
    * Creates an event object that contains information about activity events. Event objects are passed as parameters to Event listeners.
