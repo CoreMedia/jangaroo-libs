@@ -142,7 +142,7 @@ public interface TextRange {
    *   command.
    * @return {Boolean} Returns true if the command is successful.
    */
-  function execCommand(command:String, userInterface:Boolean = false, value:* = undefined):Boolean;
+  function execCommand(command:String, userInterface:Boolean = false, value:* = null):Boolean;
 
   /**
    * Expands the range so that partial units are completely contained.
@@ -175,7 +175,7 @@ public interface TextRange {
    * Searches for text in the document and positions the start and end points of the range to encompass the search
    * string.
    * <p>A range has two distinct states: degenerate and nondegenerate.</p>
-   * <p>A degenerate range is like a text editor caret (insertion point) —it does not actually select any characters.
+   * <p>A degenerate range is like a text editor caret (insertion point) ï¿½it does not actually select any characters.
    * Instead, it specifies a point between two characters. The end points of a degenerate range are adjacent.</p>
    * <p>A nondegenerate range is like a text editor selection, in that it selects a certain amount of text. The end
    * points of a nondegenerate range are not adjacent.</p>

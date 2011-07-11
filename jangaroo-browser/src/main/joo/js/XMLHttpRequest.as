@@ -98,7 +98,7 @@ public class XMLHttpRequest {
    * @param password The optional password to use for authentication purposes; by default, this is an empty string.
    */
   public native function open(method : String, url : String, async : Boolean = true,
-                              user : String = undefined, password : String = undefined) : void;
+                              user : String = "", password : String = "") : void;
 
   public var onreadystatechange : Function;
 

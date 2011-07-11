@@ -14,7 +14,7 @@ public class Document extends Node {
 
 
 
-  public native function execCommand(commandName : String, showDefaultUI : Boolean = true, valueArgument : * = undefined) : void;
+  public native function execCommand(commandName : String, showDefaultUI : Boolean = true, valueArgument : * = null) : void;
 
 
 
