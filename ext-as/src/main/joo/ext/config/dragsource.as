@@ -1,6 +1,6 @@
 package ext.config {
 
-import ext.Ext;
+import joo.JavaScriptObject;
 
 /**
  * A simple class that provides the basic implementation needed to make any element draggable.
@@ -9,11 +9,10 @@ import ext.Ext;
  * @see ext.dd.DragSource
  */
 [ExtConfig(target="ext.dd.DragSource")]
-public class dragsource {
+public class dragsource extends JavaScriptObject {
 
   public function dragsource(config:Object = null) {
-
-    Ext.apply(this, config);
+    super(config);
   }
 
 

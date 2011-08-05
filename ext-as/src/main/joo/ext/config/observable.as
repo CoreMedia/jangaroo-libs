@@ -1,6 +1,6 @@
 package ext.config {
 
-import ext.Ext;
+import joo.JavaScriptObject;
 
 /**
  * Base class that provides a common interface for publishing events. Subclasses are expected to to have a property "events" with all the events defined, and, optionally, a property "listeners" with configured listeners defined.<br/>For example: <pre><code>Employee = Ext.extend(Ext.util.Observable, {
@@ -34,11 +34,10 @@ import ext.Ext;
  * @see ext.util.Observable
  */
 [ExtConfig(target="ext.util.Observable")]
-public class observable {
+public class observable extends JavaScriptObject {
 
   public function observable(config:Object = null) {
-
-    Ext.apply(this, config);
+    super(config);
   }
 
 

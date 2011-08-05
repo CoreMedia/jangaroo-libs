@@ -1,6 +1,6 @@
 package ext.config {
 
-import ext.Ext;
+import joo.JavaScriptObject;
 
 /**
  * Simple class that can provide a shadow effect for any element. Note that the element MUST be absolutely positioned, and the shadow does not provide any shimming. This should be used only in simple cases -- for more advanced functionality that can also provide the same shadow effect, see the <a href="Ext.Layer.html">Ext.Layer</a> class.
@@ -9,11 +9,10 @@ import ext.Ext;
  * @see ext.Shadow
  */
 [ExtConfig(target="ext.Shadow")]
-public class shadow {
+public class shadow extends JavaScriptObject {
 
   public function shadow(config:Object = null) {
-
-    Ext.apply(this, config);
+    super(config);
   }
 
 

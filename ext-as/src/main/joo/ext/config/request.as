@@ -1,7 +1,8 @@
 package ext.config {
 
-import ext.Ext;
 import ext.data.DataReader;
+
+import joo.JavaScriptObject;
 
 /**
  * A simple Request class used internally to the data package to provide more generalized remote-requests to a DataProxy. TODO Not yet implemented. Implement in Ext.data.Store#execute
@@ -10,11 +11,10 @@ import ext.data.DataReader;
  * @see ext.data.Request
  */
 [ExtConfig(target="ext.data.Request")]
-public class request {
+public class request extends JavaScriptObject {
 
   public function request(config:Object = null) {
-
-    Ext.apply(this, config);
+    super(config);
   }
 
 

@@ -1,6 +1,6 @@
 package ext.config {
 
-import ext.Ext;
+import joo.JavaScriptObject;
 
 /**
  * An Action is a piece of reusable functionality that can be abstracted out of any particular component so that it can be usefully shared among multiple components. Actions let you share handlers, configuration options and UI updates across any components that support the Action interface (primarily <a href="Ext.Toolbar.html">Ext.Toolbar</a>, <a href="Ext.Button.html">Ext.Button</a> and <a href="Ext.menu.Menu.html">Ext.menu.Menu</a> components).
@@ -48,11 +48,10 @@ import ext.Ext;
  * @see ext.Action
  */
 [ExtConfig(target="ext.Action")]
-public class action {
+public class action extends JavaScriptObject {
 
   public function action(config:Object = null) {
-
-    Ext.apply(this, config);
+    super(config);
   }
 
 

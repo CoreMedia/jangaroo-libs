@@ -1,6 +1,6 @@
 package ext.config {
 
-import ext.Ext;
+import joo.JavaScriptObject;
 
 /**
  * The subclasses of this class provide actions to perform upon <a href="Ext.form.BasicForm.html">Form</a>s.
@@ -10,11 +10,10 @@ import ext.Ext;
  * @see ext.form.Action
  */
 [ExtConfig(target="ext.form.Action")]
-public class formaction {
+public class formaction extends JavaScriptObject {
 
   public function formaction(config:Object = null) {
-
-    Ext.apply(this, config);
+    super(config);
   }
 
 

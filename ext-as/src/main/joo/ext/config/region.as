@@ -1,6 +1,6 @@
 package ext.config {
 
-import ext.Ext;
+import joo.JavaScriptObject;
 
 /**
  * This is a region of a <a href="Ext.layout.BorderLayout.html">BorderLayout</a> that acts as a subcontainer within the layout. Each region has its own <a href="Ext.layout.ContainerLayout.html">layout</a> that is independent of other regions and the containing BorderLayout, and can be any of the <a href="Ext.layout.ContainerLayout.html">valid Ext layout types</a>.
@@ -10,11 +10,10 @@ import ext.Ext;
  * @see ext.layout.borderlayout.Region
  */
 [ExtConfig(target="ext.layout.borderlayout.Region")]
-public class region {
+public class region extends JavaScriptObject {
 
   public function region(config:Object = null) {
-
-    Ext.apply(this, config);
+    super(config);
   }
 
 

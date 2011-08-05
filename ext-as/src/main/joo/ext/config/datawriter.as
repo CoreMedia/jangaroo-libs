@@ -1,6 +1,6 @@
 package ext.config {
 
-import ext.Ext;
+import joo.JavaScriptObject;
 
 /**
  * Ext.data.DataWriter facilitates create, update, and destroy actions between an Ext.data.Store and a server-side framework. A Writer enabled Store will automatically manage the Ajax requests to perform CRUD actions on a Store.
@@ -57,11 +57,10 @@ import ext.Ext;
  * @see ext.data.DataWriter
  */
 [ExtConfig(target="ext.data.DataWriter")]
-public class datawriter {
+public class datawriter extends JavaScriptObject {
 
   public function datawriter(config:Object = null) {
-
-    Ext.apply(this, config);
+    super(config);
   }
 
 

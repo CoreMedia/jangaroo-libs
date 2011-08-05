@@ -1,7 +1,8 @@
 package ext.config {
 
-import ext.Ext;
 import ext.form.Field;
+
+import joo.JavaScriptObject;
 
 /**
  * This class encapsulates column configuration data to be used in the initialization of a <a href="Ext.grid.ColumnModel.html">ColumnModel</a>.
@@ -11,11 +12,10 @@ import ext.form.Field;
  * @see ext.grid.Column
  */
 [ExtConfig(target="ext.grid.Column")]
-public class gridcolumn {
+public class gridcolumn extends JavaScriptObject {
 
   public function gridcolumn(config:Object = null) {
-
-    Ext.apply(this, config);
+    super(config);
   }
 
 

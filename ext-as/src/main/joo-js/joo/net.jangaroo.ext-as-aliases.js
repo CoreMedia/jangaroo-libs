@@ -1,4 +1,3 @@
-joo.classLoader.import_("joo.extas.Meta");
 ext = Ext;
 ext.Ext = Ext;
 ext.ExtError = Ext.Error;
@@ -61,3 +60,47 @@ ext.Action.prototype.addComponent = Ext.Action.prototype.addComponent.createInte
   Action.prototype.constructor = Action;
   Action.superclass = ExtAction.superclass;
 })(Ext.Action);
+
+// ---- handle ExtConfig annotation ----
+joo.getOrCreatePackage("joo.meta").ExtConfig = (function(){
+  var TYPE_TO_TYPE_ATTRIBUTE = {
+    'component': 'xtype',
+    'plugin': 'ptype',
+    'layout': 'type'
+  };
+
+  var EXT_CONFIG_PACKAGE_PATTERN = /^ext\.config\.([a-z]+)$/;
+
+  return function joo_meta_ExtConfig(classDeclaration/*:joo.JooClassDeclaration*/,
+                                     memberDeclaration/*:joo.MemberDeclaration*/,
+                                     parameters/*:Object*/) {
+    var targetClassName = parameters['target'];
+    var type = parameters['type'] || 'component';
+    // determine type attribute name from annotation parameter "type":
+    var typeAttribute = TYPE_TO_TYPE_ATTRIBUTE[type];
+    if (!typeAttribute) {
+      throw new ArgumentError("Unknown type attribute value '" + type + "' in ExtConfig annotation of class " + classDeclaration.fullClassName + ".");
+    }
+    if (!classDeclaration.isComplete()) {
+      // called before completion: only add target class dependency!
+      classDeclaration.getDependencies().push(targetClassName);
+    } else {
+      // called within init:
+      // special case original Ext config classes:
+      var typeName = classDeclaration.fullClassName;
+      var result = typeName.match(EXT_CONFIG_PACKAGE_PATTERN); // if it is an Ext config class...
+      if (result) {
+        typeName = result[1]; // ...use the simple class name (without namespace/package)!
+      }
+      // add [x|p|]type attribute to prototype and as a static field:
+      classDeclaration.constructor_.prototype[typeAttribute] = typeName;
+      classDeclaration.constructor_[typeAttribute] = typeName;
+      var targetClass = joo.getQualifiedObject(targetClassName);
+      switch (type) {
+        case 'component': ext.ComponentMgr.registerType(typeName, targetClass); break;
+        case 'plugin':    ext.ComponentMgr.registerPlugin(typeName, targetClass); break;
+        // TODO: anything to do for 'layout' or 'action'?
+      }
+    }
+  }
+})();

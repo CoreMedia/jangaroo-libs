@@ -1,6 +1,6 @@
 package ext.config {
 
-import ext.Ext;
+import joo.JavaScriptObject;
 
 /**
  * Represents an HTML fragment template. Templates may be <a href="output/Ext.Template.html#Ext.Template-compile">precompiled</a> for greater performance.
@@ -10,11 +10,10 @@ import ext.Ext;
  * @see ext.Template
  */
 [ExtConfig(target="ext.Template")]
-public class template {
+public class template extends JavaScriptObject {
 
   public function template(config:Object = null) {
-
-    Ext.apply(this, config);
+    super(config);
   }
 
 

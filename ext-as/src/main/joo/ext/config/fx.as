@@ -1,6 +1,6 @@
 package ext.config {
 
-import ext.Ext;
+import joo.JavaScriptObject;
 
 /**
  * A class to provide basic animation and visual effects support. <b>Note:</b> This class is automatically applied to the <a href="Ext.Element.html">Ext.Element</a> interface when included, so all effects calls should be performed via <a href="Ext.Element.html">Ext.Element</a>. Conversely, since the effects are not actually defined in <a href="Ext.Element.html">Ext.Element</a>, Ext.Fx <b>must</b> be <a href="output/Ext.html#Ext-enableFx">included</a> in order for the Element effects to work.
@@ -20,11 +20,10 @@ import ext.Ext;
  * @see ext.Fx
  */
 [ExtConfig(target="ext.Fx")]
-public class fx {
+public class fx extends JavaScriptObject {
 
   public function fx(config:Object = null) {
-
-    Ext.apply(this, config);
+    super(config);
   }
 
 

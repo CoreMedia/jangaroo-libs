@@ -1,6 +1,6 @@
 package ext.config {
 
-import ext.Ext;
+import joo.JavaScriptObject;
 
 /**
  * This is a utility class that can be passed into a <a href="Ext.grid.ColumnModel.html">Ext.grid.ColumnModel</a> as a column config that provides an automatic row numbering column. <br/>Usage:<br/> <pre><code>// This is a typical column config with the first column providing row numbers
@@ -16,11 +16,10 @@ import ext.Ext;
  * @see ext.grid.RowNumberer
  */
 [ExtConfig(target="ext.grid.RowNumberer")]
-public class rownumberer {
+public class rownumberer extends JavaScriptObject {
 
   public function rownumberer(config:Object = null) {
-
-    Ext.apply(this, config);
+    super(config);
   }
 
 

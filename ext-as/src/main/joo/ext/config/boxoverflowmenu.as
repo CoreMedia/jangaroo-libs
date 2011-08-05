@@ -1,6 +1,6 @@
 package ext.config {
 
-import ext.Ext;
+import joo.JavaScriptObject;
 
 /**
  * Description
@@ -9,11 +9,10 @@ import ext.Ext;
  * @see ext.layout.boxoverflow.Menu
  */
 [ExtConfig(target="ext.layout.boxoverflow.Menu")]
-public class boxoverflowmenu {
+public class boxoverflowmenu extends JavaScriptObject {
 
   public function boxoverflowmenu(config:Object = null) {
-
-    Ext.apply(this, config);
+    super(config);
   }
 
 

@@ -1,6 +1,6 @@
 package ext.config {
 
-import ext.Ext;
+import joo.JavaScriptObject;
 
 /**
  * A custom drag proxy implementation specific to <a href="Ext.Panel.html">Ext.Panel</a>s. This class is primarily used internally for the Panel's drag drop implementation, and should never need to be created directly.
@@ -9,11 +9,10 @@ import ext.Ext;
  * @see ext.dd.PanelProxy
  */
 [ExtConfig(target="ext.dd.PanelProxy")]
-public class panelproxy {
+public class panelproxy extends JavaScriptObject {
 
   public function panelproxy(config:Object = null) {
-
-    Ext.apply(this, config);
+    super(config);
   }
 
 

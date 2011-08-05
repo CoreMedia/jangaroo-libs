@@ -1,7 +1,8 @@
 package ext.config {
 
-import ext.Ext;
 import ext.data.Store;
+
+import joo.JavaScriptObject;
 
 /**
  * A simple utility class for generically masking elements while loading data. If the <a href="output/Ext.LoadMask.html#Ext.LoadMask-store">store</a> config option is specified, the masking will be automatically synchronized with the store's loading process and the mask element will be cached for reuse. For all other elements, this mask will replace the element's Updater load indicator and will be destroyed after the initial load. <p>Example usage:</p><pre><code>// Basic mask:
@@ -13,11 +14,10 @@ import ext.data.Store;
  * @see ext.LoadMask
  */
 [ExtConfig(target="ext.LoadMask")]
-public class loadmask {
+public class loadmask extends JavaScriptObject {
 
   public function loadmask(config:Object = null) {
-
-    Ext.apply(this, config);
+    super(config);
   }
 
 

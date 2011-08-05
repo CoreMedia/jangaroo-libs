@@ -1,6 +1,6 @@
 package ext.config {
 
-import ext.Ext;
+import joo.JavaScriptObject;
 
 /**
  * This class is intended to be extended or created via the <tt><b><a href="output/Ext.Container.html#Ext.Container-layout">layout</a></b></tt> configuration property. See <tt><b><a href="output/Ext.Container.html#Ext.Container-layout">Ext.Container.layout</a></b></tt> for additional details.
@@ -10,11 +10,10 @@ import ext.Ext;
  * @see ext.layout.ContainerLayout
  */
 [ExtConfig(target="ext.layout.ContainerLayout")]
-public class containerlayout {
+public class containerlayout extends JavaScriptObject {
 
   public function containerlayout(config:Object = null) {
-
-    Ext.apply(this, config);
+    super(config);
   }
 
 

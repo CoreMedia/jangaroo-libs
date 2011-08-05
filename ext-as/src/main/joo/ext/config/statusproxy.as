@@ -1,6 +1,6 @@
 package ext.config {
 
-import ext.Ext;
+import joo.JavaScriptObject;
 
 /**
  * A specialized drag proxy that supports a drop status icon, <a href="Ext.Layer.html">Ext.Layer</a> styles and auto-repair. This is the default drag proxy used by all Ext.dd components.
@@ -9,11 +9,10 @@ import ext.Ext;
  * @see ext.dd.StatusProxy
  */
 [ExtConfig(target="ext.dd.StatusProxy")]
-public class statusproxy {
+public class statusproxy extends JavaScriptObject {
 
   public function statusproxy(config:Object = null) {
-
-    Ext.apply(this, config);
+    super(config);
   }
 
 

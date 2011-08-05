@@ -1,7 +1,8 @@
 package ext.config {
 
-import ext.Ext;
 import ext.slider.MultiSlider;
+
+import joo.JavaScriptObject;
 
 /**
  * Represents a single thumb element on a Slider. This would not usually be created manually and would instead be created internally by an <a href="Ext.slider.MultiSlider.html">Ext.Slider</a>.
@@ -10,11 +11,10 @@ import ext.slider.MultiSlider;
  * @see ext.slider.Thumb
  */
 [ExtConfig(target="ext.slider.Thumb")]
-public class thumb {
+public class thumb extends JavaScriptObject {
 
   public function thumb(config:Object = null) {
-
-    Ext.apply(this, config);
+    super(config);
   }
 
 

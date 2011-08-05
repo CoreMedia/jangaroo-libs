@@ -1,6 +1,6 @@
 package ext.config {
 
-import ext.Ext;
+import joo.JavaScriptObject;
 
 /**
  * This class encapsulates the field definition information specified in the field definition objects passed to <a href="output/Ext.data.Record.html#Ext.data.Record-create">Ext.data.Record.create</a>.
@@ -10,11 +10,10 @@ import ext.Ext;
  * @see ext.data.Field
  */
 [ExtConfig(target="ext.data.Field")]
-public class datafield {
+public class datafield extends JavaScriptObject {
 
   public function datafield(config:Object = null) {
-
-    Ext.apply(this, config);
+    super(config);
   }
 
 

@@ -1,6 +1,6 @@
 package ext.config {
 
-import ext.Ext;
+import joo.JavaScriptObject;
 
 /**
  * A simple class that provides the basic implementation needed to make any element a drop target that can have draggable items dropped onto it. The drop has no effect until an implementation of notifyDrop is provided.
@@ -9,11 +9,10 @@ import ext.Ext;
  * @see ext.dd.DropTarget
  */
 [ExtConfig(target="ext.dd.DropTarget")]
-public class droptarget {
+public class droptarget extends JavaScriptObject {
 
   public function droptarget(config:Object = null) {
-
-    Ext.apply(this, config);
+    super(config);
   }
 
 

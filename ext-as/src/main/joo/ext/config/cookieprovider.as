@@ -1,6 +1,6 @@
 package ext.config {
 
-import ext.Ext;
+import joo.JavaScriptObject;
 
 /**
  * The default Provider implementation which saves state via cookies. <br/>Usage: <pre><code>  var cp = new Ext.state.CookieProvider({
@@ -15,11 +15,10 @@ import ext.Ext;
  * @see ext.state.CookieProvider
  */
 [ExtConfig(target="ext.state.CookieProvider")]
-public class cookieprovider {
+public class cookieprovider extends JavaScriptObject {
 
   public function cookieprovider(config:Object = null) {
-
-    Ext.apply(this, config);
+    super(config);
   }
 
 

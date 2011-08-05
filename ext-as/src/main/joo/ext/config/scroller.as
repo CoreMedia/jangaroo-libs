@@ -1,6 +1,6 @@
 package ext.config {
 
-import ext.Ext;
+import joo.JavaScriptObject;
 
 /**
  * Description
@@ -9,11 +9,10 @@ import ext.Ext;
  * @see ext.layout.boxoverflow.Scroller
  */
 [ExtConfig(target="ext.layout.boxoverflow.Scroller")]
-public class scroller {
+public class scroller extends JavaScriptObject {
 
   public function scroller(config:Object = null) {
-
-    Ext.apply(this, config);
+    super(config);
   }
 
 

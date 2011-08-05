@@ -1,6 +1,6 @@
 package ext.config {
 
-import ext.Ext;
+import joo.JavaScriptObject;
 
 /**
  * Provides sorting of nodes in a <a href="Ext.tree.TreePanel.html">Ext.tree.TreePanel</a>. The TreeSorter automatically monitors events on the associated TreePanel that might affect the tree's sort order (beforechildrenrendered, append, insert and textchange). Example usage:<br/><pre><code>new Ext.tree.TreeSorter(myTree, {
@@ -17,11 +17,10 @@ import ext.Ext;
  * @see ext.tree.TreeSorter
  */
 [ExtConfig(target="ext.tree.TreeSorter")]
-public class treesorter {
+public class treesorter extends JavaScriptObject {
 
   public function treesorter(config:Object = null) {
-
-    Ext.apply(this, config);
+    super(config);
   }
 
 

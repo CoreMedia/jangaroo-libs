@@ -1,6 +1,6 @@
 package ext.config {
 
-import ext.Ext;
+import joo.JavaScriptObject;
 
 /**
  * An extended <a href="Ext.Element.html">Ext.Element</a> object that supports a shadow and shim, constrain to viewport and automatic maintaining of shadow/shim positions.
@@ -9,11 +9,10 @@ import ext.Ext;
  * @see ext.Layer
  */
 [ExtConfig(target="ext.Layer")]
-public class layer {
+public class layer extends JavaScriptObject {
 
   public function layer(config:Object = null) {
-
-    Ext.apply(this, config);
+    super(config);
   }
 
 

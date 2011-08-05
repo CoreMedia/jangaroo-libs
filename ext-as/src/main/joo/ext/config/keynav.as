@@ -1,6 +1,6 @@
 package ext.config {
 
-import ext.Ext;
+import joo.JavaScriptObject;
 
 /**
  * Provides a convenient wrapper for normalized keyboard navigation. KeyNav allows you to bind navigation keys to function calls that will get called when the keys are pressed, providing an easy way to implement custom navigation schemes for any UI component.
@@ -22,11 +22,10 @@ import ext.Ext;
  * @see ext.KeyNav
  */
 [ExtConfig(target="ext.KeyNav")]
-public class keynav {
+public class keynav extends JavaScriptObject {
 
   public function keynav(config:Object = null) {
-
-    Ext.apply(this, config);
+    super(config);
   }
 
 

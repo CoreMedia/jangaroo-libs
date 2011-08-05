@@ -1,6 +1,6 @@
 package ext.config {
 
-import ext.Ext;
+import joo.JavaScriptObject;
 
 /**
  * A generic response class to normalize response-handling internally to the framework.
@@ -9,11 +9,10 @@ import ext.Ext;
  * @see ext.data.Response
  */
 [ExtConfig(target="ext.data.Response")]
-public class response {
+public class response extends JavaScriptObject {
 
   public function response(config:Object = null) {
-
-    Ext.apply(this, config);
+    super(config);
   }
 
 

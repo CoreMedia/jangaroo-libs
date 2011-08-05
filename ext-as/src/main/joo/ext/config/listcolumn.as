@@ -1,6 +1,6 @@
 package ext.config {
 
-import ext.Ext;
+import joo.JavaScriptObject;
 
 /**
  * This class encapsulates column configuration data to be used in the initialization of a <a href="Ext.list.ListView.html">ListView</a>.
@@ -10,11 +10,10 @@ import ext.Ext;
  * @see ext.list.Column
  */
 [ExtConfig(target="ext.list.Column")]
-public class listcolumn {
+public class listcolumn extends JavaScriptObject {
 
   public function listcolumn(config:Object = null) {
-
-    Ext.apply(this, config);
+    super(config);
   }
 
 
