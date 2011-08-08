@@ -1,4 +1,5 @@
 package ext.config {
+import ext.Action;
 
 
 /**
@@ -171,6 +172,27 @@ public class component extends observable {
    * @private
    */
   public native function set autoShow(value:Boolean):void;
+
+  /**
+   * <p>The action controlling this component, usually a button or menu item. If this property is set, all other
+   * component configuration attributes are ignored, as the component receives its configuration from the action.</p>
+   * <p>Aside from supporting the config object interface, any component that needs to use Actions must also support
+   * the following method list, as these will be called as needed by the Action class:
+   * <ul>
+   * <li>setText(string)</li>
+   * <li>setIconCls(string)</li>
+   * <li>setDisabled(boolean)</li>
+   * <li>setVisible(boolean)</li>
+   * <li>setHandler(function)</li></ul></p>
+   *
+   * @see Action
+   */
+  public native function get baseAction():Action;
+
+  /**
+   * @private
+   */
+  public native function set baseAction(value:Action):void;
 
   /**
    An array of events that, when fired, should be bubbled to any parent container. See <a href="output/Ext.util.Observable.html#Ext.util.Observable-enableBubble">Ext.util.Observable.enableBubble</a>. Defaults to <tt>[]</tt>.
