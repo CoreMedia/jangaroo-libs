@@ -79,7 +79,7 @@ package ext.config {
  *
  * @see ext.Toolbar
  */
-[ExtConfig(target="ext.Toolbar")]
+[ExtConfig(target="ext.Toolbar", xtype="toolbar")]
 public class toolbar extends container {
 
   public function toolbar(config:Object = null) {

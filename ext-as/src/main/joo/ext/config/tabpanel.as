@@ -33,7 +33,7 @@ import ext.Template;
  *
  * @see ext.TabPanel
  */
-[ExtConfig(target="ext.TabPanel")]
+[ExtConfig(target="ext.TabPanel", xtype="tabpanel")]
 public class tabpanel extends panel {
 
   public function tabpanel(config:Object = null) {

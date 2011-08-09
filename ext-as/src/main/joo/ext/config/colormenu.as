@@ -8,7 +8,7 @@ package ext.config {
  *
  * @see ext.menu.ColorMenu
  */
-[ExtConfig(target="ext.menu.ColorMenu")]
+[ExtConfig(target="ext.menu.ColorMenu", xtype="colormenu")]
 public class colormenu extends menu {
 
   public function colormenu(config:Object = null) {

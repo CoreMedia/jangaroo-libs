@@ -53,7 +53,7 @@ package ext.config {
  *
  * @see ext.layout.CardLayout
  */
-[ExtConfig(target="ext.layout.CardLayout")]
+[ExtConfig(target="ext.layout.CardLayout", type="card")]
 public class cardlayout extends fitlayout {
 
   public function cardlayout(config:Object = null) {

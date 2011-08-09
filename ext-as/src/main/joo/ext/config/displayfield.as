@@ -7,7 +7,7 @@ package ext.config {
  *
  * @see ext.form.DisplayField
  */
-[ExtConfig(target="ext.form.DisplayField")]
+[ExtConfig(target="ext.form.DisplayField", xtype="displayfield")]
 public class displayfield extends field {
 
   public function displayfield(config:Object = null) {

@@ -7,7 +7,7 @@ package ext.config {
  *
  * @see ext.menu.Separator
  */
-[ExtConfig(target="ext.menu.Separator")]
+[ExtConfig(target="ext.menu.Separator", xtype="menuseparator")]
 public class menuseparator extends menubaseitem {
 
   public function menuseparator(config:Object = null) {

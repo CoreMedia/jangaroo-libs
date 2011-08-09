@@ -8,7 +8,7 @@ package ext.config {
  *
  * @see ext.layout.BoxLayout
  */
-[ExtConfig(target="ext.layout.BoxLayout")]
+[ExtConfig(target="ext.layout.BoxLayout", type="box")]
 public class boxlayout extends containerlayout {
 
   public function boxlayout(config:Object = null) {

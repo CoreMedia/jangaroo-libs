@@ -48,7 +48,7 @@ import ext.data.Store;
  *
  * @see ext.DataView
  */
-[ExtConfig(target="ext.DataView")]
+[ExtConfig(target="ext.DataView", xtype="dataview")]
 public class dataview extends box {
 
   public function dataview(config:Object = null) {

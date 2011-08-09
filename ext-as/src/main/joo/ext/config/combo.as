@@ -57,7 +57,7 @@ package ext.config {
  *
  * @see ext.form.ComboBox
  */
-[ExtConfig(target="ext.form.ComboBox")]
+[ExtConfig(target="ext.form.ComboBox", xtype="combo")]
 public class combo extends trigger {
 
   public function combo(config:Object = null) {

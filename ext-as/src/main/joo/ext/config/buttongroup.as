@@ -41,7 +41,7 @@ package ext.config {
  *
  * @see ext.ButtonGroup
  */
-[ExtConfig(target="ext.ButtonGroup")]
+[ExtConfig(target="ext.ButtonGroup", xtype="buttongroup")]
 public class buttongroup extends panel {
 
   public function buttongroup(config:Object = null) {

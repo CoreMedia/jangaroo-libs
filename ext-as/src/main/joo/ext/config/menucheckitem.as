@@ -7,7 +7,7 @@ package ext.config {
  *
  * @see ext.menu.CheckItem
  */
-[ExtConfig(target="ext.menu.CheckItem")]
+[ExtConfig(target="ext.menu.CheckItem", xtype="menucheckitem")]
 public class menucheckitem extends menuitem {
 
   public function menucheckitem(config:Object = null) {

@@ -21,7 +21,7 @@ package ext.config {
  *
  * @see ext.form.CheckboxGroup
  */
-[ExtConfig(target="ext.form.CheckboxGroup")]
+[ExtConfig(target="ext.form.CheckboxGroup", xtype="checkboxgroup")]
 public class checkboxgroup extends field {
 
   public function checkboxgroup(config:Object = null) {

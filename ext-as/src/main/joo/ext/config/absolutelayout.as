@@ -46,7 +46,7 @@ package ext.config {
  *
  * @see ext.layout.AbsoluteLayout
  */
-[ExtConfig(target="ext.layout.AbsoluteLayout")]
+[ExtConfig(target="ext.layout.AbsoluteLayout", type="absolute")]
 public class absolutelayout extends anchorlayout {
 
   public function absolutelayout(config:Object = null) {

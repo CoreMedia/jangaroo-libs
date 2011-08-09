@@ -7,7 +7,7 @@ package ext.config {
  *
  * @see ext.form.Radio
  */
-[ExtConfig(target="ext.form.Radio")]
+[ExtConfig(target="ext.form.Radio", xtype="radio")]
 public class radio extends checkbox {
 
   public function radio(config:Object = null) {

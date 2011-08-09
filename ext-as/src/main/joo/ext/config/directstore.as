@@ -8,7 +8,7 @@ package ext.config {
  *
  * @see ext.data.DirectStore
  */
-[ExtConfig(target="ext.data.DirectStore")]
+[ExtConfig(target="ext.data.DirectStore", xtype="directstore")]
 public class directstore extends store {
 
   public function directstore(config:Object = null) {

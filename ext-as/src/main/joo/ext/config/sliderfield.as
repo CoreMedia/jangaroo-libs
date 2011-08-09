@@ -7,7 +7,7 @@ package ext.config {
  *
  * @see ext.form.SliderField
  */
-[ExtConfig(target="ext.form.SliderField")]
+[ExtConfig(target="ext.form.SliderField", xtype="sliderfield")]
 public class sliderfield extends field {
 
   public function sliderfield(config:Object = null) {

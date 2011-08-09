@@ -7,7 +7,7 @@ package ext.config {
  *
  * @see ext.form.Hidden
  */
-[ExtConfig(target="ext.form.Hidden")]
+[ExtConfig(target="ext.form.Hidden", xtype="hidden")]
 public class hidden extends field {
 
   public function hidden(config:Object = null) {

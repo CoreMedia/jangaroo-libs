@@ -7,7 +7,7 @@ package ext.config {
  *
  * @see ext.form.TextArea
  */
-[ExtConfig(target="ext.form.TextArea")]
+[ExtConfig(target="ext.form.TextArea", xtype="textarea")]
 public class textarea extends textfield {
 
   public function textarea(config:Object = null) {

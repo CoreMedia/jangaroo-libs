@@ -14,7 +14,7 @@ package ext.config {
  *
  * @see ext.toolbar.Fill
  */
-[ExtConfig(target="ext.toolbar.Fill")]
+[ExtConfig(target="ext.toolbar.Fill", xtype="tbfill")]
 public class tbfill extends tbspacer {
 
   public function tbfill(config:Object = null) {

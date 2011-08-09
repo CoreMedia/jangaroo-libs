@@ -12,7 +12,7 @@ package ext.config {
  *
  * @see ext.form.TimeField
  */
-[ExtConfig(target="ext.form.TimeField")]
+[ExtConfig(target="ext.form.TimeField", xtype="timefield")]
 public class timefield extends combo {
 
   public function timefield(config:Object = null) {

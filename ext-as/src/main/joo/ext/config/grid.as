@@ -52,7 +52,7 @@ import ext.data.Store;
  *
  * @see ext.grid.GridPanel
  */
-[ExtConfig(target="ext.grid.GridPanel")]
+[ExtConfig(target="ext.grid.GridPanel", xtype="grid")]
 public class grid extends panel {
 
   public function grid(config:Object = null) {

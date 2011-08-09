@@ -8,7 +8,7 @@ package ext.config {
  *
  * @see ext.form.FormPanel
  */
-[ExtConfig(target="ext.form.FormPanel")]
+[ExtConfig(target="ext.form.FormPanel", xtype="form")]
 public class form extends panel {
 
   public function form(config:Object = null) {

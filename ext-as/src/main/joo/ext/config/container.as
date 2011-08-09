@@ -100,7 +100,7 @@ package ext.config {
  *
  * @see ext.Container
  */
-[ExtConfig(target="ext.Container")]
+[ExtConfig(target="ext.Container", xtype="container")]
 public class container extends box {
 
   public function container(config:Object = null) {

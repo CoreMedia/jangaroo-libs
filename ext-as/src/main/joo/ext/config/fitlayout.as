@@ -17,7 +17,7 @@ package ext.config {
  *
  * @see ext.layout.FitLayout
  */
-[ExtConfig(target="ext.layout.FitLayout")]
+[ExtConfig(target="ext.layout.FitLayout", type="fit")]
 public class fitlayout extends containerlayout {
 
   public function fitlayout(config:Object = null) {

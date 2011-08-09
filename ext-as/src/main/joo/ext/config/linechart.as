@@ -7,7 +7,7 @@ package ext.config {
  *
  * @see ext.chart.LineChart
  */
-[ExtConfig(target="ext.chart.LineChart")]
+[ExtConfig(target="ext.chart.LineChart", xtype="linechart")]
 public class linechart extends cartesianchart {
 
   public function linechart(config:Object = null) {

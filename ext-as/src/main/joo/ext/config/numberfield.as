@@ -7,7 +7,7 @@ package ext.config {
  *
  * @see ext.form.NumberField
  */
-[ExtConfig(target="ext.form.NumberField")]
+[ExtConfig(target="ext.form.NumberField", xtype="numberfield")]
 public class numberfield extends textfield {
 
   public function numberfield(config:Object = null) {

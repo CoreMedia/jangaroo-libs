@@ -28,7 +28,7 @@ package ext.config {
  *
  * @see ext.layout.AnchorLayout
  */
-[ExtConfig(target="ext.layout.AnchorLayout")]
+[ExtConfig(target="ext.layout.AnchorLayout", type="anchor")]
 public class anchorlayout extends containerlayout {
 
   public function anchorlayout(config:Object = null) {

@@ -8,7 +8,7 @@ import ext.form.Field;
  *
  * @see ext.Editor
  */
-[ExtConfig(target="ext.Editor")]
+[ExtConfig(target="ext.Editor", xtype="editor")]
 public class editor extends component {
 
   public function editor(config:Object = null) {

@@ -15,7 +15,7 @@ package ext.config {
  *
  * @see ext.BoxComponent
  */
-[ExtConfig(target="ext.BoxComponent")]
+[ExtConfig(target="ext.BoxComponent", xtype="box")]
 public class box extends component {
 
   public function box(config:Object = null) {

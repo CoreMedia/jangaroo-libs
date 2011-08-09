@@ -39,7 +39,7 @@ package ext.config {
  *
  * @see ext.layout.TableLayout
  */
-[ExtConfig(target="ext.layout.TableLayout")]
+[ExtConfig(target="ext.layout.TableLayout", type="table")]
 public class tablelayout extends containerlayout {
 
   public function tablelayout(config:Object = null) {

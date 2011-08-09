@@ -7,7 +7,7 @@ package ext.config {
  *
  * @see ext.chart.CartesianChart
  */
-[ExtConfig(target="ext.chart.CartesianChart")]
+[ExtConfig(target="ext.chart.CartesianChart", xtype="cartesianchart")]
 public class cartesianchart extends chart {
 
   public function cartesianchart(config:Object = null) {

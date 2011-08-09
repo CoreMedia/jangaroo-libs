@@ -50,7 +50,7 @@ package ext.config {
  *
  * @see ext.data.XmlStore
  */
-[ExtConfig(target="ext.data.XmlStore")]
+[ExtConfig(target="ext.data.XmlStore", xtype="xmlstore")]
 public class xmlstore extends store {
 
   public function xmlstore(config:Object = null) {

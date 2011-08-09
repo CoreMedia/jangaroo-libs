@@ -13,7 +13,7 @@ package ext.config {
  *
  * @see ext.ColorPalette
  */
-[ExtConfig(target="ext.ColorPalette")]
+[ExtConfig(target="ext.ColorPalette", xtype="colorpalette")]
 public class colorpalette extends component {
 
   public function colorpalette(config:Object = null) {

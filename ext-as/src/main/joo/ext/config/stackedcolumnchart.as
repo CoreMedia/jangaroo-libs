@@ -7,7 +7,7 @@ package ext.config {
  *
  * @see ext.chart.StackedColumnChart
  */
-[ExtConfig(target="ext.chart.StackedColumnChart")]
+[ExtConfig(target="ext.chart.StackedColumnChart", xtype="stackedcolumnchart")]
 public class stackedcolumnchart extends cartesianchart {
 
   public function stackedcolumnchart(config:Object = null) {

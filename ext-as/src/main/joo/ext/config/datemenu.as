@@ -8,7 +8,7 @@ package ext.config {
  *
  * @see ext.menu.DateMenu
  */
-[ExtConfig(target="ext.menu.DateMenu")]
+[ExtConfig(target="ext.menu.DateMenu", xtype="datemenu")]
 public class datemenu extends menu {
 
   public function datemenu(config:Object = null) {

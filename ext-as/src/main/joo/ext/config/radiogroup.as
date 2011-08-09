@@ -7,7 +7,7 @@ package ext.config {
  *
  * @see ext.form.RadioGroup
  */
-[ExtConfig(target="ext.form.RadioGroup")]
+[ExtConfig(target="ext.form.RadioGroup", xtype="radiogroup")]
 public class radiogroup extends checkboxgroup {
 
   public function radiogroup(config:Object = null) {

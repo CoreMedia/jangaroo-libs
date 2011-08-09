@@ -29,7 +29,7 @@ package ext.config {
  *
  * @see ext.SplitButton
  */
-[ExtConfig(target="ext.SplitButton")]
+[ExtConfig(target="ext.SplitButton", xtype="splitbutton")]
 public class splitbutton extends button {
 
   public function splitbutton(config:Object = null) {

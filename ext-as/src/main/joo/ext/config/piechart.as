@@ -7,7 +7,7 @@ package ext.config {
  *
  * @see ext.chart.PieChart
  */
-[ExtConfig(target="ext.chart.PieChart")]
+[ExtConfig(target="ext.chart.PieChart", xtype="piechart")]
 public class piechart extends chart {
 
   public function piechart(config:Object = null) {

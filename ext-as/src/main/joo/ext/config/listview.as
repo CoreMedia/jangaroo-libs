@@ -76,7 +76,7 @@ package ext.config {
  *
  * @see ext.list.ListView
  */
-[ExtConfig(target="ext.list.ListView")]
+[ExtConfig(target="ext.list.ListView", xtype="listview")]
 public class listview extends dataview {
 
   public function listview(config:Object = null) {

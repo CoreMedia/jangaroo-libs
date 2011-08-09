@@ -24,7 +24,7 @@ package ext.config {
  *
  * @see ext.data.JsonStore
  */
-[ExtConfig(target="ext.data.JsonStore")]
+[ExtConfig(target="ext.data.JsonStore", xtype="jsonstore")]
 public class jsonstore extends store {
 
   public function jsonstore(config:Object = null) {

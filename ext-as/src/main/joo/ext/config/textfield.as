@@ -8,7 +8,7 @@ package ext.config {
  *
  * @see ext.form.TextField
  */
-[ExtConfig(target="ext.form.TextField")]
+[ExtConfig(target="ext.form.TextField", xtype="textfield")]
 public class textfield extends field {
 
   public function textfield(config:Object = null) {

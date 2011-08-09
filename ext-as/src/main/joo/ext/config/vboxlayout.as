@@ -8,7 +8,7 @@ package ext.config {
  *
  * @see ext.layout.VBoxLayout
  */
-[ExtConfig(target="ext.layout.VBoxLayout")]
+[ExtConfig(target="ext.layout.VBoxLayout", type="vbox")]
 public class vboxlayout extends boxlayout {
 
   public function vboxlayout(config:Object = null) {

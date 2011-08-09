@@ -7,7 +7,7 @@ package ext.config {
  *
  * @see ext.ToolTip
  */
-[ExtConfig(target="ext.ToolTip")]
+[ExtConfig(target="ext.ToolTip", xtype="tooltip")]
 public class tooltip extends tip {
 
   public function tooltip(config:Object = null) {

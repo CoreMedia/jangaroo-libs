@@ -41,7 +41,7 @@ package ext.config {
  *
  * @see ext.layout.ColumnLayout
  */
-[ExtConfig(target="ext.layout.ColumnLayout")]
+[ExtConfig(target="ext.layout.ColumnLayout", type="column")]
 public class columnlayout extends containerlayout {
 
   public function columnlayout(config:Object = null) {

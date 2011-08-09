@@ -8,7 +8,7 @@ package ext.config {
  *
  * @see ext.layout.HBoxLayout
  */
-[ExtConfig(target="ext.layout.HBoxLayout")]
+[ExtConfig(target="ext.layout.HBoxLayout", type="hbox")]
 public class hboxlayout extends boxlayout {
 
   public function hboxlayout(config:Object = null) {

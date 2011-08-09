@@ -20,7 +20,7 @@ package ext.config {
  *
  * @see ext.toolbar.Spacer
  */
-[ExtConfig(target="ext.toolbar.Spacer")]
+[ExtConfig(target="ext.toolbar.Spacer", xtype="tbspacer")]
 public class tbspacer extends tbitem {
 
   public function tbspacer(config:Object = null) {

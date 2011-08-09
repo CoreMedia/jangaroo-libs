@@ -58,7 +58,7 @@ import ext.Template;
  *
  * @see ext.layout.FormLayout
  */
-[ExtConfig(target="ext.layout.FormLayout")]
+[ExtConfig(target="ext.layout.FormLayout", type="form")]
 public class formlayout extends anchorlayout {
 
   public function formlayout(config:Object = null) {

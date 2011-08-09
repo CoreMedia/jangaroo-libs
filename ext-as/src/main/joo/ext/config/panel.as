@@ -8,7 +8,7 @@ package ext.config {
  *
  * @see ext.Panel
  */
-[ExtConfig(target="ext.Panel")]
+[ExtConfig(target="ext.Panel", xtype="panel")]
 public class panel extends container {
 
   public function panel(config:Object = null) {

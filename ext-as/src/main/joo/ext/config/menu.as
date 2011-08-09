@@ -8,7 +8,7 @@ package ext.config {
  *
  * @see ext.menu.Menu
  */
-[ExtConfig(target="ext.menu.Menu")]
+[ExtConfig(target="ext.menu.Menu", xtype="menu")]
 public class menu extends container {
 
   public function menu(config:Object = null) {

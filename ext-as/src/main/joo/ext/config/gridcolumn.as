@@ -11,7 +11,7 @@ import joo.JavaScriptObject;
  *
  * @see ext.grid.Column
  */
-[ExtConfig(target="ext.grid.Column")]
+[ExtConfig(target="ext.grid.Column", xtype="gridcolumn")]
 public class gridcolumn extends JavaScriptObject {
 
   public function gridcolumn(config:Object = null) {

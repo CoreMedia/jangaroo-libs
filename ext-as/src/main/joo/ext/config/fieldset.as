@@ -58,7 +58,7 @@ package ext.config {
  *
  * @see ext.form.FieldSet
  */
-[ExtConfig(target="ext.form.FieldSet")]
+[ExtConfig(target="ext.form.FieldSet", xtype="fieldset")]
 public class fieldset extends panel {
 
   public function fieldset(config:Object = null) {

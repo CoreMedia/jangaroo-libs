@@ -8,7 +8,7 @@ package ext.config {
  *
  * @see ext.grid.EditorGridPanel
  */
-[ExtConfig(target="ext.grid.EditorGridPanel")]
+[ExtConfig(target="ext.grid.EditorGridPanel", xtype="editorgrid")]
 public class editorgrid extends grid {
 
   public function editorgrid(config:Object = null) {

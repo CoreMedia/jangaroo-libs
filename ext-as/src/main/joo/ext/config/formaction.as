@@ -9,7 +9,7 @@ import joo.JavaScriptObject;
  *
  * @see ext.form.Action
  */
-[ExtConfig(target="ext.form.Action")]
+[ExtConfig(target="ext.form.Action", xtype="formaction")]
 public class formaction extends JavaScriptObject {
 
   public function formaction(config:Object = null) {

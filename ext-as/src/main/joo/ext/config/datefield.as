@@ -7,7 +7,7 @@ package ext.config {
  *
  * @see ext.form.DateField
  */
-[ExtConfig(target="ext.form.DateField")]
+[ExtConfig(target="ext.form.DateField", xtype="datefield")]
 public class datefield extends trigger {
 
   public function datefield(config:Object = null) {

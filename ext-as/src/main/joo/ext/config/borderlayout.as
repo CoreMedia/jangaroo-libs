@@ -49,7 +49,7 @@ package ext.config {
  *
  * @see ext.layout.BorderLayout
  */
-[ExtConfig(target="ext.layout.BorderLayout")]
+[ExtConfig(target="ext.layout.BorderLayout", type="border")]
 public class borderlayout extends containerlayout {
 
   public function borderlayout(config:Object = null) {

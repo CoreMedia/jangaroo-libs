@@ -7,7 +7,7 @@ package ext.config {
  *
  * @see ext.toolbar.Item
  */
-[ExtConfig(target="ext.toolbar.Item")]
+[ExtConfig(target="ext.toolbar.Item", xtype="tbitem")]
 public class tbitem extends box {
 
   public function tbitem(config:Object = null) {

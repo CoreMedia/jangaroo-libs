@@ -9,7 +9,7 @@ import joo.JavaScriptObject;
  *
  * @see ext.layout.ContainerLayout
  */
-[ExtConfig(target="ext.layout.ContainerLayout")]
+[ExtConfig(target="ext.layout.ContainerLayout", type="container")]
 public class containerlayout extends JavaScriptObject {
 
   public function containerlayout(config:Object = null) {

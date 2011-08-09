@@ -57,7 +57,7 @@ import ext.data.Store;
  *
  * @see ext.PagingToolbar
  */
-[ExtConfig(target="ext.PagingToolbar")]
+[ExtConfig(target="ext.PagingToolbar", xtype="paging")]
 public class paging extends toolbar {
 
   public function paging(config:Object = null) {

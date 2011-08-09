@@ -8,7 +8,7 @@ package ext.config {
  *
  * @see ext.ProgressBar
  */
-[ExtConfig(target="ext.ProgressBar")]
+[ExtConfig(target="ext.ProgressBar", xtype="progress")]
 public class progress extends box {
 
   public function progress(config:Object = null) {

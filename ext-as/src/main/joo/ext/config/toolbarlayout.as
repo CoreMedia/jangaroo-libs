@@ -7,7 +7,7 @@ package ext.config {
  *
  * @see ext.layout.ToolbarLayout
  */
-[ExtConfig(target="ext.layout.ToolbarLayout")]
+[ExtConfig(target="ext.layout.ToolbarLayout", type="toolbar")]
 public class toolbarlayout extends containerlayout {
 
   public function toolbarlayout(config:Object = null) {

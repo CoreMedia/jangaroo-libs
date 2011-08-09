@@ -9,7 +9,7 @@ import joo.JavaScriptObject;
  *
  * @see ext.data.Field
  */
-[ExtConfig(target="ext.data.Field")]
+[ExtConfig(target="ext.data.Field", xtype="datafield")]
 public class datafield extends JavaScriptObject {
 
   public function datafield(config:Object = null) {

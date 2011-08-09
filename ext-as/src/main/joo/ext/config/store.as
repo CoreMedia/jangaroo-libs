@@ -41,7 +41,7 @@ import ext.data.DataWriter;
  *
  * @see ext.data.Store
  */
-[ExtConfig(target="ext.data.Store")]
+[ExtConfig(target="ext.data.Store", xtype="store")]
 public class store extends observable {
 
   public function store(config:Object = null) {

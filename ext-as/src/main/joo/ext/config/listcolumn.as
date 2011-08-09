@@ -9,7 +9,7 @@ import joo.JavaScriptObject;
  *
  * @see ext.list.Column
  */
-[ExtConfig(target="ext.list.Column")]
+[ExtConfig(target="ext.list.Column", xtype="listcolumn")]
 public class listcolumn extends JavaScriptObject {
 
   public function listcolumn(config:Object = null) {

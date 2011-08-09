@@ -14,7 +14,7 @@ package ext.config {
  *
  * @see ext.toolbar.Separator
  */
-[ExtConfig(target="ext.toolbar.Separator")]
+[ExtConfig(target="ext.toolbar.Separator", xtype="tbseparator")]
 public class tbseparator extends tbitem {
 
   public function tbseparator(config:Object = null) {

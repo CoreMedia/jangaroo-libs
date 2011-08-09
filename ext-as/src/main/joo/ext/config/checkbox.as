@@ -7,7 +7,7 @@ package ext.config {
  *
  * @see ext.form.Checkbox
  */
-[ExtConfig(target="ext.form.Checkbox")]
+[ExtConfig(target="ext.form.Checkbox", xtype="checkbox")]
 public class checkbox extends field {
 
   public function checkbox(config:Object = null) {

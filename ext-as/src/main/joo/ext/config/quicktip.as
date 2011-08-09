@@ -7,7 +7,7 @@ package ext.config {
  *
  * @see ext.QuickTip
  */
-[ExtConfig(target="ext.QuickTip")]
+[ExtConfig(target="ext.QuickTip", xtype="quicktip")]
 public class quicktip extends tooltip {
 
   public function quicktip(config:Object = null) {

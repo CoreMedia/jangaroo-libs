@@ -80,7 +80,7 @@ import ext.tree.TreeNode;
  *
  * @see ext.tree.TreePanel
  */
-[ExtConfig(target="ext.tree.TreePanel")]
+[ExtConfig(target="ext.tree.TreePanel", xtype="treepanel")]
 public class treepanel extends panel {
 
   public function treepanel(config:Object = null) {

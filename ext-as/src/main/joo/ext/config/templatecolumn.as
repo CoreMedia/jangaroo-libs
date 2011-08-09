@@ -20,12 +20,12 @@ public class templatecolumn extends gridcolumn {
   /**
    An <a href="Ext.XTemplate.html">XTemplate</a>, or an XTemplate <i>definition string</i> to use to process a <a href="Ext.data.Record.html">Record</a>'s <a href="output/Ext.data.Record.html#Ext.data.Record-data">data</a> to produce a column's rendered value.
    */
-  public native function get tpl():String;
+  public native function get tpl():*;
 
   /**
    * @private
    */
-  public native function set tpl(value:String):void;
+  public native function set tpl(value:*):void;
 
 
 }

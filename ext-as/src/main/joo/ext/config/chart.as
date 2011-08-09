@@ -7,7 +7,7 @@ package ext.config {
  *
  * @see ext.chart.Chart
  */
-[ExtConfig(target="ext.chart.Chart")]
+[ExtConfig(target="ext.chart.Chart", xtype="chart")]
 public class chart extends flash {
 
   public function chart(config:Object = null) {

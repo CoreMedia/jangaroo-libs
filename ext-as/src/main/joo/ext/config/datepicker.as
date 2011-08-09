@@ -8,7 +8,7 @@ package ext.config {
  *
  * @see ext.DatePicker
  */
-[ExtConfig(target="ext.DatePicker")]
+[ExtConfig(target="ext.DatePicker", xtype="datepicker")]
 public class datepicker extends component {
 
   public function datepicker(config:Object = null) {

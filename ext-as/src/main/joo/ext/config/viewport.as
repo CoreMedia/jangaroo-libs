@@ -49,7 +49,7 @@ package ext.config {
  *
  * @see ext.Viewport
  */
-[ExtConfig(target="ext.Viewport")]
+[ExtConfig(target="ext.Viewport", xtype="viewport")]
 public class viewport extends container {
 
   public function viewport(config:Object = null) {

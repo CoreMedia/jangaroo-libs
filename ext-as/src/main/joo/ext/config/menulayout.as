@@ -8,7 +8,7 @@ package ext.config {
  *
  * @see ext.layout.MenuLayout
  */
-[ExtConfig(target="ext.layout.MenuLayout")]
+[ExtConfig(target="ext.layout.MenuLayout", type="menu")]
 public class menulayout extends containerlayout {
 
   public function menulayout(config:Object = null) {

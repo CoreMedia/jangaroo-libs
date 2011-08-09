@@ -8,7 +8,7 @@ import joo.JavaScriptObject;
  *
  * @see ext.layout.boxoverflow.Menu
  */
-[ExtConfig(target="ext.layout.boxoverflow.Menu")]
+[ExtConfig(target="ext.layout.boxoverflow.Menu", xtype="boxoverflowmenu")]
 public class boxoverflowmenu extends JavaScriptObject {
 
   public function boxoverflowmenu(config:Object = null) {

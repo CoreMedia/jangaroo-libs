@@ -22,7 +22,7 @@ package ext.config {
  *
  * @see ext.CycleButton
  */
-[ExtConfig(target="ext.CycleButton")]
+[ExtConfig(target="ext.CycleButton", xtype="cycle")]
 public class cycle extends splitbutton {
 
   public function cycle(config:Object = null) {

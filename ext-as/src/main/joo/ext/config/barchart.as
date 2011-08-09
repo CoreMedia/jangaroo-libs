@@ -7,7 +7,7 @@ package ext.config {
  *
  * @see ext.chart.BarChart
  */
-[ExtConfig(target="ext.chart.BarChart")]
+[ExtConfig(target="ext.chart.BarChart", xtype="barchart")]
 public class barchart extends cartesianchart {
 
   public function barchart(config:Object = null) {

@@ -63,44 +63,48 @@ ext.Action.prototype.addComponent = Ext.Action.prototype.addComponent.createInte
 
 // ---- handle ExtConfig annotation ----
 joo.getOrCreatePackage("joo.meta").ExtConfig = (function(){
-  var TYPE_TO_TYPE_ATTRIBUTE = {
-    'component': 'xtype',
-    'plugin': 'ptype',
-    'layout': 'type'
+
+  var REGISTRATION_BY_TYPE = {
+    xtype: ext.ComponentMgr.registerType,
+    ptype: ext.ComponentMgr.registerPlugin,
+    type:  function(layoutName, targetClass) {
+      ext.Container.LAYOUTS[layoutName] = targetClass;
+    }
   };
 
-  var EXT_CONFIG_PACKAGE_PATTERN = /^ext\.config\.([a-z]+)$/;
+  function findTypeAttribute(parameters) {
+    for (var m in parameters) {
+      if (m in REGISTRATION_BY_TYPE) {
+        return m;
+      }
+    }
+    return null;
+  }
 
   return function joo_meta_ExtConfig(classDeclaration/*:joo.JooClassDeclaration*/,
                                      memberDeclaration/*:joo.MemberDeclaration*/,
                                      parameters/*:Object*/) {
     var targetClassName = parameters['target'];
-    var type = parameters['type'] || 'component';
-    // determine type attribute name from annotation parameter "type":
-    var typeAttribute = TYPE_TO_TYPE_ATTRIBUTE[type];
-    if (!typeAttribute) {
-      throw new ArgumentError("Unknown type attribute value '" + type + "' in ExtConfig annotation of class " + classDeclaration.fullClassName + ".");
+    var typeAttribute = findTypeAttribute(parameters);
+    if (typeAttribute) { // if any type attribute is set...
+      classDeclaration.getDependencies().push(targetClassName); // ...add target class dependency
+      classDeclaration.addStateListener(joo.JooClassDeclaration.STATE_EVENT_AFTER_INIT_MEMBERS, function() {
+        // config class is now initialized:
+        var typeName = parameters[typeAttribute] || classDeclaration.fullClassName;
+        // add [x|p|]type attribute to prototype and as a static field of the config class:
+        classDeclaration.constructor_.prototype[typeAttribute] =
+          classDeclaration.constructor_[typeAttribute] = typeName;
+
+        var targetClass = joo.classLoader.getRequiredClassDeclaration(targetClassName);
+        if (targetClass.addStateListener) { // is it a non-native Jangaroo class? Ext JS standard componentes are already registered!
+          REGISTRATION_BY_TYPE[typeAttribute](typeName, targetClass.publicConstructor);
+
+          targetClass.addStateListener(joo.JooClassDeclaration.STATE_EVENT_AFTER_INIT_MEMBERS, function() {
+            // re-register the now created "real" constructor:
+            REGISTRATION_BY_TYPE[typeAttribute](typeName, targetClass.constructor_);
+          });
+        }
+      });
     }
-    if (!classDeclaration.isComplete()) {
-      // called before completion: only add target class dependency!
-      classDeclaration.getDependencies().push(targetClassName);
-    } else {
-      // called within init:
-      // special case original Ext config classes:
-      var typeName = classDeclaration.fullClassName;
-      var result = typeName.match(EXT_CONFIG_PACKAGE_PATTERN); // if it is an Ext config class...
-      if (result) {
-        typeName = result[1]; // ...use the simple class name (without namespace/package)!
-      }
-      // add [x|p|]type attribute to prototype and as a static field:
-      classDeclaration.constructor_.prototype[typeAttribute] = typeName;
-      classDeclaration.constructor_[typeAttribute] = typeName;
-      var targetClass = joo.getQualifiedObject(targetClassName);
-      switch (type) {
-        case 'component': ext.ComponentMgr.registerType(typeName, targetClass); break;
-        case 'plugin':    ext.ComponentMgr.registerPlugin(typeName, targetClass); break;
-        // TODO: anything to do for 'layout' or 'action'?
-      }
-    }
-  }
+  };
 })();

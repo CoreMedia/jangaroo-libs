@@ -30,7 +30,7 @@ package ext.config {
  *
  * @see ext.form.HtmlEditor
  */
-[ExtConfig(target="ext.form.HtmlEditor")]
+[ExtConfig(target="ext.form.HtmlEditor", xtype="htmleditor")]
 public class htmleditor extends field {
 
   public function htmleditor(config:Object = null) {

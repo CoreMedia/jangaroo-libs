@@ -7,7 +7,7 @@ package ext.config {
  *
  * @see ext.form.Label
  */
-[ExtConfig(target="ext.form.Label")]
+[ExtConfig(target="ext.form.Label", xtype="label")]
 public class label extends box {
 
   public function label(config:Object = null) {

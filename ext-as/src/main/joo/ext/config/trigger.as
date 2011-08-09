@@ -10,7 +10,7 @@ package ext.config {
  *
  * @see ext.form.TriggerField
  */
-[ExtConfig(target="ext.form.TriggerField")]
+[ExtConfig(target="ext.form.TriggerField", xtype="trigger")]
 public class trigger extends textfield {
 
   public function trigger(config:Object = null) {

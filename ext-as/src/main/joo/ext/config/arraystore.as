@@ -29,7 +29,7 @@ package ext.config {
  *
  * @see ext.data.ArrayStore
  */
-[ExtConfig(target="ext.data.ArrayStore")]
+[ExtConfig(target="ext.data.ArrayStore", xtype="arraystore")]
 public class arraystore extends store {
 
   public function arraystore(config:Object = null) {

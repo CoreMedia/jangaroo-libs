@@ -12,7 +12,7 @@ package ext.config {
  *
  * @see ext.toolbar.TextItem
  */
-[ExtConfig(target="ext.toolbar.TextItem")]
+[ExtConfig(target="ext.toolbar.TextItem", xtype="tbtext")]
 public class tbtext extends tbitem {
 
   public function tbtext(config:Object = null) {

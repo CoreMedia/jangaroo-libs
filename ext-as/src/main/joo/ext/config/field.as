@@ -7,7 +7,7 @@ package ext.config {
  *
  * @see ext.form.Field
  */
-[ExtConfig(target="ext.form.Field")]
+[ExtConfig(target="ext.form.Field", xtype="field")]
 public class field extends box {
 
   public function field(config:Object = null) {

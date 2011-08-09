@@ -7,7 +7,7 @@ package ext.config {
  *
  * @see ext.Tip
  */
-[ExtConfig(target="ext.Tip")]
+[ExtConfig(target="ext.Tip", xtype="tip")]
 public class tip extends panel {
 
   public function tip(config:Object = null) {

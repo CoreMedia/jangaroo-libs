@@ -7,7 +7,7 @@ package ext.config {
  *
  * @see ext.FlashComponent
  */
-[ExtConfig(target="ext.FlashComponent")]
+[ExtConfig(target="ext.FlashComponent", xtype="flash")]
 public class flash extends box {
 
   public function flash(config:Object = null) {

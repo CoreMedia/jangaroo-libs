@@ -32,7 +32,7 @@ package ext.config {
  *
  * @see ext.layout.AccordionLayout
  */
-[ExtConfig(target="ext.layout.AccordionLayout")]
+[ExtConfig(target="ext.layout.AccordionLayout", type="accordion")]
 public class accordionlayout extends fitlayout {
 
   public function accordionlayout(config:Object = null) {

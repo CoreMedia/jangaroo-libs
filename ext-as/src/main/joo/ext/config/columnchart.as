@@ -7,7 +7,7 @@ package ext.config {
  *
  * @see ext.chart.ColumnChart
  */
-[ExtConfig(target="ext.chart.ColumnChart")]
+[ExtConfig(target="ext.chart.ColumnChart", xtype="columnchart")]
 public class columnchart extends cartesianchart {
 
   public function columnchart(config:Object = null) {

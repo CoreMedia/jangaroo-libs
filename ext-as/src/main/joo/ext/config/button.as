@@ -8,7 +8,7 @@ import ext.Template;
  *
  * @see ext.Button
  */
-[ExtConfig(target="ext.Button")]
+[ExtConfig(target="ext.Button", xtype="button")]
 public class button extends box {
 
   public function button(config:Object = null) {

@@ -9,7 +9,7 @@ import ext.WindowGroup;
  *
  * @see ext.Window
  */
-[ExtConfig(target="ext.Window")]
+[ExtConfig(target="ext.Window", xtype="window")]
 public class window extends panel {
 
   public function window(config:Object = null) {

@@ -7,7 +7,7 @@ package ext.config {
  *
  * @see ext.menu.Item
  */
-[ExtConfig(target="ext.menu.Item")]
+[ExtConfig(target="ext.menu.Item", xtype="menuitem")]
 public class menuitem extends menubaseitem {
 
   public function menuitem(config:Object = null) {
