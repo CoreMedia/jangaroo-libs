@@ -1,6 +1,7 @@
 package ext.form {
 
 import ext.Element;
+import ext.config.sliderfield;
 
 /**
  * Wraps a <a href="Ext.slider.MultiSlider.html">Slider</a> so it can be used as a form field.
@@ -16,7 +17,7 @@ public class SliderField extends Field {
    * @param config Configuration options. Note that you can pass in any slider configuration options, as well as as any field configuration options.
    * @see ext.config.sliderfield
    */
-  public function SliderField(config:Object) {
+  public function SliderField(config:sliderfield) {
     super(null);
   }
 

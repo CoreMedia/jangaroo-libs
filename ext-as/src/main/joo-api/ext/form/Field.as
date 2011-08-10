@@ -2,6 +2,7 @@ package ext.form {
 
 import ext.BoxComponent;
 import ext.Element;
+import ext.config.field;
 
 /**
  * Fires when this field loses input focus.
@@ -145,7 +146,7 @@ public class Field extends BoxComponent {
    * @param config Configuration options
    * @see ext.config.field
    */
-  public function Field(config:Object) {
+  public function Field(config:field) {
     super(null);
   }
 

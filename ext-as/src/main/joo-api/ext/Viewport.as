@@ -1,5 +1,6 @@
 package ext {
 
+import ext.config.viewport;
 
 /**
  * A specialized container representing the viewable application area (the browser viewport).
@@ -57,7 +58,7 @@ public class Viewport extends Container {
    * @param config The config object
    * @see ext.config.viewport
    */
-  public function Viewport(config:Object) {
+  public function Viewport(config:viewport) {
     super(null);
   }
 

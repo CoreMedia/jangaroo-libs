@@ -1,5 +1,6 @@
 package ext.grid {
 
+import ext.config.checkboxselectionmodel;
 
 /**
  * A custom selection model that renders a column of checkboxes that can be toggled to select or deselect rows.
@@ -14,7 +15,7 @@ public class CheckboxSelectionModel extends RowSelectionModel {
    * @param config The configuration options
    * @see ext.config.checkboxselectionmodel
    */
-  public function CheckboxSelectionModel(config:Object) {
+  public function CheckboxSelectionModel(config:checkboxselectionmodel) {
     super(null);
   }
 

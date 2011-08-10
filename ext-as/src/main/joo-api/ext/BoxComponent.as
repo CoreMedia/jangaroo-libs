@@ -1,5 +1,6 @@
 package ext {
 
+import ext.config.box;
 
 /**
  * Fires after the component is moved.
@@ -82,7 +83,7 @@ public class BoxComponent extends Component {
    * @param config The configuration options.
    * @see ext.config.box
    */
-  public function BoxComponent(config:*) {
+  public function BoxComponent(config:box) {
     super(null);
   }
 

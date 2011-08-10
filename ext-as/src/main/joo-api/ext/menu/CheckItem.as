@@ -1,5 +1,6 @@
 package ext.menu {
 
+import ext.config.menucheckitem;
 
 /**
  * Fires before the checked value is set, providing an opportunity to cancel if needed
@@ -54,7 +55,7 @@ public class CheckItem extends Item {
    * @param config Configuration options
    * @see ext.config.menucheckitem
    */
-  public function CheckItem(config:Object) {
+  public function CheckItem(config:menucheckitem) {
     super(null);
   }
 

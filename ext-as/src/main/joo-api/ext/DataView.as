@@ -1,5 +1,6 @@
 package ext {
 
+import ext.config.dataview;
 import ext.data.Record;
 import ext.data.Store;
 
@@ -315,7 +316,7 @@ public class DataView extends BoxComponent {
    * @param config The config object
    * @see ext.config.dataview
    */
-  public function DataView(config:Object) {
+  public function DataView(config:dataview) {
     super(null);
   }
 

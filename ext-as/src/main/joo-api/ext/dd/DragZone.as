@@ -1,6 +1,7 @@
 package ext.dd {
 
 import ext.IEventObject;
+import ext.config.dragzone;
 
 /**
  * This class provides a container DD instance that allows dragging of multiple child source nodes.
@@ -51,7 +52,7 @@ public class DragZone extends DragSource {
    * @param config
    * @see ext.config.dragzone
    */
-  public function DragZone(el:*, config:Object) {
+  public function DragZone(el:*, config:dragzone) {
     super(null, null);
   }
 

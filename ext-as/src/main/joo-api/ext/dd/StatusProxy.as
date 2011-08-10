@@ -2,6 +2,7 @@ package ext.dd {
 
 import ext.Element;
 import ext.Layer;
+import ext.config.statusproxy;
 
 /**
  * A specialized drag proxy that supports a drop status icon, <a href="Ext.Layer.html">Ext.Layer</a> styles and auto-repair. This is the default drag proxy used by all Ext.dd components.
@@ -16,7 +17,7 @@ public class StatusProxy {
    * @param config
    * @see ext.config.statusproxy
    */
-  public function StatusProxy(config:Object) {
+  public function StatusProxy(config:statusproxy) {
     super();
   }
 

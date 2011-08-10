@@ -2,6 +2,7 @@ package ext.grid {
 
 import ext.Element;
 import ext.Panel;
+import ext.config.grid;
 import ext.data.Store;
 
 /**
@@ -923,7 +924,7 @@ public class GridPanel extends Panel {
    * @param config The config object
    * @see ext.config.grid
    */
-  public function GridPanel(config:Object) {
+  public function GridPanel(config:grid) {
     super(null);
   }
 

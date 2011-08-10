@@ -1,6 +1,7 @@
 package ext.layout.borderlayout {
 
 import ext.Panel;
+import ext.config.region;
 import ext.layout.ContainerLayout;
 
 /**
@@ -19,7 +20,7 @@ public class Region {
    * @param position The region position. Valid values are: <tt>north</tt>, <tt>south</tt>, <tt>east</tt>, <tt>west</tt> and <tt>center</tt>. Every <a href="Ext.layout.BorderLayout.html">BorderLayout</a> <b>must have a center region</b> for the primary content -- all other regions are optional.
    * @see ext.config.region
    */
-  public function Region(layout:ContainerLayout, config:Object, position:String) {
+  public function Region(layout:ContainerLayout, config:region, position:String) {
     super();
   }
 

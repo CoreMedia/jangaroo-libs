@@ -1,6 +1,8 @@
 package ext.menu {
 
 import ext.Container;
+import ext.config.menu;
+import ext.config.menuitem;
 
 /**
  * Fires when this menu is clicked (or when the enter key is pressed while it is active)
@@ -109,7 +111,7 @@ public class Menu extends Container {
    * @param config The config object
    * @see ext.config.menu
    */
-  public function Menu(config:Object = null) {
+  public function Menu(config:menu = null) {
     super(null);
   }
 
@@ -223,7 +225,7 @@ public class Menu extends Container {
    * @return The menu item that was added
    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Menu.html#method-Ext.menu.Menu-addMenuItem Ext JS source
    */
-  public native function addMenuItem(config:Object):Item;
+  public native function addMenuItem(config:menuitem):Item;
 
   /**
    * Adds a separator bar to the menu

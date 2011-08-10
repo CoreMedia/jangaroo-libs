@@ -1,6 +1,7 @@
 package ext.form {
 
 import ext.Panel;
+import ext.config.fieldset;
 
 /**
  * Standard container used for grouping items within a <a href="Ext.form.FormPanel.html">form</a>. <pre><code>var form = new Ext.FormPanel({
@@ -67,7 +68,7 @@ public class FieldSet extends Panel {
    * @param config Configuration options
    * @see ext.config.fieldset
    */
-  public function FieldSet(config:Object) {
+  public function FieldSet(config:fieldset) {
     super(null);
   }
 

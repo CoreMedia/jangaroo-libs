@@ -1,5 +1,6 @@
 package ext.tree {
 
+import ext.config.treedragzone;
 import ext.dd.DragZone;
 
 /**
@@ -16,7 +17,7 @@ public class TreeDragZone extends DragZone {
    * @param config
    * @see ext.config.treedragzone
    */
-  public function TreeDragZone(tree:*, config:Object) {
+  public function TreeDragZone(tree:*, config:treedragzone) {
     super(null, null);
   }
 

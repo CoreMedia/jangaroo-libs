@@ -1,5 +1,6 @@
 package ext.form {
 
+import ext.config.datefield;
 
 /**
  * Fires when a date is selected via the date picker.
@@ -35,7 +36,7 @@ public class DateField extends TriggerField {
    * @param config
    * @see ext.config.datefield
    */
-  public function DateField(config:Object) {
+  public function DateField(config:datefield) {
     super(null);
   }
 

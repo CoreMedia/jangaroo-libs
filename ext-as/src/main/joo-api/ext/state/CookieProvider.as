@@ -1,5 +1,6 @@
 package ext.state {
 
+import ext.config.cookieprovider;
 
 /**
  * The default Provider implementation which saves state via cookies. <br/>Usage: <pre><code>  var cp = new Ext.state.CookieProvider({
@@ -20,7 +21,7 @@ public class CookieProvider extends Provider {
    * @param config The configuration object
    * @see ext.config.cookieprovider
    */
-  public function CookieProvider(config:Object) {
+  public function CookieProvider(config:cookieprovider) {
     super();
   }
 

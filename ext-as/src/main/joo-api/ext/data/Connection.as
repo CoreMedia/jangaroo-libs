@@ -1,5 +1,6 @@
 package ext.data {
 
+import ext.config.connection;
 import ext.util.Observable;
 
 /**
@@ -84,7 +85,7 @@ public class Connection extends Observable {
    * @param config a configuration object.
    * @see ext.config.connection
    */
-  public function Connection(config:Object) {
+  public function Connection(config:connection) {
     super();
   }
 

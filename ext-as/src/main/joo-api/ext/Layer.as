@@ -1,5 +1,6 @@
 package ext {
 
+import ext.config.layer;
 
 /**
  * An extended <a href="Ext.Element.html">Ext.Element</a> object that supports a shadow and shim, constrain to viewport and automatic maintaining of shadow/shim positions.
@@ -15,7 +16,7 @@ public class Layer extends Element {
    * @param existingEl Uses an existing DOM element. If the element is not found it creates it.
    * @see ext.config.layer
    */
-  public function Layer(config:Object, existingEl:* = null) {
+  public function Layer(config:layer, existingEl:* = null) {
     super(null, false);
   }
 

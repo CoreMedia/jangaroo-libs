@@ -1,5 +1,6 @@
 package ext.grid {
 
+import ext.config.rowselectionmodel;
 import ext.data.Record;
 
 /**
@@ -107,7 +108,7 @@ public class RowSelectionModel extends AbstractSelectionModel {
    * @param config
    * @see ext.config.rowselectionmodel
    */
-  public function RowSelectionModel(config:Object) {
+  public function RowSelectionModel(config:rowselectionmodel) {
     super();
   }
 

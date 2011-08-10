@@ -1,5 +1,6 @@
 package ext {
 
+import ext.config.editor;
 import ext.form.Field;
 
 /**
@@ -151,7 +152,7 @@ public class Editor extends Component {
    * @param config The config object
    * @see ext.config.editor
    */
-  public function Editor(config:Object) {
+  public function Editor(config:editor) {
     super(null);
   }
 

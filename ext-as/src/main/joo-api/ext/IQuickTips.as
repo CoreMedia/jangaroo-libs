@@ -1,5 +1,6 @@
 package ext {
 
+import ext.config.quicktip;
 
 /**
  * Provides attractive and customizable tooltips for any element. The QuickTips singleton is used to configure and manage tooltips globally for multiple elements in a generic manner. To create individual tooltips with maximum customizability, you should consider either <a href="Ext.Tip.html">Ext.Tip</a> or <a href="Ext.ToolTip.html">Ext.ToolTip</a>.
@@ -76,7 +77,7 @@ public interface IQuickTips {
    * @param config The config object
    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/QuickTips.html#method-Ext.QuickTips-register Ext JS source
    */
-  function register(config:Object):void;
+  function register(config:quicktip):void;
 
   /**
    * Alias of <a href="output/Ext.QuickTips.html#Ext.QuickTips-register">register</a>.
@@ -84,7 +85,7 @@ public interface IQuickTips {
    * @param config The config object
    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/QuickTips.html#method-Ext.QuickTips-tips Ext JS source
    */
-  function tips(config:Object):void;
+  function tips(config:quicktip):void;
 
   /**
    * Removes any registered quick tip from the target element and destroys it.

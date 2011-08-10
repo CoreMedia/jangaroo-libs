@@ -1,5 +1,6 @@
 package ext.form {
 
+import ext.config.textarea;
 
 /**
  * Multiline text field. Can be used as a direct replacement for traditional textarea fields, plus adds support for auto-sizing.
@@ -15,7 +16,7 @@ public class TextArea extends TextField {
    * @param config Configuration options
    * @see ext.config.textarea
    */
-  public function TextArea(config:Object) {
+  public function TextArea(config:textarea) {
     super(null);
   }
 

@@ -1,6 +1,7 @@
 package ext.form {
 
 import ext.IEventObject;
+import ext.config.trigger;
 
 /**
  * Provides a convenient wrapper for TextFields that adds a clickable trigger button (looks like a combobox by default). The trigger has no default action, so you must assign a function to implement the trigger click handler by overriding <a href="output/Ext.form.TriggerField.html#Ext.form.TriggerField-onTriggerClick">onTriggerClick</a>. You can create a TriggerField directly, as it renders exactly like a combobox for which you can provide a custom implementation. For example: <pre><code>var trigger = new Ext.form.TriggerField();
@@ -19,7 +20,7 @@ public class TriggerField extends TextField {
    * @param config Configuration options (valid {&#64;Ext.form.TextField} config options will also be applied to the base TextField)
    * @see ext.config.trigger
    */
-  public function TriggerField(config:Object) {
+  public function TriggerField(config:trigger) {
     super(null);
   }
 

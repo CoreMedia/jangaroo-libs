@@ -1,5 +1,6 @@
 package ext {
 
+import ext.config.buttongroup;
 
 /**
  * Container for a group of buttons. Example usage: <pre><code>var p = new Ext.Panel({
@@ -49,7 +50,7 @@ public class ButtonGroup extends Panel {
    * @param config The config object
    * @see ext.config.buttongroup
    */
-  public function ButtonGroup(config:Object) {
+  public function ButtonGroup(config:buttongroup) {
     super(null);
   }
 

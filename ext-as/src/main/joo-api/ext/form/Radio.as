@@ -1,5 +1,6 @@
 package ext.form {
 
+import ext.config.radio;
 
 /**
  * Single radio field. Same as Checkbox, but provided as a convenience for automatically setting the input type. Radio grouping is handled automatically by the browser if you give each radio in a group the same name.
@@ -15,7 +16,7 @@ public class Radio extends Checkbox {
    * @param config Configuration options
    * @see ext.config.radio
    */
-  public function Radio(config:Object) {
+  public function Radio(config:radio) {
     super(null);
   }
 

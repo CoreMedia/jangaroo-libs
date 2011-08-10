@@ -2,6 +2,7 @@ package ext.form {
 
 import ext.DataView;
 import ext.KeyNav;
+import ext.config.combo;
 import ext.data.Store;
 
 /**
@@ -159,7 +160,7 @@ public class ComboBox extends TriggerField {
    * @param config Configuration options
    * @see ext.config.combo
    */
-  public function ComboBox(config:Object) {
+  public function ComboBox(config:combo) {
     super(null);
   }
 

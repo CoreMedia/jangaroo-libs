@@ -1,6 +1,7 @@
 package ext.dd {
 
 import ext.IEventObject;
+import ext.config.dropzone;
 
 /**
  * This class provides a container DD instance that allows dropping on multiple child target nodes.
@@ -56,7 +57,7 @@ public class DropZone extends DropTarget {
    * @param config
    * @see ext.config.dropzone
    */
-  public function DropZone(el:*, config:Object) {
+  public function DropZone(el:*, config:dropzone) {
     super(null, null);
   }
 

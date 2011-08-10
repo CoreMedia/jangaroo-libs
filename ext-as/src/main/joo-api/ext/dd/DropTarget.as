@@ -1,6 +1,7 @@
 package ext.dd {
 
 import ext.IEventObject;
+import ext.config.droptarget;
 
 /**
  * A simple class that provides the basic implementation needed to make any element a drop target that can have draggable items dropped onto it. The drop has no effect until an implementation of notifyDrop is provided.
@@ -16,7 +17,7 @@ public class DropTarget extends DDTarget {
    * @param config
    * @see ext.config.droptarget
    */
-  public function DropTarget(el:*, config:Object) {
+  public function DropTarget(el:*, config:droptarget) {
     super(null, null, null);
   }
 

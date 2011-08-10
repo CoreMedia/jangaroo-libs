@@ -1,5 +1,7 @@
 package ext {
 
+import ext.config.tabpanel;
+
 import js.HTMLElement;
 
 /**
@@ -109,7 +111,7 @@ public class TabPanel extends Panel {
    * @param config The configuration options
    * @see ext.config.tabpanel
    */
-  public function TabPanel(config:Object) {
+  public function TabPanel(config:tabpanel) {
     super(null);
   }
 

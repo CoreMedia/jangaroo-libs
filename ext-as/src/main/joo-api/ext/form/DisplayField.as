@@ -1,5 +1,6 @@
 package ext.form {
 
+import ext.config.displayfield;
 
 /**
  * A display-only text field which is not validated and not submitted.
@@ -15,7 +16,7 @@ public class DisplayField extends Field {
    * @param config Configuration options
    * @see ext.config.displayfield
    */
-  public function DisplayField(config:Object) {
+  public function DisplayField(config:displayfield) {
     super(null);
   }
 

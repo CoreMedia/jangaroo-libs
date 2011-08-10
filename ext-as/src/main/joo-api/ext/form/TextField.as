@@ -1,5 +1,6 @@
 package ext.form {
 
+import ext.config.textfield;
 
 /**
  * Fires when the <tt><b><a href="output/Ext.form.TextField.html#Ext.form.TextField-autoSize">autoSize</a></b></tt> function is triggered. The field may or may not have actually changed size according to the default logic, but this event provides a hook for the developer to apply additional logic at runtime to resize the field if needed.
@@ -93,7 +94,7 @@ public class TextField extends Field {
    * @param config Configuration options
    * @see ext.config.textfield
    */
-  public function TextField(config:Object) {
+  public function TextField(config:textfield) {
     super(null);
   }
 

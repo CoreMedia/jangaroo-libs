@@ -1,5 +1,6 @@
 package ext {
 
+import ext.config.window;
 import ext.dd.DragSource;
 
 /**
@@ -112,7 +113,7 @@ public class Window extends Panel {
    * @param config The config object
    * @see ext.config.window
    */
-  public function Window(config:Object) {
+  public function Window(config:ext.config.window) {
     super(null);
   }
 

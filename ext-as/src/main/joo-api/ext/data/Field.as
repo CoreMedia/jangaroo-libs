@@ -1,5 +1,6 @@
 package ext.data {
 
+import ext.config.datafield;
 
 /**
  * This class encapsulates the field definition information specified in the field definition objects passed to <a href="output/Ext.data.Record.html#Ext.data.Record-create">Ext.data.Record.create</a>.
@@ -15,8 +16,9 @@ public class Field {
    *
    * @param config The config object
    * @see ext.config.datafield
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataField.html#method-Ext.data.Field-constructor Ext JS source
    */
-  public function Field(config:Object = null) {
+  public function Field(config:datafield = null) {
     super();
   }
 
@@ -70,14 +72,6 @@ public class Field {
    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get useNull():Boolean;
-
-  /**
-   *
-   *
-   * @param config The config object
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataField.html#method-Ext.data.Field-constructor Ext JS source
-   */
-  public native function constructor(config:Object = null):void;
 
 }
 }

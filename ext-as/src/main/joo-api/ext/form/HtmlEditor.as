@@ -1,6 +1,7 @@
 package ext.form {
 
 import ext.Toolbar;
+import ext.config.htmleditor;
 
 import js.Document;
 
@@ -167,7 +168,7 @@ public class HtmlEditor extends Field {
    * @param config
    * @see ext.config.htmleditor
    */
-  public function HtmlEditor(config:Object) {
+  public function HtmlEditor(config:htmleditor) {
     super(null);
   }
 

@@ -1,5 +1,6 @@
 package ext.data {
 
+import ext.config.scripttagproxy;
 
 /**
  * <b>Deprecated</b> in favor of 'exception' event. Fires if an exception occurs in the Proxy during data loading. This event can be fired for one of two reasons: <ul><li><b>The load call timed out.</b> This means the load callback did not execute within the time limit specified by <a href="output/Ext.data.ScriptTagProxy.html#Ext.data.ScriptTagProxy-timeout">timeout</a>. In this case, this event will be raised and the fourth parameter (read error) will be null.</li><li><b>The load succeeded but the reader could not read the response.</b> This means the server returned data, but the configured Reader threw an error while reading the data. In this case, this event will be raised and the caught error will be passed along as the fourth parameter of this event.</li></ul>Note that this event is also relayed through <a href="Ext.data.Store.html">Ext.data.Store</a>, so you can listen for it directly on any Store instance.
@@ -82,7 +83,7 @@ public class ScriptTagProxy extends DataProxy {
    * @param config A configuration object.
    * @see ext.config.scripttagproxy
    */
-  public function ScriptTagProxy(config:Object) {
+  public function ScriptTagProxy(config:scripttagproxy) {
     super();
   }
 

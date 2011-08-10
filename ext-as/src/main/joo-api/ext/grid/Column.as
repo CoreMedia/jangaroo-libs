@@ -1,6 +1,7 @@
 package ext.grid {
 
 import ext.Editor;
+import ext.config.gridcolumn;
 import ext.form.Field;
 
 /**
@@ -135,7 +136,7 @@ public class Column {
    * @param config The config object
    * @see ext.config.gridcolumn
    */
-  public function Column(config:Object = null) {
+  public function Column(config:gridcolumn = null) {
     super();
   }
 

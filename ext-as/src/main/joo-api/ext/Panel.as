@@ -1,5 +1,6 @@
 package ext {
 
+import ext.config.panel;
 import ext.dd.DragSource;
 
 /**
@@ -207,7 +208,7 @@ public class Panel extends Container {
    * @param config The config object
    * @see ext.config.panel
    */
-  public function Panel(config:Object) {
+  public function Panel(config:panel) {
     super(null);
   }
 

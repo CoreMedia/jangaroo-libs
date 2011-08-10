@@ -1,5 +1,6 @@
 package ext.form {
 
+import ext.config.timefield;
 
 /**
  * Provides a time input field with a time dropdown and automatic time validation. Example usage: <pre><code>new Ext.form.TimeField({
@@ -20,7 +21,7 @@ public class TimeField extends ComboBox {
    * @param config
    * @see ext.config.timefield
    */
-  public function TimeField(config:Object) {
+  public function TimeField(config:timefield) {
     super(null);
   }
 

@@ -1,5 +1,6 @@
 package ext {
 
+import ext.config.resizable;
 import ext.lib.Region;
 import ext.util.Observable;
 
@@ -87,7 +88,7 @@ public class Resizable extends Observable {
    * @param config configuration options
    * @see ext.config.resizable
    */
-  public function Resizable(el:*, config:Object) {
+  public function Resizable(el:*, config:resizable) {
     super();
   }
 

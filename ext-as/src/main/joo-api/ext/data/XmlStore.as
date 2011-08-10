@@ -1,5 +1,6 @@
 package ext.data {
 
+import ext.config.xmlstore;
 
 /**
  * Small helper class to make creating <a href="Ext.data.Store.html">Ext.data.Store</a>s from XML data easier. A XmlStore will be automatically configured with a <a href="Ext.data.XmlReader.html">Ext.data.XmlReader</a>.
@@ -58,7 +59,7 @@ public class XmlStore extends Store {
    * @param config
    * @see ext.config.xmlstore
    */
-  public function XmlStore(config:Object) {
+  public function XmlStore(config:xmlstore) {
     super(null);
   }
 

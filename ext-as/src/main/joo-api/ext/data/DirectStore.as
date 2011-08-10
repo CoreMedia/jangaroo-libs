@@ -1,5 +1,6 @@
 package ext.data {
 
+import ext.config.directstore;
 
 /**
  * Small helper class to create an <a href="Ext.data.Store.html">Ext.data.Store</a> configured with an <a href="Ext.data.DirectProxy.html">Ext.data.DirectProxy</a> and <a href="Ext.data.JsonReader.html">Ext.data.JsonReader</a> to make interacting with an <a href="Ext.Direct.html">Ext.Direct</a> Server-side <a href="Ext.direct.Provider.html">Provider</a> easier. To create a different proxy/reader combination create a basic <a href="Ext.data.Store.html">Ext.data.Store</a> configured as needed.
@@ -16,7 +17,7 @@ public class DirectStore extends Store {
    * @param config
    * @see ext.config.directstore
    */
-  public function DirectStore(config:Object) {
+  public function DirectStore(config:directstore) {
     super(null);
   }
 

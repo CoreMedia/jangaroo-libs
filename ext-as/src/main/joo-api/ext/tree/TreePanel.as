@@ -2,6 +2,7 @@ package ext.tree {
 
 import ext.Element;
 import ext.Panel;
+import ext.config.treepanel;
 
 /**
  * Fires when a new child node is appended to a node in this tree.
@@ -805,7 +806,7 @@ public class TreePanel extends Panel {
    * @param config
    * @see ext.config.treepanel
    */
-  public function TreePanel(config:Object) {
+  public function TreePanel(config:treepanel) {
     super(null);
   }
 

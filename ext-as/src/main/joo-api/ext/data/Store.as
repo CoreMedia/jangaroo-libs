@@ -1,5 +1,7 @@
 package ext.data {
 
+import ext.config.datawriter;
+import ext.config.store;
 import ext.util.MixedCollection;
 import ext.util.Observable;
 
@@ -360,7 +362,7 @@ public class Store extends Observable {
    * @param config A config object containing the objects needed for the Store to access data, and read the data into Records.
    * @see ext.config.store
    */
-  public function Store(config:Object) {
+  public function Store(config:store) {
     super();
   }
 
@@ -638,9 +640,9 @@ public class Store extends Observable {
    *
    * @param config Writer configuration
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-buildWriter Ext JS source
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-buildWriter Ext JS source
    */
-  public native function buildWriter(config:Object):DataWriter;
+  public native function buildWriter(config:datawriter):DataWriter;
 
   /**
    * Revert to a view of the Record cache with no filtering applied.

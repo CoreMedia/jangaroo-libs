@@ -1,5 +1,6 @@
 package ext {
 
+import ext.config.cycle;
 import ext.menu.CheckItem;
 import ext.menu.Menu;
 
@@ -52,7 +53,7 @@ public class CycleButton extends SplitButton {
    * @param config The config object
    * @see ext.config.cycle
    */
-  public function CycleButton(config:Object) {
+  public function CycleButton(config:cycle) {
     super(null);
   }
 

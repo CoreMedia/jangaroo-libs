@@ -1,5 +1,6 @@
 package ext.form {
 
+import ext.config.checkbox;
 
 /**
  * Fires when the checkbox is checked or unchecked.
@@ -35,7 +36,7 @@ public class Checkbox extends Field {
    * @param config Configuration options
    * @see ext.config.checkbox
    */
-  public function Checkbox(config:Object) {
+  public function Checkbox(config:checkbox) {
     super(null);
   }
 

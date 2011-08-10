@@ -1,5 +1,6 @@
 package ext.grid {
 
+import ext.config.groupingview;
 
 /**
  * Adds the ability for single level grouping to the grid. A <a href="Ext.data.GroupingStore.html">GroupingStore</a> must be used to enable grouping. Some grouping characteristics may also be configured at the <a href="Ext.grid.Column.html">Column level</a><div class="mdetail-params"><ul><li><code><a href="output/Ext.grid.Column.html#Ext.grid.Column-emptyGroupText">emptyGroupText</a></code></li><li><code><a href="output/Ext.grid.Column.html#Ext.grid.Column-groupable">groupable</a></code></li><li><code><a href="output/Ext.grid.Column.html#Ext.grid.Column-groupName">groupName</a></code></li><li><code><a href="output/Ext.grid.Column.html#Ext.grid.Column-groupRender">groupRender</a></code></li></ul></div><p>Sample usage:</p><pre><code>var grid = new Ext.grid.GridPanel({
@@ -56,7 +57,7 @@ public class GroupingView extends GridView {
    * @param config
    * @see ext.config.groupingview
    */
-  public function GroupingView(config:Object) {
+  public function GroupingView(config:groupingview) {
     super(null);
   }
 

@@ -1,5 +1,6 @@
 package ext {
 
+import ext.config.button;
 import ext.menu.Menu;
 
 /**
@@ -179,7 +180,7 @@ public class Button extends BoxComponent {
    * @param config The config object
    * @see ext.config.button
    */
-  public function Button(config:Object) {
+  public function Button(config:button) {
     super(null);
   }
 

@@ -1,5 +1,7 @@
 package ext {
 
+import ext.config.tooltip;
+
 import js.Element;
 
 /**
@@ -16,7 +18,7 @@ public class ToolTip extends Tip {
    * @param config The configuration options
    * @see ext.config.tooltip
    */
-  public function ToolTip(config:Object) {
+  public function ToolTip(config:tooltip) {
     super(null);
   }
 

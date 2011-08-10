@@ -1,6 +1,7 @@
 package ext.menu {
 
 import ext.ColorPalette;
+import ext.config.colormenu;
 
 /**
  * Fires when a color is selected from the <a href="output/Ext.menu.ColorMenu.html#Ext.menu.ColorMenu-palette">Ext.ColorPalette</a>
@@ -37,7 +38,7 @@ public class ColorMenu extends Menu {
    * @param config The config object
    * @see ext.config.colormenu
    */
-  public function ColorMenu(config:Object = null) {
+  public function ColorMenu(config:colormenu = null) {
     super(null);
   }
 

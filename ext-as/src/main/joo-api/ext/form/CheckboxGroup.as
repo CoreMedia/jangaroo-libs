@@ -1,5 +1,6 @@
 package ext.form {
 
+import ext.config.checkboxgroup;
 
 /**
  * Fires when the state of a child checkbox changes.
@@ -49,7 +50,7 @@ public class CheckboxGroup extends Field {
    * @param config Configuration options
    * @see ext.config.checkboxgroup
    */
-  public function CheckboxGroup(config:Object) {
+  public function CheckboxGroup(config:checkboxgroup) {
     super(null);
   }
 

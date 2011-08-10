@@ -1,20 +1,23 @@
 package ext.list {
 
+import ext.config.listcolumn;
 
 /**
  * This class encapsulates column configuration data to be used in the initialization of a <a href="Ext.list.ListView.html">ListView</a>.
  <p>While subclasses are provided to render data in different ways, this class renders a passed data field unchanged and is usually used for textual columns.</p>
- * @see ext.config.column
+ * <p>This component is created by the xtype 'listcolumn' / the EXML element &lt;listcolumn>.</p>
+ * @see ext.config.listcolumn
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Column1.html#cls-Ext.list.Column Ext JS source
  */
 public class Column {
 
   /**
+   * Create a new Column.
    *
-   *
-   * @see ext.config.column
+   * @param config The config object
+   * @see ext.config.listcolumn
    */
-  public function Column() {
+  public function Column(config:listcolumn = null) {
     super();
   }
 

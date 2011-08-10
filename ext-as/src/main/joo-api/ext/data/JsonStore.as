@@ -1,5 +1,6 @@
 package ext.data {
 
+import ext.config.jsonstore;
 
 /**
  * Small helper class to make creating <a href="Ext.data.Store.html">Ext.data.Store</a>s from JSON data easier. A JsonStore will be automatically configured with a <a href="Ext.data.JsonReader.html">Ext.data.JsonReader</a>.
@@ -32,7 +33,7 @@ public class JsonStore extends Store {
    * @param config
    * @see ext.config.jsonstore
    */
-  public function JsonStore(config:Object) {
+  public function JsonStore(config:jsonstore) {
     super(null);
   }
 

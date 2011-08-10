@@ -1,5 +1,6 @@
 package ext {
 
+import ext.config.template;
 
 /**
  * Represents an HTML fragment template. Templates may be <a href="output/Ext.Template.html#Ext.Template-compile">precompiled</a> for greater performance.
@@ -34,7 +35,7 @@ public class Template {
    * @param config
    * @see ext.config.template
    */
-  public function Template(...config:Array) {
+  public function Template(...config:Array/*template*/) {
     super();
   }
 
@@ -122,7 +123,7 @@ public class Template {
    * @return The created template
    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Template.html#method-Ext.Template-from Ext JS source
    */
-  public static native function from(el:*, config:Object):Template;
+  public static native function from(el:*, config:template):Template;
 
   /**
    * Applies the supplied values to the template and inserts the new node(s) after el.

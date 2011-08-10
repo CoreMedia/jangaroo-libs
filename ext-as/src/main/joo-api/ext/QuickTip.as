@@ -1,5 +1,6 @@
 package ext {
 
+import ext.config.quicktip;
 
 /**
  * nullA specialized tooltip class for tooltips that can be specified in markup and automatically managed by the global <a href="Ext.QuickTips.html">Ext.QuickTips</a> instance. See the QuickTips class header for additional usage details and examples.
@@ -15,7 +16,7 @@ public class QuickTip extends ToolTip {
    * @param config The configuration options
    * @see ext.config.quicktip
    */
-  public function QuickTip(config:Object) {
+  public function QuickTip(config:quicktip) {
     super(null);
   }
 
@@ -45,7 +46,7 @@ public class QuickTip extends ToolTip {
    * @param config The config object
    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/QuickTip.html#method-Ext.QuickTip-register Ext JS source
    */
-  public native function register(config:Object):void;
+  public native function register(config:quicktip):void;
 
   /**
    * Removes this quick tip from its element and destroys it.

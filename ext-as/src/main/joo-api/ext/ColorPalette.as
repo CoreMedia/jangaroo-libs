@@ -1,5 +1,6 @@
 package ext {
 
+import ext.config.colorpalette;
 
 /**
  * Fires when a color is selected
@@ -41,7 +42,7 @@ public class ColorPalette extends Component {
    * @param config The config object
    * @see ext.config.colorpalette
    */
-  public function ColorPalette(config:Object) {
+  public function ColorPalette(config:colorpalette) {
     super(null);
   }
 

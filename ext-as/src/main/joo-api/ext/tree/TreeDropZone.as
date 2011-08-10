@@ -1,5 +1,6 @@
 package ext.tree {
 
+import ext.config.treedropzone;
 import ext.dd.DropZone;
 
 /**
@@ -16,7 +17,7 @@ public class TreeDropZone extends DropZone {
    * @param config
    * @see ext.config.treedropzone
    */
-  public function TreeDropZone(tree:*, config:Object) {
+  public function TreeDropZone(tree:*, config:treedropzone) {
     super(null, null);
   }
 

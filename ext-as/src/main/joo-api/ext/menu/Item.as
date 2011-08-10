@@ -1,5 +1,6 @@
 package ext.menu {
 
+import ext.config.menuitem;
 
 /**
  * A base class for all menu items that require menu-related functionality (like sub-menus) and are not static display items. Item extends the base functionality of <a href="Ext.menu.BaseItem.html">Ext.menu.BaseItem</a> by adding menu-specific activation and click handling.
@@ -15,7 +16,7 @@ public class Item extends BaseItem {
    * @param config Configuration options
    * @see ext.config.menuitem
    */
-  public function Item(config:Object) {
+  public function Item(config:menuitem) {
     super(null);
   }
 

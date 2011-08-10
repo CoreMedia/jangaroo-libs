@@ -1,5 +1,6 @@
 package ext.form {
 
+import ext.config.numberfield;
 
 /**
  * Numeric text field that provides automatic keystroke filtering and numeric validation.
@@ -15,7 +16,7 @@ public class NumberField extends TextField {
    * @param config Configuration options
    * @see ext.config.numberfield
    */
-  public function NumberField(config:Object) {
+  public function NumberField(config:numberfield) {
     super(null);
   }
 

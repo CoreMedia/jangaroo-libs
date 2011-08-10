@@ -1,6 +1,7 @@
 package ext.form {
 
 import ext.Panel;
+import ext.config.form;
 
 /**
  * If the monitorValid config option is true, this event fires repetitively to notify of valid state
@@ -37,7 +38,7 @@ public class FormPanel extends Panel {
    * @param config Configuration options
    * @see ext.config.form
    */
-  public function FormPanel(config:Object) {
+  public function FormPanel(config:form) {
     super(null);
   }
 

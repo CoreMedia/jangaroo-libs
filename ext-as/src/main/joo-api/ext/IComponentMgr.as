@@ -1,5 +1,6 @@
 package ext {
 
+import ext.config.component;
 import ext.util.MixedCollection;
 
 /**
@@ -47,17 +48,17 @@ public interface IComponentMgr {
    * @return The newly instantiated Component.
    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ComponentMgr.html#method-Ext.ComponentMgr-create Ext JS source
    */
-  function create(config:Object, defaultType:String):Component;
+  function create(config:component, defaultType:String):Component;
 
   /**
    * Creates a new Plugin from the specified config object using the config object's <a href="output/Ext.component.html#Ext.component-ptype">ptype</a> to determine the class to instantiate.
    *
    * @param config A configuration object for the Plugin you wish to create.
-   * @param defaultType The constructor to provide the default Plugin type if the config object does not contain a <code>ptype</code>. (Optional if the config contains a <code>ptype</code>).
+   * @param defaultType The <code>ptype</code> to use if the config object does not contain a <code>ptype</code>. (Optional if the config contains a <code>ptype</code>).
    * @return The newly instantiated Plugin.
    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ComponentMgr.html#method-Ext.ComponentMgr-createPlugin Ext JS source
    */
-  function createPlugin(config:Object, defaultType:Class):Component;
+  function createPlugin(config:Object, defaultType:String):Component;
 
   /**
    * Returns a component by <a href="output/Ext.Component.html#Ext.Component-id">id</a>. For additional details see <a href="output/Ext.util.MixedCollection.html#Ext.util.MixedCollection-get">Ext.util.MixedCollection.get</a>.

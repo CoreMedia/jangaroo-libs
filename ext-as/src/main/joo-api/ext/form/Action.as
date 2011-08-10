@@ -1,5 +1,6 @@
 package ext.form {
 
+import ext.config.formaction;
 
 /**
  * The subclasses of this class provide actions to perform upon <a href="Ext.form.BasicForm.html">Form</a>s.
@@ -16,7 +17,7 @@ public class Action {
    * @param config The config object
    * @see ext.config.formaction
    */
-  public function Action(config:Object = null) {
+  public function Action(config:formaction = null) {
     super();
   }
 

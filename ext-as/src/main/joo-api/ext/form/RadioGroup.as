@@ -1,5 +1,6 @@
 package ext.form {
 
+import ext.config.radiogroup;
 
 /**
  * Fires when the state of a child radio changes.
@@ -35,7 +36,7 @@ public class RadioGroup extends CheckboxGroup {
    * @param config Configuration options
    * @see ext.config.radiogroup
    */
-  public function RadioGroup(config:Object) {
+  public function RadioGroup(config:radiogroup) {
     super(null);
   }
 

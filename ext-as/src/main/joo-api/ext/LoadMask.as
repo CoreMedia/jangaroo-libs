@@ -1,5 +1,6 @@
 package ext {
 
+import ext.config.loadmask;
 import ext.data.Store;
 
 /**
@@ -19,7 +20,7 @@ public class LoadMask {
    * @param config The config object
    * @see ext.config.loadmask
    */
-  public function LoadMask(el:*, config:Object) {
+  public function LoadMask(el:*, config:loadmask) {
     super();
   }
 

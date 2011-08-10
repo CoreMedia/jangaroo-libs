@@ -1,6 +1,7 @@
 package ext.layout.borderlayout {
 
 import ext.SplitBar;
+import ext.config.splitregion;
 import ext.layout.ContainerLayout;
 
 /**
@@ -19,7 +20,7 @@ public class SplitRegion extends Region {
    * @param position The region position. Valid values are: north, south, east, west and center. Every BorderLayout must have a center region for the primary content -- all other regions are optional.
    * @see ext.config.splitregion
    */
-  public function SplitRegion(layout:ContainerLayout, config:Object, position:String) {
+  public function SplitRegion(layout:ContainerLayout, config:splitregion, position:String) {
     super(null, null, null);
   }
 

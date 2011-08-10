@@ -1,5 +1,6 @@
 package ext {
 
+import ext.config.spacer;
 
 /**
  * Used to provide a sizable space in a layout.
@@ -15,7 +16,7 @@ public class Spacer extends BoxComponent {
    * @param config
    * @see ext.config.spacer
    */
-  public function Spacer(config:Object) {
+  public function Spacer(config:spacer) {
     super(null);
   }
 

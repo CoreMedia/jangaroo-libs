@@ -1,5 +1,6 @@
 package ext {
 
+import ext.config.keynav;
 
 /**
  * Provides a convenient wrapper for normalized keyboard navigation. KeyNav allows you to bind navigation keys to function calls that will get called when the keys are pressed, providing an easy way to implement custom navigation schemes for any UI component.
@@ -28,7 +29,7 @@ public class KeyNav {
    * @param config The config
    * @see ext.config.keynav
    */
-  public function KeyNav(el:*, config:Object) {
+  public function KeyNav(el:*, config:keynav) {
     super();
   }
 

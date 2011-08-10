@@ -1,5 +1,6 @@
 package ext.list {
 
+import ext.config.booleancolumn;
 
 /**
  * A Column definition class which renders boolean data fields. See the <a href="output/Ext.list.Column.html#Ext.list.Column-xtype">xtype</a> config option of <a href="Ext.list.Column.html">Ext.list.Column</a> for more details.
@@ -14,8 +15,8 @@ public class BooleanColumn extends Column {
    *
    * @see ext.config.booleancolumn
    */
-  public function BooleanColumn() {
-    super();
+  public function BooleanColumn(config:booleancolumn) {
+    super(null);
   }
 
   /**

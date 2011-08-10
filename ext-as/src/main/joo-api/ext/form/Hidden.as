@@ -1,5 +1,6 @@
 package ext.form {
 
+import ext.config.hidden;
 
 /**
  * A basic hidden field for storing hidden values in forms that need to be passed in the form submit.
@@ -15,7 +16,7 @@ public class Hidden extends Field {
    * @param config Configuration options
    * @see ext.config.hidden
    */
-  public function Hidden(config:Object) {
+  public function Hidden(config:hidden) {
     super(null);
   }
 

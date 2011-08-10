@@ -1,6 +1,7 @@
 package ext.form {
 
 import ext.Element;
+import ext.config.basicform;
 import ext.data.DataReader;
 import ext.data.Record;
 import ext.util.MixedCollection;
@@ -79,7 +80,7 @@ public class BasicForm extends Observable {
    * @param config Configuration options
    * @see ext.config.basicform
    */
-  public function BasicForm(el:*, config:Object) {
+  public function BasicForm(el:*, config:basicform) {
     super();
   }
 

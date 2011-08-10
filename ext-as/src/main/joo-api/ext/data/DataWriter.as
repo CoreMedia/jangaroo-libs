@@ -115,7 +115,7 @@ public class DataWriter {
    * @param rec The Record from which to create a hash.
    * @param config <b>NOT YET IMPLEMENTED</b>. Will implement an exclude/only configuration for fine-control over which fields do/don't get rendered.
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataWriter.html#method-Ext.data.DataWriter-toHash Ext JS source
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataWriter.html#method-Ext.data.DataWriter-toHash Ext JS source
    */
   protected native function toHash(rec:Record, config:Object):Object;
 

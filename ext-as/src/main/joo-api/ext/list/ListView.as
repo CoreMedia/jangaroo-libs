@@ -1,6 +1,7 @@
 package ext.list {
 
 import ext.DataView;
+import ext.config.listview;
 
 /**
  * Ext.list.ListView is a fast and light-weight implementation of a <a href="Ext.grid.GridPanel.html">Grid</a> like view with the following characteristics:
@@ -85,7 +86,7 @@ public class ListView extends DataView {
    * @param config
    * @see ext.config.listview
    */
-  public function ListView(config:Object) {
+  public function ListView(config:listview) {
     super(null);
   }
 

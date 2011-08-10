@@ -1,5 +1,6 @@
 package ext.util {
 
+import ext.config.clickrepeater;
 
 /**
  * Fires on a specified interval during the time the element is pressed.
@@ -73,7 +74,7 @@ public class ClickRepeater extends Observable {
    * @param config
    * @see ext.config.clickrepeater
    */
-  public function ClickRepeater(el:*, config:Object) {
+  public function ClickRepeater(el:*, config:clickrepeater) {
     super();
   }
 

@@ -1,5 +1,6 @@
 package ext {
 
+import ext.config.action;
 
 /**
  * An Action is a piece of reusable functionality that can be abstracted out of any particular component so that it can be usefully shared among multiple components. Actions let you share handlers, configuration options and UI updates across any components that support the Action interface (primarily <a href="Ext.Toolbar.html">Ext.Toolbar</a>, <a href="Ext.Button.html">Ext.Button</a> and <a href="Ext.menu.Menu.html">Ext.menu.Menu</a> components).
@@ -53,7 +54,7 @@ public class Action {
    * @param config The configuration options
    * @see ext.config.action
    */
-  public function Action(config:Object) {
+  public function Action(config:action) {
     super();
   }
 

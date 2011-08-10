@@ -1,5 +1,6 @@
 package ext.data {
 
+import ext.config.arraystore;
 
 /**
  * Formerly known as "SimpleStore".
@@ -37,7 +38,7 @@ public class ArrayStore extends Store {
    * @param config
    * @see ext.config.arraystore
    */
-  public function ArrayStore(config:Object) {
+  public function ArrayStore(config:arraystore) {
     super(null);
   }
 

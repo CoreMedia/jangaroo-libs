@@ -1,5 +1,6 @@
 package ext.tree {
 
+import ext.config.treeloader;
 import ext.util.Observable;
 
 /**
@@ -104,7 +105,7 @@ public class TreeLoader extends Observable {
    * @param config A config object containing config properties.
    * @see ext.config.treeloader
    */
-  public function TreeLoader(config:Object) {
+  public function TreeLoader(config:treeloader) {
     super();
   }
 

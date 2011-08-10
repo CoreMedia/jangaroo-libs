@@ -1,6 +1,7 @@
 package ext.menu {
 
 import ext.DatePicker;
+import ext.config.datemenu;
 
 /**
  * Fires when a date is selected from the <a href="output/Ext.menu.DateMenu.html#Ext.menu.DateMenu-picker">Ext.DatePicker</a>
@@ -37,7 +38,7 @@ public class DateMenu extends Menu {
    * @param config The config object
    * @see ext.config.datemenu
    */
-  public function DateMenu(config:Object = null) {
+  public function DateMenu(config:datemenu = null) {
     super(null);
   }
 

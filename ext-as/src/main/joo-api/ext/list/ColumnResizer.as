@@ -1,5 +1,6 @@
 package ext.list {
 
+import ext.config.columnresizer;
 import ext.util.Observable;
 
 /**
@@ -16,7 +17,7 @@ public class ColumnResizer extends Observable {
    * @param config
    * @see ext.config.columnresizer
    */
-  public function ColumnResizer(config:Object) {
+  public function ColumnResizer(config:columnresizer) {
     super();
   }
 

@@ -1,5 +1,6 @@
 package ext.grid {
 
+import ext.config.editorgrid;
 
 /**
  * Fires after a cell is edited. The edit event object has the following properties <br/><ul style="padding:5px;padding-left:16px;"><li>grid - This grid</li><li>record - The record being edited</li><li>field - The field name being edited</li><li>value - The value being set</li><li>originalValue - The original value for the field, before the edit.</li><li>row - The grid row index</li><li>column - The grid column index</li></ul><pre><code>grid.on('afteredit', afterEdit, this );
@@ -73,7 +74,7 @@ public class EditorGridPanel extends GridPanel {
    * @param config The config object
    * @see ext.config.editorgrid
    */
-  public function EditorGridPanel(config:Object) {
+  public function EditorGridPanel(config:editorgrid) {
     super(null);
   }
 

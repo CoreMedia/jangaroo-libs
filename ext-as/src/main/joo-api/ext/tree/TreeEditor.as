@@ -1,6 +1,7 @@
 package ext.tree {
 
 import ext.Editor;
+import ext.config.treeeditor;
 
 /**
  * Provides editor functionality for inline tree node editing. Any valid <a href="Ext.form.Field.html">Ext.form.Field</a> subclass can be used as the editor field.
@@ -17,7 +18,7 @@ public class TreeEditor extends Editor {
    * @param config A TreeEditor config object
    * @see ext.config.treeeditor
    */
-  public function TreeEditor(tree:TreePanel, fieldConfig:Object = null, config:Object = null) {
+  public function TreeEditor(tree:TreePanel, fieldConfig:Object = null, config:treeeditor = null) {
     super(null);
   }
 

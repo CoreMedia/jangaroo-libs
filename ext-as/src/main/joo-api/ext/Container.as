@@ -1,5 +1,6 @@
 package ext {
 
+import ext.config.container;
 import ext.layout.ContainerLayout;
 import ext.util.MixedCollection;
 
@@ -216,7 +217,7 @@ public class Container extends BoxComponent {
    * @param config The config object
    * @see ext.config.container
    */
-  public function Container(config:Object = null) {
+  public function Container(config:container = null) {
     super(null);
   }
 

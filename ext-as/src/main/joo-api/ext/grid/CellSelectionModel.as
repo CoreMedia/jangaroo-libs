@@ -1,5 +1,6 @@
 package ext.grid {
 
+import ext.config.cellselectionmodel;
 import ext.data.Record;
 
 /**
@@ -83,7 +84,7 @@ public class CellSelectionModel extends AbstractSelectionModel {
    * @param config The object containing the configuration of this model.
    * @see ext.config.cellselectionmodel
    */
-  public function CellSelectionModel(config:Object) {
+  public function CellSelectionModel(config:cellselectionmodel) {
     super();
   }
 

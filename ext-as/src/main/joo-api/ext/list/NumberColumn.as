@@ -1,5 +1,6 @@
 package ext.list {
 
+import ext.config.numbercolumn;
 
 /**
  * A Column definition class which renders a numeric data field according to a <a href="output/Ext.list.NumberColumn.html#Ext.list.NumberColumn-format">format</a> string. See the <a href="output/Ext.list.Column.html#Ext.list.Column-xtype">xtype</a> config option of <a href="Ext.list.Column.html">Ext.list.Column</a> for more details.
@@ -14,8 +15,8 @@ public class NumberColumn extends Column {
    *
    * @see ext.config.numbercolumn
    */
-  public function NumberColumn() {
-    super();
+  public function NumberColumn(config:numbercolumn) {
+    super(null);
   }
 
   /**

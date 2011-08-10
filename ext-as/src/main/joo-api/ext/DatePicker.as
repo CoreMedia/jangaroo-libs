@@ -1,5 +1,6 @@
 package ext {
 
+import ext.config.datepicker;
 
 /**
  * Fires when a date is selected
@@ -36,7 +37,7 @@ public class DatePicker extends Component {
    * @param config The config object
    * @see ext.config.datepicker
    */
-  public function DatePicker(config:Object) {
+  public function DatePicker(config:datepicker) {
     super(null);
   }
 

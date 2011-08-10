@@ -1,6 +1,7 @@
 package ext.dd {
 
 import ext.IEventObject;
+import ext.config.dragsource;
 
 /**
  * A simple class that provides the basic implementation needed to make any element draggable.
@@ -16,7 +17,7 @@ public class DragSource extends DDProxy {
    * @param config
    * @see ext.config.dragsource
    */
-  public function DragSource(el:*, config:Object) {
+  public function DragSource(el:*, config:dragsource) {
     super(null, null, null);
   }
 

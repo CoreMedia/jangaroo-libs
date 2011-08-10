@@ -1,5 +1,6 @@
 package ext {
 
+import ext.config.tip;
 
 /**
  * nullThis is the base class for <a href="Ext.QuickTip.html">Ext.QuickTip</a> and <a href="Ext.Tooltip.html">Ext.Tooltip</a> that provides the basic layout and positioning that all tip-based classes require. This class can be used directly for simple, statically-positioned tips that are displayed programmatically, or it can be extended to provide custom tip implementations.
@@ -15,7 +16,7 @@ public class Tip extends Panel {
    * @param config The configuration options
    * @see ext.config.tip
    */
-  public function Tip(config:Object) {
+  public function Tip(config:tip) {
     super(null);
   }
 

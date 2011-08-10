@@ -1,5 +1,6 @@
 package ext.menu {
 
+import ext.config.menutextitem;
 
 /**
  * Adds a static text string to a menu, usually used as either a heading or group separator.
@@ -15,7 +16,7 @@ public class TextItem extends BaseItem {
    * @param config If config is a string, it is used as the text to display, otherwise it is applied as a config object (and should contain a <tt>text</tt> property).
    * @see ext.config.menutextitem
    */
-  public function TextItem(config:*) {
+  public function TextItem(config:menutextitem) {
     super(null);
   }
 

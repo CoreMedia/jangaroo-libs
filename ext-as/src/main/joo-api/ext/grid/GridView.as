@@ -2,6 +2,7 @@ package ext.grid {
 
 import ext.Element;
 import ext.Template;
+import ext.config.gridview;
 import ext.data.Record;
 import ext.data.Store;
 import ext.menu.BaseItem;
@@ -172,7 +173,7 @@ public class GridView extends Observable {
    * @param config
    * @see ext.config.gridview
    */
-  public function GridView(config:Object) {
+  public function GridView(config:gridview) {
     super();
   }
 

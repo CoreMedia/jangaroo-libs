@@ -1,5 +1,6 @@
 package ext {
 
+import ext.config.progress;
 
 /**
  * Fires after each update interval
@@ -41,7 +42,7 @@ public class ProgressBar extends BoxComponent {
    * @param config The config object
    * @see ext.config.progress
    */
-  public function ProgressBar(config:Object = null) {
+  public function ProgressBar(config:progress = null) {
     super(null);
   }
 

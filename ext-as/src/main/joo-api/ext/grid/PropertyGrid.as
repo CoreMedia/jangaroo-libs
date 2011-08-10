@@ -1,5 +1,6 @@
 package ext.grid {
 
+import ext.config.propertygrid;
 
 /**
  * Fires before a property value changes. Handlers can return false to cancel the property change (this will internally call <a href="output/Ext.data.Record.html#Ext.data.Record-reject">Ext.data.Record.reject</a> on the property's record).
@@ -86,7 +87,7 @@ public class PropertyGrid extends EditorGridPanel {
    * @param config The grid config object
    * @see ext.config.propertygrid
    */
-  public function PropertyGrid(config:Object) {
+  public function PropertyGrid(config:propertygrid) {
     super(null);
   }
 

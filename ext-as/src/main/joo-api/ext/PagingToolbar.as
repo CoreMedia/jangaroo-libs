@@ -1,5 +1,6 @@
 package ext {
 
+import ext.config.paging;
 import ext.data.Store;
 
 /**
@@ -104,7 +105,7 @@ public class PagingToolbar extends Toolbar {
    * @param config The config object
    * @see ext.config.paging
    */
-  public function PagingToolbar(config:Object) {
+  public function PagingToolbar(config:paging) {
     super(null);
   }
 

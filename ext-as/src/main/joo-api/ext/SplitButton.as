@@ -1,5 +1,6 @@
 package ext {
 
+import ext.config.splitbutton;
 
 /**
  * Fires when this button's arrow is clicked
@@ -57,7 +58,7 @@ public class SplitButton extends Button {
    * @param config The config object
    * @see ext.config.splitbutton
    */
-  public function SplitButton(config:Object) {
+  public function SplitButton(config:splitbutton) {
     super(null);
   }
 

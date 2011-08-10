@@ -1,6 +1,7 @@
 package ext.menu {
 
 import ext.Component;
+import ext.config.menubaseitem;
 
 /**
  * Fires when this item is activated
@@ -64,7 +65,7 @@ public class BaseItem extends Component {
    * @param config Configuration options
    * @see ext.config.menubaseitem
    */
-  public function BaseItem(config:Object) {
+  public function BaseItem(config:menubaseitem) {
     super(null);
   }
 

@@ -4,6 +4,7 @@ import ext.Button;
 import ext.Component;
 import ext.Container;
 import ext.Element;
+import ext.config.boxoverflowmenu;
 import ext.menu.Menu;
 
 /**
@@ -20,7 +21,7 @@ public class Menu extends None {
    * @param config The config object
    * @see ext.config.boxoverflowmenu
    */
-  public function Menu(config:Object = null) {
+  public function Menu(config:boxoverflowmenu = null) {
     super();
   }
 

@@ -1,5 +1,6 @@
 package ext.data {
 
+import ext.config.groupingstore;
 
 /**
  * Fired whenever a call to store.groupBy successfully changes the grouping on the store
@@ -35,7 +36,7 @@ public class GroupingStore extends Store {
    * @param config A config object containing the objects needed for the Store to access data, and read the data into Records.
    * @see ext.config.groupingstore
    */
-  public function GroupingStore(config:Object) {
+  public function GroupingStore(config:groupingstore) {
     super(null);
   }
 
