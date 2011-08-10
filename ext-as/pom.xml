@@ -60,6 +60,15 @@
       <plugin>
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-maven-plugin</artifactId>
+        <configuration>
+          <excludes>
+            <exclude>ext/config/boxoverflowmenu.as</exclude>
+            <exclude>ext/config/horizontalmenu.as</exclude>
+            <exclude>ext/config/horizontalscroller.as</exclude>
+            <exclude>ext/config/scroller.as</exclude>
+            <exclude>ext/config/verticalscroller.as</exclude>
+          </excludes>
+        </configuration>
       </plugin>
       <plugin>
         <groupId>net.jangaroo</groupId>
