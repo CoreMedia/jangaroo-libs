@@ -3,8 +3,11 @@ package ext.config {
 
 /**
  * Represents a tree data structure and bubbles all the events for its nodes. The nodes in the tree have most standard DOM functionality.
- * <p>This class serves as a typed config object for constructor of class Tree.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class Tree.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.data.Tree
  */
 [ExtConfig(target="ext.data.Tree")]

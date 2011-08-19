@@ -1,5 +1,4 @@
 package ext.grid {
-
 import ext.Element;
 import ext.Template;
 import ext.config.gridview;
@@ -162,6 +161,10 @@ import js.HTMLElement;
 /**
  * This class encapsulates the user interface of an <a href="Ext.grid.GridPanel.html">Ext.grid.GridPanel</a>. Methods of this class may be used to access user interface elements to enable special display effects. Do not change the DOM structure of the user interface.
  <p>This class does not provide ways to manipulate the underlying data. The data model of a Grid is held in an <a href="Ext.data.Store.html">Ext.data.Store</a>.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.gridview
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#cls-Ext.grid.GridView Ext JS source
  */

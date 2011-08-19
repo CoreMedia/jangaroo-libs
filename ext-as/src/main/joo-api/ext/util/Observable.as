@@ -1,6 +1,4 @@
 package ext.util {
-
-
 /**
  * Base class that provides a common interface for publishing events. Subclasses are expected to to have a property "events" with all the events defined, and, optionally, a property "listeners" with configured listeners defined.<br/>For example: <pre><code>Employee = Ext.extend(Ext.util.Observable, {
  constructor: function(config){
@@ -28,6 +26,10 @@ package ext.util {
  }
  });
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.observable
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Observable.html#cls-Ext.util.Observable Ext JS source
  */

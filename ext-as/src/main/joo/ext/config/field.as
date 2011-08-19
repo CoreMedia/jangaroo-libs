@@ -3,8 +3,11 @@ package ext.config {
 
 /**
  * Base class for form fields that provides default event handling, sizing, value handling and other functionality.
- * <p>This class serves as a typed config object for constructor of class Field.</p>
  *
+ * <p>This class represents the xtype 'field' and serves as a
+ * typed config object for constructor of class Field.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.form.Field
  */
 [ExtConfig(target="ext.form.Field", xtype="field")]

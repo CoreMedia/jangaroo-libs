@@ -1,10 +1,13 @@
 package ext.dd {
-
 import ext.IEventObject;
 import ext.config.dragsource;
 
 /**
  * A simple class that provides the basic implementation needed to make any element draggable.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.dragsource
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DragSource.html#cls-Ext.dd.DragSource Ext JS source
  */

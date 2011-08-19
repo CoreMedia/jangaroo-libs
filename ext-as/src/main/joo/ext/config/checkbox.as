@@ -3,8 +3,11 @@ package ext.config {
 
 /**
  * Single checkbox field. Can be used as a direct replacement for traditional checkbox fields.
- * <p>This class serves as a typed config object for constructor of class Checkbox.</p>
  *
+ * <p>This class represents the xtype 'checkbox' and serves as a
+ * typed config object for constructor of class Checkbox.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.form.Checkbox
  */
 [ExtConfig(target="ext.form.Checkbox", xtype="checkbox")]

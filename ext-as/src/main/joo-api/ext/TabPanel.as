@@ -1,5 +1,4 @@
 package ext {
-
 import ext.config.tabpanel;
 
 import js.HTMLElement;
@@ -99,6 +98,10 @@ import js.HTMLElement;
  &lt;div id="tab1" class="x-hide-display"&gt;A simple tab&lt;/div&gt;
  &lt;div id="tab2" class="x-hide-display"&gt;Another one&lt;/div&gt;
  </code></pre>Note that the tab divs in this example contain the class <tt>'x-hide-display'</tt> so that they can be rendered deferred without displaying outside the tabs. You could alternately set <tt><a href="output/Ext.TabPanel.html#Ext.TabPanel-deferredRender">deferredRender</a> = false</tt> to render all content tabs on page load.</div></li></ul></div>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'tabpanel' / the EXML element &lt;tabpanel>.</p>
  * @see ext.config.tabpanel
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TabPanel.html#cls-Ext.TabPanel Ext JS source

@@ -4,8 +4,11 @@ package ext.config {
 /**
  * A popup date picker. This class is used by the <a href="Ext.form.DateField.html">DateField</a> class to allow browsing and selection of valid dates.
  <p>All the string values documented below may be overridden by including an Ext locale file in your page.</p>
- * <p>This class serves as a typed config object for constructor of class DatePicker.</p>
  *
+ * <p>This class represents the xtype 'datepicker' and serves as a
+ * typed config object for constructor of class DatePicker.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.DatePicker
  */
 [ExtConfig(target="ext.DatePicker", xtype="datepicker")]

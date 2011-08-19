@@ -1,5 +1,4 @@
 package ext {
-
 import ext.config.splitbutton;
 
 /**
@@ -46,6 +45,10 @@ import ext.config.splitbutton;
  arrowHandler: myCustomHandler
  });
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'splitbutton' / the EXML element &lt;splitbutton>.</p>
  * @see ext.config.splitbutton
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SplitButton.html#cls-Ext.SplitButton Ext JS source

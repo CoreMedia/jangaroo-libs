@@ -1,5 +1,4 @@
 package ext.dd {
-
 import ext.IEventObject;
 import ext.config.dragzone;
 
@@ -40,6 +39,10 @@ import ext.config.dragzone;
  }
  });
  });</code></pre>See the <a href="Ext.dd.DropZone.html">DropZone</a> documentation for details about building a DropZone which cooperates with this DragZone.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.dragzone
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DragZone.html#cls-Ext.dd.DragZone Ext JS source
  */

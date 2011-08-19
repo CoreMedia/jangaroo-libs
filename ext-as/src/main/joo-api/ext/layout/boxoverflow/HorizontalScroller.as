@@ -1,8 +1,10 @@
 package ext.layout.boxoverflow {
-
-
 /**
  * Description
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.horizontalscroller
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ScrollerOverflow.html#cls-Ext.layout.boxOverflow.HorizontalScroller Ext JS source
  */

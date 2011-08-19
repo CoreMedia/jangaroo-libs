@@ -3,6 +3,10 @@ package ext.chart {
 
 /**
  * Defines a CartesianChart's vertical or horizontal axis.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Chart.html#cls-Ext.chart.Axis Ext JS source
  */
 public class Axis {

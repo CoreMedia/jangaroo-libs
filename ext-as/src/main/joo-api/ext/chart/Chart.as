@@ -1,5 +1,4 @@
 package ext.chart {
-
 import ext.FlashComponent;
 import ext.data.Store;
 
@@ -34,6 +33,10 @@ import ext.data.Store;
 
 /**
  * The Ext.chart package provides the capability to visualize data with flash based charting. Each chart binds directly to an Ext.data.Store enabling automatic updates of the chart. To change the look and feel of a chart, see the <a href="output/Ext.chart.Chart.html#Ext.chart.Chart-chartStyle">chartStyle</a> and <a href="output/Ext.chart.Chart.html#Ext.chart.Chart-extraStyle">extraStyle</a> config options.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'chart' / the EXML element &lt;chart>.</p>
  * @see ext.config.chart
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Chart.html#cls-Ext.chart.Chart Ext JS source

@@ -1,6 +1,4 @@
 package ext {
-
-
 /**
  * A class to provide basic animation and visual effects support. <b>Note:</b> This class is automatically applied to the <a href="Ext.Element.html">Ext.Element</a> interface when included, so all effects calls should be performed via <a href="Ext.Element.html">Ext.Element</a>. Conversely, since the effects are not actually defined in <a href="Ext.Element.html">Ext.Element</a>, Ext.Fx <b>must</b> be <a href="output/Ext.html#Ext-enableFx">included</a> in order for the Element effects to work.
  <br/><p style="font-weight: bold"><u>Method Chaining</u></p><p>It is important to note that although the Fx methods and many non-Fx Element methods support "method chaining" in that they return the Element object itself as the method return value, it is not always possible to mix the two in a single method chain. The Fx methods use an internal effects queue so that each effect can be properly timed and sequenced. Non-Fx methods, on the other hand, have no such internal queueing and will always execute immediately. For this reason, while it may be possible to mix certain Fx and non-Fx method calls in a single chain, it may not always provide the expected results and should be done with care. Also see <tt><a href="output/Ext.Fx.html#Ext.Fx-callback">callback</a></tt>.</p><br/><p style="font-weight: bold"><u>Anchor Options for Motion Effects</u></p><p>Motion effects support 8-way anchoring, meaning that you can choose one of 8 different anchor points on the Element that will serve as either the start or end point of the animation. Following are all of the supported anchor positions:</p><pre>Value  Description
@@ -14,6 +12,10 @@ package ext {
  b      The center of the bottom edge
  br     The bottom right corner
  </pre><b>Note</b>: some Fx methods accept specific custom config parameters. The options shown in the Config Options section below are common options that can be passed to any Fx method unless otherwise noted.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.fx
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Fx.html#cls-Ext.Fx Ext JS source
  */

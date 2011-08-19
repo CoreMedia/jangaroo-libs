@@ -1,5 +1,4 @@
 package ext {
-
 import ext.config.buttongroup;
 
 /**
@@ -38,6 +37,10 @@ import ext.config.buttongroup;
  }]
  });
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'buttongroup' / the EXML element &lt;buttongroup>.</p>
  * @see ext.config.buttongroup
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ButtonGroup.html#cls-Ext.ButtonGroup Ext JS source

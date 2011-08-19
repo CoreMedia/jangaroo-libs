@@ -1,5 +1,4 @@
 package ext.form.action {
-
 import ext.form.Action;
 
 /**
@@ -37,8 +36,12 @@ import ext.form.Action;
  success: false,
  errorMessage: "Consignment reference not found"
  }</code></pre><p>Other data may be placed into the response for processing the <a href="Ext.form.BasicForm.html">Form</a>'s callback or event handler methods. The object decoded from this JSON is available in the <a href="output/Ext.form.Action.html#Ext.form.Action-result">result</a> property.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.load
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Action1.html#cls-Ext.form.Action.Load Ext JS source
+ * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Action.html#cls-Ext.form.Action.Load Ext JS source
  */
 public class Load extends Action {
 

@@ -1,6 +1,5 @@
 package ext.config {
 
-
 /**
  * The PivotGrid component enables rapid summarization of large data sets. It provides a way to reduce a large set of data down into a format where trends and insights become more apparent. A classic example is in sales data; a company will often have a record of all sales it makes for a given period - this will often encompass thousands of rows of data. The PivotGrid allows you to see how well each salesperson performed, which cities generate the most revenue, how products perform between cities and so on.
  <p>A PivotGrid is composed of two axes (left and top), one <a href="output/Ext.grid.PivotGrid.html#Ext.grid.PivotGrid-measure">measure</a> and one <a href="output/Ext.grid.PivotGrid.html#Ext.grid.PivotGrid-aggregator">aggregation</a> function. Each axis can contain one or more <a href="output/Ext.grid.PivotGrid.html#Ext.grid.PivotGrid-dimension">dimension</a>, which are ordered into a hierarchy. Dimensions on the left axis can also specify a width. Each dimension in each axis can specify its sort ordering, defaulting to "ASC", and must specify one of the fields in the <a href="Ext.data.Record.html">Record</a> used by the PivotGrid's <a href="Ext.data.Store.html">Store</a>.</p><pre><code>// This is the record representing a single sale
@@ -87,8 +86,11 @@ package ext.config {
 
  pivot.view.refresh(true);
  </code></pre><p>See the <a href="Ext.grid.PivotAxis.html">PivotAxis</a> documentation for further detail on reconfiguring axes.</p>
- * <p>This class serves as a typed config object for constructor of class PivotGrid.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class PivotGrid.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.grid.PivotGrid
  */
 [ExtConfig(target="ext.grid.PivotGrid")]

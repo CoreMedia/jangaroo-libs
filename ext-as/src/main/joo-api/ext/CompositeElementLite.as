@@ -13,7 +13,11 @@ package ext {
  // or
  els.setWidth(100).hide(true);
  </code></pre>
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CompositeElementLite-more.html#cls-Ext.CompositeElementLite Ext JS source
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
+ * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CompositeElementLite.html#cls-Ext.CompositeElementLite Ext JS source
  */
 public class CompositeElementLite {
 
@@ -68,7 +72,7 @@ public class CompositeElementLite {
    *
    * @param el The id of an element, or an Ext.Element, or an HtmlElement to find within the composite collection.
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CompositeElementLite-more.html#method-Ext.CompositeElementLite-contains Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CompositeElementLite-more.html#method-Ext.CompositeElementLite-contains Ext JS source
    */
   public native function contains(el:*):Boolean;
 
@@ -105,7 +109,7 @@ public class CompositeElementLite {
    * Returns the first Element
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CompositeElementLite-more.html#method-Ext.CompositeElementLite-first Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CompositeElementLite-more.html#method-Ext.CompositeElementLite-first Ext JS source
    */
   public native function first():Element;
 
@@ -113,7 +117,7 @@ public class CompositeElementLite {
    * Returns the number of elements in this Composite.
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CompositeElementLite.html#method-Ext.CompositeElementLite-getCount Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CompositeElementLite.html#method-Ext.CompositeElementLite-getCount Ext JS source
    */
   public native function getCount():Number;
 
@@ -138,7 +142,7 @@ public class CompositeElementLite {
    *
    * @param index
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CompositeElementLite.html#method-Ext.CompositeElementLite-item Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CompositeElementLite.html#method-Ext.CompositeElementLite-item Ext JS source
    */
   public native function item(index:Number):Element;
 
@@ -146,7 +150,7 @@ public class CompositeElementLite {
    * Returns the last Element
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CompositeElementLite-more.html#method-Ext.CompositeElementLite-last Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CompositeElementLite-more.html#method-Ext.CompositeElementLite-last Ext JS source
    */
   public native function last():Element;
 

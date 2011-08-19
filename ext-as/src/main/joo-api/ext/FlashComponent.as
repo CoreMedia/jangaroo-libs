@@ -1,6 +1,4 @@
 package ext {
-
-
 /**
  *
  * Listeners will be called with the following arguments:
@@ -18,6 +16,10 @@ package ext {
 
 /**
  *
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'flash' / the EXML element &lt;flash>.</p>
  * @see ext.config.flash
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/FlashComponent.html#cls-Ext.FlashComponent Ext JS source

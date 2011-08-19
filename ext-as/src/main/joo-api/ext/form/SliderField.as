@@ -1,10 +1,13 @@
 package ext.form {
-
 import ext.Element;
 import ext.config.sliderfield;
 
 /**
  * Wraps a <a href="Ext.slider.MultiSlider.html">Slider</a> so it can be used as a form field.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'sliderfield' / the EXML element &lt;sliderfield>.</p>
  * @see ext.config.sliderfield
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SliderField.html#cls-Ext.form.SliderField Ext JS source

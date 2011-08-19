@@ -156,6 +156,10 @@ import js.HTMLElement;
  }
  });
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'htmleditor' / the EXML element &lt;htmleditor>.</p>
  * @see ext.config.htmleditor
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/HtmlEditor.html#cls-Ext.form.HtmlEditor Ext JS source

@@ -4,14 +4,18 @@ import joo.JavaScriptObject;
 
 /**
  * An extended <a href="Ext.Element.html">Ext.Element</a> object that supports a shadow and shim, constrain to viewport and automatic maintaining of shadow/shim positions.
- * <p>This class serves as a typed config object for constructor of class Layer.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class Layer.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.Layer
  */
 [ExtConfig(target="ext.Layer")]
 public class layer extends JavaScriptObject {
 
   public function layer(config:Object = null) {
+
     super(config);
   }
 

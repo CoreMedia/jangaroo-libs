@@ -3,8 +3,11 @@ package ext.config {
 
 /**
  *
- * <p>This class serves as a typed config object for constructor of class TreeNode.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class TreeNode.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.tree.TreeNode
  */
 [ExtConfig(target="ext.tree.TreeNode")]

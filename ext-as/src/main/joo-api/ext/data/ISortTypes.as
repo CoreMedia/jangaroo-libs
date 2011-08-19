@@ -3,6 +3,10 @@ package ext.data {
 
 /**
  *
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This interface defines the type of the singleton SortTypes.</p>
  * @see ext.data.#SortTypes ext.data.SortTypes
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SortTypes.html#cls-Ext.data.SortTypes Ext JS source

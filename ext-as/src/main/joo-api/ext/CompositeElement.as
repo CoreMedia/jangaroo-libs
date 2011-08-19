@@ -13,6 +13,10 @@ package ext {
  // or
  els.setWidth(100).hide(true);
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CompositeElement.html#cls-Ext.CompositeElement Ext JS source
  */
 public class CompositeElement extends CompositeElementLite {

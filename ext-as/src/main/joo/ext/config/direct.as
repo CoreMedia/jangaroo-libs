@@ -11,8 +11,11 @@ package ext.config {
  out.el.scrollTo('t', 100000, true);
  });
  </code></pre>
- * <p>This class serves as a typed config object for constructor of class Direct.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class Direct.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.DirectClass
  */
 [ExtConfig(target="ext.DirectClass")]

@@ -1,5 +1,4 @@
 package ext.form {
-
 import ext.config.checkbox;
 
 /**
@@ -24,6 +23,10 @@ import ext.config.checkbox;
 
 /**
  * Single checkbox field. Can be used as a direct replacement for traditional checkbox fields.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'checkbox' / the EXML element &lt;checkbox>.</p>
  * @see ext.config.checkbox
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Checkbox.html#cls-Ext.form.Checkbox Ext JS source

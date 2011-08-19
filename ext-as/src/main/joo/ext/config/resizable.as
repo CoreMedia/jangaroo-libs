@@ -25,8 +25,11 @@ import ext.lib.Region;
  });
  resizer.on('resize', myHandler);
  </code></pre><p>To hide a particular handle, set its display to none in CSS, or through script:<br/>resizer.east.setDisplayed(false);</p>
- * <p>This class serves as a typed config object for constructor of class Resizable.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class Resizable.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.Resizable
  */
 [ExtConfig(target="ext.Resizable")]

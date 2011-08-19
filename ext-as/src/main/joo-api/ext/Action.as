@@ -1,5 +1,4 @@
 package ext {
-
 import ext.config.action;
 
 /**
@@ -43,6 +42,10 @@ import ext.config.action;
  var aRef = btn.baseAction;
  aRef.setText('New text');
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.action
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Action.html#cls-Ext.Action Ext JS source
  */

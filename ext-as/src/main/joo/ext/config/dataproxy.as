@@ -31,8 +31,11 @@ package ext.config {
  console.error(type + action + ' exception);
  });
  </code></pre><b>Note:</b> These three events are all fired with the signature of the corresponding <i>DataProxy instance</i> event <a href="output/Ext.data.DataProxy.html#Ext.data.DataProxy-beforewrite">beforewrite</a>, <a href="output/Ext.data.DataProxy.html#Ext.data.DataProxy-write">write</a> and <a href="output/Ext.data.DataProxy.html#Ext.data.DataProxy-exception">exception</a>.
- * <p>This class serves as a typed config object for constructor of class DataProxy.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class DataProxy.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.data.DataProxy
  */
 [ExtConfig(target="ext.data.DataProxy")]

@@ -1,5 +1,4 @@
 package ext.tree {
-
 import ext.Element;
 import ext.Panel;
 import ext.config.treepanel;
@@ -794,6 +793,10 @@ import ext.config.treepanel;
  }]
  });
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'treepanel' / the EXML element &lt;treepanel>.</p>
  * @see ext.config.treepanel
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreePanel.html#cls-Ext.tree.TreePanel Ext JS source
@@ -1000,7 +1003,7 @@ public class TreePanel extends Panel {
    * @param attribute Defaults to null (return the actual nodes)
    * @param startNode The node to start from, defaults to the root
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreePanel.html#method-Ext.tree.TreePanel-getChecked Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreePanel.html#method-Ext.tree.TreePanel-getChecked Ext JS source
    */
   public native function getChecked(attribute:String = null, startNode:TreeNode = null):Array;
 
@@ -1017,7 +1020,7 @@ public class TreePanel extends Panel {
    *
    * @param id
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreePanel.html#method-Ext.tree.TreePanel-getNodeById Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreePanel.html#method-Ext.tree.TreePanel-getNodeById Ext JS source
    */
   public native function getNodeById(id:String):TreeNode;
 
@@ -1025,7 +1028,7 @@ public class TreePanel extends Panel {
    * Returns this root node for this tree
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreePanel.html#method-Ext.tree.TreePanel-getRootNode Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreePanel.html#method-Ext.tree.TreePanel-getRootNode Ext JS source
    */
   public native function getRootNode():TreeNode;
 
@@ -1060,7 +1063,7 @@ public class TreePanel extends Panel {
    *
    * @param node
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreePanel.html#method-Ext.tree.TreePanel-setRootNode Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreePanel.html#method-Ext.tree.TreePanel-setRootNode Ext JS source
    */
   public native function setRootNode(node:TreeNode):TreeNode;
 

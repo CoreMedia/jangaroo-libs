@@ -1,5 +1,4 @@
 package ext.grid {
-
 import ext.Editor;
 import ext.config.gridcolumn;
 import ext.form.Field;
@@ -124,6 +123,10 @@ import ext.form.Field;
 /**
  * This class encapsulates column configuration data to be used in the initialization of a <a href="Ext.grid.ColumnModel.html">ColumnModel</a>.
  <p>While subclasses are provided to render data in different ways, this class renders a passed data field unchanged and is usually used for textual columns.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'gridcolumn' / the EXML element &lt;gridcolumn>.</p>
  * @see ext.config.gridcolumn
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Column.html#cls-Ext.grid.Column Ext JS source

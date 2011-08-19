@@ -19,6 +19,10 @@ package ext.util {
  interval: 1000
  });
  </code></pre><p>See the <a href="output/Ext.util.TaskRunner.html#Ext.util.TaskRunner-start">start</a> method for details about how to configure a task object.</p>Also see <a href="Ext.util.DelayedTask.html">Ext.util.DelayedTask</a>.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TaskMgr.html#cls-Ext.util.TaskRunner Ext JS source
  */
 public class TaskRunner {

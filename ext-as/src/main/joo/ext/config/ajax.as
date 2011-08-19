@@ -28,8 +28,11 @@ package ext.config {
  params: 'foo=bar'
  });
  </code></pre><br/><br/>
- * <p>This class serves as a typed config object for constructor of class Ajax.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class Ajax.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.AjaxClass
  */
 [ExtConfig(target="ext.AjaxClass")]

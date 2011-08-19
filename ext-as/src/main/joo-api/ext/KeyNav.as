@@ -1,5 +1,4 @@
 package ext {
-
 import ext.config.keynav;
 
 /**
@@ -17,6 +16,10 @@ import ext.config.keynav;
  scope : this
  });
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.keynav
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/KeyNav.html#cls-Ext.KeyNav Ext JS source
  */

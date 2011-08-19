@@ -1,5 +1,4 @@
 package ext.list {
-
 import ext.DataView;
 import ext.config.listview;
 
@@ -74,6 +73,10 @@ import ext.config.listview;
  panel.setTitle('Simple ListView <i>('+l+' item'+s+' selected)</i>');
  });
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'listview' / the EXML element &lt;listview>.</p>
  * @see ext.config.listview
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ListView.html#cls-Ext.list.ListView Ext JS source

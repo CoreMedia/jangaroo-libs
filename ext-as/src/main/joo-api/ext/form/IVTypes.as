@@ -24,6 +24,10 @@ package ext.form {
  IPAddressMask: /[\d\.]/i
  });
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This interface defines the type of the singleton VTypes.</p>
  * @see ext.form.#VTypes ext.form.VTypes
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/VTypes.html#cls-Ext.form.VTypes Ext JS source

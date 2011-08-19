@@ -1,10 +1,13 @@
 package ext.list {
-
 import ext.config.sorter;
 import ext.util.Observable;
 
 /**
  * Supporting Class for Ext.list.ListView
+
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
 
  * @see ext.config.sorter
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Sorter.html#cls-Ext.list.Sorter Ext JS source

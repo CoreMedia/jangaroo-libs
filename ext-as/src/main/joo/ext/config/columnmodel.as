@@ -42,8 +42,11 @@ package ext.config {
  padding-left:20px;
  }
  </code></pre>Note that the "Company Name" column could be specified as the <b><tt><a href="Ext.grid.GridPanel.html">Ext.grid.GridPanel</a>.<a href="output/Ext.grid.GridPanel.html#Ext.grid.GridPanel-autoExpandColumn">autoExpandColumn</a></tt></b>.
- * <p>This class serves as a typed config object for constructor of class ColumnModel.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class ColumnModel.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.grid.ColumnModel
  */
 [ExtConfig(target="ext.grid.ColumnModel")]

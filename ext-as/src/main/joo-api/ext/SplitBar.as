@@ -64,6 +64,10 @@ import ext.util.Observable;
  split.animate = true;
  split.on('moved', splitterMoved);
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.splitbar
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SplitBar.html#cls-Ext.SplitBar Ext JS source
  */

@@ -3,8 +3,11 @@ package ext.config {
 
 /**
  *
- * <p>This class serves as a typed config object for constructor of class FlashComponent.</p>
  *
+ * <p>This class represents the xtype 'flash' and serves as a
+ * typed config object for constructor of class FlashComponent.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.FlashComponent
  */
 [ExtConfig(target="ext.FlashComponent", xtype="flash")]

@@ -1,5 +1,4 @@
 package ext.tree {
-
 import ext.util.Observable;
 
 /**
@@ -48,6 +47,10 @@ import ext.util.Observable;
 
 /**
  * The default single selection for a TreePanel.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.defaultselectionmodel
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeSelectionModel.html#cls-Ext.tree.DefaultSelectionModel Ext JS source
  */
@@ -83,7 +86,7 @@ public class DefaultSelectionModel extends Observable {
    *
    * @param node The node to check
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeSelectionModel.html#method-Ext.tree.DefaultSelectionModel-isSelected Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeSelectionModel.html#method-Ext.tree.DefaultSelectionModel-isSelected Ext JS source
    */
   public native function isSelected(node:TreeNode):Boolean;
 

@@ -1,5 +1,4 @@
 package ext.state {
-
 import ext.config.cookieprovider;
 
 /**
@@ -10,6 +9,10 @@ import ext.config.cookieprovider;
  });
  Ext.state.Manager.setProvider(cp);
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.cookieprovider
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CookieProvider.html#cls-Ext.state.CookieProvider Ext JS source
  */

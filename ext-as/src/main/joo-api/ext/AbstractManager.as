@@ -1,9 +1,12 @@
 package ext {
-
 import ext.util.MixedCollection;
 
 /**
  * Base Manager class - extended by ComponentMgr and PluginMgr
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/AbstractManager.html#cls-Ext.AbstractManager Ext JS source
  */
 public class AbstractManager {

@@ -3,8 +3,11 @@ package ext.config {
 
 /**
  * Adds a static text string to a menu, usually used as either a heading or group separator.
- * <p>This class serves as a typed config object for constructor of class TextItem.</p>
  *
+ * <p>This class represents the xtype 'menutextitem' and serves as a
+ * typed config object for constructor of class TextItem.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.menu.TextItem
  */
 [ExtConfig(target="ext.menu.TextItem", xtype="menutextitem")]

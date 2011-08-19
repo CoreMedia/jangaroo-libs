@@ -1,6 +1,4 @@
 package ext.toolbar {
-
-
 /**
  * A simple class that renders text directly into a toolbar (with css class:<tt>'xtb-text'</tt>). Example usage: <pre><code>new Ext.Panel({
  tbar : [
@@ -8,6 +6,10 @@ package ext.toolbar {
  ]
  });
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'tbtext' / the EXML element &lt;tbtext>.</p>
  * @see ext.config.tbtext
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Toolbar.html#cls-Ext.Toolbar.TextItem Ext JS source

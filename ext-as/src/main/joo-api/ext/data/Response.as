@@ -1,8 +1,10 @@
 package ext.data {
-
-
 /**
  * A generic response class to normalize response-handling internally to the framework.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.response
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Response.html#cls-Ext.data.Response Ext JS source
  */

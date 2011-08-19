@@ -1,5 +1,4 @@
 package ext.form {
-
 import ext.config.timefield;
 
 /**
@@ -9,6 +8,10 @@ import ext.config.timefield;
  increment: 30
  });
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'timefield' / the EXML element &lt;timefield>.</p>
  * @see ext.config.timefield
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TimeField.html#cls-Ext.form.TimeField Ext JS source

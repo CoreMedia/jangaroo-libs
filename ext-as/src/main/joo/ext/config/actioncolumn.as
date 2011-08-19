@@ -1,6 +1,5 @@
 package ext.config {
 
-
 /**
  * A Grid column type which renders an icon, or a series of icons in a grid cell, and offers a scoped click handler for each icon. Example usage:
  <pre><code>new Ext.grid.GridPanel({
@@ -39,8 +38,11 @@ package ext.config {
  ]
  });
  </code></pre><p>The action column can be at any index in the columns array, and a grid can have any number of action columns.</p>
- * <p>This class serves as a typed config object for constructor of class ActionColumn.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class ActionColumn.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.grid.ActionColumn
  */
 [ExtConfig(target="ext.grid.ActionColumn")]

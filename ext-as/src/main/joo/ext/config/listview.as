@@ -1,6 +1,5 @@
 package ext.config {
 
-
 /**
  * Ext.list.ListView is a fast and light-weight implementation of a <a href="Ext.grid.GridPanel.html">Grid</a> like view. It has the following characteristics:
  <div class="mdetail-params"><ul><li>resizable columns</li><li>selectable</li><li>column widths are initially proportioned by percentage based on the container width and number of columns</li><li>uses templates to render the data in any required format</li><li>no horizontal scrolling</li><li>no editing</li></ul></div><p>Example usage:</p><pre><code>// consume JSON of this form:
@@ -72,8 +71,11 @@ package ext.config {
  panel.setTitle('Simple ListView <i>('+l+' item'+s+' selected)</i>');
  });
  </code></pre>
- * <p>This class serves as a typed config object for constructor of class ListView.</p>
  *
+ * <p>This class represents the xtype 'listview' and serves as a
+ * typed config object for constructor of class ListView.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.list.ListView
  */
 [ExtConfig(target="ext.list.ListView", xtype="listview")]

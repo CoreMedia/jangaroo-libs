@@ -1,6 +1,4 @@
 package ext.data {
-
-
 /**
  * Fires if an exception occurs in the Proxy during data loading. Note that this event is also relayed through <a href="Ext.data.Store.html">Ext.data.Store</a>, so you can listen for it directly on any Store instance.
  * Listeners will be called with the following arguments:
@@ -33,6 +31,10 @@ package ext.data {
 
 /**
  * An implementation of Ext.data.DataProxy that simply passes the data specified in its constructor to the Reader when its load method is called.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.memoryproxy
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MemoryProxy.html#cls-Ext.data.MemoryProxy Ext JS source
  */

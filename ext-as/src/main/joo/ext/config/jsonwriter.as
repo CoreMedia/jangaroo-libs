@@ -3,8 +3,11 @@ package ext.config {
 
 /**
  * DataWriter extension for writing an array or single <a href="Ext.data.Record.html">Ext.data.Record</a> object(s) in preparation for executing a remote CRUD action.
- * <p>This class serves as a typed config object for constructor of class JsonWriter.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class JsonWriter.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.data.JsonWriter
  */
 [ExtConfig(target="ext.data.JsonWriter")]

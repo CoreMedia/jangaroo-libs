@@ -19,8 +19,11 @@ package ext.config {
  this.baseParams.category = node.attributes.category;
  }, this);
  </code></pre>This would pass an HTTP parameter called "category" to the server containing the value of the Node's "category" attribute.
- * <p>This class serves as a typed config object for constructor of class TreeLoader.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class TreeLoader.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.tree.TreeLoader
  */
 [ExtConfig(target="ext.tree.TreeLoader")]

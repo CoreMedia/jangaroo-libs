@@ -1,5 +1,4 @@
 package ext.layout {
-
 import ext.Component;
 import ext.Element;
 import ext.form.Field;
@@ -56,6 +55,10 @@ import ext.form.Field;
  labelPad: 8           // defaults to 5, must specify labelWidth to be honored
  });
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.formlayout
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/FormLayout.html#cls-Ext.layout.FormLayout Ext JS source
  */

@@ -1,5 +1,4 @@
 package ext {
-
 import ext.config.box;
 
 /**
@@ -71,6 +70,10 @@ import ext.config.box;
  src: '/images/my-image.jpg'
  }
  });</code></pre><br/><br/>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'box' / the EXML element &lt;box>.</p>
  * @see ext.config.box
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BoxComponent.html#cls-Ext.BoxComponent Ext JS source
@@ -260,7 +263,7 @@ public class BoxComponent extends Component {
    * Gets the current height of the component's underlying element.
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BoxComponent.html#method-Ext.BoxComponent-getHeight Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BoxComponent.html#method-Ext.BoxComponent-getHeight Ext JS source
    */
   public native function getHeight():Number;
 
@@ -302,7 +305,7 @@ public class BoxComponent extends Component {
    * Gets the current width of the component's underlying element.
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BoxComponent.html#method-Ext.BoxComponent-getWidth Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BoxComponent.html#method-Ext.BoxComponent-getWidth Ext JS source
    */
   public native function getWidth():Number;
 

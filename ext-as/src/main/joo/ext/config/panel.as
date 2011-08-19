@@ -4,8 +4,11 @@ package ext.config {
 /**
  * Panel is a container that has specific functionality and structural components that make it the perfect building block for application-oriented user interfaces.
  <p>Panels are, by virtue of their inheritance from <a href="Ext.Container.html">Ext.Container</a>, capable of being configured with a <a href="output/Ext.Container.html#Ext.Container-layout">layout</a>, and containing child Components.</p><p>When either specifying child <a href="output/Ext.Component.html#Ext.Component-items">items</a> of a Panel, or dynamically <a href="output/Ext.Container.html#Ext.Container-add">adding</a> Components to a Panel, remember to consider how you wish the Panel to arrange those child elements, and whether those child elements need to be sized using one of Ext's built-in <code><b><a href="output/Ext.Container.html#Ext.Container-layout">layout</a></b></code> schemes. By default, Panels use the <a href="Ext.layout.ContainerLayout.html">ContainerLayout</a> scheme. This simply renders child components, appending them one after the other inside the Container, and <b>does not apply any sizing</b> at all.</p><p>A Panel may also contain <a href="output/Ext.Panel.html#Ext.Panel-bbar">bottom</a> and <a href="output/Ext.Panel.html#Ext.Panel-tbar">top</a> toolbars, along with separate <a href="output/Ext.Panel.html#Ext.Panel-header">header</a>, <a href="output/Ext.Panel.html#Ext.Panel-footer">footer</a> and <a href="output/Ext.Panel.html#Ext.Panel-body">body</a> sections (see <a href="output/Ext.Panel.html#Ext.Panel-frame">frame</a> for additional information).</p><p>Panel also provides built-in <a href="output/Ext.Panel.html#Ext.Panel-collapsible">expandable and collapsible behavior</a>, along with a variety of <a href="output/Ext.Panel.html#Ext.Panel-tools">prebuilt tool buttons</a> that can be wired up to provide other customized behavior. Panels can be easily dropped into any <a href="Ext.Container.html">Container</a> or layout, and the layout and rendering pipeline is <a href="output/Ext.Container.html#Ext.Container-add">completely managed by the framework</a>.</p>
- * <p>This class serves as a typed config object for constructor of class Panel.</p>
  *
+ * <p>This class represents the xtype 'panel' and serves as a
+ * typed config object for constructor of class Panel.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.Panel
  */
 [ExtConfig(target="ext.Panel", xtype="panel")]

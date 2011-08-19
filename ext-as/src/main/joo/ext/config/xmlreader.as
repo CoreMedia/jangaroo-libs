@@ -28,8 +28,11 @@ package ext.config {
  &lt;/row&gt;
  &lt;/dataset&gt;
  </code></pre>
- * <p>This class serves as a typed config object for constructor of class XmlReader.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class XmlReader.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.data.XmlReader
  */
 [ExtConfig(target="ext.data.XmlReader")]

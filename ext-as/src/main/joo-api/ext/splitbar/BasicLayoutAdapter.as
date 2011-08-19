@@ -1,9 +1,12 @@
 package ext.splitbar {
-
 import ext.SplitBar;
 
 /**
  * Default Adapter. It assumes the splitter and resizing element are not positioned elements and only gets/sets the width of the element. Generally used for table based layouts.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SplitBar.html#cls-Ext.SplitBar.BasicLayoutAdapter Ext JS source
  */
 public class BasicLayoutAdapter {

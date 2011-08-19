@@ -4,8 +4,11 @@ package ext.config {
 /**
  * A layout that arranges items vertically down a Container. This layout optionally divides available vertical space between child items containing a numeric <code>flex</code> configuration.
  This layout may also be used to set the widths of child items by configuring it with the <a href="output/Ext.layout.VBoxLayout.html#Ext.layout.VBoxLayout-align">align</a> option.
- * <p>This class serves as a typed config object for constructor of class VBoxLayout.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class VBoxLayout.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.layout.VBoxLayout
  */
 [ExtConfig(target="ext.layout.VBoxLayout", type="vbox")]

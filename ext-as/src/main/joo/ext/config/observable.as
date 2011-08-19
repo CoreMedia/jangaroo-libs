@@ -29,8 +29,11 @@ import joo.JavaScriptObject;
  }
  });
  </code></pre>
- * <p>This class serves as a typed config object for constructor of class Observable.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class Observable.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.util.Observable
  */
 [ExtConfig(target="ext.util.Observable")]

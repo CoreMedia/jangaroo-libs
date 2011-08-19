@@ -1,5 +1,4 @@
 package ext.grid {
-
 import ext.config.propertygrid;
 
 /**
@@ -76,6 +75,10 @@ import ext.config.propertygrid;
  }
  });
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.propertygrid
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PropertyGrid.html#cls-Ext.grid.PropertyGrid Ext JS source
  */

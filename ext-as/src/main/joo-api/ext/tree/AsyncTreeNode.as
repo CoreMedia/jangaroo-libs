@@ -1,6 +1,4 @@
 package ext.tree {
-
-
 /**
  * Fires before this node is loaded, return false to cancel
  * Listeners will be called with the following arguments:
@@ -32,6 +30,10 @@ package ext.tree {
 
 /**
  *
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.asynctreenode
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/AsyncTreeNode.html#cls-Ext.tree.AsyncTreeNode Ext JS source
  */
@@ -62,7 +64,7 @@ public class AsyncTreeNode extends TreeNode {
    * Returns true if this node has been loaded
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/AsyncTreeNode.html#method-Ext.tree.AsyncTreeNode-isLoaded Ext JS source
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/AsyncTreeNode.html#method-Ext.tree.AsyncTreeNode-isLoaded Ext JS source
    */
   public native function isLoaded():Boolean;
 
@@ -70,7 +72,7 @@ public class AsyncTreeNode extends TreeNode {
    * Returns true if this node is currently loading
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/AsyncTreeNode.html#method-Ext.tree.AsyncTreeNode-isLoading Ext JS source
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/AsyncTreeNode.html#method-Ext.tree.AsyncTreeNode-isLoading Ext JS source
    */
   public native function isLoading():Boolean;
 

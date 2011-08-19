@@ -1,5 +1,4 @@
 package ext.grid {
-
 import ext.config.rowselectionmodel;
 import ext.data.Record;
 
@@ -97,6 +96,10 @@ import ext.data.Record;
 
 /**
  * The default SelectionModel used by <a href="Ext.grid.GridPanel.html">Ext.grid.GridPanel</a>. It supports multiple selections and keyboard selection/navigation. The objects stored as selections and returned by <a href="output/Ext.grid.RowSelectionModel.html#Ext.grid.RowSelectionModel-getSelected">getSelected</a>, and <a href="output/Ext.grid.RowSelectionModel.html#Ext.grid.RowSelectionModel-getSelections">getSelections</a> are the <a href="Ext.data.Record.html">Record</a>s which provide the data for the selected rows.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.rowselectionmodel
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/RowSelectionModel.html#cls-Ext.grid.RowSelectionModel Ext JS source
  */
@@ -164,7 +167,7 @@ public class RowSelectionModel extends AbstractSelectionModel {
    * Gets the number of selected rows.
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/RowSelectionModel.html#method-Ext.grid.RowSelectionModel-getCount Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/RowSelectionModel.html#method-Ext.grid.RowSelectionModel-getCount Ext JS source
    */
   public native function getCount():Number;
 
@@ -172,7 +175,7 @@ public class RowSelectionModel extends AbstractSelectionModel {
    * Returns the first selected record.
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/RowSelectionModel.html#method-Ext.grid.RowSelectionModel-getSelected Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/RowSelectionModel.html#method-Ext.grid.RowSelectionModel-getSelected Ext JS source
    */
   public native function getSelected():Record;
 
@@ -188,7 +191,7 @@ public class RowSelectionModel extends AbstractSelectionModel {
    * Returns true if there is a next record to select
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/RowSelectionModel.html#method-Ext.grid.RowSelectionModel-hasNext Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/RowSelectionModel.html#method-Ext.grid.RowSelectionModel-hasNext Ext JS source
    */
   public native function hasNext():Boolean;
 
@@ -196,7 +199,7 @@ public class RowSelectionModel extends AbstractSelectionModel {
    * Returns true if there is a previous record to select
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/RowSelectionModel.html#method-Ext.grid.RowSelectionModel-hasPrevious Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/RowSelectionModel.html#method-Ext.grid.RowSelectionModel-hasPrevious Ext JS source
    */
   public native function hasPrevious():Boolean;
 
@@ -204,7 +207,7 @@ public class RowSelectionModel extends AbstractSelectionModel {
    * Returns <tt>true</tt> if there is a selection.
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/RowSelectionModel.html#method-Ext.grid.RowSelectionModel-hasSelection Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/RowSelectionModel.html#method-Ext.grid.RowSelectionModel-hasSelection Ext JS source
    */
   public native function hasSelection():Boolean;
 
@@ -213,7 +216,7 @@ public class RowSelectionModel extends AbstractSelectionModel {
    *
    * @param id The id of record to check
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/RowSelectionModel.html#method-Ext.grid.RowSelectionModel-isIdSelected Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/RowSelectionModel.html#method-Ext.grid.RowSelectionModel-isIdSelected Ext JS source
    */
   public native function isIdSelected(id:String):Boolean;
 
@@ -222,7 +225,7 @@ public class RowSelectionModel extends AbstractSelectionModel {
    *
    * @param index The record or index of the record to check
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/RowSelectionModel.html#method-Ext.grid.RowSelectionModel-isSelected Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/RowSelectionModel.html#method-Ext.grid.RowSelectionModel-isSelected Ext JS source
    */
   public native function isSelected(index:*):Boolean;
 

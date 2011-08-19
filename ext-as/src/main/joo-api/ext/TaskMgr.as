@@ -11,6 +11,9 @@ package ext {
  }
  Ext.TaskMgr.start(task);
  </code></pre><p>See the <a href="output/Ext.TaskMgr.html#Ext.TaskMgr-start">start</a> method for details about how to configure a task object.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
  * @see ext.TaskMgrClass
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TaskMgr.html#cls-Ext.TaskMgr Ext JS source
  */

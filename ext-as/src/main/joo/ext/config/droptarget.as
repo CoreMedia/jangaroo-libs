@@ -4,14 +4,18 @@ import joo.JavaScriptObject;
 
 /**
  * A simple class that provides the basic implementation needed to make any element a drop target that can have draggable items dropped onto it. The drop has no effect until an implementation of notifyDrop is provided.
- * <p>This class serves as a typed config object for constructor of class DropTarget.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class DropTarget.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.dd.DropTarget
  */
 [ExtConfig(target="ext.dd.DropTarget")]
 public class droptarget extends JavaScriptObject {
 
   public function droptarget(config:Object = null) {
+
     super(config);
   }
 

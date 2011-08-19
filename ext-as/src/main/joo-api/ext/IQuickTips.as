@@ -27,6 +27,10 @@ import ext.config.quicktip;
  &lt;input type="button" value="OK" ext:qtitle="OK Button" ext:qwidth="100"
  ext:qtip="This is a quick tip from markup!"&gt;&lt;/input&gt;
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This interface defines the type of the singleton QuickTips.</p>
  * @see ext.#QuickTips ext.QuickTips
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/QuickTips.html#cls-Ext.QuickTips Ext JS source
@@ -51,7 +55,7 @@ public interface IQuickTips {
    * Gets the single <a href="Ext.QuickTip.html">QuickTip</a> instance used to show tips from all registered elements.
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/QuickTips.html#method-Ext.QuickTips-getQuickTip Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/QuickTips.html#method-Ext.QuickTips-getQuickTip Ext JS source
    */
   function getQuickTip():QuickTip;
 
@@ -67,7 +71,7 @@ public interface IQuickTips {
    * Returns true if quick tips are enabled, else false.
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/QuickTips.html#method-Ext.QuickTips-isEnabled Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/QuickTips.html#method-Ext.QuickTips-isEnabled Ext JS source
    */
   function isEnabled():Boolean;
 

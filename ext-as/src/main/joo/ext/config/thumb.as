@@ -6,14 +6,18 @@ import joo.JavaScriptObject;
 
 /**
  * Represents a single thumb element on a Slider. This would not usually be created manually and would instead be created internally by an <a href="Ext.slider.MultiSlider.html">Ext.Slider</a>.
- * <p>This class serves as a typed config object for constructor of class Thumb.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class Thumb.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.slider.Thumb
  */
 [ExtConfig(target="ext.slider.Thumb")]
 public class thumb extends JavaScriptObject {
 
   public function thumb(config:Object = null) {
+
     super(config);
   }
 

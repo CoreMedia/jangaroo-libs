@@ -1,5 +1,4 @@
 package ext.dd {
-
 import ext.IEventObject;
 import ext.config.dropzone;
 
@@ -15,18 +14,18 @@ import ext.config.dropzone;
  },
 
  //      On entry into a target node, highlight that node.
- onNodeEnter : function(target, dd, e, data){ 
+ onNodeEnter : function(target, dd, e, data){
  Ext.fly(target).addClass('my-row-highlight-class');
  },
 
  //      On exit from a target node, unhighlight that node.
- onNodeOut : function(target, dd, e, data){ 
+ onNodeOut : function(target, dd, e, data){
  Ext.fly(target).removeClass('my-row-highlight-class');
  },
 
  //      While over a target node, return the default drop allowed class which
  //      places a "tick" icon into the drag proxy.
- onNodeOver : function(target, dd, e, data){ 
+ onNodeOver : function(target, dd, e, data){
  return Ext.dd.DropZone.prototype.dropAllowed;
  },
 
@@ -45,6 +44,10 @@ import ext.config.dropzone;
  });
  }
  </code></pre>See the <a href="Ext.dd.DragZone.html">DragZone</a> documentation for details about building a DragZone which cooperates with this DropZone.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.dropzone
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DropZone.html#cls-Ext.dd.DropZone Ext JS source
  */

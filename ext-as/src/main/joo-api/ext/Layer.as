@@ -1,9 +1,12 @@
 package ext {
-
 import ext.config.layer;
 
 /**
  * An extended <a href="Ext.Element.html">Ext.Element</a> object that supports a shadow and shim, constrain to viewport and automatic maintaining of shadow/shim positions.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.layer
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Layer.html#cls-Ext.Layer Ext JS source
  */

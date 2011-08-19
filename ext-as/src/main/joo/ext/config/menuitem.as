@@ -3,8 +3,11 @@ package ext.config {
 
 /**
  * A base class for all menu items that require menu-related functionality (like sub-menus) and are not static display items. Item extends the base functionality of <a href="Ext.menu.BaseItem.html">Ext.menu.BaseItem</a> by adding menu-specific activation and click handling.
- * <p>This class serves as a typed config object for constructor of class Item.</p>
  *
+ * <p>This class represents the xtype 'menuitem' and serves as a
+ * typed config object for constructor of class Item.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.menu.Item
  */
 [ExtConfig(target="ext.menu.Item", xtype="menuitem")]

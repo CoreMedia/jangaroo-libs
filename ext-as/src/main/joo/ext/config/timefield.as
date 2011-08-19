@@ -8,8 +8,11 @@ package ext.config {
  increment: 30
  });
  </code></pre>
- * <p>This class serves as a typed config object for constructor of class TimeField.</p>
  *
+ * <p>This class represents the xtype 'timefield' and serves as a
+ * typed config object for constructor of class TimeField.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.form.TimeField
  */
 [ExtConfig(target="ext.form.TimeField", xtype="timefield")]

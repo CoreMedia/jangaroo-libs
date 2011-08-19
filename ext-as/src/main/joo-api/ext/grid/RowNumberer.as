@@ -1,5 +1,4 @@
 package ext.grid {
-
 import ext.config.rownumberer;
 
 /**
@@ -11,6 +10,10 @@ import ext.config.rownumberer;
  {header: "Description", width: 200, sortable: true}
  ]);
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.rownumberer
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/RowNumberer.html#cls-Ext.grid.RowNumberer Ext JS source
  */

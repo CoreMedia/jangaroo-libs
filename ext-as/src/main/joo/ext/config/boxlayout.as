@@ -4,8 +4,11 @@ package ext.config {
 /**
  * Base Class for HBoxLayout and VBoxLayout Classes. Generally it should not need to be used directly.
 
- * <p>This class serves as a typed config object for constructor of class BoxLayout.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class BoxLayout.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.layout.BoxLayout
  */
 [ExtConfig(target="ext.layout.BoxLayout", type="box")]

@@ -1,5 +1,4 @@
 package ext.form {
-
 import ext.config.radiogroup;
 
 /**
@@ -24,6 +23,10 @@ import ext.config.radiogroup;
 
 /**
  * A grouping container for <a href="Ext.form.Radio.html">Ext.form.Radio</a> controls.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'radiogroup' / the EXML element &lt;radiogroup>.</p>
  * @see ext.config.radiogroup
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/RadioGroup.html#cls-Ext.form.RadioGroup Ext JS source

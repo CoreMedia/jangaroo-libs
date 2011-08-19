@@ -12,8 +12,11 @@ package ext.config {
  }, Employee);
  </code></pre><p>This would consume an Array like this:</p><pre><code>[ [1, 'Bill', 'Gardener'], [2, 'Ben', 'Horticulturalist'] ]
  </code></pre>
- * <p>This class serves as a typed config object for constructor of class ArrayReader.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class ArrayReader.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.data.ArrayReader
  */
 [ExtConfig(target="ext.data.ArrayReader")]

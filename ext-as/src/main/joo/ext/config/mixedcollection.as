@@ -3,8 +3,11 @@ package ext.config {
 
 /**
  * A Collection class that maintains both numeric indexes and keys and exposes events.
- * <p>This class serves as a typed config object for constructor of class MixedCollection.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class MixedCollection.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.util.MixedCollection
  */
 [ExtConfig(target="ext.util.MixedCollection")]

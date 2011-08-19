@@ -4,8 +4,11 @@ package ext.config {
 /**
  * Supporting Class for Ext.list.ListView
 
- * <p>This class serves as a typed config object for constructor of class ColumnResizer.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class ColumnResizer.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.list.ColumnResizer
  */
 [ExtConfig(target="ext.list.ColumnResizer")]

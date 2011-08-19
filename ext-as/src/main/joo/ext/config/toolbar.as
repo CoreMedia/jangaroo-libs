@@ -75,8 +75,11 @@ package ext.config {
  });
  tb.doLayout();
  </code></pre>
- * <p>This class serves as a typed config object for constructor of class Toolbar.</p>
  *
+ * <p>This class represents the xtype 'toolbar' and serves as a
+ * typed config object for constructor of class Toolbar.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.Toolbar
  */
 [ExtConfig(target="ext.Toolbar", xtype="toolbar")]

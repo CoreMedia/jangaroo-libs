@@ -29,8 +29,11 @@ import ext.Template;
  &lt;div id="tab1" class="x-hide-display"&gt;A simple tab&lt;/div&gt;
  &lt;div id="tab2" class="x-hide-display"&gt;Another one&lt;/div&gt;
  </code></pre>Note that the tab divs in this example contain the class <tt>'x-hide-display'</tt> so that they can be rendered deferred without displaying outside the tabs. You could alternately set <tt><a href="output/Ext.TabPanel.html#Ext.TabPanel-deferredRender">deferredRender</a> = false</tt> to render all content tabs on page load.</div></li></ul></div>
- * <p>This class serves as a typed config object for constructor of class TabPanel.</p>
  *
+ * <p>This class represents the xtype 'tabpanel' and serves as a
+ * typed config object for constructor of class TabPanel.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.TabPanel
  */
 [ExtConfig(target="ext.TabPanel", xtype="tabpanel")]

@@ -1,6 +1,4 @@
 package ext.layout {
-
-
 /**
  * This is a layout that inherits the anchoring of <b><a href="Ext.layout.AnchorLayout.html">Ext.layout.AnchorLayout</a></b> and adds the ability for x/y positioning using the standard x and y component config options.
  <p>This class is intended to be extended or created via the <tt><b><a href="output/Ext.Container.html#Ext.Container-layout">layout</a></b></tt> configuration property. See <tt><b><a href="output/Ext.Container.html#Ext.Container-layout">Ext.Container.layout</a></b></tt> for additional details.</p><p>Example usage:</p><pre><code>var form = new Ext.form.FormPanel({
@@ -42,6 +40,10 @@ package ext.layout {
  }]
  });
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.absolutelayout
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/AbsoluteLayout.html#cls-Ext.layout.AbsoluteLayout Ext JS source
  */

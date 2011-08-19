@@ -63,8 +63,11 @@ package ext.config {
  }
  ]
  </code></pre>
- * <p>This class serves as a typed config object for constructor of class DirectLoad.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class DirectLoad.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.form.action.DirectLoad
  */
 [ExtConfig(target="ext.form.action.DirectLoad")]

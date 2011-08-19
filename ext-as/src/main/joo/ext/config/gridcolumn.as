@@ -7,14 +7,18 @@ import joo.JavaScriptObject;
 /**
  * This class encapsulates column configuration data to be used in the initialization of a <a href="Ext.grid.ColumnModel.html">ColumnModel</a>.
  <p>While subclasses are provided to render data in different ways, this class renders a passed data field unchanged and is usually used for textual columns.</p>
- * <p>This class serves as a typed config object for constructor of class Column.</p>
  *
+ * <p>This class represents the xtype 'gridcolumn' and serves as a
+ * typed config object for constructor of class Column.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.grid.Column
  */
 [ExtConfig(target="ext.grid.Column", xtype="gridcolumn")]
 public class gridcolumn extends JavaScriptObject {
 
   public function gridcolumn(config:Object = null) {
+
     super(config);
   }
 

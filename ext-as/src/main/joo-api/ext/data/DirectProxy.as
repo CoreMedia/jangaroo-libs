@@ -1,8 +1,10 @@
 package ext.data {
-
-
 /**
  *
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.directproxy
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DirectProxy.html#cls-Ext.data.DirectProxy Ext JS source
  */

@@ -1,9 +1,11 @@
 package ext.layout {
-
-
 /**
  * A layout that arranges items horizontally across a Container. This layout optionally divides available horizontal space between child items containing a numeric <code>flex</code> configuration.
  This layout may also be used to set the heights of child items by configuring it with the <a href="output/Ext.layout.HBoxLayout.html#Ext.layout.HBoxLayout-align">align</a> option.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.hboxlayout
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/HBoxLayout.html#cls-Ext.layout.HBoxLayout Ext JS source
  */

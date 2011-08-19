@@ -3,6 +3,10 @@ package ext.chart {
 
 /**
  * A type of axis that displays items in categories.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Chart.html#cls-Ext.chart.CategoryAxis Ext JS source
  */
 public class CategoryAxis extends Axis {

@@ -1,6 +1,5 @@
 package ext.config {
 
-
 /**
  * Small helper class to make creating <a href="Ext.data.Store.html">Ext.data.Store</a>s from XML data easier. A XmlStore will be automatically configured with a <a href="Ext.data.XmlReader.html">Ext.data.XmlReader</a>.
  <p>A store configuration would be something like:</p><pre><code>var store = new Ext.data.XmlStore({
@@ -46,8 +45,11 @@ package ext.config {
  &lt;/Items&gt;
  &lt;/ItemSearchResponse&gt;
  </code></pre>An object literal of this form could also be used as the <a href="output/Ext.data.XmlStore.html#Ext.data.XmlStore-data">data</a> config option.<br/><br/> <p><b>Note:</b> Although not listed here, this class accepts all of the configuration options of <b><a href="Ext.data.XmlReader.html">XmlReader</a></b>.</p>
- * <p>This class serves as a typed config object for constructor of class XmlStore.</p>
  *
+ * <p>This class represents the xtype 'xmlstore' and serves as a
+ * typed config object for constructor of class XmlStore.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.data.XmlStore
  */
 [ExtConfig(target="ext.data.XmlStore", xtype="xmlstore")]

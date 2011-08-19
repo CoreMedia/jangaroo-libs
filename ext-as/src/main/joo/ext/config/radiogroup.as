@@ -3,8 +3,11 @@ package ext.config {
 
 /**
  * A grouping container for <a href="Ext.form.Radio.html">Ext.form.Radio</a> controls.
- * <p>This class serves as a typed config object for constructor of class RadioGroup.</p>
  *
+ * <p>This class represents the xtype 'radiogroup' and serves as a
+ * typed config object for constructor of class RadioGroup.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.form.RadioGroup
  */
 [ExtConfig(target="ext.form.RadioGroup", xtype="radiogroup")]

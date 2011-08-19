@@ -48,8 +48,11 @@ import ext.data.Store;
  iconCls: 'icon-grid'
  });
  </code></pre><p style="font-weight: bold"><u>Notes:</u></p><div class="mdetail-params"><ul><li>Although this class inherits many configuration options from base classes, some of them (such as autoScroll, autoWidth, layout, items, etc) are not used by this class, and will have no effect.</li><li>A grid <b>requires</b> a width in which to scroll its columns, and a height in which to scroll its rows. These dimensions can either be set explicitly through the <tt><a href="output/Ext.BoxComponent.html#Ext.BoxComponent-height">height</a></tt> and <tt><a href="output/Ext.BoxComponent.html#Ext.BoxComponent-width">width</a></tt> configuration options or implicitly set by using the grid as a child item of a <a href="Ext.Container.html">Container</a> which will have a <a href="output/Ext.Container.html#Ext.Container-layout">layout manager</a> provide the sizing of its child items (for example the Container of the Grid may specify <tt><a href="output/Ext.Container.html#Ext.Container-layout">layout</a>:'fit'</tt>).</li><li>To access the data in a Grid, it is necessary to use the data model encapsulated by the <a href="output/Ext.grid.GridPanel.html#Ext.grid.GridPanel-store">Store</a>. See the <a href="output/Ext.grid.GridPanel.html#Ext.grid.GridPanel-cellclick">cellclick</a> event for more details.</li></ul></div>
- * <p>This class serves as a typed config object for constructor of class GridPanel.</p>
  *
+ * <p>This class represents the xtype 'grid' and serves as a
+ * typed config object for constructor of class GridPanel.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.grid.GridPanel
  */
 [ExtConfig(target="ext.grid.GridPanel", xtype="grid")]

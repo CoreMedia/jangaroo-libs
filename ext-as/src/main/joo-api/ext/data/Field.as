@@ -1,10 +1,13 @@
 package ext.data {
-
 import ext.config.datafield;
 
 /**
  * This class encapsulates the field definition information specified in the field definition objects passed to <a href="output/Ext.data.Record.html#Ext.data.Record-create">Ext.data.Record.create</a>.
  <p>Developers do not need to instantiate this class. Instances are created by <a href="Ext.data.Record.create.html">Ext.data.Record.create</a> and cached in the <a href="output/Ext.data.Record.html#Ext.data.Record-fields">fields</a> property of the created Record constructor's <b>prototype.</b></p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'datafield' / the EXML element &lt;datafield>.</p>
  * @see ext.config.datafield
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataField.html#cls-Ext.data.Field Ext JS source

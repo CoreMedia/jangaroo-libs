@@ -1,10 +1,13 @@
 package ext.tree {
-
 import js.HTMLElement;
 import js.Node;
 
 /**
  * This class provides the default UI implementation for Ext TreeNodes. The TreeNode UI implementation is separate from the tree implementation, and allows customizing of the appearance of tree nodes.<br/><p>If you are customizing the Tree's user interface, you may need to extend this class, but you should never need to instantiate this class.<br/></p><p>This class provides access to the user interface components of an Ext TreeNode, through <a href="output/Ext.tree.TreeNode.html#Ext.tree.TreeNode-getUI">Ext.tree.TreeNode.getUI</a></p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeNodeUI.html#cls-Ext.tree.TreeNodeUI Ext JS source
  */
 public class TreeNodeUI {

@@ -1,5 +1,4 @@
 package ext {
-
 import ext.util.Observable;
 
 /**
@@ -46,6 +45,10 @@ import ext.util.Observable;
  out.el.scrollTo('t', 100000, true);
  });
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This class defines the type of the singleton Direct.</p>
  * @see ext.#Direct ext.Direct
  * @see ext.config.direct

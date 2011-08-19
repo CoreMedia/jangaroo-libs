@@ -1,5 +1,4 @@
 package ext.layout {
-
 import ext.Button;
 import ext.Component;
 import ext.Element;
@@ -7,6 +6,10 @@ import ext.menu.Menu;
 
 /**
  * Layout manager used by Ext.Toolbar. This is highly specialised for use by Toolbars and would not usually be used by any other class.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.toolbarlayout
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ToolbarLayout.html#cls-Ext.layout.ToolbarLayout Ext JS source
  */

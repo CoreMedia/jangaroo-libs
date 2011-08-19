@@ -23,6 +23,10 @@ package ext {
  icon: Ext.MessageBox.QUESTION
  });
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This interface defines the type of the singleton MessageBox.</p>
  * @see ext.#MessageBox ext.MessageBox
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MessageBox.html#cls-Ext.MessageBox Ext JS source

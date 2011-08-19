@@ -10,14 +10,18 @@ import joo.JavaScriptObject;
  });
  Ext.state.Manager.setProvider(cp);
  </code></pre>
- * <p>This class serves as a typed config object for constructor of class CookieProvider.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class CookieProvider.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.state.CookieProvider
  */
 [ExtConfig(target="ext.state.CookieProvider")]
 public class cookieprovider extends JavaScriptObject {
 
   public function cookieprovider(config:Object = null) {
+
     super(config);
   }
 

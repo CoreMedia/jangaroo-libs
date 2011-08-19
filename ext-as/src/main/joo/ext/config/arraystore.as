@@ -1,6 +1,5 @@
 package ext.config {
 
-
 /**
  * Formerly known as "SimpleStore".
  <p>Small helper class to make creating <a href="Ext.data.Store.html">Ext.data.Store</a>s from Array data easier. An ArrayStore will be automatically configured with a <a href="Ext.data.ArrayReader.html">Ext.data.ArrayReader</a>.</p><p>A store configuration would be something like:</p><pre><code>var store = new Ext.data.ArrayStore({
@@ -25,8 +24,11 @@ package ext.config {
  ['Wal-Mart Stores, Inc.',45.45,0.73,1.63,'9/1 12:00am']
  ];
  </code></pre>An object literal of this form could also be used as the <a href="output/Ext.data.ArrayStore.html#Ext.data.ArrayStore-data">data</a> config option.<br/><br/> <p><b>&#42;Note:</b> Although not listed here, this class accepts all of the configuration options of <b><a href="Ext.data.ArrayReader.html">ArrayReader</a></b>.</p>
- * <p>This class serves as a typed config object for constructor of class ArrayStore.</p>
  *
+ * <p>This class represents the xtype 'arraystore' and serves as a
+ * typed config object for constructor of class ArrayStore.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.data.ArrayStore
  */
 [ExtConfig(target="ext.data.ArrayStore", xtype="arraystore")]

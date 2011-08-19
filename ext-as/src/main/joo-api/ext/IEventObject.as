@@ -1,5 +1,4 @@
 package ext {
-
 import js.Event;
 import js.HTMLElement;
 
@@ -18,9 +17,13 @@ import js.HTMLElement;
  Ext.EventManager.on("myDiv", 'click', handleClick);
  Ext.EventManager.addListener("myDiv", 'click', handleClick);
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This interface defines the type of the singleton EventObject.</p>
  * @see ext.#EventObject ext.EventObject
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#cls-Ext.EventObject Ext JS source
+ * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager.html#cls-Ext.EventObject Ext JS source
  */
 public interface IEventObject {
 
@@ -605,7 +608,7 @@ public interface IEventObject {
    * Gets the character code for the event.
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager.html#method-Ext.EventObject-getCharCode Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager.html#method-Ext.EventObject-getCharCode Ext JS source
    */
   function getCharCode():Number;
 
@@ -621,7 +624,7 @@ public interface IEventObject {
    * Gets the x coordinate of the event.
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager.html#method-Ext.EventObject-getPageX Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager.html#method-Ext.EventObject-getPageX Ext JS source
    */
   function getPageX():Number;
 
@@ -629,7 +632,7 @@ public interface IEventObject {
    * Gets the y coordinate of the event.
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager.html#method-Ext.EventObject-getPageY Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager.html#method-Ext.EventObject-getPageY Ext JS source
    */
   function getPageY():Number;
 
@@ -637,7 +640,7 @@ public interface IEventObject {
    * Gets the related target.
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager.html#method-Ext.EventObject-getRelatedTarget Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager.html#method-Ext.EventObject-getRelatedTarget Ext JS source
    */
   function getRelatedTarget():HTMLElement;
 
@@ -648,7 +651,7 @@ public interface IEventObject {
    * @param maxDepth The max depth to search as a number or element (defaults to 10 || document.body)
    * @param returnEl True to return a Ext.Element object instead of DOM node
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager.html#method-Ext.EventObject-getTarget Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager.html#method-Ext.EventObject-getTarget Ext JS source
    */
   function getTarget(selector:String = null, maxDepth:* = null, returnEl:Boolean = false):HTMLElement;
 
@@ -672,7 +675,7 @@ public interface IEventObject {
    * Returns true if the control, meta, shift or alt key was pressed during this event.
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#method-Ext.EventObject-hasModifier Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#method-Ext.EventObject-hasModifier Ext JS source
    */
   function hasModifier():Boolean;
 
@@ -732,7 +735,7 @@ public interface IEventObject {
    * @param related true to test if the related target is within el instead of the target
    * @param allowEl true to also check if the passed element is the target or related target
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager.html#method-Ext.EventObject-within Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager.html#method-Ext.EventObject-within Ext JS source
    */
   function within(el:*, related:Boolean = false, allowEl:Boolean = false):Boolean;
 

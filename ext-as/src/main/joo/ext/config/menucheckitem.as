@@ -3,8 +3,11 @@ package ext.config {
 
 /**
  * Adds a menu item that contains a checkbox by default, but can also be part of a radio group.
- * <p>This class serves as a typed config object for constructor of class CheckItem.</p>
  *
+ * <p>This class represents the xtype 'menucheckitem' and serves as a
+ * typed config object for constructor of class CheckItem.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.menu.CheckItem
  */
 [ExtConfig(target="ext.menu.CheckItem", xtype="menucheckitem")]

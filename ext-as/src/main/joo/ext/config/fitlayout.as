@@ -13,8 +13,11 @@ package ext.config {
  }
  });
  </code></pre>
- * <p>This class serves as a typed config object for constructor of class FitLayout.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class FitLayout.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.layout.FitLayout
  */
 [ExtConfig(target="ext.layout.FitLayout", type="fit")]

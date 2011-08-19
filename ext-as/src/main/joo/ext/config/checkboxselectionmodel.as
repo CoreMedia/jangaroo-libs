@@ -3,8 +3,11 @@ package ext.config {
 
 /**
  * A custom selection model that renders a column of checkboxes that can be toggled to select or deselect rows.
- * <p>This class serves as a typed config object for constructor of class CheckboxSelectionModel.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class CheckboxSelectionModel.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.grid.CheckboxSelectionModel
  */
 [ExtConfig(target="ext.grid.CheckboxSelectionModel")]

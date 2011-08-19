@@ -4,8 +4,11 @@ import ext.form.Field;
 
 /**
  * A base editor field that handles displaying/hiding on demand and has some built-in sizing and event handling logic.
- * <p>This class serves as a typed config object for constructor of class Editor.</p>
  *
+ * <p>This class represents the xtype 'editor' and serves as a
+ * typed config object for constructor of class Editor.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.Editor
  */
 [ExtConfig(target="ext.Editor", xtype="editor")]

@@ -1,10 +1,13 @@
 package ext {
-
 import ext.data.Store;
 import ext.util.MixedCollection;
 
 /**
  * The default global group of stores.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This class defines the type of the singleton StoreMgr.</p>
  * @see ext.#StoreMgr ext.StoreMgr
  * @see ext.config.storemgr
@@ -26,7 +29,7 @@ public class StoreMgrClass extends MixedCollection {
    *
    * @param id The id of the Store, or a Store instance
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/StoreMgr.html#method-Ext.StoreMgr-lookup Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/StoreMgr.html#method-Ext.StoreMgr-lookup Ext JS source
    */
   public native function lookup(id:*):Store;
 

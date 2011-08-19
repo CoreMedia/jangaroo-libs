@@ -21,8 +21,11 @@ package ext.config {
  <a href="output/Ext.slider.MultiSlider.html#Ext.slider.MultiSlider-constrainThumbs">constrainThumbs</a>: false
  });
  </pre>
- * <p>This class serves as a typed config object for constructor of class MultiSlider.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class MultiSlider.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.slider.MultiSlider
  */
 [ExtConfig(target="ext.slider.MultiSlider")]

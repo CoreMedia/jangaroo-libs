@@ -4,14 +4,18 @@ import joo.JavaScriptObject;
 
 /**
  * A generic response class to normalize response-handling internally to the framework.
- * <p>This class serves as a typed config object for constructor of class Response.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class Response.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.data.Response
  */
 [ExtConfig(target="ext.data.Response")]
 public class response extends JavaScriptObject {
 
   public function response(config:Object = null) {
+
     super(config);
   }
 

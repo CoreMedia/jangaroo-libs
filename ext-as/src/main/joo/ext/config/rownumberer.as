@@ -11,14 +11,18 @@ import joo.JavaScriptObject;
  {header: "Description", width: 200, sortable: true}
  ]);
  </code></pre>
- * <p>This class serves as a typed config object for constructor of class RowNumberer.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class RowNumberer.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.grid.RowNumberer
  */
 [ExtConfig(target="ext.grid.RowNumberer")]
 public class rownumberer extends JavaScriptObject {
 
   public function rownumberer(config:Object = null) {
+
     super(config);
   }
 

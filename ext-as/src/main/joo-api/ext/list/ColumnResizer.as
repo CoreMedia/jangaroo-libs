@@ -1,10 +1,13 @@
 package ext.list {
-
 import ext.config.columnresizer;
 import ext.util.Observable;
 
 /**
  * Supporting Class for Ext.list.ListView
+
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
 
  * @see ext.config.columnresizer
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnResizer.html#cls-Ext.list.ColumnResizer Ext JS source

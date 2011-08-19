@@ -1,5 +1,4 @@
 package ext {
-
 import ext.config.resizable;
 import ext.lib.Region;
 import ext.util.Observable;
@@ -76,6 +75,10 @@ import ext.util.Observable;
  });
  resizer.on('resize', myHandler);
  </code></pre><p>To hide a particular handle, set its display to none in CSS, or through script:<br/>resizer.east.setDisplayed(false);</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.resizable
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Resizable.html#cls-Ext.Resizable Ext JS source
  */
@@ -282,7 +285,7 @@ public class Resizable extends Observable {
    * Returns the element this component is bound to.
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Resizable.html#method-Ext.Resizable-getEl Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Resizable.html#method-Ext.Resizable-getEl Ext JS source
    */
   public native function getEl():Element;
 
@@ -290,7 +293,7 @@ public class Resizable extends Observable {
    * Returns the resizeChild element (or null).
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Resizable.html#method-Ext.Resizable-getResizeChild Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Resizable.html#method-Ext.Resizable-getResizeChild Ext JS source
    */
   public native function getResizeChild():Element;
 

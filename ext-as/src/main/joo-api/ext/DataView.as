@@ -1,5 +1,4 @@
 package ext {
-
 import ext.config.dataview;
 import ext.data.Record;
 import ext.data.Store;
@@ -304,6 +303,10 @@ import js.HTMLElement;
  });
  panel.render(document.body);
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'dataview' / the EXML element &lt;dataview>.</p>
  * @see ext.config.dataview
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataView.html#cls-Ext.DataView Ext JS source

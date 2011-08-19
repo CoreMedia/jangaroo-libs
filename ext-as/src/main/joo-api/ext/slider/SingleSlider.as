@@ -1,6 +1,4 @@
 package ext.slider {
-
-
 /**
  * Slider which supports vertical or horizontal orientation, keyboard adjustments, configurable snapping, axis clicking and animation. Can be added as an item to any container. Example usage: <pre><code>new Ext.slider.SingleSlider({
  renderTo: Ext.getBody(),
@@ -11,6 +9,10 @@ package ext.slider {
  maxValue: 100
  });
  </code></pre>The class Ext.slider.SingleSlider is aliased to Ext.Slider for backwards compatibility.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.singleslider
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Slider.html#cls-Ext.slider.SingleSlider Ext JS source
  */

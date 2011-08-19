@@ -1,5 +1,4 @@
 package ext.data {
-
 import ext.config.arraystore;
 
 /**
@@ -26,6 +25,10 @@ import ext.config.arraystore;
  ['Wal-Mart Stores, Inc.',45.45,0.73,1.63,'9/1 12:00am']
  ];
  </code></pre>An object literal of this form could also be used as the <a href="output/Ext.data.ArrayStore.html#Ext.data.ArrayStore-data">data</a> config option.<br/><br/> <p><b>&#42;Note:</b> Although not listed here, this class accepts all of the configuration options of <b><a href="Ext.data.ArrayReader.html">ArrayReader</a></b>.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'arraystore' / the EXML element &lt;arraystore>.</p>
  * @see ext.config.arraystore
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ArrayStore.html#cls-Ext.data.ArrayStore Ext JS source

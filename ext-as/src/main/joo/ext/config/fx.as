@@ -15,14 +15,18 @@ import joo.JavaScriptObject;
  b      The center of the bottom edge
  br     The bottom right corner
  </pre><b>Note</b>: some Fx methods accept specific custom config parameters. The options shown in the Config Options section below are common options that can be passed to any Fx method unless otherwise noted.
- * <p>This class serves as a typed config object for constructor of class Fx.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class Fx.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.Fx
  */
 [ExtConfig(target="ext.Fx")]
 public class fx extends JavaScriptObject {
 
   public function fx(config:Object = null) {
+
     super(config);
   }
 

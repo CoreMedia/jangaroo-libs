@@ -1,10 +1,13 @@
 package ext.tree {
-
 import ext.config.treedropzone;
 import ext.dd.DropZone;
 
 /**
  *
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.treedropzone
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeDropZone.html#cls-Ext.tree.TreeDropZone Ext JS source
  */

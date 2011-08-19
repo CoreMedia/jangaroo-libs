@@ -1,10 +1,13 @@
 package ext.tree {
-
 import ext.Editor;
 import ext.config.treeeditor;
 
 /**
  * Provides editor functionality for inline tree node editing. Any valid <a href="Ext.form.Field.html">Ext.form.Field</a> subclass can be used as the editor field.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.treeeditor
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeEditor.html#cls-Ext.tree.TreeEditor Ext JS source
  */

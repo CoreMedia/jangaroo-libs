@@ -3,8 +3,11 @@ package ext.config {
 
 /**
  * A display-only text field which is not validated and not submitted.
- * <p>This class serves as a typed config object for constructor of class DisplayField.</p>
  *
+ * <p>This class represents the xtype 'displayfield' and serves as a
+ * typed config object for constructor of class DisplayField.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.form.DisplayField
  */
 [ExtConfig(target="ext.form.DisplayField", xtype="displayfield")]

@@ -1,5 +1,4 @@
 package ext {
-
 import ext.config.window;
 import ext.dd.DragSource;
 
@@ -101,6 +100,10 @@ import ext.dd.DragSource;
 /**
  * A specialized panel intended for use as an application window. Windows are floated, <a href="output/Ext.Window.html#Ext.Window-resizable">resizable</a>, and <a href="output/Ext.Window.html#Ext.Window-draggable">draggable</a> by default. Windows can be <a href="output/Ext.Window.html#Ext.Window-maximizable">maximized</a> to fill the viewport, restored to their prior size, and can be <a href="output/Ext.Window.html#Ext.Window-minimize">minimize</a>d.
  <p>Windows can also be linked to a <a href="Ext.WindowGroup.html">Ext.WindowGroup</a> or managed by the <a href="Ext.WindowMgr.html">Ext.WindowMgr</a> to provide grouping, activation, to front, to back and other application-specific behavior.</p><p>By default, Windows will be rendered to document.body. To <a href="output/Ext.Window.html#Ext.Window-constrain">constrain</a> a Window to another element specify <a href="output/Ext.Component.html#Ext.Component-renderTo">renderTo</a>.</p><p><b>Note:</b> By default, the <code><a href="output/Ext.Window.html#Ext.Window-closable">close</a></code> header tool <i>destroys</i> the Window resulting in destruction of any child Components. This makes the Window object, and all its descendants <b>unusable</b>. To enable re-use of a Window, use <b><code><a href="output/Ext.Window.html#Ext.Window-closeAction">closeAction: 'hide'</a></code></b>.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'window' / the EXML element &lt;window>.</p>
  * @see ext.config.window
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Window.html#cls-Ext.Window Ext JS source
@@ -306,7 +309,7 @@ public class Window extends Panel {
    * @param selectText If applicable, true to also select the text in this component
    * @param delay Delay the focus this number of milliseconds (true for 10 milliseconds)
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Window.html#method-Ext.Window-focus Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Window.html#method-Ext.Window-focus Ext JS source
    */
   override public native function focus(selectText:Boolean = false, delay:* = null):Component;
 

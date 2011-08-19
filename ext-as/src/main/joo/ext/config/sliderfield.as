@@ -3,8 +3,11 @@ package ext.config {
 
 /**
  * Wraps a <a href="Ext.slider.MultiSlider.html">Slider</a> so it can be used as a form field.
- * <p>This class serves as a typed config object for constructor of class SliderField.</p>
  *
+ * <p>This class represents the xtype 'sliderfield' and serves as a
+ * typed config object for constructor of class SliderField.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.form.SliderField
  */
 [ExtConfig(target="ext.form.SliderField", xtype="sliderfield")]

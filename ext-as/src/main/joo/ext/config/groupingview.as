@@ -45,8 +45,11 @@ package ext.config {
  renderTo: document.body
  });
  </code></pre>
- * <p>This class serves as a typed config object for constructor of class GroupingView.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class GroupingView.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.grid.GroupingView
  */
 [ExtConfig(target="ext.grid.GroupingView")]

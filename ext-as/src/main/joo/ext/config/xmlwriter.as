@@ -3,8 +3,11 @@ package ext.config {
 
 /**
  * DataWriter extension for writing an array or single <a href="Ext.data.Record.html">Ext.data.Record</a> object(s) in preparation for executing a remote CRUD action via XML. XmlWriter uses an instance of <a href="Ext.XTemplate.html">Ext.XTemplate</a> for maximum flexibility in defining your own custom XML schema if the default schema is not appropriate for your needs. See the <a href="output/Ext.data.XmlWriter.html#Ext.data.XmlWriter-tpl">tpl</a> configuration-property.
- * <p>This class serves as a typed config object for constructor of class XmlWriter.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class XmlWriter.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.data.XmlWriter
  */
 [ExtConfig(target="ext.data.XmlWriter")]

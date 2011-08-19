@@ -1,5 +1,4 @@
 package ext.data {
-
 import ext.util.Observable;
 
 /**
@@ -204,6 +203,10 @@ import ext.util.Observable;
  console.error(type + action + ' exception);
  });
  </code></pre><b>Note:</b> These three events are all fired with the signature of the corresponding <i>DataProxy instance</i> event <a href="output/Ext.data.DataProxy.html#Ext.data.DataProxy-beforewrite">beforewrite</a>, <a href="output/Ext.data.DataProxy.html#Ext.data.DataProxy-write">write</a> and <a href="output/Ext.data.DataProxy.html#Ext.data.DataProxy-exception">exception</a>.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.dataproxy
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataProxy.html#cls-Ext.data.DataProxy Ext JS source
  */
@@ -311,7 +314,7 @@ public class DataProxy extends Observable {
    *
    * @param action [Ext.data.Api.CREATE|READ|UPDATE|DESTROY]
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataProxy.html#method-Ext.data.DataProxy-isApiAction Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataProxy.html#method-Ext.data.DataProxy-isApiAction Ext JS source
    */
   public native function isApiAction(action:String):Boolean;
 

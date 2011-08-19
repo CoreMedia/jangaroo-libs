@@ -1,9 +1,12 @@
 package ext.menu {
-
 import ext.config.menuitem;
 
 /**
  * A base class for all menu items that require menu-related functionality (like sub-menus) and are not static display items. Item extends the base functionality of <a href="Ext.menu.BaseItem.html">Ext.menu.BaseItem</a> by adding menu-specific activation and click handling.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'menuitem' / the EXML element &lt;menuitem>.</p>
  * @see ext.config.menuitem
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Item.html#cls-Ext.menu.Item Ext JS source

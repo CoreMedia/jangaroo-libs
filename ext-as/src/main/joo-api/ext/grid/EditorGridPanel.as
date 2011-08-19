@@ -1,5 +1,4 @@
 package ext.grid {
-
 import ext.config.editorgrid;
 
 /**
@@ -62,6 +61,10 @@ import ext.config.editorgrid;
 /**
  * This class extends the <a href="Ext.grid.GridPanel.html">GridPanel Class</a> to provide cell editing on selected <a href="Ext.grid.Column.html">columns</a>. The editable columns are specified by providing an <a href="output/Ext.grid.ColumnModel.html#Ext.grid.ColumnModel-editor">editor</a> in the <a href="Ext.grid.Column.html">column configuration</a>.
  <p>Editability of columns may be controlled programmatically by inserting an implementation of <a href="output/Ext.grid.ColumnModel.html#Ext.grid.ColumnModel-isCellEditable">isCellEditable</a> into the <a href="Ext.grid.ColumnModel.html">ColumnModel</a>.</p><p>Editing is performed on the value of the <i>field</i> specified by the column's <tt><a href="output/Ext.grid.ColumnModel.html#Ext.grid.ColumnModel-dataIndex">dataIndex</a></tt> in the backing <a href="Ext.data.Store.html">Store</a> (so if you are using a <a href="output/Ext.grid.ColumnModel.html#Ext.grid.ColumnModel-setRenderer">renderer</a> in order to display transformed data, this must be accounted for).</p><p>If a value-to-description mapping is used to render a column, then a <a href="output/Ext.form.Field.html#Ext.form.Field-ComboBox">ComboBox</a> which uses the same <a href="output/Ext.form.Field.html#Ext.form.Field-valueField">value</a>-to-<a href="output/Ext.form.Field.html#Ext.form.Field-displayFieldField">description</a> mapping would be an appropriate editor.</p>If there is a more complex mismatch between the visible data in the grid, and the editable data in the <a href="Edt.data.Store.html">Store</a>, then code to transform the data both before and after editing can be injected using the <a href="output/Ext.grid.EditorGridPanel.html#Ext.grid.EditorGridPanel-beforeedit">beforeedit</a> and <a href="output/Ext.grid.EditorGridPanel.html#Ext.grid.EditorGridPanel-afteredit">afteredit</a> events.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'editorgrid' / the EXML element &lt;editorgrid>.</p>
  * @see ext.config.editorgrid
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EditorGrid.html#cls-Ext.grid.EditorGridPanel Ext JS source

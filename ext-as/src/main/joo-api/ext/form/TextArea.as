@@ -1,9 +1,12 @@
 package ext.form {
-
 import ext.config.textarea;
 
 /**
  * Multiline text field. Can be used as a direct replacement for traditional textarea fields, plus adds support for auto-sizing.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'textarea' / the EXML element &lt;textarea>.</p>
  * @see ext.config.textarea
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TextArea.html#cls-Ext.form.TextArea Ext JS source

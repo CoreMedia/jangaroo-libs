@@ -1,9 +1,12 @@
 package ext.menu {
-
 import ext.config.menutextitem;
 
 /**
  * Adds a static text string to a menu, usually used as either a heading or group separator.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'menutextitem' / the EXML element &lt;menutextitem>.</p>
  * @see ext.config.menutextitem
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TextItem.html#cls-Ext.menu.TextItem Ext JS source

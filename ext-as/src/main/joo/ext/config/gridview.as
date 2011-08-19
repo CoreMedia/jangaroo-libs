@@ -4,8 +4,11 @@ package ext.config {
 /**
  * This class encapsulates the user interface of an <a href="Ext.grid.GridPanel.html">Ext.grid.GridPanel</a>. Methods of this class may be used to access user interface elements to enable special display effects. Do not change the DOM structure of the user interface.
  <p>This class does not provide ways to manipulate the underlying data. The data model of a Grid is held in an <a href="Ext.data.Store.html">Ext.data.Store</a>.</p>
- * <p>This class serves as a typed config object for constructor of class GridView.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class GridView.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.grid.GridView
  */
 [ExtConfig(target="ext.grid.GridView")]

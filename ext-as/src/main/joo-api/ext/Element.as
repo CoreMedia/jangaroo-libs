@@ -1,5 +1,4 @@
 package ext {
-
 import ext.dd.DD;
 import ext.dd.DDProxy;
 import ext.dd.DDTarget;
@@ -881,6 +880,10 @@ import js.HTMLElement;
  opt.anim.stop();
  }
  </code></pre><p>Also see the <tt><a href="output/Ext.Element.html#Ext.Element-animate">animate</a></tt> method for another animation technique.</p><p style="font-weight: bold">Composite (Collections of) Elements</p><p>For working with collections of Elements, see <a href="Ext.CompositeElement.html">Ext.CompositeElement</a></p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element-more.html#cls-Ext.Element Ext JS source
  */
 public class Element {
@@ -1501,7 +1504,7 @@ public class Element {
    *
    * @param local True to get the local css position instead of page coordinate
    * @return
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.position.html#method-Ext.Element-getBottom Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.position.html#method-Ext.Element-getBottom Ext JS source
    */
   public native function getBottom(local:Boolean = false):Number;
 
@@ -1545,7 +1548,7 @@ public class Element {
    * Returns either the offsetHeight or the height of this element based on CSS height adjusted by padding or borders when needed to simulate offsetHeight when offsets aren't available. This may not work on display:none elements if a height has not been set using CSS.
    *
    * @return
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.style-more.html#method-Ext.Element-getComputedHeight Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.style-more.html#method-Ext.Element-getComputedHeight Ext JS source
    */
   public native function getComputedHeight():Number;
 
@@ -1553,7 +1556,7 @@ public class Element {
    * Returns either the offsetWidth or the width of this element based on CSS width adjusted by padding or borders when needed to simulate offsetWidth when offsets aren't available. This may not work on display:none elements if a width has not been set using CSS.
    *
    * @return
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.style-more.html#method-Ext.Element-getComputedWidth Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.style-more.html#method-Ext.Element-getComputedWidth Ext JS source
    */
   public native function getComputedWidth():Number;
 
@@ -1562,7 +1565,7 @@ public class Element {
    *
    * @param sides
    * @return
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.style-more.html#method-Ext.Element-getFrameWidth Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.style-more.html#method-Ext.Element-getFrameWidth Ext JS source
    */
   public native function getFrameWidth(sides:String):Number;
 
@@ -1580,7 +1583,7 @@ public class Element {
    *
    * @param local True to get the local css position instead of page coordinate
    * @return
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.position.html#method-Ext.Element-getLeft Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.position.html#method-Ext.Element-getLeft Ext JS source
    */
   public native function getLeft(local:Boolean = false):Number;
 
@@ -1589,7 +1592,7 @@ public class Element {
    *
    * @param sides Any combination of l, r, t, b to get the sum of those sides
    * @return
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.style-more.html#method-Ext.Element-getMargins Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.style-more.html#method-Ext.Element-getMargins Ext JS source
    */
   public native function getMargins(sides:String = null):*;
 
@@ -1615,7 +1618,7 @@ public class Element {
    * Gets an object with all CSS positioning properties. Useful along with setPostioning to get snapshot before performing an update and then restoring the element.
    *
    * @return
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.position.html#method-Ext.Element-getPositioning Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.position.html#method-Ext.Element-getPositioning Ext JS source
    */
   public native function getPositioning():Object;
 
@@ -1632,7 +1635,7 @@ public class Element {
    *
    * @param local True to get the local css position instead of page coordinate
    * @return
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.position.html#method-Ext.Element-getRight Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.position.html#method-Ext.Element-getRight Ext JS source
    */
   public native function getRight(local:Boolean = false):Number;
 
@@ -1697,7 +1700,7 @@ public class Element {
    *
    * @param local True to get the local css position instead of page coordinate
    * @return
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.position.html#method-Ext.Element-getTop Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.position.html#method-Ext.Element-getTop Ext JS source
    */
   public native function getTop(local:Boolean = false):Number;
 
@@ -1714,7 +1717,7 @@ public class Element {
    *
    * @param asNumber true to parse the value as a number
    * @return
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.html#method-Ext.Element-getValue Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.html#method-Ext.Element-getValue Ext JS source
    */
   public native function getValue(asNumber:Boolean = false):*;
 
@@ -1890,7 +1893,7 @@ public class Element {
    * Tests various css rules/browsers to determine if this element uses a border box
    *
    * @return
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.html#method-Ext.Element-isBorderBox Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.html#method-Ext.Element-isBorderBox Ext JS source
    */
   public native function isBorderBox():Boolean;
 
@@ -1898,7 +1901,7 @@ public class Element {
    * Returns true if display is not "none"
    *
    * @return
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.fx-more.html#method-Ext.Element-isDisplayed Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.fx-more.html#method-Ext.Element-isDisplayed Ext JS source
    */
   public native function isDisplayed():Boolean;
 
@@ -1906,7 +1909,7 @@ public class Element {
    * Returns true if this element is masked
    *
    * @return
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.fx-more.html#method-Ext.Element-isMasked Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.fx-more.html#method-Ext.Element-isMasked Ext JS source
    */
   public native function isMasked():Boolean;
 
@@ -1914,7 +1917,7 @@ public class Element {
    * Returns true if this element is scrollable.
    *
    * @return
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.scroll.html#method-Ext.Element-isScrollable Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.scroll.html#method-Ext.Element-isScrollable Ext JS source
    */
   public native function isScrollable():Boolean;
 
@@ -2183,6 +2186,7 @@ public class Element {
    *
    * @param side Either "left" for scrollLeft values or "top" for scrollTop values.
    * @param value The new scroll value.
+   * @param animate true for the default animation or a standard Element animation config object
    * @return this
    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.scroll.html#method-Ext.Element-scrollTo Ext JS source
    */

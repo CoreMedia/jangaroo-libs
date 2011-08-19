@@ -1,6 +1,4 @@
 package ext.layout {
-
-
 /**
  * This is a multi-pane, application-oriented UI layout style that supports multiple nested panels, automatic <a href="output/Ext.layout.BorderLayout.Region.html#Ext.layout.BorderLayout.Region-split">split</a> bars between <a href="output/Ext.layout.BorderLayout.Region.html#Ext.layout.BorderLayout.Region-BorderLayout.Region">regions</a> and built-in <a href="output/Ext.layout.BorderLayout.Region.html#Ext.layout.BorderLayout.Region-collapsible">expanding and collapsing</a> of regions.
  <p>This class is intended to be extended or created via the <tt>layout:'border'</tt> <a href="output/Ext.Container.html#Ext.Container-layout">Ext.Container.layout</a> config, and should generally not need to be created directly via the new keyword.</p><p>BorderLayout does not have any direct config options (other than inherited ones). All configuration options available for customizing the BorderLayout are at the <a href="Ext.layout.BorderLayout.Region.html">Ext.layout.BorderLayout.Region</a> and <a href="Ext.layout.BorderLayout.SplitRegion.html">Ext.layout.BorderLayout.SplitRegion</a> levels.</p><p>Example usage:</p><pre><code>var myBorderPanel = new Ext.Panel({
@@ -45,6 +43,10 @@ package ext.layout {
  wrc.<a href="output/Ext.Container.html#Ext.Container-doLayout">doLayout</a>();
  </code></pre></div></li><li>To reference a <a href="Ext.layout.BorderLayout.Region.html">Region</a>: <div style="margin-left:16px"><pre><code>wr = myBorderPanel.layout.west;
  </code></pre></div></li></ul></div>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.borderlayout
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BorderLayout.html#cls-Ext.layout.BorderLayout Ext JS source
  */

@@ -3,8 +3,11 @@ package ext.config {
 
 /**
  * nullA specialized tooltip class for tooltips that can be specified in markup and automatically managed by the global <a href="Ext.QuickTips.html">Ext.QuickTips</a> instance. See the QuickTips class header for additional usage details and examples.
- * <p>This class serves as a typed config object for constructor of class QuickTip.</p>
  *
+ * <p>This class represents the xtype 'quicktip' and serves as a
+ * typed config object for constructor of class QuickTip.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.QuickTip
  */
 [ExtConfig(target="ext.QuickTip", xtype="quicktip")]

@@ -3,6 +3,10 @@ package ext.util {
 
 /**
  * Utility class for manipulating CSS rules
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This interface defines the type of the singleton CSS.</p>
  * @see ext.util.#CSS ext.util.CSS
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CSS.html#cls-Ext.util.CSS Ext JS source
@@ -15,7 +19,7 @@ public interface ICSS {
    * @param cssText The text containing the css rules
    * @param id An id to add to the stylesheet for later removal
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CSS.html#method-Ext.util.CSS-createStyleSheet Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CSS.html#method-Ext.util.CSS-createStyleSheet Ext JS source
    */
   function createStyleSheet(cssText:String, id:String):Object;
 

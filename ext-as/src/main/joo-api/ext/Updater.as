@@ -1,5 +1,4 @@
 package ext {
-
 import ext.util.Observable;
 
 /**
@@ -89,6 +88,10 @@ import ext.util.Observable;
  text: "Loading Foo..."
  });
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.updater
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/UpdateManager.html#cls-Ext.Updater Ext JS source
  */
@@ -286,7 +289,7 @@ public class Updater extends Observable {
    * Returns the current content renderer for this Updater. See <a href="output/Ext.Updater.BasicRenderer.html#Ext.Updater.BasicRenderer-render">Ext.Updater.BasicRenderer.render</a> for more details.
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/UpdateManager.html#method-Ext.Updater-getRenderer Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/UpdateManager.html#method-Ext.Updater-getRenderer Ext JS source
    */
   public native function getRenderer():Object;
 
@@ -301,7 +304,7 @@ public class Updater extends Observable {
    * Returns true if an update is in progress, otherwise false.
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/UpdateManager.html#method-Ext.Updater-isUpdating Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/UpdateManager.html#method-Ext.Updater-isUpdating Ext JS source
    */
   public native function isUpdating():Boolean;
 

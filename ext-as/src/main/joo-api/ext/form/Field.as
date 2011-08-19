@@ -1,5 +1,4 @@
 package ext.form {
-
 import ext.BoxComponent;
 import ext.Element;
 import ext.config.field;
@@ -134,6 +133,10 @@ import ext.config.field;
 
 /**
  * Base class for form fields that provides default event handling, sizing, value handling and other functionality.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'field' / the EXML element &lt;field>.</p>
  * @see ext.config.field
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Field.html#cls-Ext.form.Field Ext JS source

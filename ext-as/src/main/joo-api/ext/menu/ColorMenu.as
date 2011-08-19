@@ -1,5 +1,4 @@
 package ext.menu {
-
 import ext.ColorPalette;
 import ext.config.colormenu;
 
@@ -26,6 +25,10 @@ import ext.config.colormenu;
 /**
  * A menu containing a <a href="Ext.ColorPalette.html">Ext.ColorPalette</a> Component.
  <p>Notes:</p><div class="mdetail-params"><ul><li>Although not listed here, the <b>constructor</b> for this class accepts all of the configuration options of <b><a href="Ext.ColorPalette.html">Ext.ColorPalette</a></b>.</li><li>If subclassing ColorMenu, any configuration options for the ColorPalette must be applied to the <tt><b>initialConfig</b></tt> property of the ColorMenu. Applying <a href="Ext.ColorPalette.html">ColorPalette</a> configuration settings to <b><tt>this</tt></b> will <b>not</b> affect the ColorPalette's configuration.</li></ul></div>&#42;
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'colormenu' / the EXML element &lt;colormenu>.</p>
  * @see ext.config.colormenu
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColorMenu.html#cls-Ext.menu.ColorMenu Ext JS source

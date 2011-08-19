@@ -1,11 +1,14 @@
 package ext.dd {
-
 import ext.IEventObject;
 
 import js.HTMLElement;
 
 /**
  * A DragDrop implementation where the linked element follows the mouse cursor during a drag.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#cls-Ext.dd.DD Ext JS source
  */
 public class DD extends DragDrop {

@@ -1,5 +1,4 @@
 package ext.dd {
-
 import ext.IEventObject;
 import ext.dd.dragdropmgr.ElementWrapper;
 import ext.lib.Point;
@@ -9,6 +8,10 @@ import js.HTMLElement;
 
 /**
  * DragDropMgr is a singleton that tracks the element interaction for all DragDrop items in the window. Generally, you will not call this class directly, but it does have helper methods that could be useful in your DragDrop implementations.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This interface defines the type of the singleton DragDropMgr.</p>
  * @see ext.dd.#DragDropMgr ext.dd.DragDropMgr
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#cls-Ext.dd.DragDropMgr Ext JS source

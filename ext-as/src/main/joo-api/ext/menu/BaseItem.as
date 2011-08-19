@@ -1,5 +1,4 @@
 package ext.menu {
-
 import ext.Component;
 import ext.config.menubaseitem;
 
@@ -53,6 +52,10 @@ import ext.config.menubaseitem;
 
 /**
  * The base class for all items that render into menus. BaseItem provides default rendering, activated state management and base configuration options shared by all menu components.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'menubaseitem' / the EXML element &lt;menubaseitem>.</p>
  * @see ext.config.menubaseitem
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BaseItem.html#cls-Ext.menu.BaseItem Ext JS source

@@ -1,5 +1,4 @@
 package ext.data {
-
 import ext.util.Observable;
 
 /**
@@ -232,6 +231,10 @@ import ext.util.Observable;
 
 /**
  *
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.node
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#cls-Ext.data.Node Ext JS source
  */
@@ -375,7 +378,7 @@ public class Node extends Observable {
    *
    * @param node
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Node-contains Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Node-contains Ext JS source
    */
   public native function contains(node:Node):Boolean;
 
@@ -422,7 +425,7 @@ public class Node extends Observable {
    * Returns depth of this node (the root node has a depth of 0)
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Node-getDepth Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Node-getDepth Ext JS source
    */
   public native function getDepth():Number;
 
@@ -430,7 +433,7 @@ public class Node extends Observable {
    * Returns the tree this node is in.
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Node-getOwnerTree Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Node-getOwnerTree Ext JS source
    */
   public native function getOwnerTree():Tree;
 
@@ -447,7 +450,7 @@ public class Node extends Observable {
    * Returns true if this node has one or more child nodes, else false.
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Node-hasChildNodes Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Node-hasChildNodes Ext JS source
    */
   public native function hasChildNodes():Boolean;
 
@@ -475,7 +478,7 @@ public class Node extends Observable {
    *
    * @param node
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Node-isAncestor Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Node-isAncestor Ext JS source
    */
   public native function isAncestor(node:Node):Boolean;
 
@@ -483,7 +486,7 @@ public class Node extends Observable {
    * Returns true if this node has one or more child nodes, or if the <tt>expandable</tt> node attribute is explicitly specified as true (see <a href="output/Ext.data.Node.html#Ext.data.Node-attributes">attributes</a>), otherwise returns false.
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Node-isExpandable Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Node-isExpandable Ext JS source
    */
   public native function isExpandable():Boolean;
 
@@ -491,7 +494,7 @@ public class Node extends Observable {
    * Returns true if this node is the first child of its parent
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Node-isFirst Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Node-isFirst Ext JS source
    */
   public native function isFirst():Boolean;
 
@@ -499,7 +502,7 @@ public class Node extends Observable {
    * Returns true if this node is the last child of its parent
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Node-isLast Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Node-isLast Ext JS source
    */
   public native function isLast():Boolean;
 
@@ -507,7 +510,7 @@ public class Node extends Observable {
    * Returns true if this node is a leaf
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Node-isLeaf Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Node-isLeaf Ext JS source
    */
   public native function isLeaf():Boolean;
 
@@ -516,7 +519,7 @@ public class Node extends Observable {
    *
    * @param index
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Node-item Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Node-item Ext JS source
    */
   public native function item(index:Number):Node;
 

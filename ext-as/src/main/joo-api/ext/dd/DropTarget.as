@@ -1,10 +1,13 @@
 package ext.dd {
-
 import ext.IEventObject;
 import ext.config.droptarget;
 
 /**
  * A simple class that provides the basic implementation needed to make any element a drop target that can have draggable items dropped onto it. The drop has no effect until an implementation of notifyDrop is provided.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.droptarget
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DropTarget.html#cls-Ext.dd.DropTarget Ext JS source
  */

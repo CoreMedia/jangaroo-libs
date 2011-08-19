@@ -43,8 +43,11 @@ import joo.JavaScriptObject;
  var aRef = btn.baseAction;
  aRef.setText('New text');
  </code></pre>
- * <p>This class serves as a typed config object for constructor of class Action.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class Action.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.Action
  */
 [ExtConfig(target="ext.Action")]

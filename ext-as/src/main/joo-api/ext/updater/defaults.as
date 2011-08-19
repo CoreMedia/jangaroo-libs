@@ -3,6 +3,10 @@ package ext.updater {
 
 /**
  * The defaults collection enables customizing the default properties of Updater
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/UpdateManager.html#cls-Ext.Updater.defaults Ext JS source
  */
 public class defaults {

@@ -1,6 +1,4 @@
 package ext.direct {
-
-
 /**
  * Fired immediately before a poll takes place, an event handler can return false in order to cancel the poll.
  * Listeners will be called with the following arguments:
@@ -48,6 +46,10 @@ package ext.direct {
  );
  var pollB = Ext.Direct.getProvider('pollB-provider');
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.pollingprovider
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PollingProvider.html#cls-Ext.direct.PollingProvider Ext JS source
  */

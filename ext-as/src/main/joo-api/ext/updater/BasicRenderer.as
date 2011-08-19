@@ -1,11 +1,14 @@
 package ext.updater {
-
 import ext.Element;
 import ext.Updater;
 
 /**
  * This class is a base class implementing a simple render method which updates an element using results from an Ajax request.
  <p>The BasicRenderer updates the element's innerHTML with the responseText. To perform a custom render (i.e. XML or JSON processing), create an object with a conforming <a href="output/Ext.Updater.BasicRenderer.html#Ext.Updater.BasicRenderer-render">render</a> method and pass it to setRenderer on the Updater.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/UpdateManager.html#cls-Ext.Updater.BasicRenderer Ext JS source
  */
 public class BasicRenderer {

@@ -12,14 +12,18 @@ import joo.JavaScriptObject;
  }
  });
  </code></pre>
- * <p>This class serves as a typed config object for constructor of class TreeSorter.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class TreeSorter.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.tree.TreeSorter
  */
 [ExtConfig(target="ext.tree.TreeSorter")]
 public class treesorter extends JavaScriptObject {
 
   public function treesorter(config:Object = null) {
+
     super(config);
   }
 

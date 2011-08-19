@@ -1,10 +1,13 @@
 package ext.layout {
-
 import ext.Container;
 import ext.Element;
 
 /**
  * Base Class for HBoxLayout and VBoxLayout Classes. Generally it should not need to be used directly.
+
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
 
  * @see ext.config.boxlayout
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BoxLayout.html#cls-Ext.layout.BoxLayout Ext JS source

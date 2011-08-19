@@ -54,8 +54,11 @@ import ext.Template;
  labelPad: 8           // defaults to 5, must specify labelWidth to be honored
  });
  </code></pre>
- * <p>This class serves as a typed config object for constructor of class FormLayout.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class FormLayout.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.layout.FormLayout
  */
 [ExtConfig(target="ext.layout.FormLayout", type="form")]

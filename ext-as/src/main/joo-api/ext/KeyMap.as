@@ -32,6 +32,10 @@ package ext {
  }
  ]);
  </code></pre><b>Note: A KeyMap starts enabled</b>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/KeyMap.html#cls-Ext.KeyMap Ext JS source
  */
 public class KeyMap {
@@ -108,7 +112,7 @@ public class KeyMap {
    * Returns true if this KeyMap is enabled
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/KeyMap.html#method-Ext.KeyMap-isEnabled Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/KeyMap.html#method-Ext.KeyMap-isEnabled Ext JS source
    */
   public native function isEnabled():Boolean;
 

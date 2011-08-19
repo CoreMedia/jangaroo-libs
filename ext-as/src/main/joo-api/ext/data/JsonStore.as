@@ -1,5 +1,4 @@
 package ext.data {
-
 import ext.config.jsonstore;
 
 /**
@@ -21,6 +20,10 @@ import ext.config.jsonstore;
  ]
  }
  </code></pre>An object literal of this form could also be used as the <a href="output/Ext.data.JsonStore.html#Ext.data.JsonStore-data">data</a> config option.<br/><br/> <p><b>&#42;Note:</b> Although not listed here, this class accepts all of the configuration options of <b><a href="Ext.data.JsonReader.html">JsonReader</a></b>.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'jsonstore' / the EXML element &lt;jsonstore>.</p>
  * @see ext.config.jsonstore
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/JsonStore.html#cls-Ext.data.JsonStore Ext JS source

@@ -5,14 +5,18 @@ import joo.JavaScriptObject;
 /**
  * This class encapsulates the field definition information specified in the field definition objects passed to <a href="output/Ext.data.Record.html#Ext.data.Record-create">Ext.data.Record.create</a>.
  <p>Developers do not need to instantiate this class. Instances are created by <a href="Ext.data.Record.create.html">Ext.data.Record.create</a> and cached in the <a href="output/Ext.data.Record.html#Ext.data.Record-fields">fields</a> property of the created Record constructor's <b>prototype.</b></p>
- * <p>This class serves as a typed config object for constructor of class Field.</p>
  *
+ * <p>This class represents the xtype 'datafield' and serves as a
+ * typed config object for constructor of class Field.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.data.Field
  */
 [ExtConfig(target="ext.data.Field", xtype="datafield")]
 public class datafield extends JavaScriptObject {
 
   public function datafield(config:Object = null) {
+
     super(config);
   }
 

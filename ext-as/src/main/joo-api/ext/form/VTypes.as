@@ -24,6 +24,9 @@ package ext.form {
  IPAddressMask: /[\d\.]/i
  });
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
  * @see ext.form.IVTypes
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/VTypes.html#cls-Ext.form.VTypes Ext JS source
  */

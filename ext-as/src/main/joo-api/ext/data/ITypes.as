@@ -22,6 +22,10 @@ package ext.data {
  { name: 'position', type: types.VELATLONG }
  ]);
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This interface defines the type of the singleton Types.</p>
  * @see ext.data.#Types ext.data.Types
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Types.html#cls-Ext.data.Types Ext JS source

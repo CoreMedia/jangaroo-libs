@@ -1,11 +1,14 @@
 package ext.grid {
-
 import ext.IEventObject;
 import ext.dd.DragZone;
 
 /**
  * A customized implementation of a <a href="Ext.dd.DragZone.html">DragZone</a> which provides default implementations of two of the template methods of DragZone to enable dragging of the selected rows of a GridPanel.
  <p>A cooperating <a href="Ext.dd.DropZone.html">DropZone</a> must be created who's template method implementations of <a href="output/Ext.dd.DropZone.html#Ext.dd.DropZone-onNodeEnter">onNodeEnter</a>, <a href="output/Ext.dd.DropZone.html#Ext.dd.DropZone-onNodeOver">onNodeOver</a>, <a href="output/Ext.dd.DropZone.html#Ext.dd.DropZone-onNodeOut">onNodeOut</a> and <a href="output/Ext.dd.DropZone.html#Ext.dd.DropZone-onNodeDrop">onNodeDrop</a></p>are able to process the <a href="output/Ext.grid.GridDragZone.html#Ext.grid.GridDragZone-getDragData">data</a> which is provided.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.griddragzone
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridDD.html#cls-Ext.grid.GridDragZone Ext JS source
  */

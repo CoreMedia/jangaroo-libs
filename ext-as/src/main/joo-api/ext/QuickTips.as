@@ -26,6 +26,9 @@ package ext {
  &lt;input type="button" value="OK" ext:qtitle="OK Button" ext:qwidth="100"
  ext:qtip="This is a quick tip from markup!"&gt;&lt;/input&gt;
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
  * @see ext.IQuickTips
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/QuickTips.html#cls-Ext.QuickTips Ext JS source
  */

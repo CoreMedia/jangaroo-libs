@@ -3,8 +3,11 @@ package ext.config {
 
 /**
  * Provides a date input field with a <a href="Ext.DatePicker.html">Ext.DatePicker</a> dropdown and automatic date validation.
- * <p>This class serves as a typed config object for constructor of class DateField.</p>
  *
+ * <p>This class represents the xtype 'datefield' and serves as a
+ * typed config object for constructor of class DateField.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.form.DateField
  */
 [ExtConfig(target="ext.form.DateField", xtype="datefield")]

@@ -1,6 +1,4 @@
 package ext.layout {
-
-
 /**
  * This is a layout that enables anchoring of contained elements relative to the container's dimensions. If the container is resized, all anchored items are automatically rerendered according to their <b><tt><a href="output/Ext.layout.AnchorLayout.html#Ext.layout.AnchorLayout-anchor">anchor</a></tt></b> rules.
  <p>This class is intended to be extended or created via the layout:'anchor' <a href="output/Ext.Container.html#Ext.Container-layout">Ext.Container.layout</a> config, and should generally not need to be created directly via the new keyword.</p><p>AnchorLayout does not have any direct config options (other than inherited ones). By default, AnchorLayout will calculate anchor measurements based on the size of the container itself. However, the container using the AnchorLayout can supply an anchoring-specific config property of <b>anchorSize</b>. If anchorSize is specified, the layout will use it as a virtual container for the purposes of calculating anchor measurements based on it instead, allowing the container to be sized independently of the anchoring logic if necessary. For example:</p><pre><code>var viewport = new Ext.Viewport({
@@ -24,6 +22,10 @@ package ext.layout {
  }]
  });
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.anchorlayout
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/AnchorLayout.html#cls-Ext.layout.AnchorLayout Ext JS source
  */

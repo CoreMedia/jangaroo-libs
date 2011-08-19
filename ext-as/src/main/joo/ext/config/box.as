@@ -11,8 +11,11 @@ package ext.config {
  src: '/images/my-image.jpg'
  }
  });</code></pre><br/><br/>
- * <p>This class serves as a typed config object for constructor of class BoxComponent.</p>
  *
+ * <p>This class represents the xtype 'box' and serves as a
+ * typed config object for constructor of class BoxComponent.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.BoxComponent
  */
 [ExtConfig(target="ext.BoxComponent", xtype="box")]

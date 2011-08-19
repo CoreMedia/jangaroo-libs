@@ -1,5 +1,4 @@
 package ext.form {
-
 import ext.Element;
 import ext.config.basicform;
 import ext.data.DataReader;
@@ -68,6 +67,10 @@ import ext.util.Observable;
 /**
  * Encapsulates the DOM &lt;form&gt; element at the heart of the <a href="Ext.form.FormPanel.html">FormPanel</a> class, and provides input field management, validation, submission, and form loading services.
  <p>By default, Ext Forms are submitted through Ajax, using an instance of <a href="Ext.form.Action.Submit.html">Ext.form.Action.Submit</a>. To enable normal browser submission of an Ext Form, use the <a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-standardSubmit">standardSubmit</a> config option.</p><p style="font-weight: bold"><u>File Uploads</u></p><p><a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-fileUpload">File uploads</a> are not performed using Ajax submission, that is they are <b>not</b> performed using XMLHttpRequests. Instead the form is submitted in the standard manner with the DOM <tt>&lt;form&gt;</tt> element temporarily modified to have its <a href="http://www.w3.org/TR/REC-html40/present/frames.html#adef-target">target</a> set to refer to a dynamically generated, hidden <tt>&lt;iframe&gt;</tt> which is inserted into the document but removed after the return data has been gathered.</p><p>The server response is parsed by the browser to create the document for the IFRAME. If the server is using JSON to send the return object, then the <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</a> header must be set to "text/html" in order to tell the browser to insert the text unchanged into the document body.</p><p>Characters which are significant to an HTML parser must be sent as HTML entities, so encode "&lt;" as "&amp;lt;", "&amp;" as "&amp;amp;" etc.</p><p>The response text is retrieved from the document, and a fake XMLHttpRequest object is created containing a <tt>responseText</tt> property in order to conform to the requirements of event handlers and callbacks.</p><p>Be aware that file upload packets are sent with the content type <a href="http://www.faqs.org/rfcs/rfc2388.html">multipart/form</a> and some server technologies (notably JEE) may require some custom processing in order to retrieve parameter names and parameter values from the packet content.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.basicform
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BasicForm.html#cls-Ext.form.BasicForm Ext JS source
  */
@@ -302,7 +305,7 @@ public class BasicForm extends Observable {
    *
    * @param id The value to search for (specify either a <a href="output/Ext.Component.html#Ext.Component-id">id</a>, <a href="output/Ext.grid.Column.html#Ext.grid.Column-dataIndex">dataIndex</a>, <a href="output/Ext.form.Field.html#Ext.form.Field-getName">name or hiddenName</a>).
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BasicForm.html#method-Ext.form.BasicForm-findField Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BasicForm.html#method-Ext.form.BasicForm-findField Ext JS source
    */
   public native function findField(id:String):Field;
 
@@ -310,7 +313,7 @@ public class BasicForm extends Observable {
    * Get the HTML form Element
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BasicForm.html#method-Ext.form.BasicForm-getEl Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BasicForm.html#method-Ext.form.BasicForm-getEl Ext JS source
    */
   public native function getEl():Element;
 
@@ -329,7 +332,7 @@ public class BasicForm extends Observable {
    *
    * @param asString Pass true to return the values as a string. (defaults to false, returning an Object)
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BasicForm.html#method-Ext.form.BasicForm-getValues Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BasicForm.html#method-Ext.form.BasicForm-getValues Ext JS source
    */
   public native function getValues(asString:Boolean = false):*;
 
@@ -338,7 +341,7 @@ public class BasicForm extends Observable {
    <p>Note that if this BasicForm was configured with <a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-trackResetOnLoad">trackResetOnLoad</a> then the Fields' <i>original values</i> are updated when the values are loaded by <a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-setValues">setValues</a> or <a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-loadRecord">loadRecord</a>.</p>
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BasicForm.html#method-Ext.form.BasicForm-isDirty Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BasicForm.html#method-Ext.form.BasicForm-isDirty Ext JS source
    */
   public native function isDirty():Boolean;
 
@@ -346,7 +349,7 @@ public class BasicForm extends Observable {
    * Returns true if client-side validation on the form is successful.
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BasicForm.html#method-Ext.form.BasicForm-isValid Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BasicForm.html#method-Ext.form.BasicForm-isValid Ext JS source
    */
   public native function isValid():Boolean;
 

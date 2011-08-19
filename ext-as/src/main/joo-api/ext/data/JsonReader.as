@@ -1,6 +1,4 @@
 package ext.data {
-
-
 /**
  * Data reader class to create an Array of <a href="Ext.data.Record.html">Ext.data.Record</a> objects from a JSON packet based on mappings in a provided <a href="Ext.data.Record.html">Ext.data.Record</a> constructor.
  <p>Example code:</p><pre><code>var myReader = new Ext.data.JsonReader({
@@ -62,6 +60,10 @@ package ext.data {
  ]
  }
  </code></pre><p>The <b><tt>metaData</tt></b> property in the JSON data object should contain:</p><div class="mdetail-params"><ul><li>any of the configuration options for this class</li><li>a <b><tt><a href="output/Ext.data.Record.html#Ext.data.Record-fields">fields</a></tt></b> property which the JsonReader will use as an argument to the <a href="output/Ext.data.Record.html#Ext.data.Record-create">data Record create method</a> in order to configure the layout of the Records it will produce.</li><li>a <b><tt><a href="output/Ext.data.Store.html#Ext.data.Store-sortInfo">sortInfo</a></tt></b> property which the JsonReader will use to set the <a href="Ext.data.Store.html">Ext.data.Store</a>'s <a href="output/Ext.data.Store.html#Ext.data.Store-sortInfo">sortInfo</a> property</li><li>any custom properties needed</li></ul></div>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.jsonreader
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/JsonReader.html#cls-Ext.data.JsonReader Ext JS source
  */

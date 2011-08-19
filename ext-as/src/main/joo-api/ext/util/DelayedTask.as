@@ -12,6 +12,10 @@ package ext.util {
  task.<a href="output/Ext.util.DelayedTask.html#Ext.util.DelayedTask-delay">delay</a>(500);
  });
  </code></pre><p>Note that we are using a DelayedTask here to illustrate a point. The configuration option <tt>buffer</tt> for <a href="output/Ext.util.Observable.html#Ext.util.Observable-addListener">addListener/on</a> will also setup a delayed task for you to buffer events.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DelayedTask.html#cls-Ext.util.DelayedTask Ext JS source
  */
 public class DelayedTask {

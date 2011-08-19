@@ -76,8 +76,11 @@ import ext.tree.TreeNode;
  }]
  });
  </code></pre>
- * <p>This class serves as a typed config object for constructor of class TreePanel.</p>
  *
+ * <p>This class represents the xtype 'treepanel' and serves as a
+ * typed config object for constructor of class TreePanel.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.tree.TreePanel
  */
 [ExtConfig(target="ext.tree.TreePanel", xtype="treepanel")]

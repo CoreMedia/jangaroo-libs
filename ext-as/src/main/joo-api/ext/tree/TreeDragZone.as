@@ -1,10 +1,13 @@
 package ext.tree {
-
 import ext.config.treedragzone;
 import ext.dd.DragZone;
 
 /**
  *
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.treedragzone
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeDragZone.html#cls-Ext.tree.TreeDragZone Ext JS source
  */

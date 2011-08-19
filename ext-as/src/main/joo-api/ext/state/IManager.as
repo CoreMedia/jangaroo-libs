@@ -9,6 +9,10 @@ package ext.state {
  win.restoreState();
  }
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This interface defines the type of the singleton Manager.</p>
  * @see ext.state.#Manager ext.state.Manager
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/StateManager.html#cls-Ext.state.Manager Ext JS source

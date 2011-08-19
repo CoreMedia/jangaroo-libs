@@ -19,8 +19,11 @@ package ext.config {
  );
  var pollB = Ext.Direct.getProvider('pollB-provider');
  </code></pre>
- * <p>This class serves as a typed config object for constructor of class PollingProvider.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class PollingProvider.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.direct.PollingProvider
  */
 [ExtConfig(target="ext.direct.PollingProvider")]

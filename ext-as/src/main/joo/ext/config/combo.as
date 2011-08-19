@@ -53,8 +53,11 @@ package ext.config {
  ...
  ]);
  </code></pre><br/><br/> <p style="font-weight: bold"><u>Filtering</u></p><p>A ComboBox <a href="output/Ext.form.ComboBox.html#Ext.form.ComboBox-doQuery">uses filtering itself</a>, for information about filtering the ComboBox store manually see <tt><a href="output/Ext.form.ComboBox.html#Ext.form.ComboBox-lastQuery">lastQuery</a></tt>.</p>
- * <p>This class serves as a typed config object for constructor of class ComboBox.</p>
  *
+ * <p>This class represents the xtype 'combo' and serves as a
+ * typed config object for constructor of class ComboBox.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.form.ComboBox
  */
 [ExtConfig(target="ext.form.ComboBox", xtype="combo")]

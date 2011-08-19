@@ -1,5 +1,4 @@
 package ext.dd {
-
 import ext.IEventObject;
 
 import js.HTMLElement;
@@ -10,6 +9,10 @@ import js.HTMLElement;
  alert("dd was dropped on " + id);
  }
  </pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#cls-Ext.dd.DragDrop Ext JS source
  */
 public class DragDrop {

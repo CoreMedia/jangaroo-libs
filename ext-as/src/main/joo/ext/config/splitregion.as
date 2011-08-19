@@ -4,8 +4,11 @@ package ext.config {
 /**
  * This is a specialized type of <a href="Ext.layout.BorderLayout.Region.html">BorderLayout region</a> that has a built-in <a href="Ext.SplitBar.html">Ext.SplitBar</a> for user resizing of regions. The movement of the split bar is configurable to move either <a href="output/Ext.layout.BorderLayout.SplitRegion.html#Ext.layout.BorderLayout.SplitRegion-tickSize">smooth or incrementally</a>.
 
- * <p>This class serves as a typed config object for constructor of class SplitRegion.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class SplitRegion.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.layout.borderlayout.SplitRegion
  */
 [ExtConfig(target="ext.layout.borderlayout.SplitRegion")]

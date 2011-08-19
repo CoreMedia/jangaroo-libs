@@ -96,8 +96,11 @@ import ext.Action;
  store            <a href="Ext.data.Store.html">Ext.data.Store</a>
  xmlstore         <a href="Ext.data.XmlStore.html">Ext.data.XmlStore</a>
  </pre>
- * <p>This class serves as a typed config object for constructor of class Component.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class Component.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.Component
  */
 [ExtConfig(target="ext.Component")]

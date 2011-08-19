@@ -38,8 +38,11 @@ package ext.config {
  }
  });
  });</code></pre>See the <a href="Ext.dd.DropZone.html">DropZone</a> documentation for details about building a DropZone which cooperates with this DragZone.
- * <p>This class serves as a typed config object for constructor of class DragZone.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class DragZone.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.dd.DragZone
  */
 [ExtConfig(target="ext.dd.DragZone")]

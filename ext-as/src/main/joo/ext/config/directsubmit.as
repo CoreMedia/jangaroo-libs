@@ -1,6 +1,5 @@
 package ext.config {
 
-
 /**
  * Provides Ext.direct support for submitting form data.
  <p>This example illustrates usage of Ext.Direct to <b>submit</b> a form through Ext.Direct.</p><pre><code>var myFormPanel = new Ext.form.FormPanel({
@@ -78,8 +77,11 @@ package ext.config {
  }
  }
  </code></pre>Also see the discussion in <a href="Ext.form.Action.DirectLoad.html">Ext.form.Action.DirectLoad</a>.
- * <p>This class serves as a typed config object for constructor of class DirectSubmit.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class DirectSubmit.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.form.action.DirectSubmit
  */
 [ExtConfig(target="ext.form.action.DirectSubmit")]

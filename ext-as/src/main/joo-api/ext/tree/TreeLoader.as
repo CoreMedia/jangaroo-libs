@@ -1,5 +1,4 @@
 package ext.tree {
-
 import ext.config.treeloader;
 import ext.util.Observable;
 
@@ -94,6 +93,10 @@ import ext.util.Observable;
  this.baseParams.category = node.attributes.category;
  }, this);
  </code></pre>This would pass an HTTP parameter called "category" to the server containing the value of the Node's "category" attribute.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.treeloader
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeLoader.html#cls-Ext.tree.TreeLoader Ext JS source
  */

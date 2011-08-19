@@ -1,5 +1,4 @@
 package ext.form {
-
 import ext.config.checkboxgroup;
 
 /**
@@ -38,6 +37,10 @@ import ext.config.checkboxgroup;
  ]
  });
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'checkboxgroup' / the EXML element &lt;checkboxgroup>.</p>
  * @see ext.config.checkboxgroup
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CheckboxGroup.html#cls-Ext.form.CheckboxGroup Ext JS source

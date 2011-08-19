@@ -1,9 +1,12 @@
 package ext {
-
 import ext.config.shadow;
 
 /**
  * Simple class that can provide a shadow effect for any element. Note that the element MUST be absolutely positioned, and the shadow does not provide any shimming. This should be used only in simple cases -- for more advanced functionality that can also provide the same shadow effect, see the <a href="Ext.Layer.html">Ext.Layer</a> class.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.shadow
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Shadow.html#cls-Ext.Shadow Ext JS source
  */

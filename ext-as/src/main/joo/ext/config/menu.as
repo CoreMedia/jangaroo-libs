@@ -4,8 +4,11 @@ package ext.config {
 /**
  * A menu object. This is the container to which you may add menu items. Menu can also serve as a base class when you want a specialized menu based off of another component (like <a href="Ext.menu.DateMenu.html">Ext.menu.DateMenu</a> for example).
  <p>Menus may contain either <a href="Ext.menu.Item.html">menu items</a>, or general <a href="Ext.Component.html">Component</a>s.</p><p>To make a contained general <a href="Ext.Component.html">Component</a> line up with other <a href="Ext.menu.Item.html">menu items</a> specify <tt>iconCls: 'no-icon'</tt>. This reserves a space for an icon, and indents the Component in line with the other menu items. See <a href="Ext.form.ComboBox.html">Ext.form.ComboBox</a>.<a href="output/Ext.form.ComboBox.html#Ext.form.ComboBox-getListParent">getListParent</a> for an example.</p><p>By default, Menus are absolutely positioned, floating Components. By configuring a Menu with <b><tt><a href="output/Ext.menu.Menu.html#Ext.menu.Menu-floating">floating</a>:false</tt></b>, a Menu may be used as child of a Container.</p>
- * <p>This class serves as a typed config object for constructor of class Menu.</p>
  *
+ * <p>This class represents the xtype 'menu' and serves as a
+ * typed config object for constructor of class Menu.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.menu.Menu
  */
 [ExtConfig(target="ext.menu.Menu", xtype="menu")]

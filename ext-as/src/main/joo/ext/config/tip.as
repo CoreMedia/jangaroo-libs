@@ -3,8 +3,11 @@ package ext.config {
 
 /**
  * nullThis is the base class for <a href="Ext.QuickTip.html">Ext.QuickTip</a> and <a href="Ext.Tooltip.html">Ext.Tooltip</a> that provides the basic layout and positioning that all tip-based classes require. This class can be used directly for simple, statically-positioned tips that are displayed programmatically, or it can be extended to provide custom tip implementations.
- * <p>This class serves as a typed config object for constructor of class Tip.</p>
  *
+ * <p>This class represents the xtype 'tip' and serves as a
+ * typed config object for constructor of class Tip.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.Tip
  */
 [ExtConfig(target="ext.Tip", xtype="tip")]

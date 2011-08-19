@@ -16,6 +16,9 @@ package ext {
  Ext.EventManager.on("myDiv", 'click', handleClick);
  Ext.EventManager.addListener("myDiv", 'click', handleClick);
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
  * @see ext.IEventObject
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#cls-Ext.EventObject Ext JS source
  */

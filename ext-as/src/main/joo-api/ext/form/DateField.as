@@ -1,5 +1,4 @@
 package ext.form {
-
 import ext.config.datefield;
 
 /**
@@ -24,6 +23,10 @@ import ext.config.datefield;
 
 /**
  * Provides a date input field with a <a href="Ext.DatePicker.html">Ext.DatePicker</a> dropdown and automatic date validation.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'datefield' / the EXML element &lt;datefield>.</p>
  * @see ext.config.datefield
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DateField.html#cls-Ext.form.DateField Ext JS source

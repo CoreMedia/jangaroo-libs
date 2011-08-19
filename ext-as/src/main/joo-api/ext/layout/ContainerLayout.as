@@ -1,11 +1,14 @@
 package ext.layout {
-
 import ext.Component;
 import ext.Element;
 import ext.Template;
 
 /**
  * This class is intended to be extended or created via the <tt><b><a href="output/Ext.Container.html#Ext.Container-layout">layout</a></b></tt> configuration property. See <tt><b><a href="output/Ext.Container.html#Ext.Container-layout">Ext.Container.layout</a></b></tt> for additional details.
+
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
 
  * @see ext.config.containerlayout
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ContainerLayout.html#cls-Ext.layout.ContainerLayout Ext JS source

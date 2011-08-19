@@ -9,14 +9,18 @@ import joo.JavaScriptObject;
  var myMask = new Ext.LoadMask(Ext.getBody(), {msg:"Please wait..."});
  myMask.show();
  </code></pre>
- * <p>This class serves as a typed config object for constructor of class LoadMask.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class LoadMask.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.LoadMask
  */
 [ExtConfig(target="ext.LoadMask")]
 public class loadmask extends JavaScriptObject {
 
   public function loadmask(config:Object = null) {
+
     super(config);
   }
 

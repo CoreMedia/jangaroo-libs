@@ -5,14 +5,18 @@ import joo.JavaScriptObject;
 /**
  * The subclasses of this class provide actions to perform upon <a href="Ext.form.BasicForm.html">Form</a>s.
  <p>Instances of this class are only created by a <a href="Ext.form.BasicForm.html">Form</a> when the Form needs to perform an action such as submit or load. The Configuration options listed for this class are set through the Form's action methods: <a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-submit">submit</a>, <a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-load">load</a> and <a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-doAction">doAction</a></p><p>The instance of Action which performed the action is passed to the success and failure callbacks of the Form's action methods (<a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-submit">submit</a>, <a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-load">load</a> and <a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-doAction">doAction</a>), and to the <a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-actioncomplete">actioncomplete</a> and <a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-actionfailed">actionfailed</a> event handlers.</p>
- * <p>This class serves as a typed config object for constructor of class Action.</p>
  *
+ * <p>This class represents the xtype 'formaction' and serves as a
+ * typed config object for constructor of class Action.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.form.Action
  */
 [ExtConfig(target="ext.form.Action", xtype="formaction")]
 public class formaction extends JavaScriptObject {
 
   public function formaction(config:Object = null) {
+
     super(config);
   }
 

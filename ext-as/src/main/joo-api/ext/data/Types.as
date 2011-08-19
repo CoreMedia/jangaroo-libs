@@ -22,6 +22,9 @@ package ext.data {
  { name: 'position', type: types.VELATLONG }
  ]);
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
  * @see ext.data.ITypes
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Types.html#cls-Ext.data.Types Ext JS source
  */

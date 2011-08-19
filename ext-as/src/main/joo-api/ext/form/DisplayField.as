@@ -1,9 +1,12 @@
 package ext.form {
-
 import ext.config.displayfield;
 
 /**
  * A display-only text field which is not validated and not submitted.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'displayfield' / the EXML element &lt;displayfield>.</p>
  * @see ext.config.displayfield
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DisplayField.html#cls-Ext.form.DisplayField Ext JS source

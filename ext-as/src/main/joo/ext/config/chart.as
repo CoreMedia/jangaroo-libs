@@ -3,8 +3,11 @@ package ext.config {
 
 /**
  * The Ext.chart package provides the capability to visualize data with flash based charting. Each chart binds directly to an Ext.data.Store enabling automatic updates of the chart. To change the look and feel of a chart, see the <a href="output/Ext.chart.Chart.html#Ext.chart.Chart-chartStyle">chartStyle</a> and <a href="output/Ext.chart.Chart.html#Ext.chart.Chart-extraStyle">extraStyle</a> config options.
- * <p>This class serves as a typed config object for constructor of class Chart.</p>
  *
+ * <p>This class represents the xtype 'chart' and serves as a
+ * typed config object for constructor of class Chart.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.chart.Chart
  */
 [ExtConfig(target="ext.chart.Chart", xtype="chart")]

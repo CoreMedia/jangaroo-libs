@@ -11,8 +11,11 @@ package ext.config {
  |
  +---<a href="Ext.direct.RemotingProvider.html">RemotingProvider</a>
  </code></pre>
- * <p>This class serves as a typed config object for constructor of class Provider.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class Provider.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.direct.Provider
  */
 [ExtConfig(target="ext.direct.Provider")]

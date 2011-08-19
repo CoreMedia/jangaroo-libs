@@ -4,8 +4,11 @@ import joo.JavaScriptObject;
 
 /**
  * Description
- * <p>This class serves as a typed config object for constructor of class Menu.</p>
  *
+ * <p>This class represents the xtype 'boxoverflowmenu' and serves as a
+ * typed config object for constructor of class Menu.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.layout.boxoverflow.Menu
  */
 [ExtConfig(target="ext.layout.boxoverflow.Menu", xtype="boxoverflowmenu")]

@@ -35,8 +35,11 @@ package ext.config {
  }]
  });
  </code></pre>
- * <p>This class serves as a typed config object for constructor of class TableLayout.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class TableLayout.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.layout.TableLayout
  */
 [ExtConfig(target="ext.layout.TableLayout", type="table")]

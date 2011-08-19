@@ -42,8 +42,11 @@ package ext.config {
  }]
  });
  </code></pre>
- * <p>This class serves as a typed config object for constructor of class AbsoluteLayout.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class AbsoluteLayout.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.layout.AbsoluteLayout
  */
 [ExtConfig(target="ext.layout.AbsoluteLayout", type="absolute")]

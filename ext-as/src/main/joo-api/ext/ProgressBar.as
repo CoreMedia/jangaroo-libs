@@ -1,5 +1,4 @@
 package ext {
-
 import ext.config.progress;
 
 /**
@@ -30,6 +29,10 @@ import ext.config.progress;
 /**
  * An updateable progress bar component. The progress bar supports two different modes: manual and automatic.
  <p>In manual mode, you are responsible for showing, updating (via <a href="output/Ext.ProgressBar.html#Ext.ProgressBar-updateProgress">updateProgress</a>) and clearing the progress bar as needed from your own code. This method is most appropriate when you want to show progress throughout an operation that has predictable points of interest at which you can update the control.</p><p>In automatic mode, you simply call <a href="output/Ext.ProgressBar.html#Ext.ProgressBar-wait">wait</a> and let the progress bar run indefinitely, only clearing it once the operation is complete. You can optionally have the progress bar wait for a specific amount of time and then clear itself. Automatic mode is most appropriate for timed operations or asynchronous operations in which you have no need for indicating intermediate progress.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'progress' / the EXML element &lt;progress>.</p>
  * @see ext.config.progress
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ProgressBar.html#cls-Ext.ProgressBar Ext JS source

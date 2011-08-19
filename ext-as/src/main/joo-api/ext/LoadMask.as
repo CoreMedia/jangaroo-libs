@@ -1,5 +1,4 @@
 package ext {
-
 import ext.config.loadmask;
 import ext.data.Store;
 
@@ -8,6 +7,10 @@ import ext.data.Store;
  var myMask = new Ext.LoadMask(Ext.getBody(), {msg:"Please wait..."});
  myMask.show();
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.loadmask
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/LoadMask.html#cls-Ext.LoadMask Ext JS source
  */

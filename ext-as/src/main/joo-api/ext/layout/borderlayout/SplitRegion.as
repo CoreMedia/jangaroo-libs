@@ -1,11 +1,14 @@
 package ext.layout.borderlayout {
-
 import ext.SplitBar;
 import ext.config.splitregion;
 import ext.layout.ContainerLayout;
 
 /**
  * This is a specialized type of <a href="Ext.layout.BorderLayout.Region.html">BorderLayout region</a> that has a built-in <a href="Ext.SplitBar.html">Ext.SplitBar</a> for user resizing of regions. The movement of the split bar is configurable to move either <a href="output/Ext.layout.BorderLayout.SplitRegion.html#Ext.layout.BorderLayout.SplitRegion-tickSize">smooth or incrementally</a>.
+
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
 
  * @see ext.config.splitregion
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BorderLayout.html#cls-Ext.layout.BorderLayout.SplitRegion Ext JS source

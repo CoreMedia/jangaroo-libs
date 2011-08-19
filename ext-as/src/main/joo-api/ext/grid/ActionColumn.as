@@ -39,6 +39,10 @@ package ext.grid {
  ]
  });
  </code></pre><p>The action column can be at any index in the columns array, and a grid can have any number of action columns.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.actioncolumn
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Column.html#cls-Ext.grid.ActionColumn Ext JS source
  */

@@ -1,6 +1,5 @@
 package ext.config {
 
-
 /**
  * Small helper class to make creating <a href="Ext.data.Store.html">Ext.data.Store</a>s from JSON data easier. A JsonStore will be automatically configured with a <a href="Ext.data.JsonReader.html">Ext.data.JsonReader</a>.
  <p>A store configuration would be something like:</p><pre><code>var store = new Ext.data.JsonStore({
@@ -20,8 +19,11 @@ package ext.config {
  ]
  }
  </code></pre>An object literal of this form could also be used as the <a href="output/Ext.data.JsonStore.html#Ext.data.JsonStore-data">data</a> config option.<br/><br/> <p><b>&#42;Note:</b> Although not listed here, this class accepts all of the configuration options of <b><a href="Ext.data.JsonReader.html">JsonReader</a></b>.</p>
- * <p>This class serves as a typed config object for constructor of class JsonStore.</p>
  *
+ * <p>This class represents the xtype 'jsonstore' and serves as a
+ * typed config object for constructor of class JsonStore.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.data.JsonStore
  */
 [ExtConfig(target="ext.data.JsonStore", xtype="jsonstore")]

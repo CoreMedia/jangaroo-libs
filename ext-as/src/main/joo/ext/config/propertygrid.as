@@ -16,8 +16,11 @@ package ext.config {
  }
  });
  </code></pre>
- * <p>This class serves as a typed config object for constructor of class PropertyGrid.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class PropertyGrid.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.grid.PropertyGrid
  */
 [ExtConfig(target="ext.grid.PropertyGrid")]

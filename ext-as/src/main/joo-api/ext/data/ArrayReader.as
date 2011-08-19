@@ -1,6 +1,4 @@
 package ext.data {
-
-
 /**
  * Data reader class to create an Array of <a href="Ext.data.Record.html">Ext.data.Record</a> objects from an Array. Each element of that Array represents a row of data fields. The fields are pulled into a Record object using as a subscript, the <code>mapping</code> property of the field definition if it exists, or the field's ordinal position in the definition.
  <p>Example code:</p><pre><code>var Employee = Ext.data.Record.create([
@@ -12,6 +10,10 @@ package ext.data {
  }, Employee);
  </code></pre><p>This would consume an Array like this:</p><pre><code>[ [1, 'Bill', 'Gardener'], [2, 'Ben', 'Horticulturalist'] ]
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.arrayreader
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ArrayReader.html#cls-Ext.data.ArrayReader Ext JS source
  */

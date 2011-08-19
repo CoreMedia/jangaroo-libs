@@ -5,8 +5,12 @@ import ext.config.numbercolumn;
 /**
  * A Column definition class which renders a numeric data field according to a <a href="output/Ext.list.NumberColumn.html#Ext.list.NumberColumn-format">format</a> string. See the <a href="output/Ext.list.Column.html#Ext.list.Column-xtype">xtype</a> config option of <a href="Ext.list.Column.html">Ext.list.Column</a> for more details.
 
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.numbercolumn
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Column1.html#cls-Ext.list.NumberColumn Ext JS source
+ * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Column.html#cls-Ext.list.NumberColumn Ext JS source
  */
 public class NumberColumn extends Column {
 

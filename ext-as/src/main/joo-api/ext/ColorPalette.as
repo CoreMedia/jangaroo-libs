@@ -1,5 +1,4 @@
 package ext {
-
 import ext.config.colorpalette;
 
 /**
@@ -30,6 +29,10 @@ import ext.config.colorpalette;
  // do something with selColor
  });
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'colorpalette' / the EXML element &lt;colorpalette>.</p>
  * @see ext.config.colorpalette
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColorPalette.html#cls-Ext.ColorPalette Ext JS source

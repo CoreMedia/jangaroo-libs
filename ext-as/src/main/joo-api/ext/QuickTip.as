@@ -1,9 +1,12 @@
 package ext {
-
 import ext.config.quicktip;
 
 /**
  * nullA specialized tooltip class for tooltips that can be specified in markup and automatically managed by the global <a href="Ext.QuickTips.html">Ext.QuickTips</a> instance. See the QuickTips class header for additional usage details and examples.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'quicktip' / the EXML element &lt;quicktip>.</p>
  * @see ext.config.quicktip
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/QuickTip.html#cls-Ext.QuickTip Ext JS source

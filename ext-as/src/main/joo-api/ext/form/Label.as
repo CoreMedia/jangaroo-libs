@@ -1,10 +1,13 @@
 package ext.form {
-
 import ext.BoxComponent;
 import ext.config.label;
 
 /**
  * Basic Label field.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'label' / the EXML element &lt;label>.</p>
  * @see ext.config.label
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Label.html#cls-Ext.form.Label Ext JS source

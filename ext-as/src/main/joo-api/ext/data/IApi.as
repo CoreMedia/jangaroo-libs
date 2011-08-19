@@ -3,6 +3,10 @@ package ext.data {
 
 /**
  * Ext.data.Api is a singleton designed to manage the data API including methods for validating a developer's DataProxy API. Defines variables for CRUD actions create, read, update and destroy in addition to a mapping of RESTful HTTP methods GET, POST, PUT and DELETE to CRUD actions.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This interface defines the type of the singleton Api.</p>
  * @see ext.data.#Api ext.data.Api
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Api.html#cls-Ext.data.Api Ext JS source
@@ -65,7 +69,7 @@ public interface IApi {
    * @param proxy
    * @param verb
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Api.html#method-Ext.data.Api-hasUniqueUrl Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Api.html#method-Ext.data.Api-hasUniqueUrl Ext JS source
    */
   function hasUniqueUrl(proxy:DataProxy, verb:String):Boolean;
 
@@ -74,7 +78,7 @@ public interface IApi {
    *
    * @param action Action to test for availability.
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Api.html#method-Ext.data.Api-isAction Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Api.html#method-Ext.data.Api-isAction Ext JS source
    */
   function isAction(action:String):Boolean;
 
@@ -82,7 +86,7 @@ public interface IApi {
    * Returns true if the supplied API is valid; that is, check that all keys match defined actions otherwise returns an array of mistakes.
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Api.html#method-Ext.data.Api-isValid Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Api.html#method-Ext.data.Api-isValid Ext JS source
    */
   function isValid():*;
 

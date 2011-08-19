@@ -11,8 +11,11 @@ package ext.config {
  }
  });
  </code></pre><p>Currently <a href="output/Ext.grid.PivotGridView.html#Ext.grid.PivotGridView-title">title</a> and <a href="output/Ext.grid.PivotGridView.html#Ext.grid.PivotGridView-getCellCls">getCellCls</a> are the only configuration options accepted by PivotGridView. All other interaction is performed via the <a href="Ext.grid.PivotGrid.html">PivotGrid</a> class.</p>
- * <p>This class serves as a typed config object for constructor of class PivotGridView.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class PivotGridView.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.grid.PivotGridView
  */
 [ExtConfig(target="ext.grid.PivotGridView")]

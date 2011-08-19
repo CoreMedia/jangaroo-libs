@@ -1,5 +1,4 @@
 package ext {
-
 import ext.config.button;
 import ext.menu.Menu;
 
@@ -168,6 +167,10 @@ import ext.menu.Menu;
 
 /**
  * Simple Button class
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'button' / the EXML element &lt;button>.</p>
  * @see ext.config.button
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Button.html#cls-Ext.Button Ext JS source
@@ -360,7 +363,7 @@ public class Button extends BoxComponent {
    *
    * @param group
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Button.html#method-Ext.Button-getPressed Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Button.html#method-Ext.Button-getPressed Ext JS source
    */
   public native function getPressed(group:String):Button;
 
@@ -385,7 +388,7 @@ public class Button extends BoxComponent {
    * Returns true if the button has a menu and it is visible
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Button.html#method-Ext.Button-hasVisibleMenu Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Button.html#method-Ext.Button-hasVisibleMenu Ext JS source
    */
   public native function hasVisibleMenu():Boolean;
 

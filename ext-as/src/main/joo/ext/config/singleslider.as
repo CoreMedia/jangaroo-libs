@@ -11,8 +11,11 @@ package ext.config {
  maxValue: 100
  });
  </code></pre>The class Ext.slider.SingleSlider is aliased to Ext.Slider for backwards compatibility.
- * <p>This class serves as a typed config object for constructor of class SingleSlider.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class SingleSlider.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.slider.SingleSlider
  */
 [ExtConfig(target="ext.slider.SingleSlider")]

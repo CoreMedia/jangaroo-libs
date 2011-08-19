@@ -3,6 +3,10 @@ package ext {
 
 /**
  * An object that manages a group of <a href="Ext.Window.html">Ext.Window</a> instances and provides z-order management and window activation behavior.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/WindowManager.html#cls-Ext.WindowGroup Ext JS source
  */
 public class WindowGroup {
@@ -49,7 +53,7 @@ public class WindowGroup {
    *
    * @param id The id of the window or a <a href="Ext.Window.html">Ext.Window</a> instance
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/WindowManager.html#method-Ext.WindowGroup-get Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/WindowManager.html#method-Ext.WindowGroup-get Ext JS source
    */
   public native function get(id:*):Window;
 

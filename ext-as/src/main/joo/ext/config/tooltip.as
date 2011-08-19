@@ -3,8 +3,11 @@ package ext.config {
 
 /**
  * A standard tooltip implementation for providing additional information when hovering over a target element.
- * <p>This class serves as a typed config object for constructor of class ToolTip.</p>
  *
+ * <p>This class represents the xtype 'tooltip' and serves as a
+ * typed config object for constructor of class ToolTip.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.ToolTip
  */
 [ExtConfig(target="ext.ToolTip", xtype="tooltip")]

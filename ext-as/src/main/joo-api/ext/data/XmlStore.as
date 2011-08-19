@@ -1,5 +1,4 @@
 package ext.data {
-
 import ext.config.xmlstore;
 
 /**
@@ -47,6 +46,10 @@ import ext.config.xmlstore;
  &lt;/Items&gt;
  &lt;/ItemSearchResponse&gt;
  </code></pre>An object literal of this form could also be used as the <a href="output/Ext.data.XmlStore.html#Ext.data.XmlStore-data">data</a> config option.<br/><br/> <p><b>Note:</b> Although not listed here, this class accepts all of the configuration options of <b><a href="Ext.data.XmlReader.html">XmlReader</a></b>.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'xmlstore' / the EXML element &lt;xmlstore>.</p>
  * @see ext.config.xmlstore
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/XmlStore.html#cls-Ext.data.XmlStore Ext JS source

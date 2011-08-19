@@ -1,5 +1,4 @@
 package ext.slider {
-
 import ext.BoxComponent;
 import ext.IEventObject;
 
@@ -153,6 +152,10 @@ import ext.IEventObject;
  <a href="output/Ext.slider.MultiSlider.html#Ext.slider.MultiSlider-constrainThumbs">constrainThumbs</a>: false
  });
  </pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.multislider
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Slider.html#cls-Ext.slider.MultiSlider Ext JS source
  */

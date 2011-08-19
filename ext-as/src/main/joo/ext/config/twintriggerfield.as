@@ -3,8 +3,11 @@ package ext.config {
 
 /**
  * TwinTriggerField is not a public class to be used directly. It is meant as an abstract base class to be extended by an implementing class. For an example of implementing this class, see the custom SearchField implementation here: <a href="http://extjs.com/deploy/ext/examples/form/custom.html">http://extjs.com/deploy/ext/examples/form/custom.html</a>
- * <p>This class serves as a typed config object for constructor of class TwinTriggerField.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class TwinTriggerField.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.form.TwinTriggerField
  */
 [ExtConfig(target="ext.form.TwinTriggerField")]

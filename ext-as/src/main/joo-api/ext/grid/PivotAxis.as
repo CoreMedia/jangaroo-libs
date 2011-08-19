@@ -1,5 +1,4 @@
 package ext.grid {
-
 import ext.Component;
 import ext.Element;
 
@@ -25,6 +24,10 @@ import ext.Element;
 
  pivotGrid.view.refresh(true);
  </code></pre>This clears the previous dimensions on the axis and redraws the grid with the new dimensions.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.pivotaxis
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotAxis.html#cls-Ext.grid.PivotAxis Ext JS source
  */

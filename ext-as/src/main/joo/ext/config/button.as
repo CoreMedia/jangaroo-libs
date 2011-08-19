@@ -4,8 +4,11 @@ import ext.Template;
 
 /**
  * Simple Button class
- * <p>This class serves as a typed config object for constructor of class Button.</p>
  *
+ * <p>This class represents the xtype 'button' and serves as a
+ * typed config object for constructor of class Button.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.Button
  */
 [ExtConfig(target="ext.Button", xtype="button")]

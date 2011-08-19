@@ -1,5 +1,4 @@
 package ext.grid {
-
 import ext.config.groupingview;
 
 /**
@@ -46,6 +45,10 @@ import ext.config.groupingview;
  renderTo: document.body
  });
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.groupingview
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GroupingView.html#cls-Ext.grid.GroupingView Ext JS source
  */

@@ -4,8 +4,11 @@ package ext.config {
 /**
  * A Column definition class which renders a numeric data field according to a <a href="output/Ext.list.NumberColumn.html#Ext.list.NumberColumn-format">format</a> string. See the <a href="output/Ext.list.Column.html#Ext.list.Column-xtype">xtype</a> config option of <a href="Ext.list.Column.html">Ext.list.Column</a> for more details.
 
- * <p>This class serves as a typed config object for constructor of class NumberColumn.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class NumberColumn.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.list.NumberColumn
  */
 [ExtConfig(target="ext.list.NumberColumn")]

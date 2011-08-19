@@ -1,5 +1,4 @@
 package ext {
-
 import ext.data.Connection;
 
 /**
@@ -29,6 +28,10 @@ import ext.data.Connection;
  params: 'foo=bar'
  });
  </code></pre><br/><br/>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This class defines the type of the singleton Ajax.</p>
  * @see ext.#Ajax ext.Ajax
  * @see ext.config.ajax

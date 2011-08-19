@@ -1,5 +1,4 @@
 package ext.dd {
-
 import ext.Element;
 import ext.IEventObject;
 import ext.util.Observable;
@@ -121,6 +120,10 @@ import ext.util.Observable;
 
 /**
  * A DragTracker listens for drag events on an Element and fires events at the start and end of the drag, as well as during the drag. This is useful for components such as <a href="Ext.slider.MultiSlider.html">Ext.slider.MultiSlider</a>, where there is an element that can be dragged around to change the Slider's value. DragTracker provides a series of template methods that should be overridden to provide functionality in response to detected drag operations. These are onBeforeStart, onStart, onDrag and onEnd. See <a href="Ext.slider.MultiSlider.html">Ext.slider.MultiSlider</a>'s initEvents function for an example implementation.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.dragtracker
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DragTracker.html#cls-Ext.dd.DragTracker Ext JS source
  */

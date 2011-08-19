@@ -1,5 +1,4 @@
 package ext.tree {
-
 import ext.config.treesorter;
 
 /**
@@ -12,6 +11,10 @@ import ext.config.treesorter;
  }
  });
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.treesorter
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeSorter.html#cls-Ext.tree.TreeSorter Ext JS source
  */

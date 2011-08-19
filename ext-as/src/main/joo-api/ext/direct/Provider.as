@@ -1,5 +1,4 @@
 package ext.direct {
-
 import ext.util.Observable;
 
 /**
@@ -71,6 +70,10 @@ import ext.util.Observable;
  |
  +---<a href="Ext.direct.RemotingProvider.html">RemotingProvider</a>
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.provider
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Provider.html#cls-Ext.direct.Provider Ext JS source
  */

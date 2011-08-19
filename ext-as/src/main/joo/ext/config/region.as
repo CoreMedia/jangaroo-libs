@@ -5,14 +5,18 @@ import joo.JavaScriptObject;
 /**
  * This is a region of a <a href="Ext.layout.BorderLayout.html">BorderLayout</a> that acts as a subcontainer within the layout. Each region has its own <a href="Ext.layout.ContainerLayout.html">layout</a> that is independent of other regions and the containing BorderLayout, and can be any of the <a href="Ext.layout.ContainerLayout.html">valid Ext layout types</a>.
  <p>Region size is managed automatically and cannot be changed by the user -- for <a href="output/Ext.layout.BorderLayout.Region.html#Ext.layout.BorderLayout.Region-split">resizable regions</a>, see <a href="Ext.layout.BorderLayout.SplitRegion.html">Ext.layout.BorderLayout.SplitRegion</a>.</p>
- * <p>This class serves as a typed config object for constructor of class Region.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class Region.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.layout.borderlayout.Region
  */
 [ExtConfig(target="ext.layout.borderlayout.Region")]
 public class region extends JavaScriptObject {
 
   public function region(config:Object = null) {
+
     super(config);
   }
 

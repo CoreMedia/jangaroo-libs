@@ -4,14 +4,18 @@ import joo.JavaScriptObject;
 
 /**
  * Description
- * <p>This class serves as a typed config object for constructor of class Scroller.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class Scroller.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.layout.boxoverflow.Scroller
  */
 [ExtConfig(target="ext.layout.boxoverflow.Scroller")]
 public class scroller extends JavaScriptObject {
 
   public function scroller(config:Object = null) {
+
     super(config);
   }
 

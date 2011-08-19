@@ -45,8 +45,11 @@ package ext.config {
  }]
  });
  </code></pre>
- * <p>This class serves as a typed config object for constructor of class Viewport.</p>
  *
+ * <p>This class represents the xtype 'viewport' and serves as a
+ * typed config object for constructor of class Viewport.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.Viewport
  */
 [ExtConfig(target="ext.Viewport", xtype="viewport")]

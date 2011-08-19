@@ -3,8 +3,11 @@ package ext.config {
 
 /**
  * Adds a separator bar to a menu, used to divide logical groups of menu items. Generally you will add one of these by using "-" in you call to add() or in your items config rather than creating one directly.
- * <p>This class serves as a typed config object for constructor of class Separator.</p>
  *
+ * <p>This class represents the xtype 'menuseparator' and serves as a
+ * typed config object for constructor of class Separator.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.menu.Separator
  */
 [ExtConfig(target="ext.menu.Separator", xtype="menuseparator")]

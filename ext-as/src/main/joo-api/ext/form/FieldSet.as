@@ -1,5 +1,4 @@
 package ext.form {
-
 import ext.Panel;
 import ext.config.fieldset;
 
@@ -56,6 +55,10 @@ import ext.config.fieldset;
  }]
  });
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'fieldset' / the EXML element &lt;fieldset>.</p>
  * @see ext.config.fieldset
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/FieldSet.html#cls-Ext.form.FieldSet Ext JS source

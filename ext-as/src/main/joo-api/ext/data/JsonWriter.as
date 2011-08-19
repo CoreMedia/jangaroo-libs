@@ -1,8 +1,10 @@
 package ext.data {
-
-
 /**
  * DataWriter extension for writing an array or single <a href="Ext.data.Record.html">Ext.data.Record</a> object(s) in preparation for executing a remote CRUD action.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.jsonwriter
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/JsonWriter.html#cls-Ext.data.JsonWriter Ext JS source
  */
@@ -36,7 +38,7 @@ public class JsonWriter extends DataWriter {
    *
    * @param rec
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/JsonWriter.html#method-Ext.data.JsonWriter-createRecord Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/JsonWriter.html#method-Ext.data.JsonWriter-createRecord Ext JS source
    */
   protected native function createRecord(rec:Record):Object;
 
@@ -45,7 +47,7 @@ public class JsonWriter extends DataWriter {
    *
    * @param rec
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/JsonWriter.html#method-Ext.data.JsonWriter-destroyRecord Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/JsonWriter.html#method-Ext.data.JsonWriter-destroyRecord Ext JS source
    */
   protected native function destroyRecord(rec:Record):Object;
 
@@ -65,7 +67,7 @@ public class JsonWriter extends DataWriter {
    *
    * @param rec
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/JsonWriter.html#method-Ext.data.JsonWriter-updateRecord Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/JsonWriter.html#method-Ext.data.JsonWriter-updateRecord Ext JS source
    */
   protected native function updateRecord(rec:Record):Object;
 

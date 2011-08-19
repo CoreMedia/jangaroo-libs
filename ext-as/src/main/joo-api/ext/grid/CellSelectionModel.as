@@ -1,5 +1,4 @@
 package ext.grid {
-
 import ext.config.cellselectionmodel;
 import ext.data.Record;
 
@@ -73,6 +72,10 @@ import ext.data.Record;
 
 /**
  * This class provides the basic implementation for <i>single</i> <b>cell</b> selection in a grid. The object stored as the selection contains the following properties: <div class="mdetail-params"><ul><li><b>cell</b> : see <a href="output/Ext.grid.CellSelectionModel.html#Ext.grid.CellSelectionModel-getSelectedCell">getSelectedCell</a></li><li><b>record</b> : Ext.data.record The <a href="Ext.data.Record.html">Record</a> which provides the data for the row containing the selection</li></ul></div>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.cellselectionmodel
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CellSelectionModel.html#cls-Ext.grid.CellSelectionModel Ext JS source
  */
@@ -112,7 +115,7 @@ public class CellSelectionModel extends AbstractSelectionModel {
    * Returns <tt>true</tt> if there is a selection.
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CellSelectionModel.html#method-Ext.grid.CellSelectionModel-hasSelection Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CellSelectionModel.html#method-Ext.grid.CellSelectionModel-hasSelection Ext JS source
    */
   public native function hasSelection():Boolean;
 

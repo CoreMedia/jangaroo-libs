@@ -9,6 +9,10 @@ package ext.grid {
  // Add record to an already populated grid
  grid.store.addSorted(rec);
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PropertyGrid.html#cls-Ext.grid.PropertyRecord Ext JS source
  */
 public class PropertyRecord {

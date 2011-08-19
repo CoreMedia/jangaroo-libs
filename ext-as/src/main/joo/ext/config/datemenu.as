@@ -4,8 +4,11 @@ package ext.config {
 /**
  * A menu containing an <a href="Ext.DatePicker.html">Ext.DatePicker</a> Component.
  <p>Notes:</p><div class="mdetail-params"><ul><li>Although not listed here, the <b>constructor</b> for this class accepts all of the configuration options of <b><a href="Ext.DatePicker.html">Ext.DatePicker</a></b>.</li><li>If subclassing DateMenu, any configuration options for the DatePicker must be applied to the <tt><b>initialConfig</b></tt> property of the DateMenu. Applying <a href="Ext.DatePicker.html">DatePicker</a> configuration settings to <b><tt>this</tt></b> will <b>not</b> affect the DatePicker's configuration.</li></ul></div>
- * <p>This class serves as a typed config object for constructor of class DateMenu.</p>
  *
+ * <p>This class represents the xtype 'datemenu' and serves as a
+ * typed config object for constructor of class DateMenu.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.menu.DateMenu
  */
 [ExtConfig(target="ext.menu.DateMenu", xtype="datemenu")]

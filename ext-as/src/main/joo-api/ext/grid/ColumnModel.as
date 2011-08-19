@@ -1,5 +1,4 @@
 package ext.grid {
-
 import ext.Editor;
 import ext.config.columnmodel;
 import ext.util.Observable;
@@ -156,6 +155,10 @@ import ext.util.Observable;
  padding-left:20px;
  }
  </code></pre>Note that the "Company Name" column could be specified as the <b><tt><a href="Ext.grid.GridPanel.html">Ext.grid.GridPanel</a>.<a href="output/Ext.grid.GridPanel.html#Ext.grid.GridPanel-autoExpandColumn">autoExpandColumn</a></tt></b>.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.columnmodel
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#cls-Ext.grid.ColumnModel Ext JS source
  */
@@ -246,7 +249,7 @@ public class ColumnModel extends Observable {
    *
    * @param visibleOnly Pass as true to only include visible columns.
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-getColumnCount Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-getColumnCount Ext JS source
    */
   public native function getColumnCount(visibleOnly:Boolean = false):Number;
 
@@ -255,7 +258,7 @@ public class ColumnModel extends Observable {
    *
    * @param col The column index
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-getColumnHeader Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-getColumnHeader Ext JS source
    */
   public native function getColumnHeader(col:Number):String;
 
@@ -273,7 +276,7 @@ public class ColumnModel extends Observable {
    *
    * @param col The column index
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-getColumnTooltip Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-getColumnTooltip Ext JS source
    */
   public native function getColumnTooltip(col:Number):String;
 
@@ -282,7 +285,7 @@ public class ColumnModel extends Observable {
    *
    * @param col The column index
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-getColumnWidth Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-getColumnWidth Ext JS source
    */
   public native function getColumnWidth(col:Number):Number;
 
@@ -334,7 +337,7 @@ public class ColumnModel extends Observable {
    *
    * @param includeHidden True to include hidden column widths
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-getTotalWidth Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-getTotalWidth Ext JS source
    */
   public native function getTotalWidth(includeHidden:Boolean):Number;
 
@@ -360,7 +363,7 @@ public class ColumnModel extends Observable {
    * @param colIndex The column index
    * @param rowIndex The row index
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-isCellEditable Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-isCellEditable Ext JS source
    */
   public native function isCellEditable(colIndex:Number, rowIndex:Number):Boolean;
 
@@ -369,7 +372,7 @@ public class ColumnModel extends Observable {
    *
    * @param colIndex The column index
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-isFixed Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-isFixed Ext JS source
    */
   public native function isFixed(colIndex:Number):Boolean;
 
@@ -378,7 +381,7 @@ public class ColumnModel extends Observable {
    *
    * @param colIndex The column index
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-isHidden Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-isHidden Ext JS source
    */
   public native function isHidden(colIndex:Number):Boolean;
 
@@ -387,7 +390,7 @@ public class ColumnModel extends Observable {
    *
    * @param col The column index
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-isMenuDisabled Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-isMenuDisabled Ext JS source
    */
   public native function isMenuDisabled(col:Number):Boolean;
 
@@ -395,7 +398,7 @@ public class ColumnModel extends Observable {
    * Returns true if the column can be resized
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-isResizable Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-isResizable Ext JS source
    */
   public native function isResizable():Boolean;
 
@@ -404,7 +407,7 @@ public class ColumnModel extends Observable {
    *
    * @param col The column index
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-isSortable Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-isSortable Ext JS source
    */
   public native function isSortable(col:Number):Boolean;
 

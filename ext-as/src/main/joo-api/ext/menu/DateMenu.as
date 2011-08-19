@@ -1,5 +1,4 @@
 package ext.menu {
-
 import ext.DatePicker;
 import ext.config.datemenu;
 
@@ -26,6 +25,10 @@ import ext.config.datemenu;
 /**
  * A menu containing an <a href="Ext.DatePicker.html">Ext.DatePicker</a> Component.
  <p>Notes:</p><div class="mdetail-params"><ul><li>Although not listed here, the <b>constructor</b> for this class accepts all of the configuration options of <b><a href="Ext.DatePicker.html">Ext.DatePicker</a></b>.</li><li>If subclassing DateMenu, any configuration options for the DatePicker must be applied to the <tt><b>initialConfig</b></tt> property of the DateMenu. Applying <a href="Ext.DatePicker.html">DatePicker</a> configuration settings to <b><tt>this</tt></b> will <b>not</b> affect the DatePicker's configuration.</li></ul></div>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'datemenu' / the EXML element &lt;datemenu>.</p>
  * @see ext.config.datemenu
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DateMenu.html#cls-Ext.menu.DateMenu Ext JS source

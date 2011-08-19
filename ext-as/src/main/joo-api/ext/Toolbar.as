@@ -1,5 +1,4 @@
 package ext {
-
 import ext.config.toolbar;
 import ext.form.Field;
 import ext.toolbar.Item;
@@ -99,6 +98,10 @@ import ext.toolbar.Spacer;
  });
  tb.doLayout();
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'toolbar' / the EXML element &lt;toolbar>.</p>
  * @see ext.config.toolbar
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Toolbar.html#cls-Ext.Toolbar Ext JS source
@@ -135,7 +138,7 @@ public class Toolbar extends Container {
    * @param component Either one or more Components to add or an Array of Components to add. See <code><a href="output/Ext.Container.html#Ext.Container-items">items</a></code> for additional information.
 
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Toolbar.html#method-Ext.Toolbar-add Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Toolbar.html#method-Ext.Toolbar-add Ext JS source
    */
   override public native function add(...component:Array):*;
 
@@ -144,7 +147,7 @@ public class Toolbar extends Container {
    *
    * @param config A button config or array of configs
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Toolbar.html#method-Ext.Toolbar-addButton Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Toolbar.html#method-Ext.Toolbar-addButton Ext JS source
    */
   public native function addButton(config:*):*;
 
@@ -171,7 +174,7 @@ public class Toolbar extends Container {
    *
    * @param field
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Toolbar.html#method-Ext.Toolbar-addField Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Toolbar.html#method-Ext.Toolbar-addField Ext JS source
    */
   public native function addField(field:Field):Item;
 
@@ -222,7 +225,7 @@ public class Toolbar extends Container {
    * @param index The index where the item is to be inserted
    * @param item The button, or button config object to be inserted, or an array of buttons/configs.
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Toolbar.html#method-Ext.Toolbar-insertButton Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Toolbar.html#method-Ext.Toolbar-insertButton Ext JS source
    */
   public native function insertButton(index:Number, item:*):*;
 

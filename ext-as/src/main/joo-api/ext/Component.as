@@ -1,5 +1,4 @@
 package ext {
-
 import ext.config.component;
 import ext.util.Observable;
 
@@ -280,7 +279,7 @@ import ext.util.Observable;
 
 /**
  * Base class for all Ext components. All subclasses of Component may participate in the automated Ext component lifecycle of creation, rendering and destruction which is provided by the <a href="Ext.Container.html">Container</a> class. Components may be added to a Container through the <a href="output/Ext.Container.html#Ext.Container-items">items</a> config option at the time the Container is created, or they may be added dynamically via the <a href="output/Ext.Container.html#Ext.Container-add">add</a> method.
- <p>The Component base class has built-in support for basic hide/show and enable/disable behavior.</p><p>All Components are registered with the <a href="Ext.ComponentMgr.html">Ext.ComponentMgr</a> on construction so that they can be referenced at any time via <a href="IExt.html#getCmp()">Ext.getCmp</a>, passing the <a href="config/component.html#id">id</a>.</p><p>All user-developed visual widgets that are required to participate in automated lifecycle and size management should subclass Component (or <a href="Ext.BoxComponent.html">Ext.BoxComponent</a> if managed box model handling is required, ie height and width management).</p><p>See the <a href="http://extjs.com/learn/Tutorial:Creating_new_UI_controls">Creating new UI controls</a> tutorial for details on how and to either extend or augment ExtJs base classes to create custom Components.</p><p>Every component has a specific xtype, which is its Ext-specific type name, along with methods for checking the xtype like <a href="output/Ext.Component.html#Ext.Component-getXType">getXType</a> and <a href="output/Ext.Component.html#Ext.Component-isXType">isXType</a>. This is the list of all valid xtypes:</p><pre>xtype            Class
+ <p>The Component base class has built-in support for basic hide/show and enable/disable behavior.</p><p>All Components are registered with the <a href="Ext.ComponentMgr.html">Ext.ComponentMgr</a> on construction so that they can be referenced at any time via <a href="output/Ext.html#Ext-getCmp">Ext.getCmp</a>, passing the <a href="output/Ext.Component.html#Ext.Component-id">id</a>.</p><p>All user-developed visual widgets that are required to participate in automated lifecycle and size management should subclass Component (or <a href="Ext.BoxComponent.html">Ext.BoxComponent</a> if managed box model handling is required, ie height and width management).</p><p>See the <a href="http://extjs.com/learn/Tutorial:Creating_new_UI_controls">Creating new UI controls</a> tutorial for details on how and to either extend or augment ExtJs base classes to create custom Components.</p><p>Every component has a specific xtype, which is its Ext-specific type name, along with methods for checking the xtype like <a href="output/Ext.Component.html#Ext.Component-getXType">getXType</a> and <a href="output/Ext.Component.html#Ext.Component-isXType">isXType</a>. This is the list of all valid xtypes:</p><pre>xtype            Class
  -------------    ------------------
  box              <a href="Ext.BoxComponent.html">Ext.BoxComponent</a>
  button           <a href="Ext.Button.html">Ext.Button</a>
@@ -372,6 +371,10 @@ import ext.util.Observable;
  store            <a href="Ext.data.Store.html">Ext.data.Store</a>
  xmlstore         <a href="Ext.data.XmlStore.html">Ext.data.XmlStore</a>
  </pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.component
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#cls-Ext.Component Ext JS source
  */
@@ -929,7 +932,7 @@ public class Component extends Observable {
    * Returns the <code><a href="output/Ext.Component.html#Ext.Component-itemId">itemId</a></code> of this component. If an <code><a href="output/Ext.Component.html#Ext.Component-itemId">itemId</a></code> was not assigned through configuration the <code>id</code> is returned using <code><a href="output/Ext.Component.html#Ext.Component-getId">getId</a></code>.
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#method-Ext.Component-getItemId Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#method-Ext.Component-getItemId Ext JS source
    */
   public native function getItemId():String;
 
@@ -937,7 +940,7 @@ public class Component extends Observable {
    *
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#method-Ext.Component-getPositionEl Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#method-Ext.Component-getPositionEl Ext JS source
    */
   protected native function getPositionEl():Element;
 
@@ -1067,7 +1070,7 @@ public class Component extends Observable {
    * Returns the next component in the owning container.
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#method-Ext.Component-nextSibling Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#method-Ext.Component-nextSibling Ext JS source
    */
   public native function nextSibling():Component;
 
@@ -1135,7 +1138,7 @@ public class Component extends Observable {
    * Returns the previous component in the owning container.
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#method-Ext.Component-previousSibling Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#method-Ext.Component-previousSibling Ext JS source
    */
   public native function previousSibling():Component;
 

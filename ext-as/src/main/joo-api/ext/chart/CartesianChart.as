@@ -1,8 +1,10 @@
 package ext.chart {
-
-
 /**
  *
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'cartesianchart' / the EXML element &lt;cartesianchart>.</p>
  * @see ext.config.cartesianchart
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Chart.html#cls-Ext.chart.CartesianChart Ext JS source

@@ -5,14 +5,18 @@ import joo.JavaScriptObject;
 /**
  * Represents an HTML fragment template. Templates may be <a href="output/Ext.Template.html#Ext.Template-compile">precompiled</a> for greater performance.
  <p>For example usage <a href="output/Ext.Template.html#Ext.Template-Template">see the constructor</a>.</p>
- * <p>This class serves as a typed config object for constructor of class Template.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class Template.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.Template
  */
 [ExtConfig(target="ext.Template")]
 public class template extends JavaScriptObject {
 
   public function template(config:Object = null) {
+
     super(config);
   }
 

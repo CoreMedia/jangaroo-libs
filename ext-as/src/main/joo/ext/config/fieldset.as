@@ -54,8 +54,11 @@ package ext.config {
  }]
  });
  </code></pre>
- * <p>This class serves as a typed config object for constructor of class FieldSet.</p>
  *
+ * <p>This class represents the xtype 'fieldset' and serves as a
+ * typed config object for constructor of class FieldSet.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.form.FieldSet
  */
 [ExtConfig(target="ext.form.FieldSet", xtype="fieldset")]

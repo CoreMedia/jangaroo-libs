@@ -1,5 +1,4 @@
 package ext.form {
-
 import ext.IEventObject;
 import ext.config.trigger;
 
@@ -8,6 +7,10 @@ import ext.config.trigger;
  trigger.onTriggerClick = myTriggerFn;
  trigger.applyToMarkup('my-field');
  </code></pre>However, in general you will most likely want to use TriggerField as the base class for a reusable component. <a href="Ext.form.DateField.html">Ext.form.DateField</a> and <a href="Ext.form.ComboBox.html">Ext.form.ComboBox</a> are perfect examples of this.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'trigger' / the EXML element &lt;trigger>.</p>
  * @see ext.config.trigger
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TriggerField.html#cls-Ext.form.TriggerField Ext JS source

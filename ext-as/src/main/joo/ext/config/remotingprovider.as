@@ -4,8 +4,11 @@ package ext.config {
 /**
  * The <a href="Ext.direct.RemotingProvider.html">RemotingProvider</a> exposes access to server side methods on the client (a remote procedure call (RPC) type of connection where the client can initiate a procedure on the server).
  <p>This allows for code to be organized in a fashion that is maintainable, while providing a clear path between client and server, something that is not always apparent when using URLs.</p><p>To accomplish this the server-side needs to describe what classes and methods are available on the client-side. This configuration will typically be outputted by the server-side Ext.Direct stack when the API description is built.</p>
- * <p>This class serves as a typed config object for constructor of class RemotingProvider.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class RemotingProvider.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.direct.RemotingProvider
  */
 [ExtConfig(target="ext.direct.RemotingProvider")]
@@ -18,7 +21,7 @@ public class remotingprovider extends jsonprovider {
 
 
   /**
-   Object literal defining the server side actions and methods. For example, if the Provider is configured with: <pre><code>"actions":{ // each property within the 'actions' object represents a server side Class 
+   Object literal defining the server side actions and methods. For example, if the Provider is configured with: <pre><code>"actions":{ // each property within the 'actions' object represents a server side Class
    "TestAction":[ // array of methods within each server side Class to be
    {              // stubbed out on client
    "name":"doEcho",

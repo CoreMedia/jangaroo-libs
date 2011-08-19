@@ -49,8 +49,11 @@ package ext.config {
  }]
  });
  </code></pre>
- * <p>This class serves as a typed config object for constructor of class CardLayout.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class CardLayout.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.layout.CardLayout
  */
 [ExtConfig(target="ext.layout.CardLayout", type="card")]

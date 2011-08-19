@@ -44,8 +44,11 @@ import ext.data.Store;
  });
  panel.render(document.body);
  </code></pre>
- * <p>This class serves as a typed config object for constructor of class DataView.</p>
  *
+ * <p>This class represents the xtype 'dataview' and serves as a
+ * typed config object for constructor of class DataView.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.DataView
  */
 [ExtConfig(target="ext.DataView", xtype="dataview")]

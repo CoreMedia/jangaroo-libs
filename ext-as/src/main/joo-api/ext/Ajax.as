@@ -28,6 +28,9 @@ package ext {
  params: 'foo=bar'
  });
  </code></pre><br/><br/>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
  * @see ext.AjaxClass
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Connection.html#cls-Ext.Ajax Ext JS source
  */

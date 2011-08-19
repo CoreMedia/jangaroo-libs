@@ -3,8 +3,11 @@ package ext.config {
 
 /**
  * The base class for all items that render into menus. BaseItem provides default rendering, activated state management and base configuration options shared by all menu components.
- * <p>This class serves as a typed config object for constructor of class BaseItem.</p>
  *
+ * <p>This class represents the xtype 'menubaseitem' and serves as a
+ * typed config object for constructor of class BaseItem.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.menu.BaseItem
  */
 [ExtConfig(target="ext.menu.BaseItem", xtype="menubaseitem")]

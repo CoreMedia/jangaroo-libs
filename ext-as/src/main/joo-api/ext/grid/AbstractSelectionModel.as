@@ -1,9 +1,12 @@
 package ext.grid {
-
 import ext.util.Observable;
 
 /**
  * Abstract base class for grid SelectionModels. It provides the interface that should be implemented by descendant classes. This class should not be directly instantiated.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.abstractselectionmodel
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/AbstractSelectionModel.html#cls-Ext.grid.AbstractSelectionModel Ext JS source
  */
@@ -28,7 +31,7 @@ public class AbstractSelectionModel extends Observable {
    * Returns true if the selections are locked.
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/AbstractSelectionModel.html#method-Ext.grid.AbstractSelectionModel-isLocked Ext JS source
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/AbstractSelectionModel.html#method-Ext.grid.AbstractSelectionModel-isLocked Ext JS source
    */
   public native function isLocked():Boolean;
 

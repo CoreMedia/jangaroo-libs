@@ -1,5 +1,4 @@
 package ext {
-
 import ext.config.container;
 import ext.layout.ContainerLayout;
 import ext.util.MixedCollection;
@@ -205,6 +204,10 @@ import ext.util.MixedCollection;
  return grid;  // return instantiated component
  })();
  </code></pre><p>When the above code fragment is passed through the <code>eval</code> function in the success handler of the Ajax request, the code is executed by the Javascript processor, and the anonymous function runs, and returns the instantiated grid component.</p><p>Note: since the code above is <i>generated</i> by a server script, the <code>baseParams</code> for the Store, the metadata to allow generation of the Record layout, and the ColumnModel can all be generated into the code since these are all known on the server.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'container' / the EXML element &lt;container>.</p>
  * @see ext.config.container
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Container.html#cls-Ext.Container Ext JS source
@@ -376,7 +379,7 @@ public class Container extends BoxComponent {
    *
    * @param id
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Container.html#method-Ext.Container-findById Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Container.html#method-Ext.Container-findById Ext JS source
    */
   public native function findById(id:String):Component;
 

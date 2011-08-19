@@ -1,10 +1,12 @@
 package ext.config {
 
-
 /**
  * Provides editor functionality for inline tree node editing. Any valid <a href="Ext.form.Field.html">Ext.form.Field</a> subclass can be used as the editor field.
- * <p>This class serves as a typed config object for constructor of class TreeEditor.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class TreeEditor.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.tree.TreeEditor
  */
 [ExtConfig(target="ext.tree.TreeEditor")]

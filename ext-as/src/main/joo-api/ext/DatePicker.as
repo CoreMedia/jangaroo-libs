@@ -1,5 +1,4 @@
 package ext {
-
 import ext.config.datepicker;
 
 /**
@@ -25,6 +24,10 @@ import ext.config.datepicker;
 /**
  * A popup date picker. This class is used by the <a href="Ext.form.DateField.html">DateField</a> class to allow browsing and selection of valid dates.
  <p>All the string values documented below may be overridden by including an Ext locale file in your page.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'datepicker' / the EXML element &lt;datepicker>.</p>
  * @see ext.config.datepicker
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DatePicker.html#cls-Ext.DatePicker Ext JS source

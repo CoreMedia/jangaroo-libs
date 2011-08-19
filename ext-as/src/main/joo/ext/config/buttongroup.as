@@ -37,8 +37,11 @@ package ext.config {
  }]
  });
  </code></pre>
- * <p>This class serves as a typed config object for constructor of class ButtonGroup.</p>
  *
+ * <p>This class represents the xtype 'buttongroup' and serves as a
+ * typed config object for constructor of class ButtonGroup.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.ButtonGroup
  */
 [ExtConfig(target="ext.ButtonGroup", xtype="buttongroup")]

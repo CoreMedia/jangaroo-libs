@@ -1,6 +1,4 @@
 package ext.form.action {
-
-
 /**
  * Provides Ext.direct support for loading form data.
  <p>This example illustrates usage of Ext.Direct to <b>load</b> a form through Ext.Direct.</p><pre><code>var myFormPanel = new Ext.form.FormPanel({
@@ -63,8 +61,12 @@ package ext.form.action {
  }
  ]
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.directload
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Action1.html#cls-Ext.form.Action.DirectLoad Ext JS source
+ * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Action.html#cls-Ext.form.Action.DirectLoad Ext JS source
  */
 public class DirectLoad extends Load {
 

@@ -1,9 +1,12 @@
 package ext.grid {
-
 import ext.config.checkboxselectionmodel;
 
 /**
  * A custom selection model that renders a column of checkboxes that can be toggled to select or deselect rows.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.checkboxselectionmodel
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CheckboxSelectionModel.html#cls-Ext.grid.CheckboxSelectionModel Ext JS source
  */

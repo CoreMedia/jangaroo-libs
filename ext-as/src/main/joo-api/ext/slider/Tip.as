@@ -1,5 +1,4 @@
 package ext.slider {
-
 import ext.IEventObject;
 import ext.Tip;
 
@@ -21,6 +20,10 @@ import ext.Tip;
  })
  });
  </pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.tip
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SliderTip.html#cls-Ext.slider.Tip Ext JS source
  */

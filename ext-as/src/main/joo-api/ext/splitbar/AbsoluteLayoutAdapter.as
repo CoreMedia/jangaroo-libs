@@ -1,8 +1,10 @@
 package ext.splitbar {
-
-
 /**
  * Adapter that moves the splitter element to align with the resized sizing element. Used with an absolute positioned SplitBar.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SplitBar.html#cls-Ext.SplitBar.AbsoluteLayoutAdapter Ext JS source
  */
 public class AbsoluteLayoutAdapter extends BasicLayoutAdapter {

@@ -1,14 +1,17 @@
 package ext {
-
 import ext.data.Node;
 
 import js.HTMLElement;
 
 /**
  * Ext core utilities and functions.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This interface defines the type of the singleton Ext.</p>
  * @see ext.#Ext ext.Ext
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext-more.html#cls-Ext Ext JS source
+ * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#cls-Ext Ext JS source
  */
 public interface IExt {
 
@@ -526,7 +529,7 @@ public interface IExt {
    *
    * @param str
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext-more.html#method-Ext-escapeRe Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext-more.html#method-Ext-escapeRe Ext JS source
    */
   function escapeRe(str:String):String;
 
@@ -635,7 +638,7 @@ public interface IExt {
    *
    * @param el
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-getDom Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-getDom Ext JS source
    */
   function getDom(el:*):HTMLElement;
 
@@ -685,7 +688,7 @@ public interface IExt {
    *
    * @param value The value to test
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-isArray Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-isArray Ext JS source
    */
   function isArray(value:*):Boolean;
 
@@ -694,7 +697,7 @@ public interface IExt {
    *
    * @param value The value to test
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-isBoolean Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-isBoolean Ext JS source
    */
   function isBoolean(value:*):Boolean;
 
@@ -703,7 +706,7 @@ public interface IExt {
    *
    * @param object The object to test
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-isDate Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-isDate Ext JS source
    */
   function isDate(object:Object):Boolean;
 
@@ -712,7 +715,7 @@ public interface IExt {
    *
    * @param value The value to test
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-isDefined Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-isDefined Ext JS source
    */
   function isDefined(value:*):Boolean;
 
@@ -721,7 +724,7 @@ public interface IExt {
    *
    * @param value The value to test
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-isElement Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-isElement Ext JS source
    */
   function isElement(value:*):Boolean;
 
@@ -732,7 +735,7 @@ public interface IExt {
    * @param value The value to test
    * @param allowBlank true to allow empty strings (defaults to false)
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-isEmpty Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-isEmpty Ext JS source
    */
   function isEmpty(value:*, allowBlank:Boolean = false):Boolean;
 
@@ -741,7 +744,7 @@ public interface IExt {
    *
    * @param value The value to test
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-isFunction Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-isFunction Ext JS source
    */
   function isFunction(value:*):Boolean;
 
@@ -750,7 +753,7 @@ public interface IExt {
    *
    * @param value The value to test
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-isNumber Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-isNumber Ext JS source
    */
   function isNumber(value:*):Boolean;
 
@@ -759,7 +762,7 @@ public interface IExt {
    *
    * @param value The value to test
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-isObject Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-isObject Ext JS source
    */
   function isObject(value:*):Boolean;
 
@@ -768,7 +771,7 @@ public interface IExt {
    *
    * @param value The value to test
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-isPrimitive Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-isPrimitive Ext JS source
    */
   function isPrimitive(value:*):Boolean;
 
@@ -777,7 +780,7 @@ public interface IExt {
    *
    * @param value The value to test
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-isString Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-isString Ext JS source
    */
   function isString(value:*):Boolean;
 
@@ -936,7 +939,7 @@ public interface IExt {
    * @param path The selector/xpath query
    * @param root The start of the query (defaults to document).
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DomQuery.html#method-Ext-query Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DomQuery.html#method-Ext-query Ext JS source
    */
   function query(path:String, root:Node = null):Array;
 
@@ -991,7 +994,7 @@ public interface IExt {
    *
    * @param object
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext-more.html#method-Ext-type Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext-more.html#method-Ext-type Ext JS source
    */
   function type(object:*):String;
 
@@ -1032,7 +1035,7 @@ public interface IExt {
    * @param o
    * @param pre A prefix to add to the url encoded string
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-urlEncode Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-urlEncode Ext JS source
    */
   function urlEncode(o:Object, pre:String = null):String;
 

@@ -45,8 +45,11 @@ package ext.config {
  wrc.<a href="output/Ext.Container.html#Ext.Container-doLayout">doLayout</a>();
  </code></pre></div></li><li>To reference a <a href="Ext.layout.BorderLayout.Region.html">Region</a>: <div style="margin-left:16px"><pre><code>wr = myBorderPanel.layout.west;
  </code></pre></div></li></ul></div>
- * <p>This class serves as a typed config object for constructor of class BorderLayout.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class BorderLayout.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.layout.BorderLayout
  */
 [ExtConfig(target="ext.layout.BorderLayout", type="border")]

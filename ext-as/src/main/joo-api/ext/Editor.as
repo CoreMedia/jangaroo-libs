@@ -1,5 +1,4 @@
 package ext {
-
 import ext.config.editor;
 import ext.form.Field;
 
@@ -140,6 +139,10 @@ import ext.form.Field;
 
 /**
  * A base editor field that handles displaying/hiding on demand and has some built-in sizing and event handling logic.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'editor' / the EXML element &lt;editor>.</p>
  * @see ext.config.editor
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Editor.html#cls-Ext.Editor Ext JS source

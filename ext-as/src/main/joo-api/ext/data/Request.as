@@ -1,8 +1,10 @@
 package ext.data {
-
-
 /**
  * A simple Request class used internally to the data package to provide more generalized remote-requests to a DataProxy. TODO Not yet implemented. Implement in Ext.data.Store#execute
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.request
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Request.html#cls-Ext.data.Request Ext JS source
  */

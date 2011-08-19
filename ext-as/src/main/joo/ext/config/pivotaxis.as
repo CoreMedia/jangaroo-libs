@@ -23,8 +23,11 @@ package ext.config {
 
  pivotGrid.view.refresh(true);
  </code></pre>This clears the previous dimensions on the axis and redraws the grid with the new dimensions.
- * <p>This class serves as a typed config object for constructor of class PivotAxis.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class PivotAxis.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.grid.PivotAxis
  */
 [ExtConfig(target="ext.grid.PivotAxis")]

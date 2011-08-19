@@ -9,8 +9,11 @@ package ext.config {
  // do something with selColor
  });
  </code></pre>
- * <p>This class serves as a typed config object for constructor of class ColorPalette.</p>
  *
+ * <p>This class represents the xtype 'colorpalette' and serves as a
+ * typed config object for constructor of class ColorPalette.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.ColorPalette
  */
 [ExtConfig(target="ext.ColorPalette", xtype="colorpalette")]

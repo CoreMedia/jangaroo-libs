@@ -1,11 +1,14 @@
 package ext.dd {
-
 import ext.Element;
 import ext.Layer;
 import ext.config.statusproxy;
 
 /**
  * A specialized drag proxy that supports a drop status icon, <a href="Ext.Layer.html">Ext.Layer</a> styles and auto-repair. This is the default drag proxy used by all Ext.dd components.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.statusproxy
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/StatusProxy.html#cls-Ext.dd.StatusProxy Ext JS source
  */

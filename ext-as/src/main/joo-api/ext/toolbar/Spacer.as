@@ -1,6 +1,4 @@
 package ext.toolbar {
-
-
 /**
  * A simple element that adds extra horizontal space between items in a toolbar. By default a 2px wide space is added via css specification:<pre><code>.x-toolbar .xtb-spacer {
  width:2px;
@@ -16,6 +14,10 @@ package ext.toolbar {
  ]
  });
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'tbspacer' / the EXML element &lt;tbspacer>.</p>
  * @see ext.config.tbspacer
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Toolbar.html#cls-Ext.Toolbar.Spacer Ext JS source

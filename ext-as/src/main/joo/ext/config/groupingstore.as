@@ -1,10 +1,12 @@
 package ext.config {
 
-
 /**
  * A specialized store implementation that provides for grouping records by one of the available fields. This is usually used in conjunction with an <a href="Ext.grid.GroupingView.html">Ext.grid.GroupingView</a> to provide the data model for a grouped GridPanel. Internally, GroupingStore is simply a normal Store with multi sorting enabled from the start. The grouping field and direction are always injected as the first sorter pair. GroupingView picks up on the configured groupField and builds grid rows appropriately.
- * <p>This class serves as a typed config object for constructor of class GroupingStore.</p>
  *
+ * <p>This class represents the xtype 'groupingstore' and serves as a
+ * typed config object for constructor of class GroupingStore.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.data.GroupingStore
  */
 [ExtConfig(target="ext.data.GroupingStore", xtype="groupingstore")]

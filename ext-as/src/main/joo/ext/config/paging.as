@@ -53,8 +53,11 @@ import ext.data.Store;
  ]
  }
  </code></pre><p><u>Paging with Local Data</u></p><p>Paging can also be accomplished with local data using extensions:</p><div class="mdetail-params"><ul><li><a href="http://extjs.com/forum/showthread.php?t=71532">Ext.ux.data.PagingStore</a></li><li>Paging Memory Proxy (examples/ux/PagingMemoryProxy.js)</li></ul></div>
- * <p>This class serves as a typed config object for constructor of class PagingToolbar.</p>
  *
+ * <p>This class represents the xtype 'paging' and serves as a
+ * typed config object for constructor of class PagingToolbar.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.PagingToolbar
  */
 [ExtConfig(target="ext.PagingToolbar", xtype="paging")]

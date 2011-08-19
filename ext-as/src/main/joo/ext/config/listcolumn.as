@@ -5,14 +5,18 @@ import joo.JavaScriptObject;
 /**
  * This class encapsulates column configuration data to be used in the initialization of a <a href="Ext.list.ListView.html">ListView</a>.
  <p>While subclasses are provided to render data in different ways, this class renders a passed data field unchanged and is usually used for textual columns.</p>
- * <p>This class serves as a typed config object for constructor of class Column.</p>
  *
+ * <p>This class represents the xtype 'listcolumn' and serves as a
+ * typed config object for constructor of class Column.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.list.Column
  */
 [ExtConfig(target="ext.list.Column", xtype="listcolumn")]
 public class listcolumn extends JavaScriptObject {
 
   public function listcolumn(config:Object = null) {
+
     super(config);
   }
 

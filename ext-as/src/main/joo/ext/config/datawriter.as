@@ -52,14 +52,18 @@ import joo.JavaScriptObject;
  // Push the button!
  store.save();
  </code></pre>
- * <p>This class serves as a typed config object for constructor of class DataWriter.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class DataWriter.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.data.DataWriter
  */
 [ExtConfig(target="ext.data.DataWriter")]
 public class datawriter extends JavaScriptObject {
 
   public function datawriter(config:Object = null) {
+
     super(config);
   }
 

@@ -1,5 +1,4 @@
 package ext {
-
 import ext.config.cycle;
 import ext.menu.CheckItem;
 import ext.menu.Menu;
@@ -41,6 +40,10 @@ import ext.menu.Menu;
  }
  });
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'cycle' / the EXML element &lt;cycle>.</p>
  * @see ext.config.cycle
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CycleButton.html#cls-Ext.CycleButton Ext JS source

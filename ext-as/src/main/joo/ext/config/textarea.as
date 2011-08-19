@@ -3,8 +3,11 @@ package ext.config {
 
 /**
  * Multiline text field. Can be used as a direct replacement for traditional textarea fields, plus adds support for auto-sizing.
- * <p>This class serves as a typed config object for constructor of class TextArea.</p>
  *
+ * <p>This class represents the xtype 'textarea' and serves as a
+ * typed config object for constructor of class TextArea.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.form.TextArea
  */
 [ExtConfig(target="ext.form.TextArea", xtype="textarea")]

@@ -36,8 +36,11 @@ package ext.config {
  success: false,
  errorMessage: "Consignment reference not found"
  }</code></pre><p>Other data may be placed into the response for processing the <a href="Ext.form.BasicForm.html">Form</a>'s callback or event handler methods. The object decoded from this JSON is available in the <a href="output/Ext.form.Action.html#Ext.form.Action-result">result</a> property.</p>
- * <p>This class serves as a typed config object for constructor of class Load.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class Load.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.form.action.Load
  */
 [ExtConfig(target="ext.form.action.Load")]

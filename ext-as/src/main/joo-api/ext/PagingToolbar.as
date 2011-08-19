@@ -1,5 +1,4 @@
 package ext {
-
 import ext.config.paging;
 import ext.data.Store;
 
@@ -93,6 +92,10 @@ import ext.data.Store;
  ]
  }
  </code></pre><p><u>Paging with Local Data</u></p><p>Paging can also be accomplished with local data using extensions:</p><div class="mdetail-params"><ul><li><a href="http://extjs.com/forum/showthread.php?t=71532">Ext.ux.data.PagingStore</a></li><li>Paging Memory Proxy (examples/ux/PagingMemoryProxy.js)</li></ul></div>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'paging' / the EXML element &lt;paging>.</p>
  * @see ext.config.paging
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PagingToolbar.html#cls-Ext.PagingToolbar Ext JS source

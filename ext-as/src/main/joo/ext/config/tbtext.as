@@ -8,8 +8,11 @@ package ext.config {
  ]
  });
  </code></pre>
- * <p>This class serves as a typed config object for constructor of class TextItem.</p>
  *
+ * <p>This class represents the xtype 'tbtext' and serves as a
+ * typed config object for constructor of class TextItem.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.toolbar.TextItem
  */
 [ExtConfig(target="ext.toolbar.TextItem", xtype="tbtext")]

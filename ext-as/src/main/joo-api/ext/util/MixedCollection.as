@@ -1,6 +1,4 @@
 package ext.util {
-
-
 /**
  * Fires when an item is added to the collection.
  * Listeners will be called with the following arguments:
@@ -82,6 +80,10 @@ package ext.util {
 
 /**
  * A Collection class that maintains both numeric indexes and keys and exposes events.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.mixedcollection
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MixedCollection.html#cls-Ext.util.MixedCollection Ext JS source
  */
@@ -144,7 +146,7 @@ public class MixedCollection extends Observable {
    * Creates a shallow copy of this collection
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MixedCollection.html#method-Ext.util.MixedCollection-clone Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MixedCollection.html#method-Ext.util.MixedCollection-clone Ext JS source
    */
   public native function clone():MixedCollection;
 

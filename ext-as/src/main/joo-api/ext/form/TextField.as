@@ -1,5 +1,4 @@
 package ext.form {
-
 import ext.config.textfield;
 
 /**
@@ -82,6 +81,10 @@ import ext.config.textfield;
 /**
  * Basic text field. Can be used as a direct replacement for traditional text inputs, or as the base class for more sophisticated input controls (like <a href="Ext.form.TextArea.html">Ext.form.TextArea</a> and <a href="Ext.form.ComboBox.html">Ext.form.ComboBox</a>).
  <p style="font-weight: bold"><u>Validation</u></p><p>The validation procedure is described in the documentation for <a href="output/Ext.form.TextField.html#Ext.form.TextField-validateValue">validateValue</a>.</p><p style="font-weight: bold"><u>Alter Validation Behavior</u></p><p>Validation behavior for each field can be configured:</p><div class="mdetail-params"><ul><li><code><a href="output/Ext.form.TextField.html#Ext.form.TextField-invalidText">invalidText</a></code> : the default validation message to show if any validation step above does not provide a message when invalid</li><li><code><a href="output/Ext.form.TextField.html#Ext.form.TextField-maskRe">maskRe</a></code> : filter out keystrokes before any validation occurs</li><li><code><a href="output/Ext.form.TextField.html#Ext.form.TextField-stripCharsRe">stripCharsRe</a></code> : filter characters after being typed in, but before being validated</li><li><code><a href="output/Ext.form.Field.html#Ext.form.Field-invalidClass">invalidClass</a></code> : alternate style when invalid</li><li><code><a href="output/Ext.form.Field.html#Ext.form.Field-validateOnBlur">validateOnBlur</a></code>, <code><a href="output/Ext.form.Field.html#Ext.form.Field-validationDelay">validationDelay</a></code>, and <code><a href="output/Ext.form.Field.html#Ext.form.Field-validationEvent">validationEvent</a></code> : modify how/when validation is triggered</li></ul></div>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'textfield' / the EXML element &lt;textfield>.</p>
  * @see ext.config.textfield
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TextField.html#cls-Ext.form.TextField Ext JS source

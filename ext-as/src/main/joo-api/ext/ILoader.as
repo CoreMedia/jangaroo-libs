@@ -3,6 +3,10 @@ package ext {
 
 /**
  *
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This interface defines the type of the singleton Loader.</p>
  * @see ext.#Loader ext.Loader
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Loader.html#cls-Ext.Loader Ext JS source

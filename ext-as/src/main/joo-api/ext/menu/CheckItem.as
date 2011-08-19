@@ -1,5 +1,4 @@
 package ext.menu {
-
 import ext.config.menucheckitem;
 
 /**
@@ -43,6 +42,10 @@ import ext.config.menucheckitem;
 
 /**
  * Adds a menu item that contains a checkbox by default, but can also be part of a radio group.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'menucheckitem' / the EXML element &lt;menucheckitem>.</p>
  * @see ext.config.menucheckitem
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CheckItem.html#cls-Ext.menu.CheckItem Ext JS source

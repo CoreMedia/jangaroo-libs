@@ -24,8 +24,11 @@ package ext.config {
  }]
  });
  </code></pre>
- * <p>This class serves as a typed config object for constructor of class AnchorLayout.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class AnchorLayout.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.layout.AnchorLayout
  */
 [ExtConfig(target="ext.layout.AnchorLayout", type="anchor")]

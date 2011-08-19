@@ -1,5 +1,4 @@
 package ext.data {
-
 import ext.util.Observable;
 
 /**
@@ -232,6 +231,10 @@ import ext.util.Observable;
 
 /**
  * Represents a tree data structure and bubbles all the events for its nodes. The nodes in the tree have most standard DOM functionality.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.tree
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#cls-Ext.data.Tree Ext JS source
  */
@@ -269,7 +272,7 @@ public class Tree extends Observable {
    *
    * @param id
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Tree-getNodeById Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Tree-getNodeById Ext JS source
    */
   public native function getNodeById(id:String):Node;
 
@@ -277,7 +280,7 @@ public class Tree extends Observable {
    * Returns the root node for this tree.
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Tree-getRootNode Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Tree-getRootNode Ext JS source
    */
   public native function getRootNode():Node;
 
@@ -286,7 +289,7 @@ public class Tree extends Observable {
    *
    * @param node
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Tree-setRootNode Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Tree-setRootNode Ext JS source
    */
   public native function setRootNode(node:Node):Node;
 

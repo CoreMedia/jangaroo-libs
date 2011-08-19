@@ -1,8 +1,10 @@
 package ext.dd {
-
-
 /**
  * A DragDrop implementation that does not move, but can be a drop target. You would get the same result by simply omitting implementation for the event callbacks, but this way we reduce the processing cost of the event listener and the callbacks.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#cls-Ext.dd.DDTarget Ext JS source
  */
 public class DDTarget extends DragDrop {

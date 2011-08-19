@@ -1,5 +1,4 @@
 package ext.tree {
-
 import ext.IEventObject;
 import ext.util.Observable;
 
@@ -25,6 +24,10 @@ import ext.util.Observable;
 
 /**
  * Multi selection for a TreePanel.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.multiselectionmodel
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeSelectionModel.html#cls-Ext.tree.MultiSelectionModel Ext JS source
  */
@@ -50,7 +53,7 @@ public class MultiSelectionModel extends Observable {
    * Returns an array of the selected nodes
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeSelectionModel.html#method-Ext.tree.MultiSelectionModel-getSelectedNodes Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeSelectionModel.html#method-Ext.tree.MultiSelectionModel-getSelectedNodes Ext JS source
    */
   public native function getSelectedNodes():Array;
 
@@ -59,7 +62,7 @@ public class MultiSelectionModel extends Observable {
    *
    * @param node The node to check
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeSelectionModel.html#method-Ext.tree.MultiSelectionModel-isSelected Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeSelectionModel.html#method-Ext.tree.MultiSelectionModel-isSelected Ext JS source
    */
   public native function isSelected(node:TreeNode):Boolean;
 

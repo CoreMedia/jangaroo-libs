@@ -3,6 +3,10 @@ package ext.util {
 
 /**
  * Reusable data formatting functions.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This interface defines the type of the singleton Format.</p>
  * @see ext.util.#Format ext.util.Format
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Format.html#cls-Ext.util.Format Ext JS source
@@ -43,7 +47,7 @@ public interface IFormat {
    * @param value Reference to check
    * @param defaultValue The value to insert of it's undefined (defaults to "")
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Format.html#method-Ext.util.Format-defaultValue Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Format.html#method-Ext.util.Format-defaultValue Ext JS source
    */
   function defaultValue(value:*, defaultValue:String):String;
 

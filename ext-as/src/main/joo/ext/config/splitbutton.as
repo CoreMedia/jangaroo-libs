@@ -1,6 +1,5 @@
 package ext.config {
 
-
 /**
  * A split button that provides a built-in dropdown arrow that can fire an event separately from the default click event of the button. Typically this would be used to display a dropdown menu that provides additional options to the primary button action, but any custom handler can provide the arrowclick implementation. Example usage: <pre><code>// display a dropdown menu:
  new Ext.SplitButton({
@@ -25,8 +24,11 @@ package ext.config {
  arrowHandler: myCustomHandler
  });
  </code></pre>
- * <p>This class serves as a typed config object for constructor of class SplitButton.</p>
  *
+ * <p>This class represents the xtype 'splitbutton' and serves as a
+ * typed config object for constructor of class SplitButton.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.SplitButton
  */
 [ExtConfig(target="ext.SplitButton", xtype="splitbutton")]

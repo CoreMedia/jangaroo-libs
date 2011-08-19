@@ -5,6 +5,10 @@ import ext.config.template;
 /**
  * Represents an HTML fragment template. Templates may be <a href="output/Ext.Template.html#Ext.Template-compile">precompiled</a> for greater performance.
  <p>For example usage <a href="output/Ext.Template.html#Ext.Template-Template">see the constructor</a>.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.template
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Template-more.html#cls-Ext.Template Ext JS source
  */

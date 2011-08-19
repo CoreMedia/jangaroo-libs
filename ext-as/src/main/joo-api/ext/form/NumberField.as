@@ -1,9 +1,12 @@
 package ext.form {
-
 import ext.config.numberfield;
 
 /**
  * Numeric text field that provides automatic keystroke filtering and numeric validation.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'numberfield' / the EXML element &lt;numberfield>.</p>
  * @see ext.config.numberfield
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/NumberField.html#cls-Ext.form.NumberField Ext JS source
@@ -55,6 +58,12 @@ public class NumberField extends TextField {
    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get decimalSeparator():String;
+
+  /**
+   The default CSS class for the field (defaults to "x-form-field x-form-num-field")
+   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
+   */
+  override public native function get fieldClass():String;
 
   /**
    Error text to display if the maximum value validation fails (defaults to "The maximum value for this field is {maxValue}")

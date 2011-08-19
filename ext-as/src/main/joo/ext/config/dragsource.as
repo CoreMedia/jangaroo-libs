@@ -4,14 +4,18 @@ import joo.JavaScriptObject;
 
 /**
  * A simple class that provides the basic implementation needed to make any element draggable.
- * <p>This class serves as a typed config object for constructor of class DragSource.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class DragSource.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.dd.DragSource
  */
 [ExtConfig(target="ext.dd.DragSource")]
 public class dragsource extends JavaScriptObject {
 
   public function dragsource(config:Object = null) {
+
     super(config);
   }
 

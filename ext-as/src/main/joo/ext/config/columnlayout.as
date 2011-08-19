@@ -37,8 +37,11 @@ package ext.config {
  }]
  });
  </code></pre>
- * <p>This class serves as a typed config object for constructor of class ColumnLayout.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class ColumnLayout.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.layout.ColumnLayout
  */
 [ExtConfig(target="ext.layout.ColumnLayout", type="column")]

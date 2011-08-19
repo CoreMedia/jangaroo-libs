@@ -31,8 +31,11 @@ import ext.data.DataReader;
  &lt;/errors&gt;
  &lt;/message&gt;
  </code></pre><p>Other elements may be placed into the response XML for processing by the <a href="Ext.form.BasicForm.html">Ext.form.BasicForm</a>'s callback or event handler methods. The XML document is available in the <a href="output/Ext.form.Action.Submit.html#Ext.form.Action.Submit-errorReader">errorReader</a>'s <a href="output/Ext.data.XmlReader.html#Ext.data.XmlReader-xmlData">xmlData</a> property.</p>
- * <p>This class serves as a typed config object for constructor of class Submit.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class Submit.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.form.action.Submit
  */
 [ExtConfig(target="ext.form.action.Submit")]

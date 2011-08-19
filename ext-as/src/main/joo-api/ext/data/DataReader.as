@@ -1,8 +1,10 @@
 package ext.data {
-
-
 /**
  * Abstract base class for reading structured data from a data source and converting it into an object containing <a href="Ext.data.Record.html">Ext.data.Record</a> objects and metadata for use by an <a href="Ext.data.Store.html">Ext.data.Store</a>. This class is intended to be extended and should not be created directly. For existing implementations, see <a href="Ext.data.ArrayReader.html">Ext.data.ArrayReader</a>, <a href="Ext.data.JsonReader.html">Ext.data.JsonReader</a> and <a href="Ext.data.XmlReader.html">Ext.data.XmlReader</a>.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.datareader
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataReader.html#cls-Ext.data.DataReader Ext JS source
  */
@@ -107,7 +109,7 @@ public class DataReader {
    *
    * @param data
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataReader.html#method-Ext.data.DataReader-isData Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataReader.html#method-Ext.data.DataReader-isData Ext JS source
    */
   public native function isData(data:Object):Boolean;
 

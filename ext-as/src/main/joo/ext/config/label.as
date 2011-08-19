@@ -3,8 +3,11 @@ package ext.config {
 
 /**
  * Basic Label field.
- * <p>This class serves as a typed config object for constructor of class Label.</p>
  *
+ * <p>This class represents the xtype 'label' and serves as a
+ * typed config object for constructor of class Label.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.form.Label
  */
 [ExtConfig(target="ext.form.Label", xtype="label")]

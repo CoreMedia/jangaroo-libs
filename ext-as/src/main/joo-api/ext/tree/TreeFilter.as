@@ -3,6 +3,10 @@ package ext.tree {
 
 /**
  * Note this class is experimental and doesn't update the indent (lines) or expand collapse icons of the nodes
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeFilter.html#cls-Ext.tree.TreeFilter Ext JS source
  */
 public class TreeFilter {

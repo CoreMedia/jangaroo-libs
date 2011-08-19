@@ -12,6 +12,9 @@ package ext.dd {
  };
  Ext.dd.ScrollManager.register(el);
  </code></pre><b>Note: This class uses "Point Mode" and is untested in "Intersect Mode".</b>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
  * @see ext.dd.IScrollManager
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ScrollManager.html#cls-Ext.dd.ScrollManager Ext JS source
  */

@@ -6,14 +6,18 @@ import joo.JavaScriptObject;
 
 /**
  * A simple Request class used internally to the data package to provide more generalized remote-requests to a DataProxy. TODO Not yet implemented. Implement in Ext.data.Store#execute
- * <p>This class serves as a typed config object for constructor of class Request.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class Request.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.data.Request
  */
 [ExtConfig(target="ext.data.Request")]
 public class request extends JavaScriptObject {
 
   public function request(config:Object = null) {
+
     super(config);
   }
 

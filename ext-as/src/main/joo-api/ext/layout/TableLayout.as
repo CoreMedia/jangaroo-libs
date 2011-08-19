@@ -1,6 +1,4 @@
 package ext.layout {
-
-
 /**
  * This layout allows you to easily render content into an HTML table. The total number of columns can be specified, and rowspan and colspan can be used to create complex layouts within the table. This class is intended to be extended or created via the layout:'table' <a href="output/Ext.Container.html#Ext.Container-layout">Ext.Container.layout</a> config, and should generally not need to be created directly via the new keyword.
  <p>Note that when creating a layout via config, the layout-specific config properties must be passed in via the <a href="output/Ext.Container.html#Ext.Container-layoutConfig">Ext.Container.layoutConfig</a> object which will then be applied internally to the layout. In the case of TableLayout, the only valid layout config property is <a href="output/Ext.layout.TableLayout.html#Ext.layout.TableLayout-columns">columns</a>. However, the items added to a TableLayout can supply the following table-specific config properties:</p><ul><li><b>rowspan</b> Applied to the table cell containing the item.</li><li><b>colspan</b> Applied to the table cell containing the item.</li><li><b>cellId</b> An id applied to the table cell containing the item.</li><li><b>cellCls</b> A CSS class name added to the table cell containing the item.</li></ul><p>The basic concept of building up a TableLayout is conceptually very similar to building up a standard HTML table. You simply add each panel (or "cell") that you want to include along with any span attributes specified as the special config properties of rowspan and colspan which work exactly like their HTML counterparts. Rather than explicitly creating and nesting rows and columns as you would in HTML, you simply specify the total column count in the layoutConfig and start adding panels in their natural order from left to right, top to bottom. The layout will automatically figure out, based on the column count, rowspans and colspans, how to position each panel within the table. Just like with HTML tables, your rowspans and colspans must add up correctly in your overall layout or you'll end up with missing and/or extra cells! Example usage:</p><pre><code>// This code will generate a layout table that is 3 columns by 2 rows
@@ -35,6 +33,10 @@ package ext.layout {
  }]
  });
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.tablelayout
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TableLayout.html#cls-Ext.layout.TableLayout Ext JS source
  */

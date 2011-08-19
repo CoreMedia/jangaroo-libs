@@ -6,8 +6,11 @@ package ext.config {
  trigger.onTriggerClick = myTriggerFn;
  trigger.applyToMarkup('my-field');
  </code></pre>However, in general you will most likely want to use TriggerField as the base class for a reusable component. <a href="Ext.form.DateField.html">Ext.form.DateField</a> and <a href="Ext.form.ComboBox.html">Ext.form.ComboBox</a> are perfect examples of this.
- * <p>This class serves as a typed config object for constructor of class TriggerField.</p>
  *
+ * <p>This class represents the xtype 'trigger' and serves as a
+ * typed config object for constructor of class TriggerField.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.form.TriggerField
  */
 [ExtConfig(target="ext.form.TriggerField", xtype="trigger")]

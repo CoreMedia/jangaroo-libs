@@ -1,5 +1,4 @@
 package ext.form {
-
 import ext.Panel;
 import ext.config.form;
 
@@ -26,6 +25,10 @@ import ext.config.form;
 /**
  * Standard form container.
  <p style="font-weight: bold"><u>Layout</u></p><p>By default, FormPanel is configured with <tt>layout:'form'</tt> to use an <a href="Ext.layout.FormLayout.html">Ext.layout.FormLayout</a> layout manager, which styles and renders fields and labels correctly. When nesting additional Containers within a FormPanel, you should ensure that any descendant Containers which host input Fields use the <a href="Ext.layout.FormLayout.html">Ext.layout.FormLayout</a> layout manager.</p><p style="font-weight: bold"><u>BasicForm</u></p><p>Although <b>not listed</b> as configuration options of FormPanel, the FormPanel class accepts all of the config options required to configure its internal <a href="Ext.form.BasicForm.html">Ext.form.BasicForm</a> for:</p><div class="mdetail-params"><ul><li><a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-fileUpload">file uploads</a></li><li>functionality for <a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-doAction">loading, validating and submitting</a> the form</li></ul></div><p><b>Note</b>: If subclassing FormPanel, any configuration options for the BasicForm must be applied to the <tt><b>initialConfig</b></tt> property of the FormPanel. Applying <a href="Ext.form.BasicForm.html">BasicForm</a> configuration settings to <b><tt>this</tt></b> will <b>not</b> affect the BasicForm's configuration.</p><p style="font-weight: bold"><u>Form Validation</u></p><p>For information on form validation see the following:</p><div class="mdetail-params"><ul><li><a href="Ext.form.TextField.html">Ext.form.TextField</a></li><li><a href="Ext.form.VTypes.html">Ext.form.VTypes</a></li><li><a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-doAction">BasicForm.doAction <b>clientValidation</b> notes</a></li><li><tt><a href="output/Ext.form.FormPanel.html#Ext.form.FormPanel-monitorValid">monitorValid</a></tt></li></ul></div><p style="font-weight: bold"><u>Form Submission</u></p><p>By default, Ext Forms are submitted through Ajax, using <a href="Ext.form.Action.html">Ext.form.Action</a>. To enable normal browser submission of the <a href="Ext.form.BasicForm.html">BasicForm</a> contained in this FormPanel, see the <tt><b><a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-standardSubmit">standardSubmit</a></b></tt> option.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'form' / the EXML element &lt;form>.</p>
  * @see ext.config.form
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Form.html#cls-Ext.form.FormPanel Ext JS source

@@ -1,11 +1,14 @@
 package ext {
-
 import ext.config.tooltip;
 
 import js.Element;
 
 /**
  * A standard tooltip implementation for providing additional information when hovering over a target element.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'tooltip' / the EXML element &lt;tooltip>.</p>
  * @see ext.config.tooltip
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ToolTip.html#cls-Ext.ToolTip Ext JS source
@@ -117,7 +120,7 @@ public class ToolTip extends Tip {
    * Hides this tooltip if visible.
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ToolTip.html#method-Ext.ToolTip-hide Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ToolTip.html#method-Ext.ToolTip-hide Ext JS source
    */
   override public native function hide():Component;
 
@@ -133,7 +136,7 @@ public class ToolTip extends Tip {
    * Shows this tooltip at the current event target XY position.
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ToolTip.html#method-Ext.ToolTip-show Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ToolTip.html#method-Ext.ToolTip-show Ext JS source
    */
   override public native function show():Component;
 

@@ -5,8 +5,11 @@ import ext.data.DataReader;
 /**
  * Encapsulates the DOM &lt;form&gt; element at the heart of the <a href="Ext.form.FormPanel.html">FormPanel</a> class, and provides input field management, validation, submission, and form loading services.
  <p>By default, Ext Forms are submitted through Ajax, using an instance of <a href="Ext.form.Action.Submit.html">Ext.form.Action.Submit</a>. To enable normal browser submission of an Ext Form, use the <a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-standardSubmit">standardSubmit</a> config option.</p><p style="font-weight: bold"><u>File Uploads</u></p><p><a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-fileUpload">File uploads</a> are not performed using Ajax submission, that is they are <b>not</b> performed using XMLHttpRequests. Instead the form is submitted in the standard manner with the DOM <tt>&lt;form&gt;</tt> element temporarily modified to have its <a href="http://www.w3.org/TR/REC-html40/present/frames.html#adef-target">target</a> set to refer to a dynamically generated, hidden <tt>&lt;iframe&gt;</tt> which is inserted into the document but removed after the return data has been gathered.</p><p>The server response is parsed by the browser to create the document for the IFRAME. If the server is using JSON to send the return object, then the <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</a> header must be set to "text/html" in order to tell the browser to insert the text unchanged into the document body.</p><p>Characters which are significant to an HTML parser must be sent as HTML entities, so encode "&lt;" as "&amp;lt;", "&amp;" as "&amp;amp;" etc.</p><p>The response text is retrieved from the document, and a fake XMLHttpRequest object is created containing a <tt>responseText</tt> property in order to conform to the requirements of event handlers and callbacks.</p><p>Be aware that file upload packets are sent with the content type <a href="http://www.faqs.org/rfcs/rfc2388.html">multipart/form</a> and some server technologies (notably JEE) may require some custom processing in order to retrieve parameter names and parameter values from the packet content.</p>
- * <p>This class serves as a typed config object for constructor of class BasicForm.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class BasicForm.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.form.BasicForm
  */
 [ExtConfig(target="ext.form.BasicForm")]

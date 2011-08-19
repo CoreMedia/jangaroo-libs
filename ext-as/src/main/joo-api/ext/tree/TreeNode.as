@@ -1,5 +1,4 @@
 package ext.tree {
-
 import ext.data.Node;
 
 /**
@@ -252,6 +251,10 @@ import ext.data.Node;
 
 /**
  *
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.treenode
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeNode.html#cls-Ext.tree.TreeNode Ext JS source
  */
@@ -490,7 +493,7 @@ public class TreeNode extends Node {
    * Returns true if this node is expanded
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeNode.html#method-Ext.tree.TreeNode-isExpanded Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeNode.html#method-Ext.tree.TreeNode-isExpanded Ext JS source
    */
   public native function isExpanded():Boolean;
 
@@ -498,7 +501,7 @@ public class TreeNode extends Node {
    * Returns true if this node is selected
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeNode.html#method-Ext.tree.TreeNode-isSelected Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeNode.html#method-Ext.tree.TreeNode-isSelected Ext JS source
    */
   public native function isSelected():Boolean;
 

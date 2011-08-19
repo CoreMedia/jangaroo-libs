@@ -1,5 +1,4 @@
 package ext.grid {
-
 import ext.Element;
 import ext.Template;
 
@@ -15,6 +14,10 @@ import js.HTMLElement;
  }
  });
  </code></pre><p>Currently <a href="output/Ext.grid.PivotGridView.html#Ext.grid.PivotGridView-title">title</a> and <a href="output/Ext.grid.PivotGridView.html#Ext.grid.PivotGridView-getCellCls">getCellCls</a> are the only configuration options accepted by PivotGridView. All other interaction is performed via the <a href="Ext.grid.PivotGrid.html">PivotGrid</a> class.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.pivotgridview
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotGridView.html#cls-Ext.grid.PivotGridView Ext JS source
  */
@@ -86,7 +89,7 @@ public class PivotGridView extends GridView {
    * @param onlyExpand NOT USED, will be removed in 4.0
    * @param omitColumn The index of a column to leave at its current width. Defaults to undefined
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotGridView.html#method-Ext.grid.PivotGridView-fitColumns Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotGridView.html#method-Ext.grid.PivotGridView-fitColumns Ext JS source
    */
   override public native function fitColumns(preventRefresh:Boolean, onlyExpand:*, omitColumn:Number):Boolean;
 
@@ -125,7 +128,7 @@ public class PivotGridView extends GridView {
    *
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotGridView.html#method-Ext.grid.PivotGridView-getGridInnerWidth Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotGridView.html#method-Ext.grid.PivotGridView-getGridInnerWidth Ext JS source
    */
   override public native function getGridInnerWidth():Number;
 
@@ -226,7 +229,7 @@ public class PivotGridView extends GridView {
    *
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotGridView.html#method-Ext.grid.PivotGridView-renderHeaders Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotGridView.html#method-Ext.grid.PivotGridView-renderHeaders Ext JS source
    */
   override public native function renderHeaders():String;
 

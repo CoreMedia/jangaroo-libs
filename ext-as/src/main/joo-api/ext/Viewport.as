@@ -1,5 +1,4 @@
 package ext {
-
 import ext.config.viewport;
 
 /**
@@ -46,6 +45,10 @@ import ext.config.viewport;
  }]
  });
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'viewport' / the EXML element &lt;viewport>.</p>
  * @see ext.config.viewport
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Viewport.html#cls-Ext.Viewport Ext JS source

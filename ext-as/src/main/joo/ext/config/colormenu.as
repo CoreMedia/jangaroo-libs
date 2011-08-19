@@ -4,8 +4,11 @@ package ext.config {
 /**
  * A menu containing a <a href="Ext.ColorPalette.html">Ext.ColorPalette</a> Component.
  <p>Notes:</p><div class="mdetail-params"><ul><li>Although not listed here, the <b>constructor</b> for this class accepts all of the configuration options of <b><a href="Ext.ColorPalette.html">Ext.ColorPalette</a></b>.</li><li>If subclassing ColorMenu, any configuration options for the ColorPalette must be applied to the <tt><b>initialConfig</b></tt> property of the ColorMenu. Applying <a href="Ext.ColorPalette.html">ColorPalette</a> configuration settings to <b><tt>this</tt></b> will <b>not</b> affect the ColorPalette's configuration.</li></ul></div>&#42;
- * <p>This class serves as a typed config object for constructor of class ColorMenu.</p>
  *
+ * <p>This class represents the xtype 'colormenu' and serves as a
+ * typed config object for constructor of class ColorMenu.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.menu.ColorMenu
  */
 [ExtConfig(target="ext.menu.ColorMenu", xtype="colormenu")]

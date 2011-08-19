@@ -1,6 +1,5 @@
 package ext.config {
 
-
 /**
  * A specialized SplitButton that contains a menu of <a href="Ext.menu.CheckItem.html">Ext.menu.CheckItem</a> elements. The button automatically cycles through each menu item on click, raising the button's <a href="output/Ext.CycleButton.html#Ext.CycleButton-change">change</a> event (or calling the button's <a href="output/Ext.CycleButton.html#Ext.CycleButton-changeHandler">changeHandler</a> function, if supplied) for the active menu item. Clicking on the arrow section of the button displays the dropdown menu just like a normal SplitButton. Example usage: <pre><code>var btn = new Ext.CycleButton({
  showText: true,
@@ -18,8 +17,11 @@ package ext.config {
  }
  });
  </code></pre>
- * <p>This class serves as a typed config object for constructor of class CycleButton.</p>
  *
+ * <p>This class represents the xtype 'cycle' and serves as a
+ * typed config object for constructor of class CycleButton.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.CycleButton
  */
 [ExtConfig(target="ext.CycleButton", xtype="cycle")]

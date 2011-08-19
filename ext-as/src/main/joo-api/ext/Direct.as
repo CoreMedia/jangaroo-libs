@@ -11,6 +11,9 @@ package ext {
  out.el.scrollTo('t', 100000, true);
  });
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
  * @see ext.DirectClass
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Direct.html#cls-Ext.Direct Ext JS source
  */

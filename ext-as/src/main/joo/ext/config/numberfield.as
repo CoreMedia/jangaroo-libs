@@ -3,8 +3,11 @@ package ext.config {
 
 /**
  * Numeric text field that provides automatic keystroke filtering and numeric validation.
- * <p>This class serves as a typed config object for constructor of class NumberField.</p>
  *
+ * <p>This class represents the xtype 'numberfield' and serves as a
+ * typed config object for constructor of class NumberField.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.form.NumberField
  */
 [ExtConfig(target="ext.form.NumberField", xtype="numberfield")]

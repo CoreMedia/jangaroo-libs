@@ -10,8 +10,11 @@ package ext.config {
  split.animate = true;
  split.on('moved', splitterMoved);
  </code></pre>
- * <p>This class serves as a typed config object for constructor of class SplitBar.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class SplitBar.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.SplitBar
  */
 [ExtConfig(target="ext.SplitBar")]

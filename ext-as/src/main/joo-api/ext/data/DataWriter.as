@@ -1,6 +1,4 @@
 package ext.data {
-
-
 /**
  * Ext.data.DataWriter facilitates create, update, and destroy actions between an Ext.data.Store and a server-side framework. A Writer enabled Store will automatically manage the Ajax requests to perform CRUD actions on a Store.
  <p>Ext.data.DataWriter is an abstract base class which is intended to be extended and should not be created directly. For existing implementations, see <a href="Ext.data.JsonWriter.html">Ext.data.JsonWriter</a>.</p><p>Creating a writer is simple:</p><pre><code>var writer = new Ext.data.JsonWriter({
@@ -51,6 +49,10 @@ package ext.data {
  // Push the button!
  store.save();
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.datawriter
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataWriter.html#cls-Ext.data.DataWriter Ext JS source
  */
@@ -115,7 +117,7 @@ public class DataWriter {
    * @param rec The Record from which to create a hash.
    * @param config <b>NOT YET IMPLEMENTED</b>. Will implement an exclude/only configuration for fine-control over which fields do/don't get rendered.
    * @return
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataWriter.html#method-Ext.data.DataWriter-toHash Ext JS source
+          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataWriter.html#method-Ext.data.DataWriter-toHash Ext JS source
    */
   protected native function toHash(rec:Record, config:Object):Object;
 

@@ -1,5 +1,4 @@
 package ext.form {
-
 import ext.Container;
 import ext.Element;
 import ext.util.MixedCollection;
@@ -32,6 +31,10 @@ import ext.util.MixedCollection;
  items: [...]
  }
  </pre>Any Ext.form.&#42; component can be placed inside a composite field.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.compositefield
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CompositeField.html#cls-Ext.form.CompositeField Ext JS source
  */

@@ -1,5 +1,4 @@
 package ext.util {
-
 import ext.config.clickrepeater;
 
 /**
@@ -62,6 +61,10 @@ import ext.config.clickrepeater;
 
 /**
  * A wrapper class which can be applied to any element. Fires a "click" event while the mouse is pressed. The interval between firings may be specified in the config but defaults to 20 milliseconds. Optionally, a CSS class may be applied to the element during the time it is pressed.
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.clickrepeater
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ClickRepeater.html#cls-Ext.util.ClickRepeater Ext JS source
  */

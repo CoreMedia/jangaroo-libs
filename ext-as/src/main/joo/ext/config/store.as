@@ -37,8 +37,11 @@ import ext.data.DataWriter;
  var r = new myStore.recordType(defaultData, ++recId); // create new record
  myStore.<a href="output/Ext.data.Store.html#Ext.data.Store-insert">insert</a>(0, r); // insert a new record into the store (also see <a href="output/Ext.data.Store.html#Ext.data.Store-add">add</a>)
  </code></pre><p><u>Writing Data</u></p><p>And <b>new in Ext version 3</b>, use the new <a href="Ext.data.DataWriter.html">DataWriter</a> to create an automated, <a href="http://extjs.com/deploy/dev/examples/writer/writer.html">Writable Store</a> along with <a href="http://extjs.com/deploy/dev/examples/restful/restful.html">RESTful features.</a></p>
- * <p>This class serves as a typed config object for constructor of class Store.</p>
  *
+ * <p>This class represents the xtype 'store' and serves as a
+ * typed config object for constructor of class Store.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.data.Store
  */
 [ExtConfig(target="ext.data.Store", xtype="store")]

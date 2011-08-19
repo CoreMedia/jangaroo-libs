@@ -1,5 +1,4 @@
 package ext.layout.boxoverflow {
-
 import ext.Button;
 import ext.Component;
 import ext.Container;
@@ -9,6 +8,10 @@ import ext.menu.Menu;
 
 /**
  * Description
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'boxoverflowmenu' / the EXML element &lt;boxoverflowmenu>.</p>
  * @see ext.config.boxoverflowmenu
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MenuOverflow.html#cls-Ext.layout.boxOverflow.Menu Ext JS source

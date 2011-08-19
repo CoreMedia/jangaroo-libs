@@ -3,8 +3,11 @@ package ext.config {
 
 /**
  * The base class that other non-interacting Toolbar Item classes should extend in order to get some basic common toolbar item functionality.
- * <p>This class serves as a typed config object for constructor of class Item.</p>
  *
+ * <p>This class represents the xtype 'tbitem' and serves as a
+ * typed config object for constructor of class Item.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.toolbar.Item
  */
 [ExtConfig(target="ext.toolbar.Item", xtype="tbitem")]

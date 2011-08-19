@@ -29,8 +29,11 @@ package ext.config {
  items: [...]
  }
  </pre>Any Ext.form.&#42; component can be placed inside a composite field.
- * <p>This class serves as a typed config object for constructor of class CompositeField.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class CompositeField.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.form.CompositeField
  */
 [ExtConfig(target="ext.form.CompositeField")]

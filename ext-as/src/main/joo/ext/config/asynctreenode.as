@@ -4,8 +4,11 @@ import ext.tree.TreeLoader;
 
 /**
  *
- * <p>This class serves as a typed config object for constructor of class AsyncTreeNode.</p>
  *
+ * <p>This class serves as a
+ * typed config object for constructor of class AsyncTreeNode.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.tree.AsyncTreeNode
  */
 [ExtConfig(target="ext.tree.AsyncTreeNode")]

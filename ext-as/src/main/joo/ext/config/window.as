@@ -5,8 +5,11 @@ import ext.WindowGroup;
 /**
  * A specialized panel intended for use as an application window. Windows are floated, <a href="output/Ext.Window.html#Ext.Window-resizable">resizable</a>, and <a href="output/Ext.Window.html#Ext.Window-draggable">draggable</a> by default. Windows can be <a href="output/Ext.Window.html#Ext.Window-maximizable">maximized</a> to fill the viewport, restored to their prior size, and can be <a href="output/Ext.Window.html#Ext.Window-minimize">minimize</a>d.
  <p>Windows can also be linked to a <a href="Ext.WindowGroup.html">Ext.WindowGroup</a> or managed by the <a href="Ext.WindowMgr.html">Ext.WindowMgr</a> to provide grouping, activation, to front, to back and other application-specific behavior.</p><p>By default, Windows will be rendered to document.body. To <a href="output/Ext.Window.html#Ext.Window-constrain">constrain</a> a Window to another element specify <a href="output/Ext.Component.html#Ext.Component-renderTo">renderTo</a>.</p><p><b>Note:</b> By default, the <code><a href="output/Ext.Window.html#Ext.Window-closable">close</a></code> header tool <i>destroys</i> the Window resulting in destruction of any child Components. This makes the Window object, and all its descendants <b>unusable</b>. To enable re-use of a Window, use <b><code><a href="output/Ext.Window.html#Ext.Window-closeAction">closeAction: 'hide'</a></code></b>.</p>
- * <p>This class serves as a typed config object for constructor of class Window.</p>
  *
+ * <p>This class represents the xtype 'window' and serves as a
+ * typed config object for constructor of class Window.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.Window
  */
 [ExtConfig(target="ext.Window", xtype="window")]

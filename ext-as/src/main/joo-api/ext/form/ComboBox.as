@@ -1,5 +1,4 @@
 package ext.form {
-
 import ext.DataView;
 import ext.KeyNav;
 import ext.config.combo;
@@ -148,6 +147,10 @@ import ext.data.Store;
  ...
  ]);
  </code></pre><br/><br/> <p style="font-weight: bold"><u>Filtering</u></p><p>A ComboBox <a href="output/Ext.form.ComboBox.html#Ext.form.ComboBox-doQuery">uses filtering itself</a>, for information about filtering the ComboBox store manually see <tt><a href="output/Ext.form.ComboBox.html#Ext.form.ComboBox-lastQuery">lastQuery</a></tt>.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * <p>This component is created by the xtype 'combo' / the EXML element &lt;combo>.</p>
  * @see ext.config.combo
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Combo.html#cls-Ext.form.ComboBox Ext JS source

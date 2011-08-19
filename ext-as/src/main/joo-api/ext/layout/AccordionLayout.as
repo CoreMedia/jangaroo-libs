@@ -1,6 +1,4 @@
 package ext.layout {
-
-
 /**
  * This is a layout that manages multiple Panels in an expandable accordion style such that only <b>one Panel can be expanded at any given time</b>. Each Panel has built-in support for expanding and collapsing.
  <p>Note: Only Ext.Panels <b>and all subclasses of Ext.Panel</b> may be used in an accordion layout Container.</p><p>This class is intended to be extended or created via the <tt><b><a href="output/Ext.Container.html#Ext.Container-layout">layout</a></b></tt> configuration property. See <tt><b><a href="output/Ext.Container.html#Ext.Container-layout">Ext.Container.layout</a></b></tt> for additional details.</p><p>Example usage:</p><pre><code>var accordion = new Ext.Panel({
@@ -28,6 +26,10 @@ package ext.layout {
  }]
  });
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
  * @see ext.config.accordionlayout
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/AccordionLayout.html#cls-Ext.layout.AccordionLayout Ext JS source
  */

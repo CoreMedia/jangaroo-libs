@@ -58,6 +58,9 @@ package ext {
  //... use template like normal
  </code></pre><br/><br/> <p style="font-weight: bold"><u>Performance Boost</u></p><p>DomHelper will transparently create HTML fragments when it can. Using HTML fragments instead of DOM can significantly boost performance.</p><p>Element creation specification parameters may also be strings. If <a href="output/Ext.DomHelper.html#Ext.DomHelper-useDom">useDom</a> is <tt>false</tt>, then the string is used as innerHTML. If <a href="output/Ext.DomHelper.html#Ext.DomHelper-useDom">useDom</a> is <tt>true</tt>, a string specification results in the creation of a text node. Usage:</p><pre><code>Ext.DomHelper.useDom = true; // force it to use DOM; reduces performance
  </code></pre>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
  * @see ext.IDomHelper
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DomHelper-more.html#cls-Ext.DomHelper Ext JS source
  */
