@@ -3,7 +3,7 @@
   <parent>
     <artifactId>jangaroo-libs-parent</artifactId>
     <groupId>net.jangaroo</groupId>
-    <version>0.8.10</version>
+    <version>0.8.11-SNAPSHOT</version>
     <relativePath>../jangaroo-libs-parent/pom.xml</relativePath>
   </parent>
   <modelVersion>4.0.0</modelVersion>
@@ -11,7 +11,7 @@
   <groupId>net.jangaroo</groupId>
   <artifactId>ext-core</artifactId>
   
-  <version>0.8.10</version>
+  <version>0.8.11-SNAPSHOT</version>
 
   <name>ext-core</name>
   <description>ext-core 3.1.0</description>
