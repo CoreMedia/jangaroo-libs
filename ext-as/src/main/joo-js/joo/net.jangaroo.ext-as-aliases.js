@@ -46,13 +46,13 @@ ext.Action.prototype.addComponent = Ext.Action.prototype.addComponent.createInte
   if (component.initialConfig !== this.initialConfig) {
     // Action has not been handed in as single constructor argument, thus initialConfig has not been reused:
     Ext.applyIf(component.initialConfig, this.initialConfig);
-    Ext.applyIf(component, this.initialConfig);
-    component.disabled = this.initialConfig.disabled; // special case: 'disabled' should always be determined by Action! 
+    // replay applying config over the component:
+    Ext.apply(component, component.initialConfig);
   }
 });
 // patch for Actions being copied when added to a Container:
 (function(ExtAction) {
-  var Action = ext.Action = function Action(config) {
+  ext.Action = function Action(config) {
     config.baseAction = this; // self-reference, so that button references me, not my copy!
     ExtAction.call(this, config);
   };
