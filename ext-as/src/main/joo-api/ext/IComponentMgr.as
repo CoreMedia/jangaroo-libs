@@ -1,6 +1,5 @@
 package ext {
 
-import ext.config.component;
 import ext.util.MixedCollection;
 
 /**
