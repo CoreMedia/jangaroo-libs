@@ -1,0 +1,39 @@
+package ext {
+
+import ext.util.Observable;
+
+/**
+ * The Router is used to map urls to <a href="Ext.Controller.html">controller</a>/action pairs. It can be used whenever an application wishes to provide history and deep linking support. Every <a href="Ext.Application.html">Ext.Application</a> can set up Routes using the default <a href="Ext.Router.html">Ext.Router</a> instance, supplying application-specific routes like this:
+ <pre><code>//Note the # in the url examples below
+ Ext.Router.draw(function(map) {
+ //maps the url http://mydomain.com/#dashboard to the home controller's index action
+ map.connect('dashboard', {controller: 'home', action: 'index'});
+
+ //fallback route - would match routes like http://mydomain.com/#users/list to the 'users' controller's
+ //'list' action
+ map.connect(':controller/:action');
+ });
+ </code></pre><p>The Router is concerned only with the segment of the url after the hash (#) character. This segment is parsed by the <a href="Ext.Dispatcher.html">Dispatcher</a> and passed to the Router's <a href="output/Ext.Router.html#Ext.Router-recognize">recognize</a> method. Most of the time you will not need to modify any of the behavior of the Router - it is all handled internally by the application architecture.</p>
+ *
+ * <p>Copyright &#169; 2011 Sencha Inc.</p>
+ *
+
+ * <p>This class defines the type of the singleton Router.</p>
+ * @see ext.#Router ext.Router
+ * @see ext.config.router
+ * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Router.html#cls-Ext.Router Ext JS source
+ */
+public class RouterClass extends Observable {
+
+  /**
+   * @private
+   *
+   * @see ext.config.router
+   */
+  public function RouterClass() {
+    super();
+  }
+
+}
+}
+    

@@ -23,6 +23,9 @@
     <module>ext-js</module>
     <module>ext-as</module>
 
+    <module>sencha-touch</module>
+    <module>sencha-touch-as</module>
+
     <module>ckeditor</module>
 
     <module>soundmanager2</module>
