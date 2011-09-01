@@ -52,7 +52,7 @@ ext.Action.prototype.addComponent = Ext.Action.prototype.addComponent.createInte
 });
 // patch for Actions being copied when added to a Container:
 (function(ExtAction) {
-  ext.Action = function Action(config) {
+  var Action = ext.Action = function Action(config) {
     config.baseAction = this; // self-reference, so that button references me, not my copy!
     ExtAction.call(this, config);
   };
