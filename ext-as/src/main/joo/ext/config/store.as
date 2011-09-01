@@ -254,7 +254,17 @@ public class store extends observable {
    */
   public native function set writer(value:DataWriter):void;
 
+  /**
+   * An Array defining the datafields for the Records stored in this Store.
+   * @see ext.config.datafield
+   * @see ext.data.Record
+   */
+  public native function get fields():Array;
 
+  /**
+   * @private
+   */
+  public native function set fields(value:Array):void;
 }
 }
     
