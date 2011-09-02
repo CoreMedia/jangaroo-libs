@@ -1,5 +1,6 @@
 package ext {
 
+import ext.config.button;
 import ext.form.Number;
 
 /**
@@ -129,8 +130,8 @@ public class Button extends Component {
    * @see ext.config.button
    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Button.html#method-Ext.Button-Button Ext JS source
    */
-  public function Button() {
-    super(null);
+  public function Button(config:button = null) {
+    super(config);
   }
 
   /**
