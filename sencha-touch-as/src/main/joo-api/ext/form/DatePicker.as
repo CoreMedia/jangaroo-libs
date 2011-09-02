@@ -62,7 +62,7 @@ public class DatePicker extends Field {
    Default value for the field and the internal <a href="Ext.DatePicker.html">Ext.DatePicker</a> component. Accepts an object of 'year', 'month' and 'day' values, all of which should be numbers, or a <a href="Date.html">Date</a>. Example: {year: 1989, day: 1, month: 5} = 1st May 1989 or new Date()
    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
-  override public native function get value():*;
+  public native function get value():*;
 
   /**
    * Get an instance of the internal date picker; will create a new instance if not exist.
