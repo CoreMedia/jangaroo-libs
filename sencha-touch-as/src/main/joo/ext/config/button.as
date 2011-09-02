@@ -82,7 +82,7 @@ import ext.form.Number;
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.Button
  */
-[ExtConfig(target="ext.Button")]
+[ExtConfig(target="ext.Button", xtype="button")]
 public class button extends component {
 
   public function button(config:Object = null) {
