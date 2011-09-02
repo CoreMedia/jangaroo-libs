@@ -1,5 +1,7 @@
 package ext.layout {
 
+import ext.config.boxlayout;
+
 
 /**
  * Base Class for HBoxLayout and VBoxLayout Classes. Generally it should not need to be used directly.
@@ -18,8 +20,8 @@ public class BoxLayout extends ContainerLayout {
    *
    * @see ext.config.boxlayout
    */
-  public function BoxLayout() {
-    super();
+  public function BoxLayout(config:boxlayout = null) {
+    super(config);
   }
 
   /**

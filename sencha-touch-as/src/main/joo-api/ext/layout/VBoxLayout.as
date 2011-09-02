@@ -1,5 +1,7 @@
 package ext.layout {
 
+import ext.config.vboxlayout;
+
 
 /**
  * A layout that arranges items vertically down a Container. This layout optionally divides available vertical space between child items containing a numeric <code>flex</code> configuration. The flex option is a ratio that distributes height after any items with explicit heights have been accounted for. In the code below, the height is calculated as follows:
@@ -36,8 +38,8 @@ public class VBoxLayout extends BoxLayout {
    *
    * @see ext.config.vboxlayout
    */
-  public function VBoxLayout() {
-    super();
+  public function VBoxLayout(config:vboxlayout = null) {
+    super(config);
   }
 
   /**

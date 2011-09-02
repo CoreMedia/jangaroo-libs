@@ -11,7 +11,7 @@ package ext.config {
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.layout.BoxLayout
  */
-[ExtConfig(target="ext.layout.BoxLayout")]
+[ExtConfig(target="ext.layout.BoxLayout", type="box")]
 public class boxlayout extends containerlayout {
 
   public function boxlayout(config:Object = null) {

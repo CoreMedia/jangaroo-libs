@@ -21,7 +21,7 @@ package ext.config {
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.layout.CardLayout
  */
-[ExtConfig(target="ext.layout.CardLayout")]
+[ExtConfig(target="ext.layout.CardLayout", type="card")]
 public class cardlayout extends fitlayout {
 
   public function cardlayout(config:Object = null) {

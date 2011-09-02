@@ -1,6 +1,7 @@
 package ext.layout {
 
 import ext.Element;
+import ext.config.containerlayout;
 
 /**
  * This class is intended to be extended or created via the <tt><b><a href="output/Ext.Container.html#Ext.Container-layout">layout</a></b></tt> configuration property. See <tt><b><a href="output/Ext.Container.html#Ext.Container-layout">Ext.Container.layout</a></b></tt> for additional details.
@@ -19,8 +20,8 @@ public class ContainerLayout extends Layout {
    *
    * @see ext.config.containerlayout
    */
-  public function ContainerLayout() {
-    super();
+  public function ContainerLayout(config:containerlayout = null) {
+    super(config);
   }
 
   /**

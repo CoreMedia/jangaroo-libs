@@ -29,7 +29,7 @@ package ext.config {
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.layout.VBoxLayout
  */
-[ExtConfig(target="ext.layout.VBoxLayout")]
+[ExtConfig(target="ext.layout.VBoxLayout", type="vbox")]
 public class vboxlayout extends boxlayout {
 
   public function vboxlayout(config:Object = null) {

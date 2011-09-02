@@ -1,5 +1,7 @@
 package ext.layout {
 
+import ext.config.hboxlayout;
+
 
 /**
  * A layout that arranges items horizontally across a Container. This layout optionally divides available horizontal space between child items containing a numeric <code>flex</code> configuration. The flex option is a ratio that distributes width after any items with explicit widths have been accounted for. In the code below, the width is calculated as follows:
@@ -36,8 +38,8 @@ public class HBoxLayout extends BoxLayout {
    *
    * @see ext.config.hboxlayout
    */
-  public function HBoxLayout() {
-    super();
+  public function HBoxLayout(config:hboxlayout = null) {
+    super(config);
   }
 
   /**

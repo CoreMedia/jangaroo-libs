@@ -1,5 +1,7 @@
 package ext.layout {
 
+import ext.config.cardlayout;
+
 
 /**
  * This layout manages multiple child Components, each is fit to the Container, where only a single child Component can be visible at any given time. This layout style is most commonly used for wizards, tab implementations, etc. This class is intended to be extended or created via the layout:'card' <a href="output/Ext.Container.html#Ext.Container-layout">Ext.Container.layout</a> config, and should generally not need to be created directly via the new keyword.
@@ -28,8 +30,8 @@ public class CardLayout extends FitLayout {
    *
    * @see ext.config.cardlayout
    */
-  public function CardLayout() {
-    super();
+  public function CardLayout(config:cardlayout = null) {
+    super(config);
   }
 
   /**

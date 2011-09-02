@@ -11,11 +11,10 @@ package ext.config {
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.layout.AutoContainerLayout
  */
-[ExtConfig(target="ext.layout.AutoContainerLayout")]
+[ExtConfig(target="ext.layout.AutoContainerLayout", type="autocontainer")]
 public class autocontainerlayout extends containerlayout {
 
   public function autocontainerlayout(config:Object = null) {
-
     super(config);
   }
 

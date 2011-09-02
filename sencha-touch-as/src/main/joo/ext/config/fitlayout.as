@@ -11,7 +11,7 @@ package ext.config {
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.layout.FitLayout
  */
-[ExtConfig(target="ext.layout.FitLayout")]
+[ExtConfig(target="ext.layout.FitLayout", type="fit")]
 public class fitlayout extends containerlayout {
 
   public function fitlayout(config:Object = null) {

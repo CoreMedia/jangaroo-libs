@@ -18,7 +18,7 @@ public class Layout {
    *
    *
    */
-  public function Layout() {
+  public function Layout(config:Object = null) {
     super();
   }
 
