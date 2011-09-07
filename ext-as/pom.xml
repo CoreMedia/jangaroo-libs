@@ -52,6 +52,9 @@
       </resource>
       <resource>
         <directory>src/main/joo-api</directory>
+        <excludes>
+          <exclude>ext/layout/boxoverflow/*.as</exclude>
+        </excludes>
         <targetPath>META-INF/joo-api</targetPath>
       </resource>
     </resources>
@@ -75,7 +78,6 @@
         <version>${jangaroo.version}</version>
         <extensions>true</extensions>
         <configuration>
-          <xsd>ext3.xsd</xsd>
           <configClassPackage>ext.config</configClassPackage>
         </configuration>
       </plugin>
