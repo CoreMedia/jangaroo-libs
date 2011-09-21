@@ -103,7 +103,7 @@ import ext.Action;
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.Component
  */
-[ExtConfig(target="ext.Component")]
+[ExtConfig(target="ext.Component", xtype="component")]
 public class component extends observable {
 
   public function component(config:Object = null) {
