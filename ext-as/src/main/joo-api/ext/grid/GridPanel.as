@@ -1063,12 +1063,6 @@ public class GridPanel extends Panel {
   public native function get selModel():Object;
 
   /**
-   Shorthand for <tt><a href="output/Ext.grid.GridPanel.html#Ext.grid.GridPanel-selModel">selModel</a></tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
-   */
-  public native function get sm():Object;
-
-  /**
    <tt>true</tt> to stripe the rows. Default is <tt>false</tt>. <p>This causes the CSS class <tt><b>x-grid3-row-alt</b></tt> to be added to alternate rows of the grid. A default CSS rule is provided which sets a background colour, but you can override this with a rule which either overrides the <b>background-color</b> style using the '!important' modifier, or which uses a CSS selector of higher specificity.</p>
    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
