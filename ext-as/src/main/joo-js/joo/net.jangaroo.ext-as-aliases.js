@@ -97,12 +97,16 @@ joo.getOrCreatePackage("joo.meta").ExtConfig = (function(){
 
         var targetClass = joo.classLoader.getRequiredClassDeclaration(targetClassName);
         if (targetClass.addStateListener) { // is it a non-native Jangaroo class? Ext JS standard componentes are already registered!
-          REGISTRATION_BY_TYPE[typeAttribute](typeName, targetClass.publicConstructor);
-
-          targetClass.addStateListener(joo.JooClassDeclaration.STATE_EVENT_AFTER_INIT_MEMBERS, function() {
-            // re-register the now created "real" constructor:
+          if (targetClass.state >= 4) { // TODO: workaround for JooClassDeclaration#addStateListener() bug; revert when fixed!
             REGISTRATION_BY_TYPE[typeAttribute](typeName, targetClass.constructor_);
-          });
+          } else {
+            REGISTRATION_BY_TYPE[typeAttribute](typeName, targetClass.publicConstructor);
+
+            targetClass.addStateListener(joo.JooClassDeclaration.STATE_EVENT_AFTER_INIT_MEMBERS, function() {
+              // re-register the now created "real" constructor:
+              REGISTRATION_BY_TYPE[typeAttribute](typeName, targetClass.constructor_);
+            });
+          }
         }
       });
     }
