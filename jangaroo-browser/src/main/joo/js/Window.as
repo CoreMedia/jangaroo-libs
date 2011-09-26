@@ -2,6 +2,10 @@ package js{
 
 public dynamic class Window {
 
+  public static const INSTANCE : Window = window;
+
+
+
   public native function get top() : Window;
 
 
