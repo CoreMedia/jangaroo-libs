@@ -45,7 +45,7 @@ package ext.config {
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.grid.ActionColumn
  */
-[ExtConfig(target="ext.grid.ActionColumn")]
+[ExtConfig(target="ext.grid.ActionColumn", xtype="actioncolumn")]
 public class actioncolumn extends gridcolumn {
 
   public function actioncolumn(config:Object = null) {

@@ -2,26 +2,26 @@ package ext.config {
 
 
 /**
- * A Column definition class which renders boolean data fields. See the <a href="output/Ext.grid.Column.html#Ext.grid.Column-xtype">xtype</a> config option of <a href="Ext.grid.Column.html">Ext.grid.Column</a> for more details.
+ * A Column definition class which renders boolean data fields. See the <a href="output/Ext.list.Column.html#Ext.list.Column-xtype">xtype</a> config option of <a href="Ext.list.Column.html">Ext.list.Column</a> for more details.
 
  *
- * <p>This class represents the xtype 'booleancolumn' and serves as a
+ * <p>This class represents the xtype 'lvbooleancolumn' and serves as a
  * typed config object for constructor of class BooleanColumn.</p>
  *
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
- * @see ext.grid.BooleanColumn
+ * @see ext.list.BooleanColumn
  */
-[ExtConfig(target="ext.grid.BooleanColumn", xtype="booleancolumn")]
-public class booleancolumn extends gridcolumn {
+[ExtConfig(target="ext.list.BooleanColumn", xtype="lvbooleancolumn")]
+public class lvbooleancolumn extends lvcolumn {
 
-  public function booleancolumn(config:Object = null) {
+  public function lvbooleancolumn(config:Object = null) {
 
     super(config);
   }
 
 
   /**
-   The string returned by the renderer when the column value is falsy (but not undefined) (defaults to <tt>'false'</tt>).
+   The string returned by the renderer when the column value is falsey (but not undefined) (defaults to <tt>'false'</tt>).
    */
   public native function get falseText():String;
 
@@ -31,7 +31,7 @@ public class booleancolumn extends gridcolumn {
   public native function set falseText(value:String):void;
 
   /**
-   The string returned by the renderer when the column value is not falsy (defaults to <tt>'true'</tt>).
+   The string returned by the renderer when the column value is not falsey (defaults to <tt>'true'</tt>).
    */
   public native function get trueText():String;
 

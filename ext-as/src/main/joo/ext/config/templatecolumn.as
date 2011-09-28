@@ -10,7 +10,7 @@ package ext.config {
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.grid.TemplateColumn
  */
-[ExtConfig(target="ext.grid.TemplateColumn")]
+[ExtConfig(target="ext.grid.TemplateColumn", xtype="templatecolumn")]
 public class templatecolumn extends gridcolumn {
 
   public function templatecolumn(config:Object = null) {

@@ -1,5 +1,6 @@
 package ext.list {
-import ext.config.listcolumn;
+
+import ext.config.lvcolumn;
 
 /**
  * This class encapsulates column configuration data to be used in the initialization of a <a href="Ext.list.ListView.html">ListView</a>.
@@ -8,9 +9,9 @@ import ext.config.listcolumn;
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  *
 
- * <p>This component is created by the xtype 'listcolumn' / the EXML element &lt;listcolumn>.</p>
- * @see ext.config.listcolumn
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Column.html#cls-Ext.list.Column Ext JS source
+ * <p>This component is created by the xtype 'lvcolumn' / the EXML element &lt;lvcolumn>.</p>
+ * @see ext.config.lvcolumn
+ * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Column1.html#cls-Ext.list.Column Ext JS source
  */
 public class Column {
 
@@ -18,9 +19,9 @@ public class Column {
    * Create a new Column.
    *
    * @param config The config object
-   * @see ext.config.listcolumn
+   * @see ext.config.lvcolumn
    */
-  public function Column(config:listcolumn = null) {
+  public function Column(config:lvcolumn = null) {
     super();
   }
 

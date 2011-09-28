@@ -1,6 +1,6 @@
 package ext.list {
 
-import ext.config.booleancolumn;
+import ext.config.lvbooleancolumn;
 
 /**
  * A Column definition class which renders boolean data fields. See the <a href="output/Ext.list.Column.html#Ext.list.Column-xtype">xtype</a> config option of <a href="Ext.list.Column.html">Ext.list.Column</a> for more details.
@@ -9,18 +9,20 @@ import ext.config.booleancolumn;
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  *
 
- * @see ext.config.booleancolumn
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Column.html#cls-Ext.list.BooleanColumn Ext JS source
+ * <p>This component is created by the xtype 'lvbooleancolumn' / the EXML element &lt;lvbooleancolumn>.</p>
+ * @see ext.config.lvbooleancolumn
+ * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Column1.html#cls-Ext.list.BooleanColumn Ext JS source
  */
 public class BooleanColumn extends Column {
 
   /**
+   * Create a new BooleanColumn.
    *
-   *
-   * @see ext.config.booleancolumn
+   * @param config The config object
+   * @see ext.config.lvbooleancolumn
    */
-  public function BooleanColumn(config:booleancolumn) {
-    super(null);
+  public function BooleanColumn(config:lvbooleancolumn = null) {
+    super(config);
   }
 
   /**

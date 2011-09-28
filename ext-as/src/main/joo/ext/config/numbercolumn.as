@@ -2,17 +2,17 @@ package ext.config {
 
 
 /**
- * A Column definition class which renders a numeric data field according to a <a href="output/Ext.list.NumberColumn.html#Ext.list.NumberColumn-format">format</a> string. See the <a href="output/Ext.list.Column.html#Ext.list.Column-xtype">xtype</a> config option of <a href="Ext.list.Column.html">Ext.list.Column</a> for more details.
+ * A Column definition class which renders a numeric data field according to a <a href="output/Ext.grid.NumberColumn.html#Ext.grid.NumberColumn-format">format</a> string. See the <a href="output/Ext.grid.Column.html#Ext.grid.Column-xtype">xtype</a> config option of <a href="Ext.grid.Column.html">Ext.grid.Column</a> for more details.
 
  *
- * <p>This class serves as a
+ * <p>This class represents the xtype 'numbercolumn' and serves as a
  * typed config object for constructor of class NumberColumn.</p>
  *
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
- * @see ext.list.NumberColumn
+ * @see ext.grid.NumberColumn
  */
-[ExtConfig(target="ext.list.NumberColumn")]
-public class numbercolumn extends listcolumn {
+[ExtConfig(target="ext.grid.NumberColumn", xtype="numbercolumn")]
+public class numbercolumn extends gridcolumn {
 
   public function numbercolumn(config:Object = null) {
 

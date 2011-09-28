@@ -1,5 +1,6 @@
 package ext.grid {
 
+import ext.config.actioncolumn;
 
 /**
  * A Grid column type which renders an icon, or a series of icons in a grid cell, and offers a scoped click handler for each icon. Example usage:
@@ -43,18 +44,20 @@ package ext.grid {
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  *
 
+ * <p>This component is created by the xtype 'actioncolumn' / the EXML element &lt;actioncolumn>.</p>
  * @see ext.config.actioncolumn
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Column.html#cls-Ext.grid.ActionColumn Ext JS source
  */
 public class ActionColumn extends Column {
 
   /**
+   * Create a new ActionColumn.
    *
-   *
+   * @param config The config object
    * @see ext.config.actioncolumn
    */
-  public function ActionColumn() {
-    super(null);
+  public function ActionColumn(config:actioncolumn = null) {
+    super(config);
   }
 
   /**
