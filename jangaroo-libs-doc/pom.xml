@@ -216,12 +216,12 @@
       <type>jangaroo</type>
     </dependency>
 
-    <!--dependency>
+    <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>joounit</artifactId>
       <version>${project.version}</version>
       <type>jangaroo</type>
-    </dependency-->
+    </dependency>
 
   </dependencies>
 
