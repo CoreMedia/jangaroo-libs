@@ -84,6 +84,9 @@ joo.getOrCreatePackage("joo.meta").ExtConfig = (function(){
     ptype: ext.ComponentMgr.registerPlugin,
     type:  function(layoutName, targetClass) {
       ext.Container.LAYOUTS[layoutName] = targetClass;
+    },
+    gctype: function(gridColumnName, targetClass) {
+      ext.grid.Column.types[gridColumnName] = targetClass;
     }
   };
 
@@ -106,18 +109,23 @@ joo.getOrCreatePackage("joo.meta").ExtConfig = (function(){
       classDeclaration.addStateListener(joo.JooClassDeclaration.STATE_EVENT_AFTER_INIT_MEMBERS, function() {
         // config class is now initialized:
         var typeName = parameters[typeAttribute] || classDeclaration.fullClassName;
+        var extTypeAttribute = typeAttribute == 'gctype' ? 'xtype' : typeAttribute; // exceptional case: gridcolumns (gctype) also use 'xtype' as their type key!
         // add [x|p|]type attribute to prototype and as a static field of the config class:
-        classDeclaration.constructor_.prototype[typeAttribute] =
+        classDeclaration.constructor_.prototype[extTypeAttribute] =
           classDeclaration.constructor_[typeAttribute] = typeName;
 
         var targetClass = joo.classLoader.getRequiredClassDeclaration(targetClassName);
-        if (targetClass.addStateListener) { // is it a non-native Jangaroo class? Ext JS standard componentes are already registered!
+        // does the config class use the standard naming pattern?
+        // Componentes using custom types (like Ext JS standard components) have to take care of registering themselves!
+        if (!parameters[typeAttribute]) { 
           REGISTRATION_BY_TYPE[typeAttribute](typeName, targetClass.publicConstructor);
 
-          targetClass.addStateListener(joo.JooClassDeclaration.STATE_EVENT_AFTER_INIT_MEMBERS, function() {
-            // re-register the now created "real" constructor:
-            REGISTRATION_BY_TYPE[typeAttribute](typeName, targetClass.constructor_);
-          });
+          if (targetClass.addStateListener) { // is it a non-native Jangaroo class?
+            targetClass.addStateListener(joo.JooClassDeclaration.STATE_EVENT_AFTER_INIT_MEMBERS, function() {
+              // re-register the now created "real" constructor:
+              REGISTRATION_BY_TYPE[typeAttribute](typeName, targetClass.constructor_);
+            });
+          }
         }
       });
     }

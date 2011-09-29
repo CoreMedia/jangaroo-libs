@@ -11,7 +11,7 @@ package ext.config {
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.grid.DateColumn
  */
-[ExtConfig(target="ext.grid.DateColumn", xtype="datecolumn")]
+[ExtConfig(target="ext.grid.DateColumn", gctype="datecolumn")]
 public class datecolumn extends gridcolumn {
 
   public function datecolumn(config:Object = null) {

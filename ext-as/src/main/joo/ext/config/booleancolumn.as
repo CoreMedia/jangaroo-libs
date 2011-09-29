@@ -11,7 +11,7 @@ package ext.config {
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.grid.BooleanColumn
  */
-[ExtConfig(target="ext.grid.BooleanColumn", xtype="booleancolumn")]
+[ExtConfig(target="ext.grid.BooleanColumn", gctype="booleancolumn")]
 public class booleancolumn extends gridcolumn {
 
   public function booleancolumn(config:Object = null) {

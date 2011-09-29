@@ -11,7 +11,7 @@ package ext.config {
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.grid.NumberColumn
  */
-[ExtConfig(target="ext.grid.NumberColumn", xtype="numbercolumn")]
+[ExtConfig(target="ext.grid.NumberColumn", gctype="numbercolumn")]
 public class numbercolumn extends gridcolumn {
 
   public function numbercolumn(config:Object = null) {

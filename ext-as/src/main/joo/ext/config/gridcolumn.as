@@ -14,7 +14,7 @@ import joo.JavaScriptObject;
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.grid.Column
  */
-[ExtConfig(target="ext.grid.Column", xtype="gridcolumn")]
+[ExtConfig(target="ext.grid.Column", gctype="gridcolumn")]
 public class gridcolumn extends JavaScriptObject {
 
   public function gridcolumn(config:Object = null) {
