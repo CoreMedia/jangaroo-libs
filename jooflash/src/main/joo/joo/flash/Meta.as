@@ -47,6 +47,7 @@ public class Meta {
       }
     }
     if (EmbedClass) {
+      EmbedClass['$class'] = true; // so that 'member is Class' returns true!
       EmbedClass.prototype = new superClassDeclaration.Public();
       EmbedClass.toString = function():String {
         return relativeUrl;
