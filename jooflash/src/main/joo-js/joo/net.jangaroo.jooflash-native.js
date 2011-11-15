@@ -38,7 +38,7 @@ flash_utils.describeType = function(value) {
       };
     };
 flash_utils.getDefinitionByName = function(name) {
-  var clazz = joo.getQualifiedObject(name);
+  var clazz = joo.getQualifiedObject(name.replace("::","."));
   if (typeof clazz !== 'function') {
     throw new ReferenceError(name);
   }
