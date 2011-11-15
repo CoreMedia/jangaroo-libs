@@ -1,5 +1,4 @@
 package flash.events {
-
 /**
  * The application dispatches HTTPStatusEvent objects when a network request returns an HTTP status code.
  * <p>HTTPStatusEvent objects are always sent before error or completion events. An HTTPStatusEvent object does not necessarily indicate an error condition; it simply reflects the HTTP status code (if any) that is provided by the networking stack. Some Flash Player environments may be unable to detect HTTP status codes; a status code of 0 is always reported in these cases.</p>

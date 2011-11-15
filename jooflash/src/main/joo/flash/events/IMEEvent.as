@@ -1,7 +1,5 @@
 package flash.events {
-
-
-
+import flash.text.ime.IIMEClient;
 
 /**
  * An IMEEvent object is dispatched when the user enters text using an input method editor (IME). IMEs are generally used to enter text from languages that have ideographs instead of letters, such as Japanese, Chinese, and Korean. There are two IME events: <code>IMEEvent.IME_COMPOSITION</code> and <code>IMEEvent.IME_START_COMPOSITION</code>.
@@ -11,6 +9,16 @@ package flash.events {
  *
  */
 public class IMEEvent extends TextEvent {
+  /**
+   * Specifies an object that implements the IMEClient interface. Components based on the flash.text.engine package must implement this interface to support editing text inline using an IME.
+   */
+  public native function get imeClient():IIMEClient;
+
+  /**
+   * @private
+   */
+  public native function set imeClient(value:IIMEClient):void;
+
   /**
    * Creates an Event object with specific information relevant to IME events. Event objects are passed as parameters to event listeners.
    * @param type The type of the event. Event listeners can access this information through the inherited <code>type</code> property. There is only one IME event: <code>IMEEvent.IME_COMPOSITION</code>.
@@ -24,8 +32,9 @@ public class IMEEvent extends TextEvent {
    * @see #IME_START_COMPOSITION
    *
    */
-  public function IMEEvent(type:String, bubbles:Boolean = false, cancelable:Boolean = false, text:String = "", imeClient:Object/*flash.text.ime.IIMEClient*/ = null) {
+  public function IMEEvent(type:String, bubbles:Boolean = false, cancelable:Boolean = false, text:String = "", imeClient:IIMEClient = null) {
     super(type, bubbles, cancelable, text);
+    this.imeClient = imeClient;
   }
 
   /**
@@ -34,7 +43,7 @@ public class IMEEvent extends TextEvent {
    *
    */
   override public function clone():Event {
-    return new IMEEvent(type, bubbles, cancelable, text);
+    return new IMEEvent(type, bubbles, cancelable, text, imeClient);
   }
 
   /**
@@ -69,5 +78,26 @@ public class IMEEvent extends TextEvent {
    *
    */
   public static const IME_COMPOSITION:String = "imeComposition";
+  /**
+   * To handle IME text input, the receiver must set the <code>imeClient</code> field of the event to an object that implements the IIMEClient interface. If <code>imeClient</code> is unset, the runtime uses out-of-line IME composition instead, and sends the final composition as a TEXT_INPUT event.
+   * <p>This event has the following properties:</p>
+   * <table>
+   * <tr><th>Property</th><th>Value</th></tr>
+   * <tr>
+   * <td><code>bubbles</code></td>
+   * <td><code>false</code></td></tr>
+   * <tr>
+   * <td><code>cancelable</code></td>
+   * <td><code>false</code>; there is no default behavior to cancel.</td></tr>
+   * <tr>
+   * <td><code>currentTarget</code></td>
+   * <td>The object that is actively processing the Event object with an event listener.</td></tr>
+   * <tr>
+   * <td><code>target</code></td>
+   * <td>The IME object.</td></tr></table>
+   * @see flash.system.IME#event:imeComposition
+   *
+   */
+  public static const IME_START_COMPOSITION:String = "imeStartComposition";
 }
 }

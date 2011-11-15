@@ -1,5 +1,4 @@
 package flash.utils {
-
 import flash.events.EventDispatcher;
 import flash.events.TimerEvent;
 

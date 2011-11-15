@@ -11,12 +11,36 @@ package flash.system {
  */
 public final class System {
   /**
+   * The amount of memory (in bytes) that is allocated to Adobe<sup>®</sup> Flash<sup>®</sup> Player or Adobe<sup>®</sup> AIR<sup>®</sup> and that is not in use. This unused portion of allocated memory (<code>System.totalMemory</code>) fluctuates as garbage collection takes place. Use this property to monitor garbage collection.
+   * @see #privateMemory
+   * @see #totalMemory
+   * @see #totalMemoryNumber
+   *
+   */
+  public static function get freeMemory():Number {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
    * The currently installed system IME. To register for imeComposition events, call <code>addEventListener()</code> on this instance.
    * @see IMEConversionMode
    * @see http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118a9b90204-7cd6.html Using the System class
    *
    */
   public static function get ime():IME {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * The entire amount of memory (in bytes) used by an application. This is the amount of resident private memory for the entire process.
+   * <p>AIR developers should use this property to determine the entire memory consumption of an application.</p>
+   * <p>For Flash Player, this includes the memory used by the container application, such as the web browser.</p>
+   * @see #freeMemory
+   * @see #totalMemory
+   * @see #totalMemoryNumber
+   *
+   */
+  public static function get privateMemory():Number {
     throw new Error('not implemented'); // TODO: implement!
   }
 
@@ -32,6 +56,19 @@ public final class System {
    */
   public static function get totalMemory():uint {
     return 1000000; // TODO: implement!
+  }
+
+  /**
+   * The amount of memory (in bytes) currently in use that has been directly allocated by Flash Player or AIR.
+   * <p>This property is expressed as a Number, which allows higher values than the <code>System.totalMemory</code> property, which is of type int.</p>
+   * <p>This property does not return <i>all</i> memory used by an Adobe AIR application or by the application (such as a browser) containing Flash Player content. The browser or operating system may consume other memory. The <code>System.privateMemory</code> property reflects <i>all</i> memory used by an application.</p>
+   * @see #freeMemory
+   * @see #privateMemory
+   * @see #totalMemory
+   *
+   */
+  public static function get totalMemoryNumber():Number {
+    throw new Error('not implemented'); // TODO: implement!
   }
 
   /**
@@ -55,6 +92,15 @@ public final class System {
    * @private
    */
   public static function set useCodePage(value:Boolean):void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * Makes the specified XML object immediately available for garbage collection. This method will remove parent and child connections between all the nodes for the specified XML node.
+   * @param node XML reference that should be made available for garbage collection.
+   *
+   */
+  public static function disposeXML(node:XML):void {
     throw new Error('not implemented'); // TODO: implement!
   }
 

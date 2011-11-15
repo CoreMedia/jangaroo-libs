@@ -1,4 +1,5 @@
 package flash.display {
+import flash.events.UncaughtErrorEvents;
 import flash.net.URLRequest;
 import flash.system.LoaderContext;
 import flash.utils.ByteArray;
@@ -86,6 +87,61 @@ public class Loader extends DisplayObjectContainer {
   public native function get contentLoaderInfo():LoaderInfo;
 
   /**
+   * An object that dispatches an <code>uncaughtError</code> event when an unhandled error occurs in the SWF that's loaded by this Loader object. An uncaught error happens when an error is thrown outside of any <code>try..catch</code> blocks or when an ErrorEvent object is dispatched with no registered listeners.
+   * <p>Note that a Loader object's <code>uncaughtErrorEvents</code> property dispatches events that bubble through it, not events that it dispatches directly. It never dispatches an <code>uncaughtErrorEvent</code> in the target phase. It only dispatches the event in the capture and bubbling phases. To detect an uncaught error in the current SWF (the SWF in which the Loader object is defined) use the <code>LoaderInfo.uncaughtErrorEvents</code> property instead.</p>
+   * <p>If the content loaded by the Loader object is an AVM1 (ActionScript 2) SWF file, uncaught errors in the AVM1 SWF file do not result in an <code>uncaughtError</code> event.</p>
+   * @see flash.events.UncaughtErrorEvent
+   * @see LoaderInfo#uncaughtErrorEvents
+   *
+   * @example The following example demonstrates the use of an uncaught error event handler to detect uncaught errors in a loaded SWF. The example defines an <code>uncaughtError</code> event handler to detect uncaught errors.
+   * <p>In the constructor, the code creates a Loader object and registers a listener for the <code>uncaughtError</code> event dispatched by the Loader object's <code>uncaughtErrorEvents</code> property.</p>
+   * <p>In the <code>uncaughtErrorHandler()</code> method, the code checks the data type of the <code>error</code> property and responds accordingly.</p>
+   * <listing>
+   * package
+   * {
+   *     import flash.display.Loader;
+   *     import flash.display.Sprite;
+   *     import flash.events.ErrorEvent;
+   *     import flash.events.UncaughtErrorEvent;
+   *     import flash.net.URLRequest;
+   *
+   *     public class LoaderUncaughtErrorEventExample extends Sprite
+   *     {
+   *         private var ldr:Loader;
+   *
+   *         public function LoaderUncaughtErrorEventExample()
+   *         {
+   *             ldr = new Loader();
+   *             ldr.load(new URLRequest("child.swf"));
+   *             ldr.uncaughtErrorEvents.addEventListener(UncaughtErrorEvent.UNCAUGHT_ERROR, uncaughtErrorHandler);
+   *         }
+   *
+   *         private function uncaughtErrorHandler(event:UncaughtErrorEvent):void
+   *         {
+   *             if (event.error is Error)
+   *             {
+   *                 var error:Error = event.error as Error;
+   *                 // do something with the error
+   *             }
+   *             else if (event.error is ErrorEvent)
+   *             {
+   *                 var errorEvent:ErrorEvent = event.error as ErrorEvent;
+   *                 // do something with the error
+   *             }
+   *             else
+   *             {
+   *                 // a non-Error, non-ErrorEvent type was thrown and uncaught
+   *             }
+   *         }
+   *     }
+   * }
+   * </listing>
+   */
+  public function get uncaughtErrorEvents():UncaughtErrorEvents {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
    * Creates a Loader object that you can use to load files, such as SWF, JPEG, GIF, or PNG files. Call the <code>load()</code> method to load the asset as a child of the Loader instance. You can then add the Loader object to the display list (for instance, by using the <code>addChild()</code> method of a DisplayObjectContainer instance). The asset appears on the Stage as it loads.
    * <p>You can also use a Loader instance "offlist," that is without adding it to a display object container on the display list. In this mode, the Loader instance might be used to load a SWF file that contains additional modules of an application.</p>
    * <p>To detect when the SWF file is finished loading, you can use the events of the LoaderInfo object associated with the <code>contentLoaderInfo</code> property of the Loader object. At that point, the code in the module SWF file can be executed to initialize and start the module. In the offlist mode, a Loader instance might also be used to load a SWF file that contains components or media assets. Again, you can use the LoaderInfo object event notifications to detect when the components are finished loading. At that point, the application can start using the components and media assets in the library of the SWF file by instantiating the ActionScript 3.0 classes that represent those components and assets.</p>
@@ -131,11 +187,16 @@ public class Loader extends DisplayObjectContainer {
    * <ul>
    * <li>Whether or not to check for the existence of a policy file upon loading the object</li>
    * <li>The ApplicationDomain for the loaded object</li>
-   * <li>The SecurityDomain for the loaded object</li></ul>
+   * <li>The SecurityDomain for the loaded object</li>
+   * <li>The ImageDecodingPolicy for the loaded image object</li></ul>
    * <p>If the <code>context</code> parameter is not specified or refers to a null object, the loaded content remains in its own security domain.</p>
    * <p>For complete details, see the description of the properties in the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/system/LoaderContext.html">LoaderContext</a> class.</p>
    * Events
    * <table>
+   * <tr>
+   * <td><code><b>asyncError</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/AsyncErrorEvent.html"><code>AsyncErrorEvent</code></a></code> — Dispatched by the <code>contentLoaderInfo</code> object if the <code>LoaderContext.requestedContentParent</code> property has been specified and it is not possible to add the loaded content as a child to the specified DisplayObjectContainer. This could happen if the loaded content is a <code>flash.display.AVM1Movie</code> or if the <code>addChild()</code> call to the requestedContentParent throws an error.</td></tr>
+   * <tr>
+   * <td> </td></tr>
    * <tr>
    * <td><code><b>complete</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/Event.html"><code>Event</code></a></code> — Dispatched by the <code>contentLoaderInfo</code> object when the file has completed loading. The <code>complete</code> event is always dispatched after the <code>init</code> event.</td></tr>
    * <tr>
@@ -165,6 +226,10 @@ public class Loader extends DisplayObjectContainer {
    * <tr>
    * <td> </td></tr>
    * <tr>
+   * <td><code><b>securityError</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/SecurityErrorEvent.html"><code>SecurityErrorEvent</code></a></code> — Dispatched by the <code>contentLoaderInfo</code> object if the <code>LoaderContext.requestedContentParent</code> property has been specified and the security sandbox of the <code>LoaderContext.requestedContentParent</code> does not have access to the loaded SWF.</td></tr>
+   * <tr>
+   * <td> </td></tr>
+   * <tr>
    * <td><code><b>unload</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/Event.html"><code>Event</code></a></code> — Dispatched by the <code>contentLoaderInfo</code> object when a loaded object is removed.</td></tr></table>
    * @throws flash.errors.IOError The <code>digest</code> property of the <code>request</code> object is not <code>null</code>. You should only set the <code>digest</code> property of a URLRequest object when calling the <code>URLLoader.load()</code> method when loading a SWZ file (an Adobe platform component).
    * @throws SecurityError The value of <code>LoaderContext.securityDomain</code> must be either <code>null</code> or <code>SecurityDomain.currentDomain</code>. This reflects the fact that you can only place the loaded media in its natural security sandbox or your own (the latter requires a policy file).
@@ -172,6 +237,8 @@ public class Loader extends DisplayObjectContainer {
    * @throws SecurityError You cannot connect to commonly reserved ports. For a complete list of blocked ports, see "Restricting Networking APIs" in the <i>ActionScript 3.0 Developer's Guide</i>.
    * @throws SecurityError If the <code>applicationDomain</code> or <code>securityDomain</code> properties of the <code>context</code> parameter are from a disallowed domain.
    * @throws SecurityError If a local SWF file is attempting to use the <code>securityDomain</code> property of the <code>context</code> parameter.
+   * @throws flash.errors.IllegalOperationError If the <code>requestedContentParent</code> property of the <code>context</code> parameter is a <code>Loader</code>.
+   * @throws flash.errors.IllegalOperationError If the <code>LoaderContext.parameters</code> parameter is set to non-null and has some values which are not Strings.
    *
    * @see #contentLoaderInfo
    * @see flash.net.URLRequest
@@ -199,6 +266,10 @@ public class Loader extends DisplayObjectContainer {
    * Events
    * <table>
    * <tr>
+   * <td><code><b>asyncError</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/AsyncErrorEvent.html"><code>AsyncErrorEvent</code></a></code> — Dispatched by the <code>contentLoaderInfo</code> object if the <code>LoaderContext.requestedContentParent</code> property has been specified and it is not possible to add the loaded content as a child to the specified DisplayObjectContainer. This could happen if the loaded content is a <code>flash.display.AVM1Movie</code> or if the <code>addChild()</code> call to the requestedContentParent throws an error.</td></tr>
+   * <tr>
+   * <td> </td></tr>
+   * <tr>
    * <td><code><b>complete</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/Event.html"><code>Event</code></a></code> — Dispatched by the <code>contentLoaderInfo</code> object when the operation is complete. The <code>complete</code> event is always dispatched after the <code>init</code> event.</td></tr>
    * <tr>
    * <td> </td></tr>
@@ -219,9 +290,15 @@ public class Loader extends DisplayObjectContainer {
    * <tr>
    * <td> </td></tr>
    * <tr>
+   * <td><code><b>securityError</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/SecurityErrorEvent.html"><code>SecurityErrorEvent</code></a></code> — Dispatched by the <code>contentLoaderInfo</code> object if the <code>LoaderContext.requestedContentParent</code> property has been specified and the security sandbox of the <code>LoaderContext.requestedContentParent</code> does not have access to the loaded SWF.</td></tr>
+   * <tr>
+   * <td> </td></tr>
+   * <tr>
    * <td><code><b>unload</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/Event.html"><code>Event</code></a></code> — Dispatched by the <code>contentLoaderInfo</code> object when a loaded object is removed.</td></tr></table>
    * @throws ArgumentError If the <code>length</code> property of the ByteArray object is not greater than 0.
    * @throws flash.errors.IllegalOperationError If the <code>checkPolicyFile</code> or <code>securityDomain</code> property of the <code>context</code> parameter are non-null.
+   * @throws flash.errors.IllegalOperationError If the <code>requestedContentParent</code> property of the <code>context</code> parameter is a <code>Loader</code>.
+   * @throws flash.errors.IllegalOperationError If the <code>LoaderContext.parameters</code> parameter is set to non-null and has some values which are not Strings.
    * @throws SecurityError If the provided <code>applicationDomain</code> property of the <code>context</code> property is from a disallowed domain.
    * @throws SecurityError You cannot connect to commonly reserved ports. For a complete list of blocked ports, see "Restricting Networking APIs" in the <i>ActionScript 3.0 Developer's Guide</i>.
    *
@@ -260,5 +337,23 @@ public class Loader extends DisplayObjectContainer {
     contentLoaderInfo.setContent(null);
   }
 
+  /**
+   * Attempts to unload child SWF file contents and stops the execution of commands from loaded SWF files. This method attempts to unload SWF files that were loaded using <code>Loader.load()</code> or <code>Loader.loadBytes()</code> by removing references to EventDispatcher, NetConnection, Timer, Sound, or Video objects of the child SWF file. As a result, the following occurs for the child SWF file and the child SWF file's display list:
+   * <ul>
+   * <li>Sounds are stopped.</li>
+   * <li>Stage event listeners are removed.</li>
+   * <li>Event listeners for <code>enterFrame</code>, <code>frameConstructed</code>, <code>exitFrame</code>, <code>activate</code> and <code>deactivate</code> are removed.</li>
+   * <li>Timers are stopped.</li>
+   * <li>Camera and Microphone instances are detached</li>
+   * <li>Movie clips are stopped.</li></ul>
+   * @param gc Provides a hint to the garbage collector to run on the child SWF objects (<code>true</code>) or not (<code>false</code>). If you are unloading many objects asynchronously, setting the <code>gc</code> paramter to <code>false</code> might improve application performance. However, if the parameter is set to <code>false</code>, media and display objects of the child SWF file might persist in memory after running the <code>unloadAndStop()</code> command.
+   *
+   * @see DisplayObject
+   * @see #load()
+   *
+   */
+  public function unloadAndStop(gc:Boolean = true):void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
 }
 }

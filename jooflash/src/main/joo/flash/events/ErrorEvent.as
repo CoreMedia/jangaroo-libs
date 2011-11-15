@@ -12,6 +12,11 @@ package flash.events {
  */
 public class ErrorEvent extends TextEvent {
   /**
+   * Contains the reference number associated with the specific error. For a custom ErrorEvent object, this number is the value from the <code>id</code> parameter supplied in the constructor.
+   */
+  public native function get errorID():int;
+
+  /**
    * Creates an Event object that contains information about error events. Event objects are passed as parameters to event listeners.
    * @param type The type of the event. Event listeners can access this information through the inherited <code>type</code> property. There is only one type of error event: <code>ErrorEvent.ERROR</code>.
    * @param bubbles Determines whether the Event object bubbles. Event listeners can access this information through the inherited <code>bubbles</code> property.
@@ -22,7 +27,7 @@ public class ErrorEvent extends TextEvent {
    */
   public function ErrorEvent(type:String, bubbles:Boolean = false, cancelable:Boolean = false, text:String = "", id:int = 0) {
     super(type, bubbles, cancelable, text);
-    this['id'] = id;
+    this['errorID'] = id;
   }
 
   /**
@@ -31,7 +36,7 @@ public class ErrorEvent extends TextEvent {
    *
    */
   override public function clone():Event {
-    return new ErrorEvent(type, bubbles, cancelable, text, id);
+    return new ErrorEvent(type, bubbles, cancelable, text, errorID);
   }
 
   /**
@@ -42,7 +47,7 @@ public class ErrorEvent extends TextEvent {
    *
    */
   override public function toString():String {
-    return formatToString("ErrorEvent", "type", "bubbles", "cancelable", "text");
+    return formatToString("ErrorEvent", "type", "bubbles", "cancelable", "text", "errorID");
   }
 
   /**
@@ -67,10 +72,5 @@ public class ErrorEvent extends TextEvent {
    * <td>Text to be displayed as an error message.</td></tr></table>
    */
   public static const ERROR:String = "error";
-
-  /**
-   * @private
-   */
-  protected native function get id():int;
 }
 }

@@ -1,5 +1,4 @@
 package flash.events {
-
 /**
  * A Timer object dispatches a TimerEvent objects whenever the Timer object reaches the interval specified by the <code>Timer.delay</code> property.
  * <p><a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/TimerEvent.html#includeExamplesSummary">View the examples</a></p>

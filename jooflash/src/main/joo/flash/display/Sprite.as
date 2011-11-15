@@ -68,7 +68,7 @@ public class Sprite extends DisplayObjectContainer {
    * @see #startDrag()
    * @see #stopDrag()
    *
-   * @example The following example creates a <code>circle</code> sprite and two <code>target</code> sprites. The <code>startDrag()</code> method is called on the <code>circle</code> sprite when the user positions the cursor over the sprite and presses the mouse button, and the <code>stopDrag()</code> method is called when the user releases the mouse button. This lets the user drag the sprite. On release of the mouse button, the <code>mouseRelease()</code> method is called, which in turn traces the <code>name</code> of the <code>dropTarget</code> object — the one to which the user dragged the <code>circle</code> sprite:
+   * @example The following example creates a <code>circle</code> sprite and two <code>target</code> sprites. The <code>startDrag()</code> method is called on the <code>circle</code> sprite when the user positions the cursor over the sprite and presses the mouse button, and the <code>stopDrag()</code> method is called when the user releases the mouse button. This lets the user drag the sprite. On release of the mouse button, the <code>mouseRelease()</code> method is called, which in turn traces the <code>name</code> of the <code>dropTarget</code> object â€” the one to which the user dragged the <code>circle</code> sprite:
    * <listing>
    * import flash.display.Sprite;
    * import flash.events.MouseEvent;
@@ -297,7 +297,7 @@ public class Sprite extends DisplayObjectContainer {
    * @see #dropTarget
    * @see #stopDrag()
    *
-   * @example The following example creates a <code>circle</code> sprite and two <code>target</code> sprites. The <code>startDrag()</code> method is called on the <code>circle</code> sprite when the user positions the cursor over the sprite and presses the mouse button, and the <code>stopDrag()</code> method is called when the user releases the mouse button. This lets the user drag the sprite. On release of the mouse button, the <code>mouseRelease()</code> method is called, which in turn traces the <code>name</code> of the <code>dropTarget</code> object — the one to which the user dragged the <code>circle</code> sprite:
+   * @example The following example creates a <code>circle</code> sprite and two <code>target</code> sprites. The <code>startDrag()</code> method is called on the <code>circle</code> sprite when the user positions the cursor over the sprite and presses the mouse button, and the <code>stopDrag()</code> method is called when the user releases the mouse button. This lets the user drag the sprite. On release of the mouse button, the <code>mouseRelease()</code> method is called, which in turn traces the <code>name</code> of the <code>dropTarget</code> object â€” the one to which the user dragged the <code>circle</code> sprite:
    * <listing>
    * import flash.display.Sprite;
    * import flash.events.MouseEvent;
@@ -338,11 +338,43 @@ public class Sprite extends DisplayObjectContainer {
   }
 
   /**
+   * Lets the user drag the specified sprite on a touch-enabled device. The sprite remains draggable until explicitly stopped through a call to the <code>Sprite.stopTouchDrag()</code> method, or until another sprite is made draggable. Only one sprite is draggable at a time.
+   * <p>Three-dimensional display objects follow the pointer and <code>Sprite.startTouchDrag()</code> moves the object within the three-dimensional plane defined by the display object. Or, if the display object is a two-dimensional object and the child of a three-dimensional object, the two-dimensional object moves within the three dimensional plane defined by the three-dimensional parent object.</p>
+   * @param touchPointID An integer to assign to the touch point.
+   * @param lockCenter Specifies whether the draggable sprite is locked to the center of the pointer position (<code>true</code>), or locked to the point where the user first clicked the sprite (<code>false</code>).
+   * @param bounds Value relative to the coordinates of the Sprite's parent that specify a constraint rectangle for the Sprite.
+   *
+   * @see #dropTarget
+   * @see #stopTouchDrag()
+   * @see flash.ui.Multitouch
+   * @see flash.events.TouchEvent
+   *
+   * @example The following example shows functions using startTouchDrag and stopTouchDrag to handle the touchBegin and touchEnd events. The value for touchPointID is the value assigned to the event object. The bounds parameter is the rectangle defining the boundaries of the parent display object (bg is a display object containing MySprite).
+   * <listing>
+   * MySprite.addEventListener(TouchEvent.TOUCH_BEGIN, onTouchBegin);
+   * MySprite.addEventListener(TouchEvent.TOUCH_END, onTouchEnd);
+   *
+   * function onTouchBegin(e:TouchEvent) {
+   *      e.target.startTouchDrag(e.touchPointID, false, bg.getRect(this));
+   *      trace("touch begin");
+   *
+   *  }
+   * function onTouchEnd(e:TouchEvent) {
+   *      e.target.stopTouchDrag(e.touchPointID);
+   *      trace("touch end");
+   * }
+   * </listing>
+   */
+  public function startTouchDrag(touchPointID:int, lockCenter:Boolean = false, bounds:Rectangle = null):void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
    * Ends the <code>startDrag()</code> method. A sprite that was made draggable with the <code>startDrag()</code> method remains draggable until a <code>stopDrag()</code> method is added, or until another sprite becomes draggable. Only one sprite is draggable at a time.
    * @see #dropTarget
    * @see #startDrag()
    *
-   * @example The following example creates a <code>circle</code> sprite and two <code>target</code> sprites. The <code>startDrag()</code> method is called on the <code>circle</code> sprite when the user positions the cursor over the sprite and presses the mouse button, and the <code>stopDrag()</code> method is called when the user releases the mouse button. This lets the user drag the sprite. On release of the mouse button, the <code>mouseRelease()</code> method is called, which in turn traces the <code>name</code> of the <code>dropTarget</code> object — the one to which the user dragged the <code>circle</code> sprite:
+   * @example The following example creates a <code>circle</code> sprite and two <code>target</code> sprites. The <code>startDrag()</code> method is called on the <code>circle</code> sprite when the user positions the cursor over the sprite and presses the mouse button, and the <code>stopDrag()</code> method is called when the user releases the mouse button. This lets the user drag the sprite. On release of the mouse button, the <code>mouseRelease()</code> method is called, which in turn traces the <code>name</code> of the <code>dropTarget</code> object â€” the one to which the user dragged the <code>circle</code> sprite:
    * <listing>
    * import flash.display.Sprite;
    * import flash.events.MouseEvent;
@@ -379,6 +411,35 @@ public class Sprite extends DisplayObjectContainer {
    * </listing>
    */
   public function stopDrag():void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * Ends the <code>startTouchDrag()</code> method, for use with touch-enabled devices. A sprite that was made draggable with the <code>startTouchDrag()</code> method remains draggable until a <code>stopTouchDrag()</code> method is added, or until another sprite becomes draggable. Only one sprite is draggable at a time.
+   * @param touchPointID The integer assigned to the touch point in the <code>startTouchDrag</code> method.
+   *
+   * @see #dropTarget
+   * @see #startTouchDrag()
+   * @see flash.ui.Multitouch
+   * @see flash.events.TouchEvent
+   *
+   * @example The following example shows functions using startTouchDrag and stopTouchDrag to handle the touchBegin and touchEnd events. The value for touchPointID is the value assigned to the event object. The bounds parameter is the rectangle defining the boundaries of the parent display object (bg is a display object containing MySprite).
+   * <listing>
+   * MySprite.addEventListener(TouchEvent.TOUCH_BEGIN, onTouchBegin);
+   * MySprite.addEventListener(TouchEvent.TOUCH_END, onTouchEnd);
+   *
+   * function onTouchBegin(e:TouchEvent) {
+   *      e.target.startTouchDrag(e.touchPointID, false, bg.getRect(this));
+   *      trace("touch begin");
+   *
+   *  }
+   * function onTouchEnd(e:TouchEvent) {
+   *      e.target.stopTouchDrag(e.touchPointID);
+   *      trace("touch end");
+   * }
+   * </listing>
+   */
+  public function stopTouchDrag(touchPointID:int):void {
     throw new Error('not implemented'); // TODO: implement!
   }
 

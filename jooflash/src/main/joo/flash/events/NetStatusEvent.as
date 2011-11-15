@@ -1,10 +1,4 @@
 package flash.events {
-
-
-
-
-
-
 /**
  * A NetConnection, NetStream, or SharedObject object dispatches NetStatusEvent objects when a it reports its status. There is only one type of status event: <code>NetStatusEvent.NET_STATUS</code>.
  * <p><a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/NetStatusEvent.html#includeExamplesSummary">View the examples</a></p>
@@ -314,7 +308,6 @@ public class NetStatusEvent extends Event {
   /**
    * @private
    */
-
   public native function set info(value:Object):void;
 
   /**
@@ -378,6 +371,5 @@ public class NetStatusEvent extends Event {
    *
    */
   public static const NET_STATUS:String = "netStatus";
-
 }
 }

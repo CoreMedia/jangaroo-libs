@@ -1,7 +1,4 @@
 package flash.filters {
-
-
-
 /**
  * The GradientGlowFilter class lets you apply a gradient glow effect to display objects. A gradient glow is a realistic-looking glow with a color gradient that you can control. You can apply a gradient glow around the inner or outer edge of an object or on top of an object. You can apply the filter to any display object (objects that inherit from the DisplayObject class), such as MovieClip, SimpleButton, TextField, and Video objects, as well as to BitmapData objects.
  * <p>The use of filters depends on the object to which you apply the filter:</p>

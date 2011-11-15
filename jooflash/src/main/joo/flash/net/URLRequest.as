@@ -1,5 +1,4 @@
 package flash.net {
-
 /**
  * The URLRequest class captures all of the information in a single HTTP request. URLRequest objects are passed to the <code>load()</code> methods of the Loader, URLStream, and URLLoader classes, and to other loading operations, to initiate URL downloads. They are also passed to the <code>upload()</code> and <code>download()</code> methods of the FileReference class.
  * <p>A SWF file in the local-with-filesystem sandbox may not load data from, or provide data to, a resource that is in the network sandbox.</p>
@@ -210,7 +209,7 @@ public final class URLRequest {
    * The URL to be requested.
    * <p>Be sure to encode any characters that are either described as unsafe in the Uniform Resource Locator specification (see http://www.faqs.org/rfcs/rfc1738.html) or that are reserved in the URL scheme of the URLRequest object (when not used for their reserved purpose). For example, use <code>"%25"</code> for the percent (%) symbol and <code>"%23"</code> for the number sign (#), as in <code>"http://www.example.com/orderForm.cfm?item=%23B-3&discount=50%25"</code>.</p>
    * <p>By default, the URL must be in the same domain as the calling file, unless the content is running in the Adobe AIR application security sandbox. If you need to load data from a different domain, put a URL policy file on the server that is hosting the data. For more information, see the description of the URLRequest class.</p>
-   * <p>For content running in Adobe AIR, files in the application security sandobx — files installed with the AIR application — can access URLs using any of the following URL schemes:</p>
+   * <p>For content running in Adobe AIR, files in the application security sandobx â€” files installed with the AIR application â€” can access URLs using any of the following URL schemes:</p>
    * <ul>
    * <li><code>http</code> and <code>https</code></li>
    * <li><code>file</code></li>
@@ -261,6 +260,5 @@ public final class URLRequest {
     this.method = URLRequestMethod.GET;
     this.url = url;
   }
-
 }
 }

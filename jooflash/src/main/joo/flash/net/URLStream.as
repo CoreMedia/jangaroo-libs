@@ -9,12 +9,12 @@ import flash.utils.IDataInput;
  */
 [Event(name="complete", type="flash.events.Event")]
 /**
- * property HTTPStatusEvent.type =
+ * Dispatched if a call to <code>URLStream.load()</code> attempts to access data over HTTP, and Flash Player or Adobe AIR is able to detect and return the status code for the request. (Some browser environments may not be able to provide this information.) Note that the <code>httpStatus</code> (if any) will be sent before (and in addition to) any <code>complete</code> or <code>error</code> event.
  * @eventType flash.events.HTTPStatusEvent.HTTP_STATUS
  */
 [Event(name="httpStatus", type="flash.events.HTTPStatusEvent")]
 /**
- * property IOErrorEvent.type =
+ * Dispatched when an input/output error occurs that causes a load operation to fail.
  * @eventType flash.events.IOErrorEvent.IO_ERROR
  */
 [Event(name="ioError", type="flash.events.IOErrorEvent")]
@@ -24,12 +24,12 @@ import flash.utils.IDataInput;
  */
 [Event(name="open", type="flash.events.Event")]
 /**
- * property ProgressEvent.type =
+ * Dispatched when data is received as the download operation progresses. Data that has been received can be read immediately using the methods of the URLStream class.
  * @eventType flash.events.ProgressEvent.PROGRESS
  */
 [Event(name="progress", type="flash.events.ProgressEvent")]
 /**
- * property SecurityErrorEvent.type =
+ * Dispatched if a call to <code>URLStream.load()</code> attempts to load data from a server outside the security sandbox.
  * @eventType flash.events.SecurityErrorEvent.SECURITY_ERROR
  */
 [Event(name="securityError", type="flash.events.SecurityErrorEvent")]

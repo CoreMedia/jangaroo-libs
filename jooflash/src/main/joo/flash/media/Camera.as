@@ -2,12 +2,12 @@ package flash.media {
 import flash.events.EventDispatcher;
 
 /**
- * property ActivityEvent.type =
+ * Dispatched when a camera begins or ends a session. Call <code>Camera.setMotionLevel()</code> to specify the amount of motion required to trigger an <code>activity</code> event with an <code>activating</code> value of <code>true</code>, or the time without activity that must elapse before triggering an <code>activity</code> event with an <code>activating</code> value of <code>false</code>.
  * @eventType flash.events.ActivityEvent.ACTIVITY
  */
 [Event(name="activity", type="flash.events.ActivityEvent")]
 /**
- * property StatusEvent.type =
+ * Dispatched when a camera reports its status. Before accessing a camera, Flash Player displays a Privacy dialog box to let users allow or deny access to their camera. If the value of the <code>code</code> property is <code>"Camera.Muted"</code>, the user has refused to allow the SWF file access to the user's camera. If the value of the <code>code</code> property is <code>"Camera.Unmuted"</code>, the user has allowed the SWF file access to the user's camera.
  * @eventType flash.events.StatusEvent.STATUS
  */
 [Event(name="status", type="flash.events.StatusEvent")]
@@ -15,7 +15,8 @@ import flash.events.EventDispatcher;
 /**
  * Use the Camera class to capture video from the client system's camera. Use the Video class to monitor the video locally. Use the NetConnection and NetStream classes to transmit the video to Flash Media Server. Flash Media Server can send the video stream to other servers and broadcast it to other clients running Flash Player.
  * <p>A Camera instance captures video in landscape aspect ratio. On devices that can change the screen orientation, such as mobile phones, a Video object attached to the camera will only show upright video in a landscape-aspect orientation. Thus, mobile apps should use a landscape orientation when displaying video and should not auto-rotate.</p>
- * <p>On Android, the camera does not capture video while an AIR app is not the active, foreground application.</p>
+ * <p>As of AIR 2.6, autofocus is enabled automatically on mobile devices with an autofocus camera. If the camera does not support continuous autofocus, and many mobile device cameras do not, then the camera is focused when the Camera object is attached to a video stream and whenever the <code>setMode()</code> method is called. On desktop computers, autofocus behavior is dependent on the camera driver and settings.</p>
+ * <p>In an AIR application on Android and iOS, the camera does not capture video while an AIR app is not the active, foreground application. In addition, streaming connections can be lost when the application is in the background. On iOS, the camera video cannot be displayed when an application uses the GPU rendering mode. The camera video can still be streamed to a server.</p>
  * <p><b>Mobile Browser Support:</b> This class is not supported in mobile browsers.</p>
  * <p><i>AIR profile support:</i> This feature is supported on desktop operating systems, but it is not supported on all mobile devices. It is not supported on AIR for TV devices. See <a href="http://help.adobe.com/en_US/air/build/WS144092a96ffef7cc16ddeea2126bb46b82f-8000.html">AIR Profile Support</a> for more information regarding API support across multiple profiles.</p>
  * <p>You can test for support at run time using the <code>Camera.isSupported</code> property. Note that for AIR for TV devices, <code>Camera.isSupported</code> is <code>true</code> but <code>Camera.getCamera()</code> always returns <code>null</code>.</p>
@@ -92,6 +93,13 @@ public final class Camera extends EventDispatcher {
    */
   public function get index():int {
     throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * The <code>isSupported</code> property is set to <code>true</code> if the Camera class is supported on the current platform, otherwise it is set to <code>false</code>.
+   */
+  public static function get isSupported():Boolean {
+    return false;
   }
 
   /**
@@ -190,6 +198,7 @@ public final class Camera extends EventDispatcher {
   /**
    * Returns a reference to a Camera object for capturing video. To begin capturing the video, you must attach the Camera object to a Video object (see <code>Video.attachCamera()</code> ). To transmit video to Flash Media Server, call <code>NetStream.attachCamera()</code> to attach the Camera object to a NetStream object.
    * <p>Multiple calls to the <code>getCamera()</code> method reference the same camera driver. Thus, if your code contains code like <code>firstCam:Camera = getCamera()</code> and <code>secondCam:Camera = getCamera()</code>, both <code>firstCam</code> and <code>secondCam</code> reference the same camera, which is the user's default camera.</p>
+   * <p>On iOS devices with a both a front- and a rear-facing camera, you can only capture video from one camera at a time. On Android devices, you can only access the rear-facing camera.</p>
    * <p>In general, you shouldn't pass a value for the <code>name</code> parameter; simply use <code>getCamera()</code> to return a reference to the default camera. By means of the Camera settings panel (discussed later in this section), the user can specify the default camera to use.</p>
    * <p>You can't use ActionScript to set a user's Allow or Deny permission setting for access to the camera, but you can display the Adobe Flash Player Settings camera setting dialog box where the user can set the camera permission. When a SWF file using the <code>attachCamera()</code> method tries to attach the camera returned by the <code>getCamera()</code> method to a Video or NetStream object, Flash Player displays a dialog box that lets the user choose to allow or deny access to the camera. (Make sure your application window size is at least 215 x 138 pixels; this is the minimum size Flash Player requires to display the dialog box.) When the user responds to the camera setting dialog box, Flash Player returns an information object in the <code>status</code> event that indicates the user's response: <code>Camera.muted</code> indicates the user denied access to a camera; <code>Camera.Unmuted</code> indicates the user allowed access to a camera. To determine whether the user has denied or allowed access to the camera without handling the <code>status</code> event, use the <code>muted</code> property.</p>
    * <p>In Flash Player, the user can specify permanent privacy settings for a particular domain by right-clicking (Windows and Linux) or Control-clicking (Macintosh) while a SWF file is playing, selecting Settings, opening the Privacy dialog, and selecting Remember. If the user selects Remember, Flash Player no longer asks the user whether to allow or deny SWF files from this domain access to your camera.</p>
@@ -437,7 +446,7 @@ public final class Camera extends EventDispatcher {
    *
    * @example In the following example, the user's camera is used as a monitor or a surveillance camera. The camera detects motion and a text field shows the activity level. (The example can be extended to sound an alarm or send a message through a web service to other applications.)
    * <p>The <code>Camera.getCamera()</code> method returns a reference to a camera object, or returns null if no camera is available or installed. The if statement checks whether a camera is available, and invokes the <code>connectCamera()</code> method when it is available. The <code>connectCamera()</code> method instantiates a video object with the captured stream's width and height. To display the camera's captured video, the reference to the video stream is attached to the video object, and the video object is added to the display list. (Usually, when the <code>attachCamera()</code> method is invoked, a dialog box appears and prompts the user to allow or deny Flash Player access to the camera. However, if the user denied access and selected the <code>Remember</code> option, the dialog box does not appear and nothing is displayed. To make sure the user has the option to allow access to the camera, use the <code>system.Security.showSettings()</code> method to invoke the Flash Player Settings dialog box.)</p>
-   * <p>The <code>setMotionLevel()</code> method sets the level of activity (amount of motion), before the activity event is invoked, to five, for minimal motion. The time between when the camera stops detecting motion and when the activity event is invoked, is set to 1 second (1000 millisecond). After 1 second passes without activity or the level of activity reaches five, the <code>ActivityEvent.ACTIVITY</code> event is dispatched and the <code>activityHandler()</code> method is invoked. If the event was triggered by the level of activity, the <code>activating</code> property is set to <code>true</code> and a Timer object is started. Every second, a Timer objectÃ¢â‚¬™s timer event is dispatched and the <code>timerHandler()</code> method is invoked, which displays the current level of activity. (Although a level of five or larger triggers the timer, the displayed current level of activity might be a smaller number.)</p>
+   * <p>The <code>setMotionLevel()</code> method sets the level of activity (amount of motion), before the activity event is invoked, to five, for minimal motion. The time between when the camera stops detecting motion and when the activity event is invoked, is set to 1 second (1000 millisecond). After 1 second passes without activity or the level of activity reaches five, the <code>ActivityEvent.ACTIVITY</code> event is dispatched and the <code>activityHandler()</code> method is invoked. If the event was triggered by the level of activity, the <code>activating</code> property is set to <code>true</code> and a Timer object is started. Every second, a Timer objectâ€™s timer event is dispatched and the <code>timerHandler()</code> method is invoked, which displays the current level of activity. (Although a level of five or larger triggers the timer, the displayed current level of activity might be a smaller number.)</p>
    * <listing>
    * package {
    *     import flash.display.Sprite;

@@ -23,6 +23,13 @@ import flash.geom.Rectangle;
  */
 public class PrintJob extends EventDispatcher {
   /**
+   * Indicates whether the PrintJob class is supported on the current platform (<code>true</code>) or not (<code>false</code>).
+   */
+  public static function get isSupported():Boolean {
+    return false;
+  }
+
+  /**
    * The image orientation for printing. The acceptable values are defined as constants in the PrintJobOrientation class.
    * <p><b>Note:</b> For AIR 2 or later, set this property before starting a print job to set the default orientation in the Page Setup and Print dialogs. Set the property while a print job is in progress (after calling <code>start()</code> or <code>start2()</code> to set the orientation for a range of pages within the job.</p>
    * @see PrintJobOrientation

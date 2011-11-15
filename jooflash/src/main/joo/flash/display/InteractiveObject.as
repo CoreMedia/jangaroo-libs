@@ -1,12 +1,28 @@
 package flash.display {
 import flash.accessibility.AccessibilityImplementation;
+import flash.geom.Rectangle;
 import flash.ui.ContextMenu;
 
+/**
+ * Dispatched when the user selects 'Clear' (or 'Delete') from the text context menu. This event is dispatched to the object that currently has focus. If the object that currently has focus is a TextField, the default behavior of this event is to cause any currently selected text in the text field to be deleted.
+ * @eventType flash.events.Event.CLEAR
+ */
+[Event(name="clear", type="flash.events.Event")]
 /**
  * Dispatched when a user presses and releases the main button of the user's pointing device over the same InteractiveObject. For a click event to occur, it must always follow this series of events in the order of occurrence: mouseDown event, then mouseUp. The target object must be identical for both of these events; otherwise the <code>click</code> event does not occur. Any number of other mouse events can occur at any time between the <code>mouseDown</code> or <code>mouseUp</code> events; the <code>click</code> event still occurs.
  * @eventType flash.events.MouseEvent.CLICK
  */
 [Event(name="click", type="flash.events.MouseEvent")]
+/**
+ * Dispatched when the user activates the platform specific accelerator key combination for a copy operation or selects 'Copy' from the text context menu. This event is dispatched to the object that currently has focus. If the object that currently has focus is a TextField, the default behavior of this event is to cause any currently selected text in the text field to be copied to the clipboard.
+ * @eventType flash.events.Event.COPY
+ */
+[Event(name="copy", type="flash.events.Event")]
+/**
+ * Dispatched when the user activates the platform specific accelerator key combination for a cut operation or selects 'Cut' from the text context menu. This event is dispatched to the object that currently has focus. If the object that currently has focus is a TextField, the default behavior of this event is to cause any currently selected text in the text field to be cut to the clipboard.
+ * @eventType flash.events.Event.CUT
+ */
+[Event(name="cut", type="flash.events.Event")]
 /**
  * Dispatched when a user presses and releases the main button of a pointing device twice in rapid succession over the same InteractiveObject when that object's <code>doubleClickEnabled</code> flag is set to <code>true</code>. For a <code>doubleClick</code> event to occur, it must immediately follow the following series of events: <code>mouseDown</code>, <code>mouseUp</code>, <code>click</code>, <code>mouseDown</code>, <code>mouseUp</code>. All of these events must share the same target as the <code>doubleClick</code> event. The second click, represented by the second <code>mouseDown</code> and <code>mouseUp</code> events, must occur within a specific period of time after the <code>click</code> event. The allowable length of this period varies by operating system and can often be configured by the user. If the target is a selectable text field, the word under the pointer is selected as the default behavior. If the target InteractiveObject does not have its <code>doubleClickEnabled</code> flag set to <code>true</code> it receives two <code>click</code> events.
  * <p>The <code>doubleClickEnabled</code> property defaults to <code>false</code>.</p>
@@ -24,6 +40,51 @@ import flash.ui.ContextMenu;
  * @eventType flash.events.FocusEvent.FOCUS_OUT
  */
 [Event(name="focusOut", type="flash.events.FocusEvent")]
+/**
+ * Dispatched when the user moves a point of contact over the InteractiveObject instance on a touch-enabled device (such as moving a fingers from left to right over a display object on a mobile phone or tablet with a touch screen). Some devices might also interpret this contact as a <code>mouseOver</code> event and as a <code>touchOver</code> event.
+ * <p>Specifically, if a user moves a finger over an InteractiveObject, the InteractiveObject instance can dispatch a <code>mouseOver</code> event or a <code>touchOver</code> event or a <code>gesturePan</code> event, or all if the current environment supports it. Choose how you want to handle the user interaction. Use the flash.ui.Multitouch class to manage touch event handling (enable touch gesture event handling, simple touch point event handling, or disable touch events so only mouse events are dispatched). If you choose to handle the <code>mouseOver</code> event, then the same event handler will run on a touch-enabled device and a mouse enabled device. However, if you choose to handle the <code>gesturePan</code> event, you can design your event handler to respond to the specific needs of a touch-enabled environment and provide users with a richer touch-enabled experience. You can also handle both events, separately, to provide a different response for a touch event than a mouse event.</p>
+ * <p><b>Note:</b> See the Multitouch class for environment compatibility information.</p>
+ * @eventType flash.events.TransformGestureEvent.GESTURE_PAN
+ */
+[Event(name="gesturePan", type="flash.events.TransformGestureEvent")]
+/**
+ * Dispatched when the user creates a point of contact with an InteractiveObject instance, then taps on a touch-enabled device (such as placing several fingers over a display object to open a menu and then taps one finger to select a menu item on a mobile phone or tablet with a touch screen). Some devices might also interpret this contact as a combination of several mouse events, as well.
+ * <p>Specifically, if a user moves a finger over an InteractiveObject, and then provides a secondary tap, the InteractiveObject instance can dispatch a <code>mouseOver</code> event and a <code>click</code> event (among others) as well as the <code>gesturePressAndTap</code> event, or all if the current environment supports it. Choose how you want to handle the user interaction. Use the flash.ui.Multitouch class to manage touch event handling (enable touch gesture event handling, simple touch point event handling, or disable touch events so only mouse events are dispatched). If you choose to handle the <code>mouseOver</code> event, then the same event handler will run on a touch-enabled device and a mouse enabled device. However, if you choose to handle the <code>gesturePressAndTap</code> event, you can design your event handler to respond to the specific needs of a touch-enabled environment and provide users with a richer touch-enabled experience. You can also handle both events, separately, to provide a different response for a touch event than a mouse event.</p>
+ * <p>When handling the properties of the event object, note that the <code>localX</code> and <code>localY</code> properties are set to the primary point of contact (the "push"). The <code>offsetX</code> and <code>offsetY</code> properties are the distance to the secondary point of contact (the "tap").</p>
+ * @eventType flash.events.PressAndTapGestureEvent.GESTURE_PRESS_AND_TAP
+ */
+[Event(name="gesturePressAndTap", type="flash.events.PressAndTapGestureEvent")]
+/**
+ * Dispatched when the user performs a rotation gesture at a point of contact with an InteractiveObject instance (such as touching two fingers and rotating them over a display object on a mobile phone or tablet with a touch screen). Two finger rotation is a common rotation gesture, but each device and operating system can have its own requirements to indicate rotation. Some devices might also interpret this contact as a combination of several mouse events, as well.
+ * <p>Specifically, if a user moves a finger over an InteractiveObject, the InteractiveObject instance can dispatch a <code>mouseOver</code> event and a <code>click</code> event (among others), in addition to the <code>gestureRotate</code> event, or all if the current environment supports it. Choose how you want to handle the user interaction. Use the flash.ui.Multitouch class to manage touch event handling (enable touch gesture event handling, simple touch point event handling, or disable touch events so only mouse events are dispatched). If you choose to handle the <code>mouseOver</code> event, then the same event handler will run on a touch-enabled device and a mouse enabled device. However, if you choose to handle the <code>gestureRotate</code> event, you can design your event handler to respond to the specific needs of a touch-enabled environment and provide users with a richer touch-enabled experience. You can also handle both events, separately, to provide a different response for a touch event than a mouse event.</p>
+ * <p>When handling the properties of the event object, note that the <code>localX</code> and <code>localY</code> properties are set to the primary point of contact. The <code>offsetX</code> and <code>offsetY</code> properties are the distance to the point of contact where the rotation gesture is complete.</p>
+ * <p><b>Note:</b> See the Multitouch class for environment compatibility information.</p>
+ * @eventType flash.events.TransformGestureEvent.GESTURE_ROTATE
+ */
+[Event(name="gestureRotate", type="flash.events.TransformGestureEvent")]
+/**
+ * Dispatched when the user performs a swipe gesture at a point of contact with an InteractiveObject instance (such as touching three fingers to a screen and then moving them in parallel over a display object on a mobile phone or tablet with a touch screen). Moving several fingers in parallel is a common swipe gesture, but each device and operating system can have its own requirements for a swipe. Some devices might also interpret this contact as a combination of several mouse events, as well.
+ * <p>Specifically, if a user moves a finger over an InteractiveObject, and then moves the fingers together, the InteractiveObject instance can dispatch a <code>rollOver</code> event and a <code>rollOut</code> event (among others), in addition to the <code>gestureSwipe</code> event, or all if the current environment supports it. Choose how you want to handle the user interaction. If you choose to handle the <code>rollOver</code> event, then the same event handler will run on a touch-enabled device and a mouse enabled device. However, if you choose to handle the <code>gestureSwipe</code> event, you can design your event handler to respond to the specific needs of a touch-enabled environment and provide users with a richer touch-enabled experience. You can also handle both events, separately, to provide a different response for a touch event than a mouse event.</p>
+ * <p>When handling the properties of the event object, note that the <code>localX</code> and <code>localY</code> properties are set to the primary point of contact. The <code>offsetX</code> and <code>offsetY</code> properties are the distance to the point of contact where the swipe gesture is complete.</p>
+ * <p><b>Note:</b> While some devices using the Mac OS operating system can interpret a four-finger swipe, this API only supports a three-finger swipe.</p>
+ * @eventType flash.events.TransformGestureEvent.GESTURE_SWIPE
+ */
+[Event(name="gestureSwipe", type="flash.events.TransformGestureEvent")]
+/**
+ * Dispatched when the user presses two points of contact over the same InteractiveObject instance on a touch-enabled device (such as presses and releases two fingers over a display object on a mobile phone or tablet with a touch screen). Some devices might also interpret this contact as a <code>doubleClick</code> event.
+ * <p>Specifically, if a user taps two fingers over an InteractiveObject, the InteractiveObject instance can dispatch a <code>doubleClick</code> event or a <code>gestureTwoFingerTap</code> event, or both if the current environment supports it. Choose how you want to handle the user interaction. Use the flash.ui.Multitouch class to manage touch event handling (enable touch gesture event handling, simple touch point event handling, or disable touch events so only mouse events are dispatched). If you choose to handle the <code>doubleClick</code> event, then the same event handler will run on a touch-enabled device and a mouse enabled device. However, if you choose to handle the <code>gestureTwoFingerTap</code> event, you can design your event handler to respond to the specific needs of a touch-enabled environment and provide users with a richer touch-enabled experience. You can also handle both events, separately, to provide a different response for a touch event than a mouse event.</p>
+ * <p><b>Note:</b> See the Multitouch class for environment compatibility information.</p>
+ * @eventType flash.events.GestureEvent.GESTURE_TWO_FINGER_TAP
+ */
+[Event(name="gestureTwoFingerTap", type="flash.events.GestureEvent")]
+/**
+ * Dispatched when the user performs a zoom gesture at a point of contact with an InteractiveObject instance (such as touching two fingers to a screen and then quickly spreading the fingers apart over a display object on a mobile phone or tablet with a touch screen). Moving fingers apart is a common zoom gesture, but each device and operating system can have its own requirements to indicate zoom. Some devices might also interpret this contact as a combination of several mouse events, as well.
+ * <p>Specifically, if a user moves a finger over an InteractiveObject, and then moves the fingers apart, the InteractiveObject instance can dispatch a <code>mouseOver</code> event and a <code>click</code> event (among others), in addition to the <code>gestureZoom</code> event, or all if the current environment supports it. Choose how you want to handle the user interaction. Use the flash.ui.Multitouch class to manage touch event handling (enable touch gesture event handling, simple touch point event handling, or disable touch events so only mouse events are dispatched). If you choose to handle the <code>mouseOver</code> event, then the same event handler will run on a touch-enabled device and a mouse enabled device. However, if you choose to handle the <code>gestureZoom</code> event, you can design your event handler to respond to the specific needs of a touch-enabled environment and provide users with a richer touch-enabled experience. You can also handle both events, separately, to provide a different response for a touch event than a mouse event.</p>
+ * <p>When handling the properties of the event object, note that the <code>localX</code> and <code>localY</code> properties are set to the primary point of contact. The <code>offsetX</code> and <code>offsetY</code> properties are the distance to the point of contact where the zoom gesture is complete.</p>
+ * <p><b>Note:</b> See the Multitouch class for environment compatibility information.</p>
+ * @eventType flash.events.TransformGestureEvent.GESTURE_ZOOM
+ */
+[Event(name="gestureZoom", type="flash.events.TransformGestureEvent")]
 /**
  * Dispatched when the user presses a key. Mappings between keys and specific characters vary by device and operating system. This event type is generated after such a mapping occurs but before the processing of an input method editor (IME). IMEs are used to enter characters, such as Chinese ideographs, that the standard QWERTY keyboard is ill-equipped to produce. This event occurs before the <code>keyUp</code> event.
  * <p>In AIR, canceling this event prevents the character from being entered into a text field.</p>
@@ -80,6 +141,11 @@ import flash.ui.ContextMenu;
  */
 [Event(name="mouseWheel", type="flash.events.MouseEvent")]
 /**
+ * Dispatched when the user activates the platform specific accelerator key combination for a paste operation or selects 'Paste' from the text context menu. This event is dispatched to the object that currently has focus. If the object that currently has focus is a TextField, the default behavior of this event is to cause the contents of the clipboard to be pasted into the text field at the current insertion point replacing any currently selected text in the text field.
+ * @eventType flash.events.Event.PASTE
+ */
+[Event(name="paste", type="flash.events.Event")]
+/**
  * Dispatched when the user moves a pointing device away from an InteractiveObject instance. The event target is the object previously under the pointing device or a parent of that object. The <code>relatedObject</code> is the object that the pointing device has moved to. The <code>rollOut</code> events are dispatched consecutively up the parent chain of the object, starting with the object and ending with the highest parent that is neither the root nor an ancestor of the <code>relatedObject</code>.
  * <p>The purpose of the <code>rollOut</code> event is to simplify the coding of rollover behaviors for display object containers with children. When the mouse leaves the area of a display object or the area of any of its children to go to an object that is not one of its children, the display object dispatches the <code>rollOut</code> event. This is different behavior than that of the <code>mouseOut</code> event, which is dispatched each time the mouse leaves the area of any child object of the display object container, even if the mouse remains over another child object of the display object container.</p>
  * @eventType flash.events.MouseEvent.ROLL_OUT
@@ -91,6 +157,26 @@ import flash.ui.ContextMenu;
  * @eventType flash.events.MouseEvent.ROLL_OVER
  */
 [Event(name="rollOver", type="flash.events.MouseEvent")]
+/**
+ * Dispatched when the user activates the platform specific accelerator key combination for a select all operation or selects 'Select All' from the text context menu. This event is dispatched to the object that currently has focus. If the object that currently has focus is a TextField, the default behavior of this event is to cause all the contents of the text field to be selected.
+ * @eventType flash.events.Event.SELECT_ALL
+ */
+[Event(name="selectAll", type="flash.events.Event")]
+/**
+ * Dispatched immediately after the soft keyboard is raised.
+ * @eventType flash.events.SoftKeyboardEvent.SOFT_KEYBOARD_ACTIVATE
+ */
+[Event(name="softKeyboardActivate", type="flash.events.SoftKeyboardEvent")]
+/**
+ * Dispatched immediately before the soft keyboard is raised.
+ * @eventType flash.events.SoftKeyboardEvent.SOFT_KEYBOARD_ACTIVATING
+ */
+[Event(name="softKeyboardActivating", type="flash.events.SoftKeyboardEvent")]
+/**
+ * Dispatched immediately after the soft keyboard is lowered.
+ * @eventType flash.events.SoftKeyboardEvent.SOFT_KEYBOARD_DEACTIVATE
+ */
+[Event(name="softKeyboardDeactivate", type="flash.events.SoftKeyboardEvent")]
 /**
  * Dispatched when the value of the object's <code>tabChildren</code> flag changes.
  * @eventType flash.events.Event.TAB_CHILDREN_CHANGE
@@ -111,6 +197,62 @@ import flash.ui.ContextMenu;
  * @eventType flash.events.TextEvent.TEXT_INPUT
  */
 [Event(name="textInput", type="flash.events.TextEvent")]
+/**
+ * Dispatched when the user first contacts a touch-enabled device (such as touches a finger to a mobile phone or tablet with a touch screen). Some devices might also interpret this contact as a <code>mouseDown</code> event.
+ * <p>Specifically, if a user touches a finger to a touch screen, the InteractiveObject instance can dispatch a <code>mouseDown</code> event or a <code>touchBegin</code> event, or both if the current environment supports it. Choose how you want to handle the user interaction. Use the flash.ui.Multitouch class to manage touch event handling (enable touch gesture event handling, simple touch point event handling, or disable touch events so only mouse events are dispatched). If you choose to handle the <code>mouseDown</code> event, then the same event handler will run on a touch-enabled device and a mouse enabled device. However, if you choose to handle the <code>touchBegin</code> event, you can design your event handler to respond to the specific needs of a touch-enabled environment and provide users with a richer touch-enabled experience. You can also handle both events, separately, to provide a different response for a touch event than a mouse event.</p>
+ * <p><b>Note:</b> See the Multitouch class for environment compatibility information.</p>
+ * @eventType flash.events.TouchEvent.TOUCH_BEGIN
+ */
+[Event(name="touchBegin", type="flash.events.TouchEvent")]
+/**
+ * Dispatched when the user removes contact with a touch-enabled device (such as lifts a finger off a mobile phone or tablet with a touch screen). Some devices might also interpret this contact as a <code>mouseUp</code> event.
+ * <p>Specifically, if a user lifts a finger from a touch screen, the InteractiveObject instance can dispatch a <code>mouseUp</code> event or a <code>touchEnd</code> event, or both if the current environment supports it. Choose how you want to handle the user interaction. Use the flash.ui.Multitouch class to manage touch event handling (enable touch gesture event handling, simple touch point event handling, or disable touch events so only mouse events are dispatched). If you choose to handle the <code>mouseUp</code> event, then the same event handler will run on a touch-enabled device and a mouse enabled device. However, if you choose to handle the <code>touchEnd</code> event, you can design your event handler to respond to the specific needs of a touch-enabled environment and provide users with a richer touch-enabled experience. You can also handle both events, separately, to provide a different response for a touch event than a mouse event.</p>
+ * <p><b>Note:</b> See the Multitouch class for environment compatibility information.</p>
+ * @eventType flash.events.TouchEvent.TOUCH_END
+ */
+[Event(name="touchEnd", type="flash.events.TouchEvent")]
+/**
+ * Dispatched when the user moves the point of contact with a touch-enabled device (such as drags a finger across a mobile phone or tablet with a touch screen). Some devices might also interpret this contact as a <code>mouseMove</code> event.
+ * <p>Specifically, if a user moves a finger across a touch screen, the InteractiveObject instance can dispatch a <code>mouseMove</code> event or a <code>touchMove</code> event, or both if the current environment supports it. Choose how you want to handle the user interaction. Use the flash.ui.Multitouch class to manage touch event handling (enable touch gesture event handling, simple touch point event handling, or disable touch events so only mouse events are dispatched). If you choose to handle the <code>mouseMove</code> event, then the same event handler will run on a touch-enabled device and a mouse enabled device. However, if you choose to handle the <code>touchMove</code> event, you can design your event handler to respond to the specific needs of a touch-enabled environment and provide users with a richer touch-enabled experience. You can also handle both events, separately, to provide a different response for a touch event than a mouse event.</p>
+ * <p><b>Note:</b> See the Multitouch class for environment compatibility information.</p>
+ * @eventType flash.events.TouchEvent.TOUCH_MOVE
+ */
+[Event(name="touchMove", type="flash.events.TouchEvent")]
+/**
+ * Dispatched when the user moves the point of contact away from InteractiveObject instance on a touch-enabled device (such as drags a finger from one display object to another on a mobile phone or tablet with a touch screen). Some devices might also interpret this contact as a <code>mouseOut</code> event.
+ * <p>Specifically, if a user moves a finger across a touch screen, the InteractiveObject instance can dispatch a <code>mouseOut</code> event or a <code>touchOut</code> event, or both if the current environment supports it. Choose how you want to handle the user interaction. Use the flash.ui.Multitouch class to manage touch event handling (enable touch gesture event handling, simple touch point event handling, or disable touch events so only mouse events are dispatched). If you choose to handle the <code>mouseOut</code> event, then the same event handler will run on a touch-enabled device and a mouse enabled device. However, if you choose to handle the <code>touchOut</code> event, you can design your event handler to respond to the specific needs of a touch-enabled environment and provide users with a richer touch-enabled experience. You can also handle both events, separately, to provide a different response for a touch event than a mouse event.</p>
+ * <p><b>Note:</b> See the Multitouch class for environment compatibility information.</p>
+ * @eventType flash.events.TouchEvent.TOUCH_OUT
+ */
+[Event(name="touchOut", type="flash.events.TouchEvent")]
+/**
+ * Dispatched when the user moves the point of contact over an InteractiveObject instance on a touch-enabled device (such as drags a finger from a point outside a display object to a point over a display object on a mobile phone or tablet with a touch screen). Some devices might also interpret this contact as a <code>mouseOver</code> event.
+ * <p>Specifically, if a user moves a finger over an InteractiveObject, the InteractiveObject instance can dispatch a <code>mouseOver</code> event or a <code>touchOver</code> event, or both if the current environment supports it. Choose how you want to handle the user interaction. Use the flash.ui.Multitouch class to manage touch event handling (enable touch gesture event handling, simple touch point event handling, or disable touch events so only mouse events are dispatched). If you choose to handle the <code>mouseOver</code> event, then the same event handler will run on a touch-enabled device and a mouse enabled device. However, if you choose to handle the <code>touchOver</code> event, you can design your event handler to respond to the specific needs of a touch-enabled environment and provide users with a richer touch-enabled experience. You can also handle both events, separately, to provide a different response for a touch event than a mouse event.</p>
+ * <p><b>Note:</b> See the Multitouch class for environment compatibility information.</p>
+ * @eventType flash.events.TouchEvent.TOUCH_OVER
+ */
+[Event(name="touchOver", type="flash.events.TouchEvent")]
+/**
+ * Dispatched when the user moves the point of contact away from an InteractiveObject instance on a touch-enabled device (such as drags a finger from over a display object to a point outisde the display object on a mobile phone or tablet with a touch screen). Some devices might also interpret this contact as a <code>rollOut</code> event.
+ * <p>Specifically, if a user moves a finger over an InteractiveObject, the InteractiveObject instance can dispatch a <code>rollOut</code> event or a <code>touchRollOut</code> event, or both if the current environment supports it. Choose how you want to handle the user interaction. Use the flash.ui.Multitouch class to manage touch event handling (enable touch gesture event handling, simple touch point event handling, or disable touch events so only mouse events are dispatched). If you choose to handle the <code>rollOut</code> event, then the same event handler will run on a touch-enabled device and a mouse enabled device. However, if you choose to handle the <code>touchRollOut</code> event, you can design your event handler to respond to the specific needs of a touch-enabled environment and provide users with a richer touch-enabled experience. You can also handle both events, separately, to provide a different response for a touch event than a mouse event.</p>
+ * <p><b>Note:</b> See the Multitouch class for environment compatibility information.</p>
+ * @eventType flash.events.TouchEvent.TOUCH_ROLL_OUT
+ */
+[Event(name="touchRollOut", type="flash.events.TouchEvent")]
+/**
+ * Dispatched when the user moves the point of contact over an InteractiveObject instance on a touch-enabled device (such as drags a finger from a point outside a display object to a point over a display object on a mobile phone or tablet with a touch screen). Some devices might also interpret this contact as a <code>rollOver</code> event.
+ * <p>Specifically, if a user moves a finger over an InteractiveObject, the InteractiveObject instance can dispatch a <code>rollOver</code> event or a <code>touchRollOver</code> event, or both if the current environment supports it. Choose how you want to handle the user interaction. Use the flash.ui.Multitouch class to manage touch event handling (enable touch gesture event handling, simple touch point event handling, or disable touch events so only mouse events are dispatched). If you choose to handle the <code>rollOver</code> event, then the same event handler will run on a touch-enabled device and a mouse enabled device. However, if you choose to handle the <code>touchRollOver</code> event, you can design your event handler to respond to the specific needs of a touch-enabled environment and provide users with a richer touch-enabled experience. You can also handle both events, separately, to provide a different response for a touch event than a mouse event.</p>
+ * <p><b>Note:</b> See the Multitouch class for environment compatibility information.</p>
+ * @eventType flash.events.TouchEvent.TOUCH_ROLL_OVER
+ */
+[Event(name="touchRollOver", type="flash.events.TouchEvent")]
+/**
+ * Dispatched when the user lifts the point of contact over the same InteractiveObject instance on which the contact was initiated on a touch-enabled device (such as presses and releases a finger from a single point over a display object on a mobile phone or tablet with a touch screen). Some devices might also interpret this contact as a <code>click</code> event.
+ * <p>Specifically, if a user taps a finger over an InteractiveObject, the InteractiveObject instance can dispatch a <code>click</code> event or a <code>touchTap</code> event, or both if the current environment supports it. Choose how you want to handle the user interaction. Use the flash.ui.Multitouch class to manage touch event handling (enable touch gesture event handling, simple touch point event handling, or disable touch events so only mouse events are dispatched). If you choose to handle the <code>click</code> event, then the same event handler will run on a touch-enabled device and a mouse enabled device. However, if you choose to handle the <code>touchTap</code> event, you can design your event handler to respond to the specific needs of a touch-enabled environment and provide users with a richer touch-enabled experience. You can also handle both events, separately, to provide a different response for a touch event than a mouse event.</p>
+ * <p><b>Note:</b> See the Multitouch class for environment compatibility information.</p>
+ * @eventType flash.events.TouchEvent.TOUCH_TAP
+ */
+[Event(name="touchTap", type="flash.events.TouchEvent")]
 
 /**
  * The InteractiveObject class is the abstract base class for all display objects with which the user can interact, using the mouse, keyboard, or other user input device.
@@ -213,6 +355,41 @@ public class InteractiveObject extends DisplayObject {
   public native function set mouseEnabled(value:Boolean):void;
 
   /**
+   * Specifies whether a soft keyboard (an on-screen keyboard) displays when the curent InteractiveObject instance is "input active" (ready to accept user input). The default value is <code>false</code>, which means that by default an InteractiveObject instance does not show a soft keyboard. If the <code>needsSoftKeyboard</code> property is set to <code>true</code>, a soft keyboard is shown when the InteractiveObject instance is ready to accept user input. An InteractiveObject instance is ready to accept user input after a programmatic call to <code>FocusEvent.FOCUS_IN</code> or a user interaction, such as a "tap", if a hardware keyboard is not accessible and a software keyboard implementation is supported by the current system.
+   * <p>No event is dispatched when this property is set. You must use the <code>addEventListener()</code> method to add an event listener for the user interaction event, such as a tap or double-click. Also, you can create event listeners on the InteractiveObject instance for the <code>softKeyboardActivating</code>, <code>softKeyboardActivate</code>, and <code>softKeyboardDeactivate</code> events, as the soft keyboard launches or closes.</p>
+   * @see #event:softKeyboardActivating
+   * @see #event:softKeyboardActivate
+   * @see #event:softKeyboardDeactivate
+   *
+   */
+  public function get needsSoftKeyboard():Boolean {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * @private
+   */
+  public function set needsSoftKeyboard(value:Boolean):void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * Defines a rectangle of content to remain on-screen when the soft keyboard displays. This area is represented in stage coordinates. If the rectangle is <code>null</code>, the Flash runtime uses the bounds of the InteractiveObject instance obtained from the <code>DisplayObject.getBounds()</code> method.
+   * @see DisplayObject#getBounds()
+   *
+   */
+  public function get softKeyboardInputAreaOfInterest():Rectangle {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * @private
+   */
+  public function set softKeyboardInputAreaOfInterest(value:Rectangle):void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
    * Specifies whether this object is in the tab order. If this object is in the tab order, the value is <code>true</code>; otherwise, the value is <code>false</code>. By default, the value is <code>false</code>, except for the following:
    * <ul>
    * <li>For a SimpleButton object, the value is <code>true</code>.</li>
@@ -259,6 +436,17 @@ public class InteractiveObject extends DisplayObject {
     if (this['constructor'] === flash.display.InteractiveObject) {
       throw new ArgumentError();
     }
+  }
+
+  /**
+   * Display an on-screen keyboard (also called a "soft keyboard") if needed to override the device's default behavior. Use this method with the <code>needsSoftKeyboard</code> property to override the default behavior on a device that supports a soft keyboard, but might not show the keyboard when it is needed in certain circumstances. The current platform determines whether it is appropriate to show a keyboard or not (such as whether a hard keyboard is accessible, a soft keyboard is available, or if a keyboard is already on-screen). This method also ensures that the current InteractiveObject instance is in focus, even if a soft keyboard is not displayed.
+   * @return <code><a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/Boolean.html">Boolean</a></code>
+   *
+   * @see #needsSoftKeyboard
+   *
+   */
+  public function requestSoftKeyboard():Boolean {
+    throw new Error('not implemented'); // TODO: implement!
   }
 
   // ************************** Jangaroo part **************************

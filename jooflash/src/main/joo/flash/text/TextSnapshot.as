@@ -1,5 +1,4 @@
 package flash.text {
-
 /**
  * TextSnapshot objects let you work with static text in a movie clip. You can use them, for example, to lay out text with greater precision than that allowed by dynamic text, but still access the text in a read-only way.
  * <p>You don't use a constructor to create a TextSnapshot object; it is returned by <code>flash.display.DisplayObjectContainer.textSnapshot</code> property.</p>
@@ -151,6 +150,5 @@ public class TextSnapshot {
   public function setSelected(beginIndex:int, endIndex:int, select:Boolean):void {
     throw new Error('not implemented'); // TODO: implement!
   }
-
 }
 }

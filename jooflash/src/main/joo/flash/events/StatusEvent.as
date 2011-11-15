@@ -1,5 +1,4 @@
 package flash.events {
-
 /**
  * An object dispatches a StatusEvent object when a device, such as a camera or microphone, or an object such as a LocalConnection object reports its status. There is only one type of status event: <code>StatusEvent.STATUS</code>.
  * @see flash.media.Camera
@@ -107,6 +106,5 @@ public class StatusEvent extends Event {
    *
    */
   public static const STATUS:String = "status";
-
 }
 }

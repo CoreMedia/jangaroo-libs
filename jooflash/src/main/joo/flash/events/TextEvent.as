@@ -1,7 +1,4 @@
 package flash.events {
-
-
-
 /**
  * An object dispatches a TextEvent object when a user enters text in a text field or clicks a hyperlink in an HTML-enabled text field. There are two types of text events: <code>TextEvent.LINK</code> and <code>TextEvent.TEXT_INPUT</code>.
  * <p><a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/TextEvent.html#includeExamplesSummary">View the examples</a></p>

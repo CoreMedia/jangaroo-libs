@@ -1,7 +1,4 @@
 package flash.text {
-
-
-
 /**
  * The FontType class contains the enumerated constants <code>"embedded"</code> and <code>"device"</code> for the <code>fontType</code> property of the Font class.
  * @see Font#fontType
@@ -26,5 +23,14 @@ public final class FontType {
    *
    */
   public static const EMBEDDED:String = "embedded";
+  /**
+   * Indicates that this is an embedded CFF font. Font outlines and a subset of OpenType tables are embedded in the published SWF file.
+   * <p>Text that uses embedded CFF fonts is always displayed in the chosen font, whether or not that font is installed on the playback system. Also, text that uses embedded CFF fonts is always anti-aliased (smoothed) by Flash Player. You can select the rendering mode and hinting for an embedded CFF font using the <code>flash.text.engine.FontDescription.renderingMode</code> and <code>flash.text.engine.FontDescription.cffHinting</code> properties.</p>
+   * <p>One drawback to embedded CFF fonts is that they increase the size of the SWF file. However, embedded CFF fonts are typically 20% to 30% smaller than regular embedded fonts.</p>
+   * <p>Fonts of type <code>EMBEDDED_CFF</code> can only be used by the flash.text.engine classes. A TextField directed to use such a font will fail to render.</p>
+   * @see flash.text.engine.FontDescription#fontLookup
+   *
+   */
+  public static const EMBEDDED_CFF:String = "embeddedCFF";
 }
 }

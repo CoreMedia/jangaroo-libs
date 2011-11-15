@@ -1,5 +1,4 @@
 package flash.events {
-
 /**
  * The Stage object dispatches a FullScreenEvent object whenever the Stage enters or leaves full-screen display mode. There is only one type of <code>fullScreen</code> event: <code>FullScreenEvent.FULL_SCREEN</code>.
  * @see flash.display.Stage#displayState

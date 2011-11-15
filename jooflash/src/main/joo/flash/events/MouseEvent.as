@@ -51,8 +51,23 @@ public class MouseEvent extends Event {
   public native function set delta(value:int):void;
 
   /**
+   * If <code>true</code>, the <code>relatedObject</code> property is set to <code>null</code> for reasons related to security sandboxes. If the nominal value of <code>relatedObject</code> is a reference to a DisplayObject in another sandbox, <code>relatedObject</code> is set to <code>null</code> unless there is permission in both directions across this sandbox boundary. Permission is established by calling <code>Security.allowDomain()</code> from a SWF file, or by providing a policy file from the server of an image file, and setting the <code>LoaderContext.checkPolicyFile</code> property when loading the image.
+   * @see #relatedObject
+   * @see flash.system.Security#allowDomain()
+   * @see flash.system.LoaderContext#checkPolicyFile
+   *
+   */
+  public native function get isRelatedObjectInaccessible():Boolean;
+
+  /**
+   * @private
+   */
+  public native function set isRelatedObjectInaccessible(value:Boolean):void;
+
+  /**
    * The horizontal coordinate at which the event occurred relative to the containing sprite.
-   * @example <a href="http://www.adobe.com/go/learn_as3_usingexamples_en">How to use this example</a>Please see the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/MouseEvent.html#MOUSE_MOVE">MOUSE_MOVE</a> constant's example for an illustration of how to use this property.
+   * @example
+   * <a href="http://www.adobe.com/go/learn_as3_usingexamples_en">How to use this example</a>Please see the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/MouseEvent.html#MOUSE_MOVE">MOUSE_MOVE</a> constant's example for an illustration of how to use this property.
    */
   public native function get localX():Number;
 
@@ -63,7 +78,8 @@ public class MouseEvent extends Event {
 
   /**
    * The vertical coordinate at which the event occurred relative to the containing sprite.
-   * @example <a href="http://www.adobe.com/go/learn_as3_usingexamples_en">How to use this example</a>Please see the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/MouseEvent.html#MOUSE_MOVE">MOUSE_MOVE</a> constant's example for an illustration of how to use this property.
+   * @example
+   * <a href="http://www.adobe.com/go/learn_as3_usingexamples_en">How to use this example</a>Please see the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/MouseEvent.html#MOUSE_MOVE">MOUSE_MOVE</a> constant's example for an illustration of how to use this property.
    */
   public native function get localY():Number;
 
@@ -97,7 +113,8 @@ public class MouseEvent extends Event {
 
   /**
    * The horizontal coordinate at which the event occurred in global Stage coordinates. This property is calculated when the <code>localX</code> property is set.
-   * @example <a href="http://www.adobe.com/go/learn_as3_usingexamples_en">How to use this example</a>Please see the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/MouseEvent.html#MOUSE_MOVE">MOUSE_MOVE</a> constant's example for an illustration of how to use this property.
+   * @example
+   * <a href="http://www.adobe.com/go/learn_as3_usingexamples_en">How to use this example</a>Please see the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/MouseEvent.html#MOUSE_MOVE">MOUSE_MOVE</a> constant's example for an illustration of how to use this property.
    */
   public function get stageX():Number {
     return (this.target as DisplayObject).x + this.localX
@@ -105,7 +122,8 @@ public class MouseEvent extends Event {
 
   /**
    * The vertical coordinate at which the event occurred in global Stage coordinates. This property is calculated when the <code>localY</code> property is set.
-   * @example <a href="http://www.adobe.com/go/learn_as3_usingexamples_en">How to use this example</a>Please see the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/MouseEvent.html#MOUSE_MOVE">MOUSE_MOVE</a> constant's example for an illustration of how to use this property.
+   * @example
+   * <a href="http://www.adobe.com/go/learn_as3_usingexamples_en">How to use this example</a>Please see the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/MouseEvent.html#MOUSE_MOVE">MOUSE_MOVE</a> constant's example for an illustration of how to use this property.
    */
   public function get stageY():Number {
     return (this.target as DisplayObject).y + this.localY;
@@ -322,7 +340,8 @@ public class MouseEvent extends Event {
    * <td>The InteractiveObject instance under the pointing device. The <code>target</code> is not always the object in the display list that registered the event listener. Use the <code>currentTarget</code> property to access the object in the display list that is currently processing the event.</td></tr></table>
    * @see flash.display.InteractiveObject#event:mouseDown
    *
-   * @example <a href="http://www.adobe.com/go/learn_as3_usingexamples_en">How to use this example</a>Please see the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/MouseEvent.html#MOUSE_MOVE">MOUSE_MOVE</a> constant's example for an illustration of how to use this constant.
+   * @example
+   * <a href="http://www.adobe.com/go/learn_as3_usingexamples_en">How to use this example</a>Please see the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/MouseEvent.html#MOUSE_MOVE">MOUSE_MOVE</a> constant's example for an illustration of how to use this constant.
    */
   public static const MOUSE_DOWN:String = "mouseDown";
   /**
@@ -590,7 +609,8 @@ public class MouseEvent extends Event {
    * <td>The InteractiveObject instance under the pointing device. The <code>target</code> is not always the object in the display list that registered the event listener. Use the <code>currentTarget</code> property to access the object in the display list that is currently processing the event.</td></tr></table>
    * @see flash.display.InteractiveObject#event:mouseUp
    *
-   * @example <a href="http://www.adobe.com/go/learn_as3_usingexamples_en">How to use this example</a>Please see the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/MouseEvent.html#MOUSE_MOVE">MOUSE_MOVE</a> constant's example for an illustration of how to use this constant.
+   * @example
+   * <a href="http://www.adobe.com/go/learn_as3_usingexamples_en">How to use this example</a>Please see the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/MouseEvent.html#MOUSE_MOVE">MOUSE_MOVE</a> constant's example for an illustration of how to use this constant.
    */
   public static const MOUSE_UP:String = "mouseUp";
   /**

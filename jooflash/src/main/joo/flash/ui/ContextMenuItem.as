@@ -1,5 +1,4 @@
 package flash.ui {
-
 import flash.events.EventDispatcher;
 
 /**

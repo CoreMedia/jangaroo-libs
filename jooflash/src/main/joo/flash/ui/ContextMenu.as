@@ -1,5 +1,5 @@
 package flash.ui {
-
+import flash.net.URLRequest;
 import flash.events.EventDispatcher;
 
 /**
@@ -46,6 +46,62 @@ public final class ContextMenu extends EventDispatcher {
   }
 
   /**
+   * An instance of the ContextMenuClipboardItems class with the following properties: <code>cut</code>, <code>copy</code>, <code>paste</code>, <code>delete</code>, <code>selectAll</code>. Setting one of these properties to <code>false</code> disables the corresponding item in the clipboard menu.
+   * @see ContextMenuClipboardItems
+   *
+   * @example The following example demonstrates the use of the <code>clipboardItems</code> property of the <code>ContextMenu</code> object. Create a <code>ContextMenu</code>, and set its <code>clipboardMenu</code> property to <code>true</code>. Add an event handler for the <code>MENU_SELECT</code> (generally, right-click) event, and assign the menu to a display object. In this case, the <code>copy</code> and <code>paste</code> menus are enabled.
+   * <listing>
+   * package {
+   *     import flash.ui.ContextMenu;
+   *     import flash.events.ContextMenuEvent;
+   *     import flash.display.Sprite;
+   *
+   *     public class ContextMenuClipboardItemsExample extends Sprite {
+   *         public function ContextMenuClipboardItemsExample() {
+   *             var myContextMenu:ContextMenu = new ContextMenu();
+   *             myContextMenu.clipboardMenu = true;
+   *             myContextMenu.addEventListener(ContextMenuEvent.MENU_SELECT, menuSelectHandler);
+   *             var rc:Sprite = new Sprite();
+   *             rc.graphics.beginFill(0xDDDDDD);
+   *             rc.graphics.drawRect(0,0,100,30);
+   *             addChild(rc);
+   *             rc.contextMenu = myContextMenu;
+   *         }
+   *         function menuSelectHandler(event:ContextMenuEvent):void {
+   *             event.contextMenuOwner.contextMenu.clipboardItems.copy = true;
+   *             event.contextMenuOwner.contextMenu.clipboardItems.paste = true;
+   *         }
+   *     }
+   * }
+   * </listing>
+   */
+  public function get clipboardItems():ContextMenuClipboardItems {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * @private
+   */
+  public function set clipboardItems(value:ContextMenuClipboardItems):void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * Specifies whether or not the clipboard menu should be used. If this value is <code>true</code>, the <code>clipboardItems</code> property determines which items are enabled or disabled on the clipboard menu.
+   * <p>If the <code>link</code> property is non-null, this <code>clipBoardMenu</code> property is ignored.</p>
+   */
+  public function get clipboardMenu():Boolean {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * @private
+   */
+  public function set clipboardMenu(value:Boolean):void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
    * An array of ContextMenuItem objects. Each object in the array represents a context menu item that you have defined. Use this property to add, remove, or modify these custom menu items.
    * <p>To add new menu items, you create a ContextMenuItem object and then add it to the <code>customItems</code> array (for example, by using <code>Array.push()</code>). For more information about creating menu items, see the ContextMenuItem class entry.</p>
    * @see flash.display.InteractiveObject#contextMenu
@@ -57,6 +113,29 @@ public final class ContextMenu extends EventDispatcher {
    * @private
    */
   public native function set customItems(value:Array):void;
+
+  /**
+   * The <code>isSupported</code> property is set to <code>true</code> if the ContextMenu class is supported on the current platform, otherwise it is set to <code>false</code>.
+   */
+  public static function get isSupported():Boolean {
+    return false;
+  }
+
+  /**
+   * The <code>URLRequest</code> of the link. If this property is <code>null</code>, a normal context menu is displayed. If this property is not <code>null</code>, the link context menu is displayed, and operates on the url specified.
+   * <p>If a <code>link</code> is specified, the <code>clipboardMenu</code> property is ignored.</p>
+   * <p>The default value is <code>null</code>.</p>
+   */
+  public function get link():URLRequest {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * @private
+   */
+  public function set link(value:URLRequest):void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
 
   /**
    * Creates a ContextMenu object.

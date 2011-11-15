@@ -1,5 +1,4 @@
 package flash.events {
-
 /**
  * A KeyboardEvent object id dispatched in response to user input through a keyboard. There are two types of keyboard events: <code>KeyboardEvent.KEY_DOWN</code> and <code>KeyboardEvent.KEY_UP</code>
  * <p>Because mappings between keys and specific characters vary by device and operating system, use the TextEvent event type for processing character input.</p>
@@ -222,6 +221,5 @@ public class KeyboardEvent extends Event {
    *
    */
   public static const KEY_UP:String = "keyUp";
-
 }
 }

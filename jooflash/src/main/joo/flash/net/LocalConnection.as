@@ -2,17 +2,17 @@ package flash.net {
 import flash.events.EventDispatcher;
 
 /**
- * property AsyncErrorEvent.type =
+ * Dispatched when an exception is thrown asynchronously — that is, from native asynchronous code.
  * @eventType flash.events.AsyncErrorEvent.ASYNC_ERROR
  */
 [Event(name="asyncError", type="flash.events.AsyncErrorEvent")]
 /**
- * property SecurityErrorEvent.type =
+ * Dispatched if a call to <code>LocalConnection.send()</code> attempts to send data to a different security sandbox.
  * @eventType flash.events.SecurityErrorEvent.SECURITY_ERROR
  */
 [Event(name="securityError", type="flash.events.SecurityErrorEvent")]
 /**
- * property StatusEvent.type =
+ * Dispatched when a LocalConnection object reports its status. If <code>LocalConnection.send()</code> is successful, the value of the <code>status</code> event object's <code>level</code> property is <code>"status"</code>; if the call fails, the <code>level</code> property is <code>"error"</code>. If the receiving file refuses the connection, the call can fail without notification to the sending file.
  * @eventType flash.events.StatusEvent.STATUS
  */
 [Event(name="status", type="flash.events.StatusEvent")]
@@ -135,6 +135,27 @@ public class LocalConnection extends EventDispatcher {
    *
    */
   public function get domain():String {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   *
+   */
+  public function get isPerUser():Boolean {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * @private
+   */
+  public function set isPerUser(value:Boolean):void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * The <code>isSupported</code> property is set to <code>true</code> if the LocalConnection class is supported on the current platform, otherwise it is set to <code>false</code>.
+   */
+  public static function get isSupported():Boolean {
     throw new Error('not implemented'); // TODO: implement!
   }
 

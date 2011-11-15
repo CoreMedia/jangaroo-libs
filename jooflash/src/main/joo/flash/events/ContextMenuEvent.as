@@ -23,6 +23,20 @@ public class ContextMenuEvent extends Event {
   public native function set contextMenuOwner(value:InteractiveObject):void;
 
   /**
+   * Indicates whether the <code>mouseTarget</code> property was set to <code>null</code> for security reasons. If the nominal value of <code>menuTarget</code> would be a reference to a <code>DisplayObject</code> in another security sandbox, then <code>menuTarget</code> is set to <code>null</code> unless there is permission in both directions across this sandbox boundary. Permission is established by calling <code>Security.allowDomain()</code> from a SWF file, or providing a policy file from the server of an image file, and setting the <code>LoaderContext.checkPolicyFile</code> flag when loading the image.
+   * @see #mouseTarget
+   * @see flash.system.Security#allowDomain()
+   * @see flash.system.LoaderContext#checkPolicyFile
+   *
+   */
+  public native function get isMouseTargetInaccessible():Boolean;
+
+  /**
+   * @private
+   */
+  public native function set isMouseTargetInaccessible(value:Boolean):void;
+
+  /**
    * The display list object on which the user right-clicked to display the context menu. This could be the display list object to which the menu is attached (<code>contextMenuOwner</code>) or one of its display list descendants.
    * <p>The value of this property can be <code>null</code> in two circumstances: if there no mouse target, for example when you mouse over something from the background; or there is a mouse target, but it is in a security sandbox to which you don't have access. Use the <code>isMouseTargetInaccessible()</code> property to determine which of these reasons applies.</p>
    * @see #isMouseTargetInaccessible

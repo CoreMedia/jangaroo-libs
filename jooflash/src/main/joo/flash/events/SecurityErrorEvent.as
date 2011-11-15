@@ -1,5 +1,4 @@
 package flash.events {
-
 /**
  * An object dispatches a SecurityErrorEvent object to report the occurrence of a security error. Security errors reported through this class are generally from asynchronous operations, such as loading data, in which security violations may not manifest immediately. Your event listener can access the object's <code>text</code> property to determine what operation was attempted and any URLs that were involved. If there are no event listeners, the debugger version of Flash Player or the AIR Debug Launcher (ADL) application automatically displays an error message that contains the contents of the <code>text</code> property. There is one type of security error event: <code>SecurityErrorEvent.SECURITY_ERROR</code>.
  * <p>Security error events are the final events dispatched for any target object. This means that any other events, including generic error events, are not dispatched for a target object that experiences a security error.</p>
@@ -30,7 +29,7 @@ public class SecurityErrorEvent extends ErrorEvent {
    *
    */
   override public function clone():Event {
-    return new SecurityErrorEvent(type, bubbles, cancelable, text, id);
+    return new SecurityErrorEvent(type, bubbles, cancelable, text, errorID);
   }
 
   /**

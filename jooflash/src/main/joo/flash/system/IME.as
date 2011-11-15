@@ -2,7 +2,7 @@ package flash.system {
 import flash.events.EventDispatcher;
 
 /**
- * property IMEEvent.type =
+ * Dispatched when a user has completed an input method editor (IME) composition and the reading string is available. IMEs are generally used to enter text from languages that have ideographs instead of letters, such as Japanese, Chinese and Korean.
  * @eventType flash.events.IMEEvent.IME_COMPOSITION
  */
 [Event(name="imeComposition", type="flash.events.IMEEvent")]
@@ -111,6 +111,30 @@ public final class IME extends EventDispatcher {
    * @private
    */
   public static function set enabled(value:Boolean):void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * The <code>isSupported</code> property is set to <code>true</code> if the IME class is available on the current platform, otherwise it is set to <code>false</code>.
+   */
+  public static function get isSupported():Boolean {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * Causes the runtime to abandon any composition that is in progress. Call this method when the user clicks outside of the composition area or when the interactive object that has focus is being destroyed or reset. The runtime confirms the composition by calling <code>confirmComposition()</code> in the client. The runtime also resets the IME to inform the operating system that the composition has been abandoned.
+   */
+  public static function compositionAbandoned():void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * Call this method when the selection within the composition has been updated, either interactively or programmatically.
+   * @param start Specifies the offset in bytes of the start of the selection.
+   * @param end Specifies the offset in bytes of the end of the selection.
+   *
+   */
+  public static function compositionSelectionChanged(start:int, end:int):void {
     throw new Error('not implemented'); // TODO: implement!
   }
 

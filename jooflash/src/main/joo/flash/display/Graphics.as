@@ -94,11 +94,6 @@ public final class Graphics {
     _beginFill(createPattern(bitmap, matrix, repeat, smooth));
   }
 
-  private function createPattern(bitmap:BitmapData, matrix:Matrix, repeat:Boolean, smooth:Boolean):Object {
-    // TODO: matrix, smooth
-    return context.createPattern(bitmap.getElement(), repeat ? "repeat" : "no-repeat");
-  }
-
   /**
    * Specifies a simple one-color fill that subsequent calls to other Graphics methods (such as <code>lineTo()</code> or <code>drawCircle()</code>) use when drawing. The fill remains in effect until you call the <code>beginFill()</code>, <code>beginBitmapFill()</code>, <code>beginGradientFill()</code>, or <code>beginShaderFill()</code> method. Calling the <code>clear()</code> method clears the fill.
    * <p>The application renders the fill whenever three or more points are drawn, or when the <code>endFill()</code> method is called.</p>
@@ -109,7 +104,8 @@ public final class Graphics {
    * @see #beginBitmapFill()
    * @see #beginGradientFill()
    *
-   * @example <a href="http://www.adobe.com/go/learn_as3_usingexamples_en">How to use this example</a>Please see the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/Graphics.html#includeExamplesSummary">example</a> at the end of this class for an illustration of how to use this method.
+   * @example
+   * <a href="http://www.adobe.com/go/learn_as3_usingexamples_en">How to use this example</a>Please see the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/Graphics.html#includeExamplesSummary">example</a> at the end of this class for an illustration of how to use this method.
    */
   public function beginFill(color:uint, alpha:Number = 1.0):void {
     _beginFill(toRGBA(color, alpha));
@@ -187,6 +183,34 @@ public final class Graphics {
   }
 
   /**
+   * Specifies a shader fill used by subsequent calls to other Graphics methods (such as <code>lineTo()</code> or <code>drawCircle()</code>) for the object. The fill remains in effect until you call the <code>beginFill()</code>, <code>beginBitmapFill()</code>, <code>beginGradientFill()</code>, or <code>beginShaderFill()</code> method. Calling the <code>clear()</code> method clears the fill.
+   * <p>The application renders the fill whenever three or more points are drawn, or when the <code>endFill()</code> method is called.</p>
+   * <p>Shader fills are not supported under GPU rendering; filled areas will be colored cyan.</p>
+   * @param shader The shader to use for the fill. This Shader instance is not required to specify an image input. However, if an image input is specified in the shader, the input must be provided manually. To specify the input, set the <code>input</code> property of the corresponding ShaderInput property of the <code>Shader.data</code> property.
+   * <p>When you pass a Shader instance as an argument the shader is copied internally. The drawing fill operation uses that internal copy, not a reference to the original shader. Any changes made to the shader, such as changing a parameter value, input, or bytecode, are not applied to the copied shader that's used for the fill.</p>
+   * @param matrix A matrix object (of the flash.geom.Matrix class), which you can use to define transformations on the shader. For example, you can use the following matrix to rotate a shader by 45 degrees (pi/4 radians):
+   * <listing>
+   *      matrix = new flash.geom.Matrix();
+   *      matrix.rotate(Math.PI / 4);
+   *     </listing>
+   * <p>The coordinates received in the shader are based on the matrix that is specified for the <code>matrix</code> parameter. For a default (<code>null</code>) matrix, the coordinates in the shader are local pixel coordinates which can be used to sample an input.</p>
+   *
+   * @throws ArgumentError When the shader output type is not compatible with this operation (the shader must specify a <code>pixel3</code> or <code>pixel4</code> output).
+   * @throws ArgumentError When the shader specifies an image input that isn't provided.
+   * @throws ArgumentError When a ByteArray or Vector.<Number> instance is used as an input and the <code>width</code> and <code>height</code> properties aren't specified for the ShaderInput, or the specified values don't match the amount of data in the input object. See the <code>ShaderInput.input</code> property for more information.
+   *
+   * @see #endFill()
+   * @see #beginFill()
+   * @see #beginBitmapFill()
+   * @see #beginGradientFill()
+   * @see ShaderInput
+   *
+   */
+  public function beginShaderFill(shader:Shader, matrix:Matrix = null):void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
    * Clears the graphics that were drawn to this Graphics object, and resets fill and line style settings.
    */
   public function clear():void {
@@ -199,6 +223,15 @@ public final class Graphics {
     this.fillCommands = null;
     this.context.moveTo(0, 0);
     empty = true;
+  }
+
+  /**
+   * Copies all of drawing commands from the source Graphics object into the calling Graphics object.
+   * @param sourceGraphics The Graphics object from which to copy the drawing commands.
+   *
+   */
+  public function copyFrom(sourceGraphics:Graphics):void {
+    throw new Error('not implemented'); // TODO: implement!
   }
 
   /**
@@ -292,7 +325,8 @@ public final class Graphics {
    * @see #beginGradientFill()
    * @see #beginBitmapFill()
    *
-   * @example <a href="http://www.adobe.com/go/learn_as3_usingexamples_en">How to use this example</a>Please see the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/Graphics.html#includeExamplesSummary">example</a> at the end of this class for an illustration of how to use this method.
+   * @example
+   * <a href="http://www.adobe.com/go/learn_as3_usingexamples_en">How to use this example</a>Please see the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/Graphics.html#includeExamplesSummary">example</a> at the end of this class for an illustration of how to use this method.
    */
   public function drawCircle(x:Number, y:Number, radius:Number):void {
     createSpace(x - radius, y - radius);
@@ -406,6 +440,150 @@ public final class Graphics {
   }
 
   /**
+   * Submits a series of IGraphicsData instances for drawing. This method accepts a Vector containing objects including paths, fills, and strokes that implement the IGraphicsData interface. A Vector of IGraphicsData instances can refer to a part of a shape, or a complex fully defined set of data for rendering a complete shape.
+   * <p>Graphics paths can contain other graphics paths. If the <code>graphicsData</code> Vector includes a path, that path and all its sub-paths are rendered during this operation.</p>
+   * @param graphicsData A Vector containing graphics objects, each of which much implement the IGraphicsData interface.
+   *
+   * @see IGraphicsData
+   * @see GraphicsBitmapFill
+   * @see GraphicsEndFill
+   * @see GraphicsGradientFill
+   * @see GraphicsPath
+   * @see GraphicsShaderFill
+   * @see GraphicsSolidFill
+   * @see GraphicsStroke
+   * @see GraphicsTrianglePath
+   *
+   * @example The following example creates a GraphicsGradientFill object to establish the fill properties for a square. Then, the example creates a GraphicsStroke object (for the line thickness) class and a GraphicsSolidFill object (for the line color) to set the properties for the border line of the square. The example then creates a GraphicsPath object to contain the values for drawing the shape. All of these objects are stored in an IGraphicsData object, and passed to the <code>drawGraphicsData()</code> command to render the shape.
+   * <listing>
+   * package{
+   *     import flash.display.*;
+   *     import flash.geom.*;
+   *
+   *     public class DrawGraphicsDataExample extends Sprite {
+   *
+   *     public function DrawGraphicsDataExample(){
+   *
+   *     // establish the fill properties
+   *     var myFill:GraphicsGradientFill = new GraphicsGradientFill();
+   *     myFill.colors = [0xEEFFEE, 0x0000FF];
+   *     myFill.matrix = new Matrix();
+   *     myFill.matrix.createGradientBox(100, 100, 0);
+   *
+   *     // establish the stroke properties
+   *     var myStroke:GraphicsStroke = new GraphicsStroke(2);
+   *     myStroke.fill = new GraphicsSolidFill(0x000000);
+   *
+   *     // establish the path properties
+   *     var myPath:GraphicsPath = new GraphicsPath(new Vector.<int>(), new Vector.<Number>());
+   *     myPath.commands.push(1,2,2,2,2);
+   *     myPath.data.push(10,10, 10,100, 100,100, 100,10, 10,10);
+   *
+   *     // populate the IGraphicsData Vector array
+   *     var myDrawing:Vector.<IGraphicsData> = new Vector.<IGraphicsData>();
+   *     myDrawing.push(myFill, myStroke, myPath);
+   *
+   *     // render the drawing
+   *     graphics.drawGraphicsData(myDrawing);
+   *     }
+   *     }
+   * }
+   * </listing>
+   */
+  public function drawGraphicsData(graphicsData:Vector.<IGraphicsData>):void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * Submits a series of commands for drawing. The <code>drawPath()</code> method uses vector arrays to consolidate individual <code>moveTo()</code>, <code>lineTo()</code>, and <code>curveTo()</code> drawing commands into a single call. The <code>drawPath()</code> method parameters combine drawing commands with x- and y-coordinate value pairs and a drawing direction. The drawing commands are values from the GraphicsPathCommand class. The x- and y-coordinate value pairs are Numbers in an array where each pair defines a coordinate location. The drawing direction is a value from the GraphicsPathWinding class.
+   * <p>Generally, drawings render faster with <code>drawPath()</code> than with a series of individual <code>lineTo()</code> and <code>curveTo()</code> methods.</p>
+   * <p>The <code>drawPath()</code> method uses a uses a floating computation so rotation and scaling of shapes is more accurate and gives better results. However, curves submitted using the <code>drawPath()</code> method can have small sub-pixel alignment errors when used in conjunction with the <code>lineTo()</code> and <code>curveTo()</code> methods.</p>
+   * <p>The <code>drawPath()</code> method also uses slightly different rules for filling and drawing lines. They are:</p>
+   * <ul>
+   * <li>When a fill is applied to rendering a path:
+   * <ul>
+   * <li>A sub-path of less than 3 points is not rendered. (But note that the stroke rendering will still occur, consistent with the rules for strokes below.)</li>
+   * <li>A sub-path that isn't closed (the end point is not equal to the begin point) is implicitly closed.</li></ul></li>
+   * <li>When a stroke is applied to rendering a path:
+   * <ul>
+   * <li>The sub-paths can be composed of any number of points.</li>
+   * <li>The sub-path is never implicitly closed.</li></ul></li></ul>
+   * @param commands A Vector of integers representing commands defined by the GraphicsPathCommand class. The GraphicsPathCommand class maps commands to numeric identifiers for this vector array.
+   * @param data A Vector of Numbers where each pair of numbers is treated as a coordinate location (an x, y pair). The x- and y-coordinate value pairs are not Point objects; the <code>data</code> vector is a series of numbers where each group of two numbers represents a coordinate location.
+   * @param winding Specifies the winding rule using a value defined in the GraphicsPathWinding class.
+   *
+   * @see GraphicsPathCommand
+   * @see GraphicsPathWinding
+   *
+   * @example The following example populates two Vector objects, then passes them to the <code>drawPath()</code> method to render a blue star. The first Vector, <code>star_commands</code>, contains a series of integers representing drawing commands from the flash.display.GraphicsPathCommand class, where the value 1 is a <code>MoveTo()</code> command and the value 2 is a <code>LineTo()</code> command. The second Vector, <code>star_coord</code>, contains 5 sets of x- and y-coordinate pairs. The <code>drawPath()</code> method matches the commands with the positions to draw a star.
+   * <listing>
+   * package{
+   *     import flash.display.*;
+   *
+   *     public class DrawPathExample extends Sprite {
+   *
+   *     public function DrawPathExample(){
+   *
+   *     var star_commands:Vector.<int> = new Vector.<int>(5, true);
+   *
+   *     star_commands[0] = 1;
+   *     star_commands[1] = 2;
+   *     star_commands[2] = 2;
+   *     star_commands[3] = 2;
+   *     star_commands[4] = 2;
+   *
+   *     var star_coord:Vector.<Number> = new Vector.<Number>(10, true);
+   *     star_coord[0] = 66; //x
+   *     star_coord[1] = 10; //y
+   *     star_coord[2] = 23;
+   *     star_coord[3] = 127;
+   *     star_coord[4] = 122;
+   *     star_coord[5] = 50;
+   *     star_coord[6] = 10;
+   *     star_coord[7] = 49;
+   *     star_coord[8] = 109;
+   *     star_coord[9] = 127;
+   *
+   *
+   *     graphics.beginFill(0x003366);
+   *     graphics.drawPath(star_commands, star_coord);
+   *
+   *     }
+   *
+   *     }
+   * }
+   *
+   * </listing>
+   * <div>In the above example, each command and coordinate pair is assigned individually to show their position in the array, but they can be assigned in a single statement. The following example draws the same star by assigning the values for each array in a single <code>push()</code> statement:
+   * <listing>
+   * package{
+   *     import flash.display.*;
+   *
+   *     public class DrawPathExample extends Sprite {
+   *     public function DrawPathExample(){
+   *         var star_commands:Vector.<int> = new Vector.<int>();
+   *         star_commands.push(1, 2, 2, 2, 2);
+   *
+   *            var star_coord:Vector.<Number> = new Vector.<Number>();
+   *            star_coord.push(66,10, 23,127, 122,50, 10,49, 109,127);
+   *
+   *         graphics.beginFill(0x003366);
+   *         graphics.drawPath(star_commands, star_coord);
+   *     }
+   *     }
+   * }
+   *
+   *
+   * </listing><b>Note:</b> By default, the <code>drawPath()</code> method uses the even-odd winding type. So, the center of the star is not filled. Specify the non-zero winding type for the third parameter and it fills the center of the star:
+   * <listing>
+   *  graphics.drawPath(star_commands, star_coord, GraphicsPathWinding.NON_ZERO);
+   * </listing></div>
+   */
+  public function drawPath(commands:Vector.<int>, data:Vector.<Number>, winding:String = "evenOdd"):void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
    * Draws a rectangle. Set the line style, fill, or both before you call the <code>drawRect()</code> method, by calling the <code>linestyle()</code>, <code>lineGradientStyle()</code>, <code>beginFill()</code>, <code>beginGradientFill()</code>, or <code>beginBitmapFill()</code> method.
    * @param x A number indicating the horizontal position relative to the registration point of the parent display object (in pixels).
    * @param y A number indicating the vertical position relative to the registration point of the parent display object (in pixels).
@@ -463,11 +641,14 @@ public final class Graphics {
    * @see #beginBitmapFill()
    * @see #drawRect()
    *
-   * @example <a href="http://www.adobe.com/go/learn_as3_usingexamples_en">How to use this example</a>Please see the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/Graphics.html#includeExamplesSummary">example</a> at the end of this class for an illustration of how to use this method.
+   * @example
+   * <a href="http://www.adobe.com/go/learn_as3_usingexamples_en">How to use this example</a>Please see the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/Graphics.html#includeExamplesSummary">example</a> at the end of this class for an illustration of how to use this method.
    */
   public function drawRoundRect(x:Number, y:Number, width:Number, height:Number, ellipseWidth:Number, ellipseHeight:Number = NaN):void {
     createSpace(x, y);
-    createSpace(x + width, y + height);
+    var x_r  : Number = x + width;
+    var y_b  : Number = y + height;
+    createSpace(x_r, y_b);
     createCanvasSpace();
     if (ellipseHeight==0 || ellipseWidth==0) {
       this.drawRect(x, y, width, height);
@@ -477,10 +658,8 @@ public final class Graphics {
       ellipseHeight = ellipseWidth;
     }
     var x_lw : Number = x + ellipseWidth;
-    var x_r  : Number = x + width;
     var x_rw : Number = x_r - ellipseWidth;
     var y_tw : Number = y + ellipseHeight;
-    var y_b  : Number = y + height;
     var y_bw : Number = y_b - ellipseHeight;
     this.context.beginPath();
     this.context.moveTo(x_lw, y);
@@ -500,6 +679,74 @@ public final class Graphics {
       this.context.stroke();
     }
     empty = false;
+  }
+
+  /**
+   * Draws a rounded rectangle using the size of a radius to draw the rounded corners. 
+   * You must set the line style, fill, or both on the Graphics object before you call the
+   * <code>drawRoundRectComplex()</code> method by calling the <code>linestyle()</code>, 
+   * <code>lineGradientStyle()</code>, <code>beginFill()</code>, 
+   * <code>beginGradientFill()</code>, or 
+   * <code>beginBitmapFill()</code> method.
+   * 
+   * @param x The horizontal position relative to the registration point of the parent display object, in pixels.
+   * @param y The vertical position relative to the registration point of the parent display object, in pixels.
+   * @param width The width of the round rectangle, in pixels.
+   * @param height The height of the round rectangle, in pixels.
+   * @param topLeftRadius The radius of the upper-left corner, in pixels.
+   * @param topRightRadius The radius of the upper-right corner, in pixels.
+   * @param bottomLeftRadius The radius of the bottom-left corner, in pixels.
+   * @param bottomRightRadius The radius of the bottom-right corner, in pixels.
+   */
+  public function drawRoundRectComplex(x:Number, y:Number, width:Number, height:Number, topLeftRadius:Number, topRightRadius:Number, bottomLeftRadius:Number, bottomRightRadius:Number):void {
+    createSpace(x, y);
+    var x_r:Number = x + width;
+    var y_b:Number = y + height;
+    createSpace(x_r, y_b);
+    createCanvasSpace();
+    if (topLeftRadius==0 && topRightRadius==0 && bottomLeftRadius==0 && bottomRightRadius==0) {
+      this.drawRect(x, y, width, height);
+      return;
+    }
+    this.context.beginPath();
+    var x_tl:Number = x + topLeftRadius;
+    this.context.moveTo(x_tl, y);
+    this.context.lineTo(x_r - topRightRadius, y);
+    this.context.quadraticCurveTo(x_r, y, x_r, y + topRightRadius);
+    this.context.lineTo(x_r, y_b - bottomRightRadius);
+    this.context.quadraticCurveTo(x_r, y_b, x_r - bottomRightRadius, y_b);
+    this.context.lineTo(x + bottomLeftRadius, y_b);
+    this.context.quadraticCurveTo(x, y_b, x, y_b - bottomLeftRadius);
+    this.context.lineTo(x, y + topLeftRadius);
+    this.context.quadraticCurveTo(x, y, x_tl, y);
+    this.context.closePath();
+    if (fillCommands) {
+      this.context.fill();
+    }
+    if (!isNaN(thickness)) {
+      this.context.stroke();
+    }
+    empty = false;
+  }
+
+  /**
+   * Renders a set of triangles, typically to distort bitmaps and give them a three-dimensional appearance. The <code>drawTriangles()</code> method maps either the current fill, or a bitmap fill, to the triangle faces using a set of (u,v) coordinates.
+   * <p>Any type of fill can be used, but if the fill has a transform matrix that transform matrix is ignored.</p>
+   * <p>A <code>uvtData</code> parameter improves texture mapping when a bitmap fill is used.</p>
+   * @param vertices A Vector of Numbers where each pair of numbers is treated as a coordinate location (an x, y pair). The <code>vertices</code> parameter is required.
+   * @param indices A Vector of integers or indexes, where every three indexes define a triangle. If the <code>indexes</code> parameter is null then every three vertices (six x,y pairs in the <code>vertices</code> Vector) defines a triangle. Otherwise each index refers to a vertex, which is a pair of numbers in the <code>vertices</code> Vector. For example <code>indexes[1]</code> refers to (<code>vertices[2]</code>, <code>vertices[3]</code>). The <code>indexes</code> parameter is optional, but indexes generally reduce the amount of data submitted and the amount of data computed.
+   * @param uvtData A Vector of normalized coordinates used to apply texture mapping. Each coordinate refers to a point on the bitmap used for the fill. You must have one UV or one UVT coordinate per vertex. In UV coordinates, (0,0) is the upper left of the bitmap, and (1,1) is the lower right of the bitmap.
+   * <p>If the length of this vector is twice the length of the <code>vertices</code> vector then normalized coordinates are used without perspective correction.</p>
+   * <p>If the length of this vector is three times the length of the <code>vertices</code> vector then the third coordinate is interpreted as 't' (the distance from the eye to the texture in eye space). This helps the rendering engine correctly apply perspective when mapping textures in three dimensions.</p>
+   * <p>If the <code>uvtData</code> parameter is null, then normal fill rules (and any fill type) apply.</p>
+   * @param culling Specifies whether to render triangles that face in a specified direction. This parameter prevents the rendering of triangles that cannot be seen in the current view. This parameter can be set to any value defined by the TriangleCulling class.
+   *
+   * @see TriangleCulling
+   * @see GraphicsTrianglePath
+   *
+   */
+  public function drawTriangles(vertices:Vector.<Number>, indices:Vector.<int> = null, uvtData:Vector.<Number> = null, culling:String = "none"):void {
+    throw new Error('not implemented'); // TODO: implement!
   }
 
   /**
@@ -526,6 +773,26 @@ public final class Graphics {
       }
       this.fillCommands = null;
     }
+  }
+
+  /**
+   * Specifies a bitmap to use for the line stroke when drawing lines.
+   * <p>The bitmap line style is used for subsequent calls to Graphics methods such as the <code>lineTo()</code> method or the <code>drawCircle()</code> method. The line style remains in effect until you call the <code>lineStyle()</code> or <code>lineGradientStyle()</code> methods, or the <code>lineBitmapStyle()</code> method again with different parameters.</p>
+   * <p>You can call the <code>lineBitmapStyle()</code> method in the middle of drawing a path to specify different styles for different line segments within a path.</p>
+   * <p>Call the <code>lineStyle()</code> method before you call the <code>lineBitmapStyle()</code> method to enable a stroke, or else the value of the line style is <code>undefined</code>.</p>
+   * <p>Calls to the <code>clear()</code> method set the line style back to <code>undefined</code>.</p>
+   * @param bitmap The bitmap to use for the line stroke.
+   * @param matrix An optional transformation matrix as defined by the flash.geom.Matrix class. The matrix can be used to scale or otherwise manipulate the bitmap before applying it to the line style.
+   * @param repeat Whether to repeat the bitmap in a tiled fashion.
+   * @param smooth Whether smoothing should be applied to the bitmap.
+   *
+   * @see #lineStyle()
+   * @see #lineGradientStyle()
+   * @see flash.geom.Matrix
+   *
+   */
+  public function lineBitmapStyle(bitmap:BitmapData, matrix:Matrix = null, repeat:Boolean = true, smooth:Boolean = false):void {
+    throw new Error('not implemented'); // TODO: implement!
   }
 
   /**
@@ -619,6 +886,24 @@ public final class Graphics {
   }
 
   /**
+   * Specifies a shader to use for the line stroke when drawing lines.
+   * <p>The shader line style is used for subsequent calls to Graphics methods such as the <code>lineTo()</code> method or the <code>drawCircle()</code> method. The line style remains in effect until you call the <code>lineStyle()</code> or <code>lineGradientStyle()</code> methods, or the <code>lineBitmapStyle()</code> method again with different parameters.</p>
+   * <p>You can call the <code>lineShaderStyle()</code> method in the middle of drawing a path to specify different styles for different line segments within a path.</p>
+   * <p>Call the <code>lineStyle()</code> method before you call the <code>lineShaderStyle()</code> method to enable a stroke, or else the value of the line style is <code>undefined</code>.</p>
+   * <p>Calls to the <code>clear()</code> method set the line style back to <code>undefined</code>.</p>
+   * @param shader The shader to use for the line stroke.
+   * @param matrix An optional transformation matrix as defined by the flash.geom.Matrix class. The matrix can be used to scale or otherwise manipulate the bitmap before applying it to the line style.
+   *
+   * @see #lineStyle()
+   * @see #lineBitmapStyle()
+   * @see flash.geom.Matrix
+   *
+   */
+  public function lineShaderStyle(shader:Shader, matrix:Matrix = null):void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
    * Specifies a line style used for subsequent calls to Graphics methods such as the <code>lineTo()</code> method or the <code>drawCircle()</code> method. The line style remains in effect until you call the <code>lineGradientStyle()</code> method, the <code>lineBitmapStyle()</code> method, or the <code>lineStyle()</code> method with different parameters.
    * <p>You can call the <code>lineStyle()</code> method in the middle of drawing a path to specify different styles for different line segments within the path.</p>
    * <p><b>Note:</b> Calls to the <code>clear()</code> method set the line style back to <code>undefined</code>.</p>
@@ -631,11 +916,11 @@ public final class Graphics {
    * <p>If a value is not supplied, the line does not use pixel hinting.</p>
    * @param scaleMode (Not supported in Flash Lite 4) A value from the LineScaleMode class that specifies which scale mode to use:
    * <ul>
-   * <li><code>LineScaleMode.NORMAL</code>�Always scale the line thickness when the object is scaled (the default).</li>
-   * <li><code>LineScaleMode.NONE</code>�Never scale the line thickness.</li>
-   * <li><code>LineScaleMode.VERTICAL</code>�Do not scale the line thickness if the object is scaled vertically <i>only</i>. For example, consider the following circles, drawn with a one-pixel line, and each with the <code>scaleMode</code> parameter set to <code>LineScaleMode.VERTICAL</code>. The circle on the left is scaled vertically only, and the circle on the right is scaled both vertically and horizontally:
+   * <li><code>LineScaleMode.NORMAL</code>—Always scale the line thickness when the object is scaled (the default).</li>
+   * <li><code>LineScaleMode.NONE</code>—Never scale the line thickness.</li>
+   * <li><code>LineScaleMode.VERTICAL</code>—Do not scale the line thickness if the object is scaled vertically <i>only</i>. For example, consider the following circles, drawn with a one-pixel line, and each with the <code>scaleMode</code> parameter set to <code>LineScaleMode.VERTICAL</code>. The circle on the left is scaled vertically only, and the circle on the right is scaled both vertically and horizontally:
    * <p><img src="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/images/LineScaleMode_VERTICAL.jpg" /></p></li>
-   * <li><code>LineScaleMode.HORIZONTAL</code>�Do not scale the line thickness if the object is scaled horizontally <i>only</i>. For example, consider the following circles, drawn with a one-pixel line, and each with the <code>scaleMode</code> parameter set to <code>LineScaleMode.HORIZONTAL</code>. The circle on the left is scaled horizontally only, and the circle on the right is scaled both vertically and horizontally:
+   * <li><code>LineScaleMode.HORIZONTAL</code>—Do not scale the line thickness if the object is scaled horizontally <i>only</i>. For example, consider the following circles, drawn with a one-pixel line, and each with the <code>scaleMode</code> parameter set to <code>LineScaleMode.HORIZONTAL</code>. The circle on the left is scaled horizontally only, and the circle on the right is scaled both vertically and horizontally:
    * <p><img src="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/images/LineScaleMode_HORIZONTAL.jpg" /></p></li></ul>
    * @param caps (Not supported in Flash Lite 4) A value from the CapsStyle class that specifies the type of caps at the end of lines. Valid values are: <code>CapsStyle.NONE</code>, <code>CapsStyle.ROUND</code>, and <code>CapsStyle.SQUARE</code>. If a value is not indicated, Flash uses round caps.
    * <p>For example, the following illustrations show the different <code>capsStyle</code> settings. For each setting, the illustration shows a blue line with a thickness of 30 (for which the <code>capsStyle</code> applies), and a superimposed black line with a thickness of 1 (for which no <code>capsStyle</code> applies):</p>
@@ -669,7 +954,8 @@ public final class Graphics {
    * @see CapsStyle
    * @see JointStyle
    *
-   * @example <a href="http://www.adobe.com/go/learn_as3_usingexamples_en">How to use this example</a>Please see the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/Graphics.html#lineTo()">lineTo()</a> or <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/Graphics.html#moveTo()">moveTo()</a> method's example for illustrations of how to use the <code>getStyle()</code> method.
+   * @example
+   * <a href="http://www.adobe.com/go/learn_as3_usingexamples_en">How to use this example</a>Please see the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/Graphics.html#lineTo()">lineTo()</a> or <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/Graphics.html#moveTo()">moveTo()</a> method's example for illustrations of how to use the <code>getStyle()</code> method.
    */
   public function lineStyle(thickness:Number = NaN, color:uint = 0, alpha:Number = 1.0, pixelHinting:Boolean = false, scaleMode:String = "normal", caps:String = null, joints:String = null, miterLimit:Number = 3):void {
     this.thickness = thickness;
@@ -897,6 +1183,11 @@ public final class Graphics {
     fillCommands = [];
   }
 
+  private function createPattern(bitmap:BitmapData, matrix:Matrix, repeat:Boolean, smooth:Boolean):Object {
+    // TODO: matrix, smooth
+    return context.createPattern(bitmap.getElement(), repeat ? "repeat" : "no-repeat");
+  }
+
   private function createGradientStyle(type:String, colors:Array, alphas:Array, ratios:Array,
                                        matrix:Matrix = null, spreadMethod:String = "pad",
                                        interpolationMethod:String = "rgb", focalPointRatio:Number = 0) : CanvasGradient {
@@ -952,7 +1243,7 @@ public final class Graphics {
     var params:String = [color >>> 16 & 0xFF, color >>> 8 & 0xFF, color & 0xFF].join(",");
     return alpha < 1 ? ["rgba(", params, ",", alpha, ")"].join("")
                      :  "rgb(" + params + ")";
-    
+
   }
 
   private function setPosition(x:Number, y:Number):void {

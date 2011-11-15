@@ -131,12 +131,14 @@ public class Video extends DisplayObject {
   /**
    * Specifies a video stream from a camera to be displayed within the boundaries of the Video object in the application.
    * <p>Use this method to attach live video captured by the user to the Video object. You can play the live video locally on the same computer or device on which it is being captured, or you can send it to Flash Media Server and use the server to stream it to other users.</p>
+   * <p><b>Note:</b> In an iOS AIR application, camera video cannot be displayed when the application uses GPU rendering mode.</p>
    * @param camera A Camera object that is capturing video data. To drop the connection to the Video object, pass <code>null</code>.
    *
    * @see #attachNetStream()
    * @see Camera
    *
-   * @example <a href="http://www.adobe.com/go/learn_as3_usingexamples_en">How to use this example</a>Please see the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/media/Camera.html#getCamera()">Camera.getCamera()</a> method example for an illustration of how to use this method.
+   * @example
+   * <a href="http://www.adobe.com/go/learn_as3_usingexamples_en">How to use this example</a>Please see the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/media/Camera.html#getCamera()">Camera.getCamera()</a> method example for an illustration of how to use this method.
    */
   public function attachCamera(camera:Camera):void {
     throw new Error('not implemented'); // TODO: implement!

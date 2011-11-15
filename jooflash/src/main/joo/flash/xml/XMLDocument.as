@@ -1,5 +1,6 @@
 package flash.xml {
 
+
 /**
  * The XMLDocument class represents the legacy XML object that was present in ActionScript 2.0. It was renamed in ActionScript 3.0 to XMLDocument to avoid name conflicts with the new XML class in ActionScript 3.0. In ActionScript 3.0, it is recommended that you use the new <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/XML.html">XML</a> class and related classes, which support E4X (ECMAScript for XML).
  * <p>The XMLDocument class, as well as XMLNode and XMLNodeType, are present for backward compatibility. The functionality for loading XML documents can now be found in the URLLoader class.</p>

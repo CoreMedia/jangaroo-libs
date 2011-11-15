@@ -22,6 +22,11 @@ import js.HTMLElement;
  * @eventType flash.events.Event.RESIZE
  */
 [Event(name="resize", type="flash.events.Event")]
+/**
+ * Dispatched by the Stage object when the state of the stageVideos property changes.
+ * @eventType flash.events.StageVideoAvailabilityEvent.STAGE_VIDEO_AVAILABILITY
+ */
+[Event(name="stageVideoAvailability", type="flash.events.StageVideoAvailabilityEvent")]
 
 /**
  * The Stage class represents the main drawing area.
@@ -114,12 +119,93 @@ public class Stage extends DisplayObjectContainer {
   }
 
   /**
+   * Specifies whether this stage allows the use of the full screen mode
+   */
+  public function get allowsFullScreen():Boolean {
+    return false;
+  }
+
+  /**
+   * Controls Flash runtime color correction for displays. Color correction works only if the main monitor is assigned a valid ICC color profile, which specifies the device's particular color attributes. By default, the Flash runtime tries to match the color correction of its host (usually a browser).
+   * <p>Use the <code>Stage.colorCorrectionSupport</code> property to determine if color correction is available on the current system and the default state. . If color correction is available, all colors on the stage are assumed to be in the sRGB color space, which is the most standard color space. Source profiles of input devices are not considered during color correction. No input color correction is applied; only the stage output is mapped to the main monitor's ICC color profile.</p>
+   * <p>In general, the benefits of activating color management include predictable and consistent color, better conversion, accurate proofing and more efficient cross-media output. Be aware, though, that color management does not provide perfect conversions due to devices having a different gamut from each other or original images. Nor does color management eliminate the need for custom or edited profiles. Color profiles are dependent on browsers, operating systems (OS), OS extensions, output devices, and application support.</p>
+   * <p>Applying color correction degrades the Flash runtime performance. A Flash runtime's color correction is document style color correction because all SWF movies are considered documents with implicit sRGB profiles. Use the <code>Stage.colorCorrectionSupport</code> property to tell the Flash runtime to correct colors when displaying the SWF file (document) to the display color space. Flash runtimes only compensates for differences between monitors, not for differences between input devices (camera/scanner/etc.).</p>
+   * <p>The three possible values are strings with corresponding constants in the flash.display.ColorCorrection class:</p>
+   * <ul>
+   * <li><code>"default"</code>: Use the same color correction as the host system.</li>
+   * <li><code>"on"</code>: Always perform color correction.</li>
+   * <li><code>"off"</code>: Never perform color correction.</li></ul>
+   * @see ColorCorrection
+   * @see #colorCorrectionSupport
+   *
+   * @example The following example shows an event handler that toggles color correction in the current SWF file and populates a text field with the current state of color correction. If the <code>Stage.colorCorrection</code> value is not a value from the ColorCorrection class, then the handler reports an error.
+   * <listing>
+   * function addHandler(add_event:Event) {
+   *     switch(stage.colorCorrection) {
+   *         case ColorCorrection.ON:
+   *             stage.colorCorrection = ColorCorrection.OFF;
+   *             lblCMEnableState.text = "State: " + stage.colorCorrection;
+   *             break;
+   *         case ColorCorrection.OFF:
+   *             stage.colorCorrection = ColorCorrection.DEFAULT;
+   *             lblCMEnableState.text = "State: " + stage.colorCorrection;
+   *             break;
+   *         case ColorCorrection.DEFAULT:
+   *             stage.colorCorrection = ColorCorrection.ON;
+   *             lblCMEnableState.text = "State: " + stage.colorCorrection;
+   *             break;
+   *         default:
+   *             lblCMEnableState.text = "Error.";
+   *             break;
+   * }
+   *
+   * </listing>
+   */
+  public function get colorCorrection():String {
+    return "default";
+  }
+
+  /**
+   * @private
+   */
+  public function set colorCorrection(value:String):void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * Specifies whether the Flash runtime is running on an operating system that supports color correction and whether the color profile of the main (primary) monitor can be read and understood by the Flash runtime. This property also returns the default state of color correction on the host system (usually the browser). Currently the return values can be:
+   * <p>The three possible values are strings with corresponding constants in the flash.display.ColorCorrectionSupport class:</p>
+   * <ul>
+   * <li><code>"unsupported"</code>: Color correction is not available.</li>
+   * <li><code>"defaultOn"</code>: Always performs color correction.</li>
+   * <li><code>"defaultOff"</code>: Never performs color correction.</li></ul>
+   * @see ColorCorrectionSupport
+   * @see #colorCorrection
+   *
+   * @example The following example shows an event handler that populates a text field with the current environment's ability to support color correction or not. First, it checks the value of <code>stage.colorCorrectionSupport</code> to see if it is <code>DEFAULT_ON</code> or <code>DEFAULT_OFF</code>, values from the ColorCorrectionSupport class. If the property is either value, then the text field displays the current value. Otherwise, if the value is neither <code>DEFAULT_ON</code> nor <code>DEFAULT_OFF</code>, the text field displays "unsupported".
+   * <listing>
+   * function addHandler(add_event:Event) {
+   *     if (stage.colorCorrectionSupport == ColorCorrectionSupport.DEFAULT_ON || stage.colorCorrectionSupport == ColorCorrectionSupport.DEFAULT_OFF) {
+   *            lblHasCM.text = "stage.colorCorrectionSupport: " + stage.colorCorrectionSupport;
+   *     }
+   *     else {
+   *         lblHasCM.text = "stage.colorCorrectionSupport: unsupported";
+   *     }
+   * }
+   *
+   * </listing>
+   */
+  public function get colorCorrectionSupport():String {
+    return "unsupported";
+  }
+
+  /**
    * A value from the StageDisplayState class that specifies which display state to use. The following are valid values:
    * <ul>
    * <li><code>StageDisplayState.FULL_SCREEN</code> Sets AIR application or Flash runtime to expand the stage over the user's entire screen, with keyboard input disabled.</li>
    * <li><code>StageDisplayState.FULL_SCREEN_INTERACTIVE</code> Sets the AIR application to expand the stage over the user's entire screen, with keyboard input allowed. (Not available for content running in Flash Player.)</li>
    * <li><code>StageDisplayState.NORMAL</code> Sets the Flash runtime back to the standard stage display mode.</li></ul>
-   * <p>The scaling behavior of the movie in full-screen mode is determined by the <code>scaleMode</code> setting (set using the <code>Stage.scaleMode</code> property or the SWF file's <code>embed</code> tag settings in the HTML file). If the <code>scaleMode</code> property is set to <code>noScale</code> while the application transitions to full-screen mode, the Stage <code>width</code> and <code>height</code> properties are updated, and the Stage the <code>resize</code> event.</p>
+   * <p>The scaling behavior of the movie in full-screen mode is determined by the <code>scaleMode</code> setting (set using the <code>Stage.scaleMode</code> property or the SWF file's <code>embed</code> tag settings in the HTML file). If the <code>scaleMode</code> property is set to <code>noScale</code> while the application transitions to full-screen mode, the Stage <code>width</code> and <code>height</code> properties are updated, and the Stage dispatches a <code>resize</code> event. If any other scale mode is set, the stage and its contents are scaled to fill the new screen dimensions. The Stage object retains its original <code>width</code> and <code>height</code> values and does not dispatch a <code>resize</code> event.</p>
    * <p>The following restrictions apply to SWF files that play within an HTML page (not those using the stand-alone Flash Player or not running in the AIR runtime):</p>
    * <ul>
    * <li>To enable full-screen mode, add the <code>allowFullScreen</code> parameter to the <code>object</code> and <code>embed</code> tags in the HTML page that includes the SWF file, with <code>allowFullScreen</code> set to <code>"true"</code>, as shown in the following example:
@@ -218,14 +304,16 @@ public class Stage extends DisplayObjectContainer {
    * </listing>
    */
   public function get displayState():String {
-    throw new Error('not implemented'); // TODO: implement!
+    return StageDisplayState.NORMAL;
   }
 
   /**
    * @private
    */
   public function set displayState(value:String):void {
-    throw new Error('not implemented'); // TODO: implement!
+    if (value !== StageDisplayState.NORMAL) {
+      throw new Error('not implemented'); // TODO: implement!
+    }
   }
 
   /**
@@ -679,6 +767,16 @@ public class Stage extends DisplayObjectContainer {
   public native function set showDefaultContextMenu(value:Boolean):void;
 
   /**
+   * A Rectangle specifying the area of the stage that is currently covered by a soft keyboard. The Rect's components are (0,0,0,0) when the soft keyboard isn't raised.
+   * @see flash.events.SoftKeyboardEvent
+   * @see flash.geom.Rectangle
+   *
+   */
+  public function get softKeyboardRect():Rectangle {
+   return new Rectangle();
+  }
+
+  /**
    * Specifies whether or not objects display a glowing border when they have focus.
    * @throws SecurityError Calling the <code>stageFocusRect</code> property of a Stage object throws an exception for any caller that is not in the same security sandbox as the Stage owner (the main SWF file). To avoid this, the Stage owner can grant permission to the domain of the caller by calling the <code>Security.allowDomain()</code> method or the <code>Security.allowInsecureDomain()</code> method. For more information, see the "Security" chapter in the <i>ActionScript 3.0 Developer's Guide</i>.
    *
@@ -783,6 +881,36 @@ public class Stage extends DisplayObjectContainer {
    */
   override public function set width(value:Number):void {
     stageWidth = int(value);
+  }
+
+  /**
+   * Indicates whether GPU compositing is available and in use. The <code>wmodeGPU</code> value is <code>true</code> <i>only</i> when all three of the following conditions exist:
+   * <ul>
+   * <li>GPU compositing has been requested.</li>
+   * <li>GPU compositing is available.</li>
+   * <li>GPU compositing is in use.</li></ul>
+   * <p>Specifically, the <code>wmodeGPU</code> property indicates one of the following:</p><ol>
+   * <li>GPU compositing has not been requested or is unavailable. In this case, the <code>wmodeGPU</code> property value is <code>false</code>.</li>
+   * <li>GPU compositing has been requested (if applicable and available), but the environment is operating in "fallback mode" (not optimal rendering) due to limitations of the content. In this case, the <code>wmodeGPU</code> property value is <code>true</code>.</li>
+   * <li>GPU compositing has been requested (if applicable and available), and the environment is operating in the best mode. In this case, the <code>wmodeGPU</code> property value is also <code>true</code>.</li></ol>
+   * <p>In other words, the <code>wmodeGPU</code> property identifies the capability and state of the rendering environment. For runtimes that do not support GPU compositing, such as AIR 1.5.2, the value is always <code>false</code>, because (as stated above) the value is <code>true</code> only when GPU compositing has been requested, is available, and is in use.</p>
+   * <p>The <code>wmodeGPU</code> property is useful to determine, at runtime, whether or not GPU compositing is in use. The value of <code>wmodeGPU</code> indicates if your content is going to be scaled by hardware, or not, so you can present graphics at the correct size. You can also determine if you're rendering in a fast path or not, so that you can adjust your content complexity accordingly.</p>
+   * <p>For Flash Player in a browser, GPU compositing can be requested by the value of <code>gpu</code> for the <code>wmode</code> HTML parameter in the page hosting the SWF file. For other configurations, GPU compositing can be requested in the header of a SWF file (set using SWF authoring tools).</p>
+   * <p>However, the <code>wmodeGPU</code> property does not identify the current rendering performance. Even if GPU compositing is "in use" the rendering process might not be operating in the best mode. To adjust your content for optimal rendering, use a Flash runtime debugger version, and set the <code>DisplayGPUBlendsetting</code> in your mm.cfg file.</p>
+   * <p><b>Note:</b> This property is always <code>false</code> when referenced from ActionScript that runs before the runtime performs its first rendering pass. For example, if you examine <code>wmodeGPU</code> from a script in Frame 1 of Adobe Flash Professional, and your SWF file is the first SWF file loaded in a new instance of the runtime, then the <code>wmodeGPU</code> value is <code>false</code>. To get an accurate value, wait until at least one rendering pass has occurred. If you write an event listener for the <code>exitFrame</code> event of any <code>DisplayObject</code>, the <code>wmodeGPU</code> value at is the correct value.</p>
+   * @see DisplayObject#event:exitFrame
+   *
+   * @example The following example examines the <code>wmodeGPU</code> property after the display object mySprite is rendered, so you can get an accurate value.
+   * <listing>
+   * mySprite.addEventListener(EXIT_FRAME, exithandler):
+   *
+   * function exithandler(exiteventobject:Event):void {
+   *                 trace(stage.wmodeGPU);
+   * }
+   * </listing>
+   */
+  public function get wmodeGPU():Boolean {
+    return false;
   }
 
   /**

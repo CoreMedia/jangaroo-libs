@@ -1,5 +1,4 @@
 package flash.events {
-
 /**
  * The Event class is used as the base class for the creation of Event objects, which are passed as parameters to event listeners when an event occurs.
  * <p>The properties of the Event class carry basic information about an event, such as the event's type or whether the event's default behavior can be canceled. For many events, such as the events represented by the Event class constants, this basic information is sufficient. Other events, however, may require more detailed information. Events associated with a mouse click, for example, need to include additional information about the location of the click event and whether any keys were pressed during the click event. You can pass such additional information to event listeners by extending the Event class, which is what the MouseEvent class does. ActionScript 3.0 API defines several Event subclasses for common events that require additional information. Events associated with each of the Event subclasses are described in the documentation for each class.</p>
@@ -83,7 +82,7 @@ public class Event {
 
   /**
    * Duplicates an instance of an Event subclass.
-   * <p>Returns a new Event object that is a copy of the original instance of the Event object. You do not normally call <code>clone()</code>; the EventDispatcher class calls it automatically when you redispatch an event—that is, when you call <code>dispatchEvent(event)</code> from a handler that is handling <code>event</code>.</p>
+   * <p>Returns a new Event object that is a copy of the original instance of the Event object. You do not normally call <code>clone()</code>; the EventDispatcher class calls it automatically when you redispatch an eventâ€”that is, when you call <code>dispatchEvent(event)</code> from a handler that is handling <code>event</code>.</p>
    * <p>The new Event object includes all the properties of the original.</p>
    * <p>When creating your own custom Event class, you must override the inherited <code>Event.clone()</code> method in order for it to duplicate the properties of your custom class. If you do not set all the properties that you add in your event subclass, those properties will not have the correct values when listeners handle the redispatched event.</p>
    * <p>In this example, <code>PingEvent</code> is a subclass of <code>Event</code> and therefore implements its own version of <code>clone()</code>.</p>
@@ -301,6 +300,28 @@ public class Event {
    */
   public static const CHANGE:String = "change";
   /**
+   * The <code>Event.CLEAR</code> constant defines the value of the <code>type</code> property of a <code>clear</code> event object.
+   * <p>This event has the following properties:</p>
+   * <table>
+   * <tr><th>Property</th><th>Value</th></tr>
+   * <tr>
+   * <td><code>bubbles</code></td>
+   * <td><code>false</code></td></tr>
+   * <tr>
+   * <td><code>cancelable</code></td>
+   * <td><code>false</code>; there is no default behavior to cancel.</td></tr>
+   * <tr>
+   * <td><code>currentTarget</code></td>
+   * <td>The object that is actively processing the Event object with an event listener.</td></tr>
+   * <tr>
+   * <td><code>target</code></td>
+   * <td>Any InteractiveObject instance with a listener registered for the <code>clear</code> event.</td></tr></table>
+   * <p><b>Note:</b> TextField objects do <i>not</i> dispatch <code>clear</code>, <code>copy</code>, <code>cut</code>, <code>paste</code>, or <code>selectAll</code> events. TextField objects always include Cut, Copy, Paste, Clear, and Select All commands in the context menu. You cannot remove these commands from the context menu for TextField objects. For TextField objects, selecting these commands (or their keyboard equivalents) does not generate <code>clear</code>, <code>copy</code>, <code>cut</code>, <code>paste</code>, or <code>selectAll</code> events. However, other classes that extend the InteractiveObject class, including components built using the Flash Text Engine (FTE), will dispatch these events in response to user actions such as keyboard shortcuts and context menus.</p>
+   * @see flash.display.InteractiveObject#event:clear
+   *
+   */
+  public static const CLEAR:String = "clear";
+  /**
    * The <code>Event.CLOSE</code> constant defines the value of the <code>type</code> property of a <code>close</code> event object.
    * <p>This event has the following properties:</p>
    * <table>
@@ -372,6 +393,50 @@ public class Event {
    *
    */
   public static const CONNECT:String = "connect";
+  /**
+   * Defines the value of the <code>type</code> property of a <code>copy</code> event object.
+   * <p>This event has the following properties:</p>
+   * <table>
+   * <tr><th>Property</th><th>Value</th></tr>
+   * <tr>
+   * <td><code>bubbles</code></td>
+   * <td><code>false</code></td></tr>
+   * <tr>
+   * <td><code>cancelable</code></td>
+   * <td><code>false</code>; there is no default behavior to cancel.</td></tr>
+   * <tr>
+   * <td><code>currentTarget</code></td>
+   * <td>The object that is actively processing the Event object with an event listener.</td></tr>
+   * <tr>
+   * <td><code>target</code></td>
+   * <td>Any InteractiveObject instance with a listener registered for the <code>copy</code> event.</td></tr></table>
+   * <p><b>Note:</b> TextField objects do <i>not</i> dispatch <code>clear</code>, <code>copy</code>, <code>cut</code>, <code>paste</code>, or <code>selectAll</code> events. TextField objects always include Cut, Copy, Paste, Clear, and Select All commands in the context menu. You cannot remove these commands from the context menu for TextField objects. For TextField objects, selecting these commands (or their keyboard equivalents) does not generate <code>clear</code>, <code>copy</code>, <code>cut</code>, <code>paste</code>, or <code>selectAll</code> events. However, other classes that extend the InteractiveObject class, including components built using the Flash Text Engine (FTE), will dispatch these events in response to user actions such as keyboard shortcuts and context menus.</p>
+   * @see flash.display.InteractiveObject#event:copy
+   *
+   */
+  public static const COPY:String = "copy";
+  /**
+   * Defines the value of the <code>type</code> property of a <code>cut</code> event object.
+   * <p>This event has the following properties:</p>
+   * <table>
+   * <tr><th>Property</th><th>Value</th></tr>
+   * <tr>
+   * <td><code>bubbles</code></td>
+   * <td><code>false</code></td></tr>
+   * <tr>
+   * <td><code>cancelable</code></td>
+   * <td><code>false</code>; there is no default behavior to cancel.</td></tr>
+   * <tr>
+   * <td><code>currentTarget</code></td>
+   * <td>The object that is actively processing the Event object with an event listener.</td></tr>
+   * <tr>
+   * <td><code>target</code></td>
+   * <td>Any InteractiveObject instance with a listener registered for the <code>cut</code> event.</td></tr></table>
+   * <p><b>Note:</b> TextField objects do <i>not</i> dispatch <code>clear</code>, <code>copy</code>, <code>cut</code>, <code>paste</code>, or <code>selectAll</code> events. TextField objects always include Cut, Copy, Paste, Clear, and Select All commands in the context menu. You cannot remove these commands from the context menu for TextField objects. For TextField objects, selecting these commands (or their keyboard equivalents) does not generate <code>clear</code>, <code>copy</code>, <code>cut</code>, <code>paste</code>, or <code>selectAll</code> events. However, other classes that extend the InteractiveObject class, including components built using the Flash Text Engine (FTE), will dispatch these events in response to user actions such as keyboard shortcuts and context menus.</p>
+   * @see flash.display.InteractiveObject#event:cut
+   *
+   */
+  public static const CUT:String = "cut";
   /**
    * The <code>Event.DEACTIVATE</code> constant defines the value of the <code>type</code> property of a <code>deactivate</code> event object.
    * <p><b>Note:</b> This event has neither a "capture phase" nor a "bubble phase", which means that event listeners must be added directly to any potential targets, whether the target is on the display list or not.</p>
@@ -573,6 +638,28 @@ public class Event {
    */
   public static const OPEN:String = "open";
   /**
+   * The <code>Event.PASTE</code> constant defines the value of the <code>type</code> property of a <code>paste</code> event object.
+   * <p>This event has the following properties:</p>
+   * <table>
+   * <tr><th>Property</th><th>Value</th></tr>
+   * <tr>
+   * <td><code>bubbles</code></td>
+   * <td><code>false</code></td></tr>
+   * <tr>
+   * <td><code>cancelable</code></td>
+   * <td><code>false</code>; there is no default behavior to cancel.</td></tr>
+   * <tr>
+   * <td><code>currentTarget</code></td>
+   * <td>The object that is actively processing the Event object with an event listener.</td></tr>
+   * <tr>
+   * <td><code>target</code></td>
+   * <td>Any InteractiveObject instance with a listener registered for the <code>paste</code> event.</td></tr></table>
+   * <p><b>Note:</b> TextField objects do <i>not</i> dispatch <code>clear</code>, <code>copy</code>, <code>cut</code>, <code>paste</code>, or <code>selectAll</code> events. TextField objects always include Cut, Copy, Paste, Clear, and Select All commands in the context menu. You cannot remove these commands from the context menu for TextField objects. For TextField objects, selecting these commands (or their keyboard equivalents) does not generate <code>clear</code>, <code>copy</code>, <code>cut</code>, <code>paste</code>, or <code>selectAll</code> events. However, other classes that extend the InteractiveObject class, including components built using the Flash Text Engine (FTE), will dispatch these events in response to user actions such as keyboard shortcuts and context menus.</p>
+   * @see flash.display.InteractiveObject#event:paste
+   *
+   */
+  public static const PASTE:String = "paste";
+  /**
    * The <code>Event.REMOVED</code> constant defines the value of the <code>type</code> property of a <code>removed</code> event object.
    * <p>This event has the following properties:</p>
    * <table>
@@ -710,6 +797,28 @@ public class Event {
    */
   public static const SELECT:String = "select";
   /**
+   * The <code>Event.SELECT_ALL</code> constant defines the value of the <code>type</code> property of a <code>selectAll</code> event object.
+   * <p>This event has the following properties:</p>
+   * <table>
+   * <tr><th>Property</th><th>Value</th></tr>
+   * <tr>
+   * <td><code>bubbles</code></td>
+   * <td><code>false</code></td></tr>
+   * <tr>
+   * <td><code>cancelable</code></td>
+   * <td><code>false</code>; there is no default behavior to cancel.</td></tr>
+   * <tr>
+   * <td><code>currentTarget</code></td>
+   * <td>The object that is actively processing the Event object with an event listener.</td></tr>
+   * <tr>
+   * <td><code>target</code></td>
+   * <td>Any InteractiveObject instance with a listener registered for the <code>selectAll</code> event.</td></tr></table>
+   * <p><b>Note:</b> TextField objects do <i>not</i> dispatch <code>clear</code>, <code>copy</code>, <code>cut</code>, <code>paste</code>, or <code>selectAll</code> events. TextField objects always include Cut, Copy, Paste, Clear, and Select All commands in the context menu. You cannot remove these commands from the context menu for TextField objects. For TextField objects, selecting these commands (or their keyboard equivalents) does not generate <code>clear</code>, <code>copy</code>, <code>cut</code>, <code>paste</code>, or <code>selectAll</code> events. However, other classes that extend the InteractiveObject class, including components built using the Flash Text Engine (FTE), will dispatch these events in response to user actions such as keyboard shortcuts and context menus.</p>
+   * @see flash.display.InteractiveObject#event:selectAll
+   *
+   */
+  public static const SELECT_ALL:String = "selectAll";
+  /**
    * The <code>Event.SOUND_COMPLETE</code> constant defines the value of the <code>type</code> property of a <code>soundComplete</code> event object.
    * <p>This event has the following properties:</p>
    * <table>
@@ -793,6 +902,27 @@ public class Event {
    *
    */
   public static const TAB_INDEX_CHANGE:String = "tabIndexChange";
+  /**
+   * The <code>Event.TEXT_INTERACTION_MODE_CHANGE</code> constant defines the value of the <code>type</code> property of a <code>interaction mode</code> event object.
+   * <p>This event has the following properties:</p>
+   * <table>
+   * <tr><th>Property</th><th>Value</th></tr>
+   * <tr>
+   * <td><code>bubbles</code></td>
+   * <td><code>false</code></td></tr>
+   * <tr>
+   * <td><code>cancelable</code></td>
+   * <td><code>false</code>; there is no default behavior to cancel.</td></tr>
+   * <tr>
+   * <td><code>currentTarget</code></td>
+   * <td>The object that is actively processing the Event object with an event listener.</td></tr>
+   * <tr>
+   * <td><code>target</code></td>
+   * <td>The TextField object whose interaction mode property is changed. For example on Android, one can change the interaction mode to SELECTION via context menu. The <code>target</code> property is not always the object in the display list that registered the event listener. Use the <code>currentTarget</code> property to access the object in the display list that is currently processing the event.</td></tr></table>
+   * @see flash.text.TextField#event:textInteractionModeChange
+   *
+   */
+  public static const TEXT_INTERACTION_MODE_CHANGE:String = "textInteractionModeChange";
   /**
    * The <code>Event.UNLOAD</code> constant defines the value of the <code>type</code> property of an <code>unload</code> event object.
    * <p>This event has the following properties:</p>

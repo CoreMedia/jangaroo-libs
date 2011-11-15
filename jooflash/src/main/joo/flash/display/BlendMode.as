@@ -76,6 +76,16 @@ public final class BlendMode {
    */
   public static const SCREEN:String = "screen";
   /**
+   * Uses a shader to define the blend between objects.
+   * <p>Setting the <code>blendShader</code> property to a Shader instance automatically sets the display object's <code>blendMode</code> property to <code>BlendMode.SHADER</code>. If the <code>blendMode</code> property is set to <code>BlendMode.SHADER</code> without first setting the <code>blendShader</code> property, the <code>blendMode</code> property is set to <code>BlendMode.NORMAL</code> instead. If the <code>blendShader</code> property is set (which sets the <code>blendMode</code> property to <code>BlendMode.SHADER</code>), then later the value of the <code>blendMode</code> property is changed, the blend mode can be reset to use the blend shader simply by setting the <code>blendMode</code> property to <code>BlendMode.SHADER</code>. The <code>blendShader</code> property does not need to be set again except to change the shader that's used to define the blend mode.</p>
+   * <p>Not supported under GPU rendering.</p>
+   * @see DisplayObject#blendMode
+   * @see DisplayObject#blendShader
+   * @see Shader
+   *
+   */
+  public static const SHADER:String = "shader";
+  /**
    * Subtracts the values of the constituent colors in the display object from the values of the background color, applying a floor of 0. This setting is commonly used for animating a darkening dissolve between two objects.
    * <p>For example, if the display object has a pixel with an RGB value of 0xAA2233, and the background pixel has an RGB value of 0xDDA600, the resulting RGB value for the displayed pixel is 0x338400 (because 0xDD - 0xAA = 0x33, 0xA6 - 0x22 = 0x84, and 0x00 - 0x33 < 0x00).</p>
    */

@@ -112,6 +112,5 @@ public final class SoundChannel extends EventDispatcher {
   public function stop():void {
     throw new Error('not implemented'); // TODO: implement!
   }
-
 }
 }

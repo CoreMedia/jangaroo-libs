@@ -1,8 +1,5 @@
 package flash.system {
-
-
-
-
+import flash.display.DisplayObjectContainer;
 
 /**
  * The LoaderContext class provides options for loading SWF files and other media by using the Loader class. The LoaderContext class is used as the <code>context</code> parameter in the <code>load()</code> and <code>loadBytes()</code> methods of the Loader class.
@@ -17,6 +14,7 @@ package flash.system {
  * @see #checkPolicyFile
  * @see #securityDomain
  * @see SecurityDomain
+ * @see ImageDecodingPolicy
  * @see http://help.adobe.com/en_US/Flex/4.0/UsingSDK/WS2db454920e96a9e51e63e3d11c0bf69084-7f03.html Specifying a LoaderContext
  * @see http://help.adobe.com/en_US/Flex/4.0/UsingSDK/WS2db454920e96a9e51e63e3d11c0bf619ab-7fe3.html Creating class instances from loaded applications
  * @see http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118a9b90204-7e13.html Loading display content dynamically
@@ -25,8 +23,19 @@ package flash.system {
  */
 public class LoaderContext {
   /**
+   * Specifies whether you can use a <code>Loader</code> object to import content with executable code, such as a SWF file, into the caller's security sandbox. There are two affected importing operations: the <code>Loader.loadBytes()</code> method, and the <code>Loader.load()</code> method with <code>LoaderContext.securityDomain = SecurityDomain.currentDomain</code>. (The latter operation is not supported in the AIR application sandbox.) With the <code>allowCodeImport</code> property set to <code>false</code>, these importing operations are restricted to safe operations, such as loading images. Normal, non-importing SWF file loading with the <code>Loader.load()</code> method is not affected by the value of this property.
+   * <p>This property is useful when you want to import image content into your sandbox - for example, when you want to replicate or process an image from a different domain - but you don't want to take the security risk of receiving a SWF file when you expected only an image file. Since SWF files may contain ActionScript code, importing a SWF file is a much riskier operation than importing an image file.</p>
+   * <p>In AIR content in the application sandbox, the default value is <code>false</code>. In non-application content (which includes all content in Flash Player), the default value is <code>true</code>.</p>
+   * <p>The <code>allowCodeImport</code> property was added in Flash Player 10.1 and AIR 2.0. However, this property is made available to SWF files and AIR applications of all versions when the Flash Runtime supports it.</p>
+   * @see flash.display.Loader#loadBytes()
+   * @see flash.display.Loader#load()
+   * @see #securityDomain
+   *
+   */
+  public var allowCodeImport:Boolean;
+  /**
    * Specifies the application domain to use for the <code>Loader.load()</code> or <code>Loader.loadBytes()</code> method. Use this property only when loading a SWF file written in ActionScript 3.0 (not an image or a SWF file written in ActionScript 1.0 or ActionScript 2.0).
-   * <p>Every security domain is divided into one or more application domains, represented by ApplicationDomain objects. Application domains are not for security purposes; they are for managing cooperating units of ActionScript code. If you are loading a SWF file from another domain, and allowing it to be placed in a separate security domain, then you cannot control the choice of application domain into which the loaded SWF file is placed; and if you have specified a choice of application domain, it will be ignored. However, if you are loading a SWF file into your own security domain — either because the SWF file comes from your own domain, or because you are importing it into your security domain — then you can control the choice of application domain for the loaded SWF file.</p>
+   * <p>Every security domain is divided into one or more application domains, represented by ApplicationDomain objects. Application domains are not for security purposes; they are for managing cooperating units of ActionScript code. If you are loading a SWF file from another domain, and allowing it to be placed in a separate security domain, then you cannot control the choice of application domain into which the loaded SWF file is placed; and if you have specified a choice of application domain, it will be ignored. However, if you are loading a SWF file into your own security domain â€” either because the SWF file comes from your own domain, or because you are importing it into your security domain â€” then you can control the choice of application domain for the loaded SWF file.</p>
    * <p>You can pass an application domain only from your own security domain in <code>LoaderContext.applicationDomain</code>. Attempting to pass an application domain from any other security domain results in a <code>SecurityError</code> exception.</p>
    * <p>You have four choices for what kind of <code>ApplicationDomain</code> property to use:</p>
    * <ul>
@@ -64,6 +73,14 @@ public class LoaderContext {
    *
    */
   public var checkPolicyFile:Boolean = false;
+  /**
+   * if parameters is set to non-null, then the contentLoaderInfo.parameters will be set to this Object, rather than the normal value from parsing the parameters from the requesting URL. The intent is that it will be possible for the loading swf to forward its parameters onto a loaded swf. This is especially useful when using loadBytes, since there is no way to pass parameters via the URL in these cases. Parameters can only be forwarded successfully to another AS3 SWF, so if a AS1 or AS2 SWF is loaded it will not receive the parameters in a way it can access, although the AVM1Movie's AS3 loaderInfo.parameters object will be the forwarded object. Only objects with name/value String pairs, like normal parameters, can be used, otherwise an IllegalOperationError will be thrown.
+   */
+  public var parameters:Object;
+  /**
+   * specifies parent to which the Loader will attempt to add the loaded content. When the loaded content completes loading, instead of ending up with the Loader as its parent as normal, the content will have the specified parent, unless an error occurs. While this reparenting could be done after the complete event without use of this property, specifying the parent with the <code>LoaderContext.requestedContentParent</code> property avoids extra addedToStage, removedFromStage, added and removed events and also allows the desired parent to be in place before the frame one scripts run in the loaded content, although still after the constructor has run. If requestedContentParent is left null, the default, value, then the content's parent will be the Loader as normal. Also if the loaded content is an AVM1Movie or an error is thrown when <code>addChild</code> is called on the requestedContentParent, then the parent will be the Loader as normal, and an AsyncErrorEvent will be dispatched. If the requestedContentParent and the loaded content are in different security sandboxes and the requestedContentParent does not have access to the loaded content, then a SecurityErrorEvent will be dispatched and the loaded content will have the Loader as its parent.
+   */
+  public var requestedContentParent:DisplayObjectContainer;
   /**
    * Specifies the security domain to use for a <code>Loader.load()</code> operation. Use this property only when loading a SWF file (not an image).
    * <p>The choice of security domain is meaningful only if you are loading a SWF file that might come from a different domain (a different server) than the loading SWF file. When you load a SWF file from your own domain, it is always placed into your security domain. But when you load a SWF file from a different domain, you have two options. You can allow the loaded SWF file to be placed in its "natural" security domain, which is different from that of the loading SWF file; this is the default. The other option is to specify that you want to place the loaded SWF file placed into the same security domain as the loading SWF file, by setting <code>myLoaderContext.securityDomain</code> to be equal to <code>SecurityDomain.currentDomain</code>. This is called <i>import loading</i>, and it is equivalent, for security purposes, to copying the loaded SWF file to your own server and loading it from there. In order for import loading to succeed, the loaded SWF file's server must have a policy file trusting the domain of the loading SWF file.</p>

@@ -26,6 +26,13 @@ public dynamic class MovieClip extends Sprite {
   }
 
   /**
+   * The label at the current frame in the timeline of the MovieClip instance. If the current frame has no label, <code>currentLabel</code> is <code>null</code>.
+   */
+  public function get currentFrameLabel():String {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
    * The current label in which the playhead is located in the timeline of the MovieClip instance. If the current frame has no label, <code>currentLabel</code> is set to the name of the previous frame that includes a label. If the current frame and previous frames do not include a label, <code>currentLabel</code> returns <code>null</code>.
    * @example The following code illustrates how to access the <code>currentLabel</code> property of a MovieClip object named <code>mc1</code>:
    * <listing>

@@ -1,5 +1,6 @@
 package flash.text {
 
+
 /**
  * The TextLineMetrics class contains information about the text position and measurements of a <i>line of text</i> within a text field. All measurements are in pixels. Objects of this class are returned by the <code>flash.text.TextField.getLineMetrics()</code> method.
  * <p>For measurements related to the text field containing the line of text (for example, the "Text Field height" measurement in the diagram), see flash.text.TextField.</p>

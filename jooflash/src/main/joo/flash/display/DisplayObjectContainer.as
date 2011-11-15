@@ -168,7 +168,7 @@ public class DisplayObjectContainer extends InteractiveObject {
    * Events
    * <table>
    * <tr>
-   * <td><code><b>added</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/Event.html"><code>Event</code></a></code> — Dispatched when a display object is added to the display list.</td></tr></table>
+   * <td><code><b>added</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/Event.html"><code>Event</code></a></code> â€” Dispatched when a display object is added to the display list.</td></tr></table>
    * @throws ArgumentError Throws if the child is the same as the parent. Also throws if the caller is a child (or grandchild etc.) of the child being added.
    *
    * @see #addChildAt()
@@ -218,7 +218,7 @@ public class DisplayObjectContainer extends InteractiveObject {
    * Events
    * <table>
    * <tr>
-   * <td><code><b>added</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/Event.html"><code>Event</code></a></code> — Dispatched when a display object is added to the display list.</td></tr></table>
+   * <td><code><b>added</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/Event.html"><code>Event</code></a></code> â€” Dispatched when a display object is added to the display list.</td></tr></table>
    * @throws RangeError Throws if the index position does not exist in the child list.
    * @throws ArgumentError Throws if the child is the same as the parent. Also throws if the caller is a child (or grandchild etc.) of the child being added.
    *
@@ -480,7 +480,7 @@ public class DisplayObjectContainer extends InteractiveObject {
    * @see DisplayObject#globalToLocal()
    * @see DisplayObject#localToGlobal()
    *
-   * @example The following example creates a display object container named <code>container</code> and then adds two overlapping child display objects to the container. Then the code calls the <code>getObjectsUnderPoint()</code> twice — first using a point that touches only one object, then using a point where the objects overlap — and the <code>length</code> of the return Array shows the number of objects at each point in the container:
+   * @example The following example creates a display object container named <code>container</code> and then adds two overlapping child display objects to the container. Then the code calls the <code>getObjectsUnderPoint()</code> twice â€” first using a point that touches only one object, then using a point where the objects overlap â€” and the <code>length</code> of the return Array shows the number of objects at each point in the container:
    * <listing>
    * import flash.display.Sprite;
    * import flash.geom.Point;

@@ -1,5 +1,6 @@
 package flash.net {
 import flash.events.EventDispatcher;
+import flash.utils.ByteArray;
 
 /**
  * Dispatched when a file upload or download is canceled through the file-browsing dialog box by the user. Flash Player does not dispatch this event if the user cancels an upload or download through other means (closing the browser or stopping the current application).
@@ -12,12 +13,19 @@ import flash.events.EventDispatcher;
  */
 [Event(name="complete", type="flash.events.Event")]
 /**
- * property HTTPStatusEvent.type =
+ * Dispatched when an upload fails and an HTTP status code is available to describe the failure. The <code>httpStatus</code> event is dispatched, followed by an <code>ioError</code> event.
+ * <p>The <code>httpStatus</code> event is dispatched only for upload failures. For content running in Flash Player this event is not applicable for download failures. If a download fails because of an HTTP error, the error is reported as an I/O error.</p>
  * @eventType flash.events.HTTPStatusEvent.HTTP_STATUS
  */
 [Event(name="httpStatus", type="flash.events.HTTPStatusEvent")]
 /**
- * property IOErrorEvent.type =
+ * Dispatched when the upload or download fails. A file transfer can fail for one of the following reasons:
+ * <ul>
+ * <li>An input/output error occurs while the player is reading, writing, or transmitting the file.</li>
+ * <li>The SWF file tries to upload a file to a server that requires authentication (such as a user name and password). During upload, Flash Player or Adobe AIR does not provide a means for users to enter passwords. If a SWF file tries to upload a file to a server that requires authentication, the upload fails.</li>
+ * <li>The SWF file tries to download a file from a server that requires authentication, within the stand-alone or external player. During download, the stand-alone and external players do not provide a means for users to enter passwords. If a SWF file in these players tries to download a file from a server that requires authentication, the download fails. File download can succeed only in the ActiveX control, browser plug-in players, and the Adobe AIR runtime.</li>
+ * <li>The value passed to the <code>url</code> parameter in the <code>upload()</code> method contains an invalid protocol. Valid protocols are HTTP and HTTPS.</li></ul>
+ * <p><b>Important:</b> Only applications running in a browser — that is, using the browser plug-in or ActiveX control — and content running in Adobe AIR can provide a dialog box to prompt the user to enter a user name and password for authentication, and then only for downloads. For uploads using the plug-in or ActiveX control version of Flash Player, or for upload or download using either the stand-alone or the external player, the file transfer fails.</p>
  * @eventType flash.events.IOErrorEvent.IO_ERROR
  */
 [Event(name="ioError", type="flash.events.IOErrorEvent")]
@@ -27,12 +35,16 @@ import flash.events.EventDispatcher;
  */
 [Event(name="open", type="flash.events.Event")]
 /**
- * property ProgressEvent.type =
+ * Dispatched periodically during the file upload or download operation. The <code>progress</code> event is dispatched while Flash Player transmits bytes to a server, and it is periodically dispatched during the transmission, even if the transmission is ultimately not successful. To determine if and when the file transmission is actually successful and complete, listen for the <code>complete</code> event.
+ * <p>In some cases, <code>progress</code> events are not received. For example, when the file being transmitted is very small or the upload or download happens very quickly a <code>progress</code> event might not be dispatched.</p>
+ * <p>File upload progress cannot be determined on Macintosh platforms earlier than OS X 10.3. The <code>progress</code> event is called during the upload operation, but the value of the <code>bytesLoaded</code> property of the progress event is -1, indicating that the progress cannot be determined.</p>
  * @eventType flash.events.ProgressEvent.PROGRESS
  */
 [Event(name="progress", type="flash.events.ProgressEvent")]
 /**
- * property SecurityErrorEvent.type =
+ * Dispatched when a call to the <code>FileReference.upload()</code> or <code>FileReference.download()</code> method tries to upload a file to a server or get a file from a server that is outside the caller's security sandbox. The value of the text property that describes the specific error that occurred is normally <code>"securitySandboxError"</code>. The calling SWF file may have tried to access a SWF file outside its domain and does not have permission to do so. You can try to remedy this error by using a URL policy file.
+ * <p>In Adobe AIR, these security restrictions do not apply to content in the application security sandbox.</p>
+ * <p>In Adobe AIR, these security restrictions do not apply to content in the application security sandbox.</p>
  * @eventType flash.events.SecurityErrorEvent.SECURITY_ERROR
  */
 [Event(name="securityError", type="flash.events.SecurityErrorEvent")]
@@ -43,7 +55,7 @@ import flash.events.EventDispatcher;
  */
 [Event(name="select", type="flash.events.Event")]
 /**
- * property DataEvent.type =
+ * Dispatched after data is received from the server after a successful upload. This event is not dispatched if data is not returned from the server.
  * @eventType flash.events.DataEvent.UPLOAD_COMPLETE_DATA
  */
 [Event(name="uploadCompleteData", type="flash.events.DataEvent")]
@@ -159,6 +171,19 @@ public class FileReference extends EventDispatcher {
   }
 
   /**
+   * The ByteArray object representing the data from the loaded file after a successful call to the <code>load()</code> method.
+   * @throws flash.errors.IllegalOperationError If the <code>load()</code> method was not called successfully, an exception is thrown with a message indicating that functions were called in the incorrect sequence or an earlier call was unsuccessful. In this case, the value of the <code>data</code> property is <code>null</code>.
+   * @throws flash.errors.IOError If the file cannot be opened or read, or if a similar error is encountered in accessing the file, an exception is thrown with a message indicating a file I/O error. In this case, the value of the <code>data</code> property is <code>null</code>.
+   *
+   * @see #browse()
+   * @see #load()
+   *
+   */
+  public function get data():ByteArray {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
    * The date that the file on the local disk was last modified. If the FileReference object was not populated, a call to get the value of this property returns <code>null</code>.
    * @throws flash.errors.IllegalOperationError If the <code>FileReference.browse()</code>, <code>FileReferenceList.browse()</code>, or <code>FileReference.download()</code> method was not called successfully, an exception is thrown with a message indicating that functions were called in the incorrect sequence or an earlier call was unsuccessful. In this case, the value of the <code>modificationDate</code> property is <code>null</code>.
    * @throws flash.errors.IOError If the file information cannot be accessed, an exception is thrown with a message indicating a file I/O error.
@@ -224,6 +249,7 @@ public class FileReference extends EventDispatcher {
    * <p>Using the <code>typeFilter</code> parameter, you can determine which files the dialog box displays.</p>
    * <p>In Flash Player 10 and Flash Player 9 Update 5, you can only call this method successfully in response to a user event (for example, in an event handler for a mouse click or keypress event). Otherwise, calling this method results in Flash Player throwing an Error exception.</p>
    * <p>Note that because of new functionality added to the Flash Player, when publishing to Flash Player 10, you can have only one of the following operations active at one time: <code>FileReference.browse()</code>, <code>FileReference.upload()</code>, <code>FileReference.download()</code>, <code>FileReference.load()</code>, <code>FileReference.save()</code>. Otherwise, Flash Player throws a runtime error (code 2174). Use <code>FileReference.cancel()</code> to stop an operation in progress. This restriction applies only to Flash Player 10. Previous versions of Flash Player are unaffected by this restriction on simultaneous multiple operations.</p>
+   * <p>In Adobe AIR, the file-browsing dialog is not always displayed in front of windows that are "owned" by another window (windows that have a non-null <code>owner</code> property). To avoid window ordering issues, hide owned windows before calling this method.</p>
    * @param typeFilter An array of FileFilter instances used to filter the files that are displayed in the dialog box. If you omit this parameter, all files are displayed. For more information, see the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/FileFilter.html">FileFilter</a> class.
    *
    * @return Returns <code>true</code> if the parameters are valid and the file-browsing dialog box opens.
@@ -280,6 +306,7 @@ public class FileReference extends EventDispatcher {
    * <li>Mac OS 10.5 and later</li></ul>
    * <p>Some operating systems, such as Linux, do not flag downloaded files.</p>
    * <p>Note that because of new functionality added to the Flash Player, when publishing to Flash Player 10, you can have only one of the following operations active at one time: <code>FileReference.browse()</code>, <code>FileReference.upload()</code>, <code>FileReference.download()</code>, <code>FileReference.load()</code>, <code>FileReference.save()</code>. Otherwise, Flash Player throws a runtime error (code 2174). Use <code>FileReference.cancel()</code> to stop an operation in progress. This restriction applies only to Flash Player 10. Previous versions of Flash Player are unaffected by this restriction on simultaneous multiple operations.</p>
+   * <p>In Adobe AIR, the download dialog is not always displayed in front of windows that are "owned" by another window (windows that have a non-null <code>owner</code> property). To avoid window ordering issues, hide owned windows before calling this method.</p>
    * @param request The URLRequest object. The <code>url</code> property of the URLRequest object should contain the URL of the file to download to the local computer. If this parameter is <code>null</code>, an exception is thrown. The <code>requestHeaders</code> property of the URLRequest object is ignored; custom HTTP request headers are not supported in uploads or downloads. To send <code>POST</code> or GET parameters to the server, set the value of <code>URLRequest.data</code> to your parameters, and set <code>URLRequest.method</code> to either <code>URLRequestMethod.POST</code> or <code>URLRequestMethod.GET</code>.
    * <p>On some browsers, URL strings are limited in length. Lengths greater than 256 characters may fail on some browsers or servers.</p>
    * @param defaultFileName The default filename displayed in the dialog box for the file to be downloaded. This string must not contain the following characters: / \ : * ? " < > | %
@@ -395,6 +422,159 @@ public class FileReference extends EventDispatcher {
    * </listing>
    */
   public function download(request:URLRequest, defaultFileName:String = null):void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * Starts the load of a local file selected by a user. Although Flash Player has no restriction on the size of files you can upload, download, load or save, it officially supports sizes of up to 100 MB. For content running in Flash Player, you must call the <code>FileReference.browse()</code> or <code>FileReferenceList.browse()</code> method before you call the <code>load()</code> method. However, content running in AIR in the application sandbox can call the <code>load()</code> method of a File object without first calling the <code>browse()</code> method. (The AIR File class extends the FileReference class.)
+   * <p>Listeners receive events to indicate the progress, success, or failure of the load. Although you can use the FileReferenceList object to let users select multiple files to load, you must load the files one by one. To load the files one by one, iterate through the <code>FileReferenceList.fileList</code> array of FileReference objects.</p>
+   * <p>Adobe AIR also includes the FileStream class which provides more options for reading files.</p>
+   * <p>The <code>FileReference.upload()</code>, <code>FileReference.download()</code>, <code>FileReference.load()</code> and <code>FileReference.save()</code> functions are nonblocking. These functions return after they are called, before the file transmission is complete. In addition, if the FileReference object goes out of scope, any transaction that is not yet completed on that object is canceled upon leaving the scope. Be sure that your FileReference object remains in scope for as long as the upload, download, load or save is expected to continue.</p>
+   * <p>If the file finishes loading successfully, its contents are stored as a byte array in the <code>data</code> property of the FileReference object.</p>
+   * <p>The following security considerations apply:</p>
+   * <ul>
+   * <li>Loading operations are not allowed if the calling SWF file is in an untrusted local sandbox.</li>
+   * <li>The default behavior is to deny access between sandboxes. A website can enable access to a resource by adding a cross-domain policy file.</li>
+   * <li>You can prevent a file from using this method by setting the <code>allowNetworking</code> parameter of the the <code>object</code> and <code>embed</code> tags in the HTML page that contains the SWF content.</li></ul>
+   * <p>However, these considerations do not apply to AIR content in the application sandbox.</p>
+   * <p>Note that when publishing to Flash Player 10 or AIR 1.5, you can have only one of the following operations active at one time: <code>FileReference.browse()</code>, <code>FileReference.upload()</code>, <code>FileReference.download()</code>, <code>FileReference.load()</code>, <code>FileReference.save()</code>. Otherwise, the application throws a runtime error (code 2174). Use <code>FileReference.cancel()</code> to stop an operation in progress. This restriction applies only to Flash Player 10 and AIR 1.5. Previous versions of Flash Player or AIR are unaffected by this restriction on simultaneous multiple operations.</p>
+   * <p>In Adobe AIR, the file-browsing dialog is not always displayed in front of windows that are "owned" by another window (windows that have a non-null <code>owner</code> property). To avoid window ordering issues, hide owned windows before calling this method.</p>Events
+   * <table>
+   * <tr>
+   * <td><code><b>open</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/Event.html"><code>Event</code></a></code> — Dispatched when an load operation starts.</td></tr>
+   * <tr>
+   * <td> </td></tr>
+   * <tr>
+   * <td><code><b>progress</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/ProgressEvent.html"><code>ProgressEvent</code></a></code> — Dispatched periodically during the file load operation.</td></tr>
+   * <tr>
+   * <td> </td></tr>
+   * <tr>
+   * <td><code><b>complete</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/Event.html"><code>Event</code></a></code> — Dispatched when the file load operation completes successfully.</td></tr>
+   * <tr>
+   * <td> </td></tr>
+   * <tr>
+   * <td><code><b>ioError</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/IOErrorEvent.html"><code>IOErrorEvent</code></a></code> — Invoked if the load fails because of an input/output error while the application is reading or writing the file.</td></tr></table>
+   * @throws flash.errors.IllegalOperationError Thrown in the following situations: 1) Another FileReference or FileReferenceList browse session is in progress; only one file browsing session may be performed at a time. 2) A setting in the user's mms.cfg file prohibits this operation.
+   * @throws flash.errors.MemoryError This error can occur if the application cannot allocate memory for the file. The file may be too large or available memory may be too low.
+   *
+   * @see #browse()
+   * @see FileReferenceList#browse()
+   * @see #data
+   * @see FileReferenceList#fileList
+   * @see #save()
+   * @see flash.filesystem.FileStream
+   *
+   * @example The following example uploads an image from your local file system to the root display object (in this case, the stage). Example provided by <a href="http://www.andrevenancio.com/blog/">Andre Venancio</a>.
+   * <listing>
+   * var buttonShape:Shape = new Shape();
+   * buttonShape.graphics.beginFill(0x336699);
+   * buttonShape.graphics.drawCircle(50, 50, 25);
+   * var button = new SimpleButton(buttonShape, buttonShape, buttonShape, buttonShape);
+   * addChild(button);
+   *
+   * var fileRef:FileReference= new FileReference();
+   * button.addEventListener(MouseEvent.CLICK, onButtonClick);
+   *
+   * function onButtonClick(e:MouseEvent):void {
+   * fileRef.browse([new FileFilter("Images", "*.jpg;*.gif;*.png")]);
+   * fileRef.addEventListener(Event.SELECT, onFileSelected);
+   * }
+   *
+   * function onFileSelected(e:Event):void {
+   * fileRef.addEventListener(Event.COMPLETE, onFileLoaded);
+   * fileRef.load();
+   * }
+   *
+   * function onFileLoaded(e:Event):void {
+   * var loader:Loader = new Loader();
+   * loader.loadBytes(e.target.data);
+   * addChild(loader);
+   * }
+   * </listing>
+   */
+  public function load():void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * Opens a dialog box that lets the user save a file to the local filesystem. Although Flash Player has no restriction on the size of files you can upload, download, load or save, the player officially supports sizes of up to 100 MB.
+   * <p>The <code>save()</code> method first opens an operating-system dialog box that asks the user to enter a filename and select a location on the local computer to save the file. When the user selects a location and confirms the save operation (for example, by clicking Save), the save process begins. Listeners receive events to indicate the progress, success, or failure of the save operation. To ascertain the status of the dialog box and the save operation after calling <code>save()</code>, your code must listen for events such as <code>cancel</code>, <code>open</code>, <code>progress</code>, and <code>complete</code>.</p>
+   * <p>Adobe AIR also includes the FileStream class which provides more options for saving files locally.</p>
+   * <p>The <code>FileReference.upload()</code>, <code>FileReference.download()</code>, <code>FileReference.load()</code> and <code>FileReference.save()</code> functions are nonblocking. These functions return after they are called, before the file transmission is complete. In addition, if the FileReference object goes out of scope, any transaction that is not yet completed on that object is canceled upon leaving the scope. Be sure that your FileReference object remains in scope for as long as the upload, download, load or save is expected to continue.</p>
+   * <p>When the file is saved successfully, the properties of the FileReference object are populated with the properties of the local file. The <code>complete</code> event is dispatched if the save is successful.</p>
+   * <p>Only one <code>browse()</code> or <code>save()</code> session can be performed at a time (because only one dialog box can be invoked at a time).</p>
+   * <p>In Flash Player, you can only call this method successfully in response to a user event (for example, in an event handler for a mouse click or keypress event). Otherwise, calling this method results in Flash Player throwing an Error exception. This limitation does not apply to AIR content in the application sandbox.</p>
+   * <p>In Adobe AIR, the save dialog is not always displayed in front of windows that are "owned" by another window (windows that have a non-null <code>owner</code> property). To avoid window ordering issues, hide owned windows before calling this method.</p>
+   * @param data The data to be saved. The data can be in one of several formats, and will be treated appropriately:
+   * <ul>
+   * <li>If the value is <code>null</code>, the application throws an ArgumentError exception.</li>
+   * <li>If the value is a String, it is saved as a UTF-8 text file.</li>
+   * <li>If the value is XML, it is written to a text file in XML format, with all formatting preserved.</li>
+   * <li>If the value is a ByteArray object, it is written to a data file verbatim.</li>
+   * <li>If the value is none of the above, the <code>save()</code> method calls the <code>toString()</code> method of the object to convert the data to a string, and it then saves the data as a text file. If that fails, the application throws an ArgumentError exception.</li></ul>
+   * @param defaultFileName The default filename displayed in the dialog box for the file to be saved. This string must not contain the following characters: / \ : * ? " < > | %
+   * <p>If a File object calls this method, the filename will be that of the file the File object references. (The AIR File class extends the FileReference class.)</p>
+   * Events
+   * <table>
+   * <tr>
+   * <td><code><b>open</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/Event.html"><code>Event</code></a></code> — Dispatched when a download operation starts.</td></tr>
+   * <tr>
+   * <td> </td></tr>
+   * <tr>
+   * <td><code><b>progress</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/ProgressEvent.html"><code>ProgressEvent</code></a></code> — Dispatched periodically during the file download operation.</td></tr>
+   * <tr>
+   * <td> </td></tr>
+   * <tr>
+   * <td><code><b>complete</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/Event.html"><code>Event</code></a></code> — Dispatched when the file download operation successfully completes.</td></tr>
+   * <tr>
+   * <td> </td></tr>
+   * <tr>
+   * <td><code><b>cancel</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/Event.html"><code>Event</code></a></code> — Dispatched when the user dismisses the dialog box.</td></tr>
+   * <tr>
+   * <td> </td></tr>
+   * <tr>
+   * <td><code><b>select</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/Event.html"><code>Event</code></a></code> — Dispatched when the user selects a file for download from the dialog box.</td></tr>
+   * <tr>
+   * <td> </td></tr>
+   * <tr>
+   * <td><code><b>ioError</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/IOErrorEvent.html"><code>IOErrorEvent</code></a></code> — Dispatched if an input/output error occurs while the file is being read or transmitted.</td></tr></table>
+   * @throws flash.errors.IllegalOperationError Thrown in the following situations: 1) Another browse session is in progress; only one file browsing session can be performed at a time. 2) The filename to download contains prohibited characters. 3) A setting in the user's mms.cfg file prohibits this operation.
+   * @throws ArgumentError If <code>data</code> is not of type ByteArray, and it does not have a <code>toString()</code> method, an exception is thrown. If <code>data</code> is not of type XML, and it does not have a <code>toXMLString()</code> method, an exception is thrown.
+   * @throws Error If the method is not called in response to a user action, such as a mouse event or keypress event.
+   * @throws flash.errors.MemoryError This error can occur if Flash Player cannot allocate memory for the file. The file may be too large or available memory may be too low.
+   *
+   * @see FileReferenceList#browse()
+   * @see #load()
+   * @see #data
+   * @see #upload()
+   * @see #download()
+   * @see flash.filesystem.FileStream
+   *
+   * @example The following example saves the content typed into a text field to a file. The example creates an editable text field (<code>MyTextField</code>) and another text field that is not editable (<code>MyButtonField</code>)to serve as a "button" to respond to a mouse click. A user can edit the first text field and click the button to save the text field contents to a local file. The mouse click event handler <code>clickhandler</code> uses the <code>FileReference.save()</code> method (for a FileReference object named <code>MyFileReference</code>) to open a dialog on the user's current operating system so the user can save the contents to a local file with the name the user provides.
+   * <listing>
+   * var MyTextField:TextField = new TextField();
+   * var MyButtonField:TextField = new TextField();
+   * var MyFile:FileReference = new FileReference();
+   *
+   * MyTextField.border = true;
+   * MyTextField.type = TextFieldType.INPUT;
+   *
+   * MyButtonField.background = true;
+   * MyButtonField.backgroundColor = 0x339933;
+   * MyButtonField.x = 150;
+   * MyButtonField.height = 20;
+   * MyButtonField.text = "Click here to save";
+   *
+   * addChild(MyTextField);
+   * addChild(MyButtonField);
+   * MyButtonField.addEventListener(MouseEvent.CLICK, clickhandler);
+   *
+   * function clickhandler(e:MouseEvent): void {
+   *     MyFile.save(MyTextField.text);
+   * }
+   * </listing>
+   */
+  public function save(data:*, defaultFileName:String = null):void {
     throw new Error('not implemented'); // TODO: implement!
   }
 

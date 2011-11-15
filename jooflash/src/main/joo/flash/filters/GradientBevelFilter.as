@@ -1,7 +1,4 @@
 package flash.filters {
-
-
-
 /**
  * The GradientBevelFilter class lets you apply a gradient bevel effect to display objects. A gradient bevel is a beveled edge, enhanced with gradient color, on the outside, inside, or top of an object. Beveled edges make objects look three-dimensional. You can apply the filter to any display object (that is, objects that inherit from the DisplayObject class), such as MovieClip, SimpleButton, TextField, and Video objects, as well as to BitmapData objects.
  * <p>The use of filters depends on the object to which you apply the filter:</p>

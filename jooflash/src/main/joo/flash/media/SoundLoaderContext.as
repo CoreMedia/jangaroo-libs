@@ -1,7 +1,4 @@
 package flash.media {
-
-
-
 /**
  * The SoundLoaderContext class provides security checks for files that load sound. SoundLoaderContext objects are passed as an argument to the constructor and the <code>load()</code> method of the Sound class.
  * <p>When you use this class, consider the following security model:</p>

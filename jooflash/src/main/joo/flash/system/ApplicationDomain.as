@@ -1,5 +1,5 @@
 package flash.system {
-
+import flash.utils.ByteArray;
 
 /**
  * The ApplicationDomain class is a container for discrete groups of class definitions. Application domains are used to partition classes that are in the same security domain. They allow multiple definitions of the same class to exist and allow children to reuse parent definitions.
@@ -25,6 +25,27 @@ public final class ApplicationDomain {
    *
    */
   public static function get currentDomain():ApplicationDomain {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * Gets and sets the object on which domain-global memory operations will operate within this ApplicationDomain.
+   */
+  public function get domainMemory():ByteArray {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * @private
+   */
+  public function set domainMemory(value:ByteArray):void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * Gets the minimum memory object length required to be used as ApplicationDomain.domainMemory.
+   */
+  public static function get MIN_DOMAIN_MEMORY_LENGTH():uint {
     throw new Error('not implemented'); // TODO: implement!
   }
 

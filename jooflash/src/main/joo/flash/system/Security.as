@@ -1,10 +1,4 @@
 package flash.system {
-
-
-
-
-
-
 /**
  * The Security class lets you specify how content in different domains can communicate with each other.
  * <p><a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/system/Security.html#includeExamplesSummary">View the examples</a></p>

@@ -12,12 +12,12 @@ import js.XMLHttpRequest;
  */
 [Event(name="complete", type="flash.events.Event")]
 /**
- * property HTTPStatusEvent.type =
+ * Dispatched if a call to URLLoader.load() attempts to access data over HTTP. For content running in Flash Player, this event is only dispatched if the current Flash Player environment is able to detect and return the status code for the request. (Some browser environments may not be able to provide this information.) Note that the <code>httpStatus</code> event (if any) is sent before (and in addition to) any <code>complete</code> or <code>error</code> event.
  * @eventType flash.events.HTTPStatusEvent.HTTP_STATUS
  */
 [Event(name="httpStatus", type="flash.events.HTTPStatusEvent")]
 /**
- * property IOErrorEvent.type =
+ * Dispatched if a call to URLLoader.load() results in a fatal error that terminates the download.
  * @eventType flash.events.IOErrorEvent.IO_ERROR
  */
 [Event(name="ioError", type="flash.events.IOErrorEvent")]
@@ -27,12 +27,13 @@ import js.XMLHttpRequest;
  */
 [Event(name="open", type="flash.events.Event")]
 /**
- * property ProgressEvent.type =
+ * Dispatched when data is received as the download operation progresses.
+ * <p>Note that with a URLLoader object, it is not possible to access the data until it has been received completely. So, the progress event only serves as a notification of how far the download has progressed. To access the data before it's entirely downloaded, use a URLStream object.</p>
  * @eventType flash.events.ProgressEvent.PROGRESS
  */
 [Event(name="progress", type="flash.events.ProgressEvent")]
 /**
- * property SecurityErrorEvent.type =
+ * Dispatched if a call to URLLoader.load() attempts to load data from a server outside the security sandbox. Also dispatched if a call to <code>URLLoader.load()</code> attempts to load a SWZ file and the certificate is invalid or the digest string does not match the component.
  * @eventType flash.events.SecurityErrorEvent.SECURITY_ERROR
  */
 [Event(name="securityError", type="flash.events.SecurityErrorEvent")]
@@ -88,7 +89,6 @@ public class URLLoader extends EventDispatcher {
    * </listing>
    */
   public var data:*;
-
   /**
    * Controls whether the downloaded data is received as text (<code>URLLoaderDataFormat.TEXT</code>), raw binary data (<code>URLLoaderDataFormat.BINARY</code>), or URL-encoded variables (<code>URLLoaderDataFormat.VARIABLES</code>).
    * <p>If the value of the <code>dataFormat</code> property is <code>URLLoaderDataFormat.TEXT</code>, the received data is a string containing the text of the loaded file.</p>

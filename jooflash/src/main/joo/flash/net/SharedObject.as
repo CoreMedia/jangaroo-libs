@@ -2,17 +2,17 @@ package flash.net {
 import flash.events.EventDispatcher;
 
 /**
- * property AsyncErrorEvent.type =
+ * Dispatched when an exception is thrown asynchronously — that is, from native asynchronous code.
  * @eventType flash.events.AsyncErrorEvent.ASYNC_ERROR
  */
 [Event(name="asyncError", type="flash.events.AsyncErrorEvent")]
 /**
- * property NetStatusEvent.type =
+ * Dispatched when a SharedObject instance is reporting its status or error condition. The <code>netStatus</code> event contains an <code>info</code> property, which is an information object that contains specific information about the event, such as whether a connection attempt succeeded or whether the shared object was successfully written to the local disk.
  * @eventType flash.events.NetStatusEvent.NET_STATUS
  */
 [Event(name="netStatus", type="flash.events.NetStatusEvent")]
 /**
- * property SyncEvent.type =
+ * Dispatched when a remote shared object has been updated by the server.
  * @eventType flash.events.SyncEvent.SYNC
  */
 [Event(name="sync", type="flash.events.SyncEvent")]

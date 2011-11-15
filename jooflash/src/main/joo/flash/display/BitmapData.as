@@ -94,11 +94,11 @@ public class BitmapData implements IBitmapDrawable {
    * @param destPoint The point within the destination image (the current BitmapData instance) that corresponds to the upper-left corner of the source rectangle.
    * @param filter The filter object that you use to perform the filtering operation. Each type of filter has certain requirements, as follows:
    * <ul>
-   * <li><b>BlurFilter</b> � This filter can use source and destination images that are either opaque or transparent. If the formats of the images do not match, the copy of the source image that is made during the filtering matches the format of the destination image.</li>
-   * <li><b>BevelFilter, DropShadowFilter, GlowFilter, ChromeFilter</b> � The destination image of these filters must be a transparent image. Calling DropShadowFilter or GlowFilter creates an image that contains the alpha channel data of the drop shadow or glow. It does not create the drop shadow onto the destination image. If you use any of these filters with an opaque destination image, an exception is thrown.</li>
-   * <li><b>ConvolutionFilter</b> � This filter can use source and destination images that are either opaque or transparent.</li>
-   * <li><b>ColorMatrixFilter</b> � This filter can use source and destination images that are either opaque or transparent.</li>
-   * <li><b>DisplacementMapFilter</b> � This filter can use source and destination images that are either opaque or transparent, but the source and destination image formats must be the same.</li></ul>
+   * <li><b>BlurFilter</b> — This filter can use source and destination images that are either opaque or transparent. If the formats of the images do not match, the copy of the source image that is made during the filtering matches the format of the destination image.</li>
+   * <li><b>BevelFilter, DropShadowFilter, GlowFilter, ChromeFilter</b> — The destination image of these filters must be a transparent image. Calling DropShadowFilter or GlowFilter creates an image that contains the alpha channel data of the drop shadow or glow. It does not create the drop shadow onto the destination image. If you use any of these filters with an opaque destination image, an exception is thrown.</li>
+   * <li><b>ConvolutionFilter</b> — This filter can use source and destination images that are either opaque or transparent.</li>
+   * <li><b>ColorMatrixFilter</b> — This filter can use source and destination images that are either opaque or transparent.</li>
+   * <li><b>DisplacementMapFilter</b> — This filter can use source and destination images that are either opaque or transparent, but the source and destination image formats must be the same.</li></ul>
    *
    * @throws TypeError The sourceBitmapData, sourceRect, destPoint or filter are null.
    * @throws flash.errors.IllegalOperationError The transparency of the BitmapData objects are not compatible with the filter operation.
@@ -603,7 +603,7 @@ public class BitmapData implements IBitmapDrawable {
    * @param y The <i>y</i> coordinate of the image.
    * @param color The ARGB color to use as a fill.
    *
-   * @example The following example shows how to fill a region of a BitmapData object � that is, the region surrounding the pixel defined by the point <code>(10, 10)</code> iin which all colors march the color at that point � with red
+   * @example The following example shows how to fill a region of a BitmapData object — that is, the region surrounding the pixel defined by the point <code>(10, 10)</code> in which all colors match the color at that point — with red
    * <listing>
    * import flash.display.Bitmap;
    * import flash.display.BitmapData;
@@ -790,6 +790,30 @@ public class BitmapData implements IBitmapDrawable {
    * </listing>
    */
   public function getPixels(rect:Rectangle):ByteArray {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * Generates a vector array from a rectangular region of pixel data. Returns a Vector object of unsigned integers (a 32-bit unmultiplied pixel value) for the specified rectangle.
+   * @param rect A rectangular area in the current BitmapData object.
+   *
+   * @return A Vector representing the given Rectangle.
+   *
+   * @throws TypeError The rect is null.
+   *
+   */
+  public function getVector(rect:Rectangle):Vector.<uint> {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * Computes a 256-value binary number histogram of a BitmapData object. This method returns a Vector object containing four Vector.<Number> instances (four Vector objects that contain Number objects). The four Vector instances represent the red, green, blue and alpha components in order. Each Vector instance contains 256 values that represent the population count of an individual component value, from 0 to 255.
+   * @param hRect The area of the BitmapData object to use.
+   *
+   * @return <code><a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/Vector.html">Vector</a>.<<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/Vector.html">Vector</a>.<<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/Number.html">Number</a>>></code>
+   *
+   */
+  public function histogram(hRect:Rectangle = null):Vector.<Vector.<Number> > {
     throw new Error('not implemented'); // TODO: implement!
   }
 
@@ -1209,6 +1233,18 @@ public class BitmapData implements IBitmapDrawable {
    * </listing>
    */
   public function setPixels(rect:Rectangle, inputByteArray:ByteArray):void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * Converts a Vector into a rectangular region of pixel data. For each pixel, a Vector element is read and written into the BitmapData pixel. The data in the Vector is expected to be 32-bit ARGB pixel values.
+   * @param rect Specifies the rectangular region of the BitmapData object.
+   * @param inputVector A Vector object that consists of 32-bit unmultiplied pixel values to be used in the rectangular region.
+   *
+   * @throws RangeError The vector array is not large enough to read all the pixel data.
+   *
+   */
+  public function setVector(rect:Rectangle, inputVector:Vector.<uint>):void {
     throw new Error('not implemented'); // TODO: implement!
   }
 

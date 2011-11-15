@@ -15,9 +15,55 @@ public final class Keyboard {
   }
 
   /**
+   * Indicates whether the computer or device provides a virtual keyboard. If the current environment provides a virtual keyboard, this value is <code>true</code>.
+   * @example The following example is a simple test that indicates the current state of the "Num Lock" and "Caps Lock" keys as well as the type of keybaord and touch screen type in the running environment. When testing this example, click the text field to see the property values:
+   * <listing>
+   * import flash.events.*;
+   * import flash.display.*;
+   * import flash.ui.Keyboard;
+   * import flash.system.Capabilities;
+   * import flash.text.TextField;
+   *
+   *
+   * var keyboardInfoTxt:TextField = new TextField();
+   * keyboardInfoTxt.x = 30;
+   * keyboardInfoTxt.y = 50;
+   * keyboardInfoTxt.width = 300;
+   * keyboardInfoTxt.height = 100;
+   * keyboardInfoTxt.border = true;
+   *
+   * addChild(keyboardInfoTxt);
+   *
+   * addEventListener (MouseEvent.CLICK, getScreenKeyboardType);
+   *
+   * function getScreenKeyboardType(e:MouseEvent):void{
+   *     keyboardInfoTxt.text= "Caps Lock is : " + String(flash.ui.Keyboard.capsLock)+ "\n" +
+   *     "Num Lock is : " + String(flash.ui.Keyboard.numLock) +"\n" +
+   *     "Has Virtual Keyboard : " + String(flash.ui.Keyboard.hasVirtualKeyboard) + "\n" +
+   *     "Physical Keyboard Type : " + flash.ui.Keyboard.physicalKeyboardType + "\n" +
+   *     "flash.system.Capabilities.touchscreenType is : " + flash.system.Capabilities.touchscreenType;
+   * }
+   * </listing>
+   */
+  public static function get hasVirtualKeyboard():Boolean {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
    * Specifies whether the Num Lock key is activated (<code>true</code>) or not (<code>false</code>).
    */
   public static function get numLock():Boolean {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * Indicates the type of physical keyboard provided by the computer or device, if any.
+   * <p>Use the constants defined in the KeyboardType class to test the values reported by this property.</p>
+   * <p><b>Note:</b> If a computer or device has both an alphanumeric keyboard and a 12-button keypad, this property only reports the presence of the alphanumeric keyboard.</p>
+   * @see KeyboardType
+   *
+   */
+  public static function get physicalKeyboardType():String {
     throw new Error('not implemented'); // TODO: implement!
   }
 

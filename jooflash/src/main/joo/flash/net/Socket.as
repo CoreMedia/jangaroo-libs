@@ -16,17 +16,20 @@ import flash.utils.IDataOutput;
  */
 [Event(name="connect", type="flash.events.Event")]
 /**
- * property IOErrorEvent.type =
+ * Dispatched when an input/output error occurs that causes a send or load operation to fail.
  * @eventType flash.events.IOErrorEvent.IO_ERROR
  */
 [Event(name="ioError", type="flash.events.IOErrorEvent")]
 /**
- * property SecurityErrorEvent.type =
+ * Dispatched if a call to <code>Socket.connect()</code> attempts to connect to a server prohibited by the caller's security sandbox or to a port lower than 1024 and no socket policy file exists to permit such a connection.
+ * <p><b>Note:</b> In an AIR application, content running in the application security sandbox is permitted to connect to any server and port number without a socket policy file.</p>
  * @eventType flash.events.SecurityErrorEvent.SECURITY_ERROR
  */
 [Event(name="securityError", type="flash.events.SecurityErrorEvent")]
 /**
- * property ProgressEvent.type =
+ * Dispatched when a socket has received data.
+ * <p>The data received by the socket remains in the socket until it is read. You do not have to read all the available data during the handler for this event.</p>
+ * <p>Events of type <code>socketData</code> do not use the <code>ProgressEvent.bytesTotal</code> property.</p>
  * @eventType flash.events.ProgressEvent.SOCKET_DATA
  */
 [Event(name="socketData", type="flash.events.ProgressEvent")]
@@ -102,6 +105,21 @@ public class Socket extends EventDispatcher implements IDataInput, IDataOutput {
    * @private
    */
   public function set objectEncoding(value:uint):void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * Indicates the number of milliseconds to wait for a connection.
+   * <p>If the connection doesn't succeed within the specified time, the connection fails. The default value is 20,000 (twenty seconds).</p>
+   */
+  public function get timeout():uint {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * @private
+   */
+  public function set timeout(value:uint):void {
     throw new Error('not implemented'); // TODO: implement!
   }
 

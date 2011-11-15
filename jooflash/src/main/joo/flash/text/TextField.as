@@ -3,7 +3,6 @@ import flash.display.DisplayObject;
 import flash.display.DisplayObjectContainer;
 import flash.display.Graphics;
 import flash.display.InteractiveObject;
-
 import flash.geom.Rectangle;
 
 import js.CanvasRenderingContext2D;
@@ -47,7 +46,6 @@ import js.HTMLElement;
  *
  */
 public class TextField extends InteractiveObject {
-
   /**
    * When set to <code>true</code> and the text field is not in focus, Flash Player highlights the selection in the text field in gray. When set to <code>false</code> and the text field is not in focus, Flash Player does not highlight the selection in the text field.
    * <p>The default value is <code>false.</code></p>
@@ -559,7 +557,7 @@ public class TextField extends InteractiveObject {
    * <tr>
    * <td>&apos;</td>
    * <td>' (apostrophe, single quote)</td></tr></table>
-   * <p>Flash Player and AIR also support explicit character codes, such as &#38; (ASCII ampersand) and &#x20AC; (Unicode â‚¬ symbol).</p>
+   * <p>Flash Player and AIR also support explicit character codes, such as &#38; (ASCII ampersand) and &#x20AC; (Unicode € symbol).</p>
    * @see #text
    * @see StyleSheet
    * @see flash.events.TextEvent
@@ -1160,6 +1158,13 @@ public class TextField extends InteractiveObject {
    */
   public function get textHeight():Number {
     return _textHeight;
+  }
+
+  /**
+   * The interaction mode property, Default value is TextInteractionMode.NORMAL. On mobile platforms, the normal mode implies that the text can be scrolled but not selected. One can switch to the selectable mode through the in-built context menu on the text field. On Desktop, the normal mode implies that the text is in scrollable as well as selection mode.
+   */
+  public function get textInteractionMode():String {
+    return TextInteractionMode.NORMAL; // TODO: implement!
   }
 
   /**
@@ -2272,9 +2277,30 @@ public class TextField extends InteractiveObject {
    * @see #defaultTextFormat
    * @see #setTextFormat()
    *
-   * @example <a href="http://www.adobe.com/go/learn_as3_usingexamples_en">How to use this example</a>Please see the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#getFirstCharInParagraph()">getFirstCharInParagraph()</a> or <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#setTextFormat()">setTextFormat()</a> method example for illustrations of how to use the <code>getTextFormat()</code> method.
+   * @example
+   * <a href="http://www.adobe.com/go/learn_as3_usingexamples_en">How to use this example</a>Please see the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#getFirstCharInParagraph()">getFirstCharInParagraph()</a> or <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#setTextFormat()">setTextFormat()</a> method example for illustrations of how to use the <code>getTextFormat()</code> method.
    */
   public function getTextFormat(beginIndex:int = -1, endIndex:int = -1):TextFormat {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * Returns true if an embedded font is available with the specified <code>fontName</code> and <code>fontStyle</code> where <code>Font.fontType</code> is <code>flash.text.FontType.EMBEDDED</code>. Starting with Flash Player 10, two kinds of embedded fonts can appear in a SWF file. Normal embedded fonts are only used with TextField objects. CFF embedded fonts are only used with the flash.text.engine classes. The two types are distinguished by the <code>fontType</code> property of the <code>Font</code> class, as returned by the <code>enumerateFonts()</code> function.
+   * <p>TextField cannot use a font of type <code>EMBEDDED_CFF</code>. If <code>embedFonts</code> is set to <code>true</code> and the only font available at run time with the specified name and style is of type <code>EMBEDDED_CFF</code>, Flash Player fails to render the text, as if no embedded font were available with the specified name and style.</p>
+   * <p>If both <code>EMBEDDED</code> and <code>EMBEDDED_CFF</code> fonts are available with the same name and style, the <code>EMBEDDED</code> font is selected and text renders with the <code>EMBEDDED</code> font.</p>
+   * @param fontName The name of the embedded font to check.
+   * @param fontStyle Specifies the font style to check. Use <code>flash.text.FontStyle</code>
+   *
+   * @return <code>true</code> if a compatible embedded font is available, otherwise <code>false</code>.
+   *
+   * @throws ArgumentError The <code>fontStyle</code> specified is not a member of <code>flash.text.FontStyle</code>.
+   *
+   * @see flash.text.engine.FontDescription#fontLookup
+   * @see flash.text.engine.TextBlock#createTextLine()
+   * @see FontType#EMBEDDED_CFF
+   *
+   */
+  public static function isFontCompatible(fontName:String, fontStyle:String):Boolean {
     throw new Error('not implemented'); // TODO: implement!
   }
 

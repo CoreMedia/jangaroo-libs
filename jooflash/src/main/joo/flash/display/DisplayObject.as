@@ -7,6 +7,7 @@ import flash.events.MouseEvent;
 import flash.geom.Point;
 import flash.geom.Rectangle;
 import flash.geom.Transform;
+import flash.geom.Vector3D;
 
 import js.Event;
 import js.HTMLElement;
@@ -264,6 +265,25 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
   }
 
   /**
+   * Sets a shader that is used for blending the foreground and background. When the <code>blendMode</code> property is set to <code>BlendMode.SHADER</code>, the specified Shader is used to create the blend mode output for the display object.
+   * <p>Setting the <code>blendShader</code> property of a display object to a Shader instance automatically sets the display object's <code>blendMode</code> property to <code>BlendMode.SHADER</code>. If the <code>blendShader</code> property is set (which sets the <code>blendMode</code> property to <code>BlendMode.SHADER</code>), then the value of the <code>blendMode</code> property is changed, the blend mode can be reset to use the blend shader simply by setting the <code>blendMode</code> property to <code>BlendMode.SHADER</code>. The <code>blendShader</code> property does not need to be set again except to change the shader that's used for the blend mode.</p>
+   * <p>The Shader assigned to the <code>blendShader</code> property must specify at least two <code>image4</code> inputs. The inputs <b>do not</b> need to be specified in code using the associated ShaderInput objects' <code>input</code> properties. The background display object is automatically used as the first input (the input with <code>index</code> 0). The foreground display object is used as the second input (the input with <code>index</code> 1). A shader used as a blend shader can specify more than two inputs. In that case any additional input must be specified by setting its ShaderInput instance's <code>input</code> property.</p>
+   * <p>When you assign a Shader instance to this property the shader is copied internally. The blend operation uses that internal copy, not a reference to the original shader. Any changes made to the shader, such as changing a parameter value, input, or bytecode, are not applied to the copied shader that's used for the blend mode.</p>
+   * @throws ArgumentError When the shader output type is not compatible with this operation (the shader must specify a <code>pixel4</code> output).
+   * @throws ArgumentError When the shader specifies fewer than two image inputs or the first two inputs are not an <code>image4</code> inputs.
+   * @throws ArgumentError When the shader specifies an image input that isn't provided.
+   * @throws ArgumentError When a ByteArray or Vector.<Number> instance is used as an input and the <code>width</code> and <code>height</code> properties aren't specified for the ShaderInput, or the specified values don't match the amount of data in the input object. See the <code>ShaderInput.input</code> property for more information.
+   *
+   * @see BlendMode
+   * @see Shader
+   * @see ShaderInput
+   *
+   */
+  public function set blendShader(value:Shader):void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
    * If set to <code>true</code>, Flash runtimes cache an internal bitmap representation of the display object. This caching can increase performance for display objects that contain complex vector content.
    * <p>All vector data for a display object that has a cached bitmap is drawn to the bitmap instead of the main display. If <code>cacheAsBitmapMatrix</code> is null or unsupported, the bitmap is then copied to the main display as unstretched, unrotated pixels snapped to the nearest pixel boundaries. Pixels are mapped 1 to 1 with the parent object. If the bounds of the bitmap change, the bitmap is recreated instead of being stretched.</p>
    * <p>If <code>cacheAsBitmapMatrix</code> is non-null and supported, the object is drawn to the off-screen bitmap using that matrix and the stretched and/or rotated results of that rendering are used to draw the object to the main display.</p>
@@ -449,6 +469,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
   /**
    * The calling display object is masked by the specified <code>mask</code> object. To ensure that masking works when the Stage is scaled, the <code>mask</code> display object must be in an active part of the display list. The <code>mask</code> object itself is not drawn. Set <code>mask</code> to <code>null</code> to remove the mask.
    * <p>To be able to scale a mask object, it must be on the display list. To be able to drag a mask Sprite object (by calling its <code>startDrag()</code> method), it must be on the display list. To call the <code>startDrag()</code> method for a mask sprite based on a <code>mouseDown</code> event being dispatched by the sprite, set the sprite's <code>buttonMode</code> property to <code>true</code>.</p>
+   * <p>When display objects are cached by setting the <code>cacheAsBitmap</code> property to <code>true</code> an the <code>cacheAsBitmapMatrix</code> property to a Matrix object, both the mask and the display object being masked must be part of the same cached bitmap. Thus, if the display object is cached, then the mask must be a child of the display object. If an ancester of the display object on the display list is cached, then the mask must be a child of that ancestor or one of its descendents. If more than one ancestor of the masked object is cached, then the mask must be a descendent of the cached container closest to the masked object in the display list.</p>
    * <p><b>Note:</b> A single <code>mask</code> object cannot be used to mask more than one calling display object. When the <code>mask</code> is assigned to a second display object, it is removed as the mask of the first object, and that object's <code>mask</code> property becomes <code>null</code>.</p>
    * @example The following code creates a TextField object as well as a Sprite object that is set as a mask for the TextField object. When the user clicks the text field, the <code>drag()</code> event listener function calls the <code>startDrag()</code> method of the mask Sprite object:
    * <listing>
@@ -728,6 +749,197 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
   }
 
   /**
+   * Indicates the x-axis rotation of the DisplayObject instance, in degrees, from its original orientation relative to the 3D parent container. Values from 0 to 180 represent clockwise rotation; values from 0 to -180 represent counterclockwise rotation. Values outside this range are added to or subtracted from 360 to obtain a value within the range.
+   * @example In this example, two ellipses rotate using their <code>rotationX</code> and <code>rotationY</code> properties. The first ellipse's registration point is set to its center. It rotates around itself. The second ellipse rotates around an external point.
+   * <listing>
+   * package {
+   *     import flash.display.MovieClip;
+   *     import flash.display.Shape;
+   *     import flash.geom.*;
+   *     import flash.display.Graphics;
+   *     import flash.events.TimerEvent;
+   *     import flash.utils.Timer;
+   *
+   *     public class RotationExample1 extends MovieClip {
+   *         private var ellipse:Shape = new Shape();
+   *         private var speed:int = 10;
+   *         private var ellipse1:Shape;
+   *         private var ellipse2:Shape;
+   *
+   *         public function RotationExample1():void {
+   *
+   *             ellipse1 = drawEllipse(-50, -40, (this.stage.stageWidth / 2),
+   *                                     (this.stage.stageHeight / 2));
+   *
+   *             ellipse2 = drawEllipse(30, 40, (this.stage.stageWidth / 2),
+   *                                           (this.stage.stageHeight / 2));
+   *
+   *             this.addChild(ellipse1);
+   *             this.addChild(ellipse2);
+   *
+   *             var t:Timer = new Timer(50);
+   *             t.addEventListener(TimerEvent.TIMER, timerHandler);
+   *             t.start();
+   *         }
+   *
+   *         private function drawEllipse(x1, y1, x2, y2):Shape {
+   *
+   *             var e:Shape = new Shape();
+   *             e.graphics.beginFill(0xFF0000);
+   *             e.graphics.lineStyle(2);
+   *             e.graphics.drawEllipse(x1, y1, 100, 80);
+   *             e.graphics.endFill();
+   *
+   *             e.x  = x2;
+   *             e.y  = y2;
+   *             e.z = 1;
+   *             return e;
+   *         }
+   *
+   *         private function timerHandler(event:TimerEvent):void {
+   *             ellipse1.rotationY += speed;
+   *             ellipse1.rotationX -= speed;
+   *
+   *             ellipse2.rotationY += speed;
+   *             ellipse2.rotationX -= speed;
+   *         }
+   *     }
+   * }
+   * </listing>
+   * <div>The following example shows how you can 3D rotate a Sprite object around its x-axis with Flash Professional, ActionScript 3.0, and Flash Player 10 by setting the object's rotationX property. Example provided by <a href="http://actionscriptexamples.com/2009/02/26/rotating-a-sprite-object-around-its-x-axis-in-flash-using-actionscript-30-and-flash-player-10/">ActionScriptExamples.com</a>.
+   * <listing>
+   * //Requires:
+   * //  - Slider control UI component in Flash library.
+   * //  - Publish for Flash Player 10.
+   * //
+   *
+   * [SWF(width="400", height="300")]
+   *
+   * import fl.controls.Slider;
+   * import fl.controls.SliderDirection;
+   * import fl.events.SliderEvent;
+   *
+   * var slider:Slider = new Slider();
+   * slider.direction = SliderDirection.HORIZONTAL;
+   * slider.minimum = 0;
+   * slider.maximum = 360;
+   * slider.value = 45;
+   * slider.tickInterval = 45;
+   * slider.snapInterval = 1;
+   * slider.liveDragging = true;
+   * slider.addEventListener(SliderEvent.CHANGE, slider_change);
+   * slider.move(10, 10);
+   * addChild(slider);
+   *
+   * var spr:Sprite = new Sprite();
+   * spr.graphics.lineStyle(2, 0xFF0000);
+   * spr.graphics.drawRect(0, 0, 100, 80);
+   * spr.x = Math.round((stage.stageWidth - spr.width)/2);
+   * spr.y = Math.round((stage.stageHeight - spr.height)/2);
+   * spr.rotationX = 45;
+   * addChild(spr);
+   *
+   * function slider_change(evt:SliderEvent):void {
+   *     spr.rotationX = evt.value;
+   * }
+   * </listing></div>
+   */
+  public function get rotationX():Number {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * @private
+   */
+  public function set rotationX(value:Number):void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * Indicates the y-axis rotation of the DisplayObject instance, in degrees, from its original orientation relative to the 3D parent container. Values from 0 to 180 represent clockwise rotation; values from 0 to -180 represent counterclockwise rotation. Values outside this range are added to or subtracted from 360 to obtain a value within the range.
+   * @example In this example, two ellipses rotate using their <code>rotationX</code> and <code>rotationY</code> properties. The first ellipse's registration point is set to its center. It rotates around itself. The second ellipse rotates around an external point.
+   * <listing>
+   * package {
+   *     import flash.display.MovieClip;
+   *     import flash.display.Shape;
+   *     import flash.geom.*;
+   *     import flash.display.Graphics;
+   *     import flash.events.TimerEvent;
+   *     import flash.utils.Timer;
+   *
+   *     public class RotationExample1 extends MovieClip {
+   *         private var ellipse:Shape = new Shape();
+   *         private var speed:int = 10;
+   *         private var ellipse1:Shape;
+   *         private var ellipse2:Shape;
+   *
+   *         public function RotationExample1():void {
+   *
+   *             ellipse1 = drawEllipse(-50, -40, (this.stage.stageWidth / 2),
+   *                                     (this.stage.stageHeight / 2));
+   *
+   *             ellipse2 = drawEllipse(30, 40, (this.stage.stageWidth / 2),
+   *                                           (this.stage.stageHeight / 2));
+   *
+   *             this.addChild(ellipse1);
+   *             this.addChild(ellipse2);
+   *
+   *             var t:Timer = new Timer(50);
+   *             t.addEventListener(TimerEvent.TIMER, timerHandler);
+   *             t.start();
+   *         }
+   *
+   *         private function drawEllipse(x1, y1, x2, y2):Shape {
+   *
+   *             var e:Shape = new Shape();
+   *             e.graphics.beginFill(0xFF0000);
+   *             e.graphics.lineStyle(2);
+   *             e.graphics.drawEllipse(x1, y1, 100, 80);
+   *             e.graphics.endFill();
+   *
+   *             e.x  = x2;
+   *             e.y  = y2;
+   *             e.z = 1;
+   *             return e;
+   *         }
+   *
+   *         private function timerHandler(event:TimerEvent):void {
+   *             ellipse1.rotationY += speed;
+   *             ellipse1.rotationX -= speed;
+   *
+   *             ellipse2.rotationY += speed;
+   *             ellipse2.rotationX -= speed;
+   *         }
+   *     }
+   * }
+   * </listing>
+   */
+  public function get rotationY():Number {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * @private
+   */
+  public function set rotationY(value:Number):void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * Indicates the z-axis rotation of the DisplayObject instance, in degrees, from its original orientation relative to the 3D parent container. Values from 0 to 180 represent clockwise rotation; values from 0 to -180 represent counterclockwise rotation. Values outside this range are added to or subtracted from 360 to obtain a value within the range.
+   */
+  public function get rotationZ():Number {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * @private
+   */
+  public function set rotationZ(value:Number):void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
    * The current scaling grid that is in effect. If set to <code>null</code>, the entire display object is scaled normally when any scale transformation is applied.
    * <p>When you define the <code>scale9Grid</code> property, the display object is divided into a grid with nine regions based on the <code>scale9Grid</code> rectangle, which defines the center region of the grid. The eight other regions of the grid are the following areas:</p>
    * <ul>
@@ -905,6 +1117,23 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
     } else {
       _scaleY = value;
     }
+  }
+
+  /**
+   * Indicates the depth scale (percentage) of an object as applied from the registration point of the object. The default registration point is (0,0). 1.0 is 100% scale.
+   * <p>Scaling the local coordinate system changes the <code>x</code>, <code>y</code> and <code>z</code> property values, which are defined in whole pixels.</p>
+   * @see #z
+   *
+   */
+  public function get scaleZ():Number {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * @private
+   */
+  public function set scaleZ(value:Number):void {
+    throw new Error('not implemented'); // TODO: implement!
   }
 
   /**
@@ -1203,6 +1432,88 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
   }
 
   /**
+   * Indicates the z coordinate position along the z-axis of the DisplayObject instance relative to the 3D parent container. The z property is used for 3D coordinates, not screen or pixel coordinates.
+   * <p>When you set a <code>z</code> property for a display object to something other than the default value of <code>0</code>, a corresponding Matrix3D object is automatically created. for adjusting a display object's position and orientation in three dimensions. When working with the z-axis, the existing behavior of x and y properties changes from screen or pixel coordinates to positions relative to the 3D parent container.</p>
+   * <p>For example, a child of the <code>_root</code> at position x = 100, y = 100, z = 200 is not drawn at pixel location (100,100). The child is drawn wherever the 3D projection calculation puts it. The calculation is:</p>
+   * <p><code>(x*cameraFocalLength/cameraRelativeZPosition, y*cameraFocalLength/cameraRelativeZPosition)</code></p>
+   * @see flash.geom.PerspectiveProjection
+   * @see flash.geom.Matrix3D
+   * @see #transform
+   *
+   * @example This example draws two ellipses and has them go back and forth (down and up the <code>z</code> axis) toward the vanishing point. One ellipse is set to move faster than the other.
+   * <listing>
+   * package {
+   *     import flash.display.MovieClip;
+   *     import flash.display.Shape;
+   *     import flash.display.Graphics;
+   *     import flash.events.Event;
+   *     import flash.geom.*;
+   *
+   *     public class ZAxisExample1 extends MovieClip {
+   *         private var ellipse1Back:int = 1;
+   *         private var ellipse2Back:int = 1;
+   *         private var depth:int = 1000;
+   *
+   *         public function ZAxisExample1():void {
+   *
+   *             var ellipse1 = drawEllipse((this.stage.stageWidth / 2) - 100,
+   *                                       (this.stage.stageHeight / 2), 100, 80, 10);
+   *             var ellipse2 = drawEllipse((this.stage.stageWidth / 2) + 100,
+   *                                       (this.stage.stageHeight / 2), 100, 80, 300);
+   *
+   *             this.addChild(ellipse1);
+   *             this.addChild(ellipse2);
+   *
+   *             ellipse1.addEventListener(Event.ENTER_FRAME, ellipse1FrameHandler);
+   *             ellipse2.addEventListener(Event.ENTER_FRAME, ellipse2FrameHandler);
+   *         }
+   *
+   *         private function drawEllipse(x:Number, y:Number, w:Number, h:Number, z:Number):Shape {
+   *             var s:Shape = new Shape();
+   *             s.z = z;
+   *             s.graphics.beginFill(0xFF0000);
+   *             s.graphics.lineStyle(2);
+   *             s.graphics.drawEllipse(x, y, w, h);
+   *             s.graphics.endFill();
+   *             return s;
+   *         }
+   *
+   *         private function ellipse1FrameHandler(e:Event):void {
+   *             ellipse1Back = setDepth(e, ellipse1Back);
+   *             e.currentTarget.z += ellipse1Back * 10;
+   *         }
+   *
+   *         private function ellipse2FrameHandler(e:Event):void {
+   *             ellipse2Back = setDepth(e, ellipse2Back);
+   *             e.currentTarget.z += ellipse2Back * 20;
+   *         }
+   *
+   *         private function setDepth(e:Event, d:int):int {
+   *             if(e.currentTarget.z > depth) {
+   *                 e.currentTarget.z = depth;
+   *                 d = -1;
+   *             }else if (e.currentTarget.z <  0) {
+   *                 e.currentTarget.z = 0;
+   *                 d = 1;
+   *             }
+   *             return d;
+   *         }
+   *     }
+   * }
+   * </listing>
+   */
+  public function get z():Number {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * @private
+   */
+  public function set z(value:Number):void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
    * Returns a rectangle that defines the area of the display object relative to the coordinate system of the <code>targetCoordinateSpace</code> object. Consider the following code, which shows how the rectangle returned can vary depending on the <code>targetCoordinateSpace</code> parameter that you pass to the method:
    * <listing>
    *      var container:Sprite = new Sprite();
@@ -1322,6 +1633,18 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
   }
 
   /**
+   * Converts a two-dimensional point from the Stage (global) coordinates to a three-dimensional display object's (local) coordinates.
+   * <p>To use this method, first create an instance of the Point class. The x and y values that you assign to the Point object represent global coordinates because they are relative to the origin (0,0) of the main display area. Then pass the Point object to the <code>globalToLocal3D()</code> method as the <code>point</code> parameter. The method returns three-dimensional coordinates as a Vector3D object containing <code>x</code>, <code>y</code>, and <code>z</code> values that are relative to the origin of the three-dimensional display object.</p>
+   * @param point A two dimensional Point object representing global x and y coordinates.
+   *
+   * @return A Vector3D object with coordinates relative to the three-dimensional display object.
+   *
+   */
+  public function globalToLocal3D(point:Point):Vector3D {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
    * Evaluates the bounding box of the display object to see if it overlaps or intersects with the bounding box of the <code>obj</code> display object.
    * @param obj The display object to test against.
    *
@@ -1396,6 +1719,98 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * </listing>
    */
   public function hitTestPoint(x:Number, y:Number, shapeFlag:Boolean = false):Boolean {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * Converts a three-dimensional point of the three-dimensional display object's (local) coordinates to a two-dimensional point in the Stage (global) coordinates.
+   * <p>For example, you can only use two-dimensional coordinates (x,y) to draw with the <code>display.Graphics</code> methods. To draw a three-dimensional object, you need to map the three-dimensional coordinates of a display object to two-dimensional coordinates. First, create an instance of the Vector3D class that holds the x-, y-, and z- coordinates of the three-dimensional display object. Then pass the Vector3D object to the <code>local3DToGlobal()</code> method as the <code>point3d</code> parameter. The method returns a two-dimensional Point object that can be used with the Graphics API to draw the three-dimensional object.</p>
+   * @param point3d A Vector3D object containing either a three-dimensional point or the coordinates of the three-dimensional display object.
+   *
+   * @return A two-dimensional point representing a three-dimensional point in two-dimensional space.
+   *
+   * @example This example draws a simple three-dimensional cube in a two dimensional space using <code>display.Graphics</code> methods. The location of <code>this</code> display object is offset, so the cube's registration point is in its center. A vector of Vector3D objects holds the cube's three dimensional coordinates. The top of the cube is draw first, the bottom is drawn second, and then the top and bottom four corners are connected. You need to add the cube to the display object container before drawing the cube in order to use the <code>local3DToGlobal()</code> method.
+   * <listing>
+   * package {
+   *     import flash.display.MovieClip;
+   *     import flash.display.Sprite;
+   *     import flash.display.Graphics;
+   *     import flash.geom.*;
+   *
+   *     public class Local3DToGlobalExample extends MovieClip {
+   *         private var myCube:Sprite = new Sprite();
+   *         private var v8:Vector.<Vector3D> = new Vector.<Vector3D>(8);
+   *
+   *         public function Local3DToGlobalExample():void {
+   *             this.x = -(this.stage.stageWidth / 2);
+   *             this.y = -(this.stage.stageWidth / 2);
+   *
+   *             v8[0] = new Vector3D(-40,-40,-40);
+   *             v8[1] = new Vector3D(40,-40,-40);
+   *             v8[2] = new Vector3D(40,-40,40);
+   *             v8[3] = new Vector3D(-40,-40,40);
+   *             v8[4] = new Vector3D(-40,100,-40);
+   *             v8[5] = new Vector3D(40,100,-40);
+   *             v8[6] = new Vector3D(40,100,40);
+   *             v8[7] = new Vector3D(-40,100,40);
+   *
+   *             myCube.x = (this.stage.stageWidth / 2);
+   *             myCube.y = (this.stage.stageWidth / 2);
+   *             myCube.z = 1;
+   *             addChild(myCube);
+   *
+   *             Cube();
+   *         }
+   *
+   *         private function Cube():void {
+   *             var ps:Point = new Point(0,0);
+   *
+   *             myCube.graphics.lineStyle(2,0xFF0000);
+   *
+   *             ps = myCube.local3DToGlobal(v8[0]);
+   *             myCube.graphics.moveTo(ps.x, ps.y);
+   *             ps = myCube.local3DToGlobal(v8[1]);
+   *             myCube.graphics.lineTo(ps.x, ps.y);
+   *             ps = myCube.local3DToGlobal(v8[2]);
+   *             myCube.graphics.lineTo(ps.x, ps.y);
+   *             ps = myCube.local3DToGlobal(v8[3]);
+   *             myCube.graphics.lineTo(ps.x, ps.y);
+   *             ps = myCube.local3DToGlobal(v8[0]);
+   *             myCube.graphics.lineTo(ps.x, ps.y);
+   *
+   *             ps = myCube.local3DToGlobal(v8[4]);
+   *             myCube.graphics.moveTo(ps.x, ps.y);
+   *             ps = myCube.local3DToGlobal(v8[5]);
+   *             myCube.graphics.lineTo(ps.x, ps.y);
+   *             ps = myCube.local3DToGlobal(v8[6]);
+   *             myCube.graphics.lineTo(ps.x, ps.y);
+   *             ps = myCube.local3DToGlobal(v8[7]);
+   *             myCube.graphics.lineTo(ps.x, ps.y);
+   *             ps = myCube.local3DToGlobal(v8[4]);
+   *             myCube.graphics.lineTo(ps.x, ps.y);
+   *
+   *             ps = myCube.local3DToGlobal(v8[0]);
+   *             myCube.graphics.moveTo(ps.x, ps.y);
+   *             ps = myCube.local3DToGlobal(v8[4]);
+   *             myCube.graphics.lineTo(ps.x, ps.y);
+   *             ps = myCube.local3DToGlobal(v8[1]);
+   *             myCube.graphics.moveTo(ps.x, ps.y);
+   *             ps = myCube.local3DToGlobal(v8[5]);
+   *             myCube.graphics.lineTo(ps.x, ps.y);
+   *             ps = myCube.local3DToGlobal(v8[2]);
+   *             myCube.graphics.moveTo(ps.x, ps.y);
+   *             ps = myCube.local3DToGlobal(v8[6]);
+   *             myCube.graphics.lineTo(ps.x, ps.y);
+   *             ps = myCube.local3DToGlobal(v8[3]);
+   *             myCube.graphics.moveTo(ps.x, ps.y);
+   *             ps = myCube.local3DToGlobal(v8[7]);
+   *             myCube.graphics.lineTo(ps.x, ps.y);
+   *         }
+   *     }
+   * }
+   * </listing>
+   */
+  public function local3DToGlobal(point3d:Vector3D):Point {
     throw new Error('not implemented'); // TODO: implement!
   }
 

@@ -43,7 +43,7 @@ public class SimpleButton extends InteractiveObject {
   }
 
   /**
-   * Specifies a display object that is used as the hit testing object for the button. For a basic button, set the <code>hitTestState</code> property to the same display object as the <code>overState</code> property. If you do not set the <code>hitTestState</code> property, the SimpleButton is inactive &mdash; it does not respond to user input events.
+   * Specifies a display object that is used as the hit testing object for the button. For a basic button, set the <code>hitTestState</code> property to the same display object as the <code>overState</code> property. If you do not set the <code>hitTestState</code> property, the SimpleButton is inactive — it does not respond to user input events.
    * @see #downState
    * @see #overState
    * @see #upState
@@ -57,7 +57,7 @@ public class SimpleButton extends InteractiveObject {
   public native function set hitTestState(value:DisplayObject):void;
 
   /**
-   * Specifies a display object that is used as the visual object for the button over state � the state that the button is in when the pointer is positioned over the button.
+   * Specifies a display object that is used as the visual object for the button over state — the state that the button is in when the pointer is positioned over the button.
    * @see #downState
    * @see #hitTestState
    * @see #upState
@@ -94,7 +94,7 @@ public class SimpleButton extends InteractiveObject {
   public native function set trackAsMenu(value:Boolean):void;
 
   /**
-   * Specifies a display object that is used as the visual object for the button up state � the state that the button is in when the pointer is not positioned over the button.
+   * Specifies a display object that is used as the visual object for the button up state — the state that the button is in when the pointer is not positioned over the button.
    * @see #downState
    * @see #hitTestState
    * @see #overState

@@ -133,6 +133,13 @@ public final class Capabilities {
   }
 
   /**
+   * Specifies the current CPU architecture. The <code>cpuArchitecture</code> property can return the following strings: "<code>PowerPC</code>", "<code>x86</code>", "<code>SPARC</code>", and "<code>ARM</code>". The server string is <code>ARCH</code>.
+   */
+  public static function get cpuArchitecture():String {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
    * Specifies whether the system supports (<code>true</code>) or does not support (<code>false</code>) communication with accessibility aids. The server string is <code>ACC</code>.
    * @see flash.accessibility.Accessibility#active
    * @see flash.accessibility.Accessibility#updateProperties()
@@ -397,6 +404,14 @@ public final class Capabilities {
   }
 
   /**
+   * Retrieves the highest H.264 Level IDC that the client hardware supports. Media run at this level are guaranteed to run; however, media run at the highest level might not run with the highest quality. This property is useful for servers trying to target a client's capabilities. Using this property, a server can determine the level of video to send to the client.
+   * <p>The server string is <code>ML</code>.</p>
+   */
+  public static function get maxLevelIDC():String {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
    * Specifies the current operating system. The <code>os</code> property can return the following strings:
    * <table>
    * <tr><th>Operating system</th><th>Value</th></tr>
@@ -561,6 +576,49 @@ public final class Capabilities {
    *
    */
   public static function get serverString():String {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * Specifies whether the system supports running 32-bit processes. The server string is <code>PR32</code>.
+   */
+  public static function get supports32BitProcesses():Boolean {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * Specifies whether the system supports running 64-bit processes. The server string is <code>PR64</code>.
+   */
+  public static function get supports64BitProcesses():Boolean {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * Specifies the type of touchscreen supported, if any. Values are defined in the flash.system.TouchscreenType class.
+   * @see TouchscreenType
+   * @see flash.ui.Mouse#supportsCursor
+   *
+   * @example The following example is a simple test that indicates the current type of touch screen. When testing this example, click a text field to see the property values:
+   * <listing>
+   * import flash.events.*;
+   * import flash.display.*;
+   * import flash.system.Capabilities;
+   * import flash.text.TextField;
+   *
+   * var capabilitiesTouchScreenTypeTxt:TextField = new TextField();
+   * capabilitiesTouchScreenTypeTxt.width = 300;
+   * capabilitiesTouchScreenTypeTxt.border = true;
+   *
+   * addChild(capabilitiesTouchScreenTypeTxt);
+   *
+   * addEventListener(MouseEvent.CLICK, getScreenKeyboardType);
+   *
+   * function getScreenKeyboardType(e:MouseEvent):void{
+   *     capabilitiesTouchScreenTypeTxt.text= "flash.system.Capabilities.touchscreenType is : " + flash.system.Capabilities.touchscreenType;
+   * }
+   * </listing>
+   */
+  public static function get touchscreenType():String {
     throw new Error('not implemented'); // TODO: implement!
   }
 

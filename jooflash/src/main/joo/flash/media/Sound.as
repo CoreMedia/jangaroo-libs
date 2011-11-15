@@ -1,7 +1,7 @@
 package flash.media {
-
 import flash.events.EventDispatcher;
 import flash.net.URLRequest;
+import flash.utils.ByteArray;
 
 import js.Audio;
 import js.HTMLAudioElement;
@@ -31,9 +31,14 @@ import js.HTMLAudioElement;
  * @eventType flash.events.ProgressEvent.PROGRESS
  */
 [Event(name="progress", type="flash.events.ProgressEvent")]
+/**
+ * Dispatched when the runtime requests new audio data.
+ * @eventType flash.events.SampleDataEvent.SAMPLE_DATA
+ */
+[Event(name="sampleData", type="flash.events.SampleDataEvent")]
 
 /**
- * The Sound class lets you work with sound in an application. The Sound class lets you create a Sound object, load and play an external MP3 file into that object, close the sound stream, and access data about the sound, such as information about the number of bytes in the stream and ID3 metadata. More detailed control of the sound is performed through the sound source — the SoundChannel or Microphone object for the sound — and through the properties in the SoundTransform class that control the output of the sound to the computer's speakers.
+ * The Sound class lets you work with sound in an application. The Sound class lets you create a Sound object, load and play an external MP3 file into that object, close the sound stream, and access data about the sound, such as information about the number of bytes in the stream and ID3 metadata. More detailed control of the sound is performed through the sound source â€” the SoundChannel or Microphone object for the sound â€” and through the properties in the SoundTransform class that control the output of the sound to the computer's speakers.
  * <p>In Flash Player 10 and later and AIR 1.5 and later, you can also use this class to work with sound that is generated dynamically. In this case, the Sound object uses the function you assign to a <code>sampleData</code> event handler to poll for sound data. The sound is played as it is retrieved from a ByteArray object that you populate with sound data. You can use <code>Sound.extract()</code> to extract sound data from a Sound object, after which you can manipulate it before writing it back to the stream for playback.</p>
  * <p>To control sounds that are embedded in a SWF file, use the properties in the SoundMixer class.</p>
  * <p><b>Note</b>: The ActionScript 3.0 Sound API differs from ActionScript 2.0. In ActionScript 3.0, you cannot take sound objects and arrange them in a hierarchy to control their properties.</p>
@@ -257,6 +262,23 @@ public class Sound extends EventDispatcher {
   }
 
   /**
+   * Indicates if the <code>Sound.url</code> property has been truncated. When the <code>isURLInaccessible</code> value is <code>true</code> the <code>Sound.url</code> value is only the domain of the final URL from which the sound loaded. For example, the property is truncated if the sound is loaded from <code>http://www.adobe.com/assets/hello.mp3</code>, and the <code>Sound.url</code> property has the value <code>http://www.adobe.com</code>. The <code>isURLInaccessible</code> value is <code>true</code> only when all of the following are also true:
+   * <ul>
+   * <li>An HTTP redirect occurred while loading the sound file.</li>
+   * <li>The SWF file calling <code>Sound.load()</code> is from a different domain than the sound file's final URL.</li>
+   * <li>The SWF file calling <code>Sound.load()</code> does not have permission to access the sound file. Permission is granted to access the sound file the same way permission is granted for the <code>Sound.id3</code> property: establish a policy file and use the <code>SoundLoaderContext.checkPolicyFile</code> property.</li></ul>
+   * <p><b>Note:</b> The <code>isURLInaccessible</code> property was added for Flash Player 10.1 and AIR 2.0. However, this property is made available to SWF files of all versions when the Flash runtime supports it. So, using some authoring tools in "strict mode" causes a compilation error. To work around the error use the indirect syntax <code>mySound["isURLInaccessible"]</code>, or disable strict mode. If you are using Flash Professional CS5 or Flex SDK 4.1, you can use and compile this API for runtimes released before Flash Player 10.1 and AIR 2.</p>
+   * <p>For application content in AIR, the value of this property is always <code>false</code>.</p>
+   * @see #url
+   * @see #id3
+   * @see SoundLoaderContext#checkPolicyFile
+   *
+   */
+  public function get isURLInaccessible():Boolean {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
    * The length of the current sound in milliseconds.
    */
   public function get length():Number {
@@ -364,6 +386,64 @@ public class Sound extends EventDispatcher {
    * </listing>
    */
   public function close():void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * Extracts raw sound data from a Sound object.
+   * <p>This method is designed to be used when you are working with dynamically generated audio, using a function you assign to the <code>sampleData</code> event for a different Sound object. That is, you can use this method to extract sound data from a Sound object. Then you can write the data to the byte array that another Sound object is using to stream dynamic audio.</p>
+   * <p>The audio data is placed in the target byte array starting from the current position of the byte array. The audio data is always exposed as 44100 Hz Stereo. The sample type is a 32-bit floating-point value, which can be converted to a Number using <code>ByteArray.readFloat()</code>.</p>
+   * @param target A ByteArray object in which the extracted sound samples are placed.
+   * @param length The number of sound samples to extract. A sample contains both the left and right channels â€” that is, two 32-bit floating-point values.
+   * @param startPosition The sample at which extraction begins. If you don't specify a value, the first call to <code>Sound.extract()</code> starts at the beginning of the sound; subsequent calls without a value for <code>startPosition</code> progress sequentially through the file.
+   *
+   * @return The number of samples written to the ByteArray specified in the <code>target</code> parameter.
+   *
+   * @see #play()
+   * @see #event:sampleData
+   *
+   * @example The following example loads an mp3 file and uses the <code>extract()</code> method of the Sound class to access the audio data.
+   * <p>The mp3 data is loaded into the <code>sourceSnd</code> Sound object. When the application loads the mp3 data, it calls the <code>loaded()</code> function (the event handler for the <code>complete</code> event of the <code>sourceSnd</code> object). A second Sound object, <code>outputSound</code>, is used to play the modified audio. The <code>outputSound</code> object has a <code>sampleData</code> event listener; so the object dispatches periodical <code>sampleData</code> events once you call the <code>play()</code> method of the object. The <code>upOctave()</code> method returns a byte array of modified audio data based on the source audio data. It returns audio that is one octave higher by skipping over every other audio sample in the source data. The event handler for the <code>sampleData</code> event writes the returned byte array to the <code>data</code> property of the <code>outputSound</code> object. The <code>data</code> byte array is appended to the output audio data for the <code>outputSound</code> object.</p>
+   * <p>To test this example, add a test.mp3 file to the same directory as the SWF file.</p>
+   * <listing>
+   * var sourceSnd:Sound = new Sound();
+   * var outputSnd:Sound = new Sound();
+   * var urlReq:URLRequest = new URLRequest("test.mp3");
+   *
+   * sourceSnd.load(urlReq);
+   * sourceSnd.addEventListener(Event.COMPLETE, loaded);
+   *
+   * function loaded(event:Event):void
+   * {
+   *     outputSnd.addEventListener(SampleDataEvent.SAMPLE_DATA, processSound);
+   *     outputSnd.play();
+   * }
+   *
+   * function processSound(event:SampleDataEvent):void
+   * {
+   *     var bytes:ByteArray = new ByteArray();
+   *     sourceSnd.extract(bytes, 4096);
+   *     event.data.writeBytes(upOctave(bytes));
+   * }
+   *
+   * function upOctave(bytes:ByteArray):ByteArray
+   * {
+   *     var returnBytes:ByteArray = new ByteArray();
+   *     bytes.position = 0;
+   *     while(bytes.bytesAvailable > 0)
+   *     {
+   *         returnBytes.writeFloat(bytes.readFloat());
+   *         returnBytes.writeFloat(bytes.readFloat());
+   *         if (bytes.bytesAvailable > 0)
+   *         {
+   *             bytes.position += 8;
+   *         }
+   *     }
+   *     return returnBytes;
+   * }
+   * </listing>
+   */
+  public function extract(target:ByteArray, length:Number, startPosition:Number = -1):Number {
     throw new Error('not implemented'); // TODO: implement!
   }
 

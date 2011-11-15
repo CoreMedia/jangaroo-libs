@@ -13,7 +13,8 @@ package flash.utils {
  *
  * @see #clearTimeout
  *
- * @example The following example uses the <code>setTimeout()</code> method to call another method following a specified delay period.
+ * @example
+ * The following example uses the <code>setTimeout()</code> method to call another method following a specified delay period.
  * <listing>
  * package {
  *     import flash.display.Sprite;

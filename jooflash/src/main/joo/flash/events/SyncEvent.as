@@ -1,5 +1,4 @@
 package flash.events {
-
 /**
  * An SharedObject object representing a remote shared object dispatches a SyncEvent object when the remote shared object has been updated by the server. There is only one type of <code>sync</code> event: <code>SyncEvent.SYNC</code>.
  * @see flash.net.SharedObject
@@ -87,6 +86,5 @@ public class SyncEvent extends Event {
    *
    */
   public static const SYNC:String = "sync";
-
 }
 }

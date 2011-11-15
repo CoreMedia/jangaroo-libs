@@ -15,9 +15,9 @@ public final class FrameLabel {
   /**
    * The frame number containing the label.
    */
-    public function get frame():int {
-      return _frame;
-    }
+  public function get frame():int {
+    return _frame;
+  }
 
   /**
    * The name of the label.

@@ -1,6 +1,7 @@
 package flash.display {
 import flash.events.Event;
 import flash.events.EventDispatcher;
+import flash.events.UncaughtErrorEvents;
 import flash.system.ApplicationDomain;
 import flash.utils.ByteArray;
 
@@ -13,7 +14,7 @@ import js.Image;
  */
 [Event(name="complete", type="flash.events.Event")]
 /**
- * property HTTPStatusEvent.type =
+ * Dispatched when a network request is made over HTTP and an HTTP status code can be detected.
  * @eventType flash.events.HTTPStatusEvent.HTTP_STATUS
  */
 [Event(name="httpStatus", type="flash.events.HTTPStatusEvent")]
@@ -29,7 +30,7 @@ import js.Image;
  */
 [Event(name="init", type="flash.events.Event")]
 /**
- * property IOErrorEvent.type =
+ * Dispatched when an input or output error occurs that causes a load operation to fail.
  * @eventType flash.events.IOErrorEvent.IO_ERROR
  */
 [Event(name="ioError", type="flash.events.IOErrorEvent")]
@@ -39,7 +40,7 @@ import js.Image;
  */
 [Event(name="open", type="flash.events.Event")]
 /**
- * property ProgressEvent.type =
+ * Dispatched when data is received as the download operation progresses.
  * @eventType flash.events.ProgressEvent.PROGRESS
  */
 [Event(name="progress", type="flash.events.ProgressEvent")]
@@ -53,11 +54,11 @@ import js.Image;
  * The LoaderInfo class provides information about a loaded SWF file or a loaded image file (JPEG, GIF, or PNG). LoaderInfo objects are available for any display object. The information provided includes load progress, the URLs of the loader and loaded content, the number of bytes total for the media, and the nominal height and width of the media.
  * <p>You can access LoaderInfo objects in two ways:</p>
  * <ul>
- * <li>The <code>contentLoaderInfo</code> property of a flash.display.Loader object� The <code>contentLoaderInfo</code> property is always available for any Loader object. For a Loader object that has not called the <code>load()</code> or <code>loadBytes()</code> method, or that has not sufficiently loaded, attempting to access many of the properties of the <code>contentLoaderInfo</code> property throws an error.</li>
+ * <li>The <code>contentLoaderInfo</code> property of a flash.display.Loader object— The <code>contentLoaderInfo</code> property is always available for any Loader object. For a Loader object that has not called the <code>load()</code> or <code>loadBytes()</code> method, or that has not sufficiently loaded, attempting to access many of the properties of the <code>contentLoaderInfo</code> property throws an error.</li>
  * <li>The <code>loaderInfo</code> property of a display object.</li></ul>
  * <p>The <code>contentLoaderInfo</code> property of a Loader object provides information about the content that the Loader object is loading, whereas the <code>loaderInfo</code> property of a DisplayObject provides information about the root SWF file for that display object.</p>
  * <p>When you use a Loader object to load a display object (such as a SWF file or a bitmap), the <code>loaderInfo</code> property of the display object is the same as the <code>contentLoaderInfo</code> property of the Loader object (<code>DisplayObject.loaderInfo = Loader.contentLoaderInfo</code>). Because the instance of the main class of the SWF file has no Loader object, the <code>loaderInfo</code> property is the only way to access the LoaderInfo for the instance of the main class of the SWF file.</p>
- * <p>The following diagram shows the different uses of the LoaderInfo object�for the instance of the main class of the SWF file, for the <code>contentLoaderInfo</code> property of a Loader object, and for the <code>loaderInfo</code> property of a loaded object:</p>
+ * <p>The following diagram shows the different uses of the LoaderInfo object—for the instance of the main class of the SWF file, for the <code>contentLoaderInfo</code> property of a Loader object, and for the <code>loaderInfo</code> property of a loaded object:</p>
  * <p><img src="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/images/loaderInfo_object.jpg" /></p>
  * <p>When a loading operation is not complete, some properties of the <code>contentLoaderInfo</code> property of a Loader object are not available. You can obtain some properties, such as <code>bytesLoaded</code>, <code>bytesTotal</code>, <code>url</code>, <code>loaderURL</code>, and <code>applicationDomain</code>. When the <code>loaderInfo</code> object dispatches the <code>init</code> event, you can access all properties of the <code>loaderInfo</code> object and the loaded image or SWF file.</p>
  * <p><b>Note:</b> All properties of LoaderInfo objects are read-only.</p>
@@ -187,6 +188,24 @@ public class LoaderInfo extends EventDispatcher {
   }
 
   /**
+   * Indicates if the <code>LoaderInfo.url</code> property has been truncated. When the <code>isURLInaccessible</code> value is <code>true</code> the <code>LoaderInfo.url</code> value is only the domain of the final URL from which the content loaded. For example, the property is truncated if the content is loaded from <code>http://www.adobe.com/assets/hello.swf</code>, and the <code>LoaderInfo.url</code> property has the value <code>http://www.adobe.com</code>. The <code>isURLInaccessible</code> value is <code>true</code> only when all of the following are also true:
+   * <ul>
+   * <li>An HTTP redirect occurred while loading the content.</li>
+   * <li>The SWF file calling <code>Loader.load()</code> is from a different domain than the content's final URL.</li>
+   * <li>The SWF file calling <code>Loader.load()</code> does not have permission to access the content. Permission is granted to access the content the same way permission is granted for <code>BitmapData.draw()</code>: call <code>Security.allowDomain()</code> to access a SWF file (or for non-SWF file content, establish a policy file and use the <code>LoaderContext.checkPolicyFile</code> property).</li></ul>
+   * <p><b>Note:</b> The <code>isURLInaccessible</code> property was added for Flash Player 10.1 and AIR 2.0. However, this property is made available to SWF files of all versions when the Flash runtime supports it. So, using some authoring tools in "strict mode" causes a compilation error. To work around the error use the indirect syntax <code>myLoaderInfo["isURLInaccessible"]</code>, or disable strict mode. If you are using Flash Professional CS5 or Flex SDK 4.1, you can use and compile this API for runtimes released before Flash Player 10.1 and AIR 2.</p>
+   * <p>For application content in AIR, the value of this property is always <code>false</code>.</p>
+   * @see #url
+   * @see BitmapData#draw()
+   * @see flash.system.Security#allowDomain()
+   * @see flash.system.LoaderContext#checkPolicyFile
+   *
+   */
+  public function get isURLInaccessible():Boolean {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
    * The Loader object associated with this LoaderInfo object. If this LoaderInfo object is the <code>loaderInfo</code> property of the instance of the main class of the SWF file, no Loader object is associated.
    * @throws SecurityError If the object accessing this API is prevented from accessing the Loader object because of security restrictions. This can occur, for instance, when a loaded SWF file attempts to access its <code>loaderInfo.loader</code> property and it is not granted security permission to access the loading SWF file.
    * <p>For more information related to security, see the Flash Player Developer Center Topic: <a href="http://www.adobe.com/go/devnet_security_en">Security</a>.</p>
@@ -245,6 +264,120 @@ public class LoaderInfo extends EventDispatcher {
    *
    */
   public function get swfVersion():uint {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * An object that dispatches an <code>uncaughtError</code> event when an unhandled error occurs in code in this LoaderInfo object's SWF file. An uncaught error happens when an error is thrown outside of any <code>try..catch</code> blocks or when an ErrorEvent object is dispatched with no registered listeners.
+   * <p>This property is created when the SWF associated with this LoaderInfo has finished loading. Until then the <code>uncaughtErrorEvents</code> property is <code>null</code>. In an ActionScript-only project, you can access this property during or after the execution of the constructor function of the main class of the SWF file. For a Flex project, the <code>uncaughtErrorEvents</code> property is available after the <code>applicationComplete</code> event is dispatched.</p>
+   * @see flash.events.UncaughtErrorEvent
+   * @see Loader#uncaughtErrorEvents
+   *
+   * @example The following example demonstrates the use of an uncaught error event handler to detect uncaught errors in an ActionScript project. The example defines an <code>uncaughtError</code> event handler to detect uncaught errors. It also provides a button that, when clicked, throws an error that is caught by the uncaught error handler.
+   * <p>In the constructor, the code registers a listener for the <code>uncaughtError</code> event dispatched by the LoaderInfo object's <code>uncaughtErrorEvents</code> property.</p>
+   * <p>In the <code>uncaughtErrorHandler()</code> method, the code checks the data type of the <code>error</code> property and responds accordingly.</p>
+   * <listing>
+   * package
+   * {
+   *     import flash.display.Sprite;
+   *     import flash.events.ErrorEvent;
+   *     import flash.events.MouseEvent;
+   *     import flash.events.UncaughtErrorEvent;
+   *
+   *     public class UncaughtErrorEventExample extends Sprite
+   *     {
+   *         public function UncaughtErrorEventExample()
+   *         {
+   *             loaderInfo.uncaughtErrorEvents.addEventListener(UncaughtErrorEvent.UNCAUGHT_ERROR, uncaughtErrorHandler);
+   *
+   *             drawUI();
+   *         }
+   *
+   *         private function uncaughtErrorHandler(event:UncaughtErrorEvent):void
+   *         {
+   *             if (event.error is Error)
+   *             {
+   *                 var error:Error = event.error as Error;
+   *                 // do something with the error
+   *             }
+   *             else if (event.error is ErrorEvent)
+   *             {
+   *                 var errorEvent:ErrorEvent = event.error as ErrorEvent;
+   *                 // do something with the error
+   *             }
+   *             else
+   *             {
+   *                 // a non-Error, non-ErrorEvent type was thrown and uncaught
+   *             }
+   *         }
+   *
+   *         private function drawUI():void
+   *         {
+   *             var btn:Sprite = new Sprite();
+   *             btn.graphics.clear();
+   *             btn.graphics.beginFill(0xFFCC00);
+   *             btn.graphics.drawRect(0, 0, 100, 50);
+   *             btn.graphics.endFill();
+   *             addChild(btn);
+   *             btn.addEventListener(MouseEvent.CLICK, clickHandler);
+   *         }
+   *
+   *         private function clickHandler(event:MouseEvent):void
+   *         {
+   *             throw new Error("Gak!");
+   *         }
+   *     }
+   * }
+   * </listing>
+   * <div>The following example is the Flex equivalent of the previous example, using an MXML document instead of an ActionScript class as the root content.
+   * <listing>
+   * &lt;?xml version="1.0" encoding="utf-8"?&gt;
+   * &lt;s:WindowedApplication xmlns:fx="http://ns.adobe.com/mxml/2009"
+   *                        xmlns:s="library://ns.adobe.com/flex/spark"
+   *                        xmlns:mx="library://ns.adobe.com/flex/halo"
+   *                        applicationComplete="applicationCompleteHandler();"&gt;
+   *
+   *     &lt;fx:Script&gt;
+   *         &amp;lt;![CDATA[
+   *             import flash.events.ErrorEvent;
+   *             import flash.events.MouseEvent;
+   *             import flash.events.UncaughtErrorEvent;
+   *
+   *             private function applicationCompleteHandler():void
+   *             {
+   *                 loaderInfo.uncaughtErrorEvents.addEventListener(UncaughtErrorEvent.UNCAUGHT_ERROR, uncaughtErrorHandler);
+   *             }
+   *
+   *             private function uncaughtErrorHandler(event:UncaughtErrorEvent):void
+   *             {
+   *                 if (event.error is Error)
+   *                 {
+   *                     var error:Error = event.error as Error;
+   *                     // do something with the error
+   *                 }
+   *                 else if (event.error is ErrorEvent)
+   *                 {
+   *                     var errorEvent:ErrorEvent = event.error as ErrorEvent;
+   *                     // do something with the error
+   *                 }
+   *                 else
+   *                 {
+   *                     // a non-Error, non-ErrorEvent type was thrown and uncaught
+   *                 }
+   *             }
+   *
+   *             private function clickHandler(event:MouseEvent):void
+   *             {
+   *                 throw new Error("Gak!");
+   *             }
+   *         ]]&gt;
+   *     &lt;/fx:Script&gt;
+   *
+   *     &lt;s:Button label="Cause Error" click="clickHandler(event);"/&gt;
+   * &lt;/s:WindowedApplication&gt;
+   * </listing></div>
+   */
+  public function get uncaughtErrorEvents():UncaughtErrorEvents {
     throw new Error('not implemented'); // TODO: implement!
   }
 

@@ -2,22 +2,22 @@ package flash.net {
 import flash.events.EventDispatcher;
 
 /**
- * property AsyncErrorEvent.type =
+ * Dispatched when an exception is thrown asynchronously — that is, from native asynchronous code.
  * @eventType flash.events.AsyncErrorEvent.ASYNC_ERROR
  */
 [Event(name="asyncError", type="flash.events.AsyncErrorEvent")]
 /**
- * property IOErrorEvent.type =
+ * Dispatched when an input or output error occurs that causes a network operation to fail.
  * @eventType flash.events.IOErrorEvent.IO_ERROR
  */
 [Event(name="ioError", type="flash.events.IOErrorEvent")]
 /**
- * property NetStatusEvent.type =
+ * Dispatched when a NetConnection object is reporting its status or error condition. The <code>netStatus</code> event contains an <code>info</code> property, which is an information object that contains specific information about the event, such as whether a connection attempt succeeded or failed.
  * @eventType flash.events.NetStatusEvent.NET_STATUS
  */
 [Event(name="netStatus", type="flash.events.NetStatusEvent")]
 /**
- * property SecurityErrorEvent.type =
+ * Dispatched if a call to NetConnection.call() attempts to connect to a server outside the caller's security sandbox.
  * @eventType flash.events.SecurityErrorEvent.SECURITY_ERROR
  */
 [Event(name="securityError", type="flash.events.SecurityErrorEvent")]
@@ -96,6 +96,55 @@ public class NetConnection extends EventDispatcher {
   }
 
   /**
+   * The identifier of the Flash Media Server instance to which this Flash Player or Adobe AIR instance is connected. This property is meaningful only for RTMFP connections. The value of this property is available only after an RTMFP connection is established.
+   * @see #nearID
+   *
+   */
+  public function get farID():String {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * A value chosen substantially by Flash Media Server, unique to this connection. This value appears to the server as its <code>client.nearNonce</code> value. This value is defined only for RTMFP, RTMPE, and RTMPTE connections.
+   */
+  public function get farNonce():String {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * The total number of inbound and outbound peer connections that this instance of Flash Player or Adobe AIR allows. The default value is 8.
+   * <p>This value does not distinguish between publisher and subscriber connections. If this value is reduced while peer connections are present, the new value affects new incoming connections only. Existing connections are not dropped.</p>
+   */
+  public function get maxPeerConnections():uint {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * @private
+   */
+  public function set maxPeerConnections(value:uint):void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * The identifier of this Flash Player or Adobe AIR instance for this NetConnection instance. This property is meaningful only for RTMFP connections.
+   * <p>Every NetConnection instance has a unique <code>nearID</code> property. No Flash Player or Adobe AIR instance or NetConnection instance has the same identifier.</p>
+   * <p>Other Flash Player or Adobe AIR instances use this identifier as the <code>peerID</code> for new NetStream connections to this client. Subsequently, this identifier is the <code>farID</code> in any peer NetStream that connects to this instance.</p>
+   * @see #farID
+   *
+   */
+  public function get nearID():String {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * A value chosen substantially by this Flash Player or Adobe AIR instance, unique to this connection. This value appears to the server as its <code>client.farNonce</code> value. This value is defined only for RTMFP, RTMPE, and RTMPTE connections.
+   */
+  public function get nearNonce():String {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
    * The object encoding for this NetConnection instance.
    * <p>When an object is written to or read from binary data, the <code>defaultObjectEncoding</code> property indicates which Action Message Format (AMF) version is used to serialize the data: the ActionScript 3.0 format (<code>ObjectEncoding.AMF3</code>) or the ActionScript 1.0 and ActionScript 2.0 format (<code>ObjectEncoding.AMF0</code>). Set the <code>objectEncoding</code> property to set an AMF version for a NetConnection instance.</p>
    * <p>It's important to understand this property if your application needs to communicate with servers released prior to Flash Player 9. The following three scenarios are possible:</p>
@@ -124,6 +173,22 @@ public class NetConnection extends EventDispatcher {
   }
 
   /**
+   * The protocol used to establish the connection. This property is relevant when using Flash Media Server. Possible values are as follows:
+   * <ul>
+   * <li><code>"rtmp"</code>: Real-Time Messaging Protocol (RTMP)</li>
+   * <li><code>"rtmpe"</code>: Encrypted RTMP</li>
+   * <li><code>"rtmpt"</code>: HTTP tunneling RTMP</li>
+   * <li><code>"rtmpte"</code>: HTTP tunneling encrypted RTMP</li>
+   * <li><code>"rtmps"</code>: HTTPS-based RTMP</li>
+   * <li><code>"rtmfp"</code>: Real-Time Media Flow Protocol (RTMFP)</li></ul>
+   * @throws ArgumentError An attempt was made to access this property when the NetConnection instance was not connected.
+   *
+   */
+  public function get protocol():String {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
    * Determines which fallback methods are tried if an initial connection attempt to Flash Media Server fails. Set the <code>proxyType</code> property before calling the <code>NetConnection.connect()</code> method.
    * <p>Acceptable values are <code>"none"</code>, <code>"HTTP"</code>, <code>"CONNECT"</code>, and <code>"best"</code>.The default value is <code>"none"</code>.</p>
    * <p>To use native SSL, set the property to <code>"best"</code>. If the player cannot make a direct connection to the server (over the default port of 443 or over another port that you specify) and a proxy server is in place, the player tries to use the CONNECT method. If that attempt fails, the player tunnels over HTTPS.</p>
@@ -138,6 +203,15 @@ public class NetConnection extends EventDispatcher {
    * @private
    */
   public function set proxyType(value:String):void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * An object that holds all of the peer subscriber NetStream objects that are not associated with publishing NetStream objects. Subscriber NetStream objects that are associated with publishing NetStream objects are in the <code>NetStream.peerStreams</code> array.
+   * @see NetStream#peerStreams
+   *
+   */
+  public function get unconnectedPeerStreams():Array {
     throw new Error('not implemented'); // TODO: implement!
   }
 

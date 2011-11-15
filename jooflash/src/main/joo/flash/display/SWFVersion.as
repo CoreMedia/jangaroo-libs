@@ -12,6 +12,14 @@ public final class SWFVersion {
    */
   public static const FLASH1:uint = 1;
   /**
+   * SWF file format version 10.0.
+   */
+  public static const FLASH10:uint = 10;
+  /**
+   * SWF file format version 11.0.
+   */
+  public static const FLASH11:uint = 11;
+  /**
    * SWF file format version 2.0.
    */
   public static const FLASH2:uint = 2;

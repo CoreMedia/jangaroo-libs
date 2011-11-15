@@ -1,8 +1,4 @@
 package flash.events {
-
-
-
-
 /**
  * A Camera or Microphone object dispatches an ActivityEvent object whenever a camera or microphone reports that it has become active or inactive. There is only one type of activity event: <code>ActivityEvent.ACTIVITY</code>.
  * <p><a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/ActivityEvent.html#includeExamplesSummary">View the examples</a></p>

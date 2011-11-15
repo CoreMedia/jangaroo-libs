@@ -84,10 +84,57 @@ public class Transform {
   }
 
   /**
+   * Provides access to the Matrix3D object of a three-dimensional display object. The Matrix3D object represents a transformation matrix that determines the display object's position and orientation. A Matrix3D object can also perform perspective projection.
+   * <p>If the <code>matrix</code> property is set to a value (not <code>null</code>), the <code>matrix3D</code> property is <code>null</code>. And if the <code>matrix3D</code> property is set to a value (not <code>null</code>), the <code>matrix</code> property is <code>null</code>.</p>
+   * @see Matrix3D
+   *
+   */
+  public function get matrix3D():Matrix3D {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * @private
+   */
+  public function set matrix3D(value:Matrix3D):void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * Provides access to the PerspectiveProjection object of a three-dimensional display object. The PerspectiveProjection object can be used to modify the perspective transformation of the stage or to assign a perspective transformation to all the three-dimensional children of a display object.
+   * <p>Based on the field of view and aspect ratio (dimensions) of the stage, a default PerspectiveProjection object is assigned to the root object.</p>
+   * @see PerspectiveProjection
+   *
+   */
+  public function get perspectiveProjection():PerspectiveProjection {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * @private
+   */
+  public function set perspectiveProjection(value:PerspectiveProjection):void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
    * A Rectangle object that defines the bounding rectangle of the display object on the stage.
    */
   public function get pixelBounds():Rectangle {
     return new Rectangle(displayObject.x, displayObject.y, displayObject.width, displayObject.height);
+  }
+
+  /**
+   * Returns a Matrix3D object, which can transform the space of a specified display object in relation to the current display object's space. You can use the <code>getRelativeMatrix3D()</code> method to move one three-dimensional display object relative to another three-dimensional display object.
+   * @param relativeTo The display object relative to which the transformation occurs. To get a Matrix3D object relative to the stage, set the parameter to the <code>root</code> or <code>stage</code> object. To get the world-relative matrix of the display object, set the parameter to a display object that has a perspective transformation applied to it.
+   *
+   * @return A Matrix3D object that can be used to transform the space from the <code>relativeTo</code> display object to the current display object space.
+   *
+   * @see Matrix3D
+   *
+   */
+  public function getRelativeMatrix3D(relativeTo:DisplayObject):Matrix3D {
+    throw new Error('not implemented'); // TODO: implement!
   }
 
   // ************************** Jangaroo part **************************

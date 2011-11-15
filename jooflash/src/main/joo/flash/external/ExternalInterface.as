@@ -3,7 +3,7 @@ import js.Window;
 
 
 /**
- * The ExternalInterface class is an application programming interface that enables straightforward communication between ActionScript and the SWF containerâ€“ for example, an HTML page with JavaScript or a desktop application that uses Flash Player to display a SWF file.
+ * The ExternalInterface class is an application programming interface that enables straightforward communication between ActionScript and the SWF container– for example, an HTML page with JavaScript or a desktop application that uses Flash Player to display a SWF file.
  * <p>Using the ExternalInterface class, you can call an ActionScript function in the Flash runtime, using JavaScript in the HTML page. The ActionScript function can return a value, and JavaScript receives it immediately as the return value of the call.</p>
  * <p>This functionality replaces the <code>fscommand()</code> method.</p>
  * <p>Use the ExternalInterface class in the following combinations of browser and operating system:</p>
@@ -179,7 +179,7 @@ public final class ExternalInterface {
    * @param functionName The alphanumeric name of the function to call in the container. Using a non-alphanumeric function name causes a runtime error (error 2155). You can use a <code>try..catch</code> block to handle the error.
    * @param rest The arguments to pass to the function in the container. You can specify zero or more parameters, separating them with commas. They can be of any ActionScript data type. When the call is to a JavaScript function, the ActionScript types are automatically converted into JavaScript types; when the call is to some other ActiveX container, the parameters are encoded in the request message.
    *
-   * @return The response received from the container. If the call failedâ€“ for example, if there is no such function in the container, the interface is not available, a recursion occurred (with a Netscape or Opera browser), or there is a security issueâ€“ <code>null</code> is returned and an error is thrown.
+   * @return The response received from the container. If the call failed– for example, if there is no such function in the container, the interface is not available, a recursion occurred (with a Netscape or Opera browser), or there is a security issue– <code>null</code> is returned and an error is thrown.
    *
    * @throws Error The container does not support outgoing calls. Outgoing calls are supported only in Internet Explorer for Windows and browsers that use the NPRuntime API such as Mozilla 1.7.5 and later or Firefox 1.0 and later.
    * @throws SecurityError The containing environment belongs to a security sandbox to which the calling code does not have access. To fix this problem, follow these steps: <ol>

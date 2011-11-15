@@ -2,12 +2,21 @@ package flash.media {
 import flash.events.EventDispatcher;
 
 /**
- * property ActivityEvent.type =
+ * Dispatched when a microphone starts or stops recording due to detected silence.
+ * <p>To specify the amount of sound required to trigger this event with an <code>activating</code> property of <code>true</code>, or the amount of time that must elapse without sound to trigger this event with an <code>activating</code> property of <code>false</code>, use <code>Microphone.setSilenceLevel()</code>.</p>
+ * <p>For a Microphone object to dispatch activity events, the application must be monitoring the input, either by calling <code>setLoopback( true )</code>, by listening for sampleData events, or by attaching the microphone to a NetStream object.</p>
  * @eventType flash.events.ActivityEvent.ACTIVITY
  */
 [Event(name="activity", type="flash.events.ActivityEvent")]
 /**
- * property StatusEvent.type =
+ * Dispatched when the microphone has sound data in the buffer.
+ * <p>The <code>Microphone.rate</code> property determines the number of samples generated per second. The number of samples per event is a factor of the number of samples per second and the latency between event calls.</p>
+ * @eventType flash.events.SampleDataEvent.SAMPLE_DATA
+ */
+[Event(name="sampleData", type="flash.events.SampleDataEvent")]
+/**
+ * Dispatched when a microphone reports its status. If the value of the <code>code</code> property is <code>"Microphone.Muted"</code>, the user has refused to allow the SWF file access to the microphone. If the value of the <code>code</code> property is <code>"Microphone.Unmuted"</code>, the user has allowed the SWF file access to the microphone.
+ * <p>Status events are not dispatched in Adobe AIR applications; access to the microphone cannot be changed dynamically. On most platforms, AIR applications can always access the microphone. On Android, an application must specify the Android RECORD_AUDIO permission in the application descriptor. Otherwise, Android denies access to the microphone altogether.</p>
  * @eventType flash.events.StatusEvent.STATUS
  */
 [Event(name="status", type="flash.events.StatusEvent")]
@@ -41,13 +50,111 @@ import flash.events.EventDispatcher;
 public final class Microphone extends EventDispatcher {
   /**
    * The amount of sound the microphone is detecting. Values range from 0 (no sound is detected) to 100 (very loud sound is detected). The value of this property can help you determine a good value to pass to the <code>Microphone.setSilenceLevel()</code> method.
-   * <p>If the microphone is available but is not yet being used because <code>Microphone.getMicrophone()</code> has not been called, this property is set to -1.</p>
+   * <p>If the microphone <code>muted</code> property is <code>true</code>, the value of this property is always -1.</p>
    * @see #getMicrophone()
    * @see #setSilenceLevel()
    * @see #gain
    *
    */
   public function get activityLevel():Number {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * The codec to use for compressing audio. Available codecs are Nellymoser (the default) and Speex. The enumeration class <code>SoundCodec</code> contains the various values that are valid for the <code>codec</code> property.
+   * <p>If you use the Nellymoser codec, you can set the sample rate using <code>Microphone.rate()</code>. If you use the Speex codec, the sample rate is set to 16 kHz.</p>
+   * <p>Speex includes voice activity detection (VAD) and automatically reduces bandwidth when no voice is detected. When using the Speex codec, Adobe recommends that you set the silence level to 0. To set the silence level, use the <code>Microphone.setSilenceLevel()</code> method.</p>
+   * @see #setSilenceLevel()
+   *
+   */
+  public function get codec():String {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * @private
+   */
+  public function set codec(value:String):void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * Enable Speex voice activity detection.
+   */
+  public function get enableVAD():Boolean {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * @private
+   */
+  public function set enableVAD(value:Boolean):void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * The encoded speech quality when using the Speex codec. Possible values are from 0 to 10. The default value is 6. Higher numbers represent higher quality but require more bandwidth, as shown in the following table. The bit rate values that are listed represent net bit rates and do not include packetization overhead.
+   * <table>
+   * <tr><th>Quality value</th><th>Required bit rate (kilobits per second)</th></tr>
+   * <tr>
+   * <td>0</td>
+   * <td>3.95</td></tr>
+   * <tr>
+   * <td>1</td>
+   * <td>5.75</td></tr>
+   * <tr>
+   * <td>2</td>
+   * <td>7.75</td></tr>
+   * <tr>
+   * <td>3</td>
+   * <td>9.80</td></tr>
+   * <tr>
+   * <td>4</td>
+   * <td>12.8</td></tr>
+   * <tr>
+   * <td>5</td>
+   * <td>16.8</td></tr>
+   * <tr>
+   * <td>6</td>
+   * <td>20.6</td></tr>
+   * <tr>
+   * <td>7</td>
+   * <td>23.8</td></tr>
+   * <tr>
+   * <td>8</td>
+   * <td>27.8</td></tr>
+   * <tr>
+   * <td>9</td>
+   * <td>34.2</td></tr>
+   * <tr>
+   * <td>10</td>
+   * <td>42.2</td></tr></table>
+   * @see #codec
+   *
+   */
+  public function get encodeQuality():int {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * @private
+   */
+  public function set encodeQuality(value:int):void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * Number of Speex speech frames transmitted in a packet (message). Each frame is 20 ms long. The default value is two frames per packet.
+   * <p>The more Speex frames in a message, the lower the bandwidth required but the longer the delay in sending the message. Fewer Speex frames increases bandwidth required but reduces delay.</p>
+   */
+  public function get framesPerPacket():int {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * @private
+   */
+  public function set framesPerPacket(value:int):void {
     throw new Error('not implemented'); // TODO: implement!
   }
 
@@ -74,6 +181,13 @@ public final class Microphone extends EventDispatcher {
    *
    */
   public function get index():int {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * The <code>isSupported</code> property is set to <code>true</code> if the Microphone class is supported on the current platform, otherwise it is set to <code>false</code>.
+   */
+  public static function get isSupported():Boolean {
     throw new Error('not implemented'); // TODO: implement!
   }
 
@@ -107,6 +221,20 @@ public final class Microphone extends EventDispatcher {
    *
    */
   public static function get names():Array {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * Maximum attenuation of the noise in dB (negative number) used for Speex encoder. If enabled, noise suppression is applied to sound captured from Microphone before Speex compression. Set to 0 to disable noise suppression. Noise suppression is enabled by default with maximum attenuation of -30 dB. Ignored when Nellymoser codec is selected.
+   */
+  public function get noiseSuppressionLevel():int {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * @private
+   */
+  public function set noiseSuppressionLevel(value:int):void {
     throw new Error('not implemented'); // TODO: implement!
   }
 

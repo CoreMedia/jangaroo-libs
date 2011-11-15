@@ -3,22 +3,39 @@ import flash.events.EventDispatcher;
 import flash.media.Camera;
 import flash.media.Microphone;
 import flash.media.SoundTransform;
+import flash.utils.ByteArray;
 
 /**
- * property AsyncErrorEvent.type =
+ * Dispatched when an exception is thrown asynchronously — that is, from native asynchronous code. This event is dispatched when a server calls a method on the client that is not defined.
  * @eventType flash.events.AsyncErrorEvent.ASYNC_ERROR
  */
 [Event(name="asyncError", type="flash.events.AsyncErrorEvent")]
 /**
- * property IOErrorEvent.type =
+ * Dispatched when a NetStream object, trying to play a digital rights management (DRM) encrypted file, encounters a DRM-related error. For example, a DRMErrorEvent object is dispatched when the user authorization fails. This may be because the user has not purchased the rights to view the content or because the content provider does not support the viewing application.
+ * @eventType flash.events.DRMErrorEvent.DRM_ERROR
+ */
+[Event(name="drmError", type="flash.events.DRMErrorEvent")]
+/**
+ * Dispatched when the digital rights management (DRM) encrypted content begins playing (when the user is authenticated and authorized to play the content).
+ * <p>DRMStatusEvent object contains information related to the voucher, such as whether the content is available offline or when the voucher expires and users can no longer view the content.</p>
+ * @eventType flash.events.DRMStatusEvent.DRM_STATUS
+ */
+[Event(name="drmStatus", type="flash.events.DRMStatusEvent")]
+/**
+ * Dispatched when an input or output error occurs that causes a network operation to fail.
  * @eventType flash.events.IOErrorEvent.IO_ERROR
  */
 [Event(name="ioError", type="flash.events.IOErrorEvent")]
 /**
- * property NetStatusEvent.type =
+ * Dispatched when a NetStream object is reporting its status or error condition. The <code>netStatus</code> event contains an <code>info</code> property, which is an information object that contains specific information about the event, such as if a connection attempt succeeded or failed.
  * @eventType flash.events.NetStatusEvent.NET_STATUS
  */
 [Event(name="netStatus", type="flash.events.NetStatusEvent")]
+/**
+ * Dispatched when the application attempts to play content encrypted with digital rights management (DRM), by invoking the <code>NetStream.play()</code> method. The value of the status code property will be <code>"DRM.encryptedFLV"</code>.
+ * @eventType flash.events.StatusEvent.STATUS
+ */
+[Event(name="status", type="flash.events.StatusEvent")]
 
 /**
  * The NetStream class opens a one-way streaming channel over a NetConnection.
@@ -58,6 +75,75 @@ import flash.media.SoundTransform;
  */
 public class NetStream extends EventDispatcher {
   /**
+   * For RTMFP connections, specifies whether audio is sent with full reliability. When TRUE, all audio transmitted over this NetStream is fully reliable. When FALSE, the audio transmitted is not fully reliable, but instead is retransmitted for a limited time and then dropped. You can use the FALSE value to reduce latency at the expense of audio quality.
+   * <p>If you try to set this property to FALSE on a network protocol that does not support partial reliability, the attempt is ignored and the property is set to TRUE.</p>
+   * @see #dataReliable
+   * @see #videoReliable
+   *
+   */
+  public function get audioReliable():Boolean {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * @private
+   */
+  public function set audioReliable(value:Boolean):void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * For RTMFP connections, specifies whether peer-to-peer subscribers on this NetStream are allowed to capture the audio stream. When FALSE, subscriber attempts to capture the audio stream show permission errors.
+   * @see #videoSampleAccess
+   *
+   */
+  public function get audioSampleAccess():Boolean {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * @private
+   */
+  public function set audioSampleAccess(value:Boolean):void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * The number of seconds of previously displayed data that currently cached for rewinding and playback.
+   * <p>This property is available only when data is streaming from Flash Media Server 3.5.3 or higher; for more information on Flash Media Server, see the class description.</p>
+   * <p>To specify how much previously displayed data is cached, use the <code>Netstream.backBufferTime</code> property.</p>
+   * <p>To prevent data from being cached, set the <code>Netstream.inBufferSeek</code> property to FALSE.</p>
+   * @see #backBufferTime
+   * @see #inBufferSeek
+   *
+   */
+  public function get backBufferLength():Number {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * Specifies how much previously displayed data Flash Player tries to cache for rewinding and playback, in seconds. The default value is 30 seconds for desktop applications and 3 seconds for mobile applications.
+   * <p>This property is available only when data is streaming from Flash Media Server version 3.5.3 or later; for more information on Flash Media Server, see the class description.</p>
+   * <p>Using this property improves performance for rewind operations, as data that has already been displayed isn't retrieved from the server again. Instead, the stream begins replaying from the buffer. During playback, data continues streaming from the server until the buffer is full.</p>
+   * <p>If the rewind position is farther back than the data in the cache, the buffer is flushed; the data then starts streaming from the server at the requested position.</p>
+   * <p>To use this property set the <code>Netstream.inBufferSeek</code> property to TRUE.</p>
+   * @see #backBufferLength
+   * @see #bufferTime
+   * @see #inBufferSeek
+   *
+   */
+  public function get backBufferTime():Number {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * @private
+   */
+  public function set backBufferTime(value:Number):void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
    * The number of seconds of data currently in the buffer. You can use this property with the <code>bufferTime</code> property to estimate how close the buffer is to being full — for example, to display feedback to a user who is waiting for data to be loaded into the buffer.
    * @see #backBufferLength
    * @see #bufferTime
@@ -96,6 +182,29 @@ public class NetStream extends EventDispatcher {
    * @private
    */
   public function set bufferTime(value:Number):void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * Specifies a maximum buffer length for live streaming content, in seconds. The default value is 0. Buffer length can grow over time due to networking and device issues (such as clock drift between sender and receiver). Set this property to cap the buffer length for live applications such as meetings and surveillance.
+   * <p>When <code>bufferTimeMax > 0</code> and <code>bufferLength >= bufferTimeMax</code>, audio plays faster until <code>bufferLength</code> reaches <code>bufferTime</code>. If a live stream is video-only, video plays faster until <code>bufferLength</code> reaches <code>bufferTime</code>.</p>
+   * <p>Depending on how much playback is lagging (the difference between <code>bufferLength</code> and <code>bufferTime</code>), Flash Player controls the rate of catch-up between 1.5% and 6.25%. If the stream contains audio, faster playback is achieved by frequency domain downsampling which minimizes audible distortion.</p>
+   * <p>Set the <code>bufferTimeMax</code> property to enable live buffered stream catch-up in the following cases:</p>
+   * <ul>
+   * <li>Streaming live media from Flash Media Server.</li>
+   * <li>Streaming live media in Data Generation Mode (<code>NetStream.appendBytes()</code>).</li></ul>
+   * @see #bufferLength
+   * @see #bufferTime
+   *
+   */
+  public function get bufferTimeMax():Number {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * @private
+   */
+  public function set bufferTimeMax(value:Number):void {
     throw new Error('not implemented'); // TODO: implement!
   }
 
@@ -213,11 +322,213 @@ public class NetStream extends EventDispatcher {
   }
 
   /**
+   * For RTMFP connections, specifies whether <code>NetStream.send()</code> calls are sent with full reliability. When TRUE, <code>NetStream.send()</code> calls that are transmitted over this NetStream are fully reliable. When FALSE, <code>NetStream.send()</code> calls are not transmitted with full reliability, but instead are retransmitted for a limited time and then dropped. You can set this value to FALSE to reduce latency at the expense of data quality.
+   * <p>If you try to set this property to FALSE on a network protocol that does not support partial reliability, the attempt is ignored and the property is set to TRUE.</p>
+   * @see #audioReliable
+   * @see #send()
+   * @see #videoReliable
+   *
+   */
+  public function get dataReliable():Boolean {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * @private
+   */
+  public function set dataReliable(value:Boolean):void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * For RTMFP connections, the identifier of the far end that is connected to this NetStream instance.
+   */
+  public function get farID():String {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * For RTMFP and RTMPE connections, a value chosen substantially by the other end of this stream, unique to this connection. This value appears to the other end of the stream as its <code>nearNonce</code> value.
+   */
+  public function get farNonce():String {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * Specifies whether displayed data is cached for smart seeking (<code>TRUE</code>), or not (<code>FALSE</code>). The default value is FALSE.
+   * <p>Flash Media Server 3.5.3 and Flash Player 10.1 work together to support smart seeking. Smart seeking uses back and forward buffers to seek without requesting data from the server. Standard seeking flushes buffered data and asks the server to send new data based on the seek time.</p>
+   * <p>Call <code>NetStream.step()</code> to step forward and backward a specified number of frames. Call <code>NetStream.seek()</code> to seek forward and backward a specified number of seconds.</p>
+   * <p>Smart seeking reduces server load and improves seeking performance. Set <code>inBufferSeek=true</code> and call <code>step()</code> and <code>seek()</code> to create:</p>
+   * <ul>
+   * <li>Client-side DVR functionality. Seek within the client-side buffer instead of going to the server for delivery of new video.</li>
+   * <li>Trick modes. Create players that step through frames, fast-forward, fast-rewind, and advance in slow-motion.</li></ul>
+   * <p>When <code>inBufferSeek=true</code> and a call to <code>NetStream.seek()</code> is successful, the NetStatusEvent <code>info.description</code> property contains the string <code>"client-inBufferSeek"</code>.</p>
+   * <p>When a call to <code>NetStream.step()</code> is successful, the NetStatusEvent <code>info.code</code> property contains the string <code>"NetStream.Step.Notify"</code>.</p>
+   * @see #backBufferTime
+   * @see #backBufferLength
+   * @see #bufferTime
+   * @see #bufferLength
+   * @see #step()
+   * @see #seek()
+   *
+   */
+  public function get inBufferSeek():Boolean {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * @private
+   */
+  public function set inBufferSeek(value:Boolean):void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * Returns a NetStreamInfo object whose properties contain statistics about the quality of service. The object is a snapshot of the current state.
+   * @see NetStreamInfo
+   *
+   */
+  public function get info():NetStreamInfo {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
    * The number of seconds of data in the subscribing stream's buffer in live (unbuffered) mode. This property specifies the current network transmission delay (lag time).
    * <p>This property is intended primarily for use with a server such as Flash Media Server; for more information, see the class description.</p>
    * <p>You can get the value of this property to roughly gauge the transmission quality of the stream and communicate it to the user.</p>
    */
   public function get liveDelay():Number {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * Specifies how long to buffer messages during pause mode, in seconds. This property can be used to limit how much buffering is done during pause mode. As soon as the value of <code>NetStream.bufferLength</code> reaches this limit, it stops buffering.
+   * <p>If this value is not set, it defaults the limit to 60 seconds or twice the value of <code>NetStream.bufferTime</code> on each pause, whichever is higher.</p>
+   * @see #bufferTime
+   *
+   */
+  public function get maxPauseBufferTime():Number {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * @private
+   */
+  public function set maxPauseBufferTime(value:Number):void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * For RTMFP connections, specifies whether peer-to-peer multicast fragment availability messages are sent to all peers or to just one peer. A value of TRUE specifies that the messages are sent to all peers once per specified interval. A value of FALSE specifies that the messages are sent to just one peer per specified interval. The interval is determined by the <code>multicastAvailabilityUpdatePeriod</code> property.
+   * @see #multicastAvailabilityUpdatePeriod
+   *
+   */
+  public function get multicastAvailabilitySendToAll():Boolean {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * @private
+   */
+  public function set multicastAvailabilitySendToAll(value:Boolean):void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * For RTMFP connections, specifies the interval in seconds between messages sent to peers informing them that the local node has new peer-to-peer multicast media fragments available. Larger values can increase batching efficiency and reduce control overhead, but they can lower quality on the receiving end by reducing the amount of time available to retrieve fragments before they are out-of-window. Lower values can reduce latency and improve quality, but they increase control overhead.
+   * @see #multicastAvailabilitySendToAll
+   * @see #multicastFetchPeriod
+   * @see #multicastWindowDuration
+   *
+   */
+  public function get multicastAvailabilityUpdatePeriod():Number {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * @private
+   */
+  public function set multicastAvailabilityUpdatePeriod(value:Number):void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * For RTMFP connections, specifies the time in seconds between when the local node learns that a peer-to-peer multicast media fragment is available and when it tries to fetch it from a peer. This value gives an opportunity for the fragment to be proactively pushed to the local node before a fetch from a peer is attempted. It also allows for more than one peer to announce availability of the fragment, so the fetch load can be spread among multiple peers.
+   * <p>Larger values can improve load balancing and fairness in the peer-to-peer mesh, but reduce the available <code>multicastWindowDuration</code> and increase latency. Smaller values can reduce latency when fetching is required, but might increase duplicate data reception and reduce peer-to-peer mesh load balance.</p>
+   * @see #multicastAvailabilityUpdatePeriod
+   * @see #multicastWindowDuration
+   *
+   */
+  public function get multicastFetchPeriod():Number {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * @private
+   */
+  public function set multicastFetchPeriod(value:Number):void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * For RTMFP connections, returns a NetStreamMulticastInfo object whose properties contain statistics about the quality of service. The object is a snapshot of the current state.
+   * @see NetStreamMulticastInfo
+   *
+   */
+  public function get multicastInfo():NetStreamMulticastInfo {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * For RTMFP connections, specifies the maximum number of peers to which to proactively push multicast media.
+   */
+  public function get multicastPushNeighborLimit():Number {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * @private
+   */
+  public function set multicastPushNeighborLimit(value:Number):void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * For RTMFP connections, specifies the duration in seconds that peer-to-peer multicast data remains available to send to peers that request it beyond a specified duration. The duration is specified by the <code>multicastWindowDuration</code> property.
+   * @see #multicastWindowDuration
+   *
+   */
+  public function get multicastRelayMarginDuration():Number {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * @private
+   */
+  public function set multicastRelayMarginDuration(value:Number):void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * For RTMFP connections, specifies the duration in seconds of the peer-to-peer multicast reassembly window. Shorter values reduce latency but may reduce quality by not allowing enough time to obtain all of the fragments. Conversely, larger values may increase quality by providing more time to obtain all of the fragments, with a corresponding increase in latency.
+   * @see #multicastRelayMarginDuration
+   *
+   */
+  public function get multicastWindowDuration():Number {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * @private
+   */
+  public function set multicastWindowDuration(value:Number):void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * For RTMFP and RTMPE connections, a value chosen substantially by this end of the stream, unique to this connection. This value appears to the other end of the stream as its <code>farNonce</code> value.
+   */
+  public function get nearNonce():String {
     throw new Error('not implemented'); // TODO: implement!
   }
 
@@ -229,6 +540,13 @@ public class NetStream extends EventDispatcher {
    *
    */
   public function get objectEncoding():uint {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * An object that holds all of the subscribing NetStream instances that are listening to this publishing NetStream instance.
+   */
+  public function get peerStreams():Array {
     throw new Error('not implemented'); // TODO: implement!
   }
 
@@ -258,6 +576,40 @@ public class NetStream extends EventDispatcher {
    *
    */
   public function get time():Number {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * For RTMFP connections, specifies whether video is sent with full reliability. When TRUE, all video transmitted over this NetStream is fully reliable. When FALSE, the video transmitted is not fully reliable, but instead is retransmitted for a limited time and then dropped. You can use the FALSE value to reduce latency at the expense of video quality.
+   * <p>If you try to set this property to FALSE on a network protocol that does not support partial reliability, the attempt is ignored and the property is set to TRUE.</p>
+   * @see #audioReliable
+   * @see #dataReliable
+   *
+   */
+  public function get videoReliable():Boolean {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * @private
+   */
+  public function set videoReliable(value:Boolean):void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * For RTMFP connections, specifies whether peer-to-peer subscribers on this NetStream are allowed to capture the video stream. When FALSE, subscriber attempts to capture the video stream show permission errors.
+   * @see #audioSampleAccess
+   *
+   */
+  public function get videoSampleAccess():Boolean {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * @private
+   */
+  public function set videoSampleAccess(value:Boolean):void {
     throw new Error('not implemented'); // TODO: implement!
   }
 
@@ -312,6 +664,55 @@ public class NetStream extends EventDispatcher {
    * </listing></div>
    */
   public function NetStream(connection:NetConnection, peerID:String = "connectToFMS") {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * Passes a ByteArray into a NetStream for playout. Call this method on a NetStream in "Data Generation Mode". To put a NetStream into Data Generation Mode, call <code>NetStream.play(null)</code> on a NetStream created on a NetConnection connected to <code>null</code>. Calling <code>appendBytes()</code> on a NetStream that isn't in Data Generation Mode is an error and raises an exception.
+   * <p>The byte parser understands an FLV file with a header. After the header is parsed, <code>appendBytes()</code> expects all future calls to be continuations of the same real or virtual file. Another header is not expected unless <code>appendBytesAction(NetStreamAppendBytesAction.RESET_BEGIN)</code> is called.</p>
+   * <p>A NetStream object has two buffers: the FIFO from <code>appendBytes()</code> to the NetStream, and the playout buffer. The FIFO is the partial-FLV-tag reassembly buffer and contains no more than one incomplete FLV tag. Calls to <code>NetStream.seek()</code> flush both buffers. After a call to <code>seek()</code>, call <code>appendBytesAction()</code> to reset the timescale to begin at the timestamp of the next appended message.</p>
+   * <p>Each call to <code>appendBytes()</code> adds bytes into the FIFO until an FLV tag is complete. When an FLV tag is complete, it moves to the playout buffer. A call to <code>appendBytes()</code> can write multiple FLV tags. The first bytes complete an existing FLV tag (which moves to the playout buffer). Complete FLV tags move to the playout buffer. Remaining bytes that don’t form a complete FLV tag go into the FIFO. Bytes in the FIFO are either completed by a call to <code>appendBytes()</code> or flushed by a call to <code>appendBytesAction()</code> with the <code>RESET_SEEK</code> or <code>RESET_BEGIN</code> argument.</p>
+   * <p><b>Note:</b> The byte parser may not be able to completely decode a call to <code>appendBytes()</code> until a subsequent call to <code>appendBytes()</code> is made.</p>
+   * @param bytes <code>bytes:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/utils/ByteArray.html">ByteArray</a></code>
+   *
+   * @see #appendBytesAction()
+   * @see #seek()
+   *
+   */
+  public function appendBytes(bytes:ByteArray):void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * Indicates a timescale discontinuity, flushes the FIFO, and tells the byte parser to expect a file header or the beginning of an FLV tag.
+   * <p>Calls to <code>NetStream.seek()</code> flush the NetStream buffers. The byte parser remains in flushing mode until you call <code>appendBytesAction()</code> and pass the <code>RESET_BEGIN</code> or <code>RESET_SEEK</code> argument. Capture the <code>"NetStream.Seek.Notify"</code> event to call <code>appendBytesAction()</code> after a seek. A new file header can support playlists and seeking without calling <code>NetStream.seek()</code>.</p>
+   * <p>You can also call this method to reset the byte counter for the <code>onSeekPoint()</code>) callback.</p>
+   * @param netStreamAppendBytesAction <code>netStreamAppendBytesAction:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/String.html">String</a></code>
+   *
+   * @see #appendBytes()
+   * @see #seek()
+   * @see NetStreamAppendBytesAction
+   *
+   */
+  public function appendBytesAction(netStreamAppendBytesAction:String):void {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * Attaches a stream to a new NetConnection object. Call this method to attach a NetStream to a new NetConnection object after a connection has dropped and been reconnected. Flash Player and AIR resume streaming from the playback point when the connection was lost.You can also use this method to implement load balancing.
+   * <p>This method requires Flash Media Server version 3.5.3 or later.</p>
+   * <p>To use this method to implement <b>stream reconnection</b>, see the <a href="http://www.adobe.com/go/learn_fms_docs_en">Flash Media Server 3.5.3 documentation</a>.</p>
+   * <p>To use this method to implement <b>load balancing</b>, do the following:</p><ol>
+   * <li>Attach a connected stream to a NetConnection object on another server.</li>
+   * <li>After the stream is successfully attached to the new connection, call <code>NetConnection.close()</code> on the prior connection to prevent data leaks.</li>
+   * <li>Call <code>NetStream.play2()</code> and set the value of <code>NetStreamPlayOptions.transition</code> to RESUME. Set the rest of the NetStreamPlayOptions properties to the same values you used when you originally called <code>NetStream.play()</code> or <code>NetStream.play2()</code> to start the stream.</li></ol>
+   * @param connection <code>connection:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/NetConnection.html">NetConnection</a></code>
+   *
+   * @see #play2()
+   * @see NetStreamPlayOptions#transition
+   *
+   */
+  public function attach(connection:NetConnection):void {
     throw new Error('not implemented'); // TODO: implement!
   }
 
@@ -386,6 +787,28 @@ public class NetStream extends EventDispatcher {
   }
 
   /**
+   * Invoked when a peer-publishing stream matches a peer-subscribing stream. Before the subscriber is connected to the publisher, call this method to allow the ActionScript code fine access control for peer-to-peer publishing. The following code shows an example of how to create a callback function for this method:
+   * <listing>
+   *      var c:Object = new Object;
+   *      c.onPeerConnect = function(subscriber:NetStream):Boolean {
+   *       if (accept)
+   *           return true;
+   *       else
+   *           return false;
+   *       };
+   *       m_netStream.client = c;
+   *     </listing>
+   * <p>If a peer-publisher does not implement this method, all peers are allowed to play any published content.</p>
+   * @param subscriber <code>subscriber:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/NetStream.html">NetStream</a></code>
+   *
+   * @return <code><a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/Boolean.html">Boolean</a></code>
+   *
+   */
+  public function onPeerConnect(subscriber:NetStream):Boolean {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
    * Pauses playback of a video stream. Calling this method does nothing if the video is already paused. To resume play after pausing a video, call <code>resume()</code>. To toggle between pause and play (first pausing the video, then resuming), call <code>togglePause()</code>.
    * <p>Starting with Flash Player 9.0.115.0, Flash Player no longer clears the buffer when <code>NetStream.pause()</code> is called. This behavior is called "smart pause". Before Flash Player 9.0.115.0, Flash Player waited for the buffer to fill up before resuming playback, which often caused a delay.</p>
    * <p><b>Note:</b> For backwards compatibility, the <code>"NetStream.Buffer.Flush"</code> event (see the <code>NetStatusEvent.info</code> property) still fires, although the server does not flush the buffer.</p>
@@ -430,6 +853,7 @@ public class NetStream extends EventDispatcher {
    * @param rest
    * <p>Play a local file</p>
    * <p>The location of a media file. Argument can be a String, a <code>URLRequest.url</code> property, or a variable referencing either. In Flash Player and in AIR content outside the application security sandbox, you can play local video files that are stored in the same directory as the SWF file or in a subdirectory; however, you can't navigate to a higher-level directory.</p>
+   * <p>With AIR content in the application security sandbox, the path you specify for the media file is relative to the SWF file's directory. However, you cannot navigate above the SWF file's directory. Do not specify a full path since AIR treats it as a relative path.</p>
    * <p>Play a file from Flash Media Server</p>
    * <table>
    * <tr><th>Name</th><th>Required</th><th>Description</th></tr>
@@ -488,7 +912,8 @@ public class NetStream extends EventDispatcher {
    * @see #checkPolicyFile
    * @see #appendBytes()
    *
-   * @example <b>Flash Media Server</b> This example plays a recorded F4V file from the "samples" directory, starting at the beginning, for up to 100 seconds. With MPEG-4 files, if the file on the server has a filename extension the <code>play()</code> method must specify a filename extension.
+   * @example Flash Media Server
+   * This example plays a recorded F4V file from the "samples" directory, starting at the beginning, for up to 100 seconds. With MPEG-4 files, if the file on the server has a filename extension the <code>play()</code> method must specify a filename extension.
    * <listing>
    *      ns.play("mp4:samples/record1.f4v", 0, 100, true);
    *     </listing>
@@ -523,6 +948,26 @@ public class NetStream extends EventDispatcher {
   public function play(...rest):void {
     throw new Error('not implemented'); // TODO: implement!
 }
+/**
+ * Switches seamlessly between files with multiple bit rates and allows a NetStream to resume when a connection is dropped and reconnected.
+ * <p>This method is an enhanced version of <code>NetStream.play()</code>. Like the <code>play()</code> method, the <code>play2()</code> method begins playback of a media file or queues up media files to create a playlist. When used with Flash Media Server, it can also request that the server switch to a different media file. The transition occurs seamlessly in the client application. The following features use <code>play2()</code> stream switching:</p>
+ * <p>Dynamic streaming</p>
+ * <p>Dynamic streaming (supported in Flash Media Server 3.5 and later) lets you serve a stream encoded at multiple bit rates. As a viewer's network conditions change, they receive the bitrate that provides the best viewing experience. Use the <code>NetStreamInfo</code> class to monitor network conditions and switch streams based on the data. You can also switch streams for clients with different capabilities. For more information, see <a href="http://www.adobe.com/go/learn_fms_dynstream_en">"Dynamic streaming"</a> in the "Adobe Flash Media Server Developer Guide".</p>
+ * <p>Adobe built a custom ActionScript class called DynamicStream that extends the NetStream class. You can use the DynamicStream class to implement dynamic streaming in an application instead of writing your own code to detect network conditions. Even if you choose to write your own dynamic streaming code, use the DynamicStream class as a reference implementation. Download the class and the class documentation at the <a href="http://www.adobe.com/go/fms_tools">Flash Media Server tools and downloads</a> page.</p>
+ * <p>Stream reconnecting</p>
+ * <p>Stream reconnecting (supported in Flash Media Server 3.5.3 and later) lets users to experience media uninterrupted even when they lose their connection. The media uses the buffer to play while your ActionScript logic reconnects to Flash Media Server. After reconnection, call <code>NetStream.attach()</code> to use the same NetStream object with the new NetConnection. Use the <code>NetStream.attach()</code>, <code>NetStreamPlayTransitions.RESUME</code>, and <code>NetStreamPlayTrasitions.APPEND_AND_WAIT</code> APIs to reconnect a stream. For more information, see the <a href="http://www.adobe.com/go/learn_fms_docs_en">Flash Media Server 3.5.3 documentation</a>.</p>
+ * @param param <code>param:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/NetStreamPlayOptions.html">NetStreamPlayOptions</a></code>
+ *
+ * @see #play()
+ * @see #attach()
+ * @see NetStreamPlayOptions
+ * @see NetStreamPlayTransitions
+ *
+ */
+public function play2(param:NetStreamPlayOptions):void {
+  throw new Error('not implemented'); // TODO: implement!
+}
+
 /**
  * Sends streaming audio, video, and data messages from a client to Flash Media Server, optionally recording the stream during transmission. This method dispatches a NetStatusEvent object with information about the stream. Before you call <code>NetStream.publish()</code>, capture the <code>"NetConnection.Connect.Success"</code> event to verify that the application has successfully connected to Flash Media Server.
  * <p>While publishing, you can record files in FLV or F4V format. If you record a file in F4V format, use a flattener tool to edit or play the file in another application. To download the tool, see <a href="http://www.adobe.com/go/fms_tools">www.adobe.com/go/fms_tools</a>.</p>
@@ -904,6 +1349,25 @@ public function send(handlerName:String, ...rest):void {
   throw new Error('not implemented'); // TODO: implement!
 }
 /**
+ * Steps forward or back the specified number of frames, relative to the currently displayed frame. Specify a positive number to step forward and a negative number to step in reverse. Call this method to create accurate fast forward or rewind functionality.
+ * <p>This method is available only when data is streaming from Flash Media Server 3.5.3 or higher and when <code>NetStream.inBufferSeek</code> is <code>true</code>. Also, the target frame must be in the buffer. For example, if the currently displayed frame is frame number 120 and you specify a value of 1000, the method fails if frame number 1120 is not in the buffer.</p>
+ * <p>This method is intended to be used with the <code>pause()</code> or <code>togglePause()</code> methods. If you step 10 frames forward or backward during playback without pausing, you may not notice the steps or they'll look like a glitch. Also, when you call <code>pause()</code> or <code>togglePause</code> the audio is suppressed.</p>
+ * <p>If the call to <code>NetStream.step()</code> is successful, a NetStatusEvent is sent with "NetStream.Step.Notify" as the value of the info object's <code>code</code> property.</p>
+ * @param frames <code>frames:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/int.html">int</a></code>
+ *
+ * @see #inBufferSeek
+ * @see #backBufferTime
+ * @see #backBufferLength
+ * @see #bufferTime
+ * @see #bufferLength
+ * @see #step()
+ * @see #seek()
+ *
+ */
+public function step(frames:int):void {
+  throw new Error('not implemented'); // TODO: implement!
+}
+/**
  * Pauses or resumes playback of a stream. The first time you call this method, it pauses play; the next time, it resumes play. You could use this method to let users pause or resume playback by pressing a single button.
  * @see #close()
  * @see #play()
@@ -1128,6 +1592,16 @@ public function togglePause():void {
  *
  */
 /**
+ * Called synchronously from <code>appendBytes()</code> when the append bytes parser encounters a point that it believes is a seekable point (for example, a video key frame). Use this event to construct a seek point table. The <code>byteCount</code> corresponds to the <code>byteCount</code> at the first byte of the parseable message for that seek point, and is reset to zero as described above. To seek, at the event <code>NetStream.Seek.Notify</code>, find the bytes that start at a seekable point and call <code>appendBytes(bytes)</code>. If the <code>bytes</code> argument is a <code>ByteArray</code> consisting of bytes starting at the seekable point, the video plays at that seek point.
+ * <p><b>Note:</b> Calls to <code>appendBytes()</code> from within this callback are ignored.</p>
+ * <p>The <code>onSeekPoint</code> property is a property of the <code>NetStream.client</code> object. The property is listed in the Events section because it responds to data coming into the <code>appendBytes()</code> method. For more information, see the NetStream class description and the <code>NetStream.client</code> property. You cannot use the <code>addEventListener()</code> method, or any other EventDispatcher methods, to listen for or process <code>onSeekPoint</code> as an event. To use <code>onSeekPoint</code>, define a callback function and attach it to one of the following objects:</p>
+ * <ul>
+ * <li>The object that the <code>client</code> property of a NetStream instance references.</li>
+ * <li>An instance of a NetStream subclass. NetStream is a sealed class, which means that properties or methods cannot be added to a NetStream object at runtime. However, you can create a subclass of NetStream and define your event handler in the subclass. You can also make the subclass dynamic and add the event handler function to an instance of the subclass.</li></ul>
+ * @see #client
+ *
+ */
+/**
  * Establishes a listener to respond when Flash Player receives text data embedded in a media file that is playing. The text data is in UTF-8 format and can contain information about formatting based on the 3GP timed text specification.
  * <p><code>onTextData</code> is actually a property of the <code>NetStream.client</code> object. The property is listed in the Events section because it responds to a data event, either when streaming media using Flash Media Server or during FLV file playback. For more information, see the NetStream class description. You cannot use the <code>addEventListener()</code> method, or any other EventDispatcher methods, to listen for, or process <code>onTextData</code> as an event. Define a callback function and attach it to one of the following objects:</p>
  * <ul>
@@ -1197,5 +1671,29 @@ public function togglePause():void {
  * @see #event:onImageData
  *
  */
+/**
+ * Establishes a listener to respond when Flash Player receives information specific to Adobe Extensible Metadata Platform (XMP) embedded in the video being played. For information about video file formats supported by Flash Media Server, see the <a href="http://www.adobe.com/go/learn_fms_fileformats_en">www.adobe.com/go/learn_fms_fileformats_en</a>.
+ * <p><code>onXMPData</code> is actually a property of the <code>NetStream.client</code> object. The property is listed in the Events section because it responds to a data event, either when streaming media using Flash Media Server or during FLV file playback. For more information, see the NetStream class description and the <code>NetStream.client</code> property. You cannot use the <code>addEventListener()</code> method, or any other EventDispatcher methods, to listen for or process <code>onMetaData</code> as an event. Define a callback function and attach it to one of the following objects:</p>
+ * <ul>
+ * <li>The object that the <code>client</code> property of a NetStream instance references.</li>
+ * <li>An instance of a NetStream subclass. NetStream is a sealed class, which means that properties or methods cannot be added to a NetStream object at runtime. However, you can create a subclass of NetStream and define your event handler in the subclass. You can also make the subclass dynamic and add the event handler function to an instance of the subclass.</li></ul>
+ * <p>The associated event listener is triggered after a call to the <code>NetStream.play()</code> method, but before the video playhead has advanced.</p>
+ * <p>The object passed to the <code>onXMPData()</code> event handling function has one <code>data</code> property, which is a string. The string is generated from a top-level UUID box. (The 128-bit UUID of the top level box is <code>BE7ACFCB-97A9-42E8-9C71-999491E3AFAC</code>.) This top-level UUID box contains exactly one XML document represented as a null-terminated UTF-8 string.</p>
+ * @see NetConnection
+ * @see #client
+ * @see #event:asyncError
+ * @see #event:onCuePoint
+ * @see #play()
+ * @see #time
+ *
+ */
+/**
+ * A static object used as a parameter to the constructor for a NetStream instance. It is the default value of the second parameter in the NetStream constructor; it is not used by the application for progressive media playback. When used, this parameter causes the constructor to make a connection to a Flash Media Server instance.
+ */
+public static const CONNECT_TO_FMS:String = "connectToFMS";
+/**
+ * Creates a peer-to-peer publisher connection. Pass this string for the second (optional) parameter to the constructor for a NetStream instance. With this string, an application can create a NetStream connection for the purposes of publishing audio and video to clients.
+ */
+public static const DIRECT_CONNECTIONS:String = "directConnections";
 }
 }

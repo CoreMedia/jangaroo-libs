@@ -1,5 +1,4 @@
 package flash.events {
-
 /**
  * A ProgressEvent object is dispatched when a load operation has begun or a socket has received data. These events are usually generated when SWF files, images or data are loaded into an application. There are two types of progress events: <code>ProgressEvent.PROGRESS</code> and <code>ProgressEvent.SOCKET_DATA</code>. Additionally, in AIR ProgressEvent objects are dispatched when a data is sent to or from a child process using the NativeProcess class.
  * <p><a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/ProgressEvent.html#includeExamplesSummary">View the examples</a></p>
@@ -121,6 +120,5 @@ public class ProgressEvent extends Event {
    *
    */
   public static const SOCKET_DATA:String = "socketData";
-
 }
 }

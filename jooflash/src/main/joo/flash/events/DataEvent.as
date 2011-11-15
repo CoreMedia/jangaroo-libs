@@ -1,5 +1,4 @@
 package flash.events {
-
 /**
  * An object dispatches a DataEvent object when raw data has completed loading. There are two types of data event:
  * <ul>

@@ -1,5 +1,4 @@
 package flash.events {
-
 /**
  * An IOErrorEvent object is dispatched when an error causes input or output operations to fail.
  * <p>You can check for error events that do not have any listeners by using the debugger version of Flash Player or the AIR Debug Launcher (ADL). The string defined by the <code>text</code> parameter of the IOErrorEvent constructor is displayed.</p>
@@ -29,7 +28,7 @@ public class IOErrorEvent extends ErrorEvent {
    *
    */
   override public function clone():Event {
-    return new IOErrorEvent(type, bubbles, cancelable, text, id);
+    return new IOErrorEvent(type, bubbles, cancelable, text, errorID);
   }
 
   /**

@@ -1,5 +1,6 @@
 package flash.net {
 
+
 /**
  * The URLVariables class allows you to transfer variables between an application and a server. Use URLVariables objects with methods of the URLLoader class, with the <code>data</code> property of the URLRequest class, and with flash.net package functions.
  * <p><a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/URLVariables.html#includeExamplesSummary">View the examples</a></p>
@@ -51,6 +52,5 @@ public dynamic class URLVariables {
   public function toString():String {
     throw new Error('not implemented'); // TODO: implement!
   }
-
 }
 }

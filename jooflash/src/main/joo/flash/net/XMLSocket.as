@@ -12,17 +12,17 @@ import flash.events.EventDispatcher;
  */
 [Event(name="connect", type="flash.events.Event")]
 /**
- * property DataEvent.type =
+ * Dispatched after raw data is sent or received.
  * @eventType flash.events.DataEvent.DATA
  */
 [Event(name="data", type="flash.events.DataEvent")]
 /**
- * property IOErrorEvent.type =
+ * Dispatched when an input/output error occurs that causes a send or receive operation to fail.
  * @eventType flash.events.IOErrorEvent.IO_ERROR
  */
 [Event(name="ioError", type="flash.events.IOErrorEvent")]
 /**
- * property SecurityErrorEvent.type =
+ * Dispatched if a call to the <code>XMLSocket.connect()</code> method attempts to connect either to a server outside the caller's security sandbox or to a port lower than 1024.
  * @eventType flash.events.SecurityErrorEvent.SECURITY_ERROR
  */
 [Event(name="securityError", type="flash.events.SecurityErrorEvent")]
@@ -59,6 +59,21 @@ public class XMLSocket extends EventDispatcher {
    *
    */
   public function get connected():Boolean {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * Indicates the number of milliseconds to wait for a connection.
+   * <p>If the connection doesn't succeed within the specified time, the connection fails. The default value is 20,000 (twenty seconds).</p>
+   */
+  public function get timeout():int {
+    throw new Error('not implemented'); // TODO: implement!
+  }
+
+  /**
+   * @private
+   */
+  public function set timeout(value:int):void {
     throw new Error('not implemented'); // TODO: implement!
   }
 

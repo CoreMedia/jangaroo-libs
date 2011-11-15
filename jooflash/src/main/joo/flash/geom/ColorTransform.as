@@ -1,5 +1,4 @@
 package flash.geom {
-
 /**
  * The ColorTransform class lets you adjust the color values in a display object. The color adjustment or <i>color transformation</i> can be applied to all four channels: red, green, blue, and alpha transparency.
  * <p>When a ColorTransform object is applied to a display object, a new value for each color channel is calculated like this:</p>

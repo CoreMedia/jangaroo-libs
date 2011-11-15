@@ -101,7 +101,8 @@ public dynamic class StyleSheet extends EventDispatcher {
    *
    * @see #setStyle()
    *
-   * @example <a href="http://www.adobe.com/go/learn_as3_usingexamples_en">How to use this example</a>Please see the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StyleSheet.html#parseCSS()">parseCSS()</a> or <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StyleSheet.html#transform()">transform()</a> method's example for illustrations of how to use the <code>getStyle()</code> method.
+   * @example
+   * <a href="http://www.adobe.com/go/learn_as3_usingexamples_en">How to use this example</a>Please see the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StyleSheet.html#parseCSS()">parseCSS()</a> or <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/StyleSheet.html#transform()">transform()</a> method's example for illustrations of how to use the <code>getStyle()</code> method.
    */
   public function getStyle(styleName:String):Object {
     return styles[styleName];
