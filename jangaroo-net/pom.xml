@@ -14,6 +14,21 @@
     <relativePath>../jangaroo-libs-parent/pom.xml</relativePath>
   </parent>
 
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>net.jangaroo</groupId>
+        <artifactId>jangaroo-maven-plugin</artifactId>
+        <configuration>
+          <jooUnitTestExecutionTimeout>120000</jooUnitTestExecutionTimeout>
+          <phantomTestSuite>net.jangaroo.net.TestSuite</phantomTestSuite>
+          <phantomTestRunner>joo/phantomjs-joounit-runner.js</phantomTestRunner>
+          <phantomArgs>timeout=30000</phantomArgs>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
   <dependencies>
     <dependency>
       <groupId>net.jangaroo</groupId>

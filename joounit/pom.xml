@@ -37,12 +37,20 @@
   </profiles>
 
   <build>
+    <resources>
+      <resource>
+        <directory>src/main/joo-js</directory>
+      </resource>
+    </resources>
     <plugins>
       <plugin>
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-maven-plugin</artifactId>
         <configuration>
           <jooUnitTestExecutionTimeout>120000</jooUnitTestExecutionTimeout>
+          <phantomTestSuite>flexunit.framework.AllFrameworkTests</phantomTestSuite>
+          <phantomTestRunner>joo/phantomjs-joounit-runner.js</phantomTestRunner>
+          <phantomArgs>timeout=30000</phantomArgs>
         </configuration>
       </plugin>
     </plugins>
