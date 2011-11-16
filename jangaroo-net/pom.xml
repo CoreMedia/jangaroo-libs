@@ -4,13 +4,13 @@
   <groupId>net.jangaroo</groupId>
   <artifactId>jangaroo-net</artifactId>
   <packaging>jangaroo</packaging>
-  <version>0.9.4-SNAPSHOT</version>
+  <version>0.9.4</version>
   <name>jangaroo-net</name>
   <description>AS3 Networking Utility Classes</description>
   <parent>
     <groupId>net.jangaroo</groupId>
     <artifactId>jangaroo-libs-parent</artifactId>
-    <version>0.9.4-SNAPSHOT</version>
+    <version>0.9.4</version>
     <relativePath>../jangaroo-libs-parent/pom.xml</relativePath>
   </parent>
 
@@ -38,7 +38,7 @@
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>joounit</artifactId>
-      <version>0.9.4-SNAPSHOT</version>
+      <version>0.9.4</version>
       <type>jangaroo</type>
       <scope>test</scope>
     </dependency>
