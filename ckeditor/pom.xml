@@ -2,7 +2,7 @@
   <parent>
     <groupId>net.jangaroo</groupId>
     <artifactId>jangaroo-libs-parent</artifactId>
-    <version>0.9.5-SNAPSHOT</version>
+    <version>0.9.5</version>
     <relativePath>../jangaroo-libs-parent/pom.xml</relativePath>
   </parent>
   
@@ -10,7 +10,7 @@
   <groupId>net.jangaroo</groupId>
   <artifactId>ckeditor</artifactId>
   <packaging>jangaroo</packaging>
-  <version>0.9.5-SNAPSHOT</version>
+  <version>0.9.5</version>
   <name>ckeditor</name>
   <description>CKEditor 3.5.2</description>
     
