@@ -969,12 +969,6 @@ public class GridPanel extends Panel {
   public native function get columnLines():Boolean;
 
   /**
-   An array of <a href="Ext.grid.Column.html">columns</a> to auto create a <a href="Ext.grid.ColumnModel.html">Ext.grid.ColumnModel</a>. The ColumnModel may be explicitly created via the <tt><a href="output/Ext.grid.GridPanel.html#Ext.grid.GridPanel-colModel">colModel</a></tt> configuration property.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
-   */
-  public native function get columns():Array;
-
-  /**
    The DD group this GridPanel belongs to. Defaults to <tt>'GridDD'</tt> if not specified.
    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
