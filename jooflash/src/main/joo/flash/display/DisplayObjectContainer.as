@@ -254,13 +254,16 @@ public class DisplayObjectContainer extends InteractiveObject {
     return child;
   }
 
+  internal function getChildIndexOffset():int {
+    return 0;
+  }
   /**
    * @private
    */
   public function internalAddChildAt(child:DisplayObject, index:int):void {
     var containerElement:Element = this.getElement();
     var childElement:Element = child.getElement();
-    assert(containerElement.childNodes.length === children.length);
+    assert(containerElement.childNodes.length ===  getChildIndexOffset() + children.length);
     var oldParent:DisplayObjectContainer = child.parent;
     if (oldParent) {
       oldParent.removeChild(child);
@@ -276,7 +279,7 @@ public class DisplayObjectContainer extends InteractiveObject {
     } else {
       containerElement.appendChild(childElement);
     }
-    assert(containerElement.childNodes.length === children.length);
+    assert(containerElement.childNodes.length === getChildIndexOffset() + children.length);
   }
 
   /**
@@ -584,14 +587,14 @@ public class DisplayObjectContainer extends InteractiveObject {
    */
   public function removeChildAt(index:int):DisplayObject {
     var containerElement:HTMLElement = getElement();
-    assert(containerElement.childNodes.length === children.length);
+    assert(containerElement.childNodes.length === getChildIndexOffset() + children.length);
     var child:DisplayObject = children.splice(index, 1)[0];
     child.setParent(null);
     // if successful, remove in DOM, too:
     var childElement:Element = child.getElement();
     containerElement.removeChild(childElement);
     assert(!childElement.parentNode);
-    assert(containerElement.childNodes.length === children.length);
+    assert(containerElement.childNodes.length === getChildIndexOffset() + children.length);
     return child;
   }
 

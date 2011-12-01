@@ -134,6 +134,10 @@ public class Sprite extends DisplayObjectContainer {
     return this._graphics;
   }
 
+  override internal function getChildIndexOffset():int {
+    return _graphics ? 1 : 0;
+  }
+
   /**
    * Designates another sprite to serve as the hit area for a sprite. If the <code>hitArea</code> property does not exist or the value is <code>null</code> or <code>undefined</code>, the sprite itself is used as the hit area. The value of the <code>hitArea</code> property can be a reference to a Sprite object.
    * <p>You can change the <code>hitArea</code> property at any time; the modified sprite immediately uses the new hit area behavior. The sprite designated as the hit area does not need to be visible; its graphical shape, although not visible, is still detected as the hit area.</p>
