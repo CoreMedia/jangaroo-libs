@@ -56,11 +56,20 @@ public class EventDispatcher implements IEventDispatcher {
    */
   public function addEventListener(type:String, listener:Function, useCapture:Boolean = false, priority:int = 0, useWeakReference:Boolean = false):void {
     var listenersByType:Object = useCapture ? this.captureListeners : this.listeners;
-    if (!(type in listenersByType)) {
-      listenersByType[type] = [ listener ];
+    
+	var eventObj:Object = {};
+	eventObj.type = type;
+	eventObj.method = listener;
+	eventObj.useCapture = useCapture;
+	eventObj.priority = priority;
+	eventObj.useWeakReference = useWeakReference;
+	
+	if (!(type in listenersByType)) {
+      listenersByType[type] = [ eventObj ];
     } else {
-      listenersByType[type].push(listener);
+      listenersByType[type].push(eventObj);
     }
+	listenersByType[type].sort(eventCompare);
   }
 
   /**
@@ -77,7 +86,7 @@ public class EventDispatcher implements IEventDispatcher {
     var listeners:Array = this.listeners[event.type];
     if (listeners) {
       for (var i:int = 0; i < listeners.length; ++i) {
-        if (listeners[i](event) === false) {
+        if (listeners[i].method(event) === false) {
           event.stopPropagation();
           event.preventDefault();
         }
@@ -118,7 +127,7 @@ public class EventDispatcher implements IEventDispatcher {
     var listeners:Array = listenersByType[type];
     if (listeners) {
       for (var i:int = 0; i < listeners.length; ++i) {
-        if (listeners[i] == listener) {
+        if (listeners[i].method == listener) {
           if (listeners.length == 1) {
             delete listenersByType[type];
           } else {
@@ -145,6 +154,18 @@ public class EventDispatcher implements IEventDispatcher {
 
   public function toString():String {
     return ["EventDispatcher[target=",this.target,"]"].join("");
+  }
+  
+  private function eventCompare(item1:Object, item2:Object):int {
+	if (item1.priority > item2.priority) {
+	  return -1;
+	}
+	else if(item1.priority < item2.priority) {
+	  return 1;
+	}
+	else {
+	  return 0;
+	}
   }
 
   private var captureListeners:Object/*<String,Array>*/;
