@@ -2036,6 +2036,18 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
     return new Point(x, y);
   }
 
+  override protected function createAncestorChain():Array {
+	  var arr:Array = [];
+	  
+	  var p:DisplayObjectContainer = this.parent;
+	  while (p != null) {
+		  arr.push(p);
+		  p = p.parent;
+	  }
+	  
+	  return arr;
+  }
+  
   /**
    * @private
    */

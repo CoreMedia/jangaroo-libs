@@ -82,20 +82,32 @@ public class EventDispatcher implements IEventDispatcher {
    *
    */
   public function dispatchEvent(event:Event):Boolean {
-    event.withTarget(this.target || this);
-    var listeners:Array = this.listeners[event.type];
-    if (listeners) {
-      for (var i:int = 0; i < listeners.length; ++i) {
-        if (listeners[i].method(event) === false) {
-          event.stopPropagation();
-          event.preventDefault();
-        }
-        if (event.isImmediatePropagationStopped()) {
-          break;
-        }
-      }
-    }
-    return !event.isDefaultPrevented();
+	  event.withTarget(this.target || this);
+	  
+	  var ancestors:Array = createAncestorChain();
+	  
+	  // Capture from the top down.
+	  event.eventPhase = EventPhase.CAPTURING_PHASE;
+	  internalHandleCapture(event, ancestors);
+	  
+	  // Be sure we're allowed to continue.
+	  if (!event.isPropagationStopped() ) {
+		  // Handle it here, at the target.
+		  event.eventPhase = EventPhase.AT_TARGET;
+		  var listeners:Array = this.listeners[event.type];
+		  if (listeners) {
+			  processListeners(event, listeners);
+		  }
+	  }
+	  
+	  // Be sure we're allowed to continue.
+	  if (!event.isPropagationStopped() ) {
+		  // Bubble it back up the display chain.
+		  event.eventPhase = EventPhase.BUBBLING_PHASE;
+		  internalHandleBubble(event, ancestors);
+	  }
+	  
+	  return !event.isDefaultPrevented();
   }
 
   /**
@@ -156,6 +168,22 @@ public class EventDispatcher implements IEventDispatcher {
     return ["EventDispatcher[target=",this.target,"]"].join("");
   }
   
+  public function processCapture(event:Event):void {
+	  var listeners:Array = this.captureListeners[event.type];
+	  if (listeners) {
+		  processListeners(event, listeners);
+	  }
+  }
+  
+  public function processBubble(event:Event):void {
+	  var listeners:Array = this.listeners[event.type];
+	  if (listeners) {
+		  processListeners(event, listeners);
+	  }
+  }
+  
+  // Internal Methods
+  
   private function eventCompare(item1:Object, item2:Object):int {
 	if (item1.priority > item2.priority) {
 	  return -1;
@@ -168,6 +196,58 @@ public class EventDispatcher implements IEventDispatcher {
 	}
   }
 
+  protected function createAncestorChain():Array {
+	  return null;
+  }
+  
+  protected function internalHandleCapture(event:Event, ancestors:Array):void {
+	if (!ancestors || ancestors.length <= 0) {
+		return;
+	}
+	
+	// Start at the top of the chain and go down.
+	var i:int = ancestors.length - 1;
+	var d:EventDispatcher;
+	for (i; i >= 0; i--) {
+		d = ancestors[i];
+		d.processCapture(event);
+		if (event.isPropagationStopped()) {
+			break;
+		}
+	}
+  }
+  
+  protected function internalHandleBubble(event:Event, ancestors:Array):void {
+	  if (!ancestors || ancestors.length <= 0) {
+		  return;
+	  }
+	  
+	  // Start at the top of the chain and go down.
+	  var i:int = 0;
+	  var d:EventDispatcher;
+	  for (i; i < ancestors.length; i++) {
+		  d = ancestors[i];
+	  	  d.processBubble(event);
+		  if (event.isPropagationStopped()) {
+			  break;
+		  }
+	  }
+  }
+  
+  private function processListeners(event:Event, listeners:Array):void {
+	  for (var i:int = 0; i < listeners.length; ++i) {
+		  if (listeners[i].method(event) === false) {
+			  event.stopPropagation();
+			  event.preventDefault();
+		  }
+		  if (event.isImmediatePropagationStopped()) {
+			  break;
+		  }
+	  }
+  }
+  
+  // Variables
+  
   private var captureListeners:Object/*<String,Array>*/;
   private var listeners:Object/*<String,Array>*/;
   private var target:IEventDispatcher;
