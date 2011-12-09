@@ -168,14 +168,20 @@ public class EventDispatcher implements IEventDispatcher {
     return ["EventDispatcher[target=",this.target,"]"].join("");
   }
   
+  // Move to a proper namespace (event_internal maybe) when namespaces are implemented.
   public function processCapture(event:Event):void {
+	  event.withCurrentTarget(this.target || this);
+	  
 	  var listeners:Array = this.captureListeners[event.type];
 	  if (listeners) {
 		  processListeners(event, listeners);
 	  }
   }
   
+  // Move to a proper namespace (event_internal maybe) when namespaces are implemented.
   public function processBubble(event:Event):void {
+	  event.withCurrentTarget(this.target || this);
+	  
 	  var listeners:Array = this.listeners[event.type];
 	  if (listeners) {
 		  processListeners(event, listeners);
@@ -196,11 +202,11 @@ public class EventDispatcher implements IEventDispatcher {
 	}
   }
 
-  protected function createAncestorChain():Array {
+  internal function createAncestorChain():Array {
 	  return null;
   }
   
-  protected function internalHandleCapture(event:Event, ancestors:Array):void {
+  private function internalHandleCapture(event:Event, ancestors:Array):void {
 	if (!ancestors || ancestors.length <= 0) {
 		return;
 	}
@@ -217,7 +223,7 @@ public class EventDispatcher implements IEventDispatcher {
 	}
   }
   
-  protected function internalHandleBubble(event:Event, ancestors:Array):void {
+  private function internalHandleBubble(event:Event, ancestors:Array):void {
 	  if (!ancestors || ancestors.length <= 0) {
 		  return;
 	  }

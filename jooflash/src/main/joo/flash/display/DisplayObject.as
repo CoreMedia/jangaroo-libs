@@ -8,6 +8,8 @@ import flash.geom.Point;
 import flash.geom.Rectangle;
 import flash.geom.Transform;
 import flash.geom.Vector3D;
+import flash.utils.Dictionary;
+import flash.utils.UIDUtil;
 
 import js.Event;
 import js.HTMLElement;
@@ -590,12 +592,30 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * }
    * </listing>
    */
-  public native function get name():String;
+  public function get name():String {
+	  // Default to something unique.
+	  if (_name == null || _name == "") {
+		  _name = UIDUtil.createUID();
+	  }
+	  
+	  return _name;
+  }
 
   /**
    * @private
    */
-  public native function set name(value:String):void;
+  public function set name(value:String):void {
+	  if (_name == value) {
+		  return;
+	  }
+	  
+	  // TODO : Check to be sure name is unique.
+	  
+	  _name = value;
+	  
+	  var elem:HTMLElement = getElement();
+	  elem['name'] = _name;
+  }
 
   /**
    * Specifies whether the display object is opaque with a certain background color. A transparent bitmap contains alpha channel data and is drawn transparently. An opaque bitmap has no alpha channel (and renders faster than a transparent bitmap). If the bitmap is opaque, you specify its own background color to use.
@@ -1943,25 +1963,63 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
     }
   }
 
+  /**
+   * @private 
+   * Finds the name of the Flash DOM element that contains the element parameter.
+   */  
+  private function findFlashElementName(element : *) : String {
+	  var name:String = element.name;
+	  var p:* = element.parentElement;
+	  while (name == null || name == undefined || name == "") {
+		  if (p == null) {
+			  break;
+		  }
+		  
+		  name = p.name;
+		  p = p.parentElement;
+	  }
+	  return name;
+  }
+  
   private function transformAndDispatch(event : js.Event) : Boolean {
-    var flashEvent:flash.events.Event;
-    var type : String = DOM_EVENT_TO_MOUSE_EVENT[event.type];
-    if (type) {
-      flashEvent = new MouseEvent(type, true, true, event.pageX - this.stage.x, event.pageY - this.stage.y, null,
-        event.ctrlKey, event.altKey, event.shiftKey, stage.buttonDown);
-    } else {
-      type = DOM_EVENT_TO_KEYBOARD_EVENT[event.type];
-      if (type) {
-        flashEvent = new KeyboardEvent(type, true, true, event['charCode'], event.keyCode || event['which'], 0,
-          event.ctrlKey, event.altKey, event.shiftKey, event.ctrlKey, event.ctrlKey);
-      }
-    }
-    if (!flashEvent) {
-      trace("Unmapped DOM event type " + event.type + " occured, ignoring.");
-    }
-    return this.dispatchEvent(flashEvent);
+	// Use the javascript currentTarget just in case a child of our element is dispatching the event.
+	  
+	// The element dispatching the event might not be registered in jooflash.
+	var name:String = findFlashElementName(event.target);
+	if (name == null || name == undefined || name == "") {
+		return;
+	}
+	
+	var eventTarget:DisplayObject = elementToDisplayObjectMap[name] as DisplayObject;
+	if (eventTarget) {
+		eventTarget.internalTransformAndDispatch(event);
+	}
+	else {
+		// We don't know who should dispatch the event.
+		// TODO : Should something happen in this case?
+	}
   }
 
+  internal function internalTransformAndDispatch(event : js.Event) : Boolean {
+	  var flashEvent:flash.events.Event;
+	  
+	  var type : String = DOM_EVENT_TO_MOUSE_EVENT[event.type];
+	  if (type) {
+		  flashEvent = new MouseEvent(type, true, true, event.pageX - this.stage.x, event.pageY - this.stage.y, null,
+			  event.ctrlKey, event.altKey, event.shiftKey, stage.buttonDown);
+	  } else {
+		  type = DOM_EVENT_TO_KEYBOARD_EVENT[event.type];
+		  if (type) {
+			  flashEvent = new KeyboardEvent(type, true, true, event['charCode'], event.keyCode || event['which'], 0,
+				  event.ctrlKey, event.altKey, event.shiftKey, event.ctrlKey, event.ctrlKey);
+		  }
+	  }
+	  if (!flashEvent) {
+		  trace("Unmapped DOM event type " + event.type + " occured, ignoring.");
+	  }
+	  return this.dispatchEvent(flashEvent);
+  }
+  
   private static function numberToStyleLength(value:Number):String {
     return isNaN(value) ? "auto" : (value + "px");
   }
@@ -1983,6 +2041,13 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
     elem.style['KhtmlUserSelect'] = 'none';
     elem['unselectable'] = 'on';
     elem['onselectstart'] = function():Boolean {return false;};
+	
+	elem['name'] = this.name;
+	
+	// Store a reference to the element in the root dictionary.
+	// This will be used later for easy reference.
+	elementToDisplayObjectMap[this.name] = this;
+	
     return elem;
   }
 
@@ -2036,7 +2101,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
     return new Point(x, y);
   }
 
-  override protected function createAncestorChain():Array {
+  override internal function createAncestorChain():Array {
 	  var arr:Array = [];
 	  
 	  var p:DisplayObjectContainer = this.parent;
@@ -2048,6 +2113,23 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
 	  return arr;
   }
   
+  /*private function addedToStageHandler(event:flash.events.Event):void {
+	  removeEventListener(flash.events.Event.ADDED_TO_STAGE, addedToStageHandler);
+	  addEventListener(flash.events.Event.REMOVED_FROM_STAGE, removedFromStageHandler);
+	  
+	  // Store a reference to the element in the root dictionary.
+	  // This will be used later for easy reference.
+	  elementToDisplayObjectMap[getElement()] = this;
+  }
+  
+  private function removedFromStageHandler(event:flash.events.Event):void {
+	  addEventListener(flash.events.Event.ADDED_TO_STAGE, addedToStageHandler);
+	  removeEventListener(flash.events.Event.REMOVED_FROM_STAGE, removedFromStageHandler);
+	  
+	  // Nuke the dictionary reference.
+	  delete elementToDisplayObjectMap[getElement()];
+  }*/
+  
   /**
    * @private
    */
@@ -2055,10 +2137,13 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
     super();
     _filters = [];
     _blendMode = BlendMode.NORMAL;
+	
+	//addEventListener(flash.events.Event.ADDED_TO_STAGE, addedToStageHandler);
   }
 
-
+  private static var elementToDisplayObjectMap:Dictionary = new Dictionary();
   private var _elem : HTMLElement;
+  private var _name:String = null;
   private var _x : Number = 0, _y : Number = 0;
   protected var _width : Number = 0, _height : Number = 0; // unscaled
   private var _scaleX:Number = 1;
