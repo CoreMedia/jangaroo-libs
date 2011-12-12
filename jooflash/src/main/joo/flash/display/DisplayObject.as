@@ -593,11 +593,6 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * </listing>
    */
   public function get name():String {
-	  // Default to something unique.
-	  if (_name == null || _name == "") {
-		  _name = UIDUtil.createUID();
-	  }
-	  
 	  return _name;
   }
 
@@ -609,12 +604,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
 		  return;
 	  }
 	  
-	  // TODO : Check to be sure name is unique.
-	  
 	  _name = value;
-	  
-	  var elem:HTMLElement = getElement();
-	  elem['name'] = _name;
   }
 
   /**
@@ -1967,36 +1957,35 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * @private 
    * Finds the name of the Flash DOM element that contains the element parameter.
    */  
-  private function findFlashElementName(element : *) : String {
-	  var name:String = element.name;
+  private function findFlashElementTarget(element : *) : String {
+	  var flashID:String = element.flashID;
 	  var p:* = element.parentElement;
-	  while (name == null || name == undefined || name == "") {
+	  while (flashID == null || flashID == undefined || flashID == "") {
 		  if (p == null) {
 			  break;
 		  }
 		  
-		  name = p.name;
+		  flashID = p.flashID;
 		  p = p.parentElement;
 	  }
-	  return name;
+	  return flashID;
   }
   
   private function transformAndDispatch(event : js.Event) : Boolean {
 	// Use the javascript currentTarget just in case a child of our element is dispatching the event.
 	  
 	// The element dispatching the event might not be registered in jooflash.
-	var name:String = findFlashElementName(event.target);
-	if (name == null || name == undefined || name == "") {
+	var flashTarget:String = findFlashElementTarget(event.target);
+	if (flashTarget == null || flashTarget == undefined || flashTarget == "") {
 		return;
 	}
 	
-	var eventTarget:DisplayObject = elementToDisplayObjectMap[name] as DisplayObject;
+	var eventTarget:DisplayObject = elementToDisplayObjectMap[flashTarget] as DisplayObject;
 	if (eventTarget) {
 		eventTarget.internalTransformAndDispatch(event);
 	}
 	else {
 		// We don't know who should dispatch the event.
-		// TODO : Should something happen in this case?
 	}
   }
 
@@ -2041,13 +2030,6 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
     elem.style['KhtmlUserSelect'] = 'none';
     elem['unselectable'] = 'on';
     elem['onselectstart'] = function():Boolean {return false;};
-	
-	elem['name'] = this.name;
-	
-	// Store a reference to the element in the root dictionary.
-	// This will be used later for easy reference.
-	elementToDisplayObjectMap[this.name] = this;
-	
     return elem;
   }
 
@@ -2113,13 +2095,23 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
 	  return arr;
   }
   
-  /*private function addedToStageHandler(event:flash.events.Event):void {
+  private function addedToStageHandler(event:flash.events.Event):void {
 	  removeEventListener(flash.events.Event.ADDED_TO_STAGE, addedToStageHandler);
 	  addEventListener(flash.events.Event.REMOVED_FROM_STAGE, removedFromStageHandler);
 	  
 	  // Store a reference to the element in the root dictionary.
 	  // This will be used later for easy reference.
-	  elementToDisplayObjectMap[getElement()] = this;
+	  
+	  var elem : HTMLElement = getElement();
+	  
+	  // Unique ID
+	  if (flashID == null || flashID == undefined || flashID == "") {
+	  	this.flashID = UIDUtil.createUID();
+	  }
+	  
+	  elem['flashID'] = this.flashID;
+	  
+	  elementToDisplayObjectMap[this.flashID] = this;
   }
   
   private function removedFromStageHandler(event:flash.events.Event):void {
@@ -2127,8 +2119,8 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
 	  removeEventListener(flash.events.Event.REMOVED_FROM_STAGE, removedFromStageHandler);
 	  
 	  // Nuke the dictionary reference.
-	  delete elementToDisplayObjectMap[getElement()];
-  }*/
+	  delete elementToDisplayObjectMap[this.flashID];
+  }
   
   /**
    * @private
@@ -2138,10 +2130,12 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
     _filters = [];
     _blendMode = BlendMode.NORMAL;
 	
-	//addEventListener(flash.events.Event.ADDED_TO_STAGE, addedToStageHandler);
+	addEventListener(flash.events.Event.ADDED_TO_STAGE, addedToStageHandler);
   }
 
   private static var elementToDisplayObjectMap:Dictionary = new Dictionary();
+  private var flashID : String;
+  
   private var _elem : HTMLElement;
   private var _name:String = null;
   private var _x : Number = 0, _y : Number = 0;
