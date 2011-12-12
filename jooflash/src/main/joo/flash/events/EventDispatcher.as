@@ -26,8 +26,6 @@ public class EventDispatcher implements IEventDispatcher {
    */
   public function EventDispatcher(target:IEventDispatcher = null) {
     this.target = target;
-    this.captureListeners = {};
-    this.listeners = {};
   }
 
   /**
@@ -254,8 +252,8 @@ public class EventDispatcher implements IEventDispatcher {
   
   // Variables
   
-  private var captureListeners:Object/*<String,Array>*/;
-  private var listeners:Object/*<String,Array>*/;
+  private var captureListeners:Object = {}; /*<String,Array>*/
+  private var listeners:Object = {}; /*<String,Array>*/
   private var target:IEventDispatcher;
 }
 }
