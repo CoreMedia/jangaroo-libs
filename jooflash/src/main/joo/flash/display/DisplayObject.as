@@ -1881,7 +1881,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
     return dispatchEvent(event);
   }
 
-  private static const DOM_EVENT_TO_MOUSE_EVENT : Object/*<String,String>*/ = {
+  internal static const DOM_EVENT_TO_MOUSE_EVENT : Object/*<String,String>*/ = {
     'click':     MouseEvent.CLICK,
     'dblclick':  MouseEvent.DOUBLE_CLICK,
     'mousedown': MouseEvent.MOUSE_DOWN,
@@ -1892,11 +1892,11 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
     'mousewheel':MouseEvent.MOUSE_WHEEL
     // TODO: map remaining MouseEvent constants to DOM events!
   };
-  private static const DOM_EVENT_TO_KEYBOARD_EVENT : Object/*<String,String>*/ = {
+  internal static const DOM_EVENT_TO_KEYBOARD_EVENT : Object/*<String,String>*/ = {
     'keydown': KeyboardEvent.KEY_DOWN,
     'keyup': KeyboardEvent.KEY_UP
   };
-  private static const FLASH_EVENT_TO_DOM_EVENT : Object = merge(
+  internal static const FLASH_EVENT_TO_DOM_EVENT : Object = merge(
     reverseMapping(DOM_EVENT_TO_MOUSE_EVENT),
     reverseMapping(DOM_EVENT_TO_KEYBOARD_EVENT));
 

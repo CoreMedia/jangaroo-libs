@@ -796,14 +796,17 @@ public class DisplayObjectContainer extends InteractiveObject {
    * If it is, be sure we're allowing those events to get out.
    */  
   override public function processCapture(event:Event):void {
-	  var isMouseEvent:Boolean = ( event is MouseEvent );
+	  var isMouseEvent:Boolean = (event is MouseEvent);
 	  var eventAllowed:Boolean = !isMouseEvent || (isMouseEvent && mouseChildren);
 	  
 	  // If the event can't get out, dispatch a new copy from here.
 	  if (!eventAllowed) {
 		  event.stopPropagation();
 		  event.stopImmediatePropagation();
-		  dispatchEvent(event.clone());
+		  
+		  if (mouseEnabled) {
+		  	dispatchEvent(event.clone());
+		  }
 	  }
 	  // Otherwise just let it roll.
 	  else {
