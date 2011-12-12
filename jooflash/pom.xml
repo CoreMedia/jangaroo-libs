@@ -9,7 +9,7 @@
   <groupId>net.jangaroo</groupId>
   <artifactId>jooflash</artifactId>
   <packaging>jangaroo</packaging>
-  <version>0.9.8</version>
+  <version>0.9.7-SNAPSHOT</version>
   <name>jooflash</name>
   <description>Joo Flash Compat. Library</description>
 
