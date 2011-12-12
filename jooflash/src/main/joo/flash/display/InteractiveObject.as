@@ -1,5 +1,7 @@
 package flash.display {
 import flash.accessibility.AccessibilityImplementation;
+import flash.events.Event;
+import flash.events.MouseEvent;
 import flash.geom.Rectangle;
 import flash.ui.ContextMenu;
 
@@ -347,12 +349,20 @@ public class InteractiveObject extends DisplayObject {
    * @see DisplayObjectContainer#mouseChildren
    *
    */
-  public native function get mouseEnabled():Boolean;
+  public function get mouseEnabled():Boolean {
+	 return _mouseEnabled; 
+  }
 
   /**
    * @private
    */
-  public native function set mouseEnabled(value:Boolean):void;
+  public function set mouseEnabled(value:Boolean):void {
+	  if (_mouseEnabled == value) {
+		  return;
+	  }
+	  
+	  _mouseEnabled = value;
+  }
 
   /**
    * Specifies whether a soft keyboard (an on-screen keyboard) displays when the curent InteractiveObject instance is "input active" (ready to accept user input). The default value is <code>false</code>, which means that by default an InteractiveObject instance does not show a soft keyboard. If the <code>needsSoftKeyboard</code> property is set to <code>true</code>, a soft keyboard is shown when the InteractiveObject instance is ready to accept user input. An InteractiveObject instance is ready to accept user input after a programmatic call to <code>FocusEvent.FOCUS_IN</code> or a user interaction, such as a "tap", if a hardware keyboard is not accessible and a software keyboard implementation is supported by the current system.
@@ -450,7 +460,41 @@ public class InteractiveObject extends DisplayObject {
   }
 
   // ************************** Jangaroo part **************************
-
+  
+  /**
+   * @private 
+   * Check to see if the event is a mouse event from one of our children.
+   * If it is, be sure we're allowing those events to get out.
+   */  
+  override public function processCapture(event:Event):void {
+	  var isMouseEvent:Boolean = (event is MouseEvent);
+	  var eventAllowed:Boolean = !isMouseEvent || (isMouseEvent && mouseEnabled);
+	  
+	  // If the event can't get out, dispatch a new copy from here.
+	  if (!eventAllowed) {
+		  event.stopPropagation();
+		  event.stopImmediatePropagation();
+	  }
+	  // Otherwise just let it roll.
+	  else {
+		  super.processCapture(event);  
+	  }
+  }
+  
+  /**
+   * @private 
+   */  
+  override internal function internalTransformAndDispatch(event : js.Event) : Boolean {
+	  var type : String = DisplayObject.DOM_EVENT_TO_MOUSE_EVENT[event.type];
+	  if (type && !mouseEnabled) {
+		  return false;
+	  }
+	  else {
+		  super.internalTransformAndDispatch(event);
+	  }
+  }
+  
+  private var _mouseEnabled:Boolean = true;
   private var _focusRect:Object;
 
 }

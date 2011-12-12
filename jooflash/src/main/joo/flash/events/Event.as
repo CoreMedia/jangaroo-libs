@@ -969,6 +969,11 @@ public class Event {
     event['target'] = target;
     return event;
   }
+  
+  internal function withCurrentTarget(currentTarget:Object):Event {
+	  this['currentTarget'] = currentTarget;
+	  return this;
+  }
 
   private var defaultPrevented:Boolean = false;
   private var propagationStopped:Boolean;
