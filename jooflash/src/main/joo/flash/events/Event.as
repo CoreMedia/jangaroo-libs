@@ -126,6 +126,7 @@ public class Event {
     sb.push("]");
     return sb.join("");
   }
+
   /**
    * Checks whether the <code>preventDefault()</code> method has been called on the event. If the <code>preventDefault()</code> method has been called, returns <code>true</code>; otherwise, returns <code>false</code>.
    * @return If <code>preventDefault()</code> has been called, returns <code>true</code>; otherwise, returns <code>false</code>.
@@ -969,10 +970,10 @@ public class Event {
     event['target'] = target;
     return event;
   }
-  
+
   internal function withCurrentTarget(currentTarget:Object):Event {
-	  this['currentTarget'] = currentTarget;
-	  return this;
+    this['currentTarget'] = currentTarget;
+    return this;
   }
 
   private var defaultPrevented:Boolean = false;

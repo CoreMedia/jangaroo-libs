@@ -61,10 +61,10 @@ public class DisplayObjectContainer extends InteractiveObject {
    */
   public function set mouseChildren(value:Boolean):void {
     if (_mouseChildren == value) {
-		return;
-	}
-	
-	_mouseChildren = value;
+      return;
+    }
+
+    _mouseChildren = value;
   }
 
   /**
@@ -262,13 +262,14 @@ public class DisplayObjectContainer extends InteractiveObject {
   internal function getChildIndexOffset():int {
     return 0;
   }
+
   /**
    * @private
    */
   public function internalAddChildAt(child:DisplayObject, index:int):void {
     var containerElement:Element = this.getElement();
     var childElement:Element = child.getElement();
-    assert(containerElement.childNodes.length ===  getChildIndexOffset() + children.length);
+    assert(containerElement.childNodes.length === getChildIndexOffset() + children.length);
     var oldParent:DisplayObjectContainer = child.parent;
     if (oldParent) {
       oldParent.removeChild(child);
@@ -740,8 +741,8 @@ public class DisplayObjectContainer extends InteractiveObject {
     } else if (index1 < index2) {
       var containerElement:Element = this.getElement();
       assert(containerElement.childNodes.length === children.length);
-      var child1 : DisplayObject = this.children[index1];
-      var child2 : DisplayObject = this.children[index2];
+      var child1:DisplayObject = this.children[index1];
+      var child2:DisplayObject = this.children[index2];
       children.splice(index1, 1, child2);
       children.splice(index2, 1, child1);
       // also change in DOM, mind to insert left element first:
@@ -791,35 +792,35 @@ public class DisplayObjectContainer extends InteractiveObject {
   // ************************** Jangaroo part **************************
 
   /**
-   * @private 
+   * @private
    * Check to see if the event is a mouse event from one of our children.
    * If it is, be sure we're allowing those events to get out.
-   */  
+   */
   override public function processCapture(event:Event):void {
-	  var isMouseEvent:Boolean = (event is MouseEvent);
-	  var eventAllowed:Boolean = !isMouseEvent || (isMouseEvent && mouseChildren);
-	  
-	  // If the event can't get out, dispatch a new copy from here.
-	  if (!eventAllowed) {
-		  event.stopPropagation();
-		  event.stopImmediatePropagation();
-		  
-		  if (mouseEnabled) {
-		  	dispatchEvent(event.clone());
-		  }
-	  }
-	  // Otherwise just let it roll.
-	  else {
-		super.processCapture(event);  
-	  }
+    var isMouseEvent:Boolean = (event is MouseEvent);
+    var eventAllowed:Boolean = !isMouseEvent || (isMouseEvent && mouseChildren);
+
+    // If the event can't get out, dispatch a new copy from here.
+    if (!eventAllowed) {
+      event.stopPropagation();
+      event.stopImmediatePropagation();
+
+      if (mouseEnabled) {
+        dispatchEvent(event.clone());
+      }
+    }
+    // Otherwise just let it roll.
+    else {
+      super.processCapture(event);
+    }
   }
-  
+
   /**
    * @private
    */
   override public function broadcastEvent(event:Event):Boolean {
     if (dispatchEvent(event)) { // same as super.broadcastEvent(event), but more efficient
-      children.every(function(child:DisplayObject):Boolean {
+      children.every(function (child:DisplayObject):Boolean {
         return child.broadcastEvent(event);
       });
       return true;
@@ -827,7 +828,7 @@ public class DisplayObjectContainer extends InteractiveObject {
     return false;
   }
 
-  private var children : Array/*<DisplayObject>*/;
+  private var children:Array/*<DisplayObject>*/;
   private var _mouseChildren:Boolean = true;
 }
 }

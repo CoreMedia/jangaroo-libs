@@ -5,6 +5,7 @@ import flash.geom.Rectangle;
 import flash.text.TextSnapshot;
 import flash.utils.Timer;
 
+import js.Event;
 import js.HTMLElement;
 
 /**
@@ -679,7 +680,7 @@ public class Stage extends DisplayObjectContainer {
   /**
    * @private
    * NW : Does this need to have different behavior on the stage?
-   * 
+   *
    * Determines whether or not the children of the object are mouse, or user input device, enabled. If an object is enabled, a user can interact with it by using a mouse or user input device. The default is <code>true</code>.
    * <p>This property is useful when you create a button with an instance of the Sprite class (instead of using the SimpleButton class). When you use a Sprite instance to create a button, you can choose to decorate the button by using the <code>addChild()</code> method to add additional Sprite instances. This process can cause unexpected behavior with mouse events because the Sprite instances you add as children can become the target object of a mouse event when you expect the parent instance to be the target object. To ensure that the parent instance serves as the target objects for mouse events, you can set the <code>mouseChildren</code> property of the parent instance to <code>false</code>.</p>
    * <p>No event is dispatched by setting this property. You must use the <code>addEventListener()</code> method to create interactive functionality.</p>
@@ -776,7 +777,7 @@ public class Stage extends DisplayObjectContainer {
    *
    */
   public function get softKeyboardRect():Rectangle {
-   return new Rectangle();
+    return new Rectangle();
   }
 
   /**
@@ -1102,7 +1103,7 @@ public class Stage extends DisplayObjectContainer {
   /**
    * @private
    */
-  public function Stage(id : String, properties : Object) {
+  public function Stage(id:String, properties:Object) {
     this.id = id;
     if (properties) {
       for (var m:String in properties) {
@@ -1110,7 +1111,7 @@ public class Stage extends DisplayObjectContainer {
       }
     }
     super();
-    frameTimer = new Timer(1000/_frameRate);
+    frameTimer = new Timer(1000 / _frameRate);
     frameTimer.addEventListener(TimerEvent.TIMER, enterFrame);
     frameTimer.start();
   }
@@ -1129,18 +1130,18 @@ public class Stage extends DisplayObjectContainer {
    * @private
    */
   override protected function createElement():HTMLElement {
-    var element : HTMLElement = HTMLElement(window.document.getElementById(id));
+    var element:HTMLElement = HTMLElement(window.document.getElementById(id));
     element.style.position = "relative";
     element.style.overflow = "hidden";
     element.setAttribute("tabindex", "0");
     element.style.margin = "0";
     element.style.padding = "0";
-    var width : Object = element.getAttribute("width");
+    var width:Object = element.getAttribute("width");
     if (!width) {
       width = this.width;
     }
-    element.style.width = width+"px";
-    var height : Object = element.getAttribute("height");
+    element.style.width = width + "px";
+    var height:Object = element.getAttribute("height");
     if (!height) {
       height = this.height;
     }
@@ -1179,12 +1180,12 @@ public class Stage extends DisplayObjectContainer {
   private var _stageWidth:int;
   private var _mouseX:int;
   private var _mouseY:int;
-  private var id : String;
-  private var _frameRate : Number = 30;
-  private var frameTimer : Timer;
-  private var _quality : String = StageQuality.HIGH;
-  private var _scaleMode : String = StageScaleMode.NO_SCALE;
-  private var _align : String = StageAlign.TOP_LEFT;
+  private var id:String;
+  private var _frameRate:Number = 30;
+  private var frameTimer:Timer;
+  private var _quality:String = StageQuality.HIGH;
+  private var _scaleMode:String = StageScaleMode.NO_SCALE;
+  private var _align:String = StageAlign.TOP_LEFT;
   internal var buttonDown:Boolean = false;
 
   private static var enterFrameSources:Array = [];
@@ -1200,8 +1201,8 @@ public class Stage extends DisplayObjectContainer {
     }
   }
 
-  private static function enterFrame() : void {
-    var enterFrameEvent:Event = new Event(Event.ENTER_FRAME, false, false);
+  private static function enterFrame():void {
+    var enterFrameEvent:flash.events.Event = new flash.events.Event(flash.events.Event.ENTER_FRAME, false, false);
     for (var i:int = 0; i < enterFrameSources.length; i++) {
       var displayObject:DisplayObject = enterFrameSources[i];
       displayObject.dispatchEvent(enterFrameEvent);

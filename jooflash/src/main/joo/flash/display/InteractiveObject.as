@@ -5,6 +5,8 @@ import flash.events.MouseEvent;
 import flash.geom.Rectangle;
 import flash.ui.ContextMenu;
 
+import js.Event;
+
 /**
  * Dispatched when the user selects 'Clear' (or 'Delete') from the text context menu. This event is dispatched to the object that currently has focus. If the object that currently has focus is a TextField, the default behavior of this event is to cause any currently selected text in the text field to be deleted.
  * @eventType flash.events.Event.CLEAR
@@ -350,18 +352,18 @@ public class InteractiveObject extends DisplayObject {
    *
    */
   public function get mouseEnabled():Boolean {
-	 return _mouseEnabled; 
+    return _mouseEnabled;
   }
 
   /**
    * @private
    */
   public function set mouseEnabled(value:Boolean):void {
-	  if (_mouseEnabled == value) {
-		  return;
-	  }
-	  
-	  _mouseEnabled = value;
+    if (_mouseEnabled == value) {
+      return;
+    }
+
+    _mouseEnabled = value;
   }
 
   /**
@@ -443,7 +445,7 @@ public class InteractiveObject extends DisplayObject {
    * <li><code>new MovieClip()</code></li></ul>
    */
   public function InteractiveObject() {
-    if (this['constructor'] === flash.display.InteractiveObject) {
+    if (this['constructor'] === InteractiveObject) {
       throw new ArgumentError();
     }
   }
@@ -460,40 +462,39 @@ public class InteractiveObject extends DisplayObject {
   }
 
   // ************************** Jangaroo part **************************
-  
+
   /**
-   * @private 
+   * @private
    * Check to see if the event is a mouse event from one of our children.
    * If it is, be sure we're allowing those events to get out.
-   */  
-  override public function processCapture(event:Event):void {
-	  var isMouseEvent:Boolean = (event is MouseEvent);
-	  var eventAllowed:Boolean = !isMouseEvent || (isMouseEvent && mouseEnabled);
-	  
-	  // If the event can't get out, dispatch a new copy from here.
-	  if (!eventAllowed) {
-		  event.stopPropagation();
-		  event.stopImmediatePropagation();
-	  }
-	  // Otherwise just let it roll.
-	  else {
-		  super.processCapture(event);  
-	  }
+   */
+  override public function processCapture(event:flash.events.Event):void {
+    var isMouseEvent:Boolean = (event is MouseEvent);
+    var eventAllowed:Boolean = !isMouseEvent || (isMouseEvent && mouseEnabled);
+
+    // If the event can't get out, dispatch a new copy from here.
+    if (!eventAllowed) {
+      event.stopPropagation();
+      event.stopImmediatePropagation();
+    }
+    // Otherwise just let it roll.
+    else {
+      super.processCapture(event);
+    }
   }
-  
+
   /**
-   * @private 
-   */  
-  override internal function internalTransformAndDispatch(event : js.Event) : Boolean {
-	  var type : String = DisplayObject.DOM_EVENT_TO_MOUSE_EVENT[event.type];
-	  if (type && !mouseEnabled) {
-		  return false;
-	  }
-	  else {
-		  super.internalTransformAndDispatch(event);
-	  }
+   * @private
+   */
+  override internal function internalTransformAndDispatch(event:js.Event):Boolean {
+    var type:String = DisplayObject.DOM_EVENT_TO_MOUSE_EVENT[event.type];
+    if (type && !mouseEnabled) {
+      return false;
+    } else {
+      return super.internalTransformAndDispatch(event);
+    }
   }
-  
+
   private var _mouseEnabled:Boolean = true;
   private var _focusRect:Object;
 

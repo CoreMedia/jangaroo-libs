@@ -11,6 +11,8 @@ import flash.geom.Vector3D;
 import flash.utils.Dictionary;
 import flash.utils.UIDUtil;
 
+import js.Element;
+
 import js.Event;
 import js.HTMLElement;
 import js.Style;
@@ -593,18 +595,18 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * </listing>
    */
   public function get name():String {
-	  return _name;
+    return _name;
   }
 
   /**
    * @private
    */
   public function set name(value:String):void {
-	  if (_name == value) {
-		  return;
-	  }
-	  
-	  _name = value;
+    if (_name == value) {
+      return;
+    }
+
+    _name = value;
   }
 
   /**
@@ -744,11 +746,12 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
   }
 
   private static const BROWSER_PREFIXES:Object = { '-moz-': 1, '-webkit-': 1, '-o': 1, '-ms-': 1 };
+
   private static function setProprietaryStyle(style:Style, property:String, value:String):void {
     for (var browserPrefix:String in BROWSER_PREFIXES) {
       try {
         style['setProperty'](browserPrefix + property, value, "");
-      } catch(e:*) {
+      } catch (e:*) {
         // ignore
       }
     }
@@ -1263,8 +1266,9 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * </listing>
    */
   public function get transform():Transform {
-    if (!_transform)
+    if (!_transform) {
       _transform = new Transform(this);
+    }
     return _transform;
   }
 
@@ -1870,7 +1874,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
   /**
    * @private
    */
-  protected function setParent(parent : DisplayObjectContainer) : void {
+  protected function setParent(parent:DisplayObjectContainer):void {
     this['parent'] = parent;
   }
 
@@ -1881,22 +1885,22 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
     return dispatchEvent(event);
   }
 
-  internal static const DOM_EVENT_TO_MOUSE_EVENT : Object/*<String,String>*/ = {
-    'click':     MouseEvent.CLICK,
-    'dblclick':  MouseEvent.DOUBLE_CLICK,
-    'mousedown': MouseEvent.MOUSE_DOWN,
-    'mouseup':   MouseEvent.MOUSE_UP,
-    'mousemove': MouseEvent.MOUSE_MOVE,
-    'mouseover': MouseEvent.MOUSE_OVER,
-    'mouseout':  MouseEvent.MOUSE_OUT,
-    'mousewheel':MouseEvent.MOUSE_WHEEL
+  internal static const DOM_EVENT_TO_MOUSE_EVENT:Object/*<String,String>*/ = {
+    'click':      MouseEvent.CLICK,
+    'dblclick':   MouseEvent.DOUBLE_CLICK,
+    'mousedown':  MouseEvent.MOUSE_DOWN,
+    'mouseup':    MouseEvent.MOUSE_UP,
+    'mousemove':  MouseEvent.MOUSE_MOVE,
+    'mouseover':  MouseEvent.MOUSE_OVER,
+    'mouseout':   MouseEvent.MOUSE_OUT,
+    'mousewheel': MouseEvent.MOUSE_WHEEL
     // TODO: map remaining MouseEvent constants to DOM events!
   };
-  internal static const DOM_EVENT_TO_KEYBOARD_EVENT : Object/*<String,String>*/ = {
+  internal static const DOM_EVENT_TO_KEYBOARD_EVENT:Object/*<String,String>*/ = {
     'keydown': KeyboardEvent.KEY_DOWN,
     'keyup': KeyboardEvent.KEY_UP
   };
-  internal static const FLASH_EVENT_TO_DOM_EVENT : Object = merge(
+  internal static const FLASH_EVENT_TO_DOM_EVENT:Object = merge(
     reverseMapping(DOM_EVENT_TO_MOUSE_EVENT),
     reverseMapping(DOM_EVENT_TO_KEYBOARD_EVENT));
 
@@ -1922,14 +1926,14 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
   /**
    * @inheritDoc
    */
-  override public function addEventListener(type : String, listener : Function, useCapture : Boolean = false,
-                                            priority : int = 0, useWeakReference : Boolean = false) : void {
-    var newEventType : Boolean = !this.hasEventListener(type);
+  override public function addEventListener(type:String, listener:Function, useCapture:Boolean = false,
+                                            priority:int = 0, useWeakReference:Boolean = false):void {
+    var newEventType:Boolean = !this.hasEventListener(type);
     super.addEventListener(type, listener, useCapture, priority, useWeakReference);
-    var domEventType : String = FLASH_EVENT_TO_DOM_EVENT[type];
+    var domEventType:String = FLASH_EVENT_TO_DOM_EVENT[type];
     if (newEventType) {
       if (domEventType) {
-        this.getElement().addEventListener(domEventType, this.transformAndDispatch, useCapture);
+        this.getElement().addEventListener(domEventType, transformAndDispatch, useCapture);
         // TODO: maintain different event listeners for useCapture==true and useCapture==false (if supported by browser)!
       } else if (type === flash.events.Event.ENTER_FRAME) {
         Stage.addEnterFrameSource(this);
@@ -1940,13 +1944,13 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
   /**
    * @inheritDoc
    */
-  override public function removeEventListener(type : String, listener : Function, useCapture : Boolean = false):void {
+  override public function removeEventListener(type:String, listener:Function, useCapture:Boolean = false):void {
     super.removeEventListener(type, listener, useCapture);
     if (!this.hasEventListener(type)) { // did we just remove the last event listener of this type?
-      var domEventType : String = FLASH_EVENT_TO_DOM_EVENT[type];
+      var domEventType:String = FLASH_EVENT_TO_DOM_EVENT[type];
       if (domEventType) {
         // remove the DOM element event listener, too:
-        this._elem.removeEventListener(domEventType, this.transformAndDispatch, useCapture);
+        this._elem.removeEventListener(domEventType, transformAndDispatch, useCapture);
       } else if (type === flash.events.Event.ENTER_FRAME) {
         Stage.removeEnterFrameSource(this);
       }
@@ -1954,61 +1958,61 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
   }
 
   /**
-   * @private 
+   * @private
    * Finds the name of the Flash DOM element that contains the element parameter.
-   */  
-  private function findFlashElementTarget(element : *) : String {
-	  var flashID:String = element.flashID;
-	  var p:* = element.parentElement;
-	  while (flashID == null || flashID == undefined || flashID == "") {
-		  if (p == null) {
-			  break;
-		  }
-		  
-		  flashID = p.flashID;
-		  p = p.parentElement;
-	  }
-	  return flashID;
-  }
-  
-  private function transformAndDispatch(event : js.Event) : Boolean {
-	// Use the javascript currentTarget just in case a child of our element is dispatching the event.
-	  
-	// The element dispatching the event might not be registered in jooflash.
-	var flashTarget:String = findFlashElementTarget(event.target);
-	if (flashTarget == null || flashTarget == undefined || flashTarget == "") {
-		return;
-	}
-	
-	var eventTarget:DisplayObject = elementToDisplayObjectMap[flashTarget] as DisplayObject;
-	if (eventTarget) {
-		eventTarget.internalTransformAndDispatch(event);
-	}
-	else {
-		// We don't know who should dispatch the event.
-	}
+   */
+  private static function findFlashElementTarget(element:Element):String {
+    var flashID:String = element['flashID'];
+    var p:Element = element.parentNode;
+    while (!flashID) {
+      if (!p) {
+        break;
+      }
+
+      flashID = p['flashID'];
+      p = p.parentNode;
+    }
+    return flashID;
   }
 
-  internal function internalTransformAndDispatch(event : js.Event) : Boolean {
-	  var flashEvent:flash.events.Event;
-	  
-	  var type : String = DOM_EVENT_TO_MOUSE_EVENT[event.type];
-	  if (type) {
-		  flashEvent = new MouseEvent(type, true, true, event.pageX - this.stage.x, event.pageY - this.stage.y, null,
-			  event.ctrlKey, event.altKey, event.shiftKey, stage.buttonDown);
-	  } else {
-		  type = DOM_EVENT_TO_KEYBOARD_EVENT[event.type];
-		  if (type) {
-			  flashEvent = new KeyboardEvent(type, true, true, event['charCode'], event.keyCode || event['which'], 0,
-				  event.ctrlKey, event.altKey, event.shiftKey, event.ctrlKey, event.ctrlKey);
-		  }
-	  }
-	  if (!flashEvent) {
-		  trace("Unmapped DOM event type " + event.type + " occured, ignoring.");
-	  }
-	  return this.dispatchEvent(flashEvent);
+  private static function transformAndDispatch(event:js.Event):Boolean {
+    // Use the javascript currentTarget just in case a child of our element is dispatching the event.
+
+    // The element dispatching the event might not be registered in jooflash.
+    var flashTarget:String = findFlashElementTarget(event.target);
+    if (!flashTarget) {
+      return false;
+    }
+
+    var eventTarget:DisplayObject = elementToDisplayObjectMap[flashTarget] as DisplayObject;
+    if (eventTarget) {
+      return eventTarget.internalTransformAndDispatch(event);
+    } else {
+      // We don't know who should dispatch the event.
+    }
+    return false;
   }
-  
+
+  internal function internalTransformAndDispatch(event:js.Event):Boolean {
+    var flashEvent:flash.events.Event;
+
+    var type:String = DOM_EVENT_TO_MOUSE_EVENT[event.type];
+    if (type) {
+      flashEvent = new MouseEvent(type, true, true, event.pageX - this.stage.x, event.pageY - this.stage.y, null,
+        event.ctrlKey, event.altKey, event.shiftKey, stage.buttonDown);
+    } else {
+      type = DOM_EVENT_TO_KEYBOARD_EVENT[event.type];
+      if (type) {
+        flashEvent = new KeyboardEvent(type, true, true, event['charCode'], event.keyCode || event['which'], 0,
+          event.ctrlKey, event.altKey, event.shiftKey, event.ctrlKey, event.ctrlKey);
+      }
+    }
+    if (!flashEvent) {
+      trace("Unmapped DOM event type " + event.type + " occurred, ignoring.");
+    }
+    return this.dispatchEvent(flashEvent);
+  }
+
   private static function numberToStyleLength(value:Number):String {
     return isNaN(value) ? "auto" : (value + "px");
   }
@@ -2020,37 +2024,39 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
   /**
    * @private
    */
-  protected function createElement() : HTMLElement {
-    var elem : HTMLElement = HTMLElement(window.document.createElement(getElementName()));
+  protected function createElement():HTMLElement {
+    var elem:HTMLElement = HTMLElement(window.document.createElement(getElementName()));
     elem.style.position = "absolute";
     elem.style.width = "100%";
     elem.style.left = _x + "px";
-    elem.style.top  = _y + "px";
+    elem.style.top = _y + "px";
     elem.style['MozUserSelect'] = 'none';
     elem.style['KhtmlUserSelect'] = 'none';
     elem['unselectable'] = 'on';
-    elem['onselectstart'] = function():Boolean {return false;};
+    elem['onselectstart'] = function ():Boolean {
+      return false;
+    };
     return elem;
   }
 
   /**
    * @private
    */
-  protected function getElementName() : String {
+  protected function getElementName():String {
     return "div";
   }
 
   /**
    * @private
    */
-  public function hasElement() : Boolean {
+  public function hasElement():Boolean {
     return !!_elem;
   }
 
   /**
    * @private
    */
-  public function getElement() : HTMLElement {
+  public function getElement():HTMLElement {
     if (!_elem) {
       _elem = this.createElement();
     }
@@ -2060,7 +2066,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
   /**
    * @private
    */
-  protected function setElement(elem : HTMLElement):void {
+  protected function setElement(elem:HTMLElement):void {
     elem.style.left = _x + "px";
     elem.style.top = _y + "px";
     if (_elem) {
@@ -2076,52 +2082,52 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
   private function getStageOffset():Point {
     var x:Number = _x;
     var y:Number = _y;
-    for (var current:DisplayObjectContainer = parent; current ; current = current.parent) {
+    for (var current:DisplayObjectContainer = parent; current; current = current.parent) {
       x += current.x;
       y += current.y;
     }
     return new Point(x, y);
   }
 
-  override internal function createAncestorChain():Array {
-	  var arr:Array = [];
-	  
-	  var p:DisplayObjectContainer = this.parent;
-	  while (p != null) {
-		  arr.push(p);
-		  p = p.parent;
-	  }
-	  
-	  return arr;
+  internal function createAncestorChain():Array {
+    var arr:Array = [];
+
+    var p:DisplayObjectContainer = this.parent;
+    while (p != null) {
+      arr.push(p);
+      p = p.parent;
+    }
+
+    return arr;
   }
-  
+
   private function addedToStageHandler(event:flash.events.Event):void {
-	  removeEventListener(flash.events.Event.ADDED_TO_STAGE, addedToStageHandler);
-	  addEventListener(flash.events.Event.REMOVED_FROM_STAGE, removedFromStageHandler);
-	  
-	  // Store a reference to the element in the root dictionary.
-	  // This will be used later for easy reference.
-	  
-	  var elem : HTMLElement = getElement();
-	  
-	  // Unique ID
-	  if (flashID == null || flashID == undefined || flashID == "") {
-	  	this.flashID = UIDUtil.createUID();
-	  }
-	  
-	  elem['flashID'] = this.flashID;
-	  
-	  elementToDisplayObjectMap[this.flashID] = this;
+    removeEventListener(flash.events.Event.ADDED_TO_STAGE, addedToStageHandler);
+    addEventListener(flash.events.Event.REMOVED_FROM_STAGE, removedFromStageHandler);
+
+    // Store a reference to the element in the root dictionary.
+    // This will be used later for easy reference.
+
+    var elem:HTMLElement = getElement();
+
+    // Unique ID
+    if (flashID == null || flashID == undefined || flashID == "") {
+      this.flashID = UIDUtil.createUID();
+    }
+
+    elem['flashID'] = this.flashID;
+
+    elementToDisplayObjectMap[this.flashID] = this;
   }
-  
+
   private function removedFromStageHandler(event:flash.events.Event):void {
-	  addEventListener(flash.events.Event.ADDED_TO_STAGE, addedToStageHandler);
-	  removeEventListener(flash.events.Event.REMOVED_FROM_STAGE, removedFromStageHandler);
-	  
-	  // Nuke the dictionary reference.
-	  delete elementToDisplayObjectMap[this.flashID];
+    addEventListener(flash.events.Event.ADDED_TO_STAGE, addedToStageHandler);
+    removeEventListener(flash.events.Event.REMOVED_FROM_STAGE, removedFromStageHandler);
+
+    // Nuke the dictionary reference.
+    delete elementToDisplayObjectMap[this.flashID];
   }
-  
+
   /**
    * @private
    */
@@ -2129,27 +2135,25 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
     super();
     _filters = [];
     _blendMode = BlendMode.NORMAL;
-	
-	addEventListener(flash.events.Event.ADDED_TO_STAGE, addedToStageHandler);
+
+    addEventListener(flash.events.Event.ADDED_TO_STAGE, addedToStageHandler);
   }
 
   private static var elementToDisplayObjectMap:Dictionary = new Dictionary();
-  private var flashID : String;
-  
-  private var _elem : HTMLElement;
+  private var flashID:String;
+
+  private var _elem:HTMLElement;
   private var _name:String = null;
-  private var _x : Number = 0, _y : Number = 0;
-  protected var _width : Number = 0, _height : Number = 0; // unscaled
+  private var _x:Number = 0, _y:Number = 0;
+  protected var _width:Number = 0, _height:Number = 0; // unscaled
   private var _scaleX:Number = 1;
   private var _scaleY:Number = 1;
-  private var _transform : Transform;
+  private var _transform:Transform;
   private var _rotation:Number = 0;
-  private var _visible: Boolean = true;
-  private var _alpha: Number = 1;
-  private var _filters: Array;
+  private var _visible:Boolean = true;
+  private var _alpha:Number = 1;
+  private var _filters:Array;
   private var _cacheAsBitmap:Boolean;
   private var _blendMode:String;
-
-  private static var _loaderInfo:LoaderInfo;
 }
 }

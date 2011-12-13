@@ -216,9 +216,9 @@ public final class Graphics {
   public function clear():void {
     this.lineStyle();
     this.context.save();
-    this.context.setTransform(1,0,0,1,0,0);
+    this.context.setTransform(1, 0, 0, 1, 0, 0);
     this.context.fillStyle = "#000000";
-    this.context.clearRect(0,0,this.context.canvas.width, this.context.canvas.height);
+    this.context.clearRect(0, 0, this.context.canvas.width, this.context.canvas.height);
     this.context.restore();
     this.fillCommands = null;
     this.context.moveTo(0, 0);
@@ -333,7 +333,7 @@ public final class Graphics {
     createSpace(x + radius, y + radius);
     createCanvasSpace();
     this.context.moveTo(x + radius, y);
-    this.context.arc(x, y, radius, 0 , 2*Math.PI, false);
+    this.context.arc(x, y, radius, 0, 2 * Math.PI, false);
     if (fillCommands) {
       this.context.fill();
     }
@@ -646,21 +646,21 @@ public final class Graphics {
    */
   public function drawRoundRect(x:Number, y:Number, width:Number, height:Number, ellipseWidth:Number, ellipseHeight:Number = NaN):void {
     createSpace(x, y);
-    var x_r  : Number = x + width;
-    var y_b  : Number = y + height;
+    var x_r:Number = x + width;
+    var y_b:Number = y + height;
     createSpace(x_r, y_b);
     createCanvasSpace();
-    if (ellipseHeight==0 || ellipseWidth==0) {
+    if (ellipseHeight == 0 || ellipseWidth == 0) {
       this.drawRect(x, y, width, height);
       return;
     }
     if (isNaN(ellipseHeight)) {
       ellipseHeight = ellipseWidth;
     }
-    var x_lw : Number = x + ellipseWidth;
-    var x_rw : Number = x_r - ellipseWidth;
-    var y_tw : Number = y + ellipseHeight;
-    var y_bw : Number = y_b - ellipseHeight;
+    var x_lw:Number = x + ellipseWidth;
+    var x_rw:Number = x_r - ellipseWidth;
+    var y_tw:Number = y + ellipseHeight;
+    var y_bw:Number = y_b - ellipseHeight;
     this.context.beginPath();
     this.context.moveTo(x_lw, y);
     this.context.lineTo(x_rw, y);
@@ -682,13 +682,13 @@ public final class Graphics {
   }
 
   /**
-   * Draws a rounded rectangle using the size of a radius to draw the rounded corners. 
+   * Draws a rounded rectangle using the size of a radius to draw the rounded corners.
    * You must set the line style, fill, or both on the Graphics object before you call the
-   * <code>drawRoundRectComplex()</code> method by calling the <code>linestyle()</code>, 
-   * <code>lineGradientStyle()</code>, <code>beginFill()</code>, 
-   * <code>beginGradientFill()</code>, or 
+   * <code>drawRoundRectComplex()</code> method by calling the <code>linestyle()</code>,
+   * <code>lineGradientStyle()</code>, <code>beginFill()</code>,
+   * <code>beginGradientFill()</code>, or
    * <code>beginBitmapFill()</code> method.
-   * 
+   *
    * @param x The horizontal position relative to the registration point of the parent display object, in pixels.
    * @param y The vertical position relative to the registration point of the parent display object, in pixels.
    * @param width The width of the round rectangle, in pixels.
@@ -704,7 +704,7 @@ public final class Graphics {
     var y_b:Number = y + height;
     createSpace(x_r, y_b);
     createCanvasSpace();
-    if (topLeftRadius==0 && topRightRadius==0 && bottomLeftRadius==0 && bottomRightRadius==0) {
+    if (topLeftRadius == 0 && topRightRadius == 0 && bottomLeftRadius == 0 && bottomRightRadius == 0) {
       this.drawRect(x, y, width, height);
       return;
     }
@@ -1071,9 +1071,9 @@ public final class Graphics {
 
   // ************************** Jangaroo part **************************
 
-  private var context : CanvasRenderingContext2D;
-  private var thickness : Number;
-  private var fillCommands : Array;
+  private var context:CanvasRenderingContext2D;
+  private var thickness:Number;
+  private var fillCommands:Array;
   private var minX:Number;
   private var minY:Number;
   private var maxX:Number;
@@ -1090,7 +1090,7 @@ public final class Graphics {
    * @private
    */
   public function Graphics() {
-    var canvas : HTMLCanvasElement = window.document.createElement("canvas") as HTMLCanvasElement;
+    var canvas:HTMLCanvasElement = window.document.createElement("canvas") as HTMLCanvasElement;
     canvas.width = 1;
     canvas.height = 1;
     canvas.style.position = "absolute";
@@ -1105,26 +1105,26 @@ public final class Graphics {
     this.context.miterLimit = 3;
   }
 
-  internal function get canvas() : HTMLCanvasElement {
+  internal function get canvas():HTMLCanvasElement {
     return context.canvas;
   }
 
-  internal function get renderingContext() : CanvasRenderingContext2D {
+  internal function get renderingContext():CanvasRenderingContext2D {
     return context;
   }
 
-  public function get width() : Number {
+  public function get width():Number {
     return isNaN(minX) ? 0 : maxX - minX + 1;
   }
 
-  public function get height() : Number {
+  public function get height():Number {
     return isNaN(minY) ? 0 : maxY - minY + 1;
   }
 
   private function createSpace(x:Number, y:Number):void {
     var thickness:Number = this.thickness || 0; // this.thickness may be NaN!
-	var outerBorderThickness:Number = thickness / 2;
-   if (isNaN(minX)) {
+    var outerBorderThickness:Number = thickness / 2;
+    if (isNaN(minX)) {
       minX = x - outerBorderThickness;
       minY = y - outerBorderThickness;
       maxX = x + outerBorderThickness;
@@ -1147,12 +1147,12 @@ public final class Graphics {
     if (intWidth > canvas.width || intHeight > canvas.height) {
       // backup all properties that will be reset by setting width / height:
       var backupStyle:Object = {
-        fillStyle  : context.fillStyle,
-        lineWidth  : context.lineWidth,
+        fillStyle:   context.fillStyle,
+        lineWidth:   context.lineWidth,
         strokeStyle: context.strokeStyle,
-        lineCap    : context.lineCap,
-        lineJoin   : context.lineJoin,
-        miterLimit : context.miterLimit
+        lineCap:     context.lineCap,
+        lineJoin:    context.lineJoin,
+        miterLimit:  context.miterLimit
       };
       imageData = empty ? null : context.getImageData(0, 0, canvas.width, canvas.height);
       if (intWidth > canvas.width) {
@@ -1178,7 +1178,7 @@ public final class Graphics {
     oldIntMinY = intMinY;
   }
 
-  private function _beginFill(fillStyle : Object) : void {
+  private function _beginFill(fillStyle:Object):void {
     endFill();
     context.fillStyle = fillStyle;
     fillCommands = [];
@@ -1191,44 +1191,44 @@ public final class Graphics {
 
   private function createGradientStyle(type:String, colors:Array, alphas:Array, ratios:Array,
                                        matrix:Matrix = null, spreadMethod:String = "pad",
-                                       interpolationMethod:String = "rgb", focalPointRatio:Number = 0) : CanvasGradient {
+                                       interpolationMethod:String = "rgb", focalPointRatio:Number = 0):CanvasGradient {
     // TODO: support spreadMethod != "pad" (medium), interpolationMethod == "rgb_linear" (hard)
     // TODO: check enumeration-typed parameters: throw new ArgumentError("<param-name>","2002");
-    var gradient : CanvasGradient;
-    var p0 : Point = new Point(0, 0);
-    var p1 : Point = new Point(-Matrix.MAGIC_GRADIENT_FACTOR/2,0);
-    var p2 : Point = type == GradientType.LINEAR
-      ? new Point(0,-Matrix.MAGIC_GRADIENT_FACTOR/2)
-      : new Point(Matrix.MAGIC_GRADIENT_FACTOR/2 * focalPointRatio, 0);
+    var gradient:CanvasGradient;
+    var p0:Point = new Point(0, 0);
+    var p1:Point = new Point(-Matrix.MAGIC_GRADIENT_FACTOR / 2, 0);
+    var p2:Point = type == GradientType.LINEAR
+      ? new Point(0, -Matrix.MAGIC_GRADIENT_FACTOR / 2)
+      : new Point(Matrix.MAGIC_GRADIENT_FACTOR / 2 * focalPointRatio, 0);
     if (matrix) {
       p0 = matrix.transformPoint(p0);
       p1 = matrix.transformPoint(p1);
       p2 = matrix.transformPoint(p2);
     }
     if (type == GradientType.LINEAR) {
-      var x1 : Number;
-      var y1 : Number;
-      if (p2.x==p0.x) {
+      var x1:Number;
+      var y1:Number;
+      if (p2.x == p0.x) {
         x1 = p1.x;
         y1 = p1.y;
-      } else if (p2.y==p0.y) {
+      } else if (p2.y == p0.y) {
         x1 = p1.x;
         y1 = p2.x;
       } else {
-        var d : Number = -(p2.x - p0.x) / (p2.y - p0.y);
+        var d:Number = -(p2.x - p0.x) / (p2.y - p0.y);
         // d*(x1 - pm.x) + pm.y = -1/d*(x1 - px.x) + px.y =>
-        x1 = (p1.x/d + p1.y + d*p0.x - p0.y) / (d + 1/d);
-        y1 = d*(x1 - p0.x) + p0.y;
+        x1 = (p1.x / d + p1.y + d * p0.x - p0.y) / (d + 1 / d);
+        y1 = d * (x1 - p0.x) + p0.y;
       }
-      var x2 : Number = p0.x + (p0.x-x1);
-      var y2 : Number = p0.y + (p0.y-y1);
+      var x2:Number = p0.x + (p0.x - x1);
+      var y2:Number = p0.y + (p0.y - y1);
       gradient = this.context.createLinearGradient(x1, y1, x2, y2);
     } else { // type == GradientType.RADIAL
       // TODO: support squashed box, i.e. ellipse, not circle! But how? Somehow delegate transform to fill...
-      var rx : Number = p1.x - p0.x;
-      var ry : Number = p1.y - p0.y;
+      var rx:Number = p1.x - p0.x;
+      var ry:Number = p1.y - p0.y;
       // point distance with optimizations for two typical special cases:
-      var r : Number = rx==0 ? Math.abs(ry) : ry==0 ? Math.abs(rx) : Math.sqrt(rx*rx+ry*ry);
+      var r:Number = rx == 0 ? Math.abs(ry) : ry == 0 ? Math.abs(rx) : Math.sqrt(rx * rx + ry * ry);
       gradient = this.context.createRadialGradient(p2.x, p2.y, 0, p0.x, p0.y, r);
     }
     for (var i:uint = 0; i < colors.length; ++i) {
@@ -1240,7 +1240,7 @@ public final class Graphics {
   /**
    * @private
    */
-  public static function toRGBA(color : uint, alpha : Number = undefined) : String {
+  public static function toRGBA(color:uint, alpha:Number = undefined):String {
     var params:String = [color >>> 16 & 0xFF, color >>> 8 & 0xFF, color & 0xFF].join(",");
     return alpha < 1 ? ["rgba(", params, ",", alpha, ")"].join("")
                      :  "rgb(" + params + ")";
@@ -1265,7 +1265,7 @@ public final class Graphics {
     }
   }
 
-  private static const KAPPA:Number = 4 * ((Math.sqrt(2) -1) / 3);
+  private static const KAPPA:Number = 4 * ((Math.sqrt(2) - 1) / 3);
 
 }
 }
