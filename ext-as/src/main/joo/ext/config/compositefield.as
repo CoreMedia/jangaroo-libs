@@ -56,6 +56,16 @@ public class compositefield extends field {
   public native function set defaults(value:Object):void;
 
   /**
+   * Items to include in composite field
+   */
+  public native function get items():*;
+
+  /**
+   * @private
+   */
+  public native function set items(value:*):void;
+
+  /**
    The string to use when joining segments of the built label together (defaults to ', ')
    */
   public native function get labelConnector():String;

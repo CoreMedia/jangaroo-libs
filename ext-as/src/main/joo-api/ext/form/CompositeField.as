@@ -1,6 +1,7 @@
 package ext.form {
 import ext.Container;
 import ext.Element;
+import ext.config.compositefield;
 import ext.util.MixedCollection;
 
 /**
@@ -45,7 +46,7 @@ public class CompositeField extends Field {
    *
    * @see ext.config.compositefield
    */
-  public function CompositeField() {
+  public function CompositeField(config:compositefield) {
     super(null);
   }
 
