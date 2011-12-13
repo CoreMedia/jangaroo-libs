@@ -677,22 +677,25 @@ public class Stage extends DisplayObjectContainer {
   }
 
   /**
+   * @private
+   * NW : Does this need to have different behavior on the stage?
+   * 
    * Determines whether or not the children of the object are mouse, or user input device, enabled. If an object is enabled, a user can interact with it by using a mouse or user input device. The default is <code>true</code>.
    * <p>This property is useful when you create a button with an instance of the Sprite class (instead of using the SimpleButton class). When you use a Sprite instance to create a button, you can choose to decorate the button by using the <code>addChild()</code> method to add additional Sprite instances. This process can cause unexpected behavior with mouse events because the Sprite instances you add as children can become the target object of a mouse event when you expect the parent instance to be the target object. To ensure that the parent instance serves as the target objects for mouse events, you can set the <code>mouseChildren</code> property of the parent instance to <code>false</code>.</p>
    * <p>No event is dispatched by setting this property. You must use the <code>addEventListener()</code> method to create interactive functionality.</p>
    * @throws SecurityError Referencing the <code>mouseChildren</code> property of a Stage object throws an exception for any caller that is not in the same security sandbox as the Stage owner (the main SWF file). To avoid this, the Stage owner can grant permission to the domain of the caller by calling the <code>Security.allowDomain()</code> method or the <code>Security.allowInsecureDomain()</code> method. For more information, see the "Security" chapter in the <i>ActionScript 3.0 Developer's Guide</i>.
    *
    */
-  override public function get mouseChildren():Boolean {
+  /*override public function get mouseChildren():Boolean {
     throw new Error('not implemented'); // TODO: implement!
-  }
+  }*/
 
   /**
    * @private
    */
-  override public function set mouseChildren(value:Boolean):void {
+  /*override public function set mouseChildren(value:Boolean):void {
     throw new Error('not implemented'); // TODO: implement!
-  }
+  }*/
 
   /**
    * Returns the number of children of this object.

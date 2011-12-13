@@ -1,5 +1,6 @@
 package flash.display {
 import flash.events.Event;
+import flash.events.MouseEvent;
 import flash.geom.Point;
 import flash.text.TextSnapshot;
 
@@ -52,14 +53,18 @@ public class DisplayObjectContainer extends InteractiveObject {
    * </listing>
    */
   public function get mouseChildren():Boolean {
-    throw new Error('not implemented'); // TODO: implement!
+    return _mouseChildren;
   }
 
   /**
    * @private
    */
   public function set mouseChildren(value:Boolean):void {
-    throw new Error('not implemented'); // TODO: implement!
+    if (_mouseChildren == value) {
+		return;
+	}
+	
+	_mouseChildren = value;
   }
 
   /**
@@ -786,6 +791,30 @@ public class DisplayObjectContainer extends InteractiveObject {
   // ************************** Jangaroo part **************************
 
   /**
+   * @private 
+   * Check to see if the event is a mouse event from one of our children.
+   * If it is, be sure we're allowing those events to get out.
+   */  
+  override public function processCapture(event:Event):void {
+	  var isMouseEvent:Boolean = (event is MouseEvent);
+	  var eventAllowed:Boolean = !isMouseEvent || (isMouseEvent && mouseChildren);
+	  
+	  // If the event can't get out, dispatch a new copy from here.
+	  if (!eventAllowed) {
+		  event.stopPropagation();
+		  event.stopImmediatePropagation();
+		  
+		  if (mouseEnabled) {
+		  	dispatchEvent(event.clone());
+		  }
+	  }
+	  // Otherwise just let it roll.
+	  else {
+		super.processCapture(event);  
+	  }
+  }
+  
+  /**
    * @private
    */
   override public function broadcastEvent(event:Event):Boolean {
@@ -799,5 +828,6 @@ public class DisplayObjectContainer extends InteractiveObject {
   }
 
   private var children : Array/*<DisplayObject>*/;
+  private var _mouseChildren:Boolean = true;
 }
 }

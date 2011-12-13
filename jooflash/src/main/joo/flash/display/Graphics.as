@@ -1123,16 +1123,17 @@ public final class Graphics {
 
   private function createSpace(x:Number, y:Number):void {
     var thickness:Number = this.thickness || 0; // this.thickness may be NaN!
-    if (isNaN(minX)) {
-      minX = x - thickness;
-      minY = y - thickness;
-      maxX = x + thickness;
-      maxY = y + thickness;
+	var outerBorderThickness:Number = thickness / 2;
+   if (isNaN(minX)) {
+      minX = x - outerBorderThickness;
+      minY = y - outerBorderThickness;
+      maxX = x + outerBorderThickness;
+      maxY = y + outerBorderThickness;
     } else {
-      minX = Math.min(minX, x - thickness);
-      minY = Math.min(minY, y - thickness);
-      maxX = Math.max(maxX, x + thickness);
-      maxY = Math.max(maxY, y + thickness);
+      minX = Math.min(minX, x - outerBorderThickness);
+      minY = Math.min(minY, y - outerBorderThickness);
+      maxX = Math.max(maxX, x + outerBorderThickness);
+      maxY = Math.max(maxY, y + outerBorderThickness);
     }
   }
 
