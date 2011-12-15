@@ -200,7 +200,10 @@ public class EventDispatcher implements IEventDispatcher {
     }
   }
 
-  internal function createAncestorChain():Array {
+  /**
+   * @private
+   */
+  public function createAncestorChain():Array {
     return null;
   }
 
