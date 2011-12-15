@@ -26,7 +26,7 @@ package ext.config {
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.data.JsonStore
  */
-[ExtConfig(target="ext.data.JsonStore", xtype="jsonstore")]
+[ExtConfig(target="ext.data.JsonStore")]
 public class jsonstore extends store {
 
   public function jsonstore(config:Object = null) {
