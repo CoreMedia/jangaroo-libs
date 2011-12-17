@@ -1,4 +1,6 @@
 package ext.data {
+import ext.config.xmlreader;
+
 import js.Document;
 
 /**
@@ -44,8 +46,8 @@ public class XmlReader extends DataReader {
    * @param recordType Either an Array of field definition objects as passed to <a href="output/Ext.data.Record.html#Ext.data.Record-create">Ext.data.Record.create</a>, or a Record constructor object created using <a href="output/Ext.data.Record.html#Ext.data.Record-create">Ext.data.Record.create</a>.
    * @see ext.config.xmlreader
    */
-  public function XmlReader(meta:Object, recordType:Object) {
-    super(null, null);
+  public function XmlReader(meta:xmlreader, recordType:Object = null) {
+    super(meta, recordType);
   }
 
   /**

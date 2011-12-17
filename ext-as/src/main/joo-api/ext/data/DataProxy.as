@@ -1,4 +1,5 @@
 package ext.data {
+import ext.config.dataproxy;
 import ext.util.Observable;
 
 /**
@@ -217,7 +218,7 @@ public class DataProxy extends Observable {
    *
    * @see ext.config.dataproxy
    */
-  public function DataProxy() {
+  public function DataProxy(config:dataproxy = null) {
     super();
   }
 

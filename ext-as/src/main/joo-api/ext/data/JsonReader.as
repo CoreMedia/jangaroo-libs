@@ -1,4 +1,6 @@
 package ext.data {
+import ext.config.jsonreader;
+
 /**
  * Data reader class to create an Array of <a href="Ext.data.Record.html">Ext.data.Record</a> objects from a JSON packet based on mappings in a provided <a href="Ext.data.Record.html">Ext.data.Record</a> constructor.
  <p>Example code:</p><pre><code>var myReader = new Ext.data.JsonReader({
@@ -77,8 +79,8 @@ public class JsonReader extends DataReader {
 
    * @see ext.config.jsonreader
    */
-  public function JsonReader(meta:Object, recordType:*) {
-    super(null, null);
+  public function JsonReader(meta:jsonreader, recordType:Object = null) {
+    super(meta, recordType);
   }
 
   /**

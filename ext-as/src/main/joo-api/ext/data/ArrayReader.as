@@ -1,4 +1,6 @@
 package ext.data {
+import ext.config.arrayreader;
+
 /**
  * Data reader class to create an Array of <a href="Ext.data.Record.html">Ext.data.Record</a> objects from an Array. Each element of that Array represents a row of data fields. The fields are pulled into a Record object using as a subscript, the <code>mapping</code> property of the field definition if it exists, or the field's ordinal position in the definition.
  <p>Example code:</p><pre><code>var Employee = Ext.data.Record.create([
@@ -27,8 +29,8 @@ public class ArrayReader extends JsonReader {
 
    * @see ext.config.arrayreader
    */
-  public function ArrayReader(meta:Object, recordType:*) {
-    super(null, null);
+  public function ArrayReader(meta:arrayreader, recordType:Object = null) {
+    super(meta, recordType);
   }
 
   /**

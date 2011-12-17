@@ -86,8 +86,8 @@ public class ScriptTagProxy extends DataProxy {
    * @param config A configuration object.
    * @see ext.config.scripttagproxy
    */
-  public function ScriptTagProxy(config:scripttagproxy) {
-    super();
+  public function ScriptTagProxy(config:scripttagproxy = null) {
+    super(config);
   }
 
   /**

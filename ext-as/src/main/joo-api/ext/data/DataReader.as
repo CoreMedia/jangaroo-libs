@@ -1,4 +1,6 @@
 package ext.data {
+import ext.config.datareader;
+
 /**
  * Abstract base class for reading structured data from a data source and converting it into an object containing <a href="Ext.data.Record.html">Ext.data.Record</a> objects and metadata for use by an <a href="Ext.data.Store.html">Ext.data.Store</a>. This class is intended to be extended and should not be created directly. For existing implementations, see <a href="Ext.data.ArrayReader.html">Ext.data.ArrayReader</a>, <a href="Ext.data.JsonReader.html">Ext.data.JsonReader</a> and <a href="Ext.data.XmlReader.html">Ext.data.XmlReader</a>.
  *
@@ -18,7 +20,7 @@ public class DataReader {
 
    * @see ext.config.datareader
    */
-  public function DataReader(meta:Object, recordType:*) {
+  public function DataReader(meta:datareader, recordType:Object = null) {
     super();
   }
 

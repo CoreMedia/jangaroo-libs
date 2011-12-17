@@ -1,4 +1,6 @@
 package ext.data {
+import ext.config.httpproxy;
+
 /**
  * An implementation of <a href="Ext.data.DataProxy.html">Ext.data.DataProxy</a> that processes data requests within the same domain of the originating page.
  <p><b>Note</b>: this class cannot be used to retrieve data from a domain other than the domain from which the running page was served. For cross-domain requests, use a <a href="Ext.data.ScriptTagProxy.html">ScriptTagProxy</a>.</p><p>Be aware that to enable the browser to parse an XML document, the server must set the Content-Type header in the HTTP response to "<tt>text/xml</tt>".</p>
@@ -17,8 +19,8 @@ public class HttpProxy extends DataProxy {
    * @param conn An <a href="Ext.data.Connection.html">Ext.data.Connection</a> object, or options parameter to <a href="output/Ext.Ajax.html#Ext.Ajax-request">Ext.Ajax.request</a>. <p>Note that if this HttpProxy is being used by a <a href="Ext.data.Store.html">Store</a>, then the Store's call to <a href="output/Ext.data.HttpProxy.html#Ext.data.HttpProxy-load">load</a> will override any specified <tt>callback</tt> and <tt>params</tt> options. In this case, use the Store's <a href="output/Ext.data.Store.html#Ext.data.Store-events">events</a> to modify parameters, or react to loading events. The Store's <a href="output/Ext.data.Store.html#Ext.data.Store-baseParams">baseParams</a> may also be used to pass parameters known at instantiation time.</p><p>If an options parameter is passed, the singleton <a href="Ext.Ajax.html">Ext.Ajax</a> object will be used to make the request.</p>
    * @see ext.config.httpproxy
    */
-  public function HttpProxy(conn:Object) {
-    super();
+  public function HttpProxy(conn:httpproxy = null) {
+    super(conn);
   }
 
   /**

@@ -1,4 +1,6 @@
 package ext.data {
+import ext.config.directproxy;
+
 /**
  *
  *
@@ -15,8 +17,8 @@ public class DirectProxy extends DataProxy {
    *
    * @see ext.config.directproxy
    */
-  public function DirectProxy() {
-    super();
+  public function DirectProxy(config:directproxy = null) {
+    super(config);
   }
 
   /**

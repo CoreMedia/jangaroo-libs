@@ -35,7 +35,6 @@ package ext.data {
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  *
 
- * @see ext.config.memoryproxy
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MemoryProxy.html#cls-Ext.data.MemoryProxy Ext JS source
  */
 public class MemoryProxy extends DataProxy {
@@ -44,7 +43,6 @@ public class MemoryProxy extends DataProxy {
    *
    *
    * @param data The data object which the Reader uses to construct a block of Ext.data.Records.
-   * @see ext.config.memoryproxy
    */
   public function MemoryProxy(data:Object) {
     super();
