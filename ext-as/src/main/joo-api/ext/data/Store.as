@@ -354,7 +354,7 @@ import ext.util.Observable;
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  *
 
- * <p>This component is created by the xtype 'store' / the EXML element &lt;store>.</p>
+ * <p>This class can be instantiated by the EXML element &lt;store>.</p>
  * @see ext.config.store
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#cls-Ext.data.Store Ext JS source
  */
@@ -366,7 +366,7 @@ public class Store extends Observable {
    * @param config A config object containing the objects needed for the Store to access data, and read the data into Records.
    * @see ext.config.store
    */
-  public function Store(config:store) {
+  public function Store(config:store = null) {
     super();
   }
 

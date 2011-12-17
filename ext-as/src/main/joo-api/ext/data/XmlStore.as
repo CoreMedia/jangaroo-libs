@@ -50,7 +50,7 @@ import ext.config.xmlstore;
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  *
 
- * <p>This component is created by the xtype 'xmlstore' / the EXML element &lt;xmlstore>.</p>
+ * <p>This class can be instantiated by the EXML element &lt;xmlstore>.</p>
  * @see ext.config.xmlstore
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/XmlStore.html#cls-Ext.data.XmlStore Ext JS source
  */
@@ -62,7 +62,7 @@ public class XmlStore extends Store {
    * @param config
    * @see ext.config.xmlstore
    */
-  public function XmlStore(config:xmlstore) {
+  public function XmlStore(config:xmlstore = null) {
     super(null);
   }
 

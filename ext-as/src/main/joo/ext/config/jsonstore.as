@@ -20,8 +20,7 @@ package ext.config {
  }
  </code></pre>An object literal of this form could also be used as the <a href="output/Ext.data.JsonStore.html#Ext.data.JsonStore-data">data</a> config option.<br/><br/> <p><b>&#42;Note:</b> Although not listed here, this class accepts all of the configuration options of <b><a href="Ext.data.JsonReader.html">JsonReader</a></b>.</p>
  *
- * <p>This class represents the xtype 'jsonstore' and serves as a
- * typed config object for constructor of class JsonStore.</p>
+ * <p>This class serves as a typed config object for constructor of class JsonStore.</p>
  *
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.data.JsonStore

@@ -46,13 +46,12 @@ package ext.config {
  &lt;/ItemSearchResponse&gt;
  </code></pre>An object literal of this form could also be used as the <a href="output/Ext.data.XmlStore.html#Ext.data.XmlStore-data">data</a> config option.<br/><br/> <p><b>Note:</b> Although not listed here, this class accepts all of the configuration options of <b><a href="Ext.data.XmlReader.html">XmlReader</a></b>.</p>
  *
- * <p>This class represents the xtype 'xmlstore' and serves as a
- * typed config object for constructor of class XmlStore.</p>
+ * <p>This class represents serves as a typed config object for constructor of class XmlStore.</p>
  *
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.data.XmlStore
  */
-[ExtConfig(target="ext.data.XmlStore", xtype="xmlstore")]
+[ExtConfig(target="ext.data.XmlStore")]
 public class xmlstore extends store {
 
   public function xmlstore(config:Object = null) {

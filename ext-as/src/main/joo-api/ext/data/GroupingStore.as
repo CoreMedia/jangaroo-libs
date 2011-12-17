@@ -27,7 +27,7 @@ import ext.config.groupingstore;
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  *
 
- * <p>This component is created by the xtype 'groupingstore' / the EXML element &lt;groupingstore>.</p>
+ * <p>This class can be instantiated the EXML element &lt;groupingstore>.</p>
  * @see ext.config.groupingstore
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GroupingStore.html#cls-Ext.data.GroupingStore Ext JS source
  */
@@ -39,7 +39,7 @@ public class GroupingStore extends Store {
    * @param config A config object containing the objects needed for the Store to access data, and read the data into Records.
    * @see ext.config.groupingstore
    */
-  public function GroupingStore(config:groupingstore) {
+  public function GroupingStore(config:groupingstore = null) {
     super(null);
   }
 

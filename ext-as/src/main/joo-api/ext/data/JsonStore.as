@@ -24,7 +24,7 @@ import ext.config.jsonstore;
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  *
 
- * <p>This component is created by the xtype 'jsonstore' / the EXML element &lt;jsonstore>.</p>
+ * <p>This class can be instantiated by the EXML element &lt;jsonstore>.</p>
  * @see ext.config.jsonstore
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/JsonStore.html#cls-Ext.data.JsonStore Ext JS source
  */
@@ -36,7 +36,7 @@ public class JsonStore extends Store {
    * @param config
    * @see ext.config.jsonstore
    */
-  public function JsonStore(config:jsonstore) {
+  public function JsonStore(config:jsonstore = null) {
     super(null);
   }
 

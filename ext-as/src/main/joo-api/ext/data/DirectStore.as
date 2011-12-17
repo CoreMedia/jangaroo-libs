@@ -8,7 +8,7 @@ import ext.config.directstore;
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  *
 
- * <p>This component is created by the xtype 'directstore' / the EXML element &lt;directstore>.</p>
+ * <p>This class can be instantiated by the EXML element &lt;directstore>.</p>
  * @see ext.config.directstore
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DirectStore.html#cls-Ext.data.DirectStore Ext JS source
  */
@@ -20,7 +20,7 @@ public class DirectStore extends Store {
    * @param config
    * @see ext.config.directstore
    */
-  public function DirectStore(config:directstore) {
+  public function DirectStore(config:directstore = null) {
     super(null);
   }
 

@@ -25,13 +25,12 @@ package ext.config {
  ];
  </code></pre>An object literal of this form could also be used as the <a href="output/Ext.data.ArrayStore.html#Ext.data.ArrayStore-data">data</a> config option.<br/><br/> <p><b>&#42;Note:</b> Although not listed here, this class accepts all of the configuration options of <b><a href="Ext.data.ArrayReader.html">ArrayReader</a></b>.</p>
  *
- * <p>This class represents the xtype 'arraystore' and serves as a
- * typed config object for constructor of class ArrayStore.</p>
+ * <p>This class serves as a typed config object for constructor of class ArrayStore.</p>
  *
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.data.ArrayStore
  */
-[ExtConfig(target="ext.data.ArrayStore", xtype="arraystore")]
+[ExtConfig(target="ext.data.ArrayStore")]
 public class arraystore extends store {
 
   public function arraystore(config:Object = null) {

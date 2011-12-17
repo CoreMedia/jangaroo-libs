@@ -29,7 +29,7 @@ import ext.config.arraystore;
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  *
 
- * <p>This component is created by the xtype 'arraystore' / the EXML element &lt;arraystore>.</p>
+ * <p>This class can be instantiated by the EXML element &lt;arraystore>.</p>
  * @see ext.config.arraystore
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ArrayStore.html#cls-Ext.data.ArrayStore Ext JS source
  */
@@ -41,8 +41,8 @@ public class ArrayStore extends Store {
    * @param config
    * @see ext.config.arraystore
    */
-  public function ArrayStore(config:arraystore) {
-    super(null);
+  public function ArrayStore(config:arraystore = null) {
+    super(config);
   }
 
 }
