@@ -213,10 +213,8 @@ public class EventDispatcher implements IEventDispatcher {
     }
 
     // Start at the top of the chain and go down.
-    var i:int = ancestors.length - 1;
-    var d:EventDispatcher;
-    for (i; i >= 0; i--) {
-      d = ancestors[i];
+    for (var i:int = ancestors.length - 1; i >= 0; i--) {
+      var d:EventDispatcher = ancestors[i];
       d.processCapture(event);
       if (event.isPropagationStopped()) {
         break;
@@ -230,10 +228,8 @@ public class EventDispatcher implements IEventDispatcher {
     }
 
     // Start at the top of the chain and go down.
-    var i:int = 0;
-    var d:EventDispatcher;
-    for (i; i < ancestors.length; i++) {
-      d = ancestors[i];
+    for (var i:int = 0; i < ancestors.length; i++) {
+      var d:EventDispatcher = ancestors[i];
       d.processBubble(event);
       if (event.isPropagationStopped()) {
         break;
