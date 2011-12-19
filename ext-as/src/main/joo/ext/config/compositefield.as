@@ -36,7 +36,7 @@ package ext.config {
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.form.CompositeField
  */
-[ExtConfig(target="ext.form.CompositeField")]
+[ExtConfig(target="ext.form.CompositeField", xtype="compositefield")]
 public class compositefield extends field {
 
   public function compositefield(config:Object = null) {
