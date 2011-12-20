@@ -22,7 +22,6 @@
         <configuration>
           <jooUnitTestExecutionTimeout>120000</jooUnitTestExecutionTimeout>
           <phantomTestSuite>net.jangaroo.net.TestSuite</phantomTestSuite>
-          <phantomTestRunner>joo/phantomjs-joounit-runner.js</phantomTestRunner>
           <phantomArgs>timeout=30000</phantomArgs>
         </configuration>
       </plugin>

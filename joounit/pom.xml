@@ -49,7 +49,6 @@
         <configuration>
           <jooUnitTestExecutionTimeout>120000</jooUnitTestExecutionTimeout>
           <phantomTestSuite>flexunit.framework.AllFrameworkTests</phantomTestSuite>
-          <phantomTestRunner>joo/phantomjs-joounit-runner.js</phantomTestRunner>
           <phantomArgs>timeout=30000</phantomArgs>
         </configuration>
       </plugin>
