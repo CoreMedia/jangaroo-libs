@@ -48,9 +48,60 @@
         <artifactId>jangaroo-maven-plugin</artifactId>
         <configuration>
           <jooUnitTestExecutionTimeout>120000</jooUnitTestExecutionTimeout>
-          <phantomTestSuite>flexunit.framework.AllFrameworkTests</phantomTestSuite>
-          <phantomArgs>timeout=30000</phantomArgs>
+          <testsHtml>selenium-tests.html</testsHtml>
         </configuration>
+        <executions>
+          <execution>
+            <id>test-phantom-bare</id>
+            <configuration>
+              <jooUnitTestExecutionTimeout>120000</jooUnitTestExecutionTimeout>
+              <phantomTestSuite>net.jangaroo.phantomjs.AllTests</phantomTestSuite>
+              <phantomTestRunner>joo/phantomjs-joo-runner.js</phantomTestRunner>
+              <phantomArgs>
+                {
+                testSuiteName:'flexunit.framework.AllFrameworkTests',
+                jooMainClass:'net.jangaroo.joounit.runner.PhantomJsRunner',
+                loglevel:'info',
+                onTimeout:function(){console.error('tests timed out');phantom.exit(1)},
+                writeResult:function(a,b){joo._writeTestResult(a.replace('.xml','-plain.xml'),b);phantom.exit(0)}
+                }
+              </phantomArgs>
+            </configuration>
+            <goals>
+              <goal>test</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>test-phantom-plain</id>
+            <configuration>
+              <jooUnitTestExecutionTimeout>120000</jooUnitTestExecutionTimeout>
+              <phantomTestSuite>flexunit.framework.AllFrameworkTests</phantomTestSuite>
+              <!--<phantomTestSuite>net.jangaroo.phantomjs.SimpleTestSuite</phantomTestSuite>-->
+              <phantomTestRunner>joo/phantomjs-joounit-runner.js</phantomTestRunner>
+              <phantomArgs>
+                (function(){
+                console.info('running tests without test.html'); return {}})()
+              </phantomArgs>
+            </configuration>
+            <goals>
+              <goal>test</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>test-phantom-page</id>
+            <configuration>
+              <jooUnitTestExecutionTimeout>120000</jooUnitTestExecutionTimeout>
+              <phantomTestSuite>net.jangaroo.phantomjs.AllTests</phantomTestSuite>
+              <phantomTestRunner>joo/phantomjs-joounit-page-runner.js</phantomTestRunner>
+              <phantomArgs>
+                {freq:(function(){console.info('running tests in test.html'); return 300})()}
+              </phantomArgs>
+            </configuration>
+            <goals>
+              <goal>test</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>

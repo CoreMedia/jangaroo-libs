@@ -1,28 +1,25 @@
-phantom.injectJs("./phantomjs-joo-config.js");
-run();
 /**
  * Parse the given argument String into a config object, run
  * the static <code>main</code> method of the
  * class given as <code>jooMainClass</code> and pass it the
  * config object.
  */
+phantom.injectJs("./phantomjs-joo-config.js");
 function run(){
+  const doExit  = function(msg){console.error("USAGE: phantomjs-joo-runner.js configJSON");die(msg)};
   try {
-    eval("config = " + phantom.args[0]);
+    var config = joo._parseConfig();
     if (typeof config === 'object') {
       const key = "jooMainClass";
       if(!config[key]){
-        die(key + " must be set")
+        doExit(key + " must be set")
       }
+      joo._loadScriptWarning();
       joo._run(config[key],config);
     } else {
-      die("invalid args: " + config);
+      doExit("invalid args: " + config);
     }
   } catch(e){
-    die(e);
+    doExit(e);
   }
-}
-function die(e){
-  console.error("USAGE: phantomjs-joo-runner.js configJSON");
-  joo._die(e);
 }

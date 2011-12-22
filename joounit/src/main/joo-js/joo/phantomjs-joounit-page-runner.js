@@ -1,58 +1,52 @@
-var testConfig = {
-  timeout: 3000,
-  freq: 250
-};
-function doTryCatch(f){try {return f();} catch(e){error(e);}}
-function error(msg){console.error("phantomjs-joounit> "+ msg);phantom.exit(1);}
-doTryCatch(
-        function (){
-          for(var i = 0; i < phantom.args.length ; i++){
-            var arg = phantom.args[i];
-            if(arg.indexOf('test=') > -1){
-              testConfig.testSuiteName = arg.substring(5);
-            } else if(arg.indexOf('timeout=') > -1){
-              testConfig.timeout = parseInt(arg.substring(8));
-            } else if(arg.indexOf('freq=') > -1){
-              testConfig.freq = parseInt(arg.substring(5));
-            } else {
-              console.error("unsupported argument: " + arg);
-            }
-          }
+/**
+ * Parse the given argument String into a config object or
+ * parse arguments test=<testSuiteClass> timeout=<timeout> into a config object
+ * and launch a suitable <code>tests.html</code>
+ */
+phantom.injectJs("./phantomjs-joo-config.js");
+function parseConfig(){
+  var testConfig = joo._parseConfig();
+  if(!testConfig['timeout']){
+    testConfig['timeout'] = 10000;
+  }
+  if(!testConfig['freq']){
+    testConfig['freq'] = 250;
+  }
+  if(!testConfig['outputDir']) {
+    testConfig['outputDir'] = '../surefire-reports';
+  }
+  return testConfig;
+}
 
-          if(testConfig.testSuiteName === undefined) {
-            error("USAGE: phantomjs-joounit-page-runner.js test=TestName [timeout=Timeout] [freq=Frequency]");
-          }
-        }
-);
-
-var joo = {
-  debug: false,
-  _loadScript:function(src/*:String*/){
-    // console.log("loading script '" + src + "'");
-    phantom.injectJs(src);
-  },
-  loadScriptAsync:this._loadScript,
-  baseUrl:""
-};
-phantom.injectJs("joo/jangaroo-application.js");
-
-var fs = require('fs');
-var outputDir = '../surefire-reports';
-
-window.setTimeout(function(){
-  error("test timed out after " + testConfig.timeout + " ms");
-},testConfig.timeout);
-runTest();
-
-function runTest() {
+function run() {
+  var testConfig = parseConfig();
+  joo._initWindow(testConfig);
   var page = new WebPage();
 
+  // onerror handler doesn't work with phantomjs 1.3.0, but let's attach anyways
+  page.onerror = function(e){origDie(e)};
+
   // Echo the output of the tests to the Standard Output
-  page.onConsoleMessage = function(msg, source, linenumber) {
-    console.log(msg);
+  page.onConsoleMessage = function(msg, line, source) {
+    // onerror handler doesn't work, so let's check if the msg results from an exception
+    var loglevel = 'info';
+    if((msg && msg.indexOf("TypeError:") == 0) || (source == "undefined" && line < 1)){
+      if(!testConfig.ignoreErrorMessages) {
+        origDie("phantomjs> ERROR: "+ msg);
+      } else {
+        loglevel = 'error';
+      }
+    }
+
+    console[loglevel]("phantomjs> "+ msg + " "+ source + ":"+ line);
+  };
+
+  page.onAlert = function(msg) {
+    console.info("phantomjs> alert:"+msg);
   };
 
   if (!fs.isFile('tests.html')) {
+    console.info("phantomjs> writing tests.html ...");
     // Write default tests.html invoking BrowserRunner on provided testSuiteName.
     var testHtml = fs.open("tests.html", "w");
     const h = '<html><head><script type="text/javascript" src="joo/jangaroo-application.js"></script>' +
@@ -63,8 +57,8 @@ function runTest() {
     testHtml.close();
   }
 
+  console.log("phantomjs> opening tests.html in page sandbox");
   page.open("tests.html", function(status) {
-    console.log("runner> status: "+status);
     if (status === "success") {
       waitForCondition(function() { // wait for this to be true
         return page.evaluate(function() {
@@ -75,26 +69,31 @@ function runTest() {
         var resultXml = page.evaluate(function(){
           return window["result"];
         });
-        console.log("result: \n"+resultXml);
-        writeResult(resultXml);
-        var success = (resultXml.indexOf('errors="0" failures="0"') > 0);
-        phantom.exit(success ? 0 : 1);
+        console.info("phantomjs> result: \n"+resultXml);
+        joo._writeTestResult(testConfig.outputDir + '/TEST-' + testConfig.testSuiteName + '.xml',resultXml);
+        joo._exit(resultXml.indexOf('errors="0" failures="0"') > 0);
       });
     } else {
-      error("Could not load tests.html");
+      origDie("Could not load tests.html");
     }
   });
 
   function waitForCondition(condition,callback){
-    window.setInterval(function(){if(condition()){doTryCatch(callback);}},testConfig.freq);
+    console.info("phantomjs> polling for test result every " + testConfig.freq + " ms");
+    window.setInterval(function(){
+      if(condition()){
+        try{
+          callback();
+        } catch(e){
+          origDie(e);
+        }
+      }
+    },testConfig.freq);
   }
 }
 
-function writeResult(testResult){
-  doTryCatch(
-          function(){
-            var f = fs.open(outputDir + '/TEST-' + testConfig.testSuiteName + '.xml', "w");
-            f.write(testResult);
-            f.close();
-          });
-}
+var origDie = die;
+die = function (e){
+  console.error("USAGE: phantomjs-joounit-page-runner.js  test=TestClassName [timeout=Timeout] [freq=Frequency]");
+  origDie(e);
+};

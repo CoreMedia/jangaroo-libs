@@ -1,7 +1,5 @@
 package net.jangaroo.joounit.runner {
-import flexunit.framework.TestResult;
-import flexunit.textui.Printer;
-import flexunit.textui.TestRunner;
+import flexunit.framework.TestSuite;
 
 import joo.DynamicClassLoader;
 import joo.getQualifiedObject;
@@ -25,21 +23,18 @@ internal class RunnerUtils {
   }
 
   /**
-   * Obtain test suite <code>testSuiteName</code> and pass arguments to <code>TestRunner#run</code>
+   * Obtain test suite <code>testSuiteName</code>
    * @param testSuiteName
-   * @param onComplete
-   * @param printer
-   * @see TestRunner#run
-   * @return TestResult
+   * @return
    */
-  internal static function run(testSuiteName:String, onComplete:Function, printer:Printer) :TestResult {
+  internal static function getTestSuite(testSuiteName:String):TestSuite {
     var testSuite:Function = getQualifiedObject(testSuiteName);
     if (!(typeof testSuite == 'function' && typeof testSuite['suite'] == 'function')) {
       window.classLoadingError = testSuiteName + " is not a Class or does not have a static method 'suite'.";
+      trace("[WARN]",window.classLoadingError);
       return null;
     }
-    return TestRunner.run(testSuite['suite'](), onComplete, printer);
+    return testSuite['suite']();
   }
-
 }
 }
