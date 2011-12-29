@@ -19,10 +19,11 @@ public class XmlResultPrinter implements TestListener, Printer{
 
   private var successfullTests:Array = null;
 
-  public function XmlResultPrinter() {
+  public function XmlResultPrinter(suitName:String = null) {
     resultXml = new Array();
     successfullTests = new Array();
     mTests = new Array();
+    mSuite = suitName;
   }
 
   public function addError(test : Test, error : Error):void {
