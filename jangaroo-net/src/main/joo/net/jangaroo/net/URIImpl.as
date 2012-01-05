@@ -5,7 +5,7 @@ package net.jangaroo.net {
  * generic URI syntax as specified in <a href="http://www.rfc-editor.org/rfc/rfc3986.txt">RFC 3986</a>.
  *
  */
-class URIImpl implements URI {
+internal class URIImpl implements URI {
 
   // native getters and setters are used to officially implement the interface (makes ASDoc compiler work),
   // but at runtime, these are just public fields!
@@ -66,7 +66,7 @@ class URIImpl implements URI {
     return toAppendTo.join("");
   }
 
-  private function appendIfBothNonNull(s1:String, s2:String, toAppendTo:Array):void {
+  private static function appendIfBothNonNull(s1:String, s2:String, toAppendTo:Array):void {
     if (s1 !== null && s2 !== null) {
       toAppendTo.push(s1);
       toAppendTo.push(s2);
@@ -142,7 +142,7 @@ class URIImpl implements URI {
     return new URIImpl(targetScheme, targetAuthority, targetPath, targetQuery, targetFragment);
   }
 
-  private function arraysEquals(a1:Array, a2:Array):Boolean {
+  private static function arraysEquals(a1:Array, a2:Array):Boolean {
     if (a1.length !== a2.length) {
       return false;
     }
