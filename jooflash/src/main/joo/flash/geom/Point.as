@@ -34,7 +34,7 @@ public class Point {
    *
    */
   public function get length():Number {
-    return Math.sqrt(x^2 + y^2);
+    return diagonalLength(x, y);
   }
 
   /**
@@ -92,7 +92,7 @@ public class Point {
    *
    */
   public static function distance(pt1:Point, pt2:Point):Number {
-    return Math.sqrt((pt2.x-pt1.x)^2 + (pt2.y-pt2.y)^2);
+    return diagonalLength(pt2.x - pt1.x, pt2.y - pt1.y);
   }
 
   /**
@@ -116,7 +116,7 @@ public class Point {
    *
    */
   public static function interpolate(pt1:Point, pt2:Point, f:Number):Point {
-    throw new Error('not implemented'); // TODO: implement!
+    return new Point(pt1.x + pt2.x * f, pt1.y + pt2.y * f);
   }
 
   /**
@@ -127,7 +127,11 @@ public class Point {
    *
    */
   public function normalize(thickness:Number):void {
-    throw new Error('not implemented'); // TODO: implement!
+    if (x !== 0 || y !== 0) {
+      var relativeThickness:Number = thickness / length;
+      x *= relativeThickness;
+      y *= relativeThickness;
+    }
   }
 
   /**
@@ -154,7 +158,7 @@ public class Point {
    *
    */
   public static function polar(len:Number, angle:Number):Point {
-    throw new Error('not implemented'); // TODO: implement!
+    return new Point(len * Math.cos(angle), len * Math.sin(angle));
   }
 
   /**
@@ -176,5 +180,10 @@ public class Point {
   public function toString():String {
     return ["(x=",x,", y=",y,")"].join("");
   }
+
+  private static function diagonalLength(x:Number, y:Number):Number {
+    return x === 0 ? y : y === 0 ? x : Math.sqrt(x * x + y * y);
+  }
+
 }
 }
