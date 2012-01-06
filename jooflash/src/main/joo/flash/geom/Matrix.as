@@ -272,7 +272,7 @@ public class Matrix {
    */
   public function createBox(scaleX:Number, scaleY:Number, rotation:Number = 0, tx:Number = 0, ty:Number = 0):void {
     // all inlined for higher performance:
-    if (rotation == 0) {
+    if (rotation === 0) {
       a = d = 1;
       b = c = 0;
     } else {
@@ -281,11 +281,11 @@ public class Matrix {
       c = -b;
       d = a;
     }
-    if (scaleX != 1) {
+    if (scaleX !== 1) {
       a *= scaleX;
-      c *= scaleY;
+      c *= scaleX;
     }
-    if (scaleY != 1) {
+    if (scaleY !== 1) {
       b *= scaleY;
       d *= scaleY;
     }
@@ -504,6 +504,17 @@ public class Matrix {
    *
    */
   public function rotate(angle:Number):void {
+    /*
+        with sin = sin(angle) and cos = cos(angle):
+
+                      [a            c            tx           ]
+                      [b            d            ty           ]
+                      [0            0            1            ]
+
+      [cos   -sin  0] [a*cos-b*sin  c*cos-d*sin  tx*cos-ty*sin]
+      [sin   cos   0] [a*sin+b*cos  c*sin+d*cos  tx*sin+ty*cos]
+      [0     0     1] [0            0            1            ]
+    */
     if (angle!=0) {
       var cos : Number = Math.cos(angle);
       var sin : Number = Math.sin(angle);
@@ -513,10 +524,10 @@ public class Matrix {
       var d : Number = this.d;
       var tx : Number = this.tx;
       var ty : Number = this.ty;
-      this.a   = a*cos  - c*sin;
-      this.b   = a*sin  + c*cos;
-      this.c   = b*cos  - d*sin;
-      this.d   = b*sin  + d*cos;
+      this.a   = a*cos  - b*sin;
+      this.b   = a*sin  + b*cos;
+      this.c   = c*cos  - d*sin;
+      this.d   = c*sin  + d*cos;
       this.tx  = tx*cos - ty*sin;
       this.ty  = tx*sin + ty*cos;
     }
@@ -533,11 +544,22 @@ public class Matrix {
    *
    */
   public function scale(sx:Number, sy:Number):void {
-    if (sx != 1) {
+    /*
+                      [a     c    tx   ]
+                      [b     d    ty   ]
+                      [0     0    1    ]
+      
+      [sx    0     0] [a*sx  c*sx tx*sx]
+      [0     sy    0] [b*sy  d*sy ty*sy]
+      [0     0     1] [0     0    1    ]
+    */
+    if (sx !== 1) {
       a *= sx;
+      c *= sx;
       tx *= sx;
     }
-    if (sy != 1) {
+    if (sy !== 1) {
+      b *= sy;
       d *= sy;
       ty *= sy;
     }
@@ -572,6 +594,15 @@ public class Matrix {
    *
    */
   public function translate(dx:Number, dy:Number):void {
+    /*
+                      [a     c    tx   ]
+                      [b     d    ty   ]
+                      [0     0    1    ]
+      
+      [1     0   dx]  [a     c    tx+dx]
+      [0     1   dy]  [b     d    ty+dy]
+      [0     0    1]  [0     0    1    ]
+    */
     tx += dx;
     ty += dy;
   }
@@ -583,8 +614,9 @@ public class Matrix {
    */
   public static const MAGIC_GRADIENT_FACTOR:Number = 16384/10;
 
-  // TODO: Adobe's documentation of this class seems quite incomplete.
+  // Adobe's documentation did not make clear how the current matrix has to be multiplied with the transformation
+  // matrix.
   // I used http://www.senocular.com/flash/tutorials/transformmatrix/ to find out the implementation
-  // that matches Flash 9.
+  // that matches Flash 9: multiply transformation matrix with the current matrix, not the other way round.
 }
 }
