@@ -5,21 +5,15 @@
  * config object.
  */
 phantom.injectJs("./phantomjs-joo-config.js");
-function run(){
-  const doExit  = function(msg){console.error("USAGE: phantomjs-joo-runner.js configJSON");die(msg)};
+joo._usageHint = "USAGE: phantomjs-joo-runner.js {jooMainClass:<JOO_MAIN_CLASS>, ...}";
+
+(function (){
   try {
-    var config = joo._parseConfig();
-    if (typeof config === 'object') {
-      const key = "jooMainClass";
-      if(!config[key]){
-        doExit(key + " must be set")
-      }
-      joo._loadScriptWarning();
-      joo._run(config[key],config);
-    } else {
-      doExit("invalid args: " + config);
-    }
+    const key = 'jooMainClass';
+    var config = joo._parseConfig([key]);
+    joo._loadScriptWarning();
+    joo._run(config[key],config);
   } catch(e){
-    doExit(e);
+    joo._die(e);
   }
-}
+})();

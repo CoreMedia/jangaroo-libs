@@ -2,14 +2,12 @@ package net.jangaroo.phantomjs
 {
 import flexunit.framework.*;
 
-public class AllTests
+public class SimpleSuite
    {
    	public static function suite() : TestSuite
    	{
-   		var testSuite:TestSuite = AllFrameworkTests.suite();
-   		
-   		testSuite.addTestSuite( TestRequireWebPage );
-
+   		var testSuite:TestSuite = new TestSuite();
+   		testSuite.addTestSuite( TestTestCase );
    		return testSuite;
    	}
    }

@@ -1,99 +1,107 @@
 /**
- * Parse the given argument String into a config object or
- * parse arguments test=<testSuiteClass> timeout=<timeout> into a config object
- * and launch a suitable <code>tests.html</code>
+ * Parse config object and either launch existing
+ * <code>tests.html</code> or generate
+ * a tests html file to load a test suite in a sandbox.
  */
 phantom.injectJs("./phantomjs-joo-config.js");
-function parseConfig(){
-  var testConfig = joo._parseConfig();
-  if(!testConfig['timeout']){
-    testConfig['timeout'] = 10000;
-  }
-  if(!testConfig['freq']){
-    testConfig['freq'] = 250;
-  }
-  if(!testConfig['outputDir']) {
-    testConfig['outputDir'] = '../surefire-reports';
-  }
-  return testConfig;
-}
+joo._usageHint = "USAGE: phantomjs-joounit-page-runner.js  {testSuiteName:<TestSuiteName>, outputTestResult:<OutputTestResult>, timeout:<Timeout>, freq:<Frequency>}";
 
-function run() {
-  var testConfig = parseConfig();
-  joo._initWindow(testConfig);
-  var page = new WebPage();
-
-  // onerror handler doesn't work with phantomjs 1.3.0, but let's attach anyways
-  page.onerror = function(e){origDie(e)};
-
-  // Echo the output of the tests to the Standard Output
-  page.onConsoleMessage = function(msg, line, source) {
-    // onerror handler doesn't work, so let's check if the msg results from an exception
-    var loglevel = 'info';
-    if((msg && msg.indexOf("TypeError:") == 0) || (source == "undefined" && line < 1)){
-      if(!testConfig.ignoreErrorMessages) {
-        origDie("phantomjs> ERROR: "+ msg);
-      } else {
-        loglevel = 'error';
-      }
+const joounit = {
+  writeTestHtml: function (testHtmlName, testConfig) {
+    // Write html file invoking BrowserRunner on provided testSuiteName.
+    var testHtml = '<html><head>\n<script type="text/javascript" src="joo/jangaroo-application.js"></script>\n' +
+            '<script type="text/javascript" src="joo-test-addon.js"></script>\n' +
+            '<script type="text/javascript">\n' +
+            'joo._outputTestResult = function(s){alert(s)};\n' +
+            'joo.classLoader.run("net.jangaroo.joounit.runner.BrowserRunner",\n' +
+            '{testSuiteName:"' + testConfig.testSuiteName + '"';
+    if(testConfig.outputTestResult){
+      testHtml = testHtml + ',\n outputTestResult: ' + testConfig.outputTestResult;
     }
+    // end classLoader.run
+    testHtml = testHtml + '\n});\n</script></head>\n<body></body>\n</html>';
+    console.info("phantomjs> writing " + testHtmlName);
+    joo._writeToFile(testHtmlName, testHtml);
+    // also write addon file
+    joo._writeToFile('joo-test-addon.js', 'joo._exit = function(b){alert("javascript:joo._exit("+b+")");}');
+  },
+  setupPage: function (testConfig) {
+    var page = new WebPage();
 
-    console[loglevel]("phantomjs> "+ msg + " "+ source + ":"+ line);
-  };
+    // onerror handler doesn't work with phantomjs 1.3.0, but let's attach anyways
+    page.onerror = function(e){joo._die(e)};
 
-  page.onAlert = function(msg) {
-    console.info("phantomjs> alert:"+msg);
-  };
-
-  if (!fs.isFile('tests.html')) {
-    console.info("phantomjs> writing tests.html ...");
-    // Write default tests.html invoking BrowserRunner on provided testSuiteName.
-    var testHtml = fs.open("tests.html", "w");
-    const h = '<html><head><script type="text/javascript" src="joo/jangaroo-application.js"></script>' +
-            '<script type="text/javascript">\njoo.classLoader.run("net.jangaroo.joounit.runner.BrowserRunner", "' +
-            testConfig.testSuiteName + '");\n</script>' +
-            '</head><body></body></html>';
-    testHtml.write(h);
-    testHtml.close();
-  }
-
-  console.log("phantomjs> opening tests.html in page sandbox");
-  page.open("tests.html", function(status) {
-    if (status === "success") {
-      waitForCondition(function() { // wait for this to be true
-        return page.evaluate(function() {
-          return typeof(window["result"]) !== "undefined";
-        });
-      }, function() { // once done...
-        // Retrieve the result of the test suite
-        var resultXml = page.evaluate(function(){
-          return window["result"];
-        });
-        console.info("phantomjs> result: \n"+resultXml);
-        joo._writeTestResult(testConfig.outputDir + '/TEST-' + testConfig.testSuiteName + '.xml',resultXml);
-        joo._exit(resultXml.indexOf('errors="0" failures="0"') > 0);
-      });
-    } else {
-      origDie("Could not load tests.html");
-    }
-  });
-
-  function waitForCondition(condition,callback){
-    console.info("phantomjs> polling for test result every " + testConfig.freq + " ms");
-    window.setInterval(function(){
-      if(condition()){
-        try{
-          callback();
-        } catch(e){
-          origDie(e);
+    // Echo the output of the tests to the Standard Output
+    page.onConsoleMessage = function(msg, line, source) {
+      // onerror handler doesn't work, so let's check if the msg results from an exception
+      var loglevel = 'info';
+      if((msg && msg.indexOf("TypeError:") == 0) || (source == "undefined" && line < 1)){
+        if(!testConfig.ignoreErrorMessages) {
+          joo._die("phantomjs> ERROR: "+ msg);
+        } else {
+          loglevel = 'error';
         }
       }
-    },testConfig.freq);
-  }
-}
 
-var origDie = die;
-die = function (e){
-  console.error("USAGE: phantomjs-joounit-page-runner.js  test=TestClassName [timeout=Timeout] [freq=Frequency]");
-  origDie(e);
+      console[loglevel]("phantomjs> "+ msg + " "+ source + ":"+ line);
+    };
+
+    page.onAlert = function(msg) {
+      if(msg.indexOf('javascript:') == 0){
+        const script = msg.substring(11);
+        console.info("phantomjs> evaluating "+script);
+        eval(script);
+      } else {
+        console.error("phantomjs> alert:"+msg);
+      }
+    };
+    return page;
+  }
 };
+
+(function () {
+  const config = joo._parseConfig();
+  var page = joounit.setupPage(config);
+
+  var testHtmlName = 'tests.html';
+  if(!fs.isFile(testHtmlName)) {
+    testHtmlName = config.testSuiteName + '.html';
+    if(!fs.isFile(testHtmlName)){
+      joounit.writeTestHtml(testHtmlName, config);
+    }
+  }
+
+  console.log("phantomjs> opening " + testHtmlName + " in page sandbox");
+  page.open(testHtmlName, function(status) {
+      if (status === "success") {
+        console.log("phantomjs> successfully loaded " + testHtmlName + " in page sandbox");
+        if(testHtmlName === 'tests.html' && window['testInterval'] === undefined){
+          const freq = config.freq ? config.freq : 250;
+          console.info("phantomjs> polling for test result every " + freq + " ms");
+
+          window['testInterval'] = window.setInterval(function() {
+            // wait for this to be true
+            if(page.evaluate(function() {return typeof(window["result"]) !== "undefined";})) {
+              // once done...
+              try{
+                // Retrieve the result of the test suite
+                var resultXml = page.evaluate(function(){return window["result"];});
+
+                if(config.outputTestResult){
+                  config.outputTestResult(resultXml);
+                } else {
+                  console.info("phantomjs> result: \n"+resultXml);
+                }
+                window.clearInterval(window['testInterval']);
+                phantom.exit(0);
+              } catch(e){
+                joo._die(e);
+              }
+            }
+          }, freq);
+        }
+      } else {
+        joo._die("Could not load "+ testHtmlName);
+      }
+  });
+})();

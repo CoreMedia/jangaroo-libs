@@ -2,10 +2,6 @@
  * joo base config for phantomjs
  */
 var fs = require('fs');
-var die = function(msg){
-  console.error(msg);
-  phantom.exit(1);
-};
 var joo = {
   debug: false,
   _loadScript:function(src/*:String*/) {
@@ -18,31 +14,55 @@ var joo = {
     console.log("phantomjs> note: if loading of scripts fail, consider using a page sandbox.");
   },
   baseUrl:"",
+  /**
+   * Load clazz and pass the given config object to its <code>main</code> method.
+   * @param clazz
+   * @param config
+   */
   _run:function(clazz,config){
-    config.phantom = phantom;
-    config.fs = fs;
     this._initWindow(config);
     phantom.injectJs("joo/jangaroo-application.js");
     joo.classLoader.run(clazz, config);
   },
+  /**
+   * Patch phantom's window object and set global timeout according to current config.
+   * @param config
+   */
   _initWindow:function(config) {
-    if(config.timeout !== undefined){
-      window.setTimeout(function(){
-        console.error("phantomjs> test " + config.testSuiteName+ " timed out after " + config.timeout + " ms");
-        phantom.exit(1);
-      },config.timeout);
-    } else {
-      console.warn("phantomjs> no timeout configured.");
-    }
+    const timeout = config.timeout ? config.timeout : 10000;
+    window.setTimeout(function(){
+      console.error("phantomjs> test " + config.testSuiteName+ " timed out after " + timeout + " ms");
+      phantom.exit(1);
+    },timeout);
   },
-  _parseConfig:function() {
+  /**
+   * Parse phantom's arguments into a config object, check that the required params are present
+   * and configure logging.
+   * @param requiredParams
+   * @return config object
+   */
+  _parseConfig:function(requiredParams) {
     try {
       var config = eval("(" + phantom.args[0] + ")");
       if (typeof config !== 'object') {
-        die("phantomjs> invalid args: " + config);
-      } else if(config.testSuiteName === undefined) {
-        die("phantomjs> either test=<TestSuiteName> must be given or the config object must contain property 'testSuiteName'");
+        if(joo._usageHint){
+          console.error(joo._usageHint);
+        }
+        joo._die("phantomjs> invalid args: " + config);
       }
+      // check required params
+      if(requiredParams && requiredParams.length > 0){
+        for(i = 0; i < requiredParams.length; i++){
+          const key = requiredParams[i];
+          if(!config[key]){
+            if(joo._usageHint){
+              console.error(joo._usageHint);
+            }
+            joo._die(key + " must be set")
+          }
+        }
+      }
+
       // set log level
       const loglevel = config.loglevel ? config.loglevel : 'error';
       const levels = ['log','info','warn','error'];
@@ -54,29 +74,33 @@ var joo = {
 
       return config;
     } catch (e) {
-      die(e);
+      joo._die(e);
     }
   },
-  _writeTestResult:function(absFileName,testResult){
+  _writeToFile:function(fileName,contents){
     try {
-      var f = fs.open(absFileName, "w");
-      f.write(testResult);
+      var f = fs.open(fileName, "w");
+      f.write(contents);
       f.close();
     } catch(e){
-      die(e);
+      joo._die(e);
     }
   },
   _exit:function(result){
     phantom.exit(result ? 0 : 1);
+  },
+  _die: function(msg){
+    console.error(msg);
+    phantom.exit(1);
   }
 };
 joo.loadScriptAsync = joo._loadScript;
 console.log("phantomjs> loaded default phantomjs joo config");
 
 // patch window.setTimeout so to catch runtime errors (window.onerror doesn't work in phantomjs properly)
-__setTimeoutOrig = window.setTimeout;
+joo.__setTimeout = window.setTimeout;
 window.setTimeout = function(vCode, millis){
-  __setTimeoutOrig.apply(window,
+  joo.__setTimeout.apply(window,
           [function(){
             try{
               vCode();
@@ -85,5 +109,3 @@ window.setTimeout = function(vCode, millis){
           },millis]
   )
 };
-
-run();

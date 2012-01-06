@@ -1,21 +1,17 @@
 phantom.injectJs("./phantomjs-joo-config.js");
+joo._usageHint = "USAGE: phantomjs-joounit-runner.js  {testSuiteName:<TestSuiteName>, timeout:<Timeout>, onComplete:<OnComplete>, outputTestResult:<OutputTestResult>, ...}";
 /**
- * Parse the given argument String into a config object or
- * parse arguments test=<testSuiteClass> timeout=<timeout> into a config object
+ * Parse the given argument String into a config object
  * and pass it to
- * <code>net.jangaroo.joounit.runner.PhantomJsRunner#main</code>
+ * <code>net.jangaroo.joounit.runner.BrowserRunner#main</code>
  */
-function run(){
-  var config = joo._parseConfig();
-  config.writeResult = function(fileName,xmlTestResult){
-    joo._writeTestResult(fileName,xmlTestResult);
-    joo._exit(xmlTestResult.indexOf('errors="0" failures="0"') > 0);
-  };
-  joo._loadScriptWarning();
-  joo._run("net.jangaroo.joounit.runner.PhantomJsRunner", config);
-}
-var origDie = die;
-die = function (e){
-  console.error("USAGE: phantomjs-joounit-runner.js  test=TestClassName [timeout=Timeout]");
-  origDie(e);
-};
+
+(function (){
+  try {
+    var config = joo._parseConfig(['testSuiteName']);
+    joo._loadScriptWarning();
+    joo._run("net.jangaroo.joounit.runner.BrowserRunner", config);
+  } catch(e){
+    joo._die(e);
+  }
+})();
