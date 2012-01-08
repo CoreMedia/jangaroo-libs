@@ -2030,13 +2030,32 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
     elem.style.width = "100%";
     elem.style.left = _x + "px";
     elem.style.top = _y + "px";
-    elem.style['MozUserSelect'] = 'none';
-    elem.style['KhtmlUserSelect'] = 'none';
-    elem['unselectable'] = 'on';
-    elem['onselectstart'] = function ():Boolean {
-      return false;
-    };
     return elem;
+  }
+
+  protected function makeSelectable(selectable:Boolean):void {
+    var elem:HTMLElement = getElement();
+    if (selectable) {
+      elem.style['MozUserSelect'] = 'text';
+      elem.style['KhtmlUserSelect'] = 'text';
+      elem.style['WebkitUserSelect'] = 'text';
+      elem.style['MsUserSelect'] = 'text';
+      elem.style['UserSelect'] = 'text';
+      elem.removeAttribute('unselectable');
+      elem.removeEventListener('selectstart', cancelEvent, true);
+    } else {
+      elem.style['MozUserSelect'] = 'none';
+      elem.style['KhtmlUserSelect'] = 'none';
+      elem.style['WebkitUserSelect'] = 'none';
+      elem.style['MsUserSelect'] = 'none';
+      elem.style['UserSelect'] = 'none';
+      elem.setAttribute('unselectable', 'on');
+      elem.addEventListener('selectstart', cancelEvent, true);
+    }
+  }
+
+  private static function cancelEvent():Boolean {
+    return false;
   }
 
   /**

@@ -359,11 +359,12 @@ public class InteractiveObject extends DisplayObject {
    * @private
    */
   public function set mouseEnabled(value:Boolean):void {
-    if (_mouseEnabled == value) {
-      return;
+    if (_mouseEnabled != value) {
+      _mouseEnabled = value;
+      makeSelectable(value);
+      // TODO: what's the exact difference between mouseEnabled and TextField#selecteable?
+      // TODO: need to cancel more mouse events or even key events?
     }
-
-    _mouseEnabled = value;
   }
 
   /**

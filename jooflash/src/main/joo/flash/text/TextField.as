@@ -815,7 +815,10 @@ public class TextField extends InteractiveObject {
    * @private
    */
   public function set selectable(value:Boolean):void {
-    _selectable = value;
+    if (_selectable != value) {
+      _selectable = value;
+      makeSelectable(value);
+    }
   }
 
   /**
@@ -1316,7 +1319,16 @@ public class TextField extends InteractiveObject {
    * @private
    */
   public function set type(value:String):void {
-    _type = value;
+    if (value !== _type) {
+      if (value === TextFieldType.INPUT) {
+        getElement().setAttribute('contenteditable', "true");
+      } else if (value === TextFieldType.DYNAMIC) {
+        getElement().removeAttribute('contenteditable');
+      } else {
+        throw new ArgumentError(value);
+      }
+      _type = value;
+    }
   }
 
   /**
@@ -2656,7 +2668,7 @@ public class TextField extends InteractiveObject {
   private var _restrict:String;
   private var _scrollH:int;
   private var _scrollV:int;
-  private var _selectable:Boolean;
+  private var _selectable:Boolean = true;
   private var _selectionBeginIndex:int;
   private var _selectionEndIndex:int;
   private var _sharpness:Number;
@@ -2667,7 +2679,7 @@ public class TextField extends InteractiveObject {
   private var _textHeight:Number;
   private var _textWidth:Number;
   private var _thickness:Number;
-  private var _type:String;
+  private var _type:String = TextFieldType.DYNAMIC;
   private var _useRichTextClipboard:Boolean;
   private var _wordWrap:Boolean;
 
