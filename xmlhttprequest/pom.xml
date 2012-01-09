@@ -4,11 +4,11 @@
   <groupId>net.jangaroo</groupId>
   <artifactId>xmlhttprequest</artifactId>
   <packaging>jangaroo</packaging>
-  <version>0.9.8-SNAPSHOT</version>
+  <version>0.9.8</version>
   <parent>
     <groupId>net.jangaroo</groupId>
     <artifactId>jangaroo-libs-parent</artifactId>
-    <version>0.9.8-SNAPSHOT</version>
+    <version>0.9.8</version>
     <relativePath>../jangaroo-libs-parent/pom.xml</relativePath>
   </parent>
   <name>xmlhttprequest</name>
