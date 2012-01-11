@@ -10,10 +10,10 @@
   <artifactId>joounit</artifactId>
   <packaging>jangaroo</packaging>
   <version>0.9.10-SNAPSHOT</version>
-  
+
   <name>joounit</name>
   <description>JooUnit - Jangaroo FlexUnit 3</description>
-  
+
   <url>TODO</url>
 
   <developers>
@@ -46,66 +46,80 @@
       <plugin>
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-maven-plugin</artifactId>
-        <configuration>
-          <jooUnitTestExecutionTimeout>120000</jooUnitTestExecutionTimeout>
-          <testsHtml>selenium-tests.html</testsHtml>
-          <phantomTestSuite>flexunit.framework.AllFrameworkTests</phantomTestSuite>
-        </configuration>
-        <!--<executions>-->
-          <!--<execution>-->
-            <!--<id>test-phantom-fail</id>-->
-            <!--<configuration>-->
-              <!--<jooUnitTestExecutionTimeout>5000</jooUnitTestExecutionTimeout>-->
-              <!--<phantomTestSuite>net.jangaroo.phantomjs.TestRequireWebPage</phantomTestSuite>-->
-              <!--<testResultFileName>test-phantom-fail.xml</testResultFileName>-->
-              <!--<phantomTestRunner>joo/phantomjs-joounit-runner.js</phantomTestRunner>-->
-              <!--<phantomArgs>-->
-                <!--(function(){console.info('expecting test to fail'); return {loglevel:'warn'}})()-->
-              <!--</phantomArgs>-->
-              <!--<testFailureIgnore>true</testFailureIgnore>-->
-            <!--</configuration>-->
-            <!--<goals>-->
-              <!--<goal>test</goal>-->
-            <!--</goals>-->
-          <!--</execution>-->
-          <!--<execution>-->
-            <!--<id>test-phantom-bare</id>-->
-            <!--<configuration>-->
-              <!--<jooUnitTestExecutionTimeout>5000</jooUnitTestExecutionTimeout>-->
-              <!--<phantomTestSuite>net.jangaroo.phantomjs.SimpleSuite</phantomTestSuite>-->
-              <!--<testResultFileName>test-phantom-bare.xml</testResultFileName>-->
-              <!--<phantomTestRunner>joo/phantomjs-joounit-runner.js</phantomTestRunner>-->
-            <!--</configuration>-->
-            <!--<goals>-->
-              <!--<goal>test</goal>-->
-            <!--</goals>-->
-          <!--</execution>-->
-          <!--<execution>-->
-            <!--<id>test-phantom-plain</id>-->
-            <!--<configuration>-->
-              <!--<jooUnitTestExecutionTimeout>5000</jooUnitTestExecutionTimeout>-->
-              <!--<phantomTestSuite>net.jangaroo.phantomjs.SimpleSuite</phantomTestSuite>-->
-              <!--<phantomTestRunner>joo/phantomjs-joo-runner.js</phantomTestRunner>-->
-              <!--<phantomArgs>-->
-                <!--{jooMainClass:'net.jangaroo.joounit.runner.BrowserRunner'}-->
-              <!--</phantomArgs>-->
-            <!--</configuration>-->
-            <!--<goals>-->
-              <!--<goal>test</goal>-->
-            <!--</goals>-->
-          <!--</execution>-->
-          <!--<execution>-->
-            <!--<id>test-phantom-page</id>-->
-            <!--<configuration>-->
-              <!--<jooUnitTestExecutionTimeout>5000</jooUnitTestExecutionTimeout>-->
-              <!--<phantomTestSuite>net.jangaroo.phantomjs.TestRequireWebPage</phantomTestSuite>-->
-              <!--<phantomTestRunner>joo/phantomjs-joounit-page-runner.js</phantomTestRunner>-->
-            <!--</configuration>-->
-            <!--<goals>-->
-              <!--<goal>test</goal>-->
-            <!--</goals>-->
-          <!--</execution>-->
-        <!--</executions>-->
+        <inherited>false</inherited>
+        <executions>
+          <execution>
+            <id>framework-suite</id>
+            <configuration>
+              <jooUnitTestExecutionTimeout>120000</jooUnitTestExecutionTimeout>
+              <testsHtml>selenium-tests.html</testsHtml>
+              <phantomTestSuite>flexunit.framework.AllFrameworkTests</phantomTestSuite>
+            </configuration>
+            <goals>
+              <goal>test</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>test-phantom-bare</id>
+            <configuration>
+              <jooUnitTestExecutionTimeout>5000</jooUnitTestExecutionTimeout>
+              <phantomTestSuite>net.jangaroo.phantomjs.SimpleSuite</phantomTestSuite>
+              <testResultFileName>test-phantom-bare.xml</testResultFileName>
+              <phantomTestRunner>joo/phantomjs-joounit-runner.js</phantomTestRunner>
+            </configuration>
+            <goals>
+              <goal>test</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>test-phantom-plain</id>
+            <configuration>
+              <jooUnitTestExecutionTimeout>5000</jooUnitTestExecutionTimeout>
+              <phantomTestSuite>net.jangaroo.phantomjs.SimpleSuite</phantomTestSuite>
+              <phantomTestRunner>joo/phantomjs-joo-runner.js</phantomTestRunner>
+              <phantomArgs>
+                {jooMainClass:'net.jangaroo.joounit.runner.BrowserRunner'}
+              </phantomArgs>
+            </configuration>
+            <goals>
+              <goal>test</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>test-phantom-page</id>
+            <configuration>
+              <jooUnitTestExecutionTimeout>5000</jooUnitTestExecutionTimeout>
+              <phantomTestSuite>net.jangaroo.phantomjs.TestRequireWebPage</phantomTestSuite>
+              <phantomTestRunner>joo/phantomjs-joounit-page-runner.js</phantomTestRunner>
+            </configuration>
+            <goals>
+              <goal>test</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>test-phantom-fail</id>
+            <configuration>
+              <jooUnitTestExecutionTimeout>5000</jooUnitTestExecutionTimeout>
+              <phantomTestSuite>net.jangaroo.phantomjs.TestRequireWebPage</phantomTestSuite>
+              <testResultFileName>test-phantom-fail.xml</testResultFileName>
+              <phantomTestRunner>joo/phantomjs-joounit-runner.js</phantomTestRunner>
+              <!-- we could as well ignore the test failure:
+                <testFailureIgnore>true</testFailureIgnore>
+              -->
+              <phantomArgs>
+                (function(){console.info('expecting test to fail'); return
+                  {
+                    loglevel:'warn',
+                    onComplete:function(r){var b = r.wasSuccessful();console.warn('test '+(b ? 'succeeded' : 'failed'));joo._exit(!b)}
+                  }
+                })()
+              </phantomArgs>
+            </configuration>
+            <goals>
+              <goal>test</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
