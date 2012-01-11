@@ -79,7 +79,7 @@ public interface IComponentMgr {
    * @return Whether the type is registered.
    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ComponentMgr.html#method-Ext.ComponentMgr-isPluginRegistered Ext JS source
    */
-  function isPluginRegistered(ptype:Component):Boolean;
+  function isPluginRegistered(ptype:String):Boolean;
 
   /**
    * Checks if a Component type is registered.
@@ -88,7 +88,7 @@ public interface IComponentMgr {
    * @return Whether the type is registered.
    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ComponentMgr.html#method-Ext.ComponentMgr-isRegistered Ext JS source
    */
-  function isRegistered(xtype:Component):Boolean;
+  function isRegistered(xtype:String):Boolean;
 
   /**
    * Registers a function that will be called when a Component with the specified id is added to ComponentMgr. This will happen on instantiation.
