@@ -71,8 +71,9 @@ const joounit = {
     }
   }
 
-  console.log("phantomjs> opening " + testHtmlName + " in page sandbox");
-  page.open(testHtmlName, function(status) {
+  const testHtmlUrl = "file:///"+ fs.workingDirectory+ "/"+ testHtmlName;
+  console.error("phantomjs> opening " + testHtmlUrl + " in page sandbox");
+  page.open(testHtmlUrl, function(status) {
       if (status === "success") {
         console.log("phantomjs> successfully loaded " + testHtmlName + " in page sandbox");
         if(testHtmlName === 'tests.html' && window['testInterval'] === undefined){
