@@ -20,10 +20,12 @@ const joounit = {
     }
     // end classLoader.run
     testHtml = testHtml + '\n});\n</script></head>\n<body></body>\n</html>';
-    console.info("phantomjs> writing " + testHtmlName);
     joo._writeToFile(testHtmlName, testHtml);
     // also write addon file
-    joo._writeToFile('joo-test-addon.js', 'joo._exit = function(b){alert("javascript:joo._exit("+b+")");}');
+    const addonFileName = 'joo-test-addon.js';
+    if(!fs.isFile(addonFileName)){
+      joo._writeToFile(addonFileName, 'joo._exit = function(b){alert("javascript:joo._exit("+b+")");}');
+    }
   },
   setupPage: function (testConfig) {
     var page = new WebPage();
@@ -61,6 +63,7 @@ const joounit = {
 
 (function () {
   const config = joo._parseConfig();
+  joo._initWindow(config);
   var page = joounit.setupPage(config);
 
   var testHtmlName = 'tests.html';
@@ -72,10 +75,10 @@ const joounit = {
   }
 
   const testHtmlUrl = "file:///"+ fs.workingDirectory+ "/"+ testHtmlName;
-  console.error("phantomjs> opening " + testHtmlUrl + " in page sandbox");
+  console.info("phantomjs> opening " + testHtmlUrl + " in page sandbox");
   page.open(testHtmlUrl, function(status) {
       if (status === "success") {
-        console.log("phantomjs> successfully loaded " + testHtmlName + " in page sandbox");
+        console.info("phantomjs> successfully loaded " + testHtmlName + " in page sandbox");
         if(testHtmlName === 'tests.html' && window['testInterval'] === undefined){
           const freq = config.freq ? config.freq : 250;
           console.info("phantomjs> polling for test result every " + freq + " ms");

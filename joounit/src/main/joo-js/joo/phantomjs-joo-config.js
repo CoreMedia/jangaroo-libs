@@ -78,6 +78,7 @@ var joo = {
     }
   },
   _writeToFile:function(fileName,contents){
+    console.log("phantomjs> writing " + fileName);
     try {
       var f = fs.open(fileName, "w");
       f.write(contents);
