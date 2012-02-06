@@ -10,6 +10,7 @@ import flexunit.framework.TestSuite;
 import flexunit.runner.BaseTestRunner;
 import flexunit.textui.XmlResultPrinter;
 
+import joo.DynamicClassLoader;
 import joo.getQualifiedObject;
 
 /**
@@ -72,6 +73,31 @@ public class BrowserRunner extends BaseTestRunner {
     }
     new BrowserRunner(config).run();
   }
+  
+  internal static function suiteNotFound(msg:String) {
+    window.classLoadingError = msg; // this property is read by jangaroo-maven-plugin
+    trace("[ERROR]", window.classLoadingError);
+    exit(false);
+  }
+
+  internal function onSuiteLoaded() : void {
+    try {
+      var testSuite:Function = getQualifiedObject(testSuiteName);
+      if (typeof testSuite == 'function' && typeof testSuite['suite'] == 'function') {
+        trace("[INFO]","running test suite "+ testSuiteName);
+        startTime = getTimer();
+        numTestsRun = 0;
+        const suite:TestSuite = testSuite['suite']();
+        totalTestCount = suite.countTestCases();
+        suite.runWithResult( testResult );
+      } else {
+        suiteNotFound(testSuiteName + " is not acClass or does not have a static method 'suite'.");
+      }
+    } catch(e:Error){
+      trace("[ERROR]",e);
+      exit(false);
+    }
+  }
 
   public function run():void{
     printer = new XmlResultPrinter(testSuiteName);
@@ -79,19 +105,13 @@ public class BrowserRunner extends BaseTestRunner {
     testResult.addListener(TestListener( printer ));
     testResult.addListener(TestListener( this ));
 
-    RunnerUtils.load(testSuiteName,function(){
-      try {
-        var suite:TestSuite = RunnerUtils.getTestSuite(testSuiteName);
-        if(suite){
-          startTime = getTimer();
-          totalTestCount = suite.countTestCases();
-          numTestsRun = 0;
-          suite.runWithResult( testResult );
-        }
-      } catch(e:Error){
-        trace("[ERROR]",e);
-      }
-    });
+    var classLoader:DynamicClassLoader = DynamicClassLoader.INSTANCE;
+    classLoader.debug = true;
+    classLoader.classLoadErrorHandler = function(fullClassName:String, url:String):void {
+      suiteNotFound("Class " + fullClassName + " not found at URL [" + url + "].");
+    };
+    classLoader.import_(testSuiteName);
+    classLoader.complete(onSuiteLoaded);
   }
 
   override public function testError(test:Test, error:Error):void {
@@ -118,10 +138,14 @@ public class BrowserRunner extends BaseTestRunner {
       const resultXml:String = printer.getXml();
       outputTestResult(resultXml);
       onComplete(testResult,resultXml);
-      const exitFunc:Function = getQualifiedObject("joo._exit"); // see phantomjs-joo-config.js
-      if(exitFunc){
-        exitFunc(testResult.wasSuccessful());
-      }
+      exit(testResult.wasSuccessful());
+    }
+  }
+  
+  internal static function exit(b:Boolean) : void {
+    const exitFunc:Function = getQualifiedObject("joo._exit"); // see phantomjs-joo-config.js
+    if(exitFunc){
+      exitFunc(b);
     }
   }
 
