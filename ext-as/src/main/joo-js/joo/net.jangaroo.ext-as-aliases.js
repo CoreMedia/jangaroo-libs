@@ -56,6 +56,23 @@ ext.menu.Menu.prototype.showMenu = Ext.menu.Menu.prototype.show;
 ext.Window.prototype.showWindow = Ext.Window.prototype.show;
 ext.Component.prototype.addClasses = Ext.Component.prototype.addClass;
 ext.Component.prototype.removeClasses = Ext.Component.prototype.removeClass;
+// patch for intermediate component superclasses without xtype:
+ext.Component.prototype.getXTypes = function () {
+  var tc = this.constructor;
+  if (!tc.xtypes) {
+    var c = [], sc = this;
+    // while (sc && sc.constructor.xtype) {
+    while (sc) { // patch: if  sc.constructor has no xtype, don't stop, but just skip this class level:
+      if (sc.constructor.xtype) {
+        c.unshift(sc.constructor.xtype);
+      }
+      sc = sc.constructor.superclass;
+    }
+    tc.xtypeChain = c;
+    tc.xtypes = c.join("/");
+  }
+  return tc.xtypes;
+}
 // patch for Actions being added to a Component via config's baseAction:
 ext.Action.prototype.addComponent = Ext.Action.prototype.addComponent.createInterceptor(function(component) {
   if (component.initialConfig !== this.initialConfig) {
