@@ -32,6 +32,55 @@ public class Field {
   public native function get allowBlank():Boolean;
 
   /**
+   A function which converts the value provided by the Reader into an object that will be stored in the Record. It is passed the following parameters:<div class="mdetail-params"><ul><li><b>v</b> : Mixed<div class="sub-desc">The data value as read by the Reader, if undefined will use the configured <code><a href="output/Ext.data.Field.html#Ext.data.Field-defaultValue">defaultValue</a></code>.</div></li><li><b>rec</b> : Mixed<div class="sub-desc">The data object containing the row as read by the Reader. Depending on the Reader type, this could be an Array (<a href="Ext.data.ArrayReader.html">ArrayReader</a>), an object (<a href="Ext.data.JsonReader.html">JsonReader</a>), or an XML element (<a href="Ext.data.XMLReader.html">XMLReader</a>).</div></li></ul></div><pre><code>// example of convert function
+   function fullName(v, record){
+     return record.name.last + ', ' + record.name.first;
+   }
+
+   function location(v, record){
+     return !record.city ? '' : (record.city + ', ' + record.state);
+   }
+
+   var Dude = Ext.data.Record.create([
+     {name: 'fullname',  convert: fullName},
+     {name: 'firstname', mapping: 'name.first'},
+     {name: 'lastname',  mapping: 'name.last'},
+     {name: 'city', defaultValue: 'homeless'},
+     'state',
+     {name: 'location',  convert: location}
+   ]);
+
+   // create the data store
+   var store = new Ext.data.Store({
+     reader: new Ext.data.JsonReader(
+       {
+         idProperty: 'key',
+         root: 'daRoot',
+         totalProperty: 'total'
+       },
+       Dude  // recordType
+     )
+   });
+
+   var myData = [
+     { key: 1,
+       name: { first: 'Fat',    last:  'Albert' }
+       // notice no city, state provided in data object
+     },
+     { key: 2,
+       name: { first: 'Barney', last:  'Rubble' },
+       city: 'Bedrock', state: 'Stoneridge'
+     },
+     { key: 3,
+       name: { first: 'Cliff',  last:  'Claven' },
+       city: 'Boston',  state: 'MA'
+     }
+   ];
+   </code></pre>
+   */
+  public native function get convert():Function;
+
+  /**
    (Optional) Used when converting received data into a Date when the <a href="output/Ext.data.Field.html#Ext.data.Field-type">type</a> is specified as <code>"date"</code>.
    <p>A format string for the <a href="output/Date.html#Date-parseDate">Date.parseDate</a> function, or "timestamp" if the value provided by the Reader is a UNIX timestamp, or "time" if the value provided by the Reader is a javascript millisecond timestamp. See <a href="Date.html">Date</a></p>
    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
