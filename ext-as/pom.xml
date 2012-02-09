@@ -52,10 +52,6 @@
       </resource>
       <resource>
         <directory>src/main/joo-api</directory>
-        <excludes>
-          <exclude>ext/layout/boxoverflow/*.as</exclude>
-          <exclude>ext/grid/ActionColumn.as</exclude>
-        </excludes>
         <targetPath>META-INF/joo-api</targetPath>
       </resource>
     </resources>
@@ -63,16 +59,6 @@
       <plugin>
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-maven-plugin</artifactId>
-        <configuration>
-          <excludes>
-            <exclude>ext/config/boxoverflowmenu.as</exclude>
-            <exclude>ext/config/horizontalmenu.as</exclude>
-            <exclude>ext/config/horizontalscroller.as</exclude>
-            <exclude>ext/config/scroller.as</exclude>
-            <exclude>ext/config/verticalscroller.as</exclude>
-            <exclude>ext/config/actioncolumn.as</exclude>
-          </excludes>
-        </configuration>
       </plugin>
       <plugin>
         <groupId>net.jangaroo</groupId>

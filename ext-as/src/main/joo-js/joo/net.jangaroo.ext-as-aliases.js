@@ -13,6 +13,7 @@ ext.data.jsonreader = Ext.data.JsonReader;
 ext.data.store = Ext.data.Store;
 ext.form.action = Ext.form.Action;
 ext.layout.borderlayout = Ext.layout.BorderLayout;
+ext.layout.boxoverflow = Ext.layout.boxOverflow;
 ext.util.DateUtil = Date;
 // Forward all additional Date instance methods as static methods, since AS3 does not allow to extend a final class:
 Ext.iterate({getTimezone: 0, getDayOfYear:0, getWeekOfYear:0, isLeapYear:0, getFirstDayOfMonth:0, getLastDayOfMonth:0,
@@ -36,21 +37,6 @@ Ext.iterate({getTimezone: 0, getDayOfYear:0, getWeekOfYear:0, isLeapYear:0, getF
         };
   });
 ext.util.StringUtil = String;
-// as long as our Ext JS version is older than the Ext AS API:
-ext.util.Functions = {
-  createDelegate: function createDelegate(fn, scope, args, appendArgs) {
-    return fn.createDelegate(scope, args, appendArgs);
-  },
-  createInterceptor: function createInterceptor(fn, fcn, scope) {
-    return fn.createInterceptor(fcn, scope);
-  },
-  createSequence: function createSequence(fn, fcn, scope) {
-    return fn.createSequence(fcn, scope);
-  },
-  defer: function defer(fn, millis, scope, args, appendArgs) {
-    return fn.defer(millis, scope, args, appendArgs);
-  }
-};
 // aliases for overloaded methods, renamed in Ext AS API:
 ext.menu.Menu.prototype.showMenu = Ext.menu.Menu.prototype.show;
 ext.Window.prototype.showWindow = Ext.Window.prototype.show;
@@ -72,7 +58,7 @@ ext.Component.prototype.getXTypes = function () {
     tc.xtypes = c.join("/");
   }
   return tc.xtypes;
-}
+};
 // patch for Actions being added to a Component via config's baseAction:
 ext.Action.prototype.addComponent = Ext.Action.prototype.addComponent.createInterceptor(function(component) {
   if (component.initialConfig !== this.initialConfig) {

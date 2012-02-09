@@ -1,8 +1,8 @@
 /*!
- * Ext JS Library 3.2.2
- * Copyright(c) 2006-2010 Ext JS, Inc.
- * licensing@extjs.com
- * http://www.extjs.com/license
+ * Ext JS Library 3.4.0
+ * Copyright(c) 2006-2011 Sencha Inc.
+ * licensing@sencha.com
+ * http://www.sencha.com/license
  */
 ï»¿/**
  * Portuguese/Portugal (pt_PT) Translation
@@ -101,7 +101,7 @@ if(Ext.DatePicker){
   Ext.apply(Ext.DatePicker.prototype, {
     todayText         : "Hoje",
     minText           : "A data &eacute; anterior ao m&iacute;nimo definido",
-    maxText           : "A data &eacute; posterior ao máximo definido",
+    maxText           : "A data &eacute; posterior ao mï¿½ximo definido",
     disabledDaysText  : "",
     disabledDatesText : "",
     monthNames        : Date.monthNames,
@@ -109,7 +109,7 @@ if(Ext.DatePicker){
     nextText          : 'M&ecirc;s Seguinte (Control+Right)',
     prevText          : 'M&ecirc;s Anterior (Control+Left)',
     monthYearText     : 'Escolha um m&ecirc;s (Control+Up/Down ava&ccedil;ar/recuar anos)',
-    todayTip          : "{0} (barra de espaço)",
+    todayTip          : "{0} (barra de espaï¿½o)",
     format            : "y/m/d",
     okText            : "*OK*",
     cancelText        : "Cancelar",
@@ -161,7 +161,8 @@ if(Ext.form.DateField){
     maxText           : "A data deste campo deve ser anterior a {0}",
     invalidText       : "{0} n&atilde;o &eacute; uma data v&aacute;lida - deve estar no seguinte formato{1}",
     format            : "y/m/d",
-    altFormats        : "m/d/Y|m-d-y|m-d-Y|m/d|m-d|md|mdy|mdY|d|Y-m-d"
+    altFormats        : "m/d/Y|m-d-y|m-d-Y|m/d|m-d|md|mdy|mdY|d|Y-m-d",
+    startDay          : 0
   });
 }
 
