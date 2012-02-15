@@ -103,9 +103,7 @@
               <phantomTestSuite>net.jangaroo.phantomjs.TestRequireWebPage</phantomTestSuite>
               <testResultFileName>test-phantom-fail.xml</testResultFileName>
               <phantomTestRunner>joo/phantomjs-joounit-runner.js</phantomTestRunner>
-              <!-- we could as well ignore the test failure:
-                <testFailureIgnore>true</testFailureIgnore>
-              -->
+              <testFailureIgnore>true</testFailureIgnore>
               <phantomArgs>
                 (function(){console.info('expecting test to fail'); return
                   {
