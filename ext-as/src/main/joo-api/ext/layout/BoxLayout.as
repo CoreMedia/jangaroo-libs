@@ -39,12 +39,7 @@ public class BoxLayout extends ContainerLayout {
    Private cache of the last measured size of the layout target. This should never be used except by BoxLayout subclasses during their onLayout run.
    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BoxLayout.html#prop-Ext.layout.BoxLayout-layoutTargetLastSize Ext JS source
    */
-  public native function get layoutTargetLastSize():Object;
-
-  /**
-   * @private
-   */
-  public native function set layoutTargetLastSize(value:Object):void;
+  public native function getLayoutTargetSize():Object;
 
   /**
    If the individual contained items do not have a <tt>margins</tt> property specified, the default margins from this property will be applied to each item.
