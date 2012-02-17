@@ -1,6 +1,7 @@
 package ext.layout {
 import ext.Component;
 import ext.Element;
+import ext.config.formlayout;
 import ext.form.Field;
 
 /**
@@ -69,8 +70,8 @@ public class FormLayout extends AnchorLayout {
    *
    * @see ext.config.formlayout
    */
-  public function FormLayout() {
-    super();
+  public function FormLayout(config:formlayout = null) {
+    super(config);
   }
 
   /**

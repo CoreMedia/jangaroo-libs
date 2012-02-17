@@ -2,6 +2,7 @@ package ext.layout {
 import ext.Button;
 import ext.Component;
 import ext.Element;
+import ext.config.toolbarlayout;
 import ext.menu.Menu;
 
 /**
@@ -20,8 +21,8 @@ public class ToolbarLayout extends ContainerLayout {
    *
    * @see ext.config.toolbarlayout
    */
-  public function ToolbarLayout() {
-    super();
+  public function ToolbarLayout(config:toolbarlayout = null) {
+    super(config);
   }
 
   /**

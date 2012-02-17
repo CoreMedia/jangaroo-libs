@@ -1,4 +1,6 @@
 package ext.layout {
+import ext.config.absolutelayout;
+
 /**
  * This is a layout that inherits the anchoring of <b><a href="Ext.layout.AnchorLayout.html">Ext.layout.AnchorLayout</a></b> and adds the ability for x/y positioning using the standard x and y component config options.
  <p>This class is intended to be extended or created via the <tt><b><a href="output/Ext.Container.html#Ext.Container-layout">layout</a></b></tt> configuration property. See <tt><b><a href="output/Ext.Container.html#Ext.Container-layout">Ext.Container.layout</a></b></tt> for additional details.</p><p>Example usage:</p><pre><code>var form = new Ext.form.FormPanel({
@@ -54,8 +56,8 @@ public class AbsoluteLayout extends AnchorLayout {
    *
    * @see ext.config.absolutelayout
    */
-  public function AbsoluteLayout() {
-    super();
+  public function AbsoluteLayout(config:absolutelayout = null) {
+    super(config);
   }
 
 }

@@ -1,4 +1,6 @@
 package ext.layout {
+import ext.config.hboxlayout;
+
 /**
  * A layout that arranges items horizontally across a Container. This layout optionally divides available horizontal space between child items containing a numeric <code>flex</code> configuration.
  This layout may also be used to set the heights of child items by configuring it with the <a href="output/Ext.layout.HBoxLayout.html#Ext.layout.HBoxLayout-align">align</a> option.
@@ -16,8 +18,8 @@ public class HBoxLayout extends BoxLayout {
    *
    * @see ext.config.hboxlayout
    */
-  public function HBoxLayout() {
-    super();
+  public function HBoxLayout(config:hboxlayout = null) {
+    super(config);
   }
 
   /**

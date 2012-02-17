@@ -1,4 +1,6 @@
 package ext.layout {
+import ext.config.vboxlayout;
+
 /**
  * A layout that arranges items vertically down a Container. This layout optionally divides available vertical space between child items containing a numeric <code>flex</code> configuration.
  This layout may also be used to set the widths of child items by configuring it with the <a href="output/Ext.layout.VBoxLayout.html#Ext.layout.VBoxLayout-align">align</a> option.
@@ -16,8 +18,8 @@ public class VBoxLayout extends BoxLayout {
    *
    * @see ext.config.vboxlayout
    */
-  public function VBoxLayout() {
-    super();
+  public function VBoxLayout(config:vboxlayout = null) {
+    super(config);
   }
 
   /**

@@ -1,6 +1,7 @@
 package ext.layout {
 import ext.Container;
 import ext.Element;
+import ext.config.boxlayout;
 
 /**
  * Base Class for HBoxLayout and VBoxLayout Classes. Generally it should not need to be used directly.
@@ -19,8 +20,8 @@ public class BoxLayout extends ContainerLayout {
    *
    * @see ext.config.boxlayout
    */
-  public function BoxLayout() {
-    super();
+  public function BoxLayout(config:boxlayout = null) {
+    super(config);
   }
 
   /**
@@ -89,13 +90,6 @@ public class BoxLayout extends ContainerLayout {
    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BoxLayout.html#method-Ext.layout.BoxLayout-handleTargetOverflow Ext JS source
    */
   public native function handleTargetOverflow(previousTargetSize:Object, container:Container, target:Element):void;
-
-  /**
-   *
-   *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BoxLayout.html#method-Ext.layout.BoxLayout-onLayout Ext JS source
-   */
-  public native function onLayout():void;
 
   /**
    * Resizes and repositions each child component

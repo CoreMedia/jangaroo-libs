@@ -1,7 +1,9 @@
 package ext.layout {
 import ext.Component;
+import ext.Container;
 import ext.Element;
 import ext.Template;
+import ext.config.containerlayout;
 
 /**
  * This class is intended to be extended or created via the <tt><b><a href="output/Ext.Container.html#Ext.Container-layout">layout</a></b></tt> configuration property. See <tt><b><a href="output/Ext.Container.html#Ext.Container-layout">Ext.Container.layout</a></b></tt> for additional details.
@@ -20,7 +22,7 @@ public class ContainerLayout {
    *
    * @see ext.config.containerlayout
    */
-  public function ContainerLayout() {
+  public function ContainerLayout(config:containerlayout = null) {
     super();
   }
 
@@ -81,6 +83,8 @@ public class ContainerLayout {
    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ContainerLayout.html#method-Ext.layout.ContainerLayout-renderItem Ext JS source
    */
   public native function renderItem(c:Component, position:Number, target:Element):void;
+
+  public native function onLayout(ct:Container, target:Element):void;
 
 }
 }
