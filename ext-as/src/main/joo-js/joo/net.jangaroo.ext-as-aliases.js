@@ -86,7 +86,7 @@ joo.getOrCreatePackage("joo.meta").ExtConfig = (function(){
     xtype: ext.ComponentMgr.registerType,
     ptype: ext.ComponentMgr.registerPlugin,
     type:  function(layoutName, targetClass) {
-      ext.Container.LAYOUTS[layoutName] = targetClass;
+      ext.Container.LAYOUTS[layoutName.toLowerCase()] = targetClass;
     },
     gctype: function(gridColumnName, targetClass) {
       ext.grid.Column.types[gridColumnName] = targetClass;
