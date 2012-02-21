@@ -902,19 +902,19 @@ public class Element {
    Visibility mode constant for use with <a href="output/Ext.Element.html#Ext.Element-setVisibilityMode">setVisibilityMode</a>. Use display to hide element
    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.fx.html#prop-Ext.Element-DISPLAY Ext JS source
    */
-  public static const DISPLAY:Number;
+  public static const DISPLAY:Number = 2;
 
   /**
    Visibility mode constant for use with <a href="output/Ext.Element.html#Ext.Element-setVisibilityMode">setVisibilityMode</a>. Use offsets (x and y positioning offscreen) to hide element.
    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.fx.html#prop-Ext.Element-OFFSETS Ext JS source
    */
-  public static const OFFSETS:Number;
+  public static const OFFSETS:Number = 3;
 
   /**
    Visibility mode constant for use with <a href="output/Ext.Element.html#Ext.Element-setVisibilityMode">setVisibilityMode</a>. Use visibility to hide element
    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.fx.html#prop-Ext.Element-VISIBILITY Ext JS source
    */
-  public static const VISIBILITY:Number;
+  public static const VISIBILITY:Number = 1;
 
   /**
    true to automatically adjust width and height settings for box-model issues (default to true)

@@ -29,19 +29,19 @@ public class Record {
    Record event type 'commit'.
    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Record.html#prop-Ext.data.Record-COMMIT Ext JS source
    */
-  public static const COMMIT:String;
+  public static const COMMIT:String = "commit";
 
   /**
    Record event type 'edit'.
    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Record.html#prop-Ext.data.Record-EDIT Ext JS source
    */
-  public static const EDIT:String;
+  public static const EDIT:String = "edit";
 
   /**
    Record event type 'reject'.
    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Record.html#prop-Ext.data.Record-REJECT Ext JS source
    */
-  public static const REJECT:String;
+  public static const REJECT:String = "reject";
 
   /**
    An object hash representing the data for this Record. Every field name in the Record definition is represented by a property of that name in this object. Note that unless you specified a field with <a href="output/Ext.data.Field.html#Ext.data.Field-name">name</a> "id" in the Record definition, this will <b>not</b> contain an <tt>id</tt> property.
