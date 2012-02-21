@@ -86,6 +86,8 @@ public class ContainerLayout {
 
   public native function onLayout(ct:Container, target:Element):void;
 
+  public native function layout():void;
+
 }
 }
     

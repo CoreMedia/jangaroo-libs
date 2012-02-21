@@ -340,6 +340,36 @@ public class SplitBar extends Observable {
    */
   public native function setMinimumSize(minSize:Number):void;
 
+  /**
+   * Orientation constant - Create a vertical SplitBar
+   */
+  public static const VERTICAL:Number = 1;
+
+  /**
+   * Orientation constant - Create a horizontal SplitBar
+   */
+  public static const HORIZONTAL:Number = 2;
+
+  /**
+   * Placement constant - The resizing element is to the left of the splitter element
+   */
+  public static const LEFT:Number = 1;
+
+  /**
+   * Placement constant - The resizing element is to the right of the splitter element
+   */
+  public static const RIGHT:Number = 2;
+
+  /**
+   * Placement constant - The resizing element is positioned above the splitter element
+   */
+  public static const TOP:Number = 3;
+
+  /**
+   * Placement constant - The resizing element is positioned under splitter element
+   */
+  public static const BOTTOM:Number = 4;
+
 }
 }
     
