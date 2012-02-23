@@ -55,9 +55,9 @@ public class ColorTransform {
    * @private
    */
   public function set color(value:uint):void {
-    redOffset = value >> 16 & 0xF;
-    greenOffset = value >> 8 & 0xF;
-    blueOffset = value & 0xF;
+    redOffset = value >> 16 & 0xFF;
+    greenOffset = value >> 8 & 0xFF;
+    blueOffset = value & 0xFF;
     redMultiplier = greenMultiplier = blueMultiplier = 1;
   }
 
