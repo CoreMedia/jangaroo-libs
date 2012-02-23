@@ -43,12 +43,12 @@ public class DragDrop {
    Cached reference to the linked element
    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDrop-_domRef Ext JS source
    */
-  public native function get _domRef():Object;
+  public native function get _domRef():HTMLElement;
 
   /**
    * @private
    */
-  public native function set _domRef(value:Object):void;
+  public native function set _domRef(value:HTMLElement):void;
 
   /**
    The available property is false until the linked dom element is accessible.
