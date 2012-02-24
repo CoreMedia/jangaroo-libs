@@ -2,18 +2,34 @@ package net.jangaroo.net {
 
 /**
  * A class representing URIs in generic syntax as specified in <a href="http://www.rfc-editor.org/rfc/rfc3986.txt">RFC 3986</a>.
- *
- * todo: support encoding/decoding of components, separate getter/setter of raw (encoded) components
  */
+// todo: support encoding/decoding of components, separate getter/setter of raw (encoded) components
 public interface URI {
 
+  /**
+   * The scheme part of the URI.
+   */
   function get scheme():String;
+  /**
+   * The authority part of the URI.
+   */
   function get authority():String;
-  function get path():String;
+  /**
+   * The query part of the URI.
+   */
   function get query():String;
+  /**
+   * The fragment part of the URI.
+   */
   function get fragment():String;
 
+  /**
+   * Whether the URI is relative.
+   */
   function get isRelative():Boolean;
+  /**
+   * Whether the URI is isAbsolute.
+   */
   function get isAbsolute():Boolean;
 
   /**
