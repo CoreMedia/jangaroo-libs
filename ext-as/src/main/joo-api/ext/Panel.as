@@ -821,6 +821,7 @@ public class Panel extends Container {
    */
   public native function toggleCollapse(animate:Boolean):Panel;
 
+  protected native function initEvents():void;
 }
 }
     
