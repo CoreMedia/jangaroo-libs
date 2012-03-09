@@ -694,14 +694,6 @@ public interface IEventObject {
   function preventDefault():void;
 
   /**
-   *
-   *
-   * @param e
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager.html#method-Ext.EventObject-setEvent Ext JS source
-   */
-  function setEvent(e:*):void;
-
-  /**
    * Stop the event (preventDefault and stopPropagation)
    *
    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager.html#method-Ext.EventObject-stopEvent Ext JS source
