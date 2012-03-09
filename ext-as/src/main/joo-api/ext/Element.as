@@ -2,6 +2,7 @@ package ext {
 import ext.dd.DD;
 import ext.dd.DDProxy;
 import ext.dd.DDTarget;
+import ext.dd.IDDScrollConfig;
 import ext.lib.Region;
 
 import js.HTMLElement;
@@ -2539,6 +2540,31 @@ public class Element {
    */
   public native function wrap(config:Object = null, returnDom:Boolean = false):*;
 
+  /**
+   * The individual DD scroll config of this Element. If not set, the default
+   * settings of <code>ScrollManager</code> are used.
+   * <p>Ext AS introduces an interface for scroll configs to improve IDE support of setting
+   * individual values. For example, to configure the scrolling behavior of an element <code>el</code>,
+   * you could do the following:
+   * </p>
+   * <pre>
+   *   el.ddScrollConfig = IDDScrollConfig({});
+   *   scrollConfig.animate = true;
+   *   scrollConfig.animDuration = 1.5;
+   *   ext.dd.ScrollManager.register(el);
+   * </pre>
+   * Note that we cast an empty Object to the interface, which would fail in real ActionScript,
+   * but does the job of convincing the IDE that the Object can be assigned to property <code>ddScrollConfig</code>
+   * and saves us from providing a boiler-plate implementation of the interface.
+   *
+   * @see ext.dd.ScrollManager
+   */
+  public native function get ddScrollConfig():IDDScrollConfig;
+
+  /**
+   * @private
+   */
+  public native function set ddScrollConfig(value:IDDScrollConfig):void;
 }
 }
     
