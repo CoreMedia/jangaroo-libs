@@ -248,7 +248,7 @@ public class Observable {
    * @param listeners An object containing a series of listeners to add. See <a href="output/Ext.util.Observable.html#Ext.util.Observable-addListener">addListener</a>.
    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Observable-more.html#method-Ext.util.Observable-observeClass Ext JS source
    */
-  public static native function observeClass(c:Function, listeners:Object):void;
+  public static native function observeClass(c:Function, listeners:Object = undefined):void;
 
   /**
    * Appends an event handler to this object (shorthand for <a href="output/Ext.util.Observable.html#Ext.util.Observable-addListener">addListener</a>.)
