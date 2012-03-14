@@ -106,31 +106,45 @@ joo.getOrCreatePackage("joo.meta").ExtConfig = (function(){
                                      memberDeclaration/*:joo.MemberDeclaration*/,
                                      parameters/*:Object*/) {
     var targetClassName = parameters['target'];
-    var typeAttribute = findTypeAttribute(parameters);
-    if (typeAttribute) { // if any type attribute is set...
+    if (targetClassName) { // if target class is not empty...
       classDeclaration.getDependencies().push(targetClassName); // ...add target class dependency
-      classDeclaration.addStateListener(joo.JooClassDeclaration.STATE_EVENT_AFTER_INIT_MEMBERS, function() {
-        // config class is now initialized:
-        var typeName = parameters[typeAttribute] || classDeclaration.fullClassName;
-        var extTypeAttribute = typeAttribute == 'gctype' ? 'xtype' : typeAttribute; // exceptional case: gridcolumns (gctype) also use 'xtype' as their type key!
-        // add [x|p|]type attribute to prototype and as a static field of the config class:
-        classDeclaration.constructor_.prototype[extTypeAttribute] =
-          classDeclaration.constructor_[typeAttribute] = typeName;
+      var typeAttribute = findTypeAttribute(parameters);
+      if (typeAttribute) { // if any type attribute is set...
+        classDeclaration.addStateListener(joo.JooClassDeclaration.STATE_EVENT_AFTER_INIT_MEMBERS, function() {
+          // config class is now initialized:
+          var typeName = parameters[typeAttribute] || classDeclaration.fullClassName;
+          var extTypeAttribute = typeAttribute == 'gctype' ? 'xtype' : typeAttribute; // exceptional case: gridcolumns (gctype) also use 'xtype' as their type key!
+          // add [x|p|]type attribute to prototype and as a static field of the config class:
+          classDeclaration.constructor_.prototype[extTypeAttribute] =
+            classDeclaration.constructor_[typeAttribute] = typeName;
 
-        var targetClass = joo.classLoader.getRequiredClassDeclaration(targetClassName);
-        // does the config class use the standard naming pattern?
-        // Componentes using custom types (like Ext JS standard components) have to take care of registering themselves!
-        if (!parameters[typeAttribute]) { 
-          REGISTRATION_BY_TYPE[typeAttribute](typeName, targetClass.publicConstructor);
+          var targetClass = joo.classLoader.getRequiredClassDeclaration(targetClassName);
+          // does the config class use the standard naming pattern?
+          // Components using custom types (like Ext JS standard components) have to take care of registering themselves!
+          if (!parameters[typeAttribute]) {
+            REGISTRATION_BY_TYPE[typeAttribute](typeName, targetClass.publicConstructor);
 
-          if (targetClass.addStateListener) { // is it a non-native Jangaroo class?
-            targetClass.addStateListener(joo.JooClassDeclaration.STATE_EVENT_AFTER_INIT_MEMBERS, function() {
-              // re-register the now created "real" constructor:
-              REGISTRATION_BY_TYPE[typeAttribute](typeName, targetClass.constructor_);
-            });
+            if (targetClass.addStateListener) { // is it a non-native Jangaroo class?
+              targetClass.addStateListener(joo.JooClassDeclaration.STATE_EVENT_AFTER_INIT_MEMBERS, function() {
+                // re-register the now created "real" constructor:
+                REGISTRATION_BY_TYPE[typeAttribute](typeName, targetClass.constructor_);
+              });
+            }
           }
-        }
-      });
+        });
+      }
     }
   };
 })();
+
+joo.getOrCreatePackage("net.jangaroo.ext").create = function net_jangaroo_ext_create(configClass, config) {
+  var typedConfig = new configClass(config);
+  var configClassDeclaration = configClass['$class'];
+  var extConfigAnnotation = configClassDeclaration.metadata.ExtConfig;
+  if (!extConfigAnnotation || !extConfigAnnotation.target) {
+    throw new Error("Missing [ExtConfig(target='...')] annotation in config class "
+            + configClassDeclaration.fullClassName);
+  }
+  var targetClass = joo.getQualifiedObject(extConfigAnnotation.target);
+  return new targetClass(typedConfig);
+};
