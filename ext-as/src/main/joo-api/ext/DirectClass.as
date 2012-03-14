@@ -51,15 +51,12 @@ import ext.util.Observable;
 
  * <p>This class defines the type of the singleton Direct.</p>
  * @see ext.#Direct ext.Direct
- * @see ext.config.direct
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Direct.html#cls-Ext.Direct Ext JS source
  */
 public class DirectClass extends Observable {
 
   /**
    * @private
-   *
-   * @see ext.config.direct
    */
   public function DirectClass() {
     super();

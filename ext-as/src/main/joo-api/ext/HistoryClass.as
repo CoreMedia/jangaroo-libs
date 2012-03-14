@@ -38,15 +38,12 @@ import ext.util.Observable;
 
  * <p>This class defines the type of the singleton History.</p>
  * @see ext.#History ext.History
- * @see ext.config.history
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/History.html#cls-Ext.History Ext JS source
  */
 public class HistoryClass extends Observable {
 
   /**
    * @private
-   *
-   * @see ext.config.history
    */
   public function HistoryClass() {
     super();

@@ -34,15 +34,12 @@ import ext.data.Connection;
 
  * <p>This class defines the type of the singleton Ajax.</p>
  * @see ext.#Ajax ext.Ajax
- * @see ext.config.ajax
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Connection.html#cls-Ext.Ajax Ext JS source
  */
 public class AjaxClass extends Connection {
 
   /**
    * @private
-   *
-   * @see ext.config.ajax
    */
   public function AjaxClass() {
     super(null);

@@ -10,15 +10,12 @@ import ext.util.MixedCollection;
 
  * <p>This class defines the type of the singleton StoreMgr.</p>
  * @see ext.#StoreMgr ext.StoreMgr
- * @see ext.config.storemgr
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/StoreMgr.html#cls-Ext.StoreMgr Ext JS source
  */
 public class StoreMgrClass extends MixedCollection {
 
   /**
    * @private
-   *
-   * @see ext.config.storemgr
    */
   public function StoreMgrClass() {
     super(false, null);
