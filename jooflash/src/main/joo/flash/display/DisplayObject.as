@@ -181,12 +181,12 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * <td><code>BlendMode.LIGHTEN</code></td>
    * <td><img src="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/images/blendMode-5.jpg" /></td>
    * <td>Selects the lighter of the constituent colors of the display object and the color of the background (the colors with the larger values). This setting is commonly used for superimposing type.
-   * <p>For example, if the display object has a pixel with an RGB value of 0xFFCC33, and the background pixel has an RGB value of 0xDDF800, the resulting RGB value for the displayed pixel is 0xFFF833 (because 0xFF > 0xDD, 0xCC < 0xF8, and 0x33 > 0x00 = 33). Not supported under GPU rendering.</p></td></tr>
+   * <p>For example, if the display object has a pixel with an RGB value of 0xFFCC33, and the background pixel has an RGB value of 0xDDF800, the resulting RGB value for the displayed pixel is 0xFFF833 (because 0xFF > 0xDD, 0xCC &lt; 0xF8, and 0x33 > 0x00 = 33). Not supported under GPU rendering.</p></td></tr>
    * <tr>
    * <td><code>BlendMode.DARKEN</code></td>
    * <td><img src="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/images/blendMode-6.jpg" /></td>
    * <td>Selects the darker of the constituent colors of the display object and the colors of the background (the colors with the smaller values). This setting is commonly used for superimposing type.
-   * <p>For example, if the display object has a pixel with an RGB value of 0xFFCC33, and the background pixel has an RGB value of 0xDDF800, the resulting RGB value for the displayed pixel is 0xDDCC00 (because 0xFF > 0xDD, 0xCC < 0xF8, and 0x33 > 0x00 = 33). Not supported under GPU rendering.</p></td></tr>
+   * <p>For example, if the display object has a pixel with an RGB value of 0xFFCC33, and the background pixel has an RGB value of 0xDDF800, the resulting RGB value for the displayed pixel is 0xDDCC00 (because 0xFF > 0xDD, 0xCC &lt; 0xF8, and 0x33 > 0x00 = 33). Not supported under GPU rendering.</p></td></tr>
    * <tr>
    * <td><code>BlendMode.DIFFERENCE</code></td>
    * <td><img src="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/images/blendMode-7.jpg" /></td>
@@ -201,7 +201,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * <td><code>BlendMode.SUBTRACT</code></td>
    * <td><img src="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/images/blendMode-9.jpg" /></td>
    * <td>Subtracts the values of the constituent colors in the display object from the values of the background color, applying a floor of 0. This setting is commonly used for animating a darkening dissolve between two objects.
-   * <p>For example, if the display object has a pixel with an RGB value of 0xAA2233, and the background pixel has an RGB value of 0xDDA600, the resulting RGB value for the displayed pixel is 0x338400 (because 0xDD - 0xAA = 0x33, 0xA6 - 0x22 = 0x84, and 0x00 - 0x33 < 0x00).</p></td></tr>
+   * <p>For example, if the display object has a pixel with an RGB value of 0xAA2233, and the background pixel has an RGB value of 0xDDA600, the resulting RGB value for the displayed pixel is 0x338400 (because 0xDD - 0xAA = 0x33, 0xA6 - 0x22 = 0x84, and 0x00 - 0x33 &lt; 0x00).</p></td></tr>
    * <tr>
    * <td><code>BlendMode.INVERT</code></td>
    * <td><img src="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/images/blendMode-10.jpg" /></td>
@@ -276,7 +276,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * @throws ArgumentError When the shader output type is not compatible with this operation (the shader must specify a <code>pixel4</code> output).
    * @throws ArgumentError When the shader specifies fewer than two image inputs or the first two inputs are not an <code>image4</code> inputs.
    * @throws ArgumentError When the shader specifies an image input that isn't provided.
-   * @throws ArgumentError When a ByteArray or Vector.<Number> instance is used as an input and the <code>width</code> and <code>height</code> properties aren't specified for the ShaderInput, or the specified values don't match the amount of data in the input object. See the <code>ShaderInput.input</code> property for more information.
+   * @throws ArgumentError When a ByteArray or Vector.&lt;Number> instance is used as an input and the <code>width</code> and <code>height</code> properties aren't specified for the ShaderInput, or the specified values don't match the amount of data in the input object. See the <code>ShaderInput.input</code> property for more information.
    *
    * @see BlendMode
    * @see Shader
@@ -364,7 +364,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    *      addChild(tf)
    *
    *      function filterPosition(displayObject:DisplayObject, filterClass:Class):int {
-   *          for (var i:uint = 0; i < displayObject.filters.length; i++) {
+   *          for (var i:uint = 0; i &lt; displayObject.filters.length; i++) {
    *              if (displayObject.filters[i] is filterClass) {
    *                  return i;
    *              }
@@ -379,7 +379,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * @throws ArgumentError When <code>filters</code> includes a ShaderFilter and the shader output type is not compatible with this operation (the shader must specify a <code>pixel4</code> output).
    * @throws ArgumentError When <code>filters</code> includes a ShaderFilter and the shader doesn't specify any image input or the first input is not an <code>image4</code> inputs.
    * @throws ArgumentError When <code>filters</code> includes a ShaderFilter and the shader specifies an image input that isn't provided.
-   * @throws ArgumentError When <code>filters</code> includes a ShaderFilter, a ByteArray or Vector.<Number> instance as a shader input, and the <code>width</code> and <code>height</code> properties aren't specified for the ShaderInput object, or the specified values don't match the amount of data in the input data. See the <code>ShaderInput.input</code> property for more information.
+   * @throws ArgumentError When <code>filters</code> includes a ShaderFilter, a ByteArray or Vector.&lt;Number> instance as a shader input, and the <code>width</code> and <code>height</code> properties aren't specified for the ShaderInput object, or the specified values don't match the amount of data in the input data. See the <code>ShaderInput.input</code> property for more information.
    *
    * @see flash.filters
    * @see ShaderInput#input
@@ -1041,7 +1041,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    *     if (square.scaleX > 2.0) {
    *         scaleFactor = 0.99;
    *     }
-   *     if (square.scaleX < 1.0) {
+   *     if (square.scaleX &lt; 1.0) {
    *         scaleFactor = 1.01;
    *     }
    * }
@@ -1387,7 +1387,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    *     if (circle.x > circle.width) {
    *         xInc = -2;
    *     }
-   *     if (circle.x < 0) {
+   *     if (circle.x &lt; 0) {
    *         xInc = 2;
    *     }
    * }
@@ -1506,7 +1506,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    *             if(e.currentTarget.z > depth) {
    *                 e.currentTarget.z = depth;
    *                 d = -1;
-   *             }else if (e.currentTarget.z <  0) {
+   *             }else if (e.currentTarget.z &lt;  0) {
    *                 e.currentTarget.z = 0;
    *                 d = 1;
    *             }
@@ -1753,7 +1753,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    *
    *     public class Local3DToGlobalExample extends MovieClip {
    *         private var myCube:Sprite = new Sprite();
-   *         private var v8:Vector.<Vector3D> = new Vector.<Vector3D>(8);
+   *         private var v8:Vector.&lt;Vector3D> = new Vector.&lt;Vector3D>(8);
    *
    *         public function Local3DToGlobalExample():void {
    *             this.x = -(this.stage.stageWidth / 2);

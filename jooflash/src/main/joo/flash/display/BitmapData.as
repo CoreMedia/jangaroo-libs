@@ -666,8 +666,8 @@ public class BitmapData implements IBitmapDrawable {
 
   /**
    * Determines a rectangular region that either fully encloses all pixels of a specified color within the bitmap image (if the <code>findColor</code> parameter is set to <code>true</code>) or fully encloses all pixels that do not include the specified color (if the <code>findColor</code> parameter is set to <code>false</code>).
-   * <p>For example, if you have a source image and you want to determine the rectangle of the image that contains a nonzero alpha channel, pass <code>{mask: 0xFF000000, color: 0x00000000}</code> as parameters. If the <code>findColor</code> parameter is set to <code>true</code>, the entire image is searched for the bounds of pixels for which <code>(value & mask) == color</code> (where <code>value</code> is the color value of the pixel). If the <code>findColor</code> parameter is set to <code>false</code>, the entire image is searched for the bounds of pixels for which <code>(value & mask) != color</code> (where <code>value</code> is the color value of the pixel). To determine white space around an image, pass <code>{mask: 0xFFFFFFFF, color: 0xFFFFFFFF}</code> to find the bounds of nonwhite pixels.</p>
-   * @param mask A hexadecimal value, specifying the bits of the ARGB color to consider. The color value is combined with this hexadecimal value, by using the <code>&</code> (bitwise AND) operator.
+   * <p>For example, if you have a source image and you want to determine the rectangle of the image that contains a nonzero alpha channel, pass <code>{mask: 0xFF000000, color: 0x00000000}</code> as parameters. If the <code>findColor</code> parameter is set to <code>true</code>, the entire image is searched for the bounds of pixels for which <code>(value &amp; mask) == color</code> (where <code>value</code> is the color value of the pixel). If the <code>findColor</code> parameter is set to <code>false</code>, the entire image is searched for the bounds of pixels for which <code>(value &amp; mask) != color</code> (where <code>value</code> is the color value of the pixel). To determine white space around an image, pass <code>{mask: 0xFFFFFFFF, color: 0xFFFFFFFF}</code> to find the bounds of nonwhite pixels.</p>
+   * @param mask A hexadecimal value, specifying the bits of the ARGB color to consider. The color value is combined with this hexadecimal value, by using the <code>&amp;</code> (bitwise AND) operator.
    * @param color A hexadecimal value, specifying the ARGB color to match (if <code>findColor</code> is set to <code>true</code>) or <i>not</i> to match (if <code>findColor</code> is set to <code>false</code>).
    * @param findColor If the value is set to <code>true</code>, returns the bounds of a color value in an image. If the value is set to <code>false</code>, returns the bounds of where this color doesn't exist in an image.
    *
@@ -746,10 +746,10 @@ public class BitmapData implements IBitmapDrawable {
    * var bmd:BitmapData = new BitmapData(80, 40, true, 0xFF44AACC);
    *
    * var pixelValue:uint = bmd.getPixel32(0, 0);
-   * var alphaValue:uint = pixelValue >> 24 & 0xFF;
-   * var red:uint = pixelValue >> 16 & 0xFF;
-   * var green:uint = pixelValue >> 8 & 0xFF;
-   * var blue:uint = pixelValue & 0xFF;
+   * var alphaValue:uint = pixelValue >> 24 &amp; 0xFF;
+   * var red:uint = pixelValue >> 16 &amp; 0xFF;
+   * var green:uint = pixelValue >> 8 &amp; 0xFF;
+   * var blue:uint = pixelValue &amp; 0xFF;
    *
    * trace(alphaValue.toString(16)); // ff
    * trace(red.toString(16)); // 44
@@ -807,10 +807,10 @@ public class BitmapData implements IBitmapDrawable {
   }
 
   /**
-   * Computes a 256-value binary number histogram of a BitmapData object. This method returns a Vector object containing four Vector.<Number> instances (four Vector objects that contain Number objects). The four Vector instances represent the red, green, blue and alpha components in order. Each Vector instance contains 256 values that represent the population count of an individual component value, from 0 to 255.
+   * Computes a 256-value binary number histogram of a BitmapData object. This method returns a Vector object containing four Vector.&lt;Number> instances (four Vector objects that contain Number objects). The four Vector instances represent the red, green, blue and alpha components in order. Each Vector instance contains 256 values that represent the population count of an individual component value, from 0 to 255.
    * @param hRect The area of the BitmapData object to use.
    *
-   * @return <code><a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/Vector.html">Vector</a>.<<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/Vector.html">Vector</a>.<<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/Number.html">Number</a>>></code>
+   * @return <code><a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/Vector.html">Vector</a>.&lt;<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/Vector.html">Vector</a>.&lt;<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/Number.html">Number</a>>></code>
    *
    */
   public function histogram(hRect:Rectangle = null):Vector.<Vector.<Number> > {
@@ -980,7 +980,7 @@ public class BitmapData implements IBitmapDrawable {
    * var redArray:Array = new Array(256);
    * var greenArray:Array = new Array(256);
    *
-   * for(var i:uint = 0; i < 255; i++) {
+   * for(var i:uint = 0; i &lt; 255; i++) {
    *     redArray[i] = 0x00000000;
    *     greenArray[i] = 0x00000000;
    * }
@@ -1079,7 +1079,7 @@ public class BitmapData implements IBitmapDrawable {
    *     var red:uint = 0x00FF0000;
    *     bmd.pixelDissolve(bmd, rect, pt, randomNum, numberOfPixels, red);
    *     var grayRegion:Rectangle = bmd.getColorBoundsRect(0xFFFFFFFF, 0x00CCCCCC, true);
-   *     if(grayRegion.width == 0 && grayRegion.height == 0 ) {
+   *     if(grayRegion.width == 0 &amp;&amp; grayRegion.height == 0 ) {
    *         tim.stop();
    *     }
    * }
@@ -1137,7 +1137,7 @@ public class BitmapData implements IBitmapDrawable {
    *
    * var bmd:BitmapData = new BitmapData(80, 80, false, 0xCCCCCC);
    *
-   * for (var i:uint = 0; i < 80; i++) {
+   * for (var i:uint = 0; i &lt; 80; i++) {
    *     var red:uint = 0xFF0000;
    *     bmd.setPixel(i, 40, red);
    * }
@@ -1178,7 +1178,7 @@ public class BitmapData implements IBitmapDrawable {
    *
    * var bmd:BitmapData = new BitmapData(80, 80, true, 0xFFCCCCCC);
    *
-   * for (var i:uint = 0; i < 80; i++) {
+   * for (var i:uint = 0; i &lt; 80; i++) {
    *     var red:uint = 0x60FF0000;
    *     bmd.setPixel32(i, 40, red);
    * }
@@ -1251,13 +1251,13 @@ public class BitmapData implements IBitmapDrawable {
   /**
    * Tests pixel values in an image against a specified threshold and sets pixels that pass the test to new color values. Using the <code>threshold()</code> method, you can isolate and replace color ranges in an image and perform other logical operations on image pixels.
    * <p>The <code>threshold()</code> method's test logic is as follows:</p><ol>
-   * <li>If <code>((pixelValue & mask) operation (threshold & mask))</code>, then set the pixel to <code>color</code>;</li>
+   * <li>If <code>((pixelValue &amp; mask) operation (threshold &amp; mask))</code>, then set the pixel to <code>color</code>;</li>
    * <li>Otherwise, if <code>copySource == true</code>, then set the pixel to corresponding pixel value from <code>sourceBitmap</code>.</li></ol>
-   * <p>The <code>operation</code> parameter specifies the comparison operator to use for the threshold test. For example, by using "==" as the <code>operation</code> parameter, you can isolate a specific color value in an image. Or by using <code>{operation: "<", mask: 0xFF000000, threshold: 0x7F000000, color: 0x00000000}</code>, you can set all destination pixels to be fully transparent when the source image pixel's alpha is less than 0x7F. You can use this technique for animated transitions and other effects.</p>
+   * <p>The <code>operation</code> parameter specifies the comparison operator to use for the threshold test. For example, by using "==" as the <code>operation</code> parameter, you can isolate a specific color value in an image. Or by using <code>{operation: "&lt;", mask: 0xFF000000, threshold: 0x7F000000, color: 0x00000000}</code>, you can set all destination pixels to be fully transparent when the source image pixel's alpha is less than 0x7F. You can use this technique for animated transitions and other effects.</p>
    * @param sourceBitmapData The input bitmap image to use. The source image can be a different BitmapData object or it can refer to the current BitmapData instance.
    * @param sourceRect A rectangle that defines the area of the source image to use as input.
    * @param destPoint The point within the destination image (the current BitmapData instance) that corresponds to the upper-left corner of the source rectangle.
-   * @param operation One of the following comparison operators, passed as a String: "<", "<=", ">", ">=", "==", "!="
+   * @param operation One of the following comparison operators, passed as a String: "&lt;", "&lt;=", ">", ">=", "==", "!="
    * @param threshold The value that each pixel is tested against to see if it meets or exceeds the threshhold.
    * @param color The color value that a pixel is set to if the threshold test succeeds. The default value is 0x00000000.
    * @param mask The mask to use to isolate a color component.
@@ -1278,7 +1278,7 @@ public class BitmapData implements IBitmapDrawable {
    *
    * var bmd1:BitmapData = new BitmapData(200, 200, true, 0xFFCCCCCC);
    *
-   * var seed:int = int(Math.random() * int.MAX_VALUE);
+   * var seed:int = int(Math.random() &#42; int.MAX_VALUE);
    * var channels:uint = BitmapDataChannel.RED | BitmapDataChannel.BLUE;
    * bmd1.perlinNoise(100, 80, 12, seed, false, true, channels, false, null);
    *

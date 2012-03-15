@@ -492,7 +492,7 @@ public class Socket extends EventDispatcher implements IDataInput, IDataOutput {
 
   /**
    * Writes a 16-bit integer to the socket. The bytes written are as follows:
-   * <pre><code>(v >> 8) & 0xff v & 0xff</code></pre>
+   * <pre><code>(v >> 8) &amp; 0xff v &amp; 0xff</code></pre>
    * <p>The low 16 bits of the parameter are used; the high 16 bits are ignored.</p>
    * @param value The value to write to the socket.
    *

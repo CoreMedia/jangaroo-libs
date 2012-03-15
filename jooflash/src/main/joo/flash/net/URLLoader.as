@@ -74,7 +74,7 @@ public class URLLoader extends EventDispatcher {
    *
    * @example The following example shows how you can load an external text file with URL encoded variables into an ActionScript 3.0 document using the URLLoader class and setting the dataFormat property to the URLLoaderDataFormat.VARIABLES constant ("variables"). Example provided by <a href="http://actionscriptexamples.com/2008/02/27/loading-url-encoded-variables-into-a-flash-application-using-the-urlloader-class-in-actionscript-30/">ActionScriptExamples.com</a>.
    * <listing>
-   * //params.txt is a local file that includes: firstName=Tom&lastName=Jones
+   * //params.txt is a local file that includes: firstName=Tom&amp;lastName=Jones
    * var lbl:TextField = new TextField();
    * var urlRequest:URLRequest = new URLRequest("params.txt");
    * var urlLoader:URLLoader = new URLLoader();

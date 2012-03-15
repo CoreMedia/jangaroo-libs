@@ -32,7 +32,7 @@ package flash.utils {
  *                     trace("Your computer can count to " + count + " in less than " + delay/1000 + " seconds.");
  *                 }
  *                 i++;
- *             } while(i < count)
+ *             } while(i &lt; count)
  *         }
  *
  *         public function myDelayedFunction():void {

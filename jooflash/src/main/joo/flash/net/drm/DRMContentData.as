@@ -58,8 +58,7 @@ public class DRMContentData {
   /**
    * Retrieves an array of VoucherAccessInfo objects. The array contains at least 1 VoucherAccessInfo object, the default.
    * <p>Each VoucherAccessInfo object represents a policy, which contains the requirements for retrieving a voucher from the media rights server. For example, if the server requires the user to authenticate, the VoucherAccessInfo object contains the authentication method. If the server requires the computer to be registered with a Realm server, the object contains the URL to the Realm server.</p>
-   * @return <code><a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/Vector.html">Vector</a>.<<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/drm/VoucherAccessInfo.html">VoucherAccessInfo</a>></code>
-   *
+   * @return <code><a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/Vector.html">Vector</a>.&lt;<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/drm/VoucherAccessInfo.html">VoucherAccessInfo</a>></code>
    */
   public function getVoucherAccessInfo():Vector.<VoucherAccessInfo> {
     throw new Error('not implemented'); // TODO: implement!

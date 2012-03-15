@@ -37,25 +37,25 @@ import flash.events.EventDispatcher;
  * <tr>
  * <td>Get or set IME conversion mode: <code>IME.conversionMode</code> </td>
  * <td>Yes</td>
- * <td>Yes **</td>
+ * <td>Yes &#42;&#42;</td>
  * <td>No</td></tr>
  * <tr>
  * <td>Send IME the string to be converted: <code>IME.setCompositionString()</code> </td>
- * <td>Yes *</td>
+ * <td>Yes &#42;</td>
  * <td>No</td>
  * <td>No</td></tr>
  * <tr>
  * <td>Get from IME the original string before conversion: <code>System.ime.addEventListener()</code> </td>
- * <td>Yes *</td>
+ * <td>Yes &#42;</td>
  * <td>No</td>
  * <td>No</td></tr>
  * <tr>
  * <td>Send request to convert to IME: <code>IME.doConversion()</code> </td>
- * <td>Yes *</td>
+ * <td>Yes &#42;</td>
  * <td>No</td>
  * <td>No</td></tr></table>
- * <p>* Not all Windows IMEs support all of these operations. The only IME that supports them all is the Japanese IME.</p>
- * <p>** On the Macintosh, only the Japanese IME supports these methods, and third-party IMEs do not support them.</p>
+ * <p>&#42; Not all Windows IMEs support all of these operations. The only IME that supports them all is the Japanese IME.</p>
+ * <p>&#42;&#42; On the Macintosh, only the Japanese IME supports these methods, and third-party IMEs do not support them.</p>
  * <p>The ActionScript 3.0 version of this class does not support Macintosh Classic.</p>
  * @see http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118a9b90204-7cd5.html Using the IME class
  *

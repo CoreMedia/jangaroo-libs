@@ -20,7 +20,7 @@ public final class Accessibility {
   /**
    * Indicates whether a screen reader is active and the application is communicating with it. Use this method when you want your application to behave differently in the presence of a screen reader.
    * <p>Once this property is set to <code>true</code>, it remains <code>true</code> for the duration of the application. (It is unusual for a user to turn off the screen reader once it is started.)</p>
-   * <p><b>Note:</b> Before calling this method, wait 1 or 2 seconds after launching your AIR application or after the first appearance of the Flash<sup>®</sup> Player window in which your document is playing. Otherwise, you might get a return value of <code>false</code> even if there is an active accessibility client. This happens because of an asynchronous communication mechanism between accessibility clients and Flash Player or AIR.</p>To determine whether the player is running in an environment that supports screen readers, use the <code>Capabilities.hasAccessibility</code> property.
+   * <p><b>Note:</b> Before calling this method, wait 1 or 2 seconds after launching your AIR application or after the first appearance of the Flash<sup>&#174;</sup> Player window in which your document is playing. Otherwise, you might get a return value of <code>false</code> even if there is an active accessibility client. This happens because of an asynchronous communication mechanism between accessibility clients and Flash Player or AIR.</p>To determine whether the player is running in an environment that supports screen readers, use the <code>Capabilities.hasAccessibility</code> property.
    * @see flash.system.Capabilities#hasAccessibility
    * @see #updateProperties()
    *

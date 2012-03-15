@@ -45,7 +45,7 @@ public class NetStatusEvent extends Event {
    * <tr>
    * <td><code>"NetConnection.Connect.IdleTimeout"</code></td>
    * <td><code>"status"</code></td>
-   * <td>Flash Media Server disconnected the client because the client was idle longer than the configured value for <code><MaxIdleTime></code>. On Flash Media Server, <code><AutoCloseIdleClients></code> is disabled by default. When enabled, the default timeout value is 3600 seconds (1 hour). For more information, see <a href="http://help.adobe.com/en_US/flashmediaserver/configadmin/WS5b3ccc516d4fbf351e63e3d119f2925e64-7ff0.html#WS5b3ccc516d4fbf351e63e3d119f2925e64-7fe9">Close idle connections</a>.</td></tr>
+   * <td>Flash Media Server disconnected the client because the client was idle longer than the configured value for <code>&lt;MaxIdleTime></code>. On Flash Media Server, <code>&lt;AutoCloseIdleClients></code> is disabled by default. When enabled, the default timeout value is 3600 seconds (1 hour). For more information, see <a href="http://help.adobe.com/en_US/flashmediaserver/configadmin/WS5b3ccc516d4fbf351e63e3d119f2925e64-7ff0.html#WS5b3ccc516d4fbf351e63e3d119f2925e64-7fe9">Close idle connections</a>.</td></tr>
    * <tr>
    * <td><code>"NetConnection.Connect.InvalidApp"</code></td>
    * <td><code>"error"</code></td>

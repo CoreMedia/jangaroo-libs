@@ -242,7 +242,7 @@ public class Sprite extends DisplayObjectContainer {
   /**
    * A Boolean value that indicates whether the pointing hand (hand cursor) appears when the pointer rolls over a sprite in which the <code>buttonMode</code> property is set to <code>true</code>. The default value of the <code>useHandCursor</code> property is <code>true</code>. If <code>useHandCursor</code> is set to <code>true</code>, the pointing hand used for buttons appears when the pointer rolls over a button sprite. If <code>useHandCursor</code> is <code>false</code>, the arrow pointer is used instead.
    * <p>You can change the <code>useHandCursor</code> property at any time; the modified sprite immediately takes on the new cursor appearance.</p>
-   * <p><b>Note:</b> In Flex or Flash Builder, if your sprite has child sprites, you might want to set the <code>mouseChildren</code> property to <code>false</code>. For example, if you want a hand cursor to appear over a Flex <mx:Label> control, set the <code>useHandCursor</code> and <code>buttonMode</code> properties to <code>true</code>, and the <code>mouseChildren</code> property to <code>false</code>.</p>
+   * <p><b>Note:</b> In Flex or Flash Builder, if your sprite has child sprites, you might want to set the <code>mouseChildren</code> property to <code>false</code>. For example, if you want a hand cursor to appear over a Flex &lt;mx:Label> control, set the <code>useHandCursor</code> and <code>buttonMode</code> properties to <code>true</code>, and the <code>mouseChildren</code> property to <code>false</code>.</p>
    * @see #buttonMode
    * @see DisplayObjectContainer#mouseChildren
    *

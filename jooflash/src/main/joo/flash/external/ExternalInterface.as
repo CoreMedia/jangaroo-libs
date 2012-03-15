@@ -38,7 +38,7 @@ import js.Window;
  * <td>Firefox 1.5.0.7 and later</td></tr>
  * <tr>
  * <td>SeaMonkey 1.0.5 and later</td></tr></table>
- * <p>The ExternalInterface class requires the user's web browser to support either ActiveX<sup>®</sup> or the NPRuntime API that is exposed by some browsers for plug-in scripting. Even if a browser and operating system combination are not listed above, they should support the ExternalInterface class if they support the NPRuntime API. See <a href="http://www.mozilla.org/projects/plugins/npruntime.html">http://www.mozilla.org/projects/plugins/npruntime.html</a>.</p>
+ * <p>The ExternalInterface class requires the user's web browser to support either ActiveX<sup>&#174;</sup> or the NPRuntime API that is exposed by some browsers for plug-in scripting. Even if a browser and operating system combination are not listed above, they should support the ExternalInterface class if they support the NPRuntime API. See <a href="http://www.mozilla.org/projects/plugins/npruntime.html">http://www.mozilla.org/projects/plugins/npruntime.html</a>.</p>
  * <p><b>Note:</b> When embedding SWF files within an HTML page, make sure that the <code>id</code> attribute is set and the <code>id</code> and <code>name</code> attributes of the <code>object</code> and <code>embed</code> tags do not include the following characters:</p>
  * <pre> . - + * / \
  </pre>
@@ -148,7 +148,7 @@ public final class ExternalInterface {
    * @throws SecurityError A callback with the specified name has already been added by ActionScript in a sandbox to which you do not have access; you cannot overwrite that callback. To work around this problem, rewrite the ActionScript that originally called the <code>addCallback()</code> method so that it also calls the <code>Security.allowDomain()</code> method.
    * @throws SecurityError The containing environment belongs to a security sandbox to which the calling code does not have access. To fix this problem, follow these steps: <ol>
    * <li>In the <code>object</code> tag for the SWF file in the containing HTML page, set the following parameter:
-   * <p><code><param name="allowScriptAccess" value="always" /></code></p></li>
+   * <p><code>&lt;param name="allowScriptAccess" value="always" /></code></p></li>
    * <li>In the SWF file, add the following ActionScript:
    * <p><code>flash.system.Security.allowDomain(<i>sourceDomain</i>)</code></p></li></ol>
    *
@@ -184,7 +184,7 @@ public final class ExternalInterface {
    * @throws Error The container does not support outgoing calls. Outgoing calls are supported only in Internet Explorer for Windows and browsers that use the NPRuntime API such as Mozilla 1.7.5 and later or Firefox 1.0 and later.
    * @throws SecurityError The containing environment belongs to a security sandbox to which the calling code does not have access. To fix this problem, follow these steps: <ol>
    * <li>In the <code>object</code> tag for the SWF file in the containing HTML page, set the following parameter:
-   * <p><code><param name="allowScriptAccess" value="always" /></code></p></li>
+   * <p><code>&lt;param name="allowScriptAccess" value="always" /></code></p></li>
    * <li>In the SWF file, add the following ActionScript:
    * <p><code>flash.system.Security.allowDomain(<i>sourceDomain</i>)</code></p></li></ol>
    *
@@ -199,7 +199,7 @@ public final class ExternalInterface {
    * //   - A Flash Professional Label component on the Stage with an instance name of "lbl".
    * //   - A Flash Professional Button component on the Stage with an instance name of "button".
    * //
-   * var xmlResponse:String = "<invoke name=\"isReady\" returntype=\"xml\"><arguments><number>1</number><number>" + stage.stageWidth + "</number><number>" + stage.stageHeight + "</number></arguments></invoke>";
+   * var xmlResponse:String = "&lt;invoke name=\"isReady\" returntype=\"xml\">&lt;arguments>&lt;number>1&lt;/number>&lt;number>" + stage.stageWidth + "&lt;/number>&lt;number>" + stage.stageHeight + "&lt;/number>&lt;/arguments>&lt;/invoke>";
    *
    * lbl.text = "ExternalInterface.available: " + ExternalInterface.available;
    * lbl.width = 200;

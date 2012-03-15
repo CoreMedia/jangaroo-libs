@@ -24,10 +24,10 @@ import joo.getQualifiedObject;
  * <td>Whether the operating system supports transparent windows.</td></tr></table>
  * <p>Do <i>not</i> use <code>Capabilities.os</code> or <code>Capabilities.manufacturer</code> to determine a capability based on the operating system. Basing a capability on the operating system is a bad idea, since it can lead to problems if an application does not consider all potential target operating systems. Instead, use the property corresponding to the capability for which you are testing.</p>
  * <p>You can send capabilities information, which is stored in the <code>Capabilities.serverString</code> property as a URL-encoded string, using the <code>GET</code> or <code>POST</code> HTTP method. The following example shows a server string for a computer that has MP3 support and 1600 x 1200 pixel resolution and that is running Windows XP with an input method editor (IME) installed:</p>
- * <pre>A=t&SA=t&SV=t&EV=t&MP3=t&AE=t&VE=t&ACC=f&PR=t&SP=t&
- SB=f&DEB=t&V=WIN%209%2C0%2C0%2C0&M=Adobe%20Windows&
- R=1600x1200&DP=72&COL=color&AR=1.0&OS=Windows%20XP&
- L=en&PT=External&AVD=f&LFD=f&WD=f&IME=t</pre>
+ * <pre>A=t&amp;SA=t&amp;SV=t&amp;EV=t&amp;MP3=t&amp;AE=t&amp;VE=t&amp;ACC=f&amp;PR=t&amp;SP=t&amp;
+ SB=f&amp;DEB=t&amp;V=WIN%209%2C0%2C0%2C0&amp;M=Adobe%20Windows&amp;
+ R=1600x1200&amp;DP=72&amp;COL=color&amp;AR=1.0&amp;OS=Windows%20XP&amp;
+ L=en&amp;PT=External&amp;AVD=f&amp;LFD=f&amp;WD=f&amp;IME=t</pre>
  * <p>The following table lists the properties of the Capabilities class and corresponding server strings:</p>
  * <table>
  * <tr><th>Capabilities class property</th><th>Server string</th></tr>
@@ -568,10 +568,10 @@ public final class Capabilities {
   /**
    * A URL-encoded string that specifies values for each Capabilities property.
    * <p>The following example shows a URL-encoded string:</p>
-   * <pre>A=t&SA=t&SV=t&EV=t&MP3=t&AE=t&VE=t&ACC=f&PR=t&SP=t&
-   SB=f&DEB=t&V=WIN%208%2C5%2C0%2C208&M=Adobe%20Windows&
-   R=1600x1200&DP=72&COL=color&AR=1.0&OS=Windows%20XP&
-   L=en&PT=External&AVD=f&LFD=f&WD=f</pre>
+   * <pre>A=t&amp;SA=t&amp;SV=t&amp;EV=t&amp;MP3=t&amp;AE=t&amp;VE=t&amp;ACC=f&amp;PR=t&amp;SP=t&amp;
+   SB=f&amp;DEB=t&amp;V=WIN%208%2C5%2C0%2C208&amp;M=Adobe%20Windows&amp;
+   R=1600x1200&amp;DP=72&amp;COL=color&amp;AR=1.0&amp;OS=Windows%20XP&amp;
+   L=en&amp;PT=External&amp;AVD=f&amp;LFD=f&amp;WD=f</pre>
    * @see http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118a9b90204-7cd8.html Using the Capabilities class
    *
    */
@@ -623,7 +623,7 @@ public final class Capabilities {
   }
 
   /**
-   * Specifies the Flash Player or Adobe<sup>®</sup> AIR<sup>®</sup> platform and version information. The format of the version number is: <i>platform majorVersion,minorVersion,buildNumber,internalBuildNumber</i>. Possible values for <i>platform</i> are <code>"WIN"</code>, ` <code>"MAC"</code>, <code>"LNX"</code>, and <code>"AND"</code>. Here are some examples of version information:
+   * Specifies the Flash Player or Adobe<sup>&#174;</sup> AIR<sup>&#174;</sup> platform and version information. The format of the version number is: <i>platform majorVersion,minorVersion,buildNumber,internalBuildNumber</i>. Possible values for <i>platform</i> are <code>"WIN"</code>, ` <code>"MAC"</code>, <code>"LNX"</code>, and <code>"AND"</code>. Here are some examples of version information:
    * <pre>     WIN 9,0,0,0  // Flash Player 9 for Windows
    MAC 7,0,25,0   // Flash Player 7 for Macintosh
    LNX 9,0,115,0  // Flash Player 9 for Linux

@@ -231,18 +231,18 @@ public final class ParagraphElement extends ParagraphFormattedElement {
    *             // create TextFlow object
    *             var textFlow:TextFlow = new TextFlow();
    *             // create content for TextFlow using XML markup
-   *             var simpleText:String = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
-   *                 "<flow:TextFlow xmlns:flow=\"http://ns.adobe.com/textLayout/2008\">"+
-   *                     "<flow:p>"+
-   *                         "<flow:span>This is the first paragraph.</flow:span>"+
-   *                     "</flow:p>"+
-   *                     "<flow:p>"+
-   *                         "<flow:span>This is the second paragraph.</flow:span>"+
-   *                     "</flow:p>"+
-   *                     "<flow:p>"+
-   *                         "<flow:span>This is the third paragraph.</flow:span>"+
-   *                     "</flow:p>"+
-   *                 "</flow:TextFlow>";
+   *             var simpleText:String = "&lt;?xml version=\"1.0\" encoding=\"utf-8\"?>" +
+   *                 "&lt;flow:TextFlow xmlns:flow=\"http://ns.adobe.com/textLayout/2008\">"+
+   *                     "&lt;flow:p>"+
+   *                         "&lt;flow:span>This is the first paragraph.&lt;/flow:span>"+
+   *                     "&lt;/flow:p>"+
+   *                     "&lt;flow:p>"+
+   *                         "&lt;flow:span>This is the second paragraph.&lt;/flow:span>"+
+   *                     "&lt;/flow:p>"+
+   *                     "&lt;flow:p>"+
+   *                         "&lt;flow:span>This is the third paragraph.&lt;/flow:span>"+
+   *                     "&lt;/flow:p>"+
+   *                 "&lt;/flow:TextFlow>";
    *             // import the xml markup into a TextFlow object and display it on the stage
    *             textFlow = TextConverter.importToFlow(simpleText, TextConverter.TEXT_LAYOUT_FORMAT);
    *             textFlow.flowComposer.addController(new ContainerController(this, 200, 400));
@@ -255,7 +255,6 @@ public final class ParagraphElement extends ParagraphFormattedElement {
    *         }
    *     }
    * }
-   *
    * </listing>
    */
   public function getNextParagraph():ParagraphElement {
@@ -286,18 +285,18 @@ public final class ParagraphElement extends ParagraphFormattedElement {
    *             // create TextFlow object
    *             var textFlow:TextFlow = new TextFlow();
    *             // create content for TextFlow using XML markup
-   *             var simpleText:String = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
-   *                 "<flow:TextFlow xmlns:flow=\"http://ns.adobe.com/textLayout/2008\">"+
-   *                     "<flow:p>"+
-   *                         "<flow:span>This is the first paragraph.</flow:span>"+
-   *                     "</flow:p>"+
-   *                     "<flow:p>"+
-   *                         "<flow:span>This is the second paragraph.</flow:span>"+
-   *                     "</flow:p>"+
-   *                     "<flow:p>"+
-   *                         "<flow:span>This is the third paragraph.</flow:span>"+
-   *                     "</flow:p>"+
-   *                 "</flow:TextFlow>";
+   *             var simpleText:String = "&lt;?xml version=\"1.0\" encoding=\"utf-8\"?>" +
+   *                 "&lt;flow:TextFlow xmlns:flow=\"http://ns.adobe.com/textLayout/2008\">"+
+   *                     "&lt;flow:p>"+
+   *                         "&lt;flow:span>This is the first paragraph.&lt;/flow:span>"+
+   *                     "&lt;/flow:p>"+
+   *                     "&lt;flow:p>"+
+   *                         "&lt;flow:span>This is the second paragraph.&lt;/flow:span>"+
+   *                     "&lt;/flow:p>"+
+   *                     "&lt;flow:p>"+
+   *                         "&lt;flow:span>This is the third paragraph.&lt;/flow:span>"+
+   *                     "&lt;/flow:p>"+
+   *                 "&lt;/flow:TextFlow>";
    *             // import the xml markup into a TextFlow object and display it on the stage
    *             textFlow = TextConverter.importToFlow(simpleText, TextConverter.TEXT_LAYOUT_FORMAT);
    *             textFlow.flowComposer.addController(new ContainerController(this, 200, 400));
@@ -310,7 +309,6 @@ public final class ParagraphElement extends ParagraphFormattedElement {
    *         }
    *     }
    * }
-   *
    * </listing>
    */
   public function getPreviousParagraph():ParagraphElement {

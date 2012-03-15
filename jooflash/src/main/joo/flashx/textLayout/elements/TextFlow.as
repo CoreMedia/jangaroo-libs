@@ -234,14 +234,14 @@ public class TextFlow extends ContainerFormattedElement implements IEventDispatc
    *             var textFlow:TextFlow = new TextFlow();
    *
    *             // xml markup that defines the attributes and contents of a text flow
-   *             var simpleText:String = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
-   *             "<flow:TextFlow xmlns:flow=\"http://ns.adobe.com/textLayout/2008\" verticalScrollPolicy=\"auto\" horizontalScrollPolicy=\"auto\" fontSize=\"14\" textIndent=\"15\" marginBottom=\"15\" paddingTop=\"4\" paddingLeft=\"4\">"+
-   *                 "<flow:p>"+
-   *                     "<flow:span id='span1'>In the first paragraph of the </flow:span>"+
-   *                     "<flow:span id='span2' fontStyle=\"italic\">cheap </flow:span>"+
-   *                     "<flow:span id='span3'>Western novel, a cowboy meets a saloon girl.</flow:span>"+
-   *                 "</flow:p>"+
-   *             "</flow:TextFlow>";
+   *             var simpleText:String = "&lt;?xml version=\"1.0\" encoding=\"utf-8\"?>" +
+   *             "&lt;flow:TextFlow xmlns:flow=\"http://ns.adobe.com/textLayout/2008\" verticalScrollPolicy=\"auto\" horizontalScrollPolicy=\"auto\" fontSize=\"14\" textIndent=\"15\" marginBottom=\"15\" paddingTop=\"4\" paddingLeft=\"4\">"+
+   *                 "&lt;flow:p>"+
+   *                     "&lt;flow:span id='span1'>In the first paragraph of the &lt;/flow:span>"+
+   *                     "&lt;flow:span id='span2' fontStyle=\"italic\">cheap &lt;/flow:span>"+
+   *                     "&lt;flow:span id='span3'>Western novel, a cowboy meets a saloon girl.&lt;/flow:span>"+
+   *                 "&lt;/flow:p>"+
+   *             "&lt;/flow:TextFlow>";
    *             var s:SpanElement = new SpanElement();
    *             var s2:SpanElement = new SpanElement();
    *             var p:ParagraphElement = new ParagraphElement();
@@ -254,9 +254,6 @@ public class TextFlow extends ContainerFormattedElement implements IEventDispatc
    *         }
    *     }
    * }
-   *
-   *
-   *
    * </listing>
    */
   public function getElementByID(idName:String):FlowElement {

@@ -108,7 +108,7 @@ public final class SoundMixer {
    *
    *             var n:Number = 0;
    *
-   *             for (var i:int = 0; i < CHANNEL_LENGTH; i++) {
+   *             for (var i:int = 0; i &lt; CHANNEL_LENGTH; i++) {
    *                 n = (bytes.readFloat() * PLOT_HEIGHT);
    *                 g.lineTo(i * 2, PLOT_HEIGHT - n);
    *             }
@@ -134,7 +134,6 @@ public final class SoundMixer {
    *         }
    *     }
    * }
-   *
    * </listing>
    */
   public static function computeSpectrum(outputArray:ByteArray, FFTMode:Boolean = false, stretchFactor:int = 0):void {

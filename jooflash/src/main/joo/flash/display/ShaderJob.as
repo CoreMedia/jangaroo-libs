@@ -25,7 +25,7 @@ import flash.events.EventDispatcher;
  */
 public class ShaderJob extends EventDispatcher {
   /**
-   * The height of the result data in the <code>target</code> if it is a ByteArray or Vector.<Number> instance. The size of the ByteArray or Vector.<Number> instance is enlarged if necessary and existing data is overwritten.
+   * The height of the result data in the <code>target</code> if it is a ByteArray or Vector.&lt;Number> instance. The size of the ByteArray or Vector.&lt;Number> instance is enlarged if necessary and existing data is overwritten.
    */
   public function get height():int {
     throw new Error('not implemented'); // TODO: implement!
@@ -66,7 +66,7 @@ public class ShaderJob extends EventDispatcher {
   }
 
   /**
-   * The object into which the result of the shader operation is written. This object must be a BitmapData, ByteArray, or Vector.<Number> instance.
+   * The object into which the result of the shader operation is written. This object must be a BitmapData, ByteArray, or Vector.&lt;Number> instance.
    */
   public function get target():Object {
     throw new Error('not implemented'); // TODO: implement!
@@ -80,7 +80,7 @@ public class ShaderJob extends EventDispatcher {
   }
 
   /**
-   * The width of the result data in the <code>target</code> if it is a ByteArray or Vector.<Number> instance. The size of the ByteArray or Vector.<Number> instance is enlarged if necessary and existing data is overwritten.
+   * The width of the result data in the <code>target</code> if it is a ByteArray or Vector.&lt;Number> instance. The size of the ByteArray or Vector.&lt;Number> instance is enlarged if necessary and existing data is overwritten.
    */
   public function get width():int {
     throw new Error('not implemented'); // TODO: implement!
@@ -96,9 +96,9 @@ public class ShaderJob extends EventDispatcher {
   /**
    *
    * @param shader The shader to use for the operation.
-   * @param target The object into which the result of the shader operation is written. This argument must be a BitmapData, ByteArray, or Vector.<Number> instance.
-   * @param width The width of the result data in the <code>target</code> if it is a ByteArray or Vector.<Number> instance. The size of the ByteArray or Vector.<Number> instance is enlarged if necessary and existing data is overwritten.
-   * @param height The height of the result data in the <code>target</code> if it is a ByteArray or Vector.<Number> instance. The size of the ByteArray or Vector.<Number> instance is enlarged if necessary and existing data is overwritten.
+   * @param target The object into which the result of the shader operation is written. This argument must be a BitmapData, ByteArray, or Vector.&lt;Number> instance.
+   * @param width The width of the result data in the <code>target</code> if it is a ByteArray or Vector.&lt;Number> instance. The size of the ByteArray or Vector.&lt;Number> instance is enlarged if necessary and existing data is overwritten.
+   * @param height The height of the result data in the <code>target</code> if it is a ByteArray or Vector.&lt;Number> instance. The size of the ByteArray or Vector.&lt;Number> instance is enlarged if necessary and existing data is overwritten.
    *
    */
   public function ShaderJob(shader:Shader = null, target:Object = null, width:int = 0, height:int = 0) {
@@ -125,9 +125,9 @@ public class ShaderJob extends EventDispatcher {
    * <table>
    * <tr>
    * <td><code><b>complete</b>:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/ShaderEvent.html"><code>ShaderEvent</code></a></code> — Dispatched when the operation finishes, if the <code>start()</code> method is called with a <code>waitForCompletion</code> argument of <code>true</code>.</td></tr></table>
-   * @throws ArgumentError When the <code>target</code> property is <code>null</code> or is not a BitmapData, ByteArray, or Vector.<Number> instance.
+   * @throws ArgumentError When the <code>target</code> property is <code>null</code> or is not a BitmapData, ByteArray, or Vector.&lt;Number> instance.
    * @throws ArgumentError When the shader specifies an image input that isn't provided.
-   * @throws ArgumentError When a ByteArray or Vector.<Number> instance is used as an input and the <code>width</code> and <code>height</code> properties aren't specified for the ShaderInput, or the specified values don't match the amount of data in the input object. See the <code>ShaderInput.input</code> property for more information.
+   * @throws ArgumentError When a ByteArray or Vector.&lt;Number> instance is used as an input and the <code>width</code> and <code>height</code> properties aren't specified for the ShaderInput, or the specified values don't match the amount of data in the input object. See the <code>ShaderInput.input</code> property for more information.
    *
    */
   public function start(waitForCompletion:Boolean = false):void {

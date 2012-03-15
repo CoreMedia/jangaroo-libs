@@ -315,7 +315,7 @@ public class TextFormat {
   }
 
   /**
-   * Indicates whether the text that uses this text format is underlined (<code>true</code>) or not (<code>false</code>). This underlining is similar to that produced by the <code><U></code> tag, but the latter is not true underlining, because it does not skip descenders correctly. The default value is <code>null</code>, which indicates that underlining is not used.
+   * Indicates whether the text that uses this text format is underlined (<code>true</code>) or not (<code>false</code>). This underlining is similar to that produced by the <code>&lt;U></code> tag, but the latter is not true underlining, because it does not skip descenders correctly. The default value is <code>null</code>, which indicates that underlining is not used.
    * @example
    * <a href="http://www.adobe.com/go/learn_as3_usingexamples_en">How to use this example</a>Please see the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextFormat.html#TextFormat()">TextFormat() constructor</a> example for an illustration of how to use this property.
    */

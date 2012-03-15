@@ -207,7 +207,7 @@ public final class URLRequest {
 
   /**
    * The URL to be requested.
-   * <p>Be sure to encode any characters that are either described as unsafe in the Uniform Resource Locator specification (see http://www.faqs.org/rfcs/rfc1738.html) or that are reserved in the URL scheme of the URLRequest object (when not used for their reserved purpose). For example, use <code>"%25"</code> for the percent (%) symbol and <code>"%23"</code> for the number sign (#), as in <code>"http://www.example.com/orderForm.cfm?item=%23B-3&discount=50%25"</code>.</p>
+   * <p>Be sure to encode any characters that are either described as unsafe in the Uniform Resource Locator specification (see http://www.faqs.org/rfcs/rfc1738.html) or that are reserved in the URL scheme of the URLRequest object (when not used for their reserved purpose). For example, use <code>"%25"</code> for the percent (%) symbol and <code>"%23"</code> for the number sign (#), as in <code>"http://www.example.com/orderForm.cfm?item=%23B-3&amp;discount=50%25"</code>.</p>
    * <p>By default, the URL must be in the same domain as the calling file, unless the content is running in the Adobe AIR application security sandbox. If you need to load data from a different domain, put a URL policy file on the server that is hosting the data. For more information, see the description of the URLRequest class.</p>
    * <p>For content running in Adobe AIR, files in the application security sandobx — files installed with the AIR application — can access URLs using any of the following URL schemes:</p>
    * <ul>

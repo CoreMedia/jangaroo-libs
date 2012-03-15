@@ -194,7 +194,7 @@ public static function allowInsecureDomain(...domains):void {
  * <listing>
  *      Security.loadPolicyFile("xmlsocket://foo.com:414");
  *     </listing>
- * <p>This causes Flash Player or AIR to attempt to retrieve a policy file from the specified host and port. Upon establishing a connection with the specified port, Flash Player or AIR transmits <code><policy-file-request /></code>, terminated by a <code>null</code> byte. The server must send a null byte to terminate a policy file, and may thereafter close the connection; if the server does not close the connection, Flash Player or AIR does so upon receiving the terminating <code>null</code> byte.</p>
+ * <p>This causes Flash Player or AIR to attempt to retrieve a policy file from the specified host and port. Upon establishing a connection with the specified port, Flash Player or AIR transmits <code>&lt;policy-file-request /></code>, terminated by a <code>null</code> byte. The server must send a null byte to terminate a policy file, and may thereafter close the connection; if the server does not close the connection, Flash Player or AIR does so upon receiving the terminating <code>null</code> byte.</p>
  * <p>You can prevent a SWF file from using this method by setting the <code>allowNetworking</code> parameter of the <code>object</code> and <code>embed</code> tags in the HTML page that contains the SWF content.</p>
  * <p>For more information related to security, see the Flash Player Developer Center Topic: <a href="http://www.adobe.com/go/devnet_security_en">Security</a>.</p>
  * @param url The URL location of the policy file to be loaded.

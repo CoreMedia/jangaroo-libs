@@ -9,7 +9,7 @@ import flash.utils.ByteArray;
  */
 public class ShaderEvent extends Event {
   /**
-   * The BitmapData object that was passed to the <code>ShaderJob.start()</code> method. If a ByteArray or Vector.<Number> was passed to the <code>start()</code> method this property is <code>null</code>.
+   * The BitmapData object that was passed to the <code>ShaderJob.start()</code> method. If a ByteArray or Vector.&lt;Number> was passed to the <code>start()</code> method this property is <code>null</code>.
    * @see flash.display.ShaderJob#start()
    *
    */
@@ -25,7 +25,7 @@ public class ShaderEvent extends Event {
   }
 
   /**
-   * The ByteArray object that was passed to the <code>ShaderJob.start()</code> method. If a BitmapData or Vector.<Number> object was passed to the <code>start()</code> method this property is <code>null</code>.
+   * The ByteArray object that was passed to the <code>ShaderJob.start()</code> method. If a BitmapData or Vector.&lt;Number> object was passed to the <code>start()</code> method this property is <code>null</code>.
    * @see flash.display.ShaderJob#start()
    *
    */
@@ -41,7 +41,7 @@ public class ShaderEvent extends Event {
   }
 
   /**
-   * The Vector.<Number> object that was passed to the <code>ShaderJob.start()</code> method. If a BitmapData or ByteArray object was passed to the <code>start()</code> method this property is <code>null</code>.
+   * The Vector.&lt;Number> object that was passed to the <code>ShaderJob.start()</code> method. If a BitmapData or ByteArray object was passed to the <code>start()</code> method this property is <code>null</code>.
    * @see flash.display.ShaderJob#start()
    *
    */
@@ -63,7 +63,7 @@ public class ShaderEvent extends Event {
    * @param cancelable Determines whether the Event object can be canceled. The default value is <code>false</code>.
    * @param bitmap The BitmapData object containing the result of the operation that finished (or <code>null</code> if the target wasn't a BitmapData object).
    * @param array The ByteArray object containing the result of the operation that finished (or <code>null</code> if the target wasn't a ByteArray object).
-   * @param vector The Vector.<Number> instance containing the result of the operation that finished (or <code>null</code> if the target wasn't a Vector.<Number> instance).
+   * @param vector The Vector.&lt;Number> instance containing the result of the operation that finished (or <code>null</code> if the target wasn't a Vector.&lt;Number> instance).
    *
    */
   public function ShaderEvent(type:String, bubbles:Boolean = false, cancelable:Boolean = false, bitmap:BitmapData = null, array:ByteArray = null, vector:Vector.<Number> = null) {
@@ -114,7 +114,7 @@ public class ShaderEvent extends Event {
    * <td>The ShaderJob object reporting completion.</td></tr>
    * <tr>
    * <td><code>vector</code></td>
-   * <td>The Vector.<Number> instance containing the result of the operation that finished (or <code>null</code> if the target wasn't a Vector.<Number> instance).</td></tr></table>
+   * <td>The Vector.&lt;Number> instance containing the result of the operation that finished (or <code>null</code> if the target wasn't a Vector.&lt;Number> instance).</td></tr></table>
    * @see flash.display.ShaderJob#event:complete
    *
    */

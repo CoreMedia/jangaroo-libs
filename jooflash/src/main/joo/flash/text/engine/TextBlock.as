@@ -516,16 +516,16 @@ public final class TextBlock {
   /**
    * Dumps the underlying contents of the TextBlock as an XML string. This can be useful in automated testing, and includes text, formatting, and layout information.
    * <p>The following describes the output:</p>
-   * <pre>     >block<
-   [0-N LINE]
-   >/block<
+   * <pre>
+   >block&lt;
+        [0-N LINE]
+   >/block&lt;
    </pre>
    * <p>For a description of the output for each line, see the TextLine.dump() method.</p>
    * <p><b>Note:</b> The content and format of the output may change in the future. Adobe does not guarantee backward compatibility of this method.</p>
    * @return <code><a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/String.html">String</a></code>
    *
    * @see TextLine#dump()
-   *
    */
   public function dump():String {
     throw new Error('not implemented'); // TODO: implement!

@@ -11,7 +11,7 @@ package flash.utils {
  * <li>Writing your own URLEncoder/URLDecoder.</li>
  * <li>Writing your own AMF/Remoting packet.</li>
  * <li>Optimizing the size of your data by using data types.</li>
- * <li>Working with binary data loaded from a file in Adobe<sup>®</sup> AIR<sup>®</sup>.</li></ul>
+ * <li>Working with binary data loaded from a file in Adobe<sup>&#174;</sup> AIR<sup>&#174;</sup>.</li></ul>
  * <p><a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/utils/ByteArray.html#includeExamplesSummary">View the examples</a></p>
  * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/operators.html#array_access
  * @see flash.net.Socket

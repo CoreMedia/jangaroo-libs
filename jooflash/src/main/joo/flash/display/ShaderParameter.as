@@ -10,7 +10,7 @@ package flash.display {
  * <p>For example, suppose a shader includes the following two parameter declarations:</p>
  * <listing>
  *      parameter float2 size
- *      <
+ *      &lt;
  *          description: "The size of the image to which the kernel is applied";
  *          minValue: float2(0.0, 0.0);
  *          maxValue: float2(100.0, 100.0);
@@ -18,7 +18,7 @@ package flash.display {
  *      >;
  *
  *      parameter float radius
- *      <
+ *      &lt;
  *          description: "The radius of the effect";
  *          minValue: 0.0;
  *          maxValue: 50.0;

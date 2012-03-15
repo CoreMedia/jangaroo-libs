@@ -53,7 +53,7 @@ public dynamic class MovieClip extends Sprite {
    *
    * var labels:Array = mc1.currentLabels;
    *
-   * for (var i:uint = 0; i < labels.length; i++) {
+   * for (var i:uint = 0; i &lt; labels.length; i++) {
    *     var label:FrameLabel = labels[i];
    *     trace("frame " + label.frame + ": " + label.name);
    * }
@@ -122,7 +122,7 @@ public dynamic class MovieClip extends Sprite {
    * <listing>
    * import flash.display.Scene;
    *
-   * for (var i:uint = 0; i < mc1.scenes.length; i++) {
+   * for (var i:uint = 0; i &lt; mc1.scenes.length; i++) {
    *     var scene:Scene = mc1.scenes[i];
    *     trace("scene " + scene.name + ": " + scene.numFrames + " frames");
    * }

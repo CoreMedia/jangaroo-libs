@@ -301,27 +301,28 @@ public final class TextLine extends DisplayObjectContainer {
   /**
    * Dumps the underlying contents of the TextLine as an XML string. This can be useful in automated testing, and includes text, formatting, and layout information.
    * <p>The following describes the output:</p>
-   * <pre>     [LINE]
-   <line ascent=[Number] descent=[Number] rotation=[int]>
-   <elements>
+   * <pre>
+   [LINE]
+   &lt;line ascent=[Number] descent=[Number] rotation=[int]>
+   &lt;elements>
    [0-N ELEMENT]
-   </elements>
-   <clusters>
+   &lt;/elements>
+   &lt;clusters>
    [0-N CLUSTER]
-   </clusters>
-   </line>
+   &lt;/clusters>
+   &lt;/line>
 
    [ELEMENT]
-   <glyph isEmbedded=[Boolean] fontName=[String] isBold=[Boolean] isItalic=[Boolean] gid=[int] pointSize=[Number] x=[Number] y=[Number] rotation=[int]/>
+   &lt;glyph isEmbedded=[Boolean] fontName=[String] isBold=[Boolean] isItalic=[Boolean] gid=[int] pointSize=[Number] x=[Number] y=[Number] rotation=[int]/>
    or
-   <graphic child=[int] x=[Number] y=[Number] rotation=[int]/>
+   &lt;graphic child=[int] x=[Number] y=[Number] rotation=[int]/>
    or
-   <embeddedRun x=[Number] y=[Number]>
+   &lt;embeddedRun x=[Number] y=[Number]>
    [LINE]
-   </embeddedRun>
+   &lt;/embeddedRun>
 
    [CLUSTER]
-   <cluster xLeft=[Number] xCenter=[Number] xRight=[Number] cursorOnLeft=[Boolean] cursorOnRight=[Boolean] wordBoundaryOnLeft=[Boolean] wordBoundaryOnRight=[Boolean]/>
+   &lt;cluster xLeft=[Number] xCenter=[Number] xRight=[Number] cursorOnLeft=[Boolean] cursorOnRight=[Boolean] wordBoundaryOnLeft=[Boolean] wordBoundaryOnRight=[Boolean]/>
    </pre>
    * <p><b>Note:</b> The content and format of the output from this method could change in the future. Adobe does not guarantee backward compatibility for this method.</p>
    * @return <code><a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/String.html">String</a></code>

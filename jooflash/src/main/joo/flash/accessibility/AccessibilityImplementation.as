@@ -75,7 +75,7 @@ public class AccessibilityImplementation {
    *
    *          var index:uint = childID - 1;
    *
-   *          if (index < listBase.verticalScrollPosition ||
+   *          if (index &lt; listBase.verticalScrollPosition ||
    *              index >= listBase.verticalScrollPosition + listBase.rowCount)
    *          {
    *              return null;
@@ -123,7 +123,7 @@ public class AccessibilityImplementation {
    *
    *          var index:uint = childID - 1;
    *
-   *          if (index >= 0 && index < listBase.dataProvider.length)
+   *          if (index >= 0 &amp;&amp; index &lt; listBase.dataProvider.length)
    *              listBase.selectedIndex = index;
    *      }
    *     </listing>
@@ -214,9 +214,9 @@ public class AccessibilityImplementation {
    *
    *          // If the element requested is the component itself,
    *          // append the value of any assigned accessibilityProperties.name
-   *          if (childID == 0 && master.accessibilityProperties
-   *              && master.accessibilityProperties.name
-   *                  && master.accessibilityProperties.name != "")
+   *          if (childID == 0 &amp;&amp; master.accessibilityProperties
+   *              &amp;&amp; master.accessibilityProperties.name
+   *                  &amp;&amp; master.accessibilityProperties.name != "")
    *              accName += master.accessibilityProperties.name + " ";
    *
    *          // Append the value of the childIDs name
@@ -229,7 +229,7 @@ public class AccessibilityImplementation {
    *
    *      // Return the assembled String if it is neither empty nor null,
    *      // otherwise return null
-   *          return (accName != null && accName != "") ? accName : null;
+   *          return (accName != null &amp;&amp; accName != "") ? accName : null;
    *      }</listing>
    */
   public function get_accName(childID:uint):String {
@@ -269,7 +269,7 @@ public class AccessibilityImplementation {
    *          var selectedIndices:Array = ListBase(master).selectedIndices;
    *
    *          var n:int = selectedIndices.length;
-   *          for (var i:int = 0; i < n; i++)
+   *          for (var i:int = 0; i &lt; n; i++)
    *          {
    *              accSelection[i] = selectedIndices[i] + 1;
    *          }
@@ -311,7 +311,7 @@ public class AccessibilityImplementation {
    *
    *              // For returning states (OffScreen and Invisible)
    *              // when the list Item is not in the displayed rows.
-   *              if (index < listBase.verticalScrollPosition ||
+   *              if (index &lt; listBase.verticalScrollPosition ||
    *                  index >= listBase.verticalScrollPosition + listBase.rowCount)
    *              {
    *                  accState |= (STATE_SYSTEM_OFFSCREEN |
@@ -326,7 +326,7 @@ public class AccessibilityImplementation {
    *                  var renderer:IListItemRenderer =
    *                      listBase.itemToItemRenderer(item);
    *
-   *                  if (renderer != null && listBase.isItemSelected(renderer.data))
+   *                  if (renderer != null &amp;&amp; listBase.isItemSelected(renderer.data))
    *                      accState |= STATE_SYSTEM_SELECTED | STATE_SYSTEM_FOCUSED;
    *              }
    *          }
@@ -398,7 +398,7 @@ public class AccessibilityImplementation {
    *          if (ListBase(master).dataProvider)
    *          {
    *              var n:uint = ListBase(master).dataProvider.length;
-   *              for (var i:int = 0; i < n; i++)
+   *              for (var i:int = 0; i &lt; n; i++)
    *              {
    *                  childIDs[i] = i + 1;
    *              }

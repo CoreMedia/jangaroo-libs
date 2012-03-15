@@ -6,7 +6,7 @@ import flash.display.DisplayObject;
  * <p>To create a reference to an existing static text field in ActionScript 3.0, you can iterate over the items in the display list. For example, the following snippet checks to see if the display list contains a static text field and assigns the field to a variable:</p>
  * <listing>
  *  var i:uint;
- *  for (i = 0; i < this.numChildren; i++) {
+ *  for (i = 0; i &lt; this.numChildren; i++) {
  *      var displayitem:DisplayObject = this.getChildAt(i);
  *      if (displayitem instanceof StaticText) {
  *          trace("a static text field is item " + i + " on the display list");

@@ -271,7 +271,7 @@ public class TextField extends InteractiveObject {
 
   /**
    * A Boolean value that specifies whether extra white space (spaces, line breaks, and so on) in a text field with HTML text is removed. The default value is <code>false</code>. The <code>condenseWhite</code> property only affects text set with the <code>htmlText</code> property, not the <code>text</code> property. If you set text with the <code>text</code> property, <code>condenseWhite</code> is ignored.
-   * <p>If <code>condenseWhite</code> is set to <code>true</code>, use standard HTML commands such as <code><BR></code> and <code><P></code> to place line breaks in the text field.</p>
+   * <p>If <code>condenseWhite</code> is set to <code>true</code>, use standard HTML commands such as <code>&lt;BR></code> and <code>&lt;P></code> to place line breaks in the text field.</p>
    * <p>Set the <code>condenseWhite</code> property before setting the <code>htmlText</code> property.</p>
    * @see #htmlText
    *
@@ -474,27 +474,27 @@ public class TextField extends InteractiveObject {
    * <tr><th>Tag</th><th>Description</th></tr>
    * <tr>
    * <td>Anchor tag</td>
-   * <td>The <code><a></code> tag creates a hypertext link and supports the following attributes:
+   * <td>The <code>&lt;a></code> tag creates a hypertext link and supports the following attributes:
    * <ul>
    * <li><code>target</code>: Specifies the name of the target window where you load the page. Options include <code>_self</code>, <code>_blank</code>, <code>_parent</code>, and <code>_top</code>. The <code>_self</code> option specifies the current frame in the current window, <code>_blank</code> specifies a new window, <code>_parent</code> specifies the parent of the current frame, and <code>_top</code> specifies the top-level frame in the current window.</li>
    * <li><code>href</code>: Specifies a URL or an ActionScript <code>link</code> event.The URL can be either absolute or relative to the location of the SWF file that is loading the page. An example of an absolute reference to a URL is <code>http://www.adobe.com</code>; an example of a relative reference is <code>/index.html</code>. Absolute URLs must be prefixed with http://; otherwise, Flash Player or AIR treats them as relative URLs. You can use the <code>link</code> event to cause the link to execute an ActionScript function in a SWF file instead of opening a URL. To specify a <code>link</code> event, use the event scheme instead of the http scheme in your <code>href</code> attribute. An example is <code>href="event:myText"</code> instead of <code>href="http://myURL"</code>; when the user clicks a hypertext link that contains the event scheme, the text field dispatches a <code>link</code> TextEvent with its <code>text</code> property set to "<code>myText</code>". You can then create an ActionScript function that executes whenever the link TextEvent is dispatched. You can also define <code>a:link</code>, <code>a:hover</code>, and <code>a:active</code> styles for anchor tags by using style sheets.</li></ul></td></tr>
    * <tr>
    * <td>Bold tag</td>
-   * <td>The <code><b></code> tag renders text as bold. A bold typeface must be available for the font used.</td></tr>
+   * <td>The <code>&lt;b></code> tag renders text as bold. A bold typeface must be available for the font used.</td></tr>
    * <tr>
    * <td>Break tag</td>
-   * <td>The <code><br></code> tag creates a line break in the text field. Set the text field to be a multiline text field to use this tag.</td></tr>
+   * <td>The <code>&lt;br></code> tag creates a line break in the text field. Set the text field to be a multiline text field to use this tag.</td></tr>
    * <tr>
    * <td>Font tag</td>
-   * <td>The <code><font></code> tag specifies a font or list of fonts to display the text.The font tag supports the following attributes:
+   * <td>The <code>&lt;font></code> tag specifies a font or list of fonts to display the text.The font tag supports the following attributes:
    * <ul>
    * <li><code>color</code>: Only hexadecimal color (<code>#FFFFFF</code>) values are supported.</li>
    * <li><code>face</code>: Specifies the name of the font to use. As shown in the following example, you can specify a list of comma-delimited font names, in which case Flash Player selects the first available font. If the specified font is not installed on the local computer system or isn't embedded in the SWF file, Flash Player selects a substitute font.</li>
    * <li><code>size</code>: Specifies the size of the font. You can use absolute pixel sizes, such as 16 or 18, or relative point sizes, such as +2 or -4.</li></ul></td></tr>
    * <tr>
    * <td>Image tag</td>
-   * <td>The <code><img></code> tag lets you embed external image files (JPEG, GIF, PNG), SWF files, and movie clips inside text fields. Text automatically flows around images you embed in text fields. You must set the text field to be multiline to wrap text around an image.
-   * <p>The <code><img></code> tag supports the following attributes:</p>
+   * <td>The <code>&lt;img></code> tag lets you embed external image files (JPEG, GIF, PNG), SWF files, and movie clips inside text fields. Text automatically flows around images you embed in text fields. You must set the text field to be multiline to wrap text around an image.
+   * <p>The <code>&lt;img></code> tag supports the following attributes:</p>
    * <ul>
    * <li><code>src</code>: Specifies the URL to an image or SWF file, or the linkage identifier for a movie clip symbol in the library. This attribute is required; all other attributes are optional. External files (JPEG, GIF, PNG, and SWF files) do not show until they are downloaded completely.</li>
    * <li><code>width</code>: The width of the image, SWF file, or movie clip being inserted, in pixels.</li>
@@ -504,31 +504,31 @@ public class TextField extends InteractiveObject {
    * <li><code>vspace</code>: Specifies the amount of vertical space that surrounds the image where no text appears. The default value is 8.</li>
    * <li><code>id</code>: Specifies the name for the movie clip instance (created by Flash Player) that contains the embedded image file, SWF file, or movie clip. This approach is used to control the embedded content with ActionScript.</li>
    * <li><code>checkPolicyFile</code>: Specifies that Flash Player checks for a URL policy file on the server associated with the image domain. If a policy file exists, SWF files in the domains listed in the file can access the data of the loaded image, for example, by calling the <code>BitmapData.draw()</code> method with this image as the <code>source</code> parameter. For more information related to security, see the Flash Player Developer Center Topic: <a href="http://www.adobe.com/go/devnet_security_en">Security</a>.</li></ul>
-   * <p>Flash displays media embedded in a text field at full size. To specify the dimensions of the media you are embedding, use the <code><img></code> tag <code>height</code> and <code>width</code> attributes.</p>
-   * <p>In general, an image embedded in a text field appears on the line following the <code><img></code> tag. However, when the <code><img></code> tag is the first character in the text field, the image appears on the first line of the text field.</p>
+   * <p>Flash displays media embedded in a text field at full size. To specify the dimensions of the media you are embedding, use the <code>&lt;img></code> tag <code>height</code> and <code>width</code> attributes.</p>
+   * <p>In general, an image embedded in a text field appears on the line following the <code>&lt;img></code> tag. However, when the <code>&lt;img></code> tag is the first character in the text field, the image appears on the first line of the text field.</p>
    * <p>For AIR content in the application security sandbox, AIR ignores <code>img</code> tags in HTML content in ActionScript TextField objects. This is to prevent possible phishing attacks,</p></td></tr>
    * <tr>
    * <td>Italic tag</td>
-   * <td>The <code><i></code> tag displays the tagged text in italics. An italic typeface must be available for the font used.</td></tr>
+   * <td>The <code>&lt;i></code> tag displays the tagged text in italics. An italic typeface must be available for the font used.</td></tr>
    * <tr>
    * <td>List item tag</td>
-   * <td>The <code><li></code> tag places a bullet in front of the text that it encloses. <b>Note:</b> Because Flash Player and AIR do not recognize ordered and unordered list tags (<code><ol></code> and <code><ul></code>, they do not modify how your list is rendered. All lists are unordered and all list items use bullets.</td></tr>
+   * <td>The <code>&lt;li></code> tag places a bullet in front of the text that it encloses. <b>Note:</b> Because Flash Player and AIR do not recognize ordered and unordered list tags (<code>&lt;ol></code> and <code>&lt;ul></code>, they do not modify how your list is rendered. All lists are unordered and all list items use bullets.</td></tr>
    * <tr>
    * <td>Paragraph tag</td>
-   * <td>The <code><p></code> tag creates a new paragraph. The text field must be set to be a multiline text field to use this tag. The <code><p></code> tag supports the following attributes:
+   * <td>The <code>&lt;p></code> tag creates a new paragraph. The text field must be set to be a multiline text field to use this tag. The <code>&lt;p></code> tag supports the following attributes:
    * <ul>
    * <li>align: Specifies alignment of text within the paragraph; valid values are <code>left</code>, <code>right</code>, <code>justify</code>, and <code>center</code>.</li>
    * <li>class: Specifies a CSS style class defined by a flash.text.StyleSheet object.</li></ul></td></tr>
    * <tr>
    * <td>Span tag</td>
-   * <td>The <code><span></code> tag is available only for use with CSS text styles. It supports the following attribute:
+   * <td>The <code>&lt;span></code> tag is available only for use with CSS text styles. It supports the following attribute:
    * <ul>
    * <li>class: Specifies a CSS style class defined by a flash.text.StyleSheet object.</li></ul></td></tr>
    * <tr>
    * <td>Text format tag</td>
    * <td>
-   * <p>The <code><textformat></code> tag lets you use a subset of paragraph formatting properties of the TextFormat class within text fields, including line leading, indentation, margins, and tab stops. You can combine <code><textformat></code> tags with the built-in HTML tags.</p>
-   * <p>The <code><textformat></code> tag has the following attributes:</p>
+   * <p>The <code>&lt;textformat></code> tag lets you use a subset of paragraph formatting properties of the TextFormat class within text fields, including line leading, indentation, margins, and tab stops. You can combine <code>&lt;textformat></code> tags with the built-in HTML tags.</p>
+   * <p>The <code>&lt;textformat></code> tag has the following attributes:</p>
    * <ul>
    * <li><code>blockindent</code>: Specifies the block indentation in points; corresponds to <code>TextFormat.blockIndent</code>.</li>
    * <li><code>indent</code>: Specifies the indentation from the left margin to the first character in the paragraph; corresponds to <code>TextFormat.indent</code>. Both positive and negative numbers are acceptable.</li>
@@ -538,31 +538,31 @@ public class TextField extends InteractiveObject {
    * <li><code>tabstops</code>: Specifies custom tab stops as an array of non-negative integers; corresponds to <code>TextFormat.tabStops</code>.</li></ul></td></tr>
    * <tr>
    * <td>Underline tag</td>
-   * <td>The <code><u></code> tag underlines the tagged text.</td></tr></table>
+   * <td>The <code>&lt;u></code> tag underlines the tagged text.</td></tr></table>
    * <p>Flash Player and AIR support the following HTML entities:</p>
    * <table>
    * <tr><th>Entity</th><th>Description</th></tr>
    * <tr>
-   * <td>&lt;</td>
-   * <td>< (less than)</td></tr>
+   * <td>&amp;lt;</td>
+   * <td>&lt; (less than)</td></tr>
    * <tr>
-   * <td>&gt;</td>
+   * <td>&amp;gt;</td>
    * <td>> (greater than)</td></tr>
    * <tr>
-   * <td>&amp;</td>
-   * <td>& (ampersand)</td></tr>
+   * <td>&amp;amp;</td>
+   * <td>&amp; (ampersand)</td></tr>
    * <tr>
-   * <td>&quot;</td>
+   * <td>&amp;quot;</td>
    * <td>" (double quotes)</td></tr>
    * <tr>
-   * <td>&apos;</td>
+   * <td>&amp;apos;</td>
    * <td>' (apostrophe, single quote)</td></tr></table>
    * <p>Flash Player and AIR also support explicit character codes, such as &#38; (ASCII ampersand) and &#x20AC; (Unicode € symbol).</p>
    * @see #text
    * @see StyleSheet
    * @see flash.events.TextEvent
    *
-   * @example The following example creates a TextField called <code>tf1</code>, and assigns an HTML-formatted String to its <code>text</code> property. When its <code>htmlText</code> property is traced, the output is the HTML-formatted String, with additional tags (such as <P> and <FONT>) automatically added by Flash Player. When the value of the <code>text</code> property is traced, the unformatted string without HTML tags is displayed.
+   * @example The following example creates a TextField called <code>tf1</code>, and assigns an HTML-formatted String to its <code>text</code> property. When its <code>htmlText</code> property is traced, the output is the HTML-formatted String, with additional tags (such as &lt;P> and &lt;FONT>) automatically added by Flash Player. When the value of the <code>text</code> property is traced, the unformatted string without HTML tags is displayed.
    * <p>By way of comparison, the same steps are performed on another TextField object named <code>tf2</code>, with the addition that a StyleSheet object is assigned to <code>tf2</code>'s <code>styleSheet</code> property before its <code>htmlText</code> property is set. In that case, when the <code>htmlText</code> property is traced, it only includes the exact HTML text that was originally assigned to the <code>htmlText</code> property, showing that no additional tags were added by Flash Player.</p>
    * <listing>
    * package {
@@ -573,17 +573,17 @@ public class TextField extends InteractiveObject {
    *     public class TextField_text extends Sprite {
    *         public function TextField_text() {
    *             var tf1:TextField = createCustomTextField(10, 10, 400, 22);
-   *             tf1.htmlText = "<b>Lorem ipsum dolor sit amet.</b>";
+   *             tf1.htmlText = "&lt;b>Lorem ipsum dolor sit amet.&lt;/b>";
    *
-   *             // htmlText: <P ALIGN="LEFT"><FONT FACE="Times New Roman" SIZE="12" COLOR="#000000" LETTERSPACING="0" KERNING="0"><b>Lorem ipsum dolor sit amet.</b></FONT></P>
+   *             // htmlText: &lt;P ALIGN="LEFT">&lt;FONT FACE="Times New Roman" SIZE="12" COLOR="#000000" LETTERSPACING="0" KERNING="0">&lt;b>Lorem ipsum dolor sit amet.&lt;/b>&lt;/FONT>&lt;/P>
    *             trace("htmlText: " + tf1.htmlText);
    *             // text: Lorem ipsum dolor sit amet.
    *             trace("text: " + tf1.text);
    *
    *             var tf2:TextField = createCustomTextField(10, 50, 400, 22);
    *             tf2.styleSheet = new StyleSheet();
-   *             tf2.htmlText = "<b>Lorem ipsum dolor sit amet.</b>";
-   *             // htmlText: <b>Lorem ipsum dolor sit amet.</b>
+   *             tf2.htmlText = "&lt;b>Lorem ipsum dolor sit amet.&lt;/b>";
+   *             // htmlText: &lt;b>Lorem ipsum dolor sit amet.&lt;/b>
    *             trace("htmlText: " + tf2.htmlText);
    *             // text: Lorem ipsum dolor sit amet.
    *             trace("text: " + tf2.text);
@@ -1028,7 +1028,7 @@ public class TextField extends InteractiveObject {
    * <p>To get the text in HTML form, use the <code>htmlText</code> property.</p>
    * @see #htmlText
    *
-   * @example The following example creates a TextField called <code>tf1</code>, and assigns an HTML-formatted String to its <code>text</code> property. When its <code>htmlText</code> property is traced, the output is the HTML-formatted String, with additional tags (such as <P> and <FONT>) automatically added by Flash Player. When the value of the <code>text</code> property is traced, the unformatted string without HTML tags is displayed.
+   * @example The following example creates a TextField called <code>tf1</code>, and assigns an HTML-formatted String to its <code>text</code> property. When its <code>htmlText</code> property is traced, the output is the HTML-formatted String, with additional tags (such as &lt;P> and &lt;FONT>) automatically added by Flash Player. When the value of the <code>text</code> property is traced, the unformatted string without HTML tags is displayed.
    * <p>By way of comparison, the same steps are performed on another TextField object named <code>tf2</code>, with the addition that a StyleSheet object is assigned to <code>tf2</code>'s <code>styleSheet</code> property before its <code>htmlText</code> property is set. In that case, when the <code>htmlText</code> property is traced, it only includes the exact HTML text that was originally assigned to the <code>htmlText</code> property, showing that no additional tags were added by Flash Player.</p>
    * <listing>
    * package {
@@ -1039,17 +1039,17 @@ public class TextField extends InteractiveObject {
    *     public class TextField_text extends Sprite {
    *         public function TextField_text() {
    *             var tf1:TextField = createCustomTextField(10, 10, 400, 22);
-   *             tf1.htmlText = "<b>Lorem ipsum dolor sit amet.</b>";
+   *             tf1.htmlText = "&lt;b>Lorem ipsum dolor sit amet.&lt;/b>";
    *
-   *             // htmlText: <P ALIGN="LEFT"><FONT FACE="Times New Roman" SIZE="12" COLOR="#000000" LETTERSPACING="0" KERNING="0"><b>Lorem ipsum dolor sit amet.</b></FONT></P>
+   *             // htmlText: &lt;P ALIGN="LEFT">&lt;FONT FACE="Times New Roman" SIZE="12" COLOR="#000000" LETTERSPACING="0" KERNING="0">&lt;b>Lorem ipsum dolor sit amet.&lt;/b>&lt;/FONT>&lt;/P>
    *             trace("htmlText: " + tf1.htmlText);
    *             // text: Lorem ipsum dolor sit amet.
    *             trace("text: " + tf1.text);
    *
    *             var tf2:TextField = createCustomTextField(10, 50, 400, 22);
    *             tf2.styleSheet = new StyleSheet();
-   *             tf2.htmlText = "<b>Lorem ipsum dolor sit amet.</b>";
-   *             // htmlText: <b>Lorem ipsum dolor sit amet.</b>
+   *             tf2.htmlText = "&lt;b>Lorem ipsum dolor sit amet.&lt;/b>";
+   *             // htmlText: &lt;b>Lorem ipsum dolor sit amet.&lt;/b>
    *             trace("htmlText: " + tf2.htmlText);
    *             // text: Lorem ipsum dolor sit amet.
    *             trace("text: " + tf2.text);
@@ -1713,11 +1713,11 @@ public class TextField extends InteractiveObject {
   }
 
   /**
-   * Returns a DisplayObject reference for the given <code>id</code>, for an image or SWF file that has been added to an HTML-formatted text field by using an <code><img></code> tag. The <code><img></code> tag is in the following format:
-   * <pre><code>  <img src = 'filename.jpg' id = 'instanceName' ></code></pre>
-   * @param id The <code>id</code> to match (in the <code>id</code> attribute of the <code><img></code> tag).
+   * Returns a DisplayObject reference for the given <code>id</code>, for an image or SWF file that has been added to an HTML-formatted text field by using an <code>&lt;img></code> tag. The <code>&lt;img></code> tag is in the following format:
+   * <pre><code>  &lt;img src = 'filename.jpg' id = 'instanceName' ></code></pre>
+   * @param id The <code>id</code> to match (in the <code>id</code> attribute of the <code>&lt;img></code> tag).
    *
-   * @return The display object corresponding to the image or SWF file with the matching <code>id</code> attribute in the <code><img></code> tag of the text field. For media loaded from an external source, this object is a Loader object, and, once loaded, the media object is a child of that Loader object. For media embedded in the SWF file, it is the loaded object. If no <code><img></code> tag with the matching <code>id</code> exists, the method returns <code>null</code>.
+   * @return The display object corresponding to the image or SWF file with the matching <code>id</code> attribute in the <code>&lt;img></code> tag of the text field. For media loaded from an external source, this object is a Loader object, and, once loaded, the media object is a child of that Loader object. For media embedded in the SWF file, it is the loaded object. If no <code>&lt;img></code> tag with the matching <code>id</code> exists, the method returns <code>null</code>.
    *
    * @see #htmlText
    *
@@ -1740,7 +1740,7 @@ public class TextField extends InteractiveObject {
    *
    *         public function TextField_getImageReferenceExample()
    *         {
-   *             var myText1:String = "<p>Here is an image we want to mainpulate: <img src='image.jpg' id='testimage'></p>";
+   *             var myText1:String = "&lt;p>Here is an image we want to mainpulate: &lt;img src='image.jpg' id='testimage'>&lt;/p>";
    *
    *             myTextField.x = 10;
    *             myTextField.y = 10;
@@ -2157,7 +2157,7 @@ public class TextField extends InteractiveObject {
    *                               + "If this be error and upon me proved,\n"
    *                               + "I never writ, nor no man ever loved.\n\n";
    *
-   *             for (var i:int = 0; i < poem.numLines; i++) {
+   *             for (var i:int = 0; i &lt; poem.numLines; i++) {
    *
    *                 var s:String = poem.getLineText(i);
    *
@@ -2245,7 +2245,7 @@ public class TextField extends InteractiveObject {
    *                 var endParag:int = beginParag + paragLength;
    *                 var sCount:uint = 0;
    *
-   *                 for (var i:int = beginParag; i <= endParag; i++) {
+   *                 for (var i:int = beginParag; i &lt;= endParag; i++) {
    *                     if ((myTextField.text.charAt(i) == "s") || (myTextField.text.charAt(i) == "S")) {
    *                         sCount++;
    *                     }

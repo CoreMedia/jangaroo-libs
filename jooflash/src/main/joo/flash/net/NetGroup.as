@@ -262,8 +262,6 @@ public class NetGroup extends EventDispatcher {
    * <p>When you run the application, you can enter any group name into the text input field. The GroupSpecifier class uses the name (along with any GroupSpecifier properties you've set) to create a string which is the perpetually unique name of the group. To connect another client to the group, that client must use the same group name. For example, if client A uses the group name "firstmesh", other clients that want to communicate with client A must also use the group name "firstmesh". If client B uses the group name "kite", it will connect successfully, but it will create a new group and won't be able to communicate with client A or anyone in the "firstmesh" group.</p>
    * <p>To run this example, add a Button, a Label, a TextInput, and a TextArea component to the Library in Flash Pro.</p>
    * <listing>
-   *
-   *
    * package  {
    *
    *     import flash.display.Sprite;
@@ -357,7 +355,7 @@ public class NetGroup extends EventDispatcher {
    *         // Creates a NetConnection to Flash Media Server if the app isn't already connected
    *         // and if there's a group name in the TextInput field.
    *         private function DoConnect(e:MouseEvent):void{
-   *             if(!connected && (groupNameText.length > 0)){
+   *             if(!connected &amp;&amp; (groupNameText.length > 0)){
    *                 StatusMessage("Connecting to \"" + SERVER + "\" ...\n");
    *                 netConnection = new NetConnection();
    *                 netConnection.addEventListener(NetStatusEvent.NET_STATUS, NetStatusHandler);
@@ -432,7 +430,7 @@ public class NetGroup extends EventDispatcher {
    *         }
    *
    *         private function OnPosting(message:Object):void{
-   *             StatusMessage("<" + message.user + "> " + message.text + "\n");
+   *             StatusMessage("&lt;" + message.user + "> " + message.text + "\n");
    *         }
    *
    *         private function DoUI():void {
@@ -496,10 +494,6 @@ public class NetGroup extends EventDispatcher {
    *     }
    *
    * }
-   *
-   *
-   *
-   *
    * </listing>
    */
   public function post(message:Object):String {

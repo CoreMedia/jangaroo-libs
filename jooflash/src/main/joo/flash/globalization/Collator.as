@@ -3,13 +3,13 @@ package flash.globalization {
 
 /**
  * The Collator class provides locale-sensitive string comparison capabilities.
- * <p>This class uses the string comparison services provided by the operating system. The comparisons differ according to the locale identifier that is provided when the class instance is created. ActionScript stores strings using the Unicode character set. The Boolean string comparison operators (==, !=, <, <=, >, >=) use Unicode code points for comparison. In most cases the resulting sort order doesn't match the conventions of a particular language and region, and thus should not be used to sort strings that are presented in a user interface. In contrast the comparison methods in this class provide an order that adheres to these conventions.</p>
+ * <p>This class uses the string comparison services provided by the operating system. The comparisons differ according to the locale identifier that is provided when the class instance is created. ActionScript stores strings using the Unicode character set. The Boolean string comparison operators (==, !=, &lt;, &lt;=, >, >=) use Unicode code points for comparison. In most cases the resulting sort order doesn't match the conventions of a particular language and region, and thus should not be used to sort strings that are presented in a user interface. In contrast the comparison methods in this class provide an order that adheres to these conventions.</p>
  * <p>Here are some examples where the sort order differs depending on the language:</p>
  * <ul>
  * <li>In English, lowercase a is before uppercase A and uppercase A is before lowercase b.</li>
  * <li>ö is after z in Swedish, whereas in German ö is after o</li>
  * <li>ch is sorted as one character between c-d in traditional Spanish</li>
- * <li>accented characters in French are sorted according to the last accent difference instead of the first accent difference: for example, cote < côte < coté < côté instead of cote < coté < côte < côté</li></ul>
+ * <li>accented characters in French are sorted according to the last accent difference instead of the first accent difference: for example, cote &lt; côte &lt; coté &lt; côté instead of cote &lt; coté &lt; côte &lt; côté</li></ul>
  * <p>Sort orders can even differ within the same language and region depending on the usage. For example, in German there is a different sort order used for names in a phone book versus words in a dictionary. In Chinese and Japanese there are different ways of sorting the ideographic characters: by pronunciation or by the ideographic radical and the number of strokes uses in the glyph. In Spanish and Georgian, there is a difference between modern and traditional sorting.</p>
  * <p>The comparison methods in this class provide two main usage modes. The <code>initialMode</code> parameter of the <code>Collator()</code> constructor controls these modes. The default "sorting" mode is for sorting items that are displayed to an end user. In this mode, comparison is more strict to ensure that items that are otherwise the same are sorted in a consistent manner. For example, uppercase letters and lowercase letters do not compare as equal. In the "matching" mode the comparison is more lenient. For example in this mode uppercase and lowercase letters are treated equally. Here's an example that demonstrates both of these modes:</p>
  * <listing>
@@ -50,7 +50,7 @@ public final class Collator {
    * <ul>
    * <li><code>LastOperationStatus.NO_ERROR</code></li></ul>
    * <p>Otherwise, the <code>lastOperationStatus</code> property is set to one of the constants defined in the LastOperationStatus class.</p>
-   * <p>The default value is <code><code>true</code> when the <code>Collator()</code> constructor's <code>initialMode</code> parameter is set to <code>Collator.MATCHING</code>. <code>false</code> when the <code>Collator()</code> constructor's <code>initialMode</code> parameter is set to Collator.SORTING..</code></p>
+   * <p>The default value is <code>true</code> when the <code>Collator()</code> constructor's <code>initialMode</code> parameter is set to <code>Collator.MATCHING</code>. <code>false</code> when the <code>Collator()</code> constructor's <code>initialMode</code> parameter is set to <code>Collator.SORTING</code>.</p>
    * @see #lastOperationStatus
    * @see #compare()
    * @see #equals()
@@ -182,13 +182,13 @@ public final class Collator {
    * Controls how numeric values embedded in strings are handled during string comparison.
    * <p>When the <code>numericComparison</code> property is set to <code>true</code>, the compare method converts numbers that appear in strings to numerical values for comparison.</p>
    * <p>When this property is set to <code>false</code>, the comparison treats numbers as character codes and sort them according to the rules for sorting characters in the specified locale.</p>
-   * <p>For example, when this property is true for the locale ID "en-US", then the strings "version1", "version10", and "version2" are sorted into the following order: version1 < version2 < version10.</p>
-   * <p>When this property is false for "en-US", those same strings are sorted into the following order: version1 < version10 < version2.</p>
+   * <p>For example, when this property is true for the locale ID "en-US", then the strings "version1", "version10", and "version2" are sorted into the following order: version1 &lt; version2 &lt; version10.</p>
+   * <p>When this property is false for "en-US", those same strings are sorted into the following order: version1 &lt; version10 &lt; version2.</p>
    * <p>When this property is assigned a value and there are no errors or warnings, the <code>lastOperationStatus</code> property is set to:</p>
    * <ul>
    * <li><code>LastOperationStatus.NO_ERROR</code></li></ul>
    * <p>Otherwise the <code>lastOperationStatus</code> property is set to one of the constants defined in the LastOperationStatus class.</p>
-   * <p>The default value is <code>false.</code></p>
+   * <p>The default value is <code>false</code>.</p>
    * @see #lastOperationStatus
    * @see #compare()
    * @see #equals()

@@ -101,14 +101,14 @@ package flash.utils {
  *
  *           var flag:int = input.readByte();
  *
- *           one = (flag & 1) != 0;
- *           two = (flag & 2) != 0;
- *           three = (flag & 4) != 0;
- *           four = (flag & 8) != 0;
- *           five = (flag & 16) != 0;
- *           six = (flag & 32) != 0;
- *           seven = (flag & 64) != 0;
- *           eight = (flag & 128) != 0;
+ *           one = (flag &amp; 1) != 0;
+ *           two = (flag &amp; 2) != 0;
+ *           three = (flag &amp; 4) != 0;
+ *           four = (flag &amp; 8) != 0;
+ *           five = (flag &amp; 16) != 0;
+ *           six = (flag &amp; 32) != 0;
+ *           seven = (flag &amp; 64) != 0;
+ *           eight = (flag &amp; 128) != 0;
  *       }
  *  }
  * </listing>

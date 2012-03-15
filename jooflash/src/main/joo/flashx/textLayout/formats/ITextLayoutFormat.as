@@ -507,7 +507,7 @@ public interface ITextLayoutFormat {
   /**
    * Specifies the tab stops associated with the paragraph. Setters can take an array of flashx.textLayout.formats.TabStopFormat, a condensed string representation, undefined, or <code>FormatValue.INHERIT</code>. The condensed string representation is always converted into an array of flashx.textLayout.formats.TabStopFormat.
    * <p>The string-based format is a list of tab stops, where each tab stop is delimited by one or more spaces.</p>
-   * <p>A tab stop takes the following form: <alignment type><alignment position>|<alignment token>.</p>
+   * <p>A tab stop takes the following form: &lt;alignment type>&lt;alignment position>|&lt;alignment token>.</p>
    * <p>The alignment type is a single character, and can be S, E, C, or D (or lower-case equivalents). S or s for start, E or e for end, C or c for center, D or d for decimal. The alignment type is optional, and if its not specified will default to S.</p>
    * <p>The alignment position is a Number, and is specified according to FXG spec for Numbers (decimal or scientific notation). The alignment position is required.</p>
    * <p>The vertical bar is used to separate the alignment position from the alignment token, and should only be present if the alignment token is present.</p>

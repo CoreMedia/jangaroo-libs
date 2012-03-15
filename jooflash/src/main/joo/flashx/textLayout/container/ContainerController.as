@@ -987,7 +987,7 @@ public class ContainerController implements IInteractionEventHandler, ITextLayou
   /**
    * TextLayoutFormat: Specifies the tab stops associated with the paragraph. Setters can take an array of flashx.textLayout.formats.TabStopFormat, a condensed string representation, undefined, or <code>FormatValue.INHERIT</code>. The condensed string representation is always converted into an array of flashx.textLayout.formats.TabStopFormat.
    * <p>The string-based format is a list of tab stops, where each tab stop is delimited by one or more spaces.</p>
-   * <p>A tab stop takes the following form: <alignment type><alignment position>|<alignment token>.</p>
+   * <p>A tab stop takes the following form: &lt;alignment type>&lt;alignment position>|&lt;alignment token>.</p>
    * <p>The alignment type is a single character, and can be S, E, C, or D (or lower-case equivalents). S or s for start, E or e for end, C or c for center, D or d for decimal. The alignment type is optional, and if its not specified will default to S.</p>
    * <p>The alignment position is a Number, and is specified according to FXG spec for Numbers (decimal or scientific notation). The alignment position is required.</p>
    * <p>The vertical bar is used to separate the alignment position from the alignment token, and should only be present if the alignment token is present.</p>
@@ -1572,19 +1572,19 @@ public class ContainerController implements IInteractionEventHandler, ITextLayou
    *
    *     public class ContainerController_getContentBoundsExample extends Sprite
    *     {
-   *         private const textMarkup:String = "<flow:TextFlow xmlns:flow='http://ns.adobe.com/textLayout/2008' fontSize='08' " +
+   *         private const textMarkup:String = "&lt;flow:TextFlow xmlns:flow='http://ns.adobe.com/textLayout/2008' fontSize='08' " +
    *             "textIndent='10' paragraphSpaceBefore='6' paddingTop='8' paddingLeft='8' paddingRight='8'>" +
-   *             "<flow:p paragraphSpaceBefore='inherit'>" +
-   *             "<flow:span>There are many </flow:span>" +
-   *             "<flow:span fontStyle='italic'>such</flow:span>" +
-   *             "<flow:span> lime-kilns in that tract of country, for the purpose of burning the white" +
+   *             "&lt;flow:p paragraphSpaceBefore='inherit'>" +
+   *             "&lt;flow:span>There are many &lt;/flow:span>" +
+   *             "&lt;flow:span fontStyle='italic'>such&lt;/flow:span>" +
+   *             "&lt;flow:span> lime-kilns in that tract of country, for the purpose of burning the white" +
    *             " marble which composes a large part of the substance of the hills. Some of them, built " +
    *             "years ago, and long deserted, with weeds growing in the vacant round of the interior, " +
    *             "which is open to the sky, and grass and wild-flowers rooting themselves into the chinks" +
    *             "of the stones, look already like relics of antiquity, and may yet be overspread with the" +
-   *             " lichens of centuries to come.</flow:span>" +
-   *             "</flow:p>" +
-   *             "</flow:TextFlow>";
+   *             " lichens of centuries to come.&lt;/flow:span>" +
+   *             "&lt;/flow:p>" +
+   *             "&lt;/flow:TextFlow>";
    *
    *         public function ContainerController_getContentBoundsExample(textFlow:TextFlow):void
    *         {
@@ -1619,8 +1619,6 @@ public class ContainerController implements IInteractionEventHandler, ITextLayou
    *         }
    *     }
    * }
-   *
-   *
    * </listing>
    */
   public function getContentBounds():Rectangle {

@@ -7,7 +7,7 @@ package flash.events {
  */
 public class TextEvent extends Event {
   /**
-   * For a <code>textInput</code> event, the character or sequence of characters entered by the user. For a <code>link</code> event, the text of the <code>event</code> attribute of the <code>href</code> attribute of the <code><a></code> tag.
+   * For a <code>textInput</code> event, the character or sequence of characters entered by the user. For a <code>link</code> event, the text of the <code>event</code> attribute of the <code>href</code> attribute of the <code>&lt;a></code> tag.
    * @example The following code shows that the <code>link</code> event is dispatched when a user clicks the hypertext link:
    * <listing>
    *     import flash.text.TextField;
@@ -113,9 +113,9 @@ public class TextEvent extends Event {
    *             myTextField.autoSize = TextFieldAutoSize.LEFT;
    *             myTextField.multiline = true;
    *             myTextField.background = true;
-   *             myTextField.htmlText = "Draw a circle with the radius of <u><a href=\"event:20\">20 pixels</a></u>.<br>"
-   *                          +  "Draw a circle with the radius of <u><a href=\"event:50\">50 pixels</a></u>.<br><br>"
-   *                          +  "<u><a href=\"event:os\">Learn about your operating system.</a></u><br>";
+   *             myTextField.htmlText = "Draw a circle with the radius of &lt;u>&lt;a href=\"event:20\">20 pixels&lt;/a>&lt;/u>.&lt;br>"
+   *                          +  "Draw a circle with the radius of &lt;u>&lt;a href=\"event:50\">50 pixels&lt;/a>&lt;/u>.&lt;br>&lt;br>"
+   *                          +  "&lt;u>&lt;a href=\"event:os\">Learn about your operating system.&lt;/a>&lt;/u>&lt;br>";
    *
    *             myTextField.addEventListener(TextEvent.LINK, linkHandler);
    *

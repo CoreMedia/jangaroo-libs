@@ -22,7 +22,7 @@ package flash.net {
  *  var myFile:File = new File();
  *  myFile.browseForOpen("Open", [imagesFilter, docFilter]);
  * </listing>
- * <p>The list of extensions in the <code>FileFilter.extension</code> property is used to filter the files shown in the file browsing dialog. The list is not actually displayed in the dialog box; to display the file types for users, you must list the file types in the description string as well as in the extension list. The description string is displayed in the dialog box in Windows and Linux. (It is not used on the Macintosh<sup>®</sup>.) On the Macintosh, if you supply a list of Macintosh file types, that list is used to filter the files. If not, the list of file extensions is used.</p>
+ * <p>The list of extensions in the <code>FileFilter.extension</code> property is used to filter the files shown in the file browsing dialog. The list is not actually displayed in the dialog box; to display the file types for users, you must list the file types in the description string as well as in the extension list. The description string is displayed in the dialog box in Windows and Linux. (It is not used on the Macintosh<sup>&#174;</sup>.) On the Macintosh, if you supply a list of Macintosh file types, that list is used to filter the files. If not, the list of file extensions is used.</p>
  */
 public final class FileFilter {
   /**

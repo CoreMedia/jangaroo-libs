@@ -35,7 +35,7 @@ public final class ColorMatrixFilter extends BitmapFilter {
    0 0 1 0 0
    0 0 0 N 0  (where N is between 0.0 and 1.0)
    </pre>
-   * <p><b>Faster version</b>. Available only with SSE/AltiVec accelerator-enabled processors, such as Intel<sup>®</sup> Pentium<sup>®</sup> 3 and later and Apple<sup>®</sup> G4 and later. The accelerator is used when the multiplier terms are in the range -15.99 to 15.99 and the adder terms a[4], a[9], a[14], and a[19] are in the range -8000 to 8000.</p>
+   * <p><b>Faster version</b>. Available only with SSE/AltiVec accelerator-enabled processors, such as Intel<sup>&#174;</sup> Pentium<sup>&#174;</sup> 3 and later and Apple<sup>&#174;</sup> G4 and later. The accelerator is used when the multiplier terms are in the range -15.99 to 15.99 and the adder terms a[4], a[9], a[14], and a[19] are in the range -8000 to 8000.</p>
    * @throws TypeError The Array is null when being set
    *
    */

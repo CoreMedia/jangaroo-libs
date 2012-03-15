@@ -11,7 +11,7 @@ package flash.system {
  */
 public final class System {
   /**
-   * The amount of memory (in bytes) that is allocated to Adobe<sup>®</sup> Flash<sup>®</sup> Player or Adobe<sup>®</sup> AIR<sup>®</sup> and that is not in use. This unused portion of allocated memory (<code>System.totalMemory</code>) fluctuates as garbage collection takes place. Use this property to monitor garbage collection.
+   * The amount of memory (in bytes) that is allocated to Adobe<sup>&#174;</sup> Flash<sup>&#174;</sup> Player or Adobe<sup>&#174;</sup> AIR<sup>&#174;</sup> and that is not in use. This unused portion of allocated memory (<code>System.totalMemory</code>) fluctuates as garbage collection takes place. Use this property to monitor garbage collection.
    * @see #privateMemory
    * @see #totalMemory
    * @see #totalMemoryNumber

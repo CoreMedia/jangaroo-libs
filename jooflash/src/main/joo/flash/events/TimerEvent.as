@@ -41,7 +41,7 @@ public class TimerEvent extends Event {
    * @example The following is an example for the <code>TimerEvent.updateAfterEvent()</code> method.
    * <listing>
    * function onTimer(event:TimerEvent):void {
-   *     if (40 < my_mc.x && my_mc.x < 375) {
+   *     if (40 &lt; my_mc.x &amp;&amp; my_mc.x &lt; 375) {
    *         my_mc.x-= 50;
    *     } else {
    *         my_mc.x=374;

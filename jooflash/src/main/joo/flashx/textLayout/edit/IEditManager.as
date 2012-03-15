@@ -102,7 +102,7 @@ public interface IEditManager extends ISelectionManager, IInteractionEventHandle
    * @param format the format containing the styles to apply
    * @param operationState specifies the text to which this operation applies; if <code>null</code>, the operation applies to the current selection.
    *
-   * @example The following example applies a format to a <div> element in the mid-level of the flow element hierarchy.
+   * @example The following example applies a format to a &lt;div> element in the mid-level of the flow element hierarchy.
    * <listing>
    * package flashx.textLayout.edit.examples
    * {
@@ -117,7 +117,7 @@ public interface IEditManager extends ISelectionManager, IInteractionEventHandle
    *     {
    *         public function EditManager_applyFormatToElement( selection:SelectionState ):void
    *         {
-   *             var textFlow:TextFlow = TextConverter.importToFlow("<TextFlow><div><p><span>Hello World</span></p></div><p>No indent</p></TextFlow>", TextConverter.TEXT_LAYOUT_FORMAT);
+   *             var textFlow:TextFlow = TextConverter.importToFlow("&lt;TextFlow>&lt;div>&lt;p>&lt;span>Hello World&lt;/span>&lt;/p>&lt;/div>&lt;p>No indent&lt;/p>&lt;/TextFlow>", TextConverter.TEXT_LAYOUT_FORMAT);
    *             var editManager:IEditManager = textFlow.interactionManager as IEditManager;
    *             var divElement:FlowElement = textFlow.getChildAt(0);
    *

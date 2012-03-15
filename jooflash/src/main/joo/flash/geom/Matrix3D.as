@@ -202,7 +202,7 @@ public class Matrix3D {
    *
    *         private function enterFrameHandler(e:Event):void {
    *
-   *             var v3:Vector.<Vector3D> = new Vector.<Vector3D>(3);
+   *             var v3:Vector.&lt;Vector3D> = new Vector.&lt;Vector3D>(3);
    *             v3 = ellipse.transform.matrix3D.decompose();
    *             v3[0].incrementBy(new Vector3D(0,0,1));
    *             v3[2].incrementBy(new Vector3D(0.01,0,0));

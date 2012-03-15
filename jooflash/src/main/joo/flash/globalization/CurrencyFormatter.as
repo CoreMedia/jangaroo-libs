@@ -134,18 +134,18 @@ public final class CurrencyFormatter {
   /**
    * Describes the placement of grouping separators within the formatted currency amount string.
    * <p>When the <code>useGrouping</code> property is set to true, the <code>groupingPattern</code> property is used to define the placement and pattern used for the grouping separator.</p>
-   * <p>The grouping pattern is defined as a string containing numbers separated by semicolons and optionally may end with an asterisk. For example: <code>"3;2;*"</code>. Each number in the string represents the number of digits in a group. The grouping separator is placed before each group of digits. An asterisk at the end of the string indicates that groups with that number of digits should be repeated for the rest of the formatted string. If there is no asterisk then there are no additional groups or separators for the rest of the formatted string.</p>
-   * <p>The first number in the string corresponds to the first group of digits to the left of the decimal separator. Subsequent numbers define the number of digits in subsequent groups to the left. Thus the string "3;2;*" indicates that a grouping separator is placed after the first group of 3 digits, followed by groups of 2 digits. For example: <code>98,76,54,321</code></p>
+   * <p>The grouping pattern is defined as a string containing numbers separated by semicolons and optionally may end with an asterisk. For example: <code>"3;2;&#42;"</code>. Each number in the string represents the number of digits in a group. The grouping separator is placed before each group of digits. An asterisk at the end of the string indicates that groups with that number of digits should be repeated for the rest of the formatted string. If there is no asterisk then there are no additional groups or separators for the rest of the formatted string.</p>
+   * <p>The first number in the string corresponds to the first group of digits to the left of the decimal separator. Subsequent numbers define the number of digits in subsequent groups to the left. Thus the string "3;2;&#42;" indicates that a grouping separator is placed after the first group of 3 digits, followed by groups of 2 digits. For example: <code>98,76,54,321</code></p>
    * <p>The following table shows examples of formatting the currency amount 123456789.12 with various grouping patterns. The grouping separator is a comma, the decimal separator is a period, and a dollar sign ($) is the currency symbol.</p>
    * <table>
    * <tr>
    * <td>Grouping Pattern</td>
    * <td>Sample Format</td></tr>
    * <tr>
-   * <td><code>3;*</code></td>
+   * <td><code>3;&#42;</code></td>
    * <td>$123,456,789.12</td></tr>
    * <tr>
-   * <td><code>3;2;*</code></td>
+   * <td><code>3;2;&#42;</code></td>
    * <td>$12,34,56,789.12</td></tr>
    * <tr>
    * <td><code>3</code></td>

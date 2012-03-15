@@ -2,7 +2,7 @@ package flash.display {
 
 
 /**
- * A ShaderInput instance represents a single input image for a shader kernel. A kernel can be defined to accept zero, one, or more source images that are used in the kernel execution. A ShaderInput instance provides a mechanism for specifying the input image that is used when the shader executes. To specify a value for the input, create a BitmapData, ByteArray, or Vector.<Number> instance containing the image data and assign it to the <code>input</code> property.
+ * A ShaderInput instance represents a single input image for a shader kernel. A kernel can be defined to accept zero, one, or more source images that are used in the kernel execution. A ShaderInput instance provides a mechanism for specifying the input image that is used when the shader executes. To specify a value for the input, create a BitmapData, ByteArray, or Vector.&lt;Number> instance containing the image data and assign it to the <code>input</code> property.
  * <p>The ShaderInput instance representing a Shader instance's input image is accessed as a property of the Shader instance's <code>data</code> property. The ShaderInput property has the same name as the input's name in the shader code. For example, if a shader defines an input named <code>src</code>, the ShaderInput instance representing the <code>src</code> input is available as the <code>src</code> property, as this example shows:</p>
  * <listing>
  * myShader.data.src.image = new BitmapData(50, 50, true, 0xFF990000);</listing>
@@ -21,14 +21,14 @@ package flash.display {
  */
 public final dynamic class ShaderInput {
   /**
-   * The number of channels that a shader input expects. This property must be accounted for when the input data is a ByteArray or Vector.<Number> instance.
+   * The number of channels that a shader input expects. This property must be accounted for when the input data is a ByteArray or Vector.&lt;Number> instance.
    */
   public function get channels():int {
     throw new Error('not implemented'); // TODO: implement!
   }
 
   /**
-   * The height of the shader input. This property is only used when the input data is a ByteArray or Vector.<Number> instance. When the input is a BitmapData instance the height is automatically determined.
+   * The height of the shader input. This property is only used when the input data is a ByteArray or Vector.&lt;Number> instance. When the input is a BitmapData instance the height is automatically determined.
    */
   public function get height():int {
     throw new Error('not implemented'); // TODO: implement!
@@ -49,14 +49,14 @@ public final dynamic class ShaderInput {
   }
 
   /**
-   * The input data that is used when the shader executes. This property can be a BitmapData instance, a ByteArray instance, or a Vector.<Number> instance.
+   * The input data that is used when the shader executes. This property can be a BitmapData instance, a ByteArray instance, or a Vector.&lt;Number> instance.
    * <p>If a ByteArray value is assigned to the <code>input</code> property, the following conditions must be met:</p>
    * <ul>
    * <li>The <code>height</code> and <code>width</code> properties must be set.</li>
    * <li>The byte array's contents must only consist of 32-bit floating-point values. These values can be written using the <code>ByteArray.writeFloat()</code> method.</li>
    * <li>The total length in bytes of the ByteArray must be exactly <code>width</code> times <code>height</code> times <code>channels</code> times 4.</li>
    * <li>The byte array's <code>endian</code> property must be <code>Endian.LITTLE_ENDIAN</code>.</li></ul>
-   * <p>If a Vector.<Number> instance is assigned to the <code>input</code> property, the length of the Vector must be equal to <code>width</code> times <code>height</code> times <code>channels</code>.</p>
+   * <p>If a Vector.&lt;Number> instance is assigned to the <code>input</code> property, the length of the Vector must be equal to <code>width</code> times <code>height</code> times <code>channels</code>.</p>
    */
   public function get input():Object {
     throw new Error('not implemented'); // TODO: implement!
@@ -70,7 +70,7 @@ public final dynamic class ShaderInput {
   }
 
   /**
-   * The width of the shader input. This property is only used when the input data is a ByteArray or Vector.<Number> instance. When the input is a BitmapData instance the width is automatically determined.
+   * The width of the shader input. This property is only used when the input data is a ByteArray or Vector.&lt;Number> instance. When the input is a BitmapData instance the width is automatically determined.
    */
   public function get width():int {
     throw new Error('not implemented'); // TODO: implement!

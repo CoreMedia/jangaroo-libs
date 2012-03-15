@@ -197,7 +197,7 @@ public final class Graphics {
    *
    * @throws ArgumentError When the shader output type is not compatible with this operation (the shader must specify a <code>pixel3</code> or <code>pixel4</code> output).
    * @throws ArgumentError When the shader specifies an image input that isn't provided.
-   * @throws ArgumentError When a ByteArray or Vector.<Number> instance is used as an input and the <code>width</code> and <code>height</code> properties aren't specified for the ShaderInput, or the specified values don't match the amount of data in the input object. See the <code>ShaderInput.input</code> property for more information.
+   * @throws ArgumentError When a ByteArray or Vector.&lt;Number> instance is used as an input and the <code>width</code> and <code>height</code> properties aren't specified for the ShaderInput, or the specified values don't match the amount of data in the input object. See the <code>ShaderInput.input</code> property for more information.
    *
    * @see #endFill()
    * @see #beginFill()
@@ -475,12 +475,12 @@ public final class Graphics {
    *     myStroke.fill = new GraphicsSolidFill(0x000000);
    *
    *     // establish the path properties
-   *     var myPath:GraphicsPath = new GraphicsPath(new Vector.<int>(), new Vector.<Number>());
+   *     var myPath:GraphicsPath = new GraphicsPath(new Vector.&lt;int>(), new Vector.&lt;Number>());
    *     myPath.commands.push(1,2,2,2,2);
    *     myPath.data.push(10,10, 10,100, 100,100, 100,10, 10,10);
    *
    *     // populate the IGraphicsData Vector array
-   *     var myDrawing:Vector.<IGraphicsData> = new Vector.<IGraphicsData>();
+   *     var myDrawing:Vector.&lt;IGraphicsData> = new Vector.&lt;IGraphicsData>();
    *     myDrawing.push(myFill, myStroke, myPath);
    *
    *     // render the drawing
@@ -524,7 +524,7 @@ public final class Graphics {
    *
    *     public function DrawPathExample(){
    *
-   *     var star_commands:Vector.<int> = new Vector.<int>(5, true);
+   *     var star_commands:Vector.&lt;int> = new Vector.&lt;int>(5, true);
    *
    *     star_commands[0] = 1;
    *     star_commands[1] = 2;
@@ -532,7 +532,7 @@ public final class Graphics {
    *     star_commands[3] = 2;
    *     star_commands[4] = 2;
    *
-   *     var star_coord:Vector.<Number> = new Vector.<Number>(10, true);
+   *     var star_coord:Vector.&lt;Number> = new Vector.&lt;Number>(10, true);
    *     star_coord[0] = 66; //x
    *     star_coord[1] = 10; //y
    *     star_coord[2] = 23;
@@ -561,10 +561,10 @@ public final class Graphics {
    *
    *     public class DrawPathExample extends Sprite {
    *     public function DrawPathExample(){
-   *         var star_commands:Vector.<int> = new Vector.<int>();
+   *         var star_commands:Vector.&lt;int> = new Vector.&lt;int>();
    *         star_commands.push(1, 2, 2, 2, 2);
    *
-   *            var star_coord:Vector.<Number> = new Vector.<Number>();
+   *            var star_coord:Vector.&lt;Number> = new Vector.&lt;Number>();
    *            star_coord.push(66,10, 23,127, 122,50, 10,49, 109,127);
    *
    *         graphics.beginFill(0x003366);

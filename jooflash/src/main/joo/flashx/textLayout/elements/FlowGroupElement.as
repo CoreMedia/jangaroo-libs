@@ -148,7 +148,6 @@ public class FlowGroupElement extends FlowElement {
    *
    * @example This example finds the index of the child at a relative position in the text and sets its color to red.
    * <listing>
-   *
    * package flashx.textLayout.elements.examples {
    *     import flash.display.Sprite;
    *     import flashx.textLayout.conversion.TextConverter;
@@ -162,17 +161,17 @@ public class FlowGroupElement extends FlowElement {
    *         public function FlowGroupElement_findChildIndexAtPositionExample()
    *         {
    *             // xml markup that defines the attributes and contents of a text flow
-   *             var simpleText:String = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
-   *                 "<flow:TextFlow xmlns:flow=\"http://ns.adobe.com/textLayout/2008\" verticalScrollPolicy=\"auto\" horizontalScrollPolicy=\"auto\" editingMode=\"readWrite\" fontSize=\"14\" textIndent=\"15\" marginBottom=\"15\" paddingTop=\"4\" paddingLeft=\"4\">"+
-   *                     "<flow:p>"+
-   *                         "<flow:span id='span1'>It was a dark and stormy night.</flow:span>"+
-   *                     "</flow:p>"+
-   *                     "<flow:p>"+
-   *                         "<flow:span>Peter Piper picked a </flow:span>"+
-   *                         "<flow:span fontStyle=\"italic\"> peck </flow:span>"+
-   *                         "<flow:span>of pickle peppers.</flow:span>"+
-   *                     "</flow:p>"+
-   *                 "</flow:TextFlow>";
+   *             var simpleText:String = "&lt;?xml version=\"1.0\" encoding=\"utf-8\"?>" +
+   *                 "&lt;flow:TextFlow xmlns:flow=\"http://ns.adobe.com/textLayout/2008\" verticalScrollPolicy=\"auto\" horizontalScrollPolicy=\"auto\" editingMode=\"readWrite\" fontSize=\"14\" textIndent=\"15\" marginBottom=\"15\" paddingTop=\"4\" paddingLeft=\"4\">"+
+   *                     "&lt;flow:p>"+
+   *                         "&lt;flow:span id='span1'>It was a dark and stormy night.&lt;/flow:span>"+
+   *                     "&lt;/flow:p>"+
+   *                     "&lt;flow:p>"+
+   *                         "&lt;flow:span>Peter Piper picked a &lt;/flow:span>"+
+   *                         "&lt;flow:span fontStyle=\"italic\"> peck &lt;/flow:span>"+
+   *                         "&lt;flow:span>of pickle peppers.&lt;/flow:span>"+
+   *                     "&lt;/flow:p>"+
+   *                 "&lt;/flow:TextFlow>";
    *
    *             // define TextFlow object and import xml markup
    *             var textFlow:TextFlow = new TextFlow();
@@ -215,17 +214,17 @@ public class FlowGroupElement extends FlowElement {
    *         public function FlowGroupElement_findLeafExample()
    *         {
    *             // xml markup that defines the attributes and contents of a text flow
-   *             var simpleText:String = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
-   *                 "<flow:TextFlow xmlns:flow=\"http://ns.adobe.com/textLayout/2008\" verticalScrollPolicy=\"auto\" horizontalScrollPolicy=\"auto\" editingMode=\"readWrite\" fontSize=\"14\" textIndent=\"15\" marginBottom=\"15\" paddingTop=\"4\" paddingLeft=\"4\">"+
-   *                     "<flow:p>"+
-   *                         "<flow:span>It was a dark and stormy night</flow:span>"+
-   *                     "</flow:p>"+
-   *                     "<flow:p>"+
-   *                         "<flow:span>Peter Piper picked a </flow:span>"+
-   *                         "<flow:span fontStyle=\"italic\"> peck </flow:span>"+
-   *                         "<flow:span>of pickle peppers.</flow:span>"+
-   *                     "</flow:p>"+
-   *                 "</flow:TextFlow>";
+   *             var simpleText:String = "&lt;?xml version=\"1.0\" encoding=\"utf-8\"?>" +
+   *                 "&lt;flow:TextFlow xmlns:flow=\"http://ns.adobe.com/textLayout/2008\" verticalScrollPolicy=\"auto\" horizontalScrollPolicy=\"auto\" editingMode=\"readWrite\" fontSize=\"14\" textIndent=\"15\" marginBottom=\"15\" paddingTop=\"4\" paddingLeft=\"4\">"+
+   *                     "&lt;flow:p>"+
+   *                         "&lt;flow:span>It was a dark and stormy night&lt;/flow:span>"+
+   *                     "&lt;/flow:p>"+
+   *                     "&lt;flow:p>"+
+   *                         "&lt;flow:span>Peter Piper picked a &lt;/flow:span>"+
+   *                         "&lt;flow:span fontStyle=\"italic\"> peck &lt;/flow:span>"+
+   *                         "&lt;flow:span>of pickle peppers.&lt;/flow:span>"+
+   *                     "&lt;/flow:p>"+
+   *                 "&lt;/flow:TextFlow>";
    *
    *             // define TextFlow object and import xml markup
    *             var textFlow:TextFlow = new TextFlow();
@@ -254,7 +253,6 @@ public class FlowGroupElement extends FlowElement {
    *
    * @example This example uses the <code>getChildAt()</code> method to access a paragraph in the text flow and change the color of one of its spans to red.
    * <listing>
-   *
    * package flashx.textLayout.elements.examples {
    *     import flash.display.Sprite;
    *     import flashx.textLayout.conversion.TextConverter;
@@ -268,17 +266,17 @@ public class FlowGroupElement extends FlowElement {
    *         public function FlowGroupElement_getChildAtExample()
    *         {
    *             // xml markup that defines the attributes and contents of a text flow
-   *             var simpleText:String = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
-   *                 "<flow:TextFlow xmlns:flow=\"http://ns.adobe.com/textLayout/2008\" verticalScrollPolicy=\"auto\" horizontalScrollPolicy=\"auto\" editingMode=\"readWrite\" fontSize=\"14\" textIndent=\"15\" marginBottom=\"15\" paddingTop=\"4\" paddingLeft=\"4\">"+
-   *                     "<flow:p>"+
-   *                         "<flow:span id='span1'>It was a dark and stormy night.</flow:span>"+
-   *                     "</flow:p>"+
-   *                     "<flow:p>"+
-   *                         "<flow:span>Peter Piper picked a </flow:span>"+
-   *                         "<flow:span fontStyle=\"italic\"> peck </flow:span>"+
-   *                         "<flow:span>of pickle peppers.</flow:span>"+
-   *                     "</flow:p>"+
-   *                 "</flow:TextFlow>";
+   *             var simpleText:String = "&lt;?xml version=\"1.0\" encoding=\"utf-8\"?>" +
+   *                 "&lt;flow:TextFlow xmlns:flow=\"http://ns.adobe.com/textLayout/2008\" verticalScrollPolicy=\"auto\" horizontalScrollPolicy=\"auto\" editingMode=\"readWrite\" fontSize=\"14\" textIndent=\"15\" marginBottom=\"15\" paddingTop=\"4\" paddingLeft=\"4\">"+
+   *                     "&lt;flow:p>"+
+   *                         "&lt;flow:span id='span1'>It was a dark and stormy night.&lt;/flow:span>"+
+   *                     "&lt;/flow:p>"+
+   *                     "&lt;flow:p>"+
+   *                         "&lt;flow:span>Peter Piper picked a &lt;/flow:span>"+
+   *                         "&lt;flow:span fontStyle=\"italic\"> peck &lt;/flow:span>"+
+   *                         "&lt;flow:span>of pickle peppers.&lt;/flow:span>"+
+   *                     "&lt;/flow:p>"+
+   *                 "&lt;/flow:TextFlow>";
    *
    *             // define TextFlow object and import xml markup
    *             var textFlow:TextFlow = new TextFlow();
@@ -317,7 +315,6 @@ public class FlowGroupElement extends FlowElement {
    *
    * @example This example creates two paragraphs, finds the first FlowLeafElement object and sets its color to red.
    * <listing>
-   *
    * package flashx.textLayout.elements.examples {
    *     import flash.display.Sprite;
    *     import flashx.textLayout.conversion.TextConverter;
@@ -331,17 +328,17 @@ public class FlowGroupElement extends FlowElement {
    *         public function FlowGroupElement_getFirstLeafExample()
    *         {
    *             // xml markup that defines the attributes and contents of a text flow
-   *             var simpleText:String = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
-   *                 "<flow:TextFlow xmlns:flow=\"http://ns.adobe.com/textLayout/2008\" verticalScrollPolicy=\"auto\" horizontalScrollPolicy=\"auto\" editingMode=\"readWrite\" fontSize=\"14\" textIndent=\"15\" marginBottom=\"15\" paddingTop=\"4\" paddingLeft=\"4\">"+
-   *                     "<flow:p>"+
-   *                         "<flow:span>It was a </flow:span>"+
-   *                         "<flow:span fontStyle=\"italic\">dark and stormy</flow:span>"+
-   *                         "<flow:span> night.</flow:span>"+
-   *                     "</flow:p>"+
-   *                     "<flow:p>"+
-   *                         "<flow:span>Peter Piper picked a peck of pickle peppers. </flow:span>"+
-   *                     "</flow:p>"+
-   *                 "</flow:TextFlow>";
+   *             var simpleText:String = "&lt;?xml version=\"1.0\" encoding=\"utf-8\"?>" +
+   *                 "&lt;flow:TextFlow xmlns:flow=\"http://ns.adobe.com/textLayout/2008\" verticalScrollPolicy=\"auto\" horizontalScrollPolicy=\"auto\" editingMode=\"readWrite\" fontSize=\"14\" textIndent=\"15\" marginBottom=\"15\" paddingTop=\"4\" paddingLeft=\"4\">"+
+   *                     "&lt;flow:p>"+
+   *                         "&lt;flow:span>It was a &lt;/flow:span>"+
+   *                         "&lt;flow:span fontStyle=\"italic\">dark and stormy&lt;/flow:span>"+
+   *                         "&lt;flow:span> night.&lt;/flow:span>"+
+   *                     "&lt;/flow:p>"+
+   *                     "&lt;flow:p>"+
+   *                         "&lt;flow:span>Peter Piper picked a peck of pickle peppers. &lt;/flow:span>"+
+   *                     "&lt;/flow:p>"+
+   *                 "&lt;/flow:TextFlow>";
    *
    *             // define TextFlow object and import xml markup
    *             var textFlow:TextFlow = new TextFlow();
@@ -367,7 +364,6 @@ public class FlowGroupElement extends FlowElement {
    *
    * @example This example creates two paragraphs, finds the last FlowLeafElement object and sets its color to red.
    * <listing>
-   *
    * package flashx.textLayout.elements.examples {
    *     import flash.display.Sprite;
    *     import flashx.textLayout.conversion.TextConverter;
@@ -381,17 +377,17 @@ public class FlowGroupElement extends FlowElement {
    *         public function FlowGroupElement_getLastLeafExample()
    *         {
    *             // xml markup that defines the attributes and contents of a text flow
-   *             var simpleText:String = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
-   *                 "<flow:TextFlow xmlns:flow=\"http://ns.adobe.com/textLayout/2008\" verticalScrollPolicy=\"auto\" horizontalScrollPolicy=\"auto\" editingMode=\"readWrite\" fontSize=\"14\" textIndent=\"15\" marginBottom=\"15\" paddingTop=\"4\" paddingLeft=\"4\">"+
-   *                     "<flow:p>"+
-   *                         "<flow:span>It was a dark and stormy night</flow:span>"+
-   *                     "</flow:p>"+
-   *                     "<flow:p>"+
-   *                         "<flow:span>Peter Piper picked a </flow:span>"+
-   *                         "<flow:span fontStyle=\"italic\"> peck </flow:span>"+
-   *                         "<flow:span>of pickle peppers.</flow:span>"+
-   *                     "</flow:p>"+
-   *                 "</flow:TextFlow>";
+   *             var simpleText:String = "&lt;?xml version=\"1.0\" encoding=\"utf-8\"?>" +
+   *                 "&lt;flow:TextFlow xmlns:flow=\"http://ns.adobe.com/textLayout/2008\" verticalScrollPolicy=\"auto\" horizontalScrollPolicy=\"auto\" editingMode=\"readWrite\" fontSize=\"14\" textIndent=\"15\" marginBottom=\"15\" paddingTop=\"4\" paddingLeft=\"4\">"+
+   *                     "&lt;flow:p>"+
+   *                         "&lt;flow:span>It was a dark and stormy night&lt;/flow:span>"+
+   *                     "&lt;/flow:p>"+
+   *                     "&lt;flow:p>"+
+   *                         "&lt;flow:span>Peter Piper picked a &lt;/flow:span>"+
+   *                         "&lt;flow:span fontStyle=\"italic\"> peck &lt;/flow:span>"+
+   *                         "&lt;flow:span>of pickle peppers.&lt;/flow:span>"+
+   *                     "&lt;/flow:p>"+
+   *                 "&lt;/flow:TextFlow>";
    *
    *             // define TextFlow object and import xml markup
    *             var textFlow:TextFlow = new TextFlow();
@@ -434,7 +430,6 @@ public class FlowGroupElement extends FlowElement {
    *
    * @example This example removes the third span in the second paragraph of the text flow.
    * <listing>
-   *
    * package flashx.textLayout.elements.examples {
    *     import flash.display.Sprite;
    *     import flashx.textLayout.conversion.TextConverter;
@@ -448,17 +443,17 @@ public class FlowGroupElement extends FlowElement {
    *         public function FlowGroupElement_removeChildExample()
    *         {
    *             // xml markup that defines the attributes and contents of a text flow
-   *             var simpleText:String = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
-   *                 "<flow:TextFlow xmlns:flow=\"http://ns.adobe.com/textLayout/2008\" verticalScrollPolicy=\"auto\" horizontalScrollPolicy=\"auto\" editingMode=\"readWrite\" fontSize=\"14\" textIndent=\"15\" marginBottom=\"15\" paddingTop=\"4\" paddingLeft=\"4\">"+
-   *                     "<flow:p id='para1'>"+
-   *                         "<flow:span id='span1'>It was a dark and stormy night.</flow:span>"+
-   *                     "</flow:p>"+
-   *                     "<flow:p id='para2'>"+
-   *                         "<flow:span id='span2'>Peter Piper picked a </flow:span>"+
-   *                         "<flow:span id='span3' fontStyle=\"italic\"> peck </flow:span>"+
-   *                         "<flow:span id='span4'>of pickle peppers.</flow:span>"+
-   *                     "</flow:p>"+
-   *                 "</flow:TextFlow>";
+   *             var simpleText:String = "&lt;?xml version=\"1.0\" encoding=\"utf-8\"?>" +
+   *                 "&lt;flow:TextFlow xmlns:flow=\"http://ns.adobe.com/textLayout/2008\" verticalScrollPolicy=\"auto\" horizontalScrollPolicy=\"auto\" editingMode=\"readWrite\" fontSize=\"14\" textIndent=\"15\" marginBottom=\"15\" paddingTop=\"4\" paddingLeft=\"4\">"+
+   *                     "&lt;flow:p id='para1'>"+
+   *                         "&lt;flow:span id='span1'>It was a dark and stormy night.&lt;/flow:span>"+
+   *                     "&lt;/flow:p>"+
+   *                     "&lt;flow:p id='para2'>"+
+   *                         "&lt;flow:span id='span2'>Peter Piper picked a &lt;/flow:span>"+
+   *                         "&lt;flow:span id='span3' fontStyle=\"italic\"> peck &lt;/flow:span>"+
+   *                         "&lt;flow:span id='span4'>of pickle peppers.&lt;/flow:span>"+
+   *                     "&lt;/flow:p>"+
+   *                 "&lt;/flow:TextFlow>";
    *
    *             // define TextFlow object and import xml markup
    *             var textFlow:TextFlow = new TextFlow();
@@ -473,7 +468,6 @@ public class FlowGroupElement extends FlowElement {
    *         }
    *     }
    * }
-   *
    * </listing>
    */
   public function removeChild(child:FlowElement):FlowElement {
@@ -503,18 +497,18 @@ public class FlowGroupElement extends FlowElement {
    *         public function FlowGroupElement_removeChildAtExample()
    *         {
    *             // xml markup that defines the attributes and contents of a text flow
-   *             var simpleText:String = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
-   *                 "<flow:TextFlow xmlns:flow=\"http://ns.adobe.com/textLayout/2008\" verticalScrollPolicy=\"auto\" horizontalScrollPolicy=\"auto\" editingMode=\"readWrite\" fontSize=\"14\" textIndent=\"15\" marginBottom=\"15\" paddingTop=\"4\" paddingLeft=\"4\">"+
-   *                     "<flow:p>"+
-   *                         "<flow:span>It was a dark and stormy night. </flow:span>"+
-   *                     "</flow:p>"+
-   *                     "<flow:p>"+
-   *                         "<flow:span>Peter Piper picked a peck of pickle peppers. </flow:span>"+
-   *                     "</flow:p>"+
-   *                     "<flow:p>"+
-   *                         "<flow:span>Mary had a little lamb. </flow:span>"+
-   *                     "</flow:p>"+
-   *                 "</flow:TextFlow>";
+   *             var simpleText:String = "&lt;?xml version=\"1.0\" encoding=\"utf-8\"?>" +
+   *                 "&lt;flow:TextFlow xmlns:flow=\"http://ns.adobe.com/textLayout/2008\" verticalScrollPolicy=\"auto\" horizontalScrollPolicy=\"auto\" editingMode=\"readWrite\" fontSize=\"14\" textIndent=\"15\" marginBottom=\"15\" paddingTop=\"4\" paddingLeft=\"4\">"+
+   *                     "&lt;flow:p>"+
+   *                         "&lt;flow:span>It was a dark and stormy night. &lt;/flow:span>"+
+   *                     "&lt;/flow:p>"+
+   *                     "&lt;flow:p>"+
+   *                         "&lt;flow:span>Peter Piper picked a peck of pickle peppers. &lt;/flow:span>"+
+   *                     "&lt;/flow:p>"+
+   *                     "&lt;flow:p>"+
+   *                         "&lt;flow:span>Mary had a little lamb. &lt;/flow:span>"+
+   *                     "&lt;/flow:p>"+
+   *                 "&lt;/flow:TextFlow>";
    *
    *             // define TextFlow, import text, add composer and controller
    *             var textFlow:TextFlow = new TextFlow();
@@ -526,7 +520,6 @@ public class FlowGroupElement extends FlowElement {
    *         }
    *     }
    * }
-   *
    * </listing>
    */
   public function removeChildAt(index:uint):FlowElement {
@@ -561,17 +554,17 @@ public class FlowGroupElement extends FlowElement {
    *         public function FlowGroupElement_replaceChildrenExample()
    *         {
    *             // xml markup that defines the attributes and contents of a text flow
-   *             var simpleText:String = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
-   *                 "<flow:TextFlow xmlns:flow=\"http://ns.adobe.com/textLayout/2008\" verticalScrollPolicy=\"auto\" horizontalScrollPolicy=\"auto\" editingMode=\"readWrite\" fontSize=\"14\" textIndent=\"15\" marginBottom=\"15\" paddingTop=\"4\" paddingLeft=\"4\">"+
-   *                     "<flow:p id='para1'>"+
-   *                         "<flow:span id='span1'>It was a dark and stormy night.</flow:span>"+
-   *                     "</flow:p>"+
-   *                     "<flow:p id='para2'>"+
-   *                         "<flow:span id='span2'>Peter Piper picked a </flow:span>"+
-   *                         "<flow:span id='span3' fontStyle=\"italic\"> peck </flow:span>"+
-   *                         "<flow:span id='span4'>of pickle peppers.</flow:span>"+
-   *                     "</flow:p>"+
-   *                 "</flow:TextFlow>";
+   *             var simpleText:String = "&lt;?xml version=\"1.0\" encoding=\"utf-8\"?>" +
+   *                 "&lt;flow:TextFlow xmlns:flow=\"http://ns.adobe.com/textLayout/2008\" verticalScrollPolicy=\"auto\" horizontalScrollPolicy=\"auto\" editingMode=\"readWrite\" fontSize=\"14\" textIndent=\"15\" marginBottom=\"15\" paddingTop=\"4\" paddingLeft=\"4\">"+
+   *                     "&lt;flow:p id='para1'>"+
+   *                         "&lt;flow:span id='span1'>It was a dark and stormy night.&lt;/flow:span>"+
+   *                     "&lt;/flow:p>"+
+   *                     "&lt;flow:p id='para2'>"+
+   *                         "&lt;flow:span id='span2'>Peter Piper picked a &lt;/flow:span>"+
+   *                         "&lt;flow:span id='span3' fontStyle=\"italic\"> peck &lt;/flow:span>"+
+   *                         "&lt;flow:span id='span4'>of pickle peppers.&lt;/flow:span>"+
+   *                     "&lt;/flow:p>"+
+   *                 "&lt;/flow:TextFlow>";
    *
    *             // define TextFlow object and import xml markup
    *             var textFlow:TextFlow = new TextFlow();

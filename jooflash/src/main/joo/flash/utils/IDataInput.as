@@ -109,7 +109,7 @@ public interface IDataInput {
    * Reads a multibyte string of specified length from the file stream, byte stream, or byte array using the specified character set.
    * @param length The number of bytes from the byte stream to read.
    * @param charSet The string denoting the character set to use to interpret the bytes. Possible character set strings include <code>"shift-jis"</code>, <code>"cn-gb"</code>, <code>"iso-8859-1"</code>, and others. For a complete list, see <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/charset-codes.html">Supported Character Sets</a>.
-   * <p><b>Note:</b> If the value for the <code>charSet</code> parameter is not recognized by the current system, then Adobe<sup>®</sup> Flash<sup>®</sup> Player or Adobe<sup>®</sup> AIR<sup>®</sup> uses the system's default code page as the character set. For example, a value for the <code>charSet</code> parameter, as in <code>myTest.readMultiByte(22, "iso-8859-01")</code>, that uses <code>01</code> instead of <code>1</code> might work on your development system, but not on another system. On the other system, Flash Player or the AIR runtime will use the system's default code page.</p>
+   * <p><b>Note:</b> If the value for the <code>charSet</code> parameter is not recognized by the current system, then Adobe<sup>&#174;</sup> Flash<sup>&#174;</sup> Player or Adobe<sup>&#174;</sup> AIR<sup>&#174;</sup> uses the system's default code page as the character set. For example, a value for the <code>charSet</code> parameter, as in <code>myTest.readMultiByte(22, "iso-8859-01")</code>, that uses <code>01</code> instead of <code>1</code> might work on your development system, but not on another system. On the other system, Flash Player or the AIR runtime will use the system's default code page.</p>
    *
    * @return UTF-8 encoded string.
    *
@@ -168,7 +168,7 @@ public interface IDataInput {
 
   /**
    * Reads a UTF-8 string from the file stream, byte stream, or byte array. The string is assumed to be prefixed with an unsigned short indicating the length in bytes.
-   * <p>This method is similar to the <code>readUTF()</code> method in the Java<sup>®</sup> IDataInput interface.</p>
+   * <p>This method is similar to the <code>readUTF()</code> method in the Java<sup>&#174;</sup> IDataInput interface.</p>
    * @return A UTF-8 string produced by the byte representation of characters.
    *
    * @throws flash.errors.EOFError There is not sufficient data available to read.

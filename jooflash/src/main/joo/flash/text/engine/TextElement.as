@@ -139,7 +139,7 @@ public final class TextElement extends ContentElement {
    *         }
    *     }
    * }
-   * < /listing>
+   * </listing>
    */
   public function replaceText(beginIndex:int, endIndex:int, newText:String):void {
     throw new Error('not implemented'); // TODO: implement!

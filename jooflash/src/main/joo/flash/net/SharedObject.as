@@ -305,7 +305,7 @@ public class SharedObject extends EventDispatcher {
    * <p>You can prevent a SWF file from using this method by setting the <code>allowNetworking</code> parameter of the the <code>object</code> and <code>embed</code> tags in the HTML page that contains the SWF content.</p>
    * <p>For more information, see the Flash Player Developer Center Topic: <a href="http://www.adobe.com/go/devnet_security_en">Security</a>.</p>
    * @param name The name of the object. The name can include forward slashes (<code>/</code>); for example, <code>work/addresses</code> is a legal name. Spaces are not allowed in a shared object name, nor are the following characters:
-   * <pre>  ~ % & \ ; : " ' , < > ? #
+   * <pre>  ~ % &amp; \ ; : " ' , &lt; > ? #
    </pre>
    * @param localPath The full or partial path to the SWF file that created the shared object, and that determines where the shared object will be stored locally. If you do not specify this parameter, the full path is used.
    * @param secure Determines whether access to this shared object is restricted to SWF files that are delivered over an HTTPS connection. If your SWF file is delivered over HTTPS, this parameter's value has the following effects:
@@ -340,7 +340,7 @@ public class SharedObject extends EventDispatcher {
    * <p>To confirm that the local and remote copies of the shared object are synchronized, listen for and handle the <code>sync</code> event. All clients that want to share this object must pass the same values for the <code>name</code> and <code>remotePath</code> parameters.</p>
    * <p>To create a shared object that is available only to the current client, use <code>SharedObject.getLocal()</code>.</p>
    * @param name The name of the remote shared object. The name can include forward slashes (/); for example, work/addresses is a legal name. Spaces are not allowed in a shared object name, nor are the following characters:
-   * <pre>    ~ % & \ ; :  " ' , > ? ? #</pre>
+   * <pre>    ~ % &amp; \ ; :  " ' , > ? ? #</pre>
    * @param remotePath The URI of the server on which the shared object will be stored. This URI must be identical to the URI of the NetConnection object passed to the <code>connect()</code> method.
    * @param persistence Specifies whether the attributes of the shared object's data property are persistent locally, remotely, or both. This parameter can also specify where the shared object will be stored locally. Acceptable values are as follows:
    * <ul>

@@ -31,12 +31,12 @@ public dynamic class URLVariables {
    * @example The following examples show how you can parse URL encoded strings. Example provided by <a href="http://actionscriptexamples.com/2008/02/27/decoding-url-encoded-strings-in-a-flash-application-using-the-urlvariables-class-in-actionscript-30/">ActionScriptExamples.com</a>.
    * <listing>
    * // The first method passes the string to be decoded to the URLVariables class constructor:
-   * var urlVariables:URLVariables = new URLVariables("firstName=Tom&lastName=Jones");
+   * var urlVariables:URLVariables = new URLVariables("firstName=Tom&amp;lastName=Jones");
    * lbl.text = urlVariables.lastName + "," + urlVariables.firstName;
    *
    * // The second method uses the decode() method to parse the URL encoded string:
    * var urlVariables:URLVariables = new URLVariables();
-   * urlVariables.decode("firstName=Tom&lastName=Jones");
+   * urlVariables.decode("firstName=Tom&amp;lastName=Jones");
    * lbl.text = urlVariables.lastName + "," + urlVariables.firstName;
    * </listing>
    */

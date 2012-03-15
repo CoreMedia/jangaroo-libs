@@ -7,8 +7,8 @@ package flash.text.ime {
  * <p>For example:</p>
  * <listing>
  *      !converted              = thick gray underline (raw text)
- *      !selected && converted  = thin black underline
- *       selected && converted  = thick black underline
+ *      !selected &amp;&amp; converted  = thin black underline
+ *       selected &amp;&amp; converted  = thick black underline
  * </listing>
  * @see IIMEClient
  *

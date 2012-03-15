@@ -11,7 +11,7 @@ package flash.xml {
  */
 public class XMLDocument extends XMLNode {
   /**
-   * Specifies information about the XML document's <code>DOCTYPE</code> declaration. After the XML text has been parsed into an XMLDocument object, the <code>XMLDocument.docTypeDecl</code> property of the XMLDocument object is set to the text of the XML document's <code>DOCTYPE</code> declaration (for example, <code><!DOCTYPE</code> <code>greeting SYSTEM "hello.dtd"></code>). This property is set using a string representation of the <code>DOCTYPE</code> declaration, not an XMLNode object.
+   * Specifies information about the XML document's <code>DOCTYPE</code> declaration. After the XML text has been parsed into an XMLDocument object, the <code>XMLDocument.docTypeDecl</code> property of the XMLDocument object is set to the text of the XML document's <code>DOCTYPE</code> declaration (for example, <code>&lt;!DOCTYPE</code> <code>greeting SYSTEM "hello.dtd"></code>). This property is set using a string representation of the <code>DOCTYPE</code> declaration, not an XMLNode object.
    * <p>The legacy ActionScript XML parser is not a validating parser. The <code>DOCTYPE</code> declaration is read by the parser and stored in the <code>XMLDocument.docTypeDecl</code> property, but no DTD validation is performed.</p>
    * <p>If no <code>DOCTYPE</code> declaration was encountered during a parse operation, the <code>XMLDocument.docTypeDecl</code> property is set to <code>null</code>. The <code>XML.toString()</code> method outputs the contents of <code>XML.docTypeDecl</code> immediately after the XML declaration stored in <code>XML.xmlDecl</code>, and before any other text in the XML object. If <code>XMLDocument.docTypeDecl</code> is null, no <code>DOCTYPE</code> declaration is output.</p>
    */
@@ -51,7 +51,7 @@ public class XMLDocument extends XMLNode {
    *      x2 = new XMLDocument();
    *      x2.parseXML(x1);
    *      trace(x2.idMap['1']);
-   *     </listing>This will output the <code><c></code> node:
+   *     </listing>This will output the <code>&lt;c></code> node:
    * <listing>
    *      <c id='1' />
    *     </listing>

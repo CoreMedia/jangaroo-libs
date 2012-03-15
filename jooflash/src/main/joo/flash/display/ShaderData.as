@@ -6,10 +6,10 @@ import flash.utils.ByteArray;
  * <p>These properties are added to the ShaderData object when it is created. The properties' names match the names specified in the shader's source code. The data type of each property varies according to what aspect of the shader the property represents. The properties that represent shader parameters are ShaderParameter instances, the properties that represent input images are ShaderInput instances, and the properties that represent shader metadata are instances of the ActionScript class corresponding to their data type (for example, a String instance for textual metadata and a uint for uint metadata).</p>
  * <p>For example, consider this shader, which is defined with one input image (<code>src</code>), two parameters (<code>size</code> and <code>radius</code>), and three metadata values (<code>nameSpace</code>, <code>version</code>, and <code>description</code>):</p>
  * <listing>
- *      <languageVersion : 1.0;>
+ *      &lt;languageVersion : 1.0;>
  *
  *      kernel DoNothing
- *      <
+ *      &lt;
  *          namespace: "Adobe::Example";
  *          vendor: "Adobe examples";
  *          version: 1;
@@ -21,7 +21,7 @@ import flash.utils.ByteArray;
  *          output pixel4 dst;
  *
  *          parameter float2 size
- *          <
+ *          &lt;
  *              description: "The size of the image to which the kernel is applied";
  *              minValue: float2(0.0, 0.0);
  *              maxValue: float2(100.0, 100.0);
@@ -29,7 +29,7 @@ import flash.utils.ByteArray;
  *          >;
  *
  *          parameter float radius
- *          <
+ *          &lt;
  *              description: "The radius of the effect";
  *              minValue: 0.0;
  *              maxValue: 50.0;

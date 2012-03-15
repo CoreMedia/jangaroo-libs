@@ -136,7 +136,7 @@ public final class GroupElement extends ContentElement {
 
   /**
    * Sets the elements in the group to the contents of the Vector.
-   * @param value <code>value:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/Vector.html">Vector</a>.<<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/ContentElement.html">ContentElement</a>></code>
+   * @param value <code>value:<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/Vector.html">Vector</a>.&lt;<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/ContentElement.html">ContentElement</a>></code>
    *
    * @throws ArgumentError The <code>value</code> specified contains <code>null</code> elements.
    * @throws ArgumentError The <code>value</code> specified contains <code>this</code>.

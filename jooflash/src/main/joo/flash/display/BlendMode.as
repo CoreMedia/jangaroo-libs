@@ -23,7 +23,7 @@ public final class BlendMode {
   public static const ALPHA:String = "alpha";
   /**
    * Selects the darker of the constituent colors of the display object and the colors of the background (the colors with the smaller values). This setting is commonly used for superimposing type.
-   * <p>For example, if the display object has a pixel with an RGB value of 0xFFCC33, and the background pixel has an RGB value of 0xDDF800, the resulting RGB value for the displayed pixel is 0xDDCC00 (because 0xFF > 0xDD, 0xCC < 0xF8, and 0x33 > 0x00 = 33).</p>
+   * <p>For example, if the display object has a pixel with an RGB value of 0xFFCC33, and the background pixel has an RGB value of 0xDDF800, the resulting RGB value for the displayed pixel is 0xDDCC00 (because 0xFF > 0xDD, 0xCC &lt; 0xF8, and 0x33 > 0x00 = 33).</p>
    * <p>Not supported under GPU rendering.</p>
    */
   public static const DARKEN:String = "darken";
@@ -53,7 +53,7 @@ public final class BlendMode {
   public static const LAYER:String = "layer";
   /**
    * Selects the lighter of the constituent colors of the display object and the colors of the background (the colors with the larger values). This setting is commonly used for superimposing type.
-   * <p>For example, if the display object has a pixel with an RGB value of 0xFFCC33, and the background pixel has an RGB value of 0xDDF800, the resulting RGB value for the displayed pixel is 0xFFF833 (because 0xFF > 0xDD, 0xCC < 0xF8, and 0x33 > 0x00 = 33).</p>
+   * <p>For example, if the display object has a pixel with an RGB value of 0xFFCC33, and the background pixel has an RGB value of 0xDDF800, the resulting RGB value for the displayed pixel is 0xFFF833 (because 0xFF > 0xDD, 0xCC &lt; 0xF8, and 0x33 > 0x00 = 33).</p>
    * <p>Not supported under GPU rendering.</p>
    */
   public static const LIGHTEN:String = "lighten";
@@ -87,7 +87,7 @@ public final class BlendMode {
   public static const SHADER:String = "shader";
   /**
    * Subtracts the values of the constituent colors in the display object from the values of the background color, applying a floor of 0. This setting is commonly used for animating a darkening dissolve between two objects.
-   * <p>For example, if the display object has a pixel with an RGB value of 0xAA2233, and the background pixel has an RGB value of 0xDDA600, the resulting RGB value for the displayed pixel is 0x338400 (because 0xDD - 0xAA = 0x33, 0xA6 - 0x22 = 0x84, and 0x00 - 0x33 < 0x00).</p>
+   * <p>For example, if the display object has a pixel with an RGB value of 0xAA2233, and the background pixel has an RGB value of 0xDDA600, the resulting RGB value for the displayed pixel is 0x338400 (because 0xDD - 0xAA = 0x33, 0xA6 - 0x22 = 0x84, and 0x00 - 0x33 &lt; 0x00).</p>
    */
   public static const SUBTRACT:String = "subtract";
 }
