@@ -1,6 +1,7 @@
 package ext.layout {
 import ext.Button;
 import ext.Component;
+import ext.Container;
 import ext.Element;
 import ext.config.toolbarlayout;
 import ext.menu.Menu;
@@ -190,7 +191,7 @@ public class ToolbarLayout extends ContainerLayout {
    *
    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ToolbarLayout.html#method-Ext.layout.ToolbarLayout-onLayout Ext JS source
    */
-  public native function onLayout():void;
+  override public native function onLayout(ct:Container, target:Element):void;
 
   /**
    *
