@@ -74,7 +74,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <jangaroo.version>0.9.11</jangaroo.version>
+    <jangaroo.version>0.9.12</jangaroo.version>
   </properties>
 
   <prerequisites>
