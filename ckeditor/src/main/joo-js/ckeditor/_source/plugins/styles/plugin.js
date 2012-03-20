@@ -609,21 +609,6 @@ CKEDITOR.STYLE_OBJECT = 3;
 				for ( styleName in removeList.styles )
 					styleNode.removeStyle( styleName );
 
-
-			var className = def.className,
-				otherClasses = def.otherClasses;
-
-		// Remove other classes from this style group
-		if ( otherClasses )
-		{
-			for( var i=0; i < otherClasses.length; i++)
-				styleNode.removeClass( otherClasses[ i ] );
-		}
-
-		if ( className )
-			styleNode.addClass( className );
-
-
 				if ( styleHasAttrs && !styleNode.hasAttributes() )
 					styleNode = null;
 
@@ -1147,9 +1132,8 @@ CKEDITOR.STYLE_OBJECT = 3;
 	function removeFromElement( style, element )
 	{
 		var def = style._.definition,
-			attributes = def.attributes,
+			attributes = CKEDITOR.tools.extend( {}, def.attributes, getOverrides( style )[ element.getName() ] ),
 			styles = def.styles,
-			overrides = getOverrides( style )[ element.getName() ],
 			// If the style is only about the element itself, we have to remove the element.
 			removeEmpty = CKEDITOR.tools.isEmpty( attributes ) && CKEDITOR.tools.isEmpty( styles );
 
