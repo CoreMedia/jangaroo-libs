@@ -59,7 +59,7 @@ public class ContainerLayout {
   public native function get renderHidden():Boolean;
 
   /**
-   *
+   * Applies extraCls and hides the item if renderHidden is true.
    *
    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ContainerLayout.html#method-Ext.layout.ContainerLayout-configureItem Ext JS source
    */
@@ -75,7 +75,8 @@ public class ContainerLayout {
   public native function parseMargins(v:*):Object;
 
   /**
-   *
+   * Renders the given Component into the target Element. If the Component is already rendered,
+   * it is moved to the provided target instead.
    *
    * @param c The Component to render
    * @param position The position within the target to render the item to
