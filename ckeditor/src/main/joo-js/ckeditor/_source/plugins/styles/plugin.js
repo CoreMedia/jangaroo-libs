@@ -1132,7 +1132,8 @@ CKEDITOR.STYLE_OBJECT = 3;
 	function removeFromElement( style, element )
 	{
 		var def = style._.definition,
-			attributes = CKEDITOR.tools.extend( {}, def.attributes, getOverrides( style )[ element.getName() ] ),
+			overrides = getOverrides( style )[ element.getName() ],
+			attributes = CKEDITOR.tools.extend( {}, def.attributes, overrides ),
 			styles = def.styles,
 			// If the style is only about the element itself, we have to remove the element.
 			removeEmpty = CKEDITOR.tools.isEmpty( attributes ) && CKEDITOR.tools.isEmpty( styles );
