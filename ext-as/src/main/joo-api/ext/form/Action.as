@@ -10,7 +10,7 @@ import ext.config.formaction;
 
  * <p>This component is created by the xtype 'formaction' / the EXML element &lt;formaction>.</p>
  * @see ext.config.formaction
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Action1.html#cls-Ext.form.Action Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.Action Sencha Docs Ext JS 3.4
  */
 public class Action {
 
@@ -26,26 +26,26 @@ public class Action {
 
   /**
    Failure type returned when client side validation of the Form fails thus aborting a submit action. Client side validation is performed unless <a href="output/Ext.form.Action.html#Ext.form.Action-clientValidation">clientValidation</a> is explicitly set to <tt>false</tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Action1.html#prop-Ext.form.Action-CLIENT_INVALID Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.Action-property-CLIENT_INVALID Sencha Docs Ext JS 3.4
    */
   public static const CLIENT_INVALID:String;
 
   /**
    Failure type returned when a communication error happens when attempting to send a request to the remote server. The <a href="output/Ext.form.Action.html#Ext.form.Action-response">response</a> may be examined to provide further information.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Action1.html#prop-Ext.form.Action-CONNECT_FAILURE Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.Action-property-CONNECT_FAILURE Sencha Docs Ext JS 3.4
    */
   public static const CONNECT_FAILURE:String;
 
   /**
    Failure type returned when the response's <tt style="font-weight:bold">success</tt> property is set to <tt>false</tt>, or no field values are returned in the response's <tt style="font-weight:bold">data</tt> property.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Action1.html#prop-Ext.form.Action-LOAD_FAILURE Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.Action-property-LOAD_FAILURE Sencha Docs Ext JS 3.4
    */
   public static const LOAD_FAILURE:String;
 
   /**
    Failure type returned when server side processing fails and the <a href="output/Ext.form.Action.html#Ext.form.Action-result">result</a>'s <tt style="font-weight:bold">success</tt> property is set to <tt>false</tt>.
    <p>In the case of a form submission, field-specific error messages may be returned in the <a href="output/Ext.form.Action.html#Ext.form.Action-result">result</a>'s <tt style="font-weight:bold">errors</tt> property.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Action1.html#prop-Ext.form.Action-SERVER_INVALID Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.Action-property-SERVER_INVALID Sencha Docs Ext JS 3.4
    */
   public static const SERVER_INVALID:String;
 
@@ -85,7 +85,7 @@ public class Action {
    }
    }]
    </code></pre>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Action1.html#prop-Ext.form.Action-failureType Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.Action-property-failureType Sencha Docs Ext JS 3.4
    */
   public native function get failureType():String;
 
@@ -96,7 +96,7 @@ public class Action {
 
   /**
    The XMLHttpRequest object used to perform the action.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Action1.html#prop-Ext.form.Action-response Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.Action-property-response Sencha Docs Ext JS 3.4
    */
   public native function get response():Object;
 
@@ -107,7 +107,7 @@ public class Action {
 
   /**
    The decoded response object containing a boolean <tt style="font-weight:bold">success</tt> property and other, action-specific properties.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Action1.html#prop-Ext.form.Action-result Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.Action-property-result Sencha Docs Ext JS 3.4
    */
   public native function get result():Object;
 
@@ -118,7 +118,7 @@ public class Action {
 
   /**
    The type of action this Action instance performs. Currently only "submit" and "load" are supported.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Action1.html#prop-Ext.form.Action-type Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.Action-property-type Sencha Docs Ext JS 3.4
    */
   public native function get type():String;
 
@@ -129,56 +129,47 @@ public class Action {
 
   /**
    The HTTP method to use to access the requested URL. Defaults to the <a href="Ext.form.BasicForm.html">Ext.form.BasicForm</a>'s method, or if that is not specified, the underlying DOM form's method.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get method():String;
 
   /**
    Extra parameter values to pass. These are added to the Form's <a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-baseParams">Ext.form.BasicForm.baseParams</a> and passed to the specified URL along with the Form's input fields.
    <p>Parameters are encoded as standard HTTP parameters using <a href="output/Ext.html#Ext-urlEncode">Ext.urlEncode</a>.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get params():*;
 
   /**
    When set to <tt><b>true</b></tt>, causes the Form to be <a href="Ext.form.BasicForm.reset.html">reset</a> on Action success. If specified, this happens <b>before</b> the <a href="output/Ext.form.Action.html#Ext.form.Action-success">success</a> callback is called and before the Form's <a href="Ext.form.BasicForm.actioncomplete.html">actioncomplete</a> event fires.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get reset():Boolean;
 
   /**
    The scope in which to call the callback functions (The <tt>this</tt> reference for the callback functions).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get scope():Object;
 
   /**
    If set to <tt>true</tt>, the emptyText value will be sent with the form when it is submitted. Defaults to <tt>true</tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get submitEmptyText():Boolean;
 
   /**
    The number of seconds to wait for a server response before failing with the <a href="output/Ext.form.Action.html#Ext.form.Action-failureType">failureType</a> as <a href="output/Ext.form.Action.html#Ext.form.Action-Action.CONNECT_FAILURE">Action.CONNECT_FAILURE</a>. If not specified, defaults to the configured <tt><a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-timeout">timeout</a></tt> of the <a href="Ext.form.BasicForm.html">form</a>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get timeout():Number;
 
   /**
    The URL that the Action is to invoke.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get url():String;
 
   /**
    The message to be displayed by a call to <a href="output/Ext.MessageBox.html#Ext.MessageBox-wait">Ext.MessageBox.wait</a> during the time the action is being processed.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get waitMsg():String;
 
   /**
    The title to be displayed by a call to <a href="output/Ext.MessageBox.html#Ext.MessageBox-wait">Ext.MessageBox.wait</a> during the time the action is being processed.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get waitTitle():String;
 

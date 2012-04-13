@@ -104,7 +104,7 @@ import ext.toolbar.Spacer;
 
  * <p>This component is created by the xtype 'toolbar' / the EXML element &lt;toolbar>.</p>
  * @see ext.config.toolbar
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Toolbar.html#cls-Ext.Toolbar Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Toolbar Sencha Docs Ext JS 3.4
  */
 public class Toolbar extends Container {
 
@@ -121,13 +121,11 @@ public class Toolbar extends Container {
   /**
    The default position at which to align child items. Defaults to <code>"left"</code>
    <p>May be specified as <code>"center"</code> to cause items added before a Fill (A <code>"-&gt;"</code>) item to be centered in the Toolbar. Items added after a Fill are still right-aligned.</p><p>Specify as <code>"right"</code> to right align all child items.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get buttonAlign():String;
 
   /**
    Defaults to false. Configure <tt>true</tt> to make the toolbar provide a button which activates a dropdown Menu to show items which overflow the Toolbar's width.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get enableOverflow():Boolean;
 
@@ -138,7 +136,7 @@ public class Toolbar extends Container {
    * @param component Either one or more Components to add or an Array of Components to add. See <code><a href="output/Ext.Container.html#Ext.Container-items">items</a></code> for additional information.
 
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Toolbar.html#method-Ext.Toolbar-add Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Toolbar-method-add Sencha Docs Ext JS 3.4
    */
   override public native function add(...component:Array):*;
 
@@ -147,7 +145,7 @@ public class Toolbar extends Container {
    *
    * @param config A button config or array of configs
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Toolbar.html#method-Ext.Toolbar-addButton Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Toolbar-method-addButton Sencha Docs Ext JS 3.4
    */
   public native function addButton(config:*):*;
 
@@ -156,7 +154,7 @@ public class Toolbar extends Container {
    *
    * @param config
    * @return The element's item
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Toolbar.html#method-Ext.Toolbar-addDom Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Toolbar-method-addDom Sencha Docs Ext JS 3.4
    */
   public native function addDom(config:Object):Item;
 
@@ -165,7 +163,7 @@ public class Toolbar extends Container {
    *
    * @param el The element or id of the element to add
    * @return The element's item
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Toolbar.html#method-Ext.Toolbar-addElement Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Toolbar-method-addElement Sencha Docs Ext JS 3.4
    */
   public native function addElement(el:*):Item;
 
@@ -174,14 +172,14 @@ public class Toolbar extends Container {
    *
    * @param field
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Toolbar.html#method-Ext.Toolbar-addField Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Toolbar-method-addField Sencha Docs Ext JS 3.4
    */
   public native function addField(field:Field):Item;
 
   /**
    * Forces subsequent additions into the float:right toolbar <br/><p><b>Note</b>: See the notes within <a href="output/Ext.Container.html#Ext.Container-add">Ext.Container.add</a>.</p>
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Toolbar.html#method-Ext.Toolbar-addFill Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Toolbar-method-addFill Sencha Docs Ext JS 3.4
    */
   public native function addFill():void;
 
@@ -190,7 +188,7 @@ public class Toolbar extends Container {
    *
    * @param item
    * @return The item
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Toolbar.html#method-Ext.Toolbar-addItem Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Toolbar-method-addItem Sencha Docs Ext JS 3.4
    */
   public native function addItem(item:Item):Item;
 
@@ -198,7 +196,7 @@ public class Toolbar extends Container {
    * Adds a separator <br/><p><b>Note</b>: See the notes within <a href="output/Ext.Container.html#Ext.Container-add">Ext.Container.add</a>.</p>
    *
    * @return The separator <a href="Ext.Toolbar.Item.html">item</a>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Toolbar.html#method-Ext.Toolbar-addSeparator Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Toolbar-method-addSeparator Sencha Docs Ext JS 3.4
    */
   public native function addSeparator():Item;
 
@@ -206,7 +204,7 @@ public class Toolbar extends Container {
    * Adds a spacer element <br/><p><b>Note</b>: See the notes within <a href="output/Ext.Container.html#Ext.Container-add">Ext.Container.add</a>.</p>
    *
    * @return The spacer item
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Toolbar.html#method-Ext.Toolbar-addSpacer Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Toolbar-method-addSpacer Sencha Docs Ext JS 3.4
    */
   public native function addSpacer():ext.toolbar.Spacer;
 
@@ -215,7 +213,7 @@ public class Toolbar extends Container {
    *
    * @param text The text to add
    * @return The element's item
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Toolbar.html#method-Ext.Toolbar-addText Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Toolbar-method-addText Sencha Docs Ext JS 3.4
    */
   public native function addText(text:String):Item;
 
@@ -225,7 +223,7 @@ public class Toolbar extends Container {
    * @param index The index where the item is to be inserted
    * @param item The button, or button config object to be inserted, or an array of buttons/configs.
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Toolbar.html#method-Ext.Toolbar-insertButton Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Toolbar-method-insertButton Sencha Docs Ext JS 3.4
    */
   public native function insertButton(index:Number, item:*):*;
 

@@ -9,7 +9,7 @@ package ext {
 
  * <p>This class defines the type of the singleton WindowMgr.</p>
  * @see ext.#WindowMgr ext.WindowMgr
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/WindowManager.html#cls-Ext.WindowMgr Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.WindowMgr Sencha Docs Ext JS 3.4
  */
 public class WindowMgrClass extends WindowGroup {
 

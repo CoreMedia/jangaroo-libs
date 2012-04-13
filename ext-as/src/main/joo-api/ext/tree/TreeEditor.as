@@ -9,7 +9,7 @@ import ext.config.treeeditor;
  *
 
  * @see ext.config.treeeditor
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeEditor.html#cls-Ext.tree.TreeEditor Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeEditor Sencha Docs Ext JS 3.4
  */
 public class TreeEditor extends Editor {
 
@@ -27,25 +27,22 @@ public class TreeEditor extends Editor {
 
   /**
    The <a href="Ext.tree.TreeNode.html">TreeNode</a> this editor is bound to.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeEditor.html#prop-Ext.tree.TreeEditor-editNode Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeEditor-property-editNode Sencha Docs Ext JS 3.4
    */
   public native function get editNode():TreeNode;
 
   /**
    The number of milliseconds between clicks to register a double-click that will trigger editing on the current node (defaults to 350). If two clicks occur on the same node within this time span, the editor for the node will display, otherwise it will be processed as a regular click.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get editDelay():Number;
 
   /**
    The maximum width in pixels of the editor field (defaults to 250). Note that if the maxWidth would exceed the containing tree element's size, it will be automatically limited for you to the container width, taking scroll and client offsets into account prior to each edit.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get maxWidth():Number;
 
   /**
    True to shim the editor if selects/iframes could be displayed beneath it (defaults to false)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get shim():Boolean;
 
@@ -53,7 +50,7 @@ public class TreeEditor extends Editor {
    * Edit the text of the passed <a href="Ext.tree.TreeNode.html">TreeNode</a>.
    *
    * @param node The TreeNode to edit. The TreeNode must be <a href="output/Ext.tree.TreeNode.html#Ext.tree.TreeNode-editable">editable</a>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeEditor.html#method-Ext.tree.TreeEditor-triggerEdit Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeEditor-method-triggerEdit Sencha Docs Ext JS 3.4
    */
   public native function triggerEdit(node:TreeNode):void;
 

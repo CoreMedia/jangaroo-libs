@@ -7,7 +7,7 @@ package ext.menu {
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  *
  * @see ext.menu.IMenuMgr
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MenuMgr.html#cls-Ext.menu.MenuMgr Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.menu.MenuMgr Sencha Docs Ext JS 3.4
  */
 public const MenuMgr:IMenuMgr;
 

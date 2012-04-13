@@ -31,7 +31,7 @@ import ext.config.form;
 
  * <p>This component is created by the xtype 'form' / the EXML element &lt;form>.</p>
  * @see ext.config.form
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Form.html#cls-Ext.form.FormPanel Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.FormPanel Sencha Docs Ext JS 3.4
  */
 public class FormPanel extends Panel {
 
@@ -47,50 +47,42 @@ public class FormPanel extends Panel {
 
   /**
    The id of the FORM tag (defaults to an auto-generated id).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get formId():String;
 
   /**
    <tt>true</tt> to hide field labels by default (sets <tt>display:none</tt>). Defaults to <tt>false</tt>.
    <p>Also see <a href="Ext.Component.html">Ext.Component</a>.<tt><a href="output/Ext.Component.html#Ext.Component-hideLabel">hideLabel</a></tt>.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get hideLabels():Boolean;
 
   /**
    The label alignment value used for the <tt>text-align</tt> specification for the <b>container</b>. Valid values are <tt>"left</tt>", <tt>"top"</tt> or <tt>"right"</tt> (defaults to <tt>"left"</tt>). This property cascades to child <b>containers</b> and can be overridden on any child <b>container</b> (e.g., a fieldset can specify a different <tt>labelAlign</tt> for its fields).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get labelAlign():String;
 
   /**
    The default padding in pixels for field labels (defaults to <tt>5</tt>). <tt>labelPad</tt> only applies if <tt><a href="output/Ext.form.FormPanel.html#Ext.form.FormPanel-labelWidth">labelWidth</a></tt> is also specified, otherwise it will be ignored.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get labelPad():Number;
 
   /**
    The width of labels in pixels. This property cascades to child containers and can be overridden on any child container (e.g., a fieldset can specify a different <tt>labelWidth</tt> for its fields) (defaults to <tt>100</tt>).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get labelWidth():Number;
 
   /**
    Minimum width of all buttons in pixels (defaults to <tt>75</tt>).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   override public native function get minButtonWidth():Number;
 
   /**
    The milliseconds to poll valid state, ignored if monitorValid is not true (defaults to 200)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get monitorPoll():Number;
 
   /**
    If <tt>true</tt>, the form monitors its valid state <b>client-side</b> and regularly fires the <a href="output/Ext.form.FormPanel.html#Ext.form.FormPanel-clientvalidation">clientvalidation</a> event passing that state.<br/><p>When monitoring valid state, the FormPanel enables/disables any of its configured <a href="output/Ext.form.FormPanel.html#Ext.form.FormPanel-buttons">buttons</a> which have been configured with <code>formBind: true</code> depending on whether the <a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-isValid">form is valid</a> or not. Defaults to <tt>false</tt></p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get monitorValid():Boolean;
 
@@ -98,7 +90,7 @@ public class FormPanel extends Panel {
    * Provides access to the <a href="Ext.form.BasicForm.html">Form</a> which this Panel contains.
    *
    * @return The <a href="Ext.form.BasicForm.html">Form</a> which this Panel contains.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Form.html#method-Ext.form.FormPanel-getForm Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.FormPanel-method-getForm Sencha Docs Ext JS 3.4
    */
   public native function getForm():BasicForm;
 
@@ -118,21 +110,21 @@ public class FormPanel extends Panel {
    });
    </code></pre>The only required property is url. The optional properties nocache, text and scripts are shorthand for disableCaching, indicatorText and loadScripts and are used to set their associated property on this panel Updater instance.
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Form.html#method-Ext.form.FormPanel-load Ext JS source
+    * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.FormPanel-method-load Sencha Docs Ext JS 3.4
    */
   override public native function load(config:*):Panel;
 
   /**
    * Starts monitoring of the valid state of this form. Usually this is done by passing the config option "monitorValid"
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Form.html#method-Ext.form.FormPanel-startMonitoring Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.FormPanel-method-startMonitoring Sencha Docs Ext JS 3.4
    */
   public native function startMonitoring():void;
 
   /**
    * Stops monitoring of the valid state of this form
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Form.html#method-Ext.form.FormPanel-stopMonitoring Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.FormPanel-method-stopMonitoring Sencha Docs Ext JS 3.4
    */
   public native function stopMonitoring():void;
 

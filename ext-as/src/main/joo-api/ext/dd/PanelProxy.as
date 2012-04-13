@@ -11,7 +11,7 @@ import js.HTMLElement;
  *
 
  * @see ext.config.panelproxy
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PanelDD.html#cls-Ext.dd.PanelProxy Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.PanelProxy Sencha Docs Ext JS 3.4
  */
 public class PanelProxy {
 
@@ -28,7 +28,6 @@ public class PanelProxy {
 
   /**
    True to insert a placeholder proxy element while dragging the panel, false to drag with no proxy (defaults to true).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get insertProxy():Boolean;
 
@@ -36,7 +35,7 @@ public class PanelProxy {
    * Gets the proxy's element
    *
    * @return The proxy's element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PanelDD.html#method-Ext.dd.PanelProxy-getEl Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.PanelProxy-method-getEl Sencha Docs Ext JS 3.4
    */
   public native function getEl():Element;
 
@@ -44,7 +43,7 @@ public class PanelProxy {
    * Gets the proxy's ghost element
    *
    * @return The proxy's ghost element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PanelDD.html#method-Ext.dd.PanelProxy-getGhost Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.PanelProxy-method-getGhost Sencha Docs Ext JS 3.4
    */
   public native function getGhost():Element;
 
@@ -52,14 +51,14 @@ public class PanelProxy {
    * Gets the proxy's element
    *
    * @return The proxy's element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PanelDD.html#method-Ext.dd.PanelProxy-getProxy Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.PanelProxy-method-getProxy Sencha Docs Ext JS 3.4
    */
   public native function getProxy():Element;
 
   /**
    * Hides the proxy
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PanelDD.html#method-Ext.dd.PanelProxy-hide Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.PanelProxy-method-hide Sencha Docs Ext JS 3.4
    */
   public native function hide():void;
 
@@ -68,14 +67,14 @@ public class PanelProxy {
    *
    * @param parentNode The proxy's parent DOM node
    * @param before The sibling node before which the proxy should be inserted (defaults to the parent's last child if not specified)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PanelDD.html#method-Ext.dd.PanelProxy-moveProxy Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.PanelProxy-method-moveProxy Sencha Docs Ext JS 3.4
    */
   public native function moveProxy(parentNode:HTMLElement, before:HTMLElement = null):void;
 
   /**
    * Shows the proxy
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PanelDD.html#method-Ext.dd.PanelProxy-show Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.PanelProxy-method-show Sencha Docs Ext JS 3.4
    */
   public native function show():void;
 

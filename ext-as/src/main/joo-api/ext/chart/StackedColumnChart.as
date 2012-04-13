@@ -7,7 +7,7 @@ package ext.chart {
 
  * <p>This component is created by the xtype 'stackedcolumnchart' / the EXML element &lt;stackedcolumnchart>.</p>
  * @see ext.config.stackedcolumnchart
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Chart.html#cls-Ext.chart.StackedColumnChart Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.chart.StackedColumnChart Sencha Docs Ext JS 3.4
  */
 public class StackedColumnChart extends CartesianChart {
 

@@ -34,7 +34,7 @@ import ext.data.Connection;
 
  * <p>This class defines the type of the singleton Ajax.</p>
  * @see ext.#Ajax ext.Ajax
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Connection.html#cls-Ext.Ajax Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Ajax Sencha Docs Ext JS 3.4
  */
 public class AjaxClass extends Connection {
 
@@ -47,7 +47,7 @@ public class AjaxClass extends Connection {
 
   /**
    Whether a new request should abort any pending requests. (defaults to false)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Connection.html#prop-Ext.Ajax-autoAbort Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Ajax-property-autoAbort Sencha Docs Ext JS 3.4
    */
   override public native function get autoAbort():Boolean;
 
@@ -58,7 +58,7 @@ public class AjaxClass extends Connection {
 
   /**
    An object containing request headers which are added to each request made by this object (defaults to undefined).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Connection.html#prop-Ext.Ajax-defaultHeaders Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Ajax-property-defaultHeaders Sencha Docs Ext JS 3.4
    */
   override public native function get defaultHeaders():Object;
 
@@ -69,7 +69,7 @@ public class AjaxClass extends Connection {
 
   /**
    True to add a unique cache-buster param to GET requests. (defaults to true)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Connection.html#prop-Ext.Ajax-disableCaching Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Ajax-property-disableCaching Sencha Docs Ext JS 3.4
    */
   override public native function get disableCaching():Boolean;
 
@@ -80,7 +80,7 @@ public class AjaxClass extends Connection {
 
   /**
    An object containing properties which are used as extra parameters to each request made by this object (defaults to undefined). Session information and other data that you need to pass with each request are commonly put here.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Connection.html#prop-Ext.Ajax-extraParams Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Ajax-property-extraParams Sencha Docs Ext JS 3.4
    */
   override public native function get extraParams():Object;
 
@@ -91,7 +91,7 @@ public class AjaxClass extends Connection {
 
   /**
    The default HTTP method to be used for requests. Note that this is case-sensitive and should be all caps (defaults to undefined; if not set but params are present will use <tt>"POST"</tt>, otherwise will use <tt>"GET"</tt>.)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Connection.html#prop-Ext.Ajax-method Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Ajax-property-method Sencha Docs Ext JS 3.4
    */
   override public native function get method():String;
 
@@ -102,7 +102,7 @@ public class AjaxClass extends Connection {
 
   /**
    The timeout in milliseconds to be used for requests. (defaults to 30000)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Connection.html#prop-Ext.Ajax-timeout Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Ajax-property-timeout Sencha Docs Ext JS 3.4
    */
   override public native function get timeout():Number;
 
@@ -113,7 +113,7 @@ public class AjaxClass extends Connection {
 
   /**
    The default URL to be used for requests to the server. (defaults to undefined) If the server receives all requests through one URL, setting this once is easier than entering it on every request.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Connection.html#prop-Ext.Ajax-url Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Ajax-property-url Sencha Docs Ext JS 3.4
    */
   override public native function get url():String;
 
@@ -127,7 +127,7 @@ public class AjaxClass extends Connection {
    *
    * @param form
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Connection.html#method-Ext.Ajax-serializeForm Ext JS source
+    * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Ajax-method-serializeForm Sencha Docs Ext JS 3.4
    */
   public native function serializeForm(form:*):String;
 

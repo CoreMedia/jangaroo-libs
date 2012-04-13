@@ -80,7 +80,7 @@ import ext.util.Observable;
  *
 
  * @see ext.config.resizable
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Resizable.html#cls-Ext.Resizable Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Resizable Sencha Docs Ext JS 3.4
  */
 public class Resizable extends Observable {
 
@@ -97,7 +97,7 @@ public class Resizable extends Observable {
 
   /**
    Writable. False if resizing is disabled.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Resizable.html#prop-Ext.Resizable-enabled Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Resizable-property-enabled Sencha Docs Ext JS 3.4
    */
   public native function get enabled():Boolean;
 
@@ -108,7 +108,7 @@ public class Resizable extends Observable {
 
   /**
    The proxy Element that is resized in place of the real Element during the resize operation. This may be queried using <a href="output/Ext.Element.html#Ext.Element-getBox">Ext.Element.getBox</a> to provide the new area to resize to. Read only.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Resizable.html#prop-Ext.Resizable-proxy Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Resizable-property-proxy Sencha Docs Ext JS 3.4
    */
   public native function get proxy():Element;
 
@@ -119,157 +119,131 @@ public class Resizable extends Observable {
 
   /**
    String 'auto' or an array [width, height] with values to be <b>added</b> to the resize operation's new size (defaults to <tt>[0, 0]</tt>)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get adjustments():*;
 
   /**
    True to animate the resize (not compatible with dynamic sizing, defaults to false)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get animate():Boolean;
 
   /**
    Constrain the resize to a particular element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get constrainTo():*;
 
   /**
    True to disable mouse tracking. This is only applied at config time. (defaults to false)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get disableTrackOver():Boolean;
 
   /**
    Convenience to initialize drag drop (defaults to false)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get draggable():Boolean;
 
   /**
    Animation duration if animate = true (defaults to 0.35)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get duration():Number;
 
   /**
    True to resize the element while dragging instead of using a proxy (defaults to false)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get dynamic():Boolean;
 
   /**
    Animation easing if animate = true (defaults to <tt>'easingOutStrong'</tt>)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get easing():String;
 
   /**
    A css class to add to each handle. Defaults to <tt>''</tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get handleCls():String;
 
   /**
    String consisting of the resize handles to display (defaults to undefined). Specify either <tt>'all'</tt> or any of <tt>'n s e w ne nw se sw'</tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get handles():String;
 
   /**
    The height of the element in pixels (defaults to null)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get height():Number;
 
   /**
    The increment to snap the height resize in pixels (only applies if <code><a href="output/Ext.Resizable.html#Ext.Resizable-dynamic">dynamic</a>==true</code>). Defaults to <tt>0</tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get heightIncrement():Number;
 
   /**
    The maximum height for the element (defaults to 10000)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get maxHeight():Number;
 
   /**
    The maximum width for the element (defaults to 10000)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get maxWidth():Number;
 
   /**
    The minimum height for the element (defaults to 5)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get minHeight():Number;
 
   /**
    The minimum width for the element (defaults to 5)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get minWidth():Number;
 
   /**
    The minimum x for the element (defaults to 0)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get minX():Number;
 
   /**
    The minimum x for the element (defaults to 0)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get minY():Number;
 
   /**
    <b>Deprecated</b>. Deprecated style of adding multi-direction resize handles.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get multiDirectional():Boolean;
 
   /**
    True to ensure that the resize handles are always visible, false to display them only when the user mouses over the resizable borders. This is only applied at config time. (defaults to false)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get pinned():Boolean;
 
   /**
    True to preserve the original ratio between height and width during resize (defaults to false)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get preserveRatio():Boolean;
 
   /**
    Constrain the resize to a particular region
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get resizeRegion():Region;
 
   /**
    True for transparent handles. This is only applied at config time. (defaults to false)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get transparent():Boolean;
 
   /**
    The width of the element in pixels (defaults to null)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get width():Number;
 
   /**
    The increment to snap the width resize in pixels (only applies if <code><a href="output/Ext.Resizable.html#Ext.Resizable-dynamic">dynamic</a>==true</code>). Defaults to <tt>0</tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get widthIncrement():Number;
 
   /**
    True to wrap an element with a div if needed (required for textareas and images, defaults to false) in favor of the handles config option (defaults to false)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get wrap():Boolean;
 
@@ -277,7 +251,7 @@ public class Resizable extends Observable {
    * Destroys this resizable. If the element was wrapped and removeEl is not true then the element remains.
    *
    * @param removeEl true to remove the element from the DOM
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Resizable.html#method-Ext.Resizable-destroy Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Resizable-method-destroy Sencha Docs Ext JS 3.4
    */
   public native function destroy(removeEl:Boolean = false):void;
 
@@ -285,7 +259,7 @@ public class Resizable extends Observable {
    * Returns the element this component is bound to.
    *
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Resizable.html#method-Ext.Resizable-getEl Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Resizable-method-getEl Sencha Docs Ext JS 3.4
    */
   public native function getEl():Element;
 
@@ -293,7 +267,7 @@ public class Resizable extends Observable {
    * Returns the resizeChild element (or null).
    *
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Resizable.html#method-Ext.Resizable-getResizeChild Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Resizable-method-getResizeChild Sencha Docs Ext JS 3.4
    */
   public native function getResizeChild():Element;
 
@@ -328,7 +302,7 @@ public class Resizable extends Observable {
    }).show();
    </code></pre>
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Resizable.html#method-Ext.Resizable-resizeElement Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Resizable-method-resizeElement Sencha Docs Ext JS 3.4
    */
   public native function resizeElement():void;
 
@@ -337,7 +311,7 @@ public class Resizable extends Observable {
    *
    * @param width
    * @param height
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Resizable.html#method-Ext.Resizable-resizeTo Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Resizable-method-resizeTo Sencha Docs Ext JS 3.4
    */
   public native function resizeTo(width:Number, height:Number):void;
 

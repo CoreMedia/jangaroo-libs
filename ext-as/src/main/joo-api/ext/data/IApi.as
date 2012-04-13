@@ -9,7 +9,7 @@ package ext.data {
 
  * <p>This interface defines the type of the singleton Api.</p>
  * @see ext.data.#Api ext.data.Api
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Api.html#cls-Ext.data.Api Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Api Sencha Docs Ext JS 3.4
  */
 public interface IApi {
 
@@ -21,7 +21,7 @@ public interface IApi {
    destroy : 'destroy'  // Text representing the remote-action to destroy records on server.
    }
    </code></pre>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Api.html#prop-Ext.data.Api-actions Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Api-property-actions Sencha Docs Ext JS 3.4
    */
   function get actions():Object;
 
@@ -38,7 +38,7 @@ public interface IApi {
    destroy : 'DELETE'
    },
    </code></pre>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Api.html#prop-Ext.data.Api-restActions Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Api-property-restActions Sencha Docs Ext JS 3.4
    */
   function get restActions():Object;
 
@@ -50,7 +50,7 @@ public interface IApi {
   /**
    * Ext.data.Response Experimental. Do not use directly.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Api.html#method-Ext.data.Api-Response Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Api-method-Response Sencha Docs Ext JS 3.4
    */
   function Response():void;
 
@@ -59,7 +59,7 @@ public interface IApi {
    *
    * @param name The runtime name of the action.
    * @return returns the action-key, or verb of the user-action or null if invalid.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Api.html#method-Ext.data.Api-getVerb Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Api-method-getVerb Sencha Docs Ext JS 3.4
    */
   function getVerb(name:String):*;
 
@@ -69,7 +69,7 @@ public interface IApi {
    * @param proxy
    * @param verb
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Api.html#method-Ext.data.Api-hasUniqueUrl Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Api-method-hasUniqueUrl Sencha Docs Ext JS 3.4
    */
   function hasUniqueUrl(proxy:DataProxy, verb:String):Boolean;
 
@@ -78,7 +78,7 @@ public interface IApi {
    *
    * @param action Action to test for availability.
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Api.html#method-Ext.data.Api-isAction Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Api-method-isAction Sencha Docs Ext JS 3.4
    */
   function isAction(action:String):Boolean;
 
@@ -86,7 +86,7 @@ public interface IApi {
    * Returns true if the supplied API is valid; that is, check that all keys match defined actions otherwise returns an array of mistakes.
    *
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Api.html#method-Ext.data.Api-isValid Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Api-method-isValid Sencha Docs Ext JS 3.4
    */
   function isValid():*;
 
@@ -113,7 +113,7 @@ public interface IApi {
    </code></pre>
    *
    * @param proxy
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Api.html#method-Ext.data.Api-prepare Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Api-method-prepare Sencha Docs Ext JS 3.4
    */
   function prepare(proxy:DataProxy):void;
 
@@ -121,7 +121,7 @@ public interface IApi {
    * Prepares a supplied Proxy to be RESTful. Sets the HTTP method for each api-action to be one of GET, POST, PUT, DELETE according to the defined <a href="output/Ext.data.Api.html#Ext.data.Api-restActions">restActions</a>.
    *
    * @param proxy
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Api.html#method-Ext.data.Api-restify Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Api-method-restify Sencha Docs Ext JS 3.4
    */
   function restify(proxy:DataProxy):void;
 

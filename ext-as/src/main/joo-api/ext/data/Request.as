@@ -6,7 +6,7 @@ package ext.data {
  *
 
  * @see ext.config.request
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Request.html#cls-Ext.data.Request Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Request Sencha Docs Ext JS 3.4
  */
 public class Request {
 
@@ -20,32 +20,26 @@ public class Request {
   }
 
   /**
-
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get action():String;
 
   /**
    HTTP request params
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get params():Object;
 
   /**
    The DataReader instance which will parse the received response
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get reader():DataReader;
 
   /**
    The Store recordset associated with the request.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get rs():*;
 
   /**
    The scope of the callback function.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get scope():Object;
 

@@ -256,7 +256,7 @@ import ext.data.Node;
  *
 
  * @see ext.config.treenode
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeNode.html#cls-Ext.tree.TreeNode Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeNode Sencha Docs Ext JS 3.4
  */
 public class TreeNode extends Node {
 
@@ -272,7 +272,7 @@ public class TreeNode extends Node {
 
   /**
    True if this node is disabled.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeNode.html#prop-Ext.tree.TreeNode-disabled Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeNode-property-disabled Sencha Docs Ext JS 3.4
    */
   public native function get disabled():Boolean;
 
@@ -283,7 +283,7 @@ public class TreeNode extends Node {
 
   /**
    True if this node is hidden.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeNode.html#prop-Ext.tree.TreeNode-hidden Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeNode-property-hidden Sencha Docs Ext JS 3.4
    */
   public native function get hidden():Boolean;
 
@@ -294,122 +294,105 @@ public class TreeNode extends Node {
 
   /**
    The text for this node. To change it use <code><a href="output/Ext.tree.TreeNode.html#Ext.tree.TreeNode-setText">setText</a></code>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeNode.html#prop-Ext.tree.TreeNode-text Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeNode-property-text Sencha Docs Ext JS 3.4
    */
   public native function get text():String;
 
   /**
    The UI for this node
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeNode.html#prop-Ext.tree.TreeNode-ui Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeNode-property-ui Sencha Docs Ext JS 3.4
    */
   public native function get ui():TreeNodeUI;
 
   /**
    False to not allow this node to have child nodes (defaults to true)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get allowChildren():Boolean;
 
   /**
    False to make this node undraggable if <a href="output/Ext.tree.TreeNode.html#Ext.tree.TreeNode-draggable">draggable</a> = true (defaults to true)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get allowDrag():Boolean;
 
   /**
    False if this node cannot have child nodes dropped on it (defaults to true)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get allowDrop():Boolean;
 
   /**
    True to render a checked checkbox for this node, false to render an unchecked checkbox (defaults to undefined with no checkbox rendered)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get checked():Boolean;
 
   /**
    A css class to be added to the node
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get cls():String;
 
   /**
    True to make this node draggable (defaults to false)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get draggable():Boolean;
 
   /**
    False to not allow this node to be edited by an <a href="Ext.tree.TreeEditor.html">Ext.tree.TreeEditor</a> (defaults to true)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get editable():Boolean;
 
   /**
    If set to true, the node will always show a plus/minus icon, even when empty
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get expandable():Boolean;
 
   /**
    true to start the node expanded
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get expanded():Boolean;
 
   /**
    URL of the link used for the node (defaults to #)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get href():String;
 
   /**
    target frame for the link
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get hrefTarget():String;
 
   /**
    The path to an icon for the node. The preferred way to do this is to use the cls or iconCls attributes and add the icon via a CSS background image.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get icon():String;
 
   /**
    A css class to be added to the nodes icon element for applying css background images
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get iconCls():String;
 
   /**
    False to not allow this node to act as a drop target (defaults to true)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get isTarget():Boolean;
 
   /**
    An Ext QuickTip for the node
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get qtip():String;
 
   /**
    An Ext QuickTip config for the node (used instead of qtip)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get qtipCfg():String;
 
   /**
    True for single click expand on this node
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get singleClickExpand():Boolean;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeNode.html#method-Ext.tree.TreeNode-beginUpdate Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeNode-method-beginUpdate Sencha Docs Ext JS 3.4
    */
   public native function beginUpdate():void;
 
@@ -420,7 +403,7 @@ public class TreeNode extends Node {
    * @param anim false to cancel the default animation
    * @param callback A callback to be called when expanding this node completes (does not wait for deep expand to complete). Called with 1 parameter, this node.
    * @param scope The scope (<code>this</code> reference) in which the callback is executed. Defaults to this TreeNode.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeNode.html#method-Ext.tree.TreeNode-collapse Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeNode-method-collapse Sencha Docs Ext JS 3.4
    */
   public native function collapse(deep:Boolean = false, anim:Boolean = false, callback:Function = null, scope:Object = null):void;
 
@@ -428,28 +411,28 @@ public class TreeNode extends Node {
    * Collapse all child nodes
    *
    * @param deep true if the child nodes should also collapse their child nodes
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeNode.html#method-Ext.tree.TreeNode-collapseChildNodes Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeNode-method-collapseChildNodes Sencha Docs Ext JS 3.4
    */
   public native function collapseChildNodes(deep:Boolean = false):void;
 
   /**
    * Disables this node
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeNode.html#method-Ext.tree.TreeNode-disable Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeNode-method-disable Sencha Docs Ext JS 3.4
    */
   public native function disable():void;
 
   /**
    * Enables this node
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeNode.html#method-Ext.tree.TreeNode-enable Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeNode-method-enable Sencha Docs Ext JS 3.4
    */
   public native function enable():void;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeNode.html#method-Ext.tree.TreeNode-endUpdate Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeNode-method-endUpdate Sencha Docs Ext JS 3.4
    */
   public native function endUpdate():void;
 
@@ -458,7 +441,7 @@ public class TreeNode extends Node {
    *
    * @param callback A function to call when the node has been made visible.
    * @param scope The scope (<code>this</code> reference) in which the callback is executed. Defaults to this TreeNode.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeNode.html#method-Ext.tree.TreeNode-ensureVisible Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeNode-method-ensureVisible Sencha Docs Ext JS 3.4
    */
   public native function ensureVisible(callback:Function = null, scope:Object = null):void;
 
@@ -469,7 +452,7 @@ public class TreeNode extends Node {
    * @param anim false to cancel the default animation
    * @param callback A callback to be called when expanding this node completes (does not wait for deep expand to complete). Called with 1 parameter, this node.
    * @param scope The scope (<code>this</code> reference) in which the callback is executed. Defaults to this TreeNode.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeNode.html#method-Ext.tree.TreeNode-expand Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeNode-method-expand Sencha Docs Ext JS 3.4
    */
   public native function expand(deep:Boolean = false, anim:Boolean = false, callback:Function = null, scope:Object = null):void;
 
@@ -477,7 +460,7 @@ public class TreeNode extends Node {
    * Expand all child nodes
    *
    * @param deep true if the child nodes should also expand their child nodes
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeNode.html#method-Ext.tree.TreeNode-expandChildNodes Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeNode-method-expandChildNodes Sencha Docs Ext JS 3.4
    */
   public native function expandChildNodes(deep:Boolean = false):void;
 
@@ -485,7 +468,7 @@ public class TreeNode extends Node {
    * Returns the UI object for this node.
    *
    * @return The object which is providing the user interface for this tree node. Unless otherwise specified in the <a href="output/Ext.tree.TreeNode.html#Ext.tree.TreeNode-uiProvider">uiProvider</a>, this will be an instance of <a href="Ext.tree.TreeNodeUI.html">Ext.tree.TreeNodeUI</a>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeNode.html#method-Ext.tree.TreeNode-getUI Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeNode-method-getUI Sencha Docs Ext JS 3.4
    */
   public native function getUI():TreeNodeUI;
 
@@ -493,7 +476,7 @@ public class TreeNode extends Node {
    * Returns true if this node is expanded
    *
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeNode.html#method-Ext.tree.TreeNode-isExpanded Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeNode-method-isExpanded Sencha Docs Ext JS 3.4
    */
   public native function isExpanded():Boolean;
 
@@ -501,14 +484,14 @@ public class TreeNode extends Node {
    * Returns true if this node is selected
    *
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeNode.html#method-Ext.tree.TreeNode-isSelected Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeNode-method-isSelected Sencha Docs Ext JS 3.4
    */
   public native function isSelected():Boolean;
 
   /**
    * Triggers selection of this node
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeNode.html#method-Ext.tree.TreeNode-select Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeNode-method-select Sencha Docs Ext JS 3.4
    */
   public native function select():void;
 
@@ -516,7 +499,7 @@ public class TreeNode extends Node {
    * Sets the class on this node.
    *
    * @param cls
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeNode.html#method-Ext.tree.TreeNode-setCls Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeNode-method-setCls Sencha Docs Ext JS 3.4
    */
   public native function setCls(cls:String):void;
 
@@ -525,7 +508,7 @@ public class TreeNode extends Node {
    *
    * @param href The href to set
    * @param target The target of the href
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeNode.html#method-Ext.tree.TreeNode-setHref Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeNode-method-setHref Sencha Docs Ext JS 3.4
    */
   public native function setHref(href:String, target:String = null):void;
 
@@ -533,7 +516,7 @@ public class TreeNode extends Node {
    * Sets the icon for this node.
    *
    * @param icon
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeNode.html#method-Ext.tree.TreeNode-setIcon Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeNode-method-setIcon Sencha Docs Ext JS 3.4
    */
   public native function setIcon(icon:String):void;
 
@@ -541,7 +524,7 @@ public class TreeNode extends Node {
    * Sets the icon class for this node.
    *
    * @param cls
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeNode.html#method-Ext.tree.TreeNode-setIconCls Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeNode-method-setIconCls Sencha Docs Ext JS 3.4
    */
   public native function setIconCls(cls:String):void;
 
@@ -549,7 +532,7 @@ public class TreeNode extends Node {
    * Sets the text for this node
    *
    * @param text
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeNode.html#method-Ext.tree.TreeNode-setText Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeNode-method-setText Sencha Docs Ext JS 3.4
    */
   public native function setText(text:String):void;
 
@@ -558,14 +541,14 @@ public class TreeNode extends Node {
    *
    * @param tip The text for the tip
    * @param title The title for the tip
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeNode.html#method-Ext.tree.TreeNode-setTooltip Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeNode-method-setTooltip Sencha Docs Ext JS 3.4
    */
   public native function setTooltip(tip:String, title:String = null):void;
 
   /**
    * Toggles expanded/collapsed state of the node
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeNode.html#method-Ext.tree.TreeNode-toggle Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeNode-method-toggle Sencha Docs Ext JS 3.4
    */
   public native function toggle():void;
 
@@ -573,7 +556,7 @@ public class TreeNode extends Node {
    * Triggers deselection of this node
    *
    * @param silent True to stop selection change events from firing.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeNode.html#method-Ext.tree.TreeNode-unselect Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeNode-method-unselect Sencha Docs Ext JS 3.4
    */
   public native function unselect(silent:Boolean = false):void;
 

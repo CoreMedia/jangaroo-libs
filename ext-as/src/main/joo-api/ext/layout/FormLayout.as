@@ -61,7 +61,7 @@ import ext.form.Field;
  *
 
  * @see ext.config.formlayout
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/FormLayout.html#cls-Ext.layout.FormLayout Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.layout.FormLayout Sencha Docs Ext JS 3.4
  */
 public class FormLayout extends AnchorLayout {
 
@@ -76,7 +76,7 @@ public class FormLayout extends AnchorLayout {
 
   /**
    Read only. The CSS style specification string added to field labels in this layout if not otherwise <a href="output/Ext.Component.html#Ext.Component-labelStyle">specified by each contained field</a>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/FormLayout.html#prop-Ext.layout.FormLayout-labelStyle Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.layout.FormLayout-property-labelStyle Sencha Docs Ext JS 3.4
    */
   public native function get labelStyle():String;
 
@@ -87,13 +87,11 @@ public class FormLayout extends AnchorLayout {
 
   /**
    See <a href="Ext.form.FormPanel.html">Ext.form.FormPanel</a>.<a href="output/Ext.form.FormPanel.html#Ext.form.FormPanel-labelSeparator">labelSeparator</a>. Configuration of this property at the <b>container</b> level takes precedence.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get labelSeparator():String;
 
   /**
    True to show/hide the field label when the field is hidden. Defaults to <tt>true</tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get trackLabels():Boolean;
 
@@ -103,7 +101,7 @@ public class FormLayout extends AnchorLayout {
    *
    * @param field The <a href="Ext.form.Field.html">Field</a> being rendered.
    * @return An object hash containing the properties required to render the Field.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/FormLayout.html#method-Ext.layout.FormLayout-getTemplateArgs Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.layout.FormLayout-method-getTemplateArgs Sencha Docs Ext JS 3.4
    */
   public native function getTemplateArgs(field:Field):Object;
 
@@ -113,7 +111,7 @@ public class FormLayout extends AnchorLayout {
    * @param c The Component to render
    * @param position The position within the target to render the item to
    * @param target The target Element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/FormLayout.html#method-Ext.layout.FormLayout-renderItem Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.layout.FormLayout-method-renderItem Sencha Docs Ext JS 3.4
    */
   override public native function renderItem(c:Component, position:Number, target:Element):void;
 

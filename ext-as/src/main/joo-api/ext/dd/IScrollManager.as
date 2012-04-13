@@ -18,14 +18,14 @@ package ext.dd {
 
  * <p>This interface defines the type of the singleton ScrollManager.</p>
  * @see ext.dd.#ScrollManager ext.dd.ScrollManager
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ScrollManager.html#cls-Ext.dd.ScrollManager Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.ScrollManager Sencha Docs Ext JS 3.4
  */
 public interface IScrollManager extends IDDScrollConfig {
 
   /**
    * Manually trigger a cache refresh.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ScrollManager.html#method-Ext.dd.ScrollManager-refreshCache Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.ScrollManager-method-refreshCache Sencha Docs Ext JS 3.4
    */
   function refreshCache():void;
 
@@ -33,7 +33,7 @@ public interface IScrollManager extends IDDScrollConfig {
    * Registers new overflow element(s) to auto scroll
    *
    * @param el The id of or the element to be scrolled or an array of either
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ScrollManager.html#method-Ext.dd.ScrollManager-register Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.ScrollManager-method-register Sencha Docs Ext JS 3.4
    */
   function register(el:*):void;
 
@@ -41,7 +41,7 @@ public interface IScrollManager extends IDDScrollConfig {
    * Unregisters overflow element(s) so they are no longer scrolled
    *
    * @param el The id of or the element to be removed or an array of either
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ScrollManager.html#method-Ext.dd.ScrollManager-unregister Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.ScrollManager-method-unregister Sencha Docs Ext JS 3.4
    */
   function unregister(el:*):void;
 

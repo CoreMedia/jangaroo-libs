@@ -8,7 +8,7 @@ import ext.config.layer;
  *
 
  * @see ext.config.layer
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Layer.html#cls-Ext.Layer Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Layer Sencha Docs Ext JS 3.4
  */
 public class Layer extends Element {
 
@@ -25,56 +25,48 @@ public class Layer extends Element {
 
   /**
    CSS class to add to the element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get cls():String;
 
   /**
    False to disable constrain to viewport (defaults to true)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get constrain():Boolean;
 
   /**
    DomHelper object config to create element with (defaults to {tag: 'div', cls: 'x-layer'}).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get dh():Object;
 
   /**
    True to automatically create an <a href="Ext.Shadow.html">Ext.Shadow</a>, or a string indicating the shadow's display <a href="output/Ext.Shadow.html#Ext.Shadow-mode">Ext.Shadow.mode</a>. False to disable the shadow. (defaults to false)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get shadow():*;
 
   /**
    Number of pixels to offset the shadow (defaults to 4)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get shadowOffset():Number;
 
   /**
    False to disable the iframe shim in browsers which need one (defaults to true)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get shim():Boolean;
 
   /**
    Defaults to use css offsets to hide the Layer. Specify <tt>true</tt> to use css style <tt>'display:none;'</tt> to hide the Layer.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get useDisplay():Boolean;
 
   /**
    Starting z-index (defaults to 11000)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get zindex():Number;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Layer.html#method-Ext.Layer-disableShadow Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Layer-method-disableShadow Sencha Docs Ext JS 3.4
    */
   public native function disableShadow():void;
 
@@ -82,7 +74,7 @@ public class Layer extends Element {
    *
    *
    * @param show
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Layer.html#method-Ext.Layer-enableShadow Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Layer-method-enableShadow Sencha Docs Ext JS 3.4
    */
   public native function enableShadow(show:Boolean = false):void;
 
@@ -91,7 +83,7 @@ public class Layer extends Element {
    *
    * @param zindex The new z-index to set
    * @return The Layer
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Layer.html#method-Ext.Layer-setZIndex Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Layer-method-setZIndex Sencha Docs Ext JS 3.4
    */
   public native function setZIndex(zindex:Number):Layer;
 

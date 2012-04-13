@@ -43,7 +43,7 @@ import ext.config.buttongroup;
 
  * <p>This component is created by the xtype 'buttongroup' / the EXML element &lt;buttongroup>.</p>
  * @see ext.config.buttongroup
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ButtonGroup.html#cls-Ext.ButtonGroup Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.ButtonGroup Sencha Docs Ext JS 3.4
  */
 public class ButtonGroup extends Panel {
 
@@ -59,19 +59,16 @@ public class ButtonGroup extends Panel {
 
   /**
    Defaults to <tt>'x-btn-group'</tt>. See <a href="output/Ext.Panel.html#Ext.Panel-baseCls">Ext.Panel.baseCls</a>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   override public native function get baseCls():String;
 
   /**
    The <tt>columns</tt> configuration property passed to the <a href="output/Ext.ButtonGroup.html#Ext.ButtonGroup-layout">configured layout manager</a>. See <a href="output/Ext.layout.TableLayout.html#Ext.layout.TableLayout-columns">Ext.layout.TableLayout.columns</a>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get columns():Number;
 
   /**
    Defaults to <tt>true</tt>. See <a href="output/Ext.Panel.html#Ext.Panel-frame">Ext.Panel.frame</a>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   override public native function get frame():Boolean;
 

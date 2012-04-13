@@ -51,7 +51,7 @@ package ext.direct {
  *
 
  * @see ext.config.pollingprovider
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PollingProvider.html#cls-Ext.direct.PollingProvider Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.direct.PollingProvider Sencha Docs Ext JS 3.4
  */
 public class PollingProvider extends JsonProvider {
 
@@ -66,33 +66,30 @@ public class PollingProvider extends JsonProvider {
 
   /**
    An object containing properties which are to be sent as parameters on every polling request
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get baseParams():Object;
 
   /**
    How often to poll the server-side in milliseconds (defaults to <tt>3000</tt> - every 3 seconds).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get interval():Number;
 
   /**
    The url which the PollingProvider should contact with each request. This can also be an imported Ext.Direct method which will accept the baseParams as its only argument.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get url():*;
 
   /**
    * Connect to the server-side and begin the polling process. To handle each response subscribe to the data event.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PollingProvider.html#method-Ext.direct.PollingProvider-connect Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.direct.PollingProvider-method-connect Sencha Docs Ext JS 3.4
    */
   override public native function connect():void;
 
   /**
    * Disconnect from the server-side and stop the polling process. The disconnect event will be fired on a successful disconnect.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PollingProvider.html#method-Ext.direct.PollingProvider-disconnect Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.direct.PollingProvider-method-disconnect Sencha Docs Ext JS 3.4
    */
   override public native function disconnect():void;
 

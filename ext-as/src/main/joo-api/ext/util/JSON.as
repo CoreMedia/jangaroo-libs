@@ -7,7 +7,7 @@ package ext.util {
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  *
  * @see ext.util.IJSON
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/JSON.html#cls-Ext.util.JSON Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.JSON Sencha Docs Ext JS 3.4
  */
 public const JSON:IJSON;
 

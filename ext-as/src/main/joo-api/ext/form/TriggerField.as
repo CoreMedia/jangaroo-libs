@@ -13,7 +13,7 @@ import ext.config.trigger;
 
  * <p>This component is created by the xtype 'trigger' / the EXML element &lt;trigger>.</p>
  * @see ext.config.trigger
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TriggerField.html#cls-Ext.form.TriggerField Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.TriggerField Sencha Docs Ext JS 3.4
  */
 public class TriggerField extends TextField {
 
@@ -29,32 +29,27 @@ public class TriggerField extends TextField {
 
   /**
    <tt>false</tt> to prevent the user from typing text directly into the field, the field will only respond to a click on the trigger to set the value. (defaults to <tt>true</tt>).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get editable():Boolean;
 
   /**
    <tt>true</tt> to hide the trigger element and display only the base text field (defaults to <tt>false</tt>)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get hideTrigger():Boolean;
 
   /**
    An additional CSS class used to style the trigger button. The trigger will always get the class <tt>'x-form-trigger'</tt> by default and <tt>triggerClass</tt> will be <b>appended</b> if specified.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get triggerClass():String;
 
   /**
    A <a href="Ext.DomHelper.html">DomHelper</a> config object specifying the structure of the trigger element for this Field. (Optional).
    <p>Specify this when you need a customized element to act as the trigger button for a TriggerField.</p><p>Note that when using this option, it is the developer's responsibility to ensure correct sizing, positioning and appearance of the trigger. Defaults to:</p><pre><code>{tag: "img", src: Ext.BLANK_IMAGE_URL, cls: "x-form-trigger " + this.triggerClass}</code></pre>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get triggerConfig():*;
 
   /**
    The class added to the to the wrap of the trigger element. Defaults to <tt>x-trigger-wrap-focus</tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get wrapFocusClass():String;
 
@@ -62,7 +57,7 @@ public class TriggerField extends TextField {
    * The function that should handle the trigger's click event. This method does nothing by default until overridden by an implementing function. See Ext.form.ComboBox and Ext.form.DateField for sample implementations.
    *
    * @param e
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TriggerField.html#method-Ext.form.TriggerField-onTriggerClick Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.TriggerField-method-onTriggerClick Sencha Docs Ext JS 3.4
    */
   public native function onTriggerClick(e:IEventObject):void;
 
@@ -70,7 +65,7 @@ public class TriggerField extends TextField {
    * Allow or prevent the user from directly editing the field text. If false is passed, the user will only be able to modify the field using the trigger. Will also add a click event to the text field which will call the trigger. This method is the runtime equivalent of setting the <a href="output/Ext.form.TriggerField.html#Ext.form.TriggerField-editable">editable</a> config option at config time.
    *
    * @param value True to allow the user to directly edit the field text.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TriggerField.html#method-Ext.form.TriggerField-setEditable Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.TriggerField-method-setEditable Sencha Docs Ext JS 3.4
    */
   public native function setEditable(value:Boolean):void;
 
@@ -78,7 +73,7 @@ public class TriggerField extends TextField {
    * Changes the hidden status of the trigger.
    *
    * @param hideTrigger True to hide the trigger, false to show it.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TriggerField.html#method-Ext.form.TriggerField-setHideTrigger Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.TriggerField-method-setHideTrigger Sencha Docs Ext JS 3.4
    */
   public native function setHideTrigger(hideTrigger:Boolean):void;
 
@@ -86,7 +81,7 @@ public class TriggerField extends TextField {
    * Setting this to true will supersede settings <a href="output/Ext.form.TriggerField.html#Ext.form.TriggerField-editable">editable</a> and <a href="output/Ext.form.TriggerField.html#Ext.form.TriggerField-hideTrigger">hideTrigger</a>. Setting this to false will defer back to <a href="output/Ext.form.TriggerField.html#Ext.form.TriggerField-editable">editable</a> and <a href="output/Ext.form.TriggerField.html#Ext.form.TriggerField-hideTrigger">hideTrigger</a>. This method is the runtime equivalent of setting the <a href="output/Ext.form.TriggerField.html#Ext.form.TriggerField-readOnly">readOnly</a> config option at config time.
    *
    * @param readOnly Whether the field should be read only.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TriggerField.html#method-Ext.form.TriggerField-setReadOnly Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.TriggerField-method-setReadOnly Sencha Docs Ext JS 3.4
    */
   override public native function setReadOnly(readOnly:Boolean):void;
 

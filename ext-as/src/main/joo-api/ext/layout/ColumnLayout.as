@@ -42,7 +42,7 @@ import ext.config.columnlayout;
  *
 
  * @see ext.config.columnlayout
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnLayout.html#cls-Ext.layout.ColumnLayout Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.layout.ColumnLayout Sencha Docs Ext JS 3.4
  */
 public class ColumnLayout extends ContainerLayout {
 

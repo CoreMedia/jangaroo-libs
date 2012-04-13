@@ -11,7 +11,7 @@ import ext.config.booleancolumn;
 
  * <p>This component is created by the xtype 'booleancolumn' / the EXML element &lt;booleancolumn>.</p>
  * @see ext.config.booleancolumn
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Column.html#cls-Ext.grid.BooleanColumn Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.BooleanColumn Sencha Docs Ext JS 3.4
  */
 public class BooleanColumn extends Column {
 
@@ -27,19 +27,16 @@ public class BooleanColumn extends Column {
 
   /**
    The string returned by the renderer when the column value is falsy (but not undefined) (defaults to <tt>'false'</tt>).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get falseText():String;
 
   /**
    The string returned by the renderer when the column value is not falsy (defaults to <tt>'true'</tt>).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get trueText():String;
 
   /**
    The string returned by the renderer when the column value is undefined (defaults to <tt>'&amp;#160;'</tt>).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get undefinedText():String;
 

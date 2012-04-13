@@ -80,7 +80,7 @@ import ext.config.propertygrid;
  *
 
  * @see ext.config.propertygrid
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PropertyGrid.html#cls-Ext.grid.PropertyGrid Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PropertyGrid Sencha Docs Ext JS 3.4
  */
 public class PropertyGrid extends EditorGridPanel {
 
@@ -105,7 +105,6 @@ public class PropertyGrid extends EditorGridPanel {
    }
    });
    </code></pre>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get customEditors():Object;
 
@@ -126,13 +125,11 @@ public class PropertyGrid extends EditorGridPanel {
    }
    });
    </code></pre>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get customRenderers():Object;
 
   /**
    An object containing property name/display name pairs. If specified, the display name will be shown in the name column instead of the property name.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get propertyNames():Object;
 
@@ -140,7 +137,7 @@ public class PropertyGrid extends EditorGridPanel {
    * Gets the source data object containing the property data. See <a href="output/Ext.grid.PropertyGrid.html#Ext.grid.PropertyGrid-setSource">setSource</a> for details regarding the format of the data object.
    *
    * @return The data object
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PropertyGrid.html#method-Ext.grid.PropertyGrid-getSource Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PropertyGrid-method-getSource Sencha Docs Ext JS 3.4
    */
   public native function getSource():Object;
 
@@ -148,7 +145,7 @@ public class PropertyGrid extends EditorGridPanel {
    * Removes a property from the grid.
    *
    * @param prop The name of the property to remove
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PropertyGrid.html#method-Ext.grid.PropertyGrid-removeProperty Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PropertyGrid-method-removeProperty Sencha Docs Ext JS 3.4
    */
   public native function removeProperty(prop:String):void;
 
@@ -158,7 +155,7 @@ public class PropertyGrid extends EditorGridPanel {
    * @param prop The name of the property to set
    * @param value The value to test
    * @param create True to create the property if it doesn't already exist. Defaults to <tt>false</tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PropertyGrid.html#method-Ext.grid.PropertyGrid-setProperty Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PropertyGrid-method-setProperty Sencha Docs Ext JS 3.4
    */
   public native function setProperty(prop:String, value:*, create:Boolean = false):void;
 
@@ -173,7 +170,7 @@ public class PropertyGrid extends EditorGridPanel {
    </code></pre>
    *
    * @param source The data object
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PropertyGrid.html#method-Ext.grid.PropertyGrid-setSource Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PropertyGrid-method-setSource Sencha Docs Ext JS 3.4
    */
   public native function setSource(source:Object):void;
 

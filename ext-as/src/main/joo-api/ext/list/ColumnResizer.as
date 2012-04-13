@@ -10,7 +10,7 @@ import ext.util.Observable;
  *
 
  * @see ext.config.columnresizer
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnResizer.html#cls-Ext.list.ColumnResizer Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.list.ColumnResizer Sencha Docs Ext JS 3.4
  */
 public class ColumnResizer extends Observable {
 
@@ -26,7 +26,6 @@ public class ColumnResizer extends Observable {
 
   /**
    The minimum percentage to allot for any column (defaults to <tt>.05</tt>)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get minPct():Number;
 

@@ -28,7 +28,7 @@ import ext.config.slidertip;
  *
 
  * @see ext.config.slidertip
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SliderTip.html#cls-Ext.slider.Tip Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.slider.Tip Sencha Docs Ext JS 3.4
  */
 public class Tip extends ext.Tip implements Plugin {
 
@@ -46,7 +46,7 @@ public class Tip extends ext.Tip implements Plugin {
    *
    * @param thumb The Thumb that the Tip is attached to
    * @return The text to display in the tip
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SliderTip.html#method-Ext.slider.Tip-getText Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.slider.Tip-method-getText Sencha Docs Ext JS 3.4
    */
   public native function getText(thumb:Thumb):String;
 
@@ -57,7 +57,7 @@ public class Tip extends ext.Tip implements Plugin {
    * @param slider The slider
    * @param e The Event object
    * @param thumb The thumb that the Tip is attached to
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SliderTip.html#method-Ext.slider.Tip-onSlide Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.slider.Tip-method-onSlide Sencha Docs Ext JS 3.4
    */
   public native function onSlide(slider:MultiSlider, e:IEventObject, thumb:Thumb):void;
 

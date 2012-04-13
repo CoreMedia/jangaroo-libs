@@ -76,7 +76,7 @@ import ext.config.box;
 
  * <p>This component is created by the xtype 'box' / the EXML element &lt;box>.</p>
  * @see ext.config.box
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BoxComponent.html#cls-Ext.BoxComponent Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.BoxComponent Sencha Docs Ext JS 3.4
  */
 public class BoxComponent extends Component {
 
@@ -93,7 +93,6 @@ public class BoxComponent extends Component {
   /**
    <b>Note</b>: this config is only used when this Component is rendered by a Container which has been configured to use an <b><a href="Ext.layout.AnchorLayout.html">AnchorLayout</a> (or subclass thereof).</b> based layout manager, for example:
    <div class="mdetail-params"><ul><li><a href="Ext.form.FormPanel.html">Ext.form.FormPanel</a></li><li>specifying <code>layout: 'anchor' // or 'form', or 'absolute'</code></li></ul></div><br/><br/> <p>See <a href="Ext.layout.AnchorLayout.html">Ext.layout.AnchorLayout</a>.<a href="output/Ext.layout.AnchorLayout.html#Ext.layout.AnchorLayout-anchor">anchor</a> also.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get anchor():String;
 
@@ -125,13 +124,11 @@ public class BoxComponent extends Component {
    }
    }).show();
    </code></pre>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get autoHeight():Boolean;
 
   /**
    <code>true</code> to use overflow:'auto' on the components layout element and show scroll bars automatically when necessary, <code>false</code> to clip any overflowing content (defaults to <code>false</code>).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get autoScroll():Boolean;
 
@@ -160,42 +157,35 @@ public class BoxComponent extends Component {
    }],
    });
    </code></pre>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get autoWidth():Boolean;
 
   /**
    The maximum value in pixels which this BoxComponent will set its height to.
    <p><b>Warning:</b> This will override any size management applied by layout managers.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get boxMaxHeight():Number;
 
   /**
    The maximum value in pixels which this BoxComponent will set its width to.
    <p><b>Warning:</b> This will override any size management applied by layout managers.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get boxMaxWidth():Number;
 
   /**
    The minimum value in pixels which this BoxComponent will set its height to.
    <p><b>Warning:</b> This will override any size management applied by layout managers.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get boxMinHeight():Number;
 
   /**
    The minimum value in pixels which this BoxComponent will set its width to.
    <p><b>Warning:</b> This will override any size management applied by layout managers.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get boxMinWidth():Number;
 
   /**
    <b>Note</b>: this config is only used when this Component is rendered by a Container which has been configured to use a <b><a href="Ext.layout.BoxLayout.html">BoxLayout</a>.</b> Each child Component with a <code>flex</code> property will be flexed either vertically (by a VBoxLayout) or horizontally (by an HBoxLayout) according to the item's <b>relative</b> <code>flex</code> value compared to the sum of all Components with <code>flex value specified. Any child items that have either a</code> flex = 0 or <code>flex = undefined</code> will not be 'flexed' (the initial size will not be changed).
-
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get flex():Number;
 
@@ -208,45 +198,38 @@ public class BoxComponent extends Component {
    left: (left margin)
    }</code></pre><p>May also be a string containing space-separated, numeric margin values. The order of the sides associated with each value matches the way CSS processes margin values:</p><div class="mdetail-params"><ul><li>If there is only one value, it applies to all sides.</li><li>If there are two values, the top and bottom borders are set to the first value and the right and left are set to the second.</li><li>If there are three values, the top is set to the first value, the left and right are set to the second, and the bottom is set to the third.</li><li>If there are four values, they apply to the top, right, bottom, and left, respectively.</li></ul></div><br/><br/> <p>Defaults to:</p><pre><code>{top:0, right:0, bottom:0, left:0}
    </code></pre>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get margins():Object;
 
   /**
    The page level x coordinate for this component if contained within a positioning container.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get pageX():Number;
 
   /**
    The page level y coordinate for this component if contained within a positioning container.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get pageY():Number;
 
   /**
    <b>Note</b>: this config is only used when this BoxComponent is rendered by a Container which has been configured to use the <b><a href="Ext.layout.BorderLayout.html">BorderLayout</a></b> layout manager (e.g. specifying <tt>layout:'border'</tt>).
    <br/><p>See <a href="Ext.layout.BorderLayout.html">Ext.layout.BorderLayout</a> also.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get region():String;
 
   /**
    <b>Note</b>: this config is only used when this BoxComponent is a child item of a TabPanel.
    A string to be used as innerHTML (html tags are accepted) to show in a tooltip when mousing over the associated tab selector element. <a href="Ext.QuickTips.html">Ext.QuickTips</a>.init() must be called in order for the tips to render.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get tabTip():String;
 
   /**
    The local x (left) coordinate for this component if contained within a positioning container.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get x():Number;
 
   /**
    The local y (top) coordinate for this component if contained within a positioning container.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get y():Number;
 
@@ -255,7 +238,7 @@ public class BoxComponent extends Component {
    *
    * @param local If true the element's left and top are returned instead of page XY (defaults to false)
    * @return box An object in the format {x, y, width, height}
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BoxComponent.html#method-Ext.BoxComponent-getBox Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.BoxComponent-method-getBox Sencha Docs Ext JS 3.4
    */
   public native function getBox(local:Boolean = false):Object;
 
@@ -263,7 +246,7 @@ public class BoxComponent extends Component {
    * Gets the current height of the component's underlying element.
    *
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BoxComponent.html#method-Ext.BoxComponent-getHeight Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.BoxComponent-method-getHeight Sencha Docs Ext JS 3.4
    */
   public native function getHeight():Number;
 
@@ -271,7 +254,7 @@ public class BoxComponent extends Component {
    * Gets the current size of the component's underlying element, including space taken by its margins.
    *
    * @return An object containing the element's size {width: (element width + left/right margins), height: (element height + top/bottom margins)}
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BoxComponent.html#method-Ext.BoxComponent-getOuterSize Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.BoxComponent-method-getOuterSize Sencha Docs Ext JS 3.4
    */
   public native function getOuterSize():Object;
 
@@ -280,7 +263,7 @@ public class BoxComponent extends Component {
    *
    * @param local If true the element's left and top are returned instead of page XY (defaults to false)
    * @return The XY position of the element (e.g., [100, 200])
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BoxComponent.html#method-Ext.BoxComponent-getPosition Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.BoxComponent-method-getPosition Sencha Docs Ext JS 3.4
    */
   public native function getPosition(local:Boolean = false):Array;
 
@@ -289,7 +272,7 @@ public class BoxComponent extends Component {
    <p><i>Usually</i> this will return the same Element as <code><a href="output/Ext.BoxComponent.html#Ext.BoxComponent-getEl">getEl</a></code>, but in some cases, a Component may have some more wrapping Elements around its main active Element.</p><p>An example is a ComboBox. It is encased in a <i>wrapping</i> Element which contains both the <code>&lt;input&gt;</code> Element (which is what would be returned by its <code><a href="output/Ext.BoxComponent.html#Ext.BoxComponent-getEl">getEl</a></code> method, <i>and</i> the trigger button Element. This Element is returned as the <code>resizeEl</code>.</p>
    *
    * @return The Element which is to be resized by size managing layouts.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BoxComponent.html#method-Ext.BoxComponent-getResizeEl Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.BoxComponent-method-getResizeEl Sencha Docs Ext JS 3.4
    */
   public native function getResizeEl():Element;
 
@@ -297,7 +280,7 @@ public class BoxComponent extends Component {
    * Gets the current size of the component's underlying element.
    *
    * @return An object containing the element's size {width: (element width), height: (element height)}
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BoxComponent.html#method-Ext.BoxComponent-getSize Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.BoxComponent-method-getSize Sencha Docs Ext JS 3.4
    */
   public native function getSize():Object;
 
@@ -305,7 +288,7 @@ public class BoxComponent extends Component {
    * Gets the current width of the component's underlying element.
    *
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BoxComponent.html#method-Ext.BoxComponent-getWidth Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.BoxComponent-method-getWidth Sencha Docs Ext JS 3.4
    */
   public native function getWidth():Number;
 
@@ -314,7 +297,7 @@ public class BoxComponent extends Component {
    *
    * @param x The new x position
    * @param y The new y position
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BoxComponent.html#method-Ext.BoxComponent-onPosition Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.BoxComponent-method-onPosition Sencha Docs Ext JS 3.4
    */
   protected native function onPosition(x:Number, y:Number):void;
 
@@ -325,7 +308,7 @@ public class BoxComponent extends Component {
    * @param adjHeight The box-adjusted height that was set
    * @param rawWidth The width that was originally specified
    * @param rawHeight The height that was originally specified
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BoxComponent.html#method-Ext.BoxComponent-onResize Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.BoxComponent-method-onResize Sencha Docs Ext JS 3.4
    */
   protected native function onResize(adjWidth:Number, adjHeight:Number, rawWidth:Number, rawHeight:Number):void;
 
@@ -334,7 +317,7 @@ public class BoxComponent extends Component {
    *
    * @param scroll True to allow the Component to auto scroll.
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BoxComponent.html#method-Ext.BoxComponent-setAutoScroll Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.BoxComponent-method-setAutoScroll Sencha Docs Ext JS 3.4
    */
   public native function setAutoScroll(scroll:Boolean):BoxComponent;
 
@@ -343,7 +326,7 @@ public class BoxComponent extends Component {
    *
    * @param height The new height to set. This may be one of:<div class="mdetail-params"><ul><li>A Number specifying the new height in the <a href="output/Ext.BoxComponent.html#Ext.BoxComponent-getEl">Element</a>'s <a href="output/Ext.Element.html#Ext.Element-defaultUnit">defaultUnit</a>s (by default, pixels).</li><li>A String used to set the CSS height style.</li><li><i>undefined</i> to leave the height unchanged.</li></ul></div>
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BoxComponent.html#method-Ext.BoxComponent-setHeight Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.BoxComponent-method-setHeight Sencha Docs Ext JS 3.4
    */
   public native function setHeight(height:*):BoxComponent;
 
@@ -353,7 +336,7 @@ public class BoxComponent extends Component {
    * @param x The new x position
    * @param y The new y position
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BoxComponent.html#method-Ext.BoxComponent-setPagePosition Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.BoxComponent-method-setPagePosition Sencha Docs Ext JS 3.4
    */
   public native function setPagePosition(x:Number, y:Number):BoxComponent;
 
@@ -363,7 +346,7 @@ public class BoxComponent extends Component {
    * @param left The new left
    * @param top The new top
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BoxComponent.html#method-Ext.BoxComponent-setPosition Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.BoxComponent-method-setPosition Sencha Docs Ext JS 3.4
    */
   public native function setPosition(left:Number, top:Number):BoxComponent;
 
@@ -373,7 +356,7 @@ public class BoxComponent extends Component {
    * @param width The new width to set. This may be one of:<div class="mdetail-params"><ul><li>A Number specifying the new width in the <a href="output/Ext.BoxComponent.html#Ext.BoxComponent-getEl">Element</a>'s <a href="output/Ext.Element.html#Ext.Element-defaultUnit">Ext.Element.defaultUnit</a>s (by default, pixels).</li><li>A String used to set the CSS width style.</li><li>A size object in the format <code>{width: widthValue, height: heightValue}</code>.</li><li><code>undefined</code> to leave the width unchanged.</li></ul></div>
    * @param height The new height to set (not required if a size object is passed as the first arg). This may be one of:<div class="mdetail-params"><ul><li>A Number specifying the new height in the <a href="output/Ext.BoxComponent.html#Ext.BoxComponent-getEl">Element</a>'s <a href="output/Ext.Element.html#Ext.Element-defaultUnit">Ext.Element.defaultUnit</a>s (by default, pixels).</li><li>A String used to set the CSS height style. Animation may <b>not</b> be used.</li><li><code>undefined</code> to leave the height unchanged.</li></ul></div>
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BoxComponent.html#method-Ext.BoxComponent-setSize Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.BoxComponent-method-setSize Sencha Docs Ext JS 3.4
    */
   public native function setSize(width:*, height:*):BoxComponent;
 
@@ -382,7 +365,7 @@ public class BoxComponent extends Component {
    *
    * @param width The new width to set. This may be one of:<div class="mdetail-params"><ul><li>A Number specifying the new width in the <a href="output/Ext.BoxComponent.html#Ext.BoxComponent-getEl">Element</a>'s <a href="output/Ext.Element.html#Ext.Element-defaultUnit">defaultUnit</a>s (by default, pixels).</li><li>A String used to set the CSS width style.</li></ul></div>
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BoxComponent.html#method-Ext.BoxComponent-setWidth Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.BoxComponent-method-setWidth Sencha Docs Ext JS 3.4
    */
   public native function setWidth(width:*):BoxComponent;
 
@@ -390,7 +373,7 @@ public class BoxComponent extends Component {
    * Force the component's size to recalculate based on the underlying element's current height and width.
    *
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BoxComponent.html#method-Ext.BoxComponent-syncSize Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.BoxComponent-method-syncSize Sencha Docs Ext JS 3.4
    */
   public native function syncSize():BoxComponent;
 
@@ -399,7 +382,7 @@ public class BoxComponent extends Component {
    *
    * @param box An object in the format {x, y, width, height}
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BoxComponent.html#method-Ext.BoxComponent-updateBox Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.BoxComponent-method-updateBox Sencha Docs Ext JS 3.4
    */
   public native function updateBox(box:Object):BoxComponent;
 

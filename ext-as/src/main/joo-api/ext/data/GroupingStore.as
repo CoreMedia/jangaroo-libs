@@ -29,7 +29,7 @@ import ext.config.groupingstore;
 
  * <p>This class can be instantiated the EXML element &lt;groupingstore>.</p>
  * @see ext.config.groupingstore
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GroupingStore.html#cls-Ext.data.GroupingStore Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.GroupingStore Sencha Docs Ext JS 3.4
  */
 public class GroupingStore extends Store {
 
@@ -45,46 +45,42 @@ public class GroupingStore extends Store {
 
   /**
    The direction to sort the groups. Defaults to <tt>'ASC'</tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get groupDir():String;
 
   /**
    The field name by which to sort the store's data (defaults to '').
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get groupField():String;
 
   /**
    True to sort the data on the grouping field when a grouping operation occurs, false to sort based on the existing sort info (defaults to false).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get groupOnSort():Boolean;
 
   /**
    True if the grouping should apply on the server side, false if it is local only (defaults to false). If the grouping is local, it can be applied immediately to the data. If it is remote, then it will simply act as a helper, automatically sending the grouping field name as the 'groupBy' param with each XHR call.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get remoteGroup():Boolean;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GroupingStore.html#method-Ext.data.GroupingStore-applyGroupField Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.GroupingStore-method-applyGroupField Sencha Docs Ext JS 3.4
    */
   public native function applyGroupField():void;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GroupingStore.html#method-Ext.data.GroupingStore-applyGrouping Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.GroupingStore-method-applyGrouping Sencha Docs Ext JS 3.4
    */
   public native function applyGrouping():void;
 
   /**
    * Clears any existing grouping and refreshes the data using the default sort.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GroupingStore.html#method-Ext.data.GroupingStore-clearGrouping Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.GroupingStore-method-clearGrouping Sencha Docs Ext JS 3.4
    */
   public native function clearGrouping():void;
 
@@ -92,7 +88,7 @@ public class GroupingStore extends Store {
    *
    *
    * @return The group field
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GroupingStore.html#method-Ext.data.GroupingStore-getGroupState Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.GroupingStore-method-getGroupState Sencha Docs Ext JS 3.4
    */
   public native function getGroupState():String;
 
@@ -101,7 +97,7 @@ public class GroupingStore extends Store {
    *
    * @param field The field name by which to sort the store's data
    * @param forceRegroup True to force the group to be refreshed even if the field passed in is the same as the current grouping field, false to skip grouping on the same field (defaults to false)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GroupingStore.html#method-Ext.data.GroupingStore-groupBy Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.GroupingStore-method-groupBy Sencha Docs Ext JS 3.4
    */
   public native function groupBy(field:String, forceRegroup:Boolean = false):void;
 

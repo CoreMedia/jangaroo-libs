@@ -44,7 +44,7 @@ import ext.config.dragzone;
  *
 
  * @see ext.config.dragzone
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DragZone.html#cls-Ext.dd.DragZone Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragZone Sencha Docs Ext JS 3.4
  */
 public class DragZone extends DragSource {
 
@@ -61,7 +61,7 @@ public class DragZone extends DragSource {
 
   /**
    This property contains the data representing the dragged object. This data is set up by the implementation of the <a href="output/Ext.dd.DragZone.html#Ext.dd.DragZone-getDragData">getDragData</a> method. It must contain a <tt>ddel</tt> property, but can contain any other data according to the application's needs.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DragZone.html#prop-Ext.dd.DragZone-dragData Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragZone-property-dragData Sencha Docs Ext JS 3.4
    */
   public native function get dragData():Object;
 
@@ -72,20 +72,18 @@ public class DragZone extends DragSource {
 
   /**
    True to register this container with the Scrollmanager for auto scrolling during drag operations.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get containerScroll():Boolean;
 
   /**
    The color to use when visually highlighting the drag source in the afterRepair method after a failed drop (defaults to "c3daf9" - light blue)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get hlColor():String;
 
   /**
    * Called after a repair of an invalid drop. By default, highlights this.dragData.ddel
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DragZone.html#method-Ext.dd.DragZone-afterRepair Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragZone-method-afterRepair Sencha Docs Ext JS 3.4
    */
   public native function afterRepair():void;
 
@@ -94,7 +92,7 @@ public class DragZone extends DragSource {
    *
    * @param e The mouse down event
    * @return The dragData
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DragZone.html#method-Ext.dd.DragZone-getDragData Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragZone-method-getDragData Sencha Docs Ext JS 3.4
    */
   override public native function getDragData(e:IEventObject):Object;
 
@@ -103,7 +101,7 @@ public class DragZone extends DragSource {
    *
    * @param e The mouse up event
    * @return The xy location (e.g. [100, 200])
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DragZone.html#method-Ext.dd.DragZone-getRepairXY Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragZone-method-getRepairXY Sencha Docs Ext JS 3.4
    */
   public native function getRepairXY(e:IEventObject):Array;
 
@@ -113,7 +111,7 @@ public class DragZone extends DragSource {
    * @param x The x position of the click on the dragged object
    * @param y The y position of the click on the dragged object
    * @return true to continue the drag, false to cancel
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DragZone.html#method-Ext.dd.DragZone-onInitDrag Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragZone-method-onInitDrag Sencha Docs Ext JS 3.4
    */
   public native function onInitDrag(x:Number, y:Number):Boolean;
 

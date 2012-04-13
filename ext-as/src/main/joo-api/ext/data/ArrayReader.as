@@ -17,7 +17,7 @@ import ext.config.arrayreader;
  *
 
  * @see ext.config.arrayreader
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ArrayReader.html#cls-Ext.data.ArrayReader Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.ArrayReader Sencha Docs Ext JS 3.4
  */
 public class ArrayReader extends JsonReader {
 
@@ -35,7 +35,6 @@ public class ArrayReader extends JsonReader {
 
   /**
    The subscript within row Array that provides an ID for the Record.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get idIndex():Number;
 
@@ -44,7 +43,7 @@ public class ArrayReader extends JsonReader {
    *
    * @param o An object which contains an Array of row objects in the property specified in the config as 'root, and optionally a property, specified in the config as 'totalProperty' which contains the total size of the dataset.
    * @return data A data block which is used by an Ext.data.Store object as a cache of Ext.data.Records.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ArrayReader.html#method-Ext.data.ArrayReader-readRecords Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.ArrayReader-method-readRecords Sencha Docs Ext JS 3.4
    */
   override public native function readRecords(o:Object):Object;
 

@@ -76,7 +76,7 @@ import ext.config.scripttagproxy;
  *
 
  * @see ext.config.scripttagproxy
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ScriptTagProxy.html#cls-Ext.data.ScriptTagProxy Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.ScriptTagProxy Sencha Docs Ext JS 3.4
  */
 public class ScriptTagProxy extends DataProxy {
 
@@ -92,32 +92,28 @@ public class ScriptTagProxy extends DataProxy {
 
   /**
    The name of the parameter to pass to the server which tells the server the name of the callback function set up by the load call to process the returned data object. Defaults to "callback".<p>The server-side processing must read this parameter value, and generate javascript output which calls this named function passing the data object as its only parameter.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get callbackParam():String;
 
   /**
    Defaults to true. Disable caching by adding a unique parameter name to the request.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get nocache():Boolean;
 
   /**
    The number of milliseconds to wait for a response. Defaults to 30 seconds.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get timeout():Number;
 
   /**
    The URL from which to request the data object.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get url():String;
 
   /**
    * Abort the current server request.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ScriptTagProxy.html#method-Ext.data.ScriptTagProxy-abort Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.ScriptTagProxy-method-abort Sencha Docs Ext JS 3.4
    */
   public native function abort():void;
 
@@ -131,7 +127,7 @@ public class ScriptTagProxy extends DataProxy {
    * @param callback The function into which to pass the block of Ext.data.Records. The function must be passed <ul><li>The Record block object</li><li>The "arg" argument from the load function</li><li>A boolean success indicator</li></ul>
    * @param scope The scope (<code>this</code> reference) in which the callback function is executed. Defaults to the browser window.
    * @param arg An optional argument which is passed to the callback as its second parameter.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ScriptTagProxy.html#method-Ext.data.ScriptTagProxy-doRequest Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.ScriptTagProxy-method-doRequest Sencha Docs Ext JS 3.4
    */
   public native function doRequest(action:String, rs:*, params:Object, reader:DataReader, callback:Function, scope:Object, arg:Object):void;
 
@@ -141,7 +137,7 @@ public class ScriptTagProxy extends DataProxy {
    * @param action [Ext.data.Api.actions.create|read|update|destroy]
    * @param trans The request transaction object
    * @param res The server response
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ScriptTagProxy.html#method-Ext.data.ScriptTagProxy-onRead Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.ScriptTagProxy-method-onRead Sencha Docs Ext JS 3.4
    */
   protected native function onRead(action:String, trans:Object, res:Object):void;
 
@@ -151,7 +147,7 @@ public class ScriptTagProxy extends DataProxy {
    * @param action [Ext.data.Api.actions.create|read|update|destroy]
    * @param trans The request transaction object
    * @param res The server response
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ScriptTagProxy.html#method-Ext.data.ScriptTagProxy-onWrite Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.ScriptTagProxy-method-onWrite Sencha Docs Ext JS 3.4
    */
   protected native function onWrite(action:String, trans:Object, res:Object):void;
 

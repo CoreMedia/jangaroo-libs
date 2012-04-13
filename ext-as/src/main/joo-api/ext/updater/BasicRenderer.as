@@ -9,7 +9,7 @@ import ext.Updater;
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  *
 
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/UpdateManager.html#cls-Ext.Updater.BasicRenderer Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Updater.BasicRenderer Sencha Docs Ext JS 3.4
  */
 public class BasicRenderer {
 
@@ -28,7 +28,7 @@ public class BasicRenderer {
    * @param xhr The XMLHttpRequest object
    * @param updateManager The calling update manager
    * @param callback A callback that will need to be called if loadScripts is true on the Updater
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/UpdateManager.html#method-Ext.Updater.BasicRenderer-render Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Updater.BasicRenderer-method-render Sencha Docs Ext JS 3.4
    */
   public native function render(el:Element, xhr:Object, updateManager:Updater, callback:Function):void;
 

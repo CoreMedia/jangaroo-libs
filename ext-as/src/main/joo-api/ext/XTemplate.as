@@ -8,7 +8,7 @@ package ext {
  *
 
  * @see ext.config.xtemplate
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/XTemplate.html#cls-Ext.XTemplate Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.XTemplate Sencha Docs Ext JS 3.4
  */
 public class XTemplate extends Template {
 
@@ -158,7 +158,7 @@ public class XTemplate extends Template {
    *
    * @param values The template values. Can be an array if the params are numeric (i.e. <code>{0}</code>) or an object (i.e. <code>{foo: 'bar'}</code>).
    * @return The HTML fragment
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/XTemplate.html#method-Ext.XTemplate-apply Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.XTemplate-method-apply Sencha Docs Ext JS 3.4
    */
   override public native function apply(values:*):String;
 
@@ -167,7 +167,7 @@ public class XTemplate extends Template {
    *
    * @param values The template values. Can be an array if the params are numeric (i.e. <code>{0}</code>) or an object (i.e. <code>{foo: 'bar'}</code>).
    * @return The HTML fragment
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/XTemplate.html#method-Ext.XTemplate-applyTemplate Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.XTemplate-method-applyTemplate Sencha Docs Ext JS 3.4
    */
   override public native function applyTemplate(values:*):String;
 
@@ -175,7 +175,7 @@ public class XTemplate extends Template {
    * Compile the template to a function for optimized performance. Recommended if the template will be used frequently.
    *
    * @return The compiled function
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/XTemplate.html#method-Ext.XTemplate-compile Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.XTemplate-method-compile Sencha Docs Ext JS 3.4
    */
   override public native function compile():Template;
 
@@ -184,7 +184,7 @@ public class XTemplate extends Template {
    *
    * @param el A DOM element or its id
    * @return The created template
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/XTemplate.html#method-Ext.XTemplate-from Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.XTemplate-method-from Sencha Docs Ext JS 3.4
    */
   public static native function from(el:*):Template;
 

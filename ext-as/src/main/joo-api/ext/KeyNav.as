@@ -21,7 +21,7 @@ import ext.config.keynav;
  *
 
  * @see ext.config.keynav
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/KeyNav.html#cls-Ext.KeyNav Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.KeyNav Sencha Docs Ext JS 3.4
  */
 public class KeyNav {
 
@@ -38,40 +38,37 @@ public class KeyNav {
 
   /**
    The method to call on the <a href="Ext.EventObject.html">Ext.EventObject</a> after this KeyNav intercepts a key. Valid values are <a href="output/Ext.EventObject.html#Ext.EventObject-stopEvent">Ext.EventObject.stopEvent</a>, <a href="output/Ext.EventObject.html#Ext.EventObject-preventDefault">Ext.EventObject.preventDefault</a> and <a href="output/Ext.EventObject.html#Ext.EventObject-stopPropagation">Ext.EventObject.stopPropagation</a> (defaults to 'stopEvent')
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get defaultEventAction():String;
 
   /**
    True to disable this KeyNav instance (defaults to false)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get disabled():Boolean;
 
   /**
    Handle the keydown event instead of keypress (defaults to false). KeyNav automatically does this for IE since IE does not propagate special keys on keypress, but setting this to true will force other browsers to also handle keydown instead of keypress.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get forceKeyDown():Boolean;
 
   /**
    * Destroy this KeyNav (this is the same as calling disable).
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/KeyNav.html#method-Ext.KeyNav-destroy Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.KeyNav-method-destroy Sencha Docs Ext JS 3.4
    */
   public native function destroy():void;
 
   /**
    * Disable this KeyNav
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/KeyNav.html#method-Ext.KeyNav-disable Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.KeyNav-method-disable Sencha Docs Ext JS 3.4
    */
   public native function disable():void;
 
   /**
    * Enable this KeyNav
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/KeyNav.html#method-Ext.KeyNav-enable Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.KeyNav-method-enable Sencha Docs Ext JS 3.4
    */
   public native function enable():void;
 
@@ -79,7 +76,7 @@ public class KeyNav {
    * Convenience function for setting disabled/enabled by boolean.
    *
    * @param disabled
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/KeyNav.html#method-Ext.KeyNav-setDisabled Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.KeyNav-method-setDisabled Sencha Docs Ext JS 3.4
    */
   public native function setDisabled(disabled:Boolean):void;
 

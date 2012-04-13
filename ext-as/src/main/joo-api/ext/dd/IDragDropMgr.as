@@ -14,25 +14,25 @@ import js.HTMLElement;
 
  * <p>This interface defines the type of the singleton DragDropMgr.</p>
  * @see ext.dd.#DragDropMgr ext.dd.DragDropMgr
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#cls-Ext.dd.DragDropMgr Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr Sencha Docs Ext JS 3.4
  */
 public interface IDragDropMgr {
 
   /**
    In intersect mode, drag and drop interaction is defined by the overlap of two or more drag and drop objects.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDropMgr-INTERSECT Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-property-INTERSECT Sencha Docs Ext JS 3.4
    */
   function get INTERSECT():int;
 
   /**
    In point mode, drag and drop interaction is defined by the location of the cursor during the drag/drop
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDropMgr-POINT Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-property-POINT Sencha Docs Ext JS 3.4
    */
   function get POINT():int;
 
   /**
    The number of pixels that the mouse needs to move after the mousedown before the drag is initiated. Default=3;
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDropMgr-clickPixelThresh Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-property-clickPixelThresh Sencha Docs Ext JS 3.4
    */
   function get clickPixelThresh():int;
 
@@ -43,7 +43,7 @@ public interface IDragDropMgr {
 
   /**
    The number of milliseconds after the mousedown event to initiate the drag if we don't get a mouseup event. Default=350
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDropMgr-clickTimeThresh Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-property-clickTimeThresh Sencha Docs Ext JS 3.4
    */
   function get clickTimeThresh():int;
 
@@ -54,7 +54,7 @@ public interface IDragDropMgr {
 
   /**
    Timeout used for the click time threshold
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDropMgr-clickTimeout Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-property-clickTimeout Sencha Docs Ext JS 3.4
    */
   function get clickTimeout():Object;
 
@@ -65,7 +65,7 @@ public interface IDragDropMgr {
 
   /**
    the X distance between the cursor and the object being dragged
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDropMgr-deltaX Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-property-deltaX Sencha Docs Ext JS 3.4
    */
   function get deltaX():int;
 
@@ -76,7 +76,7 @@ public interface IDragDropMgr {
 
   /**
    the Y distance between the cursor and the object being dragged
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDropMgr-deltaY Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-property-deltaY Sencha Docs Ext JS 3.4
    */
   function get deltaY():int;
 
@@ -87,7 +87,7 @@ public interface IDragDropMgr {
 
   /**
    the DragDrop object that is currently being dragged
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDropMgr-dragCurrent Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-property-dragCurrent Sencha Docs Ext JS 3.4
    */
   function get dragCurrent():DragDrop;
 
@@ -98,7 +98,7 @@ public interface IDragDropMgr {
 
   /**
    the DragDrop object(s) that are being hovered over
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDropMgr-dragOvers Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-property-dragOvers Sencha Docs Ext JS 3.4
    */
   function get dragOvers():Array;
 
@@ -109,7 +109,7 @@ public interface IDragDropMgr {
 
   /**
    Flag that indicates that either the drag pixel threshold or the mousdown time threshold has been met
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDropMgr-dragThreshMet Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-property-dragThreshMet Sencha Docs Ext JS 3.4
    */
   function get dragThreshMet():Boolean;
 
@@ -120,7 +120,7 @@ public interface IDragDropMgr {
 
   /**
    A cache of DOM elements
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDropMgr-elementCache Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-property-elementCache Sencha Docs Ext JS 3.4
    */
   function get elementCache():Object;
 
@@ -131,7 +131,7 @@ public interface IDragDropMgr {
 
   /**
    Array of element ids defined as drag handles. Used to determine if the element that generated the mousedown event is actually the handle and not the html element itself.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDropMgr-handleIds Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-property-handleIds Sencha Docs Ext JS 3.4
    */
   function get handleIds():Array;
 
@@ -142,7 +142,7 @@ public interface IDragDropMgr {
 
   /**
    Two dimensional Array of registered DragDrop objects. The first dimension is the DragDrop item group, the second the DragDrop object.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDropMgr-ids Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-property-ids Sencha Docs Ext JS 3.4
    */
   function get ids():Array;
 
@@ -153,7 +153,7 @@ public interface IDragDropMgr {
 
   /**
    Internal flag that is set to true when drag and drop has been intialized
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDropMgr-initialized Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-property-initialized Sencha Docs Ext JS 3.4
    */
   function get initialized():Object;
 
@@ -164,7 +164,7 @@ public interface IDragDropMgr {
 
   /**
    Location cache that is set for all drag drop objects when a drag is initiated, cleared when the drag is finished.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDropMgr-locationCache Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-property-locationCache Sencha Docs Ext JS 3.4
    */
   function get locationCache():Object;
 
@@ -175,7 +175,7 @@ public interface IDragDropMgr {
 
   /**
    All drag and drop can be disabled.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDropMgr-locked Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-property-locked Sencha Docs Ext JS 3.4
    */
   function get locked():Object;
 
@@ -186,7 +186,7 @@ public interface IDragDropMgr {
 
   /**
    The current drag and drop mode. Default: POINT
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDropMgr-mode Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-property-mode Sencha Docs Ext JS 3.4
    */
   function get mode():int;
 
@@ -197,7 +197,7 @@ public interface IDragDropMgr {
 
   /**
    Flag to determine if we should prevent the default behavior of the events we define. By default this is true, but this can be set to false if you need the default behavior (not recommended)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDropMgr-preventDefault Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-property-preventDefault Sencha Docs Ext JS 3.4
    */
   function get preventDefault():Boolean;
 
@@ -208,7 +208,7 @@ public interface IDragDropMgr {
 
   /**
    The X position of the mousedown event stored for later use when a drag threshold is met.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDropMgr-startX Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-property-startX Sencha Docs Ext JS 3.4
    */
   function get startX():int;
 
@@ -219,7 +219,7 @@ public interface IDragDropMgr {
 
   /**
    The Y position of the mousedown event stored for later use when a drag threshold is met.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDropMgr-startY Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-property-startY Sencha Docs Ext JS 3.4
    */
   function get startY():int;
 
@@ -230,7 +230,7 @@ public interface IDragDropMgr {
 
   /**
    Flag to determine if we should stop the propagation of the events we generate. This is true by default but you may want to set it to false if the html element contains other features that require the mouse click.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDropMgr-stopPropagation Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-property-stopPropagation Sencha Docs Ext JS 3.4
    */
   function get stopPropagation():Boolean;
 
@@ -241,7 +241,7 @@ public interface IDragDropMgr {
 
   /**
    Set useCache to false if you want to force object the lookup of each drag and drop linked element constantly during a drag.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDropMgr-useCache Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-property-useCache Sencha Docs Ext JS 3.4
    */
   function get useCache():Boolean;
 
@@ -253,35 +253,35 @@ public interface IDragDropMgr {
   /**
    * Runs method on all drag and drop objects
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDropMgr-_execOnAll Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-method-_execOnAll Sencha Docs Ext JS 3.4
    */
   function _execOnAll():void;
 
   /**
    * Drag and drop initialization. Sets up the global event handlers
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDropMgr-_onLoad Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-method-_onLoad Sencha Docs Ext JS 3.4
    */
   function _onLoad():void;
 
   /**
    * Reset constraints on all drag and drop objs
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDropMgr-_onResize Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-method-_onResize Sencha Docs Ext JS 3.4
    */
   function _onResize():void;
 
   /**
    * unload event handler
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDropMgr-_onUnload Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-method-_onUnload Sencha Docs Ext JS 3.4
    */
   function _onUnload():void;
 
   /**
    * Unregisters a drag and drop item. This is executed in DragDrop.unreg, use that method instead of calling this directly.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDropMgr-_remove Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-method-_remove Sencha Docs Ext JS 3.4
    */
   function _remove():void;
 
@@ -290,7 +290,7 @@ public interface IDragDropMgr {
    *
    * @param e the event
    * @param isDrop is this a drop op or a mouseover op?
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDropMgr-fireEvents Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-method-fireEvents Sencha Docs Ext JS 3.4
    */
   function fireEvents(e:IEventObject, isDrop:Boolean):void;
 
@@ -299,7 +299,7 @@ public interface IDragDropMgr {
    *
    * @param dds The array of drag and drop objects targeted
    * @return The best single match
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDropMgr-getBestMatch Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-method-getBestMatch Sencha Docs Ext JS 3.4
    */
   function getBestMatch(dds:Array):DragDrop;
 
@@ -308,7 +308,7 @@ public interface IDragDropMgr {
    *
    * @param id the id of the element to get
    * @return The style property of the element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDropMgr-getCss Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-method-getCss Sencha Docs Ext JS 3.4
    */
   function getCss(id:String):Object;
 
@@ -317,7 +317,7 @@ public interface IDragDropMgr {
    *
    * @param id the id of the DragDrop object
    * @return the drag drop object, null if it is not found
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDropMgr-getDDById Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-method-getDDById Sencha Docs Ext JS 3.4
    */
   function getDDById(id:String):DragDrop;
 
@@ -326,7 +326,7 @@ public interface IDragDropMgr {
    *
    * @param id the id of the element to get
    * @return the wrapped element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDropMgr-getElWrapper Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-method-getElWrapper Sencha Docs Ext JS 3.4
    */
   function getElWrapper(id:String):ElementWrapper;
 
@@ -335,7 +335,7 @@ public interface IDragDropMgr {
    *
    * @param id the id of the element to get
    * @return The element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDropMgr-getElement Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-method-getElement Sencha Docs Ext JS 3.4
    */
   function getElement(id:String):Object;
 
@@ -344,7 +344,7 @@ public interface IDragDropMgr {
    *
    * @param oDD the drag and drop object to get the location for
    * @return a Region object representing the total area the element occupies, including any padding the instance is configured for.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDropMgr-getLocation Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-method-getLocation Sencha Docs Ext JS 3.4
    */
   function getLocation(oDD:DragDrop):Region;
 
@@ -354,7 +354,7 @@ public interface IDragDropMgr {
    * @param p_oDD the obj to get related data for
    * @param bTargetsOnly if true, only return targetable objs
    * @return the related instances
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDropMgr-getRelated Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-method-getRelated Sencha Docs Ext JS 3.4
    */
   function getRelated(p_oDD:DragDrop, bTargetsOnly:Boolean):Array;
 
@@ -363,7 +363,7 @@ public interface IDragDropMgr {
    *
    * @param e the event
    * @param oDD DragDrop object being dragged
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDropMgr-handleMouseDown Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-method-handleMouseDown Sencha Docs Ext JS 3.4
    */
   function handleMouseDown(e:IEventObject, oDD:*):void;
 
@@ -371,7 +371,7 @@ public interface IDragDropMgr {
    * Internal function to handle the mousemove event. Will be invoked from the context of the html element.
    *
    * @param e the event
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDropMgr-handleMouseMove Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-method-handleMouseMove Sencha Docs Ext JS 3.4
    */
   function handleMouseMove(e:IEventObject):void;
 
@@ -379,14 +379,14 @@ public interface IDragDropMgr {
    * Internal function to handle the mouseup event. Will be invoked from the context of the document.
    *
    * @param e the event
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDropMgr-handleMouseUp Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-method-handleMouseUp Sencha Docs Ext JS 3.4
    */
   function handleMouseUp(e:IEventObject):void;
 
   /**
    * Called the first time an element is registered.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDropMgr-init Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-method-init Sencha Docs Ext JS 3.4
    */
   function init():void;
 
@@ -395,7 +395,7 @@ public interface IDragDropMgr {
    *
    * @param id the element id to check
    * @return true if this element is a DragDrop item, false otherwise
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDropMgr-isDragDrop Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-method-isDragDrop Sencha Docs Ext JS 3.4
    */
   function isDragDrop(id:String):Boolean;
 
@@ -404,7 +404,7 @@ public interface IDragDropMgr {
    *
    * @param id the element id to check
    * @return true if this element is a DragDrop handle, false otherwise
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDropMgr-isHandle Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-method-isHandle Sencha Docs Ext JS 3.4
    */
   function isHandle(id:String):Boolean;
 
@@ -414,7 +414,7 @@ public interface IDragDropMgr {
    * @param oDD the drag obj
    * @param oTargetDD the target
    * @return true if the target is a legal target for the dd obj
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDropMgr-isLegalTarget Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-method-isLegalTarget Sencha Docs Ext JS 3.4
    */
   function isLegalTarget(oDD:DragDrop, oTargetDD:DragDrop):Boolean;
 
@@ -422,7 +422,7 @@ public interface IDragDropMgr {
    * Is drag and drop locked?
    *
    * @return True if drag and drop is locked, false otherwise.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDropMgr-isLocked Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-method-isLocked Sencha Docs Ext JS 3.4
    */
   function isLocked():Boolean;
 
@@ -432,7 +432,7 @@ public interface IDragDropMgr {
    * @param pt The point to evaluate
    * @param oTarget the DragDrop object we are inspecting
    * @return true if the mouse is over the target
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDropMgr-isOverTarget Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-method-isOverTarget Sencha Docs Ext JS 3.4
    */
   function isOverTarget(pt:Point, oTarget:DragDrop):Boolean;
 
@@ -441,14 +441,14 @@ public interface IDragDropMgr {
    *
    * @param the object to evaluate
    * @return true if typeof oDD = DragDrop
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDropMgr-isTypeOfDD Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-method-isTypeOfDD Sencha Docs Ext JS 3.4
    */
   function isTypeOfDD(the:Object):Boolean;
 
   /**
    * Lock all drag and drop functionality
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDropMgr-lock Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-method-lock Sencha Docs Ext JS 3.4
    */
   function lock():void;
 
@@ -456,7 +456,7 @@ public interface IDragDropMgr {
    * Refreshes the cache of the top-left and bottom-right points of the drag and drop objects in the specified group(s). This is in the format that is stored in the drag and drop instance, so typical usage is: <code>Ext.dd.DragDropMgr.refreshCache(ddinstance.groups);</code> Alternatively: <code>Ext.dd.DragDropMgr.refreshCache({group1:true, group2:true});</code>
    *
    * @param groups an associative array of groups to refresh
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDropMgr-refreshCache Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-method-refreshCache Sencha Docs Ext JS 3.4
    */
   function refreshCache(groups:Object):void;
 
@@ -465,7 +465,7 @@ public interface IDragDropMgr {
    *
    * @param oDD the DragDrop object to register
    * @param sGroup the name of the group this element belongs to
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDropMgr-regDragDrop Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-method-regDragDrop Sencha Docs Ext JS 3.4
    */
   function regDragDrop(oDD:DragDrop, sGroup:String):void;
 
@@ -474,14 +474,14 @@ public interface IDragDropMgr {
    *
    * @param sDDId the DragDrop id this element is a handle for
    * @param sHandleId the id of the element that is the drag handle
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDropMgr-regHandle Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-method-regHandle Sencha Docs Ext JS 3.4
    */
   function regHandle(sDDId:String, sHandleId:String):void;
 
   /**
    * Removes the supplied dd instance from the supplied group. Executed by DragDrop.removeFromGroup, so don't call this function directly.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDropMgr-removeDDFromGroup Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-method-removeDDFromGroup Sencha Docs Ext JS 3.4
    */
   function removeDDFromGroup():void;
 
@@ -490,7 +490,7 @@ public interface IDragDropMgr {
    *
    * @param x the X position of the original mousedown
    * @param y the Y position of the original mousedown
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDropMgr-startDrag Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-method-startDrag Sencha Docs Ext JS 3.4
    */
   function startDrag(x:int, y:int):void;
 
@@ -498,7 +498,7 @@ public interface IDragDropMgr {
    * Internal function to clean up event handlers after the drag operation is complete
    *
    * @param e the event
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDropMgr-stopDrag Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-method-stopDrag Sencha Docs Ext JS 3.4
    */
   function stopDrag(e:IEventObject):void;
 
@@ -506,21 +506,21 @@ public interface IDragDropMgr {
    * Utility to stop event propagation and event default, if these features are turned on.
    *
    * @param e the event as returned by this.getEvent()
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDropMgr-stopEvent Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-method-stopEvent Sencha Docs Ext JS 3.4
    */
   function stopEvent(e:IEventObject):void;
 
   /**
    * Unlock all drag and drop functionality
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDropMgr-unlock Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-method-unlock Sencha Docs Ext JS 3.4
    */
   function unlock():void;
 
   /**
    * Cleans up the drag and drop events and objects.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDropMgr-unregAll Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-method-unregAll Sencha Docs Ext JS 3.4
    */
   function unregAll():void;
 
@@ -529,7 +529,7 @@ public interface IDragDropMgr {
    *
    * @param el the element to check
    * @return true if the element looks usable
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDropMgr-verifyEl Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr-method-verifyEl Sencha Docs Ext JS 3.4
    */
   function verifyEl(el:HTMLElement):Boolean;
 

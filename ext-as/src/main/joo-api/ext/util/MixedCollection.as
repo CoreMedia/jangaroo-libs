@@ -85,7 +85,7 @@ package ext.util {
  *
 
  * @see ext.config.mixedcollection
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MixedCollection.html#cls-Ext.util.MixedCollection Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.MixedCollection Sencha Docs Ext JS 3.4
  */
 public class MixedCollection extends Observable {
 
@@ -102,7 +102,6 @@ public class MixedCollection extends Observable {
 
   /**
    Specify <tt>true</tt> if the <a href="output/Ext.util.MixedCollection.html#Ext.util.MixedCollection-addAll">addAll</a> function should add function references to the collection. Defaults to <tt>false</tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get allowFunctions():Boolean;
 
@@ -112,7 +111,7 @@ public class MixedCollection extends Observable {
    * @param property Property to sort by ('key', 'value', or 'index')
    * @param dir Direction to sort 'ASC' or 'DESC'. Defaults to 'ASC'.
    * @param fn Comparison function that defines the sort order. Defaults to sorting by numeric value.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MixedCollection.html#method-Ext.util.MixedCollection-_sort Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.MixedCollection-method-_sort Sencha Docs Ext JS 3.4
    */
   public native function _sort(property:String, dir:String = null, fn:Function = null):void;
 
@@ -123,7 +122,7 @@ public class MixedCollection extends Observable {
    <p>If a <a href="output/Ext.util.MixedCollection.html#Ext.util.MixedCollection-getKey">getKey</a> implementation was specified for this MixedCollection, or if the key of the stored items is in a property called <tt><b>id</b></tt>, the MixedCollection will be able to <i>derive</i> the key for the new item. In this case just pass the new item in this parameter.</p>
    * @param o The item to add.
    * @return The item added.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MixedCollection.html#method-Ext.util.MixedCollection-add Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.MixedCollection-method-add Sencha Docs Ext JS 3.4
    */
   public native function add(key:*, o:Object = null):Object;
 
@@ -131,14 +130,14 @@ public class MixedCollection extends Observable {
    * Adds all elements of an Array or an Object to the collection.
    *
    * @param objs An Object containing properties which will be added to the collection, or an Array of values, each of which are added to the collection. Functions references will be added to the collection if <code><a href="output/Ext.util.MixedCollection.html#Ext.util.MixedCollection-allowFunctions">allowFunctions</a></code> has been set to <tt>true</tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MixedCollection.html#method-Ext.util.MixedCollection-addAll Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.MixedCollection-method-addAll Sencha Docs Ext JS 3.4
    */
   public native function addAll(objs:*):void;
 
   /**
    * Removes all items from the collection. Fires the <a href="output/Ext.util.MixedCollection.html#Ext.util.MixedCollection-clear">clear</a> event when complete.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MixedCollection.html#method-Ext.util.MixedCollection-clear Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.MixedCollection-method-clear Sencha Docs Ext JS 3.4
    */
   public native function clear():void;
 
@@ -146,7 +145,7 @@ public class MixedCollection extends Observable {
    * Creates a shallow copy of this collection
    *
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MixedCollection.html#method-Ext.util.MixedCollection-clone Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.MixedCollection-method-clone Sencha Docs Ext JS 3.4
    */
   public native function clone():MixedCollection;
 
@@ -155,7 +154,7 @@ public class MixedCollection extends Observable {
    *
    * @param o The Object to look for in the collection.
    * @return True if the collection contains the Object as an item.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MixedCollection.html#method-Ext.util.MixedCollection-contains Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.MixedCollection-method-contains Sencha Docs Ext JS 3.4
    */
   public native function contains(o:Object):Boolean;
 
@@ -164,7 +163,7 @@ public class MixedCollection extends Observable {
    *
    * @param key The key to look for in the collection.
    * @return True if the collection contains the Object as a key.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MixedCollection.html#method-Ext.util.MixedCollection-containsKey Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.MixedCollection-method-containsKey Sencha Docs Ext JS 3.4
    */
   public native function containsKey(key:String):Boolean;
 
@@ -175,7 +174,7 @@ public class MixedCollection extends Observable {
    * @param anyMatch True to allow any match - no regex start/end line anchors will be added. Defaults to false
    * @param caseSensitive True to make the regex case sensitive (adds 'i' switch to regex). Defaults to false.
    * @param exactMatch True to force exact match (^ and $ characters added to the regex). Defaults to false. Ignored if anyMatch is true.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MixedCollection.html#method-Ext.util.MixedCollection-createValueMatcher Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.MixedCollection-method-createValueMatcher Sencha Docs Ext JS 3.4
    */
   public native function createValueMatcher(value:String, anyMatch:Boolean, caseSensitive:Boolean, exactMatch:Boolean):void;
 
@@ -184,7 +183,7 @@ public class MixedCollection extends Observable {
    *
    * @param fn The function to execute for each item.
    * @param scope The scope (<code>this</code> reference) in which the function is executed. Defaults to the current item in the iteration.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MixedCollection.html#method-Ext.util.MixedCollection-each Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.MixedCollection-method-each Sencha Docs Ext JS 3.4
    */
   public native function each(fn:Function, scope:Object = null):void;
 
@@ -193,7 +192,7 @@ public class MixedCollection extends Observable {
    *
    * @param fn The function to execute for each item.
    * @param scope The scope (<code>this</code> reference) in which the function is executed. Defaults to the browser window.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MixedCollection.html#method-Ext.util.MixedCollection-eachKey Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.MixedCollection-method-eachKey Sencha Docs Ext JS 3.4
    */
   public native function eachKey(fn:Function, scope:Object = null):void;
 
@@ -205,7 +204,7 @@ public class MixedCollection extends Observable {
    * @param anyMatch True to match any part of the string, not just the beginning
    * @param caseSensitive True for case sensitive comparison (defaults to False).
    * @return The new filtered collection
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MixedCollection.html#method-Ext.util.MixedCollection-filter Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.MixedCollection-method-filter Sencha Docs Ext JS 3.4
    */
   public native function filter(property:String, value:*, anyMatch:Boolean = false, caseSensitive:Boolean = false):MixedCollection;
 
@@ -215,7 +214,7 @@ public class MixedCollection extends Observable {
    * @param fn The function to be called, it will receive the args o (the object), k (the key)
    * @param scope The scope (<code>this</code> reference) in which the function is executed. Defaults to this MixedCollection.
    * @return The new filtered collection
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MixedCollection.html#method-Ext.util.MixedCollection-filterBy Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.MixedCollection-method-filterBy Sencha Docs Ext JS 3.4
    */
   public native function filterBy(fn:Function, scope:Object = null):MixedCollection;
 
@@ -225,7 +224,7 @@ public class MixedCollection extends Observable {
    * @param fn The selection function to execute for each item.
    * @param scope The scope (<code>this</code> reference) in which the function is executed. Defaults to the browser window.
    * @return The first item in the collection which returned true from the selection function.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MixedCollection.html#method-Ext.util.MixedCollection-find Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.MixedCollection-method-find Sencha Docs Ext JS 3.4
    */
   public native function find(fn:Function, scope:Object = null):Object;
 
@@ -238,7 +237,7 @@ public class MixedCollection extends Observable {
    * @param anyMatch True to match any part of the string, not just the beginning.
    * @param caseSensitive True for case sensitive comparison.
    * @return The matched index or -1
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MixedCollection.html#method-Ext.util.MixedCollection-findIndex Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.MixedCollection-method-findIndex Sencha Docs Ext JS 3.4
    */
   public native function findIndex(property:String, value:*, start:Number = undefined, anyMatch:Boolean = false, caseSensitive:Boolean = false):Number;
 
@@ -249,7 +248,7 @@ public class MixedCollection extends Observable {
    * @param scope The scope (<code>this</code> reference) in which the function is executed. Defaults to this MixedCollection.
    * @param start The index to start searching at (defaults to 0).
    * @return The matched index or -1
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MixedCollection.html#method-Ext.util.MixedCollection-findIndexBy Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.MixedCollection-method-findIndexBy Sencha Docs Ext JS 3.4
    */
   public native function findIndexBy(fn:Function, scope:Object = null, start:Number = undefined):Number;
 
@@ -257,7 +256,7 @@ public class MixedCollection extends Observable {
    * Returns the first item in the collection.
    *
    * @return the first item in the collection..
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MixedCollection.html#method-Ext.util.MixedCollection-first Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.MixedCollection-method-first Sencha Docs Ext JS 3.4
    */
   public native function first():Object;
 
@@ -266,7 +265,7 @@ public class MixedCollection extends Observable {
    *
    * @param key The key or index of the item.
    * @return If the item is found, returns the item. If the item was not found, returns <tt>undefined</tt>. If an item was found, but is a Class, returns <tt>null</tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MixedCollection.html#method-Ext.util.MixedCollection-get Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.MixedCollection-method-get Sencha Docs Ext JS 3.4
    */
   public native function get(key:*):Object;
 
@@ -274,7 +273,7 @@ public class MixedCollection extends Observable {
    * Returns the number of items in the collection.
    *
    * @return the number of items in the collection.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MixedCollection.html#method-Ext.util.MixedCollection-getCount Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.MixedCollection-method-getCount Sencha Docs Ext JS 3.4
    */
   public native function getCount():Number;
 
@@ -303,7 +302,7 @@ public class MixedCollection extends Observable {
    *
    * @param item The item for which to find the key.
    * @return The key for the passed item.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MixedCollection.html#method-Ext.util.MixedCollection-getKey Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.MixedCollection-method-getKey Sencha Docs Ext JS 3.4
    */
   public native function getKey(item:Object):Object;
 
@@ -313,7 +312,7 @@ public class MixedCollection extends Observable {
    * @param startIndex The starting index. Defaults to 0.
    * @param endIndex The ending index. Defaults to the last item.
    * @return An array of items
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MixedCollection.html#method-Ext.util.MixedCollection-getRange Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.MixedCollection-method-getRange Sencha Docs Ext JS 3.4
    */
   public native function getRange(startIndex:Number = undefined, endIndex:Number = undefined):Array;
 
@@ -322,7 +321,7 @@ public class MixedCollection extends Observable {
    *
    * @param o The item to find the index of.
    * @return index of the item. Returns -1 if not found.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MixedCollection.html#method-Ext.util.MixedCollection-indexOf Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.MixedCollection-method-indexOf Sencha Docs Ext JS 3.4
    */
   public native function indexOf(o:Object):Number;
 
@@ -331,7 +330,7 @@ public class MixedCollection extends Observable {
    *
    * @param key The key to find the index of.
    * @return index of the key.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MixedCollection.html#method-Ext.util.MixedCollection-indexOfKey Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.MixedCollection-method-indexOfKey Sencha Docs Ext JS 3.4
    */
   public native function indexOfKey(key:String):Number;
 
@@ -342,7 +341,7 @@ public class MixedCollection extends Observable {
    * @param key The key to associate with the new item, or the item itself.
    * @param o If the second parameter was a key, the new item.
    * @return The item inserted.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MixedCollection.html#method-Ext.util.MixedCollection-insert Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.MixedCollection-method-insert Sencha Docs Ext JS 3.4
    */
   public native function insert(index:Number, key:String, o:Object = null):Object;
 
@@ -351,7 +350,7 @@ public class MixedCollection extends Observable {
    *
    * @param key The key or index of the item.
    * @return If the item is found, returns the item. If the item was not found, returns <tt>undefined</tt>. If an item was found, but is a Class, returns <tt>null</tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MixedCollection.html#method-Ext.util.MixedCollection-item Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.MixedCollection-method-item Sencha Docs Ext JS 3.4
    */
   public native function item(key:*):Object;
 
@@ -360,7 +359,7 @@ public class MixedCollection extends Observable {
    *
    * @param index The index of the item.
    * @return The item at the specified index.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MixedCollection.html#method-Ext.util.MixedCollection-itemAt Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.MixedCollection-method-itemAt Sencha Docs Ext JS 3.4
    */
   public native function itemAt(index:Number):Object;
 
@@ -369,7 +368,7 @@ public class MixedCollection extends Observable {
    *
    * @param key The key of the item.
    * @return The item associated with the passed key.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MixedCollection.html#method-Ext.util.MixedCollection-key Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.MixedCollection-method-key Sencha Docs Ext JS 3.4
    */
   public native function key(key:*):Object;
 
@@ -378,7 +377,7 @@ public class MixedCollection extends Observable {
    *
    * @param direction 'ASC' or 'DESC'. Defaults to 'ASC'.
    * @param fn Comparison function that defines the sort order. Defaults to sorting by case insensitive string.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MixedCollection.html#method-Ext.util.MixedCollection-keySort Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.MixedCollection-method-keySort Sencha Docs Ext JS 3.4
    */
   public native function keySort(direction:String = null, fn:Function = null):void;
 
@@ -386,7 +385,7 @@ public class MixedCollection extends Observable {
    * Returns the last item in the collection.
    *
    * @return the last item in the collection..
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MixedCollection.html#method-Ext.util.MixedCollection-last Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.MixedCollection-method-last Sencha Docs Ext JS 3.4
    */
   public native function last():Object;
 
@@ -395,7 +394,7 @@ public class MixedCollection extends Observable {
    *
    * @param o The item to remove.
    * @return The item removed or false if no item was removed.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MixedCollection.html#method-Ext.util.MixedCollection-remove Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.MixedCollection-method-remove Sencha Docs Ext JS 3.4
    */
   public native function remove(o:Object):Object;
 
@@ -404,7 +403,7 @@ public class MixedCollection extends Observable {
    *
    * @param index The index within the collection of the item to remove.
    * @return The item removed or false if no item was removed.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MixedCollection.html#method-Ext.util.MixedCollection-removeAt Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.MixedCollection-method-removeAt Sencha Docs Ext JS 3.4
    */
   public native function removeAt(index:Number):Object;
 
@@ -413,7 +412,7 @@ public class MixedCollection extends Observable {
    *
    * @param key The key of the item to remove.
    * @return The item removed or false if no item was removed.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MixedCollection.html#method-Ext.util.MixedCollection-removeKey Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.MixedCollection-method-removeKey Sencha Docs Ext JS 3.4
    */
   public native function removeKey(key:String):Object;
 
@@ -421,7 +420,7 @@ public class MixedCollection extends Observable {
    * Reorders each of the items based on a mapping from old index to new index. Internally this just translates into a sort. The 'sort' event is fired whenever reordering has occurred.
    *
    * @param mapping Mapping from old item index to new item index
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MixedCollection.html#method-Ext.util.MixedCollection-reorder Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.MixedCollection-method-reorder Sencha Docs Ext JS 3.4
    */
   public native function reorder(mapping:Object):void;
 
@@ -432,7 +431,7 @@ public class MixedCollection extends Observable {
    <p>If you supplied a <a href="output/Ext.util.MixedCollection.html#Ext.util.MixedCollection-getKey">getKey</a> implementation for this MixedCollection, or if the key of your stored items is in a property called <tt><b>id</b></tt>, then the MixedCollection will be able to <i>derive</i> the key of the replacement item. If you want to replace an item with one having the same key value, then just pass the replacement item in this parameter.</p>
    * @param o o (optional) If the first parameter passed was a key, the item to associate with that key.
    * @return The new item.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MixedCollection.html#method-Ext.util.MixedCollection-replace Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.MixedCollection-method-replace Sencha Docs Ext JS 3.4
    */
   public native function replace(key:String, o:Object):Object;
 
@@ -441,7 +440,7 @@ public class MixedCollection extends Observable {
    *
    * @param direction 'ASC' or 'DESC'. Defaults to 'ASC'.
    * @param fn Comparison function that defines the sort order. Defaults to sorting by numeric value.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MixedCollection.html#method-Ext.util.MixedCollection-sort Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.MixedCollection-method-sort Sencha Docs Ext JS 3.4
    */
   public native function sort(direction:String = null, fn:Function = null):void;
 

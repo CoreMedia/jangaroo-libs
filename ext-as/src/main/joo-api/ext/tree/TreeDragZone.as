@@ -9,7 +9,7 @@ import ext.dd.DragZone;
  *
 
  * @see ext.config.treedragzone
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeDragZone.html#cls-Ext.tree.TreeDragZone Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeDragZone Sencha Docs Ext JS 3.4
  */
 public class TreeDragZone extends DragZone {
 
@@ -26,7 +26,7 @@ public class TreeDragZone extends DragZone {
 
   /**
    The TreePanel for this drag zone
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeDragZone.html#prop-Ext.tree.TreeDragZone-tree Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeDragZone-property-tree Sencha Docs Ext JS 3.4
    */
   public native function get tree():TreePanel;
 

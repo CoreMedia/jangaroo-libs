@@ -10,7 +10,7 @@ import ext.config.directstore;
 
  * <p>This class can be instantiated by the EXML element &lt;directstore>.</p>
  * @see ext.config.directstore
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DirectStore.html#cls-Ext.data.DirectStore Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.DirectStore Sencha Docs Ext JS 3.4
  */
 public class DirectStore extends Store {
 

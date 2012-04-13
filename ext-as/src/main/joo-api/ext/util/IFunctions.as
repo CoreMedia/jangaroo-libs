@@ -9,7 +9,7 @@ package ext.util {
 
  * <p>This interface defines the type of the singleton Functions.</p>
  * @see ext.util.#Functions ext.util.Functions
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Function.html#cls-Ext.util.Functions Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Functions Sencha Docs Ext JS 3.4
  */
 public interface IFunctions {
 
@@ -38,7 +38,7 @@ public interface IFunctions {
    * @param args Overrides arguments for the call. (Defaults to the arguments passed by the caller)
    * @param appendArgs if True args are appended to call args instead of overriding, if a number the args are inserted at the specified position
    * @return The new function
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Function.html#method-Ext.util.Functions-createDelegate Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Functions-method-createDelegate Sencha Docs Ext JS 3.4
    */
   function createDelegate(fn:Function, scope:Object = null, args:Array = null, appendArgs:* = null):Function;
 
@@ -63,7 +63,7 @@ public interface IFunctions {
    * @param newFn The function to call before the original
    * @param scope The scope (<code><b>this</b></code> reference) in which the passed function is executed. <b>If omitted, defaults to the scope in which the original function is called or the browser window.</b>
    * @return The new function
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Function.html#method-Ext.util.Functions-createInterceptor Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Functions-method-createInterceptor Sencha Docs Ext JS 3.4
    */
   function createInterceptor(origFn:Function, newFn:Function, scope:Object = null):Function;
 
@@ -74,7 +74,7 @@ public interface IFunctions {
    * @param newFn The function to sequence
    * @param scope The scope (this reference) in which the passed function is executed. If omitted, defaults to the scope in which the original function is called or the browser window.
    * @return The new function
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Function.html#method-Ext.util.Functions-createSequence Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Functions-method-createSequence Sencha Docs Ext JS 3.4
    */
   function createSequence(origFn:Function, newFn:Function, scope:Object = null):Function;
 
@@ -102,7 +102,7 @@ public interface IFunctions {
    * @param args Overrides arguments for the call. (Defaults to the arguments passed by the caller)
    * @param appendArgs if True args are appended to call args instead of overriding, if a number the args are inserted at the specified position
    * @return The timeout id that can be used with clearTimeout
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Function.html#method-Ext.util.Functions-defer Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Functions-method-defer Sencha Docs Ext JS 3.4
    */
   function defer(fn:Function, millis:Number, scope:Object = null, args:Array = null, appendArgs:* = null):Number;
 

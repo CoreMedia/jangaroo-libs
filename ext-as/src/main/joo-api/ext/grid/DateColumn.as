@@ -11,7 +11,7 @@ import ext.config.datecolumn;
 
  * <p>This component is created by the xtype 'datecolumn' / the EXML element &lt;datecolumn>.</p>
  * @see ext.config.datecolumn
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Column.html#cls-Ext.grid.DateColumn Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.DateColumn Sencha Docs Ext JS 3.4
  */
 public class DateColumn extends Column {
 
@@ -27,7 +27,6 @@ public class DateColumn extends Column {
 
   /**
    A formatting string as used by <a href="output/Date.html#Date-format">Date.format</a> to format a Date for this Column (defaults to <tt>'m/d/Y'</tt>).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get format():String;
 

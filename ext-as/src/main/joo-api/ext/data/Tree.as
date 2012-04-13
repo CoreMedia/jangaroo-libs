@@ -236,7 +236,7 @@ import ext.util.Observable;
  *
 
  * @see ext.config.tree
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#cls-Ext.data.Tree Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Tree Sencha Docs Ext JS 3.4
  */
 public class Tree extends Observable {
 
@@ -252,7 +252,7 @@ public class Tree extends Observable {
 
   /**
    The root node for this tree
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#prop-Ext.data.Tree-root Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Tree-property-root Sencha Docs Ext JS 3.4
    */
   public native function get root():Node;
 
@@ -263,7 +263,6 @@ public class Tree extends Observable {
 
   /**
    The token used to separate paths in node ids (defaults to '/').
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get pathSeparator():String;
 
@@ -272,7 +271,7 @@ public class Tree extends Observable {
    *
    * @param id
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Tree-getNodeById Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Tree-method-getNodeById Sencha Docs Ext JS 3.4
    */
   public native function getNodeById(id:String):Node;
 
@@ -280,7 +279,7 @@ public class Tree extends Observable {
    * Returns the root node for this tree.
    *
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Tree-getRootNode Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Tree-method-getRootNode Sencha Docs Ext JS 3.4
    */
   public native function getRootNode():Node;
 
@@ -289,7 +288,7 @@ public class Tree extends Observable {
    *
    * @param node
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Tree-setRootNode Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Tree-method-setRootNode Sencha Docs Ext JS 3.4
    */
   public native function setRootNode(node:Node):Node;
 

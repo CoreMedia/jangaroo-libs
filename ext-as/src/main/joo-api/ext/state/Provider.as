@@ -31,7 +31,7 @@ package ext.state {
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  *
 
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Provider.html#cls-Ext.state.Provider Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.state.Provider Sencha Docs Ext JS 3.4
  */
 public class Provider {
 
@@ -47,7 +47,7 @@ public class Provider {
    * Clears a value from the state
    *
    * @param name The key name
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Provider.html#method-Ext.state.Provider-clear Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.state.Provider-method-clear Sencha Docs Ext JS 3.4
    */
   public native function clear(name:String):void;
 
@@ -56,7 +56,7 @@ public class Provider {
    *
    * @param value The value to decode
    * @return The decoded value
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Provider.html#method-Ext.state.Provider-decodeValue Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.state.Provider-method-decodeValue Sencha Docs Ext JS 3.4
    */
   public native function decodeValue(value:String):*;
 
@@ -65,7 +65,7 @@ public class Provider {
    *
    * @param value The value to encode
    * @return The encoded value
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Provider.html#method-Ext.state.Provider-encodeValue Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.state.Provider-method-encodeValue Sencha Docs Ext JS 3.4
    */
   public native function encodeValue(value:*):String;
 
@@ -75,7 +75,7 @@ public class Provider {
    * @param name The key name
    * @param defaultValue A default value to return if the key's value is not found
    * @return The state data
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Provider.html#method-Ext.state.Provider-get Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.state.Provider-method-get Sencha Docs Ext JS 3.4
    */
   public native function get(name:String, defaultValue:*):*;
 
@@ -84,7 +84,7 @@ public class Provider {
    *
    * @param name The key name
    * @param value The value to set
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Provider.html#method-Ext.state.Provider-set Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.state.Provider-method-set Sencha Docs Ext JS 3.4
    */
   public native function set(name:String, value:*):void;
 

@@ -356,7 +356,7 @@ import ext.util.Observable;
 
  * <p>This class can be instantiated by the EXML element &lt;store>.</p>
  * @see ext.config.store
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#cls-Ext.data.Store Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store Sencha Docs Ext JS 3.4
  */
 public class Store extends Observable {
 
@@ -372,7 +372,7 @@ public class Store extends Observable {
 
   /**
    See the <code><a href="output/Ext.data.Store.html#Ext.data.Store-baseParams">corresponding configuration option</a></code> for a description of this property. To modify this property see <code><a href="output/Ext.data.Store.html#Ext.data.Store-setBaseParam">setBaseParam</a></code>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#prop-Ext.data.Store-baseParams Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-property-baseParams Sencha Docs Ext JS 3.4
    */
   public native function get baseParams():Object;
 
@@ -383,13 +383,13 @@ public class Store extends Observable {
 
   /**
    A <a href="Ext.util.MixedCollection.html">MixedCollection</a> containing the defined <a href="Ext.data.Field.html">Field</a>s for the <a href="Ext.data.Record.html">Records</a> stored in this Store.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#prop-Ext.data.Store-fields Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-property-fields Sencha Docs Ext JS 3.4
    */
   public native function get fields():MixedCollection;
 
   /**
    True if this store is currently sorted by more than one field/direction combination.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#prop-Ext.data.Store-hasMultiSort Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-property-hasMultiSort Sencha Docs Ext JS 3.4
    */
   public native function get hasMultiSort():Boolean;
 
@@ -400,7 +400,7 @@ public class Store extends Observable {
 
   /**
    True if the store has been destroyed already. Read only
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#prop-Ext.data.Store-isDestroyed Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-property-isDestroyed Sencha Docs Ext JS 3.4
    */
   public native function get isDestroyed():Boolean;
 
@@ -411,7 +411,7 @@ public class Store extends Observable {
 
   /**
    Contains the last options object used as the parameter to the <a href="output/Ext.data.Store.html#Ext.data.Store-load">load</a> method. See <a href="output/Ext.data.Store.html#Ext.data.Store-load">load</a> for the details of what this may contain. This may be useful for accessing any params which were used to load the current Record cache.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#prop-Ext.data.Store-lastOptions Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-property-lastOptions Sencha Docs Ext JS 3.4
    */
   public native function get lastOptions():Object;
 
@@ -422,7 +422,7 @@ public class Store extends Observable {
 
   /**
    Object containing overall sort direction and an ordered array of sorter configs used when sorting on multiple fields
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#prop-Ext.data.Store-multiSortInfo Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-property-multiSortInfo Sencha Docs Ext JS 3.4
    */
   public native function get multiSortInfo():Object;
 
@@ -486,45 +486,39 @@ public class Store extends Observable {
    }]
    });
    </code></pre>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#prop-Ext.data.Store-recordType Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-property-recordType Sencha Docs Ext JS 3.4
    */
   public native function get recordType():Function;
 
   /**
    <tt>true</tt> to destroy the store when the component the store is bound to is destroyed (defaults to <tt>false</tt>). <p><b>Note</b>: this should be set to true when using stores that are bound to only 1 component.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get autoDestroy():Boolean;
 
   /**
    If <tt><a href="output/Ext.data.Store.html#Ext.data.Store-data">data</a></tt> is not specified, and if <tt>autoLoad</tt> is <tt>true</tt> or an <tt>Object</tt>, this store's <a href="output/Ext.data.Store.html#Ext.data.Store-load">load</a> method is automatically called after creation. If the value of <tt>autoLoad</tt> is an <tt>Object</tt>, this <tt>Object</tt> will be passed to the store's <a href="output/Ext.data.Store.html#Ext.data.Store-load">load</a> method.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get autoLoad():*;
 
   /**
    Defaults to <tt>true</tt> causing the store to automatically <a href="output/Ext.data.Store.html#Ext.data.Store-save">save</a> records to the server when a record is modified (ie: becomes 'dirty'). Specify <tt>false</tt> to manually call <a href="output/Ext.data.Store.html#Ext.data.Store-save">save</a> to send all modifiedRecords to the server.
    <br/><p><b>Note</b>: each CRUD action will be sent as a separate request.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get autoSave():Boolean;
 
   /**
    Defaults to <tt>true</tt> (unless <code><a href="output/Ext.data.Store.html#Ext.data.Store-restful">restful</a>:true</code>). Multiple requests for each CRUD action (CREATE, READ, UPDATE and DESTROY) will be combined and sent as one transaction. Only applies when <code><a href="output/Ext.data.Store.html#Ext.data.Store-autoSave">autoSave</a></code> is set to <tt>false</tt>.
    <br/><p>If Store is RESTful, the DataProxy is also RESTful, and a unique transaction is generated for each record.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get batch():Boolean;
 
   /**
    An inline data object readable by the <code><a href="output/Ext.data.Store.html#Ext.data.Store-reader">reader</a></code>. Typically this option, or the <code><a href="output/Ext.data.Store.html#Ext.data.Store-url">url</a></code> option will be specified.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get data():Array;
 
   /**
    Provides the default values for the <a href="output/Ext.data.Store.html#Ext.data.Store-paramNames">paramNames</a> property. To globally modify the parameters for all stores, this object should be changed on the store prototype.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get defaultParamNames():Object;
 
@@ -537,37 +531,31 @@ public class Store extends Observable {
    dir : 'dir'       // The parameter name which specifies the sort direction
    }
    </code></pre><p>The server must produce the requested data block upon receipt of these parameter names. If different parameter names are required, this property can be overridden using a configuration property.</p><p>A <a href="Ext.PagingToolbar.html">PagingToolbar</a> bound to this Store uses this property to determine the parameter names to use in its <a href="output/Ext.data.Store.html#Ext.data.Store-load">requests</a>.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get paramNames():Object;
 
   /**
    The <a href="Ext.data.DataProxy.html">DataProxy</a> object which provides access to a data object. See <code><a href="output/Ext.data.Store.html#Ext.data.Store-url">url</a></code>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get proxy():DataProxy;
 
   /**
    <tt>true</tt> to clear all modified record information each time the store is loaded or when a record is removed (defaults to <tt>false</tt>). See <a href="output/Ext.data.Store.html#Ext.data.Store-getModifiedRecords">getModifiedRecords</a> for the accessor method to retrieve the modified records.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get pruneModifiedRecords():Boolean;
 
   /**
    The <a href="Ext.data.DataReader.html">Reader</a> object which processes the data object and returns an Array of <a href="Ext.data.Record.html">Ext.data.Record</a> objects which are cached keyed by their <b><tt><a href="output/Ext.data.Record.html#Ext.data.Record-id">id</a></tt></b> property.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get reader():DataReader;
 
   /**
    <tt>true</tt> if sorting is to be handled by requesting the <tt><a href="output/Ext.data.Store.html#Ext.data.Store-proxy">Proxy</a></tt> to provide a refreshed version of the data object in sorted order, as opposed to sorting the Record cache in place (defaults to <tt>false</tt>). <p>If <tt>remoteSort</tt> is <tt>true</tt>, then clicking on a <a href="Ext.grid.Column.html">Grid Column</a>'s <a href="output/Ext.grid.Column.html#Ext.grid.Column-header">header</a> causes the current page to be requested from the server appending the following two parameters to the <b><tt><a href="output/Ext.data.Store.html#Ext.data.Store-load">params</a></tt></b>:</p><div class="mdetail-params"><ul><li><b><tt>sort</tt></b> : String<p class="sub-desc">The <tt>name</tt> (as specified in the Record's <a href="Ext.data.Field.html">Field definition</a>) of the field to sort on.</p></li><li><b><tt>dir</tt></b> : String<p class="sub-desc">The direction of the sort, 'ASC' or 'DESC' (case-sensitive).</p></li></ul></div><br/><br/>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get remoteSort():Boolean;
 
   /**
    Defaults to <tt>false</tt>. Set to <tt>true</tt> to have the Store and the set Proxy operate in a RESTful manner. The store will automatically generate GET, POST, PUT and DELETE requests to the server. The HTTP method used for any given CRUD action is described in <a href="output/Ext.data.Api.html#Ext.data.Api-restActions">Ext.data.Api.restActions</a>. For additional information see <a href="output/Ext.data.DataProxy.html#Ext.data.DataProxy-restful">Ext.data.DataProxy.restful</a>. <p><b>Note</b>: if <code><a href="output/Ext.data.Store.html#Ext.data.Store-restful">restful</a>:true</code> <code>batch</code> will internally be set to <tt>false</tt>.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get restful():Boolean;
 
@@ -577,19 +565,16 @@ public class Store extends Observable {
    direction: 'ASC' // or 'DESC' (case sensitive for local sorting)
    }
    </code></pre>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get sortInfo():Object;
 
   /**
    If passed, the id to use to register with the <b><a href="Ext.StoreMgr.html">StoreMgr</a></b>. <p><b>Note</b>: if a (deprecated) <tt><a href="output/Ext.data.Store.html#Ext.data.Store-id">id</a></tt> is specified it will supersede the <tt>storeId</tt> assignment.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get storeId():String;
 
   /**
    If a <tt><a href="output/Ext.data.Store.html#Ext.data.Store-proxy">proxy</a></tt> is not specified the <tt>url</tt> will be used to implicitly configure a <a href="Ext.data.HttpProxy.html">HttpProxy</a> if an <tt>url</tt> is specified. Typically this option, or the <code><a href="output/Ext.data.Store.html#Ext.data.Store-data">data</a></code> option will be specified.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get url():String;
 
@@ -612,7 +597,6 @@ public class Store extends Observable {
    //     until specifically told to do so.
    });
    </code></pre><br/><br/>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get writer():DataWriter;
 
@@ -620,7 +604,7 @@ public class Store extends Observable {
    * Add Records to the Store and fires the <a href="output/Ext.data.Store.html#Ext.data.Store-add">add</a> event. To add Records to the store from a remote source use <code><a href="output/Ext.data.Store.html#Ext.data.Store-load">load</a>({add:true})</code>. See also <code><a href="output/Ext.data.Store.html#Ext.data.Store-recordType">recordType</a></code> and <code><a href="output/Ext.data.Store.html#Ext.data.Store-insert">insert</a></code>.
    *
    * @param records An Array of Ext.data.Record objects to add to the cache. See <a href="output/Ext.data.Store.html#Ext.data.Store-recordType">recordType</a>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-add Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-method-add Sencha Docs Ext JS 3.4
    */
   public native function add(records:Array):void;
 
@@ -628,14 +612,14 @@ public class Store extends Observable {
    * (Local sort only) Inserts the passed Record into the Store at the index where it should go based on the current sort information.
    *
    * @param record
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-addSorted Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-method-addSorted Sencha Docs Ext JS 3.4
    */
   public native function addSorted(record:Record):void;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-applySort Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-method-applySort Sencha Docs Ext JS 3.4
    */
   public native function applySort():void;
 
@@ -644,7 +628,7 @@ public class Store extends Observable {
    *
    * @param config Writer configuration
    * @return
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-buildWriter Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-method-buildWriter Sencha Docs Ext JS 3.4
    */
   public native function buildWriter(config:datawriter):DataWriter;
 
@@ -652,7 +636,7 @@ public class Store extends Observable {
    * Revert to a view of the Record cache with no filtering applied.
    *
    * @param suppressEvent If <tt>true</tt> the filter is cleared silently without firing the <a href="output/Ext.data.Store.html#Ext.data.Store-datachanged">datachanged</a> event.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-clearFilter Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-method-clearFilter Sencha Docs Ext JS 3.4
    */
   public native function clearFilter(suppressEvent:Boolean):void;
 
@@ -663,14 +647,14 @@ public class Store extends Observable {
    * @param allowNull Pass true to allow null, undefined or empty string values
    * @param bypassFilter Pass true to collect from all records, even ones which are filtered
    * @return An array of the unique values
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-collect Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-method-collect Sencha Docs Ext JS 3.4
    */
   public native function collect(dataIndex:String, allowNull:Boolean = false, bypassFilter:Boolean = false):Array;
 
   /**
    * Commit all Records with <a href="output/Ext.data.Store.html#Ext.data.Store-getModifiedRecords">outstanding changes</a>. To handle updates for changes, subscribe to the Store's <a href="output/Ext.data.Store.html#Ext.data.Store-update">update event</a>, and perform updating when the third parameter is Ext.data.Record.COMMIT.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-commitChanges Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-method-commitChanges Sencha Docs Ext JS 3.4
    */
   public native function commitChanges():void;
 
@@ -682,7 +666,7 @@ public class Store extends Observable {
    * @param anyMatch True if we don't care if the filter value is not the full value (defaults to false)
    * @param caseSensitive True to create a case-sensitive regex (defaults to false)
    * @param exactMatch True to force exact match (^ and $ characters added to the regex). Defaults to false. Ignored if anyMatch is true.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-createFilterFn Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-method-createFilterFn Sencha Docs Ext JS 3.4
    */
   public native function createFilterFn(property:String, value:*, anyMatch:Boolean, caseSensitive:Boolean, exactMatch:Boolean):void;
 
@@ -691,7 +675,7 @@ public class Store extends Observable {
    *
    * @param filters The array of filter objects (each object should contain an 'fn' and optional scope)
    * @return The multiple filter function
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-createMultipleFilterFn Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-method-createMultipleFilterFn Sencha Docs Ext JS 3.4
    */
   public native function createMultipleFilterFn(filters:Array):Function;
 
@@ -701,7 +685,7 @@ public class Store extends Observable {
    * @param store
    * @param records
    * @param index
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-createRecords Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-method-createRecords Sencha Docs Ext JS 3.4
    */
   public native function createRecords(store:Object, records:Object, index:Object):void;
 
@@ -711,14 +695,14 @@ public class Store extends Observable {
    * @param field The field to create the sorter for
    * @param direction The direction to sort by (defaults to "ASC")
    * @return A function which sorts by the field/direction combination provided
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-createSortFunction Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-method-createSortFunction Sencha Docs Ext JS 3.4
    */
   public native function createSortFunction(field:String, direction:String):Function;
 
   /**
    * Destroys the store.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-destroy Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-method-destroy Sencha Docs Ext JS 3.4
    */
   public native function destroy():void;
 
@@ -728,14 +712,14 @@ public class Store extends Observable {
    * @param store this
    * @param record
    * @param index
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-destroyRecord Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-method-destroyRecord Sencha Docs Ext JS 3.4
    */
   public native function destroyRecord(store:Store, record:Record, index:Number):void;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-doUpdate Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-method-doUpdate Sencha Docs Ext JS 3.4
    */
   public native function doUpdate():void;
 
@@ -744,7 +728,7 @@ public class Store extends Observable {
    *
    * @param fn The function to call. The <a href="Ext.data.Record.html">Record</a> is passed as the first parameter. Returning <tt>false</tt> aborts and exits the iteration.
    * @param scope The scope (<code>this</code> reference) in which the function is executed. Defaults to the current <a href="Ext.data.Record.html">Record</a> in the iteration.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-each Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-method-each Sencha Docs Ext JS 3.4
    */
   public native function each(fn:Function, scope:Object = null):void;
 
@@ -754,7 +738,7 @@ public class Store extends Observable {
    * @param action Action name ('read', 'create', 'update', or 'destroy')
    * @param rs
    * @param options
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-execute Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-method-execute Sencha Docs Ext JS 3.4
    */
   public native function execute(action:String, rs:*, options:Object):void;
 
@@ -781,7 +765,7 @@ public class Store extends Observable {
    * @param anyMatch <tt>true</tt> to match any part not just the beginning
    * @param caseSensitive <tt>true</tt> for case sensitive comparison
    * @param exactMatch True to force exact match (^ and $ characters added to the regex). Defaults to false. Ignored if anyMatch is true.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-filter Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-method-filter Sencha Docs Ext JS 3.4
    */
   public native function filter(field:*, value:*, anyMatch:Boolean = false, caseSensitive:Boolean = false, exactMatch:Boolean = false):void;
 
@@ -790,7 +774,7 @@ public class Store extends Observable {
    *
    * @param fn The function to be called. It will be passed the following parameters:<ul><li><b>record</b> : Ext.data.Record<p class="sub-desc">The <a href="Ext.data.Record.html">record</a> to test for filtering. Access field values using <a href="output/Ext.data.Record.html#Ext.data.Record-get">Ext.data.Record.get</a>.</p></li><li><b>id</b> : Object<p class="sub-desc">The ID of the Record passed.</p></li></ul>
    * @param scope The scope (<code>this</code> reference) in which the function is executed. Defaults to this Store.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-filterBy Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-method-filterBy Sencha Docs Ext JS 3.4
    */
   public native function filterBy(fn:Function, scope:Object = null):void;
 
@@ -803,7 +787,7 @@ public class Store extends Observable {
    * @param anyMatch True to match any part of the string, not just the beginning
    * @param caseSensitive True for case sensitive comparison
    * @return The matched index or -1
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-find Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-method-find Sencha Docs Ext JS 3.4
    */
   public native function find(fieldName:String, value:*, startIndex:Number = undefined, anyMatch:Boolean = false, caseSensitive:Boolean = false):Number;
 
@@ -814,7 +798,7 @@ public class Store extends Observable {
    * @param scope The scope (<code>this</code> reference) in which the function is executed. Defaults to this Store.
    * @param startIndex The index to start searching at
    * @return The matched index or -1
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-findBy Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-method-findBy Sencha Docs Ext JS 3.4
    */
   public native function findBy(fn:Function, scope:Object = null, startIndex:Number = undefined):Number;
 
@@ -825,7 +809,7 @@ public class Store extends Observable {
    * @param value The value to match the field against.
    * @param startIndex The index to start searching at
    * @return The matched index or -1
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-findExact Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-method-findExact Sencha Docs Ext JS 3.4
    */
   public native function findExact(fieldName:String, value:*, startIndex:Number = undefined):Number;
 
@@ -834,7 +818,7 @@ public class Store extends Observable {
    *
    * @param index The index of the Record to find.
    * @return The Record at the passed index. Returns undefined if not found.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-getAt Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-method-getAt Sencha Docs Ext JS 3.4
    */
   public native function getAt(index:Number):Record;
 
@@ -843,7 +827,7 @@ public class Store extends Observable {
    *
    * @param id The id of the Record to find.
    * @return The Record with the passed id. Returns undefined if not found.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-getById Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-method-getById Sencha Docs Ext JS 3.4
    */
   public native function getById(id:String):Record;
 
@@ -851,7 +835,7 @@ public class Store extends Observable {
    * Gets the number of cached records. <p>If using paging, this may not be the total size of the dataset. If the data object used by the Reader contains the dataset size, then the <a href="output/Ext.data.Store.html#Ext.data.Store-getTotalCount">getTotalCount</a> function returns the dataset size. <b>Note</b>: see the Important note in <a href="output/Ext.data.Store.html#Ext.data.Store-load">load</a>.</p>
    *
    * @return The number of Records in the Store's cache.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-getCount Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-method-getCount Sencha Docs Ext JS 3.4
    */
   public native function getCount():Number;
 
@@ -859,7 +843,7 @@ public class Store extends Observable {
    * Gets all <a href="Ext.data.Record.html">records</a> modified since the last commit. Modified records are persisted across load operations (e.g., during paging). <b>Note</b>: deleted records are not included. See also <tt><a href="output/Ext.data.Store.html#Ext.data.Store-pruneModifiedRecords">pruneModifiedRecords</a></tt> and <a href="Ext.data.Record.html">Ext.data.Record</a><tt><a href="output/Ext.data.Record.html#Ext.data.Record-markDirty">markDirty</a>.</tt>.
    *
    * @return An array of <a href="Ext.data.Record.html">Records</a> containing outstanding modifications. To obtain modified fields within a modified record see <a href="Ext.data.Record.html">Ext.data.Record</a><tt><a href="output/Ext.data.Record.html#Ext.data.Record-modified">modified</a>.</tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-getModifiedRecords Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-method-getModifiedRecords Sencha Docs Ext JS 3.4
    */
   public native function getModifiedRecords():Array;
 
@@ -869,7 +853,7 @@ public class Store extends Observable {
    * @param startIndex The starting index (defaults to 0)
    * @param endIndex The ending index (defaults to the last Record in the Store)
    * @return An array of Records
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-getRange Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-method-getRange Sencha Docs Ext JS 3.4
    */
   public native function getRange(startIndex:Number = undefined, endIndex:Number = undefined):Array;
 
@@ -877,7 +861,7 @@ public class Store extends Observable {
    * Returns an object describing the current sort state of this Store.
    *
    * @return The sort state of the Store. An object with two properties:<ul><li><b>field : String</b><p style="font-weight: bold" class="sub-desc">The name of the field by which the Records are sorted.</p></li><li><b>direction : String</b><p style="font-weight: bold" class="sub-desc">The sort order, 'ASC' or 'DESC' (case-sensitive).</p></li></ul><b>See <tt><a href="output/Ext.data.Store.html#Ext.data.Store-sortInfo">sortInfo</a></tt> for additional details.</b>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-getSortState Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-method-getSortState Sencha Docs Ext JS 3.4
    */
   public native function getSortState():Object;
 
@@ -885,7 +869,7 @@ public class Store extends Observable {
    * Gets the total number of records in the dataset as returned by the server. <p>If using paging, for this to be accurate, the data object used by the <a href="output/Ext.data.Store.html#Ext.data.Store-reader">Reader</a> must contain the dataset size. For remote data sources, the value for this property (<tt>totalProperty</tt> for <a href="Ext.data.JsonReader.html">JsonReader</a>, <tt>totalRecords</tt> for <a href="Ext.data.XmlReader.html">XmlReader</a>) shall be returned by a query on the server. <b>Note</b>: see the Important note in <a href="output/Ext.data.Store.html#Ext.data.Store-load">load</a>.</p>
    *
    * @return The number of Records as specified in the data object passed to the Reader by the Proxy. <p><b>Note</b>: this value is not updated when changing the contents of the Store locally.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-getTotalCount Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-method-getTotalCount Sencha Docs Ext JS 3.4
    */
   public native function getTotalCount():Number;
 
@@ -894,7 +878,7 @@ public class Store extends Observable {
    *
    * @param record The Ext.data.Record object to find.
    * @return The index of the passed Record. Returns -1 if not found.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-indexOf Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-method-indexOf Sencha Docs Ext JS 3.4
    */
   public native function indexOf(record:Record):Number;
 
@@ -903,7 +887,7 @@ public class Store extends Observable {
    *
    * @param id The id of the Record to find.
    * @return The index of the Record. Returns -1 if not found.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-indexOfId Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-method-indexOfId Sencha Docs Ext JS 3.4
    */
   public native function indexOfId(id:String):Number;
 
@@ -912,7 +896,7 @@ public class Store extends Observable {
    *
    * @param index The start index at which to insert the passed Records.
    * @param records An Array of Ext.data.Record objects to add to the cache.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-insert Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-method-insert Sencha Docs Ext JS 3.4
    */
   public native function insert(index:Number, records:Array):void;
 
@@ -920,7 +904,7 @@ public class Store extends Observable {
    * Returns true if this store is currently filtered
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-isFiltered Ext JS source
+    * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-method-isFiltered Sencha Docs Ext JS 3.4
    */
   public native function isFiltered():Boolean;
 
@@ -930,7 +914,7 @@ public class Store extends Observable {
    *
    * @param options An object containing properties which control loading options:<ul><li><b><tt>params</tt></b> :Object<div class="sub-desc"><p>An object containing properties to pass as HTTP parameters to a remote data source. <b>Note</b>: <code>params</code> will override any <code><a href="output/Ext.data.Store.html#Ext.data.Store-baseParams">baseParams</a></code> of the same name.</p><p>Parameters are encoded as standard HTTP parameters using <a href="output/Ext.html#Ext-urlEncode">Ext.urlEncode</a>.</p></div></li><li><b>callback</b> : Function<div class="sub-desc"><p>A function to be called after the Records have been loaded. The callback is called after the load event is fired, and is passed the following arguments:</p><ul><li>r : Ext.data.Record[] An Array of Records loaded.</li><li>options : Options object from the load call.</li><li>success : Boolean success indicator.</li></ul><br/><br/></div></li><li><b>scope</b> : Object<div class="sub-desc"><p>Scope with which to call the callback (defaults to the Store object)</p></div></li><li><b>add</b> : Boolean<div class="sub-desc"><p>Indicator to append loaded records rather than replace the current cache. <b>Note</b>: see note for <tt><a href="output/Ext.data.Store.html#Ext.data.Store-loadData">loadData</a></tt></p></div></li></ul>
    * @return If the <i>developer</i> provided <tt><a href="output/Ext.data.Store.html#Ext.data.Store-beforeload">beforeload</a></tt> event handler returns <tt>false</tt>, the load call will abort and will return <tt>false</tt>; otherwise will return <tt>true</tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-load Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-method-load Sencha Docs Ext JS 3.4
    */
   public native function load(options:Object):Boolean;
 
@@ -939,7 +923,7 @@ public class Store extends Observable {
    *
    * @param data The data block from which to read the Records. The format of the data expected is dependent on the type of <a href="Ext.data.Reader.html">Reader</a> that is configured and should correspond to that <a href="Ext.data.Reader.html">Reader</a>'s <tt><a href="output/Ext.data.Reader.html#Ext.data.Reader-readRecords">Ext.data.Reader.readRecords</a></tt> parameter.
    * @param append <tt>true</tt> to append the new Records rather the default to replace the existing cache. <b>Note</b>: that Records in a Store are keyed by their <a href="output/Ext.data.Record.html#Ext.data.Record-id">id</a>, so added Records with ids which are already present in the Store will <i>replace</i> existing Records. Only Records with new, unique ids will be added.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-loadData Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-method-loadData Sencha Docs Ext JS 3.4
    */
   public native function loadData(data:Object, append:Boolean = false):void;
 
@@ -948,7 +932,7 @@ public class Store extends Observable {
    *
    * @param sorters Array of sorter objects (field and direction)
    * @param direction Overall direction to sort the ordered results by (defaults to "ASC")
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-multiSort Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-method-multiSort Sencha Docs Ext JS 3.4
    */
   public native function multiSort(sorters:Array, direction:String):void;
 
@@ -960,7 +944,7 @@ public class Store extends Observable {
    * @param anyMatch True to match any part not just the beginning
    * @param caseSensitive True for case sensitive comparison
    * @return Returns an Ext.util.MixedCollection of the matched records
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-query Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-method-query Sencha Docs Ext JS 3.4
    */
   public native function query(field:String, value:*, anyMatch:Boolean = false, caseSensitive:Boolean = false):MixedCollection;
 
@@ -970,14 +954,14 @@ public class Store extends Observable {
    * @param fn The function to be called. It will be passed the following parameters:<ul><li><b>record</b> : Ext.data.Record<p class="sub-desc">The <a href="Ext.data.Record.html">record</a> to test for filtering. Access field values using <a href="output/Ext.data.Record.html#Ext.data.Record-get">Ext.data.Record.get</a>.</p></li><li><b>id</b> : Object<p class="sub-desc">The ID of the Record passed.</p></li></ul>
    * @param scope The scope (<code>this</code> reference) in which the function is executed. Defaults to this Store.
    * @return Returns an Ext.util.MixedCollection of the matched records
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-queryBy Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-method-queryBy Sencha Docs Ext JS 3.4
    */
   public native function queryBy(fn:Function, scope:Object = null):MixedCollection;
 
   /**
    * <a href="output/Ext.data.Record.html#Ext.data.Record-reject">Reject</a> outstanding changes on all <a href="output/Ext.data.Store.html#Ext.data.Store-getModifiedRecords">modified records</a>.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-rejectChanges Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-method-rejectChanges Sencha Docs Ext JS 3.4
    */
   public native function rejectChanges():void;
 
@@ -992,7 +976,7 @@ public class Store extends Observable {
    });
    myStore.reload(lastOptions);
    </code></pre>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-reload Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-method-reload Sencha Docs Ext JS 3.4
    */
   public native function reload(options:Object):void;
 
@@ -1000,7 +984,7 @@ public class Store extends Observable {
    * Remove Records from the Store and fires the <a href="output/Ext.data.Store.html#Ext.data.Store-remove">remove</a> event.
    *
    * @param record The record object or array of records to remove from the cache.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-remove Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-method-remove Sencha Docs Ext JS 3.4
    */
   public native function remove(record:*):void;
 
@@ -1008,7 +992,7 @@ public class Store extends Observable {
    * Remove all Records from the Store and fires the <a href="output/Ext.data.Store.html#Ext.data.Store-clear">clear</a> event.
    *
    * @param silent Defaults to <tt>false</tt>. Set <tt>true</tt> to not fire clear event.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-removeAll Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-method-removeAll Sencha Docs Ext JS 3.4
    */
   public native function removeAll(silent:Boolean = false):void;
 
@@ -1016,7 +1000,7 @@ public class Store extends Observable {
    * Remove a Record from the Store at the specified index. Fires the <a href="output/Ext.data.Store.html#Ext.data.Store-remove">remove</a> event.
    *
    * @param index The index of the record to remove.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-removeAt Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-method-removeAt Sencha Docs Ext JS 3.4
    */
   public native function removeAt(index:Number):void;
 
@@ -1029,7 +1013,7 @@ public class Store extends Observable {
    </pre>
    *
    * @return batch Returns a number to uniquely identify the "batch" of saves occurring. -1 will be returned if there are no items to save or the save was cancelled.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-save Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-method-save Sencha Docs Ext JS 3.4
    */
   public native function save():Number;
 
@@ -1039,7 +1023,7 @@ public class Store extends Observable {
    *
    * @param name Name of the property to assign
    * @param value Value to assign the <tt>name</tt>d property
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-setBaseParam Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-method-setBaseParam Sencha Docs Ext JS 3.4
    */
   public native function setBaseParam(name:String, value:*):void;
 
@@ -1048,7 +1032,7 @@ public class Store extends Observable {
    *
    * @param fieldName The name of the field to sort by.
    * @param dir The sort order, 'ASC' or 'DESC' (case-sensitive, defaults to <tt>'ASC'</tt>)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-setDefaultSort Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-method-setDefaultSort Sencha Docs Ext JS 3.4
    */
   public native function setDefaultSort(fieldName:String, dir:String = null):void;
 
@@ -1057,7 +1041,7 @@ public class Store extends Observable {
    *
    * @param fieldName The name of the field to sort by.
    * @param dir The sort order, 'ASC' or 'DESC' (case-sensitive, defaults to <tt>'ASC'</tt>)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-singleSort Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-method-singleSort Sencha Docs Ext JS 3.4
    */
   public native function singleSort(fieldName:String, dir:String = null):void;
 
@@ -1066,14 +1050,14 @@ public class Store extends Observable {
    *
    * @param fieldName The name of the field to sort by, or an array of ordered sort configs
    * @param dir The sort order, 'ASC' or 'DESC' (case-sensitive, defaults to <tt>'ASC'</tt>)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-sort Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-method-sort Sencha Docs Ext JS 3.4
    */
   public native function sort(fieldName:*, dir:String = null):void;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-sortData Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-method-sortData Sencha Docs Ext JS 3.4
    */
   public native function sortData():void;
 
@@ -1084,7 +1068,7 @@ public class Store extends Observable {
    * @param start The record index to start at (defaults to <tt>0</tt>)
    * @param end The last record index to include (defaults to length - 1)
    * @return The sum
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-sum Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-method-sum Sencha Docs Ext JS 3.4
    */
   public native function sum(property:String, start:Number = undefined, end:Number = undefined):Number;
 
@@ -1094,7 +1078,7 @@ public class Store extends Observable {
    * @param store
    * @param record
    * @param action
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#method-Ext.data.Store-updateRecord Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store-method-updateRecord Sencha Docs Ext JS 3.4
    */
   public native function updateRecord(store:Object, record:Object, action:Object):void;
 

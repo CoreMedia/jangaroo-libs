@@ -64,13 +64,13 @@ import js.HTMLElement;
 
  * <p>This interface defines the type of the singleton DomHelper.</p>
  * @see ext.#DomHelper ext.DomHelper
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DomHelper.html#cls-Ext.DomHelper Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DomHelper Sencha Docs Ext JS 3.4
  */
 public interface IDomHelper {
 
   /**
    Since we're using the g flag on the regex, we need to set the lastIndex. This automatically happens on some implementations, but not others, see: http://stackoverflow.com/questions/2645273/javascript-regular-expression-literal-persists-between-function-calls http://blog.stevenlevithan.com/archives/fixing-javascript-regexp
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DomHelper.html#prop-Ext.DomHelper-lastIndex Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DomHelper-property-lastIndex Sencha Docs Ext JS 3.4
    */
   function get lastIndex():Object;
 
@@ -81,7 +81,7 @@ public interface IDomHelper {
 
   /**
    True to force the use of DOM instead of html fragments
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DomHelper-more.html#prop-Ext.DomHelper-useDom Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DomHelper-property-useDom Sencha Docs Ext JS 3.4
    */
   function get useDom():Boolean;
 
@@ -97,7 +97,7 @@ public interface IDomHelper {
    * @param o The DOM object spec (and children) or raw HTML blob
    * @param returnElement true to return a Ext.Element
    * @return The new node
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DomHelper.html#method-Ext.DomHelper-append Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DomHelper-method-append Sencha Docs Ext JS 3.4
    */
   function append(el:*, o:*, returnElement:Boolean = false):*;
 
@@ -106,7 +106,7 @@ public interface IDomHelper {
    *
    * @param el The element to apply styles to
    * @param styles A style specification string e.g. 'width:100px', or object in the form {width:'100px'}, or a function which returns such a specification.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DomHelper.html#method-Ext.DomHelper-applyStyles Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DomHelper-method-applyStyles Sencha Docs Ext JS 3.4
    */
   function applyStyles(el:*, styles:*):void;
 
@@ -115,7 +115,7 @@ public interface IDomHelper {
    *
    * @param o The DOM object spec (and children) or raw HTML blob
    * @return The new uninserted node
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DomHelper-more.html#method-Ext.DomHelper-createDom Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DomHelper-method-createDom Sencha Docs Ext JS 3.4
    */
   function createDom(o:*):HTMLElement;
 
@@ -124,7 +124,7 @@ public interface IDomHelper {
    *
    * @param o The DOM object spec (and children)
    * @return The new template
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DomHelper-more.html#method-Ext.DomHelper-createTemplate Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DomHelper-method-createTemplate Sencha Docs Ext JS 3.4
    */
   function createTemplate(o:Object):Template;
 
@@ -135,7 +135,7 @@ public interface IDomHelper {
    * @param o The DOM object spec (and children)
    * @param returnElement true to return a Ext.Element
    * @return The new node
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DomHelper.html#method-Ext.DomHelper-insertAfter Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DomHelper-method-insertAfter Sencha Docs Ext JS 3.4
    */
   function insertAfter(el:*, o:Object, returnElement:Boolean = false):*;
 
@@ -146,7 +146,7 @@ public interface IDomHelper {
    * @param o The DOM object spec (and children) or raw HTML blob
    * @param returnElement true to return a Ext.Element
    * @return The new node
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DomHelper.html#method-Ext.DomHelper-insertBefore Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DomHelper-method-insertBefore Sencha Docs Ext JS 3.4
    */
   function insertBefore(el:*, o:*, returnElement:Boolean = false):*;
 
@@ -157,7 +157,7 @@ public interface IDomHelper {
    * @param o The DOM object spec (and children) or raw HTML blob
    * @param returnElement true to return a Ext.Element
    * @return The new node
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DomHelper.html#method-Ext.DomHelper-insertFirst Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DomHelper-method-insertFirst Sencha Docs Ext JS 3.4
    */
   function insertFirst(el:*, o:*, returnElement:Boolean = false):*;
 
@@ -168,7 +168,7 @@ public interface IDomHelper {
    * @param el The context element
    * @param html The HTML fragment
    * @return The new node
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DomHelper.html#method-Ext.DomHelper-insertHtml Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DomHelper-method-insertHtml Sencha Docs Ext JS 3.4
    */
   function insertHtml(where:String, el:HTMLElement, html:String):HTMLElement;
 
@@ -177,7 +177,7 @@ public interface IDomHelper {
    *
    * @param o The DOM object spec (and children)
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DomHelper.html#method-Ext.DomHelper-markup Ext JS source
+    * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DomHelper-method-markup Sencha Docs Ext JS 3.4
    */
   function markup(o:Object):String;
 
@@ -188,7 +188,7 @@ public interface IDomHelper {
    * @param o The DOM object spec (and children) or raw HTML blob
    * @param returnElement true to return a Ext.Element
    * @return The new node
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DomHelper.html#method-Ext.DomHelper-overwrite Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DomHelper-method-overwrite Sencha Docs Ext JS 3.4
    */
   function overwrite(el:*, o:*, returnElement:Boolean = false):*;
 

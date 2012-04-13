@@ -56,7 +56,7 @@ package ext.direct {
  *
 
  * @see ext.config.remotingprovider
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/RemotingProvider.html#cls-Ext.direct.RemotingProvider Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.direct.RemotingProvider Sencha Docs Ext JS 3.4
  */
 public class RemotingProvider extends JsonProvider {
 
@@ -104,44 +104,37 @@ public class RemotingProvider extends JsonProvider {
    }
    );
    </code></pre>In the example above, the server side "multiply" function will be passed two arguments (2 and 4). The "multiply" method should return the value 8 which will be available as the <tt>result</tt> in the example above.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get actions():Object;
 
   /**
    <tt>true</tt> or <tt>false</tt> to enable or disable combining of method calls. If a number is specified this is the amount of time in milliseconds to wait before sending a batched request (defaults to <tt>10</tt>).
    <br/><p>Calls which are received within the specified timeframe will be concatenated together and sent in a single request, optimizing the application by reducing the amount of round trips that have to be made to the server.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get enableBuffer():*;
 
   /**
    Specify which param will hold the arguments for the method. Defaults to <tt>'data'</tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get enableUrlEncode():String;
 
   /**
    Number of times to re-attempt delivery on failure of a call. Defaults to <tt>1</tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get maxRetries():Number;
 
   /**
    Namespace for the Remoting Provider (defaults to the browser global scope of <i>window</i>). Explicitly specify the namespace Object, or specify a String to have a <a href="output/Ext.html#Ext-namespace">namespace created</a> implicitly.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get namespace():*;
 
   /**
    The timeout to use for each request. Defaults to <tt>undefined</tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get timeout():Number;
 
   /**
    <b>Required</b>. The url to connect to the <a href="Ext.Direct.html">Ext.Direct</a> server-side router.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get url():String;
 

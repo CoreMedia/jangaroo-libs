@@ -31,7 +31,7 @@ import ext.config.colormenu;
 
  * <p>This component is created by the xtype 'colormenu' / the EXML element &lt;colormenu>.</p>
  * @see ext.config.colormenu
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColorMenu.html#cls-Ext.menu.ColorMenu Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.menu.ColorMenu Sencha Docs Ext JS 3.4
  */
 public class ColorMenu extends Menu {
 
@@ -47,7 +47,7 @@ public class ColorMenu extends Menu {
 
   /**
    The <a href="Ext.ColorPalette.html">Ext.ColorPalette</a> instance for this ColorMenu
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColorMenu.html#prop-Ext.menu.ColorMenu-palette Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.menu.ColorMenu-property-palette Sencha Docs Ext JS 3.4
    */
   public native function get palette():ColorPalette;
 
@@ -58,19 +58,16 @@ public class ColorMenu extends Menu {
 
   /**
    False to continue showing the menu after a color is selected, defaults to true.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get hideOnClick():Boolean;
 
   /**
    An id to assign to the underlying color palette. Defaults to <tt>null</tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get paletteId():String;
 
   /**
    The scope (<tt><b>this</b></tt> reference) in which the <code><a href="output/Ext.menu.ColorMenu.html#Ext.menu.ColorMenu-handler">handler</a></code> function will be called. Defaults to this ColorMenu instance.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get scope():Object;
 

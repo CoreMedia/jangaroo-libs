@@ -7,7 +7,7 @@ package ext.chart {
 
  * <p>This component is created by the xtype 'cartesianchart' / the EXML element &lt;cartesianchart>.</p>
  * @see ext.config.cartesianchart
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Chart.html#cls-Ext.chart.CartesianChart Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.chart.CartesianChart Sencha Docs Ext JS 3.4
  */
 public class CartesianChart extends Chart {
 

@@ -12,7 +12,7 @@ package ext.toolbar {
 
  * <p>This component is created by the xtype 'tbtext' / the EXML element &lt;tbtext>.</p>
  * @see ext.config.tbtext
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Toolbar.html#cls-Ext.Toolbar.TextItem Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Toolbar.TextItem Sencha Docs Ext JS 3.4
  */
 public class TextItem extends Item {
 
@@ -28,7 +28,6 @@ public class TextItem extends Item {
 
   /**
    The text to be used as innerHTML (html tags are accepted)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get text():String;
 
@@ -36,7 +35,7 @@ public class TextItem extends Item {
    * Updates this item's text, setting the text to be used as innerHTML.
    *
    * @param t The text to display (html accepted).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Toolbar.html#method-Ext.Toolbar.TextItem-setText Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Toolbar.TextItem-method-setText Sencha Docs Ext JS 3.4
    */
   public native function setText(t:String):void;
 

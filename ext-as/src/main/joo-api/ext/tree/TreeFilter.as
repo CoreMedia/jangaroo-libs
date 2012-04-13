@@ -7,7 +7,7 @@ package ext.tree {
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  *
 
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeFilter.html#cls-Ext.tree.TreeFilter Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeFilter Sencha Docs Ext JS 3.4
  */
 public class TreeFilter {
 
@@ -22,7 +22,7 @@ public class TreeFilter {
   /**
    * Clears the current filter. Note: with the "remove" option set a filter cannot be cleared.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeFilter.html#method-Ext.tree.TreeFilter-clear Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeFilter-method-clear Sencha Docs Ext JS 3.4
    */
   public native function clear():void;
 
@@ -32,7 +32,7 @@ public class TreeFilter {
    * @param value Either string that the attribute value should start with or a RegExp to test against the attribute
    * @param attr The attribute passed in your node's attributes collection. Defaults to "text".
    * @param startNode The node to start the filter at.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeFilter.html#method-Ext.tree.TreeFilter-filter Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeFilter-method-filter Sencha Docs Ext JS 3.4
    */
   public native function filter(value:*, attr:String = null, startNode:TreeNode = null):void;
 
@@ -41,7 +41,7 @@ public class TreeFilter {
    *
    * @param fn The filter function
    * @param scope The scope (<code>this</code> reference) in which the function is executed. Defaults to the current Node.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeFilter.html#method-Ext.tree.TreeFilter-filterBy Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeFilter-method-filterBy Sencha Docs Ext JS 3.4
    */
   public native function filterBy(fn:Function, scope:Object = null):void;
 

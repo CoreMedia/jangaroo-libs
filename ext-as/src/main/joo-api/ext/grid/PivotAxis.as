@@ -29,7 +29,7 @@ import ext.Element;
  *
 
  * @see ext.config.pivotaxis
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotAxis.html#cls-Ext.grid.PivotAxis Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotAxis Sencha Docs Ext JS 3.4
  */
 public class PivotAxis extends Component {
 
@@ -44,19 +44,16 @@ public class PivotAxis extends Component {
 
   /**
    The width to render each row header that does not have a width specified via <a href="output/Ext.grid.PivotAxis.html#Ext.grid.PivotAxis-getRowGroupHeaders">getRowGroupHeaders</a>. Defaults to 80.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get defaultHeaderWidth():Number;
 
   /**
    One of 'vertical' or 'horizontal'. Defaults to horizontal
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get orientation():String;
 
   /**
    The amount of padding used by each cell. TODO: From 4.x onwards this can be removed as it won't be needed. For now it is used to account for the differences between the content box and border box measurement models
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get paddingWidth():Number;
 
@@ -64,14 +61,14 @@ public class PivotAxis extends Component {
    *
    *
    * @return The headers
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotAxis.html#method-Ext.grid.PivotAxis-buildHeaders Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotAxis-method-buildHeaders Sencha Docs Ext JS 3.4
    */
   public native function buildHeaders():Array;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotAxis.html#method-Ext.grid.PivotAxis-getRecordInfo Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotAxis-method-getRecordInfo Sencha Docs Ext JS 3.4
    */
   public native function getRecordInfo():void;
 
@@ -79,7 +76,7 @@ public class PivotAxis extends Component {
    *
    *
    * @return All unique tuples
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotAxis.html#method-Ext.grid.PivotAxis-getTuples Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotAxis-method-getTuples Sencha Docs Ext JS 3.4
    */
   public native function getTuples():Array;
 
@@ -88,7 +85,7 @@ public class PivotAxis extends Component {
    *
    * @param ct container
    * @param position reference child element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotAxis.html#method-Ext.grid.PivotAxis-onRender Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotAxis-method-onRender Sencha Docs Ext JS 3.4
    */
   override protected native function onRender(ct:Element, position:Element):void;
 
@@ -96,7 +93,7 @@ public class PivotAxis extends Component {
    *
    *
    * @return The HTML Domspec for a horizontal oriented axis
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotAxis.html#method-Ext.grid.PivotAxis-renderHorizontalRows Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotAxis-method-renderHorizontalRows Sencha Docs Ext JS 3.4
    */
   public native function renderHorizontalRows():Object;
 
@@ -104,7 +101,7 @@ public class PivotAxis extends Component {
    *
    *
    * @return The HTML Domspec for a vertical oriented axis
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotAxis.html#method-Ext.grid.PivotAxis-renderVerticalRows Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotAxis-method-renderVerticalRows Sencha Docs Ext JS 3.4
    */
   public native function renderVerticalRows():Object;
 
@@ -112,7 +109,7 @@ public class PivotAxis extends Component {
    * Updates the dimensions used by this axis
    *
    * @param dimensions The new dimensions
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotAxis.html#method-Ext.grid.PivotAxis-setDimensions Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotAxis-method-setDimensions Sencha Docs Ext JS 3.4
    */
   public native function setDimensions(dimensions:Array):void;
 

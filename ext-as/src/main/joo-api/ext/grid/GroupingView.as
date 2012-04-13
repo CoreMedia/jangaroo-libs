@@ -50,7 +50,7 @@ import ext.config.groupingview;
  *
 
  * @see ext.config.groupingview
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GroupingView.html#cls-Ext.grid.GroupingView Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GroupingView Sencha Docs Ext JS 3.4
  */
 public class GroupingView extends GridView {
 
@@ -66,43 +66,36 @@ public class GroupingView extends GridView {
 
   /**
    True to cancel any editing when the group header is toggled. Defaults to <tt>true</tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get cancelEditOnToggle():Boolean;
 
   /**
    The text to display when there is an empty group value (defaults to <tt>'(None)'</tt>). May also be specified per column, see <a href="Ext.grid.Column.html">Ext.grid.Column</a>.<a href="output/Ext.grid.Column.html#Ext.grid.Column-emptyGroupText">emptyGroupText</a>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get emptyGroupText():String;
 
   /**
    <tt>false</tt> to disable grouping functionality (defaults to <tt>true</tt>)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get enableGrouping():Boolean;
 
   /**
    <tt>true</tt> to enable the grouping control in the column menu (defaults to <tt>true</tt>)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get enableGroupingMenu():Boolean;
 
   /**
    <tt>true</tt> to allow the user to turn off grouping (defaults to <tt>true</tt>)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get enableNoGroups():Boolean;
 
   /**
    Text displayed in the grid header menu for grouping by a column (defaults to 'Group By This Field').
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get groupByText():String;
 
   /**
    Indicates how to construct the group identifier. <tt>'value'</tt> constructs the id using raw value, <tt>'display'</tt> constructs the id using the rendered value. Defaults to <tt>'value'</tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get groupMode():String;
 
@@ -114,51 +107,45 @@ public class GroupingView extends GridView {
    }),
    });
    </code></pre>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get groupTextTpl():String;
 
   /**
    <tt>true</tt> to hide the column that is currently grouped (defaults to <tt>false</tt>)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get hideGroupedColumn():Boolean;
 
   /**
    <tt>true</tt> to skip refreshing the view when new rows are added (defaults to <tt>false</tt>)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get ignoreAdd():Boolean;
 
   /**
    If <tt>true</tt> will display a prefix plus a ': ' before the group field value in the group header line. The prefix will consist of the <tt><b><a href="output/Ext.grid.Column.html#Ext.grid.Column-groupName">groupName</a></b></tt> (or the configured <tt><b><a href="output/Ext.grid.Column.html#Ext.grid.Column-header">header</a></b></tt> if not provided) configured in the <a href="Ext.grid.Column.html">Ext.grid.Column</a> for each set of grouped rows (defaults to <tt>true</tt>).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get showGroupName():Boolean;
 
   /**
    Text displayed in the grid header for enabling/disabling grouping (defaults to 'Show in Groups').
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get showGroupsText():String;
 
   /**
    <tt>true</tt> to start all groups collapsed (defaults to <tt>false</tt>)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get startCollapsed():Boolean;
 
   /**
    * Collapses all grouped rows.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GroupingView.html#method-Ext.grid.GroupingView-collapseAllGroups Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GroupingView-method-collapseAllGroups Sencha Docs Ext JS 3.4
    */
   public native function collapseAllGroups():void;
 
   /**
    * Expands all grouped rows.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GroupingView.html#method-Ext.grid.GroupingView-expandAllGroups Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GroupingView-method-expandAllGroups Sencha Docs Ext JS 3.4
    */
   public native function expandAllGroups():void;
 
@@ -167,7 +154,7 @@ public class GroupingView extends GridView {
    *
    * @param value
    * @return The group id
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GroupingView.html#method-Ext.grid.GroupingView-getGroupId Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GroupingView-method-getGroupId Sencha Docs Ext JS 3.4
    */
   public native function getGroupId(value:String):String;
 
@@ -175,7 +162,7 @@ public class GroupingView extends GridView {
    * Toggles all groups if no value is passed, otherwise sets the expanded state of all groups to the value passed.
    *
    * @param expanded
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GroupingView.html#method-Ext.grid.GroupingView-toggleAllGroups Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GroupingView-method-toggleAllGroups Sencha Docs Ext JS 3.4
    */
   public native function toggleAllGroups(expanded:Boolean = false):void;
 
@@ -184,7 +171,7 @@ public class GroupingView extends GridView {
    *
    * @param groupId The groupId assigned to the group (see getGroupId)
    * @param expanded
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GroupingView.html#method-Ext.grid.GroupingView-toggleGroup Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GroupingView-method-toggleGroup Sencha Docs Ext JS 3.4
    */
   public native function toggleGroup(groupId:String, expanded:Boolean = false):void;
 
@@ -193,7 +180,7 @@ public class GroupingView extends GridView {
    *
    * @param rowIndex The row inside the group
    * @param expanded
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GroupingView.html#method-Ext.grid.GroupingView-toggleRowIndex Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GroupingView-method-toggleRowIndex Sencha Docs Ext JS 3.4
    */
   public native function toggleRowIndex(rowIndex:Number, expanded:Boolean = false):void;
 

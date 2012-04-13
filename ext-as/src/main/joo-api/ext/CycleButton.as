@@ -46,7 +46,7 @@ import ext.menu.Menu;
 
  * <p>This component is created by the xtype 'cycle' / the EXML element &lt;cycle>.</p>
  * @see ext.config.cycle
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CycleButton.html#cls-Ext.CycleButton Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.CycleButton Sencha Docs Ext JS 3.4
  */
 public class CycleButton extends SplitButton {
 
@@ -62,7 +62,7 @@ public class CycleButton extends SplitButton {
 
   /**
    The <a href="Ext.menu.Menu.html">Menu</a> object used to display the <a href="Ext.menu.CheckItem.html">CheckItems</a> representing the available choices.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CycleButton.html#prop-Ext.CycleButton-menu Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.CycleButton-property-menu Sencha Docs Ext JS 3.4
    */
   override public native function get menu():Menu;
 
@@ -73,25 +73,21 @@ public class CycleButton extends SplitButton {
 
   /**
    A css class which sets an image to be used as the static icon for this button. This icon will always be displayed regardless of which item is selected in the dropdown list. This overrides the default behavior of changing the button's icon to match the selected item's icon on change.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get forceIcon():String;
 
   /**
    An array of <a href="Ext.menu.CheckItem.html">Ext.menu.CheckItem</a> <b>config</b> objects to be used when creating the button's menu items (e.g., {text:'Foo', iconCls:'foo-icon'})
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get items():Array;
 
   /**
    A static string to prepend before the active item's text when displayed as the button's text (only applies when showText = true, defaults to '')
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get prependText():String;
 
   /**
    True to display the active item's text as the button text (defaults to false)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get showText():Boolean;
 
@@ -99,7 +95,7 @@ public class CycleButton extends SplitButton {
    * Gets the currently active menu item.
    *
    * @return The active item
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CycleButton.html#method-Ext.CycleButton-getActiveItem Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.CycleButton-method-getActiveItem Sencha Docs Ext JS 3.4
    */
   public native function getActiveItem():CheckItem;
 
@@ -108,14 +104,14 @@ public class CycleButton extends SplitButton {
    *
    * @param item The item to activate
    * @param suppressEvent True to prevent the button's change event from firing (defaults to false)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CycleButton.html#method-Ext.CycleButton-setActiveItem Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.CycleButton-method-setActiveItem Sencha Docs Ext JS 3.4
    */
   public native function setActiveItem(item:CheckItem, suppressEvent:Boolean):void;
 
   /**
    * This is normally called internally on button click, but can be called externally to advance the button's active item programmatically to the next one in the menu. If the current item is the last one in the menu the active item will be set to the first item in the menu.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CycleButton.html#method-Ext.CycleButton-toggleSelected Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.CycleButton-method-toggleSelected Sencha Docs Ext JS 3.4
    */
   public native function toggleSelected():void;
 

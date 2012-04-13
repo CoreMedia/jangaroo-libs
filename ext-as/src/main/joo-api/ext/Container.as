@@ -210,7 +210,7 @@ import ext.util.MixedCollection;
 
  * <p>This component is created by the xtype 'container' / the EXML element &lt;container>.</p>
  * @see ext.config.container
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Container.html#cls-Ext.Container Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Container Sencha Docs Ext JS 3.4
  */
 public class Container extends BoxComponent {
 
@@ -226,7 +226,7 @@ public class Container extends BoxComponent {
 
   /**
    The collection of components in this container as a <a href="Ext.util.MixedCollection.html">Ext.util.MixedCollection</a>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Container.html#prop-Ext.Container-items Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Container-property-items Sencha Docs Ext JS 3.4
    */
   public native function get items():MixedCollection;
 
@@ -237,26 +237,22 @@ public class Container extends BoxComponent {
 
   /**
    A string component id or the numeric index of the component that should be initially activated within the container's layout on render. For example, activeItem: 'item-1' or activeItem: 0 (index 0 = the first item in the container's collection). activeItem only applies to layout styles that can display items one at a time (like <a href="Ext.layout.AccordionLayout.html">Ext.layout.AccordionLayout</a>, <a href="Ext.layout.CardLayout.html">Ext.layout.CardLayout</a> and <a href="Ext.layout.FitLayout.html">Ext.layout.FitLayout</a>). Related to <a href="output/Ext.layout.ContainerLayout.html#Ext.layout.ContainerLayout-activeItem">Ext.layout.ContainerLayout.activeItem</a>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get activeItem():*;
 
   /**
    If true the container will automatically destroy any contained component that is removed from it, else destruction must be handled manually (defaults to true).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get autoDestroy():Boolean;
 
   /**
    When set to true (50 milliseconds) or a number of milliseconds, the layout assigned for this container will buffer the frequency it calculates and does a re-layout of components. This is useful for heavy containers or containers with a large quantity of sub-components for which frequent layout calls would be expensive. Defaults to <code>50</code>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get bufferResize():*;
 
   /**
    The default <a href="Ext.Component.html">xtype</a> of child Components to create in this Container when a child item is specified as a raw configuration object, rather than as an instantiated Component.
    <p>Defaults to <code>'panel'</code>, except <a href="Ext.menu.Menu.html">Ext.menu.Menu</a> which defaults to <code>'menuitem'</code>, and <a href="Ext.Toolbar.html">Ext.Toolbar</a> and <a href="Ext.ButtonGroup.html">Ext.ButtonGroup</a> which default to <code>'button'</code>.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get defaultType():String;
 
@@ -277,37 +273,31 @@ public class Container extends BoxComponent {
    })
    ]
    </code></pre>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get defaults():*;
 
   /**
    If true the container will force a layout initially even if hidden or collapsed. This option is useful for forcing forms to render in collapsed or hidden containers. (defaults to false).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get forceLayout():Boolean;
 
   /**
    True to hide the borders of each contained component, false to defer to the component's existing border settings (defaults to false).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get hideBorders():Boolean;
 
   /**
    This is a config object containing properties specific to the chosen <b><code><a href="output/Ext.Container.html#Ext.Container-layout">layout</a></code></b> if <b><code><a href="output/Ext.Container.html#Ext.Container-layout">layout</a></code></b> has been specified as a <i>string</i>.<br/><br/>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get layoutConfig():Object;
 
   /**
    True to automatically monitor window resize events to handle anything that is sensitive to the current size of the viewport. This value is typically managed by the chosen <code><a href="output/Ext.Container.html#Ext.Container-layout">layout</a></code> and should not need to be set manually.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get monitorResize():Boolean;
 
   /**
    The event to listen to for resizing in layouts. Defaults to <code>'resize'</code>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get resizeEvent():String;
 
@@ -323,14 +313,14 @@ public class Container extends BoxComponent {
    * @param component Either one or more Components to add or an Array of Components to add. See <code><a href="output/Ext.Container.html#Ext.Container-items">items</a></code> for additional information.
 
    * @return The Components that were added.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Container.html#method-Ext.Container-add Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Container-method-add Sencha Docs Ext JS 3.4
    */
   public native function add(...component:Array):*;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Container.html#method-Ext.Container-canLayout Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Container-method-canLayout Sencha Docs Ext JS 3.4
    */
   public native function canLayout():void;
 
@@ -341,7 +331,7 @@ public class Container extends BoxComponent {
    * @param scope The scope of the function (defaults to current component)
    * @param args The args to call the function with (defaults to passing the current component)
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Container.html#method-Ext.Container-cascade Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Container-method-cascade Sencha Docs Ext JS 3.4
    */
   public native function cascade(fn:Function, scope:Object = null, args:Array = null):Container;
 
@@ -350,7 +340,7 @@ public class Container extends BoxComponent {
    *
    * @param shallow True to only calc the layout of this component, and let child components auto calc layouts as required (defaults to false, which calls doLayout recursively for each subcontainer)
    * @param force True to force a layout to occur, even if the item is hidden.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Container.html#method-Ext.Container-doLayout Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Container-method-doLayout Sencha Docs Ext JS 3.4
    */
   public native function doLayout(shallow:Boolean = false, force:Boolean = false):void;
 
@@ -360,7 +350,7 @@ public class Container extends BoxComponent {
    * @param prop
    * @param value
    * @return Array of Ext.Components
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Container.html#method-Ext.Container-find Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Container-method-find Sencha Docs Ext JS 3.4
    */
   public native function find(prop:String, value:String):Array;
 
@@ -370,7 +360,7 @@ public class Container extends BoxComponent {
    * @param fn The function to call
    * @param scope
    * @return Array of Ext.Components
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Container.html#method-Ext.Container-findBy Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Container-method-findBy Sencha Docs Ext JS 3.4
    */
   public native function findBy(fn:Function, scope:Object = null):Array;
 
@@ -379,7 +369,7 @@ public class Container extends BoxComponent {
    *
    * @param id
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Container.html#method-Ext.Container-findById Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Container-method-findById Sencha Docs Ext JS 3.4
    */
   public native function findById(id:String):Component;
 
@@ -389,7 +379,7 @@ public class Container extends BoxComponent {
    * @param xtype The xtype string for a component, or the class of the component directly
    * @param shallow False to check whether this Component is descended from the xtype (this is the default), or true to check whether this Component is directly of the specified xtype.
    * @return Array of Ext.Components
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Container.html#method-Ext.Container-findByType Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Container-method-findByType Sencha Docs Ext JS 3.4
    */
   public native function findByType(xtype:*, shallow:Boolean = false):Array;
 
@@ -398,7 +388,7 @@ public class Container extends BoxComponent {
    *
    * @param key The index or id of the component
    * @return Ext.Component
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Container.html#method-Ext.Container-get Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Container-method-get Sencha Docs Ext JS 3.4
    */
   public native function get(key:*):Component;
 
@@ -407,7 +397,7 @@ public class Container extends BoxComponent {
    *
    * @param comp This parameter may be any of the following: <div><ul class="mdetail-params"><li>a <b><code>String</code></b> : representing the <code><a href="output/Ext.Component.html#Ext.Component-itemId">itemId</a></code> or <code><a href="output/Ext.Component.html#Ext.Component-id">id</a></code> of the child component</li><li>a <b><code>Number</code></b> : representing the position of the child component within the <code><a href="output/Ext.Container.html#Ext.Container-items">items</a></code> <b>property</b></li></ul></div><p>For additional information see <a href="output/Ext.util.MixedCollection.html#Ext.util.MixedCollection-get">Ext.util.MixedCollection.get</a>.</p>
    * @return The component (if found).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Container.html#method-Ext.Container-getComponent Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Container-method-getComponent Sencha Docs Ext JS 3.4
    */
   public native function getComponent(comp:*):Component;
 
@@ -415,7 +405,7 @@ public class Container extends BoxComponent {
    * Returns the layout currently in use by the container. If the container does not currently have a layout set, a default <a href="Ext.layout.ContainerLayout.html">Ext.layout.ContainerLayout</a> will be created and set as the container's layout.
    *
    * @return layout The container's layout
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Container.html#method-Ext.Container-getLayout Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Container-method-getLayout Sencha Docs Ext JS 3.4
    */
   public native function getLayout():ContainerLayout;
 
@@ -424,7 +414,7 @@ public class Container extends BoxComponent {
    <p>An implementation is provided which returns the Container's <a href="output/Ext.Container.html#Ext.Container-getEl">Element</a>, but if there is a more complex structure to a Container, this may be overridden to return the element into which the <a href="output/Ext.Container.html#Ext.Container-layout">layout</a> renders child Components.</p>
    *
    * @return The Element to render child Components into.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Container.html#method-Ext.Container-getLayoutTarget Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Container-method-getLayoutTarget Sencha Docs Ext JS 3.4
    */
   public native function getLayoutTarget():Element;
 
@@ -434,7 +424,7 @@ public class Container extends BoxComponent {
    * @param index The index at which the Component will be inserted into the Container's items collection
    * @param component The child Component to insert.<br/><br/>Ext uses lazy rendering, and will only render the inserted Component should it become necessary.<br/><br/>A Component config object may be passed in order to avoid the overhead of constructing a real Component object if lazy rendering might mean that the inserted Component will not be rendered immediately. To take advantage of this 'lazy instantiation', set the <a href="output/Ext.Component.html#Ext.Component-xtype">Ext.Component.xtype</a> config property to the registered type of the Component wanted.<br/><br/>For a list of all available xtypes, see <a href="Ext.Component.html">Ext.Component</a>.
    * @return component The Component (or config object) that was inserted with the Container's default config values applied.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Container.html#method-Ext.Container-insert Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Container-method-insert Sencha Docs Ext JS 3.4
    */
   public native function insert(index:Number, component:*):Component;
 
@@ -443,7 +433,7 @@ public class Container extends BoxComponent {
    *
    * @param shallow
    * @param force
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Container.html#method-Ext.Container-onLayout Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Container-method-onLayout Sencha Docs Ext JS 3.4
    */
   protected native function onLayout(shallow:Boolean = false, force:Boolean = false):void;
 
@@ -453,7 +443,7 @@ public class Container extends BoxComponent {
    * @param component The component reference or id to remove.
    * @param autoDestroy True to automatically invoke the removed Component's <a href="output/Ext.Component.html#Ext.Component-destroy">Ext.Component.destroy</a> function. Defaults to the value of this Container's <a href="output/Ext.Container.html#Ext.Container-autoDestroy">autoDestroy</a> config.
    * @return component The Component that was removed.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Container.html#method-Ext.Container-remove Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Container-method-remove Sencha Docs Ext JS 3.4
    */
   public native function remove(component:*, autoDestroy:Boolean = false):Component;
 
@@ -462,7 +452,7 @@ public class Container extends BoxComponent {
    *
    * @param autoDestroy True to automatically invoke the removed Component's <a href="output/Ext.Component.html#Ext.Component-destroy">Ext.Component.destroy</a> function. Defaults to the value of this Container's <a href="output/Ext.Container.html#Ext.Container-autoDestroy">autoDestroy</a> config.
    * @return Array of the destroyed components
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Container.html#method-Ext.Container-removeAll Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Container-method-removeAll Sencha Docs Ext JS 3.4
    */
   public native function removeAll(autoDestroy:Boolean = false):Array;
 

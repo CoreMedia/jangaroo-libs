@@ -47,7 +47,7 @@ import ext.config.action;
  *
 
  * @see ext.config.action
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Action.html#cls-Ext.Action Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Action Sencha Docs Ext JS 3.4
  */
 public class Action {
 
@@ -63,19 +63,17 @@ public class Action {
 
   /**
    This Action's initial configuration specification.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Action.html#prop-Ext.Action-initialConfig Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Action-property-initialConfig Sencha Docs Ext JS 3.4
    */
   public native function get initialConfig():Object;
 
   /**
    True to disable all components using this action, false to enable them (defaults to false).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get disabled():Boolean;
 
   /**
    True to hide all components using this action, false to show them (defaults to false).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get hidden():Boolean;
 
@@ -87,19 +85,16 @@ public class Action {
    // css class that specifies background image to be used as the icon image:
    .do-something { background-image: url(../images/my-icon.gif) 0 6px no-repeat !important; }
    </code></pre>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get iconCls():String;
 
   /**
    See <a href="Ext.Component.html">Ext.Component</a>.<a href="output/Ext.Component.html#Ext.Component-itemId">itemId</a>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get itemId():String;
 
   /**
    The scope (<tt><b>this</b></tt> reference) in which the <code><a href="output/Ext.Action.html#Ext.Action-handler">handler</a></code> is executed. Defaults to this Button.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get scope():Object;
 
@@ -107,14 +102,14 @@ public class Action {
    *
    *
    * @param comp
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Action.html#method-Ext.Action-addComponent Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Action-method-addComponent Sencha Docs Ext JS 3.4
    */
   public native function addComponent(comp:Component):void;
 
   /**
    * Disables all components using this action.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Action.html#method-Ext.Action-disable Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Action-method-disable Sencha Docs Ext JS 3.4
    */
   public native function disable():void;
 
@@ -123,14 +118,14 @@ public class Action {
    *
    * @param fn The function to execute for each component
    * @param scope The scope (<code>this</code> reference) in which the function is executed. Defaults to the Component.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Action.html#method-Ext.Action-each Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Action-method-each Sencha Docs Ext JS 3.4
    */
   public native function each(fn:Function, scope:Object = null):void;
 
   /**
    * Enables all components using this action.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Action.html#method-Ext.Action-enable Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Action-method-enable Sencha Docs Ext JS 3.4
    */
   public native function enable():void;
 
@@ -138,28 +133,28 @@ public class Action {
    * Executes this action manually using the handler function specified in the original config object or the handler function set with <code><a href="output/Ext.Action.html#Ext.Action-setHandler">setHandler</a></code>. Any arguments passed to this function will be passed on to the handler function.
    *
    * @param args Variable number of arguments passed to the handler function
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Action.html#method-Ext.Action-execute Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Action-method-execute Sencha Docs Ext JS 3.4
    */
   public native function execute(...args:Array):void;
 
   /**
    * Gets the icon CSS class currently used by all components using this action.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Action.html#method-Ext.Action-getIconClass Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Action-method-getIconClass Sencha Docs Ext JS 3.4
    */
   public native function getIconClass():void;
 
   /**
    * Gets the text currently displayed by all components using this action.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Action.html#method-Ext.Action-getText Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Action-method-getText Sencha Docs Ext JS 3.4
    */
   public native function getText():void;
 
   /**
    * Hides all components using this action.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Action.html#method-Ext.Action-hide Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Action-method-hide Sencha Docs Ext JS 3.4
    */
   public native function hide():void;
 
@@ -167,7 +162,7 @@ public class Action {
    * Returns true if the components using this action are currently disabled, else returns false.
    *
    * @return whether the components using this action are currently disabled
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Action.html#method-Ext.Action-isDisabled Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Action-method-isDisabled Sencha Docs Ext JS 3.4
    */
   public native function isDisabled():Boolean;
 
@@ -175,7 +170,7 @@ public class Action {
    * Returns true if the components using this action are currently hidden, else returns false.
    *
    * @return whether the components using this action are currently hidden
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Action.html#method-Ext.Action-isHidden Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Action-method-isHidden Sencha Docs Ext JS 3.4
    */
   public native function isHidden():Boolean;
 
@@ -183,7 +178,7 @@ public class Action {
    *
    *
    * @param comp
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Action.html#method-Ext.Action-removeComponent Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Action-method-removeComponent Sencha Docs Ext JS 3.4
    */
   public native function removeComponent(comp:Component):void;
 
@@ -191,7 +186,7 @@ public class Action {
    * Sets the disabled state of all components using this action. Shortcut method for <a href="output/Ext.Action.html#Ext.Action-enable">enable</a> and <a href="output/Ext.Action.html#Ext.Action-disable">disable</a>.
    *
    * @param disabled True to disable the component, false to enable it
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Action.html#method-Ext.Action-setDisabled Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Action-method-setDisabled Sencha Docs Ext JS 3.4
    */
   public native function setDisabled(disabled:Boolean):void;
 
@@ -200,7 +195,7 @@ public class Action {
    *
    * @param fn The function that will be invoked by the action's components. The function will be called with no arguments.
    * @param scope The scope (<code>this</code> reference) in which the function is executed. Defaults to the Component firing the event.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Action.html#method-Ext.Action-setHandler Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Action-method-setHandler Sencha Docs Ext JS 3.4
    */
   public native function setHandler(fn:Function, scope:Object):void;
 
@@ -208,7 +203,7 @@ public class Action {
    * Sets the hidden state of all components using this action. Shortcut method for <code><a href="output/Ext.Action.html#Ext.Action-hide">hide</a></code> and <code><a href="output/Ext.Action.html#Ext.Action-show">show</a></code>.
    *
    * @param hidden True to hide the component, false to show it
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Action.html#method-Ext.Action-setHidden Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Action-method-setHidden Sencha Docs Ext JS 3.4
    */
   public native function setHidden(hidden:Boolean):void;
 
@@ -216,7 +211,7 @@ public class Action {
    * Sets the icon CSS class for all components using this action. The class should supply a background image that will be used as the icon image.
    *
    * @param cls The CSS class supplying the icon image
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Action.html#method-Ext.Action-setIconClass Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Action-method-setIconClass Sencha Docs Ext JS 3.4
    */
   public native function setIconClass(cls:String):void;
 
@@ -224,14 +219,14 @@ public class Action {
    * Sets the text to be displayed by all components using this action.
    *
    * @param text The text to display
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Action.html#method-Ext.Action-setText Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Action-method-setText Sencha Docs Ext JS 3.4
    */
   public native function setText(text:String):void;
 
   /**
    * Shows all components using this action.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Action.html#method-Ext.Action-show Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Action-method-show Sencha Docs Ext JS 3.4
    */
   public native function show():void;
 

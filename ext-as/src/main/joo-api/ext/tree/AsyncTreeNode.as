@@ -35,7 +35,7 @@ package ext.tree {
  *
 
  * @see ext.config.asynctreenode
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/AsyncTreeNode.html#cls-Ext.tree.AsyncTreeNode Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.AsyncTreeNode Sencha Docs Ext JS 3.4
  */
 public class AsyncTreeNode extends TreeNode {
 
@@ -51,7 +51,7 @@ public class AsyncTreeNode extends TreeNode {
 
   /**
    The loader used by this node (defaults to using the tree's defined loader)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/AsyncTreeNode.html#prop-Ext.tree.AsyncTreeNode-loader Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.AsyncTreeNode-property-loader Sencha Docs Ext JS 3.4
    */
   public native function get loader():TreeLoader;
 
@@ -64,7 +64,7 @@ public class AsyncTreeNode extends TreeNode {
    * Returns true if this node has been loaded
    *
    * @return
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/AsyncTreeNode.html#method-Ext.tree.AsyncTreeNode-isLoaded Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.AsyncTreeNode-method-isLoaded Sencha Docs Ext JS 3.4
    */
   public native function isLoaded():Boolean;
 
@@ -72,7 +72,7 @@ public class AsyncTreeNode extends TreeNode {
    * Returns true if this node is currently loading
    *
    * @return
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/AsyncTreeNode.html#method-Ext.tree.AsyncTreeNode-isLoading Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.AsyncTreeNode-method-isLoading Sencha Docs Ext JS 3.4
    */
   public native function isLoading():Boolean;
 
@@ -83,7 +83,7 @@ public class AsyncTreeNode extends TreeNode {
    * @param anim
    * @param callback
    * @param scope
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/AsyncTreeNode.html#method-Ext.tree.AsyncTreeNode-loadComplete Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.AsyncTreeNode-method-loadComplete Sencha Docs Ext JS 3.4
    */
   public native function loadComplete(deep:Boolean, anim:Boolean, callback:Function = null, scope:Object = null):void;
 
@@ -92,7 +92,7 @@ public class AsyncTreeNode extends TreeNode {
    *
    * @param callback
    * @param scope The scope (<code>this</code> reference) in which the callback is executed. Defaults to this Node.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/AsyncTreeNode.html#method-Ext.tree.AsyncTreeNode-reload Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.AsyncTreeNode-method-reload Sencha Docs Ext JS 3.4
    */
   public native function reload(callback:Function, scope:Object = null):void;
 

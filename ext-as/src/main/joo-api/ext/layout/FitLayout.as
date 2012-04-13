@@ -18,7 +18,7 @@ import ext.config.fitlayout;
  *
 
  * @see ext.config.fitlayout
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/FitLayout.html#cls-Ext.layout.FitLayout Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.layout.FitLayout Sencha Docs Ext JS 3.4
  */
 public class FitLayout extends ContainerLayout {
 

@@ -38,7 +38,7 @@ import ext.util.Observable;
 
  * <p>This class defines the type of the singleton History.</p>
  * @see ext.#History ext.History
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/History.html#cls-Ext.History Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.History Sencha Docs Ext JS 3.4
  */
 public class HistoryClass extends Observable {
 
@@ -51,7 +51,7 @@ public class HistoryClass extends Observable {
 
   /**
    The id of the hidden field required for storing the current history token.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/History.html#prop-Ext.History-fieldId Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.History-property-fieldId Sencha Docs Ext JS 3.4
    */
   public native function get fieldId():String;
 
@@ -62,7 +62,7 @@ public class HistoryClass extends Observable {
 
   /**
    The id of the iframe required by IE to manage the history stack.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/History.html#prop-Ext.History-iframeId Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.History-property-iframeId Sencha Docs Ext JS 3.4
    */
   public native function get iframeId():String;
 
@@ -80,21 +80,21 @@ public class HistoryClass extends Observable {
    *
    * @param token The value that defines a particular application-specific history state
    * @param preventDuplicates When true, if the passed token matches the current token it will not save a new history step. Set to false if the same state can be saved more than once at the same history stack location (defaults to true).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/History.html#method-Ext.History-add Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.History-method-add Sencha Docs Ext JS 3.4
    */
   public native function add(token:String, preventDuplicates:Boolean):void;
 
   /**
    * Programmatically steps back one step in browser history (equivalent to the user pressing the Back button).
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/History.html#method-Ext.History-back Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.History-method-back Sencha Docs Ext JS 3.4
    */
   public native function back():void;
 
   /**
    * Programmatically steps forward one step in browser history (equivalent to the user pressing the Forward button).
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/History.html#method-Ext.History-forward Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.History-method-forward Sencha Docs Ext JS 3.4
    */
   public native function forward():void;
 
@@ -102,7 +102,7 @@ public class HistoryClass extends Observable {
    * Retrieves the currently-active history token.
    *
    * @return The token
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/History.html#method-Ext.History-getToken Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.History-method-getToken Sencha Docs Ext JS 3.4
    */
   public native function getToken():String;
 
@@ -111,7 +111,7 @@ public class HistoryClass extends Observable {
    *
    * @param onReady A callback function that will be called once the history component is fully initialized.
    * @param scope The scope (<code>this</code> reference) in which the callback is executed. Defaults to the browser window.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/History.html#method-Ext.History-init Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.History-method-init Sencha Docs Ext JS 3.4
    */
   public native function init(onReady:Boolean = false, scope:Object = null):void;
 

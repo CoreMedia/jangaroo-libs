@@ -36,7 +36,7 @@ package ext {
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  *
 
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/KeyMap.html#cls-Ext.KeyMap Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.KeyMap Sencha Docs Ext JS 3.4
  */
 public class KeyMap {
 
@@ -53,7 +53,7 @@ public class KeyMap {
 
   /**
    True to stop the event from bubbling and prevent the default browser action if the key was handled by the KeyMap (defaults to false)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/KeyMap.html#prop-Ext.KeyMap-stopEvent Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.KeyMap-property-stopEvent Sencha Docs Ext JS 3.4
    */
   public native function get stopEvent():Boolean;
 
@@ -90,21 +90,21 @@ public class KeyMap {
    </code></pre>
    *
    * @param config A single KeyMap config or an array of configs
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/KeyMap.html#method-Ext.KeyMap-addBinding Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.KeyMap-method-addBinding Sencha Docs Ext JS 3.4
    */
   public native function addBinding(config:*):void;
 
   /**
    * Disable this KeyMap
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/KeyMap.html#method-Ext.KeyMap-disable Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.KeyMap-method-disable Sencha Docs Ext JS 3.4
    */
   public native function disable():void;
 
   /**
    * Enables this KeyMap
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/KeyMap.html#method-Ext.KeyMap-enable Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.KeyMap-method-enable Sencha Docs Ext JS 3.4
    */
   public native function enable():void;
 
@@ -112,7 +112,7 @@ public class KeyMap {
    * Returns true if this KeyMap is enabled
    *
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/KeyMap.html#method-Ext.KeyMap-isEnabled Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.KeyMap-method-isEnabled Sencha Docs Ext JS 3.4
    */
   public native function isEnabled():Boolean;
 
@@ -122,7 +122,7 @@ public class KeyMap {
    * @param key Either the numeric key code, array of key codes or an object with the following options: {key: (number or array), shift: (true/false), ctrl: (true/false), alt: (true/false)}
    * @param fn The function to call
    * @param scope The scope (<code>this</code> reference) in which the function is executed. Defaults to the browser window.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/KeyMap.html#method-Ext.KeyMap-on Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.KeyMap-method-on Sencha Docs Ext JS 3.4
    */
   public native function on(key:*, fn:Function, scope:Object = null):void;
 
@@ -130,7 +130,7 @@ public class KeyMap {
    * Convenience function for setting disabled/enabled by boolean.
    *
    * @param disabled
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/KeyMap.html#method-Ext.KeyMap-setDisabled Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.KeyMap-method-setDisabled Sencha Docs Ext JS 3.4
    */
   public native function setDisabled(disabled:Boolean):void;
 

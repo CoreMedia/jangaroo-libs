@@ -10,7 +10,7 @@ import ext.config.template;
  *
 
  * @see ext.config.template
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Template-more.html#cls-Ext.Template Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Template Sencha Docs Ext JS 3.4
  */
 public class Template {
 
@@ -45,7 +45,7 @@ public class Template {
 
   /**
    See <code><a href="output/Ext.Template.html#Ext.Template-disableFormats">disableFormats</a></code>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Template-more.html#prop-Ext.Template-disableFormats Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Template-property-disableFormats Sencha Docs Ext JS 3.4
    */
   public native function get disableFormats():Boolean;
 
@@ -56,7 +56,7 @@ public class Template {
 
   /**
 
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Template.html#prop-Ext.Template-html Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Template-property-html Sencha Docs Ext JS 3.4
    */
   public native function get html():Object;
 
@@ -67,7 +67,7 @@ public class Template {
 
   /**
    See <code><a href="output/Ext.Template.html#Ext.Template-re">re</a></code>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Template.html#prop-Ext.Template-re Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Template-property-re Sencha Docs Ext JS 3.4
    */
   public native function get re():RegExp;
 
@@ -78,7 +78,6 @@ public class Template {
 
   /**
    Specify <tt>true</tt> to compile the template immediately (see <code><a href="output/Ext.Template.html#Ext.Template-compile">compile</a></code>). Defaults to <tt>false</tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get compiled():Boolean;
 
@@ -89,7 +88,7 @@ public class Template {
    * @param values The template values. Can be an array if the params are numeric (i.e. <code>{0}</code>) or an object (i.e. <code>{foo: 'bar'}</code>).
    * @param returnElement true to return an Ext.Element (defaults to undefined)
    * @return The new node or Element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Template.html#method-Ext.Template-append Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Template-method-append Sencha Docs Ext JS 3.4
    */
   public native function append(el:*, values:*, returnElement:Boolean = false):*;
 
@@ -98,7 +97,7 @@ public class Template {
    *
    * @param values The template values. Can be an array if the params are numeric (i.e. <code>{0}</code>) or an object (i.e. <code>{foo: 'bar'}</code>).
    * @return The HTML fragment
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Template.html#method-Ext.Template-apply Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Template-method-apply Sencha Docs Ext JS 3.4
    */
   public native function apply(values:*):String;
 
@@ -107,7 +106,7 @@ public class Template {
    *
    * @param values The template values. Can be an array if the params are numeric (i.e. <code>{0}</code>) or an object (i.e. <code>{foo: 'bar'}</code>).
    * @return The HTML fragment
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Template.html#method-Ext.Template-applyTemplate Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Template-method-applyTemplate Sencha Docs Ext JS 3.4
    */
   public native function applyTemplate(values:*):String;
 
@@ -115,7 +114,7 @@ public class Template {
    * Compiles the template into an internal function, eliminating the RegEx overhead.
    *
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Template.html#method-Ext.Template-compile Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Template-method-compile Sencha Docs Ext JS 3.4
    */
   public native function compile():Template;
 
@@ -125,7 +124,7 @@ public class Template {
    * @param el A DOM element or its id
    * @param config A configuration object
    * @return The created template
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Template.html#method-Ext.Template-from Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Template-method-from Sencha Docs Ext JS 3.4
    */
   public static native function from(el:*, config:template):Template;
 
@@ -136,7 +135,7 @@ public class Template {
    * @param values The template values. Can be an array if your params are numeric (i.e. {0}) or an object (i.e. {foo: 'bar'})
    * @param returnElement true to return a Ext.Element (defaults to undefined)
    * @return The new node or Element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Template.html#method-Ext.Template-insertAfter Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Template-method-insertAfter Sencha Docs Ext JS 3.4
    */
   public native function insertAfter(el:*, values:*, returnElement:Boolean = false):*;
 
@@ -147,7 +146,7 @@ public class Template {
    * @param values The template values. Can be an array if your params are numeric (i.e. {0}) or an object (i.e. {foo: 'bar'})
    * @param returnElement true to return a Ext.Element (defaults to undefined)
    * @return The new node or Element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Template.html#method-Ext.Template-insertBefore Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Template-method-insertBefore Sencha Docs Ext JS 3.4
    */
   public native function insertBefore(el:*, values:*, returnElement:Boolean = false):*;
 
@@ -158,7 +157,7 @@ public class Template {
    * @param values The template values. Can be an array if your params are numeric (i.e. {0}) or an object (i.e. {foo: 'bar'})
    * @param returnElement true to return a Ext.Element (defaults to undefined)
    * @return The new node or Element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Template.html#method-Ext.Template-insertFirst Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Template-method-insertFirst Sencha Docs Ext JS 3.4
    */
   public native function insertFirst(el:*, values:*, returnElement:Boolean = false):*;
 
@@ -169,7 +168,7 @@ public class Template {
    * @param values The template values. Can be an array if your params are numeric (i.e. {0}) or an object (i.e. {foo: 'bar'})
    * @param returnElement true to return a Ext.Element (defaults to undefined)
    * @return The new node or Element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Template.html#method-Ext.Template-overwrite Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Template-method-overwrite Sencha Docs Ext JS 3.4
    */
   public native function overwrite(el:*, values:*, returnElement:Boolean = false):*;
 
@@ -179,7 +178,7 @@ public class Template {
    * @param html
    * @param compile True to compile the template (defaults to undefined)
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Template.html#method-Ext.Template-set Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Template-method-set Sencha Docs Ext JS 3.4
    */
   public native function set(html:String, compile:Boolean = false):Template;
 

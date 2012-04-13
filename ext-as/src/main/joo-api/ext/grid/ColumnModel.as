@@ -160,7 +160,7 @@ import ext.util.Observable;
  *
 
  * @see ext.config.columnmodel
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#cls-Ext.grid.ColumnModel Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.ColumnModel Sencha Docs Ext JS 3.4
  */
 public class ColumnModel extends Observable {
 
@@ -176,7 +176,7 @@ public class ColumnModel extends Observable {
 
   /**
    An Array of <a href="Ext.grid.Column.html">Column definition</a> objects representing the configuration of this ColumnModel. See <a href="Ext.grid.Column.html">Ext.grid.Column</a> for the configuration properties that may be specified.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#prop-Ext.grid.ColumnModel-config Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.ColumnModel-property-config Sencha Docs Ext JS 3.4
    */
   public native function get config():Array;
 
@@ -187,32 +187,28 @@ public class ColumnModel extends Observable {
 
   /**
    An Array of object literals. The config options defined by <b><a href="Ext.grid.Column.html">Ext.grid.Column</a></b> are the options which may appear in the object literal for each individual column definition.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get columns():Array;
 
   /**
    Default sortable of columns which have no sortable specified (defaults to <tt>false</tt>). This property shall preferably be configured through the <tt><b><a href="output/Ext.grid.ColumnModel.html#Ext.grid.ColumnModel-defaults">defaults</a></b></tt> config property.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get defaultSortable():Boolean;
 
   /**
    The width of columns which have no <tt><a href="output/Ext.grid.ColumnModel.html#Ext.grid.ColumnModel-width">width</a></tt> specified (defaults to <tt>100</tt>). This property shall preferably be configured through the <tt><b><a href="output/Ext.grid.ColumnModel.html#Ext.grid.ColumnModel-defaults">defaults</a></b></tt> config property.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get defaultWidth():Number;
 
   /**
    Object literal which will be used to apply <a href="Ext.grid.Column.html">Ext.grid.Column</a> configuration options to all <tt><b><a href="output/Ext.grid.ColumnModel.html#Ext.grid.ColumnModel-columns">columns</a></b></tt>. Configuration options specified with individual <a href="Ext.grid.Column.html">column</a> configs will supersede these <tt><b><a href="output/Ext.grid.ColumnModel.html#Ext.grid.ColumnModel-defaults">defaults</a></b></tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get defaults():Object;
 
   /**
    * Destroys this column model by purging any event listeners. Destroys and dereferences all Columns.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-destroy Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.ColumnModel-method-destroy Sencha Docs Ext JS 3.4
    */
   public native function destroy():void;
 
@@ -221,7 +217,7 @@ public class ColumnModel extends Observable {
    *
    * @param col The dataIndex to find
    * @return The column index, or -1 if no match was found
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-findColumnIndex Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.ColumnModel-method-findColumnIndex Sencha Docs Ext JS 3.4
    */
   public native function findColumnIndex(col:String):Number;
 
@@ -231,7 +227,7 @@ public class ColumnModel extends Observable {
    * @param colIndex The column index
    * @param rowIndex The row index
    * @return The <a href="Ext.Editor.html">Editor</a> that was created to wrap the <a href="Ext.form.Field.html">Field</a> used to edit the cell.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-getCellEditor Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.ColumnModel-method-getCellEditor Sencha Docs Ext JS 3.4
    */
   public native function getCellEditor(colIndex:Number, rowIndex:Number):Editor;
 
@@ -240,7 +236,7 @@ public class ColumnModel extends Observable {
    *
    * @param id The column id
    * @return the column
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-getColumnById Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.ColumnModel-method-getColumnById Sencha Docs Ext JS 3.4
    */
   public native function getColumnById(id:String):Object;
 
@@ -249,7 +245,7 @@ public class ColumnModel extends Observable {
    *
    * @param visibleOnly Pass as true to only include visible columns.
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-getColumnCount Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.ColumnModel-method-getColumnCount Sencha Docs Ext JS 3.4
    */
   public native function getColumnCount(visibleOnly:Boolean = false):Number;
 
@@ -258,7 +254,7 @@ public class ColumnModel extends Observable {
    *
    * @param col The column index
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-getColumnHeader Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.ColumnModel-method-getColumnHeader Sencha Docs Ext JS 3.4
    */
   public native function getColumnHeader(col:Number):String;
 
@@ -267,7 +263,7 @@ public class ColumnModel extends Observable {
    *
    * @param index The column index
    * @return the id
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-getColumnId Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.ColumnModel-method-getColumnId Sencha Docs Ext JS 3.4
    */
   public native function getColumnId(index:Number):String;
 
@@ -276,7 +272,7 @@ public class ColumnModel extends Observable {
    *
    * @param col The column index
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-getColumnTooltip Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.ColumnModel-method-getColumnTooltip Sencha Docs Ext JS 3.4
    */
   public native function getColumnTooltip(col:Number):String;
 
@@ -285,7 +281,7 @@ public class ColumnModel extends Observable {
    *
    * @param col The column index
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-getColumnWidth Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.ColumnModel-method-getColumnWidth Sencha Docs Ext JS 3.4
    */
   public native function getColumnWidth(col:Number):Number;
 
@@ -299,7 +295,7 @@ public class ColumnModel extends Observable {
    * @param fn A function which, when passed a <a href="Ext.grid.Column.html">Column</a> object, must return <code>true</code> if the column is to be included in the returned Array.
    * @param scope The scope (<code>this</code> reference) in which the function is executed. Defaults to this ColumnModel.
    * @return result
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-getColumnsBy Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.ColumnModel-method-getColumnsBy Sencha Docs Ext JS 3.4
    */
   public native function getColumnsBy(fn:Function, scope:Object = null):Array;
 
@@ -310,7 +306,7 @@ public class ColumnModel extends Observable {
    *
    * @param col The column index
    * @return The column's dataIndex
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-getDataIndex Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.ColumnModel-method-getDataIndex Sencha Docs Ext JS 3.4
    */
   public native function getDataIndex(col:Number):String;
 
@@ -319,7 +315,7 @@ public class ColumnModel extends Observable {
    *
    * @param id The column id
    * @return the index, or -1 if not found
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-getIndexById Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.ColumnModel-method-getIndexById Sencha Docs Ext JS 3.4
    */
   public native function getIndexById(id:String):Number;
 
@@ -328,7 +324,7 @@ public class ColumnModel extends Observable {
    *
    * @param col The column index.
    * @return The function used to render the cell. See <a href="output/Ext.grid.ColumnModel.html#Ext.grid.ColumnModel-setRenderer">setRenderer</a>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-getRenderer Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.ColumnModel-method-getRenderer Sencha Docs Ext JS 3.4
    */
   public native function getRenderer(col:Number):Function;
 
@@ -337,7 +333,7 @@ public class ColumnModel extends Observable {
    *
    * @param includeHidden True to include hidden column widths
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-getTotalWidth Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.ColumnModel-method-getTotalWidth Sencha Docs Ext JS 3.4
    */
   public native function getTotalWidth(includeHidden:Boolean):Number;
 
@@ -363,7 +359,7 @@ public class ColumnModel extends Observable {
    * @param colIndex The column index
    * @param rowIndex The row index
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-isCellEditable Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.ColumnModel-method-isCellEditable Sencha Docs Ext JS 3.4
    */
   public native function isCellEditable(colIndex:Number, rowIndex:Number):Boolean;
 
@@ -372,7 +368,7 @@ public class ColumnModel extends Observable {
    *
    * @param colIndex The column index
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-isFixed Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.ColumnModel-method-isFixed Sencha Docs Ext JS 3.4
    */
   public native function isFixed(colIndex:Number):Boolean;
 
@@ -381,7 +377,7 @@ public class ColumnModel extends Observable {
    *
    * @param colIndex The column index
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-isHidden Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.ColumnModel-method-isHidden Sencha Docs Ext JS 3.4
    */
   public native function isHidden(colIndex:Number):Boolean;
 
@@ -390,7 +386,7 @@ public class ColumnModel extends Observable {
    *
    * @param col The column index
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-isMenuDisabled Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.ColumnModel-method-isMenuDisabled Sencha Docs Ext JS 3.4
    */
   public native function isMenuDisabled(col:Number):Boolean;
 
@@ -398,7 +394,7 @@ public class ColumnModel extends Observable {
    * Returns true if the column can be resized
    *
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-isResizable Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.ColumnModel-method-isResizable Sencha Docs Ext JS 3.4
    */
   public native function isResizable():Boolean;
 
@@ -407,7 +403,7 @@ public class ColumnModel extends Observable {
    *
    * @param col The column index
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-isSortable Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.ColumnModel-method-isSortable Sencha Docs Ext JS 3.4
    */
   public native function isSortable(col:Number):Boolean;
 
@@ -416,7 +412,7 @@ public class ColumnModel extends Observable {
    *
    * @param oldIndex The index of the column to move.
    * @param newIndex The position at which to reinsert the column.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-moveColumn Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.ColumnModel-method-moveColumn Sencha Docs Ext JS 3.4
    */
   public native function moveColumn(oldIndex:Number, newIndex:Number):void;
 
@@ -425,7 +421,7 @@ public class ColumnModel extends Observable {
    *
    * @param col The column index
    * @param header The new header
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-setColumnHeader Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.ColumnModel-method-setColumnHeader Sencha Docs Ext JS 3.4
    */
   public native function setColumnHeader(col:Number, header:String):void;
 
@@ -434,7 +430,7 @@ public class ColumnModel extends Observable {
    *
    * @param col The column index
    * @param tooltip The new tooltip
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-setColumnTooltip Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.ColumnModel-method-setColumnTooltip Sencha Docs Ext JS 3.4
    */
   public native function setColumnTooltip(col:Number, tooltip:String):void;
 
@@ -444,7 +440,7 @@ public class ColumnModel extends Observable {
    * @param col The column index
    * @param width The new width
    * @param suppressEvent True to suppress firing the <code><a href="output/Ext.grid.ColumnModel.html#Ext.grid.ColumnModel-widthchange">widthchange</a></code> event. Defaults to false.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-setColumnWidth Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.ColumnModel-method-setColumnWidth Sencha Docs Ext JS 3.4
    */
   public native function setColumnWidth(col:Number, width:Number, suppressEvent:Boolean):void;
 
@@ -454,7 +450,7 @@ public class ColumnModel extends Observable {
    *
    * @param config Array of Column definition objects.
    * @param initial Specify <tt>true</tt> to bypass cleanup which deletes the <tt>totalWidth</tt> and destroys existing editors.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-setConfig Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.ColumnModel-method-setConfig Sencha Docs Ext JS 3.4
    */
   public native function setConfig(config:Array, initial:Boolean):void;
 
@@ -463,7 +459,7 @@ public class ColumnModel extends Observable {
    *
    * @param col The column index
    * @param dataIndex The new dataIndex
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-setDataIndex Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.ColumnModel-method-setDataIndex Sencha Docs Ext JS 3.4
    */
   public native function setDataIndex(col:Number, dataIndex:String):void;
 
@@ -472,7 +468,7 @@ public class ColumnModel extends Observable {
    *
    * @param col The column index
    * @param editable True if the column is editable
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-setEditable Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.ColumnModel-method-setEditable Sencha Docs Ext JS 3.4
    */
   public native function setEditable(col:Number, editable:Boolean):void;
 
@@ -481,7 +477,7 @@ public class ColumnModel extends Observable {
    *
    * @param col The column index
    * @param editor The editor object
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-setEditor Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.ColumnModel-method-setEditor Sencha Docs Ext JS 3.4
    */
   public native function setEditor(col:Number, editor:Object):void;
 
@@ -491,7 +487,7 @@ public class ColumnModel extends Observable {
    *
    * @param colIndex The column index
    * @param hidden True if the column is hidden
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-setHidden Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.ColumnModel-method-setHidden Sencha Docs Ext JS 3.4
    */
   public native function setHidden(colIndex:Number, hidden:Boolean):void;
 
@@ -500,14 +496,14 @@ public class ColumnModel extends Observable {
    *
    * @param col The column index
    * @param fn The function to use to process the cell's raw data to return HTML markup for the grid view. The render function is called with the following parameters:<ul><li><b>value</b> : Object<p class="sub-desc">The data value for the cell.</p></li><li><b>metadata</b> : Object<p class="sub-desc">An object in which you may set the following attributes:</p><ul><li><b>css</b> : String<p class="sub-desc">A CSS class name to add to the cell's TD element.</p></li><li><b>attr</b> : String<p class="sub-desc">An HTML attribute definition string to apply to the data container element <i>within</i> the table cell (e.g. 'style="color:red;"').</p></li></ul><br/><br/></li><li><b>record</b> : Ext.data.record<p class="sub-desc">The <a href="Ext.data.Record.html">Ext.data.Record</a> from which the data was extracted.</p></li><li><b>rowIndex</b> : Number<p class="sub-desc">Row index</p></li><li><b>colIndex</b> : Number<p class="sub-desc">Column index</p></li><li><b>store</b> : Ext.data.Store<p class="sub-desc">The <a href="Ext.data.Store.html">Ext.data.Store</a> object from which the Record was extracted.</p></li></ul>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-setRenderer Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.ColumnModel-method-setRenderer Sencha Docs Ext JS 3.4
    */
   public native function setRenderer(col:Number, fn:Function):void;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColumnModel.html#method-Ext.grid.ColumnModel-setState Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.ColumnModel-method-setState Sencha Docs Ext JS 3.4
    */
   public native function setState():void;
 

@@ -9,7 +9,7 @@ import ext.config.menulayout;
  *
 
  * @see ext.config.menulayout
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MenuLayout.html#cls-Ext.layout.MenuLayout Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.layout.MenuLayout Sencha Docs Ext JS 3.4
  */
 public class MenuLayout extends ContainerLayout {
 

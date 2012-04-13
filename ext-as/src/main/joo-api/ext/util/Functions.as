@@ -7,7 +7,7 @@ package ext.util {
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  *
  * @see ext.util.IFunctions
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Function.html#cls-Ext.util.Functions Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Functions Sencha Docs Ext JS 3.4
  */
 public const Functions:IFunctions;
 

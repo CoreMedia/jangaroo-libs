@@ -5,7 +5,7 @@ package ext.dd {
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  *
 
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#cls-Ext.dd.DDProxy Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DDProxy Sencha Docs Ext JS 3.4
  */
 public class DDProxy extends DD {
 
@@ -22,7 +22,7 @@ public class DDProxy extends DD {
 
   /**
    By default the frame is positioned exactly where the drag element is, so we use the cursor offset provided by Ext.dd.DD. Another option that works only if you do not have constraints on the obj is to have the drag frame centered around the cursor. Set centerFrame to true for this effect.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DDProxy-centerFrame Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DDProxy-property-centerFrame Sencha Docs Ext JS 3.4
    */
   public native function get centerFrame():Boolean;
 
@@ -33,7 +33,7 @@ public class DDProxy extends DD {
 
   /**
    The default drag frame div id
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DDProxy-dragElId Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DDProxy-property-dragElId Sencha Docs Ext JS 3.4
    */
   public static native function get dragElId():String;
 
@@ -44,7 +44,7 @@ public class DDProxy extends DD {
 
   /**
    By default we resize the drag frame to be the same size as the element we want to drag (this is to get the frame effect). We can turn it off if we want a different behavior.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DDProxy-resizeFrame Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DDProxy-property-resizeFrame Sencha Docs Ext JS 3.4
    */
   public native function get resizeFrame():Boolean;
 
@@ -56,21 +56,21 @@ public class DDProxy extends DD {
   /**
    * The proxy is automatically resized to the dimensions of the linked element when a drag is initiated, unless resizeFrame is set to false
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DDProxy-_resizeProxy Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DDProxy-method-_resizeProxy Sencha Docs Ext JS 3.4
    */
   public native function _resizeProxy():void;
 
   /**
    * Creates the proxy element if it does not yet exist
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DDProxy-createFrame Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DDProxy-method-createFrame Sencha Docs Ext JS 3.4
    */
   public native function createFrame():void;
 
   /**
    * Initialization for the drag frame element. Must be called in the constructor of all subclasses
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DDProxy-initFrame Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DDProxy-method-initFrame Sencha Docs Ext JS 3.4
    */
   public native function initFrame():void;
 
@@ -79,7 +79,7 @@ public class DDProxy extends DD {
    *
    * @param iPageX X click position
    * @param iPageY Y click position
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DDProxy-showFrame Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DDProxy-method-showFrame Sencha Docs Ext JS 3.4
    */
   public native function showFrame(iPageX:int, iPageY:int):void;
 

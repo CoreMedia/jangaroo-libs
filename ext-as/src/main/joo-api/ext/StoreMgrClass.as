@@ -10,7 +10,7 @@ import ext.util.MixedCollection;
 
  * <p>This class defines the type of the singleton StoreMgr.</p>
  * @see ext.#StoreMgr ext.StoreMgr
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/StoreMgr.html#cls-Ext.StoreMgr Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.StoreMgr Sencha Docs Ext JS 3.4
  */
 public class StoreMgrClass extends MixedCollection {
 
@@ -26,7 +26,7 @@ public class StoreMgrClass extends MixedCollection {
    *
    * @param id The id of the Store, or a Store instance
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/StoreMgr.html#method-Ext.StoreMgr-lookup Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.StoreMgr-method-lookup Sencha Docs Ext JS 3.4
    */
   public native function lookup(id:*):Store;
 
@@ -36,7 +36,7 @@ public class StoreMgrClass extends MixedCollection {
    * @param store1 A Store instance
    * @param store2
    * @param etc
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/StoreMgr.html#method-Ext.StoreMgr-register Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.StoreMgr-method-register Sencha Docs Ext JS 3.4
    */
   public native function register(store1:Store, store2:Store = null, ...etc:Array):void;
 
@@ -46,7 +46,7 @@ public class StoreMgrClass extends MixedCollection {
    * @param id1 The id of the Store, or a Store instance
    * @param id2
    * @param etc
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/StoreMgr.html#method-Ext.StoreMgr-unregister Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.StoreMgr-method-unregister Sencha Docs Ext JS 3.4
    */
   public native function unregister(id1:*, id2:* = null, ...etc:Array):void;
 

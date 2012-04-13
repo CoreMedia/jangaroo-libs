@@ -209,7 +209,7 @@ import ext.util.Observable;
  *
 
  * @see ext.config.dataproxy
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataProxy.html#cls-Ext.data.DataProxy Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.DataProxy Sencha Docs Ext JS 3.4
  */
 public class DataProxy extends Observable {
 
@@ -271,7 +271,6 @@ public class DataProxy extends Observable {
    }
    });
    </code></pre><br/><br/>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get api():Object;
 
@@ -289,7 +288,6 @@ public class DataProxy extends Observable {
    DESTROY  /users/23  delete
    </pre><br/><br/> <p>If set to <tt>true</tt>, a <a href="output/Ext.data.Record.html#Ext.data.Record-phantom">non-phantom</a> record's <a href="output/Ext.data.Record.html#Ext.data.Record-id">id</a> will be appended to the url. Some MVC (e.g., Ruby on Rails, Merb and Django) support segment based urls where the segments in the URL follow the Model-View-Controller approach:</p><pre><code>someSite.com/controller/action/id
    </code></pre>Where the segments in the url are typically:<div class="mdetail-params"><ul><li>The first segment : represents the controller class that should be invoked.</li><li>The second segment : represents the class function, or method, that should be called.</li><li>The third segment : represents the ID (a variable typically passed to the method).</li></ul></div><br/><br/> <br/><p>Refer to <code><a href="output/Ext.data.DataProxy.html#Ext.data.DataProxy-api">Ext.data.DataProxy.api</a></code> for additional information.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get restful():Boolean;
 
@@ -299,14 +297,14 @@ public class DataProxy extends Observable {
    * @param action The api action being executed [read|create|update|destroy]
    * @param record The record or Array of Records being acted upon.
    * @return url
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataProxy.html#method-Ext.data.DataProxy-buildUrl Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.DataProxy-method-buildUrl Sencha Docs Ext JS 3.4
    */
   public native function buildUrl(action:String, record:*):String;
 
   /**
    * Destroys the proxy by purging any event listeners and cancelling any active requests.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataProxy.html#method-Ext.data.DataProxy-destroy Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.DataProxy-method-destroy Sencha Docs Ext JS 3.4
    */
   public native function destroy():void;
 
@@ -315,7 +313,7 @@ public class DataProxy extends Observable {
    *
    * @param action [Ext.data.Api.CREATE|READ|UPDATE|DESTROY]
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataProxy.html#method-Ext.data.DataProxy-isApiAction Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.DataProxy-method-isApiAction Sencha Docs Ext JS 3.4
    */
   public native function isApiAction(action:String):Boolean;
 
@@ -327,7 +325,7 @@ public class DataProxy extends Observable {
    * @param callback
    * @param scope
    * @param arg
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataProxy.html#method-Ext.data.DataProxy-load Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.DataProxy-method-load Sencha Docs Ext JS 3.4
    */
   public native function load(params:Object, reader:Object, callback:Object, scope:Object, arg:Object):void;
 
@@ -341,7 +339,7 @@ public class DataProxy extends Observable {
    * @param callback
    * @param scope The scope (<code>this</code> reference) in which the callback function is executed. Defaults to the Proxy object.
    * @param options Any options specified for the action (e.g. see <a href="output/Ext.data.Store.html#Ext.data.Store-load">Ext.data.Store.load</a>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataProxy.html#method-Ext.data.DataProxy-request Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.DataProxy-method-request Sencha Docs Ext JS 3.4
    */
   public native function request(action:String, rs:*, params:Object, reader:DataReader, callback:Function, scope:Object, options:Object):void;
 
@@ -358,7 +356,7 @@ public class DataProxy extends Observable {
    *
    * @param api An API specification object, or the name of an action.
    * @param url The URL (or function if using DirectProxy) to call for the action.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataProxy.html#method-Ext.data.DataProxy-setApi Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.DataProxy-method-setApi Sencha Docs Ext JS 3.4
    */
   public native function setApi(api:*, url:*):void;
 

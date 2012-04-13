@@ -52,7 +52,7 @@ import ext.util.Observable;
  *
 
  * @see ext.config.defaultselectionmodel
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeSelectionModel.html#cls-Ext.tree.DefaultSelectionModel Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.DefaultSelectionModel Sencha Docs Ext JS 3.4
  */
 public class DefaultSelectionModel extends Observable {
 
@@ -69,7 +69,7 @@ public class DefaultSelectionModel extends Observable {
    * Clear all selections
    *
    * @param silent True to stop the selectionchange event from firing.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeSelectionModel.html#method-Ext.tree.DefaultSelectionModel-clearSelections Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.DefaultSelectionModel-method-clearSelections Sencha Docs Ext JS 3.4
    */
   public native function clearSelections(silent:Boolean = false):void;
 
@@ -77,7 +77,7 @@ public class DefaultSelectionModel extends Observable {
    * Get the selected node
    *
    * @return The selected node
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeSelectionModel.html#method-Ext.tree.DefaultSelectionModel-getSelectedNode Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.DefaultSelectionModel-method-getSelectedNode Sencha Docs Ext JS 3.4
    */
   public native function getSelectedNode():TreeNode;
 
@@ -86,7 +86,7 @@ public class DefaultSelectionModel extends Observable {
    *
    * @param node The node to check
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeSelectionModel.html#method-Ext.tree.DefaultSelectionModel-isSelected Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.DefaultSelectionModel-method-isSelected Sencha Docs Ext JS 3.4
    */
   public native function isSelected(node:TreeNode):Boolean;
 
@@ -95,7 +95,7 @@ public class DefaultSelectionModel extends Observable {
    *
    * @param node The node to select
    * @return The selected node
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeSelectionModel.html#method-Ext.tree.DefaultSelectionModel-select Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.DefaultSelectionModel-method-select Sencha Docs Ext JS 3.4
    */
   public native function select(node:TreeNode):TreeNode;
 
@@ -103,7 +103,7 @@ public class DefaultSelectionModel extends Observable {
    * Selects the node above the selected node in the tree, intelligently walking the nodes
    *
    * @return The new selection
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeSelectionModel.html#method-Ext.tree.DefaultSelectionModel-selectNext Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.DefaultSelectionModel-method-selectNext Sencha Docs Ext JS 3.4
    */
   public native function selectNext():TreeNode;
 
@@ -111,7 +111,7 @@ public class DefaultSelectionModel extends Observable {
    * Selects the node above the selected node in the tree, intelligently walking the nodes
    *
    * @return The new selection
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeSelectionModel.html#method-Ext.tree.DefaultSelectionModel-selectPrevious Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.DefaultSelectionModel-method-selectPrevious Sencha Docs Ext JS 3.4
    */
   public native function selectPrevious():TreeNode;
 
@@ -120,7 +120,7 @@ public class DefaultSelectionModel extends Observable {
    *
    * @param node The node to unselect
    * @param silent True to stop the selectionchange event from firing.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeSelectionModel.html#method-Ext.tree.DefaultSelectionModel-unselect Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.DefaultSelectionModel-method-unselect Sencha Docs Ext JS 3.4
    */
   public native function unselect(node:TreeNode, silent:Boolean):void;
 

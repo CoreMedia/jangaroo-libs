@@ -19,7 +19,7 @@ import js.HTMLElement;
  *
 
  * @see ext.config.pivotgridview
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotGridView.html#cls-Ext.grid.PivotGridView Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotGridView Sencha Docs Ext JS 3.4
  */
 public class PivotGridView extends GridView {
 
@@ -34,7 +34,7 @@ public class PivotGridView extends GridView {
 
   /**
    The CSS class added to all group header cells. Defaults to 'grid-hd-group-cell'
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotGridView.html#prop-Ext.grid.PivotGridView-colHeaderCellCls Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotGridView-property-colHeaderCellCls Sencha Docs Ext JS 3.4
    */
   public native function get colHeaderCellCls():String;
 
@@ -45,7 +45,7 @@ public class PivotGridView extends GridView {
 
   /**
    The element that contains the optional title (top left section of the pivot grid)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotGridView.html#prop-Ext.grid.PivotGridView-headerTitleEl Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotGridView-property-headerTitleEl Sencha Docs Ext JS 3.4
    */
   public native function get headerTitleEl():Element;
 
@@ -56,7 +56,7 @@ public class PivotGridView extends GridView {
 
   /**
    The master template to use when rendering the GridView. Has a default template
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotGridView.html#prop-Ext.grid.PivotGridView-masterTpl Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotGridView-property-masterTpl Sencha Docs Ext JS 3.4
    */
   override public native function get masterTpl():Template;
 
@@ -67,7 +67,7 @@ public class PivotGridView extends GridView {
 
   /**
    The element containing all row headers
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotGridView.html#prop-Ext.grid.PivotGridView-rowHeadersEl Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotGridView-property-rowHeadersEl Sencha Docs Ext JS 3.4
    */
   public native function get rowHeadersEl():Element;
 
@@ -78,7 +78,6 @@ public class PivotGridView extends GridView {
 
   /**
    Optional title to be placed in the top left corner of the PivotGrid. Defaults to an empty string.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get title():String;
 
@@ -89,7 +88,7 @@ public class PivotGridView extends GridView {
    * @param onlyExpand NOT USED, will be removed in 4.0
    * @param omitColumn The index of a column to leave at its current width. Defaults to undefined
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotGridView.html#method-Ext.grid.PivotGridView-fitColumns Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotGridView-method-fitColumns Sencha Docs Ext JS 3.4
    */
   override public native function fitColumns(preventRefresh:Boolean, onlyExpand:*, omitColumn:Number):Boolean;
 
@@ -97,7 +96,7 @@ public class PivotGridView extends GridView {
    * Inherit docs
    *
    * @param el
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotGridView.html#method-Ext.grid.PivotGridView-getCellIndex Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotGridView-method-getCellIndex Sencha Docs Ext JS 3.4
    */
   public native function getCellIndex(el:HTMLElement):void;
 
@@ -120,7 +119,7 @@ public class PivotGridView extends GridView {
    </code></pre>In the example above we have cities nested under countries. The nesting could be deeper if desired - e.g. Continent -&gt; Country -&gt; State -&gt; City, or any other structure. The only constraint is that the same depth must be used throughout the structure.
    *
    * @return A tree structure containing the headers to be rendered. Must include the colspan property at each level, which should be the sum of all child nodes beneath this node.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotGridView.html#method-Ext.grid.PivotGridView-getColumnHeaders Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotGridView-method-getColumnHeaders Sencha Docs Ext JS 3.4
    */
   public native function getColumnHeaders():Array;
 
@@ -128,7 +127,7 @@ public class PivotGridView extends GridView {
    *
    *
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotGridView.html#method-Ext.grid.PivotGridView-getGridInnerWidth Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotGridView-method-getGridInnerWidth Sencha Docs Ext JS 3.4
    */
   override public native function getGridInnerWidth():Number;
 
@@ -153,7 +152,7 @@ public class PivotGridView extends GridView {
    </code></pre>In the example above we have cities nested under countries. The nesting could be deeper if desired - e.g. Continent -&gt; Country -&gt; State -&gt; City, or any other structure. The only constaint is that the same depth must be used throughout the structure.
    *
    * @return A tree structure containing the headers to be rendered. Must include the colspan property at each level, which should be the sum of all child nodes beneath this node. Each group may specify the width it should be rendered with.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotGridView.html#method-Ext.grid.PivotGridView-getRowHeaders Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotGridView-method-getRowHeaders Sencha Docs Ext JS 3.4
    */
   public native function getRowHeaders():Array;
 
@@ -161,7 +160,7 @@ public class PivotGridView extends GridView {
    *
    *
    * @return The total height
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotGridView.html#method-Ext.grid.PivotGridView-getTotalColumnHeaderHeight Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotGridView-method-getTotalColumnHeaderHeight Sencha Docs Ext JS 3.4
    */
   public native function getTotalColumnHeaderHeight():Number;
 
@@ -169,21 +168,21 @@ public class PivotGridView extends GridView {
    * Returns the total width of all row headers as specified by <a href="output/Ext.grid.PivotGridView.html#Ext.grid.PivotGridView-getRowHeaders">getRowHeaders</a>
    *
    * @return The total width
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotGridView.html#method-Ext.grid.PivotGridView-getTotalRowHeaderWidth Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotGridView-method-getTotalRowHeaderWidth Sencha Docs Ext JS 3.4
    */
   public native function getTotalRowHeaderWidth():Number;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotGridView.html#method-Ext.grid.PivotGridView-initElements Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotGridView-method-initElements Sencha Docs Ext JS 3.4
    */
   override public native function initElements():void;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotGridView.html#method-Ext.grid.PivotGridView-initTemplates Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotGridView-method-initTemplates Sencha Docs Ext JS 3.4
    */
   override public native function initTemplates():void;
 
@@ -192,14 +191,14 @@ public class PivotGridView extends GridView {
    *
    * @param cellIndex The header cell index
    * @param el The cell element currently being hovered over
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotGridView.html#method-Ext.grid.PivotGridView-isMenuDisabled Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotGridView-method-isMenuDisabled Sencha Docs Ext JS 3.4
    */
   override public native function isMenuDisabled(cellIndex:Number, el:Element):void;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotGridView.html#method-Ext.grid.PivotGridView-onLayout Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotGridView-method-onLayout Sencha Docs Ext JS 3.4
    */
   public native function onLayout():void;
 
@@ -207,21 +206,21 @@ public class PivotGridView extends GridView {
    * Refreshs the grid UI
    *
    * @param headersToo True to also refresh the headers
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotGridView.html#method-Ext.grid.PivotGridView-refresh Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotGridView-method-refresh Sencha Docs Ext JS 3.4
    */
   override public native function refresh(headersToo:Boolean = false):void;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotGridView.html#method-Ext.grid.PivotGridView-renderGroupColumnHeaders Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotGridView-method-renderGroupColumnHeaders Sencha Docs Ext JS 3.4
    */
   public native function renderGroupColumnHeaders():void;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotGridView.html#method-Ext.grid.PivotGridView-renderGroupRowHeaders Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotGridView-method-renderGroupRowHeaders Sencha Docs Ext JS 3.4
    */
   public native function renderGroupRowHeaders():void;
 
@@ -229,7 +228,7 @@ public class PivotGridView extends GridView {
    *
    *
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotGridView.html#method-Ext.grid.PivotGridView-renderHeaders Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotGridView-method-renderHeaders Sencha Docs Ext JS 3.4
    */
   override public native function renderHeaders():String;
 
@@ -238,14 +237,14 @@ public class PivotGridView extends GridView {
    *
    * @param startRow Index of the first row to render
    * @param endRow Index of the last row to render
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotGridView.html#method-Ext.grid.PivotGridView-renderRows Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotGridView-method-renderRows Sencha Docs Ext JS 3.4
    */
   override public native function renderRows(startRow:Number, endRow:Number):void;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotGridView.html#method-Ext.grid.PivotGridView-renderUI Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotGridView-method-renderUI Sencha Docs Ext JS 3.4
    */
   override public native function renderUI():void;
 
@@ -253,7 +252,7 @@ public class PivotGridView extends GridView {
    *
    *
    * @param width The new width
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotGridView.html#method-Ext.grid.PivotGridView-resizeAllRows Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotGridView-method-resizeAllRows Sencha Docs Ext JS 3.4
    */
   public native function resizeAllRows(width:Number):void;
 
@@ -261,14 +260,14 @@ public class PivotGridView extends GridView {
    *
    *
    * @param width The new width
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotGridView.html#method-Ext.grid.PivotGridView-resizeColumnHeaders Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotGridView-method-resizeColumnHeaders Sencha Docs Ext JS 3.4
    */
   public native function resizeColumnHeaders(width:Number):void;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotGridView.html#method-Ext.grid.PivotGridView-resizeRowHeaders Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotGridView-method-resizeRowHeaders Sencha Docs Ext JS 3.4
    */
   public native function resizeRowHeaders():void;
 
@@ -276,14 +275,14 @@ public class PivotGridView extends GridView {
    * Sets the title text in the top left segment of the PivotGridView
    *
    * @param title The title
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotGridView.html#method-Ext.grid.PivotGridView-setTitle Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotGridView-method-setTitle Sencha Docs Ext JS 3.4
    */
   public native function setTitle(title:String):void;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotGridView.html#method-Ext.grid.PivotGridView-updateHeaders Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotGridView-method-updateHeaders Sencha Docs Ext JS 3.4
    */
   override public native function updateHeaders():void;
 

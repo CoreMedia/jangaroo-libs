@@ -58,7 +58,7 @@ import ext.config.menubaseitem;
 
  * <p>This component is created by the xtype 'menubaseitem' / the EXML element &lt;menubaseitem>.</p>
  * @see ext.config.menubaseitem
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BaseItem.html#cls-Ext.menu.BaseItem Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.menu.BaseItem Sencha Docs Ext JS 3.4
  */
 public class BaseItem extends Component {
 
@@ -74,7 +74,7 @@ public class BaseItem extends Component {
 
   /**
    The parent Menu of this Item.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BaseItem.html#prop-Ext.menu.BaseItem-parentMenu Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.menu.BaseItem-property-parentMenu Sencha Docs Ext JS 3.4
    */
   public native function get parentMenu():Menu;
 
@@ -85,31 +85,26 @@ public class BaseItem extends Component {
 
   /**
    The CSS class to use when the item becomes activated (defaults to "x-menu-item-active")
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get activeClass():String;
 
   /**
    True if this item can be visually activated (defaults to false)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get canActivate():Boolean;
 
   /**
    Length of time in milliseconds to wait before hiding after a click (defaults to 1)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get clickHideDelay():Number;
 
   /**
    True to hide the containing menu after this item is clicked (defaults to true)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get hideOnClick():Boolean;
 
   /**
    The scope (<tt><b>this</b></tt> reference) in which the handler function will be called.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get scope():Object;
 
@@ -118,7 +113,7 @@ public class BaseItem extends Component {
    *
    * @param handler The function that should be called on click
    * @param scope The scope (<code>this</code> reference) in which the handler function is executed. Defaults to this menu item.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BaseItem.html#method-Ext.menu.BaseItem-setHandler Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.menu.BaseItem-method-setHandler Sencha Docs Ext JS 3.4
    */
   public native function setHandler(handler:Function, scope:Object):void;
 

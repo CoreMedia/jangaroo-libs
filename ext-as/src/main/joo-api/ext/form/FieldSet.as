@@ -61,7 +61,7 @@ import ext.config.fieldset;
 
  * <p>This component is created by the xtype 'fieldset' / the EXML element &lt;fieldset>.</p>
  * @see ext.config.fieldset
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/FieldSet.html#cls-Ext.form.FieldSet Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.FieldSet Sencha Docs Ext JS 3.4
  */
 public class FieldSet extends Panel {
 
@@ -77,45 +77,39 @@ public class FieldSet extends Panel {
 
   /**
    <tt>true</tt> to animate the transition when the panel is collapsed, <tt>false</tt> to skip the animation (defaults to <tt>false</tt>).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   override public native function get animCollapse():Boolean;
 
   /**
    The base CSS class applied to the fieldset (defaults to <tt>'x-fieldset'</tt>).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   override public native function get baseCls():String;
 
   /**
    The name to assign to the fieldset's checkbox if <tt><a href="output/Ext.form.FieldSet.html#Ext.form.FieldSet-checkboxToggle">checkboxToggle</a> = true</tt> (defaults to <tt>'[checkbox id]-checkbox'</tt>).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get checkboxName():String;
 
   /**
    <tt>true</tt> to render a checkbox into the fieldset frame just in front of the legend to expand/collapse the fieldset when the checkbox is toggled. (defaults to <tt>false</tt>). <p>A <a href="Ext.DomHelper.html">DomHelper</a> element spec may also be specified to create the checkbox. If <tt>true</tt> is specified, the default DomHelper config object used to create the element is:</p><pre><code>{tag: 'input', type: 'checkbox', name: this.checkboxName || this.id+'-checkbox'}
    </code></pre>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get checkboxToggle():*;
 
   /**
    <tt>true</tt> to make the fieldset collapsible and have the expand/collapse toggle button automatically rendered into the legend element, <tt>false</tt> to keep the fieldset statically sized with no collapse button (defaults to <tt>false</tt>). Another option is to configure <tt><a href="output/Ext.form.FieldSet.html#Ext.form.FieldSet-checkboxToggle">checkboxToggle</a></tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   override public native function get collapsible():Boolean;
 
   /**
    The width of labels. This property cascades to child containers.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get labelWidth():Number;
 
   /**
    * This function is called by the fieldset's checkbox when it is toggled (only applies when checkboxToggle = true). This method should never be called externally, but can be overridden to provide custom behavior when the checkbox is toggled if needed.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/FieldSet.html#method-Ext.form.FieldSet-onCheckClick Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.FieldSet-method-onCheckClick Sencha Docs Ext JS 3.4
    */
   public native function onCheckClick():void;
 

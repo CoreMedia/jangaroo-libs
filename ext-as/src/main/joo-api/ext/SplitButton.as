@@ -51,7 +51,7 @@ import ext.config.splitbutton;
 
  * <p>This component is created by the xtype 'splitbutton' / the EXML element &lt;splitbutton>.</p>
  * @see ext.config.splitbutton
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SplitButton.html#cls-Ext.SplitButton Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.SplitButton Sencha Docs Ext JS 3.4
  */
 public class SplitButton extends Button {
 
@@ -67,7 +67,6 @@ public class SplitButton extends Button {
 
   /**
    The title attribute of the arrow
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get arrowTooltip():String;
 
@@ -76,7 +75,7 @@ public class SplitButton extends Button {
    *
    * @param handler The function to call when the arrow is clicked
    * @param scope Scope for the function passed above
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SplitButton.html#method-Ext.SplitButton-setArrowHandler Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.SplitButton-method-setArrowHandler Sencha Docs Ext JS 3.4
    */
   public native function setArrowHandler(handler:Function, scope:Object = null):void;
 

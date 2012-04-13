@@ -11,7 +11,7 @@ import js.HTMLElement;
 
  * <p>This component is created by the xtype 'tbitem' / the EXML element &lt;tbitem>.</p>
  * @see ext.config.tbitem
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Toolbar.html#cls-Ext.Toolbar.Item Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Toolbar.Item Sencha Docs Ext JS 3.4
  */
 public class Item extends BoxComponent {
 
@@ -27,7 +27,6 @@ public class Item extends BoxComponent {
 
   /**
    Text to be used for the menu if the item is overflowed.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get overflowText():String;
 

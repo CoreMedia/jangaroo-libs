@@ -799,7 +799,7 @@ import ext.config.treepanel;
 
  * <p>This component is created by the xtype 'treepanel' / the EXML element &lt;treepanel>.</p>
  * @see ext.config.treepanel
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreePanel.html#cls-Ext.tree.TreePanel Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreePanel Sencha Docs Ext JS 3.4
  */
 public class TreePanel extends Panel {
 
@@ -815,7 +815,7 @@ public class TreePanel extends Panel {
 
   /**
    The dragZone used by this tree if drag is enabled (see <a href="output/Ext.tree.TreePanel.html#Ext.tree.TreePanel-enableDD">enableDD</a> or <a href="output/Ext.tree.TreePanel.html#Ext.tree.TreePanel-enableDrag">enableDrag</a>)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreePanel.html#prop-Ext.tree.TreePanel-dragZone Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreePanel-property-dragZone Sencha Docs Ext JS 3.4
    */
   public native function get dragZone():TreeDragZone;
 
@@ -826,7 +826,7 @@ public class TreePanel extends Panel {
 
   /**
    The dropZone used by this tree if drop is enabled (see <a href="output/Ext.tree.TreePanel.html#Ext.tree.TreePanel-enableDD">enableDD</a> or <a href="output/Ext.tree.TreePanel.html#Ext.tree.TreePanel-enableDrop">enableDrop</a>)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreePanel.html#prop-Ext.tree.TreePanel-dropZone Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreePanel-property-dropZone Sencha Docs Ext JS 3.4
    */
   public native function get dropZone():TreeDropZone;
 
@@ -837,7 +837,7 @@ public class TreePanel extends Panel {
 
   /**
    The root node of this tree.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreePanel.html#prop-Ext.tree.TreePanel-root Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreePanel-property-root Sencha Docs Ext JS 3.4
    */
   public native function get root():TreeNode;
 
@@ -848,142 +848,122 @@ public class TreePanel extends Panel {
 
   /**
    <tt>true</tt> to enable animated expand/collapse (defaults to the value of <a href="output/Ext.html#Ext-enableFx">Ext.enableFx</a>)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get animate():Boolean;
 
   /**
    <tt>true</tt> to register this container with ScrollManager
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get containerScroll():Boolean;
 
   /**
    <tt>true</tt> if the tree should only allow append drops (use for trees which are sorted)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get ddAppendOnly():Boolean;
 
   /**
    The DD group this TreePanel belongs to
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get ddGroup():String;
 
   /**
    <tt>true</tt> to enable body scrolling
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get ddScroll():Boolean;
 
   /**
    Custom config to pass to the <a href="Ext.tree.TreeDragZone.html">Ext.tree.TreeDragZone</a> instance
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get dragConfig():Object;
 
   /**
    Custom config to pass to the <a href="Ext.tree.TreeDropZone.html">Ext.tree.TreeDropZone</a> instance
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get dropConfig():Object;
 
   /**
    <tt>true</tt> to enable drag and drop
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get enableDD():Boolean;
 
   /**
    <tt>true</tt> to enable just drag
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get enableDrag():Boolean;
 
   /**
    <tt>true</tt> to enable just drop
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get enableDrop():Boolean;
 
   /**
    The color of the node highlight (defaults to <tt>'C3DAF9'</tt>)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get hlColor():String;
 
   /**
    <tt>false</tt> to disable node highlight on drop (defaults to the value of <a href="output/Ext.html#Ext-enableFx">Ext.enableFx</a>)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get hlDrop():Boolean;
 
   /**
    <tt>false</tt> to disable tree lines (defaults to <tt>true</tt>)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get lines():Boolean;
 
   /**
    The token used to separate sub-paths in path strings (defaults to <tt>'/'</tt>)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get pathSeparator():String;
 
   /**
    The HTTP request method for loading data (defaults to the value of <a href="output/Ext.Ajax.html#Ext.Ajax-method">Ext.Ajax.method</a>).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get requestMethod():String;
 
   /**
    <tt>false</tt> to hide the root node (defaults to <tt>true</tt>)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get rootVisible():Boolean;
 
   /**
    A tree selection model to use with this TreePanel (defaults to an <a href="Ext.tree.DefaultSelectionModel.html">Ext.tree.DefaultSelectionModel</a>)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get selModel():Object;
 
   /**
    <tt>true</tt> if only 1 node per branch may be expanded
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get singleExpand():Boolean;
 
   /**
    <tt>false</tt> to disable mouse over highlighting
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get trackMouseOver():Boolean;
 
   /**
    <tt>true</tt> to use Vista-style arrows in the tree (defaults to <tt>false</tt>)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get useArrows():Boolean;
 
   /**
    * Collapse all nodes
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreePanel.html#method-Ext.tree.TreePanel-collapseAll Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreePanel-method-collapseAll Sencha Docs Ext JS 3.4
    */
   public native function collapseAll():void;
 
   /**
    * Destroy the root node. Not included by itself because we need to pass the silent parameter.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreePanel.html#method-Ext.tree.TreePanel-destroyRoot Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreePanel-method-destroyRoot Sencha Docs Ext JS 3.4
    */
   public native function destroyRoot():void;
 
   /**
    * Expand all nodes
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreePanel.html#method-Ext.tree.TreePanel-expandAll Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreePanel-method-expandAll Sencha Docs Ext JS 3.4
    */
   public native function expandAll():void;
 
@@ -993,7 +973,7 @@ public class TreePanel extends Panel {
    * @param path
    * @param attr The attribute used in the path (see <a href="output/Ext.data.Node.html#Ext.data.Node-getPath">Ext.data.Node.getPath</a> for more info)
    * @param callback The callback to call when the expand is complete. The callback will be called with (bSuccess, oLastNode) where bSuccess is if the expand was successful and oLastNode is the last node that was expanded.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreePanel.html#method-Ext.tree.TreePanel-expandPath Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreePanel-method-expandPath Sencha Docs Ext JS 3.4
    */
   public native function expandPath(path:String, attr:String = null, callback:Function = null):void;
 
@@ -1003,7 +983,7 @@ public class TreePanel extends Panel {
    * @param attribute Defaults to null (return the actual nodes)
    * @param startNode The node to start from, defaults to the root
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreePanel.html#method-Ext.tree.TreePanel-getChecked Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreePanel-method-getChecked Sencha Docs Ext JS 3.4
    */
   public native function getChecked(attribute:String = null, startNode:TreeNode = null):Array;
 
@@ -1011,7 +991,7 @@ public class TreePanel extends Panel {
    * Returns the default <a href="Ext.tree.TreeLoader.html">Ext.tree.TreeLoader</a> for this TreePanel.
    *
    * @return The TreeLoader for this TreePanel.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreePanel.html#method-Ext.tree.TreePanel-getLoader Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreePanel-method-getLoader Sencha Docs Ext JS 3.4
    */
   public native function getLoader():TreeLoader;
 
@@ -1020,7 +1000,7 @@ public class TreePanel extends Panel {
    *
    * @param id
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreePanel.html#method-Ext.tree.TreePanel-getNodeById Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreePanel-method-getNodeById Sencha Docs Ext JS 3.4
    */
   public native function getNodeById(id:String):TreeNode;
 
@@ -1028,7 +1008,7 @@ public class TreePanel extends Panel {
    * Returns this root node for this tree
    *
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreePanel.html#method-Ext.tree.TreePanel-getRootNode Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreePanel-method-getRootNode Sencha Docs Ext JS 3.4
    */
   public native function getRootNode():TreeNode;
 
@@ -1036,7 +1016,7 @@ public class TreePanel extends Panel {
    * Returns the selection model used by this TreePanel.
    *
    * @return The selection model used by this TreePanel
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreePanel.html#method-Ext.tree.TreePanel-getSelectionModel Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreePanel-method-getSelectionModel Sencha Docs Ext JS 3.4
    */
   public native function getSelectionModel():DefaultSelectionModel;
 
@@ -1044,7 +1024,7 @@ public class TreePanel extends Panel {
    * Returns the underlying Element for this tree
    *
    * @return The Element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreePanel.html#method-Ext.tree.TreePanel-getTreeEl Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreePanel-method-getTreeEl Sencha Docs Ext JS 3.4
    */
   public native function getTreeEl():Element;
 
@@ -1054,7 +1034,7 @@ public class TreePanel extends Panel {
    * @param path
    * @param attr The attribute used in the path (see <a href="output/Ext.data.Node.html#Ext.data.Node-getPath">Ext.data.Node.getPath</a> for more info)
    * @param callback The callback to call when the selection is complete. The callback will be called with (bSuccess, oSelNode) where bSuccess is if the selection was successful and oSelNode is the selected node.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreePanel.html#method-Ext.tree.TreePanel-selectPath Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreePanel-method-selectPath Sencha Docs Ext JS 3.4
    */
   public native function selectPath(path:String, attr:String = null, callback:Function = null):void;
 
@@ -1063,7 +1043,7 @@ public class TreePanel extends Panel {
    *
    * @param node
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreePanel.html#method-Ext.tree.TreePanel-setRootNode Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreePanel-method-setRootNode Sencha Docs Ext JS 3.4
    */
   public native function setRootNode(node:TreeNode):TreeNode;
 

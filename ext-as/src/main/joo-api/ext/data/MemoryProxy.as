@@ -35,7 +35,7 @@ package ext.data {
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  *
 
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MemoryProxy.html#cls-Ext.data.MemoryProxy Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.MemoryProxy Sencha Docs Ext JS 3.4
  */
 public class MemoryProxy extends DataProxy {
 
@@ -58,7 +58,7 @@ public class MemoryProxy extends DataProxy {
    * @param callback The function into which to pass the block of Ext.data.Records. The function must be passed <ul><li>The Record block object</li><li>The "arg" argument from the load function</li><li>A boolean success indicator</li></ul>
    * @param scope The scope (<code>this</code> reference) in which the callback function is executed. Defaults to the browser window.
    * @param arg An optional argument which is passed to the callback as its second parameter.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MemoryProxy.html#method-Ext.data.MemoryProxy-doRequest Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.MemoryProxy-method-doRequest Sencha Docs Ext JS 3.4
    */
   public native function doRequest(action:String, rs:*, params:Object, reader:DataReader, callback:Function, scope:Object, arg:Object):void;
 

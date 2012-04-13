@@ -8,7 +8,7 @@ import ext.util.Observable;
  *
 
  * @see ext.config.abstractselectionmodel
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/AbstractSelectionModel.html#cls-Ext.grid.AbstractSelectionModel Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.AbstractSelectionModel Sencha Docs Ext JS 3.4
  */
 public class AbstractSelectionModel extends Observable {
 
@@ -23,7 +23,7 @@ public class AbstractSelectionModel extends Observable {
 
   /**
    The GridPanel for which this SelectionModel is handling selection.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/AbstractSelectionModel.html#prop-Ext.grid.AbstractSelectionModel-grid Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.AbstractSelectionModel-property-grid Sencha Docs Ext JS 3.4
    */
   public native function get grid():Object;
 
@@ -31,21 +31,21 @@ public class AbstractSelectionModel extends Observable {
    * Returns true if the selections are locked.
    *
    * @return
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/AbstractSelectionModel.html#method-Ext.grid.AbstractSelectionModel-isLocked Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.AbstractSelectionModel-method-isLocked Sencha Docs Ext JS 3.4
    */
   public native function isLocked():Boolean;
 
   /**
    * Locks the selections.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/AbstractSelectionModel.html#method-Ext.grid.AbstractSelectionModel-lock Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.AbstractSelectionModel-method-lock Sencha Docs Ext JS 3.4
    */
   public native function lock():void;
 
   /**
    * Unlocks the selections.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/AbstractSelectionModel.html#method-Ext.grid.AbstractSelectionModel-unlock Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.AbstractSelectionModel-method-unlock Sencha Docs Ext JS 3.4
    */
   public native function unlock():void;
 

@@ -309,7 +309,7 @@ import js.HTMLElement;
 
  * <p>This component is created by the xtype 'dataview' / the EXML element &lt;dataview>.</p>
  * @see ext.config.dataview
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataView.html#cls-Ext.DataView Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DataView Sencha Docs Ext JS 3.4
  */
 public class DataView extends BoxComponent {
 
@@ -325,67 +325,56 @@ public class DataView extends BoxComponent {
 
   /**
    Set this to true to ignore datachanged events on the bound store. This is useful if you wish to provide custom transition animations via a plugin (defaults to false)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get blockRefresh():Boolean;
 
   /**
    True to defer emptyText being applied until the store's first load
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get deferEmptyText():Boolean;
 
   /**
    The text to display in the view when there is no data to display (defaults to '').
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get emptyText():String;
 
   /**
    <b>This is a required setting</b>. A simple CSS selector (e.g. <tt>div.some-class</tt> or <tt>span:first-child</tt>) that will be used to determine what nodes this DataView will be working with.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get itemSelector():String;
 
   /**
    A string to display during data load operations (defaults to undefined). If specified, this text will be displayed in a loading div and the view's contents will be cleared while loading, otherwise the view's contents will continue to display normally until the new data is loaded and the contents are replaced.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get loadingText():String;
 
   /**
    True to allow selection of more than one item at a time, false to allow selection of only a single item at a time or no selection at all, depending on the value of <a href="output/Ext.DataView.html#Ext.DataView-singleSelect">singleSelect</a> (defaults to false).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get multiSelect():Boolean;
 
   /**
    A CSS class to apply to each item in the view on mouseover (defaults to undefined).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get overClass():String;
 
   /**
    A CSS class to apply to each selected item in the view (defaults to 'x-view-selected').
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get selectedClass():String;
 
   /**
    True to enable multiselection by clicking on multiple items without requiring the user to hold Shift or Ctrl, false to force the user to hold Ctrl or Shift to select more than on item (defaults to false).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get simpleSelect():Boolean;
 
   /**
    True to allow selection of exactly one item at a time, false to allow no selection at all (defaults to false). Note that if <a href="output/Ext.DataView.html#Ext.DataView-multiSelect">multiSelect</a> = true, this value will be ignored.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get singleSelect():Boolean;
 
   /**
    True to enable mouseenter and mouseleave events
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get trackOver():Boolean;
 
@@ -393,7 +382,7 @@ public class DataView extends BoxComponent {
    * Changes the data store bound to this view and refreshes it.
    *
    * @param store The store to bind to this view
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataView.html#method-Ext.DataView-bindStore Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DataView-method-bindStore Sencha Docs Ext JS 3.4
    */
   public native function bindStore(store:Store):void;
 
@@ -401,7 +390,7 @@ public class DataView extends BoxComponent {
    * Clears all selections.
    *
    * @param suppressEvent True to skip firing of the selectionchange event
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataView.html#method-Ext.DataView-clearSelections Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DataView-method-clearSelections Sencha Docs Ext JS 3.4
    */
   public native function clearSelections(suppressEvent:Boolean = false):void;
 
@@ -412,7 +401,7 @@ public class DataView extends BoxComponent {
    * @param records An Array of <a href="Ext.data.Record.html">Ext.data.Record</a>s to be rendered into the DataView.
    * @param startIndex the index number of the Record being prepared for rendering.
    * @return An Array of data objects to be processed by a repeating XTemplate. May also contain <i>named</i> properties.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataView.html#method-Ext.DataView-collectData Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DataView-method-collectData Sencha Docs Ext JS 3.4
    */
   public native function collectData(records:Array, startIndex:Number):Array;
 
@@ -420,7 +409,7 @@ public class DataView extends BoxComponent {
    * Deselects a node.
    *
    * @param node The node, node index or record to deselect
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataView.html#method-Ext.DataView-deselect Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DataView-method-deselect Sencha Docs Ext JS 3.4
    */
   public native function deselect(node:*):void;
 
@@ -429,7 +418,7 @@ public class DataView extends BoxComponent {
    *
    * @param node
    * @return The template node
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataView.html#method-Ext.DataView-findItemFromChild Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DataView-method-findItemFromChild Sencha Docs Ext JS 3.4
    */
   public native function findItemFromChild(node:HTMLElement):HTMLElement;
 
@@ -438,7 +427,7 @@ public class DataView extends BoxComponent {
    *
    * @param nodeInfo An HTMLElement template node, index of a template node, the id of a template node or the record associated with the node.
    * @return The node or null if it wasn't found
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataView.html#method-Ext.DataView-getNode Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DataView-method-getNode Sencha Docs Ext JS 3.4
    */
   public native function getNode(nodeInfo:*):HTMLElement;
 
@@ -448,7 +437,7 @@ public class DataView extends BoxComponent {
    * @param start The index of the first node in the range
    * @param end The index of the last node in the range
    * @return An array of nodes
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataView.html#method-Ext.DataView-getNodes Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DataView-method-getNodes Sencha Docs Ext JS 3.4
    */
   public native function getNodes(start:Number = undefined, end:Number = undefined):Array;
 
@@ -457,7 +446,7 @@ public class DataView extends BoxComponent {
    *
    * @param node The node to evaluate
    * @return record The <a href="Ext.data.Record.html">Ext.data.Record</a> object
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataView.html#method-Ext.DataView-getRecord Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DataView-method-getRecord Sencha Docs Ext JS 3.4
    */
   public native function getRecord(node:HTMLElement):Record;
 
@@ -466,7 +455,7 @@ public class DataView extends BoxComponent {
    *
    * @param nodes The nodes to evaluate
    * @return records The <a href="Ext.data.Record.html">Ext.data.Record</a> objects
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataView.html#method-Ext.DataView-getRecords Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DataView-method-getRecords Sencha Docs Ext JS 3.4
    */
   public native function getRecords(nodes:Array):Array;
 
@@ -474,7 +463,7 @@ public class DataView extends BoxComponent {
    * Gets the indexes of the selected nodes.
    *
    * @return An array of numeric indexes
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataView.html#method-Ext.DataView-getSelectedIndexes Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DataView-method-getSelectedIndexes Sencha Docs Ext JS 3.4
    */
   public native function getSelectedIndexes():Array;
 
@@ -482,7 +471,7 @@ public class DataView extends BoxComponent {
    * Gets the currently selected nodes.
    *
    * @return An array of HTMLElements
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataView.html#method-Ext.DataView-getSelectedNodes Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DataView-method-getSelectedNodes Sencha Docs Ext JS 3.4
    */
   public native function getSelectedNodes():Array;
 
@@ -490,7 +479,7 @@ public class DataView extends BoxComponent {
    * Gets an array of the selected records
    *
    * @return An array of <a href="Ext.data.Record.html">Ext.data.Record</a> objects
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataView.html#method-Ext.DataView-getSelectedRecords Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DataView-method-getSelectedRecords Sencha Docs Ext JS 3.4
    */
   public native function getSelectedRecords():Array;
 
@@ -498,7 +487,7 @@ public class DataView extends BoxComponent {
    * Gets the number of selected nodes.
    *
    * @return The node count
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataView.html#method-Ext.DataView-getSelectionCount Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DataView-method-getSelectionCount Sencha Docs Ext JS 3.4
    */
   public native function getSelectionCount():Number;
 
@@ -506,7 +495,7 @@ public class DataView extends BoxComponent {
    * Returns the store associated with this DataView.
    *
    * @return The store
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataView.html#method-Ext.DataView-getStore Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DataView-method-getStore Sencha Docs Ext JS 3.4
    */
   public native function getStore():Store;
 
@@ -515,7 +504,7 @@ public class DataView extends BoxComponent {
    *
    * @param nodeInfo An HTMLElement template node, index of a template node, the id of a template node or a record associated with a node.
    * @return The index of the node or -1
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataView.html#method-Ext.DataView-indexOf Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DataView-method-indexOf Sencha Docs Ext JS 3.4
    */
   public native function indexOf(nodeInfo:*):Number;
 
@@ -524,14 +513,14 @@ public class DataView extends BoxComponent {
    *
    * @param node The node, node index or record to check
    * @return True if selected, else false
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataView.html#method-Ext.DataView-isSelected Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DataView-method-isSelected Sencha Docs Ext JS 3.4
    */
   public native function isSelected(node:*):Boolean;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataView.html#method-Ext.DataView-onDataChanged Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DataView-method-onDataChanged Sencha Docs Ext JS 3.4
    */
   public native function onDataChanged():void;
 
@@ -542,14 +531,14 @@ public class DataView extends BoxComponent {
    * @param recordIndex the index number of the Record being prepared for rendering.
    * @param record The Record being prepared for rendering.
    * @return The formatted data in a format expected by the internal <a href="output/Ext.DataView.html#Ext.DataView-tpl">template</a>'s overwrite() method. (either an array if your params are numeric (i.e. {0}) or an object (i.e. {foo: 'bar'}))
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataView.html#method-Ext.DataView-prepareData Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DataView-method-prepareData Sencha Docs Ext JS 3.4
    */
   public native function prepareData(data:*, recordIndex:Number, record:Record):*;
 
   /**
    * Refreshes the view by reloading the data from the store and re-rendering the template.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataView.html#method-Ext.DataView-refresh Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DataView-method-refresh Sencha Docs Ext JS 3.4
    */
   public native function refresh():void;
 
@@ -557,7 +546,7 @@ public class DataView extends BoxComponent {
    * Refreshes an individual node's data from the store.
    *
    * @param index The item's data index in the store
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataView.html#method-Ext.DataView-refreshNode Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DataView-method-refreshNode Sencha Docs Ext JS 3.4
    */
   public native function refreshNode(index:Number):void;
 
@@ -567,7 +556,7 @@ public class DataView extends BoxComponent {
    * @param nodeInfo An HTMLElement template node, index of a template node, id of a template node, record associated with a node or an array of any of those to select
    * @param keepExisting true to keep existing selections
    * @param suppressEvent true to skip firing of the selectionchange vent
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataView.html#method-Ext.DataView-select Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DataView-method-select Sencha Docs Ext JS 3.4
    */
   public native function select(nodeInfo:*, keepExisting:Boolean = false, suppressEvent:Boolean = false):void;
 
@@ -577,7 +566,7 @@ public class DataView extends BoxComponent {
    * @param start The index of the first node in the range
    * @param end The index of the last node in the range
    * @param keepExisting True to retain existing selections
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataView.html#method-Ext.DataView-selectRange Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DataView-method-selectRange Sencha Docs Ext JS 3.4
    */
   public native function selectRange(start:Number, end:Number, keepExisting:Boolean = false):void;
 
@@ -585,7 +574,7 @@ public class DataView extends BoxComponent {
    * Changes the data store bound to this view and refreshes it. (deprecated in favor of bindStore)
    *
    * @param store The store to bind to this view
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataView.html#method-Ext.DataView-setStore Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DataView-method-setStore Sencha Docs Ext JS 3.4
    */
   public native function setStore(store:Store):void;
 

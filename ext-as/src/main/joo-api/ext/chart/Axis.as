@@ -7,7 +7,7 @@ package ext.chart {
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  *
 
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Chart.html#cls-Ext.chart.Axis Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.chart.Axis Sencha Docs Ext JS 3.4
  */
 public class Axis {
 
@@ -21,7 +21,7 @@ public class Axis {
 
   /**
    If true, labels that overlap previously drawn labels on the axis will be hidden.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Chart.html#prop-Ext.chart.Axis-hideOverlappingLabels Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.chart.Axis-property-hideOverlappingLabels Sencha Docs Ext JS 3.4
    */
   public native function get hideOverlappingLabels():Boolean;
 
@@ -32,7 +32,7 @@ public class Axis {
 
   /**
    A string reference to the globally-accessible function that may be called to determine each of the label values for this axis.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Chart.html#prop-Ext.chart.Axis-labelFunction Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.chart.Axis-property-labelFunction Sencha Docs Ext JS 3.4
    */
   public native function get labelFunction():String;
 
@@ -43,7 +43,7 @@ public class Axis {
 
   /**
    The space, in pixels, between labels on an axis.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Chart.html#prop-Ext.chart.Axis-labelSpacing Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.chart.Axis-property-labelSpacing Sencha Docs Ext JS 3.4
    */
   public native function get labelSpacing():Number;
 
@@ -54,7 +54,7 @@ public class Axis {
 
   /**
    The direction in which the axis is drawn. May be "horizontal" or "vertical".
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Chart.html#prop-Ext.chart.Axis-orientation Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.chart.Axis-property-orientation Sencha Docs Ext JS 3.4
    */
   public native function get orientation():String;
 
@@ -65,7 +65,7 @@ public class Axis {
 
   /**
    If true, the items on the axis will be drawn in opposite direction.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Chart.html#prop-Ext.chart.Axis-reverse Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.chart.Axis-property-reverse Sencha Docs Ext JS 3.4
    */
   public native function get reverse():Boolean;
 
@@ -76,7 +76,7 @@ public class Axis {
 
   /**
    The type of axis.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Chart.html#prop-Ext.chart.Axis-type Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.chart.Axis-property-type Sencha Docs Ext JS 3.4
    */
   public native function get type():String;
 

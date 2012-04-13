@@ -11,31 +11,31 @@ import js.HTMLElement;
 
  * <p>This interface defines the type of the singleton Ext.</p>
  * @see ext.#Ext ext.Ext
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#cls-Ext Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext Sencha Docs Ext JS 3.4
  */
 public interface IExt {
 
   /**
    URL to a 1x1 transparent gif image used by Ext to create inline icons with CSS background images. In older versions of IE, this defaults to "http://extjs.com/s.gif" and you should change this to a URL on your server. For other browsers it uses an inline data URL.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext-more.html#prop-Ext-BLANK_IMAGE_URL Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-property-BLANK_IMAGE_URL Sencha Docs Ext JS 3.4
    */
   function get BLANK_IMAGE_URL():String;
 
   /**
    URL to a blank file used by Ext when in secure mode for iframe src and onReady src to prevent the IE insecure content warning (<tt>'about:blank'</tt>, except for IE in secure mode, which is <tt>'javascript:""'</tt>).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#prop-Ext-SSL_SECURE_URL Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-property-SSL_SECURE_URL Sencha Docs Ext JS 3.4
    */
   function get SSL_SECURE_URL():String;
 
   /**
    Indicates whether to use native browser parsing for JSON methods. This option is ignored if the browser does not support native JSON methods. <b>Note: Native JSON methods will not work with objects that have functions. Also, property names must be quoted, otherwise the data will not parse.</b> (Defaults to false)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#prop-Ext-USE_NATIVE_JSON Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-property-USE_NATIVE_JSON Sencha Docs Ext JS 3.4
    */
   function get USE_NATIVE_JSON():Boolean;
 
   /**
    A reusable empty function
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext-more.html#prop-Ext-emptyFn Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-property-emptyFn Sencha Docs Ext JS 3.4
    */
   function get emptyFn():Function;
 
@@ -46,7 +46,7 @@ public interface IExt {
 
   /**
    HIGHLY EXPERIMENTAL True to force css based border-box model override and turning off javascript based adjustments. This is a runtime configuration and must be set before onReady.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#prop-Ext-enableForcedBoxModel Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-property-enableForcedBoxModel Sencha Docs Ext JS 3.4
    */
   function get enableForcedBoxModel():Boolean;
 
@@ -57,7 +57,7 @@ public interface IExt {
 
   /**
    True if the <a href="Ext.Fx.html">Ext.Fx</a> Class is available
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#prop-Ext-enableFx Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-property-enableFx Sencha Docs Ext JS 3.4
    */
   function get enableFx():Boolean;
 
@@ -68,7 +68,7 @@ public interface IExt {
 
   /**
    True to automatically uncache orphaned Ext.Elements periodically (defaults to true)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#prop-Ext-enableGarbageCollector Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-property-enableGarbageCollector Sencha Docs Ext JS 3.4
    */
   function get enableGarbageCollector():Boolean;
 
@@ -79,7 +79,7 @@ public interface IExt {
 
   /**
    True to automatically purge event listeners during garbageCollection (defaults to false).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#prop-Ext-enableListenerCollection Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-property-enableListenerCollection Sencha Docs Ext JS 3.4
    */
   function get enableListenerCollection():Boolean;
 
@@ -90,7 +90,7 @@ public interface IExt {
 
   /**
    EXPERIMENTAL - True to cascade listener removal to child elements when an element is removed. Currently not optimized for performance.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#prop-Ext-enableNestedListenerRemoval Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-property-enableNestedListenerRemoval Sencha Docs Ext JS 3.4
    */
   function get enableNestedListenerRemoval():Boolean;
 
@@ -101,7 +101,7 @@ public interface IExt {
 
   /**
    True if the detected platform is Adobe Air.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#prop-Ext-isAir Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-property-isAir Sencha Docs Ext JS 3.4
    */
   function get isAir():Boolean;
 
@@ -112,7 +112,7 @@ public interface IExt {
 
   /**
    True if the detected browser is Internet Explorer running in non-strict mode.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#prop-Ext-isBorderBox Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-property-isBorderBox Sencha Docs Ext JS 3.4
    */
   function get isBorderBox():Boolean;
 
@@ -123,7 +123,7 @@ public interface IExt {
 
   /**
    True if the detected browser is Chrome.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#prop-Ext-isChrome Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-property-isChrome Sencha Docs Ext JS 3.4
    */
   function get isChrome():Boolean;
 
@@ -134,7 +134,7 @@ public interface IExt {
 
   /**
    True if the detected browser uses the Gecko layout engine (e.g. Mozilla, Firefox).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#prop-Ext-isGecko Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-property-isGecko Sencha Docs Ext JS 3.4
    */
   function get isGecko():Boolean;
 
@@ -145,7 +145,7 @@ public interface IExt {
 
   /**
    True if the detected browser uses a pre-Gecko 1.9 layout engine (e.g. Firefox 2.x).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#prop-Ext-isGecko2 Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-property-isGecko2 Sencha Docs Ext JS 3.4
    */
   function get isGecko2():Boolean;
 
@@ -156,7 +156,7 @@ public interface IExt {
 
   /**
    True if the detected browser uses a Gecko 1.9+ layout engine (e.g. Firefox 3.x).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#prop-Ext-isGecko3 Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-property-isGecko3 Sencha Docs Ext JS 3.4
    */
   function get isGecko3():Boolean;
 
@@ -167,7 +167,7 @@ public interface IExt {
 
   /**
    True if the detected browser is Internet Explorer.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#prop-Ext-isIE Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-property-isIE Sencha Docs Ext JS 3.4
    */
   function get isIE():Boolean;
 
@@ -178,7 +178,7 @@ public interface IExt {
 
   /**
    True if the detected browser is Internet Explorer 6.x.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#prop-Ext-isIE6 Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-property-isIE6 Sencha Docs Ext JS 3.4
    */
   function get isIE6():Boolean;
 
@@ -189,7 +189,7 @@ public interface IExt {
 
   /**
    True if the detected browser is Internet Explorer 7.x.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#prop-Ext-isIE7 Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-property-isIE7 Sencha Docs Ext JS 3.4
    */
   function get isIE7():Boolean;
 
@@ -200,7 +200,7 @@ public interface IExt {
 
   /**
    True if the detected browser is Internet Explorer 8.x.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#prop-Ext-isIE8 Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-property-isIE8 Sencha Docs Ext JS 3.4
    */
   function get isIE8():Boolean;
 
@@ -211,7 +211,7 @@ public interface IExt {
 
   /**
    True if the detected browser is Internet Explorer 9.x.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#prop-Ext-isIE9 Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-property-isIE9 Sencha Docs Ext JS 3.4
    */
   function get isIE9():Boolean;
 
@@ -222,7 +222,7 @@ public interface IExt {
 
   /**
    True if the detected platform is Linux.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#prop-Ext-isLinux Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-property-isLinux Sencha Docs Ext JS 3.4
    */
   function get isLinux():Boolean;
 
@@ -233,7 +233,7 @@ public interface IExt {
 
   /**
    True if the detected platform is Mac OS.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#prop-Ext-isMac Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-property-isMac Sencha Docs Ext JS 3.4
    */
   function get isMac():Boolean;
 
@@ -244,7 +244,7 @@ public interface IExt {
 
   /**
    True if the detected browser is Opera.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#prop-Ext-isOpera Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-property-isOpera Sencha Docs Ext JS 3.4
    */
   function get isOpera():Boolean;
 
@@ -255,7 +255,7 @@ public interface IExt {
 
   /**
    True when the document is fully initialized and ready for action
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#prop-Ext-isReady Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-property-isReady Sencha Docs Ext JS 3.4
    */
   function get isReady():Boolean;
 
@@ -266,7 +266,7 @@ public interface IExt {
 
   /**
    True if the detected browser is Safari.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#prop-Ext-isSafari Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-property-isSafari Sencha Docs Ext JS 3.4
    */
   function get isSafari():Boolean;
 
@@ -277,7 +277,7 @@ public interface IExt {
 
   /**
    True if the detected browser is Safari 2.x.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#prop-Ext-isSafari2 Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-property-isSafari2 Sencha Docs Ext JS 3.4
    */
   function get isSafari2():Boolean;
 
@@ -288,7 +288,7 @@ public interface IExt {
 
   /**
    True if the detected browser is Safari 3.x.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#prop-Ext-isSafari3 Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-property-isSafari3 Sencha Docs Ext JS 3.4
    */
   function get isSafari3():Boolean;
 
@@ -299,7 +299,7 @@ public interface IExt {
 
   /**
    True if the detected browser is Safari 4.x.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#prop-Ext-isSafari4 Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-property-isSafari4 Sencha Docs Ext JS 3.4
    */
   function get isSafari4():Boolean;
 
@@ -310,7 +310,7 @@ public interface IExt {
 
   /**
    True if the page is running over SSL
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#prop-Ext-isSecure Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-property-isSecure Sencha Docs Ext JS 3.4
    */
   function get isSecure():Boolean;
 
@@ -321,7 +321,7 @@ public interface IExt {
 
   /**
    True if the browser is in strict (standards-compliant) mode, as opposed to quirks mode
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#prop-Ext-isStrict Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-property-isStrict Sencha Docs Ext JS 3.4
    */
   function get isStrict():Boolean;
 
@@ -332,7 +332,7 @@ public interface IExt {
 
   /**
    True if the detected browser uses WebKit.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#prop-Ext-isWebKit Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-property-isWebKit Sencha Docs Ext JS 3.4
    */
   function get isWebKit():Boolean;
 
@@ -343,7 +343,7 @@ public interface IExt {
 
   /**
    True if the detected platform is Windows.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#prop-Ext-isWindows Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-property-isWindows Sencha Docs Ext JS 3.4
    */
   function get isWindows():Boolean;
 
@@ -354,7 +354,7 @@ public interface IExt {
 
   /**
    By default, Ext intelligently decides whether floating elements should be shimmed. If you are using flash, you may want to set this to true.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext-more.html#prop-Ext-useShims Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-property-useShims Sencha Docs Ext JS 3.4
    */
   function get useShims():Boolean;
 
@@ -365,7 +365,7 @@ public interface IExt {
 
   /**
    Namespace allotted for extensions to the framework.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext-more.html#prop-Ext-ux Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-property-ux Sencha Docs Ext JS 3.4
    */
   function get ux():Object;
 
@@ -376,7 +376,7 @@ public interface IExt {
 
   /**
    The version of the framework
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#prop-Ext-version Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-property-version Sencha Docs Ext JS 3.4
    */
   function get version():String;
 
@@ -400,7 +400,7 @@ public interface IExt {
    </code></pre>
    *
    * @param obj The list of behaviors to apply
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext-more.html#method-Ext-addBehaviors Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-addBehaviors Sencha Docs Ext JS 3.4
    */
   function addBehaviors(obj:Object):void;
 
@@ -411,7 +411,7 @@ public interface IExt {
    * @param config The source of the properties
    * @param defaults A different object that will also be applied for default values
    * @return returns obj
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-apply Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-apply Sencha Docs Ext JS 3.4
    */
   function apply(obj:Object, config:Object, defaults:Object = null):Object;
 
@@ -421,7 +421,7 @@ public interface IExt {
    * @param obj The receiver of the properties
    * @param config The source of the properties
    * @return returns obj
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-applyIf Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-applyIf Sencha Docs Ext JS 3.4
    */
   function applyIf(obj:Object, config:Object):Object;
 
@@ -430,7 +430,7 @@ public interface IExt {
    *
    * @param arr The Array from which to remove falsy values.
    * @return The new, compressed Array.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext-more.html#method-Ext-clean Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-clean Sencha Docs Ext JS 3.4
    */
   function clean(arr:*):Array;
 
@@ -448,7 +448,7 @@ public interface IExt {
    * @param source The source object.
    * @param names Either an Array of property names, or a comma-delimited list of property names to copy.
    * @return The modified object.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext-more.html#method-Ext-copyTo Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-copyTo Sencha Docs Ext JS 3.4
    */
   function copyTo(dest:Object, source:Object, names:*):Object;
 
@@ -458,7 +458,7 @@ public interface IExt {
    * @param config A configuration object for the Component you wish to create.
    * @param defaultType The constructor to provide the default Component type if the config object does not contain a <code>xtype</code>. (Optional if the config contains a <code>xtype</code>).
    * @return The newly instantiated Component.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ComponentMgr.html#method-Ext-create Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-create Sencha Docs Ext JS 3.4
    */
   function create(config:Object, defaultType:Class):Component;
 
@@ -468,7 +468,7 @@ public interface IExt {
    * @param json The JSON string
    * @param safe Whether to return null or throw an exception if the JSON is invalid.
    * @return The resulting object
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/JSON.html#method-Ext-decode Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-decode Sencha Docs Ext JS 3.4
    */
   function decode(json:String, safe:Boolean = false):Object;
 
@@ -480,7 +480,7 @@ public interface IExt {
    * @param args Overrides arguments for the call. (Defaults to the arguments passed by the caller)
    * @param appendArgs if True args are appended to call args instead of overriding, if a number the args are inserted at the specified position
    * @return The new function
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Function.html#method-Ext-defer Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-defer Sencha Docs Ext JS 3.4
    */
   function defer(fn:Function, scope:Object = null, args:Array = null, appendArgs:* = null):Function;
 
@@ -490,7 +490,7 @@ public interface IExt {
    * @param arg1 An <a href="Ext.Element.html">Ext.Element</a>, <a href="Ext.Component.html">Ext.Component</a>, or an Array of either of these to destroy
    * @param arg2
    * @param etc
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext-more.html#method-Ext-destroy Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-destroy Sencha Docs Ext JS 3.4
    */
   function destroy(arg1:*, arg2:* = null, ...etc:Array):void;
 
@@ -500,7 +500,7 @@ public interface IExt {
    * @param o The object (most likely a Component) who's properties you wish to destroy.
    * @param arg1 The name of the property to destroy and remove from the object.
    * @param etc More property names to destroy and remove.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext-more.html#method-Ext-destroyMembers Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-destroyMembers Sencha Docs Ext JS 3.4
    */
   function destroyMembers(o:Object, arg1:*, ...etc:Array):void;
 
@@ -511,7 +511,7 @@ public interface IExt {
    * @param fn The function to be called with each item. If the supplied function returns false, iteration stops and this method returns the current <code>index</code>. This function is called with the following arguments: <div class="mdetail-params"><ul><li><code>item</code> : <i>Mixed</i> <div class="sub-desc">The item at the current <code>index</code> in the passed <code>array</code></div></li><li><code>index</code> : <i>Number</i> <div class="sub-desc">The current index within the array</div></li><li><code>allItems</code> : <i>Array</i> <div class="sub-desc">The <code>array</code> passed as the first argument to <code>Ext.each</code>.</div></li></ul></div>
    * @param scope The scope (<code>this</code> reference) in which the specified function is executed. Defaults to the <code>item</code> at the current <code>index</code> within the passed <code>array</code>.
    * @return See description for the fn parameter.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-each Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-each Sencha Docs Ext JS 3.4
    */
   function each(array:*, fn:Function, scope:Object):Number;
 
@@ -520,7 +520,7 @@ public interface IExt {
    *
    * @param o The variable to encode
    * @return The JSON string
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/JSON.html#method-Ext-encode Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-encode Sencha Docs Ext JS 3.4
    */
   function encode(o:*):String;
 
@@ -529,7 +529,7 @@ public interface IExt {
    *
    * @param str
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext-more.html#method-Ext-escapeRe Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-escapeRe Sencha Docs Ext JS 3.4
    */
   function escapeRe(str:String):String;
 
@@ -564,7 +564,7 @@ public interface IExt {
    * @param overrides A literal with members which are copied into the subclass's prototype, and are therefore shared between all instances of the new class.
    <p>This may contain a special member named <tt><b>constructor</b></tt>. This is used to define the constructor of the new class, and is returned. If this property is <i>not</i> specified, a constructor is generated and returned which just calls the superclass's constructor passing on its parameters.</p><p style="font-weight: bold">It is essential that you call the superclass constructor in any provided constructor. See example code.</p>
    * @return The subclass constructor from the <code>overrides</code> parameter, or a generated one if not provided.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-extend Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-extend Sencha Docs Ext JS 3.4
    */
   function extend(superclass:Function, overrides:Object):Function;
 
@@ -573,7 +573,7 @@ public interface IExt {
    *
    * @param arr The array to flatten
    * @return The new, flattened array.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext-more.html#method-Ext-flatten Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-flatten Sencha Docs Ext JS 3.4
    */
   function flatten(arr:Array):Array;
 
@@ -584,7 +584,7 @@ public interface IExt {
    * @param el The dom node or id
    * @param named Allows for creation of named reusable flyweights to prevent conflicts (e.g. internally Ext uses "_global")
    * @return The shared Element object (or null if no matching element was found)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.html#method-Ext-fly Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-fly Sencha Docs Ext JS 3.4
    */
   function fly(el:*, named:String = null):Element;
 
@@ -593,7 +593,7 @@ public interface IExt {
    *
    * @param el The id of the node, a DOM Node or an existing Element.
    * @return The Element object (or null if no matching element was found)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.html#method-Ext-get Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-get Sencha Docs Ext JS 3.4
    */
   function get(el:*):Element;
 
@@ -601,7 +601,7 @@ public interface IExt {
    * Returns the current document body as an <a href="Ext.Element.html">Ext.Element</a>.
    *
    * @return The document body
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-getBody Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-getBody Sencha Docs Ext JS 3.4
    */
   function getBody():Element;
 
@@ -610,7 +610,7 @@ public interface IExt {
    *
    * @param id The component <a href="output/Ext.Component.html#Ext.Component-id">id</a>
    * @return The Component, <tt>undefined</tt> if not found, or <tt>null</tt> if a Class was found.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext-more.html#method-Ext-getCmp Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-getCmp Sencha Docs Ext JS 3.4
    */
   function getCmp(id:String):Component;
 
@@ -618,7 +618,7 @@ public interface IExt {
    * Returns the current HTML document object as an <a href="Ext.Element.html">Ext.Element</a>.
    *
    * @return The document
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext-more.html#method-Ext-getDoc Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-getDoc Sencha Docs Ext JS 3.4
    */
   function getDoc():Element;
 
@@ -638,7 +638,7 @@ public interface IExt {
    *
    * @param el
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-getDom Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-getDom Sencha Docs Ext JS 3.4
    */
   function getDom(el:*):HTMLElement;
 
@@ -646,7 +646,7 @@ public interface IExt {
    * Returns the current document body as an <a href="Ext.Element.html">Ext.Element</a>.
    *
    * @return The document body
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-getHead Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-getHead Sencha Docs Ext JS 3.4
    */
   function getHead():Element;
 
@@ -655,7 +655,7 @@ public interface IExt {
    *
    * @param force true to force a recalculation of the value.
    * @return The width of the scrollbar.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext-more.html#method-Ext-getScrollBarWidth Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-getScrollBarWidth Sencha Docs Ext JS 3.4
    */
   function getScrollBarWidth(force:Boolean = false):Number;
 
@@ -665,7 +665,7 @@ public interface IExt {
    * @param el The element to generate an id for
    * @param prefix Id prefix (defaults "ext-gen")
    * @return The generated Id.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-id Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-id Sencha Docs Ext JS 3.4
    */
   function id(el:* = null, prefix:String = null):String;
 
@@ -679,7 +679,7 @@ public interface IExt {
    * @param methodName The method name to invoke.
    * @param args Arguments to send into the method invocation.
    * @return The results of invoking the method on each item in the array.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext-more.html#method-Ext-invoke Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-invoke Sencha Docs Ext JS 3.4
    */
   function invoke(arr:*, methodName:String, ...args:Array):Array;
 
@@ -688,7 +688,7 @@ public interface IExt {
    *
    * @param value The value to test
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-isArray Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-isArray Sencha Docs Ext JS 3.4
    */
   function isArray(value:*):Boolean;
 
@@ -697,7 +697,7 @@ public interface IExt {
    *
    * @param value The value to test
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-isBoolean Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-isBoolean Sencha Docs Ext JS 3.4
    */
   function isBoolean(value:*):Boolean;
 
@@ -706,7 +706,7 @@ public interface IExt {
    *
    * @param object The object to test
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-isDate Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-isDate Sencha Docs Ext JS 3.4
    */
   function isDate(object:Object):Boolean;
 
@@ -715,7 +715,7 @@ public interface IExt {
    *
    * @param value The value to test
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-isDefined Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-isDefined Sencha Docs Ext JS 3.4
    */
   function isDefined(value:*):Boolean;
 
@@ -724,7 +724,7 @@ public interface IExt {
    *
    * @param value The value to test
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-isElement Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-isElement Sencha Docs Ext JS 3.4
    */
   function isElement(value:*):Boolean;
 
@@ -735,7 +735,7 @@ public interface IExt {
    * @param value The value to test
    * @param allowBlank true to allow empty strings (defaults to false)
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-isEmpty Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-isEmpty Sencha Docs Ext JS 3.4
    */
   function isEmpty(value:*, allowBlank:Boolean = false):Boolean;
 
@@ -744,7 +744,7 @@ public interface IExt {
    *
    * @param value The value to test
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-isFunction Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-isFunction Sencha Docs Ext JS 3.4
    */
   function isFunction(value:*):Boolean;
 
@@ -753,7 +753,7 @@ public interface IExt {
    *
    * @param value The value to test
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-isNumber Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-isNumber Sencha Docs Ext JS 3.4
    */
   function isNumber(value:*):Boolean;
 
@@ -762,7 +762,7 @@ public interface IExt {
    *
    * @param value The value to test
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-isObject Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-isObject Sencha Docs Ext JS 3.4
    */
   function isObject(value:*):Boolean;
 
@@ -771,7 +771,7 @@ public interface IExt {
    *
    * @param value The value to test
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-isPrimitive Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-isPrimitive Sencha Docs Ext JS 3.4
    */
   function isPrimitive(value:*):Boolean;
 
@@ -780,7 +780,7 @@ public interface IExt {
    *
    * @param value The value to test
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-isString Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-isString Sencha Docs Ext JS 3.4
    */
   function isString(value:*):Boolean;
 
@@ -790,7 +790,7 @@ public interface IExt {
    * @param object The object or array to be iterated
    * @param fn The function to be called for each iteration. The iteration will stop if the supplied function returns false, or all array elements / object properties have been covered. The signature varies depending on the type of object being iterated: <div class="mdetail-params"><ul><li>Arrays : <tt>(Object item, Number index, Array allItems)</tt> <div class="sub-desc">When iterating an array, the supplied function is called with each item.</div></li><li>Objects : <tt>(String key, Object value, Object)</tt> <div class="sub-desc">When iterating an object, the supplied function is called with each key-value pair in the object, and the iterated object</div></li></ul></div>
    * @param scope The scope (<code>this</code> reference) in which the specified function is executed. Defaults to the <code>object</code> being iterated.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-iterate Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-iterate Sencha Docs Ext JS 3.4
    */
   function iterate(object:*, fn:Function, scope:Object):void;
 
@@ -800,7 +800,7 @@ public interface IExt {
    * @param arr The Array from which to select the maximum value.
    * @param comp a function to perform the comparison which determines maximization. If omitted the "&gt;" operator will be used. Note: gt = 1; eq = 0; lt = -1
    * @return The maximum value in the Array.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext-more.html#method-Ext-max Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-max Sencha Docs Ext JS 3.4
    */
   function max(arr:*, comp:Function = null):Object;
 
@@ -809,7 +809,7 @@ public interface IExt {
    *
    * @param arr The Array to calculate the mean value of.
    * @return The mean.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext-more.html#method-Ext-mean Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-mean Sencha Docs Ext JS 3.4
    */
   function mean(arr:Array):Number;
 
@@ -819,7 +819,7 @@ public interface IExt {
    * @param arr The Array from which to select the minimum value.
    * @param comp a function to perform the comparison which determines minimization. If omitted the "&lt;" operator will be used. Note: gt = 1; eq = 0; lt = -1
    * @return The minimum value in the Array.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext-more.html#method-Ext-min Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-min Sencha Docs Ext JS 3.4
    */
   function min(arr:*, comp:Function = null):Object;
 
@@ -834,7 +834,7 @@ public interface IExt {
    * @param namespace2
    * @param etc
    * @return The namespace object. (If multiple arguments are passed, this will be the last namespace created)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-namespace Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-namespace Sencha Docs Ext JS 3.4
    */
   function namespace(namespace1:String, namespace2:String, etc:String):Object;
 
@@ -849,7 +849,7 @@ public interface IExt {
    * @param namespace2
    * @param etc
    * @return The namespace object. (If multiple arguments are passed, this will be the last namespace created)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-ns Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-ns Sencha Docs Ext JS 3.4
    */
   function ns(namespace1:String, namespace2:String, etc:String):Object;
 
@@ -859,7 +859,7 @@ public interface IExt {
    * @param value Should be a number, but any type will be handled appropriately
    * @param defaultValue The value to return if the original value is non-numeric
    * @return Value, if numeric, else defaultValue
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext-more.html#method-Ext-num Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-num Sencha Docs Ext JS 3.4
    */
   function num(value:*, defaultValue:Number):Number;
 
@@ -869,7 +869,7 @@ public interface IExt {
    * @param fn The method the event invokes.
    * @param scope The scope (<code>this</code> reference) in which the handler function executes. Defaults to the browser window.
    * @param options Options object as passed to <a href="output/Ext.Element.html#Ext.Element-addListener">Ext.Element.addListener</a>. It is recommended that the options <code>{single: true}</code> be used so that the handler is removed on first invocation.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager.html#method-Ext-onReady Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-onReady Sencha Docs Ext JS 3.4
    */
   function onReady(fn:Function, scope:Object = null, options:Boolean = false):void;
 
@@ -886,7 +886,7 @@ public interface IExt {
    *
    * @param origclass The class to override
    * @param overrides The list of functions to add to origClass. This should be specified as an object literal containing one or more methods.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-override Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-override Sencha Docs Ext JS 3.4
    */
   function override(origclass:Object, overrides:Object):void;
 
@@ -908,7 +908,7 @@ public interface IExt {
    * @param arr The array to partition
    * @param truth a function to determine truth. If this is omitted the element itself must be able to be evaluated for its truthfulness.
    * @return [true,false]
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext-more.html#method-Ext-partition Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-partition Sencha Docs Ext JS 3.4
    */
   function partition(arr:*, truth:Function = null):Array;
 
@@ -920,7 +920,7 @@ public interface IExt {
    * @param arr The Array of items to pluck the value from.
    * @param prop The property name to pluck from each element.
    * @return The value from each item in the Array.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext-more.html#method-Ext-pluck Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-pluck Sencha Docs Ext JS 3.4
    */
   function pluck(arr:*, prop:String):Array;
 
@@ -929,7 +929,7 @@ public interface IExt {
    *
    * @param ptype The <a href="output/Ext.component.html#Ext.component-ptype">mnemonic string</a> by which the Plugin class may be looked up.
    * @param cls The new Plugin class.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ComponentMgr.html#method-Ext-preg Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-preg Sencha Docs Ext JS 3.4
    */
   function preg(ptype:String, cls:Class):void;
 
@@ -939,7 +939,7 @@ public interface IExt {
    * @param path The selector/xpath query
    * @param root The start of the query (defaults to document).
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DomQuery.html#method-Ext-query Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-query Sencha Docs Ext JS 3.4
    */
   function query(path:String, root:Node = null):Array;
 
@@ -948,7 +948,7 @@ public interface IExt {
    *
    * @param xtype The <a href="output/Ext.component.html#Ext.component-xtype">mnemonic string</a> by which the Component class may be looked up.
    * @param cls The new Component class.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ComponentMgr.html#method-Ext-reg Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-reg Sencha Docs Ext JS 3.4
    */
   function reg(xtype:String, cls:Class):void;
 
@@ -957,7 +957,7 @@ public interface IExt {
 
    *
    * @param node The node to remove
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-removeNode Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-removeNode Sencha Docs Ext JS 3.4
    */
   function removeNode(node:HTMLElement):void;
 
@@ -967,7 +967,7 @@ public interface IExt {
    * @param selector The CSS selector or an array of elements
    * @param root The root element of the query or id of the root
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CompositeElementLite.html#method-Ext-select Ext JS source
+    * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-select Sencha Docs Ext JS 3.4
    */
   function select(selector:*, root:* = null):*;
 
@@ -976,7 +976,7 @@ public interface IExt {
    *
    * @param arr The Array to calculate the sum value of.
    * @return The sum.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext-more.html#method-Ext-sum Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-sum Sencha Docs Ext JS 3.4
    */
   function sum(arr:Array):Number;
 
@@ -985,7 +985,7 @@ public interface IExt {
    *
    * @param iterable the iterable object to be turned into a true Array.
    * @return array
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-toArray Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-toArray Sencha Docs Ext JS 3.4
    */
   function toArray(iterable:Object):Array;
 
@@ -994,7 +994,7 @@ public interface IExt {
    *
    * @param object
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext-more.html#method-Ext-type Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-type Sencha Docs Ext JS 3.4
    */
   function type(object:*):String;
 
@@ -1003,7 +1003,7 @@ public interface IExt {
    *
    * @param arr The Array to filter
    * @return The new Array containing unique values.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext-more.html#method-Ext-unique Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-unique Sencha Docs Ext JS 3.4
    */
   function unique(arr:Array):Array;
 
@@ -1013,7 +1013,7 @@ public interface IExt {
    * @param url The URL to append to.
    * @param s The content to append to the URL.
    * @return The resulting URL
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-urlAppend Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-urlAppend Sencha Docs Ext JS 3.4
    */
   function urlAppend(url:String, s:String):String;
 
@@ -1025,7 +1025,7 @@ public interface IExt {
    * @param string
    * @param overwrite Items of the same name will overwrite previous values instead of creating an an array (Defaults to false).
    * @return A literal with members
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-urlDecode Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-urlDecode Sencha Docs Ext JS 3.4
    */
   function urlDecode(string:String, overwrite:Boolean = false):Object;
 
@@ -1035,7 +1035,7 @@ public interface IExt {
    * @param o
    * @param pre A prefix to add to the url encoded string
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext.html#method-Ext-urlEncode Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-urlEncode Sencha Docs Ext JS 3.4
    */
   function urlEncode(o:Object, pre:String = null):String;
 
@@ -1047,7 +1047,7 @@ public interface IExt {
    * @param defaultValue The value to return if the original value is empty
    * @param allowBlank true to allow zero length strings to qualify as non-empty (defaults to false)
    * @return value, if non-empty, else defaultValue
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext-more.html#method-Ext-value Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-value Sencha Docs Ext JS 3.4
    */
   function value(value:*, defaultValue:*, allowBlank:Boolean = false):*;
 
@@ -1069,7 +1069,7 @@ public interface IExt {
    * @param arr This argument may be repeated. Array(s) to contribute values.
    * @param zipper The last item in the argument list. This will drive how the items are zipped together.
    * @return The zipped set.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Ext-more.html#method-Ext-zip Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-zip Sencha Docs Ext JS 3.4
    */
   function zip(arr:*, zipper:Function = null):Array;
 

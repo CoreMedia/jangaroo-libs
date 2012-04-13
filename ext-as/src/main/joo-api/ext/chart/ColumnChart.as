@@ -7,7 +7,7 @@ package ext.chart {
 
  * <p>This component is created by the xtype 'columnchart' / the EXML element &lt;columnchart>.</p>
  * @see ext.config.columnchart
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Chart.html#cls-Ext.chart.ColumnChart Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.chart.ColumnChart Sencha Docs Ext JS 3.4
  */
 public class ColumnChart extends CartesianChart {
 

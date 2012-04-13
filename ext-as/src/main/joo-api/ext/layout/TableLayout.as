@@ -40,7 +40,7 @@ import ext.config.tablelayout;
  *
 
  * @see ext.config.tablelayout
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TableLayout.html#cls-Ext.layout.TableLayout Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.layout.TableLayout Sencha Docs Ext JS 3.4
  */
 public class TableLayout extends ContainerLayout {
 
@@ -55,7 +55,6 @@ public class TableLayout extends ContainerLayout {
 
   /**
    The total number of columns to create in the table for this layout. If not specified, all Components added to this layout will be rendered into a single row using one column per Component.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get columns():Number;
 
@@ -73,7 +72,6 @@ public class TableLayout extends ContainerLayout {
    columns: 3
    }
    }</code></pre>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get tableAttrs():Object;
 

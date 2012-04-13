@@ -30,13 +30,13 @@ package ext.form {
 
  * <p>This interface defines the type of the singleton VTypes.</p>
  * @see ext.form.#VTypes ext.form.VTypes
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/VTypes.html#cls-Ext.form.VTypes Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.VTypes Sencha Docs Ext JS 3.4
  */
 public interface IVTypes {
 
   /**
    The keystroke filter mask to be applied on alpha input. Defaults to: <tt>/[a-z_]/i</tt>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/VTypes.html#prop-Ext.form.VTypes-alphaMask Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.VTypes-property-alphaMask Sencha Docs Ext JS 3.4
    */
   function get alphaMask():RegExp;
 
@@ -47,7 +47,7 @@ public interface IVTypes {
 
   /**
    The error text to display when the alpha validation function returns false. Defaults to: <tt>'This field should only contain letters and _'</tt>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/VTypes.html#prop-Ext.form.VTypes-alphaText Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.VTypes-property-alphaText Sencha Docs Ext JS 3.4
    */
   function get alphaText():String;
 
@@ -58,7 +58,7 @@ public interface IVTypes {
 
   /**
    The keystroke filter mask to be applied on alphanumeric input. Defaults to: <tt>/[a-z0-9_]/i</tt>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/VTypes.html#prop-Ext.form.VTypes-alphanumMask Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.VTypes-property-alphanumMask Sencha Docs Ext JS 3.4
    */
   function get alphanumMask():RegExp;
 
@@ -69,7 +69,7 @@ public interface IVTypes {
 
   /**
    The error text to display when the alphanumeric validation function returns false. Defaults to: <tt>'This field should only contain letters, numbers and _'</tt>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/VTypes.html#prop-Ext.form.VTypes-alphanumText Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.VTypes-property-alphanumText Sencha Docs Ext JS 3.4
    */
   function get alphanumText():String;
 
@@ -80,7 +80,7 @@ public interface IVTypes {
 
   /**
    The keystroke filter mask to be applied on email input. See the <a href="output/Ext.form.VTypes.html#Ext.form.VTypes-email">email</a> method for information about more complex email validation. Defaults to: <tt>/[a-z0-9_\.\-\+\'&#64;]/i</tt>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/VTypes.html#prop-Ext.form.VTypes-emailMask Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.VTypes-property-emailMask Sencha Docs Ext JS 3.4
    */
   function get emailMask():RegExp;
 
@@ -91,7 +91,7 @@ public interface IVTypes {
 
   /**
    The error text to display when the email validation function returns false. Defaults to: <tt>'This field should be an e-mail address in the format "user&#64;example.com"'</tt>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/VTypes.html#prop-Ext.form.VTypes-emailText Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.VTypes-property-emailText Sencha Docs Ext JS 3.4
    */
   function get emailText():String;
 
@@ -102,7 +102,7 @@ public interface IVTypes {
 
   /**
    The error text to display when the url validation function returns false. Defaults to: <tt>'This field should be a URL in the format "http:/'+'/www.example.com"'</tt>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/VTypes.html#prop-Ext.form.VTypes-urlText Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.VTypes-property-urlText Sencha Docs Ext JS 3.4
    */
   function get urlText():String;
 
@@ -116,7 +116,7 @@ public interface IVTypes {
    *
    * @param value The value
    * @return true if the RegExp test passed, and false if not.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/VTypes.html#method-Ext.form.VTypes-alpha Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.VTypes-method-alpha Sencha Docs Ext JS 3.4
    */
   function alpha(value:String):Boolean;
 
@@ -125,7 +125,7 @@ public interface IVTypes {
    *
    * @param value The value
    * @return true if the RegExp test passed, and false if not.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/VTypes.html#method-Ext.form.VTypes-alphanum Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.VTypes-method-alphanum Sencha Docs Ext JS 3.4
    */
   function alphanum(value:String):Boolean;
 
@@ -134,7 +134,7 @@ public interface IVTypes {
    *
    * @param value The email address
    * @return true if the RegExp test passed, and false if not.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/VTypes.html#method-Ext.form.VTypes-email Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.VTypes-method-email Sencha Docs Ext JS 3.4
    */
   function email(value:String):Boolean;
 
@@ -143,7 +143,7 @@ public interface IVTypes {
    *
    * @param value The URL
    * @return true if the RegExp test passed, and false if not.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/VTypes.html#method-Ext.form.VTypes-url Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.VTypes-method-url Sencha Docs Ext JS 3.4
    */
   function url(value:String):Boolean;
 

@@ -51,7 +51,7 @@ import ext.util.Observable;
 
  * <p>This class defines the type of the singleton Direct.</p>
  * @see ext.#Direct ext.Direct
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Direct.html#cls-Ext.Direct Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Direct Sencha Docs Ext JS 3.4
  */
 public class DirectClass extends Observable {
 
@@ -64,7 +64,7 @@ public class DirectClass extends Observable {
 
   /**
    Each event type implements a getData() method. The default event types are: <div class="mdetail-params"><ul><li><b><tt>event</tt></b> : Ext.Direct.Event</li><li><b><tt>exception</tt></b> : Ext.Direct.ExceptionEvent</li><li><b><tt>rpc</tt></b> : Ext.Direct.RemotingEvent</li></ul></div>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Direct.html#prop-Ext.Direct-eventTypes Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Direct-property-eventTypes Sencha Docs Ext JS 3.4
    */
   public native function get eventTypes():Object;
 
@@ -75,7 +75,7 @@ public class DirectClass extends Observable {
 
   /**
    Four types of possible exceptions which can occur: <div class="mdetail-params"><ul><li><b><tt>Ext.Direct.exceptions.TRANSPORT</tt></b> : 'xhr'</li><li><b><tt>Ext.Direct.exceptions.PARSE</tt></b> : 'parse'</li><li><b><tt>Ext.Direct.exceptions.LOGIN</tt></b> : 'login'</li><li><b><tt>Ext.Direct.exceptions.SERVER</tt></b> : 'exception'</li></ul></div>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Direct.html#prop-Ext.Direct-exceptions Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Direct-property-exceptions Sencha Docs Ext JS 3.4
    */
   public native function get exceptions():Object;
 
@@ -117,7 +117,7 @@ public class DirectClass extends Observable {
    </code></pre>
    *
    * @param provider Accepts either an Array of Provider descriptions (an instance or config object for a Provider) or any number of Provider descriptions as arguments. Each Provider description instructs Ext.Direct how to create client-side stub methods.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Direct.html#method-Ext.Direct-addProvider Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Direct-method-addProvider Sencha Docs Ext JS 3.4
    */
   public native function addProvider(provider:*):void;
 
@@ -125,7 +125,7 @@ public class DirectClass extends Observable {
    * Retrieve a <a href="Ext.direct.Provider.html">provider</a> by the <b><tt><a href="output/Ext.direct.Provider.html#Ext.direct.Provider-id">id</a></tt></b> specified when the provider is <a href="output/Ext.Direct.html#Ext.Direct-addProvider">added</a>.
    *
    * @param id Unique identifier assigned to the provider when calling <a href="output/Ext.Direct.html#Ext.Direct-addProvider">addProvider</a>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Direct.html#method-Ext.Direct-getProvider Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Direct-method-getProvider Sencha Docs Ext JS 3.4
    */
   public native function getProvider(id:String):void;
 

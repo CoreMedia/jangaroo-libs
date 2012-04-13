@@ -9,7 +9,7 @@ package ext.util {
 
  * <p>This interface defines the type of the singleton TextMetrics.</p>
  * @see ext.util.#TextMetrics ext.util.TextMetrics
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TextMetrics.html#cls-Ext.util.TextMetrics Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.TextMetrics Sencha Docs Ext JS 3.4
  */
 public interface ITextMetrics {
 
@@ -18,7 +18,7 @@ public interface ITextMetrics {
    Binds this TextMetrics instance to an element from which to copy existing CSS styles that can affect the size of the rendered text
    *
    * @param el The element, dom node or id
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TextMetrics.html#method-Ext.util.TextMetrics-bind Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.TextMetrics-method-bind Sencha Docs Ext JS 3.4
    */
   function bind(el:*):void;
 
@@ -28,7 +28,7 @@ public interface ITextMetrics {
    * @param el The element, dom node or id that the instance will be bound to
    * @param fixedWidth If the text will be multiline, you have to set a fixed width in order to accurately measure the text height
    * @return instance The new instance
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TextMetrics.html#method-Ext.util.TextMetrics-createInstance Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.TextMetrics-method-createInstance Sencha Docs Ext JS 3.4
    */
   function createInstance(el:*, fixedWidth:Number = undefined):ITextMetrics;
 
@@ -38,7 +38,7 @@ public interface ITextMetrics {
    *
    * @param text The text to measure
    * @return height The height in pixels
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TextMetrics.html#method-Ext.util.TextMetrics-getHeight Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.TextMetrics-method-getHeight Sencha Docs Ext JS 3.4
    */
   function getHeight(text:String):Number;
 
@@ -48,7 +48,7 @@ public interface ITextMetrics {
    *
    * @param text The text to measure
    * @return An object containing the text's size {width: (width), height: (height)}
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TextMetrics.html#method-Ext.util.TextMetrics-getSize Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.TextMetrics-method-getSize Sencha Docs Ext JS 3.4
    */
   function getSize(text:String):Object;
 
@@ -58,7 +58,7 @@ public interface ITextMetrics {
    *
    * @param text The text to measure
    * @return width The width in pixels
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TextMetrics.html#method-Ext.util.TextMetrics-getWidth Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.TextMetrics-method-getWidth Sencha Docs Ext JS 3.4
    */
   function getWidth(text:String):Number;
 
@@ -69,7 +69,7 @@ public interface ITextMetrics {
    * @param text The text to measure
    * @param fixedWidth If the text will be multiline, you have to set a fixed width in order to accurately measure the text height
    * @return An object containing the text's size {width: (width), height: (height)}
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TextMetrics.html#method-Ext.util.TextMetrics-measure Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.TextMetrics-method-measure Sencha Docs Ext JS 3.4
    */
   function measure(el:*, text:String, fixedWidth:Number = undefined):Object;
 
@@ -78,7 +78,7 @@ public interface ITextMetrics {
    Sets a fixed width on the internal measurement element. If the text will be multiline, you have to set a fixed width in order to accurately measure the text height.
    *
    * @param width The width to set on the element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TextMetrics.html#method-Ext.util.TextMetrics-setFixedWidth Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.TextMetrics-method-setFixedWidth Sencha Docs Ext JS 3.4
    */
   function setFixedWidth(width:Number):void;
 

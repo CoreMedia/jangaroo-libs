@@ -48,7 +48,7 @@ import ext.config.menucheckitem;
 
  * <p>This component is created by the xtype 'menucheckitem' / the EXML element &lt;menucheckitem>.</p>
  * @see ext.config.menucheckitem
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CheckItem.html#cls-Ext.menu.CheckItem Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.menu.CheckItem Sencha Docs Ext JS 3.4
  */
 public class CheckItem extends Item {
 
@@ -64,19 +64,16 @@ public class CheckItem extends Item {
 
   /**
    True to initialize this checkbox as checked (defaults to false). Note that if this checkbox is part of a radio group (group = true) only the first item in the group that is initialized with checked = true will be rendered as checked.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get checked():Boolean;
 
   /**
    All check items with the same group name will automatically be grouped into a single-select radio button group (defaults to '')
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get group():String;
 
   /**
    The default CSS class to use for radio group check items (defaults to "x-menu-group-item")
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get groupClass():String;
 
@@ -85,7 +82,7 @@ public class CheckItem extends Item {
    *
    * @param this_
    * @param checked The checked value that was set
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CheckItem.html#method-Ext.menu.CheckItem-checkHandler Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.menu.CheckItem-method-checkHandler Sencha Docs Ext JS 3.4
    */
   public native function checkHandler(this_:CheckItem, checked:Boolean):void;
 
@@ -94,7 +91,7 @@ public class CheckItem extends Item {
    *
    * @param checked The new checked value
    * @param suppressEvent True to prevent the checkchange event from firing (defaults to false)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CheckItem.html#method-Ext.menu.CheckItem-setChecked Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.menu.CheckItem-method-setChecked Sencha Docs Ext JS 3.4
    */
   public native function setChecked(checked:Boolean, suppressEvent:Boolean = false):void;
 

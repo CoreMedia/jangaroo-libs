@@ -9,7 +9,7 @@ import ext.config.tip;
 
  * <p>This component is created by the xtype 'tip' / the EXML element &lt;tip>.</p>
  * @see ext.config.tip
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tip.html#cls-Ext.Tip Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Tip Sencha Docs Ext JS 3.4
  */
 public class Tip extends Panel {
 
@@ -25,19 +25,16 @@ public class Tip extends Panel {
 
   /**
    <b>Experimental</b>. The default <a href="output/Ext.Element.html#Ext.Element-alignTo">Ext.Element.alignTo</a> anchor position value for this tip relative to its element of origin (defaults to "tl-bl?").
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get defaultAlign():String;
 
   /**
    The maximum width of the tip in pixels (defaults to 300). The maximum supported value is 500.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get maxWidth():Number;
 
   /**
    The minimum width of the tip in pixels (defaults to 40).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get minWidth():Number;
 
@@ -47,7 +44,7 @@ public class Tip extends Panel {
    </code></pre>
    *
    * @param xy An array containing the x and y coordinates
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tip.html#method-Ext.Tip-showAt Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Tip-method-showAt Sencha Docs Ext JS 3.4
    */
   public native function showAt(xy:Array):void;
 
@@ -61,7 +58,7 @@ public class Tip extends Panel {
    *
    * @param el An HTMLElement, Ext.Element or string id of the target element to align to
    * @param position A valid <a href="output/Ext.Element.html#Ext.Element-alignTo">Ext.Element.alignTo</a> anchor position (defaults to 'tl-br?' or <a href="output/Ext.Tip.html#Ext.Tip-defaultAlign">defaultAlign</a> if specified).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tip.html#method-Ext.Tip-showBy Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Tip-method-showBy Sencha Docs Ext JS 3.4
    */
   public native function showBy(el:*, position:String = null):void;
 

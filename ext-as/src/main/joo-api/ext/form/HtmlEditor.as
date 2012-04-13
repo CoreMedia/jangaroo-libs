@@ -162,7 +162,7 @@ import js.HTMLElement;
 
  * <p>This component is created by the xtype 'htmleditor' / the EXML element &lt;htmleditor>.</p>
  * @see ext.config.htmleditor
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/HtmlEditor.html#cls-Ext.form.HtmlEditor Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.HtmlEditor Sencha Docs Ext JS 3.4
  */
 public class HtmlEditor extends Field {
 
@@ -190,7 +190,7 @@ public class HtmlEditor extends Field {
    },
    ...
    </code></pre>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/HtmlEditor.html#prop-Ext.form.HtmlEditor-buttonTips Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.HtmlEditor-property-buttonTips Sencha Docs Ext JS 3.4
    */
   public native function get buttonTips():Object;
 
@@ -201,7 +201,7 @@ public class HtmlEditor extends Field {
 
   /**
 
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/HtmlEditor.html#prop-Ext.form.HtmlEditor-iframe Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.HtmlEditor-property-iframe Sencha Docs Ext JS 3.4
    */
   public native function get iframe():HTMLElement;
 
@@ -212,73 +212,61 @@ public class HtmlEditor extends Field {
 
   /**
    The default text for the create link prompt
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get createLinkText():String;
 
   /**
    The default value for the create link prompt (defaults to http:/ /)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get defaultLinkValue():String;
 
   /**
    A default value to be put into the editor to resolve focus issues (defaults to   (Non-breaking space) in Opera and IE6, ​ (Zero-width space) in all other browsers).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get defaultValue():String;
 
   /**
    Enable the left, center, right alignment buttons (defaults to true)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get enableAlignments():Boolean;
 
   /**
    Enable the fore/highlight color buttons (defaults to true)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get enableColors():Boolean;
 
   /**
    Enable font selection. Not available in Safari. (defaults to true)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get enableFont():Boolean;
 
   /**
    Enable the increase/decrease font size buttons (defaults to true)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get enableFontSize():Boolean;
 
   /**
    Enable the bold, italic and underline buttons (defaults to true)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get enableFormat():Boolean;
 
   /**
    Enable the create link button. Not available in Safari. (defaults to true)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get enableLinks():Boolean;
 
   /**
    Enable the bullet and numbered list buttons. Not available in Safari. (defaults to true)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get enableLists():Boolean;
 
   /**
    Enable the switch to source edit button. Not available in Safari. (defaults to true)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get enableSourceEdit():Boolean;
 
   /**
    An array of available font families
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get fontFamilies():Array;
 
@@ -287,7 +275,7 @@ public class HtmlEditor extends Field {
    *
    * @param html The HTML to be cleaned
    * @return The cleaned HTML
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/HtmlEditor.html#method-Ext.form.HtmlEditor-cleanHtml Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.HtmlEditor-method-cleanHtml Sencha Docs Ext JS 3.4
    */
   public native function cleanHtml(html:String):String;
 
@@ -296,7 +284,7 @@ public class HtmlEditor extends Field {
    *
    * @param cmd The Midas command
    * @param value The value to pass to the command (defaults to null)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/HtmlEditor.html#method-Ext.form.HtmlEditor-execCmd Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.HtmlEditor-method-execCmd Sencha Docs Ext JS 3.4
    */
   public native function execCmd(cmd:String, value:* = null):void;
 
@@ -304,14 +292,14 @@ public class HtmlEditor extends Field {
    *
    *
    * @return iframe's document
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/HtmlEditor.html#method-Ext.form.HtmlEditor-getDoc Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.HtmlEditor-method-getDoc Sencha Docs Ext JS 3.4
    */
   protected native function getDoc():Document;
 
   /**
    * Protected method that will not generally be called directly. It is called when the editor initializes the iframe with HTML contents. Override this method if you want to change the initialization markup of the iframe (e.g. to add stylesheets). Note: IE8-Standards has unwanted scroller behavior, so the default meta tag forces IE7 compatibility
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/HtmlEditor.html#method-Ext.form.HtmlEditor-getDocMarkup Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.HtmlEditor-method-getDocMarkup Sencha Docs Ext JS 3.4
    */
   public native function getDocMarkup():void;
 
@@ -319,14 +307,14 @@ public class HtmlEditor extends Field {
    * Returns the editor's toolbar. <b>This is only available after the editor has been rendered.</b>
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/HtmlEditor.html#method-Ext.form.HtmlEditor-getToolbar Ext JS source
+    * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.HtmlEditor-method-getToolbar Sencha Docs Ext JS 3.4
    */
   public native function getToolbar():Toolbar;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/HtmlEditor.html#method-Ext.form.HtmlEditor-initFrame Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.HtmlEditor-method-initFrame Sencha Docs Ext JS 3.4
    */
   protected native function initFrame():void;
 
@@ -334,14 +322,14 @@ public class HtmlEditor extends Field {
    * Inserts the passed text at the current cursor position. Note: the editor must be initialized and activated to insert text.
    *
    * @param text
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/HtmlEditor.html#method-Ext.form.HtmlEditor-insertAtCursor Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.HtmlEditor-method-insertAtCursor Sencha Docs Ext JS 3.4
    */
   public native function insertAtCursor(text:String):void;
 
   /**
    * Protected method that will not generally be called directly. Pushes the value of the textarea into the iframe editor.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/HtmlEditor.html#method-Ext.form.HtmlEditor-pushValue Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.HtmlEditor-method-pushValue Sencha Docs Ext JS 3.4
    */
   public native function pushValue():void;
 
@@ -350,14 +338,14 @@ public class HtmlEditor extends Field {
    *
    * @param cmd The Midas command
    * @param value The value to pass to the command (defaults to null)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/HtmlEditor.html#method-Ext.form.HtmlEditor-relayCmd Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.HtmlEditor-method-relayCmd Sencha Docs Ext JS 3.4
    */
   public native function relayCmd(cmd:String, value:* = null):void;
 
   /**
    * Protected method that will not generally be called directly. Syncs the contents of the editor iframe with the textarea.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/HtmlEditor.html#method-Ext.form.HtmlEditor-syncValue Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.HtmlEditor-method-syncValue Sencha Docs Ext JS 3.4
    */
   public native function syncValue():void;
 
@@ -365,14 +353,14 @@ public class HtmlEditor extends Field {
    * Toggles the editor between standard and source edit mode.
    *
    * @param sourceEdit True for source edit, false for standard
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/HtmlEditor.html#method-Ext.form.HtmlEditor-toggleSourceEdit Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.HtmlEditor-method-toggleSourceEdit Sencha Docs Ext JS 3.4
    */
   public native function toggleSourceEdit(sourceEdit:Boolean = false):void;
 
   /**
    * Protected method that will not generally be called directly. It triggers a toolbar update by reading the markup state of the current selection in the editor.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/HtmlEditor.html#method-Ext.form.HtmlEditor-updateToolbar Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.HtmlEditor-method-updateToolbar Sencha Docs Ext JS 3.4
    */
   public native function updateToolbar():void;
 

@@ -376,7 +376,7 @@ import ext.util.Observable;
  *
 
  * @see ext.config.component
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#cls-Ext.Component Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component Sencha Docs Ext JS 3.4
  */
 public class Component extends Observable {
 
@@ -392,7 +392,7 @@ public class Component extends Observable {
 
   /**
    The Action assigned to this Component.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#prop-Ext.Component-baseAction Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-property-baseAction Sencha Docs Ext JS 3.4
    */
   public native function get baseAction():Action;
 
@@ -403,7 +403,7 @@ public class Component extends Observable {
 
   /**
    True if this component is disabled.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#prop-Ext.Component-disabled Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-property-disabled Sencha Docs Ext JS 3.4
    */
   public native function get disabled():Boolean;
 
@@ -420,31 +420,31 @@ public class Component extends Observable {
    }
    });
    </code></pre><p>See also <tt><a href="output/Ext.Component.html#Ext.Component-getEl">getEl</a></tt></p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#prop-Ext.Component-el Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-property-el Sencha Docs Ext JS 3.4
    */
   public native function get el():Element;
 
   /**
    True if this component is hidden.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#prop-Ext.Component-hidden Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-property-hidden Sencha Docs Ext JS 3.4
    */
   public native function get hidden():Boolean;
 
   /**
    This Component's initial configuration specification.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#prop-Ext.Component-initialConfig Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-property-initialConfig Sencha Docs Ext JS 3.4
    */
   public native function get initialConfig():Object;
 
   /**
    This Component's owner <a href="Ext.Container.html">Container</a> (defaults to undefined, and is set automatically when this Component is added to a Container). <p><b>Note</b>: to access items within the Container see <tt><a href="output/Ext.Component.html#Ext.Component-itemId">itemId</a></tt>.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#prop-Ext.Component-ownerCt Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-property-ownerCt Sencha Docs Ext JS 3.4
    */
   public native function get ownerCt():Container;
 
   /**
    The ancestor Container into which the <a href="output/Ext.Component.html#Ext.Component-ref">ref</a> reference was inserted if this Component is a child of a Container, and has been configured with a <code>ref</code>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#prop-Ext.Component-refOwner Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-property-refOwner Sencha Docs Ext JS 3.4
    */
   public native function get refOwner():Container;
 
@@ -455,13 +455,13 @@ public class Component extends Observable {
 
   /**
    True if this component has been rendered.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#prop-Ext.Component-rendered Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-property-rendered Sencha Docs Ext JS 3.4
    */
   public native function get rendered():Boolean;
 
   /**
    The XTemplate used by this component.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#prop-Ext.Component-tpl Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-property-tpl Sencha Docs Ext JS 3.4
    */
   public native function get tpl():XTemplate;
 
@@ -472,14 +472,12 @@ public class Component extends Observable {
 
   /**
    Whether the component can move the Dom node when rendering (defaults to true).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get allowDomMove():Boolean;
 
   /**
    Specify the id of the element, a DOM element or an existing Element corresponding to a DIV that is already present in the document that specifies some structural markup for this component.
    <div><ul><li><b>Description</b> : <div style="margin-left: 2em">When <tt>applyTo</tt> is used, constituent parts of the component can also be specified by id or CSS class name within the main element, and the component being created may attempt to create its subcomponents from that markup if applicable.</div></li><li><b>Notes</b> : <div style="margin-left: 2em"><div class="sub-desc">When using this config, a call to render() is not required.</div><div class="sub-desc">If applyTo is specified, any value passed for <a href="output/Ext.Component.html#Ext.Component-renderTo">renderTo</a> will be ignored and the target element's parent node will automatically be used as the component's container.</div></div></li></ul></div>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get applyTo():*;
 
@@ -508,40 +506,33 @@ public class Component extends Observable {
    }
    }
    </code></pre>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get autoEl():*;
 
   /**
    True if the component should check for hidden classes (e.g. 'x-hidden' or 'x-hide-display') and remove them on render (defaults to false).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get autoShow():Boolean;
 
   /**
    An array of events that, when fired, should be bubbled to any parent container. See <a href="output/Ext.util.Observable.html#Ext.util.Observable-enableBubble">Ext.util.Observable.enableBubble</a>. Defaults to <tt>[]</tt>.
-
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get bubbleEvents():Array;
 
   /**
    The CSS class used to to apply to the special clearing div rendered directly after each form field wrapper to provide field clearing (defaults to <tt>'x-form-clear-left'</tt>).
    <br/><p><b>Note</b>: this config is only used when this Component is rendered by a Container which has been configured to use the <b><a href="Ext.layout.FormLayout.html">FormLayout</a></b> layout manager (e.g. <a href="Ext.form.FormPanel.html">Ext.form.FormPanel</a> or specifying <tt>layout:'form'</tt>) and either a <tt><a href="output/Ext.Component.html#Ext.Component-fieldLabel">fieldLabel</a></tt> is specified or <tt>isFormField=true</tt> is specified.</p><br/><p>See <a href="Ext.layout.FormLayout.html">Ext.layout.FormLayout</a>.<a href="output/Ext.layout.FormLayout.html#Ext.layout.FormLayout-fieldTpl">fieldTpl</a> also.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get clearCls():String;
 
   /**
    An optional extra CSS class that will be added to this component's Element (defaults to ''). This can be useful for adding customized styles to the component or any of its children using standard CSS rules.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get cls():String;
 
   /**
    Optional. Specify an existing HTML element, or the <code>id</code> of an existing HTML element to use as the content for this component.
    <ul><li><b>Description</b> : <div class="sub-desc">This config option is used to take an existing HTML element and place it in the layout element of a new component (it simply moves the specified DOM element <i>after the Component is rendered</i> to use as the content.</div></li><li><b>Notes</b> : <div class="sub-desc">The specified HTML element is appended to the layout element of the component <i>after any configured <a href="output/Ext.Component.html#Ext.Component-html">HTML</a> has been inserted</i>, and so the document will not contain this element at the time the <a href="output/Ext.Component.html#Ext.Component-render">render</a> event is fired.</div><div class="sub-desc">The specified HTML element used will not participate in any <code><b><a href="output/Ext.Container.html#Ext.Container-layout">layout</a></b></code> scheme that the Component may use. It is just HTML. Layouts operate on child <code><b><a href="output/Ext.Container.html#Ext.Container-items">items</a></b></code>.</div><div class="sub-desc">Add either the <code>x-hidden</code> or the <code>x-hide-display</code> CSS class to prevent a brief flicker of the content before it is rendered to the panel.</div></li></ul>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get contentEl():String;
 
@@ -549,19 +540,16 @@ public class Component extends Observable {
    An optional extra CSS class that will be added to this component's container. This can be useful for adding customized styles to the container or any of its children using standard CSS rules. See <a href="Ext.layout.ContainerLayout.html">Ext.layout.ContainerLayout</a>.<a href="output/Ext.layout.ContainerLayout.html#Ext.layout.ContainerLayout-extraCls">extraCls</a> also.
    <p><b>Note</b>: <tt>ctCls</tt> defaults to <tt>''</tt> except for the following class which assigns a value by default:</p><div class="mdetail-params"><ul><li><a href="Ext.layout.Box.html">Box Layout</a> : <tt>'x-box-layout-ct'</tt></li></ul></div>To configure the above Class with an extra CSS class append to the default. For example, for BoxLayout (Hbox and Vbox):<pre><code>ctCls: 'x-box-layout-ct custom-class'
    </code></pre><br/><br/>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get ctCls():String;
 
   /**
    The initial set of data to apply to the <code><a href="output/Ext.Component.html#Ext.Component-tpl">tpl</a></code> to update the content area of the Component.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get data():*;
 
   /**
    CSS class added to the component when it is disabled (defaults to 'x-item-disabled').
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get disabledClass():String;
 
@@ -576,7 +564,6 @@ public class Component extends Observable {
    }]
    });
    </code></pre>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get fieldLabel():String;
 
@@ -591,26 +578,22 @@ public class Component extends Observable {
    }]
    });
    </code></pre>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get hideLabel():Boolean;
 
   /**
    How this component should be hidden. Supported values are <tt>'visibility'</tt> (css visibility), <tt>'offsets'</tt> (negative offset position) and <tt>'display'</tt> (css display).
    <br/><p><b>Note</b>: the default of <tt>'display'</tt> is generally preferred since items are automatically laid out when they are first shown (no sizing is done while hidden).</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get hideMode():String;
 
   /**
    True to hide and show the component's container when hide/show is called on the component, false to hide and show the component itself (defaults to false). For example, this can be used as a shortcut for a hide button on a window by setting hide:true on the button when adding it to its parent container.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get hideParent():Boolean;
 
   /**
    An HTML fragment, or a <a href="Ext.DomHelper.html">DomHelper</a> specification to use as the layout element content (defaults to ''). The HTML content is added after the component is rendered, so the document will not contain this HTML at the time the <a href="output/Ext.Component.html#Ext.Component-render">render</a> event is fired. This content is inserted into the body <i>before</i> any configured <a href="output/Ext.Component.html#Ext.Component-contentEl">contentEl</a> is appended.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get html():*;
 
@@ -634,7 +617,6 @@ public class Component extends Observable {
    }]
    });
    </code></pre>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get itemCls():String;
 
@@ -657,7 +639,6 @@ public class Component extends Observable {
    }]
    });
    </code></pre>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get labelSeparator():String;
 
@@ -673,25 +654,21 @@ public class Component extends Observable {
    }]
    });
    </code></pre>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get labelStyle():String;
 
   /**
    An optional extra CSS class that will be added to this component's Element when the mouse moves over the Element, and removed when the mouse moves out. (defaults to ''). This can be useful for adding customized 'active' or 'hover' styles to the component or any of its children using standard CSS rules.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get overCls():String;
 
   /**
    An object or array of objects that will provide custom functionality for this component. The only requirement for a valid plugin is that it contain an init method that accepts a reference of type Ext.Component. When a component is created, if any plugins are available, the component will call the init method on each plugin, passing a reference to itself. Each plugin can then call methods or respond to events on the component as needed to provide its functionality.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get plugins():*;
 
   /**
    The registered <tt>ptype</tt> to create. This config option is not used when passing a config object into a constructor. This config option is used only when lazy instantiation is being used, and a Plugin is being specified not as a fully instantiated Component, but as a <i>Component config object</i>. The <tt>ptype</tt> will be looked up at render time up to determine what type of Plugin to create.<br/><br/>If you create your own Plugins, you may register them using <a href="output/Ext.ComponentMgr.html#Ext.ComponentMgr-registerPlugin">Ext.ComponentMgr.registerPlugin</a> in order to be able to take advantage of lazy instantiation and rendering.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get ptype():String;
 
@@ -715,27 +692,23 @@ public class Component extends Observable {
    }
    });
    </code></pre><p>In the code above, if the <code>ref</code> had been <code>'saveButton'</code> the reference would have been placed into the Toolbar. Each '/' in the <code>ref</code> moves up one level from the Component's <code><a href="output/Ext.Component.html#Ext.Component-ownerCt">ownerCt</a></code>.</p><p>Also see the <code><a href="output/Ext.Component.html#Ext.Component-added">added</a></code> and <code><a href="output/Ext.Component.html#Ext.Component-removed">removed</a></code> events.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get ref():String;
 
   /**
    Specify the id of the element, a DOM element or an existing Element that this component will be rendered into.
    <div><ul><li><b>Notes</b> : <div style="margin-left: 2em"><div class="sub-desc">Do <u>not</u> use this option if the Component is to be a child item of a <a href="Ext.Container.html">Container</a>. It is the responsibility of the <a href="Ext.Container.html">Container</a>'s <a href="output/Ext.Container.html#Ext.Container-layout">layout manager</a> to render and manage its child items.</div><div class="sub-desc">When using this config, a call to render() is not required.</div></div></li></ul></div><p>See <tt><a href="output/Ext.Component.html#Ext.Component-render">render</a></tt> also.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get renderTo():*;
 
   /**
    An array of events that, when fired, should trigger this component to save its state (defaults to none). <code>stateEvents</code> may be any type of event supported by this component, including browser or custom events (e.g., <tt>['click', 'customerchange']</tt>).
    <p>See <code><a href="output/Ext.Component.html#Ext.Component-stateful">stateful</a></code> for an explanation of saving and restoring Component state.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get stateEvents():Array;
 
   /**
    The unique id for this component to use for state management purposes (defaults to the component id if one was set, otherwise null if the component is using a generated id). <p>See <code><a href="output/Ext.Component.html#Ext.Component-stateful">stateful</a></code> for an explanation of saving and restoring Component state.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get stateId():String;
 
@@ -745,7 +718,6 @@ public class Component extends Observable {
    expires: new Date(new Date().getTime()+(1000&#42;60&#42;60&#42;24&#42;7)), //7 days from now
    }));
    </code></pre><p>A stateful Component attempts to save state when one of the events listed in the <code><a href="output/Ext.Component.html#Ext.Component-stateEvents">stateEvents</a></code> configuration fires.</p><p>To save state, a stateful Component first serializes its state by calling <b><code>getState</code></b>. By default, this function does nothing. The developer must provide an implementation which returns an object hash which represents the Component's restorable state.</p><p>The value yielded by getState is passed to <a href="output/Ext.state.Manager.html#Ext.state.Manager-set">Ext.state.Manager.set</a> which uses the configured <a href="Ext.state.Provider.html">Ext.state.Provider</a> to save the object keyed by the Component's <code><a href="stateId.html">stateId</a></code>, or, if that is not specified, its <code><a href="output/Ext.Component.html#Ext.Component-id">id</a></code>.</p><p>During construction, a stateful Component attempts to <i>restore</i> its state by calling <a href="output/Ext.state.Manager.html#Ext.state.Manager-get">Ext.state.Manager.get</a> passing the <code><a href="output/Ext.Component.html#Ext.Component-stateId">stateId</a></code>, or, if that is not specified, the <code><a href="output/Ext.Component.html#Ext.Component-id">id</a></code>.</p><p>The resulting object is passed to <b><code>applyState</code></b>. The default implementation of <code>applyState</code> simply copies properties into the object, but a developer may override this to support more behaviour.</p><p>You can perform extra processing on state save and restore by attaching handlers to the <a href="output/Ext.Component.html#Ext.Component-beforestaterestore">beforestaterestore</a>, <a href="output/Ext.Component.html#Ext.Component-staterestore">staterestore</a>, <a href="output/Ext.Component.html#Ext.Component-beforestatesave">beforestatesave</a> and <a href="output/Ext.Component.html#Ext.Component-statesave">statesave</a> events.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get stateful():Boolean;
 
@@ -772,19 +744,16 @@ public class Component extends Observable {
    ]
    });
    </code></pre>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get style():String;
 
   /**
    The Ext.(X)Template method to use when updating the content area of the Component. Defaults to <tt>'overwrite'</tt> (see <code><a href="output/Ext.XTemplate.html#Ext.XTemplate-overwrite">Ext.XTemplate.overwrite</a></code>).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get tplWriteMode():String;
 
   /**
    The registered <tt>xtype</tt> to create. This config option is not used when passing a config object into a constructor. This config option is used only when lazy instantiation is being used, and a child item of a Container is being specified not as a fully instantiated Component, but as a <i>Component config object</i>. The <tt>xtype</tt> will be looked up at render time up to determine what type of child Component to create.<br/><br/>The predefined xtypes are listed <a href="Ext.Component.html">here</a>. <br/><br/>If you subclass Components to create your own Components, you may register them using <a href="output/Ext.ComponentMgr.html#Ext.ComponentMgr-registerType">Ext.ComponentMgr.registerType</a> in order to be able to take advantage of lazy instantiation and rendering.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get xtype():String;
 
@@ -793,14 +762,14 @@ public class Component extends Observable {
    *
    * @param cls The CSS class name to add
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#method-Ext.Component-addClass Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-method-addClass Sencha Docs Ext JS 3.4
    */
   public native function addClass(cls:String):Component;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#method-Ext.Component-afterRender Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-method-afterRender Sencha Docs Ext JS 3.4
    */
   protected native function afterRender():void;
 
@@ -808,14 +777,14 @@ public class Component extends Observable {
    * Apply this component to existing markup that is valid. With this function, no call to render() is required.
    *
    * @param el
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#method-Ext.Component-applyToMarkup Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-method-applyToMarkup Sencha Docs Ext JS 3.4
    */
   public native function applyToMarkup(el:*):void;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#method-Ext.Component-beforeDestroy Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-method-beforeDestroy Sencha Docs Ext JS 3.4
    */
   protected native function beforeDestroy():void;
 
@@ -826,7 +795,7 @@ public class Component extends Observable {
    * @param scope The scope of the function (defaults to current node)
    * @param args The args to call the function with (default to passing the current component)
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#method-Ext.Component-bubble Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-method-bubble Sencha Docs Ext JS 3.4
    */
   public native function bubble(fn:Function, scope:Object = null, args:Array = null):Component;
 
@@ -835,14 +804,14 @@ public class Component extends Observable {
    *
    * @param overrides A new config containing any properties to override in the cloned version. An id property can be passed on this object, otherwise one will be generated to avoid duplicates.
    * @return clone The cloned copy of this component
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#method-Ext.Component-cloneConfig Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-method-cloneConfig Sencha Docs Ext JS 3.4
    */
   public native function cloneConfig(overrides:Object):Component;
 
   /**
    * Destroys this component by purging any event listeners, removing the component's element from the DOM, removing the component from its <a href="Ext.Container.html">Ext.Container</a> (if applicable) and unregistering it from <a href="Ext.ComponentMgr.html">Ext.ComponentMgr</a>. Destruction is generally handled automatically by the framework and this method should usually not need to be called directly.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#method-Ext.Component-destroy Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-method-destroy Sencha Docs Ext JS 3.4
    */
   public native function destroy():void;
 
@@ -851,7 +820,7 @@ public class Component extends Observable {
    *
    * @param silent private
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#method-Ext.Component-disable Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-method-disable Sencha Docs Ext JS 3.4
    */
   public native function disable(silent:Boolean = false):Component;
 
@@ -859,7 +828,7 @@ public class Component extends Observable {
    * Enable this component and fire the 'enable' event.
    *
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#method-Ext.Component-enable Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-method-enable Sencha Docs Ext JS 3.4
    */
   public native function enable():Component;
 
@@ -868,7 +837,7 @@ public class Component extends Observable {
    *
    * @param fn The custom function to call with the arguments (container, this component).
    * @return The first Container for which the custom function returns true
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#method-Ext.Component-findParentBy Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-method-findParentBy Sencha Docs Ext JS 3.4
    */
   public native function findParentBy(fn:Function):Container;
 
@@ -878,7 +847,7 @@ public class Component extends Observable {
    * @param xtype The xtype to check for this Component. Note that the the component can either be an instance or a component class:
    * @param shallow False to check whether this Component is descended from the xtype (this is the default), or true to check whether this Component is directly of the specified xtype.
    * @return The first Container which matches the given xtype or class
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#method-Ext.Component-findParentByType Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-method-findParentByType Sencha Docs Ext JS 3.4
    */
   public native function findParentByType(xtype:*, shallow:Boolean = false):Container;
 
@@ -888,7 +857,7 @@ public class Component extends Observable {
    * @param selectText If applicable, true to also select the text in this component
    * @param delay Delay the focus this number of milliseconds (true for 10 milliseconds)
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#method-Ext.Component-focus Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-method-focus Sencha Docs Ext JS 3.4
    */
   public native function focus(selectText:Boolean = false, delay:* = null):Component;
 
@@ -896,7 +865,7 @@ public class Component extends Observable {
    * Provides the link for Observable's fireEvent method to bubble up the ownership hierarchy.
    *
    * @return the Container which owns this Component.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#method-Ext.Component-getBubbleTarget Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-method-getBubbleTarget Sencha Docs Ext JS 3.4
    */
   public native function getBubbleTarget():Container;
 
@@ -915,7 +884,7 @@ public class Component extends Observable {
    </code></pre>
    *
    * @return The Element which encapsulates this Component.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#method-Ext.Component-getEl Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-method-getEl Sencha Docs Ext JS 3.4
    */
   public native function getEl():Element;
 
@@ -924,7 +893,7 @@ public class Component extends Observable {
    </code></pre>
    *
    * @return id
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#method-Ext.Component-getId Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-method-getId Sencha Docs Ext JS 3.4
    */
   public native function getId():String;
 
@@ -932,7 +901,7 @@ public class Component extends Observable {
    * Returns the <code><a href="output/Ext.Component.html#Ext.Component-itemId">itemId</a></code> of this component. If an <code><a href="output/Ext.Component.html#Ext.Component-itemId">itemId</a></code> was not assigned through configuration the <code>id</code> is returned using <code><a href="output/Ext.Component.html#Ext.Component-getId">getId</a></code>.
    *
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#method-Ext.Component-getItemId Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-method-getItemId Sencha Docs Ext JS 3.4
    */
   public native function getItemId():String;
 
@@ -940,7 +909,7 @@ public class Component extends Observable {
    *
    *
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#method-Ext.Component-getPositionEl Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-method-getPositionEl Sencha Docs Ext JS 3.4
    */
   protected native function getPositionEl():Element;
 
@@ -950,7 +919,7 @@ public class Component extends Observable {
    </code></pre>
    *
    * @return The xtype
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#method-Ext.Component-getXType Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-method-getXType Sencha Docs Ext JS 3.4
    */
   public native function getXType():String;
 
@@ -961,7 +930,7 @@ public class Component extends Observable {
    </code></pre>
    *
    * @return The xtype hierarchy string
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#method-Ext.Component-getXTypes Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-method-getXTypes Sencha Docs Ext JS 3.4
    */
   public native function getXTypes():String;
 
@@ -969,7 +938,7 @@ public class Component extends Observable {
    * Hide this component. Listen to the '<a href="output/Ext.Component.html#Ext.Component-beforehide">beforehide</a>' event and return <tt>false</tt> to cancel hiding the component. Fires the '<a href="output/Ext.Component.html#Ext.Component-hide">hide</a>' event after hiding the component. Note this method is called internally if the component is configured to be <code><a href="output/Ext.Component.html#Ext.Component-hidden">hidden</a></code>.
    *
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#method-Ext.Component-hide Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-method-hide Sencha Docs Ext JS 3.4
    */
   public native function hide():Component;
 
@@ -1000,14 +969,14 @@ public class Component extends Observable {
    }
    </code></pre>
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#method-Ext.Component-initComponent Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-method-initComponent Sencha Docs Ext JS 3.4
    */
   protected native function initComponent():void;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#method-Ext.Component-initRef Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-method-initRef Sencha Docs Ext JS 3.4
    */
   public native function initRef():void;
 
@@ -1015,7 +984,7 @@ public class Component extends Observable {
    * Returns true if this component is visible.
    *
    * @return True if this component is visible, false otherwise.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#method-Ext.Component-isVisible Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-method-isVisible Sencha Docs Ext JS 3.4
    */
   public native function isVisible():Boolean;
 
@@ -1033,7 +1002,7 @@ public class Component extends Observable {
    </code></pre>
    * @param shallow False to check whether this Component is descended from the xtype (this is the default), or true to check whether this Component is directly of the specified xtype.
    * @return True if this component descends from the specified xtype, false otherwise.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#method-Ext.Component-isXType Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-method-isXType Sencha Docs Ext JS 3.4
    */
   public native function isXType(xtype:*, shallow:Boolean = false):Boolean;
 
@@ -1051,7 +1020,7 @@ public class Component extends Observable {
    * @param fn If the <code>ename</code> parameter was an event name, this is the handler function.
    * @param scope If the <code>ename</code> parameter was an event name, this is the scope (<code>this</code> reference) in which the handler function is executed.
    * @param opt If the <code>ename</code> parameter was an event name, this is the <a href="output/Ext.util.Observable.html#Ext.util.Observable-addListener">addListener</a> options.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#method-Ext.Component-mon Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-method-mon Sencha Docs Ext JS 3.4
    */
   public native function mon(item:*, ename:*, fn:Function = null, scope:Object = null, opt:Object = null):void;
 
@@ -1062,7 +1031,7 @@ public class Component extends Observable {
    * @param ename The event name, or an object containing event name properties.
    * @param fn If the <code>ename</code> parameter was an event name, this is the handler function.
    * @param scope If the <code>ename</code> parameter was an event name, this is the scope (<code>this</code> reference) in which the handler function is executed.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#method-Ext.Component-mun Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-method-mun Sencha Docs Ext JS 3.4
    */
   public native function mun(item:*, ename:*, fn:Function = null, scope:Object = null):void;
 
@@ -1070,7 +1039,7 @@ public class Component extends Observable {
    * Returns the next component in the owning container.
    *
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#method-Ext.Component-nextSibling Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-method-nextSibling Sencha Docs Ext JS 3.4
    */
   public native function nextSibling():Component;
 
@@ -1079,42 +1048,42 @@ public class Component extends Observable {
    *
    * @param container Container which holds the component
    * @param pos Position at which the component was added
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#method-Ext.Component-onAdded Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-method-onAdded Sencha Docs Ext JS 3.4
    */
   public native function onAdded(container:Container, pos:Number):void;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#method-Ext.Component-onDestroy Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-method-onDestroy Sencha Docs Ext JS 3.4
    */
   protected native function onDestroy():void;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#method-Ext.Component-onDisable Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-method-onDisable Sencha Docs Ext JS 3.4
    */
   protected native function onDisable():void;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#method-Ext.Component-onEnable Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-method-onEnable Sencha Docs Ext JS 3.4
    */
   protected native function onEnable():void;
 
   /**
    * Method that is called immediately before the <code>hide</code> event is fired. Defaults to setting the style class <code>'x-hide-' + this.hideMode</code>.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#method-Ext.Component-onHide Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-method-onHide Sencha Docs Ext JS 3.4
    */
   public native function onHide():void;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#method-Ext.Component-onRemoved Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-method-onRemoved Sencha Docs Ext JS 3.4
    */
   public native function onRemoved():void;
 
@@ -1123,14 +1092,14 @@ public class Component extends Observable {
    *
    * @param ct container
    * @param position reference child element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#method-Ext.Component-onRender Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-method-onRender Sencha Docs Ext JS 3.4
    */
   protected native function onRender(ct:Element, position:Element):void;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#method-Ext.Component-onShow Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-method-onShow Sencha Docs Ext JS 3.4
    */
   protected native function onShow():void;
 
@@ -1138,7 +1107,7 @@ public class Component extends Observable {
    * Returns the previous component in the owning container.
    *
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#method-Ext.Component-previousSibling Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-method-previousSibling Sencha Docs Ext JS 3.4
    */
   public native function previousSibling():Component;
 
@@ -1147,7 +1116,7 @@ public class Component extends Observable {
    *
    * @param cls The CSS class name to remove
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#method-Ext.Component-removeClass Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-method-removeClass Sencha Docs Ext JS 3.4
    */
   public native function removeClass(cls:String):Component;
 
@@ -1157,7 +1126,7 @@ public class Component extends Observable {
    *
    * @param container The element this Component should be rendered into. If it is being created from existing markup, this should be omitted.
    * @param position The element ID or DOM node index within the container <b>before</b> which this component will be inserted (defaults to appending to the end of the container)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#method-Ext.Component-render Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-method-render Sencha Docs Ext JS 3.4
    */
   public native function render(container:* = null, position:* = null):void;
 
@@ -1166,7 +1135,7 @@ public class Component extends Observable {
    *
    * @param disabled
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#method-Ext.Component-setDisabled Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-method-setDisabled Sencha Docs Ext JS 3.4
    */
   public native function setDisabled(disabled:Boolean):Component;
 
@@ -1175,7 +1144,7 @@ public class Component extends Observable {
    *
    * @param visible True to show, false to hide
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#method-Ext.Component-setVisible Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-method-setVisible Sencha Docs Ext JS 3.4
    */
   public native function setVisible(visible:Boolean):Component;
 
@@ -1183,7 +1152,7 @@ public class Component extends Observable {
    * Show this component. Listen to the '<a href="output/Ext.Component.html#Ext.Component-beforeshow">beforeshow</a>' event and return <tt>false</tt> to cancel showing the component. Fires the '<a href="output/Ext.Component.html#Ext.Component-show">show</a>' event after showing the component.
    *
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#method-Ext.Component-show Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-method-show Sencha Docs Ext JS 3.4
    */
   public native function show():Component;
 
@@ -1193,7 +1162,7 @@ public class Component extends Observable {
    * @param htmlOrData If this component has been configured with a template via the tpl config then it will use this argument as data to populate the template. If this component was not configured with a template, the components content area will be updated via Ext.Element update
    * @param loadScripts Only legitimate when using the html configuration. Defaults to false
    * @param callback Only legitimate when using the html configuration. Callback to execute when scripts have finished loading
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#method-Ext.Component-update Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component-method-update Sencha Docs Ext JS 3.4
    */
   public native function update(htmlOrData:*, loadScripts:Boolean = false, callback:Function = null):void;
 

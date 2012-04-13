@@ -9,7 +9,7 @@ import ext.config.quicktip;
 
  * <p>This component is created by the xtype 'quicktip' / the EXML element &lt;quicktip>.</p>
  * @see ext.config.quicktip
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/QuickTip.html#cls-Ext.QuickTip Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.QuickTip Sencha Docs Ext JS 3.4
  */
 public class QuickTip extends ToolTip {
 
@@ -25,13 +25,11 @@ public class QuickTip extends ToolTip {
 
   /**
    True to automatically use the element's DOM title value if available (defaults to false).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get interceptTitles():Boolean;
 
   /**
    The target HTMLElement, Ext.Element or id to associate with this quicktip (defaults to the document).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   override public native function get target():*;
 
@@ -39,7 +37,7 @@ public class QuickTip extends ToolTip {
    * Hides a visible tip or cancels an impending show for a particular element.
    *
    * @param el The element that is the target of the tip.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/QuickTip.html#method-Ext.QuickTip-cancelShow Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.QuickTip-method-cancelShow Sencha Docs Ext JS 3.4
    */
   public native function cancelShow(el:*):void;
 
@@ -48,7 +46,7 @@ public class QuickTip extends ToolTip {
    *
    * @param config The config object
    * @see ext.QuickTips
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/QuickTip.html#method-Ext.QuickTip-register Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.QuickTip-method-register Sencha Docs Ext JS 3.4
    */
   public native function register(config:Object):void;
 
@@ -56,7 +54,7 @@ public class QuickTip extends ToolTip {
    * Removes this quick tip from its element and destroys it.
    *
    * @param el The element from which the quick tip is to be removed.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/QuickTip.html#method-Ext.QuickTip-unregister Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.QuickTip-method-unregister Sencha Docs Ext JS 3.4
    */
   public native function unregister(el:*):void;
 

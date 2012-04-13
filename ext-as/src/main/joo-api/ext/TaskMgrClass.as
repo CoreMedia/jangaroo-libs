@@ -17,7 +17,7 @@ import ext.util.TaskRunner;
 
  * <p>This class defines the type of the singleton TaskMgr.</p>
  * @see ext.#TaskMgr ext.TaskMgr
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TaskMgr.html#cls-Ext.TaskMgr Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.TaskMgr Sencha Docs Ext JS 3.4
  */
 public class TaskMgrClass extends TaskRunner {
 

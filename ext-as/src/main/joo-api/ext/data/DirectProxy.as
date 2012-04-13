@@ -8,7 +8,7 @@ import ext.config.directproxy;
  *
 
  * @see ext.config.directproxy
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DirectProxy.html#cls-Ext.data.DirectProxy Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.DirectProxy Sencha Docs Ext JS 3.4
  */
 public class DirectProxy extends DataProxy {
 
@@ -27,13 +27,11 @@ public class DirectProxy extends DataProxy {
    paramOrder: 'param1,param2,param3'
    paramOrder: 'param1|param2|param'
    </code></pre>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get paramOrder():*;
 
   /**
    Send parameters as a collection of named arguments (defaults to <tt>true</tt>). Providing a <tt><a href="output/Ext.data.DirectProxy.html#Ext.data.DirectProxy-paramOrder">paramOrder</a></tt> nullifies this configuration.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get paramsAsHash():Boolean;
 
@@ -47,7 +45,7 @@ public class DirectProxy extends DataProxy {
    * @param callback <div class="sub-desc"><p>A function to be called after the request. The <tt>callback</tt> is passed the following arguments:</p><ul><li><tt>r</tt> : Ext.data.Record[] The block of Ext.data.Records.</li><li><tt>options</tt>: Options object from the action request</li><li><tt>success</tt>: Boolean success indicator</li></ul><br/><br/></div>
    * @param scope The scope (<code>this</code> reference) in which the callback function is executed. Defaults to the browser window.
    * @param arg An optional argument which is passed to the callback as its second parameter.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DirectProxy.html#method-Ext.data.DirectProxy-doRequest Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.DirectProxy-method-doRequest Sencha Docs Ext JS 3.4
    */
   protected native function doRequest(action:String, rs:*, params:Object, reader:DataReader, callback:Function, scope:Object, arg:Object):void;
 
@@ -58,7 +56,7 @@ public class DirectProxy extends DataProxy {
    * @param trans The request transaction object
    * @param result Data object picked out of the server-response.
    * @param res The server response
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DirectProxy.html#method-Ext.data.DirectProxy-onRead Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.DirectProxy-method-onRead Sencha Docs Ext JS 3.4
    */
   protected native function onRead(action:String, trans:Object, result:Object, res:Object):void;
 
@@ -70,7 +68,7 @@ public class DirectProxy extends DataProxy {
    * @param result Data object picked out of the server-response.
    * @param res The server response
    * @param rs The Store resultset associated with the action.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DirectProxy.html#method-Ext.data.DirectProxy-onWrite Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.DirectProxy-method-onWrite Sencha Docs Ext JS 3.4
    */
   protected native function onWrite(action:String, trans:Object, result:Object, res:Object, rs:*):void;
 

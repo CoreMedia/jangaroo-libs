@@ -5,7 +5,7 @@ package ext.dd {
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  *
 
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#cls-Ext.dd.DDTarget Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DDTarget Sencha Docs Ext JS 3.4
  */
 public class DDTarget extends DragDrop {
 

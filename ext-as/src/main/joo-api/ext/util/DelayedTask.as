@@ -16,7 +16,7 @@ package ext.util {
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  *
 
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DelayedTask.html#cls-Ext.util.DelayedTask Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.DelayedTask Sencha Docs Ext JS 3.4
  */
 public class DelayedTask {
 
@@ -34,7 +34,7 @@ public class DelayedTask {
   /**
    * Cancel the last queued timeout
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DelayedTask.html#method-Ext.util.DelayedTask-cancel Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.DelayedTask-method-cancel Sencha Docs Ext JS 3.4
    */
   public native function cancel():void;
 
@@ -45,7 +45,7 @@ public class DelayedTask {
    * @param newFn Overrides function passed to constructor
    * @param newScope Overrides scope passed to constructor. Remember that if no scope is specified, <code>this</code> will refer to the browser window.
    * @param newArgs Overrides args passed to constructor
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DelayedTask.html#method-Ext.util.DelayedTask-delay Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.DelayedTask-method-delay Sencha Docs Ext JS 3.4
    */
   public native function delay(delay:Number, newFn:Function = null, newScope:Object = null, newArgs:Array = null):void;
 

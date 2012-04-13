@@ -9,7 +9,7 @@ import ext.config.hidden;
 
  * <p>This component is created by the xtype 'hidden' / the EXML element &lt;hidden>.</p>
  * @see ext.config.hidden
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Hidden.html#cls-Ext.form.Hidden Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.Hidden Sencha Docs Ext JS 3.4
  */
 public class Hidden extends Field {
 

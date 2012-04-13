@@ -87,7 +87,7 @@ import ext.config.textfield;
 
  * <p>This component is created by the xtype 'textfield' / the EXML element &lt;textfield>.</p>
  * @see ext.config.textfield
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TextField.html#cls-Ext.form.TextField Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.TextField Sencha Docs Ext JS 3.4
  */
 public class TextField extends Field {
 
@@ -103,61 +103,51 @@ public class TextField extends Field {
 
   /**
    Specify <tt>false</tt> to validate that the value's length is &gt; 0 (defaults to <tt>true</tt>)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get allowBlank():Boolean;
 
   /**
    The error text to display if the <b><tt><a href="output/Ext.form.TextField.html#Ext.form.TextField-allowBlank">allowBlank</a></tt></b> validation fails (defaults to <tt>'This field is required'</tt>)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get blankText():String;
 
   /**
    Specify <tt>true</tt> to disable input keystroke filtering (defaults to <tt>false</tt>)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get disableKeyFilter():Boolean;
 
   /**
    The CSS class to apply to an empty field to style the <b><tt><a href="output/Ext.form.TextField.html#Ext.form.TextField-emptyText">emptyText</a></tt></b> (defaults to <tt>'x-form-empty-field'</tt>). This class is automatically added and removed as needed depending on the current field value.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get emptyClass():String;
 
   /**
    The default text to place into an empty field (defaults to <tt>null</tt>). <b>Note</b>: that this value will be submitted to the server if this field is enabled and configured with a <a href="output/Ext.form.TextField.html#Ext.form.TextField-name">name</a>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get emptyText():String;
 
   /**
    <tt>true</tt> to enable the proxying of key events for the HTML input field (defaults to <tt>false</tt>)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get enableKeyEvents():Boolean;
 
   /**
    <tt>true</tt> if this field should automatically grow and shrink to its content (defaults to <tt>false</tt>)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get grow():Boolean;
 
   /**
    The maximum width to allow when <code><b><a href="output/Ext.form.TextField.html#Ext.form.TextField-grow">grow</a></b> = true</code> (defaults to <tt>800</tt>)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get growMax():Number;
 
   /**
    The minimum width to allow when <code><b><a href="output/Ext.form.TextField.html#Ext.form.TextField-grow">grow</a></b> = true</code> (defaults to <tt>30</tt>)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get growMin():Number;
 
   /**
    An input mask regular expression that will be used to filter keystrokes that do not match (defaults to <tt>null</tt>). The maskRe will not operate on any paste events.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get maskRe():RegExp;
 
@@ -170,68 +160,58 @@ public class TextField extends Field {
    autoCreate: {tag: 'input', type: 'text', size: '20', autocomplete: 'off', maxlength: '10'}
    });
    </code></pre>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get maxLength():Number;
 
   /**
    Error text to display if the <b><tt><a href="output/Ext.form.TextField.html#Ext.form.TextField-maxLength">maximum length</a></tt></b> validation fails (defaults to <tt>'The maximum length for this field is {maxLength}'</tt>)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get maxLengthText():String;
 
   /**
    Minimum input field length required (defaults to <tt>0</tt>)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get minLength():Number;
 
   /**
    Error text to display if the <b><tt><a href="output/Ext.form.TextField.html#Ext.form.TextField-minLength">minimum length</a></tt></b> validation fails (defaults to <tt>'The minimum length for this field is {minLength}'</tt>)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get minLengthText():String;
 
   /**
    A JavaScript RegExp object to be tested against the field value during validation (defaults to <tt>null</tt>). If the test fails, the field will be marked invalid using <b><tt><a href="output/Ext.form.TextField.html#Ext.form.TextField-regexText">regexText</a></tt></b>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get regex():RegExp;
 
   /**
    The error text to display if <b><tt><a href="output/Ext.form.TextField.html#Ext.form.TextField-regex">regex</a></tt></b> is used and the test fails during validation (defaults to <tt>''</tt>)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get regexText():String;
 
   /**
    <tt>true</tt> to automatically select any existing field text when the field receives input focus (defaults to <tt>false</tt>)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get selectOnFocus():Boolean;
 
   /**
    A JavaScript RegExp object used to strip unwanted content from the value before validation (defaults to <tt>null</tt>).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get stripCharsRe():RegExp;
 
   /**
    A validation type name as defined in <a href="Ext.form.VTypes.html">Ext.form.VTypes</a> (defaults to <tt>null</tt>)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get vtype():String;
 
   /**
    A custom error message to display in place of the default message provided for the <b><code><a href="output/Ext.form.TextField.html#Ext.form.TextField-vtype">vtype</a></code></b> currently set for this field (defaults to <tt>''</tt>). <b>Note</b>: only applies if <b><code><a href="output/Ext.form.TextField.html#Ext.form.TextField-vtype">vtype</a></code></b> is set, else ignored.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get vtypeText():String;
 
   /**
    * Automatically grows the field to accommodate the width of the text up to the maximum field width allowed. This only takes effect if <tt><b><a href="output/Ext.form.TextField.html#Ext.form.TextField-grow">grow</a></b> = true</tt>, and fires the <a href="output/Ext.form.TextField.html#Ext.form.TextField-autosize">autosize</a> event.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TextField.html#method-Ext.form.TextField-autoSize Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.TextField-method-autoSize Sencha Docs Ext JS 3.4
    */
   public native function autoSize():void;
 
@@ -241,14 +221,14 @@ public class TextField extends Field {
    *
    * @param value The value to validate. The processed raw value will be used if nothing is passed
    * @return Array of any validation errors
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TextField.html#method-Ext.form.TextField-getErrors Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.TextField-method-getErrors Sencha Docs Ext JS 3.4
    */
   override public native function getErrors(value:* = null):Array;
 
   /**
    * Resets the current field value to the originally-loaded value and clears any validation messages. Also adds <tt><b><a href="output/Ext.form.TextField.html#Ext.form.TextField-emptyText">emptyText</a></b></tt> and <tt><b><a href="output/Ext.form.TextField.html#Ext.form.TextField-emptyClass">emptyClass</a></b></tt> if the original value was blank.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TextField.html#method-Ext.form.TextField-reset Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.TextField-method-reset Sencha Docs Ext JS 3.4
    */
   override public native function reset():void;
 
@@ -257,7 +237,7 @@ public class TextField extends Field {
    *
    * @param start The index where the selection should start (defaults to 0)
    * @param end The index where the selection should end (defaults to the text length)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TextField.html#method-Ext.form.TextField-selectText Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.TextField-method-selectText Sencha Docs Ext JS 3.4
    */
   public native function selectText(start:Number = undefined, end:Number = undefined):void;
 

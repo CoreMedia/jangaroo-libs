@@ -54,7 +54,7 @@ package ext.data {
  *
 
  * @see ext.config.datawriter
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataWriter.html#cls-Ext.data.DataWriter Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.DataWriter Sencha Docs Ext JS 3.4
  */
 public class DataWriter {
 
@@ -71,13 +71,11 @@ public class DataWriter {
 
   /**
    <tt>false</tt> by default. Set <tt>true</tt> to have the DataWriter <b>always</b> write HTTP params as a list, even when acting upon a single record.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get listful():Boolean;
 
   /**
    <tt>false</tt> by default. Set <tt>true</tt> to have DataWriter return ALL fields of a modified record -- not just those that changed. <tt>false</tt> to have DataWriter only request modified fields from a record.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get writeAllFields():Boolean;
 
@@ -88,7 +86,7 @@ public class DataWriter {
    * @param baseParams as defined by <a href="output/Ext.data.Store.html#Ext.data.Store-baseParams">Ext.data.Store.baseParams</a>. The baseParms must be encoded by the extending class, eg: <a href="Ext.data.JsonWriter.html">Ext.data.JsonWriter</a>, <a href="Ext.data.XmlWriter.html">Ext.data.XmlWriter</a>.
    * @param action [<a href="output/Ext.data.Api.html#Ext.data.Api-actions">create|update|destroy</a>]
    * @param rs The recordset to write, the subject(s) of the write action.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataWriter.html#method-Ext.data.DataWriter-apply Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.DataWriter-method-apply Sencha Docs Ext JS 3.4
    */
   public native function apply(params:Object, baseParams:Object, action:String, rs:*):void;
 
@@ -98,7 +96,7 @@ public class DataWriter {
    * @param baseParams as defined by <a href="output/Ext.data.Store.html#Ext.data.Store-baseParams">Ext.data.Store.baseParams</a>. The baseParms must be encoded by the extending class, eg: <a href="Ext.data.JsonWriter.html">Ext.data.JsonWriter</a>, <a href="Ext.data.XmlWriter.html">Ext.data.XmlWriter</a>.
    * @param params Http params to be sent to server.
    * @param data object populated according to DataReader meta-data.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataWriter.html#method-Ext.data.DataWriter-render Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.DataWriter-method-render Sencha Docs Ext JS 3.4
    */
   public native function render(baseParams:Object, params:Object, data:*):void;
 
@@ -107,7 +105,7 @@ public class DataWriter {
    *
    * @param data Hashed by Ext.data.DataWriter#toHash
    * @return Array of attribute-objects.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataWriter.html#method-Ext.data.DataWriter-toArray Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.DataWriter-method-toArray Sencha Docs Ext JS 3.4
    */
   protected native function toArray(data:Object):Array;
 
@@ -117,7 +115,7 @@ public class DataWriter {
    * @param rec The Record from which to create a hash.
    * @param config <b>NOT YET IMPLEMENTED</b>. Will implement an exclude/only configuration for fine-control over which fields do/don't get rendered.
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataWriter.html#method-Ext.data.DataWriter-toHash Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.DataWriter-method-toHash Sencha Docs Ext JS 3.4
    */
   protected native function toHash(rec:Record, config:Object):Object;
 

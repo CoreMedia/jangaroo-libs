@@ -157,7 +157,7 @@ import ext.IEventObject;
  *
 
  * @see ext.config.multislider
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Slider.html#cls-Ext.slider.MultiSlider Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.slider.MultiSlider Sencha Docs Ext JS 3.4
  */
 public class MultiSlider extends BoxComponent {
 
@@ -172,7 +172,7 @@ public class MultiSlider extends BoxComponent {
 
   /**
    Determines whether or not a click to the slider component is considered to be a user request to change the value. Specified as an array of [top, bottom], the click event's 'top' property is compared to these numbers and the click only considered a change request if it falls within them. e.g. if the 'top' value of the click event is 4 or 16, the click is not considered a change request as it falls outside of the [5, 15] range
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Slider.html#prop-Ext.slider.MultiSlider-clickRange Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.slider.MultiSlider-property-clickRange Sencha Docs Ext JS 3.4
    */
   public native function get clickRange():Array;
 
@@ -183,7 +183,7 @@ public class MultiSlider extends BoxComponent {
 
   /**
    Array containing references to each thumb
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Slider.html#prop-Ext.slider.MultiSlider-thumbs Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.slider.MultiSlider-property-thumbs Sencha Docs Ext JS 3.4
    */
   public native function get thumbs():Array;
 
@@ -194,7 +194,7 @@ public class MultiSlider extends BoxComponent {
 
   /**
    The number used internally to set the z index of the top thumb (see promoteThumb for details)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Slider.html#prop-Ext.slider.MultiSlider-topThumbZIndex Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.slider.MultiSlider-property-topThumbZIndex Sencha Docs Ext JS 3.4
    */
   public native function get topThumbZIndex():Number;
 
@@ -205,7 +205,7 @@ public class MultiSlider extends BoxComponent {
 
   /**
    Array of values to initialize the thumbs with
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Slider.html#prop-Ext.slider.MultiSlider-values Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.slider.MultiSlider-property-values Sencha Docs Ext JS 3.4
    */
   public native function get values():Array;
 
@@ -216,62 +216,52 @@ public class MultiSlider extends BoxComponent {
 
   /**
    Turn on or off animation. Defaults to true
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get animate():Boolean;
 
   /**
    Determines whether or not clicking on the Slider axis will change the slider. Defaults to true
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get clickToChange():Boolean;
 
   /**
    True to disallow thumbs from overlapping one another. Defaults to true
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get constrainThumbs():Boolean;
 
   /**
    The number of decimal places to which to round the Slider's value. Defaults to 0.
    <p>To disable rounding, configure as <tt><b>false</b></tt>.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get decimalPrecision():*;
 
   /**
    How many units to change the slider when adjusting by drag and drop. Use this option to enable 'snapping'.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get increment():Number;
 
   /**
    How many units to change the Slider when adjusting with keyboard navigation. Defaults to 1. If the increment config is larger, it will be used instead.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get keyIncrement():Number;
 
   /**
    The maximum value for the Slider. Defaults to 100.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get maxValue():Number;
 
   /**
    The minimum value for the Slider. Defaults to 0.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get minValue():Number;
 
   /**
    The value to initialize the slider with. Defaults to minValue.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get value():Number;
 
   /**
    Orient the Slider vertically rather than horizontally, defaults to false.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get vertical():Boolean;
 
@@ -279,7 +269,7 @@ public class MultiSlider extends BoxComponent {
    * Creates a new thumb and adds it to the slider
    *
    * @param value The initial value to set on the thumb. Defaults to 0
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Slider.html#method-Ext.slider.MultiSlider-addThumb Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.slider.MultiSlider-method-addThumb Sencha Docs Ext JS 3.4
    */
   public native function addThumb(value:Number):void;
 
@@ -288,7 +278,7 @@ public class MultiSlider extends BoxComponent {
    *
    * @param value The unsnapped value
    * @return The value of the nearest snap target
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Slider.html#method-Ext.slider.MultiSlider-doSnap Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.slider.MultiSlider-method-doSnap Sencha Docs Ext JS 3.4
    */
   public native function doSnap(value:Number):Number;
 
@@ -298,7 +288,7 @@ public class MultiSlider extends BoxComponent {
    * @param local Object containing top and left values from a click event
    * @param prop The property of local to compare on. Use 'left' for horizontal sliders, 'top' for vertical ones
    * @return The closest thumb object and its distance from the click event
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Slider.html#method-Ext.slider.MultiSlider-getNearest Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.slider.MultiSlider-method-getNearest Sencha Docs Ext JS 3.4
    */
   public native function getNearest(local:Object, prop:String):Object;
 
@@ -306,7 +296,7 @@ public class MultiSlider extends BoxComponent {
    *
    *
    * @return The ratio of pixels to mapped values
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Slider.html#method-Ext.slider.MultiSlider-getRatio Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.slider.MultiSlider-method-getRatio Sencha Docs Ext JS 3.4
    */
   public native function getRatio():Number;
 
@@ -315,7 +305,7 @@ public class MultiSlider extends BoxComponent {
    *
    * @param index The index of the thumb to return a value for
    * @return The current value of the slider
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Slider.html#method-Ext.slider.MultiSlider-getValue Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.slider.MultiSlider-method-getValue Sencha Docs Ext JS 3.4
    */
   public native function getValue(index:Number):Number;
 
@@ -323,14 +313,14 @@ public class MultiSlider extends BoxComponent {
    * Returns an array of values - one for the location of each thumb
    *
    * @return The set of thumb values
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Slider.html#method-Ext.slider.MultiSlider-getValues Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.slider.MultiSlider-method-getValues Sencha Docs Ext JS 3.4
    */
   public native function getValues():Array;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Slider.html#method-Ext.slider.MultiSlider-initEvents Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.slider.MultiSlider-method-initEvents Sencha Docs Ext JS 3.4
    */
   public native function initEvents():void;
 
@@ -338,7 +328,7 @@ public class MultiSlider extends BoxComponent {
    *
    *
    * @param index Index of the thumb to move
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Slider.html#method-Ext.slider.MultiSlider-moveThumb Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.slider.MultiSlider-method-moveThumb Sencha Docs Ext JS 3.4
    */
   public native function moveThumb(index:Number):void;
 
@@ -347,7 +337,7 @@ public class MultiSlider extends BoxComponent {
    *
    * @param value Raw number value
    * @return The raw value rounded to the correct d.p. and constrained within the set max and min values
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Slider.html#method-Ext.slider.MultiSlider-normalizeValue Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.slider.MultiSlider-method-normalizeValue Sencha Docs Ext JS 3.4
    */
   public native function normalizeValue(value:Number):Number;
 
@@ -355,7 +345,7 @@ public class MultiSlider extends BoxComponent {
    *
    *
    * @param local Object containing top and left values for the click event.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Slider.html#method-Ext.slider.MultiSlider-onClickChange Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.slider.MultiSlider-method-onClickChange Sencha Docs Ext JS 3.4
    */
   public native function onClickChange(local:Object):void;
 
@@ -363,7 +353,7 @@ public class MultiSlider extends BoxComponent {
    *
    *
    * @param e The Event object
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Slider.html#method-Ext.slider.MultiSlider-onKeyDown Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.slider.MultiSlider-method-onKeyDown Sencha Docs Ext JS 3.4
    */
   public native function onKeyDown(e:IEventObject):void;
 
@@ -371,7 +361,7 @@ public class MultiSlider extends BoxComponent {
    *
    *
    * @param e The click event
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Slider.html#method-Ext.slider.MultiSlider-onMouseDown Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.slider.MultiSlider-method-onMouseDown Sencha Docs Ext JS 3.4
    */
   public native function onMouseDown(e:IEventObject):void;
 
@@ -379,7 +369,7 @@ public class MultiSlider extends BoxComponent {
    *
    *
    * @param topThumb The thumb to move to the top
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Slider.html#method-Ext.slider.MultiSlider-promoteThumb Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.slider.MultiSlider-method-promoteThumb Sencha Docs Ext JS 3.4
    */
   public native function promoteThumb(topThumb:Thumb):void;
 
@@ -388,7 +378,7 @@ public class MultiSlider extends BoxComponent {
    *
    * @param pos The position along the slider to return a mapped value for
    * @return The mapped value for the given position
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Slider.html#method-Ext.slider.MultiSlider-reverseValue Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.slider.MultiSlider-method-reverseValue Sencha Docs Ext JS 3.4
    */
   public native function reverseValue(pos:Number):Number;
 
@@ -396,7 +386,7 @@ public class MultiSlider extends BoxComponent {
    * Sets the maximum value for the slider instance. If the current value is more than the maximum value, the current value will be changed.
    *
    * @param val The new maximum value
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Slider.html#method-Ext.slider.MultiSlider-setMaxValue Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.slider.MultiSlider-method-setMaxValue Sencha Docs Ext JS 3.4
    */
   public native function setMaxValue(val:Number):void;
 
@@ -404,7 +394,7 @@ public class MultiSlider extends BoxComponent {
    * Sets the minimum value for the slider instance. If the current value is less than the minimum value, the current value will be changed.
    *
    * @param val The new minimum value
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Slider.html#method-Ext.slider.MultiSlider-setMinValue Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.slider.MultiSlider-method-setMinValue Sencha Docs Ext JS 3.4
    */
   public native function setMinValue(val:Number):void;
 
@@ -414,21 +404,21 @@ public class MultiSlider extends BoxComponent {
    * @param index Index of the thumb to move
    * @param value The value to set the slider to. (This will be constrained within minValue and maxValue)
    * @param animate Turn on or off animation, defaults to true
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Slider.html#method-Ext.slider.MultiSlider-setValue Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.slider.MultiSlider-method-setValue Sencha Docs Ext JS 3.4
    */
   public native function setValue(index:Number, value:Number, animate:Boolean):void;
 
   /**
    * Synchronizes the thumb position to the proper proportion of the total component width based on the current slider <a href="output/Ext.slider.MultiSlider.html#Ext.slider.MultiSlider-value">value</a>. This will be called automatically when the Slider is resized by a layout, but if it is rendered auto width, this method can be called from another resize handler to sync the Slider if necessary.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Slider.html#method-Ext.slider.MultiSlider-syncThumb Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.slider.MultiSlider-method-syncThumb Sencha Docs Ext JS 3.4
    */
   public native function syncThumb():void;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Slider.html#method-Ext.slider.MultiSlider-translateValue Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.slider.MultiSlider-method-translateValue Sencha Docs Ext JS 3.4
    */
   public native function translateValue():void;
 

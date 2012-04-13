@@ -7,7 +7,7 @@ package ext.chart {
 
  * <p>This component is created by the xtype 'barchart' / the EXML element &lt;barchart>.</p>
  * @see ext.config.barchart
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Chart.html#cls-Ext.chart.BarChart Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.chart.BarChart Sencha Docs Ext JS 3.4
  */
 public class BarChart extends CartesianChart {
 

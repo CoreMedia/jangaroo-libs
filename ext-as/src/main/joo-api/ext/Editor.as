@@ -145,7 +145,7 @@ import ext.form.Field;
 
  * <p>This component is created by the xtype 'editor' / the EXML element &lt;editor>.</p>
  * @see ext.config.editor
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Editor.html#cls-Ext.Editor Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Editor Sencha Docs Ext JS 3.4
  */
 public class Editor extends Component {
 
@@ -161,7 +161,7 @@ public class Editor extends Component {
 
   /**
    The Field this Editor uses for editing.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Editor.html#prop-Ext.Editor-field Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Editor-property-field Sencha Docs Ext JS 3.4
    */
   public native function get field():Field;
 
@@ -172,79 +172,66 @@ public class Editor extends Component {
 
   /**
    The position to align to (see <a href="output/Ext.Element.html#Ext.Element-alignTo">Ext.Element.alignTo</a> for more details, defaults to "c-c?").
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get alignment():String;
 
   /**
    True to <a href="output/Ext.Editor.html#Ext.Editor-completeEdit">complete the editing process</a> if in edit mode when the field is blurred. Defaults to <tt>true</tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get allowBlur():Boolean;
 
   /**
    True for the editor to automatically adopt the size of the underlying field, "width" to adopt the width only, or "height" to adopt the height only, "none" to always use the field dimensions. (defaults to false)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get autoSize():*;
 
   /**
    True to cancel the edit when the escape key is pressed. Defaults to <tt>true</tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get cancelOnEsc():Boolean;
 
   /**
    True to complete the edit when the enter key is pressed. Defaults to <tt>true</tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get completeOnEnter():Boolean;
 
   /**
    True to constrain the editor to the viewport
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get constrain():Boolean;
 
   /**
    False to keep the bound element visible while the editor is displayed (defaults to true)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get hideEl():Boolean;
 
   /**
    True to skip the edit completion process (no save, no events fired) if the user completes an edit and the value has not changed (defaults to false). Applies only to string values - edits for other data types will never be ignored.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get ignoreNoChange():Boolean;
 
   /**
    The offsets to use when aligning (see <a href="output/Ext.Element.html#Ext.Element-alignTo">Ext.Element.alignTo</a> for more details. Defaults to <tt>[0, 0]</tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get offsets():Array;
 
   /**
    True to automatically revert the field value and cancel the edit when the user completes an edit and the field validation fails (defaults to true)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get revertInvalid():Boolean;
 
   /**
    "sides" for sides/bottom only, "frame" for 4-way shadow, and "drop" for bottom-right shadow (defaults to "frame")
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get shadow():*;
 
   /**
    Handle the keydown/keypress events so they don't propagate (defaults to true)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get swallowKeys():Boolean;
 
   /**
    True to update the innerHTML of the bound element when the update completes (defaults to false)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get updateEl():Boolean;
 
@@ -252,7 +239,7 @@ public class Editor extends Component {
    * Cancels the editing process and hides the editor without persisting any changes. The field value will be reverted to the original starting value.
    *
    * @param remainVisible Override the default behavior and keep the editor visible after cancel (defaults to false)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Editor.html#method-Ext.Editor-cancelEdit Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Editor-method-cancelEdit Sencha Docs Ext JS 3.4
    */
   public native function cancelEdit(remainVisible:Boolean):void;
 
@@ -260,7 +247,7 @@ public class Editor extends Component {
    * Ends the editing process, persists the changed value to the underlying field, and hides the editor.
    *
    * @param remainVisible Override the default behavior and keep the editor visible after edit (defaults to false)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Editor.html#method-Ext.Editor-completeEdit Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Editor-method-completeEdit Sencha Docs Ext JS 3.4
    */
   public native function completeEdit(remainVisible:Boolean):void;
 
@@ -268,7 +255,7 @@ public class Editor extends Component {
    * Gets the data value of the editor
    *
    * @return The data value
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Editor.html#method-Ext.Editor-getValue Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Editor-method-getValue Sencha Docs Ext JS 3.4
    */
   public native function getValue():*;
 
@@ -276,7 +263,7 @@ public class Editor extends Component {
    * Realigns the editor to the bound field based on the current alignment config value.
    *
    * @param autoSize True to size the field to the dimensions of the bound element.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Editor.html#method-Ext.Editor-realign Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Editor-method-realign Sencha Docs Ext JS 3.4
    */
   public native function realign(autoSize:Boolean = false):void;
 
@@ -285,7 +272,7 @@ public class Editor extends Component {
    *
    * @param width The new width
    * @param height The new height
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Editor.html#method-Ext.Editor-setSize Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Editor-method-setSize Sencha Docs Ext JS 3.4
    */
   public native function setSize(width:Number, height:Number):void;
 
@@ -293,7 +280,7 @@ public class Editor extends Component {
    * Sets the data value of the editor
    *
    * @param value Any valid value supported by the underlying field
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Editor.html#method-Ext.Editor-setValue Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Editor-method-setValue Sencha Docs Ext JS 3.4
    */
   public native function setValue(value:*):void;
 
@@ -302,7 +289,7 @@ public class Editor extends Component {
    *
    * @param el The element to edit
    * @param value A value to initialize the editor with. If a value is not provided, it defaults to the innerHTML of el.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Editor.html#method-Ext.Editor-startEdit Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Editor-method-startEdit Sencha Docs Ext JS 3.4
    */
   public native function startEdit(el:*, value:String = null):void;
 

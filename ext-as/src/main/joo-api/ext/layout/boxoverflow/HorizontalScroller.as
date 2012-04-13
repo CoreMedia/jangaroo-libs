@@ -6,7 +6,7 @@ package ext.layout.boxoverflow {
  *
 
  * @see ext.config.horizontalscroller
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ScrollerOverflow.html#cls-Ext.layout.boxOverflow.HorizontalScroller Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.layout.boxOverflow.HorizontalScroller Sencha Docs Ext JS 3.4
  */
 public class HorizontalScroller extends Scroller {
 
@@ -23,14 +23,14 @@ public class HorizontalScroller extends Scroller {
    *
    *
    * @return True if already at furthest right point
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ScrollerOverflow.html#method-Ext.layout.boxOverflow.HorizontalScroller-atExtremeAfter Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.layout.boxOverflow.HorizontalScroller-method-atExtremeAfter Sencha Docs Ext JS 3.4
    */
   public native function atExtremeAfter():Boolean;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ScrollerOverflow.html#method-Ext.layout.boxOverflow.HorizontalScroller-createInnerElements Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.layout.boxOverflow.HorizontalScroller-method-createInnerElements Sencha Docs Ext JS 3.4
    */
   public native function createInnerElements():void;
 
@@ -38,7 +38,7 @@ public class HorizontalScroller extends Scroller {
    *
    *
    * @return The max scroll value
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ScrollerOverflow.html#method-Ext.layout.boxOverflow.HorizontalScroller-getMaxScrollRight Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.layout.boxOverflow.HorizontalScroller-method-getMaxScrollRight Sencha Docs Ext JS 3.4
    */
   public native function getMaxScrollRight():Number;
 
@@ -46,7 +46,7 @@ public class HorizontalScroller extends Scroller {
    * Returns the current scroll position of the innerCt element
    *
    * @return The current scroll position
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ScrollerOverflow.html#method-Ext.layout.boxOverflow.HorizontalScroller-getScrollPosition Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.layout.boxOverflow.HorizontalScroller-method-getScrollPosition Sencha Docs Ext JS 3.4
    */
   public native function getScrollPosition():Number;
 
@@ -55,7 +55,7 @@ public class HorizontalScroller extends Scroller {
    *
    * @param position The position to scroll to. This is constrained.
    * @param animate True to animate. If undefined, falls back to value of this.animateScroll
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ScrollerOverflow.html#method-Ext.layout.boxOverflow.HorizontalScroller-scrollTo Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.layout.boxOverflow.HorizontalScroller-method-scrollTo Sencha Docs Ext JS 3.4
    */
   public native function scrollTo(position:Number, animate:Boolean):void;
 

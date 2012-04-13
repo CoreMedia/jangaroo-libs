@@ -67,7 +67,7 @@ import ext.config.editorgrid;
 
  * <p>This component is created by the xtype 'editorgrid' / the EXML element &lt;editorgrid>.</p>
  * @see ext.config.editorgrid
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EditorGrid.html#cls-Ext.grid.EditorGridPanel Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.EditorGridPanel Sencha Docs Ext JS 3.4
  */
 public class EditorGridPanel extends GridPanel {
 
@@ -83,26 +83,22 @@ public class EditorGridPanel extends GridPanel {
 
   /**
    True to automatically HTML encode and decode values pre and post edit (defaults to false)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get autoEncode():Boolean;
 
   /**
    The number of clicks on a cell required to display the cell's editor (defaults to 2).
    <p>Setting this option to 'auto' means that mousedown <i>on the selected cell</i> starts editing that cell.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get clicksToEdit():Number;
 
   /**
    True to force validation even if the value is unmodified (defaults to false)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get forceValidation():Boolean;
 
   /**
    Any subclass of AbstractSelectionModel that will provide the selection model for the grid (defaults to <a href="Ext.grid.CellSelectionModel.html">Ext.grid.CellSelectionModel</a> if not specified).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   override public native function get selModel():Object;
 
@@ -111,7 +107,7 @@ public class EditorGridPanel extends GridPanel {
    *
    * @param rowIndex
    * @param colIndex
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EditorGrid.html#method-Ext.grid.EditorGridPanel-startEditing Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.EditorGridPanel-method-startEditing Sencha Docs Ext JS 3.4
    */
   public native function startEditing(rowIndex:Number, colIndex:Number):void;
 
@@ -119,7 +115,7 @@ public class EditorGridPanel extends GridPanel {
    * Stops any active editing
    *
    * @param cancel True to cancel any changes
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EditorGrid.html#method-Ext.grid.EditorGridPanel-stopEditing Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.EditorGridPanel-method-stopEditing Sencha Docs Ext JS 3.4
    */
   public native function stopEditing(cancel:Boolean = false):void;
 

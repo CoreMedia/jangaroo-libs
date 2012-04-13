@@ -201,7 +201,7 @@ import ext.dd.DragSource;
 
  * <p>This component is created by the xtype 'panel' / the EXML element &lt;panel>.</p>
  * @see ext.config.panel
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Panel.html#cls-Ext.Panel Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Panel Sencha Docs Ext JS 3.4
  */
 public class Panel extends Container {
 
@@ -217,13 +217,13 @@ public class Panel extends Container {
 
   /**
    The Panel's body <a href="Ext.Element.html">Element</a> which may be used to contain HTML content. The content may be specified in the <a href="output/Ext.Panel.html#Ext.Panel-html">html</a> config, or it may be loaded using the <a href="autoLoad.html">autoLoad</a> config, or through the Panel's <a href="output/Ext.Panel.html#Ext.Panel-getUpdater">Updater</a>. <p>If this is used to load visible HTML elements in either way, then the Panel may not be used as a Layout for hosting nested Panels.</p><p>If this Panel is intended to be used as the host of a Layout (See <a href="output/Ext.Panel.html#Ext.Panel-layout">layout</a> then the body Element must not be loaded or changed - it is under the control of the Panel's Layout.<br/></p><p><b>Note</b>: see the Note for <code><a href="output/Ext.Component.html#Ext.Component-el">el</a></code> also.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Panel.html#prop-Ext.Panel-body Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Panel-property-body Sencha Docs Ext JS 3.4
    */
   public native function get body():Element;
 
   /**
    This Panel's Array of buttons as created from the <code><a href="output/Ext.Panel.html#Ext.Panel-buttons">buttons</a></code> config property. Read only.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Panel.html#prop-Ext.Panel-buttons Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Panel-property-buttons Sencha Docs Ext JS 3.4
    */
   public native function get buttons():Array;
 
@@ -234,20 +234,20 @@ public class Panel extends Container {
 
   /**
    The Panel's bwrap <a href="Ext.Element.html">Element</a> used to contain other Panel elements (tbar, body, bbar, footer). See <a href="output/Ext.Panel.html#Ext.Panel-bodyCfg">bodyCfg</a>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Panel.html#prop-Ext.Panel-bwrap Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Panel-property-bwrap Sencha Docs Ext JS 3.4
    */
   public native function get bwrap():Element;
 
   /**
    True if this panel is collapsed.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Panel.html#prop-Ext.Panel-collapsed Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Panel-property-collapsed Sencha Docs Ext JS 3.4
    */
   public native function get collapsed():Boolean;
 
   /**
    If this Panel is configured <a href="output/Ext.Panel.html#Ext.Panel-draggable">draggable</a>, this property will contain an instance of <a href="Ext.dd.DragSource.html">Ext.dd.DragSource</a> which handles dragging the Panel.
    The developer must provide implementations of the abstract methods of <a href="Ext.dd.DragSource.html">Ext.dd.DragSource</a> in order to supply behaviour for each stage of the drag/drop process. See <a href="output/Ext.Panel.html#Ext.Panel-draggable">draggable</a>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Panel.html#prop-Ext.Panel-dd Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Panel-property-dd Sencha Docs Ext JS 3.4
    */
   public native function get dd():DragSource;
 
@@ -258,51 +258,44 @@ public class Panel extends Container {
 
   /**
    The Panel's footer <a href="Ext.Element.html">Element</a>. <p>This Element is used to house the Panel's <code><a href="output/Ext.Panel.html#Ext.Panel-buttons">buttons</a></code> or <code><a href="output/Ext.Panel.html#Ext.Panel-fbar">fbar</a></code>.</p><br/><p><b>Note</b>: see the Note for <code><a href="output/Ext.Component.html#Ext.Component-el">el</a></code> also.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Panel.html#prop-Ext.Panel-footer Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Panel-property-footer Sencha Docs Ext JS 3.4
    */
   public native function get footer():Element;
 
   /**
    The Panel's header <a href="Ext.Element.html">Element</a>. <p>This Element is used to house the <a href="output/Ext.Panel.html#Ext.Panel-title">title</a> and <a href="output/Ext.Panel.html#Ext.Panel-tools">tools</a></p><br/><p><b>Note</b>: see the Note for <code><a href="output/Ext.Component.html#Ext.Component-el">el</a></code> also.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Panel.html#prop-Ext.Panel-header Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Panel-property-header Sencha Docs Ext JS 3.4
    */
   public native function get header():Element;
 
   /**
    <code>true</code> to animate the transition when the panel is collapsed, <code>false</code> to skip the animation (defaults to <code>true</code> if the <a href="Ext.Fx.html">Ext.Fx</a> class is available, otherwise <code>false</code>).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get animCollapse():Boolean;
 
   /**
    A valid url spec according to the Updater <a href="output/Ext.Updater.html#Ext.Updater-update">Ext.Updater.update</a> method. If autoLoad is not null, the panel will attempt to load its contents immediately upon render.<p>The URL will become the default URL for this panel's <a href="output/Ext.Panel.html#Ext.Panel-body">body</a> element, so it may be <a href="output/Ext.Element.html#Ext.Element-refresh">refresh</a>ed at any time.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get autoLoad():*;
 
   /**
    The base CSS class to apply to this panel's element (defaults to <code>'x-panel'</code>). <p>Another option available by default is to specify <code>'x-plain'</code> which strips all styling except for required attributes for Ext layouts to function (e.g. overflow:hidden). See <code><a href="output/Ext.Panel.html#Ext.Panel-unstyled">unstyled</a></code> also.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get baseCls():String;
 
   /**
    The bottom toolbar of the panel. This can be a <a href="Ext.Toolbar.html">Ext.Toolbar</a> object, a toolbar config, or an array of buttons/button configs to be added to the toolbar. Note that this is not available as a property after render. To access the bottom toolbar after render, use <a href="output/Ext.Panel.html#Ext.Panel-getBottomToolbar">getBottomToolbar</a>.
    <p><b>Note:</b> Although a Toolbar may contain Field components, these will <b>not</b> be updated by a load of an ancestor FormPanel. A Panel's toolbars are not part of the standard Container-&gt;Component hierarchy, and so are not scanned to collect form items. However, the values <b>will</b> be submitted because form submission parameters are collected from the DOM tree.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get bbar():*;
 
   /**
    A <a href="Ext.DomHelper.html">DomHelper</a> element specification object specifying the element structure of this Panel's <a href="output/Ext.Panel.html#Ext.Panel-bbar">bbar</a> Element. See <code><a href="output/Ext.Panel.html#Ext.Panel-bodyCfg">bodyCfg</a></code> also.
-
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get bbarCfg():Object;
 
   /**
    True to display an interior border on the body element of the panel, false to hide it (defaults to true). This only applies when <a href="output/Ext.Panel.html#Ext.Panel-border">border</a> == true. If border == true and bodyBorder == false, the border will display as a 1px wide inset border, giving the entire body element an inset appearance.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get bodyBorder():Boolean;
 
@@ -335,62 +328,51 @@ public class Panel extends Container {
    footerStyle:    'background-color:red' // see <a href="output/Ext.Panel.html#Ext.Panel-bodyStyle">bodyStyle</a>
    });
    </code></pre><p>The example above also explicitly creates a <code><a href="output/Ext.Panel.html#Ext.Panel-footer">footer</a></code> with custom markup and styling applied.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get bodyCfg():Object;
 
   /**
    Additional css class selector to be applied to the <a href="output/Ext.Panel.html#Ext.Panel-body">body</a> element in the format expected by <a href="output/Ext.Element.html#Ext.Element-addClass">Ext.Element.addClass</a> (defaults to null). See <a href="output/Ext.Panel.html#Ext.Panel-bodyCfg">bodyCfg</a>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get bodyCssClass():*;
 
   /**
    Custom CSS styles to be applied to the <a href="output/Ext.Panel.html#Ext.Panel-body">body</a> element in the format expected by <a href="output/Ext.Element.html#Ext.Element-applyStyles">Ext.Element.applyStyles</a> (defaults to null). See <a href="output/Ext.Panel.html#Ext.Panel-bodyCfg">bodyCfg</a>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get bodyStyle():*;
 
   /**
    True to display the borders of the panel's body element, false to hide them (defaults to true). By default, the border is a 2px wide inset border, but this can be further altered by setting <a href="output/Ext.Panel.html#Ext.Panel-bodyBorder">bodyBorder</a> to false.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get border():Boolean;
 
   /**
    The alignment of any <a href="output/Ext.Panel.html#Ext.Panel-buttons">buttons</a> added to this panel. Valid values are <code>'right'</code>, <code>'left'</code> and <code>'center'</code> (defaults to <code>'right'</code>).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get buttonAlign():String;
 
   /**
    A <a href="Ext.DomHelper.html">DomHelper</a> element specification object specifying the element structure of this Panel's <a href="output/Ext.Panel.html#Ext.Panel-bwrap">bwrap</a> Element. See <code><a href="output/Ext.Panel.html#Ext.Panel-bodyCfg">bodyCfg</a></code> also.
-
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get bwrapCfg():Object;
 
   /**
    Panels themselves do not directly support being closed, but some Panel subclasses do (like <a href="Ext.Window.html">Ext.Window</a>) or a Panel Class within an <a href="Ext.TabPanel.html">Ext.TabPanel</a>. Specify <code>true</code> to enable closing in such situations. Defaults to <code>false</code>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get closable():Boolean;
 
   /**
    <code>true</code> to make sure the collapse/expand toggle button always renders first (to the left of) any other tools in the panel's title bar, <code>false</code> to render it last (defaults to <code>true</code>).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get collapseFirst():Boolean;
 
   /**
    A CSS class to add to the panel's element after it has been collapsed (defaults to <code>'x-panel-collapsed'</code>).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get collapsedCls():String;
 
   /**
    True to make the panel collapsible and have the expand/collapse toggle button automatically rendered into the header tool button area, false to keep the panel statically sized with no button (defaults to false).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get collapsible():Boolean;
 
@@ -432,13 +414,11 @@ public class Panel extends Container {
    }
    }).show();
    </code></pre>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get draggable():*;
 
   /**
    A comma-delimited list of panel elements to initialize when the panel is rendered. Normally, this list will be generated automatically based on the items added to the panel at config time, but sometimes it might be useful to make sure a structural element is rendered even if not specified at config time (for example, you may want to add a button or toolbar dynamically after the panel has been rendered). Adding those elements to this list will allocate the required placeholders in the panel when it is rendered. Valid values are<div class="mdetail-params"><ul><li><code>header</code></li><li><code>tbar</code> (top bar)</li><li><code>body</code></li><li><code>bbar</code> (bottom bar)</li><li><code>footer</code></li></ul></div>Defaults to '<code>body</code>'.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get elements():String;
 
@@ -463,21 +443,17 @@ public class Panel extends Container {
    }]
    }).show();
    </code></pre><p><b>Note:</b> Although a Toolbar may contain Field components, these will <b>not</b> be updated by a load of an ancestor FormPanel. A Panel's toolbars are not part of the standard Container-&gt;Component hierarchy, and so are not scanned to collect form items. However, the values <b>will</b> be submitted because form submission parameters are collected from the DOM tree.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get fbar():*;
 
   /**
    This property is used to configure the underlying <a href="Ext.Layer.html">Ext.Layer</a>. Acceptable values for this configuration property are:
    <div class="mdetail-params"><ul><li><b><code>false</code></b> : <b>Default.</b><div class="sub-desc">Display the panel inline where it is rendered.</div></li><li><b><code>true</code></b> : <div class="sub-desc">Float the panel (absolute position it with automatic shimming and shadow).<div style="margin-left: 2em"><div class="sub-desc">Setting floating to true will create an Ext.Layer for this panel and display the panel at negative offsets so that it is hidden.</div><div class="sub-desc">Since the panel will be absolute positioned, the position must be set explicitly <i>after</i> render (e.g., <code>myPanel.setPosition(100,100);</code>).</div><div class="sub-desc"><b>Note</b>: when floating a panel you should always assign a fixed width, otherwise it will be auto width and will expand to fill to the right edge of the viewport.</div></div></div></li><li><b><code><a href="Ext.Layer.html">object</a></code></b> : <div class="sub-desc">The specified object will be used as the configuration object for the <a href="Ext.Layer.html">Ext.Layer</a> that will be created.</div></li></ul></div>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get floating():*;
 
   /**
    A <a href="Ext.DomHelper.html">DomHelper</a> element specification object specifying the element structure of this Panel's <a href="output/Ext.Panel.html#Ext.Panel-footer">footer</a> Element. See <code><a href="output/Ext.Panel.html#Ext.Panel-bodyCfg">bodyCfg</a></code> also.
-
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get footerCfg():Object;
 
@@ -507,26 +483,21 @@ public class Panel extends Container {
    &lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
    &lt;/div&gt;
    </code></pre>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get frame():Boolean;
 
   /**
    <code>true</code> to display the panel <code><a href="output/Ext.Panel.html#Ext.Panel-title">title</a></code> in the <code><a href="output/Ext.Panel.html#Ext.Panel-header">header</a></code>, <code>false</code> to hide it (defaults to <code>true</code>).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get headerAsText():Boolean;
 
   /**
    A <a href="Ext.DomHelper.html">DomHelper</a> element specification object specifying the element structure of this Panel's <a href="output/Ext.Panel.html#Ext.Panel-header">header</a> Element. See <code><a href="output/Ext.Panel.html#Ext.Panel-bodyCfg">bodyCfg</a></code> also.
-
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get headerCfg():Object;
 
   /**
    <code>true</code> to hide the expand/collapse toggle button when <code><a href="output/Ext.Panel.html#Ext.Panel-collapsible">collapsible</a> == true</code>, <code>false</code> to display it (defaults to <code>false</code>).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get hideCollapseTool():Boolean;
 
@@ -538,81 +509,67 @@ public class Panel extends Container {
    // css class that specifies background image to be used as the icon image:
    .my-icon { background-image: url(../images/my-icon.gif) 0 6px no-repeat !important; }
    </code></pre>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get iconCls():String;
 
   /**
    A <a href="Ext.KeyMap.html">Ext.KeyMap</a> config object (in the format expected by <a href="output/Ext.KeyMap.html#Ext.KeyMap-addBinding">Ext.KeyMap.addBinding</a> used to assign custom key handling to this panel (defaults to <code>null</code>).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get keys():*;
 
   /**
    <code>true</code> to mask the panel when it is <a href="output/Ext.Panel.html#Ext.Panel-disabled">disabled</a>, <code>false</code> to not mask it (defaults to <code>true</code>). Either way, the panel will always tell its contained elements to disable themselves when it is disabled, but masking the panel can provide an additional visual cue that the panel is disabled.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get maskDisabled():Boolean;
 
   /**
    Minimum width in pixels of all <a href="output/Ext.Panel.html#Ext.Panel-buttons">buttons</a> in this panel (defaults to <code>75</code>)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get minButtonWidth():Number;
 
   /**
    A shortcut for setting a padding style on the body element. The value can either be a number to be applied to all sides, or a normal css string describing padding. Defaults to <tt>undefined</tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get padding():*;
 
   /**
    Defaults to <code>false</code>. When set to <code>true</code>, an extra css class <code>'x-panel-normal'</code> will be added to the panel's element, effectively applying css styles suggested by the W3C (see http://www.w3.org/TR/CSS21/sample.html) to the Panel's <b>body</b> element (not the header, footer, etc.).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get preventBodyReset():Boolean;
 
   /**
    <code>true</code> (or a valid Ext.Shadow <a href="output/Ext.Shadow.html#Ext.Shadow-mode">Ext.Shadow.mode</a> value) to display a shadow behind the panel, <code>false</code> to display no shadow (defaults to <code>'sides'</code>). Note that this option only applies when <code><a href="output/Ext.Panel.html#Ext.Panel-floating">floating</a> = true</code>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get shadow():*;
 
   /**
    The number of pixels to offset the shadow if displayed (defaults to <code>4</code>). Note that this option only applies when <code><a href="output/Ext.Panel.html#Ext.Panel-floating">floating</a> = true</code>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get shadowOffset():Number;
 
   /**
    <code>false</code> to disable the iframe shim in browsers which need one (defaults to <code>true</code>). Note that this option only applies when <code><a href="output/Ext.Panel.html#Ext.Panel-floating">floating</a> = true</code>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get shim():Boolean;
 
   /**
    The top toolbar of the panel. This can be a <a href="Ext.Toolbar.html">Ext.Toolbar</a> object, a toolbar config, or an array of buttons/button configs to be added to the toolbar. Note that this is not available as a property after render. To access the top toolbar after render, use <a href="output/Ext.Panel.html#Ext.Panel-getTopToolbar">getTopToolbar</a>.
    <p><b>Note:</b> Although a Toolbar may contain Field components, these will <b>not</b> be updated by a load of an ancestor FormPanel. A Panel's toolbars are not part of the standard Container-&gt;Component hierarchy, and so are not scanned to collect form items. However, the values <b>will</b> be submitted because form submission parameters are collected from the DOM tree.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get tbar():*;
 
   /**
    A <a href="Ext.DomHelper.html">DomHelper</a> element specification object specifying the element structure of this Panel's <a href="output/Ext.Panel.html#Ext.Panel-tbar">tbar</a> Element. See <code><a href="output/Ext.Panel.html#Ext.Panel-bodyCfg">bodyCfg</a></code> also.
-
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get tbarCfg():Object;
 
   /**
    The title text to be used as innerHTML (html tags are accepted) to display in the panel <code><a href="output/Ext.Panel.html#Ext.Panel-header">header</a></code> (defaults to ''). When a <code>title</code> is specified the <code><a href="output/Ext.Panel.html#Ext.Panel-header">header</a></code> element will automatically be created and displayed unless <a href="output/Ext.Panel.html#Ext.Panel-header">header</a> is explicitly set to <code>false</code>. If you do not want to specify a <code>title</code> at config time, but you may want one later, you must either specify a non-empty <code>title</code> (a blank space ' ' will do) or <code>header:true</code> so that the container element will get created.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get title():String;
 
   /**
    <code>true</code> to allow expanding and collapsing the panel (when <code><a href="output/Ext.Panel.html#Ext.Panel-collapsible">collapsible</a> = true</code>) by clicking anywhere in the header bar, <code>false</code>) to allow it only by clicking to tool button (defaults to <code>false</code>)). If this panel is a child item of a border layout also see the <a href="Ext.layout.BorderLayout.Region.html">BorderLayout.Region</a> <code><a href="output/Ext.layout.BorderLayout.Region.html#Ext.layout.BorderLayout.Region-floatable">floatable</a></code> config option.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get titleCollapse():Boolean;
 
@@ -636,7 +593,6 @@ public class Panel extends Container {
    closeAction:'hide'
    });</code></pre><p>Note that the CSS class 'x-tool-pdf' should have an associated style rule which provides an appropriate background image, something like:</p><pre><code>   a.x-tool-pdf {background-image: url(../shared/extjs/images/pdf.gif)!important;}
    </code></pre>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get toolTemplate():*;
 
@@ -662,13 +618,11 @@ public class Panel extends Container {
    .x-tool-help {background-image: url(images/help.png) no-repeat 0 0;}
    .x-tool-help-over {background-position:-15px 0;}
    </code></pre>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get tools():Array;
 
   /**
    Overrides the <code><a href="output/Ext.Panel.html#Ext.Panel-baseCls">baseCls</a></code> setting to <code><a href="output/Ext.Panel.html#Ext.Panel-baseCls">baseCls</a> = 'x-plain'</code> which renders the panel unstyled except for required attributes for Ext layouts to function (e.g. overflow:hidden).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get unstyled():Boolean;
 
@@ -679,7 +633,7 @@ public class Panel extends Container {
    * @param handler The function to be called on button <a href="output/Ext.Button.html#Ext.Button-click">Ext.Button.click</a>
    * @param scope The scope (<code>this</code> reference) in which the button handler function is executed. Defaults to the Button.
    * @return The button that was added
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Panel.html#method-Ext.Panel-addButton Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Panel-method-addButton Sencha Docs Ext JS 3.4
    */
   public native function addButton(config:*, handler:Function, scope:Object):Button;
 
@@ -688,7 +642,7 @@ public class Panel extends Container {
    *
    * @param animate True to animate the transition, else false (defaults to the value of the <a href="output/Ext.Panel.html#Ext.Panel-animCollapse">animCollapse</a> panel config)
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Panel.html#method-Ext.Panel-collapse Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Panel-method-collapse Sencha Docs Ext JS 3.4
    */
   public native function collapse(animate:Boolean):Panel;
 
@@ -697,7 +651,7 @@ public class Panel extends Container {
    *
    * @param animate True to animate the transition, else false (defaults to the value of the <a href="output/Ext.Panel.html#Ext.Panel-animCollapse">animCollapse</a> panel config)
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Panel.html#method-Ext.Panel-expand Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Panel-method-expand Sencha Docs Ext JS 3.4
    */
   public native function expand(animate:Boolean):Panel;
 
@@ -705,7 +659,7 @@ public class Panel extends Container {
    * Returns the <a href="Ext.Toolbar.html">toolbar</a> from the bottom (<code><a href="output/Ext.Panel.html#Ext.Panel-bbar">bbar</a></code>) section of the panel.
    *
    * @return The toolbar
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Panel.html#method-Ext.Panel-getBottomToolbar Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Panel-method-getBottomToolbar Sencha Docs Ext JS 3.4
    */
   public native function getBottomToolbar():Toolbar;
 
@@ -713,7 +667,7 @@ public class Panel extends Container {
    * Returns the <a href="Ext.Toolbar.html">toolbar</a> from the footer (<code><a href="output/Ext.Panel.html#Ext.Panel-fbar">fbar</a></code>) section of the panel.
    *
    * @return The toolbar
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Panel.html#method-Ext.Panel-getFooterToolbar Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Panel-method-getFooterToolbar Sencha Docs Ext JS 3.4
    */
   public native function getFooterToolbar():Toolbar;
 
@@ -721,7 +675,7 @@ public class Panel extends Container {
    * Returns the height in pixels of the framing elements of this panel (including any top and bottom bars and header and footer elements, but not including the body height). To retrieve the body height see <a href="output/Ext.Panel.html#Ext.Panel-getInnerHeight">getInnerHeight</a>.
    *
    * @return The frame height
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Panel.html#method-Ext.Panel-getFrameHeight Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Panel-method-getFrameHeight Sencha Docs Ext JS 3.4
    */
   public native function getFrameHeight():Number;
 
@@ -729,7 +683,7 @@ public class Panel extends Container {
    * Returns the width in pixels of the framing elements of this panel (not including the body width). To retrieve the body width see <a href="output/Ext.Panel.html#Ext.Panel-getInnerWidth">getInnerWidth</a>.
    *
    * @return The frame width
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Panel.html#method-Ext.Panel-getFrameWidth Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Panel-method-getFrameWidth Sencha Docs Ext JS 3.4
    */
   public native function getFrameWidth():Number;
 
@@ -737,7 +691,7 @@ public class Panel extends Container {
    * Returns the height in pixels of the body element (not including the height of any framing elements). For the frame height see <a href="output/Ext.Panel.html#Ext.Panel-getFrameHeight">getFrameHeight</a>.
    *
    * @return The body height
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Panel.html#method-Ext.Panel-getInnerHeight Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Panel-method-getInnerHeight Sencha Docs Ext JS 3.4
    */
   public native function getInnerHeight():Number;
 
@@ -745,7 +699,7 @@ public class Panel extends Container {
    * Returns the width in pixels of the body element (not including the width of any framing elements). For the frame width see <a href="output/Ext.Panel.html#Ext.Panel-getFrameWidth">getFrameWidth</a>.
    *
    * @return The body width
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Panel.html#method-Ext.Panel-getInnerWidth Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Panel-method-getInnerWidth Sencha Docs Ext JS 3.4
    */
   public native function getInnerWidth():Number;
 
@@ -754,7 +708,7 @@ public class Panel extends Container {
    *
    * @param id
    * @return tool
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Panel.html#method-Ext.Panel-getTool Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Panel-method-getTool Sencha Docs Ext JS 3.4
    */
   public native function getTool(id:String):Object;
 
@@ -762,7 +716,7 @@ public class Panel extends Container {
    * Returns the <a href="Ext.Toolbar.html">toolbar</a> from the top (<code><a href="output/Ext.Panel.html#Ext.Panel-tbar">tbar</a></code>) section of the panel.
    *
    * @return The toolbar
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Panel.html#method-Ext.Panel-getTopToolbar Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Panel-method-getTopToolbar Sencha Docs Ext JS 3.4
    */
   public native function getTopToolbar():Toolbar;
 
@@ -770,7 +724,7 @@ public class Panel extends Container {
    * Get the <a href="Ext.Updater.html">Ext.Updater</a> for this panel. Enables you to perform Ajax updates of this panel's body.
    *
    * @return The Updater
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Panel.html#method-Ext.Panel-getUpdater Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Panel-method-getUpdater Sencha Docs Ext JS 3.4
    */
   public native function getUpdater():Updater;
 
@@ -790,7 +744,7 @@ public class Panel extends Container {
    });
    </code></pre>The only required property is url. The optional properties nocache, text and scripts are shorthand for disableCaching, indicatorText and loadScripts and are used to set their associated property on this panel Updater instance.
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Panel.html#method-Ext.Panel-load Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Panel-method-load Sencha Docs Ext JS 3.4
    */
   public native function load(config:*):Panel;
 
@@ -798,7 +752,7 @@ public class Panel extends Container {
    * Sets the CSS class that provides the icon image for this panel. This method will replace any existing icon class if one has already been set and fire the <a href="output/Ext.Panel.html#Ext.Panel-iconchange">iconchange</a> event after completion.
    *
    * @param cls The new CSS class name
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Panel.html#method-Ext.Panel-setIconClass Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Panel-method-setIconClass Sencha Docs Ext JS 3.4
    */
   public native function setIconClass(cls:String):void;
 
@@ -808,7 +762,7 @@ public class Panel extends Container {
    *
    * @param title The title text to set
    * @param iconCls <a href="output/Ext.Panel.html#Ext.Panel-iconCls">iconCls</a> A user-defined CSS class that provides the icon image for this panel
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Panel.html#method-Ext.Panel-setTitle Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Panel-method-setTitle Sencha Docs Ext JS 3.4
    */
   public native function setTitle(title:String, iconCls:String = null):void;
 
@@ -817,7 +771,7 @@ public class Panel extends Container {
    *
    * @param animate True to animate the transition, else false (defaults to the value of the <a href="output/Ext.Panel.html#Ext.Panel-animCollapse">animCollapse</a> panel config)
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Panel.html#method-Ext.Panel-toggleCollapse Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Panel-method-toggleCollapse Sencha Docs Ext JS 3.4
    */
   public native function toggleCollapse(animate:Boolean):Panel;
 

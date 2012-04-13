@@ -236,7 +236,7 @@ import ext.util.Observable;
  *
 
  * @see ext.config.node
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#cls-Ext.data.Node Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Node Sencha Docs Ext JS 3.4
  */
 public class Node extends Observable {
 
@@ -252,7 +252,7 @@ public class Node extends Observable {
 
   /**
    The attributes supplied for the node. You can use this property to access any custom attributes you supplied.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#prop-Ext.data.Node-attributes Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Node-property-attributes Sencha Docs Ext JS 3.4
    */
   public native function get attributes():Object;
 
@@ -263,7 +263,7 @@ public class Node extends Observable {
 
   /**
    All child nodes of this node.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#prop-Ext.data.Node-childNodes Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Node-property-childNodes Sencha Docs Ext JS 3.4
    */
   public native function get childNodes():Array;
 
@@ -274,7 +274,7 @@ public class Node extends Observable {
 
   /**
    The first direct child node of this node, or null if this node has no child nodes.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#prop-Ext.data.Node-firstChild Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Node-property-firstChild Sencha Docs Ext JS 3.4
    */
   public native function get firstChild():Node;
 
@@ -285,7 +285,7 @@ public class Node extends Observable {
 
   /**
    The node id.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#prop-Ext.data.Node-id Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Node-property-id Sencha Docs Ext JS 3.4
    */
   public native function get id():String;
 
@@ -296,7 +296,7 @@ public class Node extends Observable {
 
   /**
    The last direct child node of this node, or null if this node has no child nodes.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#prop-Ext.data.Node-lastChild Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Node-property-lastChild Sencha Docs Ext JS 3.4
    */
   public native function get lastChild():Node;
 
@@ -307,7 +307,7 @@ public class Node extends Observable {
 
   /**
    The node immediately following this node in the tree, or null if there is no sibling node.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#prop-Ext.data.Node-nextSibling Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Node-property-nextSibling Sencha Docs Ext JS 3.4
    */
   public native function get nextSibling():Node;
 
@@ -318,7 +318,7 @@ public class Node extends Observable {
 
   /**
    The parent node for this node.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#prop-Ext.data.Node-parentNode Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Node-property-parentNode Sencha Docs Ext JS 3.4
    */
   public native function get parentNode():Node;
 
@@ -329,7 +329,7 @@ public class Node extends Observable {
 
   /**
    The node immediately preceding this node in the tree, or null if there is no sibling node.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#prop-Ext.data.Node-previousSibling Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Node-property-previousSibling Sencha Docs Ext JS 3.4
    */
   public native function get previousSibling():Node;
 
@@ -340,7 +340,6 @@ public class Node extends Observable {
 
   /**
    true if this node is a leaf and does not have children
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get leaf():Boolean;
 
@@ -349,7 +348,7 @@ public class Node extends Observable {
    *
    * @param node The node or Array of nodes to append
    * @return The appended node if single append, or null if an array was passed
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Node-appendChild Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Node-method-appendChild Sencha Docs Ext JS 3.4
    */
   public native function appendChild(node:*):Node;
 
@@ -359,7 +358,7 @@ public class Node extends Observable {
    * @param fn The function to call
    * @param scope The scope (<code>this</code> reference) in which the function is executed. Defaults to the current Node.
    * @param args The args to call the function with (default to passing the current Node)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Node-bubble Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Node-method-bubble Sencha Docs Ext JS 3.4
    */
   public native function bubble(fn:Function, scope:Object = null, args:Array = null):void;
 
@@ -369,7 +368,7 @@ public class Node extends Observable {
    * @param fn The function to call
    * @param scope The scope (<code>this</code> reference) in which the function is executed. Defaults to the current Node.
    * @param args The args to call the function with (default to passing the current Node)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Node-cascade Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Node-method-cascade Sencha Docs Ext JS 3.4
    */
   public native function cascade(fn:Function, scope:Object = null, args:Array = null):void;
 
@@ -378,14 +377,14 @@ public class Node extends Observable {
    *
    * @param node
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Node-contains Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Node-method-contains Sencha Docs Ext JS 3.4
    */
   public native function contains(node:Node):Boolean;
 
   /**
    * Destroys the node.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Node-destroy Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Node-method-destroy Sencha Docs Ext JS 3.4
    */
   public native function destroy():void;
 
@@ -395,7 +394,7 @@ public class Node extends Observable {
    * @param fn The function to call
    * @param scope The scope (<code>this</code> reference) in which the function is executed. Defaults to the current Node in the iteration.
    * @param args The args to call the function with (default to passing the current Node)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Node-eachChild Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Node-method-eachChild Sencha Docs Ext JS 3.4
    */
   public native function eachChild(fn:Function, scope:Object = null, args:Array = null):void;
 
@@ -406,7 +405,7 @@ public class Node extends Observable {
    * @param value The value to search for
    * @param deep True to search through nodes deeper than the immediate children
    * @return The found child or null if none was found
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Node-findChild Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Node-method-findChild Sencha Docs Ext JS 3.4
    */
   public native function findChild(attribute:String, value:*, deep:Boolean = false):Node;
 
@@ -417,7 +416,7 @@ public class Node extends Observable {
    * @param scope The scope (<code>this</code> reference) in which the function is executed. Defaults to the Node being tested.
    * @param deep True to search through nodes deeper than the immediate children
    * @return The found child or null if none was found
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Node-findChildBy Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Node-method-findChildBy Sencha Docs Ext JS 3.4
    */
   public native function findChildBy(fn:Function, scope:Object = null, deep:Boolean = false):Node;
 
@@ -425,7 +424,7 @@ public class Node extends Observable {
    * Returns depth of this node (the root node has a depth of 0)
    *
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Node-getDepth Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Node-method-getDepth Sencha Docs Ext JS 3.4
    */
   public native function getDepth():Number;
 
@@ -433,7 +432,7 @@ public class Node extends Observable {
    * Returns the tree this node is in.
    *
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Node-getOwnerTree Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Node-method-getOwnerTree Sencha Docs Ext JS 3.4
    */
   public native function getOwnerTree():Tree;
 
@@ -442,7 +441,7 @@ public class Node extends Observable {
    *
    * @param attr The attr to use for the path (defaults to the node's id)
    * @return The path
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Node-getPath Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Node-method-getPath Sencha Docs Ext JS 3.4
    */
   public native function getPath(attr:String = null):String;
 
@@ -450,7 +449,7 @@ public class Node extends Observable {
    * Returns true if this node has one or more child nodes, else false.
    *
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Node-hasChildNodes Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Node-method-hasChildNodes Sencha Docs Ext JS 3.4
    */
   public native function hasChildNodes():Boolean;
 
@@ -459,7 +458,7 @@ public class Node extends Observable {
    *
    * @param node
    * @return The index of the node or -1 if it was not found
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Node-indexOf Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Node-method-indexOf Sencha Docs Ext JS 3.4
    */
   public native function indexOf(node:Node):Number;
 
@@ -469,7 +468,7 @@ public class Node extends Observable {
    * @param node The node to insert
    * @param refNode The node to insert before (if null the node is appended)
    * @return The inserted node
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Node-insertBefore Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Node-method-insertBefore Sencha Docs Ext JS 3.4
    */
   public native function insertBefore(node:Node, refNode:Node):Node;
 
@@ -478,7 +477,7 @@ public class Node extends Observable {
    *
    * @param node
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Node-isAncestor Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Node-method-isAncestor Sencha Docs Ext JS 3.4
    */
   public native function isAncestor(node:Node):Boolean;
 
@@ -486,7 +485,7 @@ public class Node extends Observable {
    * Returns true if this node has one or more child nodes, or if the <tt>expandable</tt> node attribute is explicitly specified as true (see <a href="output/Ext.data.Node.html#Ext.data.Node-attributes">attributes</a>), otherwise returns false.
    *
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Node-isExpandable Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Node-method-isExpandable Sencha Docs Ext JS 3.4
    */
   public native function isExpandable():Boolean;
 
@@ -494,7 +493,7 @@ public class Node extends Observable {
    * Returns true if this node is the first child of its parent
    *
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Node-isFirst Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Node-method-isFirst Sencha Docs Ext JS 3.4
    */
   public native function isFirst():Boolean;
 
@@ -502,7 +501,7 @@ public class Node extends Observable {
    * Returns true if this node is the last child of its parent
    *
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Node-isLast Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Node-method-isLast Sencha Docs Ext JS 3.4
    */
   public native function isLast():Boolean;
 
@@ -510,7 +509,7 @@ public class Node extends Observable {
    * Returns true if this node is a leaf
    *
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Node-isLeaf Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Node-method-isLeaf Sencha Docs Ext JS 3.4
    */
   public native function isLeaf():Boolean;
 
@@ -519,7 +518,7 @@ public class Node extends Observable {
    *
    * @param index
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Node-item Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Node-method-item Sencha Docs Ext JS 3.4
    */
   public native function item(index:Number):Node;
 
@@ -528,7 +527,7 @@ public class Node extends Observable {
    *
    * @param destroy <tt>true</tt> to destroy the node upon removal. Defaults to <tt>false</tt>.
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Node-remove Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Node-method-remove Sencha Docs Ext JS 3.4
    */
   public native function remove(destroy:Boolean):Node;
 
@@ -537,7 +536,7 @@ public class Node extends Observable {
    *
    * @param destroy <tt>true</tt> to destroy the node upon removal. Defaults to <tt>false</tt>.
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Node-removeAll Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Node-method-removeAll Sencha Docs Ext JS 3.4
    */
   public native function removeAll(destroy:Boolean):Node;
 
@@ -547,7 +546,7 @@ public class Node extends Observable {
    * @param node The node to remove
    * @param destroy <tt>true</tt> to destroy the node upon removal. Defaults to <tt>false</tt>.
    * @return The removed node
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Node-removeChild Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Node-method-removeChild Sencha Docs Ext JS 3.4
    */
   public native function removeChild(node:Node, destroy:Boolean):Node;
 
@@ -557,7 +556,7 @@ public class Node extends Observable {
    * @param newChild The replacement node
    * @param oldChild The node to replace
    * @return The replaced node
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Node-replaceChild Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Node-method-replaceChild Sencha Docs Ext JS 3.4
    */
   public native function replaceChild(newChild:Node, oldChild:Node):Node;
 
@@ -565,7 +564,7 @@ public class Node extends Observable {
    * Changes the id of this node.
    *
    * @param id The new id for the node.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Node-setId Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Node-method-setId Sencha Docs Ext JS 3.4
    */
   public native function setId(id:String):void;
 
@@ -574,7 +573,7 @@ public class Node extends Observable {
    *
    * @param fn A function which, when passed two Nodes, returns -1, 0 or 1 depending upon required sort order.
    * @param scope The scope (<code>this</code> reference) in which the function is executed. Defaults to the browser window.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tree.html#method-Ext.data.Node-sort Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Node-method-sort Sencha Docs Ext JS 3.4
    */
   public native function sort(fn:Function, scope:Object = null):void;
 

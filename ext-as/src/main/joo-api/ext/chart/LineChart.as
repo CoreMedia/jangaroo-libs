@@ -7,7 +7,7 @@ package ext.chart {
 
  * <p>This component is created by the xtype 'linechart' / the EXML element &lt;linechart>.</p>
  * @see ext.config.linechart
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Chart.html#cls-Ext.chart.LineChart Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.chart.LineChart Sencha Docs Ext JS 3.4
  */
 public class LineChart extends CartesianChart {
 

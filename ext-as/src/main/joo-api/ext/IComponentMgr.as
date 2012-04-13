@@ -11,19 +11,19 @@ import ext.util.MixedCollection;
 
  * <p>This interface defines the type of the singleton ComponentMgr.</p>
  * @see ext.#ComponentMgr ext.ComponentMgr
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ComponentMgr.html#cls-Ext.ComponentMgr Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.ComponentMgr Sencha Docs Ext JS 3.4
  */
 public interface IComponentMgr {
 
   /**
    The MixedCollection used internally for the component cache. An example usage may be subscribing to events on the MixedCollection to monitor addition or removal.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ComponentMgr.html#prop-Ext.ComponentMgr-all Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.ComponentMgr-property-all Sencha Docs Ext JS 3.4
    */
   function get all():MixedCollection;
 
   /**
    The ptypes that have been registered with the component manager.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ComponentMgr.html#prop-Ext.ComponentMgr-ptypes Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.ComponentMgr-property-ptypes Sencha Docs Ext JS 3.4
    */
   function get ptypes():Object;
 
@@ -34,7 +34,7 @@ public interface IComponentMgr {
 
   /**
    The xtypes that have been registered with the component manager.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ComponentMgr.html#prop-Ext.ComponentMgr-types Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.ComponentMgr-property-types Sencha Docs Ext JS 3.4
    */
   function get types():Object;
 
@@ -49,7 +49,7 @@ public interface IComponentMgr {
    * @param config A configuration object for the Component you wish to create.
    * @param defaultType The xtype to provide the default Component type if the config object does not contain a <code>xtype</code>. (Optional if the config contains a <code>xtype</code>).
    * @return The newly instantiated Component.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ComponentMgr.html#method-Ext.ComponentMgr-create Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.ComponentMgr-method-create Sencha Docs Ext JS 3.4
    */
   function create(config:Object, defaultType:String = null):Component;
 
@@ -59,7 +59,7 @@ public interface IComponentMgr {
    * @param config A configuration object for the Plugin you wish to create.
    * @param defaultType The <code>ptype</code> to use if the config object does not contain a <code>ptype</code>. (Optional if the config contains a <code>ptype</code>).
    * @return The newly instantiated Plugin.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ComponentMgr.html#method-Ext.ComponentMgr-createPlugin Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.ComponentMgr-method-createPlugin Sencha Docs Ext JS 3.4
    */
   function createPlugin(config:Object, defaultType:String = null):Component;
 
@@ -68,7 +68,7 @@ public interface IComponentMgr {
    *
    * @param id The component <a href="output/Ext.Component.html#Ext.Component-id">id</a>
    * @return The Component, <code>undefined</code> if not found, or <code>null</code> if a Class was found.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ComponentMgr.html#method-Ext.ComponentMgr-get Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.ComponentMgr-method-get Sencha Docs Ext JS 3.4
    */
   function get(id:String):Component;
 
@@ -77,7 +77,7 @@ public interface IComponentMgr {
    *
    * @param ptype The mnemonic string by which the Plugin class may be looked up
    * @return Whether the type is registered.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ComponentMgr.html#method-Ext.ComponentMgr-isPluginRegistered Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.ComponentMgr-method-isPluginRegistered Sencha Docs Ext JS 3.4
    */
   function isPluginRegistered(ptype:String):Boolean;
 
@@ -86,7 +86,7 @@ public interface IComponentMgr {
    *
    * @param xtype The mnemonic string by which the Component class may be looked up
    * @return Whether the type is registered.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ComponentMgr.html#method-Ext.ComponentMgr-isRegistered Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.ComponentMgr-method-isRegistered Sencha Docs Ext JS 3.4
    */
   function isRegistered(xtype:String):Boolean;
 
@@ -96,7 +96,7 @@ public interface IComponentMgr {
    * @param id The component <a href="output/Ext.Component.html#Ext.Component-id">id</a>
    * @param fn The callback function
    * @param scope The scope (<code>this</code> reference) in which the callback is executed. Defaults to the Component.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ComponentMgr.html#method-Ext.ComponentMgr-onAvailable Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.ComponentMgr-method-onAvailable Sencha Docs Ext JS 3.4
    */
   function onAvailable(id:String, fn:Function, scope:Object):void;
 
@@ -104,7 +104,7 @@ public interface IComponentMgr {
    * Registers a component.
    *
    * @param c The component
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ComponentMgr.html#method-Ext.ComponentMgr-register Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.ComponentMgr-method-register Sencha Docs Ext JS 3.4
    */
   function register(c:Component):void;
 
@@ -114,7 +114,7 @@ public interface IComponentMgr {
    *
    * @param ptype The mnemonic string by which the Plugin class may be looked up.
    * @param cls The new Plugin class.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ComponentMgr.html#method-Ext.ComponentMgr-registerPlugin Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.ComponentMgr-method-registerPlugin Sencha Docs Ext JS 3.4
    */
   function registerPlugin(ptype:String, cls:Class):void;
 
@@ -124,7 +124,7 @@ public interface IComponentMgr {
    *
    * @param xtype The mnemonic string by which the Component class may be looked up.
    * @param cls The new Component class.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ComponentMgr.html#method-Ext.ComponentMgr-registerType Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.ComponentMgr-method-registerType Sencha Docs Ext JS 3.4
    */
   function registerType(xtype:String, cls:Class):void;
 
@@ -132,7 +132,7 @@ public interface IComponentMgr {
    * Unregisters a component.
    *
    * @param c The component
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ComponentMgr.html#method-Ext.ComponentMgr-unregister Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.ComponentMgr-method-unregister Sencha Docs Ext JS 3.4
    */
   function unregister(c:Component):void;
 

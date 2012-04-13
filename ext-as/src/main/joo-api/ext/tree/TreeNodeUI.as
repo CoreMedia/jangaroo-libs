@@ -8,7 +8,7 @@ import js.Node;
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  *
 
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeNodeUI.html#cls-Ext.tree.TreeNodeUI Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeNodeUI Sencha Docs Ext JS 3.4
  */
 public class TreeNodeUI {
 
@@ -24,7 +24,7 @@ public class TreeNodeUI {
    * Adds one or more CSS classes to the node's UI element. Duplicate classes are automatically filtered out.
    *
    * @param className The CSS class to add, or an array of classes
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeNodeUI.html#method-Ext.tree.TreeNodeUI-addClass Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeNodeUI-method-addClass Sencha Docs Ext JS 3.4
    */
   public native function addClass(className:*):void;
 
@@ -32,7 +32,7 @@ public class TreeNodeUI {
    * Returns the &lt;a&gt; element that provides focus for the node's UI.
    *
    * @return The DOM anchor element.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeNodeUI.html#method-Ext.tree.TreeNodeUI-getAnchor Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeNodeUI-method-getAnchor Sencha Docs Ext JS 3.4
    */
   public native function getAnchor():HTMLElement;
 
@@ -40,7 +40,7 @@ public class TreeNodeUI {
    * Returns the element which encapsulates this node.
    *
    * @return The DOM element. The default implementation uses a <code>&lt;li&gt;</code>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeNodeUI.html#method-Ext.tree.TreeNodeUI-getEl Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeNodeUI-method-getEl Sencha Docs Ext JS 3.4
    */
   public native function getEl():HTMLElement;
 
@@ -48,7 +48,7 @@ public class TreeNodeUI {
    *
    *
    * @param href
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeNodeUI.html#method-Ext.tree.TreeNodeUI-getHref Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeNodeUI-method-getHref Sencha Docs Ext JS 3.4
    */
   public native function getHref(href:String):void;
 
@@ -56,7 +56,7 @@ public class TreeNodeUI {
    * Returns the icon &lt;img&gt; element.
    *
    * @return The DOM image element.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeNodeUI.html#method-Ext.tree.TreeNodeUI-getIconEl Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeNodeUI-method-getIconEl Sencha Docs Ext JS 3.4
    */
   public native function getIconEl():HTMLElement;
 
@@ -64,14 +64,14 @@ public class TreeNodeUI {
    * Returns the text node.
    *
    * @return The DOM text node.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeNodeUI.html#method-Ext.tree.TreeNodeUI-getTextEl Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeNodeUI-method-getTextEl Sencha Docs Ext JS 3.4
    */
   public native function getTextEl():Node;
 
   /**
    * Hides this node.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeNodeUI.html#method-Ext.tree.TreeNodeUI-hide Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeNodeUI-method-hide Sencha Docs Ext JS 3.4
    */
   public native function hide():void;
 
@@ -79,7 +79,7 @@ public class TreeNodeUI {
    * Returns the checked status of the node. If the node was rendered with no checkbox, it returns false.
    *
    * @return The checked flag.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeNodeUI.html#method-Ext.tree.TreeNodeUI-isChecked Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeNodeUI-method-isChecked Sencha Docs Ext JS 3.4
    */
   public native function isChecked():Boolean;
 
@@ -87,14 +87,14 @@ public class TreeNodeUI {
    * Removes one or more CSS classes from the node's UI element.
    *
    * @param className The CSS class to remove, or an array of classes
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeNodeUI.html#method-Ext.tree.TreeNodeUI-removeClass Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeNodeUI-method-removeClass Sencha Docs Ext JS 3.4
    */
   public native function removeClass(className:*):void;
 
   /**
    * Shows this node.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeNodeUI.html#method-Ext.tree.TreeNodeUI-show Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeNodeUI-method-show Sencha Docs Ext JS 3.4
    */
   public native function show():void;
 
@@ -102,7 +102,7 @@ public class TreeNodeUI {
    * Sets the checked status of the tree node to the passed value, or, if no value was passed, toggles the checked status. If the node was rendered with no checkbox, this has no effect.
    *
    * @param value The new checked status.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeNodeUI.html#method-Ext.tree.TreeNodeUI-toggleCheck Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeNodeUI-method-toggleCheck Sencha Docs Ext JS 3.4
    */
   public native function toggleCheck(value:Boolean = false):void;
 

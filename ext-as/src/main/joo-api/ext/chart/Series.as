@@ -7,7 +7,7 @@ package ext.chart {
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  *
 
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Chart.html#cls-Ext.chart.Series Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.chart.Series Sencha Docs Ext JS 3.4
  */
 public class Series {
 
@@ -21,7 +21,7 @@ public class Series {
 
   /**
    The human-readable name of the series.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Chart.html#prop-Ext.chart.Series-displayName Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.chart.Series-property-displayName Sencha Docs Ext JS 3.4
    */
   public native function get displayName():String;
 
@@ -32,7 +32,7 @@ public class Series {
 
   /**
    The type of series.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Chart.html#prop-Ext.chart.Series-type Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.chart.Series-property-type Sencha Docs Ext JS 3.4
    */
   public native function get type():String;
 

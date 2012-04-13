@@ -7,7 +7,7 @@ package ext.chart {
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  *
 
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Chart.html#cls-Ext.chart.TimeAxis Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.chart.TimeAxis Sencha Docs Ext JS 3.4
  */
 public class TimeAxis extends Axis {
 
@@ -21,7 +21,7 @@ public class TimeAxis extends Axis {
 
   /**
    Indicates whether to factor in the size of the labels when calculating a major unit.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Chart.html#prop-Ext.chart.TimeAxis-calculateByLabelSize Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.chart.TimeAxis-property-calculateByLabelSize Sencha Docs Ext JS 3.4
    */
   public native function get calculateByLabelSize():Boolean;
 
@@ -32,7 +32,7 @@ public class TimeAxis extends Axis {
 
   /**
    The time unit used by the majorUnit.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Chart.html#prop-Ext.chart.TimeAxis-majorTimeUnit Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.chart.TimeAxis-property-majorTimeUnit Sencha Docs Ext JS 3.4
    */
   public native function get majorTimeUnit():String;
 
@@ -43,7 +43,7 @@ public class TimeAxis extends Axis {
 
   /**
    The spacing between major intervals on this axis.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Chart.html#prop-Ext.chart.TimeAxis-majorUnit Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.chart.TimeAxis-property-majorUnit Sencha Docs Ext JS 3.4
    */
   public native function get majorUnit():Number;
 
@@ -54,7 +54,7 @@ public class TimeAxis extends Axis {
 
   /**
    The maximum value drawn by the axis. If not set explicitly, the axis maximum will be calculated automatically.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Chart.html#prop-Ext.chart.TimeAxis-maximum Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.chart.TimeAxis-property-maximum Sencha Docs Ext JS 3.4
    */
   public native function get maximum():Number;
 
@@ -65,7 +65,7 @@ public class TimeAxis extends Axis {
 
   /**
    The minimum value drawn by the axis. If not set explicitly, the axis minimum will be calculated automatically.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Chart.html#prop-Ext.chart.TimeAxis-minimum Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.chart.TimeAxis-property-minimum Sencha Docs Ext JS 3.4
    */
   public native function get minimum():Date;
 
@@ -76,7 +76,7 @@ public class TimeAxis extends Axis {
 
   /**
    The time unit used by the minorUnit.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Chart.html#prop-Ext.chart.TimeAxis-minorTimeUnit Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.chart.TimeAxis-property-minorTimeUnit Sencha Docs Ext JS 3.4
    */
   public native function get minorTimeUnit():String;
 
@@ -87,7 +87,7 @@ public class TimeAxis extends Axis {
 
   /**
    The spacing between minor intervals on this axis.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Chart.html#prop-Ext.chart.TimeAxis-minorUnit Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.chart.TimeAxis-property-minorUnit Sencha Docs Ext JS 3.4
    */
   public native function get minorUnit():Number;
 
@@ -98,7 +98,7 @@ public class TimeAxis extends Axis {
 
   /**
    If true, the labels, ticks, gridlines, and other objects will snap to the nearest major or minor unit. If false, their position will be based on the minimum value.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Chart.html#prop-Ext.chart.TimeAxis-snapToUnits Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.chart.TimeAxis-property-snapToUnits Sencha Docs Ext JS 3.4
    */
   public native function get snapToUnits():Boolean;
 
@@ -109,7 +109,7 @@ public class TimeAxis extends Axis {
 
   /**
    Series that are stackable will only stack when this value is set to true.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Chart.html#prop-Ext.chart.TimeAxis-stackingEnabled Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.chart.TimeAxis-property-stackingEnabled Sencha Docs Ext JS 3.4
    */
   public native function get stackingEnabled():Boolean;
 

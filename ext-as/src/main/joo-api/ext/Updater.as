@@ -93,7 +93,7 @@ import ext.util.Observable;
  *
 
  * @see ext.config.updater
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/UpdateManager.html#cls-Ext.Updater Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Updater Sencha Docs Ext JS 3.4
  */
 public class Updater extends Observable {
 
@@ -110,7 +110,7 @@ public class Updater extends Observable {
 
   /**
    Cached url to use for refreshes. Overwritten every time update() is called unless "discardUrl" param is set to true.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/UpdateManager.html#prop-Ext.Updater-defaultUrl Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Updater-property-defaultUrl Sencha Docs Ext JS 3.4
    */
   public native function get defaultUrl():String;
 
@@ -121,7 +121,7 @@ public class Updater extends Observable {
 
   /**
    Whether to append unique parameter on get request to disable caching (defaults to <a href="output/Ext.Updater.defaults.html#Ext.Updater.defaults-disableCaching">Ext.Updater.defaults.disableCaching</a>).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/UpdateManager.html#prop-Ext.Updater-disableCaching Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Updater-property-disableCaching Sencha Docs Ext JS 3.4
    */
   public native function get disableCaching():Boolean;
 
@@ -132,7 +132,7 @@ public class Updater extends Observable {
 
   /**
    The Element object
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/UpdateManager.html#prop-Ext.Updater-el Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Updater-property-el Sencha Docs Ext JS 3.4
    */
   public native function get el():Element;
 
@@ -143,7 +143,7 @@ public class Updater extends Observable {
 
   /**
    Delegate for formUpdate() prebound to "this", use myUpdater.formUpdateDelegate.createCallback(arg1, arg2) to bind arguments
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/UpdateManager.html#prop-Ext.Updater-formUpdateDelegate Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Updater-property-formUpdateDelegate Sencha Docs Ext JS 3.4
    */
   public native function get formUpdateDelegate():Function;
 
@@ -154,7 +154,7 @@ public class Updater extends Observable {
 
   /**
    Text for loading indicator (defaults to <a href="output/Ext.Updater.defaults.html#Ext.Updater.defaults-indicatorText">Ext.Updater.defaults.indicatorText</a>).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/UpdateManager.html#prop-Ext.Updater-indicatorText Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Updater-property-indicatorText Sencha Docs Ext JS 3.4
    */
   public native function get indicatorText():String;
 
@@ -165,7 +165,7 @@ public class Updater extends Observable {
 
   /**
    True to process scripts in the output (defaults to <a href="output/Ext.Updater.defaults.html#Ext.Updater.defaults-loadScripts">Ext.Updater.defaults.loadScripts</a>).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/UpdateManager.html#prop-Ext.Updater-loadScripts Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Updater-property-loadScripts Sencha Docs Ext JS 3.4
    */
   public native function get loadScripts():Boolean;
 
@@ -176,7 +176,7 @@ public class Updater extends Observable {
 
   /**
    Delegate for refresh() prebound to "this", use myUpdater.refreshDelegate.createCallback(arg1, arg2) to bind arguments
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/UpdateManager.html#prop-Ext.Updater-refreshDelegate Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Updater-property-refreshDelegate Sencha Docs Ext JS 3.4
    */
   public native function get refreshDelegate():Function;
 
@@ -187,7 +187,7 @@ public class Updater extends Observable {
 
   /**
    The renderer for this Updater (defaults to <a href="Ext.Updater.BasicRenderer.html">Ext.Updater.BasicRenderer</a>).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/UpdateManager.html#prop-Ext.Updater-renderer Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Updater-property-renderer Sencha Docs Ext JS 3.4
    */
   public native function get renderer():Object;
 
@@ -198,7 +198,7 @@ public class Updater extends Observable {
 
   /**
    Whether to show indicatorText when loading (defaults to <a href="output/Ext.Updater.defaults.html#Ext.Updater.defaults-showLoadIndicator">Ext.Updater.defaults.showLoadIndicator</a>).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/UpdateManager.html#prop-Ext.Updater-showLoadIndicator Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Updater-property-showLoadIndicator Sencha Docs Ext JS 3.4
    */
   public native function get showLoadIndicator():String;
 
@@ -209,7 +209,7 @@ public class Updater extends Observable {
 
   /**
    Blank page URL to use with SSL file uploads (defaults to <a href="output/Ext.Updater.defaults.html#Ext.Updater.defaults-sslBlankUrl">Ext.Updater.defaults.sslBlankUrl</a>).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/UpdateManager.html#prop-Ext.Updater-sslBlankUrl Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Updater-property-sslBlankUrl Sencha Docs Ext JS 3.4
    */
   public native function get sslBlankUrl():String;
 
@@ -220,7 +220,7 @@ public class Updater extends Observable {
 
   /**
    Timeout for requests or form posts in seconds (defaults to <a href="output/Ext.Updater.defaults.html#Ext.Updater.defaults-timeout">Ext.Updater.defaults.timeout</a>).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/UpdateManager.html#prop-Ext.Updater-timeout Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Updater-property-timeout Sencha Docs Ext JS 3.4
    */
   public native function get timeout():Number;
 
@@ -231,7 +231,7 @@ public class Updater extends Observable {
 
   /**
    Transaction object of the current executing transaction, or null if there is no active transaction.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/UpdateManager.html#prop-Ext.Updater-transaction Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Updater-property-transaction Sencha Docs Ext JS 3.4
    */
   public native function get transaction():Object;
 
@@ -242,7 +242,7 @@ public class Updater extends Observable {
 
   /**
    Delegate for update() prebound to "this", use myUpdater.updateDelegate.createCallback(arg1, arg2) to bind arguments
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/UpdateManager.html#prop-Ext.Updater-updateDelegate Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Updater-property-updateDelegate Sencha Docs Ext JS 3.4
    */
   public native function get updateDelegate():Function;
 
@@ -254,7 +254,7 @@ public class Updater extends Observable {
   /**
    * Aborts the currently executing transaction, if any.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/UpdateManager.html#method-Ext.Updater-abort Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Updater-method-abort Sencha Docs Ext JS 3.4
    */
   public native function abort():void;
 
@@ -266,14 +266,14 @@ public class Updater extends Observable {
    * @param url The url to pass the form to. If omitted the action attribute on the form will be used.
    * @param reset Whether to try to reset the form after the update
    * @param callback Callback when transaction is complete. The following parameters are passed:<ul><li><b>el</b> : Ext.Element<p class="sub-desc">The Element being updated.</p></li><li><b>success</b> : Boolean<p class="sub-desc">True for success, false for failure.</p></li><li><b>response</b> : XMLHttpRequest<p class="sub-desc">The XMLHttpRequest which processed the update.</p></li></ul>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/UpdateManager.html#method-Ext.Updater-formUpdate Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Updater-method-formUpdate Sencha Docs Ext JS 3.4
    */
   public native function formUpdate(form:*, url:String = null, reset:Boolean = false, callback:Function = null):void;
 
   /**
    * This is an overrideable method which returns a reference to a default renderer class if none is specified when creating the Ext.Updater. Defaults to <a href="Ext.Updater.BasicRenderer.html">Ext.Updater.BasicRenderer</a>
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/UpdateManager.html#method-Ext.Updater-getDefaultRenderer Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Updater-method-getDefaultRenderer Sencha Docs Ext JS 3.4
    */
   public native function getDefaultRenderer():void;
 
@@ -281,7 +281,7 @@ public class Updater extends Observable {
    * Get the Element this Updater is bound to
    *
    * @return The element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/UpdateManager.html#method-Ext.Updater-getEl Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Updater-method-getEl Sencha Docs Ext JS 3.4
    */
   public native function getEl():Element;
 
@@ -289,14 +289,14 @@ public class Updater extends Observable {
    * Returns the current content renderer for this Updater. See <a href="output/Ext.Updater.BasicRenderer.html#Ext.Updater.BasicRenderer-render">Ext.Updater.BasicRenderer.render</a> for more details.
    *
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/UpdateManager.html#method-Ext.Updater-getRenderer Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Updater-method-getRenderer Sencha Docs Ext JS 3.4
    */
   public native function getRenderer():Object;
 
   /**
    * Returns true if the Updater is currently set to auto refresh its content (see <a href="output/Ext.Updater.html#Ext.Updater-startAutoRefresh">startAutoRefresh</a>), otherwise false.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/UpdateManager.html#method-Ext.Updater-isAutoRefreshing Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Updater-method-isAutoRefreshing Sencha Docs Ext JS 3.4
    */
   public native function isAutoRefreshing():void;
 
@@ -304,7 +304,7 @@ public class Updater extends Observable {
    * Returns true if an update is in progress, otherwise false.
    *
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/UpdateManager.html#method-Ext.Updater-isUpdating Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Updater-method-isUpdating Sencha Docs Ext JS 3.4
    */
   public native function isUpdating():Boolean;
 
@@ -312,7 +312,7 @@ public class Updater extends Observable {
    * Refresh the element with the last used url or defaultUrl. If there is no url, it returns immediately
    *
    * @param callback Callback when transaction is complete - called with signature (oElement, bSuccess)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/UpdateManager.html#method-Ext.Updater-refresh Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Updater-method-refresh Sencha Docs Ext JS 3.4
    */
   public native function refresh(callback:Function = null):void;
 
@@ -320,7 +320,7 @@ public class Updater extends Observable {
    * Sets the default URL used for updates.
    *
    * @param defaultUrl The url or a function to call to get the url
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/UpdateManager.html#method-Ext.Updater-setDefaultUrl Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Updater-method-setDefaultUrl Sencha Docs Ext JS 3.4
    */
   public native function setDefaultUrl(defaultUrl:*):void;
 
@@ -328,14 +328,14 @@ public class Updater extends Observable {
    * Sets the content renderer for this Updater. See <a href="output/Ext.Updater.BasicRenderer.html#Ext.Updater.BasicRenderer-render">Ext.Updater.BasicRenderer.render</a> for more details.
    *
    * @param renderer The object implementing the render() method
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/UpdateManager.html#method-Ext.Updater-setRenderer Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Updater-method-setRenderer Sencha Docs Ext JS 3.4
    */
   public native function setRenderer(renderer:Object):void;
 
   /**
    * Display the element's "loading" state. By default, the element is updated with <a href="output/Ext.Updater.html#Ext.Updater-indicatorText">indicatorText</a>. This method may be overridden to perform a custom action while this Updater is actively updating its contents.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/UpdateManager.html#method-Ext.Updater-showLoading Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Updater-method-showLoading Sencha Docs Ext JS 3.4
    */
   public native function showLoading():void;
 
@@ -347,14 +347,14 @@ public class Updater extends Observable {
    * @param params The parameters to pass as either a url encoded string "&amp;param1=1&amp;param2=2" or as an object {param1: 1, param2: 2}
    * @param callback Callback when transaction is complete - called with signature (oElement, bSuccess)
    * @param refreshNow Whether to execute the refresh now, or wait the interval
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/UpdateManager.html#method-Ext.Updater-startAutoRefresh Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Updater-method-startAutoRefresh Sencha Docs Ext JS 3.4
    */
   public native function startAutoRefresh(interval:Number, url:* = null, params:* = null, callback:Function = null, refreshNow:Boolean = false):void;
 
   /**
    * Stop auto refresh on this element.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/UpdateManager.html#method-Ext.Updater-stopAutoRefresh Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Updater-method-stopAutoRefresh Sencha Docs Ext JS 3.4
    */
   public native function stopAutoRefresh():void;
 
@@ -373,7 +373,7 @@ public class Updater extends Observable {
    scripts: false // Save time by avoiding RegExp execution.
    });
    </code></pre>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/UpdateManager.html#method-Ext.Updater-update Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Updater-method-update Sencha Docs Ext JS 3.4
    */
   public native function update(options:Object):void;
 
@@ -384,7 +384,7 @@ public class Updater extends Observable {
    * @param url The url
    * @param params Url encoded param string or an object of name/value pairs
    * @param options A config object with any of the Updater properties you want to set - for example: {disableCaching:true, indicatorText: "Loading data..."}
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/UpdateManager.html#method-Ext.Updater-updateElement Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Updater-method-updateElement Sencha Docs Ext JS 3.4
    */
   public static native function updateElement(el:*, url:String, params:* = null, options:Object = null):void;
 

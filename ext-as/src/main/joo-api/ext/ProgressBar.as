@@ -35,7 +35,7 @@ import ext.config.progress;
 
  * <p>This component is created by the xtype 'progress' / the EXML element &lt;progress>.</p>
  * @see ext.config.progress
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ProgressBar.html#cls-Ext.ProgressBar Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.ProgressBar Sencha Docs Ext JS 3.4
  */
 public class ProgressBar extends BoxComponent {
 
@@ -51,31 +51,26 @@ public class ProgressBar extends BoxComponent {
 
   /**
    True to animate the progress bar during transitions (defaults to false)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get animate():Boolean;
 
   /**
    The base CSS class to apply to the progress bar's wrapper element (defaults to 'x-progress')
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get baseCls():String;
 
   /**
    The progress bar text (defaults to '')
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get text():String;
 
   /**
    The element to render the progress text to (defaults to the progress bar's internal text element)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get textEl():*;
 
   /**
    A floating point value between 0 and 1 (e.g., .5, defaults to 0)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get value():Number;
 
@@ -83,7 +78,7 @@ public class ProgressBar extends BoxComponent {
    * Returns true if the progress bar is currently in a <a href="output/Ext.ProgressBar.html#Ext.ProgressBar-wait">wait</a> operation
    *
    * @return True if waiting, else false
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ProgressBar.html#method-Ext.ProgressBar-isWaiting Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.ProgressBar-method-isWaiting Sencha Docs Ext JS 3.4
    */
   public native function isWaiting():Boolean;
 
@@ -92,7 +87,7 @@ public class ProgressBar extends BoxComponent {
    *
    * @param hide True to hide the progress bar (defaults to false)
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ProgressBar.html#method-Ext.ProgressBar-reset Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.ProgressBar-method-reset Sencha Docs Ext JS 3.4
    */
   public native function reset(hide:Boolean = false):ProgressBar;
 
@@ -102,14 +97,14 @@ public class ProgressBar extends BoxComponent {
    * @param width The new width to set. This may be one of:<div class="mdetail-params"><ul><li>A Number specifying the new width in the <a href="output/Ext.BoxComponent.html#Ext.BoxComponent-getEl">Element</a>'s <a href="output/Ext.Element.html#Ext.Element-defaultUnit">Ext.Element.defaultUnit</a>s (by default, pixels).</li><li>A String used to set the CSS width style.</li><li>A size object in the format <code>{width: widthValue, height: heightValue}</code>.</li><li><code>undefined</code> to leave the width unchanged.</li></ul></div>
    * @param height The new height to set (not required if a size object is passed as the first arg). This may be one of:<div class="mdetail-params"><ul><li>A Number specifying the new height in the <a href="output/Ext.BoxComponent.html#Ext.BoxComponent-getEl">Element</a>'s <a href="output/Ext.Element.html#Ext.Element-defaultUnit">Ext.Element.defaultUnit</a>s (by default, pixels).</li><li>A String used to set the CSS height style. Animation may <b>not</b> be used.</li><li><code>undefined</code> to leave the height unchanged.</li></ul></div>
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ProgressBar.html#method-Ext.ProgressBar-setSize Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.ProgressBar-method-setSize Sencha Docs Ext JS 3.4
    */
   override public native function setSize(width:*, height:*):BoxComponent;
 
   /**
    * Synchronizes the inner bar width to the proper proportion of the total component width based on the current progress <a href="output/Ext.ProgressBar.html#Ext.ProgressBar-value">value</a>. This will be called automatically when the ProgressBar is resized by a layout, but if it is rendered auto width, this method can be called from another resize handler to sync the ProgressBar if necessary.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ProgressBar.html#method-Ext.ProgressBar-syncProgressBar Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.ProgressBar-method-syncProgressBar Sencha Docs Ext JS 3.4
    */
   public native function syncProgressBar():void;
 
@@ -120,7 +115,7 @@ public class ProgressBar extends BoxComponent {
    * @param text The string to display in the progress text element (defaults to '')
    * @param animate Whether to animate the transition of the progress bar. If this value is not specified, the default for the class is used (default to false)
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ProgressBar.html#method-Ext.ProgressBar-updateProgress Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.ProgressBar-method-updateProgress Sencha Docs Ext JS 3.4
    */
   public native function updateProgress(value:Number = undefined, text:String = null, animate:Boolean = false):ProgressBar;
 
@@ -129,7 +124,7 @@ public class ProgressBar extends BoxComponent {
    *
    * @param text The string to display in the progress text element (defaults to '')
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ProgressBar.html#method-Ext.ProgressBar-updateText Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.ProgressBar-method-updateText Sencha Docs Ext JS 3.4
    */
   public native function updateText(text:String = null):ProgressBar;
 
@@ -180,7 +175,7 @@ public class ProgressBar extends BoxComponent {
    *
    * @param config Configuration options
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ProgressBar.html#method-Ext.ProgressBar-wait Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.ProgressBar-method-wait Sencha Docs Ext JS 3.4
    */
   public native function wait(config:Object = null):ProgressBar;
 

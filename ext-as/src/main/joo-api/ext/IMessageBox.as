@@ -29,31 +29,31 @@ package ext {
 
  * <p>This interface defines the type of the singleton MessageBox.</p>
  * @see ext.#MessageBox ext.MessageBox
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MessageBox.html#cls-Ext.MessageBox Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.MessageBox Sencha Docs Ext JS 3.4
  */
 public interface IMessageBox {
 
   /**
    Button config that displays a single Cancel button
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MessageBox.html#prop-Ext.MessageBox-CANCEL Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.MessageBox-property-CANCEL Sencha Docs Ext JS 3.4
    */
   function get CANCEL():Object;
 
   /**
    The CSS class that provides the ERROR icon image
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MessageBox.html#prop-Ext.MessageBox-ERROR Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.MessageBox-property-ERROR Sencha Docs Ext JS 3.4
    */
   function get ERROR():String;
 
   /**
    The CSS class that provides the INFO icon image
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MessageBox.html#prop-Ext.MessageBox-INFO Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.MessageBox-property-INFO Sencha Docs Ext JS 3.4
    */
   function get INFO():String;
 
   /**
    Shorthand for <a href="Ext.MessageBox.html">Ext.MessageBox</a>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MessageBox.html#prop-Ext.MessageBox-Msg Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.MessageBox-property-Msg Sencha Docs Ext JS 3.4
    */
   function get Msg():Object;
 
@@ -64,43 +64,43 @@ public interface IMessageBox {
 
   /**
    Button config that displays a single OK button
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MessageBox.html#prop-Ext.MessageBox-OK Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.MessageBox-property-OK Sencha Docs Ext JS 3.4
    */
   function get OK():Object;
 
   /**
    Button config that displays OK and Cancel buttons
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MessageBox.html#prop-Ext.MessageBox-OKCANCEL Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.MessageBox-property-OKCANCEL Sencha Docs Ext JS 3.4
    */
   function get OKCANCEL():Object;
 
   /**
    The CSS class that provides the QUESTION icon image
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MessageBox.html#prop-Ext.MessageBox-QUESTION Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.MessageBox-property-QUESTION Sencha Docs Ext JS 3.4
    */
   function get QUESTION():String;
 
   /**
    The CSS class that provides the WARNING icon image
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MessageBox.html#prop-Ext.MessageBox-WARNING Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.MessageBox-property-WARNING Sencha Docs Ext JS 3.4
    */
   function get WARNING():String;
 
   /**
    Button config that displays Yes and No buttons
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MessageBox.html#prop-Ext.MessageBox-YESNO Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.MessageBox-property-YESNO Sencha Docs Ext JS 3.4
    */
   function get YESNO():Object;
 
   /**
    Button config that displays Yes, No and Cancel buttons
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MessageBox.html#prop-Ext.MessageBox-YESNOCANCEL Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.MessageBox-property-YESNOCANCEL Sencha Docs Ext JS 3.4
    */
   function get YESNOCANCEL():Object;
 
   /**
    An object containing the default button text strings that can be overridden for localized language support. Supported properties are: ok, cancel, yes and no. Generally you should include a locale-specific resource file for handling language support across the framework. Customize the default text like so: Ext.MessageBox.buttonText.yes = "oui"; //french
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MessageBox.html#prop-Ext.MessageBox-buttonText Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.MessageBox-property-buttonText Sencha Docs Ext JS 3.4
    */
   function get buttonText():Object;
 
@@ -111,7 +111,7 @@ public interface IMessageBox {
 
   /**
    The default height in pixels of the message box's multiline textarea if displayed (defaults to 75)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MessageBox.html#prop-Ext.MessageBox-defaultTextHeight Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.MessageBox-property-defaultTextHeight Sencha Docs Ext JS 3.4
    */
   function get defaultTextHeight():Number;
 
@@ -122,7 +122,7 @@ public interface IMessageBox {
 
   /**
    The maximum width in pixels of the message box (defaults to 600)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MessageBox.html#prop-Ext.MessageBox-maxWidth Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.MessageBox-property-maxWidth Sencha Docs Ext JS 3.4
    */
   function get maxWidth():Number;
 
@@ -133,7 +133,7 @@ public interface IMessageBox {
 
   /**
    The minimum width in pixels of the message box if it is a progress-style dialog. This is useful for setting a different minimum width than text-only dialogs may need (defaults to 250).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MessageBox.html#prop-Ext.MessageBox-minProgressWidth Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.MessageBox-property-minProgressWidth Sencha Docs Ext JS 3.4
    */
   function get minProgressWidth():Number;
 
@@ -144,7 +144,7 @@ public interface IMessageBox {
 
   /**
    The minimum width in pixels of the message box if it is a prompt dialog. This is useful for setting a different minimum width than text-only dialogs may need (defaults to 250).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MessageBox.html#prop-Ext.MessageBox-minPromptWidth Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.MessageBox-property-minPromptWidth Sencha Docs Ext JS 3.4
    */
   function get minPromptWidth():Number;
 
@@ -155,7 +155,7 @@ public interface IMessageBox {
 
   /**
    The minimum width in pixels of the message box (defaults to 100)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MessageBox.html#prop-Ext.MessageBox-minWidth Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.MessageBox-property-minWidth Sencha Docs Ext JS 3.4
    */
   function get minWidth():Number;
 
@@ -172,7 +172,7 @@ public interface IMessageBox {
    * @param fn The callback function invoked after the message box is closed
    * @param scope The scope (<code>this</code> reference) in which the callback is executed. Defaults to the browser window.
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MessageBox.html#method-Ext.MessageBox-alert Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.MessageBox-method-alert Sencha Docs Ext JS 3.4
    */
   function alert(title:String, msg:String, fn:Function = null, scope:Object = null):IMessageBox;
 
@@ -184,7 +184,7 @@ public interface IMessageBox {
    * @param fn The callback function invoked after the message box is closed
    * @param scope The scope (<code>this</code> reference) in which the callback is executed. Defaults to the browser window.
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MessageBox.html#method-Ext.MessageBox-confirm Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.MessageBox-method-confirm Sencha Docs Ext JS 3.4
    */
   function confirm(title:String, msg:String, fn:Function = null, scope:Object = null):IMessageBox;
 
@@ -192,7 +192,7 @@ public interface IMessageBox {
    * Returns a reference to the underlying <a href="Ext.Window.html">Ext.Window</a> element
    *
    * @return The window
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MessageBox.html#method-Ext.MessageBox-getDialog Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.MessageBox-method-getDialog Sencha Docs Ext JS 3.4
    */
   function getDialog():Window;
 
@@ -200,7 +200,7 @@ public interface IMessageBox {
    * Hides the message box if it is displayed
    *
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MessageBox.html#method-Ext.MessageBox-hide Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.MessageBox-method-hide Sencha Docs Ext JS 3.4
    */
   function hide():IMessageBox;
 
@@ -208,7 +208,7 @@ public interface IMessageBox {
    * Returns true if the message box is currently displayed
    *
    * @return True if the message box is visible, else false
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MessageBox.html#method-Ext.MessageBox-isVisible Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.MessageBox-method-isVisible Sencha Docs Ext JS 3.4
    */
   function isVisible():Boolean;
 
@@ -219,7 +219,7 @@ public interface IMessageBox {
    * @param msg The message box body text
    * @param progressText The text to display inside the progress bar (defaults to '')
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MessageBox.html#method-Ext.MessageBox-progress Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.MessageBox-method-progress Sencha Docs Ext JS 3.4
    */
   function progress(title:String, msg:String, progressText:String = null):IMessageBox;
 
@@ -233,7 +233,7 @@ public interface IMessageBox {
    * @param multiline True to create a multiline textbox using the defaultTextHeight property, or the height in pixels to create the textbox (defaults to false / single-line)
    * @param value Default value of the text input element (defaults to '')
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MessageBox.html#method-Ext.MessageBox-prompt Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.MessageBox-method-prompt Sencha Docs Ext JS 3.4
    */
   function prompt(title:String, msg:String, fn:Function = null, scope:Object = null, multiline:* = null, value:String = null):IMessageBox;
 
@@ -246,7 +246,7 @@ public interface IMessageBox {
    *
    * @param icon A CSS classname specifying the icon's background image url, or empty string to clear the icon
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MessageBox.html#method-Ext.MessageBox-setIcon Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.MessageBox-method-setIcon Sencha Docs Ext JS 3.4
    */
   function setIcon(icon:String):IMessageBox;
 
@@ -265,7 +265,7 @@ public interface IMessageBox {
    });
    </code></pre>
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MessageBox.html#method-Ext.MessageBox-show Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.MessageBox-method-show Sencha Docs Ext JS 3.4
    */
   function show(config:Object):IMessageBox;
 
@@ -276,7 +276,7 @@ public interface IMessageBox {
    * @param progressText The progress text to display inside the progress bar (defaults to '')
    * @param msg The message box's body text is replaced with the specified string (defaults to undefined so that any existing body text will not get overwritten by default unless a new value is passed in)
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MessageBox.html#method-Ext.MessageBox-updateProgress Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.MessageBox-method-updateProgress Sencha Docs Ext JS 3.4
    */
   function updateProgress(value:Number, progressText:String, msg:String):IMessageBox;
 
@@ -285,7 +285,7 @@ public interface IMessageBox {
    *
    * @param text Replaces the message box element's innerHTML with the specified string (defaults to the XHTML-compliant non-breaking space character '&amp;#160;')
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MessageBox.html#method-Ext.MessageBox-updateText Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.MessageBox-method-updateText Sencha Docs Ext JS 3.4
    */
   function updateText(text:String = null):IMessageBox;
 
@@ -296,7 +296,7 @@ public interface IMessageBox {
    * @param title The title bar text
    * @param config A <a href="output/Ext.ProgressBar.html#Ext.ProgressBar-waitConfig">Ext.ProgressBar.waitConfig</a> object
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MessageBox.html#method-Ext.MessageBox-wait Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.MessageBox-method-wait Sencha Docs Ext JS 3.4
    */
   function wait(msg:String, title:String = null, config:Object = null):IMessageBox;
 

@@ -8,7 +8,7 @@ import ext.config.shadow;
  *
 
  * @see ext.config.shadow
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Shadow.html#cls-Ext.Shadow Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Shadow Sencha Docs Ext JS 3.4
  */
 public class Shadow {
 
@@ -24,27 +24,25 @@ public class Shadow {
 
   /**
    The shadow display mode. Supports the following options:<div class="mdetail-params"><ul><li><b><tt>sides</tt></b> : Shadow displays on both sides and bottom only</li><li><b><tt>frame</tt></b> : Shadow displays equally on all four sides</li><li><b><tt>drop</tt></b> : Traditional bottom-right drop shadow</li></ul></div>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get mode():String;
 
   /**
    The number of pixels to offset the shadow from the element (defaults to <tt>4</tt>)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get offset():String;
 
   /**
    * Hides this shadow
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Shadow.html#method-Ext.Shadow-hide Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Shadow-method-hide Sencha Docs Ext JS 3.4
    */
   public native function hide():void;
 
   /**
    * Returns true if the shadow is visible, else false
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Shadow.html#method-Ext.Shadow-isVisible Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Shadow-method-isVisible Sencha Docs Ext JS 3.4
    */
   public native function isVisible():void;
 
@@ -55,7 +53,7 @@ public class Shadow {
    * @param top The target element top position
    * @param width The target element width
    * @param height The target element height
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Shadow.html#method-Ext.Shadow-realign Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Shadow-method-realign Sencha Docs Ext JS 3.4
    */
   public native function realign(left:Number, top:Number, width:Number, height:Number):void;
 
@@ -63,7 +61,7 @@ public class Shadow {
    * Adjust the z-index of this shadow
    *
    * @param zindex The new z-index
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Shadow.html#method-Ext.Shadow-setZIndex Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Shadow-method-setZIndex Sencha Docs Ext JS 3.4
    */
   public native function setZIndex(zindex:Number):void;
 
@@ -71,7 +69,7 @@ public class Shadow {
    * Displays the shadow under the target element
    *
    * @param targetEl The id or element under which the shadow should display
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Shadow.html#method-Ext.Shadow-show Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Shadow-method-show Sencha Docs Ext JS 3.4
    */
   public native function show(targetEl:*):void;
 

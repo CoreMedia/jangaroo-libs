@@ -7,7 +7,7 @@ package ext.chart {
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  *
 
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Chart.html#cls-Ext.chart.CartesianSeries Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.chart.CartesianSeries Sencha Docs Ext JS 3.4
  */
 public class CartesianSeries extends Series {
 
@@ -21,7 +21,7 @@ public class CartesianSeries extends Series {
 
   /**
    Indicates which axis the series will bind to
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Chart.html#prop-Ext.chart.CartesianSeries-axis Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.chart.CartesianSeries-property-axis Sencha Docs Ext JS 3.4
    */
   public native function get axis():String;
 
@@ -32,7 +32,7 @@ public class CartesianSeries extends Series {
 
   /**
    False to not show this series in the legend. Defaults to <tt>true</tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Chart.html#prop-Ext.chart.CartesianSeries-showInLegend Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.chart.CartesianSeries-property-showInLegend Sencha Docs Ext JS 3.4
    */
   public native function get showInLegend():Boolean;
 
@@ -43,7 +43,7 @@ public class CartesianSeries extends Series {
 
   /**
    The field used to access the x-axis value from the items from the data source.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Chart.html#prop-Ext.chart.CartesianSeries-xField Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.chart.CartesianSeries-property-xField Sencha Docs Ext JS 3.4
    */
   public native function get xField():String;
 
@@ -54,7 +54,7 @@ public class CartesianSeries extends Series {
 
   /**
    The field used to access the y-axis value from the items from the data source.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Chart.html#prop-Ext.chart.CartesianSeries-yField Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.chart.CartesianSeries-property-yField Sencha Docs Ext JS 3.4
    */
   public native function get yField():String;
 

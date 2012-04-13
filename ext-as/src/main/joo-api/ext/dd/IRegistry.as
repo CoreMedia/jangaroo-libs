@@ -9,7 +9,7 @@ import ext.IEventObject;
 
  * <p>This interface defines the type of the singleton Registry.</p>
  * @see ext.dd.#Registry ext.dd.Registry
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Registry.html#cls-Ext.dd.Registry Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.Registry Sencha Docs Ext JS 3.4
  */
 public interface IRegistry {
 
@@ -18,7 +18,7 @@ public interface IRegistry {
    *
    * @param id The DOM node or id to look up
    * @return handle The custom handle data
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Registry.html#method-Ext.dd.Registry-getHandle Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.Registry-method-getHandle Sencha Docs Ext JS 3.4
    */
   function getHandle(id:*):Object;
 
@@ -27,7 +27,7 @@ public interface IRegistry {
    *
    * @param e The event
    * @return handle The custom handle data
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Registry.html#method-Ext.dd.Registry-getHandleFromEvent Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.Registry-method-getHandleFromEvent Sencha Docs Ext JS 3.4
    */
   function getHandleFromEvent(e:IEventObject):Object;
 
@@ -36,7 +36,7 @@ public interface IRegistry {
    *
    * @param id The DOM node or id to look up
    * @return data The custom data
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Registry.html#method-Ext.dd.Registry-getTarget Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.Registry-method-getTarget Sencha Docs Ext JS 3.4
    */
   function getTarget(id:*):Object;
 
@@ -45,7 +45,7 @@ public interface IRegistry {
    *
    * @param e The event
    * @return data The custom data
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Registry.html#method-Ext.dd.Registry-getTargetFromEvent Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.Registry-method-getTargetFromEvent Sencha Docs Ext JS 3.4
    */
   function getTargetFromEvent(e:IEventObject):Object;
 
@@ -55,7 +55,7 @@ public interface IRegistry {
    * @param element The id or DOM node to register
    * @param data An custom data object that will be passed between the elements that are involved in drag drop operations. You can populate this object with any arbitrary properties that your own code knows how to interpret, plus there are some specific properties known to the Registry that should be populated in the data object (if applicable): <pre>Value      Description<br/>---------  ------------------------------------------<br/>handles    Array of DOM nodes that trigger dragging<br/>           for the element being registered<br/>isHandle   True if the element passed in triggers<br/>           dragging itself, else false
    </pre>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Registry.html#method-Ext.dd.Registry-register Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.Registry-method-register Sencha Docs Ext JS 3.4
    */
   function register(element:*, data:Object = null):void;
 
@@ -63,7 +63,7 @@ public interface IRegistry {
    * Unregister a drag drop element
    *
    * @param element The id or DOM node to unregister
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Registry.html#method-Ext.dd.Registry-unregister Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.Registry-method-unregister Sencha Docs Ext JS 3.4
    */
   function unregister(element:*):void;
 

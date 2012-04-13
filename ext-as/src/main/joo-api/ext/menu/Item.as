@@ -9,7 +9,7 @@ import ext.config.menuitem;
 
  * <p>This component is created by the xtype 'menuitem' / the EXML element &lt;menuitem>.</p>
  * @see ext.config.menuitem
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Item.html#cls-Ext.menu.Item Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.menu.Item Sencha Docs Ext JS 3.4
  */
 public class Item extends BaseItem {
 
@@ -25,7 +25,7 @@ public class Item extends BaseItem {
 
   /**
    The submenu associated with this Item if one was configured.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Item.html#prop-Ext.menu.Item-menu Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.menu.Item-property-menu Sencha Docs Ext JS 3.4
    */
   public native function get menu():Menu;
 
@@ -36,43 +36,36 @@ public class Item extends BaseItem {
 
   /**
    The altText to use for the icon, if it exists. Defaults to <tt>''</tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get altText():String;
 
   /**
    The href attribute to use for the underlying anchor link (defaults to '#').
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get href():String;
 
   /**
    The target attribute to use for the underlying anchor link (defaults to '').
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get hrefTarget():String;
 
   /**
    The path to an icon to display in this item (defaults to Ext.BLANK_IMAGE_URL). If icon is specified <a href="output/Ext.menu.Item.html#Ext.menu.Item-iconCls">iconCls</a> should not be.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get icon():String;
 
   /**
    A CSS class that specifies a background image that will be used as the icon for this item (defaults to ''). If iconCls is specified <a href="output/Ext.menu.Item.html#Ext.menu.Item-icon">icon</a> should not be.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get iconCls():String;
 
   /**
    Length of time in milliseconds to wait before showing this item (defaults to 200)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get showDelay():Number;
 
   /**
    The text to display in this item (defaults to '').
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get text():String;
 
@@ -80,7 +73,7 @@ public class Item extends BaseItem {
    * Sets the CSS class to apply to the item's icon element
    *
    * @param cls The CSS class to apply
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Item.html#method-Ext.menu.Item-setIconClass Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.menu.Item-method-setIconClass Sencha Docs Ext JS 3.4
    */
   public native function setIconClass(cls:String):void;
 
@@ -88,7 +81,7 @@ public class Item extends BaseItem {
    * Sets the text to display in this menu item
    *
    * @param text The text to display
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Item.html#method-Ext.menu.Item-setText Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.menu.Item-method-setText Sencha Docs Ext JS 3.4
    */
   public native function setText(text:String):void;
 

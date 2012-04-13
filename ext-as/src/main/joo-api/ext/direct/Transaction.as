@@ -8,7 +8,7 @@ package ext.direct {
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  *
 
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Transaction.html#cls-Ext.Direct.Transaction Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Direct.Transaction Sencha Docs Ext JS 3.4
  */
 public class Transaction {
 

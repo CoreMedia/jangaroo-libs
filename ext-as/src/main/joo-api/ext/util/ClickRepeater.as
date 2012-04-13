@@ -66,7 +66,7 @@ import ext.config.clickrepeater;
  *
 
  * @see ext.config.clickrepeater
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ClickRepeater.html#cls-Ext.util.ClickRepeater Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.ClickRepeater Sencha Docs Ext JS 3.4
  */
 public class ClickRepeater extends Observable {
 
@@ -83,57 +83,50 @@ public class ClickRepeater extends Observable {
 
   /**
    True if autorepeating should start slowly and accelerate. "interval" and "delay" are ignored.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get accelerate():Boolean;
 
   /**
    The initial delay before the repeating event begins firing. Similar to an autorepeat key delay.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get delay():Number;
 
   /**
    The element to act as a button.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get el():*;
 
   /**
    The interval between firings of the "click" event. Default 20 ms.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get interval():Number;
 
   /**
    A CSS class name to be applied to the element while pressed.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get pressClass():String;
 
   /**
    True to prevent the default click event
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get preventDefault():Boolean;
 
   /**
    True to stop the default click event
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get stopDefault():Boolean;
 
   /**
    * Disables the repeater and stops events from firing.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ClickRepeater.html#method-Ext.util.ClickRepeater-disable Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.ClickRepeater-method-disable Sencha Docs Ext JS 3.4
    */
   public native function disable():void;
 
   /**
    * Enables the repeater and allows events to fire.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ClickRepeater.html#method-Ext.util.ClickRepeater-enable Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.ClickRepeater-method-enable Sencha Docs Ext JS 3.4
    */
   public native function enable():void;
 
@@ -141,7 +134,7 @@ public class ClickRepeater extends Observable {
    * Convenience function for setting disabled/enabled by boolean.
    *
    * @param disabled
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ClickRepeater.html#method-Ext.util.ClickRepeater-setDisabled Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.ClickRepeater-method-setDisabled Sencha Docs Ext JS 3.4
    */
   public native function setDisabled(disabled:Boolean):void;
 

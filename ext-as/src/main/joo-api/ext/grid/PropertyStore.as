@@ -8,7 +8,7 @@ import ext.util.Observable;
  *
 
  * @see ext.config.propertystore
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PropertyGrid.html#cls-Ext.grid.PropertyStore Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PropertyStore Sencha Docs Ext JS 3.4
  */
 public class PropertyStore extends Observable {
 

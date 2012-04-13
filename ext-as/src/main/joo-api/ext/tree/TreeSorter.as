@@ -16,7 +16,7 @@ import ext.config.treesorter;
  *
 
  * @see ext.config.treesorter
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeSorter.html#cls-Ext.tree.TreeSorter Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeSorter Sencha Docs Ext JS 3.4
  */
 public class TreeSorter {
 
@@ -33,31 +33,26 @@ public class TreeSorter {
 
   /**
    true for case-sensitive sort (defaults to false)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get caseSensitive():Boolean;
 
   /**
    The direction to sort ("asc" or "desc," case-insensitive, defaults to "asc")
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get dir():String;
 
   /**
    True to sort leaf nodes under non-leaf nodes (defaults to false)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get folderSort():Boolean;
 
   /**
    The attribute used to determine leaf nodes when <a href="output/Ext.tree.TreeSorter.html#Ext.tree.TreeSorter-folderSort">folderSort</a> = true (defaults to "leaf")
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get leafAttr():String;
 
   /**
    The named attribute on the node to sort by (defaults to "text"). Note that this property is only used if no <a href="output/Ext.tree.TreeSorter.html#Ext.tree.TreeSorter-sortType">sortType</a> function is specified, otherwise it is ignored.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get property():String;
 

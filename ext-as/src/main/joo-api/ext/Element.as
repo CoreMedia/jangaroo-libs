@@ -885,7 +885,7 @@ import js.HTMLElement;
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  *
 
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element-more.html#cls-Ext.Element Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element Sencha Docs Ext JS 3.4
  */
 public class Element {
 
@@ -901,25 +901,25 @@ public class Element {
 
   /**
    Visibility mode constant for use with <a href="output/Ext.Element.html#Ext.Element-setVisibilityMode">setVisibilityMode</a>. Use display to hide element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.fx.html#prop-Ext.Element-DISPLAY Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-property-DISPLAY Sencha Docs Ext JS 3.4
    */
   public static const DISPLAY:Number = 2;
 
   /**
    Visibility mode constant for use with <a href="output/Ext.Element.html#Ext.Element-setVisibilityMode">setVisibilityMode</a>. Use offsets (x and y positioning offscreen) to hide element.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.fx.html#prop-Ext.Element-OFFSETS Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-property-OFFSETS Sencha Docs Ext JS 3.4
    */
   public static const OFFSETS:Number = 3;
 
   /**
    Visibility mode constant for use with <a href="output/Ext.Element.html#Ext.Element-setVisibilityMode">setVisibilityMode</a>. Use visibility to hide element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.fx.html#prop-Ext.Element-VISIBILITY Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-property-VISIBILITY Sencha Docs Ext JS 3.4
    */
   public static const VISIBILITY:Number = 1;
 
   /**
    true to automatically adjust width and height settings for box-model issues (default to true)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.html#prop-Ext.Element-autoBoxAdjust Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-property-autoBoxAdjust Sencha Docs Ext JS 3.4
    */
   public native function get autoBoxAdjust():Object;
 
@@ -930,7 +930,7 @@ public class Element {
 
   /**
    The default unit to append to CSS values where a unit isn't provided (defaults to px).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.html#prop-Ext.Element-defaultUnit Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-property-defaultUnit Sencha Docs Ext JS 3.4
    */
   public native function get defaultUnit():String;
 
@@ -941,7 +941,7 @@ public class Element {
 
   /**
    The DOM element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.html#prop-Ext.Element-dom Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-property-dom Sencha Docs Ext JS 3.4
    */
   public native function get dom():HTMLElement;
 
@@ -952,7 +952,7 @@ public class Element {
 
   /**
    The DOM element ID
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.html#prop-Ext.Element-id Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-property-id Sencha Docs Ext JS 3.4
    */
   public native function get id():String;
 
@@ -963,7 +963,7 @@ public class Element {
 
   /**
    The element's default display mode (defaults to "")
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.fx.html#prop-Ext.Element-originalDisplay Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-property-originalDisplay Sencha Docs Ext JS 3.4
    */
   public native function get originalDisplay():String;
 
@@ -974,7 +974,7 @@ public class Element {
 
   /**
    Defaults to 'x-hide-nosize'
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.fx.html#prop-Ext.Element-visibilityCls Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-property-visibilityCls Sencha Docs Ext JS 3.4
    */
   public static native function get visibilityCls():String;
 
@@ -988,7 +988,7 @@ public class Element {
    *
    * @param className The CSS class to add, or an array of classes
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.style.html#method-Ext.Element-addClass Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-addClass Sencha Docs Ext JS 3.4
    */
   public native function addClass(className:*):Element;
 
@@ -997,7 +997,7 @@ public class Element {
    *
    * @param className
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.style-more.html#method-Ext.Element-addClassOnClick Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-addClassOnClick Sencha Docs Ext JS 3.4
    */
   public native function addClassOnClick(className:String):Element;
 
@@ -1006,7 +1006,7 @@ public class Element {
    *
    * @param className
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.style-more.html#method-Ext.Element-addClassOnFocus Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-addClassOnFocus Sencha Docs Ext JS 3.4
    */
   public native function addClassOnFocus(className:String):Element;
 
@@ -1015,7 +1015,7 @@ public class Element {
    *
    * @param className
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.style-more.html#method-Ext.Element-addClassOnOver Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-addClassOnOver Sencha Docs Ext JS 3.4
    */
   public native function addClassOnOver(className:String):Element;
 
@@ -1026,7 +1026,7 @@ public class Element {
    * @param fn The function to call
    * @param scope The scope (<code>this</code> reference) in which the specified function is executed. Defaults to this Element.
    * @return The KeyMap created
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.keys.html#method-Ext.Element-addKeyListener Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-addKeyListener Sencha Docs Ext JS 3.4
    */
   public native function addKeyListener(key:*, fn:Function, scope:Object = null):KeyMap;
 
@@ -1035,7 +1035,7 @@ public class Element {
    *
    * @param config The KeyMap config. See <a href="Ext.KeyMap.html">Ext.KeyMap</a> for more details
    * @return The KeyMap created
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.keys.html#method-Ext.Element-addKeyMap Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-addKeyMap Sencha Docs Ext JS 3.4
    */
   public native function addKeyMap(config:Object):KeyMap;
 
@@ -1093,14 +1093,14 @@ public class Element {
    );
    </code></pre><br/><br/></div>
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.html#method-Ext.Element-addListener Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-addListener Sencha Docs Ext JS 3.4
    */
   public native function addListener(eventName:String, fn:Function, scope:Object = null, options:Object = null):Element;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.html#method-Ext.Element-addUnits Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-addUnits Sencha Docs Ext JS 3.4
    */
   public native function addUnits():void;
 
@@ -1135,7 +1135,7 @@ public class Element {
    * @param offsets Offset the positioning by [x, y]
    * @param animate true for the default animation or a standard Element animation config object
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.alignment.html#method-Ext.Element-alignTo Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-alignTo Sencha Docs Ext JS 3.4
    */
   public native function alignTo(element:*, position:String, offsets:Array = null, animate:* = null):Element;
 
@@ -1149,7 +1149,7 @@ public class Element {
    * @param monitorScroll True to monitor body scroll and reposition. If this parameter is a number, it is used as the buffer delay (defaults to 50ms).
    * @param callback The function to call after the animation finishes
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.alignment.html#method-Ext.Element-anchorTo Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-anchorTo Sencha Docs Ext JS 3.4
    */
   public native function anchorTo(element:*, position:String, offsets:Array = null, animate:* = null, monitorScroll:* = null, callback:Function = null):Element;
 
@@ -1219,7 +1219,7 @@ public class Element {
    * @param easing <a href="output/Ext.Fx.html#Ext.Fx-easing">Ext.Fx.easing</a> method to use (defaults to <tt>'easeOut'</tt>)
    * @param animType <tt>'run'</tt> is the default. Can also be <tt>'color'</tt>, <tt>'motion'</tt>, or <tt>'scroll'</tt>
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.fx.html#method-Ext.Element-animate Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-animate Sencha Docs Ext JS 3.4
    */
   public native function animate(args:Object, duration:Number = undefined, onComplete:Function = null, easing:String = null, animType:String = null):Element;
 
@@ -1228,7 +1228,7 @@ public class Element {
    *
    * @param el
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.insertion.html#method-Ext.Element-appendChild Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-appendChild Sencha Docs Ext JS 3.4
    */
   public native function appendChild(el:*):Element;
 
@@ -1237,7 +1237,7 @@ public class Element {
    *
    * @param el The new parent element
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.insertion.html#method-Ext.Element-appendTo Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-appendTo Sencha Docs Ext JS 3.4
    */
   public native function appendTo(el:*):Element;
 
@@ -1246,7 +1246,7 @@ public class Element {
    *
    * @param styles A style specification string, e.g. "width:100px", or object in the form {width:"100px"}, or a function which returns such a specification.
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.style-more.html#method-Ext.Element-applyStyles Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-applyStyles Sencha Docs Ext JS 3.4
    */
   public native function applyStyles(styles:*):Element;
 
@@ -1254,7 +1254,7 @@ public class Element {
    * Tries to blur the element. Any exceptions are caught and ignored.
    *
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.html#method-Ext.Element-blur Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-blur Sencha Docs Ext JS 3.4
    */
   public native function blur():Element;
 
@@ -1275,7 +1275,7 @@ public class Element {
    *
    * @param class_ A base CSS class to apply to the containing wrapper element (defaults to <tt>'x-box'</tt>). Note that there are a number of CSS rules that are dependent on this name to make the overall effect work, so if you supply an alternate base class, make sure you also supply all of the necessary rules.
    * @return The outermost wrapping element of the created box structure.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.style-more.html#method-Ext.Element-boxWrap Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-boxWrap Sencha Docs Ext JS 3.4
    */
   public native function boxWrap(class_:String = null):Element;
 
@@ -1283,7 +1283,7 @@ public class Element {
    * Centers the Element in either the viewport, or another Element.
    *
    * @param centerIn The element in which to center the element.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.alignment.html#method-Ext.Element-center Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-center Sencha Docs Ext JS 3.4
    */
   public native function center(centerIn:* = null):void;
 
@@ -1293,7 +1293,7 @@ public class Element {
    * @param selector The CSS selector
    * @param returnDom True to return the DOM node instead of Ext.Element (defaults to false)
    * @return The child Ext.Element (or DOM node if returnDom = true)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.traversal.html#method-Ext.Element-child Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-child Sencha Docs Ext JS 3.4
    */
   public native function child(selector:String, returnDom:Boolean = false):*;
 
@@ -1301,7 +1301,7 @@ public class Element {
    * Removes worthless text nodes
    *
    * @param forceReclean By default the element keeps track if it has been cleaned already so you can call this over and over. However, if you update the element and need to force a reclean, you can pass true.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element-more.html#method-Ext.Element-clean Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-clean Sencha Docs Ext JS 3.4
    */
   public native function clean(forceReclean:Boolean = false):void;
 
@@ -1309,7 +1309,7 @@ public class Element {
    * Clears any opacity settings from this element. Required in some cases for IE.
    *
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.style.html#method-Ext.Element-clearOpacity Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-clearOpacity Sencha Docs Ext JS 3.4
    */
   public native function clearOpacity():Element;
 
@@ -1318,7 +1318,7 @@ public class Element {
    *
    * @param value The value to use for the left,right,top,bottom, defaults to '' (empty string). You could use 'auto'.
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.position.html#method-Ext.Element-clearPositioning Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-clearPositioning Sencha Docs Ext JS 3.4
    */
   public native function clearPositioning(value:String = null):Element;
 
@@ -1326,7 +1326,7 @@ public class Element {
    * Store the current overflow setting and clip overflow on the element - use <tt><a href="output/Ext.Element.html#Ext.Element-unclip">unclip</a></tt> to remove
    *
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.style.html#method-Ext.Element-clip Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-clip Sencha Docs Ext JS 3.4
    */
   public native function clip():Element;
 
@@ -1335,7 +1335,7 @@ public class Element {
    *
    * @param el The element to check
    * @return True if this element is an ancestor of el, else false
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.html#method-Ext.Element-contains Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-contains Sencha Docs Ext JS 3.4
    */
   public native function contains(el:*):Boolean;
 
@@ -1346,7 +1346,7 @@ public class Element {
    * @param insertBefore a child element of this element
    * @param returnDom true to return the dom node instead of creating an Element
    * @return The new child element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.insertion.html#method-Ext.Element-createChild Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-createChild Sencha Docs Ext JS 3.4
    */
   public native function createChild(config:Object, insertBefore:HTMLElement = null, returnDom:Boolean = false):Element;
 
@@ -1357,7 +1357,7 @@ public class Element {
    * @param renderTo The element or element id to render the proxy to (defaults to document.body)
    * @param matchBox True to align and size the proxy to this element now (defaults to false)
    * @return The new proxy element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element-more.html#method-Ext.Element-createProxy Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-createProxy Sencha Docs Ext JS 3.4
    */
   public native function createProxy(config:*, renderTo:* = null, matchBox:Boolean = false):Element;
 
@@ -1365,7 +1365,7 @@ public class Element {
    * Creates an iframe shim for this element to keep selects and other windowed objects from showing through.
    *
    * @return The new shim element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.fx-more.html#method-Ext.Element-createShim Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-createShim Sencha Docs Ext JS 3.4
    */
   public native function createShim():Element;
 
@@ -1375,7 +1375,7 @@ public class Element {
    * @param selector The CSS selector
    * @param returnDom True to return the DOM node instead of Ext.Element (defaults to false)
    * @return The child Ext.Element (or DOM node if returnDom = true)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.traversal.html#method-Ext.Element-down Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-down Sencha Docs Ext JS 3.4
    */
   public native function down(selector:String, returnDom:Boolean = false):*;
 
@@ -1384,7 +1384,7 @@ public class Element {
    *
    * @param display What to set display to when visible
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.fx-more.html#method-Ext.Element-enableDisplayMode Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-enableDisplayMode Sencha Docs Ext JS 3.4
    */
   public native function enableDisplayMode(display:String = null):Element;
 
@@ -1395,7 +1395,7 @@ public class Element {
    * @param maxDepth The max depth to search as a number or element (defaults to 50 || document.body)
    * @param returnEl True to return a Ext.Element object instead of DOM node
    * @return The matching DOM node (or null if no match was found)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.traversal.html#method-Ext.Element-findParent Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-findParent Sencha Docs Ext JS 3.4
    */
   public native function findParent(selector:String, maxDepth:* = null, returnEl:Boolean = false):HTMLElement;
 
@@ -1406,7 +1406,7 @@ public class Element {
    * @param maxDepth The max depth to search as a number or element (defaults to 10 || document.body)
    * @param returnEl True to return a Ext.Element object instead of DOM node
    * @return The matching DOM node (or null if no match was found)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.traversal.html#method-Ext.Element-findParentNode Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-findParentNode Sencha Docs Ext JS 3.4
    */
   public native function findParentNode(selector:String, maxDepth:* = null, returnEl:Boolean = false):HTMLElement;
 
@@ -1416,7 +1416,7 @@ public class Element {
    * @param selector Find the next sibling that matches the passed simple selector
    * @param returnDom True to return a raw dom node instead of an Ext.Element
    * @return The first child or null
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.traversal.html#method-Ext.Element-first Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-first Sencha Docs Ext JS 3.4
    */
   public native function first(selector:String = null, returnDom:Boolean = false):*;
 
@@ -1427,7 +1427,7 @@ public class Element {
    * @param el The dom node or id
    * @param named Allows for creation of named reusable flyweights to prevent conflicts (e.g. internally Ext uses "_global")
    * @return The shared Element object (or null if no matching element was found)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.html#method-Ext.Element-fly Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-fly Sencha Docs Ext JS 3.4
    */
   public static native function fly(el:*, named:String = null):Element;
 
@@ -1436,7 +1436,7 @@ public class Element {
    *
    * @param defer Milliseconds to defer the focus
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.html#method-Ext.Element-focus Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-focus Sencha Docs Ext JS 3.4
    */
   public native function focus(defer:Number = undefined):Element;
 
@@ -1445,7 +1445,7 @@ public class Element {
    *
    * @param el The id of the node, a DOM Node or an existing Element.
    * @return The Element object (or null if no matching element was found)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.html#method-Ext.Element-get Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-get Sencha Docs Ext JS 3.4
    */
   public static native function get(el:*):Element;
 
@@ -1456,7 +1456,7 @@ public class Element {
    * @param position (optional, defaults to "tl-bl?") The position to align to.
    * @param offsets Offset the positioning by [x, y]
    * @return [x, y]
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.alignment.html#method-Ext.Element-getAlignToXY Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-getAlignToXY Sencha Docs Ext JS 3.4
    */
   public native function getAlignToXY(element:*, position:String, offsets:Array = null):Array;
 
@@ -1467,7 +1467,7 @@ public class Element {
    * @param local True to get the local (element top/left-relative) anchor position instead of page coordinates
    * @param size An object containing the size to use for calculating anchor position {width: (target width), height: (target height)} (defaults to the element's current size)
    * @return [x, y] An array containing the element's x and y coordinates
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.alignment.html#method-Ext.Element-getAnchorXY Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-getAnchorXY Sencha Docs Ext JS 3.4
    */
   public native function getAnchorXY(anchor:String = null, local:Boolean = false, size:Object = null):Array;
 
@@ -1477,7 +1477,7 @@ public class Element {
    * @param name The attribute name
    * @param namespace The namespace in which to look for the attribute
    * @return The attribute value
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.html#method-Ext.Element-getAttribute Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-getAttribute Sencha Docs Ext JS 3.4
    */
   public native function getAttribute(name:String, namespace:String = null):String;
 
@@ -1487,7 +1487,7 @@ public class Element {
    * @param namespace The namespace in which to look for the attribute
    * @param name The attribute name
    * @return The attribute value
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.html#method-Ext.Element-getAttributeNS Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-getAttributeNS Sencha Docs Ext JS 3.4
    */
   public native function getAttributeNS(namespace:String, name:String):String;
 
@@ -1496,7 +1496,7 @@ public class Element {
    *
    * @param side Can be t, l, r, b or any combination of those to add multiple values. For example, passing <tt>'lr'</tt> would get the border <b><u>l</u></b>eft width + the border <b><u>r</u></b>ight width.
    * @return The width of the sides passed added together
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.style.html#method-Ext.Element-getBorderWidth Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-getBorderWidth Sencha Docs Ext JS 3.4
    */
   public native function getBorderWidth(side:String):Number;
 
@@ -1505,7 +1505,7 @@ public class Element {
    *
    * @param local True to get the local css position instead of page coordinate
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.position.html#method-Ext.Element-getBottom Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-getBottom Sencha Docs Ext JS 3.4
    */
   public native function getBottom(local:Boolean = false):Number;
 
@@ -1523,7 +1523,7 @@ public class Element {
    right: &lt;Element's rightmost bound&gt;
    }
    </code></pre>The returned object may also be addressed as an Array where index 0 contains the X position and index 1 contains the Y position. So the result may also be used for <a href="output/Ext.Element.html#Ext.Element-setXY">setXY</a>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.position-more.html#method-Ext.Element-getBox Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-getBox Sencha Docs Ext JS 3.4
    */
   public native function getBox(contentBox:Boolean = false, local:Boolean = false):Object;
 
@@ -1531,7 +1531,7 @@ public class Element {
    * Calculates the x, y to center this element on the screen
    *
    * @return The x, y values [x, y]
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.alignment.html#method-Ext.Element-getCenterXY Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-getCenterXY Sencha Docs Ext JS 3.4
    */
   public native function getCenterXY():Array;
 
@@ -1541,7 +1541,7 @@ public class Element {
    * @param attr The css attribute
    * @param defaultValue The default value to use when a valid color isn't found
    * @param prefix defaults to #. Use an empty string when working with color anims.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.style.html#method-Ext.Element-getColor Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-getColor Sencha Docs Ext JS 3.4
    */
   public native function getColor(attr:String, defaultValue:String, prefix:String = null):void;
 
@@ -1549,7 +1549,7 @@ public class Element {
    * Returns either the offsetHeight or the height of this element based on CSS height adjusted by padding or borders when needed to simulate offsetHeight when offsets aren't available. This may not work on display:none elements if a height has not been set using CSS.
    *
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.style-more.html#method-Ext.Element-getComputedHeight Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-getComputedHeight Sencha Docs Ext JS 3.4
    */
   public native function getComputedHeight():Number;
 
@@ -1557,7 +1557,7 @@ public class Element {
    * Returns either the offsetWidth or the width of this element based on CSS width adjusted by padding or borders when needed to simulate offsetWidth when offsets aren't available. This may not work on display:none elements if a width has not been set using CSS.
    *
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.style-more.html#method-Ext.Element-getComputedWidth Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-getComputedWidth Sencha Docs Ext JS 3.4
    */
   public native function getComputedWidth():Number;
 
@@ -1566,7 +1566,7 @@ public class Element {
    *
    * @param sides
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.style-more.html#method-Ext.Element-getFrameWidth Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-getFrameWidth Sencha Docs Ext JS 3.4
    */
   public native function getFrameWidth(sides:String):Number;
 
@@ -1575,7 +1575,7 @@ public class Element {
    *
    * @param contentHeight true to get the height minus borders and padding
    * @return The element's height
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.style.html#method-Ext.Element-getHeight Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-getHeight Sencha Docs Ext JS 3.4
    */
   public native function getHeight(contentHeight:Boolean = false):Number;
 
@@ -1584,7 +1584,7 @@ public class Element {
    *
    * @param local True to get the local css position instead of page coordinate
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.position.html#method-Ext.Element-getLeft Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-getLeft Sencha Docs Ext JS 3.4
    */
   public native function getLeft(local:Boolean = false):Number;
 
@@ -1593,7 +1593,7 @@ public class Element {
    *
    * @param sides Any combination of l, r, t, b to get the sum of those sides
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.style-more.html#method-Ext.Element-getMargins Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-getMargins Sencha Docs Ext JS 3.4
    */
   public native function getMargins(sides:String = null):*;
 
@@ -1602,7 +1602,7 @@ public class Element {
    *
    * @param element The element to get the offsets from.
    * @return The XY page offsets (e.g. [100, -200])
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.position.html#method-Ext.Element-getOffsetsTo Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-getOffsetsTo Sencha Docs Ext JS 3.4
    */
   public native function getOffsetsTo(element:*):Array;
 
@@ -1611,7 +1611,7 @@ public class Element {
    *
    * @param side Can be t, l, r, b or any combination of those to add multiple values. For example, passing <tt>'lr'</tt> would get the padding <b><u>l</u></b>eft + the padding <b><u>r</u></b>ight.
    * @return The padding of the sides passed added together
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.style.html#method-Ext.Element-getPadding Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-getPadding Sencha Docs Ext JS 3.4
    */
   public native function getPadding(side:String):Number;
 
@@ -1619,7 +1619,7 @@ public class Element {
    * Gets an object with all CSS positioning properties. Useful along with setPostioning to get snapshot before performing an update and then restoring the element.
    *
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.position.html#method-Ext.Element-getPositioning Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-getPositioning Sencha Docs Ext JS 3.4
    */
   public native function getPositioning():Object;
 
@@ -1627,7 +1627,7 @@ public class Element {
    * Returns the region of the given element. The element must be part of the DOM tree to have a region (display:none or elements not appended return false).
    *
    * @return A Ext.lib.Region containing "top, left, bottom, right" member data.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.position-more.html#method-Ext.Element-getRegion Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-getRegion Sencha Docs Ext JS 3.4
    */
   public native function getRegion():Region;
 
@@ -1636,7 +1636,7 @@ public class Element {
    *
    * @param local True to get the local css position instead of page coordinate
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.position.html#method-Ext.Element-getRight Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-getRight Sencha Docs Ext JS 3.4
    */
   public native function getRight(local:Boolean = false):Number;
 
@@ -1644,7 +1644,7 @@ public class Element {
    * Returns the current scroll position of the element.
    *
    * @return An object containing the scroll position in the format {left: (scrollLeft), top: (scrollTop)}
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.scroll.html#method-Ext.Element-getScroll Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-getScroll Sencha Docs Ext JS 3.4
    */
   public native function getScroll():Object;
 
@@ -1653,7 +1653,7 @@ public class Element {
    *
    * @param contentSize true to get the width/size minus borders and padding
    * @return An object containing the element's size {width: (element width), height: (element height)}
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.style-more.html#method-Ext.Element-getSize Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-getSize Sencha Docs Ext JS 3.4
    */
   public native function getSize(contentSize:Boolean = false):Object;
 
@@ -1662,7 +1662,7 @@ public class Element {
    *
    * @param property The style property whose value is returned.
    * @return The current value of the style property for this element.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.style.html#method-Ext.Element-getStyle Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-getStyle Sencha Docs Ext JS 3.4
    */
   public native function getStyle(property:String):String;
 
@@ -1670,7 +1670,7 @@ public class Element {
    * Returns the dimensions of the element available to lay content out in.
    <p>getStyleSize utilizes prefers style sizing if present, otherwise it chooses the larger of offsetHeight/clientHeight and offsetWidth/clientWidth. To obtain the size excluding scrollbars, use getViewSize Sizing of the document body is handled at the adapter level which handles special cases for IE and strict modes, etc.</p>
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.style-more.html#method-Ext.Element-getStyleSize Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-getStyleSize Sencha Docs Ext JS 3.4
    */
   public native function getStyleSize():void;
 
@@ -1681,7 +1681,7 @@ public class Element {
    * @param style2 A style name
    * @param etc
    * @return The style object
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.style-more.html#method-Ext.Element-getStyles Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-getStyles Sencha Docs Ext JS 3.4
    */
   public native function getStyles(style1:String, style2:String, etc:String):Object;
 
@@ -1692,7 +1692,7 @@ public class Element {
    * @param min The minimum value to return.
    * @param max The maximum value to return.
    * @return The text width in pixels.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TextMetrics.html#method-Ext.Element-getTextWidth Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-getTextWidth Sencha Docs Ext JS 3.4
    */
   public native function getTextWidth(text:String, min:Number = undefined, max:Number = undefined):Number;
 
@@ -1701,7 +1701,7 @@ public class Element {
    *
    * @param local True to get the local css position instead of page coordinate
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.position.html#method-Ext.Element-getTop Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-getTop Sencha Docs Ext JS 3.4
    */
   public native function getTop(local:Boolean = false):Number;
 
@@ -1709,7 +1709,7 @@ public class Element {
    * Gets this element's <a href="Ext.Updater.html">Updater</a>
    *
    * @return The Updater
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element-more.html#method-Ext.Element-getUpdater Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-getUpdater Sencha Docs Ext JS 3.4
    */
   public native function getUpdater():Updater;
 
@@ -1718,7 +1718,7 @@ public class Element {
    *
    * @param asNumber true to parse the value as a number
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.html#method-Ext.Element-getValue Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-getValue Sencha Docs Ext JS 3.4
    */
   public native function getValue(asNumber:Boolean = false):*;
 
@@ -1734,7 +1734,7 @@ public class Element {
    // To handle window resizing you would have to hook onto onWindowResize.
    </code></pre>getViewSize utilizes clientHeight/clientWidth which excludes sizing of scrollbars. To obtain the size including scrollbars, use getStyleSize Sizing of the document body is handled at the adapter level which handles special cases for IE and strict modes, etc.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.style-more.html#method-Ext.Element-getViewSize Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-getViewSize Sencha Docs Ext JS 3.4
    */
   public native function getViewSize():void;
 
@@ -1743,7 +1743,7 @@ public class Element {
    *
    * @param contentWidth true to get the width minus borders and padding
    * @return The element's width
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.style.html#method-Ext.Element-getWidth Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-getWidth Sencha Docs Ext JS 3.4
    */
   public native function getWidth(contentWidth:Boolean = false):Number;
 
@@ -1751,7 +1751,7 @@ public class Element {
    * Gets the current X position of the element based on page coordinates. Element must be part of the DOM tree to have page coordinates (display:none or elements not appended return false).
    *
    * @return The X position of the element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.position.html#method-Ext.Element-getX Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-getX Sencha Docs Ext JS 3.4
    */
   public native function getX():Number;
 
@@ -1759,7 +1759,7 @@ public class Element {
    * Gets the current position of the element based on page coordinates. Element must be part of the DOM tree to have page coordinates (display:none or elements not appended return false).
    *
    * @return The XY position of the element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.position.html#method-Ext.Element-getXY Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-getXY Sencha Docs Ext JS 3.4
    */
   public native function getXY():Array;
 
@@ -1767,7 +1767,7 @@ public class Element {
    * Gets the current Y position of the element based on page coordinates. Element must be part of the DOM tree to have page coordinates (display:none or elements not appended return false).
    *
    * @return The Y position of the element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.position.html#method-Ext.Element-getY Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-getY Sencha Docs Ext JS 3.4
    */
   public native function getY():Number;
 
@@ -1776,14 +1776,14 @@ public class Element {
    *
    * @param className The CSS class to check for
    * @return True if the class exists, else false
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.style.html#method-Ext.Element-hasClass Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-hasClass Sencha Docs Ext JS 3.4
    */
   public native function hasClass(className:String):Boolean;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.fx.html#method-Ext.Element-hasMetrics Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-hasMetrics Sencha Docs Ext JS 3.4
    */
   public native function hasMetrics():void;
 
@@ -1792,7 +1792,7 @@ public class Element {
    *
    * @param animate true for the default animation or a standard Element animation config object
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.fx.html#method-Ext.Element-hide Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-hide Sencha Docs Ext JS 3.4
    */
   public native function hide(animate:* = null):Element;
 
@@ -1804,7 +1804,7 @@ public class Element {
    * @param scope The scope (<code>this</code> reference) in which the functions are executed. Defaults to the Element's DOM element.
    * @param options Options for the listener. See <a href="output/Ext.util.Observable.html#Ext.util.Observable-addListener">the <tt>options</tt> parameter</a>.
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.html#method-Ext.Element-hover Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-hover Sencha Docs Ext JS 3.4
    */
   public native function hover(overFn:Function, outFn:Function, scope:Object = null, options:Object = null):Element;
 
@@ -1815,7 +1815,7 @@ public class Element {
    * @param config The DD config object
    * @param overrides An object containing methods to override/implement on the DD object
    * @return The DD object
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.dd.html#method-Ext.Element-initDD Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-initDD Sencha Docs Ext JS 3.4
    */
   public native function initDD(group:String, config:Object, overrides:Object):DD;
 
@@ -1826,7 +1826,7 @@ public class Element {
    * @param config The DDProxy config object
    * @param overrides An object containing methods to override/implement on the DDProxy object
    * @return The DDProxy object
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.dd.html#method-Ext.Element-initDDProxy Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-initDDProxy Sencha Docs Ext JS 3.4
    */
   public native function initDDProxy(group:String, config:Object, overrides:Object):DDProxy;
 
@@ -1837,7 +1837,7 @@ public class Element {
    * @param config The DDTarget config object
    * @param overrides An object containing methods to override/implement on the DDTarget object
    * @return The DDTarget object
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.dd.html#method-Ext.Element-initDDTarget Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-initDDTarget Sencha Docs Ext JS 3.4
    */
   public native function initDDTarget(group:String, config:Object, overrides:Object):DDTarget;
 
@@ -1846,7 +1846,7 @@ public class Element {
    *
    * @param el The element to insert after
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.insertion.html#method-Ext.Element-insertAfter Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-insertAfter Sencha Docs Ext JS 3.4
    */
   public native function insertAfter(el:*):Element;
 
@@ -1855,7 +1855,7 @@ public class Element {
    *
    * @param el The element before which this element will be inserted
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.insertion.html#method-Ext.Element-insertBefore Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-insertBefore Sencha Docs Ext JS 3.4
    */
   public native function insertBefore(el:*):Element;
 
@@ -1864,7 +1864,7 @@ public class Element {
    *
    * @param el The id or element to insert or a DomHelper config to create and insert
    * @return The new child
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.insertion.html#method-Ext.Element-insertFirst Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-insertFirst Sencha Docs Ext JS 3.4
    */
   public native function insertFirst(el:*):Element;
 
@@ -1875,7 +1875,7 @@ public class Element {
    * @param html The HTML fragment
    * @param returnEl True to return an Ext.Element (defaults to false)
    * @return The inserted node (or nearest related if more than 1 inserted)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.insertion.html#method-Ext.Element-insertHtml Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-insertHtml Sencha Docs Ext JS 3.4
    */
   public native function insertHtml(where:String, html:String, returnEl:Boolean = false):*;
 
@@ -1886,7 +1886,7 @@ public class Element {
    * @param where 'before' or 'after' defaults to before
    * @param returnDom True to return the raw DOM element instead of Ext.Element
    * @return The inserted Element. If an array is passed, the last inserted element is returned.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.insertion-more.html#method-Ext.Element-insertSibling Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-insertSibling Sencha Docs Ext JS 3.4
    */
   public native function insertSibling(el:*, where:String = null, returnDom:Boolean = false):Element;
 
@@ -1894,7 +1894,7 @@ public class Element {
    * Tests various css rules/browsers to determine if this element uses a border box
    *
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.html#method-Ext.Element-isBorderBox Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-isBorderBox Sencha Docs Ext JS 3.4
    */
   public native function isBorderBox():Boolean;
 
@@ -1902,7 +1902,7 @@ public class Element {
    * Returns true if display is not "none"
    *
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.fx-more.html#method-Ext.Element-isDisplayed Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-isDisplayed Sencha Docs Ext JS 3.4
    */
   public native function isDisplayed():Boolean;
 
@@ -1910,7 +1910,7 @@ public class Element {
    * Returns true if this element is masked
    *
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.fx-more.html#method-Ext.Element-isMasked Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-isMasked Sencha Docs Ext JS 3.4
    */
   public native function isMasked():Boolean;
 
@@ -1918,7 +1918,7 @@ public class Element {
    * Returns true if this element is scrollable.
    *
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.scroll.html#method-Ext.Element-isScrollable Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-isScrollable Sencha Docs Ext JS 3.4
    */
   public native function isScrollable():Boolean;
 
@@ -1926,7 +1926,7 @@ public class Element {
    * Checks whether the element is currently visible using both visibility and display properties.
    *
    * @return True if the element is currently visible, else false
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.fx.html#method-Ext.Element-isVisible Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-isVisible Sencha Docs Ext JS 3.4
    */
   public native function isVisible():Boolean;
 
@@ -1935,7 +1935,7 @@ public class Element {
    *
    * @param selector The simple selector to test
    * @return True if this element matches the selector, else false
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.html#method-Ext.Element-is_ Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-is_ Sencha Docs Ext JS 3.4
    */
   public native function is_(selector:String):Boolean;
 
@@ -1945,7 +1945,7 @@ public class Element {
    * @param selector Find the previous sibling that matches the passed simple selector
    * @param returnDom True to return a raw dom node instead of an Ext.Element
    * @return The last child or null
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.traversal.html#method-Ext.Element-last Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-last Sencha Docs Ext JS 3.4
    */
   public native function last(selector:String = null, returnDom:Boolean = false):*;
 
@@ -1955,7 +1955,7 @@ public class Element {
    *
    * @param options Either a string containing the URL from which to load the HTML, or an <a href="output/Ext.Ajax.html#Ext.Ajax-request">Ext.Ajax.request</a> options object specifying exactly how to request the HTML.
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.html#method-Ext.Element-load Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-load Sencha Docs Ext JS 3.4
    */
   public native function load(options:*):Element;
 
@@ -1965,7 +1965,7 @@ public class Element {
    * @param msg A message to display in the mask
    * @param msgCls A css class to apply to the msg element
    * @return The mask element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.fx-more.html#method-Ext.Element-mask Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-mask Sencha Docs Ext JS 3.4
    */
   public native function mask(msg:String = null, msgCls:String = null):Element;
 
@@ -1976,7 +1976,7 @@ public class Element {
    * @param distance How far to move the element in pixels
    * @param animate true for the default animation or a standard Element animation config object
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.position-more.html#method-Ext.Element-move Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-move Sencha Docs Ext JS 3.4
    */
   public native function move(direction:String, distance:Number, animate:* = null):Element;
 
@@ -1987,7 +1987,7 @@ public class Element {
    * @param y Y value for new position (coordinates are page-based)
    * @param animate True for the default animation, or a standard Element animation config object
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.position.html#method-Ext.Element-moveTo Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-moveTo Sencha Docs Ext JS 3.4
    */
   public native function moveTo(x:Number, y:Number, animate:* = null):Element;
 
@@ -1997,7 +1997,7 @@ public class Element {
    * @param selector Find the next sibling that matches the passed simple selector
    * @param returnDom True to return a raw dom node instead of an Ext.Element
    * @return The next sibling or null
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.traversal.html#method-Ext.Element-next Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-next Sencha Docs Ext JS 3.4
    */
   public native function next(selector:String = null, returnDom:Boolean = false):*;
 
@@ -2008,7 +2008,7 @@ public class Element {
    * @param fn The handler function the event invokes.
    * @param scope The scope (<code>this</code> reference) in which the handler function is executed.
    * @param options An object containing standard <a href="output/Ext.Element.html#Ext.Element-addListener">addListener</a> options
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.html#method-Ext.Element-on Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-on Sencha Docs Ext JS 3.4
    */
   public native function on(eventName:String, fn:Function, scope:Object = null, options:Object = null):void;
 
@@ -2018,7 +2018,7 @@ public class Element {
    * @param selector Find a parent node that matches the passed simple selector
    * @param returnDom True to return a raw dom node instead of an Ext.Element
    * @return The parent node or null
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.traversal.html#method-Ext.Element-parent Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-parent Sencha Docs Ext JS 3.4
    */
   public native function parent(selector:String = null, returnDom:Boolean = false):*;
 
@@ -2029,7 +2029,7 @@ public class Element {
    * @param zIndex The zIndex to apply
    * @param x Set the page X position
    * @param y Set the page Y position
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.position.html#method-Ext.Element-position Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-position Sencha Docs Ext JS 3.4
    */
   public native function position(pos:String = null, zIndex:Number = undefined, x:Number = undefined, y:Number = undefined):void;
 
@@ -2039,7 +2039,7 @@ public class Element {
    * @param selector Find the previous sibling that matches the passed simple selector
    * @param returnDom True to return a raw dom node instead of an Ext.Element
    * @return The previous sibling or null
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.traversal.html#method-Ext.Element-prev Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-prev Sencha Docs Ext JS 3.4
    */
   public native function prev(selector:String = null, returnDom:Boolean = false):*;
 
@@ -2047,7 +2047,7 @@ public class Element {
    * Recursively removes all previous added listeners from this element and its children
    *
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.html#method-Ext.Element-purgeAllListeners Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-purgeAllListeners Sencha Docs Ext JS 3.4
    */
   public native function purgeAllListeners():Element;
 
@@ -2056,7 +2056,7 @@ public class Element {
    *
    * @param selector The CSS selector
    * @return An array of the matched nodes
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.traversal.html#method-Ext.Element-query Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-query Sencha Docs Ext JS 3.4
    */
   public native function query(selector:String):Array;
 
@@ -2065,7 +2065,7 @@ public class Element {
    *
    * @param className The CSS class to add, or an array of classes
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.style.html#method-Ext.Element-radioClass Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-radioClass Sencha Docs Ext JS 3.4
    */
   public native function radioClass(className:*):Element;
 
@@ -2074,7 +2074,7 @@ public class Element {
    *
    * @param eventName The type of event to relay
    * @param object Any object that extends <a href="Ext.util.Observable.html">Ext.util.Observable</a> that will provide the context for firing the relayed event
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element-more.html#method-Ext.Element-relayEvent Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-relayEvent Sencha Docs Ext JS 3.4
    */
   public native function relayEvent(eventName:String, object:Object):void;
 
@@ -2082,7 +2082,7 @@ public class Element {
    * Removes this element's dom reference. Note that event and cache removal is handled at <a href="output/Ext.html#Ext-removeNode">Ext.removeNode</a>
 
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.html#method-Ext.Element-remove Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-remove Sencha Docs Ext JS 3.4
    */
   public native function remove():void;
 
@@ -2090,7 +2090,7 @@ public class Element {
    * Removes all previous added listeners from this element
    *
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.html#method-Ext.Element-removeAllListeners Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-removeAllListeners Sencha Docs Ext JS 3.4
    */
   public native function removeAllListeners():Element;
 
@@ -2098,7 +2098,7 @@ public class Element {
    * Remove any anchor to this element. See <a href="output/Ext.Element.html#Ext.Element-anchorTo">anchorTo</a>.
    *
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.alignment.html#method-Ext.Element-removeAnchor Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-removeAnchor Sencha Docs Ext JS 3.4
    */
   public native function removeAnchor():Element;
 
@@ -2107,7 +2107,7 @@ public class Element {
    *
    * @param className The CSS class to remove, or an array of classes
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.style.html#method-Ext.Element-removeClass Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-removeClass Sencha Docs Ext JS 3.4
    */
   public native function removeClass(className:*):Element;
 
@@ -2121,7 +2121,7 @@ public class Element {
    * @param fn The handler function to remove. <b>This must be a reference to the function passed into the <a href="output/Ext.Element.html#Ext.Element-addListener">addListener</a> call.</b>
    * @param scope If a scope (<b><code>this</code></b> reference) was specified when the listener was added, then this must refer to the same object.
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.html#method-Ext.Element-removeListener Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-removeListener Sencha Docs Ext JS 3.4
    */
   public native function removeListener(eventName:String, fn:Function, scope:Object = null):Element;
 
@@ -2129,7 +2129,7 @@ public class Element {
    * Forces the browser to repaint this element
    *
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.style-more.html#method-Ext.Element-repaint Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-repaint Sencha Docs Ext JS 3.4
    */
   public native function repaint():Element;
 
@@ -2138,7 +2138,7 @@ public class Element {
    *
    * @param el The element to replace
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.insertion.html#method-Ext.Element-replace Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-replace Sencha Docs Ext JS 3.4
    */
   public native function replace(el:*):Element;
 
@@ -2148,7 +2148,7 @@ public class Element {
    * @param oldClassName The CSS class to replace
    * @param newClassName The replacement CSS class
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.style.html#method-Ext.Element-replaceClass Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-replaceClass Sencha Docs Ext JS 3.4
    */
   public native function replaceClass(oldClassName:String, newClassName:String):Element;
 
@@ -2157,7 +2157,7 @@ public class Element {
    *
    * @param el The new element or a DomHelper config of an element to create
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.insertion.html#method-Ext.Element-replaceWith Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-replaceWith Sencha Docs Ext JS 3.4
    */
   public native function replaceWith(el:*):Element;
 
@@ -2168,7 +2168,7 @@ public class Element {
    * @param distance How far to scroll the element in pixels
    * @param animate true for the default animation or a standard Element animation config object
    * @return Returns true if a scroll was triggered or false if the element was scrolled as far as it could go.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.scroll-more.html#method-Ext.Element-scroll Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-scroll Sencha Docs Ext JS 3.4
    */
   public native function scroll(direction:String, distance:Number, animate:* = null):Boolean;
 
@@ -2178,7 +2178,7 @@ public class Element {
    * @param container The container element to scroll (defaults to document.body). Should be a string (id), dom node, or Ext.Element.
    * @param hscroll False to disable horizontal scroll (defaults to true)
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.scroll-more.html#method-Ext.Element-scrollIntoView Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-scrollIntoView Sencha Docs Ext JS 3.4
    */
   public native function scrollIntoView(container:* = null, hscroll:Boolean = false):Element;
 
@@ -2189,7 +2189,7 @@ public class Element {
    * @param value The new scroll value.
    * @param animate true for the default animation or a standard Element animation config object
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.scroll.html#method-Ext.Element-scrollTo Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-scrollTo Sencha Docs Ext JS 3.4
    */
   public native function scrollTo(side:String, value:Number):Element;
 
@@ -2198,7 +2198,7 @@ public class Element {
    *
    * @param selector The CSS selector
    * @return The composite element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.traversal.html#method-Ext.Element-select Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-select Sencha Docs Ext JS 3.4
    */
   public native function select(selector:String):*;
 
@@ -2208,7 +2208,7 @@ public class Element {
    * @param o The object with the attributes
    * @param useSet false to override the default setAttribute to use expandos.
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.html#method-Ext.Element-set Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-set Sencha Docs Ext JS 3.4
    */
   public native function set(o:Object, useSet:Boolean = false):Element;
 
@@ -2217,7 +2217,7 @@ public class Element {
    *
    * @param bottom The bottom CSS property value
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.position.html#method-Ext.Element-setBottom Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-setBottom Sencha Docs Ext JS 3.4
    */
   public native function setBottom(bottom:String):Element;
 
@@ -2230,7 +2230,7 @@ public class Element {
    * @param height The new height. This may be one of:<div class="mdetail-params"><ul><li>A Number specifying the new height in this Element's <a href="output/Ext.Element.html#Ext.Element-defaultUnit">defaultUnit</a>s (by default, pixels)</li><li>A String used to set the CSS height style. Animation may <b>not</b> be used.</li></ul></div>
    * @param animate true for the default animation or a standard Element animation config object
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.position-more.html#method-Ext.Element-setBounds Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-setBounds Sencha Docs Ext JS 3.4
    */
   public native function setBounds(x:Number, y:Number, width:*, height:*, animate:* = null):Element;
 
@@ -2241,7 +2241,7 @@ public class Element {
    * @param adjust Whether to adjust for box-model issues automatically
    * @param animate true for the default animation or a standard Element animation config object
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.position-more.html#method-Ext.Element-setBox Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-setBox Sencha Docs Ext JS 3.4
    */
   public native function setBox(box:Object, adjust:Boolean = false, animate:* = null):Element;
 
@@ -2250,7 +2250,7 @@ public class Element {
    *
    * @param value Boolean value to display the element using its default display, or a string to set the display directly.
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.fx.html#method-Ext.Element-setDisplayed Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-setDisplayed Sencha Docs Ext JS 3.4
    */
   public native function setDisplayed(value:*):Element;
 
@@ -2269,7 +2269,7 @@ public class Element {
    * @param height The new height. This may be one of:<div class="mdetail-params"><ul><li>A Number specifying the new height in this Element's <a href="output/Ext.Element.html#Ext.Element-defaultUnit">defaultUnit</a>s (by default, pixels.)</li><li>A String used to set the CSS height style. Animation may <b>not</b> be used.</li></ul></div>
    * @param animate true for the default animation or a standard Element animation config object
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.style.html#method-Ext.Element-setHeight Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-setHeight Sencha Docs Ext JS 3.4
    */
   public native function setHeight(height:*, animate:* = null):Element;
 
@@ -2278,7 +2278,7 @@ public class Element {
    *
    * @param left The left CSS property value
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.position.html#method-Ext.Element-setLeft Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-setLeft Sencha Docs Ext JS 3.4
    */
   public native function setLeft(left:String):Element;
 
@@ -2288,7 +2288,7 @@ public class Element {
    * @param left The left CSS property value
    * @param top The top CSS property value
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.position-more.html#method-Ext.Element-setLeftTop Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-setLeftTop Sencha Docs Ext JS 3.4
    */
   public native function setLeftTop(left:String, top:String):Element;
 
@@ -2299,7 +2299,7 @@ public class Element {
    * @param y Y value for new position (coordinates are page-based)
    * @param animate True for the default animation, or a standard Element animation config object
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.position.html#method-Ext.Element-setLocation Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-setLocation Sencha Docs Ext JS 3.4
    */
   public native function setLocation(x:Number, y:Number, animate:* = null):Element;
 
@@ -2309,7 +2309,7 @@ public class Element {
    * @param opacity The new opacity. 0 = transparent, .5 = 50% visible, 1 = fully visible, etc
    * @param animate a standard Element animation config object or <tt>true</tt> for the default animation (<tt>{duration: .35, easing: 'easeIn'}</tt>)
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.style.html#method-Ext.Element-setOpacity Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-setOpacity Sencha Docs Ext JS 3.4
    */
   public native function setOpacity(opacity:Number, animate:* = null):Element;
 
@@ -2318,7 +2318,7 @@ public class Element {
    *
    * @param posCfg
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.position.html#method-Ext.Element-setPositioning Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-setPositioning Sencha Docs Ext JS 3.4
    */
   public native function setPositioning(posCfg:Object):Element;
 
@@ -2328,7 +2328,7 @@ public class Element {
    * @param region The region to fill
    * @param animate true for the default animation or a standard Element animation config object
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.position-more.html#method-Ext.Element-setRegion Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-setRegion Sencha Docs Ext JS 3.4
    */
   public native function setRegion(region:Region, animate:* = null):Element;
 
@@ -2337,7 +2337,7 @@ public class Element {
    *
    * @param right The right CSS property value
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.position.html#method-Ext.Element-setRight Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-setRight Sencha Docs Ext JS 3.4
    */
   public native function setRight(right:String):Element;
 
@@ -2348,7 +2348,7 @@ public class Element {
    * @param height The new height. This may be one of:<div class="mdetail-params"><ul><li>A Number specifying the new height in this Element's <a href="output/Ext.Element.html#Ext.Element-defaultUnit">defaultUnit</a>s (by default, pixels).</li><li>A String used to set the CSS height style. Animation may <b>not</b> be used.</li></ul></div>
    * @param animate true for the default animation or a standard Element animation config object
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.style-more.html#method-Ext.Element-setSize Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-setSize Sencha Docs Ext JS 3.4
    */
   public native function setSize(width:*, height:*, animate:* = null):Element;
 
@@ -2358,7 +2358,7 @@ public class Element {
    * @param property The style property to be set, or an object of multiple styles.
    * @param value The value to apply to the given property, or null if an object was passed.
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.style.html#method-Ext.Element-setStyle Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-setStyle Sencha Docs Ext JS 3.4
    */
   public native function setStyle(property:*, value:String = null):Element;
 
@@ -2367,7 +2367,7 @@ public class Element {
    *
    * @param top The top CSS property value
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.position.html#method-Ext.Element-setTop Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-setTop Sencha Docs Ext JS 3.4
    */
   public native function setTop(top:String):Element;
 
@@ -2376,7 +2376,7 @@ public class Element {
    *
    * @param visMode Ext.Element.VISIBILITY or Ext.Element.DISPLAY
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.fx.html#method-Ext.Element-setVisibilityMode Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-setVisibilityMode Sencha Docs Ext JS 3.4
    */
   public native function setVisibilityMode(visMode:Number):Element;
 
@@ -2386,7 +2386,7 @@ public class Element {
    * @param visible Whether the element is visible
    * @param animate True for the default animation, or a standard Element animation config object
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.fx.html#method-Ext.Element-setVisible Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-setVisible Sencha Docs Ext JS 3.4
    */
   public native function setVisible(visible:Boolean, animate:* = null):Element;
 
@@ -2396,7 +2396,7 @@ public class Element {
    * @param width The new width. This may be one of:<div class="mdetail-params"><ul><li>A Number specifying the new width in this Element's <a href="output/Ext.Element.html#Ext.Element-defaultUnit">defaultUnit</a>s (by default, pixels).</li><li>A String used to set the CSS width style. Animation may <b>not</b> be used.</li></ul></div>
    * @param animate true for the default animation or a standard Element animation config object
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.style.html#method-Ext.Element-setWidth Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-setWidth Sencha Docs Ext JS 3.4
    */
   public native function setWidth(width:*, animate:* = null):Element;
 
@@ -2406,7 +2406,7 @@ public class Element {
    * @param The X position of the element
    * @param animate True for the default animation, or a standard Element animation config object
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.position.html#method-Ext.Element-setX Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-setX Sencha Docs Ext JS 3.4
    */
   public native function setX(The:Number, animate:* = null):Element;
 
@@ -2416,7 +2416,7 @@ public class Element {
    * @param pos Contains X &amp; Y [x, y] values for new position (coordinates are page-based)
    * @param animate True for the default animation, or a standard Element animation config object
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.position.html#method-Ext.Element-setXY Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-setXY Sencha Docs Ext JS 3.4
    */
   public native function setXY(pos:Array, animate:* = null):Element;
 
@@ -2426,7 +2426,7 @@ public class Element {
    * @param The Y position of the element
    * @param animate True for the default animation, or a standard Element animation config object
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.position.html#method-Ext.Element-setY Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-setY Sencha Docs Ext JS 3.4
    */
   public native function setY(The:Number, animate:* = null):Element;
 
@@ -2435,7 +2435,7 @@ public class Element {
    *
    * @param animate true for the default animation or a standard Element animation config object
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.fx.html#method-Ext.Element-show Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-show Sencha Docs Ext JS 3.4
    */
   public native function show(animate:* = null):Element;
 
@@ -2445,7 +2445,7 @@ public class Element {
    * @param eventName an event / array of events to stop from bubbling
    * @param preventDefault true to prevent the default action too
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element-more.html#method-Ext.Element-swallowEvent Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-swallowEvent Sencha Docs Ext JS 3.4
    */
   public native function swallowEvent(eventName:*, preventDefault:Boolean = false):Element;
 
@@ -2454,7 +2454,7 @@ public class Element {
    *
    * @param animate True for the default animation, or a standard Element animation config object
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.fx.html#method-Ext.Element-toggle Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-toggle Sencha Docs Ext JS 3.4
    */
   public native function toggle(animate:* = null):Element;
 
@@ -2463,7 +2463,7 @@ public class Element {
    *
    * @param className The CSS class to toggle
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.style.html#method-Ext.Element-toggleClass Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-toggleClass Sencha Docs Ext JS 3.4
    */
   public native function toggleClass(className:String):Element;
 
@@ -2473,7 +2473,7 @@ public class Element {
    * @param x The page x or an array containing [x, y]
    * @param y The page y, required if x is not an array
    * @return An object with left and top properties. e.g. {left: (value), top: (value)}
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.position.html#method-Ext.Element-translatePoints Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-translatePoints Sencha Docs Ext JS 3.4
    */
   public native function translatePoints(x:*, y:Number = undefined):Object;
 
@@ -2484,7 +2484,7 @@ public class Element {
    * @param fn The handler function to remove. <b>This must be a reference to the function passed into the <a href="output/Ext.Element.html#Ext.Element-addListener">addListener</a> call.</b>
    * @param scope If a scope (<b><code>this</code></b> reference) was specified when the listener was added, then this must refer to the same object.
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.html#method-Ext.Element-un Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-un Sencha Docs Ext JS 3.4
    */
   public native function un(eventName:String, fn:Function, scope:Object):Element;
 
@@ -2492,14 +2492,14 @@ public class Element {
    * Return clipping (overflow) to original clipping before <tt><a href="output/Ext.Element.html#Ext.Element-clip">clip</a></tt> was called
    *
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.style.html#method-Ext.Element-unclip Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-unclip Sencha Docs Ext JS 3.4
    */
   public native function unclip():Element;
 
   /**
    * Removes a previously applied mask.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.fx-more.html#method-Ext.Element-unmask Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-unmask Sencha Docs Ext JS 3.4
    */
   public native function unmask():void;
 
@@ -2507,7 +2507,7 @@ public class Element {
    * Disables text selection for this element (normalized across browsers)
    *
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.style-more.html#method-Ext.Element-unselectable Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-unselectable Sencha Docs Ext JS 3.4
    */
   public native function unselectable():Element;
 
@@ -2517,7 +2517,7 @@ public class Element {
    * @param selector The simple selector to test
    * @param maxDepth The max depth to search as a number or element (defaults to 10 || document.body)
    * @return The matching DOM node (or null if no match was found)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.traversal.html#method-Ext.Element-up Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-up Sencha Docs Ext JS 3.4
    */
   public native function up(selector:String, maxDepth:* = null):Element;
 
@@ -2526,7 +2526,7 @@ public class Element {
    *
    * @param html The new HTML
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.html#method-Ext.Element-update Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-update Sencha Docs Ext JS 3.4
    */
   public native function update(html:String):Element;
 
@@ -2536,7 +2536,7 @@ public class Element {
    * @param config DomHelper element config object for the wrapper element or null for an empty div
    * @param returnDom True to return the raw DOM element instead of Ext.Element
    * @return The newly created wrapper element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.insertion.html#method-Ext.Element-wrap Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-wrap Sencha Docs Ext JS 3.4
    */
   public native function wrap(config:Object = null, returnDom:Boolean = false):*;
 

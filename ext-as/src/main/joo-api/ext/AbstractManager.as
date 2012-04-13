@@ -7,7 +7,7 @@ import ext.util.MixedCollection;
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  *
 
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/AbstractManager.html#cls-Ext.AbstractManager Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.AbstractManager Sencha Docs Ext JS 3.4
  */
 public class AbstractManager {
 
@@ -21,7 +21,7 @@ public class AbstractManager {
 
   /**
    Contains all of the items currently managed
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/AbstractManager.html#prop-Ext.AbstractManager-all Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.AbstractManager-property-all Sencha Docs Ext JS 3.4
    */
   public native function get all():MixedCollection;
 
@@ -36,7 +36,7 @@ public class AbstractManager {
    * @param config The config object
    * @param defaultType If no type is discovered in the config object, we fall back to this type
    * @return The instance of whatever this manager is managing
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/AbstractManager.html#method-Ext.AbstractManager-create Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.AbstractManager-method-create Sencha Docs Ext JS 3.4
    */
   public native function create(config:Object, defaultType:String):*;
 
@@ -45,7 +45,7 @@ public class AbstractManager {
    *
    * @param id The component <a href="output/Ext.Component.html#Ext.Component-id">id</a>
    * @return The Component, <code>undefined</code> if not found, or <code>null</code> if a Class was found.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/AbstractManager.html#method-Ext.AbstractManager-get Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.AbstractManager-method-get Sencha Docs Ext JS 3.4
    */
   public native function get(id:String):Component;
 
@@ -54,7 +54,7 @@ public class AbstractManager {
    *
    * @param xtype The mnemonic string by which the Component class may be looked up
    * @return Whether the type is registered.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/AbstractManager.html#method-Ext.AbstractManager-isRegistered Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.AbstractManager-method-isRegistered Sencha Docs Ext JS 3.4
    */
   public native function isRegistered(xtype:Component):Boolean;
 
@@ -64,7 +64,7 @@ public class AbstractManager {
    * @param id The component <a href="output/Ext.Component.html#Ext.Component-id">id</a>
    * @param fn The callback function
    * @param scope The scope (<code>this</code> reference) in which the callback is executed. Defaults to the Component.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/AbstractManager.html#method-Ext.AbstractManager-onAvailable Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.AbstractManager-method-onAvailable Sencha Docs Ext JS 3.4
    */
   public native function onAvailable(id:String, fn:Function, scope:Object):void;
 
@@ -72,7 +72,7 @@ public class AbstractManager {
    * Registers an item to be managed
    *
    * @param item The item to register
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/AbstractManager.html#method-Ext.AbstractManager-register Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.AbstractManager-method-register Sencha Docs Ext JS 3.4
    */
   public native function register(item:*):void;
 
@@ -82,7 +82,7 @@ public class AbstractManager {
    *
    * @param xtype The mnemonic string by which the Component class may be looked up.
    * @param cls The new Component class.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/AbstractManager.html#method-Ext.AbstractManager-registerType Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.AbstractManager-method-registerType Sencha Docs Ext JS 3.4
    */
   public native function registerType(xtype:String, cls:Class):void;
 
@@ -90,7 +90,7 @@ public class AbstractManager {
    * Unregisters a component by removing it from this manager
    *
    * @param item The item to unregister
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/AbstractManager.html#method-Ext.AbstractManager-unregister Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.AbstractManager-method-unregister Sencha Docs Ext JS 3.4
    */
   public native function unregister(item:*):void;
 

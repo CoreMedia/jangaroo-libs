@@ -14,7 +14,7 @@ package ext.slider {
  *
 
  * @see ext.config.singleslider
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Slider.html#cls-Ext.slider.SingleSlider Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.slider.SingleSlider Sencha Docs Ext JS 3.4
  */
 public class SingleSlider extends MultiSlider {
 
@@ -32,7 +32,7 @@ public class SingleSlider extends MultiSlider {
    *
    * @param index The index of the thumb to return a value for
    * @return The current value of the slider
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Slider.html#method-Ext.slider.SingleSlider-getValue Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.slider.SingleSlider-method-getValue Sencha Docs Ext JS 3.4
    */
   override public native function getValue(index:Number):Number;
 
@@ -42,14 +42,14 @@ public class SingleSlider extends MultiSlider {
    * @param index Index of the thumb to move
    * @param value The value to set the slider to. (This will be constrained within minValue and maxValue)
    * @param animate Turn on or off animation, defaults to true
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Slider.html#method-Ext.slider.SingleSlider-setValue Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.slider.SingleSlider-method-setValue Sencha Docs Ext JS 3.4
    */
   override public native function setValue(index:Number, value:Number, animate:Boolean):void;
 
   /**
    * Synchronizes the thumb position to the proper proportion of the total component width based on the current slider <a href="output/Ext.slider.SingleSlider.html#Ext.slider.SingleSlider-value">value</a>. This will be called automatically when the Slider is resized by a layout, but if it is rendered auto width, this method can be called from another resize handler to sync the Slider if necessary.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Slider.html#method-Ext.slider.SingleSlider-syncThumb Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.slider.SingleSlider-method-syncThumb Sencha Docs Ext JS 3.4
    */
   override public native function syncThumb():void;
 

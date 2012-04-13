@@ -14,7 +14,7 @@ package ext.toolbar {
 
  * <p>This component is created by the xtype 'tbfill' / the EXML element &lt;tbfill>.</p>
  * @see ext.config.tbfill
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Toolbar.html#cls-Ext.Toolbar.Fill Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Toolbar.Fill Sencha Docs Ext JS 3.4
  */
 public class Fill extends Spacer {
 

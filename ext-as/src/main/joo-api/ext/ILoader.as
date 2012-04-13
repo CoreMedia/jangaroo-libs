@@ -9,7 +9,7 @@ package ext {
 
  * <p>This interface defines the type of the singleton Loader.</p>
  * @see ext.#Loader ext.Loader
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Loader.html#cls-Ext.Loader Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Loader Sencha Docs Ext JS 3.4
  */
 public interface ILoader {
 
@@ -19,7 +19,7 @@ public interface ILoader {
    * @param filename The name of the file to create a script tag for
    * @param callback Optional callback, which is called when the script has been loaded
    * @return The new script ta
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Loader.html#method-Ext.Loader-buildScriptTag Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Loader-method-buildScriptTag Sencha Docs Ext JS 3.4
    */
   function buildScriptTag(filename:String, callback:Function):Element;
 
@@ -30,7 +30,7 @@ public interface ILoader {
    * @param callback Callback to call after all files have been loaded
    * @param scope The scope to call the callback in
    * @param preserveOrder True to make files load in serial, one after the other (defaults to false)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Loader.html#method-Ext.Loader-load Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Loader-method-load Sencha Docs Ext JS 3.4
    */
   function load(fileList:Array, callback:Function, scope:Object, preserveOrder:Boolean):void;
 

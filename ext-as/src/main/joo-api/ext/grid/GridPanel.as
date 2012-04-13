@@ -917,7 +917,7 @@ import ext.data.Store;
 
  * <p>This component is created by the xtype 'grid' / the EXML element &lt;grid>.</p>
  * @see ext.config.grid
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridPanel.html#cls-Ext.grid.GridPanel Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridPanel Sencha Docs Ext JS 3.4
  */
 public class GridPanel extends Panel {
 
@@ -934,143 +934,120 @@ public class GridPanel extends Panel {
   /**
    The <tt><a href="output/Ext.grid.Column.html#Ext.grid.Column-id">id</a></tt> of a <a href="Ext.grid.Column.html">column</a> in this grid that should expand to fill unused space. This value specified here can not be <tt>0</tt>.
    <br/><p><b>Note</b>: If the Grid's <a href="Ext.grid.GridView.html">view</a> is configured with <tt><a href="output/Ext.grid.GridView.html#Ext.grid.GridView-forceFit">forceFit</a>=true</tt> the <tt>autoExpandColumn</tt> is ignored. See <a href="Ext.grid.Column.html">Ext.grid.Column</a>.<tt><a href="output/Ext.grid.Column.html#Ext.grid.Column-width">width</a></tt> for additional details.</p><p>See <tt><a href="output/Ext.grid.GridPanel.html#Ext.grid.GridPanel-autoExpandMax">autoExpandMax</a></tt> and <tt><a href="output/Ext.grid.GridPanel.html#Ext.grid.GridPanel-autoExpandMin">autoExpandMin</a></tt> also.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get autoExpandColumn():String;
 
   /**
    The maximum width the <tt><a href="output/Ext.grid.GridPanel.html#Ext.grid.GridPanel-autoExpandColumn">autoExpandColumn</a></tt> can have (if enabled). Defaults to <tt>1000</tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get autoExpandMax():Number;
 
   /**
    The minimum width the <tt><a href="output/Ext.grid.GridPanel.html#Ext.grid.GridPanel-autoExpandColumn">autoExpandColumn</a></tt> can have (if enabled). Defaults to <tt>50</tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get autoExpandMin():Number;
 
   /**
    Shorthand for <tt><a href="output/Ext.grid.GridPanel.html#Ext.grid.GridPanel-colModel">colModel</a></tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get cm():Object;
 
   /**
    The <a href="Ext.grid.ColumnModel.html">Ext.grid.ColumnModel</a> to use when rendering the grid (required).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get colModel():Object;
 
   /**
    <tt>true</tt> to add css for column separation lines. Default is <tt>false</tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get columnLines():Boolean;
 
   /**
    The DD group this GridPanel belongs to. Defaults to <tt>'GridDD'</tt> if not specified.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get ddGroup():String;
 
   /**
    Configures the text in the drag proxy. Defaults to: <pre><code>ddText : '{0} selected row{1}'
    </code></pre><tt>{0}</tt> is replaced with the number of selected rows.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get ddText():String;
 
   /**
    Defaults to <tt>true</tt> to enable deferred row rendering.
    <p>This allows the GridPanel to be initially rendered empty, with the expensive update of the row structure deferred so that layouts with GridPanels appear more quickly.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get deferRowRender():Boolean;
 
   /**
    <tt>true</tt> to disable selections in the grid. Defaults to <tt>false</tt>.
    <p>Ignored if a <a href="output/Ext.grid.GridPanel.html#Ext.grid.GridPanel-selModel">SelectionModel</a> is specified.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get disableSelection():Boolean;
 
   /**
    Defaults to <tt>true</tt> to enable <a href="output/Ext.grid.Column.html#Ext.grid.Column-hidden">hiding of columns</a> with the <a href="output/Ext.grid.GridPanel.html#Ext.grid.GridPanel-enableHdMenu">header menu</a>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get enableColumnHide():Boolean;
 
   /**
    Defaults to <tt>true</tt> to enable drag and drop reorder of columns. <tt>false</tt> to turn off column reordering via drag drop.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get enableColumnMove():Boolean;
 
   /**
    <tt>false</tt> to turn off column resizing for the whole grid. Defaults to <tt>true</tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get enableColumnResize():Boolean;
 
   /**
    Enables dragging of the selected rows of the GridPanel. Defaults to <tt>false</tt>.
    <p>Setting this to <b><tt>true</tt></b> causes this GridPanel's <a href="output/Ext.grid.GridPanel.html#Ext.grid.GridPanel-getView">GridView</a> to create an instance of <a href="Ext.grid.GridDragZone.html">Ext.grid.GridDragZone</a>. <b>Note</b>: this is available only <b>after</b> the Grid has been rendered as the GridView's <tt><a href="output/Ext.grid.GridView.html#Ext.grid.GridView-dragZone">dragZone</a></tt> property.</p><p>A cooperating <a href="Ext.dd.DropZone.html">DropZone</a> must be created who's implementations of <a href="output/Ext.dd.DropZone.html#Ext.dd.DropZone-onNodeEnter">onNodeEnter</a>, <a href="output/Ext.dd.DropZone.html#Ext.dd.DropZone-onNodeOver">onNodeOver</a>, <a href="output/Ext.dd.DropZone.html#Ext.dd.DropZone-onNodeOut">onNodeOut</a> and <a href="output/Ext.dd.DropZone.html#Ext.dd.DropZone-onNodeDrop">onNodeDrop</a> are able to process the <a href="output/Ext.grid.GridDragZone.html#Ext.grid.GridDragZone-getDragData">data</a> which is provided.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get enableDragDrop():Boolean;
 
   /**
    Defaults to <tt>true</tt> to enable the drop down button for menu in the headers.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get enableHdMenu():Boolean;
 
   /**
    True to hide the grid's header. Defaults to <code>false</code>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get hideHeaders():Boolean;
 
   /**
    An <a href="Ext.LoadMask.html">Ext.LoadMask</a> config or true to mask the grid while loading. Defaults to <code>false</code>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get loadMask():Object;
 
   /**
    Sets the maximum height of the grid - ignored if <tt>autoHeight</tt> is not on.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get maxHeight():Number;
 
   /**
    The minimum width a column can be resized to. Defaults to <tt>25</tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get minColumnWidth():Number;
 
   /**
    Any subclass of <a href="Ext.grid.AbstractSelectionModel.html">Ext.grid.AbstractSelectionModel</a> that will provide the selection model for the grid (defaults to <a href="Ext.grid.RowSelectionModel.html">Ext.grid.RowSelectionModel</a> if not specified).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get selModel():Object;
 
   /**
    <tt>true</tt> to stripe the rows. Default is <tt>false</tt>. <p>This causes the CSS class <tt><b>x-grid3-row-alt</b></tt> to be added to alternate rows of the grid. A default CSS rule is provided which sets a background colour, but you can override this with a rule which either overrides the <b>background-color</b> style using the '!important' modifier, or which uses a CSS selector of higher specificity.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get stripeRows():Boolean;
 
   /**
    True to highlight rows when the mouse is over. Default is <tt>true</tt> for GridPanel, but <tt>false</tt> for EditorGridPanel.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get trackMouseOver():Boolean;
 
   /**
    A config object that will be applied to the grid's UI view. Any of the config options available for <a href="Ext.grid.GridView.html">Ext.grid.GridView</a> can be specified here. This option is ignored if <tt><a href="output/Ext.grid.GridPanel.html#Ext.grid.GridPanel-view">view</a></tt> is specified.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get viewConfig():Object;
 
@@ -1078,7 +1055,7 @@ public class GridPanel extends Panel {
    * Returns the grid's ColumnModel.
    *
    * @return The column model
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridPanel.html#method-Ext.grid.GridPanel-getColumnModel Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridPanel-method-getColumnModel Sencha Docs Ext JS 3.4
    */
   public native function getColumnModel():ColumnModel;
 
@@ -1086,7 +1063,7 @@ public class GridPanel extends Panel {
    * Called to get grid's drag proxy text, by default returns this.ddText.
    *
    * @return The text
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridPanel.html#method-Ext.grid.GridPanel-getDragDropText Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridPanel-method-getDragDropText Sencha Docs Ext JS 3.4
    */
   public native function getDragDropText():String;
 
@@ -1094,7 +1071,7 @@ public class GridPanel extends Panel {
    * Returns the grid's underlying element.
    *
    * @return The element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridPanel.html#method-Ext.grid.GridPanel-getGridEl Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridPanel-method-getGridEl Sencha Docs Ext JS 3.4
    */
   public native function getGridEl():Element;
 
@@ -1102,7 +1079,7 @@ public class GridPanel extends Panel {
    * Returns the grid's selection model configured by the <code><a href="output/Ext.grid.GridPanel.html#Ext.grid.GridPanel-selModel">selModel</a></code> configuration option. If no selection model was configured, this will create and return a <a href="Ext.grid.RowSelectionModel.html">RowSelectionModel</a>.
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridPanel.html#method-Ext.grid.GridPanel-getSelectionModel Ext JS source
+    * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridPanel-method-getSelectionModel Sencha Docs Ext JS 3.4
    */
   public native function getSelectionModel():AbstractSelectionModel;
 
@@ -1110,7 +1087,7 @@ public class GridPanel extends Panel {
    * Returns the grid's data store.
    *
    * @return The store
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridPanel.html#method-Ext.grid.GridPanel-getStore Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridPanel-method-getStore Sencha Docs Ext JS 3.4
    */
   public native function getStore():Store;
 
@@ -1118,7 +1095,7 @@ public class GridPanel extends Panel {
    * Returns the grid's GridView object.
    *
    * @return The grid view
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridPanel.html#method-Ext.grid.GridPanel-getView Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridPanel-method-getView Sencha Docs Ext JS 3.4
    */
   public native function getView():GridView;
 
@@ -1128,7 +1105,7 @@ public class GridPanel extends Panel {
    *
    * @param store The new <a href="Ext.data.Store.html">Ext.data.Store</a> object
    * @param colModel The new <a href="Ext.grid.ColumnModel.html">Ext.grid.ColumnModel</a> object
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridPanel.html#method-Ext.grid.GridPanel-reconfigure Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridPanel-method-reconfigure Sencha Docs Ext JS 3.4
    */
   public native function reconfigure(store:Store, colModel:ColumnModel):void;
 

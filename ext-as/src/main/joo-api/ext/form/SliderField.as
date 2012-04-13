@@ -10,7 +10,7 @@ import ext.config.sliderfield;
 
  * <p>This component is created by the xtype 'sliderfield' / the EXML element &lt;sliderfield>.</p>
  * @see ext.config.sliderfield
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SliderField.html#cls-Ext.form.SliderField Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.SliderField Sencha Docs Ext JS 3.4
  */
 public class SliderField extends Field {
 
@@ -26,21 +26,20 @@ public class SliderField extends Field {
 
   /**
    True to use an Ext.slider.Tip to display tips for the value. Defaults to <tt>true</tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get useTips():Boolean;
 
   /**
    * If a side icon is shown, do alignment to the slider
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SliderField.html#method-Ext.form.SliderField-alignErrorIcon Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.SliderField-method-alignErrorIcon Sencha Docs Ext JS 3.4
    */
   override protected native function alignErrorIcon():void;
 
   /**
    * Ensure the slider is destroyed when the field is destroyed.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SliderField.html#method-Ext.form.SliderField-beforeDestroy Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.SliderField-method-beforeDestroy Sencha Docs Ext JS 3.4
    */
   override protected native function beforeDestroy():void;
 
@@ -48,21 +47,21 @@ public class SliderField extends Field {
    * Gets the current value for this field.
    *
    * @return The current value.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SliderField.html#method-Ext.form.SliderField-getValue Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.SliderField-method-getValue Sencha Docs Ext JS 3.4
    */
   override public native function getValue():*;
 
   /**
    * Initialize the component.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SliderField.html#method-Ext.form.SliderField-initComponent Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.SliderField-method-initComponent Sencha Docs Ext JS 3.4
    */
   override protected native function initComponent():void;
 
   /**
    * Initialize any events for this class.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SliderField.html#method-Ext.form.SliderField-initEvents Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.SliderField-method-initEvents Sencha Docs Ext JS 3.4
    */
   override protected native function initEvents():void;
 
@@ -71,21 +70,21 @@ public class SliderField extends Field {
    *
    * @param slider The slider object.
    * @param v The new value.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SliderField.html#method-Ext.form.SliderField-onChange Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.SliderField-method-onChange Sencha Docs Ext JS 3.4
    */
   public native function onChange(slider:Object, v:Object):void;
 
   /**
    * Disable the slider when the field is disabled.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SliderField.html#method-Ext.form.SliderField-onDisable Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.SliderField-method-onDisable Sencha Docs Ext JS 3.4
    */
   override protected native function onDisable():void;
 
   /**
    * Enable the slider when the field is enabled.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SliderField.html#method-Ext.form.SliderField-onEnable Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.SliderField-method-onEnable Sencha Docs Ext JS 3.4
    */
   override protected native function onEnable():void;
 
@@ -94,7 +93,7 @@ public class SliderField extends Field {
    *
    * @param ct container
    * @param position reference child element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SliderField.html#method-Ext.form.SliderField-onRender Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.SliderField-method-onRender Sencha Docs Ext JS 3.4
    */
   override protected native function onRender(ct:Element, position:Element):void;
 
@@ -105,7 +104,7 @@ public class SliderField extends Field {
    * @param adjHeight The box-adjusted height that was set
    * @param rawWidth The width that was originally specified
    * @param rawHeight The height that was originally specified
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SliderField.html#method-Ext.form.SliderField-onResize Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.SliderField-method-onResize Sencha Docs Ext JS 3.4
    */
   override protected native function onResize(adjWidth:Number, adjHeight:Number, rawWidth:Number, rawHeight:Number):void;
 
@@ -114,7 +113,7 @@ public class SliderField extends Field {
    *
    * @param v The new maximum value.
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SliderField.html#method-Ext.form.SliderField-setMaxValue Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.SliderField-method-setMaxValue Sencha Docs Ext JS 3.4
    */
   public native function setMaxValue(v:Number):SliderField;
 
@@ -123,7 +122,7 @@ public class SliderField extends Field {
    *
    * @param v The new minimum value.
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SliderField.html#method-Ext.form.SliderField-setMinValue Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.SliderField-method-setMinValue Sencha Docs Ext JS 3.4
    */
   public native function setMinValue(v:Number):SliderField;
 
@@ -133,7 +132,7 @@ public class SliderField extends Field {
    * @param value The value to set
    * @param flag a boolean flag used by some subclasses
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SliderField.html#method-Ext.form.SliderField-setValue Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.SliderField-method-setValue Sencha Docs Ext JS 3.4
    */
   override public native function setValue(value:*, flag:Boolean = false):Field;
 

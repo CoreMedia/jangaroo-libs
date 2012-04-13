@@ -11,7 +11,7 @@ import ext.config.lvnumbercolumn;
 
  * <p>This component is created by the xtype 'lvnumbercolumn' / the EXML element &lt;lvnumbercolumn>.</p>
  * @see ext.config.lvnumbercolumn
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Column1.html#cls-Ext.list.NumberColumn Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.list.NumberColumn Sencha Docs Ext JS 3.4
  */
 public class NumberColumn extends Column {
 
@@ -27,7 +27,6 @@ public class NumberColumn extends Column {
 
   /**
    A formatting string as used by <a href="output/Ext.util.Format.html#Ext.util.Format-number">Ext.util.Format.number</a> to format a numeric value for this Column (defaults to <tt>'0,000.00'</tt>).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get format():String;
 

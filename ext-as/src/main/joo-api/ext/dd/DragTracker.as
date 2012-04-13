@@ -125,7 +125,7 @@ import ext.util.Observable;
  *
 
  * @see ext.config.dragtracker
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DragTracker.html#cls-Ext.dd.DragTracker Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragTracker Sencha Docs Ext JS 3.4
  */
 public class DragTracker extends Observable {
 
@@ -140,19 +140,16 @@ public class DragTracker extends Observable {
 
   /**
    Defaults to <tt>false</tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get active():Boolean;
 
   /**
    Defaults to <tt>false</tt>. Specify <tt>true</tt> to defer trigger start by 1000 ms. Specify a Number for the number of milliseconds to defer trigger start.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get autoStart():*;
 
   /**
    Number of pixels the drag target must be moved before dragging is considered to have started. Defaults to <tt>5</tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get tolerance():Number;
 
@@ -160,7 +157,7 @@ public class DragTracker extends Observable {
    * Returns the drag target
    *
    * @return The element currently being tracked
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DragTracker.html#method-Ext.dd.DragTracker-getDragTarget Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragTracker-method-getDragTarget Sencha Docs Ext JS 3.4
    */
   public native function getDragTarget():Element;
 
@@ -168,7 +165,7 @@ public class DragTracker extends Observable {
    * Template method which should be overridden by each DragTracker instance. Called when the user first clicks and holds the mouse button down. Return false to disallow the drag
    *
    * @param e The event object
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DragTracker.html#method-Ext.dd.DragTracker-onBeforeStart Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragTracker-method-onBeforeStart Sencha Docs Ext JS 3.4
    */
   public native function onBeforeStart(e:IEventObject):void;
 
@@ -176,7 +173,7 @@ public class DragTracker extends Observable {
    * Template method which should be overridden by each DragTracker instance. Called whenever a drag has been detected.
    *
    * @param e The event object
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DragTracker.html#method-Ext.dd.DragTracker-onDrag Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragTracker-method-onDrag Sencha Docs Ext JS 3.4
    */
   public native function onDrag(e:IEventObject):void;
 
@@ -184,7 +181,7 @@ public class DragTracker extends Observable {
    * Template method which should be overridden by each DragTracker instance. Called when a drag operation has been completed (e.g. the user clicked and held the mouse down, dragged the element and then released the mouse button)
    *
    * @param e The event object
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DragTracker.html#method-Ext.dd.DragTracker-onEnd Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragTracker-method-onEnd Sencha Docs Ext JS 3.4
    */
   public native function onEnd(e:IEventObject):void;
 
@@ -192,7 +189,7 @@ public class DragTracker extends Observable {
    * Template method which should be overridden by each DragTracker instance. Called when a drag operation starts (e.g. the user has moved the tracked element beyond the specified tolerance)
    *
    * @param e The event object
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DragTracker.html#method-Ext.dd.DragTracker-onStart Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragTracker-method-onStart Sencha Docs Ext JS 3.4
    */
   public native function onStart(e:IEventObject):void;
 

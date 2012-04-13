@@ -8,7 +8,7 @@ import ext.IEventObject;
  *
 
  * @see ext.config.twintriggerfield
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TriggerField.html#cls-Ext.form.TwinTriggerField Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.TwinTriggerField Sencha Docs Ext JS 3.4
  */
 public class TwinTriggerField extends TriggerField {
 
@@ -23,13 +23,11 @@ public class TwinTriggerField extends TriggerField {
 
   /**
    An additional CSS class used to style the trigger button. The trigger will always get the class <tt>'x-form-trigger'</tt> by default and <tt>triggerClass</tt> will be <b>appended</b> if specified.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get trigger1Class():String;
 
   /**
    An additional CSS class used to style the trigger button. The trigger will always get the class <tt>'x-form-trigger'</tt> by default and <tt>triggerClass</tt> will be <b>appended</b> if specified.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get trigger2Class():String;
 
@@ -37,7 +35,7 @@ public class TwinTriggerField extends TriggerField {
    * The function that should handle the trigger's click event. This method does nothing by default until overridden by an implementing function. See <a href="output/Ext.form.TriggerField.html#Ext.form.TriggerField-onTriggerClick">Ext.form.TriggerField.onTriggerClick</a> for additional information.
    *
    * @param e
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TriggerField.html#method-Ext.form.TwinTriggerField-onTrigger1Click Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.TwinTriggerField-method-onTrigger1Click Sencha Docs Ext JS 3.4
    */
   public native function onTrigger1Click(e:IEventObject):void;
 
@@ -45,7 +43,7 @@ public class TwinTriggerField extends TriggerField {
    * The function that should handle the trigger's click event. This method does nothing by default until overridden by an implementing function. See <a href="output/Ext.form.TriggerField.html#Ext.form.TriggerField-onTriggerClick">Ext.form.TriggerField.onTriggerClick</a> for additional information.
    *
    * @param e
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TriggerField.html#method-Ext.form.TwinTriggerField-onTrigger2Click Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.TwinTriggerField-method-onTrigger2Click Sencha Docs Ext JS 3.4
    */
   public native function onTrigger2Click(e:IEventObject):void;
 

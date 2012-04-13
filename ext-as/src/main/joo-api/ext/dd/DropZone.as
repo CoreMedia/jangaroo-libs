@@ -49,7 +49,7 @@ import ext.config.dropzone;
  *
 
  * @see ext.config.dropzone
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DropZone.html#cls-Ext.dd.DropZone Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DropZone Sencha Docs Ext JS 3.4
  */
 public class DropZone extends DropTarget {
 
@@ -69,7 +69,7 @@ public class DropZone extends DropTarget {
    *
    * @param e The event
    * @return data The custom data
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DropZone.html#method-Ext.dd.DropZone-getTargetFromEvent Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DropZone-method-getTargetFromEvent Sencha Docs Ext JS 3.4
    */
   public native function getTargetFromEvent(e:IEventObject):Object;
 
@@ -80,7 +80,7 @@ public class DropZone extends DropTarget {
    * @param e The event
    * @param data An object containing arbitrary data supplied by the drag source
    * @return True if the drop was valid, else false
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DropZone.html#method-Ext.dd.DropZone-notifyDrop Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DropZone-method-notifyDrop Sencha Docs Ext JS 3.4
    */
   override public native function notifyDrop(source:DragSource, e:IEventObject, data:Object):Boolean;
 
@@ -91,7 +91,7 @@ public class DropZone extends DropTarget {
    * @param e The event
    * @param data An object containing arbitrary data supplied by the drag source
    * @return status The CSS class that communicates the drop status back to the source so that the underlying <a href="Ext.dd.StatusProxy.html">Ext.dd.StatusProxy</a> can be updated
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DropZone.html#method-Ext.dd.DropZone-notifyEnter Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DropZone-method-notifyEnter Sencha Docs Ext JS 3.4
    */
   override public native function notifyEnter(source:DragSource, e:IEventObject, data:Object):String;
 
@@ -101,7 +101,7 @@ public class DropZone extends DropTarget {
    * @param source The drag source that was dragged over this drop target
    * @param e The event
    * @param data An object containing arbitrary data supplied by the drag source
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DropZone.html#method-Ext.dd.DropZone-notifyOut Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DropZone-method-notifyOut Sencha Docs Ext JS 3.4
    */
   override public native function notifyOut(source:DragSource, e:IEventObject, data:Object):void;
 
@@ -112,7 +112,7 @@ public class DropZone extends DropTarget {
    * @param e The event
    * @param data An object containing arbitrary data supplied by the drag source
    * @return status The CSS class that communicates the drop status back to the source so that the underlying <a href="Ext.dd.StatusProxy.html">Ext.dd.StatusProxy</a> can be updated
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DropZone.html#method-Ext.dd.DropZone-notifyOver Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DropZone-method-notifyOver Sencha Docs Ext JS 3.4
    */
   override public native function notifyOver(source:DragSource, e:IEventObject, data:Object):String;
 
@@ -123,7 +123,7 @@ public class DropZone extends DropTarget {
    * @param e The event
    * @param data An object containing arbitrary data supplied by the drag source
    * @return True if the drop was valid, else false
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DropZone.html#method-Ext.dd.DropZone-onContainerDrop Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DropZone-method-onContainerDrop Sencha Docs Ext JS 3.4
    */
   public native function onContainerDrop(source:DragSource, e:IEventObject, data:Object):Boolean;
 
@@ -134,7 +134,7 @@ public class DropZone extends DropTarget {
    * @param e The event
    * @param data An object containing arbitrary data supplied by the drag source
    * @return status The CSS class that communicates the drop status back to the source so that the underlying <a href="Ext.dd.StatusProxy.html">Ext.dd.StatusProxy</a> can be updated
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DropZone.html#method-Ext.dd.DropZone-onContainerOver Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DropZone-method-onContainerOver Sencha Docs Ext JS 3.4
    */
   public native function onContainerOver(source:DragSource, e:IEventObject, data:Object):String;
 
@@ -146,7 +146,7 @@ public class DropZone extends DropTarget {
    * @param e The event
    * @param data An object containing arbitrary data supplied by the drag source
    * @return True if the drop was valid, else false
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DropZone.html#method-Ext.dd.DropZone-onNodeDrop Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DropZone-method-onNodeDrop Sencha Docs Ext JS 3.4
    */
   public native function onNodeDrop(nodeData:Object, source:DragSource, e:IEventObject, data:Object):Boolean;
 
@@ -157,7 +157,7 @@ public class DropZone extends DropTarget {
    * @param source The drag source that was dragged over this drop zone
    * @param e The event
    * @param data An object containing arbitrary data supplied by the drag source
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DropZone.html#method-Ext.dd.DropZone-onNodeEnter Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DropZone-method-onNodeEnter Sencha Docs Ext JS 3.4
    */
   public native function onNodeEnter(nodeData:Object, source:DragSource, e:IEventObject, data:Object):void;
 
@@ -168,7 +168,7 @@ public class DropZone extends DropTarget {
    * @param source The drag source that was dragged over this drop zone
    * @param e The event
    * @param data An object containing arbitrary data supplied by the drag source
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DropZone.html#method-Ext.dd.DropZone-onNodeOut Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DropZone-method-onNodeOut Sencha Docs Ext JS 3.4
    */
   public native function onNodeOut(nodeData:Object, source:DragSource, e:IEventObject, data:Object):void;
 
@@ -180,7 +180,7 @@ public class DropZone extends DropTarget {
    * @param e The event
    * @param data An object containing arbitrary data supplied by the drag source
    * @return status The CSS class that communicates the drop status back to the source so that the underlying <a href="Ext.dd.StatusProxy.html">Ext.dd.StatusProxy</a> can be updated
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DropZone.html#method-Ext.dd.DropZone-onNodeOver Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DropZone-method-onNodeOver Sencha Docs Ext JS 3.4
    */
   public native function onNodeOver(nodeData:Object, source:DragSource, e:IEventObject, data:Object):String;
 

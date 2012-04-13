@@ -10,7 +10,7 @@ import ext.dd.DragZone;
  *
 
  * @see ext.config.griddragzone
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridDD.html#cls-Ext.grid.GridDragZone Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridDragZone Sencha Docs Ext JS 3.4
  */
 public class GridDragZone extends DragZone {
 
@@ -26,7 +26,7 @@ public class GridDragZone extends DragZone {
   /**
    * An empty immplementation. Implement this to provide behaviour after a repair of an invalid drop. An implementation might highlight the selected rows to show that they have not been dragged.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridDD.html#method-Ext.grid.GridDragZone-afterRepair Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridDragZone-method-afterRepair Sencha Docs Ext JS 3.4
    */
   override public native function afterRepair():void;
 
@@ -36,7 +36,7 @@ public class GridDragZone extends DragZone {
    *
    * @param e The mouse down event
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridDD.html#method-Ext.grid.GridDragZone-getDragData Ext JS source
+    * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridDragZone-method-getDragData Sencha Docs Ext JS 3.4
    */
   override public native function getDragData(e:IEventObject):Object;
 
@@ -46,7 +46,7 @@ public class GridDragZone extends DragZone {
    *
    * @param e The mouse up event
    * @return The xy location (e.g. [100, 200])
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridDD.html#method-Ext.grid.GridDragZone-getRepairXY Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridDragZone-method-getRepairXY Sencha Docs Ext JS 3.4
    */
   override public native function getRepairXY(e:IEventObject):Array;
 
@@ -57,7 +57,7 @@ public class GridDragZone extends DragZone {
    * @param x The x position of the click on the dragged object
    * @param y The y position of the click on the dragged object
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridDD.html#method-Ext.grid.GridDragZone-onInitDrag Ext JS source
+    * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridDragZone-method-onInitDrag Sencha Docs Ext JS 3.4
    */
   override public native function onInitDrag(x:Number, y:Number):Boolean;
 

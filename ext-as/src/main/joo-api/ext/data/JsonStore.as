@@ -26,7 +26,7 @@ import ext.config.jsonstore;
 
  * <p>This class can be instantiated by the EXML element &lt;jsonstore>.</p>
  * @see ext.config.jsonstore
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/JsonStore.html#cls-Ext.data.JsonStore Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.JsonStore Sencha Docs Ext JS 3.4
  */
 public class JsonStore extends Store {
 

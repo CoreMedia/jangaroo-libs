@@ -9,13 +9,13 @@ import ext.data.Node;
 
  * <p>This interface defines the type of the singleton DomQuery.</p>
  * @see ext.#DomQuery ext.DomQuery
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DomQuery.html#cls-Ext.DomQuery Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DomQuery Sencha Docs Ext JS 3.4
  */
 public interface IDomQuery {
 
   /**
    Collection of matching regular expressions and code snippets. Each capture group within () will be replace the {} in the select statement as specified by their index.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DomQuery.html#prop-Ext.DomQuery-matchers Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DomQuery-property-matchers Sencha Docs Ext JS 3.4
    */
   function get matchers():Object;
 
@@ -37,7 +37,7 @@ public interface IDomQuery {
    return r;
    };</code></pre>Then external links could be gathered with the following statement:<pre><code>var externalLinks = Ext.select("a:external");
    </code></pre>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DomQuery.html#prop-Ext.DomQuery-pseudos Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DomQuery-property-pseudos Sencha Docs Ext JS 3.4
    */
   function get pseudos():Object;
 
@@ -52,7 +52,7 @@ public interface IDomQuery {
    * @param selector The selector/xpath query
    * @param type Either "select" (the default) or "simple" for a simple selector match
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DomQuery.html#method-Ext.DomQuery-compile Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DomQuery-method-compile Sencha Docs Ext JS 3.4
    */
   function compile(selector:String, type:String = null):Function;
 
@@ -63,7 +63,7 @@ public interface IDomQuery {
    * @param selector The simple selector to test
    * @param nonMatches If true, it returns the elements that DON'T match the selector instead of the ones that match
    * @return An Array of DOM elements which match the selector. If there are no matches, and empty Array is returned.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DomQuery.html#method-Ext.DomQuery-filter Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DomQuery-method-filter Sencha Docs Ext JS 3.4
    */
   function filter(el:Array, selector:String, nonMatches:Boolean):Array;
 
@@ -73,7 +73,7 @@ public interface IDomQuery {
    * @param el An element id, element or array of elements
    * @param selector The simple selector to test
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DomQuery.html#method-Ext.DomQuery-is_ Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DomQuery-method-is_ Sencha Docs Ext JS 3.4
    */
   function is_(el:*, selector:String):Boolean;
 
@@ -83,14 +83,14 @@ public interface IDomQuery {
    * @param selector The selector/xpath query (can be a comma separated list of selectors)
    * @param root The start of the query (defaults to document).
    * @return An Array of DOM elements which match the selector. If there are no matches, and empty Array is returned.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DomQuery.html#method-Ext.DomQuery-jsSelect Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DomQuery-method-jsSelect Sencha Docs Ext JS 3.4
    */
   function jsSelect(selector:String, root:* = null):Array;
 
   /**
    * Collection of operator comparison functions. The default operators are =, !=, ^=, $=, &#42;=, %=, |= and ~=. New operators can be added as long as the match the format <i>c</i>= where <i>c</i> is any character other than space, &gt; &lt;.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DomQuery.html#method-Ext.DomQuery-operators Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DomQuery-method-operators Sencha Docs Ext JS 3.4
    */
   function operators():void;
 
@@ -100,7 +100,7 @@ public interface IDomQuery {
    * @param selector The selector/xpath query
    * @param root The start of the query (defaults to document).
    * @return The DOM element which matched the selector.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DomQuery.html#method-Ext.DomQuery-selectNode Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DomQuery-method-selectNode Sencha Docs Ext JS 3.4
    */
   function selectNode(selector:String, root:Node = null):Element;
 
@@ -111,7 +111,7 @@ public interface IDomQuery {
    * @param root The start of the query (defaults to document).
    * @param defaultValue
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DomQuery.html#method-Ext.DomQuery-selectNumber Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DomQuery-method-selectNumber Sencha Docs Ext JS 3.4
    */
   function selectNumber(selector:String, root:Node = null, defaultValue:Number = undefined):Number;
 
@@ -122,7 +122,7 @@ public interface IDomQuery {
    * @param root The start of the query (defaults to document).
    * @param defaultValue
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DomQuery.html#method-Ext.DomQuery-selectValue Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DomQuery-method-selectValue Sencha Docs Ext JS 3.4
    */
   function selectValue(selector:String, root:Node = null, defaultValue:String = null):String;
 

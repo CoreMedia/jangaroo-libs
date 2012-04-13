@@ -35,7 +35,7 @@ import ext.config.colorpalette;
 
  * <p>This component is created by the xtype 'colorpalette' / the EXML element &lt;colorpalette>.</p>
  * @see ext.config.colorpalette
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColorPalette.html#cls-Ext.ColorPalette Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.ColorPalette Sencha Docs Ext JS 3.4
  */
 public class ColorPalette extends Component {
 
@@ -56,7 +56,7 @@ public class ColorPalette extends Component {
    </code></pre>Or you can provide a custom array of your own for complete control: <pre><code>var cp = new Ext.ColorPalette();
    cp.colors = ['000000', '993300', '333300'];
    </code></pre>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColorPalette.html#prop-Ext.ColorPalette-colors Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.ColorPalette-property-colors Sencha Docs Ext JS 3.4
    */
   public native function get colors():Array;
 
@@ -67,31 +67,26 @@ public class ColorPalette extends Component {
 
   /**
    If set to true then reselecting a color that is already selected fires the <a href="output/Ext.ColorPalette.html#Ext.ColorPalette-select">select</a> event
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get allowReselect():Boolean;
 
   /**
    The DOM event that will cause a color to be selected. This can be any valid event name (dblclick, contextmenu). Defaults to <tt>'click'</tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get clickEvent():String;
 
   /**
    The CSS class to apply to the containing element (defaults to 'x-color-palette')
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   override public native function get itemCls():String;
 
   /**
    The scope (<tt><b>this</b></tt> reference) in which the <code><a href="output/Ext.ColorPalette.html#Ext.ColorPalette-handler">handler</a></code> function will be called. Defaults to this ColorPalette instance.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get scope():Object;
 
   /**
    The initial color to highlight (should be a valid 6-digit color hex code without the # symbol). Note that the hex codes are case-sensitive.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get value():String;
 
@@ -100,7 +95,7 @@ public class ColorPalette extends Component {
    *
    * @param color A valid 6-digit color hex code (# will be stripped if included)
    * @param suppressEvent True to stop the select event from firing. Defaults to <tt>false</tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ColorPalette.html#method-Ext.ColorPalette-select Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.ColorPalette-method-select Sencha Docs Ext JS 3.4
    */
   public native function select(color:String, suppressEvent:Boolean = false):void;
 

@@ -166,7 +166,7 @@ import js.HTMLElement;
  *
 
  * @see ext.config.gridview
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#cls-Ext.grid.GridView Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView Sencha Docs Ext JS 3.4
  */
 public class GridView extends Observable {
 
@@ -182,7 +182,7 @@ public class GridView extends Observable {
 
   /**
    The template to use when rendering the body. Has a default template
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#prop-Ext.grid.GridView-bodyTpl Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-property-bodyTpl Sencha Docs Ext JS 3.4
    */
   public native function get bodyTpl():Template;
 
@@ -193,7 +193,7 @@ public class GridView extends Observable {
 
   /**
    The template to use to render each cell. Has a default template
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#prop-Ext.grid.GridView-cellTpl Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-property-cellTpl Sencha Docs Ext JS 3.4
    */
   public native function get cellTpl():Template;
 
@@ -205,7 +205,7 @@ public class GridView extends Observable {
   /**
    A customized implementation of a <a href="Ext.dd.DragZone.html">DragZone</a> which provides default implementations of the template methods of DragZone to enable dragging of the selected rows of a GridPanel. See <a href="Ext.grid.GridDragZone.html">Ext.grid.GridDragZone</a> for details.
    <p>This will <b>only</b> be present:</p><div class="mdetail-params"><ul><li><i>if</i> the owning GridPanel was configured with <a href="output/Ext.grid.GridPanel.html#Ext.grid.GridPanel-enableDragDrop">enableDragDrop</a>: <tt>true</tt>.</li><li><i>after</i> the owning GridPanel has been rendered.</li></ul></div>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#prop-Ext.grid.GridView-dragZone Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-property-dragZone Sencha Docs Ext JS 3.4
    */
   public native function get dragZone():GridDragZone;
 
@@ -216,7 +216,7 @@ public class GridView extends Observable {
 
   /**
    The template to use when rendering headers. Has a default template
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#prop-Ext.grid.GridView-headerTpl Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-property-headerTpl Sencha Docs Ext JS 3.4
    */
   public native function get headerTpl():Template;
 
@@ -227,7 +227,7 @@ public class GridView extends Observable {
 
   /**
    <i>Read-only</i>. The GridView's body Element which encapsulates all rows in the Grid. This <a href="Ext.Element.html">Element</a> is only available after the GridPanel has been rendered.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#prop-Ext.grid.GridView-mainBody Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-property-mainBody Sencha Docs Ext JS 3.4
    */
   public native function get mainBody():Element;
 
@@ -238,7 +238,7 @@ public class GridView extends Observable {
 
   /**
    The master template to use when rendering the GridView. Has a default template
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#prop-Ext.grid.GridView-masterTpl Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-property-masterTpl Sencha Docs Ext JS 3.4
    */
   public native function get masterTpl():Template;
 
@@ -249,105 +249,88 @@ public class GridView extends Observable {
 
   /**
    Defaults to <tt>false</tt>. Specify <tt>true</tt> to have the column widths re-proportioned when the grid is <b>initially rendered</b>. The <a href="output/Ext.grid.Column.html#Ext.grid.Column-width">initially configured width</a> of each column will be adjusted to fit the grid width and prevent horizontal scrolling. If columns are later resized (manually or programmatically), the other columns in the grid will <b>not</b> be resized to fit the grid width. See <tt><a href="output/Ext.grid.GridView.html#Ext.grid.GridView-forceFit">forceFit</a></tt> also.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get autoFill():Boolean;
 
   /**
    The selector used to find cells internally (defaults to <tt>'td.x-grid3-cell'</tt>)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get cellSelector():String;
 
   /**
    The number of levels to search for cells in event delegation (defaults to <tt>4</tt>)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get cellSelectorDepth():Number;
 
   /**
    The text displayed in the 'Columns' menu item (defaults to <tt>'Columns'</tt>)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get columnsText():String;
 
   /**
    True to defer <tt><a href="output/Ext.grid.GridView.html#Ext.grid.GridView-emptyText">emptyText</a></tt> being applied until the store's first load (defaults to <tt>true</tt>).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get deferEmptyText():Boolean;
 
   /**
    Default text (html tags are accepted) to display in the grid body when no rows are available (defaults to ''). This value will be used to update the <tt><a href="output/Ext.grid.GridView.html#Ext.grid.GridView-mainBody">mainBody</a></tt>: <pre><code>   this.mainBody.update('&lt;div class="x-grid-empty"&gt;' + this.emptyText + '&lt;/div&gt;');
    </code></pre>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get emptyText():String;
 
   /**
    True to add a second TR element per row that can be used to provide a row body that spans beneath the data row. Use the <a href="output/Ext.grid.GridView.html#Ext.grid.GridView-getRowClass">getRowClass</a> method's rowParams config to customize the row body.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get enableRowBody():Boolean;
 
   /**
    Defaults to <tt>false</tt>. Specify <tt>true</tt> to have the column widths re-proportioned at <b>all times</b>.
    <p>The <a href="output/Ext.grid.Column.html#Ext.grid.Column-width">initially configured width</a> of each column will be adjusted to fit the grid width and prevent horizontal scrolling. If columns are later resized (manually or programmatically), the other columns in the grid <b>will</b> be resized to fit the grid width.</p><p>Columns which are configured with <code>fixed: true</code> are omitted from being resized.</p><p>See <tt><a href="output/Ext.grid.GridView.html#Ext.grid.GridView-autoFill">autoFill</a></tt>.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get forceFit():Boolean;
 
   /**
    The CSS class to add to the header cell when its menu is visible. Defaults to 'x-grid3-hd-menu-open'
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get headerMenuOpenCls():String;
 
   /**
    True to disable the grid column headers (defaults to <tt>false</tt>). Use the <a href="Ext.grid.ColumnModel.html">ColumnModel</a> <tt><a href="output/Ext.grid.ColumnModel.html#Ext.grid.ColumnModel-menuDisabled">menuDisabled</a></tt> config to disable the <i>menu</i> for individual columns. While this config is true the following will be disabled:<div class="mdetail-params"><ul><li>clicking on header to sort</li><li>the trigger to reveal the menu.</li></ul></div>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get headersDisabled():Boolean;
 
   /**
    True to show the dirty cell indicator when a cell has been modified. Defaults to <tt>true</tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get markDirty():Boolean;
 
   /**
    The selector used to find row bodies internally (defaults to <tt>'div.x-grid3-row'</tt>)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get rowBodySelector():String;
 
   /**
    The number of levels to search for row bodies in event delegation (defaults to <tt>10</tt>)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get rowBodySelectorDepth():Number;
 
   /**
    The CSS class added to each row when it is hovered over. Defaults to 'x-grid3-row-over'
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get rowOverCls():String;
 
   /**
    The selector used to find rows internally (defaults to <tt>'div.x-grid3-row'</tt>)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get rowSelector():String;
 
   /**
    The number of levels to search for rows in event delegation (defaults to <tt>10</tt>)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get rowSelectorDepth():Number;
 
   /**
    The amount of space to reserve for the vertical scrollbar (defaults to <tt>undefined</tt>). If an explicit value isn't specified, this will be automatically calculated.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get scrollOffset():Number;
 
@@ -357,46 +340,42 @@ public class GridView extends Observable {
    color: #FFCC00;
    }
    </code></pre>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get selectedRowClass():String;
 
   /**
    The text displayed in the 'Sort Ascending' menu item (defaults to <tt>'Sort Ascending'</tt>)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get sortAscText():String;
 
   /**
    The CSS classes applied to a header when it is sorted. (defaults to <tt>['sort-asc', 'sort-desc']</tt>)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get sortClasses():Array;
 
   /**
    The text displayed in the 'Sort Descending' menu item (defaults to <tt>'Sort Descending'</tt>)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get sortDescText():String;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-afterRender Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-afterRender Sencha Docs Ext JS 3.4
    */
   public native function afterRender():void;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-afterRenderUI Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-afterRenderUI Sencha Docs Ext JS 3.4
    */
   public native function afterRenderUI():void;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-applyEmptyText Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-applyEmptyText Sencha Docs Ext JS 3.4
    */
   public native function applyEmptyText():void;
 
@@ -404,42 +383,42 @@ public class GridView extends Observable {
    *
    *
    * @param preventUpdate True to prevent the resizing of all rows (defaults to false)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-autoExpand Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-autoExpand Sencha Docs Ext JS 3.4
    */
   public native function autoExpand(preventUpdate:Boolean):void;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-beforeColMenuShow Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-beforeColMenuShow Sencha Docs Ext JS 3.4
    */
   public native function beforeColMenuShow():void;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-bind Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-bind Sencha Docs Ext JS 3.4
    */
   public native function bind():void;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-clearHeaderSortState Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-clearHeaderSortState Sencha Docs Ext JS 3.4
    */
   public native function clearHeaderSortState():void;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-deleteRows Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-deleteRows Sencha Docs Ext JS 3.4
    */
   public native function deleteRows():void;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-destroy Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-destroy Sencha Docs Ext JS 3.4
    */
   public native function destroy():void;
 
@@ -453,14 +432,14 @@ public class GridView extends Observable {
    * @param colCount The total number of columns in the column model
    * @param stripe True to stripe the rows
    * @return A string containing the HTML for the rendered rows
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-doRender Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-doRender Sencha Docs Ext JS 3.4
    */
   public native function doRender(columns:Array, records:Array, store:Store, startRow:Number, colCount:Number, stripe:Boolean):String;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-ensureVisible Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-ensureVisible Sencha Docs Ext JS 3.4
    */
   public native function ensureVisible():void;
 
@@ -470,7 +449,7 @@ public class GridView extends Observable {
    *
    * @param el The target element
    * @return The column index, or <b>false</b> if the target element is not within a row of this GridView.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-findCellIndex Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-findCellIndex Sencha Docs Ext JS 3.4
    */
   public native function findCellIndex(el:HTMLElement):Number;
 
@@ -479,7 +458,7 @@ public class GridView extends Observable {
    *
    * @param el The target HTMLElement
    * @return The row element, or null if the target element is not within a row of this GridView.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-findRow Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-findRow Sencha Docs Ext JS 3.4
    */
   public native function findRow(el:HTMLElement):HTMLElement;
 
@@ -488,7 +467,7 @@ public class GridView extends Observable {
    *
    * @param el The target HTMLElement
    * @return The row body element, or null if the target element is not within a row body of this GridView.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-findRowBody Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-findRowBody Sencha Docs Ext JS 3.4
    */
   public native function findRowBody(el:HTMLElement):HTMLElement;
 
@@ -497,7 +476,7 @@ public class GridView extends Observable {
    *
    * @param el The target HTMLElement
    * @return The row index, or <b>false</b> if the target element is not within a row of this GridView.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-findRowIndex Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-findRowIndex Sencha Docs Ext JS 3.4
    */
   public native function findRowIndex(el:HTMLElement):Number;
 
@@ -508,14 +487,14 @@ public class GridView extends Observable {
    * @param onlyExpand NOT USED, will be removed in 4.0
    * @param omitColumn The index of a column to leave at its current width. Defaults to undefined
    * @return True if the operation succeeded, false if not or undefined if the grid view is not yet initialized
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-fitColumns Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-fitColumns Sencha Docs Ext JS 3.4
    */
   public native function fitColumns(preventRefresh:Boolean, onlyExpand:*, omitColumn:Number):Boolean;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-fly Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-fly Sencha Docs Ext JS 3.4
    */
   public native function fly():void;
 
@@ -524,7 +503,7 @@ public class GridView extends Observable {
    *
    * @param row The row index
    * @param col The column index
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-focusCell Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-focusCell Sencha Docs Ext JS 3.4
    */
   public native function focusCell(row:Number, col:Number):void;
 
@@ -532,7 +511,7 @@ public class GridView extends Observable {
    * Focuses the specified row.
    *
    * @param row The row index
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-focusRow Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-focusRow Sencha Docs Ext JS 3.4
    */
   public native function focusRow(row:Number):void;
 
@@ -542,7 +521,7 @@ public class GridView extends Observable {
    * @param row The row index in which to find the cell.
    * @param col The column index of the cell.
    * @return The td at the specified coordinates.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-getCell Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-getCell Sencha Docs Ext JS 3.4
    */
   public native function getCell(row:Number, col:Number):HTMLElement;
 
@@ -550,7 +529,7 @@ public class GridView extends Observable {
    *
    *
    * @return Array of column config objects. This includes the column name, renderer, id style and renderer
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-getColumnData Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-getColumnData Sencha Docs Ext JS 3.4
    */
   public native function getColumnData():Array;
 
@@ -560,14 +539,14 @@ public class GridView extends Observable {
    * @param colIndex The column index
    * @param isHeader True if getting the style for the column's header
    * @return The CSS string
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-getColumnStyle Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-getColumnStyle Sencha Docs Ext JS 3.4
    */
   public native function getColumnStyle(colIndex:Number, isHeader:Boolean):String;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-getColumnTooltip Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-getColumnTooltip Sencha Docs Ext JS 3.4
    */
   public native function getColumnTooltip():void;
 
@@ -575,7 +554,7 @@ public class GridView extends Observable {
    *
    *
    * @return The column index
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-getColumnWidth Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-getColumnWidth Sencha Docs Ext JS 3.4
    */
   public native function getColumnWidth():Number;
 
@@ -583,7 +562,7 @@ public class GridView extends Observable {
    * Returns the total internal width available to the grid, taking the scrollbar into account
    *
    * @return The total width
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-getGridInnerWidth Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-getGridInnerWidth Sencha Docs Ext JS 3.4
    */
   public native function getGridInnerWidth():Number;
 
@@ -592,7 +571,7 @@ public class GridView extends Observable {
    *
    * @param index The column index
    * @return The td element.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-getHeaderCell Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-getHeaderCell Sencha Docs Ext JS 3.4
    */
   public native function getHeaderCell(index:Number):HTMLElement;
 
@@ -601,7 +580,7 @@ public class GridView extends Observable {
    *
    * @param index The header index
    * @return The index of the nearest visible header
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-getPreviousVisible Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-getPreviousVisible Sencha Docs Ext JS 3.4
    */
   public native function getPreviousVisible(index:Number):*;
 
@@ -609,7 +588,7 @@ public class GridView extends Observable {
    *
    *
    * @return X and Y coords
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-getResolvedXY Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-getResolvedXY Sencha Docs Ext JS 3.4
    */
   public native function getResolvedXY():Array;
 
@@ -618,7 +597,7 @@ public class GridView extends Observable {
    *
    * @param index The row index
    * @return The div element.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-getRow Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-getRow Sencha Docs Ext JS 3.4
    */
   public native function getRow(index:Number):HTMLElement;
 
@@ -642,7 +621,7 @@ public class GridView extends Observable {
    * @param rowParams A config object that is passed to the row template during rendering that allows customization of various aspects of a grid row. <p>If <a href="output/Ext.grid.GridView.html#Ext.grid.GridView-enableRowBody">enableRowBody</a> is configured <b>true</b>, then the following properties may be set by this function, and will be used to render a full-width expansion row below each grid row:</p><ul><li><code>body</code> : String <div class="sub-desc">An HTML fragment to be used as the expansion row's body content (defaults to '').</div></li><li><code>bodyStyle</code> : String <div class="sub-desc">A CSS style specification that will be applied to the expansion row's &lt;tr&gt; element. (defaults to '').</div></li></ul>The following property will be passed in, and may be appended to: <ul><li><code>tstyle</code> : String <div class="sub-desc">A CSS style specification that will be applied to the &lt;table&gt; element which encapsulates both the standard grid row, and any expansion row.</div></li></ul>
    * @param store The <a href="Ext.data.Store.html">Ext.data.Store</a> this grid is bound to
    * @return a CSS class name to add to the row.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-getRowClass Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-getRowClass Sencha Docs Ext JS 3.4
    */
   public native function getRowClass(record:Record, index:Number, rowParams:Object, store:Store):String;
 
@@ -650,7 +629,7 @@ public class GridView extends Observable {
    *
    *
    * @return left, top
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-getScrollState Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-getScrollState Sencha Docs Ext JS 3.4
    */
   public native function getScrollState():Object;
 
@@ -658,21 +637,21 @@ public class GridView extends Observable {
    *
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-getTotalWidth Ext JS source
+    * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-getTotalWidth Sencha Docs Ext JS 3.4
    */
   public native function getTotalWidth():String;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-handleHdDown Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-handleHdDown Sencha Docs Ext JS 3.4
    */
   public native function handleHdDown():void;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-handleHdMenuClick Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-handleHdMenuClick Sencha Docs Ext JS 3.4
    */
   public native function handleHdMenuClick():void;
 
@@ -680,28 +659,28 @@ public class GridView extends Observable {
    * Called by handleHdMenuClick if any button except a sort ASC/DESC button was clicked. The default implementation provides the column hide/show functionality based on the check state of the menu item. A different implementation can be provided if needed.
    *
    * @param item The menu item that was clicked
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-handleHdMenuClickDefault Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-handleHdMenuClickDefault Sencha Docs Ext JS 3.4
    */
   public native function handleHdMenuClickDefault(item:BaseItem):void;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-handleHdMove Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-handleHdMove Sencha Docs Ext JS 3.4
    */
   public native function handleHdMove():void;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-handleHdOut Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-handleHdOut Sencha Docs Ext JS 3.4
    */
   public native function handleHdOut():void;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-handleHdOver Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-handleHdOver Sencha Docs Ext JS 3.4
    */
   public native function handleHdOver():void;
 
@@ -709,7 +688,7 @@ public class GridView extends Observable {
    *
    *
    * @return True if any rows have been rendered
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-hasRows Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-hasRows Sencha Docs Ext JS 3.4
    */
   public native function hasRows():Boolean;
 
@@ -718,28 +697,28 @@ public class GridView extends Observable {
    *
    * @param newStore The new Store instance
    * @param newColModel The new ColumnModel instance
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-initData Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-initData Sencha Docs Ext JS 3.4
    */
   public native function initData(newStore:Store, newColModel:ColumnModel):void;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-initElements Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-initElements Sencha Docs Ext JS 3.4
    */
   public native function initElements():void;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-initTemplates Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-initTemplates Sencha Docs Ext JS 3.4
    */
   public native function initTemplates():void;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-isHideableColumn Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-isHideableColumn Sencha Docs Ext JS 3.4
    */
   public native function isHideableColumn():void;
 
@@ -748,42 +727,42 @@ public class GridView extends Observable {
    *
    * @param cellIndex The header cell index
    * @param el The cell element currently being hovered over
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-isMenuDisabled Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-isMenuDisabled Sencha Docs Ext JS 3.4
    */
   public native function isMenuDisabled(cellIndex:Number, el:Element):void;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-layout Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-layout Sencha Docs Ext JS 3.4
    */
   public native function layout():void;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-onColumnSplitterMoved Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-onColumnSplitterMoved Sencha Docs Ext JS 3.4
    */
   public native function onColumnSplitterMoved():void;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-onLoad Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-onLoad Sencha Docs Ext JS 3.4
    */
   public native function onLoad():void;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-onRowOut Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-onRowOut Sencha Docs Ext JS 3.4
    */
   public native function onRowOut():void;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-onRowOver Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-onRowOver Sencha Docs Ext JS 3.4
    */
   public native function onRowOver():void;
 
@@ -791,7 +770,7 @@ public class GridView extends Observable {
    *
    *
    * @param startRow The row to start from (defaults to 0)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-processRows Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-processRows Sencha Docs Ext JS 3.4
    */
   public native function processRows(startRow:Number):void;
 
@@ -799,14 +778,14 @@ public class GridView extends Observable {
    * Refreshs the grid UI
    *
    * @param headersToo True to also refresh the headers
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-refresh Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-refresh Sencha Docs Ext JS 3.4
    */
   public native function refresh(headersToo:Boolean = false):void;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-refreshRow Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-refreshRow Sencha Docs Ext JS 3.4
    */
   public native function refreshRow():void;
 
@@ -814,7 +793,7 @@ public class GridView extends Observable {
    *
    *
    * @return Rendered header row
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-renderHeaders Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-renderHeaders Sencha Docs Ext JS 3.4
    */
   public native function renderHeaders():String;
 
@@ -823,42 +802,42 @@ public class GridView extends Observable {
    *
    * @param startRow Index of the first row to render
    * @param endRow Index of the last row to render
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-renderRows Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-renderRows Sencha Docs Ext JS 3.4
    */
   public native function renderRows(startRow:Number, endRow:Number):void;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-renderUI Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-renderUI Sencha Docs Ext JS 3.4
    */
   public native function renderUI():void;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-resolveCell Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-resolveCell Sencha Docs Ext JS 3.4
    */
   public native function resolveCell():void;
 
   /**
    * Scrolls the grid to the top
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-scrollToTop Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-scrollToTop Sencha Docs Ext JS 3.4
    */
   public native function scrollToTop():void;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-syncFocusEl Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-syncFocusEl Sencha Docs Ext JS 3.4
    */
   public native function syncFocusEl():void;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-updateAllColumnWidths Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-updateAllColumnWidths Sencha Docs Ext JS 3.4
    */
   public native function updateAllColumnWidths():void;
 
@@ -867,7 +846,7 @@ public class GridView extends Observable {
    *
    * @param col The column index
    * @param hidden True to make the column hidden
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-updateColumnHidden Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-updateColumnHidden Sencha Docs Ext JS 3.4
    */
   public native function updateColumnHidden(col:Number, hidden:Boolean):void;
 
@@ -875,14 +854,14 @@ public class GridView extends Observable {
    *
    *
    * @param column The column index
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-updateColumnWidth Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-updateColumnWidth Sencha Docs Ext JS 3.4
    */
   public native function updateColumnWidth(column:Number):void;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-updateHeaderSortState Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-updateHeaderSortState Sencha Docs Ext JS 3.4
    */
   public native function updateHeaderSortState():void;
 
@@ -890,21 +869,21 @@ public class GridView extends Observable {
    *
    *
    * @param updateMain True to update the mainBody's width also (defaults to true)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-updateHeaderWidth Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-updateHeaderWidth Sencha Docs Ext JS 3.4
    */
   public native function updateHeaderWidth(updateMain:Boolean):void;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-updateHeaders Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-updateHeaders Sencha Docs Ext JS 3.4
    */
   public native function updateHeaders():void;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GridView.html#method-Ext.grid.GridView-updateSortIcon Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-updateSortIcon Sencha Docs Ext JS 3.4
    */
   public native function updateSortIcon():void;
 

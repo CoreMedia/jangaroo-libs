@@ -69,7 +69,7 @@ import ext.util.Observable;
  *
 
  * @see ext.config.splitbar
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SplitBar.html#cls-Ext.SplitBar Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.SplitBar Sencha Docs Ext JS 3.4
  */
 public class SplitBar extends Observable {
 
@@ -88,7 +88,7 @@ public class SplitBar extends Observable {
 
   /**
 
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SplitBar.html#prop-Ext.SplitBar-adapter Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.SplitBar-property-adapter Sencha Docs Ext JS 3.4
    */
   public native function get adapter():Object;
 
@@ -99,7 +99,7 @@ public class SplitBar extends Observable {
 
   /**
    Whether to animate the transition to the new size
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SplitBar.html#prop-Ext.SplitBar-animate Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.SplitBar-property-animate Sencha Docs Ext JS 3.4
    */
   public native function get animate():Boolean;
 
@@ -110,7 +110,7 @@ public class SplitBar extends Observable {
 
   /**
 
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SplitBar.html#prop-Ext.SplitBar-b4StartDrag Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.SplitBar-property-b4StartDrag Sencha Docs Ext JS 3.4
    */
   public native function get b4StartDrag():Object;
 
@@ -121,7 +121,7 @@ public class SplitBar extends Observable {
 
   /**
 
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SplitBar.html#prop-Ext.SplitBar-dd Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.SplitBar-property-dd Sencha Docs Ext JS 3.4
    */
   public native function get dd():Object;
 
@@ -132,7 +132,7 @@ public class SplitBar extends Observable {
 
   /**
 
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SplitBar.html#prop-Ext.SplitBar-dragSpecs Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.SplitBar-property-dragSpecs Sencha Docs Ext JS 3.4
    */
   public native function get dragSpecs():Object;
 
@@ -143,7 +143,7 @@ public class SplitBar extends Observable {
 
   /**
 
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SplitBar.html#prop-Ext.SplitBar-el Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.SplitBar-property-el Sencha Docs Ext JS 3.4
    */
   public native function get el():Object;
 
@@ -154,7 +154,7 @@ public class SplitBar extends Observable {
 
   /**
 
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SplitBar.html#prop-Ext.SplitBar-endDrag Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.SplitBar-property-endDrag Sencha Docs Ext JS 3.4
    */
   public native function get endDrag():Object;
 
@@ -165,7 +165,7 @@ public class SplitBar extends Observable {
 
   /**
    The maximum size of the resizing element. (Defaults to 2000)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SplitBar.html#prop-Ext.SplitBar-maxSize Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.SplitBar-property-maxSize Sencha Docs Ext JS 3.4
    */
   public native function get maxSize():Number;
 
@@ -176,7 +176,7 @@ public class SplitBar extends Observable {
 
   /**
    The minimum size of the resizing element. (Defaults to 0)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SplitBar.html#prop-Ext.SplitBar-minSize Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.SplitBar-property-minSize Sencha Docs Ext JS 3.4
    */
   public native function get minSize():Number;
 
@@ -187,7 +187,7 @@ public class SplitBar extends Observable {
 
   /**
 
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SplitBar.html#prop-Ext.SplitBar-orientation Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.SplitBar-property-orientation Sencha Docs Ext JS 3.4
    */
   public native function get orientation():Number;
 
@@ -198,7 +198,7 @@ public class SplitBar extends Observable {
 
   /**
 
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SplitBar.html#prop-Ext.SplitBar-placement Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.SplitBar-property-placement Sencha Docs Ext JS 3.4
    */
   public native function get placement():Object;
 
@@ -209,7 +209,7 @@ public class SplitBar extends Observable {
 
   /**
 
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SplitBar.html#prop-Ext.SplitBar-proxy Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.SplitBar-property-proxy Sencha Docs Ext JS 3.4
    */
   public native function get proxy():Object;
 
@@ -220,7 +220,7 @@ public class SplitBar extends Observable {
 
   /**
 
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SplitBar.html#prop-Ext.SplitBar-resizingEl Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.SplitBar-property-resizingEl Sencha Docs Ext JS 3.4
    */
   public native function get resizingEl():Object;
 
@@ -231,7 +231,7 @@ public class SplitBar extends Observable {
 
   /**
 
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SplitBar.html#prop-Ext.SplitBar-shim Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.SplitBar-property-shim Sencha Docs Ext JS 3.4
    */
   public native function get shim():Object;
 
@@ -242,7 +242,7 @@ public class SplitBar extends Observable {
 
   /**
    The increment, in pixels by which to move this SplitBar. When <i>undefined</i>, the SplitBar moves smoothly.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SplitBar.html#prop-Ext.SplitBar-tickSize Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.SplitBar-property-tickSize Sencha Docs Ext JS 3.4
    */
   public native function get tickSize():Number;
 
@@ -253,7 +253,7 @@ public class SplitBar extends Observable {
 
   /**
    Whether to create a transparent shim that overlays the page when dragging, enables dragging across iframes.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SplitBar.html#prop-Ext.SplitBar-useShim Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.SplitBar-property-useShim Sencha Docs Ext JS 3.4
    */
   public native function get useShim():Boolean;
 
@@ -265,7 +265,7 @@ public class SplitBar extends Observable {
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SplitBar.html#method-Ext.SplitBar-createProxy Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.SplitBar-method-createProxy Sencha Docs Ext JS 3.4
    */
   public native function createProxy():void;
 
@@ -273,7 +273,7 @@ public class SplitBar extends Observable {
    * Destroy this splitbar.
    *
    * @param removeEl True to remove the element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SplitBar.html#method-Ext.SplitBar-destroy Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.SplitBar-method-destroy Sencha Docs Ext JS 3.4
    */
   public native function destroy(removeEl:Boolean):void;
 
@@ -281,7 +281,7 @@ public class SplitBar extends Observable {
    * Get the adapter this SplitBar uses
    *
    * @return The adapter object
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SplitBar.html#method-Ext.SplitBar-getAdapter Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.SplitBar-method-getAdapter Sencha Docs Ext JS 3.4
    */
   public native function getAdapter():Object;
 
@@ -289,7 +289,7 @@ public class SplitBar extends Observable {
    * Gets the maximum size for the resizing element
    *
    * @return The maximum size
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SplitBar.html#method-Ext.SplitBar-getMaximumSize Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.SplitBar-method-getMaximumSize Sencha Docs Ext JS 3.4
    */
   public native function getMaximumSize():Number;
 
@@ -297,14 +297,14 @@ public class SplitBar extends Observable {
    * Gets the minimum size for the resizing element
    *
    * @return The minimum size
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SplitBar.html#method-Ext.SplitBar-getMinimumSize Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.SplitBar-method-getMinimumSize Sencha Docs Ext JS 3.4
    */
   public native function getMinimumSize():Number;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SplitBar.html#method-Ext.SplitBar-onEndProxyDrag Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.SplitBar-method-onEndProxyDrag Sencha Docs Ext JS 3.4
    */
   public native function onEndProxyDrag():void;
 
@@ -312,7 +312,7 @@ public class SplitBar extends Observable {
    * Set the adapter this SplitBar uses
    *
    * @param adapter A SplitBar adapter object
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SplitBar.html#method-Ext.SplitBar-setAdapter Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.SplitBar-method-setAdapter Sencha Docs Ext JS 3.4
    */
   public native function setAdapter(adapter:Object):void;
 
@@ -320,7 +320,7 @@ public class SplitBar extends Observable {
    * Sets the initialize size for the resizing element
    *
    * @param size The initial size
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SplitBar.html#method-Ext.SplitBar-setCurrentSize Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.SplitBar-method-setCurrentSize Sencha Docs Ext JS 3.4
    */
   public native function setCurrentSize(size:Number):void;
 
@@ -328,7 +328,7 @@ public class SplitBar extends Observable {
    * Sets the maximum size for the resizing element
    *
    * @param maxSize The maximum size
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SplitBar.html#method-Ext.SplitBar-setMaximumSize Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.SplitBar-method-setMaximumSize Sencha Docs Ext JS 3.4
    */
   public native function setMaximumSize(maxSize:Number):void;
 
@@ -336,7 +336,7 @@ public class SplitBar extends Observable {
    * Sets the minimum size for the resizing element
    *
    * @param minSize The minimum size
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SplitBar.html#method-Ext.SplitBar-setMinimumSize Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.SplitBar-method-setMinimumSize Sencha Docs Ext JS 3.4
    */
   public native function setMinimumSize(minSize:Number):void;
 

@@ -13,7 +13,7 @@ package ext.state {
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  *
  * @see ext.state.IManager
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/StateManager.html#cls-Ext.state.Manager Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.state.Manager Sencha Docs Ext JS 3.4
  */
 public const Manager:IManager;
 

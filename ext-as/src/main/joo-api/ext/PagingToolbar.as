@@ -98,7 +98,7 @@ import ext.data.Store;
 
  * <p>This component is created by the xtype 'paging' / the EXML element &lt;paging>.</p>
  * @see ext.config.paging
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PagingToolbar.html#cls-Ext.PagingToolbar Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.PagingToolbar Sencha Docs Ext JS 3.4
  */
 public class PagingToolbar extends Toolbar {
 
@@ -116,7 +116,7 @@ public class PagingToolbar extends Toolbar {
    Indicator for the record position. This property might be used to get the active page number for example:<pre><code>// t is reference to the paging toolbar instance
    var activePage = Math.ceil((t.cursor + t.pageSize) / t.pageSize);
    </code></pre>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PagingToolbar.html#prop-Ext.PagingToolbar-cursor Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.PagingToolbar-property-cursor Sencha Docs Ext JS 3.4
    */
   public native function get cursor():Number;
 
@@ -127,7 +127,7 @@ public class PagingToolbar extends Toolbar {
 
   /**
    The number of records to display per page. See also <tt><a href="output/Ext.PagingToolbar.html#Ext.PagingToolbar-cursor">cursor</a></tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PagingToolbar.html#prop-Ext.PagingToolbar-pageSize Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.PagingToolbar-property-pageSize Sencha Docs Ext JS 3.4
    */
   public native function get pageSize():Number;
 
@@ -139,7 +139,7 @@ public class PagingToolbar extends Toolbar {
   /**
    <b>Deprecated</b>. <code>paramNames</code> should be set in the <b>data store</b> (see <a href="output/Ext.data.Store.html#Ext.data.Store-paramNames">Ext.data.Store.paramNames</a>).
    <br/><p>Object mapping of parameter names used for load calls, initially set to:</p><pre>{start: 'start', limit: 'limit'}</pre>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PagingToolbar.html#prop-Ext.PagingToolbar-paramNames Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.PagingToolbar-property-paramNames Sencha Docs Ext JS 3.4
    */
   public native function get paramNames():Object;
 
@@ -150,73 +150,61 @@ public class PagingToolbar extends Toolbar {
 
   /**
    Customizable piece of the default paging text (defaults to <tt>'of {0}'</tt>). Note that this string is formatted using <tt>{0}</tt> as a token that is replaced by the number of total pages. This token should be preserved when overriding this string if showing the total page count is desired.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get afterPageText():String;
 
   /**
    The text displayed before the input item (defaults to <tt>'Page'</tt>).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get beforePageText():String;
 
   /**
    <tt>true</tt> to display the displayMsg (defaults to <tt>false</tt>)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get displayInfo():Boolean;
 
   /**
    The paging status message to display (defaults to <tt>'Displaying {0} - {1} of {2}'</tt>). Note that this string is formatted using the braced numbers <tt>{0}-{2}</tt> as tokens that are replaced by the values for start, end and total respectively. These tokens should be preserved when overriding this string if showing those values is desired.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get displayMsg():String;
 
   /**
    The message to display when no records are found (defaults to 'No data to display')
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get emptyMsg():String;
 
   /**
    The quicktip text displayed for the first page button (defaults to <tt>'First Page'</tt>). <b>Note</b>: quick tips must be initialized for the quicktip to show.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get firstText():String;
 
   /**
    The quicktip text displayed for the last page button (defaults to <tt>'Last Page'</tt>). <b>Note</b>: quick tips must be initialized for the quicktip to show.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get lastText():String;
 
   /**
    The quicktip text displayed for the next page button (defaults to <tt>'Next Page'</tt>). <b>Note</b>: quick tips must be initialized for the quicktip to show.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get nextText():String;
 
   /**
    <tt>true</tt> to insert any configured <tt>items</tt> <i>before</i> the paging buttons. Defaults to <tt>false</tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get prependButtons():Boolean;
 
   /**
    The quicktip text displayed for the previous page button (defaults to <tt>'Previous Page'</tt>). <b>Note</b>: quick tips must be initialized for the quicktip to show.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get prevText():String;
 
   /**
    The quicktip text displayed for the Refresh button (defaults to <tt>'Refresh'</tt>). <b>Note</b>: quick tips must be initialized for the quicktip to show.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get refreshText():String;
 
   /**
    The <a href="Ext.data.Store.html">Ext.data.Store</a> the paging toolbar should use as its data source (required).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get store():Store;
 
@@ -224,7 +212,7 @@ public class PagingToolbar extends Toolbar {
    * Binds the paging toolbar to the specified <a href="Ext.data.Store.html">Ext.data.Store</a> <b>(deprecated)</b>
    *
    * @param store The data store to bind
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PagingToolbar.html#method-Ext.PagingToolbar-bind Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.PagingToolbar-method-bind Sencha Docs Ext JS 3.4
    */
   public native function bind(store:Store):void;
 
@@ -233,7 +221,7 @@ public class PagingToolbar extends Toolbar {
    *
    * @param store The store to bind to this toolbar
    * @param initial true to not remove listeners
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PagingToolbar.html#method-Ext.PagingToolbar-bindStore Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.PagingToolbar-method-bindStore Sencha Docs Ext JS 3.4
    */
   public native function bindStore(store:Store, initial:Boolean = false):void;
 
@@ -241,42 +229,42 @@ public class PagingToolbar extends Toolbar {
    * Change the active page
    *
    * @param page The page to display
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PagingToolbar.html#method-Ext.PagingToolbar-changePage Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.PagingToolbar-method-changePage Sencha Docs Ext JS 3.4
    */
   public native function changePage(page:int):void;
 
   /**
    * Refresh the current page, has the same effect as clicking the 'refresh' button.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PagingToolbar.html#method-Ext.PagingToolbar-doRefresh Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.PagingToolbar-method-doRefresh Sencha Docs Ext JS 3.4
    */
   public native function doRefresh():void;
 
   /**
    * Move to the first page, has the same effect as clicking the 'first' button.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PagingToolbar.html#method-Ext.PagingToolbar-moveFirst Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.PagingToolbar-method-moveFirst Sencha Docs Ext JS 3.4
    */
   public native function moveFirst():void;
 
   /**
    * Move to the last page, has the same effect as clicking the 'last' button.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PagingToolbar.html#method-Ext.PagingToolbar-moveLast Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.PagingToolbar-method-moveLast Sencha Docs Ext JS 3.4
    */
   public native function moveLast():void;
 
   /**
    * Move to the next page, has the same effect as clicking the 'next' button.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PagingToolbar.html#method-Ext.PagingToolbar-moveNext Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.PagingToolbar-method-moveNext Sencha Docs Ext JS 3.4
    */
   public native function moveNext():void;
 
   /**
    * Move to the previous page, has the same effect as clicking the 'previous' button.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PagingToolbar.html#method-Ext.PagingToolbar-movePrevious Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.PagingToolbar-method-movePrevious Sencha Docs Ext JS 3.4
    */
   public native function movePrevious():void;
 
@@ -284,7 +272,7 @@ public class PagingToolbar extends Toolbar {
    * Unbinds the paging toolbar from the specified <a href="Ext.data.Store.html">Ext.data.Store</a> <b>(deprecated)</b>
    *
    * @param store The data store to unbind
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PagingToolbar.html#method-Ext.PagingToolbar-unbind Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.PagingToolbar-method-unbind Sencha Docs Ext JS 3.4
    */
   public native function unbind(store:Store):void;
 

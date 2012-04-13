@@ -52,7 +52,7 @@ import ext.config.xmlstore;
 
  * <p>This class can be instantiated by the EXML element &lt;xmlstore>.</p>
  * @see ext.config.xmlstore
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/XmlStore.html#cls-Ext.data.XmlStore Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.XmlStore Sencha Docs Ext JS 3.4
  */
 public class XmlStore extends Store {
 

@@ -27,7 +27,7 @@ package ext {
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  *
  * @see ext.IMessageBox
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MessageBox.html#cls-Ext.MessageBox Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.MessageBox Sencha Docs Ext JS 3.4
  */
 public const MessageBox:IMessageBox;
 

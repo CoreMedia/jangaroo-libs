@@ -15,7 +15,7 @@ import ext.config.rownumberer;
  *
 
  * @see ext.config.rownumberer
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/RowNumberer.html#cls-Ext.grid.RowNumberer Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.RowNumberer Sencha Docs Ext JS 3.4
  */
 public class RowNumberer {
 
@@ -31,13 +31,11 @@ public class RowNumberer {
 
   /**
    Any valid text or HTML fragment to display in the header cell for the row number column (defaults to '').
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get header():String;
 
   /**
    The default width in pixels of the row number column (defaults to 23).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get width():Number;
 

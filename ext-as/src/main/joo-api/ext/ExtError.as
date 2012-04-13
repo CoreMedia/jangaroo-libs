@@ -25,7 +25,7 @@ package ext {
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  *
 
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Error.html#cls-Ext.Error Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Error Sencha Docs Ext JS 3.4
  */
 public class ExtError extends Error {
 
@@ -41,7 +41,7 @@ public class ExtError extends Error {
    * getMessage
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Error.html#method-Ext.Error-getMessage Ext JS source
+    * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Error-method-getMessage Sencha Docs Ext JS 3.4
    */
   public native function getMessage():String;
 
@@ -49,7 +49,7 @@ public class ExtError extends Error {
    * getName
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Error.html#method-Ext.Error-getName Ext JS source
+    * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Error-method-getName Sencha Docs Ext JS 3.4
    */
   public native function getName():String;
 
@@ -57,7 +57,7 @@ public class ExtError extends Error {
    * toJson
    *
    * @return
-    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Error.html#method-Ext.Error-toJson Ext JS source
+    * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Error-method-toJson Sencha Docs Ext JS 3.4
    */
   public native function toJson():String;
 

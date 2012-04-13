@@ -10,7 +10,7 @@ import js.Element;
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  *
 
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Record.html#cls-Ext.data.Record Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Record Sencha Docs Ext JS 3.4
  */
 public class Record {
 
@@ -27,25 +27,25 @@ public class Record {
 
   /**
    Record event type 'commit'.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Record.html#prop-Ext.data.Record-COMMIT Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Record-property-COMMIT Sencha Docs Ext JS 3.4
    */
   public static const COMMIT:String = "commit";
 
   /**
    Record event type 'edit'.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Record.html#prop-Ext.data.Record-EDIT Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Record-property-EDIT Sencha Docs Ext JS 3.4
    */
   public static const EDIT:String = "edit";
 
   /**
    Record event type 'reject'.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Record.html#prop-Ext.data.Record-REJECT Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Record-property-REJECT Sencha Docs Ext JS 3.4
    */
   public static const REJECT:String = "reject";
 
   /**
    An object hash representing the data for this Record. Every field name in the Record definition is represented by a property of that name in this object. Note that unless you specified a field with <a href="output/Ext.data.Field.html#Ext.data.Field-name">name</a> "id" in the Record definition, this will <b>not</b> contain an <tt>id</tt> property.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Record.html#prop-Ext.data.Record-data Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Record-property-data Sencha Docs Ext JS 3.4
    */
   public native function get data():Object;
 
@@ -56,7 +56,7 @@ public class Record {
 
   /**
    Readonly flag - true if this Record has been modified.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Record.html#prop-Ext.data.Record-dirty Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Record-property-dirty Sencha Docs Ext JS 3.4
    */
   public native function get dirty():Boolean;
 
@@ -68,13 +68,13 @@ public class Record {
   /**
    This property is stored in the Record definition's <u>prototype</u>
    A MixedCollection containing the defined <a href="Ext.data.Field.html">Field</a>s for this Record.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Record.html#prop-Ext.data.Record-fields Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Record-property-fields Sencha Docs Ext JS 3.4
    */
   public native function get fields():MixedCollection;
 
   /**
    The unique ID of the Record <a href="output/Ext.data.Record.html#Ext.data.Record-Record">as specified at construction time</a>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Record.html#prop-Ext.data.Record-id Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Record-property-id Sencha Docs Ext JS 3.4
    */
   public native function get id():Object;
 
@@ -86,7 +86,7 @@ public class Record {
   /**
    <b>Only present if this Record was created by an <a href="Ext.data.ArrayReader.html">ArrayReader</a> or a <a href="Ext.data.JsonReader.html">JsonReader</a></b>.
    <p>The Array or object which was the source of the data for this Record.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Record.html#prop-Ext.data.Record-json Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Record-property-json Sencha Docs Ext JS 3.4
    */
   public native function get json():*;
 
@@ -97,7 +97,7 @@ public class Record {
 
   /**
    This object contains a key and value storing the original values of all modified fields or is null if no fields have been modified.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Record.html#prop-Ext.data.Record-modified Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Record-property-modified Sencha Docs Ext JS 3.4
    */
   public native function get modified():Object;
 
@@ -109,7 +109,7 @@ public class Record {
   /**
    <b>Only present if this Record was created by an <a href="Ext.data.XmlReader.html">XmlReader</a></b>.
    <p>The XML element which was the source of the data for this Record.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Record.html#prop-Ext.data.Record-node Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Record-property-node Sencha Docs Ext JS 3.4
    */
   public native function get node():Element;
 
@@ -120,7 +120,7 @@ public class Record {
 
   /**
    <tt>true</tt> when the record does not yet exist in a server-side database (see <a href="output/Ext.data.Record.html#Ext.data.Record-markDirty">markDirty</a>). Any record which has a real database pk set as its id property is NOT a phantom -- it's real.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Record.html#prop-Ext.data.Record-phantom Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Record-property-phantom Sencha Docs Ext JS 3.4
    */
   public native function get phantom():Boolean;
 
@@ -131,7 +131,7 @@ public class Record {
 
   /**
    The <a href="Ext.data.Store.html">Ext.data.Store</a> to which this Record belongs.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Record.html#prop-Ext.data.Record-store Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Record-property-store Sencha Docs Ext JS 3.4
    */
   public native function get store():Store;
 
@@ -143,14 +143,14 @@ public class Record {
   /**
    * Begin an edit. While in edit mode, no events (e.g.. the <code>update</code> event) are relayed to the containing store. See also: <code><a href="output/Ext.data.Record.html#Ext.data.Record-endEdit">endEdit</a></code> and <code><a href="output/Ext.data.Record.html#Ext.data.Record-cancelEdit">cancelEdit</a></code>.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Record.html#method-Ext.data.Record-beginEdit Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Record-method-beginEdit Sencha Docs Ext JS 3.4
    */
   public native function beginEdit():void;
 
   /**
    * Cancels all changes made in the current edit operation.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Record.html#method-Ext.data.Record-cancelEdit Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Record-method-cancelEdit Sencha Docs Ext JS 3.4
    */
   public native function cancelEdit():void;
 
@@ -158,7 +158,7 @@ public class Record {
    * Usually called by the <a href="Ext.data.Store.html">Ext.data.Store</a> which owns the Record. Commits all changes made to the Record since either creation, or the last commit operation. <p>Developers should subscribe to the <a href="output/Ext.data.Store.html#Ext.data.Store-update">Ext.data.Store.update</a> event to have their code notified of commit operations.</p>
    *
    * @param silent True to skip notification of the owning store of the change (defaults to false)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Record.html#method-Ext.data.Record-commit Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Record-method-commit Sencha Docs Ext JS 3.4
    */
   public native function commit(silent:Boolean = false):void;
 
@@ -169,7 +169,7 @@ public class Record {
    Ext.data.Record.id(rec); // automatically generate a unique sequential id
    </code></pre>
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Record.html#method-Ext.data.Record-copy Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Record-method-copy Sencha Docs Ext JS 3.4
    */
   public native function copy(id:String = null):Record;
 
@@ -205,14 +205,14 @@ public class Record {
    myStore.<a href="output/Ext.data.Store.html#Ext.data.Store-add">add</a>(myNewRecord);
    </code></pre>
    * @return A constructor which is used to create new Records according to the definition. The constructor has the same signature as <a href="output/Ext.data.Record.html#Ext.data.Record-Record">Record</a>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Record.html#method-Ext.data.Record-create Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Record-method-create Sencha Docs Ext JS 3.4
    */
   public static native function create(o:Array):Function;
 
   /**
    * End an edit. If any data was modified, the containing store is notified (ie, the store's <code>update</code> event will fire).
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Record.html#method-Ext.data.Record-endEdit Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Record-method-endEdit Sencha Docs Ext JS 3.4
    */
   public native function endEdit():void;
 
@@ -221,7 +221,7 @@ public class Record {
    *
    * @param name The <a href="output/Ext.data.Field.html#Ext.data.Field-name">name of the field</a> to get the value of.
    * @return The value of the field.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Record.html#method-Ext.data.Record-get Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Record-method-get Sencha Docs Ext JS 3.4
    */
   public native function get(name:String):Object;
 
@@ -229,7 +229,7 @@ public class Record {
    * Gets a hash of only the fields that have been modified since this Record was created or committed.
    *
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Record.html#method-Ext.data.Record-getChanges Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Record-method-getChanges Sencha Docs Ext JS 3.4
    */
   public native function getChanges():Object;
 
@@ -238,7 +238,7 @@ public class Record {
    *
    * @param rec The record being created. The record does not exist, it's a <a href="output/Ext.data.Record.html#Ext.data.Record-phantom">phantom</a>.
    * @return auto-generated string id, <tt>"ext-record-i++'</tt>;
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Record.html#method-Ext.data.Record-id Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Record-method-id Sencha Docs Ext JS 3.4
    */
   public static native function id(rec:Record):String;
 
@@ -247,7 +247,7 @@ public class Record {
    *
    * @param fieldName <a href="Ext.data.Field.{&#64;link.html">Ext.data.Field#name</a>
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Record.html#method-Ext.data.Record-isModified Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Record-method-isModified Sencha Docs Ext JS 3.4
    */
   public native function isModified(fieldName:String):Boolean;
 
@@ -255,7 +255,7 @@ public class Record {
    * By default returns <tt>false</tt> if any <a href="Ext.data.Field.html">field</a> within the record configured with <tt><a href="output/Ext.data.Field.html#Ext.data.Field-allowBlank">Ext.data.Field.allowBlank</a> = false</tt> returns <tt>true</tt> from an <a href="Ext.html">Ext</a>.<a href="output/Ext.html#Ext-isEmpty">isempty</a> test.
    *
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Record.html#method-Ext.data.Record-isValid Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Record-method-isValid Sencha Docs Ext JS 3.4
    */
   public native function isValid():Boolean;
 
@@ -263,7 +263,7 @@ public class Record {
    *
    *
    * @param store
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Record.html#method-Ext.data.Record-join Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Record-method-join Sencha Docs Ext JS 3.4
    */
   protected native function join(store:Store):void;
 
@@ -271,7 +271,7 @@ public class Record {
    * Marks this <b>Record</b> as <code><a href="output/Ext.data.Record.html#Ext.data.Record-dirty">dirty</a></code>. This method is used internally when adding <code><a href="output/Ext.data.Record.html#Ext.data.Record-phantom">phantom</a></code> records to a <a href="output/Ext.data.Store.html#Ext.data.Store-writer">writer enabled store</a>.
    <br/><p>Marking a record <code><a href="output/Ext.data.Record.html#Ext.data.Record-dirty">dirty</a></code> causes the phantom to be returned by <a href="output/Ext.data.Store.html#Ext.data.Store-getModifiedRecords">Ext.data.Store.getModifiedRecords</a> where it will have a create action composed for it during <a href="output/Ext.data.Store.html#Ext.data.Store-save">store save</a> operations.</p>
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Record.html#method-Ext.data.Record-markDirty Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Record-method-markDirty Sencha Docs Ext JS 3.4
    */
   public native function markDirty():void;
 
@@ -279,7 +279,7 @@ public class Record {
    * Usually called by the <a href="Ext.data.Store.html">Ext.data.Store</a> which owns the Record. Rejects all changes made to the Record since either creation, or the last commit operation. Modified fields are reverted to their original values. <p>Developers should subscribe to the <a href="output/Ext.data.Store.html#Ext.data.Store-update">Ext.data.Store.update</a> event to have their code notified of reject operations.</p>
    *
    * @param silent True to skip notification of the owning store of the change (defaults to false)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Record.html#method-Ext.data.Record-reject Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Record-method-reject Sencha Docs Ext JS 3.4
    */
   public native function reject(silent:Boolean = false):void;
 
@@ -307,7 +307,7 @@ public class Record {
    *
    * @param name The <a href="output/Ext.data.Field.html#Ext.data.Field-name">name of the field</a> to set.
    * @param value The value to set the field to.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Record.html#method-Ext.data.Record-set Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Record-method-set Sencha Docs Ext JS 3.4
    */
   public native function set(name:String, value:*):void;
 

@@ -11,7 +11,7 @@ import ext.config.boxlayout;
  *
 
  * @see ext.config.boxlayout
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BoxLayout.html#cls-Ext.layout.BoxLayout Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.layout.BoxLayout Sencha Docs Ext JS 3.4
  */
 public class BoxLayout extends ContainerLayout {
 
@@ -26,7 +26,7 @@ public class BoxLayout extends ContainerLayout {
 
   /**
    Array of the last calculated height, width, top and left positions of each visible rendered component within the Box layout.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BoxLayout.html#prop-Ext.layout.BoxLayout-childBoxCache Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.layout.BoxLayout-property-childBoxCache Sencha Docs Ext JS 3.4
    */
   public native function get childBoxCache():Array;
 
@@ -37,7 +37,7 @@ public class BoxLayout extends ContainerLayout {
 
   /**
    Private cache of the last measured size of the layout target. This should never be used except by BoxLayout subclasses during their onLayout run.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BoxLayout.html#prop-Ext.layout.BoxLayout-layoutTargetLastSize Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.layout.BoxLayout-property-layoutTargetLastSize Sencha Docs Ext JS 3.4
    */
   public native function getLayoutTargetSize():Object;
 
@@ -50,7 +50,6 @@ public class BoxLayout extends ContainerLayout {
    left: (left margin)
    }</code></pre><p>This property may also be specified as a string containing space-separated, numeric margin values. The order of the sides associated with each value matches the way CSS processes margin values:</p><div class="mdetail-params"><ul><li>If there is only one value, it applies to all sides.</li><li>If there are two values, the top and bottom borders are set to the first value and the right and left are set to the second.</li><li>If there are three values, the top is set to the first value, the left and right are set to the second, and the bottom is set to the third.</li><li>If there are four values, they apply to the top, right, bottom, and left, respectively.</li></ul></div><p>Defaults to:</p><pre><code>{top:0, right:0, bottom:0, left:0}
    </code></pre>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get defaultMargins():Object;
 
@@ -69,7 +68,7 @@ public class BoxLayout extends ContainerLayout {
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BoxLayout.html#method-Ext.layout.BoxLayout-destroy Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.layout.BoxLayout-method-destroy Sencha Docs Ext JS 3.4
    */
   public native function destroy():void;
 
@@ -77,7 +76,7 @@ public class BoxLayout extends ContainerLayout {
    *
    *
    * @return All matching items
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BoxLayout.html#method-Ext.layout.BoxLayout-getVisibleItems Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.layout.BoxLayout-method-getVisibleItems Sencha Docs Ext JS 3.4
    */
   public native function getVisibleItems():Array;
 
@@ -87,7 +86,7 @@ public class BoxLayout extends ContainerLayout {
    * @param previousTargetSize The size and height of the layout target before we just laid out
    * @param container The container
    * @param target The target element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BoxLayout.html#method-Ext.layout.BoxLayout-handleTargetOverflow Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.layout.BoxLayout-method-handleTargetOverflow Sencha Docs Ext JS 3.4
    */
   public native function handleTargetOverflow(previousTargetSize:Object, container:Container, target:Element):void;
 
@@ -95,7 +94,7 @@ public class BoxLayout extends ContainerLayout {
    * Resizes and repositions each child component
    *
    * @param boxes The box measurements
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BoxLayout.html#method-Ext.layout.BoxLayout-updateChildBoxes Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.layout.BoxLayout-method-updateChildBoxes Sencha Docs Ext JS 3.4
    */
   public native function updateChildBoxes(boxes:Array):void;
 
@@ -104,7 +103,7 @@ public class BoxLayout extends ContainerLayout {
    *
    * @param currentSize The current height and width of the innerCt
    * @param calculations The new box calculations of all items to be laid out
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BoxLayout.html#method-Ext.layout.BoxLayout-updateInnerCtSize Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.layout.BoxLayout-method-updateInnerCtSize Sencha Docs Ext JS 3.4
    */
   public native function updateInnerCtSize(currentSize:Object, calculations:Array):void;
 

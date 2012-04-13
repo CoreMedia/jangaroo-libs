@@ -47,7 +47,7 @@ import ext.config.absolutelayout;
  *
 
  * @see ext.config.absolutelayout
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/AbsoluteLayout.html#cls-Ext.layout.AbsoluteLayout Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.layout.AbsoluteLayout Sencha Docs Ext JS 3.4
  */
 public class AbsoluteLayout extends AnchorLayout {
 

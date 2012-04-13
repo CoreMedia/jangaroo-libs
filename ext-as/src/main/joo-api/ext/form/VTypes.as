@@ -28,7 +28,7 @@ package ext.form {
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  *
  * @see ext.form.IVTypes
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/VTypes.html#cls-Ext.form.VTypes Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.VTypes Sencha Docs Ext JS 3.4
  */
 public const VTypes:IVTypes;
 

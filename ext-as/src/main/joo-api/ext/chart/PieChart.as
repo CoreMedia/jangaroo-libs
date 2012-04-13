@@ -7,7 +7,7 @@ package ext.chart {
 
  * <p>This component is created by the xtype 'piechart' / the EXML element &lt;piechart>.</p>
  * @see ext.config.piechart
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Chart.html#cls-Ext.chart.PieChart Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.chart.PieChart Sencha Docs Ext JS 3.4
  */
 public class PieChart extends Chart {
 

@@ -90,7 +90,7 @@ package ext.grid {
  *
 
  * @see ext.config.pivotgrid
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotGrid.html#cls-Ext.grid.PivotGrid Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotGrid Sencha Docs Ext JS 3.4
  */
 public class PivotGrid extends GridPanel {
 
@@ -105,7 +105,7 @@ public class PivotGrid extends GridPanel {
 
   /**
    The configured <a href="Ext.grid.PivotAxis.html">Ext.grid.PivotAxis</a> used as the left Axis for this Pivot Grid
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotGrid.html#prop-Ext.grid.PivotGrid-leftAxis Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotGrid-property-leftAxis Sencha Docs Ext JS 3.4
    */
   public native function get leftAxis():PivotAxis;
 
@@ -116,7 +116,7 @@ public class PivotGrid extends GridPanel {
 
   /**
    The configured <a href="Ext.grid.PivotAxis.html">Ext.grid.PivotAxis</a> used as the top Axis for this Pivot Grid
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotGrid.html#prop-Ext.grid.PivotGrid-topAxis Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotGrid-property-topAxis Sencha Docs Ext JS 3.4
    */
   public native function get topAxis():PivotAxis;
 
@@ -127,7 +127,6 @@ public class PivotGrid extends GridPanel {
 
   /**
    The field to extract from each Record when pivoting around the two axes. See the class introduction docs for usage
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get measure():String;
 
@@ -135,7 +134,7 @@ public class PivotGrid extends GridPanel {
    *
    *
    * @return 2-dimensional array of cell data
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotGrid.html#method-Ext.grid.PivotGrid-extractData Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotGrid-method-extractData Sencha Docs Ext JS 3.4
    */
   public native function extractData():Array;
 
@@ -143,7 +142,7 @@ public class PivotGrid extends GridPanel {
    * Returns the function currently used to aggregate the records in each Pivot cell
    *
    * @return The current aggregator function
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotGrid.html#method-Ext.grid.PivotGrid-getAggregator Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotGrid-method-getAggregator Sencha Docs Ext JS 3.4
    */
   public native function getAggregator():Function;
 
@@ -151,14 +150,14 @@ public class PivotGrid extends GridPanel {
    * Returns the grid's GridView object.
    *
    * @return The grid view
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotGrid.html#method-Ext.grid.PivotGrid-getView Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotGrid-method-getView Sencha Docs Ext JS 3.4
    */
   override public native function getView():GridView;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotGrid.html#method-Ext.grid.PivotGrid-initAxes Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotGrid-method-initAxes Sencha Docs Ext JS 3.4
    */
   public native function initAxes():void;
 
@@ -166,7 +165,7 @@ public class PivotGrid extends GridPanel {
    * Sets the function to use when aggregating data for each cell.
    *
    * @param aggregator The new aggregator function or named function string
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotGrid.html#method-Ext.grid.PivotGrid-setAggregator Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotGrid-method-setAggregator Sencha Docs Ext JS 3.4
    */
   public native function setAggregator(aggregator:*):void;
 
@@ -175,7 +174,7 @@ public class PivotGrid extends GridPanel {
    *
    * @param axis The pivot axis
    * @param refresh True to immediately refresh the grid and its axes (defaults to false)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotGrid.html#method-Ext.grid.PivotGrid-setLeftAxis Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotGrid-method-setLeftAxis Sencha Docs Ext JS 3.4
    */
   public native function setLeftAxis(axis:PivotAxis, refresh:Boolean):void;
 
@@ -183,7 +182,7 @@ public class PivotGrid extends GridPanel {
    * Sets the field name to use as the Measure in this Pivot Grid
    *
    * @param measure The field to make the measure
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotGrid.html#method-Ext.grid.PivotGrid-setMeasure Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotGrid-method-setMeasure Sencha Docs Ext JS 3.4
    */
   public native function setMeasure(measure:String):void;
 
@@ -192,7 +191,7 @@ public class PivotGrid extends GridPanel {
    *
    * @param axis The pivot axis
    * @param refresh True to immediately refresh the grid and its axes (defaults to false)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PivotGrid.html#method-Ext.grid.PivotGrid-setTopAxis Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotGrid-method-setTopAxis Sencha Docs Ext JS 3.4
    */
   public native function setTopAxis(axis:PivotAxis, refresh:Boolean):void;
 

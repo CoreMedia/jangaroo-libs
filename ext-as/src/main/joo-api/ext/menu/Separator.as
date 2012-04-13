@@ -9,7 +9,7 @@ import ext.config.menuseparator;
 
  * <p>This component is created by the xtype 'menuseparator' / the EXML element &lt;menuseparator>.</p>
  * @see ext.config.menuseparator
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Separator.html#cls-Ext.menu.Separator Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.menu.Separator Sencha Docs Ext JS 3.4
  */
 public class Separator extends BaseItem {
 

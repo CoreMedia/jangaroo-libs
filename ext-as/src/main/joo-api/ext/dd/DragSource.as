@@ -9,7 +9,7 @@ import ext.config.dragsource;
  *
 
  * @see ext.config.dragsource
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DragSource.html#cls-Ext.dd.DragSource Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragSource Sencha Docs Ext JS 3.4
  */
 public class DragSource extends DDProxy {
 
@@ -26,19 +26,16 @@ public class DragSource extends DDProxy {
 
   /**
    A named drag drop group to which this object belongs. If a group is specified, then this object will only interact with other drag drop objects in the same group (defaults to undefined).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get ddGroup():String;
 
   /**
    The CSS class returned to the drag source when drop is allowed (defaults to "x-dd-drop-ok").
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get dropAllowed():String;
 
   /**
    The CSS class returned to the drag source when drop is not allowed (defaults to "x-dd-drop-nodrop").
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get dropNotAllowed():String;
 
@@ -48,7 +45,7 @@ public class DragSource extends DDProxy {
    * @param target The drop target
    * @param e The event object
    * @param id The id of the dropped element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DragSource.html#method-Ext.dd.DragSource-afterDragDrop Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragSource-method-afterDragDrop Sencha Docs Ext JS 3.4
    */
   public native function afterDragDrop(target:DragDrop, e:IEventObject, id:String):void;
 
@@ -58,7 +55,7 @@ public class DragSource extends DDProxy {
    * @param target The drop target
    * @param e The event object
    * @param id The id of the dragged element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DragSource.html#method-Ext.dd.DragSource-afterDragEnter Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragSource-method-afterDragEnter Sencha Docs Ext JS 3.4
    */
   public native function afterDragEnter(target:DragDrop, e:IEventObject, id:String):void;
 
@@ -68,7 +65,7 @@ public class DragSource extends DDProxy {
    * @param target The drop target
    * @param e The event object
    * @param id The id of the dragged element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DragSource.html#method-Ext.dd.DragSource-afterDragOut Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragSource-method-afterDragOut Sencha Docs Ext JS 3.4
    */
   public native function afterDragOut(target:DragDrop, e:IEventObject, id:String):void;
 
@@ -78,7 +75,7 @@ public class DragSource extends DDProxy {
    * @param target The drop target
    * @param e The event object
    * @param id The id of the dragged element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DragSource.html#method-Ext.dd.DragSource-afterDragOver Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragSource-method-afterDragOver Sencha Docs Ext JS 3.4
    */
   public native function afterDragOver(target:DragDrop, e:IEventObject, id:String):void;
 
@@ -87,7 +84,7 @@ public class DragSource extends DDProxy {
    *
    * @param e The event object
    * @param id The id of the dropped element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DragSource.html#method-Ext.dd.DragSource-afterInvalidDrop Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragSource-method-afterInvalidDrop Sencha Docs Ext JS 3.4
    */
   public native function afterInvalidDrop(e:IEventObject, id:String):void;
 
@@ -98,7 +95,7 @@ public class DragSource extends DDProxy {
    * @param e The event object
    * @param id The id of the dragged element
    * @return isValid True if the drag drop event is valid, else false to cancel
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DragSource.html#method-Ext.dd.DragSource-beforeDragDrop Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragSource-method-beforeDragDrop Sencha Docs Ext JS 3.4
    */
   public native function beforeDragDrop(target:DragDrop, e:IEventObject, id:String):Boolean;
 
@@ -109,7 +106,7 @@ public class DragSource extends DDProxy {
    * @param e The event object
    * @param id The id of the dragged element
    * @return isValid True if the drag event is valid, else false to cancel
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DragSource.html#method-Ext.dd.DragSource-beforeDragEnter Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragSource-method-beforeDragEnter Sencha Docs Ext JS 3.4
    */
   public native function beforeDragEnter(target:DragDrop, e:IEventObject, id:String):Boolean;
 
@@ -120,7 +117,7 @@ public class DragSource extends DDProxy {
    * @param e The event object
    * @param id The id of the dragged element
    * @return isValid True if the drag event is valid, else false to cancel
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DragSource.html#method-Ext.dd.DragSource-beforeDragOut Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragSource-method-beforeDragOut Sencha Docs Ext JS 3.4
    */
   public native function beforeDragOut(target:DragDrop, e:IEventObject, id:String):Boolean;
 
@@ -131,7 +128,7 @@ public class DragSource extends DDProxy {
    * @param e The event object
    * @param id The id of the dragged element
    * @return isValid True if the drag event is valid, else false to cancel
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DragSource.html#method-Ext.dd.DragSource-beforeDragOver Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragSource-method-beforeDragOver Sencha Docs Ext JS 3.4
    */
   public native function beforeDragOver(target:DragDrop, e:IEventObject, id:String):Boolean;
 
@@ -142,7 +139,7 @@ public class DragSource extends DDProxy {
    * @param e The event object
    * @param id The id of the dragged element
    * @return isValid True if the invalid drop should proceed, else false to cancel
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DragSource.html#method-Ext.dd.DragSource-beforeInvalidDrop Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragSource-method-beforeInvalidDrop Sencha Docs Ext JS 3.4
    */
   public native function beforeInvalidDrop(target:DragDrop, e:IEventObject, id:String):Boolean;
 
@@ -151,7 +148,7 @@ public class DragSource extends DDProxy {
    *
    * @param e The mouse down event
    * @return data An object containing arbitrary data
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DragSource.html#method-Ext.dd.DragSource-getDragData Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragSource-method-getDragData Sencha Docs Ext JS 3.4
    */
   public native function getDragData(e:IEventObject):Object;
 
@@ -159,14 +156,14 @@ public class DragSource extends DDProxy {
    * Returns the drag source's underlying <a href="Ext.dd.StatusProxy.html">Ext.dd.StatusProxy</a>
    *
    * @return proxy The StatusProxy
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DragSource.html#method-Ext.dd.DragSource-getProxy Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragSource-method-getProxy Sencha Docs Ext JS 3.4
    */
   public native function getProxy():StatusProxy;
 
   /**
    * Hides the drag source's <a href="Ext.dd.StatusProxy.html">Ext.dd.StatusProxy</a>
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DragSource.html#method-Ext.dd.DragSource-hideProxy Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragSource-method-hideProxy Sencha Docs Ext JS 3.4
    */
   public native function hideProxy():void;
 
@@ -176,7 +173,7 @@ public class DragSource extends DDProxy {
    * @param data An object containing arbitrary data to be shared with drop targets
    * @param e The event object
    * @return isValid True if the drag event is valid, else false to cancel
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DragSource.html#method-Ext.dd.DragSource-onBeforeDrag Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragSource-method-onBeforeDrag Sencha Docs Ext JS 3.4
    */
   public native function onBeforeDrag(data:Object, e:IEventObject):Boolean;
 
@@ -185,7 +182,7 @@ public class DragSource extends DDProxy {
    *
    * @param x The x position of the click on the dragged object
    * @param y The y position of the click on the dragged object
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DragSource.html#method-Ext.dd.DragSource-onStartDrag Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragSource-method-onStartDrag Sencha Docs Ext JS 3.4
    */
   public native function onStartDrag(x:Number, y:Number):void;
 

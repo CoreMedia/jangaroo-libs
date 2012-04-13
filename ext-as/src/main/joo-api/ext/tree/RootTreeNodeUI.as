@@ -7,7 +7,7 @@ package ext.tree {
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  *
 
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeNodeUI.html#cls-Ext.tree.RootTreeNodeUI Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.RootTreeNodeUI Sencha Docs Ext JS 3.4
  */
 public class RootTreeNodeUI {
 

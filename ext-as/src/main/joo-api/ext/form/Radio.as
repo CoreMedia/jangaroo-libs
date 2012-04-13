@@ -9,7 +9,7 @@ import ext.config.radio;
 
  * <p>This component is created by the xtype 'radio' / the EXML element &lt;radio>.</p>
  * @see ext.config.radio
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Radio.html#cls-Ext.form.Radio Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.Radio Sencha Docs Ext JS 3.4
  */
 public class Radio extends Checkbox {
 
@@ -27,7 +27,7 @@ public class Radio extends Checkbox {
    * If this radio is part of a group, it will return the selected value
    *
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Radio.html#method-Ext.form.Radio-getGroupValue Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.Radio-method-getGroupValue Sencha Docs Ext JS 3.4
    */
   public native function getGroupValue():String;
 
@@ -37,7 +37,7 @@ public class Radio extends Checkbox {
    * @param value The value to set
    * @param flag a boolean flag used by some subclasses
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Radio.html#method-Ext.form.Radio-setValue Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.Radio-method-setValue Sencha Docs Ext JS 3.4
    */
   override public native function setValue(value:*, flag:Boolean = false):Field;
 

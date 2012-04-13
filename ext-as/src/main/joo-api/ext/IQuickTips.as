@@ -33,21 +33,21 @@ import ext.config.quicktip;
 
  * <p>This interface defines the type of the singleton QuickTips.</p>
  * @see ext.#QuickTips ext.QuickTips
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/QuickTips.html#cls-Ext.QuickTips Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.QuickTips Sencha Docs Ext JS 3.4
  */
 public interface IQuickTips {
 
   /**
    * Disable quick tips globally.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/QuickTips.html#method-Ext.QuickTips-disable Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.QuickTips-method-disable Sencha Docs Ext JS 3.4
    */
   function disable():void;
 
   /**
    * Enable quick tips globally.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/QuickTips.html#method-Ext.QuickTips-enable Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.QuickTips-method-enable Sencha Docs Ext JS 3.4
    */
   function enable():void;
 
@@ -55,7 +55,7 @@ public interface IQuickTips {
    * Gets the single <a href="Ext.QuickTip.html">QuickTip</a> instance used to show tips from all registered elements.
    *
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/QuickTips.html#method-Ext.QuickTips-getQuickTip Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.QuickTips-method-getQuickTip Sencha Docs Ext JS 3.4
    */
   function getQuickTip():QuickTip;
 
@@ -63,7 +63,7 @@ public interface IQuickTips {
    * Initialize the global QuickTips instance and prepare any quick tips.
    *
    * @param autoRender True to render the QuickTips container immediately to preload images. (Defaults to true)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/QuickTips.html#method-Ext.QuickTips-init Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.QuickTips-method-init Sencha Docs Ext JS 3.4
    */
   function init(autoRender:Boolean):void;
 
@@ -71,7 +71,7 @@ public interface IQuickTips {
    * Returns true if quick tips are enabled, else false.
    *
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/QuickTips.html#method-Ext.QuickTips-isEnabled Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.QuickTips-method-isEnabled Sencha Docs Ext JS 3.4
    */
   function isEnabled():Boolean;
 
@@ -81,7 +81,7 @@ public interface IQuickTips {
    * @param config The config object
    *
    * @see ext.QuickTip#register()
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/QuickTips.html#method-Ext.QuickTips-register Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.QuickTips-method-register Sencha Docs Ext JS 3.4
    */
   function register(config:Object):void;
 
@@ -89,7 +89,7 @@ public interface IQuickTips {
    * Alias of <a href="output/Ext.QuickTips.html#Ext.QuickTips-register">register</a>.
    *
    * @param config The config object
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/QuickTips.html#method-Ext.QuickTips-tips Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.QuickTips-method-tips Sencha Docs Ext JS 3.4
    */
   function tips(config:quicktip):void;
 
@@ -97,7 +97,7 @@ public interface IQuickTips {
    * Removes any registered quick tip from the target element and destroys it.
    *
    * @param el The element from which the quick tip is to be removed.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/QuickTips.html#method-Ext.QuickTips-unregister Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.QuickTips-method-unregister Sencha Docs Ext JS 3.4
    */
   function unregister(el:*):void;
 

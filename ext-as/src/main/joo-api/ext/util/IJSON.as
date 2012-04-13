@@ -9,7 +9,7 @@ package ext.util {
 
  * <p>This interface defines the type of the singleton JSON.</p>
  * @see ext.util.#JSON ext.util.JSON
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/JSON.html#cls-Ext.util.JSON Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.JSON Sencha Docs Ext JS 3.4
  */
 public interface IJSON {
 
@@ -18,7 +18,7 @@ public interface IJSON {
    *
    * @param json The JSON string
    * @return The resulting object
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/JSON.html#method-Ext.util.JSON-decode Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.JSON-method-decode Sencha Docs Ext JS 3.4
    */
   function decode(json:String):Object;
 
@@ -27,7 +27,7 @@ public interface IJSON {
    *
    * @param o The variable to encode
    * @return The JSON string
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/JSON.html#method-Ext.util.JSON-encode Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.JSON-method-encode Sencha Docs Ext JS 3.4
    */
   function encode(o:*):String;
 
@@ -40,7 +40,7 @@ public interface IJSON {
    *
    * @param d The Date to encode
    * @return The string literal to use in a JSON string.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/JSON.html#method-Ext.util.JSON-encodeDate Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.JSON-method-encodeDate Sencha Docs Ext JS 3.4
    */
   function encodeDate(d:Date):String;
 

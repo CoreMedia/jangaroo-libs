@@ -17,7 +17,7 @@ package ext {
  *
 
  * @see ext.config.fx
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Fx.html#cls-Ext.Fx Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Fx Sencha Docs Ext JS 3.4
  */
 public class Fx {
 
@@ -32,61 +32,51 @@ public class Fx {
 
   /**
    A css class to apply after the effect
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get afterCls():String;
 
   /**
    A style specification string, e.g. <tt>"width:100px"</tt>, or an object in the form <tt>{width:"100px"}</tt>, or a function which returns such a specification that will be applied to the Element after the effect finishes.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get afterStyle():*;
 
   /**
    Whether the effect should block other effects from queueing while it runs
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get block():Boolean;
 
   /**
    Whether to allow subsequently-queued effects to run at the same time as the current effect, or to ensure that they run in sequence
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get concurrent():Boolean;
 
   /**
    The length of time (in seconds) that the effect should last
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get duration():Number;
 
   /**
    A valid Ext.lib.Easing value for the effect:<br/><br/><div class="mdetail-params"><ul><li><b><tt>backBoth</tt></b></li><li><b><tt>backIn</tt></b></li><li><b><tt>backOut</tt></b></li><li><b><tt>bounceBoth</tt></b></li><li><b><tt>bounceIn</tt></b></li><li><b><tt>bounceOut</tt></b></li><li><b><tt>easeBoth</tt></b></li><li><b><tt>easeBothStrong</tt></b></li><li><b><tt>easeIn</tt></b></li><li><b><tt>easeInStrong</tt></b></li><li><b><tt>easeNone</tt></b></li><li><b><tt>easeOut</tt></b></li><li><b><tt>easeOutStrong</tt></b></li><li><b><tt>elasticBoth</tt></b></li><li><b><tt>elasticIn</tt></b></li><li><b><tt>elasticOut</tt></b></li></ul></div>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get easing():String;
 
   /**
    Only applicable for <a href="output/Ext.Fx.html#Ext.Fx-fadeIn">fadeIn</a> or <a href="output/Ext.Fx.html#Ext.Fx-fadeOut">fadeOut</a>, a number between <tt>0</tt> and <tt>1</tt> inclusive to configure the ending opacity value.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get endOpacity():Number;
 
   /**
    Whether the Element should be removed from the DOM and destroyed after the effect finishes
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get remove():Boolean;
 
   /**
    The scope (<code>this</code> reference) in which the <tt><a href="output/Ext.Fx.html#Ext.Fx-callback">callback</a></tt> function is executed. Defaults to the browser window.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get scope():Object;
 
   /**
    Whether to use the <i>display</i> CSS property instead of <i>visibility</i> when hiding Elements (only applies to effects that end with the element being visually hidden, ignored otherwise)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get useDisplay():Boolean;
 
@@ -107,7 +97,7 @@ public class Fx {
    *
    * @param options Object literal with any of the Fx config options
    * @return The Element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Fx.html#method-Ext.Fx-fadeIn Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Fx-method-fadeIn Sencha Docs Ext JS 3.4
    */
   public native function fadeIn(options:Object = null):Element;
 
@@ -130,7 +120,7 @@ public class Fx {
    *
    * @param options Object literal with any of the Fx config options
    * @return The Element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Fx.html#method-Ext.Fx-fadeOut Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Fx-method-fadeOut Sencha Docs Ext JS 3.4
    */
   public native function fadeOut(options:Object = null):Element;
 
@@ -152,7 +142,7 @@ public class Fx {
    * @param count The number of ripples to display (defaults to 1)
    * @param options Object literal with any of the Fx config options
    * @return The Element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Fx.html#method-Ext.Fx-frame Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Fx-method-frame Sencha Docs Ext JS 3.4
    */
   public native function frame(color:String = null, count:Number = undefined, options:Object = null):Element;
 
@@ -175,7 +165,7 @@ public class Fx {
    * @param anchor One of the valid Fx anchor positions (defaults to bottom: 'b')
    * @param options Object literal with any of the Fx config options
    * @return The Element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Fx.html#method-Ext.Fx-ghost Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Fx-method-ghost Sencha Docs Ext JS 3.4
    */
   public native function ghost(anchor:String = null, options:Object = null):Element;
 
@@ -183,7 +173,7 @@ public class Fx {
    * Returns true if the element has any effects actively running or queued, else returns false.
    *
    * @return True if element has active effects, else false
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Fx.html#method-Ext.Fx-hasActiveFx Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Fx-method-hasActiveFx Sencha Docs Ext JS 3.4
    */
   public native function hasActiveFx():Boolean;
 
@@ -191,7 +181,7 @@ public class Fx {
    * Returns true if the element is currently blocking so that no other effect can be queued until this effect is finished, else returns false if blocking is not set. This is commonly used to ensure that an effect initiated by a user action runs to completion prior to the same effect being restarted (e.g., firing only one effect even if the user clicks several times).
    *
    * @return True if blocking, else false
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Fx.html#method-Ext.Fx-hasFxBlock Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Fx-method-hasFxBlock Sencha Docs Ext JS 3.4
    */
   public native function hasFxBlock():Boolean;
 
@@ -214,7 +204,7 @@ public class Fx {
    * @param color The highlight color. Should be a 6 char hex color without the leading # (defaults to yellow: 'ffff9c')
    * @param options Object literal with any of the Fx config options
    * @return The Element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Fx.html#method-Ext.Fx-highlight Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Fx-method-highlight Sencha Docs Ext JS 3.4
    */
   public native function highlight(color:String = null, options:Object = null):Element;
 
@@ -224,7 +214,7 @@ public class Fx {
    *
    * @param seconds The length of time to pause (in seconds)
    * @return The Element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Fx.html#method-Ext.Fx-pause Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Fx-method-pause Sencha Docs Ext JS 3.4
    */
   public native function pause(seconds:Number):Element;
 
@@ -243,7 +233,7 @@ public class Fx {
    *
    * @param options Object literal with any of the Fx config options
    * @return The Element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Fx.html#method-Ext.Fx-puff Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Fx-method-puff Sencha Docs Ext JS 3.4
    */
   public native function puff(options:Object = null):Element;
 
@@ -266,7 +256,7 @@ public class Fx {
    * @param height The new height (pass undefined to keep the original height)
    * @param options Object literal with any of the Fx config options
    * @return The Element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Fx.html#method-Ext.Fx-scale Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Fx-method-scale Sencha Docs Ext JS 3.4
    */
   public native function scale(width:Number, height:Number, options:Object = null):Element;
 
@@ -274,7 +264,7 @@ public class Fx {
    * Ensures that all effects queued after sequenceFx is called on the element are run in sequence. This is the opposite of <a href="output/Ext.Fx.html#Ext.Fx-syncFx">syncFx</a>.
    *
    * @return The Element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Fx.html#method-Ext.Fx-sequenceFx Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Fx-method-sequenceFx Sencha Docs Ext JS 3.4
    */
   public native function sequenceFx():Element;
 
@@ -296,7 +286,7 @@ public class Fx {
    *
    * @param options Object literal with any of the Fx config options
    * @return The Element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Fx.html#method-Ext.Fx-shift Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Fx-method-shift Sencha Docs Ext JS 3.4
    */
   public native function shift(options:Object):Element;
 
@@ -317,7 +307,7 @@ public class Fx {
    * @param anchor One of the valid Fx anchor positions (defaults to top: 't')
    * @param options Object literal with any of the Fx config options
    * @return The Element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Fx.html#method-Ext.Fx-slideIn Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Fx-method-slideIn Sencha Docs Ext JS 3.4
    */
   public native function slideIn(anchor:String = null, options:Object = null):Element;
 
@@ -340,7 +330,7 @@ public class Fx {
    * @param anchor One of the valid Fx anchor positions (defaults to top: 't')
    * @param options Object literal with any of the Fx config options
    * @return The Element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Fx.html#method-Ext.Fx-slideOut Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Fx-method-slideOut Sencha Docs Ext JS 3.4
    */
   public native function slideOut(anchor:String = null, options:Object = null):Element;
 
@@ -348,7 +338,7 @@ public class Fx {
    * Stops any running effects and clears the element's internal effects queue if it contains any additional effects that haven't started yet.
    *
    * @return The Element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Fx.html#method-Ext.Fx-stopFx Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Fx-method-stopFx Sencha Docs Ext JS 3.4
    */
   public native function stopFx():Element;
 
@@ -367,7 +357,7 @@ public class Fx {
    *
    * @param options Object literal with any of the Fx config options
    * @return The Element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Fx.html#method-Ext.Fx-switchOff Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Fx-method-switchOff Sencha Docs Ext JS 3.4
    */
   public native function switchOff(options:Object = null):Element;
 
@@ -375,7 +365,7 @@ public class Fx {
    * Ensures that all effects queued after syncFx is called on the element are run concurrently. This is the opposite of <a href="output/Ext.Fx.html#Ext.Fx-sequenceFx">sequenceFx</a>.
    *
    * @return The Element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Fx.html#method-Ext.Fx-syncFx Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Fx-method-syncFx Sencha Docs Ext JS 3.4
    */
   public native function syncFx():Element;
 

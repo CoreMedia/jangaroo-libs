@@ -20,7 +20,7 @@ package ext.toolbar {
 
  * <p>This component is created by the xtype 'tbspacer' / the EXML element &lt;tbspacer>.</p>
  * @see ext.config.tbspacer
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Toolbar.html#cls-Ext.Toolbar.Spacer Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Toolbar.Spacer Sencha Docs Ext JS 3.4
  */
 public class Spacer extends Item {
 

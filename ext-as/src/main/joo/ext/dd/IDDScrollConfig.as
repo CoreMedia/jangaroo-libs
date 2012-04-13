@@ -9,7 +9,7 @@ public interface IDDScrollConfig {
   /**
    * The frequency of scrolls in milliseconds (defaults to 500).
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ScrollManager.html#prop-Ext.dd.ScrollManager-frequency Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.ScrollManager-property-frequency Sencha Docs Ext JS 3.4
    */
   function get frequency():Number;
 
@@ -21,7 +21,7 @@ public interface IDDScrollConfig {
   /**
    * The number of pixels from the right or left edge of a container the pointer needs to be to trigger scrolling (defaults to 25).
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ScrollManager.html#prop-Ext.dd.ScrollManager-hthresh Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.ScrollManager-property-hthresh Sencha Docs Ext JS 3.4
    */
   function get hthresh():Number;
 
@@ -33,7 +33,7 @@ public interface IDDScrollConfig {
   /**
    * The number of pixels to scroll in each scroll increment (defaults to 100).
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ScrollManager.html#prop-Ext.dd.ScrollManager-increment Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.ScrollManager-property-increment Sencha Docs Ext JS 3.4
    */
   function get increment():Number;
 
@@ -45,7 +45,7 @@ public interface IDDScrollConfig {
   /**
    * The number of pixels from the top or bottom edge of a container the pointer needs to be to trigger scrolling (defaults to 25).
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ScrollManager.html#prop-Ext.dd.ScrollManager-vthresh Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.ScrollManager-property-vthresh Sencha Docs Ext JS 3.4
    */
   function get vthresh():Number;
 
@@ -57,7 +57,7 @@ public interface IDDScrollConfig {
   /**
    * The animation duration in seconds - MUST BE less than Ext.dd.ScrollManager.frequency! (defaults to .4).
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ScrollManager.html#prop-Ext.dd.ScrollManager-animDuration Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.ScrollManager-property-animDuration Sencha Docs Ext JS 3.4
    */
   function get animDuration():Number;
 
@@ -68,7 +68,7 @@ public interface IDDScrollConfig {
 
   /**
    * True to animate the scroll (defaults to true).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ScrollManager.html#prop-Ext.dd.ScrollManager-animate Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.ScrollManager-property-animate Sencha Docs Ext JS 3.4
    */
   function get animate():Boolean;
 
@@ -80,7 +80,7 @@ public interface IDDScrollConfig {
   /**
    * The named drag drop <a href="output/Ext.dd.DragSource.html#Ext.dd.DragSource-ddGroup">group</a> to which this container belongs (defaults to undefined). If a ddGroup is specified, then container scrolling will only occur when a dragged object is in the same ddGroup.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ScrollManager.html#prop-Ext.dd.ScrollManager-ddGroup Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.ScrollManager-property-ddGroup Sencha Docs Ext JS 3.4
    */
   function get ddGroup():String;
 

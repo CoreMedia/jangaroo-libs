@@ -11,7 +11,7 @@ import ext.config.lvdatecolumn;
 
  * <p>This component is created by the xtype 'lvdatecolumn' / the EXML element &lt;lvdatecolumn>.</p>
  * @see ext.config.lvdatecolumn
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Column1.html#cls-Ext.list.DateColumn Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.list.DateColumn Sencha Docs Ext JS 3.4
  */
 public class DateColumn extends Column {
 

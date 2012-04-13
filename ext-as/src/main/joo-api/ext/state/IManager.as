@@ -15,7 +15,7 @@ package ext.state {
 
  * <p>This interface defines the type of the singleton Manager.</p>
  * @see ext.state.#Manager ext.state.Manager
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/StateManager.html#cls-Ext.state.Manager Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.state.Manager Sencha Docs Ext JS 3.4
  */
 public interface IManager {
 
@@ -23,7 +23,7 @@ public interface IManager {
    * Clears a value from the state
    *
    * @param name The key name
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/StateManager.html#method-Ext.state.Manager-clear Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.state.Manager-method-clear Sencha Docs Ext JS 3.4
    */
   function clear(name:String):void;
 
@@ -33,7 +33,7 @@ public interface IManager {
    * @param name The key name
    * @param defaultValue The default value to return if the key lookup does not match
    * @return The state data
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/StateManager.html#method-Ext.state.Manager-get Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.state.Manager-method-get Sencha Docs Ext JS 3.4
    */
   function get(name:String, defaultValue:*):*;
 
@@ -41,7 +41,7 @@ public interface IManager {
    * Gets the currently configured state provider
    *
    * @return The state provider
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/StateManager.html#method-Ext.state.Manager-getProvider Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.state.Manager-method-getProvider Sencha Docs Ext JS 3.4
    */
   function getProvider():Provider;
 
@@ -50,7 +50,7 @@ public interface IManager {
    *
    * @param name The key name
    * @param value The state data
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/StateManager.html#method-Ext.state.Manager-set Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.state.Manager-method-set Sencha Docs Ext JS 3.4
    */
   function set(name:String, value:*):void;
 
@@ -58,7 +58,7 @@ public interface IManager {
    * Configures the default state provider for your application
    *
    * @param stateProvider The state provider to set
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/StateManager.html#method-Ext.state.Manager-setProvider Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.state.Manager-method-setProvider Sencha Docs Ext JS 3.4
    */
   function setProvider(stateProvider:Provider):void;
 

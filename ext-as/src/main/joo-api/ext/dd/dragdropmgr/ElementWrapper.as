@@ -7,7 +7,7 @@ import js.HTMLElement;
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  *
 
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#cls-Ext.dd.DragDropMgr.ElementWrapper Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr.ElementWrapper Sencha Docs Ext JS 3.4
  */
 public class ElementWrapper {
 
@@ -21,7 +21,7 @@ public class ElementWrapper {
 
   /**
    Internal counter
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDropMgr.ElementWrapper-_timeoutCount Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr.ElementWrapper-property-_timeoutCount Sencha Docs Ext JS 3.4
    */
   public static native function get _timeoutCount():Object;
 
@@ -32,7 +32,7 @@ public class ElementWrapper {
 
   /**
    A reference to the style property
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDropMgr.ElementWrapper-css Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr.ElementWrapper-property-css Sencha Docs Ext JS 3.4
    */
   public native function get css():Object;
 
@@ -43,7 +43,7 @@ public class ElementWrapper {
 
   /**
    The element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDropMgr.ElementWrapper-el Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr.ElementWrapper-property-el Sencha Docs Ext JS 3.4
    */
   public native function get el():Object;
 
@@ -54,7 +54,7 @@ public class ElementWrapper {
 
   /**
    The element id
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDropMgr.ElementWrapper-id Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr.ElementWrapper-property-id Sencha Docs Ext JS 3.4
    */
   public native function get id():Object;
 
@@ -66,7 +66,7 @@ public class ElementWrapper {
   /**
    * Trying to make the load order less important. Without this we get an error if this file is loaded before the Event Utility.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDropMgr.ElementWrapper-_addListeners Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr.ElementWrapper-method-_addListeners Sencha Docs Ext JS 3.4
    */
   public static native function _addListeners():void;
 
@@ -75,7 +75,7 @@ public class ElementWrapper {
    *
    * @param el element for which to get the position
    * @return the X coordinate
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDropMgr.ElementWrapper-getPosX Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr.ElementWrapper-method-getPosX Sencha Docs Ext JS 3.4
    */
   public static native function getPosX(el:*):int;
 
@@ -84,14 +84,14 @@ public class ElementWrapper {
    *
    * @param el element for which to get the position
    * @return the Y coordinate
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDropMgr.ElementWrapper-getPosY Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr.ElementWrapper-method-getPosY Sencha Docs Ext JS 3.4
    */
   public static native function getPosY(el:*):int;
 
   /**
    * Returns the current scroll position
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDropMgr.ElementWrapper-getScroll Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr.ElementWrapper-method-getScroll Sencha Docs Ext JS 3.4
    */
   public static native function getScroll():void;
 
@@ -99,7 +99,7 @@ public class ElementWrapper {
    * Gets the scrollLeft
    *
    * @return the document's scrollTop
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDropMgr.ElementWrapper-getScrollLeft Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr.ElementWrapper-method-getScrollLeft Sencha Docs Ext JS 3.4
    */
   public static native function getScrollLeft():int;
 
@@ -107,7 +107,7 @@ public class ElementWrapper {
    * Gets the scrollTop
    *
    * @return the document's scrollTop
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDropMgr.ElementWrapper-getScrollTop Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr.ElementWrapper-method-getScrollTop Sencha Docs Ext JS 3.4
    */
   public static native function getScrollTop():int;
 
@@ -117,7 +117,7 @@ public class ElementWrapper {
    * @param el the element
    * @param styleProp the style property
    * @return The value of the style property
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDropMgr.ElementWrapper-getStyle Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr.ElementWrapper-method-getStyle Sencha Docs Ext JS 3.4
    */
   public static native function getStyle(el:HTMLElement, styleProp:String):String;
 
@@ -125,7 +125,7 @@ public class ElementWrapper {
    * Recursively searches the immediate parent and all child nodes for the handle element in order to determine whether or not it was clicked.
    *
    * @param node html element to inspect
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDropMgr.ElementWrapper-handleWasClicked Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr.ElementWrapper-method-handleWasClicked Sencha Docs Ext JS 3.4
    */
   public static native function handleWasClicked(node:*):void;
 
@@ -134,14 +134,14 @@ public class ElementWrapper {
    *
    * @param moveEl The element to move
    * @param targetEl The position reference element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDropMgr.ElementWrapper-moveToEl Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr.ElementWrapper-method-moveToEl Sencha Docs Ext JS 3.4
    */
   public static native function moveToEl(moveEl:HTMLElement, targetEl:HTMLElement):void;
 
   /**
    * Numeric array sort function
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDropMgr.ElementWrapper-numericSort Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr.ElementWrapper-method-numericSort Sencha Docs Ext JS 3.4
    */
   public static native function numericSort():void;
 
@@ -150,7 +150,7 @@ public class ElementWrapper {
    *
    * @param n1 first node to swap
    * @param n2 other node to swap
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDropMgr.ElementWrapper-swapNode Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr.ElementWrapper-method-swapNode Sencha Docs Ext JS 3.4
    */
   public static native function swapNode(n1:*, n2:*):void;
 

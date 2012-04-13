@@ -17,7 +17,7 @@ package ext {
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  *
 
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CompositeElementLite.html#cls-Ext.CompositeElementLite Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.CompositeElementLite Sencha Docs Ext JS 3.4
  */
 public class CompositeElementLite {
 
@@ -47,7 +47,7 @@ public class CompositeElementLite {
    return this.add(r);
    }
    });</code></pre>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CompositeElementLite.html#prop-Ext.CompositeElementLite-elements Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.CompositeElementLite-property-elements Sencha Docs Ext JS 3.4
    */
   public native function get elements():Array;
 
@@ -56,14 +56,14 @@ public class CompositeElementLite {
    *
    * @param els Either an Array of DOM elements to add, or another Composite object who's elements should be added.
    * @return This Composite object.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CompositeElementLite.html#method-Ext.CompositeElementLite-add Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.CompositeElementLite-method-add Sencha Docs Ext JS 3.4
    */
   public native function add(els:*):CompositeElement;
 
   /**
    * Removes all elements.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CompositeElementLite.html#method-Ext.CompositeElementLite-clear Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.CompositeElementLite-method-clear Sencha Docs Ext JS 3.4
    */
   public native function clear():void;
 
@@ -72,7 +72,7 @@ public class CompositeElementLite {
    *
    * @param el The id of an element, or an Ext.Element, or an HtmlElement to find within the composite collection.
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CompositeElementLite-more.html#method-Ext.CompositeElementLite-contains Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.CompositeElementLite-method-contains Sencha Docs Ext JS 3.4
    */
   public native function contains(el:*):Boolean;
 
@@ -83,7 +83,7 @@ public class CompositeElementLite {
    * @param fn The function to call. The function is passed the following parameters:<ul><li><b>el</b> : Element<div class="sub-desc">The current Element in the iteration. <b>This is the flyweight (shared) Ext.Element instance, so if you require a a reference to the dom node, use el.dom.</b></div></li><li><b>c</b> : Composite<div class="sub-desc">This Composite object.</div></li><li><b>idx</b> : Number<div class="sub-desc">The zero-based index in the iteration.</div></li></ul>
    * @param scope The scope (<i>this</i> reference) in which the function is executed. (defaults to the Element)
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CompositeElementLite.html#method-Ext.CompositeElementLite-each Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.CompositeElementLite-method-each Sencha Docs Ext JS 3.4
    */
   public native function each(fn:Function, scope:Object = null):CompositeElement;
 
@@ -92,7 +92,7 @@ public class CompositeElementLite {
    *
    * @param els Either an array of DOM elements, or another Composite from which to fill this Composite.
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CompositeElementLite.html#method-Ext.CompositeElementLite-fill Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.CompositeElementLite-method-fill Sencha Docs Ext JS 3.4
    */
   public native function fill(els:*):CompositeElement;
 
@@ -101,7 +101,7 @@ public class CompositeElementLite {
    *
    * @param selector A string CSS selector or a comparison function. The comparison function will be called with the following arguments:<ul><li><code>el</code> : Ext.Element<div class="sub-desc">The current DOM element.</div></li><li><code>index</code> : Number<div class="sub-desc">The current index within the collection.</div></li></ul>
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CompositeElementLite.html#method-Ext.CompositeElementLite-filter Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.CompositeElementLite-method-filter Sencha Docs Ext JS 3.4
    */
   public native function filter(selector:*):CompositeElement;
 
@@ -109,7 +109,7 @@ public class CompositeElementLite {
    * Returns the first Element
    *
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CompositeElementLite-more.html#method-Ext.CompositeElementLite-first Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.CompositeElementLite-method-first Sencha Docs Ext JS 3.4
    */
   public native function first():Element;
 
@@ -117,14 +117,14 @@ public class CompositeElementLite {
    * Returns the number of elements in this Composite.
    *
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CompositeElementLite.html#method-Ext.CompositeElementLite-getCount Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.CompositeElementLite-method-getCount Sencha Docs Ext JS 3.4
    */
   public native function getCount():Number;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CompositeElementLite.html#method-Ext.CompositeElementLite-importElementMethods Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.CompositeElementLite-method-importElementMethods Sencha Docs Ext JS 3.4
    */
   public native function importElementMethods():void;
 
@@ -133,7 +133,7 @@ public class CompositeElementLite {
    *
    * @param el The id of an element, or an Ext.Element, or an HtmlElement to find within the composite collection.
    * @return The index of the passed Ext.Element in the composite collection, or -1 if not found.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CompositeElementLite.html#method-Ext.CompositeElementLite-indexOf Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.CompositeElementLite-method-indexOf Sencha Docs Ext JS 3.4
    */
   public native function indexOf(el:*):Number;
 
@@ -142,7 +142,7 @@ public class CompositeElementLite {
    *
    * @param index
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CompositeElementLite.html#method-Ext.CompositeElementLite-item Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.CompositeElementLite-method-item Sencha Docs Ext JS 3.4
    */
   public native function item(index:Number):Element;
 
@@ -150,7 +150,7 @@ public class CompositeElementLite {
    * Returns the last Element
    *
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CompositeElementLite-more.html#method-Ext.CompositeElementLite-last Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.CompositeElementLite-method-last Sencha Docs Ext JS 3.4
    */
   public native function last():Element;
 
@@ -160,7 +160,7 @@ public class CompositeElementLite {
    * @param el The id of an element, the Element itself, the index of the element in this composite or an array of any of those.
    * @param removeDom True to also remove the element from the document
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CompositeElementLite-more.html#method-Ext.CompositeElementLite-removeElement Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.CompositeElementLite-method-removeElement Sencha Docs Ext JS 3.4
    */
   public native function removeElement(el:*, removeDom:Boolean = false):CompositeElement;
 
@@ -171,7 +171,7 @@ public class CompositeElementLite {
    * @param replacement The id of an element or the Element itself.
    * @param domReplace True to remove and replace the element in the document too.
    * @return this
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CompositeElementLite.html#method-Ext.CompositeElementLite-replaceElement Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.CompositeElementLite-method-replaceElement Sencha Docs Ext JS 3.4
    */
   public native function replaceElement(el:*, replacement:*, domReplace:Boolean = false):CompositeElement;
 

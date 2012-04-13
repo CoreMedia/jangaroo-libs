@@ -54,7 +54,7 @@ import ext.config.cardlayout;
  *
 
  * @see ext.config.cardlayout
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CardLayout.html#cls-Ext.layout.CardLayout Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.layout.CardLayout Sencha Docs Ext JS 3.4
  */
 public class CardLayout extends FitLayout {
 
@@ -69,13 +69,11 @@ public class CardLayout extends FitLayout {
 
   /**
    True to render each contained item at the time it becomes active, false to render all contained items as soon as the layout is rendered (defaults to false). If there is a significant amount of content or a lot of heavy controls being rendered into panels that are not displayed by default, setting this to true might improve performance.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get deferredRender():Boolean;
 
   /**
    True to force a layout of the active item when the active card is changed. Defaults to false.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get layoutOnCardChange():Boolean;
 
@@ -83,7 +81,7 @@ public class CardLayout extends FitLayout {
    * Sets the active (visible) item in the layout.
    *
    * @param item The string component id or numeric index of the item to activate
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CardLayout.html#method-Ext.layout.CardLayout-setActiveItem Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.layout.CardLayout-method-setActiveItem Sencha Docs Ext JS 3.4
    */
   public native function setActiveItem(item:*):void;
 

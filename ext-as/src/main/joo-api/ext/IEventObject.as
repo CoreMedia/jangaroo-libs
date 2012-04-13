@@ -23,535 +23,535 @@ import js.HTMLElement;
 
  * <p>This interface defines the type of the singleton EventObject.</p>
  * @see ext.#EventObject ext.EventObject
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager.html#cls-Ext.EventObject Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject Sencha Docs Ext JS 3.4
  */
 public interface IEventObject {
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-A Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-A Sencha Docs Ext JS 3.4
    */
   function get A():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-ALT Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-ALT Sencha Docs Ext JS 3.4
    */
   function get ALT():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-B Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-B Sencha Docs Ext JS 3.4
    */
   function get B():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-BACKSPACE Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-BACKSPACE Sencha Docs Ext JS 3.4
    */
   function get BACKSPACE():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-C Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-C Sencha Docs Ext JS 3.4
    */
   function get C():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-CAPS_LOCK Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-CAPS_LOCK Sencha Docs Ext JS 3.4
    */
   function get CAPS_LOCK():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-CONTEXT_MENU Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-CONTEXT_MENU Sencha Docs Ext JS 3.4
    */
   function get CONTEXT_MENU():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-CTRL Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-CTRL Sencha Docs Ext JS 3.4
    */
   function get CTRL():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-D Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-D Sencha Docs Ext JS 3.4
    */
   function get D():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-DELETE Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-DELETE Sencha Docs Ext JS 3.4
    */
   function get DELETE():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-DOWN Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-DOWN Sencha Docs Ext JS 3.4
    */
   function get DOWN():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-E Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-E Sencha Docs Ext JS 3.4
    */
   function get E():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-EIGHT Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-EIGHT Sencha Docs Ext JS 3.4
    */
   function get EIGHT():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-END Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-END Sencha Docs Ext JS 3.4
    */
   function get END():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-ENTER Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-ENTER Sencha Docs Ext JS 3.4
    */
   function get ENTER():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-ESC Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-ESC Sencha Docs Ext JS 3.4
    */
   function get ESC():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-F Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-F Sencha Docs Ext JS 3.4
    */
   function get F():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-F1 Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-F1 Sencha Docs Ext JS 3.4
    */
   function get F1():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-F10 Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-F10 Sencha Docs Ext JS 3.4
    */
   function get F10():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-F11 Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-F11 Sencha Docs Ext JS 3.4
    */
   function get F11():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-F12 Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-F12 Sencha Docs Ext JS 3.4
    */
   function get F12():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-F2 Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-F2 Sencha Docs Ext JS 3.4
    */
   function get F2():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-F3 Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-F3 Sencha Docs Ext JS 3.4
    */
   function get F3():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-F4 Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-F4 Sencha Docs Ext JS 3.4
    */
   function get F4():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-F5 Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-F5 Sencha Docs Ext JS 3.4
    */
   function get F5():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-F6 Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-F6 Sencha Docs Ext JS 3.4
    */
   function get F6():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-F7 Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-F7 Sencha Docs Ext JS 3.4
    */
   function get F7():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-F8 Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-F8 Sencha Docs Ext JS 3.4
    */
   function get F8():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-F9 Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-F9 Sencha Docs Ext JS 3.4
    */
   function get F9():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-FIVE Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-FIVE Sencha Docs Ext JS 3.4
    */
   function get FIVE():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-FOUR Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-FOUR Sencha Docs Ext JS 3.4
    */
   function get FOUR():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-G Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-G Sencha Docs Ext JS 3.4
    */
   function get G():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-H Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-H Sencha Docs Ext JS 3.4
    */
   function get H():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-HOME Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-HOME Sencha Docs Ext JS 3.4
    */
   function get HOME():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-I Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-I Sencha Docs Ext JS 3.4
    */
   function get I():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-INSERT Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-INSERT Sencha Docs Ext JS 3.4
    */
   function get INSERT():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-J Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-J Sencha Docs Ext JS 3.4
    */
   function get J():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-K Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-K Sencha Docs Ext JS 3.4
    */
   function get K():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-L Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-L Sencha Docs Ext JS 3.4
    */
   function get L():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-LEFT Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-LEFT Sencha Docs Ext JS 3.4
    */
   function get LEFT():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-M Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-M Sencha Docs Ext JS 3.4
    */
   function get M():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-N Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-N Sencha Docs Ext JS 3.4
    */
   function get N():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-NINE Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-NINE Sencha Docs Ext JS 3.4
    */
   function get NINE():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-NUM_CENTER Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-NUM_CENTER Sencha Docs Ext JS 3.4
    */
   function get NUM_CENTER():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-NUM_DIVISION Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-NUM_DIVISION Sencha Docs Ext JS 3.4
    */
   function get NUM_DIVISION():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-NUM_EIGHT Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-NUM_EIGHT Sencha Docs Ext JS 3.4
    */
   function get NUM_EIGHT():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-NUM_FIVE Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-NUM_FIVE Sencha Docs Ext JS 3.4
    */
   function get NUM_FIVE():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-NUM_FOUR Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-NUM_FOUR Sencha Docs Ext JS 3.4
    */
   function get NUM_FOUR():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-NUM_MINUS Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-NUM_MINUS Sencha Docs Ext JS 3.4
    */
   function get NUM_MINUS():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-NUM_MULTIPLY Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-NUM_MULTIPLY Sencha Docs Ext JS 3.4
    */
   function get NUM_MULTIPLY():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-NUM_NINE Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-NUM_NINE Sencha Docs Ext JS 3.4
    */
   function get NUM_NINE():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-NUM_ONE Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-NUM_ONE Sencha Docs Ext JS 3.4
    */
   function get NUM_ONE():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-NUM_PERIOD Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-NUM_PERIOD Sencha Docs Ext JS 3.4
    */
   function get NUM_PERIOD():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-NUM_PLUS Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-NUM_PLUS Sencha Docs Ext JS 3.4
    */
   function get NUM_PLUS():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-NUM_SEVEN Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-NUM_SEVEN Sencha Docs Ext JS 3.4
    */
   function get NUM_SEVEN():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-NUM_SIX Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-NUM_SIX Sencha Docs Ext JS 3.4
    */
   function get NUM_SIX():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-NUM_THREE Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-NUM_THREE Sencha Docs Ext JS 3.4
    */
   function get NUM_THREE():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-NUM_TWO Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-NUM_TWO Sencha Docs Ext JS 3.4
    */
   function get NUM_TWO():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-NUM_ZERO Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-NUM_ZERO Sencha Docs Ext JS 3.4
    */
   function get NUM_ZERO():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-O Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-O Sencha Docs Ext JS 3.4
    */
   function get O():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-ONE Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-ONE Sencha Docs Ext JS 3.4
    */
   function get ONE():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-P Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-P Sencha Docs Ext JS 3.4
    */
   function get P():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-PAGE_DOWN Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-PAGE_DOWN Sencha Docs Ext JS 3.4
    */
   function get PAGE_DOWN():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-PAGE_UP Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-PAGE_UP Sencha Docs Ext JS 3.4
    */
   function get PAGE_UP():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-PAUSE Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-PAUSE Sencha Docs Ext JS 3.4
    */
   function get PAUSE():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-PRINT_SCREEN Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-PRINT_SCREEN Sencha Docs Ext JS 3.4
    */
   function get PRINT_SCREEN():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-Q Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-Q Sencha Docs Ext JS 3.4
    */
   function get Q():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-R Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-R Sencha Docs Ext JS 3.4
    */
   function get R():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-RETURN Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-RETURN Sencha Docs Ext JS 3.4
    */
   function get RETURN():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-RIGHT Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-RIGHT Sencha Docs Ext JS 3.4
    */
   function get RIGHT():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-S Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-S Sencha Docs Ext JS 3.4
    */
   function get S():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-SEVEN Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-SEVEN Sencha Docs Ext JS 3.4
    */
   function get SEVEN():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-SHIFT Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-SHIFT Sencha Docs Ext JS 3.4
    */
   function get SHIFT():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-SIX Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-SIX Sencha Docs Ext JS 3.4
    */
   function get SIX():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-SPACE Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-SPACE Sencha Docs Ext JS 3.4
    */
   function get SPACE():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-T Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-T Sencha Docs Ext JS 3.4
    */
   function get T():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-TAB Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-TAB Sencha Docs Ext JS 3.4
    */
   function get TAB():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-THREE Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-THREE Sencha Docs Ext JS 3.4
    */
   function get THREE():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-TWO Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-TWO Sencha Docs Ext JS 3.4
    */
   function get TWO():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-U Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-U Sencha Docs Ext JS 3.4
    */
   function get U():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-UP Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-UP Sencha Docs Ext JS 3.4
    */
   function get UP():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-V Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-V Sencha Docs Ext JS 3.4
    */
   function get V():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-W Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-W Sencha Docs Ext JS 3.4
    */
   function get W():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-X Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-X Sencha Docs Ext JS 3.4
    */
   function get X():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-Y Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-Y Sencha Docs Ext JS 3.4
    */
   function get Y():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-Z Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-Z Sencha Docs Ext JS 3.4
    */
   function get Z():Number;
 
   /**
    Key constant
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#prop-Ext.EventObject-ZERO Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-ZERO Sencha Docs Ext JS 3.4
    */
   function get ZERO():Number;
 
   /**
    True if alt key is pressed (copied from the browser event).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager.html#prop-Ext.EventObject-altKey Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-altKey Sencha Docs Ext JS 3.4
    */
   function get altKey():Boolean;
 
@@ -562,7 +562,7 @@ public interface IEventObject {
 
   /**
    The wrapped browser event.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager.html#prop-Ext.EventObject-browserEvent Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-browserEvent Sencha Docs Ext JS 3.4
    */
   function get browserEvent():Event;
 
@@ -573,7 +573,7 @@ public interface IEventObject {
 
   /**
    True if ctrl (meta) key is pressed (copied from the browser event ctrlKey and metaKey, since mac metaKey behaves like ctrlKey).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager.html#prop-Ext.EventObject-ctrlKey Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-ctrlKey Sencha Docs Ext JS 3.4
    */
   function get ctrlKey():Boolean;
 
@@ -584,7 +584,7 @@ public interface IEventObject {
 
   /**
    True if shift key is pressed (copied from the browser event).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager.html#prop-Ext.EventObject-shiftKey Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-shiftKey Sencha Docs Ext JS 3.4
    */
   function get shiftKey():Boolean;
 
@@ -595,7 +595,7 @@ public interface IEventObject {
 
   /**
    The event type (copied from the browser event).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager.html#prop-Ext.EventObject-type Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-property-type Sencha Docs Ext JS 3.4
    */
   function get type():String;
 
@@ -608,7 +608,7 @@ public interface IEventObject {
    * Gets the character code for the event.
    *
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager.html#method-Ext.EventObject-getCharCode Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-method-getCharCode Sencha Docs Ext JS 3.4
    */
   function getCharCode():Number;
 
@@ -616,7 +616,7 @@ public interface IEventObject {
    * Returns a normalized keyCode for the event.
    *
    * @return The key code
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager.html#method-Ext.EventObject-getKey Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-method-getKey Sencha Docs Ext JS 3.4
    */
   function getKey():Number;
 
@@ -624,7 +624,7 @@ public interface IEventObject {
    * Gets the x coordinate of the event.
    *
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager.html#method-Ext.EventObject-getPageX Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-method-getPageX Sencha Docs Ext JS 3.4
    */
   function getPageX():Number;
 
@@ -632,7 +632,7 @@ public interface IEventObject {
    * Gets the y coordinate of the event.
    *
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager.html#method-Ext.EventObject-getPageY Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-method-getPageY Sencha Docs Ext JS 3.4
    */
   function getPageY():Number;
 
@@ -640,7 +640,7 @@ public interface IEventObject {
    * Gets the related target.
    *
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager.html#method-Ext.EventObject-getRelatedTarget Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-method-getRelatedTarget Sencha Docs Ext JS 3.4
    */
   function getRelatedTarget():HTMLElement;
 
@@ -651,7 +651,7 @@ public interface IEventObject {
    * @param maxDepth The max depth to search as a number or element (defaults to 10 || document.body)
    * @param returnEl True to return a Ext.Element object instead of DOM node
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager.html#method-Ext.EventObject-getTarget Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-method-getTarget Sencha Docs Ext JS 3.4
    */
   function getTarget(selector:String = null, maxDepth:* = null, returnEl:Boolean = false):HTMLElement;
 
@@ -659,7 +659,7 @@ public interface IEventObject {
    * Normalizes mouse wheel delta across browsers
    *
    * @return The delta
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager.html#method-Ext.EventObject-getWheelDelta Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-method-getWheelDelta Sencha Docs Ext JS 3.4
    */
   function getWheelDelta():Number;
 
@@ -667,7 +667,7 @@ public interface IEventObject {
    * Gets the page coordinates of the event.
    *
    * @return The xy values like [x, y]
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager.html#method-Ext.EventObject-getXY Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-method-getXY Sencha Docs Ext JS 3.4
    */
   function getXY():Array;
 
@@ -675,35 +675,35 @@ public interface IEventObject {
    * Returns true if the control, meta, shift or alt key was pressed during this event.
    *
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#method-Ext.EventObject-hasModifier Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-method-hasModifier Sencha Docs Ext JS 3.4
    */
   function hasModifier():Boolean;
 
   /**
    *
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager-more.html#method-Ext.EventObject-isNavKeyPress Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-method-isNavKeyPress Sencha Docs Ext JS 3.4
    */
   function isNavKeyPress():void;
 
   /**
    * Prevents the browsers default handling of the event.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager.html#method-Ext.EventObject-preventDefault Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-method-preventDefault Sencha Docs Ext JS 3.4
    */
   function preventDefault():void;
 
   /**
    * Stop the event (preventDefault and stopPropagation)
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager.html#method-Ext.EventObject-stopEvent Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-method-stopEvent Sencha Docs Ext JS 3.4
    */
   function stopEvent():void;
 
   /**
    * Cancels bubbling of the event.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager.html#method-Ext.EventObject-stopPropagation Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-method-stopPropagation Sencha Docs Ext JS 3.4
    */
   function stopPropagation():void;
 
@@ -727,7 +727,7 @@ public interface IEventObject {
    * @param related true to test if the related target is within el instead of the target
    * @param allowEl true to also check if the passed element is the target or related target
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/EventManager.html#method-Ext.EventObject-within Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject-method-within Sencha Docs Ext JS 3.4
    */
   function within(el:*, related:Boolean = false, allowEl:Boolean = false):Boolean;
 

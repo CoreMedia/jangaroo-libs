@@ -11,7 +11,7 @@ import ext.config.templatecolumn;
 
  * <p>This component is created by the xtype 'templatecolumn' / the EXML element &lt;templatecolumn>.</p>
  * @see ext.config.templatecolumn
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Column.html#cls-Ext.grid.TemplateColumn Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.TemplateColumn Sencha Docs Ext JS 3.4
  */
 public class TemplateColumn extends Column {
 
@@ -27,7 +27,6 @@ public class TemplateColumn extends Column {
 
   /**
    An <a href="Ext.XTemplate.html">XTemplate</a>, or an XTemplate <i>definition string</i> to use to process a <a href="Ext.data.Record.html">Record</a>'s <a href="output/Ext.data.Record.html#Ext.data.Record-data">data</a> to produce a column's rendered value.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get tpl():*;
 

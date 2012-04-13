@@ -29,7 +29,7 @@ import ext.util.Observable;
  *
 
  * @see ext.config.multiselectionmodel
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeSelectionModel.html#cls-Ext.tree.MultiSelectionModel Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.MultiSelectionModel Sencha Docs Ext JS 3.4
  */
 public class MultiSelectionModel extends Observable {
 
@@ -45,7 +45,7 @@ public class MultiSelectionModel extends Observable {
   /**
    * Clear all selections
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeSelectionModel.html#method-Ext.tree.MultiSelectionModel-clearSelections Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.MultiSelectionModel-method-clearSelections Sencha Docs Ext JS 3.4
    */
   public native function clearSelections():void;
 
@@ -53,7 +53,7 @@ public class MultiSelectionModel extends Observable {
    * Returns an array of the selected nodes
    *
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeSelectionModel.html#method-Ext.tree.MultiSelectionModel-getSelectedNodes Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.MultiSelectionModel-method-getSelectedNodes Sencha Docs Ext JS 3.4
    */
   public native function getSelectedNodes():Array;
 
@@ -62,7 +62,7 @@ public class MultiSelectionModel extends Observable {
    *
    * @param node The node to check
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeSelectionModel.html#method-Ext.tree.MultiSelectionModel-isSelected Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.MultiSelectionModel-method-isSelected Sencha Docs Ext JS 3.4
    */
   public native function isSelected(node:TreeNode):Boolean;
 
@@ -73,7 +73,7 @@ public class MultiSelectionModel extends Observable {
    * @param e An event associated with the selection
    * @param keepExisting True to retain existing selections
    * @return The selected node
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeSelectionModel.html#method-Ext.tree.MultiSelectionModel-select Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.MultiSelectionModel-method-select Sencha Docs Ext JS 3.4
    */
   public native function select(node:TreeNode, e:IEventObject = null, keepExisting:Boolean = false):TreeNode;
 
@@ -81,7 +81,7 @@ public class MultiSelectionModel extends Observable {
    * Deselect a node.
    *
    * @param node The node to unselect
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeSelectionModel.html#method-Ext.tree.MultiSelectionModel-unselect Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.MultiSelectionModel-method-unselect Sencha Docs Ext JS 3.4
    */
   public native function unselect(node:TreeNode):void;
 

@@ -6,7 +6,7 @@ package ext.layout.boxoverflow {
  *
 
  * @see ext.config.horizontalmenu
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MenuOverflow.html#cls-Ext.layout.boxOverflow.HorizontalMenu Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.layout.boxOverflow.HorizontalMenu Sencha Docs Ext JS 3.4
  */
 public class HorizontalMenu extends Menu {
 

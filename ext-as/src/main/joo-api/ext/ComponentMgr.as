@@ -8,7 +8,7 @@ package ext {
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  *
  * @see ext.IComponentMgr
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ComponentMgr.html#cls-Ext.ComponentMgr Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.ComponentMgr Sencha Docs Ext JS 3.4
  */
 public const ComponentMgr:IComponentMgr;
 

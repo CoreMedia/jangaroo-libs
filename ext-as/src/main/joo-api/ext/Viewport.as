@@ -51,7 +51,7 @@ import ext.config.viewport;
 
  * <p>This component is created by the xtype 'viewport' / the EXML element &lt;viewport>.</p>
  * @see ext.config.viewport
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Viewport.html#cls-Ext.Viewport Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Viewport Sencha Docs Ext JS 3.4
  */
 public class Viewport extends Container {
 

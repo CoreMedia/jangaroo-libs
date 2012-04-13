@@ -7,7 +7,7 @@ import ext.SplitBar;
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  *
 
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SplitBar.html#cls-Ext.SplitBar.BasicLayoutAdapter Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.SplitBar.BasicLayoutAdapter Sencha Docs Ext JS 3.4
  */
 public class BasicLayoutAdapter {
 
@@ -23,7 +23,7 @@ public class BasicLayoutAdapter {
    * Called before drag operations to get the current size of the resizing element.
    *
    * @param s The SplitBar using this adapter
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SplitBar.html#method-Ext.SplitBar.BasicLayoutAdapter-getElementSize Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.SplitBar.BasicLayoutAdapter-method-getElementSize Sencha Docs Ext JS 3.4
    */
   public native function getElementSize(s:SplitBar):void;
 
@@ -33,7 +33,7 @@ public class BasicLayoutAdapter {
    * @param s The SplitBar using this adapter
    * @param newSize The new size to set
    * @param onComplete A function to be invoked when resizing is complete
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SplitBar.html#method-Ext.SplitBar.BasicLayoutAdapter-setElementSize Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.SplitBar.BasicLayoutAdapter-method-setElementSize Sencha Docs Ext JS 3.4
    */
   public native function setElementSize(s:SplitBar, newSize:Number, onComplete:Function):void;
 

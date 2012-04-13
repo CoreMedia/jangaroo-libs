@@ -75,7 +75,7 @@ import ext.util.Observable;
  *
 
  * @see ext.config.provider
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Provider.html#cls-Ext.direct.Provider Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.direct.Provider Sencha Docs Ext JS 3.4
  */
 public class Provider extends Observable {
 
@@ -100,40 +100,37 @@ public class Provider extends Observable {
    var p = <a href="Ext.Direct.html">Ext.Direct</a>.<a href="output/Ext.Direct.html#Ext.Direct-getProvider">getProvider</a>('poll-provider');
    p.disconnect();
    </code></pre>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get id():String;
 
   /**
    Priority of the request. Lower is higher priority, <tt>0</tt> means "duplex" (always on). All Providers default to <tt>1</tt> except for PollingProvider which defaults to <tt>3</tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get priority():Number;
 
   /**
    <b>Required</b>, <tt>undefined</tt> by default. The <tt>type</tt> of provider specified to <a href="Ext.Direct.html">Ext.Direct</a>.<a href="output/Ext.Direct.html#Ext.Direct-addProvider">addProvider</a> to create a new Provider. Acceptable values by default are:<div class="mdetail-params"><ul><li><b><tt>polling</tt></b> : <a href="Ext.direct.PollingProvider.html">PollingProvider</a></li><li><b><tt>remoting</tt></b> : <a href="Ext.direct.RemotingProvider.html">RemotingProvider</a></li></ul></div>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get type():String;
 
   /**
    * Abstract methods for subclasses to implement.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Provider.html#method-Ext.direct.Provider-connect Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.direct.Provider-method-connect Sencha Docs Ext JS 3.4
    */
   public native function connect():void;
 
   /**
    * Abstract methods for subclasses to implement.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Provider.html#method-Ext.direct.Provider-disconnect Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.direct.Provider-method-disconnect Sencha Docs Ext JS 3.4
    */
   public native function disconnect():void;
 
   /**
    * Returns whether or not the server-side is currently connected. Abstract method for subclasses to implement.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Provider.html#method-Ext.direct.Provider-isConnected Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.direct.Provider-method-isConnected Sencha Docs Ext JS 3.4
    */
   public native function isConnected():void;
 

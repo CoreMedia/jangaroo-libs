@@ -29,7 +29,7 @@ import ext.config.anchorlayout;
  *
 
  * @see ext.config.anchorlayout
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/AnchorLayout.html#cls-Ext.layout.AnchorLayout Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.layout.AnchorLayout Sencha Docs Ext JS 3.4
  */
 public class AnchorLayout extends ContainerLayout {
 
@@ -58,13 +58,11 @@ public class AnchorLayout extends ContainerLayout {
    // bottom offset will default to 0
    </code></pre></div></li><li><b>Sides</b> : Valid values are <tt>'right'</tt> (or <tt>'r'</tt>) and <tt>'bottom'</tt> (or <tt>'b'</tt>).<div class="sub-desc">Either the container must have a fixed size or an anchorSize config value defined at render time in order for these to have any effect.</div></li><li><b>Mixed</b> : <div class="sub-desc">Anchor values can also be mixed as needed. For example, to render the width offset from the container right edge by 50 pixels and 75% of the container's height use: <pre><code>anchor: '-50 75%'
    </code></pre></div></li></ul></div>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get anchor():String;
 
   /**
    default anchor for all child container items applied if no anchor or specific width is set on the child item. Defaults to '100%'.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get defaultAnchor():String;
 

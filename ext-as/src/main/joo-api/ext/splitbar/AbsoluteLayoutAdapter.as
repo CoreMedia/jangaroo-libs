@@ -5,7 +5,7 @@ package ext.splitbar {
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  *
 
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SplitBar.html#cls-Ext.SplitBar.AbsoluteLayoutAdapter Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.SplitBar.AbsoluteLayoutAdapter Sencha Docs Ext JS 3.4
  */
 public class AbsoluteLayoutAdapter extends BasicLayoutAdapter {
 
@@ -19,37 +19,37 @@ public class AbsoluteLayoutAdapter extends BasicLayoutAdapter {
 
   /**
    Placement constant - The resizing element is positioned under splitter element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SplitBar.html#prop-Ext.SplitBar.AbsoluteLayoutAdapter-BOTTOM Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.SplitBar.AbsoluteLayoutAdapter-property-BOTTOM Sencha Docs Ext JS 3.4
    */
   public static const BOTTOM:Number;
 
   /**
    Orientation constant - Create a horizontal SplitBar
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SplitBar.html#prop-Ext.SplitBar.AbsoluteLayoutAdapter-HORIZONTAL Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.SplitBar.AbsoluteLayoutAdapter-property-HORIZONTAL Sencha Docs Ext JS 3.4
    */
   public static const HORIZONTAL:Number;
 
   /**
    Placement constant - The resizing element is to the left of the splitter element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SplitBar.html#prop-Ext.SplitBar.AbsoluteLayoutAdapter-LEFT Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.SplitBar.AbsoluteLayoutAdapter-property-LEFT Sencha Docs Ext JS 3.4
    */
   public static const LEFT:Number;
 
   /**
    Placement constant - The resizing element is to the right of the splitter element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SplitBar.html#prop-Ext.SplitBar.AbsoluteLayoutAdapter-RIGHT Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.SplitBar.AbsoluteLayoutAdapter-property-RIGHT Sencha Docs Ext JS 3.4
    */
   public static const RIGHT:Number;
 
   /**
    Placement constant - The resizing element is positioned above the splitter element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SplitBar.html#prop-Ext.SplitBar.AbsoluteLayoutAdapter-TOP Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.SplitBar.AbsoluteLayoutAdapter-property-TOP Sencha Docs Ext JS 3.4
    */
   public static const TOP:Number;
 
   /**
    Orientation constant - Create a vertical SplitBar
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SplitBar.html#prop-Ext.SplitBar.AbsoluteLayoutAdapter-VERTICAL Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.SplitBar.AbsoluteLayoutAdapter-property-VERTICAL Sencha Docs Ext JS 3.4
    */
   public static const VERTICAL:Number;
 

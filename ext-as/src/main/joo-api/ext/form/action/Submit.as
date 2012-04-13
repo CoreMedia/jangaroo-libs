@@ -36,7 +36,7 @@ import ext.form.Action;
  *
 
  * @see ext.config.submit
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Action.html#cls-Ext.form.Action.Submit Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.Action.Submit Sencha Docs Ext JS 3.4
  */
 public class Submit extends Action {
 
@@ -51,14 +51,12 @@ public class Submit extends Action {
 
   /**
    Determines whether a Form's fields are validated in a final call to <a href="output/Ext.form.BasicForm.html#Ext.form.BasicForm-isValid">isValid</a> prior to submission. Pass <tt>false</tt> in the Form's submit options to prevent this. If not defined, pre-submission field validation is performed.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get clientValidation():Boolean;
 
   /**
    Optional. JSON is interpreted with no need for an errorReader.
    <p>A Reader which reads a single record from the returned data. The DataReader's <b>success</b> property specifies how submission success is determined. The Record's data provides the error messages to apply to any invalid form Fields.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get errorReader():DataReader;
 

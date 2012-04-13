@@ -79,7 +79,7 @@ import ext.config.listview;
 
  * <p>This component is created by the xtype 'listview' / the EXML element &lt;listview>.</p>
  * @see ext.config.listview
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ListView.html#cls-Ext.list.ListView Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.list.ListView Sencha Docs Ext JS 3.4
  */
 public class ListView extends DataView {
 
@@ -95,7 +95,7 @@ public class ListView extends DataView {
 
   /**
    Set this property to <tt>true</tt> to disable the header click handler disabling sort (defaults to <tt>false</tt>).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ListView.html#prop-Ext.list.ListView-disableHeaders Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.list.ListView-property-disableHeaders Sencha Docs Ext JS 3.4
    */
   public native function get disableHeaders():Boolean;
 
@@ -106,13 +106,11 @@ public class ListView extends DataView {
 
   /**
    Specify <tt>true</tt> or specify a configuration object for <a href="Ext.list.ListView.ColumnResizer.html">Ext.list.ListView.ColumnResizer</a> to enable the columns to be resizable (defaults to <tt>true</tt>).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get columnResize():*;
 
   /**
    Specify <tt>true</tt> or specify a configuration object for <a href="Ext.list.ListView.Sorter.html">Ext.list.ListView.Sorter</a> to enable the columns to be sortable (defaults to <tt>true</tt>).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get columnSort():*;
 
@@ -125,31 +123,26 @@ public class ListView extends DataView {
    width: .35
    }
    </code></pre>Acceptable properties for each column configuration object are: <div class="mdetail-params"><ul><li><b><tt>align</tt></b> : String<div class="sub-desc">Set the CSS text-align property of the column. Defaults to <tt>'left'</tt>.</div></li><li><b><tt>dataIndex</tt></b> : String<div class="sub-desc">See <a href="Ext.grid.Column.html">Ext.grid.Column</a>. <a href="output/Ext.grid.Column.html#Ext.grid.Column-dataIndex">dataIndex</a> for details.</div></li><li><b><tt>header</tt></b> : String<div class="sub-desc">See <a href="Ext.grid.Column.html">Ext.grid.Column</a>. <a href="output/Ext.grid.Column.html#Ext.grid.Column-header">header</a> for details.</div></li><li><b><tt>tpl</tt></b> : String<div class="sub-desc">Specify a string to pass as the configuration string for <a href="Ext.XTemplate.html">Ext.XTemplate</a>. By default an <a href="Ext.XTemplate.html">Ext.XTemplate</a> will be implicitly created using the <tt>dataIndex</tt>.</div></li><li><b><tt>width</tt></b> : Number<div class="sub-desc">Percentage of the container width this column should be allocated. Columns that have no width specified will be allocated with an equal percentage to fill 100% of the container width. To easily take advantage of the full container width, leave the width of at least one column undefined. Note that if you do not want to take up the full width of the container, the width of every column needs to be explicitly defined.</div></li></ul></div>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get columns():Array;
 
   /**
    <tt>true</tt> to hide the <a href="output/Ext.list.ListView.html#Ext.list.ListView-internalTpl">header row</a> (defaults to <tt>false</tt> so the <a href="output/Ext.list.ListView.html#Ext.list.ListView-internalTpl">header row</a> will be shown).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get hideHeaders():Boolean;
 
   /**
    The template to be used for the header row. See <a href="output/Ext.list.ListView.html#Ext.list.ListView-tpl">tpl</a> for more details.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get internalTpl():*;
 
   /**
    By default will defer accounting for the configured <b><tt><a href="output/Ext.list.ListView.html#Ext.list.ListView-scrollOffset">scrollOffset</a></tt></b> for 10 milliseconds. Specify <tt>true</tt> to account for the configured <b><tt><a href="output/Ext.list.ListView.html#Ext.list.ListView-scrollOffset">scrollOffset</a></tt></b> immediately.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get reserveScrollOffset():Boolean;
 
   /**
    The amount of space to reserve for the scrollbar (defaults to <tt>undefined</tt>). If an explicit value isn't specified, this will be automatically calculated.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get scrollOffset():Number;
 
@@ -160,7 +153,7 @@ public class ListView extends DataView {
    * @param records An Array of <a href="Ext.data.Record.html">Ext.data.Record</a>s to be rendered into the DataView.
    * @param startIndex the index number of the Record being prepared for rendering.
    * @return A data object containing properties to be processed by a repeating XTemplate as described above.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ListView.html#method-Ext.list.ListView-collectData Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.list.ListView-method-collectData Sencha Docs Ext JS 3.4
    */
   override public native function collectData(records:Array, startIndex:Number):Array;
 

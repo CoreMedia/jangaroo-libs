@@ -9,13 +9,13 @@ package ext.data {
 
  * <p>This interface defines the type of the singleton SortTypes.</p>
  * @see ext.data.#SortTypes ext.data.SortTypes
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SortTypes.html#cls-Ext.data.SortTypes Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.SortTypes Sencha Docs Ext JS 3.4
  */
 public interface ISortTypes {
 
   /**
    The regular expression used to strip tags
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SortTypes.html#prop-Ext.data.SortTypes-stripTagsRE Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.SortTypes-property-stripTagsRE Sencha Docs Ext JS 3.4
    */
   function get stripTagsRE():RegExp;
 
@@ -29,7 +29,7 @@ public interface ISortTypes {
    *
    * @param s The value being converted
    * @return The comparison value
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SortTypes.html#method-Ext.data.SortTypes-asDate Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.SortTypes-method-asDate Sencha Docs Ext JS 3.4
    */
   function asDate(s:*):Number;
 
@@ -38,7 +38,7 @@ public interface ISortTypes {
    *
    * @param s The value being converted
    * @return The comparison value
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SortTypes.html#method-Ext.data.SortTypes-asFloat Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.SortTypes-method-asFloat Sencha Docs Ext JS 3.4
    */
   function asFloat(s:*):Number;
 
@@ -47,7 +47,7 @@ public interface ISortTypes {
    *
    * @param s The value being converted
    * @return The comparison value
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SortTypes.html#method-Ext.data.SortTypes-asInt Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.SortTypes-method-asInt Sencha Docs Ext JS 3.4
    */
   function asInt(s:*):Number;
 
@@ -56,7 +56,7 @@ public interface ISortTypes {
    *
    * @param s The value being converted
    * @return The comparison value
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SortTypes.html#method-Ext.data.SortTypes-asText Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.SortTypes-method-asText Sencha Docs Ext JS 3.4
    */
   function asText(s:*):String;
 
@@ -65,7 +65,7 @@ public interface ISortTypes {
    *
    * @param s The value being converted
    * @return The comparison value
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SortTypes.html#method-Ext.data.SortTypes-asUCString Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.SortTypes-method-asUCString Sencha Docs Ext JS 3.4
    */
   function asUCString(s:*):String;
 
@@ -74,7 +74,7 @@ public interface ISortTypes {
    *
    * @param s The value being converted
    * @return The comparison value
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SortTypes.html#method-Ext.data.SortTypes-asUCText Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.SortTypes-method-asUCText Sencha Docs Ext JS 3.4
    */
   function asUCText(s:*):String;
 
@@ -83,7 +83,7 @@ public interface ISortTypes {
    *
    * @param s The value being converted
    * @return The comparison value
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SortTypes.html#method-Ext.data.SortTypes-none Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.SortTypes-method-none Sencha Docs Ext JS 3.4
    */
   function none(s:*):*;
 

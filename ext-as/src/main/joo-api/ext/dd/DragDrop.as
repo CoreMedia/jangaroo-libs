@@ -13,7 +13,7 @@ import js.HTMLElement;
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  *
 
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#cls-Ext.dd.DragDrop Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop Sencha Docs Ext JS 3.4
  */
 public class DragDrop {
 
@@ -30,7 +30,7 @@ public class DragDrop {
 
   /**
    Internal typeof flag
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDrop-__ygDragDrop Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-property-__ygDragDrop Sencha Docs Ext JS 3.4
    */
   public native function get __ygDragDrop():Object;
 
@@ -41,7 +41,7 @@ public class DragDrop {
 
   /**
    Cached reference to the linked element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDrop-_domRef Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-property-_domRef Sencha Docs Ext JS 3.4
    */
   public native function get _domRef():HTMLElement;
 
@@ -52,7 +52,7 @@ public class DragDrop {
 
   /**
    The available property is false until the linked dom element is accessible.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDrop-available Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-property-available Sencha Docs Ext JS 3.4
    */
   public native function get available():Boolean;
 
@@ -63,7 +63,7 @@ public class DragDrop {
 
   /**
    Configuration attributes passed into the constructor
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDrop-config Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-property-config Sencha Docs Ext JS 3.4
    */
   public native function get config():Object;
 
@@ -74,7 +74,7 @@ public class DragDrop {
 
   /**
    Set to true when horizontal constraints are applied
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDrop-constrainX Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-property-constrainX Sencha Docs Ext JS 3.4
    */
   public native function get constrainX():Boolean;
 
@@ -85,7 +85,7 @@ public class DragDrop {
 
   /**
    Set to true when vertical constraints are applied
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDrop-constrainY Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-property-constrainY Sencha Docs Ext JS 3.4
    */
   public native function get constrainY():Boolean;
 
@@ -96,7 +96,7 @@ public class DragDrop {
 
   /**
    Provides default constraint padding to "constrainTo" elements (defaults to {left: 0, right:0, top:0, bottom:0}).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDrop-defaultPadding Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-property-defaultPadding Sencha Docs Ext JS 3.4
    */
   public native function get defaultPadding():Object;
 
@@ -107,7 +107,7 @@ public class DragDrop {
 
   /**
    The id of the element that will be dragged. By default this is same as the linked element, but could be changed to another element. Ex: Ext.dd.DDProxy
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDrop-dragElId Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-property-dragElId Sencha Docs Ext JS 3.4
    */
   public native function get dragElId():String;
 
@@ -118,7 +118,7 @@ public class DragDrop {
 
   /**
    The group defines a logical collection of DragDrop objects that are related. Instances only get events when interacting with other DragDrop object in the same group. This lets us define multiple groups using a single DragDrop subclass if we want. An object in the format {'group1':true, 'group2':true}
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDrop-groups Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-property-groups Sencha Docs Ext JS 3.4
    */
   public native function get groups():Object;
 
@@ -129,7 +129,7 @@ public class DragDrop {
 
   /**
    The ID of the element that initiates the drag operation. By default this is the linked element, but could be changed to be a child of this element. This lets us do things like only starting the drag when the header element within the linked html element is clicked.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDrop-handleElId Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-property-handleElId Sencha Docs Ext JS 3.4
    */
   public native function get handleElId():String;
 
@@ -140,7 +140,7 @@ public class DragDrop {
 
   /**
    By default, drags can only be initiated if the mousedown occurs in the region the linked element is. This is done in part to work around a bug in some browsers that mis-report the mousedown if the previous mouseup happened outside of the window. This property is set to true if outer handles are defined.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDrop-hasOuterHandles Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-property-hasOuterHandles Sencha Docs Ext JS 3.4
    */
   public native function get hasOuterHandles():Boolean;
 
@@ -151,7 +151,7 @@ public class DragDrop {
 
   /**
    The id of the element associated with this object. This is what we refer to as the "linked element" because the size and position of this element is used to determine when the drag and drop objects have interacted.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDrop-id Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-property-id Sencha Docs Ext JS 3.4
    */
   public native function get id():String;
 
@@ -162,7 +162,7 @@ public class DragDrop {
 
   /**
    Set to false to enable a DragDrop object to fire drag events while dragging over its own Element. Defaults to true - DragDrop objects do not by default fire drag events to themselves.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDrop-ignoreSelf Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-property-ignoreSelf Sencha Docs Ext JS 3.4
    */
   public native function get ignoreSelf():Boolean;
 
@@ -173,7 +173,7 @@ public class DragDrop {
 
   /**
    An Array of CSS class names for elements to be considered in valid as drag handles.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDrop-invalidHandleClasses Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-property-invalidHandleClasses Sencha Docs Ext JS 3.4
    */
   public native function get invalidHandleClasses():Array;
 
@@ -186,7 +186,7 @@ public class DragDrop {
    An object who's property names identify the IDs of elements to be considered invalid as drag handles. A non-null property value identifies the ID as invalid. For example, to prevent dragging from being initiated on element ID "foo", use:<pre><code>{
    foo: true
    }</code></pre>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDrop-invalidHandleIds Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-property-invalidHandleIds Sencha Docs Ext JS 3.4
    */
   public native function get invalidHandleIds():Object;
 
@@ -199,7 +199,7 @@ public class DragDrop {
    An object who's property names identify HTML tags to be considered invalid as drag handles. A non-null property value identifies the tag as invalid. Defaults to the following value which prevents drag operations from being initiated by &lt;a&gt; elements:<pre><code>{
    A: "A"
    }</code></pre>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDrop-invalidHandleTypes Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-property-invalidHandleTypes Sencha Docs Ext JS 3.4
    */
   public native function get invalidHandleTypes():Object;
 
@@ -210,7 +210,7 @@ public class DragDrop {
 
   /**
    By default, all instances can be a drop target. This can be disabled by setting isTarget to false.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDrop-isTarget Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-property-isTarget Sencha Docs Ext JS 3.4
    */
   public native function get isTarget():Boolean;
 
@@ -221,7 +221,7 @@ public class DragDrop {
 
   /**
    Individual drag/drop instances can be locked. This will prevent onmousedown start drag.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDrop-locked Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-property-locked Sencha Docs Ext JS 3.4
    */
   public native function get locked():Boolean;
 
@@ -232,7 +232,7 @@ public class DragDrop {
 
   /**
    Maintain offsets when we resetconstraints. Set to true when you want the position of the element relative to its parent to stay the same when the page changes
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDrop-maintainOffset Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-property-maintainOffset Sencha Docs Ext JS 3.4
    */
   public native function get maintainOffset():Boolean;
 
@@ -243,7 +243,7 @@ public class DragDrop {
 
   /**
    The right constraint
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDrop-maxX Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-property-maxX Sencha Docs Ext JS 3.4
    */
   public native function get maxX():int;
 
@@ -254,7 +254,7 @@ public class DragDrop {
 
   /**
    The down constraint
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDrop-maxY Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-property-maxY Sencha Docs Ext JS 3.4
    */
   public native function get maxY():int;
 
@@ -265,7 +265,7 @@ public class DragDrop {
 
   /**
    The left constraint
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDrop-minX Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-property-minX Sencha Docs Ext JS 3.4
    */
   public native function get minX():int;
 
@@ -276,7 +276,7 @@ public class DragDrop {
 
   /**
    The up constraint
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDrop-minY Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-property-minY Sencha Docs Ext JS 3.4
    */
   public native function get minY():int;
 
@@ -287,7 +287,7 @@ public class DragDrop {
 
   /**
    When set to true, other DD objects in cooperating DDGroups do not receive notification events when this DD object is dragged over them. Defaults to false.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDrop-moveOnly Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-property-moveOnly Sencha Docs Ext JS 3.4
    */
   public native function get moveOnly():Boolean;
 
@@ -298,7 +298,7 @@ public class DragDrop {
 
   /**
    The padding configured for this drag and drop object for calculating the drop zone intersection with this object. An array containing the 4 padding values: [top, right, bottom, left]
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDrop-padding Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-property-padding Sencha Docs Ext JS 3.4
    */
   public native function get padding():Array;
 
@@ -309,7 +309,7 @@ public class DragDrop {
 
   /**
    By default the drag and drop instance will only respond to the primary button click (left button for a right-handed mouse). Set to true to allow drag and drop to start with any mouse click that is propagated by the browser
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDrop-primaryButtonOnly Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-property-primaryButtonOnly Sencha Docs Ext JS 3.4
    */
   public native function get primaryButtonOnly():Boolean;
 
@@ -320,7 +320,7 @@ public class DragDrop {
 
   /**
    The linked element's absolute X position at the time the drag was started
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDrop-startPageX Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-property-startPageX Sencha Docs Ext JS 3.4
    */
   public native function get startPageX():int;
 
@@ -331,7 +331,7 @@ public class DragDrop {
 
   /**
    The linked element's absolute X position at the time the drag was started
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDrop-startPageY Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-property-startPageY Sencha Docs Ext JS 3.4
    */
   public native function get startPageY():int;
 
@@ -342,7 +342,7 @@ public class DragDrop {
 
   /**
    Array of pixel locations the element will snap to if we specified a horizontal graduation/interval. This array is generated automatically when you define a tick interval.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDrop-xTicks Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-property-xTicks Sencha Docs Ext JS 3.4
    */
   public native function get xTicks():Array;
 
@@ -353,7 +353,7 @@ public class DragDrop {
 
   /**
    Array of pixel locations the element will snap to if we specified a vertical graduation/interval. This array is generated automatically when you define a tick interval.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#prop-Ext.dd.DragDrop-yTicks Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-property-yTicks Sencha Docs Ext JS 3.4
    */
   public native function get yTicks():Array;
 
@@ -366,7 +366,7 @@ public class DragDrop {
    * Lets you specify a css class of elements that will not initiate a drag
    *
    * @param cssClass the class of the elements you wish to ignore
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-addInvalidHandleClass Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-addInvalidHandleClass Sencha Docs Ext JS 3.4
    */
   public native function addInvalidHandleClass(cssClass:String):void;
 
@@ -374,7 +374,7 @@ public class DragDrop {
    * Lets you to specify an element id for a child of a drag handle that should not initiate a drag
    *
    * @param id the element id of the element you wish to ignore
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-addInvalidHandleId Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-addInvalidHandleId Sencha Docs Ext JS 3.4
    */
   public native function addInvalidHandleId(id:String):void;
 
@@ -382,7 +382,7 @@ public class DragDrop {
    * Allows you to specify a tag name that should not start a drag operation when clicked. This is designed to facilitate embedding links within a drag handle that do something other than start the drag.
    *
    * @param tagName the type of element to exclude
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-addInvalidHandleType Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-addInvalidHandleType Sencha Docs Ext JS 3.4
    */
   public native function addInvalidHandleType(tagName:String):void;
 
@@ -390,49 +390,49 @@ public class DragDrop {
    * Add this instance to a group of related drag/drop objects. All instances belong to at least one group, and can belong to as many groups as needed.
    *
    * @param sGroup the name of the group
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-addToGroup Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-addToGroup Sencha Docs Ext JS 3.4
    */
   public native function addToGroup(sGroup:String):void;
 
   /**
    * Applies the configuration parameters that were passed into the constructor. This is supposed to happen at each level through the inheritance chain. So a DDProxy implementation will execute apply config on DDProxy, DD, and DragDrop in order to get all of the parameters that are available in each object.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-applyConfig Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-applyConfig Sencha Docs Ext JS 3.4
    */
   public native function applyConfig():void;
 
   /**
    * Code that executes immediately before the onDrag event
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-b4Drag Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-b4Drag Sencha Docs Ext JS 3.4
    */
   public native function b4Drag():void;
 
   /**
    * Code that executes immediately before the onDragDrop event
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-b4DragDrop Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-b4DragDrop Sencha Docs Ext JS 3.4
    */
   public native function b4DragDrop():void;
 
   /**
    * Code that executes immediately before the onDragOut event
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-b4DragOut Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-b4DragOut Sencha Docs Ext JS 3.4
    */
   public native function b4DragOut():void;
 
   /**
    * Code that executes immediately before the onDragOver event
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-b4DragOver Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-b4DragOver Sencha Docs Ext JS 3.4
    */
   public native function b4DragOver():void;
 
   /**
    * Code that executes immediately before the endDrag event
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-b4EndDrag Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-b4EndDrag Sencha Docs Ext JS 3.4
    */
   public native function b4EndDrag():void;
 
@@ -440,28 +440,28 @@ public class DragDrop {
    * Code executed immediately before the onMouseDown event
    *
    * @param e the mousedown event
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-b4MouseDown Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-b4MouseDown Sencha Docs Ext JS 3.4
    */
   public native function b4MouseDown(e:IEventObject):void;
 
   /**
    * Code that executes immediately before the startDrag event
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-b4StartDrag Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-b4StartDrag Sencha Docs Ext JS 3.4
    */
   public native function b4StartDrag():void;
 
   /**
    * Clears any constraints applied to this instance. Also clears ticks since they can't exist independent of a constraint at this time.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-clearConstraints Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-clearConstraints Sencha Docs Ext JS 3.4
    */
   public native function clearConstraints():void;
 
   /**
    * Clears any tick interval defined for this instance
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-clearTicks Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-clearTicks Sencha Docs Ext JS 3.4
    */
   public native function clearTicks():void;
 
@@ -481,7 +481,7 @@ public class DragDrop {
    * @param constrainTo The element to constrain to.
    * @param pad Pad provides a way to specify "padding" of the constraints, and can be either a number for symmetrical padding (4 would be equal to {left:4, right:4, top:4, bottom:4}) or an object containing the sides to pad. For example: {right:10, bottom:10}
    * @param inContent Constrain the draggable in the content box of the element (inside padding and borders)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-constrainTo Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-constrainTo Sencha Docs Ext JS 3.4
    */
   public native function constrainTo(constrainTo:*, pad:* = null, inContent:Boolean = false):void;
 
@@ -489,7 +489,7 @@ public class DragDrop {
    * Fired when we are done dragging the object
    *
    * @param e the mouseup event
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-endDrag Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-endDrag Sencha Docs Ext JS 3.4
    */
   public native function endDrag(e:IEventObject):void;
 
@@ -497,7 +497,7 @@ public class DragDrop {
    * Returns a reference to the actual element to drag. By default this is the same as the html element, but it can be assigned to another element. An example of this can be found in Ext.dd.DDProxy
    *
    * @return the html element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-getDragEl Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-getDragEl Sencha Docs Ext JS 3.4
    */
   public native function getDragEl():HTMLElement;
 
@@ -505,7 +505,7 @@ public class DragDrop {
    * Returns a reference to the linked element
    *
    * @return the html element
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-getEl Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-getEl Sencha Docs Ext JS 3.4
    */
   public native function getEl():HTMLElement;
 
@@ -515,7 +515,7 @@ public class DragDrop {
    * @param val where we want to place the object
    * @param tickArray sorted array of valid points
    * @return the closest tick
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-getTick Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-getTick Sencha Docs Ext JS 3.4
    */
   public native function getTick(val:int, tickArray:Array):int;
 
@@ -524,14 +524,14 @@ public class DragDrop {
    *
    * @param e
    * @param oDD the clicked dd object (this dd obj)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-handleMouseDown Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-handleMouseDown Sencha Docs Ext JS 3.4
    */
   public native function handleMouseDown(e:IEventObject, oDD:DragDrop):void;
 
   /**
    * Executed when the linked element is available
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-handleOnAvailable Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-handleOnAvailable Sencha Docs Ext JS 3.4
    */
   public native function handleOnAvailable():void;
 
@@ -541,7 +541,7 @@ public class DragDrop {
    * @param id id of the linked element
    * @param sGroup the group of related items
    * @param config configuration attributes
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-init Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-init Sencha Docs Ext JS 3.4
    */
   public native function init(id:*, sGroup:String, config:Object):void;
 
@@ -551,7 +551,7 @@ public class DragDrop {
    * @param id id of the linked element
    * @param sGroup the group of related items
    * @param config configuration attributes
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-initTarget Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-initTarget Sencha Docs Ext JS 3.4
    */
   public native function initTarget(id:*, sGroup:String, config:Object):void;
 
@@ -559,7 +559,7 @@ public class DragDrop {
    * Returns true if this instance is locked, or the drag drop mgr is locked (meaning that all drag/drop is disabled on the page.)
    *
    * @return true if this obj or all drag/drop is locked, else false
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-isLocked Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-isLocked Sencha Docs Ext JS 3.4
    */
   public native function isLocked():Boolean;
 
@@ -568,21 +568,21 @@ public class DragDrop {
    *
    * @param node the HTMLElement to evaluate
    * @return true if this is a valid tag type, false if not
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-isValidHandleChild Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-isValidHandleChild Sencha Docs Ext JS 3.4
    */
   public native function isValidHandleChild(node:HTMLElement):Boolean;
 
   /**
    * Lock this instance
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-lock Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-lock Sencha Docs Ext JS 3.4
    */
   public native function lock():void;
 
   /**
    * Override the onAvailable method to do what is needed after the initial position was determined.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-onAvailable Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-onAvailable Sencha Docs Ext JS 3.4
    */
   public native function onAvailable():void;
 
@@ -590,7 +590,7 @@ public class DragDrop {
    * Abstract method called during the onMouseMove event while dragging an object.
    *
    * @param e the mousemove event
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-onDrag Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-onDrag Sencha Docs Ext JS 3.4
    */
   public native function onDrag(e:IEventObject):void;
 
@@ -599,7 +599,7 @@ public class DragDrop {
    *
    * @param e the mouseup event
    * @param id In POINT mode, the element id this was dropped on. In INTERSECT mode, an array of dd items this was dropped on.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-onDragDrop Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-onDragDrop Sencha Docs Ext JS 3.4
    */
   public native function onDragDrop(e:IEventObject, id:*):void;
 
@@ -608,7 +608,7 @@ public class DragDrop {
    *
    * @param e the mousemove event
    * @param id In POINT mode, the element id this is hovering over. In INTERSECT mode, an array of one or more dragdrop items being hovered over.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-onDragEnter Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-onDragEnter Sencha Docs Ext JS 3.4
    */
   public native function onDragEnter(e:IEventObject, id:*):void;
 
@@ -617,7 +617,7 @@ public class DragDrop {
    *
    * @param e the mousemove event
    * @param id In POINT mode, the element id this was hovering over. In INTERSECT mode, an array of dd items that the mouse is no longer over.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-onDragOut Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-onDragOut Sencha Docs Ext JS 3.4
    */
   public native function onDragOut(e:IEventObject, id:*):void;
 
@@ -626,7 +626,7 @@ public class DragDrop {
    *
    * @param e the mousemove event
    * @param id In POINT mode, the element id this is hovering over. In INTERSECT mode, an array of dd items being hovered over.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-onDragOver Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-onDragOver Sencha Docs Ext JS 3.4
    */
   public native function onDragOver(e:IEventObject, id:*):void;
 
@@ -634,7 +634,7 @@ public class DragDrop {
    * Abstract method called when this item is dropped on an area with no drop target
    *
    * @param e the mouseup event
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-onInvalidDrop Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-onInvalidDrop Sencha Docs Ext JS 3.4
    */
   public native function onInvalidDrop(e:IEventObject):void;
 
@@ -642,7 +642,7 @@ public class DragDrop {
    * Event handler that fires when a drag/drop obj gets a mousedown
    *
    * @param e the mousedown event
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-onMouseDown Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-onMouseDown Sencha Docs Ext JS 3.4
    */
   public native function onMouseDown(e:IEventObject):void;
 
@@ -650,7 +650,7 @@ public class DragDrop {
    * Event handler that fires when a drag/drop obj gets a mouseup
    *
    * @param e the mouseup event
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-onMouseUp Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-onMouseUp Sencha Docs Ext JS 3.4
    */
   public native function onMouseUp(e:IEventObject):void;
 
@@ -658,7 +658,7 @@ public class DragDrop {
    * Remove's this instance from the supplied interaction group
    *
    * @param sGroup The group to drop
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-removeFromGroup Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-removeFromGroup Sencha Docs Ext JS 3.4
    */
   public native function removeFromGroup(sGroup:String):void;
 
@@ -666,7 +666,7 @@ public class DragDrop {
    * Unsets an invalid css class
    *
    * @param cssClass the class of the element(s) you wish to re-enable
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-removeInvalidHandleClass Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-removeInvalidHandleClass Sencha Docs Ext JS 3.4
    */
   public native function removeInvalidHandleClass(cssClass:String):void;
 
@@ -674,7 +674,7 @@ public class DragDrop {
    * Unsets an invalid handle id
    *
    * @param id the id of the element to re-enable
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-removeInvalidHandleId Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-removeInvalidHandleId Sencha Docs Ext JS 3.4
    */
   public native function removeInvalidHandleId(id:String):void;
 
@@ -682,7 +682,7 @@ public class DragDrop {
    * Unsets an excluded tag name set by addInvalidHandleType
    *
    * @param tagName the type of element to unexclude
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-removeInvalidHandleType Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-removeInvalidHandleType Sencha Docs Ext JS 3.4
    */
   public native function removeInvalidHandleType(tagName:String):void;
 
@@ -690,7 +690,7 @@ public class DragDrop {
    * resetConstraints must be called if you manually reposition a dd element.
    *
    * @param maintainOffset
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-resetConstraints Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-resetConstraints Sencha Docs Ext JS 3.4
    */
   public native function resetConstraints(maintainOffset:Boolean):void;
 
@@ -698,7 +698,7 @@ public class DragDrop {
    * Allows you to specify that an element other than the linked element will be moved with the cursor during a drag
    *
    * @param id the id of the element that will be used to initiate the drag
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-setDragElId Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-setDragElId Sencha Docs Ext JS 3.4
    */
   public native function setDragElId(id:String):void;
 
@@ -706,7 +706,7 @@ public class DragDrop {
    * Allows you to specify a child of the linked element that should be used to initiate the drag operation. An example of this would be if you have a content div with text and links. Clicking anywhere in the content area would normally start the drag operation. Use this method to specify that an element inside of the content div is the element that starts the drag operation.
    *
    * @param id the id of the element that will be used to initiate the drag.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-setHandleElId Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-setHandleElId Sencha Docs Ext JS 3.4
    */
   public native function setHandleElId(id:String):void;
 
@@ -715,7 +715,7 @@ public class DragDrop {
    *
    * @param diffX the X offset, default 0
    * @param diffY the Y offset, default 0
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-setInitPosition Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-setInitPosition Sencha Docs Ext JS 3.4
    */
   public native function setInitPosition(diffX:int, diffY:int):void;
 
@@ -723,7 +723,7 @@ public class DragDrop {
    * Allows you to set an element outside of the linked element as a drag handle
    *
    * @param id id of the element that will be used to initiate the drag
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-setOuterHandleElId Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-setOuterHandleElId Sencha Docs Ext JS 3.4
    */
   public native function setOuterHandleElId(id:*):void;
 
@@ -734,7 +734,7 @@ public class DragDrop {
    * @param iRight Right pad
    * @param iBot Bot pad
    * @param iLeft Left pad
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-setPadding Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-setPadding Sencha Docs Ext JS 3.4
    */
   public native function setPadding(iTop:int, iRight:int, iBot:int, iLeft:int):void;
 
@@ -742,7 +742,7 @@ public class DragDrop {
    * Sets the start position of the element. This is set when the obj is initialized, the reset when a drag is started.
    *
    * @param pos position (from previous lookup)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-setStartPosition Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-setStartPosition Sencha Docs Ext JS 3.4
    */
   public native function setStartPosition(pos:*):void;
 
@@ -752,14 +752,14 @@ public class DragDrop {
    * @param iLeft the number of pixels the element can move to the left
    * @param iRight the number of pixels the element can move to the right
    * @param iTickSize optional parameter for specifying that the element should move iTickSize pixels at a time.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-setXConstraint Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-setXConstraint Sencha Docs Ext JS 3.4
    */
   public native function setXConstraint(iLeft:int, iRight:int, iTickSize:int):void;
 
   /**
    * Create the array of horizontal tick marks if an interval was specified in setXConstraint().
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-setXTicks Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-setXTicks Sencha Docs Ext JS 3.4
    */
   public native function setXTicks():void;
 
@@ -769,14 +769,14 @@ public class DragDrop {
    * @param iUp the number of pixels the element can move up
    * @param iDown the number of pixels the element can move down
    * @param iTickSize optional parameter for specifying that the element should move iTickSize pixels at a time.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-setYConstraint Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-setYConstraint Sencha Docs Ext JS 3.4
    */
   public native function setYConstraint(iUp:int, iDown:int, iTickSize:int):void;
 
   /**
    * Create the array of vertical tick marks if an interval was specified in setYConstraint().
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-setYTicks Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-setYTicks Sencha Docs Ext JS 3.4
    */
   public native function setYTicks():void;
 
@@ -785,7 +785,7 @@ public class DragDrop {
    *
    * @param X click location
    * @param Y click location
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-startDrag Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-startDrag Sencha Docs Ext JS 3.4
    */
   public native function startDrag(X:int, Y:int):void;
 
@@ -793,21 +793,21 @@ public class DragDrop {
    * toString method
    *
    * @return string representation of the dd obj
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-toString Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-toString Sencha Docs Ext JS 3.4
    */
   public native function toString():String;
 
   /**
    * Unlock this instance.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-unlock Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-unlock Sencha Docs Ext JS 3.4
    */
   public native function unlock():void;
 
   /**
    * Remove all drag and drop hooks for this element
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DDCore.html#method-Ext.dd.DragDrop-unreg Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop-method-unreg Sencha Docs Ext JS 3.4
    */
   public native function unreg():void;
 

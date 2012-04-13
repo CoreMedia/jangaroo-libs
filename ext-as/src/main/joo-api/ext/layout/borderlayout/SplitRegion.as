@@ -11,7 +11,7 @@ import ext.layout.ContainerLayout;
  *
 
  * @see ext.config.splitregion
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BorderLayout.html#cls-Ext.layout.BorderLayout.SplitRegion Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.layout.BorderLayout.SplitRegion Sencha Docs Ext JS 3.4
  */
 public class SplitRegion extends Region {
 
@@ -29,25 +29,21 @@ public class SplitRegion extends Region {
 
   /**
    The tooltip to display when the user hovers over a <a href="output/Ext.layout.BorderLayout.Region.html#Ext.layout.BorderLayout.Region-collapsible">collapsible</a> region's split bar (defaults to "Drag to resize. Double click to hide."). Only applies if <tt><a href="output/Ext.layout.BorderLayout.SplitRegion.html#Ext.layout.BorderLayout.SplitRegion-useSplitTips">useSplitTips</a> = true</tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get collapsibleSplitTip():String;
 
   /**
    The tooltip to display when the user hovers over a <a href="output/Ext.layout.BorderLayout.Region.html#Ext.layout.BorderLayout.Region-collapsible">non-collapsible</a> region's split bar (defaults to <tt>"Drag to resize."</tt>). Only applies if <tt><a href="output/Ext.layout.BorderLayout.SplitRegion.html#Ext.layout.BorderLayout.SplitRegion-useSplitTips">useSplitTips</a> = true</tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get splitTip():String;
 
   /**
    The increment, in pixels by which to move this Region's <a href="Ext.SplitBar.html">SplitBar</a>. By default, the <a href="Ext.SplitBar.html">SplitBar</a> moves smoothly.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get tickSize():Number;
 
   /**
    <tt>true</tt> to display a tooltip when the user hovers over a region's split bar (defaults to <tt>false</tt>). The tooltip text will be the value of either <tt><a href="output/Ext.layout.BorderLayout.SplitRegion.html#Ext.layout.BorderLayout.SplitRegion-splitTip">splitTip</a></tt> or <tt><a href="output/Ext.layout.BorderLayout.SplitRegion.html#Ext.layout.BorderLayout.SplitRegion-collapsibleSplitTip">collapsibleSplitTip</a></tt> as appropriate.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get useSplitTips():Boolean;
 
@@ -55,7 +51,7 @@ public class SplitRegion extends Region {
    * Returns a reference to the split bar in use by this region.
    *
    * @return The split bar
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BorderLayout.html#method-Ext.layout.BorderLayout.SplitRegion-getSplitBar Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.layout.BorderLayout.SplitRegion-method-getSplitBar Sencha Docs Ext JS 3.4
    */
   public native function getSplitBar():SplitBar;
 

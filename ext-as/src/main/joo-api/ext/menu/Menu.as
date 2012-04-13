@@ -104,7 +104,7 @@ import ext.config.menuitem;
 
  * <p>This component is created by the xtype 'menu' / the EXML element &lt;menu>.</p>
  * @see ext.config.menu
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Menu.html#cls-Ext.menu.Menu Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.menu.Menu Sencha Docs Ext JS 3.4
  */
 public class Menu extends Container {
 
@@ -120,86 +120,71 @@ public class Menu extends Container {
 
   /**
    True to allow multiple menus to be displayed at the same time (defaults to false)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get allowOtherMenus():Boolean;
 
   /**
    The default <a href="output/Ext.Element.html#Ext.Element-alignTo">Ext.Element.alignTo</a> anchor position value for this menu relative to its element of origin (defaults to 'tl-bl?')
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get defaultAlign():String;
 
   /**
    An array specifying the [x, y] offset in pixels by which to change the default Menu popup position after aligning according to the <a href="output/Ext.menu.Menu.html#Ext.menu.Menu-defaultAlign">defaultAlign</a> configuration. Defaults to <tt>[0, 0]</tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get defaultOffsets():Array;
 
   /**
    True to allow the menu container to have scroller controls if the menu is too long (defaults to true).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get enableScrolling():Boolean;
 
   /**
    By default, a Menu configured as <b><code>floating:true</code></b> will be rendered as an <a href="Ext.Layer.html">Ext.Layer</a> (an absolutely positioned, floating Component with zindex=15000). If configured as <b><code>floating:false</code></b>, the Menu may be used as child item of another Container instead of a free-floating <a href="Ext.Layer.html">Layer</a>.
-
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get floating():Boolean;
 
   /**
    True to ignore clicks on any item in this menu that is a parent item (displays a submenu) so that the submenu is not dismissed when clicking the parent item (defaults to false).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get ignoreParentClicks():Boolean;
 
   /**
    The maximum height of the menu. Only applies when enableScrolling is set to True (defaults to null).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get maxHeight():Number;
 
   /**
    The minimum width of the menu in pixels (defaults to 120)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get minWidth():Number;
 
   /**
    True to remove the incised line down the left side of the menu. Defaults to <tt>false</tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get plain():Boolean;
 
   /**
    The amount to scroll the menu. Only applies when enableScrolling is set to True (defaults to 24).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get scrollIncrement():Number;
 
   /**
    True or 'sides' for the default effect, 'frame' for 4-way shadow, and 'drop' for bottom-right shadow (defaults to 'sides')
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get shadow():*;
 
   /**
    True to show the icon separator. (defaults to true).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get showSeparator():Boolean;
 
   /**
    The <a href="output/Ext.Element.html#Ext.Element-alignTo">Ext.Element.alignTo</a> anchor position value to use for submenus of this menu (defaults to 'tl-tr?')
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get subMenuAlign():String;
 
   /**
    zIndex to use when the menu is floating.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get zIndex():Number;
 
@@ -208,7 +193,7 @@ public class Menu extends Container {
    *
    * @param el The element or DOM node to add, or its id
    * @return The menu item that was added
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Menu.html#method-Ext.menu.Menu-addElement Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.menu.Menu-method-addElement Sencha Docs Ext JS 3.4
    */
   public native function addElement(el:*):Item;
 
@@ -217,7 +202,7 @@ public class Menu extends Container {
    *
    * @param item The menu item to add
    * @return The menu item that was added
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Menu.html#method-Ext.menu.Menu-addItem Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.menu.Menu-method-addItem Sencha Docs Ext JS 3.4
    */
   public native function addItem(item:Item):Item;
 
@@ -226,7 +211,7 @@ public class Menu extends Container {
    *
    * @param config A MenuItem config object
    * @return The menu item that was added
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Menu.html#method-Ext.menu.Menu-addMenuItem Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.menu.Menu-method-addMenuItem Sencha Docs Ext JS 3.4
    */
   public native function addMenuItem(config:menuitem):Item;
 
@@ -234,7 +219,7 @@ public class Menu extends Container {
    * Adds a separator bar to the menu
    *
    * @return The menu item that was added
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Menu.html#method-Ext.menu.Menu-addSeparator Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.menu.Menu-method-addSeparator Sencha Docs Ext JS 3.4
    */
   public native function addSeparator():Item;
 
@@ -243,7 +228,7 @@ public class Menu extends Container {
    *
    * @param text The text to display in the menu item
    * @return The menu item that was added
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Menu.html#method-Ext.menu.Menu-addText Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.menu.Menu-method-addText Sencha Docs Ext JS 3.4
    */
   public native function addText(text:String):Item;
 
@@ -251,7 +236,7 @@ public class Menu extends Container {
    * Hides this menu and optionally all parent menus
    *
    * @param deep True to hide all parent menus recursively, if any (defaults to false)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Menu.html#method-Ext.menu.Menu-hide Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.menu.Menu-method-hide Sencha Docs Ext JS 3.4
    */
   public native function hideMenu(deep:Boolean = false):void;
 
@@ -260,7 +245,7 @@ public class Menu extends Container {
    *
    * @param xyPosition Contains X &amp; Y [x, y] values for the position at which to show the menu (coordinates are page-based)
    * @param parentMenu This menu's parent menu, if applicable (defaults to undefined)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Menu.html#method-Ext.menu.Menu-showAt Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.menu.Menu-method-showAt Sencha Docs Ext JS 3.4
    */
   public native function showAt(xyPosition:Array, parentMenu:Menu = null):void;
 
@@ -270,7 +255,7 @@ public class Menu extends Container {
    * @param element The element to align to
    * @param position The <a href="output/Ext.Element.html#Ext.Element-alignTo">Ext.Element.alignTo</a> anchor position to use in aligning to the element (defaults to this.defaultAlign)
    * @param parentMenu This menu's parent menu, if applicable (defaults to undefined)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Menu.html#method-Ext.menu.Menu-show Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.menu.Menu-method-show Sencha Docs Ext JS 3.4
    */
   public native function showMenu(element:*, position:String = null, parentMenu:Menu = null):void;
 

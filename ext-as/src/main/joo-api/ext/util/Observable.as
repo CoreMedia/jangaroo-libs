@@ -31,7 +31,7 @@ package ext.util {
  *
 
  * @see ext.config.observable
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Observable.html#cls-Ext.util.Observable Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Observable Sencha Docs Ext JS 3.4
  */
 public class Observable {
 
@@ -46,7 +46,7 @@ public class Observable {
 
   /**
 
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Observable.html#prop-Ext.util.Observable-events Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Observable-property-events Sencha Docs Ext JS 3.4
    */
   public native function get events():Object;
 
@@ -105,7 +105,6 @@ public class Observable {
    triggerAction: 'all'
    });
    </code></pre><br/><br/>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get listeners():Object;
 
@@ -115,7 +114,7 @@ public class Observable {
    * @param o Either an object with event names as properties with a value of <code>true</code> or the first event name string if multiple event names are being passed as separate parameters.
    * @param eventNames Event name if multiple event names are being passed as separate parameters. Usage:<pre><code>this.addEvents('storeloaded', 'storecleared');
    </code></pre>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Observable.html#method-Ext.util.Observable-addEvents Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Observable-method-addEvents Sencha Docs Ext JS 3.4
    */
   public native function addEvents(o:*, ...eventNames:Array):void;
 
@@ -148,7 +147,7 @@ public class Observable {
    'mouseout' : this.onMouseOut,
    scope: this
    });</code></pre>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Observable.html#method-Ext.util.Observable-addListener Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Observable-method-addListener Sencha Docs Ext JS 3.4
    */
   public native function addListener(eventName:String, handler:Function, scope:Object = null, options:Object = null):void;
 
@@ -158,7 +157,7 @@ public class Observable {
    * @param method name of the method after that the sequence is added
    * @param fn sequence function
    * @param scope scope in that the sequence function is called (default: this)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Observable-more.html#method-Ext.util.Observable-afterMethod Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Observable-method-afterMethod Sencha Docs Ext JS 3.4
    */
   public native function afterMethod(method:String, fn:Function, scope:Object = null):void;
 
@@ -168,7 +167,7 @@ public class Observable {
    * @param method name of the method to intercept
    * @param fn interceptor function
    * @param scope scope in that the interceptor function is called (default: this)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Observable-more.html#method-Ext.util.Observable-beforeMethod Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Observable-method-beforeMethod Sencha Docs Ext JS 3.4
    */
   public native function beforeMethod(method:String, fn:Function, scope:Object = null):void;
 
@@ -178,7 +177,7 @@ public class Observable {
    * @param o The Observable to capture events from.
    * @param fn The function to call when an event is fired.
    * @param scope The scope (<code>this</code> reference) in which the function is executed. Defaults to the Observable firing the event.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Observable-more.html#method-Ext.util.Observable-capture Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Observable-method-capture Sencha Docs Ext JS 3.4
    */
   public static native function capture(o:Observable, fn:Function, scope:Object = null):void;
 
@@ -214,7 +213,7 @@ public class Observable {
    </code></pre>
    *
    * @param events The event name to bubble, or an Array of event names.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Observable-more.html#method-Ext.util.Observable-enableBubble Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Observable-method-enableBubble Sencha Docs Ext JS 3.4
    */
   public native function enableBubble(events:*):void;
 
@@ -225,7 +224,7 @@ public class Observable {
    * @param eventName The name of the event to fire.
    * @param args Variable number of parameters are passed to handlers.
    * @return returns false if any of the handlers return false otherwise it returns true.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Observable.html#method-Ext.util.Observable-fireEvent Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Observable-method-fireEvent Sencha Docs Ext JS 3.4
    */
   public native function fireEvent(eventName:String, ...args:Array):Boolean;
 
@@ -234,7 +233,7 @@ public class Observable {
    *
    * @param eventName The name of the event to check for
    * @return True if the event is being listened for, else false
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Observable.html#method-Ext.util.Observable-hasListener Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Observable-method-hasListener Sencha Docs Ext JS 3.4
    */
   public native function hasListener(eventName:String):Boolean;
 
@@ -246,7 +245,7 @@ public class Observable {
    *
    * @param c The class constructor to make observable.
    * @param listeners An object containing a series of listeners to add. See <a href="output/Ext.util.Observable.html#Ext.util.Observable-addListener">addListener</a>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Observable-more.html#method-Ext.util.Observable-observeClass Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Observable-method-observeClass Sencha Docs Ext JS 3.4
    */
   public static native function observeClass(c:Class, listeners:Object = undefined):void;
 
@@ -257,14 +256,14 @@ public class Observable {
    * @param handler The method the event invokes
    * @param scope The scope (<code><b>this</b></code> reference) in which the handler function is executed. <b>If omitted, defaults to the object which fired the event.</b>
    * @param options An object containing handler configuration.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Observable.html#method-Ext.util.Observable-on Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Observable-method-on Sencha Docs Ext JS 3.4
    */
   public native function on(eventName:String, handler:Function, scope:Object = null, options:Object = null):void;
 
   /**
    * Removes all listeners for this object
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Observable.html#method-Ext.util.Observable-purgeListeners Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Observable-method-purgeListeners Sencha Docs Ext JS 3.4
    */
   public native function purgeListeners():void;
 
@@ -273,7 +272,7 @@ public class Observable {
    *
    * @param o The Observable whose events this object is to relay.
    * @param events Array of event names to relay.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Observable-more.html#method-Ext.util.Observable-relayEvents Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Observable-method-relayEvents Sencha Docs Ext JS 3.4
    */
   public native function relayEvents(o:Object, events:Array):void;
 
@@ -281,7 +280,7 @@ public class Observable {
    * Removes <b>all</b> added captures from the Observable.
    *
    * @param o The Observable to release
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Observable.html#method-Ext.util.Observable-releaseCapture Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Observable-method-releaseCapture Sencha Docs Ext JS 3.4
    */
   public static native function releaseCapture(o:Observable):void;
 
@@ -291,7 +290,7 @@ public class Observable {
    * @param eventName The type of event the handler was associated with.
    * @param handler The handler to remove. <b>This must be a reference to the function passed into the <a href="output/Ext.util.Observable.html#Ext.util.Observable-addListener">addListener</a> call.</b>
    * @param scope The scope originally specified for the handler.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Observable.html#method-Ext.util.Observable-removeListener Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Observable-method-removeListener Sencha Docs Ext JS 3.4
    */
   public native function removeListener(eventName:String, handler:Function, scope:Object = null):void;
 
@@ -301,14 +300,14 @@ public class Observable {
    * @param method name of the method the interceptor or sequence function had been attached
    * @param fn interceptor or sequence function to remove
    * @param scope scope of the interceptor or sequence function (default: this)
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Observable-more.html#method-Ext.util.Observable-removeMethodListener Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Observable-method-removeMethodListener Sencha Docs Ext JS 3.4
    */
   public native function removeMethodListener(method:String, fn:Function, scope:Object = null):void;
 
   /**
    * Resume firing events. (see <a href="output/Ext.util.Observable.html#Ext.util.Observable-suspendEvents">suspendEvents</a>) If events were suspended using the <tt><b>queueSuspended</b></tt> parameter, then all events fired during event suspension will be sent to any listeners now.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Observable.html#method-Ext.util.Observable-resumeEvents Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Observable-method-resumeEvents Sencha Docs Ext JS 3.4
    */
   public native function resumeEvents():void;
 
@@ -316,7 +315,7 @@ public class Observable {
    * Suspend the firing of all events. (see <a href="output/Ext.util.Observable.html#Ext.util.Observable-resumeEvents">resumeEvents</a>)
    *
    * @param queueSuspended Pass as true to queue up suspended events to be fired after the <a href="output/Ext.util.Observable.html#Ext.util.Observable-resumeEvents">resumeEvents</a> call instead of discarding all suspended events;
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Observable.html#method-Ext.util.Observable-suspendEvents Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Observable-method-suspendEvents Sencha Docs Ext JS 3.4
    */
   public native function suspendEvents(queueSuspended:Boolean):void;
 
@@ -326,7 +325,7 @@ public class Observable {
    * @param eventName The type of event the handler was associated with.
    * @param handler The handler to remove. <b>This must be a reference to the function passed into the <a href="output/Ext.util.Observable.html#Ext.util.Observable-addListener">addListener</a> call.</b>
    * @param scope The scope originally specified for the handler.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Observable.html#method-Ext.util.Observable-un Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Observable-method-un Sencha Docs Ext JS 3.4
    */
   public native function un(eventName:String, handler:Function, scope:Object = null):void;
 

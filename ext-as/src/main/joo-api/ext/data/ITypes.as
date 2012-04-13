@@ -28,69 +28,69 @@ package ext.data {
 
  * <p>This interface defines the type of the singleton Types.</p>
  * @see ext.data.#Types ext.data.Types
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Types.html#cls-Ext.data.Types Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Types Sencha Docs Ext JS 3.4
  */
 public interface ITypes {
 
   /**
    This data type means that no conversion is applied to the raw data before it is placed into a Record.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Types.html#prop-Ext.data.Types-AUTO Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Types-property-AUTO Sencha Docs Ext JS 3.4
    */
   function get AUTO():Object;
 
   /**
    This data type means that the raw data is converted into a boolean before it is placed into a Record. The string "true" and the number 1 are converted to boolean <code>true</code>.
    <p>The synonym <code>BOOLEAN</code> is equivalent.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Types.html#prop-Ext.data.Types-BOOL Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Types-property-BOOL Sencha Docs Ext JS 3.4
    */
   function get BOOL():Object;
 
   /**
    This data type means that the raw data is converted into a boolean before it is placed into a Record. The string "true" and the number 1 are converted to boolean <code>true</code>.
    <p>The synonym <code>BOOL</code> is equivalent.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Types.html#prop-Ext.data.Types-BOOLEAN Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Types-property-BOOLEAN Sencha Docs Ext JS 3.4
    */
   function get BOOLEAN():Object;
 
   /**
    This data type means that the raw data is converted into a Date before it is placed into a Record. The date format is specified in the constructor of the <a href="Ext.data.Field.html">Ext.data.Field</a> to which this type is being applied.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Types.html#prop-Ext.data.Types-DATE Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Types-property-DATE Sencha Docs Ext JS 3.4
    */
   function get DATE():Object;
 
   /**
    This data type means that the raw data is converted into a number before it is placed into a Record. <p>The synonym <code>NUMBER</code> is equivalent.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Types.html#prop-Ext.data.Types-FLOAT Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Types-property-FLOAT Sencha Docs Ext JS 3.4
    */
   function get FLOAT():Object;
 
   /**
    This data type means that the raw data is converted into an integer before it is placed into a Record. <p>The synonym <code>INTEGER</code> is equivalent.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Types.html#prop-Ext.data.Types-INT Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Types-property-INT Sencha Docs Ext JS 3.4
    */
   function get INT():Object;
 
   /**
    This data type means that the raw data is converted into an integer before it is placed into a Record. <p>The synonym <code>INT</code> is equivalent.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Types.html#prop-Ext.data.Types-INTEGER Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Types-property-INTEGER Sencha Docs Ext JS 3.4
    */
   function get INTEGER():Object;
 
   /**
    This data type means that the raw data is converted into a number before it is placed into a Record. <p>The synonym <code>FLOAT</code> is equivalent.</p>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Types.html#prop-Ext.data.Types-NUMBER Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Types-property-NUMBER Sencha Docs Ext JS 3.4
    */
   function get NUMBER():Object;
 
   /**
    This data type means that the raw data is converted into a String before it is placed into a Record.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Types.html#prop-Ext.data.Types-STRING Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Types-property-STRING Sencha Docs Ext JS 3.4
    */
   function get STRING():Object;
 
   /**
    A regular expression for stripping non-numeric characters from a numeric value. Defaults to <tt>/[\$,%]/g</tt>. This should be overridden for localization.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Types.html#prop-Ext.data.Types-stripRe Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Types-property-stripRe Sencha Docs Ext JS 3.4
    */
   function get stripRe():RegExp;
 

@@ -98,7 +98,7 @@ import ext.util.Observable;
  *
 
  * @see ext.config.treeloader
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeLoader.html#cls-Ext.tree.TreeLoader Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeLoader Sencha Docs Ext JS 3.4
  */
 public class TreeLoader extends Observable {
 
@@ -114,31 +114,26 @@ public class TreeLoader extends Observable {
 
   /**
    An object containing attributes to be added to all nodes created by this loader. If the attributes sent by the server have an attribute in this object, they take priority.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get baseAttrs():Object;
 
   /**
    An object containing properties which specify HTTP parameters to be passed to each request for child nodes.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get baseParams():Object;
 
   /**
    Default to true. Remove previously existing child nodes before loading.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get clearOnLoad():Boolean;
 
   /**
    The URL from which to request a Json string which specifies an array of node definition objects representing the child nodes to be loaded.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get dataUrl():String;
 
   /**
    The name of the parameter sent to the server which contains the identifier of the node. Defaults to <tt>'node'</tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get nodeParameter():String;
 
@@ -149,37 +144,31 @@ public class TreeLoader extends Observable {
    paramOrder: 'param1,node,param2,param3'
    paramOrder: 'param1|param2|param|node'
    </code></pre>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get paramOrder():*;
 
   /**
    Only used when using directFn. Send parameters as a collection of named arguments (defaults to <tt>false</tt>). Providing a <tt><a href="output/Ext.tree.TreeLoader.html#Ext.tree.TreeLoader-paramOrder">paramOrder</a></tt> nullifies this configuration.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get paramsAsHash():Boolean;
 
   /**
    If set to true, the loader recursively loads "children" attributes when doing the first load on nodes.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get preloadChildren():Boolean;
 
   /**
    The HTTP request method for loading data (defaults to the value of <a href="output/Ext.Ajax.html#Ext.Ajax-method">Ext.Ajax.method</a>).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get requestMethod():String;
 
   /**
    An object containing properties which specify custom <a href="Ext.tree.TreeNodeUI.html">Ext.tree.TreeNodeUI</a> implementations. If the optional <i>uiProvider</i> attribute of a returned child node is a string rather than a reference to a TreeNodeUI implementation, then that string value is used as a property name in the uiProviders object.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get uiProviders():Object;
 
   /**
    Equivalent to <a href="output/Ext.tree.TreeLoader.html#Ext.tree.TreeLoader-dataUrl">dataUrl</a>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get url():String;
 
@@ -204,7 +193,7 @@ public class TreeLoader extends Observable {
    </code></pre>
    *
    * @param attr The attributes from which to create the new node.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeLoader.html#method-Ext.tree.TreeLoader-createNode Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeLoader-method-createNode Sencha Docs Ext JS 3.4
    */
   public native function createNode(attr:Object):void;
 
@@ -214,7 +203,7 @@ public class TreeLoader extends Observable {
    * @param node
    * @param callback Function to call after the node has been loaded. The function is passed the TreeNode which was requested to be loaded.
    * @param scope The scope (<code>this</code> reference) in which the callback is executed. defaults to the loaded TreeNode.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeLoader.html#method-Ext.tree.TreeLoader-load Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeLoader-method-load Sencha Docs Ext JS 3.4
    */
   public native function load(node:TreeNode, callback:Function, scope:Object):void;
 

@@ -7,7 +7,7 @@ package ext {
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  *
 
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/WindowManager.html#cls-Ext.WindowGroup Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.WindowGroup Sencha Docs Ext JS 3.4
  */
 public class WindowGroup {
 
@@ -21,7 +21,7 @@ public class WindowGroup {
 
   /**
    The starting z-index for windows in this WindowGroup (defaults to 9000) The z-index value
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/WindowManager.html#prop-Ext.WindowGroup-zseed Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.WindowGroup-property-zseed Sencha Docs Ext JS 3.4
    */
   public native function get zseed():Number;
 
@@ -35,7 +35,7 @@ public class WindowGroup {
    *
    * @param win The id of the window or a <a href="Ext.Window.html">Ext.Window</a> instance
    * @return True if the dialog was brought to the front, else false if it was already in front
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/WindowManager.html#method-Ext.WindowGroup-bringToFront Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.WindowGroup-method-bringToFront Sencha Docs Ext JS 3.4
    */
   public native function bringToFront(win:*):Boolean;
 
@@ -44,7 +44,7 @@ public class WindowGroup {
    *
    * @param fn The function to execute for each item
    * @param scope The scope (<code>this</code> reference) in which the function is executed. Defaults to the current Window in the iteration.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/WindowManager.html#method-Ext.WindowGroup-each Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.WindowGroup-method-each Sencha Docs Ext JS 3.4
    */
   public native function each(fn:Function, scope:Object = null):void;
 
@@ -53,7 +53,7 @@ public class WindowGroup {
    *
    * @param id The id of the window or a <a href="Ext.Window.html">Ext.Window</a> instance
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/WindowManager.html#method-Ext.WindowGroup-get Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.WindowGroup-method-get Sencha Docs Ext JS 3.4
    */
   public native function get(id:*):Window;
 
@@ -61,7 +61,7 @@ public class WindowGroup {
    * Gets the currently-active window in this WindowGroup.
    *
    * @return The active window
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/WindowManager.html#method-Ext.WindowGroup-getActive Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.WindowGroup-method-getActive Sencha Docs Ext JS 3.4
    */
   public native function getActive():Window;
 
@@ -71,14 +71,14 @@ public class WindowGroup {
    * @param fn The search function
    * @param scope The scope (<code>this</code> reference) in which the function is executed. Defaults to the Window being tested. that gets passed to the function if not specified)
    * @return An array of zero or more matching windows
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/WindowManager.html#method-Ext.WindowGroup-getBy Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.WindowGroup-method-getBy Sencha Docs Ext JS 3.4
    */
   public native function getBy(fn:Function, scope:Object = null):Array;
 
   /**
    * Hides all windows in this WindowGroup.
    *
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/WindowManager.html#method-Ext.WindowGroup-hideAll Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.WindowGroup-method-hideAll Sencha Docs Ext JS 3.4
    */
   public native function hideAll():void;
 
@@ -89,7 +89,7 @@ public class WindowGroup {
    </code></pre>
    *
    * @param win The Window to register.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/WindowManager.html#method-Ext.WindowGroup-register Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.WindowGroup-method-register Sencha Docs Ext JS 3.4
    */
   public native function register(win:Window):void;
 
@@ -98,7 +98,7 @@ public class WindowGroup {
    *
    * @param win The id of the window or a <a href="Ext.Window.html">Ext.Window</a> instance
    * @return The window
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/WindowManager.html#method-Ext.WindowGroup-sendToBack Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.WindowGroup-method-sendToBack Sencha Docs Ext JS 3.4
    */
   public native function sendToBack(win:*):Window;
 
@@ -107,7 +107,7 @@ public class WindowGroup {
 
    *
    * @param win The Window to unregister.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/WindowManager.html#method-Ext.WindowGroup-unregister Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.WindowGroup-method-unregister Sencha Docs Ext JS 3.4
    */
   public native function unregister(win:Window):void;
 

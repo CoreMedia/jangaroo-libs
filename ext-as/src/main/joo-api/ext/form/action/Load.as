@@ -41,7 +41,7 @@ import ext.form.Action;
  *
 
  * @see ext.config.load
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Action.html#cls-Ext.form.Action.Load Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.Action.Load Sencha Docs Ext JS 3.4
  */
 public class Load extends Action {
 

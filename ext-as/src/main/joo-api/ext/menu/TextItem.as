@@ -9,7 +9,7 @@ import ext.config.menutextitem;
 
  * <p>This component is created by the xtype 'menutextitem' / the EXML element &lt;menutextitem>.</p>
  * @see ext.config.menutextitem
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TextItem.html#cls-Ext.menu.TextItem Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.menu.TextItem Sencha Docs Ext JS 3.4
  */
 public class TextItem extends BaseItem {
 
@@ -25,7 +25,6 @@ public class TextItem extends BaseItem {
 
   /**
    The text to display for this item (defaults to '')
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get text():String;
 

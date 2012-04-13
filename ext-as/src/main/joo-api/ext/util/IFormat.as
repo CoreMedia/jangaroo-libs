@@ -9,7 +9,7 @@ package ext.util {
 
  * <p>This interface defines the type of the singleton Format.</p>
  * @see ext.util.#Format ext.util.Format
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Format.html#cls-Ext.util.Format Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Format Sencha Docs Ext JS 3.4
  */
 public interface IFormat {
 
@@ -18,7 +18,7 @@ public interface IFormat {
    *
    * @param value The text to convert
    * @return The converted text
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Format.html#method-Ext.util.Format-capitalize Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Format-method-capitalize Sencha Docs Ext JS 3.4
    */
   function capitalize(value:String):String;
 
@@ -28,7 +28,7 @@ public interface IFormat {
    * @param value The value to format (Strings must conform to the format expected by the javascript Date object's <a href="http://www.w3schools.com/jsref/jsref_parse.asp">parse()</a> method)
    * @param format Any valid date format string (defaults to 'm/d/Y')
    * @return The formatted date string
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Format.html#method-Ext.util.Format-date Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Format-method-date Sencha Docs Ext JS 3.4
    */
   function date(value:*, format:String = null):String;
 
@@ -37,7 +37,7 @@ public interface IFormat {
    *
    * @param format Any valid date format string
    * @return The date formatting function
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Format.html#method-Ext.util.Format-dateRenderer Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Format-method-dateRenderer Sencha Docs Ext JS 3.4
    */
   function dateRenderer(format:String):Function;
 
@@ -47,7 +47,7 @@ public interface IFormat {
    * @param value Reference to check
    * @param defaultValue The value to insert of it's undefined (defaults to "")
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Format.html#method-Ext.util.Format-defaultValue Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Format-method-defaultValue Sencha Docs Ext JS 3.4
    */
   function defaultValue(value:*, defaultValue:String):String;
 
@@ -58,7 +58,7 @@ public interface IFormat {
    * @param length The maximum length to allow before truncating
    * @param word True to try to find a common work break
    * @return The converted text
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Format.html#method-Ext.util.Format-ellipsis Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Format-method-ellipsis Sencha Docs Ext JS 3.4
    */
   function ellipsis(value:String, length:Number, word:Boolean):String;
 
@@ -67,7 +67,7 @@ public interface IFormat {
    *
    * @param size The numeric value to format
    * @return The formatted file size
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Format.html#method-Ext.util.Format-fileSize Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Format-method-fileSize Sencha Docs Ext JS 3.4
    */
   function fileSize(size:*):String;
 
@@ -76,7 +76,7 @@ public interface IFormat {
    *
    * @param value The string to decode
    * @return The decoded text
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Format.html#method-Ext.util.Format-htmlDecode Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Format-method-htmlDecode Sencha Docs Ext JS 3.4
    */
   function htmlDecode(value:String):String;
 
@@ -85,7 +85,7 @@ public interface IFormat {
    *
    * @param value The string to encode
    * @return The encoded text
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Format.html#method-Ext.util.Format-htmlEncode Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Format-method-htmlEncode Sencha Docs Ext JS 3.4
    */
   function htmlEncode(value:String):String;
 
@@ -94,7 +94,7 @@ public interface IFormat {
    *
    * @param value The text to convert
    * @return The converted text
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Format.html#method-Ext.util.Format-lowercase Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Format-method-lowercase Sencha Docs Ext JS 3.4
    */
   function lowercase(value:String):String;
 
@@ -103,7 +103,7 @@ public interface IFormat {
    </code></pre>
    *
    * @return A function that operates on the passed value.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Format.html#method-Ext.util.Format-math Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Format-method-math Sencha Docs Ext JS 3.4
    */
   function math():Function;
 
@@ -112,7 +112,7 @@ public interface IFormat {
    *
    * @param The string value to format.
    * @return The string with embedded &lt;br/&gt; tags in place of newlines.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Format.html#method-Ext.util.Format-nl2br Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Format-method-nl2br Sencha Docs Ext JS 3.4
    */
   function nl2br(The:String):String;
 
@@ -122,7 +122,7 @@ public interface IFormat {
    * @param v The number to format.
    * @param format The way you would like to format this text.
    * @return The formatted number.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Format.html#method-Ext.util.Format-number Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Format-method-number Sencha Docs Ext JS 3.4
    */
   function number(v:Number, format:String):String;
 
@@ -131,7 +131,7 @@ public interface IFormat {
    *
    * @param format Any valid number format string for <a href="output/Ext.util.Format.html#Ext.util.Format-number">number</a>
    * @return The number formatting function
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Format.html#method-Ext.util.Format-numberRenderer Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Format-method-numberRenderer Sencha Docs Ext JS 3.4
    */
   function numberRenderer(format:String):Function;
 
@@ -141,7 +141,7 @@ public interface IFormat {
    * @param value The value to compare against
    * @param singular The singular form of the word
    * @param plural The plural form of the word (defaults to the singular with an "s")
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Format.html#method-Ext.util.Format-plural Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Format-method-plural Sencha Docs Ext JS 3.4
    */
   function plural(value:Number, singular:String, plural:String = null):void;
 
@@ -151,7 +151,7 @@ public interface IFormat {
    * @param value The numeric value to round.
    * @param precision The number of decimal places to which to round the first parameter's value.
    * @return The rounded value.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Format.html#method-Ext.util.Format-round Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Format-method-round Sencha Docs Ext JS 3.4
    */
   function round(value:*, precision:Number):Number;
 
@@ -160,7 +160,7 @@ public interface IFormat {
    *
    * @param value The text from which to strip script tags
    * @return The stripped text
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Format.html#method-Ext.util.Format-stripScripts Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Format-method-stripScripts Sencha Docs Ext JS 3.4
    */
   function stripScripts(value:*):String;
 
@@ -169,7 +169,7 @@ public interface IFormat {
    *
    * @param value The text from which to strip tags
    * @return The stripped text
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Format.html#method-Ext.util.Format-stripTags Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Format-method-stripTags Sencha Docs Ext JS 3.4
    */
   function stripTags(value:*):String;
 
@@ -180,7 +180,7 @@ public interface IFormat {
    * @param start The start index of the substring
    * @param length The length of the substring
    * @return The substring
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Format.html#method-Ext.util.Format-substr Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Format-method-substr Sencha Docs Ext JS 3.4
    */
   function substr(value:String, start:Number, length:Number):String;
 
@@ -189,7 +189,7 @@ public interface IFormat {
    *
    * @param value The text to trim
    * @return The trimmed text
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Format.html#method-Ext.util.Format-trim Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Format-method-trim Sencha Docs Ext JS 3.4
    */
   function trim(value:String):String;
 
@@ -198,7 +198,7 @@ public interface IFormat {
    *
    * @param value Reference to check
    * @return Empty string if converted, otherwise the original value
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Format.html#method-Ext.util.Format-undef Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Format-method-undef Sencha Docs Ext JS 3.4
    */
   function undef(value:*):*;
 
@@ -207,7 +207,7 @@ public interface IFormat {
    *
    * @param value The text to convert
    * @return The converted text
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Format.html#method-Ext.util.Format-uppercase Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Format-method-uppercase Sencha Docs Ext JS 3.4
    */
   function uppercase(value:String):String;
 
@@ -216,7 +216,7 @@ public interface IFormat {
    *
    * @param value The numeric value to format
    * @return The formatted currency string
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Format.html#method-Ext.util.Format-usMoney Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Format-method-usMoney Sencha Docs Ext JS 3.4
    */
   function usMoney(value:*):String;
 

@@ -77,7 +77,7 @@ import ext.data.Record;
  *
 
  * @see ext.config.cellselectionmodel
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CellSelectionModel.html#cls-Ext.grid.CellSelectionModel Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.CellSelectionModel Sencha Docs Ext JS 3.4
  */
 public class CellSelectionModel extends AbstractSelectionModel {
 
@@ -95,7 +95,7 @@ public class CellSelectionModel extends AbstractSelectionModel {
    * If anything is selected, clears all selections and fires the selectionchange event.
    *
    * @param preventNotify <tt>true</tt> to prevent the gridview from being notified about the change.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CellSelectionModel.html#method-Ext.grid.CellSelectionModel-clearSelections Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.CellSelectionModel-method-clearSelections Sencha Docs Ext JS 3.4
    */
   public native function clearSelections(preventNotify:Boolean):void;
 
@@ -107,7 +107,7 @@ public class CellSelectionModel extends AbstractSelectionModel {
    </code></pre><br/><br/></li></ul></div>
    *
    * @return An array containing the row and column indexes of the selected cell, or null if none selected.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CellSelectionModel.html#method-Ext.grid.CellSelectionModel-getSelectedCell Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.CellSelectionModel-method-getSelectedCell Sencha Docs Ext JS 3.4
    */
   public native function getSelectedCell():Array;
 
@@ -115,7 +115,7 @@ public class CellSelectionModel extends AbstractSelectionModel {
    * Returns <tt>true</tt> if there is a selection.
    *
    * @return
-          * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CellSelectionModel.html#method-Ext.grid.CellSelectionModel-hasSelection Ext JS source
+          * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.CellSelectionModel-method-hasSelection Sencha Docs Ext JS 3.4
    */
   public native function hasSelection():Boolean;
 
@@ -127,7 +127,7 @@ public class CellSelectionModel extends AbstractSelectionModel {
    * @param preventViewNotify Specify <tt>true</tt> to prevent notifying the view (disables updating the selected appearance)
    * @param preventFocus Whether to prevent the cell at the specified rowIndex / colIndex from being focused.
    * @param r The record to select
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CellSelectionModel.html#method-Ext.grid.CellSelectionModel-select Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.CellSelectionModel-method-select Sencha Docs Ext JS 3.4
    */
   public native function select(rowIndex:Number, colIndex:Number, preventViewNotify:Boolean = false, preventFocus:Boolean = false, r:Record = null):void;
 

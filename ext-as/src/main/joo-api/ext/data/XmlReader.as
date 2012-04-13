@@ -35,7 +35,7 @@ import js.Document;
  *
 
  * @see ext.config.xmlreader
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/XmlReader.html#cls-Ext.data.XmlReader Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.XmlReader Sencha Docs Ext JS 3.4
  */
 public class XmlReader extends DataReader {
 
@@ -52,7 +52,7 @@ public class XmlReader extends DataReader {
 
   /**
    After any data loads/reads, the raw XML Document is available for further custom processing.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/XmlReader.html#prop-Ext.data.XmlReader-xmlData Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.XmlReader-property-xmlData Sencha Docs Ext JS 3.4
    */
   public native function get xmlData():Document;
 
@@ -63,25 +63,21 @@ public class XmlReader extends DataReader {
 
   /**
    The DomQuery path relative from the record element to the element that contains a record identifier value.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get idPath():String;
 
   /**
    The DomQuery path to the repeated element which contains record information.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get record():String;
 
   /**
    The DomQuery path to the success attribute used by forms.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get successProperty():String;
 
   /**
    The DomQuery path from which to retrieve the total number of records in the dataset. This is only needed if the whole dataset is not passed in one go, but is being paged from the remote server.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get totalProperty():String;
 
@@ -90,7 +86,7 @@ public class XmlReader extends DataReader {
    *
    * @param response The XHR object which contains the parsed XML document. The response is expected to contain a property called <tt>responseXML</tt> which refers to an XML document object.
    * @return records A data block which is used by an <a href="Ext.data.Store.html">Ext.data.Store</a> as a cache of Ext.data.Records.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/XmlReader.html#method-Ext.data.XmlReader-read Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.XmlReader-method-read Sencha Docs Ext JS 3.4
    */
   public native function read(response:Object):Object;
 
@@ -99,7 +95,7 @@ public class XmlReader extends DataReader {
    *
    * @param doc A parsed XML document.
    * @return records A data block which is used by an <a href="Ext.data.Store.html">Ext.data.Store</a> as a cache of Ext.data.Records.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/XmlReader.html#method-Ext.data.XmlReader-readRecords Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.XmlReader-method-readRecords Sencha Docs Ext JS 3.4
    */
   public native function readRecords(doc:Object):Object;
 
@@ -109,7 +105,7 @@ public class XmlReader extends DataReader {
    * @param action [<a href="output/Ext.data.Api.html#Ext.data.Api-actions">Ext.data.Api.actions</a> create|read|update|destroy]
    * @param response HTTP Response object from browser.
    * @return An instance of <a href="Ext.data.Response.html">Ext.data.Response</a>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/XmlReader.html#method-Ext.data.XmlReader-readResponse Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.XmlReader-method-readResponse Sencha Docs Ext JS 3.4
    */
   public native function readResponse(action:String, response:Object):Response;
 

@@ -9,7 +9,7 @@ import ext.config.droptarget;
  *
 
  * @see ext.config.droptarget
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DropTarget.html#cls-Ext.dd.DropTarget Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DropTarget Sencha Docs Ext JS 3.4
  */
 public class DropTarget extends DDTarget {
 
@@ -26,25 +26,21 @@ public class DropTarget extends DDTarget {
 
   /**
    A named drag drop group to which this object belongs. If a group is specified, then this object will only interact with other drag drop objects in the same group (defaults to undefined).
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get ddGroup():String;
 
   /**
    The CSS class returned to the drag source when drop is allowed (defaults to "x-dd-drop-ok").
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get dropAllowed():String;
 
   /**
    The CSS class returned to the drag source when drop is not allowed (defaults to "x-dd-drop-nodrop").
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get dropNotAllowed():String;
 
   /**
    The CSS class applied to the drop target element while the drag source is over it (defaults to "").
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get overClass():String;
 
@@ -55,7 +51,7 @@ public class DropTarget extends DDTarget {
    * @param e The event
    * @param data An object containing arbitrary data supplied by the drag source
    * @return True if the drop was valid, else false
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DropTarget.html#method-Ext.dd.DropTarget-notifyDrop Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DropTarget-method-notifyDrop Sencha Docs Ext JS 3.4
    */
   public native function notifyDrop(source:DragSource, e:IEventObject, data:Object):Boolean;
 
@@ -66,7 +62,7 @@ public class DropTarget extends DDTarget {
    * @param e The event
    * @param data An object containing arbitrary data supplied by the drag source
    * @return status The CSS class that communicates the drop status back to the source so that the underlying <a href="Ext.dd.StatusProxy.html">Ext.dd.StatusProxy</a> can be updated
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DropTarget.html#method-Ext.dd.DropTarget-notifyEnter Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DropTarget-method-notifyEnter Sencha Docs Ext JS 3.4
    */
   public native function notifyEnter(source:DragSource, e:IEventObject, data:Object):String;
 
@@ -76,7 +72,7 @@ public class DropTarget extends DDTarget {
    * @param source The drag source that was dragged over this drop target
    * @param e The event
    * @param data An object containing arbitrary data supplied by the drag source
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DropTarget.html#method-Ext.dd.DropTarget-notifyOut Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DropTarget-method-notifyOut Sencha Docs Ext JS 3.4
    */
   public native function notifyOut(source:DragSource, e:IEventObject, data:Object):void;
 
@@ -87,7 +83,7 @@ public class DropTarget extends DDTarget {
    * @param e The event
    * @param data An object containing arbitrary data supplied by the drag source
    * @return status The CSS class that communicates the drop status back to the source so that the underlying <a href="Ext.dd.StatusProxy.html">Ext.dd.StatusProxy</a> can be updated
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DropTarget.html#method-Ext.dd.DropTarget-notifyOver Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DropTarget-method-notifyOver Sencha Docs Ext JS 3.4
    */
   public native function notifyOver(source:DragSource, e:IEventObject, data:Object):String;
 

@@ -67,7 +67,7 @@ import ext.config.jsonreader;
  *
 
  * @see ext.config.jsonreader
- * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/JsonReader.html#cls-Ext.data.JsonReader Ext JS source
+ * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.JsonReader Sencha Docs Ext JS 3.4
  */
 public class JsonReader extends DataReader {
 
@@ -85,7 +85,7 @@ public class JsonReader extends DataReader {
 
   /**
    After any data loads, the raw JSON data is available for further custom processing. If no data is loaded or there is a load exception this property will be undefined.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/JsonReader.html#prop-Ext.data.JsonReader-jsonData Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.JsonReader-property-jsonData Sencha Docs Ext JS 3.4
    */
   public native function get jsonData():Object;
 
@@ -96,7 +96,7 @@ public class JsonReader extends DataReader {
 
   /**
    This JsonReader's metadata as passed to the constructor, or as passed in the last data packet's <b><tt>metaData</tt></b> property.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/JsonReader.html#prop-Ext.data.JsonReader-meta Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.JsonReader-property-meta Sencha Docs Ext JS 3.4
    */
   override public native function get meta():*;
 
@@ -107,19 +107,16 @@ public class JsonReader extends DataReader {
 
   /**
    [id] Name of the property within a row object that contains a record identifier value. Defaults to <tt>id</tt>
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get idProperty():String;
 
   /**
    [success] Name of the property from which to retrieve the success attribute. Defaults to <tt>success</tt>. See <a href="Ext.data.DataProxy.html">Ext.data.DataProxy</a>.<a href="output/Ext.data.DataProxy.html#Ext.data.DataProxy-exception">exception</a> for additional information.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get successProperty():String;
 
   /**
    [total] Name of the property from which to retrieve the total number of records in the dataset. This is only needed if the whole dataset is not passed in one go, but is being paged from the remote server. Defaults to <tt>total</tt>.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ Ext JS source
    */
   public native function get totalProperty():String;
 
@@ -129,7 +126,7 @@ public class JsonReader extends DataReader {
    * @param data
    * @param items
    * @param len
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/JsonReader.html#method-Ext.data.JsonReader-extractValues Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.JsonReader-method-extractValues Sencha Docs Ext JS 3.4
    */
   public native function extractValuesJsonReader(data:Object, items:Array, len:int):void;
 
@@ -138,7 +135,7 @@ public class JsonReader extends DataReader {
    *
    * @param response The XHR object which contains the JSON data in its responseText.
    * @return data A data block which is used by an Ext.data.Store object as a cache of Ext.data.Records.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/JsonReader.html#method-Ext.data.JsonReader-read Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.JsonReader-method-read Sencha Docs Ext JS 3.4
    */
   public native function read(response:Object):Object;
 
@@ -147,7 +144,7 @@ public class JsonReader extends DataReader {
    *
    * @param o An object which contains an Array of row objects in the property specified in the config as 'root, and optionally a property, specified in the config as 'totalProperty' which contains the total size of the dataset.
    * @return data A data block which is used by an Ext.data.Store object as a cache of Ext.data.Records.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/JsonReader.html#method-Ext.data.JsonReader-readRecords Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.JsonReader-method-readRecords Sencha Docs Ext JS 3.4
    */
   public native function readRecords(o:Object):Object;
 
@@ -157,7 +154,7 @@ public class JsonReader extends DataReader {
    * @param action [Ext.data.Api.actions.create|read|update|destroy]
    * @param response The XHR object returned through an Ajax server request.
    * @return A <a href="Ext.data.Response.html">Response</a> object containing the data response, and also status information.
-   * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/JsonReader.html#method-Ext.data.JsonReader-readResponse Ext JS source
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.JsonReader-method-readResponse Sencha Docs Ext JS 3.4
    */
   public native function readResponse(action:String, response:Object):Response;
 
