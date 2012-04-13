@@ -5,12 +5,12 @@
   <parent>
     <artifactId>jangaroo-libs-parent</artifactId>
     <groupId>net.jangaroo</groupId>
-    <version>0.9.14-SNAPSHOT</version>
+    <version>0.9.14</version>
     <relativePath>../jangaroo-libs-parent/pom.xml</relativePath>
   </parent>
   <groupId>net.jangaroo</groupId>
   <artifactId>jangaroo-libs-bom</artifactId>
-  <version>0.9.14-SNAPSHOT</version>
+  <version>0.9.14</version>
   <name>jangaroo-libs-bom</name>
   <description>A Jangaroo Libs Bill of Materials POM</description>
 
