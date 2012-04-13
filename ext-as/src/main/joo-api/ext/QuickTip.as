@@ -20,7 +20,7 @@ public class QuickTip extends ToolTip {
    * @see ext.config.quicktip
    */
   public function QuickTip(config:quicktip) {
-    super(null);
+    super(config);
   }
 
   /**
@@ -47,9 +47,10 @@ public class QuickTip extends ToolTip {
    * Configures a new quick tip instance and assigns it to a target element. The following config values are supported (for example usage, see the <a href="Ext.QuickTips.html">Ext.QuickTips</a> class header): <div class="mdetail-params"><ul><li>autoHide</li><li>cls</li><li>dismissDelay (overrides the singleton value)</li><li>target (required)</li><li>text (required)</li><li>title</li><li>width</li></ul></div>
    *
    * @param config The config object
+   * @see ext.QuickTips
    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/QuickTip.html#method-Ext.QuickTip-register Ext JS source
    */
-  public native function register(config:quicktip):void;
+  public native function register(config:Object):void;
 
   /**
    * Removes this quick tip from its element and destroys it.

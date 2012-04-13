@@ -76,12 +76,14 @@ public interface IQuickTips {
   function isEnabled():Boolean;
 
   /**
-   * Configures a new quick tip instance and assigns it to a target element. See <a href="output/Ext.QuickTip.html#Ext.QuickTip-register">Ext.QuickTip.register</a> for details.
+   * Configures a new quick tip instance and assigns it to a target element.
    *
    * @param config The config object
+   *
+   * @see ext.QuickTip#register()
    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/QuickTips.html#method-Ext.QuickTips-register Ext JS source
    */
-  function register(config:quicktip):void;
+  function register(config:Object):void;
 
   /**
    * Alias of <a href="output/Ext.QuickTips.html#Ext.QuickTips-register">register</a>.
