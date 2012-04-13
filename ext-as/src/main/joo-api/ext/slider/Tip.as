@@ -1,6 +1,9 @@
 package ext.slider {
+import ext.Component;
 import ext.IEventObject;
+import ext.Plugin;
 import ext.Tip;
+import ext.config.slidertip;
 
 /**
  * Simple plugin for using an Ext.Tip with a slider to show the slider value. Example usage: <pre>new Ext.Slider({
@@ -24,18 +27,18 @@ import ext.Tip;
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  *
 
- * @see ext.config.tip
+ * @see ext.config.slidertip
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SliderTip.html#cls-Ext.slider.Tip Ext JS source
  */
-public class Tip extends ext.Tip {
+public class Tip extends ext.Tip implements Plugin {
 
   /**
    *
    *
-   * @see ext.config.tip
+   * @see ext.config.slidertip
    */
-  public function Tip() {
-    super(null);
+  public function Tip(config:slidertip = null) {
+    super(config);
   }
 
   /**
@@ -48,7 +51,8 @@ public class Tip extends ext.Tip {
   public native function getText(thumb:Thumb):String;
 
   /**
-   *
+   * Called whenever a dragstart or drag event is received on the associated Thumb. 
+   * Aligns the Tip with the Thumb's new position.
    *
    * @param slider The slider
    * @param e The Event object
@@ -56,6 +60,8 @@ public class Tip extends ext.Tip {
    * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SliderTip.html#method-Ext.slider.Tip-onSlide Ext JS source
    */
   public native function onSlide(slider:MultiSlider, e:IEventObject, thumb:Thumb):void;
+
+  public native function init(component:Component):void;
 
 }
 }
