@@ -15,6 +15,10 @@ public interface URI {
    */
   function get authority():String;
   /**
+   * The path part of the URI.
+   */
+  function get path():String;
+  /**
    * The query part of the URI.
    */
   function get query():String;
