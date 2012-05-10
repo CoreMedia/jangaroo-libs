@@ -16,7 +16,7 @@ public dynamic class URLVariables {
    *
    */
   public function URLVariables(source:String = null) {
-    throw new Error('not implemented'); // TODO: implement!
+    decode(source);
   }
 
   /**
@@ -41,7 +41,14 @@ public dynamic class URLVariables {
    * </listing>
    */
   public function decode(source:String):void {
-    throw new Error('not implemented'); // TODO: implement!
+    if (source) {
+      var nameValues:Array = source.split("&");
+      for (var i:int = 0; i < nameValues.length; i++) {
+        var nameValue:String = nameValues[i];
+        var nameAndValue:Array = nameValue.split("=");
+        this[nameAndValue[0]] = decodeURIComponent(nameAndValue[1]);
+      }
+    }
   }
 
   /**
@@ -50,7 +57,13 @@ public dynamic class URLVariables {
    *
    */
   public function toString():String {
-    throw new Error('not implemented'); // TODO: implement!
+    var builder:Array = [];
+    for (var name:String in this) {
+      if (this.hasOwnProperty(name)) {
+        builder.push(name + "=" + encodeURIComponent(this[name]));
+      }
+    }
+    return builder.join("&");
   }
 }
 }
