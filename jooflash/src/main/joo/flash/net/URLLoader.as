@@ -291,11 +291,11 @@ public class URLLoader extends EventDispatcher {
     }
     xmlHttpRequest.onreadystatechange = readyStateChanged;
     xmlHttpRequest.open(request.method, request.url, true);
-    xmlHttpRequest.send(null);
+    xmlHttpRequest.setRequestHeader('Content-Type', request.contentType || 'application/x-www-form-urlencoded');
+    xmlHttpRequest.send(request.data ? String(request.data) : null);
   }
 
   private function readyStateChanged():void {
-    trace("URLLoader: " + xmlHttpRequest.readyState);
     if (xmlHttpRequest.readyState == XMLHttpRequest.DONE) {
       data = xmlHttpRequest.responseText;
     }
