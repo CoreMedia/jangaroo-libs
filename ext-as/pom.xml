@@ -20,41 +20,23 @@
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>jangaroo-runtime</artifactId>
-      <type>jangaroo</type>
     </dependency>
 
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>jangaroo-browser</artifactId>
       <version>2.0.0-SNAPSHOT</version>
-      <type>jangaroo</type>
     </dependency>
 
     <dependency>
-      <groupId>net.jangaroo</groupId>
+      <groupId>net.jangaroo.com.sencha</groupId>
       <artifactId>ext-js</artifactId>
-      <version>2.0.0-SNAPSHOT</version>
-      <type>jangaroo</type>
+      <version>3.4.0</version>
     </dependency>
 
   </dependencies>
   
   <build>
-    <resources>
-      <resource>
-        <directory>src/main/joo-js</directory>
-      </resource>
-      <resource>
-        <directory>target/generated-resources</directory>
-      </resource>
-      <resource>
-        <directory>target/generated-resources</directory>
-      </resource>
-      <resource>
-        <directory>src/main/joo-api</directory>
-        <targetPath>META-INF/joo-api</targetPath>
-      </resource>
-    </resources>
     <plugins>
       <plugin>
         <groupId>net.jangaroo</groupId>

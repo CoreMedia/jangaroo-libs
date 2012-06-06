@@ -17,82 +17,44 @@
   <dependencyManagement>
     <dependencies>
       <dependency>
-        <groupId>net.jangaroo</groupId>
-        <artifactId>ext-core</artifactId>
-        <version>${project.version}</version>
-        <type>jangaroo</type>
-      </dependency>
-      <dependency>
-        <groupId>net.jangaroo</groupId>
+        <groupId>net.jangaroo.com.sencha</groupId>
         <artifactId>ext-js</artifactId>
-        <version>${project.version}</version>
-        <type>jangaroo</type>
+        <version>3.4.0</version>
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
         <artifactId>ext-as</artifactId>
         <version>${project.version}</version>
-        <type>jangaroo</type>
-      </dependency>
-      <dependency>
-        <groupId>net.jangaroo</groupId>
-        <artifactId>sencha-touch</artifactId>
-        <version>${project.version}</version>
-        <type>jangaroo</type>
-      </dependency>
-      <dependency>
-        <groupId>net.jangaroo</groupId>
-        <artifactId>sencha-touch-as</artifactId>
-        <version>${project.version}</version>
-        <type>jangaroo</type>
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
         <artifactId>jooflash</artifactId>
         <version>${project.version}</version>
-        <type>jangaroo</type>
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
         <artifactId>jooflexframework</artifactId>
         <version>${project.version}</version>
-        <type>jangaroo</type>
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
         <artifactId>joounit</artifactId>
         <version>${project.version}</version>
-        <type>jangaroo</type>
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
         <artifactId>ckeditor</artifactId>
         <version>${project.version}</version>
-        <type>jangaroo</type>
-      </dependency>
-      <dependency>
-        <groupId>net.jangaroo</groupId>
-        <artifactId>xmlhttprequest</artifactId>
-        <version>${project.version}</version>
-        <type>jangaroo</type>
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-browser</artifactId>
         <version>${project.version}</version>
-        <type>jangaroo</type>
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-net</artifactId>
         <version>${project.version}</version>
-        <type>jangaroo</type>
-      </dependency>
-      <dependency>
-        <groupId>net.jangaroo</groupId>
-        <artifactId>com.schillmania.soundmanager2</artifactId>
-        <version>${project.version}</version>
-        <type>jangaroo</type>
       </dependency>
     </dependencies>
   </dependencyManagement>

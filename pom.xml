@@ -12,23 +12,15 @@
     <module>jangaroo-libs-parent</module>
     <module>jangaroo-net</module>
     <module>jangaroo-browser</module>
-    <module>xmlhttprequest</module>
 
     <module>jooflash</module>
 
     <module>jooflexframework</module>
     <module>joounit</module>
 
-    <module>ext-core</module>
-    <module>ext-js</module>
     <module>ext-as</module>
 
-    <module>sencha-touch</module>
-    <module>sencha-touch-as</module>
-
     <module>ckeditor</module>
-
-    <module>soundmanager2</module>
 
     <module>jangaroo-libs-bom</module>
     <module>jangaroo-libs-doc</module>

@@ -74,7 +74,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <jangaroo.version>0.9.15</jangaroo.version>
+    <jangaroo.version>2.0.0-SNAPSHOT</jangaroo.version>
   </properties>
 
   <prerequisites>
@@ -115,6 +115,7 @@
     <resources>
       <resource>
         <directory>src/main/joo-js</directory>
+        <targetPath>META-INF/resources</targetPath>
       </resource>
       <resource>
         <directory>src/main/resources</directory>
@@ -216,7 +217,6 @@
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-runtime</artifactId>
         <version>${jangaroo.version}</version>
-        <type>jangaroo</type>
       </dependency>
     </dependencies>
   </dependencyManagement>

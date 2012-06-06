@@ -54,6 +54,10 @@ public class ListCollectionView extends Array
 {
     include "../core/Version.asfragment";
 
+  public function ListCollectionView() {
+    super();
+  }
+
   public function addItem(item:Object):void {
     throw new Error("not implemented!");
   }

@@ -213,21 +213,18 @@
       <groupId>${project.groupId}</groupId>
       <artifactId>ext-as</artifactId>
       <version>${project.version}</version>
-      <type>jangaroo</type>
     </dependency>
 
     <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>jangaroo-net</artifactId>
       <version>${project.version}</version>
-      <type>jangaroo</type>
     </dependency>
 
     <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>joounit</artifactId>
       <version>${project.version}</version>
-      <type>jangaroo</type>
     </dependency>
 
   </dependencies>
