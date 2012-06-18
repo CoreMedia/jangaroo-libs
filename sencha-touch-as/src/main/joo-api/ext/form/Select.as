@@ -40,6 +40,7 @@ import ext.data.Store;
  * @see ext.config.selectfield
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Select.html#cls-Ext.form.Select Ext JS source
  */
+[Native]
 public class Select extends Text {
 
   /**

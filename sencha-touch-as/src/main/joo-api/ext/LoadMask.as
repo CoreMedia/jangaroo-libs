@@ -15,6 +15,7 @@ import ext.data.Store;
  * @see ext.config.loadmask
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/LoadMask.html#cls-Ext.LoadMask Ext JS source
  */
+[Native]
 public class LoadMask {
 
   /**

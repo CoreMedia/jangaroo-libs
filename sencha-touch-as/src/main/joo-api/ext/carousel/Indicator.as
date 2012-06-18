@@ -13,6 +13,7 @@ import ext.config.carouselindicator;
  * @see ext.config.carouselindicator
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Carousel.html#cls-Ext.Carousel.Indicator Ext JS source
  */
+[Native]
 public class Indicator extends Component {
 
   /**

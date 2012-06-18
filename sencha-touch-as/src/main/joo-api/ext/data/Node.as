@@ -240,6 +240,7 @@ import ext.util.Observable;
  * @see ext.config.node
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Node.html#cls-Ext.data.Node Ext JS source
  */
+[Native]
 public class Node extends Observable {
 
   /**

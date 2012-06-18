@@ -8,6 +8,7 @@ package ext.direct {
  * @see ext.config.jsonprovider
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.direct.JsonProvider Sencha Docs Ext JS 3.4
  */
+[Native]
 public class JsonProvider extends Provider {
 
   /**

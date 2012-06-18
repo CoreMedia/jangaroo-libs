@@ -10,6 +10,7 @@ package ext.form {
  * @see ext.config.hiddenfield
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Hidden.html#cls-Ext.form.HiddenField Ext JS source
  */
+[Native]
 public class HiddenField extends Hidden {
 
   /**

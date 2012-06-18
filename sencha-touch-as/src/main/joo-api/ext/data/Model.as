@@ -132,6 +132,7 @@ import ext.util.Stateful;
  * @see ext.config.model
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Model.html#cls-Ext.data.Model Ext JS source
  */
+[Native]
 public class Model extends Stateful {
 
   /**

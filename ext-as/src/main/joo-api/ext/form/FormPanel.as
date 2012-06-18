@@ -33,6 +33,7 @@ import ext.config.form;
  * @see ext.config.form
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.FormPanel Sencha Docs Ext JS 3.4
  */
+[Native]
 public class FormPanel extends Panel {
 
   /**

@@ -141,6 +141,7 @@ package ext {
  * @see ext.config.xtemplate
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/XTemplate.html#cls-Ext.XTemplate Ext JS source
  */
+[Native]
 public class XTemplate extends Template {
 
   /**

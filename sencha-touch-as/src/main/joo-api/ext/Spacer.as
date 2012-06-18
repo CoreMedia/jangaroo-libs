@@ -24,6 +24,7 @@ import ext.config.spacer;
  * @see ext.config.spacer
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Toolbar.html#cls-Ext.Spacer Ext JS source
  */
+[Native]
 public class Spacer extends Component {
 
   /**

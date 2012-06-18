@@ -2,7 +2,8 @@ package ext.form {
 import ext.IEventObject;
 
 /**
- * TwinTriggerField is not a public class to be used directly. It is meant as an abstract base class to be extended by an implementing class. For an example of implementing this class, see the custom SearchField implementation here: <a href="http://extjs.com/deploy/ext/examples/form/custom.html">http://extjs.com/deploy/ext/examples/form/custom.html</a>
+ * TwinTriggerField is not a [Native]
+public class to be used directly. It is meant as an abstract base class to be extended by an implementing class. For an example of implementing this class, see the custom SearchField implementation here: <a href="http://extjs.com/deploy/ext/examples/form/custom.html">http://extjs.com/deploy/ext/examples/form/custom.html</a>
  *
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  *
@@ -10,6 +11,7 @@ import ext.IEventObject;
  * @see ext.config.twintriggerfield
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.TwinTriggerField Sencha Docs Ext JS 3.4
  */
+[Native]
 public class TwinTriggerField extends TriggerField {
 
   /**

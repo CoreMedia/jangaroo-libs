@@ -111,6 +111,7 @@ package ext.data {
  * @see ext.config.scripttagproxy
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ScriptTagProxy.html#cls-Ext.data.ScriptTagProxy Ext JS source
  */
+[Native]
 public class ScriptTagProxy extends ServerProxy {
 
   /**

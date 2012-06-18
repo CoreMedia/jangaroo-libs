@@ -13,6 +13,7 @@ import ext.layout.ContainerLayout;
  * @see ext.config.splitregion
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.layout.BorderLayout.SplitRegion Sencha Docs Ext JS 3.4
  */
+[Native]
 public class SplitRegion extends Region {
 
   /**

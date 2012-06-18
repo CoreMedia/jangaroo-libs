@@ -36,6 +36,7 @@ import ext.data.Connection;
  * @see ext.#Ajax ext.Ajax
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Ajax Sencha Docs Ext JS 3.4
  */
+[Native]
 public class AjaxClass extends Connection {
 
   /**

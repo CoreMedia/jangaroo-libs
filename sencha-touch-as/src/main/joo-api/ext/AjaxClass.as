@@ -14,6 +14,7 @@ import ext.form.Number;
  * @see ext.config.ajax
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Connection.html#cls-Ext.Ajax Ext JS source
  */
+[Native]
 public class AjaxClass extends Connection {
 
   /**

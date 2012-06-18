@@ -21,6 +21,7 @@ import ext.form.Number;
  * @see ext.config.datepicker
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DatePicker.html#cls-Ext.DatePicker Ext JS source
  */
+[Native]
 public class DatePicker extends Picker {
 
   /**

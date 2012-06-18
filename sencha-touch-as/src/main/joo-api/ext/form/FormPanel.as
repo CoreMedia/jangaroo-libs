@@ -120,6 +120,7 @@ import ext.data.Model;
  * @see ext.config.form
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/FormPanel.html#cls-Ext.form.FormPanel Ext JS source
  */
+[Native]
 public class FormPanel extends Panel {
 
   /**

@@ -32,6 +32,7 @@ import ext.config.sheet;
  * @see ext.config.sheet
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Sheet.html#cls-Ext.Sheet Ext JS source
  */
+[Native]
 public class Sheet extends Panel {
 
   /**

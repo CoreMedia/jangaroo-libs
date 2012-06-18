@@ -26,6 +26,7 @@ import ext.config.video;
  * @see ext.config.video
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Video.html#cls-Ext.Video Ext JS source
  */
+[Native]
 public class Video extends Media {
 
   /**

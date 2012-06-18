@@ -11,6 +11,7 @@ import ext.Element;
 
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ComponentLayout.html#cls-Ext.layout.ComponentLayout Ext JS source
  */
+[Native]
 public class ComponentLayout extends Layout {
 
   /**

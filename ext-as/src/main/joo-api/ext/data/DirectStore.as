@@ -12,6 +12,7 @@ import ext.config.directstore;
  * @see ext.config.directstore
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.DirectStore Sencha Docs Ext JS 3.4
  */
+[Native]
 public class DirectStore extends Store {
 
   /**

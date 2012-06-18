@@ -23,6 +23,7 @@ package ext.data {
  * @see ext.config.arrayreader
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ArrayReader.html#cls-Ext.data.ArrayReader Ext JS source
  */
+[Native]
 public class ArrayReader extends JsonReader {
 
   /**

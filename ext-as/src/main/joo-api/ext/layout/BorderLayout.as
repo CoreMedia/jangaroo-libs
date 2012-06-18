@@ -52,6 +52,7 @@ import ext.config.borderlayout;
  * @see ext.config.borderlayout
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.layout.BorderLayout Sencha Docs Ext JS 3.4
  */
+[Native]
 public class BorderLayout extends ContainerLayout {
 
   /**

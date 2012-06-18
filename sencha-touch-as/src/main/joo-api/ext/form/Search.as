@@ -12,6 +12,7 @@ import ext.config.searchfield;
  * @see ext.config.searchfield
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Search.html#cls-Ext.form.Search Ext JS source
  */
+[Native]
 public class Search extends Text {
 
   /**

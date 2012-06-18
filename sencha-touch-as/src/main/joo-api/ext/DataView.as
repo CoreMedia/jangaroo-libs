@@ -235,6 +235,7 @@ import js.HTMLElement;
  * @see ext.config.dataview
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DataView.html#cls-Ext.DataView Ext JS source
  */
+[Native]
 public class DataView extends Component {
 
   /**

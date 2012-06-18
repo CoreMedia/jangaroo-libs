@@ -35,6 +35,7 @@ import ext.config.accordionlayout;
  * @see ext.config.accordionlayout
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.layout.AccordionLayout Sencha Docs Ext JS 3.4
  */
+[Native]
 public class AccordionLayout extends FitLayout {
 
   /**

@@ -12,6 +12,7 @@ import ext.form.Number;
  * @see ext.config.serverproxy
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ServerProxy.html#cls-Ext.data.ServerProxy Ext JS source
  */
+[Native]
 public class ServerProxy extends Proxy {
 
   /**

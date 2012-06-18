@@ -11,6 +11,7 @@ import ext.util.MixedCollection;
 
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/AbstractManager.html#cls-Ext.AbstractManager Ext JS source
  */
+[Native]
 public class AbstractManager {
 
   /**

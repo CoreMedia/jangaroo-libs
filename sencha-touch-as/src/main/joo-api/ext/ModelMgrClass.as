@@ -13,6 +13,7 @@ import ext.util.MixedCollection;
  * @see ext.#ModelMgr ext.ModelMgr
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ModelMgr.html#cls-Ext.ModelMgr Ext JS source
  */
+[Native]
 public class ModelMgrClass extends AbstractManager {
 
   /**

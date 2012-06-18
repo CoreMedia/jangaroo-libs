@@ -41,6 +41,7 @@ import ext.config.checkboxfield;
  * @see ext.config.checkboxfield
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Checkbox.html#cls-Ext.form.Checkbox Ext JS source
  */
+[Native]
 public class Checkbox extends Field {
 
   /**

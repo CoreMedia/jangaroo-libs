@@ -13,6 +13,7 @@ import ext.config.passwordfield;
  * @see ext.config.passwordfield
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Password.html#cls-Ext.form.Password Ext JS source
  */
+[Native]
 public class Password extends Text {
 
   /**

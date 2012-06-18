@@ -96,6 +96,7 @@ package ext.data {
  * @see ext.config.jsonreader
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/JsonReader.html#cls-Ext.data.JsonReader Ext JS source
  */
+[Native]
 public class JsonReader extends Reader {
 
   /**

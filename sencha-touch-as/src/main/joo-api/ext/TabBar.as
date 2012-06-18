@@ -57,6 +57,7 @@ import ext.form.Number;
  * @see ext.config.tabbar
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TabBar.html#cls-Ext.TabBar Ext JS source
  */
+[Native]
 public class TabBar extends Panel {
 
   /**

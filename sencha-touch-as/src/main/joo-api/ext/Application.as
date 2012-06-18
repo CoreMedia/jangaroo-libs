@@ -113,6 +113,7 @@ import ext.util.Observable;
  * @see ext.config.application
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Application.html#cls-Ext.Application Ext JS source
  */
+[Native]
 public class Application extends Observable {
 
   /**

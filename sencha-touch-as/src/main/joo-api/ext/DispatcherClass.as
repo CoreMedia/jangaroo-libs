@@ -44,6 +44,7 @@ import ext.util.Dispatcher;
  * @see ext.config.dispatcher
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Dispatcher.html#cls-Ext.Dispatcher Ext JS source
  */
+[Native]
 public class DispatcherClass extends ext.util.Dispatcher {
 
   /**

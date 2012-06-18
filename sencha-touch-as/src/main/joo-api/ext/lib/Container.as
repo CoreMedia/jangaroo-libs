@@ -189,6 +189,7 @@ import ext.util.MixedCollection;
  * @see ext.config.container
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Container.html#cls-Ext.lib.Container Ext JS source
  */
+[Native]
 public class Container extends ext.Component {
 
   /**

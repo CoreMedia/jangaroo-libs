@@ -114,6 +114,7 @@ import ext.config.textfield;
  * @see ext.config.textfield
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Text.html#cls-Ext.form.Text Ext JS source
  */
+[Native]
 public class Text extends Field {
 
   /**

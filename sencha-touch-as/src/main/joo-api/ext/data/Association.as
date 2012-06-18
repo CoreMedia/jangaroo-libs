@@ -23,6 +23,7 @@ import ext.config.association;
  * @see ext.config.association
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Association.html#cls-Ext.data.Association Ext JS source
  */
+[Native]
 public class Association {
 
   /**

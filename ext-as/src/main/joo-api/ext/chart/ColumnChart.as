@@ -9,6 +9,7 @@ package ext.chart {
  * @see ext.config.columnchart
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.chart.ColumnChart Sencha Docs Ext JS 3.4
  */
+[Native]
 public class ColumnChart extends CartesianChart {
 
   /**

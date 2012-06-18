@@ -10,6 +10,7 @@ package ext {
  * @see ext.config.xtemplate
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.XTemplate Sencha Docs Ext JS 3.4
  */
+[Native]
 public class XTemplate extends Template {
 
   /**

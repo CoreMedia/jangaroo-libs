@@ -12,6 +12,7 @@ import ext.util.Observable;
  * @see ext.config.abstractstoreselectionmodel
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/AbstractStoreSelectionModel.html#cls-Ext.AbstractStoreSelectionModel Ext JS source
  */
+[Native]
 public class AbstractStoreSelectionModel extends Observable {
 
   /**

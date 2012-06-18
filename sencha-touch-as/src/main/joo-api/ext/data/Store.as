@@ -122,6 +122,7 @@ import ext.util.MixedCollection;
  * @see ext.config.store
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Store.html#cls-Ext.data.Store Ext JS source
  */
+[Native]
 public class Store extends AbstractStore {
 
   /**

@@ -238,6 +238,7 @@ import ext.util.Observable;
  * @see ext.config.tree
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Tree Sencha Docs Ext JS 3.4
  */
+[Native]
 public class Tree extends Observable {
 
   /**

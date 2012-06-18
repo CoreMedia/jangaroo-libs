@@ -58,6 +58,7 @@ import ext.config.buttons;
  * @see ext.config.buttons
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SegmentedButton.html#cls-Ext.SegmentedButton Ext JS source
  */
+[Native]
 public class SegmentedButton extends Container {
 
   /**

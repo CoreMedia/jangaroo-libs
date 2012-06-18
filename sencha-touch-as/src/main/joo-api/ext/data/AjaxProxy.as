@@ -143,6 +143,7 @@ package ext.data {
  * @see ext.config.ajaxproxy
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/AjaxProxy.html#cls-Ext.data.AjaxProxy Ext JS source
  */
+[Native]
 public class AjaxProxy extends ServerProxy {
 
   /**

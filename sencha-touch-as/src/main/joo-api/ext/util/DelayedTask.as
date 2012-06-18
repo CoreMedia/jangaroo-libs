@@ -19,6 +19,7 @@ import ext.form.Number;
 
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DelayedTask.html#cls-Ext.util.DelayedTask Ext JS source
  */
+[Native]
 public class DelayedTask {
 
   /**

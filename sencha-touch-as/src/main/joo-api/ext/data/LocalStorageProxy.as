@@ -37,6 +37,7 @@ package ext.data {
  * @see ext.config.localstorageproxy
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/LocalStorageProxy.html#cls-Ext.data.LocalStorageProxy Ext JS source
  */
+[Native]
 public class LocalStorageProxy extends WebStorageProxy {
 
   /**

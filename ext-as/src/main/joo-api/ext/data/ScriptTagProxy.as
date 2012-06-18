@@ -78,6 +78,7 @@ import ext.config.scripttagproxy;
  * @see ext.config.scripttagproxy
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.ScriptTagProxy Sencha Docs Ext JS 3.4
  */
+[Native]
 public class ScriptTagProxy extends DataProxy {
 
   /**

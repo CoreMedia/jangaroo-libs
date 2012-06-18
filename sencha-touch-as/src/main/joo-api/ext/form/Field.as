@@ -15,6 +15,7 @@ import ext.config.field;
  * @see ext.config.field
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Field1.html#cls-Ext.form.Field Ext JS source
  */
+[Native]
 public class Field extends Container {
 
   /**

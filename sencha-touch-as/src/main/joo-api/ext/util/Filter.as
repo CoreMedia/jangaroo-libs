@@ -38,6 +38,7 @@ import ext.config.filter;
  * @see ext.config.filter
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Filter.html#cls-Ext.util.Filter Ext JS source
  */
+[Native]
 public class Filter {
 
   /**

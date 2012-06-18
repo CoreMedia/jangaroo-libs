@@ -311,6 +311,7 @@ import js.HTMLElement;
  * @see ext.config.dataview
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DataView Sencha Docs Ext JS 3.4
  */
+[Native]
 public class DataView extends BoxComponent {
 
   /**

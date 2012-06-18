@@ -27,6 +27,7 @@ import ext.config.toolbar;
  * @see ext.config.toolbar
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Toolbar.html#cls-Ext.Toolbar Ext JS source
  */
+[Native]
 public class Toolbar extends Container {
 
   /**

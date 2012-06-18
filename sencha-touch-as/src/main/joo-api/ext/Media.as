@@ -13,6 +13,7 @@ import ext.config.media;
  * @see ext.config.media
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Media.html#cls-Ext.Media Ext JS source
  */
+[Native]
 public class Media extends Container {
 
   /**

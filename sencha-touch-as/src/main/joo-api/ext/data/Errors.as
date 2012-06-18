@@ -20,6 +20,7 @@ import ext.util.MixedCollection;
  * @see ext.config.errors
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Errors.html#cls-Ext.data.Errors Ext JS source
  */
+[Native]
 public class Errors extends MixedCollection {
 
   /**

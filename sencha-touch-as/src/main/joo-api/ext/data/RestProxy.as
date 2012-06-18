@@ -61,6 +61,7 @@ package ext.data {
  * @see ext.config.restproxy
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/RestProxy.html#cls-Ext.data.RestProxy Ext JS source
  */
+[Native]
 public class RestProxy extends AjaxProxy {
 
   /**

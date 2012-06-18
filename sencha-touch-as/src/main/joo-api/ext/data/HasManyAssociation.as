@@ -70,6 +70,7 @@ package ext.data {
  * @see ext.config.hasmanyassociation
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/HasManyAssociation.html#cls-Ext.data.HasManyAssociation Ext JS source
  */
+[Native]
 public class HasManyAssociation extends Association {
 
   /**

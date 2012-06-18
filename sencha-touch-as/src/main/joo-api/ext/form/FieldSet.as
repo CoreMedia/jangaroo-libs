@@ -34,6 +34,7 @@ import ext.config.fieldset;
  * @see ext.config.fieldset
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/FieldSet.html#cls-Ext.form.FieldSet Ext JS source
  */
+[Native]
 public class FieldSet extends Container {
 
   /**

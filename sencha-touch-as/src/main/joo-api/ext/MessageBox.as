@@ -24,6 +24,7 @@ import ext.form.Number;
  * @see ext.config.messagebox
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MessageBox.html#cls-Ext.MessageBox Ext JS source
  */
+[Native]
 public class MessageBox extends Sheet {
 
   /**

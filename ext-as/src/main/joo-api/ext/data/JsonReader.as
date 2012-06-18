@@ -69,6 +69,7 @@ import ext.config.jsonreader;
  * @see ext.config.jsonreader
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.JsonReader Sencha Docs Ext JS 3.4
  */
+[Native]
 public class JsonReader extends DataReader {
 
   /**

@@ -10,6 +10,7 @@ package ext.form {
  * @see ext.config.emailfield
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Email.html#cls-Ext.form.EmailField Ext JS source
  */
+[Native]
 public class EmailField extends Email {
 
   /**

@@ -13,6 +13,7 @@ import ext.config.hiddenfield;
  * @see ext.config.hiddenfield
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Hidden.html#cls-Ext.form.Hidden Ext JS source
  */
+[Native]
 public class Hidden extends Field {
 
   /**

@@ -7,6 +7,7 @@ package ext.dd {
 
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DDTarget Sencha Docs Ext JS 3.4
  */
+[Native]
 public class DDTarget extends DragDrop {
 
   /**

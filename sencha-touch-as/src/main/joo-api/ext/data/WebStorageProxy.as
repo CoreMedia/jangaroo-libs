@@ -13,6 +13,7 @@ import ext.form.Number;
  * @see ext.config.webstorageproxy
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/WebStorageProxy.html#cls-Ext.data.WebStorageProxy Ext JS source
  */
+[Native]
 public class WebStorageProxy extends ClientProxy {
 
   /**

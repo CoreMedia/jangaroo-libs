@@ -34,6 +34,7 @@ import ext.config.datepickerfield;
  * @see ext.config.datepickerfield
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DatePicker1.html#cls-Ext.form.DatePicker Ext JS source
  */
+[Native]
 public class DatePicker extends Field {
 
   /**

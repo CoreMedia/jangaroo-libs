@@ -12,6 +12,7 @@ package ext {
  * @see ext.#ComponentMgr ext.ComponentMgr
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ComponentMgr.html#cls-Ext.ComponentMgr Ext JS source
  */
+[Native]
 public class ComponentMgrClass extends AbstractManager {
 
   /**

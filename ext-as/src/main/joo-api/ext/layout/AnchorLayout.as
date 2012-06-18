@@ -31,6 +31,7 @@ import ext.config.anchorlayout;
  * @see ext.config.anchorlayout
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.layout.AnchorLayout Sencha Docs Ext JS 3.4
  */
+[Native]
 public class AnchorLayout extends ContainerLayout {
 
   /**

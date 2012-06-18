@@ -13,6 +13,7 @@ import ext.config.containerlayout;
  * @see ext.config.containerlayout
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ContainerLayout.html#cls-Ext.layout.ContainerLayout Ext JS source
  */
+[Native]
 public class ContainerLayout extends Layout {
 
   /**

@@ -35,6 +35,7 @@ package ext.util {
  * @see ext.config.observable
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Observable.html#cls-Ext.util.Observable Ext JS source
  */
+[Native]
 public class Observable {
 
   /**

@@ -10,6 +10,7 @@ package ext.layout {
 
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/AutoComponentLayout.html#cls-Ext.layout.AutoComponentLayout Ext JS source
  */
+[Native]
 public class AutoComponentLayout extends ComponentLayout {
 
   /**

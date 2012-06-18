@@ -12,6 +12,7 @@ import ext.form.Number;
 
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Layout.html#cls-Ext.layout.Layout Ext JS source
  */
+[Native]
 public class Layout {
 
   /**

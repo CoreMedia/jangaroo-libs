@@ -63,6 +63,7 @@ import ext.config.fieldset;
  * @see ext.config.fieldset
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.FieldSet Sencha Docs Ext JS 3.4
  */
+[Native]
 public class FieldSet extends Panel {
 
   /**

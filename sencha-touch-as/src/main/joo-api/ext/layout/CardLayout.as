@@ -23,6 +23,7 @@ import ext.config.cardlayout;
  * @see ext.config.cardlayout
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CardLayout.html#cls-Ext.layout.CardLayout Ext JS source
  */
+[Native]
 public class CardLayout extends FitLayout {
 
   /**

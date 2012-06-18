@@ -11,6 +11,7 @@ import ext.config.displayfield;
  * @see ext.config.displayfield
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.DisplayField Sencha Docs Ext JS 3.4
  */
+[Native]
 public class DisplayField extends Field {
 
   /**

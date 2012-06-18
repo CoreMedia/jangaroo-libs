@@ -15,6 +15,7 @@ import ext.lib.Container;
  * @see ext.config.container
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Container1.html#cls-Ext.Container Ext JS source
  */
+[Native]
 public class Container extends ext.lib.Container {
 
   /**

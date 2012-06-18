@@ -265,6 +265,7 @@ import js.HTMLElement;
  * @see ext.config.nestedlist
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/NestedList.html#cls-Ext.NestedList Ext JS source
  */
+[Native]
 public class NestedList extends Panel {
 
   /**

@@ -53,6 +53,7 @@ package ext.direct {
  * @see ext.config.pollingprovider
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.direct.PollingProvider Sencha Docs Ext JS 3.4
  */
+[Native]
 public class PollingProvider extends JsonProvider {
 
   /**

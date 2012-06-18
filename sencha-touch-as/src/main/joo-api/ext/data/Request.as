@@ -12,6 +12,7 @@ import ext.config.request;
  * @see ext.config.request
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Request.html#cls-Ext.data.Request Ext JS source
  */
+[Native]
 public class Request {
 
   /**

@@ -69,6 +69,7 @@ import ext.config.taprepeater;
  * @see ext.config.taprepeater
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TapRepeater.html#cls-Ext.util.TapRepeater Ext JS source
  */
+[Native]
 public class TapRepeater extends Observable {
 
   /**

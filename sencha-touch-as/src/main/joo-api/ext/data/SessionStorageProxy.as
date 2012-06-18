@@ -20,6 +20,7 @@ package ext.data {
  * @see ext.config.sessionstorageproxy
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/SessionStorageProxy.html#cls-Ext.data.SessionStorageProxy Ext JS source
  */
+[Native]
 public class SessionStorageProxy extends WebStorageProxy {
 
   /**

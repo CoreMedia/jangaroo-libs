@@ -15,6 +15,7 @@ import ext.menu.Menu;
  * @see ext.config.toolbarlayout
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.layout.ToolbarLayout Sencha Docs Ext JS 3.4
  */
+[Native]
 public class ToolbarLayout extends ContainerLayout {
 
   /**

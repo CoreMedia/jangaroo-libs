@@ -11,6 +11,7 @@ import ext.form.Number;
  * @see ext.config.scrollview
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Scroller.html#cls-Ext.util.ScrollView Ext JS source
  */
+[Native]
 public class ScrollView extends Observable {
 
   /**

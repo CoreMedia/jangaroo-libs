@@ -13,6 +13,7 @@ import js.HTMLElement;
  * @see ext.config.tbitem
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Toolbar.Item Sencha Docs Ext JS 3.4
  */
+[Native]
 public class Item extends BoxComponent {
 
   /**

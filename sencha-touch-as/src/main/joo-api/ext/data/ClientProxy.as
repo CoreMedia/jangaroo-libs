@@ -11,6 +11,7 @@ package ext.data {
  * @see ext.config.clientproxy
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ClientProxy.html#cls-Ext.data.ClientProxy Ext JS source
  */
+[Native]
 public class ClientProxy extends Proxy {
 
   /**

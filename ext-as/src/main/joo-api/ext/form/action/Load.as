@@ -43,6 +43,7 @@ import ext.form.Action;
  * @see ext.config.load
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.Action.Load Sencha Docs Ext JS 3.4
  */
+[Native]
 public class Load extends Action {
 
   /**

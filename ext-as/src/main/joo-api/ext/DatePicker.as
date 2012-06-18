@@ -32,6 +32,7 @@ import ext.config.datepicker;
  * @see ext.config.datepicker
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DatePicker Sencha Docs Ext JS 3.4
  */
+[Native]
 public class DatePicker extends Component {
 
   /**

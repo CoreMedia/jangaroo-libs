@@ -21,6 +21,7 @@ import ext.config.audio;
  * @see ext.config.audio
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Audio.html#cls-Ext.Audio Ext JS source
  */
+[Native]
 public class Audio extends Media {
 
   /**

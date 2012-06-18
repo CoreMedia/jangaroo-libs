@@ -14,6 +14,7 @@ import ext.config.pickerslot;
  * @see ext.config.pickerslot
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Picker.html#cls-Ext.Picker.Slot Ext JS source
  */
+[Native]
 public class Slot extends DataView {
 
   /**

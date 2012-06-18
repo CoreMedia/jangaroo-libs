@@ -42,6 +42,7 @@ import ext.config.tablelayout;
  * @see ext.config.tablelayout
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.layout.TableLayout Sencha Docs Ext JS 3.4
  */
+[Native]
 public class TableLayout extends ContainerLayout {
 
   /**

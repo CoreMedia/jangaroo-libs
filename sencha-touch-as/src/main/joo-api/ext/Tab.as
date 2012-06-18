@@ -42,6 +42,7 @@ import ext.config.tab;
  * @see ext.config.tab
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Tab.html#cls-Ext.Tab Ext JS source
  */
+[Native]
 public class Tab extends Button {
 
   /**

@@ -96,6 +96,7 @@ import ext.data.Store;
  * @see ext.config.indexbar
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/IndexBar.html#cls-Ext.IndexBar Ext JS source
  */
+[Native]
 public class IndexBar extends ext.DataPanel {
 
   /**

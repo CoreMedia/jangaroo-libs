@@ -10,6 +10,7 @@ package ext.util {
  * @see ext.config.stateful
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Stateful.html#cls-Ext.util.Stateful Ext JS source
  */
+[Native]
 public class Stateful extends Observable {
 
   /**

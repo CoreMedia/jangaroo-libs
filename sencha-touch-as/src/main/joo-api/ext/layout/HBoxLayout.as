@@ -31,6 +31,7 @@ import ext.config.hboxlayout;
  * @see ext.config.hboxlayout
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BoxLayout.html#cls-Ext.layout.HBoxLayout Ext JS source
  */
+[Native]
 public class HBoxLayout extends BoxLayout {
 
   /**

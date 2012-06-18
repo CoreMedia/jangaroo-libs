@@ -10,6 +10,7 @@ package ext.form {
  * @see ext.config.searchfield
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Search.html#cls-Ext.form.SearchField Ext JS source
  */
+[Native]
 public class SearchField extends Search {
 
   /**

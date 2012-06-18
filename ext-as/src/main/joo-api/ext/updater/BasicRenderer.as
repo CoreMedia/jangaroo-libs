@@ -11,6 +11,7 @@ import ext.Updater;
 
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Updater.BasicRenderer Sencha Docs Ext JS 3.4
  */
+[Native]
 public class BasicRenderer {
 
   /**

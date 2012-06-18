@@ -10,6 +10,7 @@ import ext.form.Number;
 
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Region.html#cls-Ext.util.Region Ext JS source
  */
+[Native]
 public class Region {
 
   /**

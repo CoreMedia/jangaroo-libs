@@ -105,6 +105,7 @@ import ext.form.Number;
  * @see ext.config.hashmap
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/HashMap.html#cls-Ext.util.HashMap Ext JS source
  */
+[Native]
 public class HashMap extends Observable {
 
   /**

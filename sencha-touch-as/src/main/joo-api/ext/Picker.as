@@ -86,6 +86,7 @@ import ext.config.picker;
  * @see ext.config.picker
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Picker.html#cls-Ext.Picker Ext JS source
  */
+[Native]
 public class Picker extends Sheet {
 
   /**

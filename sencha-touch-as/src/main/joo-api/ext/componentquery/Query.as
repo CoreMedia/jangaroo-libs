@@ -9,6 +9,7 @@ package ext.componentquery {
 
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ComponentQuery.html#cls-Ext.ComponentQuery.Query Ext JS source
  */
+[Native]
 public class Query {
 
   /**

@@ -53,6 +53,7 @@ import ext.util.Observable;
  * @see ext.#Direct ext.Direct
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Direct Sencha Docs Ext JS 3.4
  */
+[Native]
 public class DirectClass extends Observable {
 
   /**

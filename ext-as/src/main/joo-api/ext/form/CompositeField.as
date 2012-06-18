@@ -39,6 +39,7 @@ import ext.util.MixedCollection;
  * @see ext.config.compositefield
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.CompositeField Sencha Docs Ext JS 3.4
  */
+[Native]
 public class CompositeField extends Field {
 
   /**

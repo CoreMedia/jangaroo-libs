@@ -10,6 +10,7 @@ package ext.util {
  * @see ext.config.indicator
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Scroller.html#cls-Ext.util.Indicator Ext JS source
  */
+[Native]
 public class Indicator {
 
   /**

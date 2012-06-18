@@ -160,6 +160,7 @@ import ext.util.Observable;
  * @see ext.config.abstractstore
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/AbstractStore.html#cls-Ext.data.AbstractStore Ext JS source
  */
+[Native]
 public class AbstractStore extends Observable {
 
   /**

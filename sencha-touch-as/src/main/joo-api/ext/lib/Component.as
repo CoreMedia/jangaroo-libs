@@ -332,6 +332,7 @@ import js.HTMLElement;
  * @see ext.config.component
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component.html#cls-Ext.lib.Component Ext JS source
  */
+[Native]
 public class Component extends Observable {
 
   /**

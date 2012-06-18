@@ -9,6 +9,7 @@ import ext.ExtError;
 
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.DataReader.Error Sencha Docs Ext JS 3.4
  */
+[Native]
 public class ExtError extends ext.ExtError {
 
   /**

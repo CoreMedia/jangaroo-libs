@@ -23,6 +23,7 @@ import ext.util.Observable;
  * @see ext.config.router
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Router.html#cls-Ext.Router Ext JS source
  */
+[Native]
 public class RouterClass extends Observable {
 
   /**

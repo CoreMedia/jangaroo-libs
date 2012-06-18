@@ -13,6 +13,7 @@ import ext.config.textareafield;
  * @see ext.config.textareafield
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TextArea.html#cls-Ext.form.TextArea Ext JS source
  */
+[Native]
 public class TextArea extends Text {
 
   /**

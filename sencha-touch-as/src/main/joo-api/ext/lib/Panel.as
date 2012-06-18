@@ -38,6 +38,7 @@ import ext.form.Number;
  * @see ext.config.panel
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Panel.html#cls-Ext.lib.Panel Ext JS source
  */
+[Native]
 public class Panel extends ext.Container {
 
   /**

@@ -12,6 +12,7 @@ import ext.form.Number;
  * @see ext.config.resultset
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ResultSet.html#cls-Ext.data.ResultSet Ext JS source
  */
+[Native]
 public class ResultSet {
 
   /**

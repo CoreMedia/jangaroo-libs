@@ -34,6 +34,7 @@ import js.Event;
  * @see ext.config.draggable
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Draggable.html#cls-Ext.util.Draggable Ext JS source
  */
+[Native]
 public class Draggable extends Observable {
 
   /**

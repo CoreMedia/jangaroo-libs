@@ -62,6 +62,7 @@ package ext.data {
  * @see ext.config.field
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Field.html#cls-Ext.data.Field Ext JS source
  */
+[Native]
 public class Field {
 
   /**

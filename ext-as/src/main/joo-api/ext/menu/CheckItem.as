@@ -50,6 +50,7 @@ import ext.config.menucheckitem;
  * @see ext.config.menucheckitem
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.menu.CheckItem Sencha Docs Ext JS 3.4
  */
+[Native]
 public class CheckItem extends Item {
 
   /**

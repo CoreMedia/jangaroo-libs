@@ -9,6 +9,7 @@ package ext {
 
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/CompositeElement.html#cls-Ext.CompositeElementLite Ext JS source
  */
+[Native]
 public class CompositeElementLite {
 
   /**

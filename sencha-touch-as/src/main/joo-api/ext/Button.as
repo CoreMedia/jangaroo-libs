@@ -122,6 +122,7 @@ import ext.form.Number;
  * @see ext.config.button
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Button.html#cls-Ext.Button Ext JS source
  */
+[Native]
 public class Button extends Component {
 
   /**

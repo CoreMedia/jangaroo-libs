@@ -11,6 +11,7 @@ import ext.util.Observable;
  * @see ext.config.listpagingplugin
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/ListPaging.html#cls-Ext.plugins.ListPagingPlugin Ext JS source
  */
+[Native]
 public class ListPagingPlugin extends Observable {
 
   /**

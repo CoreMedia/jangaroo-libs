@@ -155,6 +155,7 @@ import ext.data.Store;
  * @see ext.config.combo
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.ComboBox Sencha Docs Ext JS 3.4
  */
+[Native]
 public class ComboBox extends TriggerField {
 
   /**

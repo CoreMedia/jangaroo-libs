@@ -8,6 +8,7 @@ package ext.data {
  * @see ext.config.jsonwriter
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.JsonWriter Sencha Docs Ext JS 3.4
  */
+[Native]
 public class JsonWriter extends DataWriter {
 
   /**

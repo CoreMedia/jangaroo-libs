@@ -10,6 +10,7 @@ import ext.config.shadow;
  * @see ext.config.shadow
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Shadow Sencha Docs Ext JS 3.4
  */
+[Native]
 public class Shadow {
 
   /**

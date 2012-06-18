@@ -8,6 +8,7 @@ package ext.data {
  * @see ext.config.response
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Response Sencha Docs Ext JS 3.4
  */
+[Native]
 public class Response {
 
   /**

@@ -82,6 +82,7 @@ import ext.config.spinnerfield;
  * @see ext.config.spinnerfield
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Spinner.html#cls-Ext.form.Spinner Ext JS source
  */
+[Native]
 public class Spinner extends ext.form.Number {
 
   /**

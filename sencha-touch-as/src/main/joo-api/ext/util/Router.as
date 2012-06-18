@@ -11,6 +11,7 @@ package ext.util {
  * @see ext.config.router
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Router.html#cls-Ext.util.Router Ext JS source
  */
+[Native]
 public class Router extends Observable {
 
   /**

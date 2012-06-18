@@ -75,6 +75,7 @@ import ext.form.Number;
  * @see ext.config.sortable
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Sortable.html#cls-Ext.util.Sortable Ext JS source
  */
+[Native]
 public class Sortable extends Observable {
 
   /**

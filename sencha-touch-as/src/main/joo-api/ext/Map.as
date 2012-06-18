@@ -114,6 +114,7 @@ import ext.util.GeoLocation;
  * @see ext.config.map
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Map.html#cls-Ext.Map Ext JS source
  */
+[Native]
 public class Map extends Component {
 
   /**

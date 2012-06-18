@@ -69,6 +69,7 @@ package ext.data {
  * @see ext.config.belongstoassociation
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BelongsToAssociation.html#cls-Ext.data.BelongsToAssociation Ext JS source
  */
+[Native]
 public class BelongsToAssociation extends Association {
 
   /**

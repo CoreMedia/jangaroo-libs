@@ -159,6 +159,7 @@ import ext.IEventObject;
  * @see ext.config.multislider
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.slider.MultiSlider Sencha Docs Ext JS 3.4
  */
+[Native]
 public class MultiSlider extends BoxComponent {
 
   /**

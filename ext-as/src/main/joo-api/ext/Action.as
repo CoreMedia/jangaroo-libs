@@ -49,6 +49,7 @@ import ext.config.action;
  * @see ext.config.action
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Action Sencha Docs Ext JS 3.4
  */
+[Native]
 public class Action {
 
   /**

@@ -36,6 +36,7 @@ import ext.lib.Panel;
  * @see ext.config.panel
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Panel1.html#cls-Ext.Panel Ext JS source
  */
+[Native]
 public class Panel extends ext.lib.Panel {
 
   /**

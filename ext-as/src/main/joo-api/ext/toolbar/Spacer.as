@@ -22,6 +22,7 @@ package ext.toolbar {
  * @see ext.config.tbspacer
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Toolbar.Spacer Sencha Docs Ext JS 3.4
  */
+[Native]
 public class Spacer extends Item {
 
   /**

@@ -10,6 +10,7 @@ package ext.layout {
 
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/FieldLayout.html#cls-Ext.layout.FieldLayout Ext JS source
  */
+[Native]
 public class FieldLayout extends ComponentLayout {
 
   /**

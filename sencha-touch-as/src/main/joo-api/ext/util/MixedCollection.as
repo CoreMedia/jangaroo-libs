@@ -90,6 +90,7 @@ import ext.form.Number;
  * @see ext.config.mixedcollection
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MixedCollection.html#cls-Ext.util.MixedCollection Ext JS source
  */
+[Native]
 public class MixedCollection extends Observable {
 
   /**

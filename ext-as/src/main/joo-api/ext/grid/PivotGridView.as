@@ -21,6 +21,7 @@ import js.HTMLElement;
  * @see ext.config.pivotgridview
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotGridView Sencha Docs Ext JS 3.4
  */
+[Native]
 public class PivotGridView extends GridView {
 
   /**

@@ -13,6 +13,7 @@ import ext.form.Number;
  * @see ext.config.operation
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Operation.html#cls-Ext.data.Operation Ext JS source
  */
+[Native]
 public class Operation {
 
   /**

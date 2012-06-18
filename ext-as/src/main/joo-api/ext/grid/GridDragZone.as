@@ -12,6 +12,7 @@ import ext.dd.DragZone;
  * @see ext.config.griddragzone
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridDragZone Sencha Docs Ext JS 3.4
  */
+[Native]
 public class GridDragZone extends DragZone {
 
   /**

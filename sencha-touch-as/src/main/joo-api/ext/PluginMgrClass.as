@@ -12,6 +12,7 @@ package ext {
  * @see ext.#PluginMgr ext.PluginMgr
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/PluginMgr.html#cls-Ext.PluginMgr Ext JS source
  */
+[Native]
 public class PluginMgrClass extends AbstractManager {
 
   /**

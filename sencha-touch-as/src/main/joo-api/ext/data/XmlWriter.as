@@ -11,6 +11,7 @@ package ext.data {
  * @see ext.config.xmlwriter
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/XmlWriter.html#cls-Ext.data.XmlWriter Ext JS source
  */
+[Native]
 public class XmlWriter extends Writer {
 
   /**

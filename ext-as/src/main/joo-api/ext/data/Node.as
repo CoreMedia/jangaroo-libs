@@ -238,6 +238,7 @@ import ext.util.Observable;
  * @see ext.config.node
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Node Sencha Docs Ext JS 3.4
  */
+[Native]
 public class Node extends Observable {
 
   /**

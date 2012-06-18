@@ -10,6 +10,7 @@ package ext.data {
 
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Validations.html#cls-Ext.data.validations Ext JS source
  */
+[Native]
 public class validations {
 
   /**

@@ -37,6 +37,7 @@ package ext.tree {
  * @see ext.config.asynctreenode
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.AsyncTreeNode Sencha Docs Ext JS 3.4
  */
+[Native]
 public class AsyncTreeNode extends TreeNode {
 
   /**

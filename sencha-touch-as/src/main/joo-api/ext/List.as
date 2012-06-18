@@ -92,6 +92,7 @@ import ext.config.list;
  * @see ext.config.list
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/List.html#cls-Ext.List Ext JS source
  */
+[Native]
 public class List extends DataView {
 
   /**

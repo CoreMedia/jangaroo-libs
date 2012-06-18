@@ -99,6 +99,7 @@ import ext.form.Number;
  * @see ext.config.geolocation
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/GeoLocation.html#cls-Ext.util.GeoLocation Ext JS source
  */
+[Native]
 public class GeoLocation extends Observable {
 
   /**

@@ -8,6 +8,7 @@ import js.HTMLElement;
  *
  * @see EventManager
  */
+[Native]
 public class EventObjectImpl implements IEventObject {
 
   /**

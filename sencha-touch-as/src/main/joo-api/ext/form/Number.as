@@ -13,6 +13,7 @@ import ext.config.numberfield;
  * @see ext.config.numberfield
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Number1.html#cls-Ext.form.Number Ext JS source
  */
+[Native]
 public class Number extends Text {
 
   /**

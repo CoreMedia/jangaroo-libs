@@ -107,6 +107,7 @@ import ext.form.Number;
  * @see ext.config.scroller
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Scroller.html#cls-Ext.util.Scroller Ext JS source
  */
+[Native]
 public class Scroller extends Draggable {
 
   /**

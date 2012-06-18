@@ -1,5 +1,6 @@
 package ext.util {
 
+[Native]
 public class StringUtil {
 
   /**

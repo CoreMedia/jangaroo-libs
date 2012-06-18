@@ -12,6 +12,7 @@ import ext.form.Number;
 
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/DockLayout.html#cls-Ext.layout.DockLayout Ext JS source
  */
+[Native]
 public class DockLayout extends ComponentLayout {
 
   /**

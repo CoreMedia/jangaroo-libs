@@ -11,6 +11,7 @@ package ext.layout {
  * @see ext.config.autocontainerlayout
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/AutoContainerLayout.html#cls-Ext.layout.AutoContainerLayout Ext JS source
  */
+[Native]
 public class AutoContainerLayout extends ContainerLayout {
 
   /**

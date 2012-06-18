@@ -31,6 +31,7 @@ import ext.config.radiogroup;
  * @see ext.config.radiogroup
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.RadioGroup Sencha Docs Ext JS 3.4
  */
+[Native]
 public class RadioGroup extends CheckboxGroup {
 
   /**

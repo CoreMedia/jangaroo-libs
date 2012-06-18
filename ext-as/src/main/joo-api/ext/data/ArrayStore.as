@@ -33,6 +33,7 @@ import ext.config.arraystore;
  * @see ext.config.arraystore
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.ArrayStore Sencha Docs Ext JS 3.4
  */
+[Native]
 public class ArrayStore extends Store {
 
   /**

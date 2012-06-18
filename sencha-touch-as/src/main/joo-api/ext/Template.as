@@ -29,6 +29,7 @@ package ext {
  * @see ext.config.template
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Template.html#cls-Ext.Template Ext JS source
  */
+[Native]
 public class Template {
 
   /**

@@ -48,6 +48,7 @@ import ext.menu.Menu;
  * @see ext.config.cycle
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.CycleButton Sencha Docs Ext JS 3.4
  */
+[Native]
 public class CycleButton extends SplitButton {
 
   /**

@@ -13,6 +13,7 @@ import ext.config.boxlayout;
  * @see ext.config.boxlayout
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/BoxLayout.html#cls-Ext.layout.BoxLayout Ext JS source
  */
+[Native]
 public class BoxLayout extends ContainerLayout {
 
   /**

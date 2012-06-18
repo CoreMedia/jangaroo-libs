@@ -38,6 +38,7 @@ import ext.form.Action;
  * @see ext.config.submit
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.Action.Submit Sencha Docs Ext JS 3.4
  */
+[Native]
 public class Submit extends Action {
 
   /**

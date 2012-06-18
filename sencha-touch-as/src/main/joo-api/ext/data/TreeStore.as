@@ -12,6 +12,7 @@ import ext.config.treestore;
  * @see ext.config.treestore
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TreeStore.html#cls-Ext.data.TreeStore Ext JS source
  */
+[Native]
 public class TreeStore extends AbstractStore {
 
   /**

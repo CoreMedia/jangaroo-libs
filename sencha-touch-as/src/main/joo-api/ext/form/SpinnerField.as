@@ -10,6 +10,7 @@ package ext.form {
  * @see ext.config.spinnerfield
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Spinner.html#cls-Ext.form.SpinnerField Ext JS source
  */
+[Native]
 public class SpinnerField extends Spinner {
 
   /**

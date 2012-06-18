@@ -13,6 +13,7 @@ import ext.config.radiofield;
  * @see ext.config.radiofield
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Radio.html#cls-Ext.form.Radio Ext JS source
  */
+[Native]
 public class Radio extends Checkbox {
 
   /**

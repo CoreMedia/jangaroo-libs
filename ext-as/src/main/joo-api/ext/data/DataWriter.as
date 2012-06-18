@@ -56,6 +56,7 @@ package ext.data {
  * @see ext.config.datawriter
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.DataWriter Sencha Docs Ext JS 3.4
  */
+[Native]
 public class DataWriter {
 
   /**

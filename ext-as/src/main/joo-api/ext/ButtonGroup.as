@@ -45,6 +45,7 @@ import ext.config.buttongroup;
  * @see ext.config.buttongroup
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.ButtonGroup Sencha Docs Ext JS 3.4
  */
+[Native]
 public class ButtonGroup extends Panel {
 
   /**

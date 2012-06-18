@@ -11,6 +11,7 @@ package ext.data {
  * @see ext.config.jsonwriter
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/JsonWriter.html#cls-Ext.data.JsonWriter Ext JS source
  */
+[Native]
 public class JsonWriter extends Writer {
 
   /**

@@ -11,6 +11,7 @@ import ext.config.dragsource;
  * @see ext.config.dragsource
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragSource Sencha Docs Ext JS 3.4
  */
+[Native]
 public class DragSource extends DDProxy {
 
   /**

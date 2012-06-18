@@ -98,6 +98,7 @@ import ext.lib.Component;
  * @see ext.config.component
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Component1.html#cls-Ext.Component Ext JS source
  */
+[Native]
 public class Component extends ext.lib.Component {
 
   /**

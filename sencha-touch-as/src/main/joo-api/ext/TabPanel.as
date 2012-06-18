@@ -33,6 +33,7 @@ import ext.config.tabpanel;
  * @see ext.config.tabpanel
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/TabPanel.html#cls-Ext.TabPanel Ext JS source
  */
+[Native]
 public class TabPanel extends Panel {
 
   /**

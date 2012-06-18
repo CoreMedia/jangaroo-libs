@@ -31,6 +31,7 @@ import ext.Element;
  * @see ext.config.pivotaxis
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotAxis Sencha Docs Ext JS 3.4
  */
+[Native]
 public class PivotAxis extends Component {
 
   /**

@@ -13,6 +13,7 @@ import ext.config.togglefield;
  * @see ext.config.togglefield
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Toggle.html#cls-Ext.form.Toggle Ext JS source
  */
+[Native]
 public class Toggle extends Slider {
 
   /**

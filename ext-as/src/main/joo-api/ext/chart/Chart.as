@@ -41,6 +41,7 @@ import ext.data.Store;
  * @see ext.config.chart
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.chart.Chart Sencha Docs Ext JS 3.4
  */
+[Native]
 public class Chart extends FlashComponent {
 
   /**

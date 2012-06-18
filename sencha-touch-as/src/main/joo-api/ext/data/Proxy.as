@@ -13,6 +13,7 @@ import ext.util.Observable;
  * @see ext.config.proxy
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Proxy.html#cls-Ext.data.Proxy Ext JS source
  */
+[Native]
 public class Proxy extends Observable {
 
   /**

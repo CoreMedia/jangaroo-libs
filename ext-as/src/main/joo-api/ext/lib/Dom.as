@@ -6,6 +6,7 @@
  */
 package ext.lib {
 
+[Native]
 public class Dom {
 
   public static native function isAncestor(p:*, c:*):Boolean;

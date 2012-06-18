@@ -92,6 +92,7 @@ package ext.grid {
  * @see ext.config.pivotgrid
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotGrid Sencha Docs Ext JS 3.4
  */
+[Native]
 public class PivotGrid extends GridPanel {
 
   /**

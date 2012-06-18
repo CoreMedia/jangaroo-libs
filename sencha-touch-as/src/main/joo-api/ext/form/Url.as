@@ -12,6 +12,7 @@ import ext.config.urlfield;
  * @see ext.config.urlfield
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Url.html#cls-Ext.form.Url Ext JS source
  */
+[Native]
 public class Url extends Text {
 
   /**

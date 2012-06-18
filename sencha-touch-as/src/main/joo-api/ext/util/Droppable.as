@@ -131,6 +131,7 @@ package ext.util {
  * @see ext.config.droppable
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Droppable.html#cls-Ext.util.Droppable Ext JS source
  */
+[Native]
 public class Droppable extends Observable {
 
   /**

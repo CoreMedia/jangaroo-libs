@@ -13,6 +13,7 @@ import js.Event;
 
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Point.html#cls-Ext.util.Point Ext JS source
  */
+[Native]
 public class Point {
 
   /**

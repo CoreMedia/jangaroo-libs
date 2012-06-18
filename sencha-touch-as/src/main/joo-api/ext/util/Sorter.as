@@ -10,6 +10,7 @@ package ext.util {
  * @see ext.config.sorter
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Sorter.html#cls-Ext.util.Sorter Ext JS source
  */
+[Native]
 public class Sorter {
 
   /**

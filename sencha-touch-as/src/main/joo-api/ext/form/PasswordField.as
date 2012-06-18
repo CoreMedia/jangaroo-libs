@@ -10,6 +10,7 @@ package ext.form {
  * @see ext.config.passwordfield
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Password.html#cls-Ext.form.PasswordField Ext JS source
  */
+[Native]
 public class PasswordField extends Password {
 
   /**

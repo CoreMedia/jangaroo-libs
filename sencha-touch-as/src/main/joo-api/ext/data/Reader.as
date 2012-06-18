@@ -117,6 +117,7 @@ import ext.config.reader;
  * @see ext.config.reader
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Reader.html#cls-Ext.data.Reader Ext JS source
  */
+[Native]
 public class Reader {
 
   /**

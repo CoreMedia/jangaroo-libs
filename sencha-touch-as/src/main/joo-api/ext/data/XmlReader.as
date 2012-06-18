@@ -100,6 +100,7 @@ package ext.data {
  * @see ext.config.xmlreader
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/XmlReader.html#cls-Ext.data.XmlReader Ext JS source
  */
+[Native]
 public class XmlReader extends Reader {
 
   /**

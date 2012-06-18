@@ -13,6 +13,7 @@ import ext.config.emailfield;
  * @see ext.config.emailfield
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Email.html#cls-Ext.form.Email Ext JS source
  */
+[Native]
 public class Email extends Text {
 
   /**

@@ -16,6 +16,7 @@ package ext.slider {
  * @see ext.config.singleslider
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.slider.SingleSlider Sencha Docs Ext JS 3.4
  */
+[Native]
 public class SingleSlider extends MultiSlider {
 
   /**

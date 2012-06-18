@@ -49,6 +49,7 @@ package ext.data {
  * @see ext.config.memoryproxy
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/MemoryProxy.html#cls-Ext.data.MemoryProxy Ext JS source
  */
+[Native]
 public class MemoryProxy extends ClientProxy {
 
   /**

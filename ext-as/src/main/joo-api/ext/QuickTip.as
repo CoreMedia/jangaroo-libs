@@ -11,6 +11,7 @@ import ext.config.quicktip;
  * @see ext.config.quicktip
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.QuickTip Sencha Docs Ext JS 3.4
  */
+[Native]
 public class QuickTip extends ToolTip {
 
   /**

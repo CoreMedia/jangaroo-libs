@@ -51,6 +51,7 @@ import ext.config.dropzone;
  * @see ext.config.dropzone
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DropZone Sencha Docs Ext JS 3.4
  */
+[Native]
 public class DropZone extends DropTarget {
 
   /**

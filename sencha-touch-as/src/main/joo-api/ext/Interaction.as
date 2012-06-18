@@ -13,6 +13,7 @@ import ext.util.Observable;
  * @see ext.config.interaction
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Interaction.html#cls-Ext.Interaction Ext JS source
  */
+[Native]
 public class Interaction extends Observable {
 
   /**

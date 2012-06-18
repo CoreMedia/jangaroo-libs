@@ -37,6 +37,7 @@ import ext.config.colorpalette;
  * @see ext.config.colorpalette
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.ColorPalette Sencha Docs Ext JS 3.4
  */
+[Native]
 public class ColorPalette extends Component {
 
   /**

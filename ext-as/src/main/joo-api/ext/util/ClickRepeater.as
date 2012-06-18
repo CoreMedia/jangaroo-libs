@@ -68,6 +68,7 @@ import ext.config.clickrepeater;
  * @see ext.config.clickrepeater
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.ClickRepeater Sencha Docs Ext JS 3.4
  */
+[Native]
 public class ClickRepeater extends Observable {
 
   /**

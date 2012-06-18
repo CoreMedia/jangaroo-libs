@@ -139,6 +139,7 @@ import ext.config.sliderfield;
  * @see ext.config.sliderfield
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Slider.html#cls-Ext.form.Slider Ext JS source
  */
+[Native]
 public class Slider extends Field {
 
   /**

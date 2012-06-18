@@ -10,6 +10,7 @@ package ext.data {
 
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Writer.html#cls-Ext.data.Writer Ext JS source
  */
+[Native]
 public class Writer {
 
   /**

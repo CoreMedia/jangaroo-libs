@@ -11,6 +11,7 @@ import ext.config.droptarget;
  * @see ext.config.droptarget
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DropTarget Sencha Docs Ext JS 3.4
  */
+[Native]
 public class DropTarget extends DDTarget {
 
   /**

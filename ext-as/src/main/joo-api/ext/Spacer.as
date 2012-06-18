@@ -10,6 +10,7 @@ import ext.config.spacer;
  * @see ext.config.spacer
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Spacer Sencha Docs Ext JS 3.4
  */
+[Native]
 public class Spacer extends BoxComponent {
 
   /**

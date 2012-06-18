@@ -801,6 +801,7 @@ import ext.config.treepanel;
  * @see ext.config.treepanel
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreePanel Sencha Docs Ext JS 3.4
  */
+[Native]
 public class TreePanel extends Panel {
 
   /**

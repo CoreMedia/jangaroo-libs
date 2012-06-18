@@ -6,6 +6,7 @@
  */
 package ext.lib {
 
+[Native]
 public class Point extends Region {
 
   public function Point(x:*, y:Number = undefined) {

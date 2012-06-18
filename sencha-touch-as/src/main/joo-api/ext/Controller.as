@@ -112,6 +112,7 @@ import ext.util.Observable;
  * @see ext.config.controller
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Controller.html#cls-Ext.Controller Ext JS source
  */
+[Native]
 public class Controller extends Observable {
 
   /**

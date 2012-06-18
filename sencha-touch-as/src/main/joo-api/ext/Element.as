@@ -43,6 +43,7 @@ import js.HTMLElement;
 
  * @see http://dev.sencha.com/deploy/ext-3.3.1/docs/source/Element.alignment.html#cls-Ext.Element Ext JS source
  */
+[Native]
 public class Element {
 
   /**

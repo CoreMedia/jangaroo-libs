@@ -12,6 +12,7 @@ import ext.util.MixedCollection;
  * @see ext.#StoreMgr ext.StoreMgr
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.StoreMgr Sencha Docs Ext JS 3.4
  */
+[Native]
 public class StoreMgrClass extends MixedCollection {
 
   /**
