@@ -112,18 +112,6 @@
   </profiles> 
 
   <build>
-    <resources>
-      <resource>
-        <directory>src/main/joo-js</directory>
-      </resource>
-      <resource>
-        <directory>src/main/resources</directory>
-      </resource>
-      <resource>
-        <directory>src/main/joo-api</directory>
-        <targetPath>META-INF/joo-api</targetPath>
-      </resource>
-    </resources>
     <sourceDirectory>src/main/joo</sourceDirectory>
     <testSourceDirectory>src/test/joo</testSourceDirectory>
 
@@ -141,25 +129,6 @@
         <artifactId>jangaroo-maven-plugin</artifactId>
         <extensions>true</extensions>
         <version>${jangaroo.version}</version>
-      </plugin>
-
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>build-helper-maven-plugin</artifactId>
-        <version>1.5</version>
-        <executions>
-          <execution>
-            <phase>generate-sources</phase>
-            <goals>
-              <goal>add-source</goal>
-            </goals>
-            <configuration>
-              <sources>
-                <source>${basedir}/src/main/joo-api</source>
-              </sources>
-            </configuration>
-          </execution>
-        </executions>
       </plugin>
     </plugins>
 
