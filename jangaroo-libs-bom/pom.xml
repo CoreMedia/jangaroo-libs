@@ -36,18 +36,6 @@
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
-        <artifactId>sencha-touch</artifactId>
-        <version>${project.version}</version>
-        <type>jangaroo</type>
-      </dependency>
-      <dependency>
-        <groupId>net.jangaroo</groupId>
-        <artifactId>sencha-touch-as</artifactId>
-        <version>${project.version}</version>
-        <type>jangaroo</type>
-      </dependency>
-      <dependency>
-        <groupId>net.jangaroo</groupId>
         <artifactId>jooflash</artifactId>
         <version>${project.version}</version>
         <type>jangaroo</type>
