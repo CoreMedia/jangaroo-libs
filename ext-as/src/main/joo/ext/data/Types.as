@@ -28,6 +28,7 @@ package ext.data {
  * @see ext.data.ITypes
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Types Sencha Docs Ext JS 3.4
  */
+[Native]
 public const Types:ITypes;
 
 }

@@ -17,6 +17,7 @@ package ext {
  * @see ext.TaskMgrClass
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.TaskMgr Sencha Docs Ext JS 3.4
  */
+[Native]
 public const TaskMgr:TaskMgrClass;
 
 }

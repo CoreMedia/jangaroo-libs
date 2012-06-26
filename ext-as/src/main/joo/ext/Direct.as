@@ -17,6 +17,7 @@ package ext {
  * @see ext.DirectClass
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Direct Sencha Docs Ext JS 3.4
  */
+[Native]
 public const Direct:DirectClass;
 
 }

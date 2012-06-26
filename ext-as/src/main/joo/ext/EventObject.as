@@ -22,6 +22,7 @@ package ext {
  * @see ext.IEventObject
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventObject Sencha Docs Ext JS 3.4
  */
+[Native]
 public const EventObject:IEventObject;
 
 }

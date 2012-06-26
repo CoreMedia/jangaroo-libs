@@ -1,4 +1,6 @@
 package net.jangaroo.ext {
+import joo.JooClassDeclaration;
+import joo.getQualifiedObject;
 
 /**
  * Create a target object from the given config class and object.
@@ -11,6 +13,17 @@ package net.jangaroo.ext {
  * @param config the untyped config object
  * @return the created target object
  */
-public native function create(configClass:Class,  config:Object):Object;
+public function create(configClass:Class,  config:Object):Object {
+  var typedConfig:Object = new configClass(config);
+  var configClassDeclaration:JooClassDeclaration = configClass['$class'];
+  var extConfigAnnotation:Object = configClassDeclaration.metadata.ExtConfig;
+  if (!extConfigAnnotation || !extConfigAnnotation.target) {
+    throw new Error("Missing [ExtConfig(target='...')] annotation in config class "
+            + configClassDeclaration.fullClassName);
+  }
+  var targetClass:Class = getQualifiedObject(extConfigAnnotation.target);
+  return new targetClass(typedConfig);
+  
+}
 
 }

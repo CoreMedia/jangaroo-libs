@@ -9,6 +9,7 @@ package ext {
  * @see ext.HistoryClass
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.History Sencha Docs Ext JS 3.4
  */
+[Native]
 public const History:HistoryClass;
 
 }

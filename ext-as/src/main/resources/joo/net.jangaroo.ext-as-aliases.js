@@ -137,14 +137,3 @@ joo.getOrCreatePackage("joo.meta").ExtConfig = (function(){
   };
 })();
 
-joo.getOrCreatePackage("net.jangaroo.ext").create = function net_jangaroo_ext_create(configClass, config) {
-  var typedConfig = new configClass(config);
-  var configClassDeclaration = configClass['$class'];
-  var extConfigAnnotation = configClassDeclaration.metadata.ExtConfig;
-  if (!extConfigAnnotation || !extConfigAnnotation.target) {
-    throw new Error("Missing [ExtConfig(target='...')] annotation in config class "
-            + configClassDeclaration.fullClassName);
-  }
-  var targetClass = joo.getQualifiedObject(extConfigAnnotation.target);
-  return new targetClass(typedConfig);
-};
