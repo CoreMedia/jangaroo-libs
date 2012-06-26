@@ -162,16 +162,25 @@ package flash.utils {
  * }
  * </pre>
  */
-public native function describeType(value:*):XML /*{
-  var type:Class = typeof value == "function" ? value : value.constructor;
-  var methods:Array = [];
+public function describeType(value:*):XML {
+  var type:Class = typeof value=="function" ? value : value.constructor;
+  // fake collection:
+  var len:uint = 0;
+  var methods:Object = {
+    length: function():uint {
+      return len;
+    }
+  };
+  function isGetterOrSetter(object:Object, propertyName:String):Boolean {
+    if (typeof Object['prototype'].__lookupGetter__!="function")
+      return false;
+    return object.__lookupGetter__(propertyName) || object.__lookupSetter__(propertyName);
+  }
   if (type && type.prototype) {
     for (var p:String in type.prototype) {
-      if (p.match(/^[a-zA-Z_]/)
-        && !(typeof Object.prototype.__lookupGetter__ == "function"
-        && (type.prototype.__lookupGetter__(p) || type.prototype.__lookupSetter__(p)))
-        && typeof type.prototype[p] == "function") {
-        methods.push(p);
+      if (p.match(/^[a-zA-Z_]/) && !isGetterOrSetter(type.prototype,p)
+          && typeof type.prototype[p]=="function") {
+        methods[len++] = p;
       }
     }
   }
@@ -180,8 +189,8 @@ public native function describeType(value:*):XML /*{
       return attr == "name" ? getQualifiedClassName(value) : null;
     },
     method: {
-      "&#64;name": methods
+      "@name": methods
     }
   };
-}*/
+}
 }

@@ -9,8 +9,8 @@ package flash.utils {
  * @see #describeType
  * @see #getQualifiedSuperclassName
  */
-public native function getQualifiedClassName(value:*):String; /*{
-  var type : Function = typeof value=="function" ? value : value.constructor;
-  return typeof type["$class"]=="object" ? String(type["$class"]["fullClassName"]).replace(/\.([^\.]+$)/ as String,"::$1") : String(type);
-}*/
+public function getQualifiedClassName(value:*):String {
+  var type:Function = typeof value=="function" ? value : value.constructor;
+  return typeof type["$class"]=="object" ? type["$class"]["fullClassName"].replace(/\.([^\.]+$)/,"::$1") : String(type);
+}
 }

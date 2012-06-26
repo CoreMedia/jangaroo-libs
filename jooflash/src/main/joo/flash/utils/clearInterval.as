@@ -1,5 +1,4 @@
 package flash.utils {
-//import joo.getQualifiedObject;
 
 /**
  * Cancels a specified <code>setInterval()</code> call.
@@ -37,7 +36,7 @@ package flash.utils {
  * }
  * </listing>
  */
-public native function clearInterval(id:uint):void; /* {
-  getQualifiedObject("clearInterval")(id);
-}*/
+public function clearInterval(id:uint):void {
+  window.clearInterval(id);
+}
 }

@@ -6,5 +6,7 @@ package flash.profiler {
  * @param color Sets the color of the rectangles. If you do not specify this parameter, 0xFF0000 is used.
  *
  */
-public native function showRedrawRegions(on:Boolean, color:uint = 0xFF0000):void;
+public function showRedrawRegions(on:Boolean, color:uint = 0xFF0000):void {
+  throw new Error('not implemented');
+}
 }

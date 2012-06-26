@@ -1,4 +1,5 @@
 package flash.net {
+import joo.getOrCreatePackage;
 
 /**
  * Looks up a class that previously had an alias registered through a call to the <code>registerClassAlias()</code> method.
@@ -12,6 +13,12 @@ package flash.net {
  * @see #registerClassAlias
  *
  */
-public native function getClassByAlias(aliasName:String):Class;
+public function getClassByAlias(aliasName:String):Class {
+  var alias:Class = getOrCreatePackage("flash.net.classAliasRegistry")[aliasName];
+  if (!alias) {
+    throw new ReferenceError(aliasName);
+  }
+  return alias;
+}
 
 }

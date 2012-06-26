@@ -1,4 +1,5 @@
 package flash.net {
+import js.XMLHttpRequest;
 
 /**
  * Sends a URL request to a server, but ignores any response.
@@ -46,6 +47,16 @@ package flash.net {
  * }
  * </listing>
  */
-public native function sendToURL(request:URLRequest):void;
+public function sendToURL(request:URLRequest):void {
+  var xhr:XMLHttpRequest = new XMLHttpRequest();
+  xhr.open(request.method, request.url);
+  xhr.setRequestHeader("Content-Type", request.contentType);
+  var requestHeaders:Array = request.requestHeaders;
+  for (var i:uint = 0; i < requestHeaders.length; i++) {
+    var requestHeader:URLRequestHeader = requestHeaders[i];
+    xhr.setRequestHeader(requestHeader.name, requestHeader.value);
+  }
+  xhr.send(request.method === "GET" ? undefined : request.data);
+}
 
 }

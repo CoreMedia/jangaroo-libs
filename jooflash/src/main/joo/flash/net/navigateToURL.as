@@ -98,6 +98,8 @@ package flash.net {
  * }
  * </listing></div>
  */
-public native function navigateToURL(request:URLRequest, windowName:String = null):void;
+public function navigateToURL(request:URLRequest, windowName:String = null):void {
+  window.open(request.url, windowName || "_blank");
+}
 
 }

@@ -102,6 +102,8 @@ package flash.system {
  * }
  * </listing>
  */
-public native function fscommand(command:String, args:String = ""):void;
+public function fscommand(command:String, args:String = ""):void {
+  throw new Error('not implemented');
+}
 
 }

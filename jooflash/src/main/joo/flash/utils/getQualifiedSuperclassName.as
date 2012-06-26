@@ -13,7 +13,8 @@ package flash.utils {
  * @see #getQualifiedSuperclassName
  *
  */
-  public native function getQualifiedSuperclassName(value:*):String; /*{
-      throw new Error('not implemented'); // TODO: implement!
-    }*/
+public function getQualifiedSuperclassName(value:*):String {
+  var type:Function = typeof value=="function" ? value : value.constructor;
+  return typeof type["$class"]=="object" ? type["$class"]["superClassDeclaration"]["fullClassName"].replace(/\.([^\.]+$)/,"::$1") : String(type);
+}
 }

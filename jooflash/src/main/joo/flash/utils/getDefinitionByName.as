@@ -1,4 +1,5 @@
 package flash.utils {
+import joo.getQualifiedObject;
 
 /**
  * Returns a reference to the class object of the class specified by the <code>name</code> parameter.
@@ -35,6 +36,12 @@ package flash.utils {
  * }
  * </listing>
  */
-public native function getDefinitionByName(name:String):Object;
+public function getDefinitionByName(name:String):Object {
+  var clazz:* = getQualifiedObject(name.replace("::","."));
+  if (typeof clazz !== 'function') {
+    throw new ReferenceError(name);
+  }
+  return clazz;
+}
 
 }

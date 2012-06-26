@@ -1,5 +1,4 @@
 package flash.utils {
-//import joo.getQualifiedObject;
 
 /**
  * Runs a specified function after a specified delay (in milliseconds).
@@ -34,12 +33,8 @@ package flash.utils {
  * }
  * </listing>
  */
-public native function setTimeout(closure:Function, delay:Number, ...rest):uint; /*{
-  var fn:Function = rest.length === 0  ? closure :
-    function():void {
-      closure.apply(null, rest);
-    };
-  return getQualifiedObject("setTimeout")(fn, delay);
-  // TODO: use rest parameters!
-}*/
+public function setTimeout(closure:Function, delay:Number, ...rest):uint {
+  var timeout:* = window.setTimeout(applyWithRestParameters(closure, rest), delay);
+  return timeout;
+}
 }
