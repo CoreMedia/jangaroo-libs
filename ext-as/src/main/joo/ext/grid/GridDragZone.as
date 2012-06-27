@@ -1,5 +1,6 @@
 package ext.grid {
 import ext.IEventObject;
+import ext.config.griddragzone;
 import ext.dd.DragZone;
 
 /**
@@ -16,16 +17,14 @@ import ext.dd.DragZone;
 public class GridDragZone extends DragZone {
 
   /**
-   *
-   *
-   * @see ext.config.griddragzone
+   * Create a new GridDragZone for the given grid panel and configuration.
    */
-  public function GridDragZone() {
-    super(null, null);
+  public function GridDragZone(grid:GridPanel, config:griddragzone) {
+    super(grid, config);
   }
 
   /**
-   * An empty immplementation. Implement this to provide behaviour after a repair of an invalid drop. An implementation might highlight the selected rows to show that they have not been dragged.
+   * An empty implementation. Implement this to provide behaviour after a repair of an invalid drop. An implementation might highlight the selected rows to show that they have not been dragged.
    *
    * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridDragZone-method-afterRepair Sencha Docs Ext JS 3.4
    */
