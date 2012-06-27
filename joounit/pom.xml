@@ -38,6 +38,7 @@
     <resources>
       <resource>
         <directory>src/main/joo-js</directory>
+        <targetPath>META-INF/resources</targetPath>
       </resource>
     </resources>
     <plugins>
