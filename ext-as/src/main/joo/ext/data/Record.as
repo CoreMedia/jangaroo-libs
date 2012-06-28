@@ -142,6 +142,11 @@ public class Record {
   public native function set store(value:Store):void;
 
   /**
+   * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Record-method-afterEdit Sencha Docs Ext JS 3.4
+   */
+  protected native function afterEdit():void;
+
+  /**
    * Begin an edit. While in edit mode, no events (e.g.. the <code>update</code> event) are relayed to the containing store. See also: <code><a href="output/Ext.data.Record.html#Ext.data.Record-endEdit">endEdit</a></code> and <code><a href="output/Ext.data.Record.html#Ext.data.Record-cancelEdit">cancelEdit</a></code>.
    *
    * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Record-method-beginEdit Sencha Docs Ext JS 3.4
