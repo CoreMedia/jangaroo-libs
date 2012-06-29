@@ -35,12 +35,6 @@
   </profiles>
 
   <build>
-    <resources>
-      <resource>
-        <directory>src/main/joo-js</directory>
-        <targetPath>META-INF/resources</targetPath>
-      </resource>
-    </resources>
     <plugins>
       <plugin>
         <groupId>net.jangaroo</groupId>
