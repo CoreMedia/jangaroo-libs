@@ -10,12 +10,12 @@
   <artifactId>ckeditor</artifactId>
   <name>ckeditor</name>
   <description>CKEditor 3.6.2</description>
+  <packaging>jangaroo</packaging>
 
   <dependencies>
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>jangaroo-runtime</artifactId>
-      <type>jangaroo</type>
     </dependency>
   </dependencies>
 </project>
