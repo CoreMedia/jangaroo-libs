@@ -108,8 +108,7 @@
               <goal>unpack-dependencies</goal>
             </goals>
             <configuration>
-              <includeTypes>jangaroo</includeTypes>
-              <failOnMissingClassifierArtifact>false</failOnMissingClassifierArtifact>
+              <includeTypes>jar</includeTypes>
               <includes>
                 META-INF/joo-api/**
               </includes>
