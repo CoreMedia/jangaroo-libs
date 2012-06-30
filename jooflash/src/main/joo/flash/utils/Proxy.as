@@ -7,7 +7,7 @@ package flash.utils {
  * <p>And, keep in mind, your own code overriding the methods of the Proxy class can throw exceptions unintentionally. Throwing exceptions when using these methods causes problems because the calling code (using operators like <code>in</code>, <code>is</code>, <code>delete</code> and others) does not expect exceptions. Unless you're already sure your overriding method does not throw exceptions, Adobe recommends using <code>try..catch</code> statements around your implementation of the Proxy class to avoid fatal errors when operators call your methods. For example:</p>
  * <listing>
  *  dynamic class MyProxy extends Proxy {
- *      flash_proxy override function callProperty(name:*, ...rest):* {
+ *      flash_proxy override function callProperty(name:&#42;, ...rest):&#42; {
  *        try {
  *          // custom code here
  *        }
@@ -115,12 +115,12 @@ public class Proxy {
    *          // initial call
    *          if (index == 0) {
    *              _item = new Array();
-   *              for (var x:* in _target) {
+   *              for (var x:&#42; in _target) {
    *                 _item.push(x);
    *              }
    *          }
    *
-   *          if (index < _item.length) {
+   *          if (index &lt; _item.length) {
    *              return index + 1;
    *          } else {
    *              return 0;
@@ -151,12 +151,12 @@ public class Proxy {
    *          // initial call
    *          if (index == 0) {
    *              _item = new Array();
-   *              for (var x:* in _target) {
+   *              for (var x:&#42; in _target) {
    *                 _item.push(x);
    *              }
    *          }
    *
-   *          if (index < _item.length) {
+   *          if (index &lt; _item.length) {
    *              return index + 1;
    *          } else {
    *              return 0;
@@ -187,12 +187,12 @@ public class Proxy {
    *          // initial call
    *          if (index == 0) {
    *              _item = new Array();
-   *              for (var x:* in _target) {
+   *              for (var x:&#42; in _target) {
    *                 _item.push(x);
    *              }
    *          }
    *
-   *          if (index < _item.length) {
+   *          if (index &lt; _item.length) {
    *              return index + 1;
    *          } else {
    *              return 0;
