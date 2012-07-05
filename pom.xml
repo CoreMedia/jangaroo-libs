@@ -4,7 +4,7 @@
   <groupId>net.jangaroo</groupId>
   <artifactId>jangaroo-libs</artifactId>
   <packaging>pom</packaging>
-  <version>2.0-preview-4-SNAPSHOT</version>
+  <version>2.0-preview-4</version>
   <name>Jangaroo standard libraries</name>
   <url>http://www.coremedia.com</url>
 
