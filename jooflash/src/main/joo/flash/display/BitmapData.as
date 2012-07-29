@@ -496,50 +496,23 @@ public class BitmapData implements IBitmapDrawable {
    */
   public function draw(source:IBitmapDrawable, matrix:Matrix = null, colorTransform:ColorTransform = null,
                        blendMode:String = null, clipRect:Rectangle = null, smoothing:Boolean = false):void {
-    var bitmapData:BitmapData;
-    if (source is Bitmap) {
-      bitmapData = Bitmap(source).bitmapData;
-    } else {
-      bitmapData = source as BitmapData;
-    }
-    var element:HTMLElement = bitmapData ?
-      bitmapData.image || bitmapData.elem || bitmapData.asDiv() :
-      DisplayObject(source).getElement();
     var context:CanvasRenderingContext2D = getContext();
     if (matrix) {
       context.save();
       context.setTransform(matrix.a, matrix.b, matrix.c, matrix.d, matrix.tx, matrix.ty);
     }
-    if (element is HTMLImageElement || element is HTMLCanvasElement) {
-      var offsetX:int;
-      var offsetY:int;
-      if (bitmapData) {
-        offsetX = bitmapData.imageOffsetX;
-        offsetY = bitmapData.imageOffsetY;
-      } else {
-        // TODO: bounds!
-        //var bounds:Rectangle = DisplayObject(source).getBounds(DisplayObject(source).parent);
-        //offsetX = DisplayObject(source).x - bounds.left;
-        //offsetY = DisplayObject(source).y - bounds.top;
-        offsetX = parseInt(element.style.left, 10) || 0;
-        offsetY = parseInt(element.style.top, 10) || 0;
-      }
-      context.drawImage(element, offsetX, offsetY);
-    } else {
-      if (element.style.backgroundColor) {
-        context.fillStyle = element.style.backgroundColor;
-        context.fillRect(0, 0, source['width'], source['height']);
-      }
-      var text:String = element['textContent'];
-      if (text) {
-        context.fillStyle = element.style.color;
-        context.font = element.style.font;
-        context.textBaseline = "top";
-        context.fillText(text, 0, 0);
-      }
-    }
+    var renderState:RenderState = RenderState.fromCanvasRenderingContext2D(context);
+    source._render(renderState);
     if (matrix) {
       context.restore();
+    }
+  }
+
+  public function _render(renderState:RenderState):void {
+    if (isCanvas) {
+      renderState.context.drawImage(elem, 0.0, 0.0);
+    } else {
+      drawIntoCanvas(renderState.context);
     }
   }
 
@@ -1398,21 +1371,24 @@ public class BitmapData implements IBitmapDrawable {
       var canvas:HTMLCanvasElement = HTMLCanvasElement(window.document.createElement("canvas"));
       canvas.width = width;
       canvas.height = height;
-      canvas.style.position = "absolute";
-      var context : CanvasRenderingContext2D = CanvasRenderingContext2D(canvas.getContext("2d"));
-      if (_alpha > 0 || !transparent) {
-        context.save();
-        context.fillStyle = Graphics.toRGBA(_fillColor, _alpha);
-        context.fillRect(0, 0, width, height);
-        context.restore();
-      }
-      if (image) {
-        context.drawImage(image, imageOffsetX, imageOffsetY, width, height, 0, 0, width, height);
-        image = null;
-      }
+      var context:CanvasRenderingContext2D = CanvasRenderingContext2D(canvas.getContext("2d"));
+      drawIntoCanvas(context);
       changeElement(canvas);
     }
     return HTMLCanvasElement(elem);
+  }
+
+  private function drawIntoCanvas(context:CanvasRenderingContext2D):void {
+    if (_alpha > 0 || !transparent) {
+      context.save();
+      context.fillStyle = Graphics.toRGBA(_fillColor, _alpha);
+      context.fillRect(0, 0, width, height);
+      context.restore();
+    }
+    if (image) {
+      context.drawImage(image, imageOffsetX, imageOffsetY, width, height, 0, 0, width, height);
+      image = null;
+    }
   }
 
   internal function addElementChangeListener(listener:Function):void {

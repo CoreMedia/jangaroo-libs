@@ -30,38 +30,10 @@ public class Shape extends DisplayObject {
     _graphics = new Graphics();
   }
 
-  /**
-   * @inheritDoc
-   */
-  override public function set transform(value:Transform):void {
-    super.transform = value;
-    var m : Matrix = value.matrix;
-    if (m) {
-      this.graphics.renderingContext.setTransform(m.a, m.b, m.c, m.d, m.tx, m.ty);
-    }
-  }
-
-  /**
-   * @inheritDoc
-   */
-  override public function get width():Number {
-    return _graphics.width;
-  }
-
-  /**
-   * @inheritDoc
-   */
-  override public function get height():Number {
-    return _graphics.height;
-  }
-
   // ************************** Jangaroo part **************************
 
-  /**
-   * @private
-   */
-  override protected function createElement() : HTMLElement {
-    return graphics.canvas;
+  override public function _render(renderState:RenderState):void {
+    graphics._render(renderState);
   }
 
   private var _graphics : Graphics;

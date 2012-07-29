@@ -33,6 +33,7 @@ public class Run {
       displayObject['loaderInfo'] = loaderInfo;
       cd.constructor_.call(displayObject);
       displayObject.broadcastEvent(new Event(Event.ADDED_TO_STAGE, false, false));
+      new RenderLoop().addStage(stage);
     });
   }
 

@@ -1,5 +1,4 @@
 package flash.display {
-import js.HTMLElement;
 
 /**
  * The Bitmap class represents display objects that represent bitmap images. These can be images that you load with the flash.display.Loader class, or they can be images that you create with the <code>Bitmap()</code> constructor.
@@ -34,13 +33,7 @@ public class Bitmap extends DisplayObject {
    * @private
    */
   public function set bitmapData(value:BitmapData):void {
-    if (listenerAdded) {
-      _bitmapData.removeElementChangeListener(setElement);
-    }
     _bitmapData = value;
-    if (listenerAdded) {
-      _bitmapData.addElementChangeListener(setElement);
-    }
   }
 
   /**
@@ -135,23 +128,13 @@ public class Bitmap extends DisplayObject {
     this._smoothing = smoothing;
   }
 
-  override protected function createElement():HTMLElement {
-    if (!listenerAdded) {
-      _bitmapData.addElementChangeListener(setElement)
+  override public function _render(renderState:RenderState):void {
+    if (bitmapData) {
+      bitmapData._render(renderState);
     }
-    return _bitmapData.getElement();
-  }
-
-  override public function get height():Number {
-    return _bitmapData.height * scaleY;
-  }
-
-  override public function get width():Number {
-    return _bitmapData.width * scaleX;
   }
 
   private var _bitmapData:BitmapData;
-  private var listenerAdded:Boolean = false;
   private var _pixelSnapping:String;
   private var _smoothing:Boolean;
 

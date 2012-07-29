@@ -39,7 +39,6 @@ public class SimpleButton extends InteractiveObject {
    */
   public function set enabled(value:Boolean):void {
     _enabled = value;
-    getElement().disabled = !value;
   }
 
   /**

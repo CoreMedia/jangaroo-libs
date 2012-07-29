@@ -1,11 +1,14 @@
 package flash.display {
 import flash.events.Event;
-import flash.events.TimerEvent;
+import flash.events.KeyboardEvent;
+import flash.events.MouseEvent;
 import flash.geom.Rectangle;
 import flash.text.TextSnapshot;
-import flash.utils.Timer;
+
+import js.CanvasRenderingContext2D;
 
 import js.Event;
+import js.HTMLCanvasElement;
 import js.HTMLElement;
 
 /**
@@ -358,9 +361,6 @@ public class Stage extends DisplayObjectContainer {
    */
   public function set frameRate(value:Number):void {
     _frameRate = Number(value);
-    if (frameTimer) {
-      frameTimer.delay = 1000 / _frameRate;
-    }
   }
 
   /**
@@ -811,7 +811,7 @@ public class Stage extends DisplayObjectContainer {
    */
   public function set stageHeight(value:int):void {
     _stageHeight = value;
-    getElement().style.height = value + "px";
+    canvas.style.height = value + "px";
   }
 
   /**
@@ -825,7 +825,7 @@ public class Stage extends DisplayObjectContainer {
    *
    */
   public function get stageWidth():int {
-    return _stageWidth;
+    return canvas.width;
   }
 
   /**
@@ -833,7 +833,7 @@ public class Stage extends DisplayObjectContainer {
    */
   public function set stageWidth(value:int):void {
     _stageWidth = value;
-    getElement().style.width = value + "px";
+    canvas.style.width = value + "px";
   }
 
   /**
@@ -997,6 +997,25 @@ public class Stage extends DisplayObjectContainer {
     return super.dispatchEvent(event);
   }
 
+  internal function internalTransformAndDispatch(event:js.Event):Boolean {
+    var flashEvent:flash.events.Event;
+
+    var type:String = DOM_EVENT_TO_MOUSE_EVENT[event.type];
+    if (type) {
+      flashEvent = new MouseEvent(type, true, true, event.pageX - this.stage.x, event.pageY - this.stage.y, null,
+        event.ctrlKey, event.altKey, event.shiftKey, stage.buttonDown);
+    } else {
+      type = DOM_EVENT_TO_KEYBOARD_EVENT[event.type];
+      if (type) {
+        flashEvent = new KeyboardEvent(type, true, true, event['charCode'], event.keyCode || event['which'], 0,
+          event.ctrlKey, event.altKey, event.shiftKey, event.ctrlKey, event.ctrlKey);
+      }
+    }
+    if (!flashEvent) {
+      trace("Unmapped DOM event type " + event.type + " occurred, ignoring.");
+    }
+    return this.dispatchEvent(flashEvent);
+  }
   /**
    * Checks whether the EventDispatcher object has any listeners registered for a specific type of event. This allows you to determine where an EventDispatcher object has altered handling of an event type in the event flow hierarchy. To determine whether a specific event type actually triggers an event listener, use <code>willTrigger()</code>.
    * <p>The difference between <code>hasEventListener()</code> and <code>willTrigger()</code> is that <code>hasEventListener()</code> examines only the object to which it belongs, whereas <code>willTrigger()</code> examines the entire event flow for the event specified by the <code>type</code> parameter.</p>
@@ -1105,15 +1124,13 @@ public class Stage extends DisplayObjectContainer {
    */
   public function Stage(id:String, properties:Object) {
     this.id = id;
+    createCanvas();
     if (properties) {
       for (var m:String in properties) {
         this[m] = properties[m];
       }
     }
     super();
-    frameTimer = new Timer(1000 / _frameRate);
-    frameTimer.addEventListener(TimerEvent.TIMER, enterFrame);
-    frameTimer.start();
   }
 
   /**
@@ -1123,35 +1140,25 @@ public class Stage extends DisplayObjectContainer {
     if (typeof value == 'string') {
       value = String(value).replace(/^#/, "0x");
     }
-    getElement().style.backgroundColor = Graphics.toRGBA(uint(value));
+    canvas.style.backgroundColor = Graphics.toRGBA(uint(value));
   }
 
   /**
    * @private
    */
-  override protected function createElement():HTMLElement {
+  private function createCanvas():void {
     var element:HTMLElement = HTMLElement(window.document.getElementById(id));
-    element.style.position = "relative";
-    element.style.overflow = "hidden";
-    element.setAttribute("tabindex", "0");
-    element.style.margin = "0";
-    element.style.padding = "0";
-    var width:Object = element.getAttribute("width");
-    if (!width) {
-      width = this.width;
-    }
-    element.style.width = width + "px";
-    var height:Object = element.getAttribute("height");
-    if (!height) {
-      height = this.height;
-    }
-    element.style.height = height + "px";
-    element.innerHTML = "";
-    element.addEventListener('mousedown', function():void {
+    canvas = HTMLCanvasElement(window.document.createElement("CANVAS"));
+    canvas.style.outline = "none";
+    context = CanvasRenderingContext2D(canvas.getContext("2d"));
+    _renderState = new RenderState(context);
+    element.parentNode.replaceChild(canvas, element);
+    canvas.focus();
+    element.addEventListener('mousedown', function(event:js.Event):void {
       // TODO: check event.button property whether it was the "primary" mouse button!
       buttonDown = true;
     }, true);
-    element.addEventListener('mouseup', function():void {
+    element.addEventListener('mouseup', function(event:js.Event):void {
       // TODO: check event.button property whether it was the "primary" mouse button!
       buttonDown = false;
     }, true);
@@ -1159,7 +1166,6 @@ public class Stage extends DisplayObjectContainer {
       _mouseX = e.clientX;
       _mouseY = e.clientY;
     }, true);
-    return element;
   }
 
   /**
@@ -1176,13 +1182,15 @@ public class Stage extends DisplayObjectContainer {
     return _mouseY;
   }
 
+  private var canvas:HTMLCanvasElement;
+  private var context:CanvasRenderingContext2D;
+  private var _renderState:RenderState;
   private var _stageHeight:int;
   private var _stageWidth:int;
   private var _mouseX:int;
   private var _mouseY:int;
   private var id:String;
   private var _frameRate:Number = 30;
-  private var frameTimer:Timer;
   private var _quality:String = StageQuality.HIGH;
   private var _scaleMode:String = StageScaleMode.NO_SCALE;
   private var _align:String = StageAlign.TOP_LEFT;
@@ -1190,23 +1198,17 @@ public class Stage extends DisplayObjectContainer {
 
   private static var enterFrameSources:Array = [];
 
-  internal static function addEnterFrameSource(displayObject:DisplayObject):void {
-    enterFrameSources.push(displayObject);
-  }
-
-  internal static function removeEnterFrameSource(displayObject:DisplayObject):void {
-    var index:int = enterFrameSources.indexOf(displayObject);
-    if (index !== -1) {
-      enterFrameSources.splice(index, 1);
-    }
-  }
-
   private static function enterFrame():void {
     var enterFrameEvent:flash.events.Event = new flash.events.Event(flash.events.Event.ENTER_FRAME, false, false);
     for (var i:int = 0; i < enterFrameSources.length; i++) {
       var displayObject:DisplayObject = enterFrameSources[i];
       displayObject.dispatchEvent(enterFrameEvent);
     }
+  }
+
+  public function materialize():void {
+    _renderState.reset();
+    _render(_renderState);
   }
 
 }

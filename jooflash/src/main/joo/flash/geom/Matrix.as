@@ -490,8 +490,11 @@ public class Matrix {
     this.b = -b/det;
     this.c = -c/det;
     this.d = a/det;
-    this.tx = (c*ty-tx*d)/det;
-    this.ty = (tx*b-a*ty)/det;
+    //this.tx = (c*ty-tx*d)/det;
+    //this.ty = (tx*b-a*ty)/det;
+    // Dart version:
+    this.tx = - (this.a * tx + this.c * ty);
+    this.ty = - (this.b * tx + this.d * ty);
   }
 
   /**
@@ -609,6 +612,49 @@ public class Matrix {
 
   // ************************** Jangaroo part **************************
 
+  public function copyFromAndConcat(copyMatrix:Matrix, concatMatrix:Matrix):void 
+  {
+    var a1:Number =   copyMatrix.a;
+    var b1:Number =   copyMatrix.b;
+    var c1:Number =   copyMatrix.c;
+    var d1:Number =   copyMatrix.d;
+    var tx1:Number =  copyMatrix.tx;
+    var ty1:Number =  copyMatrix.ty;
+
+    var a2:Number =   concatMatrix.a;
+    var b2:Number =   concatMatrix.b;
+    var c2:Number =   concatMatrix.c;
+    var d2:Number =   concatMatrix.d;
+    var tx2:Number =  concatMatrix.tx;
+    var ty2:Number =  concatMatrix.ty;
+    
+    a =   (a1 * a2 + b1 * c2);
+    b =   (a1 * b2 + b1 * d2);
+    c =   (c1 * a2 + d1 * c2);
+    d =   (c1 * b2 + d1 * d2);
+    tx =  (tx1 * a2 + ty1 * c2 + tx2);
+    ty =  (tx1 * b2 + ty1 * d2 + ty2);
+  }
+  
+  //-------------------------------------------------------------------------------------------------
+
+  public function copyFromAndInvert(matrix:Matrix):void {
+    var a:Number =   matrix.a;
+    var b:Number =   matrix.b;
+    var c:Number =   matrix.c;
+    var d:Number =   matrix.d;
+    var tx:Number =  matrix.tx;
+    var ty:Number =  matrix.ty;
+    
+    var det:Number = a * d - b * c;
+    this.a =    (d / det);
+    this.b =  - (b / det);
+    this.c =  - (c / det);
+    this.d =    (a / det);
+    this.tx = - (this.a * tx + this.c * ty);
+    this.ty = - (this.b * tx + this.d * ty);
+  }
+  
   /**
    * @private
    */

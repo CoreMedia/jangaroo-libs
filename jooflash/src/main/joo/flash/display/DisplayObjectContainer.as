@@ -1,7 +1,9 @@
 package flash.display {
 import flash.events.Event;
 import flash.events.MouseEvent;
+import flash.geom.Matrix;
 import flash.geom.Point;
+import flash.geom.Rectangle;
 import flash.text.TextSnapshot;
 
 import js.Element;
@@ -159,7 +161,7 @@ public class DisplayObjectContainer extends InteractiveObject {
    * <li><code>new MovieClip()</code></li></ul>
    */
   public function DisplayObjectContainer() {
-    this.children = [];
+    this.children = new <DisplayObject>[];
     super();
   }
 
@@ -267,25 +269,13 @@ public class DisplayObjectContainer extends InteractiveObject {
    * @private
    */
   public function internalAddChildAt(child:DisplayObject, index:int):void {
-    var containerElement:Element = this.getElement();
-    var childElement:Element = child.getElement();
-    assert(containerElement.childNodes.length === getChildIndexOffset() + children.length);
     var oldParent:DisplayObjectContainer = child.parent;
     if (oldParent) {
       oldParent.removeChild(child);
-    } else {
-      assert(!childElement.parentNode || childElement.parentNode === childElement.ownerDocument.body);
     }
     var refChild:DisplayObject = this.children[index];
     this.children.splice(index, 0, child);
     child.setParent(this);
-    // also add to DOM:
-    if (refChild) {
-      containerElement.insertBefore(childElement, refChild.getElement());
-    } else {
-      containerElement.appendChild(childElement);
-    }
-    assert(containerElement.childNodes.length === getChildIndexOffset() + children.length);
   }
 
   /**
@@ -592,15 +582,8 @@ public class DisplayObjectContainer extends InteractiveObject {
    * </listing>
    */
   public function removeChildAt(index:int):DisplayObject {
-    var containerElement:HTMLElement = getElement();
-    assert(containerElement.childNodes.length === getChildIndexOffset() + children.length);
     var child:DisplayObject = children.splice(index, 1)[0];
     child.setParent(null);
-    // if successful, remove in DOM, too:
-    var childElement:Element = child.getElement();
-    containerElement.removeChild(childElement);
-    assert(!childElement.parentNode);
-    assert(containerElement.childNodes.length === getChildIndexOffset() + children.length);
     return child;
   }
 
@@ -739,23 +722,10 @@ public class DisplayObjectContainer extends InteractiveObject {
     if (index1 > index2) {
       swapChildrenAt(index2, index1);
     } else if (index1 < index2) {
-      var containerElement:Element = this.getElement();
-      assert(containerElement.childNodes.length === children.length);
       var child1:DisplayObject = this.children[index1];
       var child2:DisplayObject = this.children[index2];
       children.splice(index1, 1, child2);
       children.splice(index2, 1, child1);
-      // also change in DOM, mind to insert left element first:
-      var child1Element:Element = child1.getElement();
-      var child2Element:Element = child2.getElement();
-      var refElement:Element = Element(child2Element.nextSibling); // since index1 < index2, refElement cannot be child1Element
-      containerElement.insertBefore(child2Element, child1Element); // this removes child2Element at its old position, but we still have refElement
-      if (refElement) {
-        containerElement.insertBefore(child1Element, refElement);
-      } else {
-        containerElement.appendChild(child1Element);
-      }
-      assert(containerElement.childNodes.length === children.length);
     }
   }
 
@@ -790,6 +760,58 @@ public class DisplayObjectContainer extends InteractiveObject {
   }
 
   // ************************** Jangaroo part **************************
+
+  override protected function getBoundsTransformed(matrix:Matrix, returnRectangle:Rectangle = null):Rectangle {
+    if (returnRectangle == null) {
+      returnRectangle = new Rectangle();
+    }
+
+    if (children.length == 0) {
+      return super.getBoundsTransformed(matrix, returnRectangle);
+    }
+
+    var left:Number = Number.MAX_VALUE;
+    var top:Number = Number.MAX_VALUE;
+    var right:Number = Number.MIN_VALUE;
+    var bottom:Number = Number.MIN_VALUE;
+
+    var childrenLength:int = children.length;
+
+    var _tmpMatrix : Matrix = new Matrix();
+    for (var i:int = 0; i < childrenLength; i++) {
+      _tmpMatrix.copyFromAndConcat(children[i].transform.matrix, matrix);
+
+      var rectangle:Rectangle = children[i].getBoundsTransformed(_tmpMatrix, returnRectangle);
+
+      if (rectangle.left < left) {
+        left = rectangle.left;
+      }
+      if (rectangle.top < top) {
+        top = rectangle.top;
+      }
+      if (rectangle.right > right) {
+        right = rectangle.right;
+      }
+      if (rectangle.bottom > bottom) {
+        bottom = rectangle.bottom;
+      }
+    }
+
+    returnRectangle.x = left;
+    returnRectangle.y = top;
+    returnRectangle.width = right - left;
+    returnRectangle.height = bottom - top;
+
+    return returnRectangle;
+  }
+
+  override public function _render(renderState:RenderState):void {
+    for each (var child:DisplayObject in children) {
+      if (child.visible) {
+        renderState.renderDisplayObject(child);
+      }
+    }
+  }
 
   /**
    * @private
@@ -828,7 +850,7 @@ public class DisplayObjectContainer extends InteractiveObject {
     return false;
   }
 
-  private var children:Array/*<DisplayObject>*/;
+  private var children:Vector.<DisplayObject>;
   private var _mouseChildren:Boolean = true;
 }
 }

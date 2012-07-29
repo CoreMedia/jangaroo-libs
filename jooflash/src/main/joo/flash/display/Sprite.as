@@ -2,11 +2,6 @@ package flash.display {
 import flash.geom.Rectangle;
 import flash.media.SoundTransform;
 
-import js.Element;
-import js.HTMLCanvasElement;
-import flash.geom.Transform;
-import flash.geom.Matrix;
-
 /**
  * The Sprite class is a basic display list building block: a display list node that can display graphics and can also contain children.
  * <p>A Sprite object is similar to a movie clip, but does not have a timeline. Sprite is an appropriate base class for objects that do not require timelines. For example, Sprite would be a logical base class for user interface (UI) components that typically do not use the timeline.</p>
@@ -123,15 +118,8 @@ public class Sprite extends DisplayObjectContainer {
   public function get graphics():Graphics {
     if (!_graphics) {
       _graphics = new Graphics();
-      var canvas : HTMLCanvasElement = _graphics.canvas;
-      var element : Element = this.getElement();
-      if (element.firstChild) {
-        element.insertBefore(canvas, element.firstChild);
-      } else {
-        element.appendChild(canvas);
-      }
     }
-    return this._graphics;
+    return _graphics;
   }
 
   override internal function getChildIndexOffset():int {
@@ -447,20 +435,18 @@ public class Sprite extends DisplayObjectContainer {
     throw new Error('not implemented'); // TODO: implement!
   }
 
-  /**
-   * @inheritDoc
-   */
-  override public function set transform(value:Transform):void {
-    super.transform = value;
-    var m : Matrix = value.matrix;
-    if (m) {
-      this.graphics.renderingContext.setTransform(m.a, m.b, m.c, m.d, m.tx, m.ty);
+  // ************************** Jangaroo part **************************
+
+
+  override public function _render(renderState:RenderState):void {
+    if (_graphics) {
+      _graphics._render(renderState);
     }
+    super._render(renderState);
   }
 
-  // ************************** Jangaroo part **************************
   private function updateCursor():void {
-    getElement().style.cursor = buttonMode && useHandCursor ? 'pointer' : 'default';
+    //getElement().style.cursor = buttonMode && useHandCursor ? 'pointer' : 'default';
   }
 
   private var _graphics : Graphics;

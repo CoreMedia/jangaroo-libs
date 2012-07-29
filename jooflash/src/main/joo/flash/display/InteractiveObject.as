@@ -361,7 +361,6 @@ public class InteractiveObject extends DisplayObject {
   public function set mouseEnabled(value:Boolean):void {
     if (_mouseEnabled != value) {
       _mouseEnabled = value;
-      makeSelectable(value);
       // TODO: what's the exact difference between mouseEnabled and TextField#selecteable?
       // TODO: need to cancel more mouse events or even key events?
     }
@@ -481,18 +480,6 @@ public class InteractiveObject extends DisplayObject {
     // Otherwise just let it roll.
     else {
       super.processCapture(event);
-    }
-  }
-
-  /**
-   * @private
-   */
-  override internal function internalTransformAndDispatch(event:js.Event):Boolean {
-    var type:String = DisplayObject.DOM_EVENT_TO_MOUSE_EVENT[event.type];
-    if (type && !mouseEnabled) {
-      return false;
-    } else {
-      return super.internalTransformAndDispatch(event);
     }
   }
 

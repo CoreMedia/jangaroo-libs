@@ -172,7 +172,6 @@ public class TextField extends InteractiveObject {
    */
   public function set backgroundColor(value:uint):void {
     _backgroundColor = value;
-    updateElementProperty(getElement(), "style.backgroundColor", Graphics.toRGBA(value));
   }
 
   /**
@@ -190,7 +189,6 @@ public class TextField extends InteractiveObject {
    */
   public function set border(value:Boolean):void {
     _border = value;
-    updateElementProperty(getElement(), "style.borderWidth", value ? "1px" : "0");
   }
 
   /**
@@ -207,7 +205,6 @@ public class TextField extends InteractiveObject {
    */
   public function set borderColor(value:uint):void {
     _borderColor = value;
-    updateElementProperty(getElement(), "style.borderColor", Graphics.toRGBA(value));
   }
 
   /**
@@ -353,9 +350,6 @@ public class TextField extends InteractiveObject {
           _defaultTextFormat[property] = value[property];
         }
       }
-    }
-    if (hasElement()) {
-      syncTextFormat(getElement());
     }
   }
 
@@ -611,7 +605,6 @@ public class TextField extends InteractiveObject {
    */
   public function set htmlText(value:String):void {
     _htmlText = value;
-    updateElementProperty(getElement(), "innerHTML", value);
   }
 
   /**
@@ -817,7 +810,6 @@ public class TextField extends InteractiveObject {
   public function set selectable(value:Boolean):void {
     if (_selectable != value) {
       _selectable = value;
-      makeSelectable(value);
     }
   }
 
@@ -1077,7 +1069,6 @@ public class TextField extends InteractiveObject {
    */
   public function set text(value:String):void {
     _lines = value.split('\n');
-    updateElementProperty(getElement(), "innerHTML", _lines.join('<br />'));
   }
 
   /**
@@ -1118,9 +1109,6 @@ public class TextField extends InteractiveObject {
    */
   public function set textColor(value:uint):void {
     _defaultTextFormat.color = _textFormat.color = value;
-    if (hasElement()) {
-      updateElementProperty(getElement(), "style.color", Graphics.toRGBA(value));
-    }
   }
 
   /**
@@ -1321,9 +1309,9 @@ public class TextField extends InteractiveObject {
   public function set type(value:String):void {
     if (value !== _type) {
       if (value === TextFieldType.INPUT) {
-        getElement().setAttribute('contenteditable', "true");
+        //getElement().setAttribute('contenteditable', "true");
       } else if (value === TextFieldType.DYNAMIC) {
-        getElement().removeAttribute('contenteditable');
+        //getElement().removeAttribute('contenteditable');
       } else {
         throw new ArgumentError(value);
       }
@@ -2554,9 +2542,6 @@ public class TextField extends InteractiveObject {
   public function setTextFormat(format:TextFormat, beginIndex:int = -1, endIndex:int = -1):void {
     // TODO: beginIndex, endIndex
     _textFormat = format;
-    if (hasElement()) {
-      syncTextFormat(getElement());
-    }
   }
 
   // ************************** Jangaroo part **************************
@@ -2572,48 +2557,6 @@ public class TextField extends InteractiveObject {
         return "Verdana";
     }
     return "Helvetica,Arial,sans-serif";
-  }
-
-  override public function get width():Number {
-    // TODO: compute real width considering margins and borders!
-    var element:HTMLElement = ensureAddedToDOM();
-    return vertical ?
-      element.offsetHeight :
-      element.offsetWidth;
-  }
-
-  override public function get height():Number {
-    // TODO: compute real height considering margins and borders!
-    var element:HTMLElement = ensureAddedToDOM();
-    return vertical ? 
-      element.offsetWidth :
-      element.offsetHeight;
-  }
-
-  private function ensureAddedToDOM():HTMLElement {
-    var element:HTMLElement = getElement();
-    if (!parent) {
-      // add to DOM so it has an offsetHeight!
-      element.style.visibility = "hidden";
-      window.document.body.appendChild(element);
-    }
-    return element;
-  }
-
-  override protected function setParent(parent:DisplayObjectContainer):void {
-    getElement().style.visibility = "visible";
-    super.setParent(parent);
-  }
-
-  /**
-   * @private
-   */
-  override protected function createElement():HTMLElement {
-    var elem:HTMLElement = super.createElement();
-    elem.style.padding = "2px";
-    elem.style.width = "auto";
-    syncTextFormat(elem);
-    return elem;
   }
 
   private function syncTextFormat(element:HTMLElement):void {
