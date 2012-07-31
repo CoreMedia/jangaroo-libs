@@ -3,6 +3,7 @@ import flash.display.DisplayObject;
 import flash.display.DisplayObjectContainer;
 import flash.display.Graphics;
 import flash.display.InteractiveObject;
+import flash.display.RenderState;
 import flash.geom.Rectangle;
 
 import js.CanvasRenderingContext2D;
@@ -2545,6 +2546,17 @@ public class TextField extends InteractiveObject {
   }
 
   // ************************** Jangaroo part **************************
+
+  override public function _render(renderState:RenderState):void {
+    var context:CanvasRenderingContext2D = renderState.context;
+    context.save();
+    context.font = getSize() + "px " + asWebFont();
+    context.textAlign = "start";
+    context.textBaseline = "top";
+    context.fillStyle = Graphics.toRGBA(textColor);
+    context.fillText(text, x, y);
+    context.restore();
+  }
 
   private function asWebFont():String {
     switch (_textFormat.font !== null ? _textFormat.font : _defaultTextFormat.font) {

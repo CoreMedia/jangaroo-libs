@@ -3,7 +3,7 @@ import flash.geom.Matrix;
 
 import js.CanvasRenderingContext2D;
 
-internal class RenderState {
+public class RenderState {
     private var _context:CanvasRenderingContext2D ;
   
     private var _matrices:Vector.<Matrix>;

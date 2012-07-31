@@ -91,7 +91,7 @@ public final class Graphics {
   public function beginBitmapFill(bitmap:BitmapData, matrix:Matrix = null, repeat:Boolean = true, smooth:Boolean = false):void {
     commands.push(function (context:CanvasRenderingContext2D):void {
       // TODO: matrix, smooth
-      context.fillStyle = context.createPattern(bitmap.getElement(), repeat ? "repeat" : "no-repeat");
+      context.fillStyle = context.createPattern(bitmap.getImage(), repeat ? "repeat" : "no-repeat");
     });
   }
 
@@ -109,7 +109,9 @@ public final class Graphics {
    * <a href="http://www.adobe.com/go/learn_as3_usingexamples_en">How to use this example</a>Please see the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/Graphics.html#includeExamplesSummary">example</a> at the end of this class for an illustration of how to use this method.
    */
   public function beginFill(color:uint, alpha:Number = 1.0):void {
-    _beginFill(toRGBA(color, alpha));
+    commands.push(function (context:CanvasRenderingContext2D):void {
+      context.fillStyle = toRGBA(color, alpha);
+    });
   }
 
   /**
@@ -1008,16 +1010,11 @@ public final class Graphics {
     commands = new Vector.<Function>();
   }
 
-  private function _beginFill(fillStyle:Object):void {
-    commands.push(function (context:CanvasRenderingContext2D):void {
-      context.fillStyle = fillStyle;
-    });
-  }
-
   private static function createGradientStyle(context:CanvasRenderingContext2D,
                                        type:String, colors:Array, alphas:Array, ratios:Array,
-                                       matrix:Matrix = null, spreadMethod:String = "pad",
-                                       interpolationMethod:String = "rgb", focalPointRatio:Number = 0):CanvasGradient {
+                                       matrix:Matrix = null, spreadMethod:String = SpreadMethod.PAD,
+                                       interpolationMethod:String = InterpolationMethod.RGB,
+                                       focalPointRatio:Number = 0):CanvasGradient {
     // TODO: support spreadMethod != "pad" (medium), interpolationMethod == "rgb_linear" (hard)
     // TODO: check enumeration-typed parameters: throw new ArgumentError("<param-name>","2002");
     var gradient:CanvasGradient;
@@ -1079,10 +1076,12 @@ public final class Graphics {
     var context:CanvasRenderingContext2D = renderState.context;
 
     context.save();
+    context.beginPath();
     for (var i:int = 0; i < commands.length; i++) {
       var command:Function = commands[i];
       command(context);
     }
+    context.stroke();
     context.restore();
   }
 

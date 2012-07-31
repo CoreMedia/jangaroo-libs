@@ -87,7 +87,7 @@ public class RenderLoop {
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 
-  static function addEventDispatcher(eventType:String, eventDispatcher:EventDispatcher):void {
+  public static function addEventDispatcher(eventType:String, eventDispatcher:EventDispatcher):void {
     if (eventType != Event.ENTER_FRAME) {
       return;
     }
@@ -103,7 +103,7 @@ public class RenderLoop {
 
 //-------------------------------------------------------------------------------------------------
 
-  static function removeEventDispatcher(eventType:String, eventDispatcher:EventDispatcher):void {
+  public static function removeEventDispatcher(eventType:String, eventDispatcher:EventDispatcher):void {
     var eventDispatchers:Vector.<EventDispatcher> = _eventDispatcherMap[eventType];
 
     if (eventDispatchers) {
@@ -117,7 +117,7 @@ public class RenderLoop {
 
 //-------------------------------------------------------------------------------------------------
 
-  static function dispatchEvent(event:Event):void {
+  private static function dispatchEvent(event:Event):void {
     var eventDispatchers:Vector.<EventDispatcher> = _eventDispatcherMap[event.type];
 
     if (eventDispatchers != null) {

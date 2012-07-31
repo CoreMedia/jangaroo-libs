@@ -811,6 +811,7 @@ public class Stage extends DisplayObjectContainer {
    */
   public function set stageHeight(value:int):void {
     _stageHeight = value;
+    canvas.height = value;
     canvas.style.height = value + "px";
   }
 
@@ -833,6 +834,7 @@ public class Stage extends DisplayObjectContainer {
    */
   public function set stageWidth(value:int):void {
     _stageWidth = value;
+    canvas.width = value;
     canvas.style.width = value + "px";
   }
 
@@ -1123,14 +1125,17 @@ public class Stage extends DisplayObjectContainer {
    * @private
    */
   public function Stage(id:String, properties:Object) {
+    super();
     this.id = id;
     createCanvas();
+    _quality = StageQuality.HIGH;
+    _scaleMode = StageScaleMode.NO_SCALE;
+    _align = StageAlign.TOP_LEFT;
     if (properties) {
       for (var m:String in properties) {
         this[m] = properties[m];
       }
     }
-    super();
   }
 
   /**
@@ -1154,15 +1159,15 @@ public class Stage extends DisplayObjectContainer {
     _renderState = new RenderState(context);
     element.parentNode.replaceChild(canvas, element);
     canvas.focus();
-    element.addEventListener('mousedown', function(event:js.Event):void {
+    canvas.addEventListener('mousedown', function(event:js.Event):void {
       // TODO: check event.button property whether it was the "primary" mouse button!
       buttonDown = true;
     }, true);
-    element.addEventListener('mouseup', function(event:js.Event):void {
+    canvas.addEventListener('mouseup', function(event:js.Event):void {
       // TODO: check event.button property whether it was the "primary" mouse button!
       buttonDown = false;
     }, true);
-    element.addEventListener('mousemove', function(e:js.Event):void {
+    canvas.addEventListener('mousemove', function(e:js.Event):void {
       _mouseX = e.clientX;
       _mouseY = e.clientY;
     }, true);
@@ -1191,9 +1196,9 @@ public class Stage extends DisplayObjectContainer {
   private var _mouseY:int;
   private var id:String;
   private var _frameRate:Number = 30;
-  private var _quality:String = StageQuality.HIGH;
-  private var _scaleMode:String = StageScaleMode.NO_SCALE;
-  private var _align:String = StageAlign.TOP_LEFT;
+  private var _quality:String;
+  private var _scaleMode:String;
+  private var _align:String;
   internal var buttonDown:Boolean = false;
 
   private static var enterFrameSources:Array = [];
