@@ -69,17 +69,14 @@ public class RenderState {
       _depth++;
   
       var matrix:Matrix = _matrices[_depth];
-      matrix.copyFromAndConcat(displayObject.transform.matrix, _matrices[_depth - 1]);
+      matrix.copyFromAndConcat(displayObject._transformationMatrix, _matrices[_depth - 1]);
       
       _context.setTransform(matrix.a, matrix.b, matrix.c, matrix.d, matrix.tx, matrix.ty);
       _context.globalAlpha = _alphas[_depth] = _alphas[_depth - 1] * displayObject.alpha;
   
-      if (displayObject.mask == null) 
-      {
+      if (displayObject.mask == null) {
         displayObject._render(this);
-      } 
-      else 
-      {
+      } else {
         _context.save();
         displayObject.mask._render(this);
         displayObject._render(this);

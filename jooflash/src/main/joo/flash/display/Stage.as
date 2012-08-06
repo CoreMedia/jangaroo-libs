@@ -1154,23 +1154,29 @@ public class Stage extends DisplayObjectContainer {
   private function createCanvas():void {
     var element:HTMLElement = HTMLElement(window.document.getElementById(id));
     canvas = HTMLCanvasElement(window.document.createElement("CANVAS"));
+    canvas['tabIndex'] = 1;
     canvas.style.outline = "none";
-    context = CanvasRenderingContext2D(canvas.getContext("2d"));
+    var context:CanvasRenderingContext2D = CanvasRenderingContext2D(canvas.getContext("2d"));
     _renderState = new RenderState(context);
     element.parentNode.replaceChild(canvas, element);
     canvas.focus();
-    canvas.addEventListener('mousedown', function(event:js.Event):void {
+    canvas.addEventListener('mousedown', function(event:js.Event):Boolean {
       // TODO: check event.button property whether it was the "primary" mouse button!
       buttonDown = true;
+      return internalTransformAndDispatch(event);
     }, true);
-    canvas.addEventListener('mouseup', function(event:js.Event):void {
+    canvas.addEventListener('mouseup', function(event:js.Event):Boolean {
       // TODO: check event.button property whether it was the "primary" mouse button!
       buttonDown = false;
+      return internalTransformAndDispatch(event);
     }, true);
-    canvas.addEventListener('mousemove', function(e:js.Event):void {
-      _mouseX = e.clientX;
-      _mouseY = e.clientY;
+    canvas.addEventListener('mousemove', function(event:js.Event):Boolean {
+      _mouseX = event['offsetX'];
+      _mouseY = event['offsetY'];
+      return internalTransformAndDispatch(event);
     }, true);
+    canvas.addEventListener('keydown', internalTransformAndDispatch, true);
+    canvas.addEventListener('keyup', internalTransformAndDispatch, true);
   }
 
   /**
@@ -1188,7 +1194,6 @@ public class Stage extends DisplayObjectContainer {
   }
 
   private var canvas:HTMLCanvasElement;
-  private var context:CanvasRenderingContext2D;
   private var _renderState:RenderState;
   private var _stageHeight:int;
   private var _stageWidth:int;
@@ -1200,16 +1205,6 @@ public class Stage extends DisplayObjectContainer {
   private var _scaleMode:String;
   private var _align:String;
   internal var buttonDown:Boolean = false;
-
-  private static var enterFrameSources:Array = [];
-
-  private static function enterFrame():void {
-    var enterFrameEvent:flash.events.Event = new flash.events.Event(flash.events.Event.ENTER_FRAME, false, false);
-    for (var i:int = 0; i < enterFrameSources.length; i++) {
-      var displayObject:DisplayObject = enterFrameSources[i];
-      displayObject.dispatchEvent(enterFrameEvent);
-    }
-  }
 
   public function materialize():void {
     _renderState.reset();

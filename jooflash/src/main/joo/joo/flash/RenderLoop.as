@@ -2,8 +2,9 @@ package joo.flash {
 import flash.display.Stage;
 import flash.events.Event;
 import flash.events.EventDispatcher;
-import flash.events.TimerEvent;
-import flash.utils.Timer;
+
+import js.HTMLCanvasElement;
+import js.HTMLImageElement;
 
 public class RenderLoop {
 
@@ -59,13 +60,11 @@ public class RenderLoop {
     }
 
     var deltaTime:Number = currentTime - _renderTime;
-    var deltaTimeSec:Number = deltaTime / 1000.0;
 
     if (deltaTime >= 1) {
       _renderTime = currentTime;
 
       dispatchEvent(new Event(Event.ENTER_FRAME));
-      //_juggler.advanceTime(deltaTimeSec);
 
       for (var i:uint = 0; i < _stages.length; i++) {
         _stages[i].materialize();
@@ -78,11 +77,11 @@ public class RenderLoop {
   //-------------------------------------------------------------------------------------------------
   //-------------------------------------------------------------------------------------------------
 
-  function addStage(stage:Stage):void {
+  internal function addStage(stage:Stage):void {
     _stages.push(stage);
   }
 
-  static var _eventDispatcherMap:Object = {};
+  private static var _eventDispatcherMap:Object = {};
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
@@ -145,6 +144,16 @@ public class RenderLoop {
       eventDispatchers.length = c;
     }
   }
+
+  public static function debug(canvas:HTMLCanvasElement, text:String):void {
+    var img:HTMLImageElement = HTMLImageElement(window.document.createElement("img"));
+    img.src = canvas.toDataURL();
+    if (text) {
+      img.setAttribute('alt', text);
+    }
+    window.document.body.appendChild(img);
+  }
+ 
 }
 
 

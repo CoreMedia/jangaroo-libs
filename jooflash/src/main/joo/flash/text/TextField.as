@@ -1,6 +1,5 @@
 package flash.text {
 import flash.display.DisplayObject;
-import flash.display.DisplayObjectContainer;
 import flash.display.Graphics;
 import flash.display.InteractiveObject;
 import flash.display.RenderState;
@@ -8,7 +7,7 @@ import flash.geom.Rectangle;
 
 import js.CanvasRenderingContext2D;
 import js.HTMLCanvasElement;
-import js.HTMLElement;
+import js.TextMetrics;
 
 /**
  * Dispatched after a control value is modified, unlike the <code>textInput</code> event, which is dispatched before the value is modified. Unlike the W3C DOM Event Model version of the <code>change</code> event, which dispatches the event only after the control loses focus, the ActionScript 3.0 version of the <code>change</code> event is dispatched any time the control changes. For example, if a user types text into a text field, a <code>change</code> event is dispatched after every keystroke.
@@ -156,7 +155,10 @@ public class TextField extends InteractiveObject {
    * @private
    */
   public function set background(value:Boolean):void {
-    _background = value;
+    if (_background !== value) {
+      _background = value;
+      _canvasDirty = true;
+    }
   }
 
   /**
@@ -172,7 +174,10 @@ public class TextField extends InteractiveObject {
    * @private
    */
   public function set backgroundColor(value:uint):void {
-    _backgroundColor = value;
+    if (_backgroundColor !== value) {
+      _backgroundColor = value;
+      _canvasDirty = true;
+    }
   }
 
   /**
@@ -189,7 +194,10 @@ public class TextField extends InteractiveObject {
    * @private
    */
   public function set border(value:Boolean):void {
-    _border = value;
+    if (_border !== value) {
+      _border = value;
+      _canvasDirty = true;
+    }
   }
 
   /**
@@ -205,7 +213,10 @@ public class TextField extends InteractiveObject {
    * @private
    */
   public function set borderColor(value:uint):void {
-    _borderColor = value;
+    if (_borderColor !== value) {
+      _borderColor = value;
+      _canvasDirty = true;
+    }
   }
 
   /**
@@ -347,8 +358,9 @@ public class TextField extends InteractiveObject {
     for (var property:String in value) {
       if (value.hasOwnProperty(property)) {
         var val:* = value[property];
-        if (typeof val !== "function" && val !== null && val !== "") {
+        if (typeof val !== "function" && val !== null && val !== "" && _defaultTextFormat[property] !== value[property]) {
           _defaultTextFormat[property] = value[property];
+          _canvasDirty = true;
         }
       }
     }
@@ -1070,6 +1082,7 @@ public class TextField extends InteractiveObject {
    */
   public function set text(value:String):void {
     _lines = value.split('\n');
+    _canvasDirty = true;
   }
 
   /**
@@ -1109,7 +1122,8 @@ public class TextField extends InteractiveObject {
    * @private
    */
   public function set textColor(value:uint):void {
-    _defaultTextFormat.color = _textFormat.color = value;
+    _textFormat.color = value;
+    _canvasDirty = true;
   }
 
   /**
@@ -1149,6 +1163,7 @@ public class TextField extends InteractiveObject {
    * </listing>
    */
   public function get textHeight():Number {
+    refreshTextMetrics();
     return _textHeight;
   }
 
@@ -1196,6 +1211,7 @@ public class TextField extends InteractiveObject {
    * </listing>
    */
   public function get textWidth():Number {
+    refreshTextMetrics();
     return _textWidth;
   }
 
@@ -1444,6 +1460,10 @@ public class TextField extends InteractiveObject {
   public function TextField() {
     super();
     _lines = [""];
+    textCanvas = HTMLCanvasElement(window.document.createElement("CANVAS"));
+    var context:CanvasRenderingContext2D = CanvasRenderingContext2D(textCanvas.getContext("2d"));
+    context.textAlign = "start";
+    context.textBaseline = "top";
   }
 
   /**
@@ -2022,16 +2042,16 @@ public class TextField extends InteractiveObject {
    * </listing>
    */
   public function getLineMetrics(lineIndex:int):TextLineMetrics {
-    if (!lineMetricsContext) {
-      lineMetricsContext = CanvasRenderingContext2D(HTMLCanvasElement(window.document.createElement("CANVAS")).getContext("2d"));
-    }
-    lineMetricsContext.font = asWebFont();
-    var width:int = lineMetricsContext.measureText(_lines[lineIndex]).width;
-    return new TextLineMetrics(0, width, getSize(), 0, 0, 0);
+    refreshTextMetrics();
+    var context:CanvasRenderingContext2D = CanvasRenderingContext2D(textCanvas.getContext("2d"));
+    var lineWidth:Number = context.measureText(_lines[lineIndex]).width;
+    return new TextLineMetrics(getOffsetX(lineWidth), lineWidth, getSize(), 0, 0, 0);
   }
 
-  private function getSize():int {
-    return int(_textFormat.size !== null ? _textFormat.size : _defaultTextFormat.size);
+  private function getSize():Number {
+    return _textFormat.size !== null ? int(_textFormat.size)
+            : _defaultTextFormat.size !== null ? int(_defaultTextFormat.size)
+            : 12;
   }
 
   /**
@@ -2543,61 +2563,132 @@ public class TextField extends InteractiveObject {
   public function setTextFormat(format:TextFormat, beginIndex:int = -1, endIndex:int = -1):void {
     // TODO: beginIndex, endIndex
     _textFormat = format;
+    _canvasDirty = true;
   }
 
   // ************************** Jangaroo part **************************
 
+  override public function get width():Number {
+    return _width;
+  }
+
+  override public function set width(value:Number):void {
+    _width = value;
+  }
+
+  override public function get height():Number {
+    return _height;
+  }
+
+  override public function set height(value:Number):void {
+    _height = value;
+  }
+
   override public function _render(renderState:RenderState):void {
-    var context:CanvasRenderingContext2D = renderState.context;
-    context.save();
-    context.font = getSize() + "px " + asWebFont();
+    refreshTextCanvas();
+    renderState.context.drawImage(textCanvas, 0, 0);
+  }
+
+  private function refreshTextMetrics():void {
+    _textWidth = 0;
+    var lineHeight:Number = getSize();
+
+    var context:CanvasRenderingContext2D = CanvasRenderingContext2D(textCanvas.getContext("2d"));
     context.textAlign = "start";
     context.textBaseline = "top";
-    context.fillStyle = Graphics.toRGBA(textColor);
-    context.fillText(text, x, y);
-    context.restore();
+
+    var font:Array = [];
+    font.push((_textFormat.italic !== null ? _textFormat.italic : _defaultTextFormat.italic) ? "italic " : "normal ");
+    font.push("normal ");
+    font.push((_textFormat.bold !== null ? _textFormat.bold : _defaultTextFormat.bold) ? "bold " : "normal ");
+    font.push(lineHeight + "px");
+    font.push(asWebFont());
+    context.font = font.join(" ");
+
+    var lineCount:uint = _lines.length;
+    for (var i:int = 0; i < lineCount; i++) {
+      var metrics:TextMetrics = context.measureText(_lines[i]);
+      if (metrics.width > _textWidth) {
+        _textWidth = metrics.width;
+      }
+    }
+    _textHeight = lineHeight * lineCount;
+  }
+
+  private function getOffsetX(lineWidth:Number):Number {
+    var offsetX:Number = 0;
+
+    switch (_textFormat.align || _defaultTextFormat.align) {
+      case TextFormatAlign.CENTER:
+      case TextFormatAlign.JUSTIFY:
+        offsetX = (_width - lineWidth) / 2;
+        break;
+      case TextFormatAlign.RIGHT:
+        offsetX = _width - lineWidth;
+    }
+    return offsetX;
+  }
+
+  private function refreshTextCanvas():void {
+    if (_canvasDirty) {
+      _canvasDirty = false;
+      var intWidth:uint = Math.ceil(_width);
+      var intHeight:uint = Math.ceil(_height);
+      if (textCanvas.width !== intWidth) {
+        textCanvas.width = intWidth;
+      }
+      if (textCanvas.height !== intHeight) {
+        textCanvas.height = intHeight;
+      }
+      var context:CanvasRenderingContext2D = CanvasRenderingContext2D(textCanvas.getContext("2d"));
+
+      //-----------------------------
+      // draw background
+
+      if (_background) {
+        context.fillStyle = Graphics.toRGBA(_backgroundColor);
+        context.fillRect(0, 0, intWidth, intHeight);
+      } else {
+        context.clearRect(0, 0, intWidth, intHeight);
+      }
+
+      //-----------------------------
+      // draw text
+
+      refreshTextMetrics();
+      context.fillStyle = Graphics.toRGBA(textColor);
+
+      var offsetY:int = 0;
+      var lineHeight:Number = getSize();
+      for(var i:int = 0; i < _lines.length; i++) {
+        var line:String = _lines[i];
+        var metrics:TextMetrics = context.measureText(line);
+        context.fillText(line, getOffsetX(metrics.width), offsetY);
+        offsetY += lineHeight;
+      }
+
+      //-----------------------------
+      // draw border
+
+      if (_border) {
+        context.strokeStyle = Graphics.toRGBA(_borderColor);
+        context.lineWidth = 1;
+        context.strokeRect(0, 0, intWidth, intHeight);
+      }
+    }
   }
 
   private function asWebFont():String {
-    switch (_textFormat.font !== null ? _textFormat.font : _defaultTextFormat.font) {
+    switch (_textFormat.font || _defaultTextFormat.font) {
       case "Times New Roman":
         return "Times New Roman,serif";
       case "system":
         // system font cannot be resized when drawing into canvas, so use console or monospace instead:
-        return "console,monospace";
+        return "system,console,monospace";
       case "Verdana":
         return "Verdana";
     }
     return "Helvetica,Arial,sans-serif";
-  }
-
-  private function syncTextFormat(element:HTMLElement):void {
-    updateElementProperty(element, "style.fontFamily", asWebFont());
-    updateElementProperty(element, "style.fontSize", getSize() + "px");
-    updateElementProperty(element, "style.color", Graphics.toRGBA(textColor));
-    var bold:Boolean = _textFormat.bold !== null ? _textFormat.bold : _defaultTextFormat.bold;
-    updateElementProperty(element, "style.fontWeight", bold ? "bold" : "normal");
-    var italic:Boolean = _textFormat.italic !== null ? _textFormat.italic : _defaultTextFormat.italic;
-    updateElementProperty(element, "style.fontStyle", italic ? "italic" : "normal");
-    var align:Boolean = _textFormat.align !== null ? _textFormat.align : _defaultTextFormat.align;
-    updateElementProperty(element, "style.textAlign", align);
-  }
-
-  /**
-   * @private
-   */
-  override protected function getElementName():String {
-    return "span";
-  }
-
-  private static function updateElementProperty(element : HTMLElement, propertyPath : String, value : Object) : void {
-    var current : Object = element;
-    var propertyPathArcs : Array = propertyPath.split(".");
-    var lastIndex : uint = propertyPathArcs.length - 1;
-    for (var i:uint=0; i<lastIndex; ++i) {
-      current = current[propertyPathArcs[i]];
-    }
-    current[propertyPathArcs[lastIndex]] = value;
   }
 
   private var _alwaysShowSelection:Boolean;
@@ -2638,6 +2729,9 @@ public class TextField extends InteractiveObject {
   private var _useRichTextClipboard:Boolean;
   private var _wordWrap:Boolean;
 
-  private static var lineMetricsContext:CanvasRenderingContext2D;
+  private var _width:Number = 100;
+  private var _height:Number = 100;
+  private var _canvasDirty:Boolean = true;
+  private var textCanvas:HTMLCanvasElement;
 }
 }

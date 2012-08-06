@@ -135,13 +135,6 @@ public class SimpleButton extends InteractiveObject {
 
   // ************************** Jangaroo part **************************
 
-  /**
-   * @private
-   */
-  override protected function getElementName():String {
-    return "button";
-  }
-
   private var _enabled : Boolean = true;
 }
 }

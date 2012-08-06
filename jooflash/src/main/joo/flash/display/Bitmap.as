@@ -1,4 +1,6 @@
 package flash.display {
+import flash.geom.Matrix;
+import flash.geom.Rectangle;
 
 /**
  * The Bitmap class represents display objects that represent bitmap images. These can be images that you load with the flash.display.Loader class, or they can be images that you create with the <code>Bitmap()</code> constructor.
@@ -132,6 +134,39 @@ public class Bitmap extends DisplayObject {
     if (bitmapData) {
       bitmapData._render(renderState);
     }
+  }
+
+  override protected function getBoundsTransformed(matrix:Matrix, returnRectangle:Rectangle = null):Rectangle {
+    var width:int = bitmapData ? bitmapData.width : 0;
+    var height:int = bitmapData ? bitmapData.height : 0;
+
+    // tranformedX = X * matrix.a + Y * matrix.c + matrix.tx;
+    // tranformedY = X * matrix.b + Y * matrix.d + matrix.ty;
+
+    var x1:Number = matrix.tx;
+    var y1:Number = matrix.ty;
+    var x2:Number = width * matrix.a + matrix.tx;
+    var y2:Number = width * matrix.b + matrix.ty;
+    var x3:Number = width * matrix.a + height * matrix.c + matrix.tx;
+    var y3:Number = width * matrix.b + height * matrix.d + matrix.ty;
+    var x4:Number = height * matrix.c + matrix.tx;
+    var y4:Number = height * matrix.d + matrix.ty;
+
+    var left:Number = Math.min(x1, x2, x3, x4);
+    var top:Number = Math.min(y1, y2, y3, y4);
+    var right:Number = Math.max(x1, x2, x3, x4);
+    var bottom:Number = Math.max(y1, y2, y3, y4);
+
+    if (returnRectangle == null) {
+      returnRectangle = new Rectangle();
+    }
+
+    returnRectangle.x = left;
+    returnRectangle.y = top;
+    returnRectangle.width = right - left;
+    returnRectangle.height = bottom - top;
+
+    return returnRectangle;
   }
 
   private var _bitmapData:BitmapData;

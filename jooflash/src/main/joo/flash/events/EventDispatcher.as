@@ -145,7 +145,7 @@ public class EventDispatcher implements IEventDispatcher {
           } else {
             listeners.splice(i, 1);
           }
-          return;
+          break;
         }
       }
       RenderLoop.removeEventDispatcher(type,  this);
