@@ -101,7 +101,7 @@ public class EventDispatcher implements IEventDispatcher {
     }
 
     // Be sure we're allowed to continue.
-    if (!event.isPropagationStopped()) {
+    if (event.bubbles && !event.isPropagationStopped()) {
       // Bubble it back up the display chain.
       event['eventPhase'] = EventPhase.BUBBLING_PHASE;
       internalHandleBubble(event, ancestors);
