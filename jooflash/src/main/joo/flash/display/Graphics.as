@@ -111,6 +111,7 @@ public final class Graphics {
   public function beginFill(color:uint, alpha:Number = 1.0):void {
     commands.push(function (context:CanvasRenderingContext2D):void {
       context.fillStyle = toRGBA(color, alpha);
+      context.beginPath();
     });
   }
 
