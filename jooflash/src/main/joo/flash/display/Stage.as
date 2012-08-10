@@ -995,28 +995,67 @@ public class Stage extends DisplayObjectContainer {
    * @throws SecurityError Calling the <code>dispatchEvent()</code> method of a Stage object throws an exception for any caller that is not in the same security sandbox as the Stage owner (the main SWF file). To avoid this, the Stage owner can grant permission to the domain of the caller by calling the <code>Security.allowDomain()</code> method or the <code>Security.allowInsecureDomain()</code> method. For more information, see the "Security" chapter in the <i>ActionScript 3.0 Developer's Guide</i>.
    *
    */
-  override public function dispatchEvent(event:flash.events.Event):Boolean {
-    return super.dispatchEvent(event);
+  override public native function dispatchEvent(event:flash.events.Event):Boolean;
+
+  private static function mouseEventFactory(flashEventType:String):Function {
+    return function(event:js.Event, stage:Stage):flash.events.Event {
+      return new MouseEvent(flashEventType, true, true, stage._mouseX, stage._mouseY, null,
+              event.ctrlKey, event.altKey, event.shiftKey, stage.buttonDown);
+    };
   }
 
-  internal function internalTransformAndDispatch(event:js.Event):Boolean {
+  private static function keyboardEventFactory(flashEventType:String):Function {
+    return function(event:js.Event, stage:Stage):flash.events.Event {
+      return new KeyboardEvent(flashEventType, true, true, event['charCode'], event.keyCode || event['which'], 0,
+                event.ctrlKey, event.altKey, event.shiftKey, event.ctrlKey, event.ctrlKey);
+    };
+  }
+
+  private static const DOM_EVENT_TO_FLASH_EVENT_FACTORY:Object/*<String,String>*/ = {
+    'click':      mouseEventFactory(MouseEvent.CLICK),
+    'dblclick':   mouseEventFactory(MouseEvent.DOUBLE_CLICK),
+    'mousedown':  mouseEventFactory(MouseEvent.MOUSE_DOWN),
+    'mouseup':    mouseEventFactory(MouseEvent.MOUSE_UP),
+    'mousemove':  mouseEventFactory(MouseEvent.MOUSE_MOVE),
+    'mouseover':  mouseEventFactory(MouseEvent.MOUSE_OVER),
+    'mouseout':   mouseEventFactory(MouseEvent.MOUSE_OUT),
+    'mousewheel': mouseEventFactory(MouseEvent.MOUSE_WHEEL),
+    'keydown':    keyboardEventFactory(KeyboardEvent.KEY_DOWN),
+    'keyup':      keyboardEventFactory(KeyboardEvent.KEY_UP)
+    // TODO: map DOM events to remaining Flash Event constants!
+  };
+
+  private function internalTransformAndDispatch(event:js.Event):Boolean {
     var flashEvent:flash.events.Event;
 
-    var type:String = DOM_EVENT_TO_MOUSE_EVENT[event.type];
-    if (type) {
-      flashEvent = new MouseEvent(type, true, true, event.pageX - this.stage.x, event.pageY - this.stage.y, null,
-        event.ctrlKey, event.altKey, event.shiftKey, stage.buttonDown);
-    } else {
-      type = DOM_EVENT_TO_KEYBOARD_EVENT[event.type];
-      if (type) {
-        flashEvent = new KeyboardEvent(type, true, true, event['charCode'], event.keyCode || event['which'], 0,
-          event.ctrlKey, event.altKey, event.shiftKey, event.ctrlKey, event.ctrlKey);
+    var flashEventFactory:Function = DOM_EVENT_TO_FLASH_EVENT_FACTORY[event.type];
+    if (!flashEventFactory) {
+      trace("Unmapped DOM event type " + event.type + " occurred, ignoring.");
+      return false;
+    }
+    // track mouse button:
+    // TODO: check event.button property whether it was the "primary" mouse button!
+    switch (event.type) {
+      case 'mousedown':
+        buttonDown = true;
+        break;
+      case 'mouseup':
+        buttonDown = false;
+        break;
+    }
+    if ('pageX' in event) {
+      if ('offsetX' in event) {
+        _mouseX = event['offsetX'];
+        _mouseY = event['offsetY'];
+      } else {
+        var clientRect:Object = canvas['getBoundingClientRect']();  // TODO: more cross-browser cases, scroll offsets?
+        _mouseX = event.pageX - clientRect.left;
+        _mouseY = event.pageY - clientRect.top;
       }
     }
-    if (!flashEvent) {
-      trace("Unmapped DOM event type " + event.type + " occurred, ignoring.");
-    }
-    return this.dispatchEvent(flashEvent);
+
+    flashEvent = flashEventFactory(event, this);
+    return dispatchEvent(flashEvent);
   }
   /**
    * Checks whether the EventDispatcher object has any listeners registered for a specific type of event. This allows you to determine where an EventDispatcher object has altered handling of an event type in the event flow hierarchy. To determine whether a specific event type actually triggers an event listener, use <code>willTrigger()</code>.
@@ -1160,23 +1199,9 @@ public class Stage extends DisplayObjectContainer {
     _renderState = new RenderState(context);
     element.parentNode.replaceChild(canvas, element);
     canvas.focus();
-    canvas.addEventListener('mousedown', function(event:js.Event):Boolean {
-      // TODO: check event.button property whether it was the "primary" mouse button!
-      buttonDown = true;
-      return internalTransformAndDispatch(event);
-    }, true);
-    canvas.addEventListener('mouseup', function(event:js.Event):Boolean {
-      // TODO: check event.button property whether it was the "primary" mouse button!
-      buttonDown = false;
-      return internalTransformAndDispatch(event);
-    }, true);
-    canvas.addEventListener('mousemove', function(event:js.Event):Boolean {
-      _mouseX = event['offsetX'];
-      _mouseY = event['offsetY'];
-      return internalTransformAndDispatch(event);
-    }, true);
-    canvas.addEventListener('keydown', internalTransformAndDispatch, true);
-    canvas.addEventListener('keyup', internalTransformAndDispatch, true);
+    for (var eventType:String in DOM_EVENT_TO_FLASH_EVENT_FACTORY) {
+      canvas.addEventListener(eventType, internalTransformAndDispatch, true);
+    }
   }
 
   /**

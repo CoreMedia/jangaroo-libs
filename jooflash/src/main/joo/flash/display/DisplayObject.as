@@ -3,8 +3,6 @@ import flash.accessibility.AccessibilityProperties;
 import flash.errors.IllegalOperationError;
 import flash.events.Event;
 import flash.events.EventDispatcher;
-import flash.events.KeyboardEvent;
-import flash.events.MouseEvent;
 import flash.geom.Matrix;
 import flash.geom.Point;
 import flash.geom.Rectangle;
@@ -710,7 +708,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
   public function set rotation(value:Number):void {
     if (_rotation !== value) {
       _rotation = value;
-      _transformationMatrixCache = null;
+      _transformationMatrixCacheDirty = true;
     }
   }
 
@@ -1046,7 +1044,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
   public function set scaleX(value:Number):void {
     if (_scaleX !== value) {
       _scaleX = value;
-      _transformationMatrixCache = null;
+      _transformationMatrixCacheDirty = true;
     }
   }
 
@@ -1081,7 +1079,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
   public function set scaleY(value:Number):void {
     if (_scaleX !== value) {
       _scaleY = value;
-      _transformationMatrixCache = null;
+      _transformationMatrixCacheDirty = true;
     }
   }
 
@@ -1347,19 +1345,23 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
     return getBoundsTransformed(_transformationMatrix).width;
   }
 
+  private static const ARC_TO_RAD_FACTOR:int = Math.PI / 180;
+
   public function get _transformationMatrix():Matrix {
-    if (!_transformationMatrixCache) {
+    if (_transformationMatrixCacheDirty) {
+      _transformationMatrixCacheDirty = false;
       if (_rotation === 0) {
-        _transformationMatrixCache = new Matrix(_scaleX, 0, 0, _scaleY, _x, _y);
+        _transformationMatrixCache.setTo(_scaleX, 0, 0, _scaleY, _x, _y);
       } else {
 //      var m:Matrix = new Matrix();
 //      m.scale(_scaleX, _scaleY);
 //      m.rotate(_rotation);
 //      m.translate(_x, _y);
 //      return m;
-        var cos:Number = Math.cos(_rotation);
-        var sin:Number = Math.sin(_rotation);
-        _transformationMatrixCache = new Matrix(_scaleX * cos, _scaleX * sin, - _scaleY * sin, _scaleY * cos, _x, _y);
+        var rad:Number = _rotation * ARC_TO_RAD_FACTOR;
+        var cos:Number = Math.cos(rad);
+        var sin:Number = Math.sin(rad);
+        _transformationMatrixCache.setTo(_scaleX * cos, _scaleX * sin, - _scaleY * sin, _scaleY * cos, _x, _y);
       }
     }
     return _transformationMatrixCache;
@@ -1414,7 +1416,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
   public function set x(value:Number):void {
     if (_x !== value) {
       _x = value;
-      _transformationMatrixCache = null;
+      _transformationMatrixCacheDirty = true;
     }
   }
 
@@ -1452,7 +1454,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
   public function set y(value:Number):void {
     if (_y !== value) {
       _y = value;
-      _transformationMatrixCache = null;
+      _transformationMatrixCacheDirty = true;
     }
   }
 
@@ -1927,22 +1929,6 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
     return dispatchEvent(event);
   }
 
-  internal static const DOM_EVENT_TO_MOUSE_EVENT:Object/*<String,String>*/ = {
-    'click':      MouseEvent.CLICK,
-    'dblclick':   MouseEvent.DOUBLE_CLICK,
-    'mousedown':  MouseEvent.MOUSE_DOWN,
-    'mouseup':    MouseEvent.MOUSE_UP,
-    'mousemove':  MouseEvent.MOUSE_MOVE,
-    'mouseover':  MouseEvent.MOUSE_OVER,
-    'mouseout':   MouseEvent.MOUSE_OUT,
-    'mousewheel': MouseEvent.MOUSE_WHEEL
-    // TODO: map remaining MouseEvent constants to DOM events!
-  };
-  internal static const DOM_EVENT_TO_KEYBOARD_EVENT:Object/*<String,String>*/ = {
-    'keydown': KeyboardEvent.KEY_DOWN,
-    'keyup': KeyboardEvent.KEY_UP
-  };
-
   /**
    * @private
    */
@@ -1965,8 +1951,10 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
     super();
     _filters = [];
     _blendMode = BlendMode.NORMAL;
+    _transformationMatrixCache = new Matrix();
   }
 
+  private var _transformationMatrixCacheDirty:Boolean = true;
   private var _transformationMatrixCache:Matrix;
   private var _tmpMatrix:Matrix; // for internal use only to minimize memory allocations.
   private var _x:Number = 0, _y:Number = 0;

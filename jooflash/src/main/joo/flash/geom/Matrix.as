@@ -610,6 +610,15 @@ public class Matrix {
     ty += dy;
   }
 
+  public function setTo(a:Number, b:Number, c:Number, d:Number, tx:Number, ty:Number):void {
+    this.a = a;
+    this.b = b;
+    this.c = c;
+    this.d = d;
+    this.tx = tx;
+    this.ty = ty;
+  }
+
   // ************************** Jangaroo part **************************
 
   public function copyFromAndConcat(copyMatrix:Matrix, concatMatrix:Matrix):void 
