@@ -997,65 +997,87 @@ public class Stage extends DisplayObjectContainer {
    */
   override public native function dispatchEvent(event:flash.events.Event):Boolean;
 
-  private static function mouseEventFactory(flashEventType:String):Function {
-    return function(event:js.Event, stage:Stage):flash.events.Event {
-      return new MouseEvent(flashEventType, true, true, stage._mouseX, stage._mouseY, null,
-              event.ctrlKey, event.altKey, event.shiftKey, stage.buttonDown);
+  private function dispatchMouseEvent(flashEventType:String, event:js.Event):Boolean {
+    var flashEvent:MouseEvent = new MouseEvent(flashEventType, true, true, _mouseX, _mouseY, null,
+            event.ctrlKey, event.altKey, event.shiftKey, buttonDown);
+    return dispatchEvent(flashEvent);
+  }
+
+  private function dispatchKeyboardEvent(flashEventType:String, event:js.Event):Boolean {
+    var flashEvent:KeyboardEvent = new KeyboardEvent(flashEventType, true, true, event['charCode'], event.keyCode || event['which'], 0,
+              event.ctrlKey, event.altKey, event.shiftKey, event.ctrlKey, event.ctrlKey);
+    return dispatchEvent(flashEvent);
+  }
+
+  private static function mouseEventDispatcher(flashEventType:String):Function {
+    return function(event:js.Event, stage:Stage):Boolean {
+      return stage.dispatchMouseEvent(flashEventType, event);
     };
   }
 
-  private static function keyboardEventFactory(flashEventType:String):Function {
-    return function(event:js.Event, stage:Stage):flash.events.Event {
-      return new KeyboardEvent(flashEventType, true, true, event['charCode'], event.keyCode || event['which'], 0,
-                event.ctrlKey, event.altKey, event.shiftKey, event.ctrlKey, event.ctrlKey);
+  private static function keyboardEventDispatcher(flashEventType:String):Function {
+    return function(event:js.Event, stage:Stage):Boolean {
+      return stage.dispatchKeyboardEvent(flashEventType, event);
     };
   }
 
-  private static const DOM_EVENT_TO_FLASH_EVENT_FACTORY:Object/*<String,String>*/ = {
-    'click':      mouseEventFactory(MouseEvent.CLICK),
-    'dblclick':   mouseEventFactory(MouseEvent.DOUBLE_CLICK),
-    'mousedown':  mouseEventFactory(MouseEvent.MOUSE_DOWN),
-    'mouseup':    mouseEventFactory(MouseEvent.MOUSE_UP),
-    'mousemove':  mouseEventFactory(MouseEvent.MOUSE_MOVE),
-    'mouseover':  mouseEventFactory(MouseEvent.MOUSE_OVER),
-    'mouseout':   mouseEventFactory(MouseEvent.MOUSE_OUT),
-    'mousewheel': mouseEventFactory(MouseEvent.MOUSE_WHEEL),
-    'keydown':    keyboardEventFactory(KeyboardEvent.KEY_DOWN),
-    'keyup':      keyboardEventFactory(KeyboardEvent.KEY_UP)
+  private static const DOM_EVENT_TO_FLASH_EVENT_DISPATCHER:Object/*<String,String>*/ = {
+    'click':      mouseEventDispatcher(MouseEvent.CLICK),
+    'dblclick':   mouseEventDispatcher(MouseEvent.DOUBLE_CLICK),
+    'mousedown':  mouseEventDispatcher(MouseEvent.MOUSE_DOWN),
+    'touchstart': mouseEventDispatcher(MouseEvent.MOUSE_DOWN),
+    'mouseup':    mouseEventDispatcher(MouseEvent.MOUSE_UP),
+    'touchend':   function(event:js.Event, stage:Stage):Boolean {
+          return stage.dispatchMouseEvent(MouseEvent.MOUSE_UP, event) !== false &&
+                  stage.dispatchMouseEvent(MouseEvent.CLICK, event);
+        },
+    'mousemove':  mouseEventDispatcher(MouseEvent.MOUSE_MOVE),
+    'touchmove':  mouseEventDispatcher(MouseEvent.MOUSE_MOVE),
+    'mouseover':  mouseEventDispatcher(MouseEvent.MOUSE_OVER),
+    'mouseout':   mouseEventDispatcher(MouseEvent.MOUSE_OUT),
+    'mousewheel': mouseEventDispatcher(MouseEvent.MOUSE_WHEEL),
+    'keydown':    keyboardEventDispatcher(KeyboardEvent.KEY_DOWN),
+    'keyup':      keyboardEventDispatcher(KeyboardEvent.KEY_UP)
     // TODO: map DOM events to remaining Flash Event constants!
   };
 
   private function internalTransformAndDispatch(event:js.Event):Boolean {
     var flashEvent:flash.events.Event;
 
-    var flashEventFactory:Function = DOM_EVENT_TO_FLASH_EVENT_FACTORY[event.type];
-    if (!flashEventFactory) {
-      trace("Unmapped DOM event type " + event.type + " occurred, ignoring.");
+    var eventType:String = event.type;
+    var flashEventDispatcher:Function = DOM_EVENT_TO_FLASH_EVENT_DISPATCHER[eventType];
+    if (!flashEventDispatcher) {
+      trace("Unmapped DOM event type " + eventType + " occurred, ignoring.");
       return false;
     }
     // track mouse button:
     // TODO: check event.button property whether it was the "primary" mouse button!
-    switch (event.type) {
+    switch (eventType) {
       case 'mousedown':
+      case 'touchstart':
         buttonDown = true;
+        event.preventDefault(); // prevent touch gestures
         break;
       case 'mouseup':
+      case 'touchend':
         buttonDown = false;
         break;
     }
-    if ('pageX' in event) {
-      if ('offsetX' in event) {
-        _mouseX = event['offsetX'];
-        _mouseY = event['offsetY'];
+    var pos:Object = event['changedTouches'] && event['changedTouches'].length ?
+            event['changedTouches'][0] // TODO: one event for every changedTouches item?
+            : event;
+    if ('pageX' in pos) {
+      if ('offsetX' in pos) {
+        _mouseX = pos['offsetX'];
+        _mouseY = pos['offsetY'];
       } else {
         var clientRect:Object = canvas['getBoundingClientRect']();  // TODO: more cross-browser cases, scroll offsets?
-        _mouseX = event.pageX - clientRect.left;
-        _mouseY = event.pageY - clientRect.top;
+        _mouseX = pos.pageX - clientRect.left;
+        _mouseY = pos.pageY - clientRect.top;
       }
     }
 
-    flashEvent = flashEventFactory(event, this);
-    return dispatchEvent(flashEvent);
+    return flashEventDispatcher(event, this);
   }
   /**
    * Checks whether the EventDispatcher object has any listeners registered for a specific type of event. This allows you to determine where an EventDispatcher object has altered handling of an event type in the event flow hierarchy. To determine whether a specific event type actually triggers an event listener, use <code>willTrigger()</code>.
@@ -1193,13 +1215,14 @@ public class Stage extends DisplayObjectContainer {
   private function createCanvas():void {
     var element:HTMLElement = HTMLElement(window.document.getElementById(id));
     canvas = HTMLCanvasElement(window.document.createElement("CANVAS"));
+    canvas.id = id;
     canvas['tabIndex'] = 1;
     canvas.style.outline = "none";
     var context:CanvasRenderingContext2D = CanvasRenderingContext2D(canvas.getContext("2d"));
     _renderState = new RenderState(context);
     element.parentNode.replaceChild(canvas, element);
     canvas.focus();
-    for (var eventType:String in DOM_EVENT_TO_FLASH_EVENT_FACTORY) {
+    for (var eventType:String in DOM_EVENT_TO_FLASH_EVENT_DISPATCHER) {
       canvas.addEventListener(eventType, internalTransformAndDispatch, true);
     }
   }

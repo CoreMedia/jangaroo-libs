@@ -1077,7 +1077,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * @private
    */
   public function set scaleY(value:Number):void {
-    if (_scaleX !== value) {
+    if (_scaleY !== value) {
       _scaleY = value;
       _transformationMatrixCacheDirty = true;
     }
@@ -1274,8 +1274,10 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
     if (targetObject == this)
       return targetMatrix;
 
-    if (targetObject != resultObject)
-      throw new IllegalOperationError("Error #9001: The supplied DisplayObject has no relationship to the caller.");
+    if (targetObject != resultObject) {
+      //throw new IllegalOperationError
+      trace("Error #9001: The supplied DisplayObject has no relationship to the caller.");
+    }
 
     resultMatrix.concat(targetMatrix);
 

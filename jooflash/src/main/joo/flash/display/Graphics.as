@@ -92,6 +92,7 @@ public final class Graphics {
     commands.push(function (context:CanvasRenderingContext2D):void {
       // TODO: matrix, smooth
       context.fillStyle = context.createPattern(bitmap.getImage(), repeat ? "repeat" : "no-repeat");
+      doFill = true;
     });
   }
 
@@ -110,8 +111,9 @@ public final class Graphics {
    */
   public function beginFill(color:uint, alpha:Number = 1.0):void {
     commands.push(function (context:CanvasRenderingContext2D):void {
+      doEndFill(context);
       context.fillStyle = toRGBA(color, alpha);
-      context.beginPath();
+      doFill = true;
     });
   }
 
@@ -185,6 +187,7 @@ public final class Graphics {
     commands.push(function(context:CanvasRenderingContext2D):void {
       context.fillStyle = createGradientStyle(context, type, colors, alphas, ratios,
               matrix, spreadMethod, interpolationMethod, focalPointRatio);
+      doFill = true;
     });
   }
 
@@ -319,10 +322,9 @@ public final class Graphics {
     commands.push(function(context:CanvasRenderingContext2D):void {
       context.moveTo(x + radius, y);
       context.arc(x, y, radius, 0, 2 * Math.PI, false);
-      context.fill();
-      context.stroke();
-      context.beginPath();
-      context.moveTo(x, y);
+      if (drawPathIfNoFill(context)) {
+        context.moveTo(x, y);
+      }
     });
   }
 
@@ -399,17 +401,15 @@ public final class Graphics {
       var cx:Number = x + rx;
       var cy:Number = y + ry;
 
-      context.beginPath();
       context.moveTo(cx, cy - ry);
       context.bezierCurveTo(cx + (KAPPA * rx), cy - ry, cx + rx, cy - (KAPPA * ry), cx + rx, cy);
       context.bezierCurveTo(cx + rx, cy + (KAPPA * ry), cx + (KAPPA * rx), cy + ry, cx, cy + ry);
       context.bezierCurveTo(cx - (KAPPA * rx), cy + ry, cx - rx, cy + (KAPPA * ry), cx - rx, cy);
       context.bezierCurveTo(cx - rx, cy - (KAPPA * ry), cx - (KAPPA * rx), cy - ry, cx, cy - ry);
 
-      context.fill();
-      context.stroke();
-      context.beginPath();
-      context.moveTo(x, y);
+      if (drawPathIfNoFill(context)) {
+        context.moveTo(x, y);
+      }
   });
   }
 
@@ -586,8 +586,12 @@ public final class Graphics {
    */
   public function drawRect(x:Number, y:Number, width:Number, height:Number):void {
     commands.push(function(context:CanvasRenderingContext2D):void {
-      context.fillRect(x, y, width, height);
-      context.strokeRect(x, y, width, height);
+      if (doFill) {
+        context.fillRect(x, y, width, height);
+      }
+      if (doStroke) {
+        context.strokeRect(x, y, width, height);
+      }
     });
   }
 
@@ -626,7 +630,7 @@ public final class Graphics {
         var x_rw:Number = x_r - ellipseWidth;
         var y_tw:Number = y + ellipseHeight;
         var y_bw:Number = y_b - ellipseHeight;
-        context.beginPath();
+
         context.moveTo(x_lw, y);
         context.lineTo(x_rw, y);
         context.quadraticCurveTo(x_r, y, x_r, y_tw);
@@ -636,9 +640,9 @@ public final class Graphics {
         context.quadraticCurveTo(x, y_b, x, y_bw);
         context.lineTo(x, y_tw);
         context.quadraticCurveTo(x, y, x_lw, y);
-        context.closePath();
-        context.fill();
-        context.stroke();
+        if (drawPathIfNoFill(context)) {
+          context.moveTo(x, y);
+        }
       });
     }
   }
@@ -667,7 +671,6 @@ public final class Graphics {
       commands.push(function(context:CanvasRenderingContext2D):void {
         var x_r:Number = x + width;
         var y_b:Number = y + height;
-        context.beginPath();
         var x_tl:Number = x + topLeftRadius;
         context.moveTo(x_tl, y);
         context.lineTo(x_r - topRightRadius, y);
@@ -678,9 +681,9 @@ public final class Graphics {
         context.quadraticCurveTo(x, y_b, x, y_b - bottomLeftRadius);
         context.lineTo(x, y + topLeftRadius);
         context.quadraticCurveTo(x, y, x_tl, y);
-        context.closePath();
-        context.fill();
-        context.stroke();
+        if (drawPathIfNoFill(context)) {
+          context.moveTo(x, y);
+        }
       });
     }
   }
@@ -713,11 +716,18 @@ public final class Graphics {
    *
    */
   public function endFill():void {
-    commands.push(function(context:CanvasRenderingContext2D):void {
-      context.closePath();
+    commands.push(doEndFill);
+  }
+
+  private function doEndFill(context:CanvasRenderingContext2D):void {
+    if (doFill) {
+      doFill = false;
       context.fill();
-      context.stroke();
-    });
+      if (doStroke) {
+        context.stroke();
+      }
+      context.beginPath();
+    }
   }
 
   /**
@@ -906,6 +916,7 @@ public final class Graphics {
    */
   public function lineStyle(thickness:Number = NaN, color:uint = 0, alpha:Number = 1.0, pixelHinting:Boolean = false, scaleMode:String = "normal", caps:String = null, joints:String = null, miterLimit:Number = 3):void {
     commands.push(function(context:CanvasRenderingContext2D):void {
+      doStroke = !isNaN(thickness);
       context.lineWidth = thickness > 0 ? thickness : 1;
       context.strokeStyle = toRGBA(color, alpha);
       context.lineCap = caps || CapsStyle.ROUND;
@@ -955,6 +966,9 @@ public final class Graphics {
   public function lineTo(x:Number, y:Number):void {
     commands.push(function(context:CanvasRenderingContext2D):void {
       context.lineTo(x, y);
+      if (drawPathIfNoFill(context)) {
+        context.moveTo(x, y);
+      }
     });
   }
 
@@ -1003,6 +1017,8 @@ public final class Graphics {
   // ************************** Jangaroo part **************************
 
   private var commands:Vector.<Function>;
+  private var doStroke: Boolean;
+  private var doFill: Boolean;
 
   /**
    * @private
@@ -1077,13 +1093,23 @@ public final class Graphics {
     var context:CanvasRenderingContext2D = renderState.context;
 
     context.save();
-    context.beginPath();
+    doStroke = false;
+    doFill = false;
     for (var i:int = 0; i < commands.length; i++) {
       var command:Function = commands[i];
       command(context);
     }
-    context.stroke();
+    doEndFill(context);
     context.restore();
+  }
+
+  private function drawPathIfNoFill(context:CanvasRenderingContext2D):Boolean {
+    if (doStroke && !doFill) {
+      context.stroke();
+      context.beginPath();
+      return true;
+    }
+    return false;
   }
 
 }

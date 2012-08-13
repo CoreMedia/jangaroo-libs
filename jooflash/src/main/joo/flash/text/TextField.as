@@ -3,9 +3,12 @@ import flash.display.DisplayObject;
 import flash.display.Graphics;
 import flash.display.InteractiveObject;
 import flash.display.RenderState;
+import flash.geom.Matrix;
 import flash.geom.Rectangle;
 
 import js.CanvasRenderingContext2D;
+import js.Document;
+import js.Element;
 import js.HTMLCanvasElement;
 import js.TextMetrics;
 
@@ -138,7 +141,10 @@ public class TextField extends InteractiveObject {
    * @private
    */
   public function set autoSize(value:String):void {
-    _autoSize = value;
+    if (_autoSize !== value) {
+      _autoSize = value;
+      _canvasDirty = true;
+    }
   }
 
   /**
@@ -610,14 +616,14 @@ public class TextField extends InteractiveObject {
    * </listing>
    */
   public function get htmlText():String {
-    return _htmlText;
+    return text; // TODO: really support HTML text
   }
 
   /**
    * @private
    */
   public function set htmlText(value:String):void {
-    _htmlText = value;
+    text = value; // TODO: really support HTML text
   }
 
   /**
@@ -2045,13 +2051,41 @@ public class TextField extends InteractiveObject {
     refreshTextMetrics();
     var context:CanvasRenderingContext2D = CanvasRenderingContext2D(textCanvas.getContext("2d"));
     var lineWidth:Number = context.measureText(_lines[lineIndex]).width;
-    return new TextLineMetrics(getOffsetX(lineWidth), lineWidth, getSize(), 0, 0, 0);
+    var fontMetrics:Object = getFontMetrics(context.font);
+    return new TextLineMetrics(getOffsetX(lineWidth), lineWidth, fontMetrics.height, fontMetrics.ascent, fontMetrics.descent, 0);
   }
 
   private function getSize():Number {
     return _textFormat.size !== null ? int(_textFormat.size)
             : _defaultTextFormat.size !== null ? int(_defaultTextFormat.size)
             : 12;
+  }
+
+  private static const FONT_METRICS_CACHE:Object = {};
+  private static var testDiv:Element;
+
+  private static function getFontMetrics(font:String):Object {
+    var metrics:Object = FONT_METRICS_CACHE[font];
+    if (!metrics) {
+      FONT_METRICS_CACHE[font] = metrics = {};
+      var doc:Document = window.document;
+      if (!testDiv) {
+        testDiv = doc.createElement('div');
+        testDiv.appendChild(doc.createTextNode("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"));
+      }
+      testDiv.style.font = font;
+    
+      doc.body.appendChild(testDiv);
+    
+      try {
+        metrics.ascent = parseInt(testDiv.style.fontSize, 10);
+        metrics.height = testDiv.offsetHeight;
+        metrics.descent = metrics.height - metrics.ascent;
+      } finally {
+        doc.body.removeChild(testDiv);
+      }
+    }
+    return metrics;
   }
 
   /**
@@ -2568,30 +2602,55 @@ public class TextField extends InteractiveObject {
 
   // ************************** Jangaroo part **************************
 
-  override public function get width():Number {
-    return _width;
-  }
-
   override public function set width(value:Number):void {
     _width = value;
-  }
-
-  override public function get height():Number {
-    return _height;
   }
 
   override public function set height(value:Number):void {
     _height = value;
   }
 
+  override protected function getBoundsTransformed(matrix:Matrix, returnRectangle:Rectangle = null):Rectangle {
+    refreshTextMetrics();
+    // tranformedX = X * matrix.a + Y * matrix.c + matrix.tx;
+    // tranformedY = X * matrix.b + Y * matrix.d + matrix.ty;
+
+    // TODO: refactor with Bitmap#getBoundTransformed()!
+    var x1:Number = matrix.tx;
+    var y1:Number = matrix.ty;
+    var x2:Number = _width * matrix.a + matrix.tx;
+    var y2:Number = _width * matrix.b + matrix.ty;
+    var x3:Number = _width * matrix.a + _height * matrix.c + matrix.tx;
+    var y3:Number = _width * matrix.b + _height * matrix.d + matrix.ty;
+    var x4:Number = _height * matrix.c + matrix.tx;
+    var y4:Number = _height * matrix.d + matrix.ty;
+
+    var left:Number = Math.min(x1, x2, x3, x4);
+    var top:Number = Math.min(y1, y2, y3, y4);
+    var right:Number = Math.max(x1, x2, x3, x4);
+    var bottom:Number = Math.max(y1, y2, y3, y4);
+
+    if (returnRectangle == null) {
+      returnRectangle = new Rectangle();
+    }
+
+    returnRectangle.x = left;
+    returnRectangle.y = top;
+    returnRectangle.width = right - left;
+    returnRectangle.height = bottom - top;
+
+    return returnRectangle;
+  }
+
   override public function _render(renderState:RenderState):void {
     refreshTextCanvas();
-    renderState.context.drawImage(textCanvas, 0, 0);
+    if (textCanvas.width > 0 && textCanvas.height > 0) {
+      renderState.context.drawImage(textCanvas, 0, 0);
+    }
   }
 
   private function refreshTextMetrics():void {
     _textWidth = 0;
-    var lineHeight:Number = getSize();
 
     var context:CanvasRenderingContext2D = CanvasRenderingContext2D(textCanvas.getContext("2d"));
     context.textAlign = "start";
@@ -2601,7 +2660,7 @@ public class TextField extends InteractiveObject {
     font.push((_textFormat.italic !== null ? _textFormat.italic : _defaultTextFormat.italic) ? "italic " : "normal ");
     font.push("normal ");
     font.push((_textFormat.bold !== null ? _textFormat.bold : _defaultTextFormat.bold) ? "bold " : "normal ");
-    font.push(lineHeight + "px");
+    font.push(getSize() + "px");
     font.push(asWebFont());
     context.font = font.join(" ");
 
@@ -2612,7 +2671,12 @@ public class TextField extends InteractiveObject {
         _textWidth = metrics.width;
       }
     }
+    var lineHeight:Number = getFontMetrics(context.font).height;
     _textHeight = lineHeight * lineCount;
+    if (_autoSize !== TextFieldAutoSize.NONE) {
+      _width = _textWidth + 4;
+      _height = _textHeight + 4;
+    }
   }
 
   private function getOffsetX(lineWidth:Number):Number {
@@ -2621,12 +2685,12 @@ public class TextField extends InteractiveObject {
     switch (_textFormat.align || _defaultTextFormat.align) {
       case TextFormatAlign.CENTER:
       case TextFormatAlign.JUSTIFY:
-        offsetX = (_width - lineWidth) / 2;
+        offsetX = (_textWidth - lineWidth) / 2;
         break;
       case TextFormatAlign.RIGHT:
-        offsetX = _width - lineWidth;
+        offsetX = _textWidth - lineWidth;
     }
-    return offsetX;
+    return offsetX + 2;
   }
 
   private function refreshTextCanvas():void {
@@ -2658,7 +2722,7 @@ public class TextField extends InteractiveObject {
       refreshTextMetrics();
       context.fillStyle = Graphics.toRGBA(textColor);
 
-      var offsetY:int = 0;
+      var offsetY:int = 2;
       var lineHeight:Number = getSize();
       for(var i:int = 0; i < _lines.length; i++) {
         var line:String = _lines[i];
@@ -2693,7 +2757,7 @@ public class TextField extends InteractiveObject {
 
   private var _alwaysShowSelection:Boolean;
   private var _antiAliasType:String;
-  private var _autoSize:String;
+  private var _autoSize:String = "none"; // TextFieldAutoSize.NONE;
   private var _background:Boolean;
   private var _backgroundColor:uint;
   private var _border:Boolean;
@@ -2704,7 +2768,6 @@ public class TextField extends InteractiveObject {
   private var _displayAsPassword:Boolean;
   private var _embedFonts:Boolean;
   private var _gridFitType:String;
-  private var _htmlText:String;
   private var _length:int;
   private var _maxChars:int;
   private var _maxScrollH:int;
