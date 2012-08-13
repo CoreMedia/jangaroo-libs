@@ -90,6 +90,7 @@ public final class Graphics {
    */
   public function beginBitmapFill(bitmap:BitmapData, matrix:Matrix = null, repeat:Boolean = true, smooth:Boolean = false):void {
     commands.push(function (context:CanvasRenderingContext2D):void {
+      doEndFill(context);
       // TODO: matrix, smooth
       context.fillStyle = context.createPattern(bitmap.getImage(), repeat ? "repeat" : "no-repeat");
       doFill = true;
@@ -185,6 +186,7 @@ public final class Graphics {
    */
   public function beginGradientFill(type:String, colors:Array, alphas:Array, ratios:Array, matrix:Matrix = null, spreadMethod:String = "pad", interpolationMethod:String = "rgb", focalPointRatio:Number = 0):void {
     commands.push(function(context:CanvasRenderingContext2D):void {
+      doEndFill(context);
       context.fillStyle = createGradientStyle(context, type, colors, alphas, ratios,
               matrix, spreadMethod, interpolationMethod, focalPointRatio);
       doFill = true;
@@ -587,10 +589,14 @@ public final class Graphics {
   public function drawRect(x:Number, y:Number, width:Number, height:Number):void {
     commands.push(function(context:CanvasRenderingContext2D):void {
       if (doFill) {
-        context.fillRect(x, y, width, height);
-      }
-      if (doStroke) {
+        context.moveTo(x, y);
+        context.lineTo(x + width, y);
+        context.lineTo(x + width, y + height);
+        context.lineTo(x, y + height);
+        context.lineTo(x, y);
+      } else if (doStroke) {
         context.strokeRect(x, y, width, height);
+        context.moveTo(x, y);
       }
     });
   }
