@@ -2,6 +2,7 @@ package flash.display {
 import flash.accessibility.AccessibilityImplementation;
 import flash.events.Event;
 import flash.events.MouseEvent;
+import flash.geom.Matrix;
 import flash.geom.Rectangle;
 import flash.ui.ContextMenu;
 
@@ -481,6 +482,10 @@ public class InteractiveObject extends DisplayObject {
     else {
       super.processCapture(event);
     }
+  }
+
+  protected function hitTestInput(localX:Number, localY:Number):InteractiveObject {
+    return getBoundsTransformed(Matrix.IDENTITY).contains(localX, localY) ? this : null;
   }
 
   private var _mouseEnabled:Boolean = true;

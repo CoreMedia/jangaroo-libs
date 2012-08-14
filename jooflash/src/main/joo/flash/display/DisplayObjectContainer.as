@@ -850,6 +850,36 @@ public class DisplayObjectContainer extends InteractiveObject {
     return false;
   }
 
+  override protected function hitTestInput(localX:Number, localY:Number):InteractiveObject {
+    var hit:InteractiveObject = null;
+
+    for (var i:int = children.length - 1; i >= 0; i--) {
+      var child:DisplayObject  = children[i];
+
+      if (child.visible) {
+        var matrix:Matrix = child._transformationMatrix;
+
+        var deltaX:Number = localX - matrix.tx;
+        var deltaY:Number = localY - matrix.ty;
+        var det : Number = matrix.a*matrix.d - matrix.c*matrix.b;
+        var childX:Number = (matrix.d * deltaX - matrix.c * deltaY) / det;
+        var childY:Number = (matrix.a * deltaY - matrix.b * deltaX) / det;
+
+        if (child instanceof InteractiveObject) {
+          var displayObject:InteractiveObject = InteractiveObject(child).hitTestInput(childX, childY);
+
+          if (displayObject && displayObject.mouseEnabled) {
+            return _mouseChildren ? displayObject : this;
+          }
+
+          hit = this;
+        }
+      }
+    }
+
+    return hit;
+  }
+
   private var children:Vector.<DisplayObject>;
   private var _mouseChildren:Boolean = true;
 }

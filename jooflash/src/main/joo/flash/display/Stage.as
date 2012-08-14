@@ -997,27 +997,27 @@ public class Stage extends DisplayObjectContainer {
    */
   override public native function dispatchEvent(event:flash.events.Event):Boolean;
 
-  private function dispatchMouseEvent(flashEventType:String, event:js.Event):Boolean {
+  private function dispatchMouseEvent(flashEventType:String, event:js.Event, target:InteractiveObject):Boolean {
     var flashEvent:MouseEvent = new MouseEvent(flashEventType, true, true, _mouseX, _mouseY, null,
             event.ctrlKey, event.altKey, event.shiftKey, buttonDown);
-    return dispatchEvent(flashEvent);
+    return target.dispatchEvent(flashEvent);
   }
 
-  private function dispatchKeyboardEvent(flashEventType:String, event:js.Event):Boolean {
+  private function dispatchKeyboardEvent(flashEventType:String, event:js.Event, target:InteractiveObject):Boolean {
     var flashEvent:KeyboardEvent = new KeyboardEvent(flashEventType, true, true, event['charCode'], event.keyCode || event['which'], 0,
               event.ctrlKey, event.altKey, event.shiftKey, event.ctrlKey, event.ctrlKey);
-    return dispatchEvent(flashEvent);
+    return target.dispatchEvent(flashEvent);
   }
 
   private static function mouseEventDispatcher(flashEventType:String):Function {
-    return function(event:js.Event, stage:Stage):Boolean {
-      return stage.dispatchMouseEvent(flashEventType, event);
+    return function(event:js.Event, stage:Stage, target:InteractiveObject):Boolean {
+      return stage.dispatchMouseEvent(flashEventType, event, target);
     };
   }
 
   private static function keyboardEventDispatcher(flashEventType:String):Function {
-    return function(event:js.Event, stage:Stage):Boolean {
-      return stage.dispatchKeyboardEvent(flashEventType, event);
+    return function(event:js.Event, stage:Stage, target:InteractiveObject):Boolean {
+      return stage.dispatchKeyboardEvent(flashEventType, event, target);
     };
   }
 
@@ -1027,9 +1027,9 @@ public class Stage extends DisplayObjectContainer {
     'mousedown':  mouseEventDispatcher(MouseEvent.MOUSE_DOWN),
     'touchstart': mouseEventDispatcher(MouseEvent.MOUSE_DOWN),
     'mouseup':    mouseEventDispatcher(MouseEvent.MOUSE_UP),
-    'touchend':   function(event:js.Event, stage:Stage):Boolean {
-          return stage.dispatchMouseEvent(MouseEvent.MOUSE_UP, event) !== false &&
-                  stage.dispatchMouseEvent(MouseEvent.CLICK, event);
+    'touchend':   function(event:js.Event, stage:Stage, target:InteractiveObject):Boolean {
+          return stage.dispatchMouseEvent(MouseEvent.MOUSE_UP, event, target) !== false &&
+                  stage.dispatchMouseEvent(MouseEvent.CLICK, event, target);
         },
     'mousemove':  mouseEventDispatcher(MouseEvent.MOUSE_MOVE),
     'touchmove':  mouseEventDispatcher(MouseEvent.MOUSE_MOVE),
@@ -1077,8 +1077,16 @@ public class Stage extends DisplayObjectContainer {
       }
     }
 
-    return flashEventDispatcher(event, this);
+    var target:InteractiveObject = null;
+    if (event.type != "mouseout") {
+      target = hitTestInput(_mouseX, _mouseY);
+    }
+    if (target) {
+      return flashEventDispatcher(event, this, target);
+    }
+    return true;
   }
+
   /**
    * Checks whether the EventDispatcher object has any listeners registered for a specific type of event. This allows you to determine where an EventDispatcher object has altered handling of an event type in the event flow hierarchy. To determine whether a specific event type actually triggers an event listener, use <code>willTrigger()</code>.
    * <p>The difference between <code>hasEventListener()</code> and <code>willTrigger()</code> is that <code>hasEventListener()</code> examines only the object to which it belongs, whereas <code>willTrigger()</code> examines the entire event flow for the event specified by the <code>type</code> parameter.</p>

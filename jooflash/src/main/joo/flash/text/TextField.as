@@ -2755,6 +2755,10 @@ public class TextField extends InteractiveObject {
     return "Helvetica,Arial,sans-serif";
   }
 
+  override protected function hitTestInput(localX:Number, localY:Number):InteractiveObject {
+    return localX >= 0 && localY >= 0 && localX < _width && localY < _height ? this : null;
+  }
+
   private var _alwaysShowSelection:Boolean;
   private var _antiAliasType:String;
   private var _autoSize:String = "none"; // TextFieldAutoSize.NONE;

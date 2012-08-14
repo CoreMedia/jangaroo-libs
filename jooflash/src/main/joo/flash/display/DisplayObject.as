@@ -1951,6 +1951,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    */
   public function DisplayObject() {
     super();
+    _tmpMatrix = new Matrix();
     _filters = [];
     _blendMode = BlendMode.NORMAL;
     _transformationMatrixCache = new Matrix();
