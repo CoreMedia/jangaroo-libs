@@ -186,11 +186,10 @@ public class Timer extends EventDispatcher {
     ++_currentCount;
     try {
       this.dispatchEvent(new TimerEvent(TimerEvent.TIMER));
-      checkComplete();
     } catch (e:*) {
-      stop();
-      throw e;
+      trace("ERROR", e);
     }
+    checkComplete();
   }
 
   private function checkComplete():void {
