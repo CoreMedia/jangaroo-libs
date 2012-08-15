@@ -519,7 +519,8 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * </listing>
    */
   public function get mouseX():Number {
-    return stage ? stage.mouseX / _scaleX : NaN;
+    // TODO: wtf no rotation?
+    return stage ? globalToLocal(stage._stageMouse).x : NaN;
   }
 
   /**
@@ -543,7 +544,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * </listing>
    */
   public function get mouseY():Number {
-    return stage ? stage.mouseY / _scaleY : NaN;
+    return stage ? globalToLocal(stage._stageMouse).y : NaN;
   }
 
   /**

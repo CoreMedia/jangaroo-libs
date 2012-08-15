@@ -779,7 +779,7 @@ public class DisplayObjectContainer extends InteractiveObject {
 
     var _tmpMatrix : Matrix = new Matrix();
     for (var i:int = 0; i < childrenLength; i++) {
-      _tmpMatrix.copyFromAndConcat(children[i].transform.matrix, matrix);
+      _tmpMatrix.copyFromAndConcat(children[i]._transformationMatrix, matrix);
 
       var rectangle:Rectangle = children[i].getBoundsTransformed(_tmpMatrix, returnRectangle);
 
@@ -856,7 +856,7 @@ public class DisplayObjectContainer extends InteractiveObject {
     for (var i:int = children.length - 1; i >= 0; i--) {
       var child:DisplayObject  = children[i];
 
-      if (child.visible) {
+      if (child.visible && child instanceof InteractiveObject) {
         var matrix:Matrix = child._transformationMatrix;
 
         var deltaX:Number = localX - matrix.tx;
@@ -865,13 +865,12 @@ public class DisplayObjectContainer extends InteractiveObject {
         var childX:Number = (matrix.d * deltaX - matrix.c * deltaY) / det;
         var childY:Number = (matrix.a * deltaY - matrix.b * deltaX) / det;
 
-        if (child instanceof InteractiveObject) {
-          var displayObject:InteractiveObject = InteractiveObject(child).hitTestInput(childX, childY);
+        var displayObject:InteractiveObject = InteractiveObject(child).hitTestInput(childX, childY);
 
-          if (displayObject && displayObject.mouseEnabled) {
+        if (displayObject) {
+          if (displayObject.mouseEnabled) {
             return _mouseChildren ? displayObject : this;
           }
-
           hit = this;
         }
       }

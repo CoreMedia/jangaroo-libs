@@ -1,6 +1,12 @@
 package flash.display {
+import flash.display.RenderState;
+import flash.filters.BitmapFilter;
+import flash.geom.Matrix;
+import flash.geom.Rectangle;
 import flash.geom.Rectangle;
 import flash.media.SoundTransform;
+
+import js.CanvasRenderingContext2D;
 
 /**
  * The Sprite class is a basic display list building block: a display list node that can display graphics and can also contain children.
@@ -12,6 +18,39 @@ import flash.media.SoundTransform;
  *
  */
 public class Sprite extends DisplayObjectContainer {
+
+  override public function get width():Number {
+    var containerWidth:Number = super.width;
+    if (_graphics) {
+      var graphicsWidth:Number = _graphics.width;
+      if (graphicsWidth > containerWidth) {
+        return graphicsWidth;
+      }
+    }
+    return containerWidth;
+  }
+
+  override public function get height():Number {
+    var containerHeight:Number = super.height;
+    if (_graphics) {
+      var graphicsHeight:Number = _graphics.height;
+      if (graphicsHeight > containerHeight) {
+        return graphicsHeight;
+      }
+    }
+    return containerHeight;
+  }
+
+  override protected function getBoundsTransformed(matrix:Matrix, returnRectangle:Rectangle = null):Rectangle {
+    // TODO: union with _graphics rectangle (if defined)
+    var rectangle:Rectangle = super.getBoundsTransformed(matrix, returnRectangle);
+    if (_graphics) {
+      var graphicsRectangle:Rectangle = RenderState.transformBounds(_graphics.minX, _graphics.minY, _graphics.width, _graphics.height, matrix);
+      RenderState.unite(rectangle, graphicsRectangle);
+    }
+    return rectangle;
+  }
+
   /**
    * Specifies the button mode of this sprite. If <code>true</code>, this sprite behaves as a button, which means that it triggers the display of the hand cursor when the pointer passes over the sprite and can receive a <code>click</code> event if the enter or space keys are pressed when the sprite has focus. You can suppress the display of the hand cursor by setting the <code>useHandCursor</code> property to <code>false</code>, in which case the pointer is displayed.
    * <p>Although it is better to use the SimpleButton class to create buttons, you can use the <code>buttonMode</code> property to give a sprite some button-like functionality. To include a sprite in the tab order, set the <code>tabEnabled</code> property (inherited from the InteractiveObject class and <code>false</code> by default) to <code>true</code>. Additionally, consider whether you want the children of your sprite to be user input enabled. Most buttons do not enable user input interactivity for their child objects because it confuses the event flow. To disable user input interactivity for all child objects, you must set the <code>mouseChildren</code> property (inherited from the DisplayObjectContainer class) to <code>false</code>.</p>
@@ -443,6 +482,13 @@ public class Sprite extends DisplayObjectContainer {
       _graphics._render(renderState);
     }
     super._render(renderState);
+  }
+
+  override protected function hitTestInput(localX:Number, localY:Number):InteractiveObject {
+    if (_graphics && localX >= _graphics.minX && localY >= _graphics.minY && localX < _graphics.maxX && localY < _graphics.maxY) {
+      return this;
+    }
+    return super.hitTestInput(localX, localY);
   }
 
   private function updateCursor():void {

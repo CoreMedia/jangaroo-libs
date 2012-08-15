@@ -226,6 +226,8 @@ public final class Graphics {
    */
   public function clear():void {
     commands.length = 0;
+    x = y = 0;
+    minX = maxX = minY = maxY = NaN;
   }
 
   /**
@@ -299,8 +301,16 @@ public final class Graphics {
    * </listing></div>
    */
   public function curveTo(controlX:Number, controlY:Number, anchorX:Number, anchorY:Number):void {
+    createSpace(x, y);
+    createSpace(controlX, controlY); // TODO: is it correct to create space for the control point as-is?
+    createSpace(anchorX, anchorY);
+    this.x = anchorX;
+    this.y = anchorY;
     commands.push(function(context:CanvasRenderingContext2D):void {
       context.quadraticCurveTo(controlX, controlY, anchorX, anchorY);
+      if (drawPathIfNoFill(context)) {
+        context.moveTo(anchorX, anchorY);
+      }
     });
   }
 
@@ -321,6 +331,8 @@ public final class Graphics {
    * <a href="http://www.adobe.com/go/learn_as3_usingexamples_en">How to use this example</a>Please see the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/Graphics.html#includeExamplesSummary">example</a> at the end of this class for an illustration of how to use this method.
    */
   public function drawCircle(x:Number, y:Number, radius:Number):void {
+    createSpace(x - radius, y - radius);
+    createSpace(x + radius, y + radius);
     commands.push(function(context:CanvasRenderingContext2D):void {
       context.moveTo(x + radius, y);
       context.arc(x, y, radius, 0, 2 * Math.PI, false);
@@ -396,6 +408,8 @@ public final class Graphics {
    * </listing>
    */
   public function drawEllipse(x:Number, y:Number, width:Number, height:Number):void {
+    createSpace(x - width, y - height);
+    createSpace(x + width, y + height);
     commands.push(function(context:CanvasRenderingContext2D):void {
       var rx:Number = width / 2;
       var ry:Number = height / 2;
@@ -587,6 +601,8 @@ public final class Graphics {
    * </listing>
    */
   public function drawRect(x:Number, y:Number, width:Number, height:Number):void {
+    createSpace(x, y);
+    createSpace(x + width, y + height);
     commands.push(function(context:CanvasRenderingContext2D):void {
       if (doFill) {
         context.moveTo(x, y);
@@ -594,7 +610,7 @@ public final class Graphics {
         context.lineTo(x + width, y + height);
         context.lineTo(x, y + height);
         context.lineTo(x, y);
-      } else if (doStroke) {
+      } else if (!isNaN(_thickness)) {
         context.strokeRect(x, y, width, height);
         context.moveTo(x, y);
       }
@@ -623,6 +639,8 @@ public final class Graphics {
    * <a href="http://www.adobe.com/go/learn_as3_usingexamples_en">How to use this example</a>Please see the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/Graphics.html#includeExamplesSummary">example</a> at the end of this class for an illustration of how to use this method.
    */
   public function drawRoundRect(x:Number, y:Number, width:Number, height:Number, ellipseWidth:Number, ellipseHeight:Number = NaN):void {
+    createSpace(x, y);
+    createSpace(x + width, y + height);
     if (ellipseHeight == 0 || ellipseWidth == 0) {
       drawRect(x, y, width, height);
     } else {
@@ -674,6 +692,8 @@ public final class Graphics {
     if (topLeftRadius == 0 && topRightRadius == 0 && bottomLeftRadius == 0 && bottomRightRadius == 0) {
       drawRect(x, y, width, height);
     } else {
+      createSpace(x, y);
+      createSpace(x + width, y + height);
       commands.push(function(context:CanvasRenderingContext2D):void {
         var x_r:Number = x + width;
         var y_b:Number = y + height;
@@ -729,7 +749,7 @@ public final class Graphics {
     if (doFill) {
       doFill = false;
       context.fill();
-      if (doStroke) {
+      if (!isNaN(_thickness)) {
         context.stroke();
       }
       context.beginPath();
@@ -921,8 +941,9 @@ public final class Graphics {
    * <a href="http://www.adobe.com/go/learn_as3_usingexamples_en">How to use this example</a>Please see the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/Graphics.html#lineTo()">lineTo()</a> or <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/Graphics.html#moveTo()">moveTo()</a> method's example for illustrations of how to use the <code>getStyle()</code> method.
    */
   public function lineStyle(thickness:Number = NaN, color:uint = 0, alpha:Number = 1.0, pixelHinting:Boolean = false, scaleMode:String = "normal", caps:String = null, joints:String = null, miterLimit:Number = 3):void {
+    _thickness = thickness; // for min/max x/y computation!
     commands.push(function(context:CanvasRenderingContext2D):void {
-      doStroke = !isNaN(thickness);
+      _thickness = thickness; // again while drawing!
       context.lineWidth = thickness > 0 ? thickness : 1;
       context.strokeStyle = toRGBA(color, alpha);
       context.lineCap = caps || CapsStyle.ROUND;
@@ -970,6 +991,10 @@ public final class Graphics {
    * </listing>
    */
   public function lineTo(x:Number, y:Number):void {
+    createSpace(this.x, this.y);
+    createSpace(x, y);
+    this.x = x;
+    this.y = y;
     commands.push(function(context:CanvasRenderingContext2D):void {
       context.lineTo(x, y);
       if (drawPathIfNoFill(context)) {
@@ -1015,6 +1040,8 @@ public final class Graphics {
    * </listing>
    */
   public function moveTo(x:Number, y:Number):void {
+    this.x = x;
+    this.y = y;
     commands.push(function(context:CanvasRenderingContext2D):void {
       context.moveTo(x, y);
     });
@@ -1023,7 +1050,13 @@ public final class Graphics {
   // ************************** Jangaroo part **************************
 
   private var commands:Vector.<Function>;
-  private var doStroke: Boolean;
+  private var x: Number;
+  private var y: Number;
+  private var _thickness:Number;
+  internal var minX:Number;
+  internal var minY:Number;
+  internal var maxX:Number;
+  internal var maxY:Number;
   private var doFill: Boolean;
 
   /**
@@ -1031,6 +1064,22 @@ public final class Graphics {
    */
   public function Graphics() {
     commands = new Vector.<Function>();
+  }
+
+  private function createSpace(x:Number, y:Number):void {
+    var thickness:Number = _thickness || 0; // _thickness may be NaN!
+    var outerBorderThickness:Number = thickness / 2;
+    if (isNaN(minX)) {
+      minX = x - outerBorderThickness;
+      minY = y - outerBorderThickness;
+      maxX = x + outerBorderThickness;
+      maxY = y + outerBorderThickness;
+    } else {
+      minX = Math.min(minX, x - outerBorderThickness);
+      minY = Math.min(minY, y - outerBorderThickness);
+      maxX = Math.max(maxX, x + outerBorderThickness);
+      maxY = Math.max(maxY, y + outerBorderThickness);
+    }
   }
 
   private static function createGradientStyle(context:CanvasRenderingContext2D,
@@ -1099,7 +1148,7 @@ public final class Graphics {
     var context:CanvasRenderingContext2D = renderState.context;
 
     context.save();
-    doStroke = false;
+    _thickness = NaN;
     doFill = false;
     for (var i:int = 0; i < commands.length; i++) {
       var command:Function = commands[i];
@@ -1110,7 +1159,7 @@ public final class Graphics {
   }
 
   private function drawPathIfNoFill(context:CanvasRenderingContext2D):Boolean {
-    if (doStroke && !doFill) {
+    if (!isNaN(_thickness) && !doFill) {
       context.stroke();
       context.beginPath();
       return true;
@@ -1118,5 +1167,12 @@ public final class Graphics {
     return false;
   }
 
+  internal function get width():Number {
+    return isNaN(minX) ? 0 : maxX - minX;
+  }
+
+  internal function get height():Number {
+    return isNaN(minY) ? 0 : maxY - minY;
+  }
 }
 }

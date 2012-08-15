@@ -2612,34 +2612,7 @@ public class TextField extends InteractiveObject {
 
   override protected function getBoundsTransformed(matrix:Matrix, returnRectangle:Rectangle = null):Rectangle {
     refreshTextMetrics();
-    // tranformedX = X * matrix.a + Y * matrix.c + matrix.tx;
-    // tranformedY = X * matrix.b + Y * matrix.d + matrix.ty;
-
-    // TODO: refactor with Bitmap#getBoundTransformed()!
-    var x1:Number = matrix.tx;
-    var y1:Number = matrix.ty;
-    var x2:Number = _width * matrix.a + matrix.tx;
-    var y2:Number = _width * matrix.b + matrix.ty;
-    var x3:Number = _width * matrix.a + _height * matrix.c + matrix.tx;
-    var y3:Number = _width * matrix.b + _height * matrix.d + matrix.ty;
-    var x4:Number = _height * matrix.c + matrix.tx;
-    var y4:Number = _height * matrix.d + matrix.ty;
-
-    var left:Number = Math.min(x1, x2, x3, x4);
-    var top:Number = Math.min(y1, y2, y3, y4);
-    var right:Number = Math.max(x1, x2, x3, x4);
-    var bottom:Number = Math.max(y1, y2, y3, y4);
-
-    if (returnRectangle == null) {
-      returnRectangle = new Rectangle();
-    }
-
-    returnRectangle.x = left;
-    returnRectangle.y = top;
-    returnRectangle.width = right - left;
-    returnRectangle.height = bottom - top;
-
-    return returnRectangle;
+    return RenderState.transformBounds(0, 0, _width, _height, matrix, returnRectangle);
   }
 
   override public function _render(renderState:RenderState):void {
@@ -2652,27 +2625,31 @@ public class TextField extends InteractiveObject {
   private function refreshTextMetrics():void {
     _textWidth = 0;
 
-    var context:CanvasRenderingContext2D = CanvasRenderingContext2D(textCanvas.getContext("2d"));
-    context.textAlign = "start";
-    context.textBaseline = "top";
+    if (_lines.length == 1 && _lines[0].length == 0) {
+      _textHeight = 0;
+    } else {
+      var context:CanvasRenderingContext2D = CanvasRenderingContext2D(textCanvas.getContext("2d"));
+      context.textAlign = "start";
+      context.textBaseline = "top";
 
-    var font:Array = [];
-    font.push((_textFormat.italic !== null ? _textFormat.italic : _defaultTextFormat.italic) ? "italic " : "normal ");
-    font.push("normal ");
-    font.push((_textFormat.bold !== null ? _textFormat.bold : _defaultTextFormat.bold) ? "bold " : "normal ");
-    font.push(getSize() + "px");
-    font.push(asWebFont());
-    context.font = font.join(" ");
+      var font:Array = [];
+      font.push((_textFormat.italic !== null ? _textFormat.italic : _defaultTextFormat.italic) ? "italic " : "normal ");
+      font.push("normal ");
+      font.push((_textFormat.bold !== null ? _textFormat.bold : _defaultTextFormat.bold) ? "bold " : "normal ");
+      font.push(getSize() + "px");
+      font.push(asWebFont());
+      context.font = font.join(" ");
 
-    var lineCount:uint = _lines.length;
-    for (var i:int = 0; i < lineCount; i++) {
-      var metrics:TextMetrics = context.measureText(_lines[i]);
-      if (metrics.width > _textWidth) {
-        _textWidth = metrics.width;
+      var lineCount:uint = _lines.length;
+      for (var i:int = 0; i < lineCount; i++) {
+        var metrics:TextMetrics = context.measureText(_lines[i]);
+        if (metrics.width > _textWidth) {
+          _textWidth = metrics.width;
+        }
       }
+      var lineHeight:Number = getFontMetrics(context.font).height;
+      _textHeight = lineHeight * lineCount;
     }
-    var lineHeight:Number = getFontMetrics(context.font).height;
-    _textHeight = lineHeight * lineCount;
     if (_autoSize !== TextFieldAutoSize.NONE) {
       _width = _textWidth + 4;
       _height = _textHeight + 4;

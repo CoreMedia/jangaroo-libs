@@ -2,11 +2,13 @@ package flash.display {
 import flash.events.Event;
 import flash.events.KeyboardEvent;
 import flash.events.MouseEvent;
+import flash.events.TextEvent;
+import flash.geom.Point;
 import flash.geom.Rectangle;
 import flash.text.TextSnapshot;
+import flash.ui.KeyLocation;
 
 import js.CanvasRenderingContext2D;
-
 import js.Event;
 import js.HTMLCanvasElement;
 import js.HTMLElement;
@@ -334,16 +336,12 @@ public class Stage extends DisplayObjectContainer {
    * stage.focus= myTF;
    * </listing>
    */
-  public function get focus():InteractiveObject {
-    throw new Error('not implemented'); // TODO: implement!
-  }
+  public native function get focus():InteractiveObject;
 
   /**
    * @private
    */
-  public function set focus(value:InteractiveObject):void {
-    throw new Error('not implemented'); // TODO: implement!
-  }
+  public native function set focus(value:InteractiveObject):void;
 
   /**
    * Gets and sets the frame rate of the stage. The frame rate is defined as frames per second. By default the rate is set to the frame rate of the first SWF file loaded. Valid range for the frame rate is from 0.01 to 1000 frames per second.
@@ -997,94 +995,113 @@ public class Stage extends DisplayObjectContainer {
    */
   override public native function dispatchEvent(event:flash.events.Event):Boolean;
 
-  private function dispatchMouseEvent(flashEventType:String, event:js.Event, target:InteractiveObject):Boolean {
-    var flashEvent:MouseEvent = new MouseEvent(flashEventType, true, true, _mouseX, _mouseY, null,
-            event.ctrlKey, event.altKey, event.shiftKey, buttonDown);
-    return target.dispatchEvent(flashEvent);
+  private function newMouseEvent(flashEventType:String, event:js.Event):MouseEvent {
+    var mouseEvent:MouseEvent = new MouseEvent(flashEventType, true, true, NaN, NaN, null,
+            event.ctrlKey, event.altKey, event.shiftKey, buttonDown, event['wheelDelta']);
+    mouseEvent.stagePoint = new Point(_stageMouse.x, _stageMouse.y);
+    return mouseEvent;
   }
 
-  private function dispatchKeyboardEvent(flashEventType:String, event:js.Event, target:InteractiveObject):Boolean {
-    var flashEvent:KeyboardEvent = new KeyboardEvent(flashEventType, true, true, event['charCode'], event.keyCode || event['which'], 0,
-              event.ctrlKey, event.altKey, event.shiftKey, event.ctrlKey, event.ctrlKey);
-    return target.dispatchEvent(flashEvent);
-  }
+  private function handleMouseEvent(event:js.Event):Boolean {
+    var button:int = event['button'];
+    if (button < 0 || button > 2) {
+      return true;
+    }
+    event.preventDefault();
 
-  private static function mouseEventDispatcher(flashEventType:String):Function {
-    return function(event:js.Event, stage:Stage, target:InteractiveObject):Boolean {
-      return stage.dispatchMouseEvent(flashEventType, event, target);
-    };
-  }
+    var time:int = new Date().getDate();
 
-  private static function keyboardEventDispatcher(flashEventType:String):Function {
-    return function(event:js.Event, stage:Stage, target:InteractiveObject):Boolean {
-      return stage.dispatchKeyboardEvent(flashEventType, event, target);
-    };
-  }
+    updateStageMouse(event);
 
-  private static const DOM_EVENT_TO_FLASH_EVENT_DISPATCHER:Object/*<String,String>*/ = {
-    'click':      mouseEventDispatcher(MouseEvent.CLICK),
-    'dblclick':   mouseEventDispatcher(MouseEvent.DOUBLE_CLICK),
-    'mousedown':  mouseEventDispatcher(MouseEvent.MOUSE_DOWN),
-    'touchstart': mouseEventDispatcher(MouseEvent.MOUSE_DOWN),
-    'mouseup':    mouseEventDispatcher(MouseEvent.MOUSE_UP),
-    'touchend':   function(event:js.Event, stage:Stage, target:InteractiveObject):Boolean {
-          return stage.dispatchMouseEvent(MouseEvent.MOUSE_UP, event, target) !== false &&
-                  stage.dispatchMouseEvent(MouseEvent.CLICK, event, target);
-        },
-    'mousemove':  mouseEventDispatcher(MouseEvent.MOUSE_MOVE),
-    'touchmove':  mouseEventDispatcher(MouseEvent.MOUSE_MOVE),
-    'mouseover':  mouseEventDispatcher(MouseEvent.MOUSE_OVER),
-    'mouseout':   mouseEventDispatcher(MouseEvent.MOUSE_OUT),
-    'mousewheel': mouseEventDispatcher(MouseEvent.MOUSE_WHEEL),
-    'keydown':    keyboardEventDispatcher(KeyboardEvent.KEY_DOWN),
-    'keyup':      keyboardEventDispatcher(KeyboardEvent.KEY_UP)
-    // TODO: map DOM events to remaining Flash Event constants!
-  };
+    var target:InteractiveObject = event.type === 'mouseout' ? null : hitTestInput(_stageMouse.x, _stageMouse.y);
 
-  private function internalTransformAndDispatch(event:js.Event):Boolean {
-    var flashEvent:flash.events.Event;
+    //------------------------------------------------------
+    if (_mouseOverTarget !== null && _mouseOverTarget !== target) {
+      _mouseOverTarget.dispatchEvent(newMouseEvent(MouseEvent.MOUSE_OUT, event));
+      _mouseOverTarget = null;
+    }
 
-    var eventType:String = event.type;
-    var flashEventDispatcher:Function = DOM_EVENT_TO_FLASH_EVENT_DISPATCHER[eventType];
-    if (!flashEventDispatcher) {
-      trace("Unmapped DOM event type " + eventType + " occurred, ignoring.");
+    if (event.type === 'mouseout') {
+      this.dispatchEvent(new flash.events.Event(flash.events.Event.MOUSE_LEAVE, false, false));
       return false;
     }
-    // track mouse button:
-    // TODO: check event.button property whether it was the "primary" mouse button!
-    switch (eventType) {
+
+    if (target !== null && target !== _mouseOverTarget) {
+      _mouseOverTarget = target;
+      _mouseOverTarget.dispatchEvent(newMouseEvent(MouseEvent.MOUSE_OVER, event));
+    }
+
+    //------------------------------------------------------
+
+    var mouseEventType:String;
+
+    switch (event.type) {
       case 'mousedown':
       case 'touchstart':
+        mouseEventType = MouseEvent.MOUSE_DOWN;
         buttonDown = true;
-        event.preventDefault(); // prevent touch gestures
+        if (target !== _clickTarget || time > _clickTime + 500) {
+          _clickCount = 0;
+        }
+        _clickTarget = target;
+        _clickTime = time;
+        ++_clickCount;
         break;
+
       case 'mouseup':
       case 'touchend':
+        mouseEventType = MouseEvent.MOUSE_UP;
         buttonDown = false;
         break;
+
+      case 'mousemove':
+      case 'touchmove':
+        mouseEventType = MouseEvent.MOUSE_MOVE;
+        _clickCount = 0;
+        break;
+
+      default:
+        return false;
     }
+
+    //-----------------------------------------------------------------
+
+    if (target != null) {
+      target.dispatchEvent(newMouseEvent(mouseEventType, event));
+
+      //----------------------------------------------
+
+      if (_clickTarget == target) {
+        var isDoubleClick:Boolean = target.doubleClickEnabled && _clickCount % 2 === 0 && time < _clickTime + 500;
+        target.dispatchEvent(newMouseEvent(isDoubleClick ? MouseEvent.DOUBLE_CLICK : MouseEvent.CLICK, event));
+      }
+    }
+    return false;
+  }
+
+  private function updateStageMouse(event:js.Event):void {
     var pos:Object = event['changedTouches'] && event['changedTouches'].length ?
             event['changedTouches'][0] // TODO: one event for every changedTouches item?
             : event;
     if ('pageX' in pos) {
       if ('offsetX' in pos) {
-        _mouseX = pos['offsetX'];
-        _mouseY = pos['offsetY'];
+        _stageMouse.x = pos['offsetX'];
+        _stageMouse.y = pos['offsetY'];
       } else {
         var clientRect:Object = canvas['getBoundingClientRect']();  // TODO: more cross-browser cases, scroll offsets?
-        _mouseX = pos.pageX - clientRect.left;
-        _mouseY = pos.pageY - clientRect.top;
+        _stageMouse.x = pos.pageX - clientRect.left;
+        _stageMouse.y = pos.pageY - clientRect.top;
       }
     }
+  }
 
-    var target:InteractiveObject = null;
-    if (event.type != "mouseout") {
-      target = hitTestInput(_mouseX, _mouseY);
+  private function handleMouseWheelEvent(event:js.Event):Boolean {
+    updateStageMouse(event);
+    var target:InteractiveObject = hitTestInput(_stageMouse.x, _stageMouse.y);
+    if (target != null) {
+      target.dispatchEvent(newMouseEvent(MouseEvent.MOUSE_WHEEL, event));
     }
-    if (target) {
-      return flashEventDispatcher(event, this, target);
-    }
-    return true;
+    return false;
   }
 
   /**
@@ -1200,6 +1217,7 @@ public class Stage extends DisplayObjectContainer {
     _quality = StageQuality.HIGH;
     _scaleMode = StageScaleMode.NO_SCALE;
     _align = StageAlign.TOP_LEFT;
+    _stageMouse = new Point();
     if (properties) {
       for (var m:String in properties) {
         this[m] = properties[m];
@@ -1230,31 +1248,62 @@ public class Stage extends DisplayObjectContainer {
     _renderState = new RenderState(context);
     element.parentNode.replaceChild(canvas, element);
     canvas.focus();
-    for (var eventType:String in DOM_EVENT_TO_FLASH_EVENT_DISPATCHER) {
-      canvas.addEventListener(eventType, internalTransformAndDispatch, true);
+    canvas.addEventListener('mousedown', handleMouseEvent, false);
+    canvas.addEventListener('mouseup', handleMouseEvent, false);
+    canvas.addEventListener('mousemove', handleMouseEvent, false);
+    canvas.addEventListener('mouseout', handleMouseEvent, false);
+    canvas.addEventListener('mousewheel', handleMouseWheelEvent, false);
+    canvas.addEventListener('keydown', handleKeyEvent, false);
+    canvas.addEventListener('keyup', handleKeyEvent, false);
+    canvas.addEventListener('keypress', handleTextEvent, false);
+  }
+
+  private function handleKeyEvent(event:js.Event):Boolean {
+    event.preventDefault();
+    if (focus) {
+      var keyboardEventType:String = event.type === "keyup" ? KeyboardEvent.KEY_UP : KeyboardEvent.KEY_DOWN;
+      var keyboardEvent:KeyboardEvent = new KeyboardEvent(keyboardEventType, true, true, event['charCode'],
+              event.keyCode, event['location'] || KeyLocation.STANDARD,
+              event.ctrlKey, event.altKey, event.shiftKey, event.ctrlLeft, event.metaKey);
+      focus.dispatchEvent(keyboardEvent);
     }
+    return false;
+  }
+
+  private function handleTextEvent(event:js.Event):Boolean {
+    event.preventDefault();
+    if (focus) {
+      var text:String = String.fromCharCode(event['charCode'] || event.keyCode);
+      var textEvent:TextEvent = new TextEvent(TextEvent.TEXT_INPUT, true, true, text);
+      focus.dispatchEvent(textEvent);
+    }
+    return false;
   }
 
   /**
    * @inheritDoc
    */
   override public function get mouseX():Number {
-    return _mouseX;
+    return _stageMouse.x;
   }
 
   /**
    * @inheritDoc
    */
   override public function get mouseY():Number {
-    return _mouseY;
+    return _stageMouse.y;
   }
 
   private var canvas:HTMLCanvasElement;
   private var _renderState:RenderState;
   private var _stageHeight:int;
   private var _stageWidth:int;
-  private var _mouseX:int;
-  private var _mouseY:int;
+  internal var _stageMouse:Point;
+  internal var _mouseOverTarget:DisplayObject = null;
+  private var _clickTarget:InteractiveObject = null;
+  private var _clickTime:Number = 0;
+  //noinspection JSFieldCanBeLocal
+  private var _clickCount:int = 0;
   private var id:String;
   private var _frameRate:Number = 30;
   private var _quality:String;

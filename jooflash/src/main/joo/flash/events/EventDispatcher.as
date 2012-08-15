@@ -82,7 +82,7 @@ public class EventDispatcher implements IEventDispatcher {
    *
    */
   public function dispatchEvent(event:Event):Boolean {
-    event.withTarget(this.target || this);
+    event = event.withTarget(this.target || this);
 
     var ancestors:Array = createAncestorChain();
 

@@ -1,5 +1,6 @@
 package flash.display {
 import flash.geom.Matrix;
+import flash.geom.Rectangle;
 
 import js.CanvasRenderingContext2D;
 
@@ -82,8 +83,52 @@ public class RenderState {
         displayObject._render(this);
         _context.restore();
       }
-  
+      //debugBounds(displayObject);
       _depth--;
     }
+
+  private function debugBounds(displayObject:DisplayObject):void {
+    _context.save();
+    _context.setTransform(1, 0, 0, 1, 0, 0);
+    _context.lineWidth = 1;
+    _context.strokeStyle = displayObject === displayObject.stage._mouseOverTarget ? "green" : displayObject instanceof DisplayObjectContainer ? "red" : "blue";
+    var bounds:Rectangle = displayObject.getBounds(displayObject.stage);
+    _context.strokeRect(bounds.x, bounds.y, bounds.width, bounds.height);
+    _context.restore();
   }
+
+  public static function transformBounds(x:Number, y:Number, width:Number, height:Number, matrix:Matrix,
+                                         returnRectangle:Rectangle = null):Rectangle {
+    var x2:Number = width * matrix.a;
+    var y2:Number = width * matrix.b;
+    var x3:Number = width * matrix.a + height * matrix.c;
+    var y3:Number = width * matrix.b + height * matrix.d;
+    var x4:Number = height * matrix.c;
+    var y4:Number = height * matrix.d;
+  
+    var left:Number = Math.min(x, x2, x3, x4);  
+    var top:Number = Math.min(y, y2, y3, y4);  
+    var right:Number = Math.max(x, x2, x3, x4);  
+    var bottom:Number = Math.max(y, y2, y3, y4);
+
+    if (returnRectangle == null) {
+      returnRectangle = new Rectangle();
+    }
+    returnRectangle.x = matrix.tx + left;
+    returnRectangle.y = matrix.ty + top;
+    returnRectangle.width = right - left;
+    returnRectangle.height = bottom - top;
+  
+    return returnRectangle;  
+  }
+
+  public static function unite(rectangle:Rectangle, uniteWith:Rectangle):void {
+    var right:Number = rectangle.right;
+    var bottom:Number = rectangle.bottom;
+    rectangle.x = Math.min(rectangle.x, uniteWith.x);
+    rectangle.y = Math.min(rectangle.y, uniteWith.y);
+    rectangle.width = Math.max(right, uniteWith.right) - rectangle.x;
+    rectangle.height = Math.max(bottom, uniteWith.bottom) - rectangle.y;
+  }
+}
 }
