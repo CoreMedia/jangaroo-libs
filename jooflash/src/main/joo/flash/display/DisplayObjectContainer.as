@@ -766,6 +766,7 @@ public class DisplayObjectContainer extends InteractiveObject {
       returnRectangle = new Rectangle();
     }
 
+    var children:Vector.<DisplayObject> = getBoundsChildren();
     if (children.length == 0) {
       return super.getBoundsTransformed(matrix, returnRectangle);
     }
@@ -785,7 +786,7 @@ public class DisplayObjectContainer extends InteractiveObject {
         childMatrix = _tmpMatrix;
       }
 
-      var rectangle:Rectangle = children[i].getBoundsTransformed(_tmpMatrix, returnRectangle);
+      var rectangle:Rectangle = children[i].getBoundsTransformed(childMatrix, returnRectangle);
 
       if (rectangle.width > 0 && rectangle.height > 0) {
         if (rectangle.x < left) {
@@ -809,6 +810,10 @@ public class DisplayObjectContainer extends InteractiveObject {
     returnRectangle.height = bottom - top;
 
     return returnRectangle;
+  }
+
+  internal function getBoundsChildren():Vector.<DisplayObject> {
+    return children;
   }
 
   override public function _findDirtyLeaf():Object {

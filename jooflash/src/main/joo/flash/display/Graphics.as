@@ -1,6 +1,7 @@
 package flash.display {
 import flash.geom.Matrix;
 import flash.geom.Point;
+import flash.geom.Rectangle;
 
 import js.CanvasGradient;
 import js.CanvasRenderingContext2D;
@@ -1207,5 +1208,22 @@ public final class Graphics {
   internal function get height():Number {
     return isNaN(minY) ? 0 : maxY - minY;
   }
+
+  private static const NO_TRANSFORM:Matrix = new Matrix();
+
+  internal function get _transformationMatrix():Matrix {
+    return NO_TRANSFORM;
+  }
+  
+  internal function getBoundsTransformed(matrix:Matrix = null, returnRectangle:Rectangle = null):Rectangle {
+    if (!returnRectangle) {
+      returnRectangle = new Rectangle();
+    }
+    if (!isNaN(minX)) {
+      returnRectangle = RenderState.transformBounds(minX, minY, maxX - minX, maxY - minY, matrix, returnRectangle);
+    }
+    return returnRectangle;
+  }
+  
 }
 }

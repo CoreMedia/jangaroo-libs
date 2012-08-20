@@ -19,43 +19,12 @@ import js.CanvasRenderingContext2D;
  */
 public class Sprite extends DisplayObjectContainer {
 
-  override public function get width():Number {
-    var containerWidth:Number = super.width;
+  override internal function getBoundsChildren():Vector.<DisplayObject> {
+    var boundsChildren:Vector.<DisplayObject> = super.getBoundsChildren();
     if (_graphics) {
-      var graphicsWidth:Number = _graphics.width;
-      if (graphicsWidth > containerWidth) {
-        return graphicsWidth;
-      }
+      boundsChildren = boundsChildren.concat(_graphics); // yes, Graphics is not a DisplayObject, but it implements getBoundsTransformed() and _transformationMatrix!
     }
-    return containerWidth;
-  }
-
-  override public function get height():Number {
-    var containerHeight:Number = super.height;
-    if (_graphics) {
-      var graphicsHeight:Number = _graphics.height;
-      if (graphicsHeight > containerHeight) {
-        return graphicsHeight;
-      }
-    }
-    return containerHeight;
-  }
-
-  override protected function getBoundsTransformed(matrix:Matrix = null, returnRectangle:Rectangle = null):Rectangle {
-    var rectangle:Rectangle = super.getBoundsTransformed(matrix, returnRectangle);
-    if (_graphics) {
-      var width:Number = _graphics.width;
-      var height:Number = _graphics.height;
-      if (width > 0 && height > 0) {
-        var graphicsRectangle:Rectangle = RenderState.transformBounds(_graphics.minX, _graphics.minY, width, height, matrix);
-        if (rectangle.width > 0 && rectangle.height > 0) {
-          RenderState.unite(rectangle, graphicsRectangle);
-        } else {
-          rectangle = graphicsRectangle;
-        }
-      }
-    }
-    return rectangle;
+    return boundsChildren;
   }
 
   /**

@@ -1,8 +1,6 @@
 package flash.display {
 import flash.geom.Matrix;
-import flash.geom.Transform;
-
-import js.HTMLElement;
+import flash.geom.Rectangle;
 
 /**
  * This class is used to create lightweight shapes using the ActionScript drawing application program interface (API). The Shape class includes a <code>graphics</code> property, which lets you access methods from the Graphics class.
@@ -31,6 +29,10 @@ public class Shape extends DisplayObject {
   }
 
   // ************************** Jangaroo part **************************
+
+  override protected function getBoundsTransformed(matrix:Matrix = null, resultRectangle:Rectangle = null):Rectangle {
+    return _graphics.getBoundsTransformed(matrix, resultRectangle);
+  }
 
   override protected function _doRender(renderState:RenderState):void {
     graphics._render(renderState);
