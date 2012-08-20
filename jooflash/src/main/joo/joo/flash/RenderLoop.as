@@ -41,16 +41,11 @@ public class RenderLoop {
 
   public function RenderLoop() {
     _stages = new Vector.<Stage>();
-    _requestAnimationFrame();
-  }
-
-  private function _requestAnimationFrame():void {
     window.requestAnimationFrame(_onAnimationFrame);
   }
 
   private function _onAnimationFrame(currentTime:Number = NaN):Boolean {
-    _requestAnimationFrame();
-
+    window.requestAnimationFrame(_onAnimationFrame);
     if (!currentTime) {
       currentTime = new Date().getTime();
     }

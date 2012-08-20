@@ -669,8 +669,6 @@ public class Matrix {
    */
   public static const MAGIC_GRADIENT_FACTOR:Number = 16384/10;
 
-  public static const IDENTITY:Matrix = new Matrix();
-
   // Adobe's documentation did not make clear how the current matrix has to be multiplied with the transformation
   // matrix.
   // I used http://www.senocular.com/flash/tutorials/transformmatrix/ to find out the implementation

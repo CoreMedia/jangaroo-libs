@@ -41,12 +41,19 @@ public class Sprite extends DisplayObjectContainer {
     return containerHeight;
   }
 
-  override protected function getBoundsTransformed(matrix:Matrix, returnRectangle:Rectangle = null):Rectangle {
-    // TODO: union with _graphics rectangle (if defined)
+  override protected function getBoundsTransformed(matrix:Matrix = null, returnRectangle:Rectangle = null):Rectangle {
     var rectangle:Rectangle = super.getBoundsTransformed(matrix, returnRectangle);
     if (_graphics) {
-      var graphicsRectangle:Rectangle = RenderState.transformBounds(_graphics.minX, _graphics.minY, _graphics.width, _graphics.height, matrix);
-      RenderState.unite(rectangle, graphicsRectangle);
+      var width:Number = _graphics.width;
+      var height:Number = _graphics.height;
+      if (width > 0 && height > 0) {
+        var graphicsRectangle:Rectangle = RenderState.transformBounds(_graphics.minX, _graphics.minY, width, height, matrix);
+        if (rectangle.width > 0 && rectangle.height > 0) {
+          RenderState.unite(rectangle, graphicsRectangle);
+        } else {
+          rectangle = graphicsRectangle;
+        }
+      }
     }
     return rectangle;
   }
@@ -159,10 +166,6 @@ public class Sprite extends DisplayObjectContainer {
       _graphics = new Graphics();
     }
     return _graphics;
-  }
-
-  override internal function getChildIndexOffset():int {
-    return _graphics ? 1 : 0;
   }
 
   /**
@@ -477,11 +480,19 @@ public class Sprite extends DisplayObjectContainer {
   // ************************** Jangaroo part **************************
 
 
-  override public function _render(renderState:RenderState):void {
+  override public function _findDirtyLeaf():Object {
+    return visible && _graphics && _graphics.dirty ? _graphics : super._findDirtyLeaf();
+  }
+
+  override protected function isBitmapCacheDirty():Boolean {
+    return visible && _graphics && _graphics.dirty || super.isBitmapCacheDirty();
+  }
+
+  override protected function _doRender(renderState:RenderState):void {
     if (_graphics) {
       _graphics._render(renderState);
     }
-    super._render(renderState);
+    super._doRender(renderState);
   }
 
   override protected function hitTestInput(localX:Number, localY:Number):InteractiveObject {

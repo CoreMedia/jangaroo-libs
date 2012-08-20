@@ -1,6 +1,5 @@
 package flash.display {
 import flash.accessibility.AccessibilityProperties;
-import flash.errors.IllegalOperationError;
 import flash.events.Event;
 import flash.events.EventDispatcher;
 import flash.geom.Matrix;
@@ -8,6 +7,10 @@ import flash.geom.Point;
 import flash.geom.Rectangle;
 import flash.geom.Transform;
 import flash.geom.Vector3D;
+
+import js.CanvasRenderingContext2D;
+
+import js.HTMLCanvasElement;
 
 /**
  * Dispatched when a display object is added to the display list. The following methods trigger this event: <code>DisplayObjectContainer.addChild()</code>, <code>DisplayObjectContainer.addChildAt()</code>.
@@ -141,7 +144,10 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * @private
    */
   public function set alpha(value:Number):void {
-    _alpha = value;
+    if (_alpha !== value) {
+      _alpha = value;
+      _transformChanged = true; // tell parent to re-render, but do not invalidate transformation matrix!
+    }
   }
 
   /**
@@ -313,14 +319,18 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * </listing>
    */
   public function get cacheAsBitmap():Boolean {
-    return _cacheAsBitmap;
+    // see documentation: "automatically set to true when filter is set", "return to old value when filter removed"
+    return _filters.length > 0 || _cacheAsBitmap;
   }
 
   /**
    * @private
    */
   public function set cacheAsBitmap(value:Boolean):void {
-    _cacheAsBitmap = value; // TODO: implement!
+    _cacheAsBitmap = value;
+    if (!cacheAsBitmap) {
+      _bitmapCacheContext = null;
+    }
   }
 
   /**
@@ -385,11 +395,9 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    */
   public function set filters(value:Array):void {
     _filters = value.concat();
-    if (value.length > 0) {
-      // see documentation of "cacheAsBitmap": "automatically set to true when filter is set"
-      _cacheAsBitmap = true;
+    if (!cacheAsBitmap) { // might have changed when setting filters back to empty list:
+      _bitmapCacheContext = null;
     }
-    // TODO: use when rendering!
   }
 
   /**
@@ -425,7 +433,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * </listing>
    */
   public function get height():Number {
-    return getBoundsTransformed(transform.matrix).height;
+    return getBoundsTransformed(_transformationMatrix).height;
   }
 
   /**
@@ -709,7 +717,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
   public function set rotation(value:Number):void {
     if (_rotation !== value) {
       _rotation = value;
-      _transformationMatrixCacheDirty = true;
+      transformChanged();
     }
   }
 
@@ -1045,7 +1053,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
   public function set scaleX(value:Number):void {
     if (_scaleX !== value) {
       _scaleX = value;
-      _transformationMatrixCacheDirty = true;
+      transformChanged();
     }
   }
 
@@ -1080,7 +1088,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
   public function set scaleY(value:Number):void {
     if (_scaleY !== value) {
       _scaleY = value;
-      _transformationMatrixCacheDirty = true;
+      transformChanged();
     }
   }
 
@@ -1237,7 +1245,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
     }
 
     if (targetSpace.parent == this) {
-      var result:Matrix = _transformationMatrix; //.clone();
+      var result:Matrix = _transformationMatrix.clone();
       result.invert();
       return result;
     }
@@ -1419,7 +1427,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
   public function set x(value:Number):void {
     if (_x !== value) {
       _x = value;
-      _transformationMatrixCacheDirty = true;
+      transformChanged();
     }
   }
 
@@ -1457,7 +1465,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
   public function set y(value:Number):void {
     if (_y !== value) {
       _y = value;
-      _transformationMatrixCacheDirty = true;
+      transformChanged();
     }
   }
 
@@ -1543,15 +1551,15 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
     throw new Error('not implemented'); // TODO: implement!
   }
 
-  protected function getBoundsTransformed(matrix:Matrix, resultRectangle:Rectangle = null):Rectangle {
+  protected function getBoundsTransformed(matrix:Matrix = null, resultRectangle:Rectangle = null):Rectangle {
     if (resultRectangle) {
       resultRectangle.width = 0;
       resultRectangle.height = 0;
     } else {
       resultRectangle = new Rectangle();
     }
-    resultRectangle.x = matrix.tx;
-    resultRectangle.y = matrix.ty;
+    resultRectangle.x = matrix ? matrix.tx : 0;
+    resultRectangle.y = matrix ? matrix.ty : 0;
     return resultRectangle;
   }
 
@@ -1775,7 +1783,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
 
     var point:Point = matrix.transformPoint(new Point(x, y));
 
-    return getBoundsTransformed(Matrix.IDENTITY).contains(point.x, point.y);
+    return getBoundsTransformed().contains(point.x, point.y);
   }
 
   /**
@@ -1958,8 +1966,11 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
     _transformationMatrixCache = new Matrix();
   }
 
-  private var _transformationMatrixCacheDirty:Boolean = true;
+  internal var _transformationMatrixCacheDirty:Boolean = true;
   private var _transformationMatrixCache:Matrix;
+  private var _transformChanged:Boolean = true;
+  private var _bitmapCacheContext:CanvasRenderingContext2D;
+  private var _bitmapCacheTransform:Matrix;
   private var _tmpMatrix:Matrix; // for internal use only to minimize memory allocations.
   private var _x:Number = 0, _y:Number = 0;
   private var _scaleX:Number = 1;
@@ -1973,7 +1984,89 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
   private var _mask:DisplayObject;
   private var _blendMode:String;
 
+  private static const ZERO_POINT:Point = new Point(); // never change this singleton "constant" point!
+
   public function _render(renderState:RenderState):void {
+    if (cacheAsBitmap && window.cacheAsBitmap !== false) { // experimental feature, allow user to disable it!
+      var transform:Matrix = renderState.currentTransformation();
+      var bounds:Rectangle = getBoundsTransformed(transform);
+      if (bounds.width > 0 && bounds.height > 0) {
+        if (!_bitmapCacheTransform || !isScaleAndRotationEqual(_bitmapCacheTransform, transform) || isBitmapCacheDirty()) {
+          if (!_bitmapCacheTransform) {
+            _bitmapCacheTransform = new Matrix();
+          }
+          var transformedZero:Point = transform.transformPoint(ZERO_POINT);
+          _bitmapCacheTransform.setTo(transform.a, transform.b, transform.c, transform.d,
+                  transformedZero.x - bounds.x,  transformedZero.y - bounds.y);
+          if (!_bitmapCacheContext) {
+            _bitmapCacheContext = RenderState.createCanvasContext2D(bounds.width, bounds.height);
+          } else {
+            RenderState.resizeAndReset(_bitmapCacheContext, bounds.width, bounds.height);
+          }
+          var bitmapCacheRenderState:RenderState = new RenderState(_bitmapCacheContext);
+          bitmapCacheRenderState.translate(_bitmapCacheTransform.tx, _bitmapCacheTransform.ty);
+          _bitmapCacheContext.setTransform(_bitmapCacheTransform.a, _bitmapCacheTransform.b,
+                  _bitmapCacheTransform.c, _bitmapCacheTransform.d, _bitmapCacheTransform.tx, _bitmapCacheTransform.ty);
+          if (mask == null) {
+            _doRender(bitmapCacheRenderState);
+          } else {
+            _bitmapCacheContext.save();
+            mask._render(bitmapCacheRenderState);
+            _doRender(bitmapCacheRenderState);
+            _bitmapCacheContext.restore();
+          }
+        }
+
+        if (_bitmapCacheContext) { // there may be nothing to draw...
+          var bitmapCacheCanvas:HTMLCanvasElement = _bitmapCacheContext.canvas;
+          renderState.context.setTransform(1, 0, 0, 1, 0, 0);
+          renderState.context.globalAlpha = alpha;
+          // draw with "pixel snapping" to improve performance:
+          renderState.context.drawImage(bitmapCacheCanvas, Math.round(bounds.x), Math.round(bounds.y));
+        }
+      }
+    } else if (blendMode === BlendMode.ERASE) {
+      var oldGlobalCompositeOperation:String = renderState.context.globalCompositeOperation;
+      renderState.context.globalCompositeOperation = "destination-out";
+      _doRender(renderState);
+      renderState.context.globalCompositeOperation = oldGlobalCompositeOperation;
+    } else {
+      _doRender(renderState);
+    }
+  }
+
+  /**
+   * Compare two matrices' scale and rotation values, not their translation.
+   * @param m1 first matrix to compare, not null
+   * @param m2 second matrix to compare, not null
+   * @return whether m1 and m2's a, b, c and d component are equal
+   */
+  private static function isScaleAndRotationEqual(m1:Matrix, m2:Matrix):Boolean {
+    return m1.a === m2.a && m1.b === m2.b && m1.c === m2.c && m1.d === m2.d;
+  }
+
+  public function _findDirtyLeaf():Object {
+    return isBitmapCacheDirty() ? this : null;
+  }
+
+  private function transformChanged():void {
+    _transformationMatrixCacheDirty = true;
+    _transformChanged = true;
+  }
+
+  protected function isTransformChanged():Boolean {
+    return _transformChanged;
+  }
+
+  internal function _clearTransformChanged():void {
+    _transformChanged = false;
+  }
+
+  protected function isBitmapCacheDirty():Boolean {
+    return visible && !!mask && mask.isBitmapCacheDirty();
+  }
+
+  protected function _doRender(renderState:RenderState):void {
     // empty / abstract
   }
 }

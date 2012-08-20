@@ -449,6 +449,7 @@ public class InteractiveObject extends DisplayObject {
     if (this['constructor'] === InteractiveObject) {
       throw new ArgumentError();
     }
+    doubleClickEnabled = false;
   }
 
   /**
@@ -485,7 +486,7 @@ public class InteractiveObject extends DisplayObject {
   }
 
   protected function hitTestInput(localX:Number, localY:Number):InteractiveObject {
-    return getBoundsTransformed(Matrix.IDENTITY).contains(localX, localY) ? this : null;
+    return getBoundsTransformed().contains(localX, localY) ? this : null;
   }
 
   private var _mouseEnabled:Boolean = true;

@@ -228,6 +228,7 @@ public final class Graphics {
     commands.length = 0;
     x = y = 0;
     minX = maxX = minY = maxY = NaN;
+    dirty = true;
   }
 
   /**
@@ -302,8 +303,12 @@ public final class Graphics {
    */
   public function curveTo(controlX:Number, controlY:Number, anchorX:Number, anchorY:Number):void {
     createSpace(x, y);
-    createSpace(controlX, controlY); // TODO: is it correct to create space for the control point as-is?
     createSpace(anchorX, anchorY);
+    createQuadraticBezierSpace(x, controlX, anchorX,
+            controlX, anchorX, controlY, anchorY);
+    createQuadraticBezierSpace(y, controlY, anchorY,
+            controlX, anchorX, controlY, anchorY);
+
     this.x = anchorX;
     this.y = anchorY;
     commands.push(function(context:CanvasRenderingContext2D):void {
@@ -312,6 +317,24 @@ public final class Graphics {
         context.moveTo(anchorX, anchorY);
       }
     });
+  }
+
+  private function createQuadraticBezierSpace(a:Number, b:Number, c:Number,
+                                              controlX:Number, anchorX:Number, controlY:Number, anchorY:Number):void {
+    // algorithm derived from http://processingjs.nihongoresources.com/bezierinfo/
+
+    // compute the value for the first derivative of the quadratic bezier function at time=t
+    var denominator:Number = a - 2 * b + c;
+    if (denominator !== 0) {
+      var t:Number = (a - b) / denominator;
+      if (t >= 0 && t <= 1) {
+        // compute the value for the quadratic bezier function at time=t
+        var mt:Number = 1 - t;
+        var tx:Number = mt * mt * x + 2 * mt * t * controlX + t * t * anchorX;
+        var ty:Number = mt * mt * y + 2 * mt * t * controlY + t * t * anchorY;
+        createSpace(tx, ty);
+      }
+    }
   }
 
   /**
@@ -1057,6 +1080,7 @@ public final class Graphics {
   internal var minY:Number;
   internal var maxX:Number;
   internal var maxY:Number;
+  internal var dirty:Boolean;
   private var doFill: Boolean;
 
   /**
@@ -1080,6 +1104,7 @@ public final class Graphics {
       maxX = Math.max(maxX, x + outerBorderThickness);
       maxY = Math.max(maxY, y + outerBorderThickness);
     }
+    dirty = true;
   }
 
   private static function createGradientStyle(context:CanvasRenderingContext2D,
@@ -1145,17 +1170,25 @@ public final class Graphics {
   private static const KAPPA:Number = 4 * ((Math.sqrt(2) - 1) / 3);
 
   public function _render(renderState:RenderState):void {
-    var context:CanvasRenderingContext2D = renderState.context;
+    if (!isNaN(minX)) { // anything actually drawn?
+      var context:CanvasRenderingContext2D = renderState.context;
 
-    context.save();
-    _thickness = NaN;
-    doFill = false;
-    for (var i:int = 0; i < commands.length; i++) {
-      var command:Function = commands[i];
-      command(context);
+      context.save();
+      _thickness = NaN;
+      doFill = false;
+      for (var i:int = 0; i < commands.length; i++) {
+        var command:Function = commands[i];
+        command(context);
+      }
+      doEndFill(context);
+      if (window.showGraphicsBounds) {
+        context.lineWidth = 1;
+        context.strokeStyle = "blue";
+        context.strokeRect(minX,  minY, maxX-minX, maxY-minY);
+      }
+      context.restore();
     }
-    doEndFill(context);
-    context.restore();
+    dirty = false;
   }
 
   private function drawPathIfNoFill(context:CanvasRenderingContext2D):Boolean {

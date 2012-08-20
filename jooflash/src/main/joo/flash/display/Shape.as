@@ -32,7 +32,7 @@ public class Shape extends DisplayObject {
 
   // ************************** Jangaroo part **************************
 
-  override public function _render(renderState:RenderState):void {
+  override protected function _doRender(renderState:RenderState):void {
     graphics._render(renderState);
   }
 

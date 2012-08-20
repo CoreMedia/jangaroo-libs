@@ -761,7 +761,7 @@ public class DisplayObjectContainer extends InteractiveObject {
 
   // ************************** Jangaroo part **************************
 
-  override protected function getBoundsTransformed(matrix:Matrix, returnRectangle:Rectangle = null):Rectangle {
+  override protected function getBoundsTransformed(matrix:Matrix = null, returnRectangle:Rectangle = null):Rectangle {
     if (returnRectangle == null) {
       returnRectangle = new Rectangle();
     }
@@ -779,21 +779,27 @@ public class DisplayObjectContainer extends InteractiveObject {
 
     var _tmpMatrix : Matrix = new Matrix();
     for (var i:int = 0; i < childrenLength; i++) {
-      _tmpMatrix.copyFromAndConcat(children[i]._transformationMatrix, matrix);
+      var childMatrix : Matrix = children[i]._transformationMatrix;
+      if (matrix) {
+        _tmpMatrix.copyFromAndConcat(childMatrix, matrix);
+        childMatrix = _tmpMatrix;
+      }
 
       var rectangle:Rectangle = children[i].getBoundsTransformed(_tmpMatrix, returnRectangle);
 
-      if (rectangle.left < left) {
-        left = rectangle.left;
-      }
-      if (rectangle.top < top) {
-        top = rectangle.top;
-      }
-      if (rectangle.right > right) {
-        right = rectangle.right;
-      }
-      if (rectangle.bottom > bottom) {
-        bottom = rectangle.bottom;
+      if (rectangle.width > 0 && rectangle.height > 0) {
+        if (rectangle.x < left) {
+          left = rectangle.x;
+        }
+        if (rectangle.y < top) {
+          top = rectangle.y;
+        }
+        if (rectangle.right > right) {
+          right = rectangle.right;
+        }
+        if (rectangle.bottom > bottom) {
+          bottom = rectangle.bottom;
+        }
       }
     }
 
@@ -805,7 +811,28 @@ public class DisplayObjectContainer extends InteractiveObject {
     return returnRectangle;
   }
 
-  override public function _render(renderState:RenderState):void {
+  override public function _findDirtyLeaf():Object {
+    for each (var child:DisplayObject in children) {
+      if (child.visible && child.isTransformChanged()) {
+        return child;
+      }
+      var dirtyLeaf:Object = child._findDirtyLeaf();
+      if (dirtyLeaf) {
+        return dirtyLeaf;
+      }
+    }
+    return null;
+  }
+
+  private static function isChildChanged(displayObject:DisplayObject):Boolean {
+    return displayObject.visible && (displayObject.isTransformChanged() || displayObject.isBitmapCacheDirty());
+  }
+
+  override protected function isBitmapCacheDirty():Boolean {
+    return super.isBitmapCacheDirty() || children.some(isChildChanged);
+  }
+
+  override protected function _doRender(renderState:RenderState):void {
     for each (var child:DisplayObject in children) {
       if (child.visible) {
         renderState.renderDisplayObject(child);

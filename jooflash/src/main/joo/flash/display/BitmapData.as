@@ -389,8 +389,8 @@ public class BitmapData implements IBitmapDrawable {
     if (destRect.width > 0 && destRect.height > 0) {
       var sx:Number = sourceRect.x + (destRect.left - destPoint.x);
       var sy:Number = sourceRect.y + (destRect.top - destPoint.y);
-      if (!sourceBitmapData._canvas) {
-        if (destRect.equals(rect) && (!_canvas || !mergeAlpha)) {
+      if (!sourceBitmapData._canvasContext) {
+        if (destRect.equals(rect) && (!_canvasContext || !mergeAlpha)) {
           // the whole Bitmap is to become a copy of (a clipping of) the source bitmap
           _fillColor = sourceBitmapData._fillColor;
           _alpha = sourceBitmapData._alpha;
@@ -416,7 +416,7 @@ public class BitmapData implements IBitmapDrawable {
         context = getContext();
         if (mergeAlpha) {
           // putImageData() does not support alpha channel, so use drawImage():
-          context.drawImage(sourceBitmapData.asCanvas(), sx, sy, destRect.width, destRect.height,
+          context.drawImage(sourceBitmapData.getContext().canvas, sx, sy, destRect.width, destRect.height,
             destRect.x, destRect.y, destRect.width, destRect.height);
         } else {
           var imageData:ImageData = sourceBitmapData.getContext().getImageData(sx, sy, destRect.width, destRect.height);
@@ -508,8 +508,8 @@ public class BitmapData implements IBitmapDrawable {
   }
 
   public function _render(renderState:RenderState):void {
-    if (_canvas) {
-      renderState.context.drawImage(_canvas, 0.0, 0.0);
+    if (_canvasContext) {
+      renderState.context.drawImage(_canvasContext.canvas, 0.0, 0.0);
     } else {
       drawIntoCanvas(renderState.context);
     }
@@ -542,7 +542,7 @@ public class BitmapData implements IBitmapDrawable {
   public function fillRect(rect:Rectangle, color:uint):void {
     var alpha:uint = (color >> 24 & 0xFF) / 0xFF;
     color = color & 0xFFFFFF;
-    if (!_canvas && rect.equals(this.rect)) { // TODO: what about alpha != 1?
+    if (!_canvasContext && rect.equals(this.rect)) { // TODO: what about alpha != 1?
       _fillColor = color;
       _alpha = alpha;
       image = null;
@@ -1319,30 +1319,23 @@ public class BitmapData implements IBitmapDrawable {
     if (image) {
       return image;
     }
-    if (_canvas) {
+    if (_canvasContext) {
       var img:HTMLImageElement = new Image();
-      img.src = HTMLCanvasElement(_canvas).toDataURL();
+      img.src = HTMLCanvasElement(_canvasContext).toDataURL();
       return img;
     }
     return null;
   }
 
   private function getContext():CanvasRenderingContext2D {
-    return CanvasRenderingContext2D(asCanvas().getContext("2d"));
-  }
-
-  private function asCanvas():HTMLCanvasElement {
-    if (!_canvas) {
-      _canvas = HTMLCanvasElement(window.document.createElement("canvas"));
-      _canvas.width = width;
-      _canvas.height = height;
-      var context:CanvasRenderingContext2D = CanvasRenderingContext2D(_canvas.getContext("2d"));
-      drawIntoCanvas(context);
+    if (!_canvasContext) {
+      _canvasContext = RenderState.createCanvasContext2D(width, height);
+      drawIntoCanvas(_canvasContext);
       // for debugging:
-      //window.document.body.appendChild(_canvas);
+      //window.document.body.appendChild(_canvasContext.canvas);
       image = null;
     }
-    return _canvas;
+    return _canvasContext;
   }
 
   private function drawIntoCanvas(context:CanvasRenderingContext2D):void {
@@ -1359,7 +1352,7 @@ public class BitmapData implements IBitmapDrawable {
 
   private var _fillColor : uint;
   private var _alpha : Number;
-  private var _canvas : HTMLCanvasElement;
+  private var _canvasContext : CanvasRenderingContext2D;
   private var image : HTMLImageElement; // only set if BitmapData if created from and image
   private var imageOffsetX : int; // left offset in the image
   private var imageOffsetY : int; // top offset in the image

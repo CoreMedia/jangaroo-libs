@@ -809,8 +809,8 @@ public class Stage extends DisplayObjectContainer {
    */
   public function set stageHeight(value:int):void {
     _stageHeight = value;
-    canvas.height = value;
-    canvas.style.height = value + "px";
+    canvasContext.canvas.height = value;
+    canvasContext.canvas.style.height = value + "px";
   }
 
   /**
@@ -824,7 +824,7 @@ public class Stage extends DisplayObjectContainer {
    *
    */
   public function get stageWidth():int {
-    return canvas.width;
+    return canvasContext.canvas.width;
   }
 
   /**
@@ -832,8 +832,8 @@ public class Stage extends DisplayObjectContainer {
    */
   public function set stageWidth(value:int):void {
     _stageWidth = value;
-    canvas.width = value;
-    canvas.style.width = value + "px";
+    canvasContext.canvas.width = value;
+    canvasContext.canvas.style.width = value + "px";
   }
 
   /**
@@ -1022,7 +1022,7 @@ public class Stage extends DisplayObjectContainer {
     }
 
     if (event.type === 'mouseout') {
-      this.dispatchEvent(new flash.events.Event(flash.events.Event.MOUSE_LEAVE, false, false));
+      dispatchMouseLeaveEvent();
       return false;
     }
 
@@ -1034,6 +1034,7 @@ public class Stage extends DisplayObjectContainer {
     //------------------------------------------------------
 
     var mouseEventType:String;
+    var sndMouseEventType:String;
 
     switch (event.type) {
       case 'mousedown':
@@ -1052,6 +1053,10 @@ public class Stage extends DisplayObjectContainer {
       case 'touchend':
         mouseEventType = MouseEvent.MOUSE_UP;
         buttonDown = false;
+        if (_clickTarget === target) {
+          var isDoubleClick:Boolean = target.doubleClickEnabled && _clickCount % 2 === 0 && time < _clickTime + 500;
+          sndMouseEventType = isDoubleClick ? MouseEvent.DOUBLE_CLICK : MouseEvent.CLICK;
+        }
         break;
 
       case 'mousemove':
@@ -1066,17 +1071,23 @@ public class Stage extends DisplayObjectContainer {
 
     //-----------------------------------------------------------------
 
-    if (target != null) {
+    if (target) {
       target.dispatchEvent(newMouseEvent(mouseEventType, event));
 
       //----------------------------------------------
 
-      if (_clickTarget == target) {
-        var isDoubleClick:Boolean = target.doubleClickEnabled && _clickCount % 2 === 0 && time < _clickTime + 500;
-        target.dispatchEvent(newMouseEvent(isDoubleClick ? MouseEvent.DOUBLE_CLICK : MouseEvent.CLICK, event));
+      if (sndMouseEventType) {
+        target.dispatchEvent(newMouseEvent(sndMouseEventType, event));
       }
     }
+    if (event.type === 'touchend') {
+      dispatchMouseLeaveEvent();
+    }
     return false;
+  }
+
+  private function dispatchMouseLeaveEvent():Boolean {
+    return this.dispatchEvent(new flash.events.Event(flash.events.Event.MOUSE_LEAVE, false, false));
   }
 
   private function updateStageMouse(event:js.Event):void {
@@ -1088,7 +1099,7 @@ public class Stage extends DisplayObjectContainer {
         _stageMouse.x = pos['offsetX'];
         _stageMouse.y = pos['offsetY'];
       } else {
-        var clientRect:Object = canvas['getBoundingClientRect']();  // TODO: more cross-browser cases, scroll offsets?
+        var clientRect:Object = canvasContext.canvas['getBoundingClientRect']();  // TODO: more cross-browser cases, scroll offsets?
         _stageMouse.x = pos.pageX - clientRect.left;
         _stageMouse.y = pos.pageY - clientRect.top;
       }
@@ -1232,7 +1243,7 @@ public class Stage extends DisplayObjectContainer {
     if (typeof value == 'string') {
       value = String(value).replace(/^#/, "0x");
     }
-    canvas.style.backgroundColor = Graphics.toRGBA(uint(value));
+    canvasContext.canvas.style.backgroundColor = Graphics.toRGBA(uint(value));
   }
 
   /**
@@ -1240,12 +1251,12 @@ public class Stage extends DisplayObjectContainer {
    */
   private function createCanvas():void {
     var element:HTMLElement = HTMLElement(window.document.getElementById(id));
-    canvas = HTMLCanvasElement(window.document.createElement("CANVAS"));
+    canvasContext = RenderState.createCanvasContext2D();
+    var canvas:HTMLCanvasElement = canvasContext.canvas;
     canvas.id = id;
     canvas['tabIndex'] = 1;
     canvas.style.outline = "none";
-    var context:CanvasRenderingContext2D = CanvasRenderingContext2D(canvas.getContext("2d"));
-    _renderState = new RenderState(context);
+    _renderState = new RenderState(canvasContext);
     element.parentNode.replaceChild(canvas, element);
     canvas.focus();
     canvas.addEventListener('mousedown', handleMouseEvent, false);
@@ -1260,13 +1271,11 @@ public class Stage extends DisplayObjectContainer {
 
   private function handleKeyEvent(event:js.Event):Boolean {
     event.preventDefault();
-    if (focus) {
-      var keyboardEventType:String = event.type === "keyup" ? KeyboardEvent.KEY_UP : KeyboardEvent.KEY_DOWN;
-      var keyboardEvent:KeyboardEvent = new KeyboardEvent(keyboardEventType, true, true, event['charCode'],
-              event.keyCode, event['location'] || KeyLocation.STANDARD,
-              event.ctrlKey, event.altKey, event.shiftKey, event.ctrlLeft, event.metaKey);
-      focus.dispatchEvent(keyboardEvent);
-    }
+    var keyboardEventType:String = event.type === "keyup" ? KeyboardEvent.KEY_UP : KeyboardEvent.KEY_DOWN;
+    var keyboardEvent:KeyboardEvent = new KeyboardEvent(keyboardEventType, true, true, event['charCode'],
+            event.keyCode, event['location'] || KeyLocation.STANDARD,
+            event.ctrlKey, event.altKey, event.shiftKey, event.ctrlLeft, event.metaKey);
+    (focus || stage).dispatchEvent(keyboardEvent);
     return false;
   }
 
@@ -1294,7 +1303,7 @@ public class Stage extends DisplayObjectContainer {
     return _stageMouse.y;
   }
 
-  private var canvas:HTMLCanvasElement;
+  private var canvasContext:CanvasRenderingContext2D;
   private var _renderState:RenderState;
   private var _stageHeight:int;
   private var _stageWidth:int;
@@ -1312,8 +1321,11 @@ public class Stage extends DisplayObjectContainer {
   internal var buttonDown:Boolean = false;
 
   public function materialize():void {
-    _renderState.reset();
-    _render(_renderState);
+    if (isBitmapCacheDirty()) {
+      _renderState.reset();
+      _render(_renderState);
+      window.dumpDisplayList = false;
+    }
   }
 
 }

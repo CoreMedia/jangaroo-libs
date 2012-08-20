@@ -1087,8 +1087,10 @@ public class TextField extends InteractiveObject {
    * @private
    */
   public function set text(value:String):void {
-    _lines = value.split('\n');
-    _canvasDirty = true;
+    if (text !== value) {
+      _lines = value.split('\n');
+      _canvasDirty = true;
+    }
   }
 
   /**
@@ -1466,10 +1468,9 @@ public class TextField extends InteractiveObject {
   public function TextField() {
     super();
     _lines = [""];
-    textCanvas = HTMLCanvasElement(window.document.createElement("CANVAS"));
-    var context:CanvasRenderingContext2D = CanvasRenderingContext2D(textCanvas.getContext("2d"));
-    context.textAlign = "start";
-    context.textBaseline = "top";
+    textCanvasContext = RenderState.createCanvasContext2D();
+    textCanvasContext.textAlign = "start";
+    textCanvasContext.textBaseline = "top";
   }
 
   /**
@@ -2049,9 +2050,8 @@ public class TextField extends InteractiveObject {
    */
   public function getLineMetrics(lineIndex:int):TextLineMetrics {
     refreshTextMetrics();
-    var context:CanvasRenderingContext2D = CanvasRenderingContext2D(textCanvas.getContext("2d"));
-    var lineWidth:Number = context.measureText(_lines[lineIndex]).width;
-    var fontMetrics:Object = getFontMetrics(context.font);
+    var lineWidth:Number = textCanvasContext.measureText(_lines[lineIndex]).width;
+    var fontMetrics:Object = getFontMetrics(textCanvasContext.font);
     return new TextLineMetrics(getOffsetX(lineWidth), lineWidth, fontMetrics.height, fontMetrics.ascent, fontMetrics.descent, 0);
   }
 
@@ -2610,16 +2610,25 @@ public class TextField extends InteractiveObject {
     _height = value;
   }
 
-  override protected function getBoundsTransformed(matrix:Matrix, returnRectangle:Rectangle = null):Rectangle {
+  override protected function getBoundsTransformed(matrix:Matrix = null, returnRectangle:Rectangle = null):Rectangle {
     refreshTextMetrics();
     return RenderState.transformBounds(0, 0, _width, _height, matrix, returnRectangle);
   }
 
+  override protected function isBitmapCacheDirty():Boolean {
+    return _canvasDirty || super.isBitmapCacheDirty();
+  }
+
   override public function _render(renderState:RenderState):void {
     refreshTextCanvas();
-    if (textCanvas.width > 0 && textCanvas.height > 0) {
-      renderState.context.drawImage(textCanvas, 0, 0);
+    var canvas:HTMLCanvasElement = textCanvasContext.canvas;
+    if (canvas.width > 0 && canvas.height > 0) {
+      renderState.context.drawImage(canvas, 0, 0);
     }
+  }
+
+  override protected function _doRender(renderState:RenderState):void {
+    throw new Error("must not be called!");
   }
 
   private function refreshTextMetrics():void {
@@ -2628,18 +2637,7 @@ public class TextField extends InteractiveObject {
     if (_lines.length == 1 && _lines[0].length == 0) {
       _textHeight = 0;
     } else {
-      var context:CanvasRenderingContext2D = CanvasRenderingContext2D(textCanvas.getContext("2d"));
-      context.textAlign = "start";
-      context.textBaseline = "top";
-
-      var font:Array = [];
-      font.push((_textFormat.italic !== null ? _textFormat.italic : _defaultTextFormat.italic) ? "italic " : "normal ");
-      font.push("normal ");
-      font.push((_textFormat.bold !== null ? _textFormat.bold : _defaultTextFormat.bold) ? "bold " : "normal ");
-      font.push(getSize() + "px");
-      font.push(asWebFont());
-      context.font = font.join(" ");
-
+      var context:CanvasRenderingContext2D = initContext();
       var lineCount:uint = _lines.length;
       for (var i:int = 0; i < lineCount; i++) {
         var metrics:TextMetrics = context.measureText(_lines[i]);
@@ -2656,16 +2654,30 @@ public class TextField extends InteractiveObject {
     }
   }
 
+  private function initContext():CanvasRenderingContext2D {
+    var context:CanvasRenderingContext2D = textCanvasContext;
+    context.textAlign = "start";
+    context.textBaseline = "top";
+
+    var font:Array = [];
+    font.push((_textFormat.italic !== null ? _textFormat.italic : _defaultTextFormat.italic) ? "italic " : "normal ");
+    font.push("normal ");
+    font.push((_textFormat.bold !== null ? _textFormat.bold : _defaultTextFormat.bold) ? "bold " : "normal ");
+    font.push(getSize() + "px");
+    font.push(asWebFont());
+    context.font = font.join(" ");
+    return context;
+  }
+
   private function getOffsetX(lineWidth:Number):Number {
     var offsetX:Number = 0;
 
     switch (_textFormat.align || _defaultTextFormat.align) {
       case TextFormatAlign.CENTER:
-      case TextFormatAlign.JUSTIFY:
-        offsetX = (_textWidth - lineWidth) / 2;
+        offsetX = (_width - 4 - lineWidth) / 2;
         break;
       case TextFormatAlign.RIGHT:
-        offsetX = _textWidth - lineWidth;
+        offsetX = _width - 4 - lineWidth;
     }
     return offsetX + 2;
   }
@@ -2673,15 +2685,16 @@ public class TextField extends InteractiveObject {
   private function refreshTextCanvas():void {
     if (_canvasDirty) {
       _canvasDirty = false;
+      refreshTextMetrics();
       var intWidth:uint = Math.ceil(_width);
       var intHeight:uint = Math.ceil(_height);
-      if (textCanvas.width !== intWidth) {
-        textCanvas.width = intWidth;
+      var context:CanvasRenderingContext2D = textCanvasContext;
+      var canvas:HTMLCanvasElement = context.canvas;
+      if (canvas.width !== intWidth || canvas.height !== intHeight) {
+        canvas.width = intWidth;
+        canvas.height = intHeight;
+        initContext();
       }
-      if (textCanvas.height !== intHeight) {
-        textCanvas.height = intHeight;
-      }
-      var context:CanvasRenderingContext2D = CanvasRenderingContext2D(textCanvas.getContext("2d"));
 
       //-----------------------------
       // draw background
@@ -2696,7 +2709,6 @@ public class TextField extends InteractiveObject {
       //-----------------------------
       // draw text
 
-      refreshTextMetrics();
       context.fillStyle = Graphics.toRGBA(textColor);
 
       var offsetY:int = 2;
@@ -2776,6 +2788,6 @@ public class TextField extends InteractiveObject {
   private var _width:Number = 100;
   private var _height:Number = 100;
   private var _canvasDirty:Boolean = true;
-  private var textCanvas:HTMLCanvasElement;
+  private var textCanvasContext:CanvasRenderingContext2D;
 }
 }

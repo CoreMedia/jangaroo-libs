@@ -130,13 +130,21 @@ public class Bitmap extends DisplayObject {
     this._smoothing = smoothing;
   }
 
+  override protected function isBitmapCacheDirty():Boolean {
+    return true; // TODO: trace changes!
+  }
+
   override public function _render(renderState:RenderState):void {
     if (bitmapData) {
       bitmapData._render(renderState);
     }
   }
 
-  override protected function getBoundsTransformed(matrix:Matrix, returnRectangle:Rectangle = null):Rectangle {
+  override protected function _doRender(renderState:RenderState):void {
+    throw new Error("must not be called!");
+  }
+
+  override protected function getBoundsTransformed(matrix:Matrix = null, returnRectangle:Rectangle = null):Rectangle {
     var width:int = bitmapData ? bitmapData.width : 0;
     var height:int = bitmapData ? bitmapData.height : 0;
     return RenderState.transformBounds(0, 0, width, height, matrix, returnRectangle);
