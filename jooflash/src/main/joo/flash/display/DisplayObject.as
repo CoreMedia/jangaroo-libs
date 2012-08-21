@@ -1990,41 +1990,40 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
     if (cacheAsBitmap && window.cacheAsBitmap !== false) { // experimental feature, allow user to disable it!
       var transform:Matrix = renderState.currentTransformation();
       var bounds:Rectangle = getBoundsTransformed(transform);
-      if (bounds.width > 0 && bounds.height > 0) {
-        if (!_bitmapCacheTransform || !isScaleAndRotationEqual(_bitmapCacheTransform, transform) || isBitmapCacheDirty()) {
-          if (!_bitmapCacheTransform) {
-            _bitmapCacheTransform = new Matrix();
-          }
-          var transformedZero:Point = transform.transformPoint(ZERO_POINT);
-          _bitmapCacheTransform.setTo(transform.a, transform.b, transform.c, transform.d,
-                  transformedZero.x - bounds.x,  transformedZero.y - bounds.y);
-          if (!_bitmapCacheContext) {
-            _bitmapCacheContext = RenderState.createCanvasContext2D(bounds.width, bounds.height);
-          } else {
-            RenderState.resizeAndReset(_bitmapCacheContext, bounds.width, bounds.height);
-          }
-          var bitmapCacheRenderState:RenderState = new RenderState(_bitmapCacheContext);
-          bitmapCacheRenderState.translate(_bitmapCacheTransform.tx, _bitmapCacheTransform.ty);
-          _bitmapCacheContext.setTransform(_bitmapCacheTransform.a, _bitmapCacheTransform.b,
-                  _bitmapCacheTransform.c, _bitmapCacheTransform.d, _bitmapCacheTransform.tx, _bitmapCacheTransform.ty);
-          if (mask == null) {
-            _doRender(bitmapCacheRenderState);
-          } else {
-            _bitmapCacheContext.save();
-            mask._render(bitmapCacheRenderState);
-            _doRender(bitmapCacheRenderState);
-            _bitmapCacheContext.restore();
-          }
+      if (!_bitmapCacheTransform || !isScaleAndRotationEqual(_bitmapCacheTransform, transform) || isBitmapCacheDirty()) {
+        if (!_bitmapCacheTransform) {
+          _bitmapCacheTransform = new Matrix();
         }
+        var transformedZero:Point = transform.transformPoint(ZERO_POINT);
+        _bitmapCacheTransform.setTo(transform.a, transform.b, transform.c, transform.d,
+                transformedZero.x - bounds.x,  transformedZero.y - bounds.y);
+        if (!_bitmapCacheContext) {
+          _bitmapCacheContext = RenderState.createCanvasContext2D(bounds.width, bounds.height);
+        } else {
+          RenderState.resizeAndReset(_bitmapCacheContext, bounds.width, bounds.height);
+        }
+        var bitmapCacheRenderState:RenderState = new RenderState(_bitmapCacheContext);
+        bitmapCacheRenderState.translate(_bitmapCacheTransform.tx, _bitmapCacheTransform.ty);
+        _bitmapCacheContext.setTransform(_bitmapCacheTransform.a, _bitmapCacheTransform.b,
+                _bitmapCacheTransform.c, _bitmapCacheTransform.d, _bitmapCacheTransform.tx, _bitmapCacheTransform.ty);
+        if (mask == null) {
+          _doRender(bitmapCacheRenderState);
+        } else {
+          _bitmapCacheContext.save();
+          mask._render(bitmapCacheRenderState);
+          _doRender(bitmapCacheRenderState);
+          _bitmapCacheContext.restore();
+        }
+      }
 
-        if (_bitmapCacheContext) { // there may be nothing to draw...
+         // there may be nothing to draw:
+        if (_bitmapCacheContext && _bitmapCacheContext.canvas.width > 0 && _bitmapCacheContext.canvas.height > 0) {
           var bitmapCacheCanvas:HTMLCanvasElement = _bitmapCacheContext.canvas;
           renderState.context.setTransform(1, 0, 0, 1, 0, 0);
           renderState.context.globalAlpha = alpha;
           // draw with "pixel snapping" to improve performance:
           renderState.context.drawImage(bitmapCacheCanvas, Math.round(bounds.x), Math.round(bounds.y));
         }
-      }
     } else if (blendMode === BlendMode.ERASE) {
       var oldGlobalCompositeOperation:String = renderState.context.globalCompositeOperation;
       renderState.context.globalCompositeOperation = "destination-out";
