@@ -2017,13 +2017,13 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
       }
 
          // there may be nothing to draw:
-        if (_bitmapCacheContext && _bitmapCacheContext.canvas.width > 0 && _bitmapCacheContext.canvas.height > 0) {
-          var bitmapCacheCanvas:HTMLCanvasElement = _bitmapCacheContext.canvas;
-          renderState.context.setTransform(1, 0, 0, 1, 0, 0);
-          renderState.context.globalAlpha = alpha;
-          // draw with "pixel snapping" to improve performance:
-          renderState.context.drawImage(bitmapCacheCanvas, Math.round(bounds.x), Math.round(bounds.y));
-        }
+      if (_bitmapCacheContext && _bitmapCacheContext.canvas.width > 0 && _bitmapCacheContext.canvas.height > 0) {
+        var bitmapCacheCanvas:HTMLCanvasElement = _bitmapCacheContext.canvas;
+        renderState.context.setTransform(1, 0, 0, 1, 0, 0);
+        renderState.context.globalAlpha = alpha;
+        // draw with "pixel snapping" to improve performance:
+        renderState.context.drawImage(bitmapCacheCanvas, Math.round(bounds.x), Math.round(bounds.y));
+      }
     } else if (blendMode === BlendMode.ERASE) {
       var oldGlobalCompositeOperation:String = renderState.context.globalCompositeOperation;
       renderState.context.globalCompositeOperation = "destination-out";
