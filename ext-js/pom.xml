@@ -10,7 +10,6 @@
   <packaging>jangaroo</packaging>
   <groupId>net.jangaroo</groupId>
   <artifactId>ext-js</artifactId>
-  <version>0.9.17-SNAPSHOT</version>
 
   <name>ext-js</name>
   <description>Packaged version of Ext JS 3.2.2</description>

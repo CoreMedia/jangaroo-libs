@@ -4,7 +4,6 @@
   <groupId>net.jangaroo</groupId>
   <artifactId>jangaroo-libs-parent</artifactId>
   <packaging>pom</packaging>
-  <version>0.9.17-SNAPSHOT</version>
 
   <name>Jangaroo standard libraries parent</name>
 

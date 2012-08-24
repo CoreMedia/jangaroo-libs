@@ -9,7 +9,6 @@
   <groupId>net.jangaroo</groupId>
   <artifactId>jooflash</artifactId>
   <packaging>jangaroo</packaging>
-  <version>0.9.17-SNAPSHOT</version>
   <name>jooflash</name>
   <description>Joo Flash Compat. Library</description>
 
@@ -35,14 +34,14 @@
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>jangaroo-browser</artifactId>
-      <version>0.9.17-SNAPSHOT</version>
+      <version>${project.version}</version>
       <type>jangaroo</type>
     </dependency>
 
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>xmlhttprequest</artifactId>
-      <version>0.9.17-SNAPSHOT</version>
+      <version>${project.version}</version>
       <type>jangaroo</type>
       <scope>runtime</scope>
     </dependency>

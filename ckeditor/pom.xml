@@ -10,7 +10,6 @@
   <groupId>net.jangaroo</groupId>
   <artifactId>ckeditor</artifactId>
   <packaging>jangaroo</packaging>
-  <version>0.9.17-SNAPSHOT</version>
   <name>ckeditor</name>
   <description>CKEditor 3.5.2</description>
 
