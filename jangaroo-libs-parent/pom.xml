@@ -4,7 +4,7 @@
   <groupId>net.jangaroo</groupId>
   <artifactId>jangaroo-libs-parent</artifactId>
   <packaging>pom</packaging>
-  <version>0.9.17-SNAPSHOT</version>
+  <version>1.0.0-SNAPSHOT</version>
 
   <name>Jangaroo standard libraries parent</name>
 
@@ -74,7 +74,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <jangaroo.version>0.9.17-SNAPSHOT</jangaroo.version>
+    <jangaroo.version>1.0.0-SNAPSHOT</jangaroo.version>
   </properties>
 
   <prerequisites>
@@ -128,7 +128,6 @@
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-maven-plugin</artifactId>
         <extensions>true</extensions>
-        <version>${jangaroo.version}</version>
       </plugin>
     </plugins>
 
@@ -142,6 +141,11 @@
 
     <pluginManagement>
       <plugins>
+        <plugin>
+          <groupId>net.jangaroo</groupId>
+          <artifactId>jangaroo-maven-plugin</artifactId>
+          <version>${jangaroo.version}</version>
+        </plugin>
         <plugin>
           <groupId>net.jangaroo</groupId>
           <artifactId>exml-maven-plugin</artifactId>
