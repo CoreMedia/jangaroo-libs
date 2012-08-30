@@ -385,9 +385,11 @@ public class Node extends Observable {
   /**
    * Destroys the node.
    *
+   * @param silent internal / undocumented
+   *
    * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Node-method-destroy Sencha Docs Ext JS 3.4
    */
-  public native function destroy():void;
+  public native function destroy(silent:Boolean = false):void;
 
   /**
    * Iterates the child nodes of this node, calling the specified function with each node. The arguments to the function will be the args provided or the current node. If the function returns false at any point, the iteration stops.
