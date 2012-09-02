@@ -13,7 +13,9 @@ public class Run {
 
   public static const startTime:uint = new Date().getTime();
 
-  public static function main(id : String, primaryDisplayObjectClassName : String, parameters:Object) : void {
+  public static function main(id : String, primaryDisplayObjectClassName : String,
+                              widthStr: String, heightStr : String,
+                              parameters:Object) : void {
     var classLoader:DynamicClassLoader = DynamicClassLoader.INSTANCE;
     classLoader.import_(primaryDisplayObjectClassName);
     classLoader.complete(function() : void {
@@ -25,6 +27,12 @@ public class Run {
       var metadata:Object = cd.metadata;
       var swf:Object = metadata['SWF'];
       var stage : Stage = new Stage(id, swf);
+      if (widthStr) {
+        stage.width = int(widthStr);
+      }
+      if (heightStr) {
+        stage.height = int(heightStr);
+      }
       // use Jangaroo tricks to add the DisplayObject to the Stage before its constructor is called:
       var displayObject:DisplayObject = DisplayObject(new cd.Public());
       stage.internalAddChildAt(displayObject, 0);
