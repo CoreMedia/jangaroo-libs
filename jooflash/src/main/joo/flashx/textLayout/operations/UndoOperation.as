@@ -29,7 +29,7 @@ public class UndoOperation extends FlowOperation {
    *
    */
   public function UndoOperation(op:FlowOperation) {
-    throw new Error('not implemented'); // TODO: implement!
+    super(null);
   }
 }
 }

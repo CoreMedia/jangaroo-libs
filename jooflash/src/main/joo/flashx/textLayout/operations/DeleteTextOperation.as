@@ -45,7 +45,7 @@ public class DeleteTextOperation extends FlowTextOperation {
    *
    */
   public function DeleteTextOperation(operationState:SelectionState, deleteSelectionState:SelectionState = null, allowMerge:Boolean = false) {
-    throw new Error('not implemented'); // TODO: implement!
+    super(operationState);
   }
 }
 }

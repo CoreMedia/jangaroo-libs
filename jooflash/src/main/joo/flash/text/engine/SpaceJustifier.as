@@ -90,7 +90,7 @@ public final class SpaceJustifier extends TextJustifier {
    *
    */
   public function SpaceJustifier(locale:String = "en", lineJustification:String = "unjustified", letterSpacing:Boolean = false) {
-    throw new Error('not implemented'); // TODO: implement!
+    super(locale, lineJustification);
   }
 
   /**

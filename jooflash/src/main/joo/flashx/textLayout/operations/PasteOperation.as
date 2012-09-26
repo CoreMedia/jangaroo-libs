@@ -32,7 +32,7 @@ public class PasteOperation extends FlowTextOperation {
    *
    */
   public function PasteOperation(operationState:SelectionState, textScrap:TextScrap) {
-    throw new Error('not implemented'); // TODO: implement!
+    super(operationState);
   }
 }
 }

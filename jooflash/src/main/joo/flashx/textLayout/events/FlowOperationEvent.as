@@ -67,7 +67,7 @@ public class FlowOperationEvent extends Event {
    *
    */
   public function FlowOperationEvent(type:String, bubbles:Boolean = false, cancelable:Boolean = false, operation:FlowOperation = null, level:int = 0, error:Error = null) {
-    throw new Error('not implemented'); // TODO: implement!
+    super(type, bubbles, cancelable);
   }
 
   /**

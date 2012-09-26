@@ -64,7 +64,7 @@ public class DRMStatusEvent extends Event {
    *
    */
   public function DRMStatusEvent(type:String, bubbles:Boolean = false, cancelable:Boolean = false, inMetadata:DRMContentData = null, inVoucher:DRMVoucher = null, inLocal:Boolean = false) {
-    throw new Error('not implemented'); // TODO: implement!
+    super(type, bubbles, cancelable);
   }
 
   /**

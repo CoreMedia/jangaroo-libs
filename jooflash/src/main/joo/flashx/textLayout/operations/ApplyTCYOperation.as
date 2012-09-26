@@ -33,7 +33,7 @@ public class ApplyTCYOperation extends FlowTextOperation {
    *
    */
   public function ApplyTCYOperation(operationState:SelectionState, tcyOn:Boolean) {
-    throw new Error('not implemented'); // TODO: implement!
+    super(operationState);
   }
 }
 }

@@ -32,7 +32,7 @@ public class StageVideoAvailabilityEvent extends Event {
    *
    */
   public function StageVideoAvailabilityEvent(type:String, bubbles:Boolean = false, cancelable:Boolean = false, availability:String = null) {
-    throw new Error('not implemented'); // TODO: implement!
+    super(type, bubbles, cancelable);
   }
 
   /**

@@ -31,7 +31,7 @@ public class VideoEvent extends Event {
    *
    */
   public function VideoEvent(type:String, bubbles:Boolean = false, cancelable:Boolean = false, status:String = null) {
-    throw new Error('not implemented'); // TODO: implement!
+    super(type, bubbles, cancelable);
   }
 
   /**

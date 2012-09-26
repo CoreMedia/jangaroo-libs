@@ -32,7 +32,7 @@ public class CutOperation extends FlowTextOperation {
    *
    */
   public function CutOperation(operationState:SelectionState, scrapToCut:TextScrap) {
-    throw new Error('not implemented'); // TODO: implement!
+    super(operationState);
   }
 }
 }

@@ -65,7 +65,7 @@ public class CompositionCompleteEvent extends Event {
    *
    */
   public function CompositionCompleteEvent(type:String, bubbles:Boolean = false, cancelable:Boolean = false, textFlow:TextFlow = null, compositionStart:int = 0, compositionLength:int = 0) {
-    throw new Error('not implemented'); // TODO: implement!
+    super(type, bubbles, cancelable);
   }
 
   /**

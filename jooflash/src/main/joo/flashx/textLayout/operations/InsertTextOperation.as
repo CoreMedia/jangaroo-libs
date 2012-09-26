@@ -60,7 +60,7 @@ public class InsertTextOperation extends FlowTextOperation {
    *
    */
   public function InsertTextOperation(operationState:SelectionState, text:String, deleteSelectionState:SelectionState = null) {
-    throw new Error('not implemented'); // TODO: implement!
+    super(operationState);
   }
 
   /**

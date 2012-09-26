@@ -61,7 +61,7 @@ public class ApplyLinkOperation extends FlowTextOperation {
    *
    */
   public function ApplyLinkOperation(operationState:SelectionState, href:String, target:String, extendToLinkBoundary:Boolean) {
-    throw new Error('not implemented'); // TODO: implement!
+    super(operationState);
   }
 }
 }

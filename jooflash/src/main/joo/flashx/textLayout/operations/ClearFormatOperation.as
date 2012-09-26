@@ -65,7 +65,7 @@ public class ClearFormatOperation extends FlowTextOperation {
    *
    */
   public function ClearFormatOperation(operationState:SelectionState, leafFormat:ITextLayoutFormat, paragraphFormat:ITextLayoutFormat, containerFormat:ITextLayoutFormat = null) {
-    throw new Error('not implemented'); // TODO: implement!
+    super(operationState);
   }
 
   /**

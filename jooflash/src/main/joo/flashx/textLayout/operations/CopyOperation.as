@@ -15,7 +15,7 @@ public class CopyOperation extends FlowTextOperation {
    *
    */
   public function CopyOperation(operationState:SelectionState) {
-    throw new Error('not implemented'); // TODO: implement!
+    super(operationState);
   }
 }
 }

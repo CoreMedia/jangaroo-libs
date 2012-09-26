@@ -30,7 +30,7 @@ public class CompositeOperation extends FlowOperation {
    *
    */
   public function CompositeOperation(operations:Array = null) {
-    throw new Error('not implemented'); // TODO: implement!
+    super(null);
   }
 
   /**

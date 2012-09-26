@@ -61,7 +61,7 @@ public class FlowElementOperation extends FlowTextOperation {
    *
    */
   public function FlowElementOperation(operationState:SelectionState, targetElement:FlowElement, relativeStart:int = 0, relativeEnd:int = -1) {
-    throw new Error('not implemented'); // TODO: implement!
+    super(operationState);
   }
 }
 }

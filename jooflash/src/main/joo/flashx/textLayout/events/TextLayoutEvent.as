@@ -15,7 +15,7 @@ public class TextLayoutEvent extends Event {
    *
    */
   public function TextLayoutEvent(type:String, bubbles:Boolean = false, cancelable:Boolean = false) {
-    throw new Error('not implemented'); // TODO: implement!
+    super(type,  bubbles, cancelable);
   }
 
   /**
