@@ -86,7 +86,7 @@ public class InsertInlineGraphicOperation extends FlowTextOperation {
    *
    */
   public function InsertInlineGraphicOperation(operationState:SelectionState, source:Object, width:Object, height:Object, options:Object = null) {
-    throw new Error('not implemented'); // TODO: implement!
+    super(operationState);
   }
 
   /**

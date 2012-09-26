@@ -35,7 +35,7 @@ public class ApplyElementIDOperation extends FlowElementOperation {
    *
    */
   public function ApplyElementIDOperation(operationState:SelectionState, targetElement:FlowElement, newID:String, relativeStart:int = 0, relativeEnd:int = -1) {
-    throw new Error('not implemented'); // TODO: implement!
+    super(operationState, targetElement);
   }
 }
 }

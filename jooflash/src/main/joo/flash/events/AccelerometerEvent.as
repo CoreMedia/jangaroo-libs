@@ -75,7 +75,7 @@ public class AccelerometerEvent extends Event {
    *
    */
   public function AccelerometerEvent(type:String, bubbles:Boolean = false, cancelable:Boolean = false, timestamp:Number = 0, accelerationX:Number = 0, accelerationY:Number = 0, accelerationZ:Number = 0) {
-    throw new Error('not implemented'); // TODO: implement!
+    super(type, bubbles, cancelable);
   }
 
   /**

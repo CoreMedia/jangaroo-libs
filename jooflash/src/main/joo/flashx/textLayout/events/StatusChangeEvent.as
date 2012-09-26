@@ -74,7 +74,7 @@ public class StatusChangeEvent extends Event {
    *
    */
   public function StatusChangeEvent(type:String, bubbles:Boolean = false, cancelable:Boolean = false, element:FlowElement = null, status:String = null, errorEvent:ErrorEvent = null) {
-    throw new Error('not implemented'); // TODO: implement!
+    super(type, bubbles, cancelable);
   }
 
   /**

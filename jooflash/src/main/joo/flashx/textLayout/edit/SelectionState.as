@@ -43,7 +43,7 @@ public class SelectionState extends TextRange {
    *
    */
   public function SelectionState(root:TextFlow, anchorPosition:int, activePosition:int, format:ITextLayoutFormat = null) {
-    throw new Error('not implemented'); // TODO: implement!
+    super(root, anchorPosition, activePosition);
   }
 
   /**

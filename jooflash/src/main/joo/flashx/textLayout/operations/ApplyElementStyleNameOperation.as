@@ -35,7 +35,7 @@ public class ApplyElementStyleNameOperation extends FlowElementOperation {
    *
    */
   public function ApplyElementStyleNameOperation(operationState:SelectionState, targetElement:FlowElement, newStyleName:String, relativeStart:int = 0, relativeEnd:int = -1) {
-    throw new Error('not implemented'); // TODO: implement!
+    super(operationState, targetElement);
   }
 }
 }

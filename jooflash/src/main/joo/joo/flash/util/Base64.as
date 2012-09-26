@@ -69,7 +69,7 @@ public class Base64 {
 
   public static function decode(input : String) : String {
     var output : Array = [];
-    input = input.replace(/[^A-Za-z0-9\+\/\=]/g, "");
+    input = input.replace(/[^A-Za-z0-9\+\/=]/g, "");
 
     for (var i : Number = 0; i < input.length; ) {
       var enc1 : Number = keyStr.indexOf(input.charAt(i++));

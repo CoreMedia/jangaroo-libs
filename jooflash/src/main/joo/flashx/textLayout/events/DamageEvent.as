@@ -42,7 +42,7 @@ public class DamageEvent extends Event {
    *
    */
   public function DamageEvent(type:String, bubbles:Boolean = false, cancelable:Boolean = false, textFlow:TextFlow = null, damageAbsoluteStart:int = 0, damageLength:int = 0) {
-    throw new Error('not implemented'); // TODO: implement!
+    super(type, bubbles, cancelable);
   }
 
   /**

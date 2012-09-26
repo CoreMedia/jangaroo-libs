@@ -61,7 +61,7 @@ public class DRMAuthenticationCompleteEvent extends Event {
    *
    */
   public function DRMAuthenticationCompleteEvent(type:String, bubbles:Boolean = false, cancelable:Boolean = false, inServerURL:String = null, inDomain:String = null, inToken:ByteArray = null) {
-    throw new Error('not implemented'); // TODO: implement!
+    super(type, bubbles, cancelable);
   }
 
   /**

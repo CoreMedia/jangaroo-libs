@@ -72,7 +72,7 @@ public class FlowElementMouseEvent extends Event {
    *
    */
   public function FlowElementMouseEvent(type:String, bubbles:Boolean = false, cancelable:Boolean = true, flowElement:FlowElement = null, originalEvent:MouseEvent = null) {
-    throw new Error('not implemented'); // TODO: implement!
+    super(type, bubbles, cancelable);
   }
 
   /**

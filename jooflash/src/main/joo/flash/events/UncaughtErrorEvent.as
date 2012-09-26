@@ -72,7 +72,7 @@ public class UncaughtErrorEvent extends ErrorEvent {
    *
    */
   public function UncaughtErrorEvent(type:String, bubbles:Boolean = true, cancelable:Boolean = true, error_in:* = null) {
-    throw new Error('not implemented'); // TODO: implement!
+    super(type, bubbles, cancelable);
   }
 
   /**

@@ -55,7 +55,7 @@ public class FlowTextOperation extends FlowOperation {
    *
    */
   public function FlowTextOperation(operationState:SelectionState) {
-    throw new Error('not implemented'); // TODO: implement!
+    super(null);
   }
 
   /**

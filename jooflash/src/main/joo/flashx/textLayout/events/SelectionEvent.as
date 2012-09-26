@@ -40,7 +40,7 @@ public class SelectionEvent extends Event {
    *
    */
   public function SelectionEvent(type:String, bubbles:Boolean = false, cancelable:Boolean = false, selectionState:SelectionState = null) {
-    throw new Error('not implemented'); // TODO: implement!
+    super(type, bubbles, cancelable);
   }
 
   /**

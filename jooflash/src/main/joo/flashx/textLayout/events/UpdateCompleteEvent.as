@@ -49,7 +49,7 @@ public class UpdateCompleteEvent extends Event {
    *
    */
   public function UpdateCompleteEvent(type:String, bubbles:Boolean = false, cancelable:Boolean = false, textFlow:TextFlow = null, controller:ContainerController = null) {
-    throw new Error('not implemented'); // TODO: implement!
+    super(type, bubbles, cancelable);
   }
 
   /**

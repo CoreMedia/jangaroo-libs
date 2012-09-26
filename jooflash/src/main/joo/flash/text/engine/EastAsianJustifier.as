@@ -55,7 +55,7 @@ public final class EastAsianJustifier extends TextJustifier {
    *
    */
   public function EastAsianJustifier(locale:String = "ja", lineJustification:String = "allButLast", justificationStyle:String = "pushInKinsoku") {
-    throw new Error('not implemented'); // TODO: implement!
+    super(locale, lineJustification);
   }
 
   /**

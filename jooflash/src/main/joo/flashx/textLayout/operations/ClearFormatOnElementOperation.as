@@ -38,7 +38,7 @@ public class ClearFormatOnElementOperation extends FlowElementOperation {
    *
    */
   public function ClearFormatOnElementOperation(operationState:SelectionState, targetElement:FlowElement, format:ITextLayoutFormat, relativeStart:int = 0, relativeEnd:int = -1) {
-    throw new Error('not implemented'); // TODO: implement!
+    super(operationState, targetElement);
   }
 }
 }

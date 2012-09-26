@@ -85,7 +85,7 @@ public class ModifyInlineGraphicOperation extends FlowTextOperation {
    *
    */
   public function ModifyInlineGraphicOperation(operationState:SelectionState, source:Object, width:Object, height:Object, options:Object = null) {
-    throw new Error('not implemented'); // TODO: implement!
+    super(operationState);
   }
 }
 }

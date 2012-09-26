@@ -50,7 +50,7 @@ public class ApplyElementUserStyleOperation extends FlowElementOperation {
    *
    */
   public function ApplyElementUserStyleOperation(operationState:SelectionState, targetElement:FlowElement, styleName:String, value:*, relativeStart:int = 0, relativeEnd:int = -1) {
-    throw new Error('not implemented'); // TODO: implement!
+    super(operationState, targetElement);
   }
 }
 }

@@ -513,7 +513,7 @@ public interface IExt {
    * @return See description for the fn parameter.
    * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-each Sencha Docs Ext JS 3.4
    */
-  function each(array:*, fn:Function, scope:Object):Number;
+  function each(array:*, fn:Function, scope:Object = null):Number;
 
   /**
    * Shorthand for <a href="output/Ext.util.JSON.html#Ext.util.JSON-encode">Ext.util.JSON.encode</a>

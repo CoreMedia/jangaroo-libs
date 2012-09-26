@@ -16,7 +16,7 @@ public class SplitParagraphOperation extends FlowTextOperation {
    *
    */
   public function SplitParagraphOperation(operationState:SelectionState) {
-    throw new Error('not implemented'); // TODO: implement!
+    super(operationState);
   }
 }
 }

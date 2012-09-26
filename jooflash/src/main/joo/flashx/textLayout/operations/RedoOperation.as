@@ -29,7 +29,7 @@ public class RedoOperation extends FlowOperation {
    *
    */
   public function RedoOperation(operation:FlowOperation) {
-    throw new Error('not implemented'); // TODO: implement!
+    super(null);
   }
 }
 }
