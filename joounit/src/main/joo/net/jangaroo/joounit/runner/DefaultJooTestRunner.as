@@ -73,7 +73,7 @@ public class DefaultJooTestRunner extends BaseTestRunner {
 
     trace("[INFO]", "Running tests: "+testClassNames);
 
-    printer = new XmlResultPrinter();
+    printer = new XmlResultPrinter('DefaultJooTestRunner');
     testResult = new TestResult();
     testResult.addListener(TestListener( printer ));
     testResult.addListener(TestListener( this ));
