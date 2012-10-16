@@ -163,14 +163,17 @@ public class DefaultJooTestRunner extends BaseTestRunner {
       var runTime:Number = endTime - startTime;
 
       printer.print( testResult, runTime );
-      trace('tests run: '+ testResult.runCount() + " ("+
-              'errors: '+ testResult.errorCount() + ", " +
-              'failures: '+ testResult.failureCount() + ")");
-      trace(printer.getXml());
+
 
       const testResultXml:String = printer.getXml();
       if( onComplete != null ) {
         onComplete(testSuite, testResult, testResultXml);
+      }
+      else {
+        trace('Tests: '+ testResult.runCount() + " ("+
+                'Errors: '+ testResult.errorCount() + ", " +
+                'Failures: '+ testResult.failureCount() + ")");
+        trace(printer.getXml());
       }
       exit(testResult.wasSuccessful());
     }
