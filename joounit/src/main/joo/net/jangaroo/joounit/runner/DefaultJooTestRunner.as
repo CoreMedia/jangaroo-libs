@@ -22,6 +22,7 @@ public class DefaultJooTestRunner extends BaseTestRunner {
   // names of the test classes the couldn't be found
   private var testClassLoadErrors:Vector.<String>;
 
+  private var testName:String;
   private var testSuite:TestSuite;
   private var testResult:TestResult;
   private var printer:XmlResultPrinter;
@@ -42,6 +43,7 @@ public class DefaultJooTestRunner extends BaseTestRunner {
    */
   public static function main(config:Object):void {
 
+    var name:String = "DefaultJooTestRunner";
     var onComplete:Function;
     var testClassNames:Array = null;
     if(config is String){
@@ -54,17 +56,21 @@ public class DefaultJooTestRunner extends BaseTestRunner {
     if( config['onComplete'] is Function ) {
       onComplete = config['onComplete'] as Function;
     }
+    if( config['name'] is String ) {
+      name = config['name'];
+    }
 
     if( testClassNames == null ) {
       throw new Error("No test classes specified");
     }
 
-    new DefaultJooTestRunner(testClassNames, onComplete).run();
+    new DefaultJooTestRunner(name, testClassNames, onComplete).run();
   }
 
 
 
-  public function DefaultJooTestRunner(testClassNames:Array, onComplete:Function = null) {
+  public function DefaultJooTestRunner(name:String, testClassNames:Array, onComplete:Function = null) {
+    this.testName = name;
     this.testClassNames = testClassNames;
     this.onComplete = onComplete;
   }
@@ -73,7 +79,7 @@ public class DefaultJooTestRunner extends BaseTestRunner {
 
     trace("[INFO]", "Running tests: "+testClassNames);
 
-    printer = new XmlResultPrinter('DefaultJooTestRunner');
+    printer = new XmlResultPrinter(testName);
     testResult = new TestResult();
     testResult.addListener(TestListener( printer ));
     testResult.addListener(TestListener( this ));
