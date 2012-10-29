@@ -11,8 +11,6 @@ import joo.JooClassDeclaration;
 
 public class Run {
 
-  public static const startTime:uint = new Date().getTime();
-
   public static function main(id : String, primaryDisplayObjectClassName : String, parameters:Object) : void {
     var classLoader:DynamicClassLoader = DynamicClassLoader.INSTANCE;
     classLoader.import_(primaryDisplayObjectClassName);
