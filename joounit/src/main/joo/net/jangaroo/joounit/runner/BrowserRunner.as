@@ -13,6 +13,8 @@ import flexunit.textui.XmlResultPrinter;
 import joo.DynamicClassLoader;
 import joo.getQualifiedObject;
 
+import js.Element;
+
 /**
  * TestRunner implementation for browsers (incl. phantomjs).
  * <p>
