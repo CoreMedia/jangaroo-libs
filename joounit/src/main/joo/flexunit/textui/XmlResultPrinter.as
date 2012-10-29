@@ -80,7 +80,7 @@ public class XmlResultPrinter implements TestListener, Printer{
             resultXml.push( '"' );
             if( test.mError || test.mFailure )
             {
-                resultXml.push( '>' );
+                resultXml.push( '>\n' );
                 resultXml.push( '        <' );
                 var defect;
                 var tag;
