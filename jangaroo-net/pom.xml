@@ -19,11 +19,6 @@
         <artifactId>jangaroo-maven-plugin</artifactId>
         <configuration>
           <jooUnitTestExecutionTimeout>120000</jooUnitTestExecutionTimeout>
-          <phantomTestSuite>net.jangaroo.net.TestSuite</phantomTestSuite>
-          <phantomTestRunner>joo/phantomjs-joounit-runner.js</phantomTestRunner>
-          <phantomArgs>
-            {loglevel:(function(){console.info('running tests without test.html'); return 'all'})()}
-          </phantomArgs>
         </configuration>
       </plugin>
     </plugins>
