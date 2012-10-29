@@ -1,4 +1,6 @@
 package ext {
+import ext.config.flash;
+
 /**
  *
  * Listeners will be called with the following arguments:
@@ -32,7 +34,7 @@ public class FlashComponent extends BoxComponent {
    *
    * @see ext.config.flash
    */
-  public function FlashComponent() {
+  public function FlashComponent(config:flash = null) {
     super(null);
   }
 

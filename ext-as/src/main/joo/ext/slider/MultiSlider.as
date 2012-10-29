@@ -1,6 +1,7 @@
 package ext.slider {
 import ext.BoxComponent;
 import ext.IEventObject;
+import ext.config.multislider;
 
 /**
  * Fires before the slider value is changed. By returning false from an event handler, you can cancel the event and prevent the slider from changing.
@@ -167,7 +168,7 @@ public class MultiSlider extends BoxComponent {
    *
    * @see ext.config.multislider
    */
-  public function MultiSlider() {
+  public function MultiSlider(config:multislider = null) {
     super(null);
   }
 
