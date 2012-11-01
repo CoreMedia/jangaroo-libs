@@ -58,12 +58,12 @@ public class compositefield extends field {
   /**
    * Items to include in composite field
    */
-  public native function get items():*;
+  public native function get items():Array;
 
   /**
    * @private
    */
-  public native function set items(value:*):void;
+  public native function set items(value:Array):void;
 
   /**
    The string to use when joining segments of the built label together (defaults to ', ')

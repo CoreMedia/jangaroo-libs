@@ -490,12 +490,12 @@ public class component extends observable {
   /**
    An object or array of objects that will provide custom functionality for this component. The only requirement for a valid plugin is that it contain an init method that accepts a reference of type Ext.Component. When a component is created, if any plugins are available, the component will call the init method on each plugin, passing a reference to itself. Each plugin can then call methods or respond to events on the component as needed to provide its functionality.
    */
-  public native function get plugins():*;
+  public native function get plugins():Array;
 
   /**
    * @private
    */
-  public native function set plugins(value:*):void;
+  public native function set plugins(value:Array):void;
 
   /**
    The registered <tt>ptype</tt> to create. This config option is not used when passing a config object into a constructor. This config option is used only when lazy instantiation is being used, and a Plugin is being specified not as a fully instantiated Component, but as a <i>Component config object</i>. The <tt>ptype</tt> will be looked up at render time up to determine what type of Plugin to create.<br/><br/>If you create your own Plugins, you may register them using <a href="output/Ext.ComponentMgr.html#Ext.ComponentMgr-registerPlugin">Ext.ComponentMgr.registerPlugin</a> in order to be able to take advantage of lazy instantiation and rendering.

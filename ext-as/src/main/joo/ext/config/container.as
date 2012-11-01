@@ -219,12 +219,12 @@ public class container extends box {
    layout: 'anchor', // specify a layout!
    </code></pre><p>Each item may be:</p><div><ul class="mdetail-params"><li>any type of object based on <a href="Ext.Component.html">Ext.Component</a></li><li>a fully instanciated object or</li><li>an object literal that:</li><li style="list-style: none"><div><ul class="mdetail-params"><li>has a specified <code><a href="output/Ext.Component.html#Ext.Component-xtype">xtype</a></code></li><li>the <a href="output/Ext.Component.html#Ext.Component-xtype">Ext.Component.xtype</a> specified is associated with the Component desired and should be chosen from one of the available xtypes as listed in <a href="Ext.Component.html">Ext.Component</a>.</li><li>If an <code><a href="output/Ext.Component.html#Ext.Component-xtype">xtype</a></code> is not explicitly specified, the <a href="output/Ext.Container.html#Ext.Container-defaultType">defaultType</a> for that Container is used.</li><li>will be "lazily instanciated", avoiding the overhead of constructing a fully instanciated Component object</li></ul></div></li></ul></div><p><b>Notes</b>:</p><div><ul class="mdetail-params"><li>Ext uses lazy rendering. Child Components will only be rendered should it become necessary. Items are automatically laid out when they are first shown (no sizing is done while hidden), or in response to a <a href="output/Ext.Container.html#Ext.Container-doLayout">doLayout</a> call.</li><li>Do not specify <code><a href="output/Ext.Panel.html#Ext.Panel-contentEl">contentEl</a></code>/ <code><a href="output/Ext.Panel.html#Ext.Panel-html">html</a></code> with <code>items</code>.</li></ul></div>
    */
-  public native function get items():*;
+  public native function get items():Array;
 
   /**
    * @private
    */
-  public native function set items(value:*):void;
+  public native function set items(value:Array):void;
 
   /**
    <b>&#42;Important</b>: In order for child items to be correctly sized and positioned, typically a layout manager <b>must</b> be specified through the <code>layout</code> configuration option.

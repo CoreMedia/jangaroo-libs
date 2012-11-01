@@ -94,12 +94,12 @@ public class menu extends container {
   /**
    An array of items to be added to this menu. Menus may contain either <a href="Ext.menu.Item.html">menu items</a>, or general <a href="Ext.Component.html">Component</a>s.
    */
-  override public native function get items():*;
+  override public native function get items():Array;
 
   /**
    * @private
    */
-  override public native function set items(value:*):void;
+  override public native function set items(value:Array):void;
 
   /**
    This class assigns a default layout (<code>layout:'<b>menu</b>'</code>). Developers <i>may</i> override this configuration option if another layout is required. See <a href="output/Ext.Container.html#Ext.Container-layout">Ext.Container.layout</a> for additional information.
