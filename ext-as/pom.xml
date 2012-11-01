@@ -36,6 +36,13 @@
       <type>jangaroo</type>
     </dependency>
 
+    <dependency>
+      <groupId>net.jangaroo</groupId>
+      <artifactId>joounit</artifactId>
+      <version>${project.version}</version>
+      <type>jangaroo</type>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
   
   <build>
