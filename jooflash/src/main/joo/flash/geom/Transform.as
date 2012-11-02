@@ -72,6 +72,9 @@ public class Transform {
    *
    */
   public function get matrix():Matrix {
+    if (!_matrix) {
+      _matrix = new Matrix();
+    }
     return _matrix;
   }
 
@@ -80,7 +83,6 @@ public class Transform {
    */
   public function set matrix(value:Matrix):void {
     _matrix = value;
-    displayObject.transform = this;
   }
 
   /**

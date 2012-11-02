@@ -30,7 +30,7 @@
           doc.write("<body id='stage'>");
           doc.write("<p>JooFlash loading...</p>");
           doc.write("<script src='" + url + "'></script>");
-          doc.write("<script>joo.classLoader.run('joo.flash.Run', 'stage', 'main', " + (flashvarsObj ? JSON.stringify(flashvarsObj) : "{}") + ");</script>");
+          doc.write("<script>joo.classLoader.run('joo.flash.Run', 'stage', 'main', '" + widthStr + "','" + heightStr + "'," + (flashvarsObj ? JSON.stringify(flashvarsObj) : "{}") + ");</script>");
           doc.write("</body>");
           doc.write("</html>");
           doc.close();

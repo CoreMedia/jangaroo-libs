@@ -1,11 +1,12 @@
 package flash.display {
+import flash.display.RenderState;
+import flash.filters.BitmapFilter;
+import flash.geom.Matrix;
+import flash.geom.Rectangle;
 import flash.geom.Rectangle;
 import flash.media.SoundTransform;
 
-import js.Element;
-import js.HTMLCanvasElement;
-import flash.geom.Transform;
-import flash.geom.Matrix;
+import js.CanvasRenderingContext2D;
 
 /**
  * The Sprite class is a basic display list building block: a display list node that can display graphics and can also contain children.
@@ -17,6 +18,15 @@ import flash.geom.Matrix;
  *
  */
 public class Sprite extends DisplayObjectContainer {
+
+  override internal function getBoundsChildren():Vector.<DisplayObject> {
+    var boundsChildren:Vector.<DisplayObject> = super.getBoundsChildren();
+    if (_graphics) {
+      boundsChildren = boundsChildren.concat(_graphics); // yes, Graphics is not a DisplayObject, but it implements getBoundsTransformed() and _transformationMatrix!
+    }
+    return boundsChildren;
+  }
+
   /**
    * Specifies the button mode of this sprite. If <code>true</code>, this sprite behaves as a button, which means that it triggers the display of the hand cursor when the pointer passes over the sprite and can receive a <code>click</code> event if the enter or space keys are pressed when the sprite has focus. You can suppress the display of the hand cursor by setting the <code>useHandCursor</code> property to <code>false</code>, in which case the pointer is displayed.
    * <p>Although it is better to use the SimpleButton class to create buttons, you can use the <code>buttonMode</code> property to give a sprite some button-like functionality. To include a sprite in the tab order, set the <code>tabEnabled</code> property (inherited from the InteractiveObject class and <code>false</code> by default) to <code>true</code>. Additionally, consider whether you want the children of your sprite to be user input enabled. Most buttons do not enable user input interactivity for their child objects because it confuses the event flow. To disable user input interactivity for all child objects, you must set the <code>mouseChildren</code> property (inherited from the DisplayObjectContainer class) to <code>false</code>.</p>
@@ -123,19 +133,8 @@ public class Sprite extends DisplayObjectContainer {
   public function get graphics():Graphics {
     if (!_graphics) {
       _graphics = new Graphics();
-      var canvas : HTMLCanvasElement = _graphics.canvas;
-      var element : Element = this.getElement();
-      if (element.firstChild) {
-        element.insertBefore(canvas, element.firstChild);
-      } else {
-        element.appendChild(canvas);
-      }
     }
-    return this._graphics;
-  }
-
-  override internal function getChildIndexOffset():int {
-    return _graphics ? 1 : 0;
+    return _graphics;
   }
 
   /**
@@ -447,20 +446,33 @@ public class Sprite extends DisplayObjectContainer {
     throw new Error('not implemented'); // TODO: implement!
   }
 
-  /**
-   * @inheritDoc
-   */
-  override public function set transform(value:Transform):void {
-    super.transform = value;
-    var m : Matrix = value.matrix;
-    if (m) {
-      this.graphics.renderingContext.setTransform(m.a, m.b, m.c, m.d, m.tx, m.ty);
-    }
+  // ************************** Jangaroo part **************************
+
+
+  override public function _findDirtyLeaf():Object {
+    return visible && _graphics && _graphics.dirty ? _graphics : super._findDirtyLeaf();
   }
 
-  // ************************** Jangaroo part **************************
+  override protected function isBitmapCacheDirty():Boolean {
+    return visible && _graphics && _graphics.dirty || super.isBitmapCacheDirty();
+  }
+
+  override protected function _doRender(renderState:RenderState):void {
+    if (_graphics) {
+      _graphics._render(renderState);
+    }
+    super._doRender(renderState);
+  }
+
+  override protected function hitTestInput(localX:Number, localY:Number):InteractiveObject {
+    if (_graphics && localX >= _graphics.minX && localY >= _graphics.minY && localX < _graphics.maxX && localY < _graphics.maxY) {
+      return this;
+    }
+    return super.hitTestInput(localX, localY);
+  }
+
   private function updateCursor():void {
-    getElement().style.cursor = buttonMode && useHandCursor ? 'pointer' : 'default';
+    //getElement().style.cursor = buttonMode && useHandCursor ? 'pointer' : 'default';
   }
 
   private var _graphics : Graphics;

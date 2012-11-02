@@ -1,11 +1,16 @@
 package flash.display {
 import flash.events.Event;
-import flash.events.TimerEvent;
+import flash.events.KeyboardEvent;
+import flash.events.MouseEvent;
+import flash.events.TextEvent;
+import flash.geom.Point;
 import flash.geom.Rectangle;
 import flash.text.TextSnapshot;
-import flash.utils.Timer;
+import flash.ui.KeyLocation;
 
+import js.CanvasRenderingContext2D;
 import js.Event;
+import js.HTMLCanvasElement;
 import js.HTMLElement;
 
 /**
@@ -331,16 +336,12 @@ public class Stage extends DisplayObjectContainer {
    * stage.focus= myTF;
    * </listing>
    */
-  public function get focus():InteractiveObject {
-    throw new Error('not implemented'); // TODO: implement!
-  }
+  public native function get focus():InteractiveObject;
 
   /**
    * @private
    */
-  public function set focus(value:InteractiveObject):void {
-    throw new Error('not implemented'); // TODO: implement!
-  }
+  public native function set focus(value:InteractiveObject):void;
 
   /**
    * Gets and sets the frame rate of the stage. The frame rate is defined as frames per second. By default the rate is set to the frame rate of the first SWF file loaded. Valid range for the frame rate is from 0.01 to 1000 frames per second.
@@ -358,9 +359,6 @@ public class Stage extends DisplayObjectContainer {
    */
   public function set frameRate(value:Number):void {
     _frameRate = Number(value);
-    if (frameTimer) {
-      frameTimer.delay = 1000 / _frameRate;
-    }
   }
 
   /**
@@ -811,7 +809,8 @@ public class Stage extends DisplayObjectContainer {
    */
   public function set stageHeight(value:int):void {
     _stageHeight = value;
-    getElement().style.height = value + "px";
+    canvasContext.canvas.height = value;
+    canvasContext.canvas.style.height = value + "px";
   }
 
   /**
@@ -825,7 +824,7 @@ public class Stage extends DisplayObjectContainer {
    *
    */
   public function get stageWidth():int {
-    return _stageWidth;
+    return canvasContext.canvas.width;
   }
 
   /**
@@ -833,7 +832,8 @@ public class Stage extends DisplayObjectContainer {
    */
   public function set stageWidth(value:int):void {
     _stageWidth = value;
-    getElement().style.width = value + "px";
+    canvasContext.canvas.width = value;
+    canvasContext.canvas.style.width = value + "px";
   }
 
   /**
@@ -993,8 +993,126 @@ public class Stage extends DisplayObjectContainer {
    * @throws SecurityError Calling the <code>dispatchEvent()</code> method of a Stage object throws an exception for any caller that is not in the same security sandbox as the Stage owner (the main SWF file). To avoid this, the Stage owner can grant permission to the domain of the caller by calling the <code>Security.allowDomain()</code> method or the <code>Security.allowInsecureDomain()</code> method. For more information, see the "Security" chapter in the <i>ActionScript 3.0 Developer's Guide</i>.
    *
    */
-  override public function dispatchEvent(event:flash.events.Event):Boolean {
-    return super.dispatchEvent(event);
+  override public native function dispatchEvent(event:flash.events.Event):Boolean;
+
+  private function newMouseEvent(flashEventType:String, event:js.Event):MouseEvent {
+    var mouseEvent:MouseEvent = new MouseEvent(flashEventType, true, true, NaN, NaN, null,
+            event.ctrlKey, event.altKey, event.shiftKey, buttonDown, event['wheelDelta']);
+    mouseEvent.stagePoint = new Point(_stageMouse.x, _stageMouse.y);
+    return mouseEvent;
+  }
+
+  private function handleMouseEvent(event:js.Event):Boolean {
+    var button:int = event['button'];
+    if (button < 0 || button > 2) {
+      return true;
+    }
+    event.preventDefault();
+
+    var time:int = new Date().getDate();
+
+    updateStageMouse(event);
+
+    var target:InteractiveObject = event.type === 'mouseout' ? null : hitTestInput(_stageMouse.x, _stageMouse.y);
+
+    //------------------------------------------------------
+    if (_mouseOverTarget !== null && _mouseOverTarget !== target) {
+      _mouseOverTarget.dispatchEvent(newMouseEvent(MouseEvent.MOUSE_OUT, event));
+      _mouseOverTarget = null;
+    }
+
+    if (event.type === 'mouseout') {
+      dispatchMouseLeaveEvent();
+      return false;
+    }
+
+    if (target !== null && target !== _mouseOverTarget) {
+      _mouseOverTarget = target;
+      _mouseOverTarget.dispatchEvent(newMouseEvent(MouseEvent.MOUSE_OVER, event));
+    }
+
+    //------------------------------------------------------
+
+    var mouseEventType:String;
+    var sndMouseEventType:String;
+
+    switch (event.type) {
+      case 'mousedown':
+      case 'touchstart':
+        mouseEventType = MouseEvent.MOUSE_DOWN;
+        buttonDown = true;
+        if (target !== _clickTarget || time > _clickTime + 500) {
+          _clickCount = 0;
+        }
+        _clickTarget = target;
+        _clickTime = time;
+        ++_clickCount;
+        break;
+
+      case 'mouseup':
+      case 'touchend':
+        mouseEventType = MouseEvent.MOUSE_UP;
+        buttonDown = false;
+        if (_clickTarget === target) {
+          var isDoubleClick:Boolean = target.doubleClickEnabled && _clickCount % 2 === 0 && time < _clickTime + 500;
+          sndMouseEventType = isDoubleClick ? MouseEvent.DOUBLE_CLICK : MouseEvent.CLICK;
+        }
+        break;
+
+      case 'mousemove':
+      case 'touchmove':
+        mouseEventType = MouseEvent.MOUSE_MOVE;
+        _clickCount = 0;
+        break;
+
+      default:
+        return false;
+    }
+
+    //-----------------------------------------------------------------
+
+    if (target) {
+      target.dispatchEvent(newMouseEvent(mouseEventType, event));
+
+      //----------------------------------------------
+
+      if (sndMouseEventType) {
+        target.dispatchEvent(newMouseEvent(sndMouseEventType, event));
+      }
+    }
+    if (event.type === 'touchend') {
+      dispatchMouseLeaveEvent();
+    }
+    return false;
+  }
+
+  private function dispatchMouseLeaveEvent():Boolean {
+    return this.dispatchEvent(new flash.events.Event(flash.events.Event.MOUSE_LEAVE, false, false));
+  }
+
+  private function updateStageMouse(event:js.Event):void {
+    var pos:Object = event['changedTouches'] && event['changedTouches'].length ?
+            event['changedTouches'][0] // TODO: one event for every changedTouches item?
+            : event;
+    if ('pageX' in pos) {
+      if ('offsetX' in pos) {
+        _stageMouse.x = pos['offsetX'];
+        _stageMouse.y = pos['offsetY'];
+      } else {
+        var clientRect:Object = canvasContext.canvas['getBoundingClientRect']();  // TODO: more cross-browser cases, scroll offsets?
+        _stageMouse.x = pos.pageX - clientRect.left;
+        _stageMouse.y = pos.pageY - clientRect.top;
+      }
+    }
+  }
+
+  private function handleMouseWheelEvent(event:js.Event):Boolean {
+    updateStageMouse(event);
+    var target:InteractiveObject = hitTestInput(_stageMouse.x, _stageMouse.y);
+    if (target != null) {
+      target.dispatchEvent(newMouseEvent(MouseEvent.MOUSE_WHEEL, event));
+    }
+    return false;
   }
 
   /**
@@ -1104,16 +1222,18 @@ public class Stage extends DisplayObjectContainer {
    * @private
    */
   public function Stage(id:String, properties:Object) {
+    super();
     this.id = id;
+    createCanvas();
+    _quality = StageQuality.HIGH;
+    _scaleMode = StageScaleMode.NO_SCALE;
+    _align = StageAlign.TOP_LEFT;
+    _stageMouse = new Point();
     if (properties) {
       for (var m:String in properties) {
         this[m] = properties[m];
       }
     }
-    super();
-    frameTimer = new Timer(1000 / _frameRate);
-    frameTimer.addEventListener(TimerEvent.TIMER, enterFrame);
-    frameTimer.start();
   }
 
   /**
@@ -1123,89 +1243,88 @@ public class Stage extends DisplayObjectContainer {
     if (typeof value == 'string') {
       value = String(value).replace(/^#/, "0x");
     }
-    getElement().style.backgroundColor = Graphics.toRGBA(uint(value));
+    canvasContext.canvas.style.backgroundColor = Graphics.toRGBA(uint(value));
   }
 
   /**
    * @private
    */
-  override protected function createElement():HTMLElement {
+  private function createCanvas():void {
     var element:HTMLElement = HTMLElement(window.document.getElementById(id));
-    element.style.position = "relative";
-    element.style.overflow = "hidden";
-    element.setAttribute("tabindex", "0");
-    element.style.margin = "0";
-    element.style.padding = "0";
-    var width:Object = element.getAttribute("width");
-    if (!width) {
-      width = this.width;
+    canvasContext = RenderState.createCanvasContext2D();
+    var canvas:HTMLCanvasElement = canvasContext.canvas;
+    canvas.id = id;
+    canvas['tabIndex'] = 1;
+    canvas.style.outline = "none";
+    _renderState = new RenderState(canvasContext);
+    element.parentNode.replaceChild(canvas, element);
+    canvas.focus();
+    canvas.addEventListener('mousedown', handleMouseEvent, false);
+    canvas.addEventListener('mouseup', handleMouseEvent, false);
+    canvas.addEventListener('mousemove', handleMouseEvent, false);
+    canvas.addEventListener('mouseout', handleMouseEvent, false);
+    canvas.addEventListener('mousewheel', handleMouseWheelEvent, false);
+    canvas.addEventListener('keydown', handleKeyEvent, false);
+    canvas.addEventListener('keyup', handleKeyEvent, false);
+    canvas.addEventListener('keypress', handleTextEvent, false);
+  }
+
+  private function handleKeyEvent(event:js.Event):Boolean {
+    event.preventDefault();
+    var keyboardEventType:String = event.type === "keyup" ? KeyboardEvent.KEY_UP : KeyboardEvent.KEY_DOWN;
+    var keyboardEvent:KeyboardEvent = new KeyboardEvent(keyboardEventType, true, true, event['charCode'],
+            event.keyCode, event['location'] || KeyLocation.STANDARD,
+            event.ctrlKey, event.altKey, event.shiftKey, event.ctrlLeft, event.metaKey);
+    (focus || stage).dispatchEvent(keyboardEvent);
+    return false;
+  }
+
+  private function handleTextEvent(event:js.Event):Boolean {
+    event.preventDefault();
+    if (focus) {
+      var text:String = String.fromCharCode(event['charCode'] || event.keyCode);
+      var textEvent:TextEvent = new TextEvent(TextEvent.TEXT_INPUT, true, true, text);
+      focus.dispatchEvent(textEvent);
     }
-    element.style.width = width + "px";
-    var height:Object = element.getAttribute("height");
-    if (!height) {
-      height = this.height;
-    }
-    element.style.height = height + "px";
-    element.innerHTML = "";
-    element.addEventListener('mousedown', function():void {
-      // TODO: check event.button property whether it was the "primary" mouse button!
-      buttonDown = true;
-    }, true);
-    element.addEventListener('mouseup', function():void {
-      // TODO: check event.button property whether it was the "primary" mouse button!
-      buttonDown = false;
-    }, true);
-    element.addEventListener('mousemove', function(e:js.Event):void {
-      _mouseX = e.clientX;
-      _mouseY = e.clientY;
-    }, true);
-    return element;
+    return false;
   }
 
   /**
    * @inheritDoc
    */
   override public function get mouseX():Number {
-    return _mouseX;
+    return _stageMouse.x;
   }
 
   /**
    * @inheritDoc
    */
   override public function get mouseY():Number {
-    return _mouseY;
+    return _stageMouse.y;
   }
 
+  private var canvasContext:CanvasRenderingContext2D;
+  private var _renderState:RenderState;
   private var _stageHeight:int;
   private var _stageWidth:int;
-  private var _mouseX:int;
-  private var _mouseY:int;
+  internal var _stageMouse:Point;
+  internal var _mouseOverTarget:DisplayObject = null;
+  private var _clickTarget:InteractiveObject = null;
+  private var _clickTime:Number = 0;
+  //noinspection JSFieldCanBeLocal
+  private var _clickCount:int = 0;
   private var id:String;
   private var _frameRate:Number = 30;
-  private var frameTimer:Timer;
-  private var _quality:String = StageQuality.HIGH;
-  private var _scaleMode:String = StageScaleMode.NO_SCALE;
-  private var _align:String = StageAlign.TOP_LEFT;
+  private var _quality:String;
+  private var _scaleMode:String;
+  private var _align:String;
   internal var buttonDown:Boolean = false;
 
-  private static var enterFrameSources:Array = [];
-
-  internal static function addEnterFrameSource(displayObject:DisplayObject):void {
-    enterFrameSources.push(displayObject);
-  }
-
-  internal static function removeEnterFrameSource(displayObject:DisplayObject):void {
-    var index:int = enterFrameSources.indexOf(displayObject);
-    if (index !== -1) {
-      enterFrameSources.splice(index, 1);
-    }
-  }
-
-  private static function enterFrame():void {
-    var enterFrameEvent:flash.events.Event = new flash.events.Event(flash.events.Event.ENTER_FRAME, false, false);
-    for (var i:int = 0; i < enterFrameSources.length; i++) {
-      var displayObject:DisplayObject = enterFrameSources[i];
-      displayObject.dispatchEvent(enterFrameEvent);
+  public function materialize():void {
+    if (isBitmapCacheDirty()) {
+      _renderState.reset();
+      _render(_renderState);
+      window.dumpDisplayList = false;
     }
   }
 
