@@ -50,6 +50,12 @@
       <plugin>
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-maven-plugin</artifactId>
+        <version>${jangaroo.version}</version>
+        <configuration>
+          <jooUnitTestExecutionTimeout>120000</jooUnitTestExecutionTimeout>
+          <phantomTestSuite>net.jangaroo.ext.TestSuite</phantomTestSuite>
+          <phantomTestRunner>joo/phantomjs-joounit-runner.js</phantomTestRunner>
+        </configuration>
       </plugin>
       <plugin>
         <groupId>net.jangaroo</groupId>
