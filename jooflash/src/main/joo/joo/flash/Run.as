@@ -14,8 +14,8 @@ public class Run {
   public static const startTime:uint = new Date().getTime();
 
   public static function main(id : String, primaryDisplayObjectClassName : String,
-                              widthStr: String, heightStr : String,
-                              parameters:Object) : void {
+                              parameters : Object = null,
+                              widthStr : String = null, heightStr : String = null) : void {
     var classLoader:DynamicClassLoader = DynamicClassLoader.INSTANCE;
     classLoader.import_(primaryDisplayObjectClassName);
     classLoader.complete(function() : void {
@@ -37,7 +37,11 @@ public class Run {
       var displayObject:DisplayObject = DisplayObject(new cd.Public());
       stage.internalAddChildAt(displayObject, 0);
       var loaderInfo:LoaderInfo = new LoaderInfo();
-      loaderInfo['parameters'] = parameters;
+      if (parameters) {
+        for (var key:String in parameters) {
+          loaderInfo.parameters[key] = parameters[key];
+        }
+      }
       displayObject['loaderInfo'] = loaderInfo;
       cd.constructor_.call(displayObject);
       displayObject.broadcastEvent(new Event(Event.ADDED_TO_STAGE, false, false));
