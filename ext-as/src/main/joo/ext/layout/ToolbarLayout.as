@@ -179,8 +179,8 @@ public class ToolbarLayout extends ContainerLayout {
   public native function hideItem(item:Component):void;
 
   /**
-   * Creates the expand trigger and menu, adding them to the <tr> at the extreme right of the
-   * Toolbar table
+   * Creates the expand trigger and menu, adding them to the &lt;tr&gt; at the extreme right of the
+   * Toolbar table.
    *
    * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.layout.ToolbarLayout-method-initMore Sencha Docs Ext JS 3.4
    */
