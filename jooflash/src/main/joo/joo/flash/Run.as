@@ -23,14 +23,14 @@ public class Run {
       var primaryDisplayObjectClass : Object = getDefinitionByName(primaryDisplayObjectClassName);
       var cd:JooClassDeclaration = primaryDisplayObjectClass['$class'];
       var metadata:Object = cd.metadata;
-      var swf:Object = metadata['SWF'];
-      var stage : Stage = new Stage(id, swf);
+      var swf:Object = metadata['SWF'] || {};
       if (widthStr) {
-        stage.width = int(widthStr);
+        swf.width = widthStr;
       }
       if (heightStr) {
-        stage.height = int(heightStr);
+        swf.height = heightStr;
       }
+      var stage : Stage = new Stage(id, swf);
       // use Jangaroo tricks to add the DisplayObject to the Stage before its constructor is called:
       var displayObject:DisplayObject = DisplayObject(new cd.Public());
       stage.internalAddChildAt(displayObject, 0);

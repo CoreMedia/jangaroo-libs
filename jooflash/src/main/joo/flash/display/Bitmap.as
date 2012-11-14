@@ -2,6 +2,7 @@ package flash.display {
 import flash.geom.Matrix;
 import flash.geom.Rectangle;
 
+import js.HTMLElement;
 /**
  * The Bitmap class represents display objects that represent bitmap images. These can be images that you load with the flash.display.Loader class, or they can be images that you create with the <code>Bitmap()</code> constructor.
  * <p>The <code>Bitmap()</code> constructor allows you to create a Bitmap object that contains a reference to a BitmapData object. After you create a Bitmap object, use the <code>addChild()</code> or <code>addChildAt()</code> method of the parent DisplayObjectContainer instance to place the bitmap on the display list.</p>
@@ -148,6 +149,10 @@ public class Bitmap extends DisplayObject {
     var width:int = bitmapData ? bitmapData.width : 0;
     var height:int = bitmapData ? bitmapData.height : 0;
     return RenderState.transformBounds(0, 0, width, height, matrix, returnRectangle);
+  }
+
+  override protected function createElementCached():HTMLElement {
+    return bitmapData.getElement();
   }
 
   private var _bitmapData:BitmapData;

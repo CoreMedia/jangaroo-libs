@@ -9,8 +9,9 @@ import flash.geom.Transform;
 import flash.geom.Vector3D;
 
 import js.CanvasRenderingContext2D;
-
 import js.HTMLCanvasElement;
+import js.HTMLElement;
+import js.Style;
 
 /**
  * Dispatched when a display object is added to the display list. The following methods trigger this event: <code>DisplayObjectContainer.addChild()</code>, <code>DisplayObjectContainer.addChildAt()</code>.
@@ -327,9 +328,12 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * @private
    */
   public function set cacheAsBitmap(value:Boolean):void {
-    _cacheAsBitmap = value;
-    if (!cacheAsBitmap) {
-      _bitmapCacheContext = null;
+    if (_cacheAsBitmap !== value) {
+      _cacheAsBitmap = value;
+      resetElement();
+      if (!cacheAsBitmap) {
+        _bitmapCacheContext = null;
+      }
     }
   }
 
@@ -1936,7 +1940,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
   /**
    * @private
    */
-  public function broadcastEvent(event:flash.events.Event):Boolean {
+  public function broadcastEvent(event:Event):Boolean {
     return dispatchEvent(event);
   }
 
@@ -1983,47 +1987,13 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
   private var _cacheAsBitmap:Boolean;
   private var _mask:DisplayObject;
   private var _blendMode:String;
+  private var _elem:HTMLElement;
 
   private static const ZERO_POINT:Point = new Point(); // never change this singleton "constant" point!
 
   public function _render(renderState:RenderState):void {
-    if (cacheAsBitmap && window.cacheAsBitmap !== false) { // experimental feature, allow user to disable it!
-      var transform:Matrix = renderState.currentTransformation();
-      var bounds:Rectangle = getBoundsTransformed(transform);
-      if (!_bitmapCacheTransform || !isScaleAndRotationEqual(_bitmapCacheTransform, transform) || isBitmapCacheDirty()) {
-        if (!_bitmapCacheTransform) {
-          _bitmapCacheTransform = new Matrix();
-        }
-        var transformedZero:Point = transform.transformPoint(ZERO_POINT);
-        _bitmapCacheTransform.setTo(transform.a, transform.b, transform.c, transform.d,
-                transformedZero.x - bounds.x,  transformedZero.y - bounds.y);
-        if (!_bitmapCacheContext) {
-          _bitmapCacheContext = RenderState.createCanvasContext2D(bounds.width, bounds.height);
-        } else {
-          RenderState.resizeAndReset(_bitmapCacheContext, bounds.width, bounds.height);
-        }
-        var bitmapCacheRenderState:RenderState = new RenderState(_bitmapCacheContext);
-        bitmapCacheRenderState.translate(_bitmapCacheTransform.tx, _bitmapCacheTransform.ty);
-        _bitmapCacheContext.setTransform(_bitmapCacheTransform.a, _bitmapCacheTransform.b,
-                _bitmapCacheTransform.c, _bitmapCacheTransform.d, _bitmapCacheTransform.tx, _bitmapCacheTransform.ty);
-        if (mask == null) {
-          _doRender(bitmapCacheRenderState);
-        } else {
-          _bitmapCacheContext.save();
-          mask._render(bitmapCacheRenderState);
-          _doRender(bitmapCacheRenderState);
-          _bitmapCacheContext.restore();
-        }
-      }
-
-         // there may be nothing to draw:
-      if (_bitmapCacheContext && _bitmapCacheContext.canvas.width > 0 && _bitmapCacheContext.canvas.height > 0) {
-        var bitmapCacheCanvas:HTMLCanvasElement = _bitmapCacheContext.canvas;
-        renderState.context.setTransform(1, 0, 0, 1, 0, 0);
-        renderState.context.globalAlpha = alpha;
-        // draw with "pixel snapping" to improve performance:
-        renderState.context.drawImage(bitmapCacheCanvas, Math.round(bounds.x), Math.round(bounds.y));
-      }
+    if (_isCacheAsBitmap()) {
+      _renderCached(renderState);
     } else if (blendMode === BlendMode.ERASE) {
       var oldGlobalCompositeOperation:String = renderState.context.globalCompositeOperation;
       renderState.context.globalCompositeOperation = "destination-out";
@@ -2032,6 +2002,53 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
     } else {
       _doRender(renderState);
     }
+  }
+
+  private function _isCacheAsBitmap():Boolean {
+    return cacheAsBitmap && window.cacheAsBitmap !== false;  // experimental feature, allow user to disable it!
+  }
+
+  private function _renderCached(renderState:RenderState):void {
+      var transform:Matrix = renderState.currentTransformation();
+      var bounds:Rectangle = _doRenderCached(transform);
+    // there may be nothing to draw:
+      if (_bitmapCacheContext && _bitmapCacheContext.canvas.width > 0 && _bitmapCacheContext.canvas.height > 0) {
+        var bitmapCacheCanvas:HTMLCanvasElement = _bitmapCacheContext.canvas;
+        renderState.context.setTransform(1, 0, 0, 1, 0, 0);
+        renderState.context.globalAlpha = alpha;
+        // draw with "pixel snapping" to improve performance:
+        renderState.context.drawImage(bitmapCacheCanvas, Math.round(bounds.x), Math.round(bounds.y));
+      }
+  }
+
+  private function _doRenderCached(transform:Matrix):Rectangle {
+    var bounds:Rectangle = getBoundsTransformed(transform);
+    if (!_bitmapCacheTransform || !isScaleAndRotationEqual(_bitmapCacheTransform, transform) || isBitmapCacheDirty()) {
+      if (!_bitmapCacheTransform) {
+        _bitmapCacheTransform = new Matrix();
+      }
+      var transformedZero:Point = transform.transformPoint(ZERO_POINT);
+      _bitmapCacheTransform.setTo(transform.a, transform.b, transform.c, transform.d,
+              transformedZero.x - bounds.x, transformedZero.y - bounds.y);
+      if (!_bitmapCacheContext) {
+        _bitmapCacheContext = RenderState.createCanvasContext2D(bounds.width, bounds.height);
+      } else {
+        RenderState.resizeAndReset(_bitmapCacheContext, bounds.width, bounds.height);
+      }
+      var bitmapCacheRenderState:RenderState = new RenderState(_bitmapCacheContext);
+      bitmapCacheRenderState.translate(_bitmapCacheTransform.tx, _bitmapCacheTransform.ty);
+      _bitmapCacheContext.setTransform(_bitmapCacheTransform.a, _bitmapCacheTransform.b,
+              _bitmapCacheTransform.c, _bitmapCacheTransform.d, _bitmapCacheTransform.tx, _bitmapCacheTransform.ty);
+      if (mask == null) {
+        _doRender(bitmapCacheRenderState);
+      } else {
+        _bitmapCacheContext.save();
+        mask._render(bitmapCacheRenderState);
+        _doRender(bitmapCacheRenderState);
+        _bitmapCacheContext.restore();
+      }
+    }
+    return bounds;
   }
 
   /**
@@ -2068,5 +2085,119 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
   protected function _doRender(renderState:RenderState):void {
     // empty / abstract
   }
+
+  protected function getElement():HTMLElement {
+    return _elem;
+  }
+
+  protected function createElementCached():HTMLElement {
+    if (!_elem) {
+      _elem = createElement();
+    }
+    return _elem;
+  }
+
+  protected function createElement():HTMLElement {
+    var element:HTMLElement = HTMLElement(window.document.createElement(getElementName()));
+    element.setAttribute("data-flashClass", this.constructor.$class.toString());
+    return element;
+  }
+
+  protected function resetElement():void {
+    _elem = null;
+  }
+
+  public function renderAsDom():HTMLElement {
+    var elem:HTMLElement;
+    var bounds:Rectangle;
+    if (_isCacheAsBitmap()) {
+      bounds = _doRenderCached(new Matrix());
+      elem = _bitmapCacheContext.canvas;
+      updateTransform(elem, bounds);
+    } else {
+      bounds = getBounds(null);
+      elem = createElementCached();
+      updateElement(elem, bounds);
+    }
+    return elem;
+  }
+
+  protected function updateElement(element:HTMLElement, bounds:Rectangle):void {
+    var style:Style = element.style;
+    style.width = bounds.width + "px";
+    style.height = bounds.height + "px";
+    updateTransform(element, bounds);
+  }
+
+  private function updateTransform(elem:HTMLElement, bounds:Rectangle):void {
+    var style:Style = elem.style;
+    style.position = "absolute";
+    var left:Number = /*x +*/ bounds.left;
+    var top:Number = /*y +*/ bounds.top;
+    if (parent) {
+      var parentBounds:Rectangle = parent.getBounds(null);
+      left += parent.x - parentBounds.left;
+      top += parent.y - parentBounds.top;
+    }
+    style.left = left + "px";
+    style.top = top + "px";
+    setProprietaryStyle(style, 'transform', "rotate(" + rotation + "deg)");
+       // + " translate(" + _transformationMatrix.tx + "px " + _transformationMatrix.ty + "px)");
+    setProprietaryStyle(style, 'transform-origin', "0pt 0pt");
+    // TODO: transform, scale! Use transform: matrix(...)?
+  }
+
+
+  private static const BROWSER_PREFIXES:Object = { '-moz-': 1, '-webkit-': 1, '-o': 1, '-ms-': 1 };
+
+  private static function setProprietaryStyle(style:Style, property:String, value:String):void {
+    for (var browserPrefix:String in BROWSER_PREFIXES) {
+      try {
+        style['setProperty'](browserPrefix + property, value, "");
+      } catch (e:*) {
+        // ignore
+      }
+    }
+  }
+
+  private static function numberToStyleLength(value:Number):String {
+    return isNaN(value) ? "auto" : (value + "px");
+  }
+
+  private static function styleLengthToNumber(length:String):* {
+    return length == "auto" ? NaN : Number(length.split("px")[0]);
+  }
+
+  private static function makeSelectable(elem:HTMLElement, selectable:Boolean):void {
+    if (selectable) {
+      elem.style['MozUserSelect'] = 'text';
+      elem.style['KhtmlUserSelect'] = 'text';
+      elem.style['WebkitUserSelect'] = 'text';
+      elem.style['MsUserSelect'] = 'text';
+      elem.style['UserSelect'] = 'text';
+      elem.removeAttribute('unselectable');
+      elem.removeEventListener('selectstart', cancelEvent, true);
+    } else {
+      elem.style['MozUserSelect'] = 'none';
+      elem.style['KhtmlUserSelect'] = 'none';
+      elem.style['WebkitUserSelect'] = 'none';
+      elem.style['MsUserSelect'] = 'none';
+      elem.style['UserSelect'] = 'none';
+      elem.setAttribute('unselectable', 'on');
+      elem.addEventListener('selectstart', cancelEvent, true);
+    }
+  }
+
+  private static function cancelEvent():Boolean {
+    return false;
+  }
+
+  /**
+   * @private
+   */
+  protected function getElementName():String {
+    return "div";
+  }
+
 }
 }

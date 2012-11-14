@@ -7,10 +7,11 @@ import flash.geom.Rectangle;
 import flash.utils.ByteArray;
 
 import js.CanvasRenderingContext2D;
-import js.HTMLCanvasElement;
+import js.HTMLElement;
 import js.HTMLImageElement;
 import js.Image;
 import js.ImageData;
+import js.Style;
 
 /**
  * The BitmapData class lets you work with the data (pixels) of a Bitmap object. You can use the methods of the BitmapData class to create arbitrarily sized transparent or opaque bitmap images and manipulate them in various ways at runtime. You can also access the BitmapData for a bitmap image that you load with the <code>flash.display.Loader</code> class.
@@ -1321,10 +1322,26 @@ public class BitmapData implements IBitmapDrawable {
     }
     if (_canvasContext) {
       var img:HTMLImageElement = new Image();
-      img.src = HTMLCanvasElement(_canvasContext).toDataURL();
+      img.src = _canvasContext.canvas.toDataURL();
       return img;
     }
     return null;
+  }
+
+  internal function getElement():HTMLElement {
+    if (_canvasContext) {
+      return _canvasContext.canvas;
+    }
+    var element:HTMLElement = HTMLElement(window.document.createElement('div'));
+    var style:Style = element.style;
+    if (_fillColor) {
+      style.backgroundColor = Graphics.toRGBA(_fillColor, _alpha);
+    }
+    if (image) {
+      style.backgroundImage = "url('" + image.src + "')";
+      style.backgroundPosition = imageOffsetX + "px " + imageOffsetY + "px";
+    }
+    return element;
   }
 
   private function getContext():CanvasRenderingContext2D {

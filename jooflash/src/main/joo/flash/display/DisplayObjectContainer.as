@@ -6,7 +6,8 @@ import flash.geom.Point;
 import flash.geom.Rectangle;
 import flash.text.TextSnapshot;
 
-import js.Element;
+import js.Collection;
+
 import js.HTMLElement;
 
 /**
@@ -845,6 +846,37 @@ public class DisplayObjectContainer extends InteractiveObject {
     }
   }
 
+  protected function updateContainerElement(element:HTMLElement, bounds:Rectangle):void {
+    element.style.overflow = "hidden";
+    return super.updateElement(element, bounds);
+  }
+
+  override protected function updateElement(element:HTMLElement, bounds:Rectangle):void {
+    updateContainerElement(element, bounds);
+    var childElements:Vector.<HTMLElement> = new <HTMLElement>[];
+    var oldChildren:Collection = element.childNodes;
+    var oldChildIndex:int = 0;
+    for each (var child:DisplayObject in children) {
+      if (child.visible) {
+        var childElement:HTMLElement = child.renderAsDom();
+        if (oldChildIndex !== -1) {
+          if (oldChildren.item(oldChildIndex) === childElement) {
+            ++oldChildIndex;
+          } else {
+            oldChildIndex = -1;
+          }
+        }
+        childElements.push(childElement);
+      }
+    }
+    if (oldChildIndex === -1) {
+      element.innerHTML = ""; // fastest way to remove all child nodes
+      for each (var childElement2:HTMLElement in childElements) {
+        element.appendChild(childElement2);
+      }
+    }
+  }
+
   /**
    * @private
    * Check to see if the event is a mouse event from one of our children.
@@ -908,7 +940,7 @@ public class DisplayObjectContainer extends InteractiveObject {
       }
     }
 
-    return hit;
+    return hit || super.hitTestInput(localX, localY);
   }
 
   private var children:Vector.<DisplayObject>;

@@ -2,6 +2,10 @@ package flash.display {
 import flash.geom.Matrix;
 import flash.geom.Rectangle;
 
+import js.CanvasRenderingContext2D;
+import js.HTMLCanvasElement;
+import js.HTMLElement;
+
 /**
  * This class is used to create lightweight shapes using the ActionScript drawing application program interface (API). The Shape class includes a <code>graphics</code> property, which lets you access methods from the Graphics class.
  * <p>The Sprite class also includes a <code>graphics</code>property, and it includes other features not available to the Shape class. For example, a Sprite object is a display object container, whereas a Shape object is not (and cannot contain child display objects). For this reason, Shape objects consume less memory than Sprite objects that contain the same graphics. However, a Sprite object supports user input events, while a Shape object does not.</p>
@@ -35,7 +39,18 @@ public class Shape extends DisplayObject {
   }
 
   override protected function _doRender(renderState:RenderState):void {
-    graphics._render(renderState);
+    _graphics._render(renderState);
+  }
+
+  override protected function getElementName():String {
+    return 'canvas';
+  }
+
+  override protected function updateElement(element:HTMLElement, bounds:Rectangle):void {
+    var canvas:HTMLCanvasElement = HTMLCanvasElement(element);
+    var context:CanvasRenderingContext2D = CanvasRenderingContext2D(canvas.getContext('2D'));
+    RenderState.resizeAndReset(context, _graphics.width, _graphics.height);
+    _graphics._renderIntoCanvas(context);
   }
 
   private var _graphics : Graphics;

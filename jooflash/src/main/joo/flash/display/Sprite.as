@@ -1,12 +1,9 @@
 package flash.display {
-import flash.display.RenderState;
-import flash.filters.BitmapFilter;
-import flash.geom.Matrix;
-import flash.geom.Rectangle;
 import flash.geom.Rectangle;
 import flash.media.SoundTransform;
 
 import js.CanvasRenderingContext2D;
+import js.HTMLElement;
 
 /**
  * The Sprite class is a basic display list building block: a display list node that can display graphics and can also contain children.
@@ -473,6 +470,15 @@ public class Sprite extends DisplayObjectContainer {
 
   private function updateCursor():void {
     //getElement().style.cursor = buttonMode && useHandCursor ? 'pointer' : 'default';
+  }
+
+  override protected function updateElement(element:HTMLElement, bounds:Rectangle):void {
+    super.updateElement(element, bounds);
+    if (_graphics) {
+      var context:CanvasRenderingContext2D = RenderState.createCanvasContext2D(_graphics.width, _graphics.height); // TODO: reuse canvas!
+      _graphics._renderIntoCanvas(context);
+      element.insertBefore(context.canvas, element.firstChild);
+    }
   }
 
   private var _graphics : Graphics;

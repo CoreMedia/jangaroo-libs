@@ -1171,9 +1171,11 @@ public final class Graphics {
   private static const KAPPA:Number = 4 * ((Math.sqrt(2) - 1) / 3);
 
   public function _render(renderState:RenderState):void {
-    if (!isNaN(minX)) { // anything actually drawn?
-      var context:CanvasRenderingContext2D = renderState.context;
+    _renderIntoCanvas(renderState.context);
+  }
 
+  public function _renderIntoCanvas(context:CanvasRenderingContext2D):void {
+    if (!isNaN(minX)) { // anything actually drawn?
       context.save();
       _thickness = NaN;
       doFill = false;

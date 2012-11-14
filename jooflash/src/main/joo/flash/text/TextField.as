@@ -10,6 +10,8 @@ import js.CanvasRenderingContext2D;
 import js.Document;
 import js.Element;
 import js.HTMLCanvasElement;
+import js.HTMLElement;
+import js.Style;
 import js.TextMetrics;
 
 /**
@@ -1333,14 +1335,11 @@ public class TextField extends InteractiveObject {
    */
   public function set type(value:String):void {
     if (value !== _type) {
-      if (value === TextFieldType.INPUT) {
-        //getElement().setAttribute('contenteditable', "true");
-      } else if (value === TextFieldType.DYNAMIC) {
-        //getElement().removeAttribute('contenteditable');
-      } else {
+      if (value !== TextFieldType.INPUT && value !== TextFieldType.DYNAMIC) {
         throw new ArgumentError(value);
       }
       _type = value;
+      resetElement(); // so that it will be recreated with the correct element name!
     }
   }
 
@@ -2746,6 +2745,41 @@ public class TextField extends InteractiveObject {
 
   override protected function hitTestInput(localX:Number, localY:Number):InteractiveObject {
     return localX >= 0 && localY >= 0 && localX < _width && localY < _height ? this : null;
+  }
+
+  override protected function updateElement(element:HTMLElement, bounds:Rectangle):void {
+    if (_type === TextFieldType.INPUT) {
+      element['type'] = displayAsPassword ? 'password' : 'text';
+    }
+    element.innerHTML = htmlText;
+    var style:Style = element.style;
+    style.padding = "2px";
+    style.width = "auto";
+    style.fontFamily = asWebFont();
+    style.fontSize = getSize() + "px";
+    style.color = Graphics.toRGBA(textColor);
+    var bold:Boolean = _textFormat.bold !== null ? _textFormat.bold : _defaultTextFormat.bold;
+    style.fontWeight = bold ? "bold" : "normal";
+    var italic:Boolean = _textFormat.italic !== null ? _textFormat.italic : _defaultTextFormat.italic;
+    style.fontStyle = italic ? "italic" : "normal";
+    style.textAlign = _textFormat.align !== null ? _textFormat.align : _defaultTextFormat.align;
+  }
+
+  /**
+   * @private
+   */
+  override protected function getElementName():String {
+    return _type === TextFieldType.DYNAMIC ? "span" : "input";
+  }
+
+  private static function updateElementProperty(element : HTMLElement, propertyPath : String, value : Object) : void {
+    var current : Object = element;
+    var propertyPathArcs : Array = propertyPath.split(".");
+    var lastIndex : uint = propertyPathArcs.length - 1;
+    for (var i:uint=0; i<lastIndex; ++i) {
+      current = current[propertyPathArcs[i]];
+    }
+    current[propertyPathArcs[lastIndex]] = value;
   }
 
   private var _alwaysShowSelection:Boolean;

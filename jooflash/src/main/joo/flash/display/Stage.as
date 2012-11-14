@@ -1,14 +1,17 @@
 package flash.display {
+import flash.errors.IllegalOperationError;
 import flash.events.Event;
 import flash.events.KeyboardEvent;
 import flash.events.MouseEvent;
 import flash.events.TextEvent;
+import flash.geom.Matrix;
 import flash.geom.Point;
 import flash.geom.Rectangle;
 import flash.text.TextSnapshot;
 import flash.ui.KeyLocation;
 
 import js.CanvasRenderingContext2D;
+import js.Element;
 import js.Event;
 import js.HTMLCanvasElement;
 import js.HTMLElement;
@@ -665,14 +668,14 @@ public class Stage extends DisplayObjectContainer {
    *
    */
   override public function get height():Number {
-    return _stageHeight;
+    throw new IllegalOperationError();
   }
 
   /**
    * @private
    */
   override public function set height(value:Number):void {
-    stageHeight = int(value);
+    throw new IllegalOperationError();
   }
 
   /**
@@ -801,16 +804,14 @@ public class Stage extends DisplayObjectContainer {
    *
    */
   public function get stageHeight():int {
-    return _stageHeight;
+    return _stageBounds.height;
   }
 
   /**
    * @private
    */
   public function set stageHeight(value:int):void {
-    _stageHeight = value;
-    canvasContext.canvas.height = value;
-    canvasContext.canvas.style.height = value + "px";
+    setPixelDimension(createElementCached(), 'height', value);
   }
 
   /**
@@ -824,16 +825,22 @@ public class Stage extends DisplayObjectContainer {
    *
    */
   public function get stageWidth():int {
-    return canvasContext.canvas.width;
+    return _stageBounds.width;
   }
 
   /**
    * @private
    */
   public function set stageWidth(value:int):void {
-    _stageWidth = value;
-    canvasContext.canvas.width = value;
-    canvasContext.canvas.style.width = value + "px";
+    setPixelDimension(createElementCached(), 'width', value);
+  }
+
+  private function setPixelDimension(element:HTMLElement, propertyName:String, value:int):void {
+    if (_stageBounds[propertyName] !== value) {
+      _stageBounds[propertyName] = value;
+      element[propertyName] = value;
+      element.style[propertyName] = value + "px";
+    }
   }
 
   /**
@@ -877,14 +884,14 @@ public class Stage extends DisplayObjectContainer {
    *
    */
   override public function get width():Number {
-    return _stageWidth;
+    throw new IllegalOperationError();
   }
 
   /**
    * @private
    */
   override public function set width(value:Number):void {
-    stageWidth = int(value);
+    throw new IllegalOperationError();
   }
 
   /**
@@ -1053,7 +1060,7 @@ public class Stage extends DisplayObjectContainer {
       case 'touchend':
         mouseEventType = MouseEvent.MOUSE_UP;
         buttonDown = false;
-        if (_clickTarget === target) {
+        if (target && _clickTarget === target) {
           var isDoubleClick:Boolean = target.doubleClickEnabled && _clickCount % 2 === 0 && time < _clickTime + 500;
           sndMouseEventType = isDoubleClick ? MouseEvent.DOUBLE_CLICK : MouseEvent.CLICK;
         }
@@ -1095,15 +1102,18 @@ public class Stage extends DisplayObjectContainer {
             event['changedTouches'][0] // TODO: one event for every changedTouches item?
             : event;
     if ('pageX' in pos) {
-      if ('offsetX' in pos) {
-        _stageMouse.x = pos['offsetX'];
-        _stageMouse.y = pos['offsetY'];
-      } else {
-        var clientRect:Object = canvasContext.canvas['getBoundingClientRect']();  // TODO: more cross-browser cases, scroll offsets?
-        _stageMouse.x = pos.pageX - clientRect.left;
-        _stageMouse.y = pos.pageY - clientRect.top;
-      }
+      var clientRect:Rectangle = getDomBounds(createElementCached());
+      _stageMouse.x = pos.pageX - clientRect.left;
+      _stageMouse.y = pos.pageY - clientRect.top;
     }
+  }
+
+  /**
+   * Beware: not a real Rectangle, but only <code>{top: ..., left: ..., width: ..., height: ...}</code>!
+   * @return the bounds of the DOM element representing this Stage
+   */
+  private static function getDomBounds(element:HTMLElement):Rectangle {
+    return element['getBoundingClientRect']();  // TODO: more cross-browser cases, scroll offsets?
   }
 
   private function handleMouseWheelEvent(event:js.Event):Boolean {
@@ -1224,15 +1234,37 @@ public class Stage extends DisplayObjectContainer {
   public function Stage(id:String, properties:Object) {
     super();
     this.id = id;
-    createCanvas();
     _quality = StageQuality.HIGH;
     _scaleMode = StageScaleMode.NO_SCALE;
     _align = StageAlign.TOP_LEFT;
     _stageMouse = new Point();
+    _stageBounds = new Rectangle();
     if (properties) {
+      extractDimension(properties, 'width');
+      extractDimension(properties, 'height');
       for (var m:String in properties) {
         this[m] = properties[m];
       }
+    }
+  }
+
+  private function extractDimension(properties:Object, propertyName:String):void {
+    if (propertyName in properties) {
+      var value:String = String(properties[propertyName]);
+      delete properties[propertyName];
+      setDimension(createElementCached(), propertyName, value);
+    }
+  }
+
+  private function setDimension(element:HTMLElement, propertyName:String, value:String):void {
+    if (value.match(/^[0-9]+%$/)) {
+      element.style[propertyName] = value;
+      _stageBounds[propertyName] = getDomBounds(element)[propertyName];
+      if (cacheAsBitmap) {
+        element[propertyName] = _stageBounds[propertyName];
+      }
+    } else {
+      setPixelDimension(element, propertyName, int(value.match(/^[0-9]+/)[0]));
     }
   }
 
@@ -1243,30 +1275,19 @@ public class Stage extends DisplayObjectContainer {
     if (typeof value == 'string') {
       value = String(value).replace(/^#/, "0x");
     }
-    canvasContext.canvas.style.backgroundColor = Graphics.toRGBA(uint(value));
+    var valueStr:String = Graphics.toRGBA(uint(value));
+    if (_backgroundColor !== valueStr) {
+      createElementCached().style.backgroundColor = _backgroundColor;
+    }
   }
 
   /**
    * @private
    */
-  private function createCanvas():void {
-    var element:HTMLElement = HTMLElement(window.document.getElementById(id));
+  private function createCanvas():HTMLElement {
     canvasContext = RenderState.createCanvasContext2D();
-    var canvas:HTMLCanvasElement = canvasContext.canvas;
-    canvas.id = id;
-    canvas['tabIndex'] = 1;
-    canvas.style.outline = "none";
     _renderState = new RenderState(canvasContext);
-    element.parentNode.replaceChild(canvas, element);
-    canvas.focus();
-    canvas.addEventListener('mousedown', handleMouseEvent, false);
-    canvas.addEventListener('mouseup', handleMouseEvent, false);
-    canvas.addEventListener('mousemove', handleMouseEvent, false);
-    canvas.addEventListener('mouseout', handleMouseEvent, false);
-    canvas.addEventListener('mousewheel', handleMouseWheelEvent, false);
-    canvas.addEventListener('keydown', handleKeyEvent, false);
-    canvas.addEventListener('keyup', handleKeyEvent, false);
-    canvas.addEventListener('keypress', handleTextEvent, false);
+    return canvasContext.canvas;
   }
 
   private function handleKeyEvent(event:js.Event):Boolean {
@@ -1305,8 +1326,7 @@ public class Stage extends DisplayObjectContainer {
 
   private var canvasContext:CanvasRenderingContext2D;
   private var _renderState:RenderState;
-  private var _stageHeight:int;
-  private var _stageWidth:int;
+  private var _stageBounds:Rectangle;
   internal var _stageMouse:Point;
   internal var _mouseOverTarget:DisplayObject = null;
   private var _clickTarget:InteractiveObject = null;
@@ -1319,12 +1339,81 @@ public class Stage extends DisplayObjectContainer {
   private var _scaleMode:String;
   private var _align:String;
   internal var buttonDown:Boolean = false;
+  private var _backgroundColor:String = "white";
+
+  override protected function getBoundsTransformed(matrix:Matrix = null, returnRectangle:Rectangle = null):Rectangle {
+    return new Rectangle(0, 0, stageWidth, stageHeight);
+  }
+
+  override protected function resetElement():void {
+    var stageElem:HTMLElement = getElement();
+    if (stageElem) {
+      stageElem.removeEventListener('mousedown', handleMouseEvent, false);
+      stageElem.removeEventListener('mouseup', handleMouseEvent, false);
+      stageElem.removeEventListener('mousemove', handleMouseEvent, false);
+      stageElem.removeEventListener('mouseout', handleMouseEvent, false);
+      stageElem.removeEventListener('mousewheel', handleMouseWheelEvent, false);
+      stageElem.removeEventListener('keydown', handleKeyEvent, false);
+      stageElem.removeEventListener('keyup', handleKeyEvent, false);
+      stageElem.removeEventListener('keypress', handleTextEvent, false);
+    }
+    super.resetElement();
+  }
+
+  override protected function createElement():HTMLElement {
+    var stageElem:HTMLElement = cacheAsBitmap ? createCanvas() : super.createElement();
+    stageElem.id = id;
+    stageElem['tabIndex'] = 1;
+    stageElem.style.outline = "none";
+    stageElem.style.position = "relative";
+    var oldElem:Element = window.document.getElementById(id);
+    updateContainerElement(stageElem, null);
+    var width:String = oldElem.style.width || String(_stageBounds.width);
+    var height:String = oldElem.style.height || String(_stageBounds.height);
+    _stageBounds.width = _stageBounds.height = -1; // make sure it will be applied!
+    setDimension(stageElem, 'width', width);
+    setDimension(stageElem, 'height', height);
+    oldElem.parentNode.replaceChild(stageElem, oldElem);
+
+    stageElem.focus();
+    stageElem.addEventListener('mousedown', handleMouseEvent, false);
+    stageElem.addEventListener('mouseup', handleMouseEvent, false);
+    stageElem.addEventListener('mousemove', handleMouseEvent, false);
+    stageElem.addEventListener('mouseout', handleMouseEvent, false);
+    stageElem.addEventListener('mousewheel', handleMouseWheelEvent, false);
+    stageElem.addEventListener('keydown', handleKeyEvent, false);
+    stageElem.addEventListener('keyup', handleKeyEvent, false);
+    stageElem.addEventListener('keypress', handleTextEvent, false);
+    return stageElem;
+  }
+
+  override protected function updateContainerElement(stageElem:HTMLElement, bounds:Rectangle):void {
+    // do nothing, not even call super, so that the stage's DOM element is not positioned etc.!
+  }
 
   public function materialize():void {
-    if (isBitmapCacheDirty()) {
-      _renderState.reset();
-      _render(_renderState);
-      window.dumpDisplayList = false;
+    if (scaleMode === StageScaleMode.NO_SCALE) {
+      var element:HTMLElement = createElementCached();
+      var bounds:Object = getDomBounds(element);
+      if (_stageBounds.width !== bounds.width || _stageBounds.height !== bounds.height) {
+        _stageBounds.width = bounds.width;
+        _stageBounds.height = bounds.height;
+        if (cacheAsBitmap) {
+          var canvas:HTMLCanvasElement = HTMLCanvasElement(element);
+          canvas.width = bounds.width;
+          canvas.height = bounds.height;
+        }
+        dispatchEvent(new flash.events.Event(flash.events.Event.RESIZE)); // TODO: continue here...
+      }
+    }
+    if (!cacheAsBitmap) {
+      renderAsDom();
+    } else {
+      if (isBitmapCacheDirty()) {
+        _renderState.reset();
+        _render(_renderState);
+        window.dumpDisplayList = false;
+      }
     }
   }
 
