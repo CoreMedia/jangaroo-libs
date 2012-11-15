@@ -680,6 +680,16 @@ public class panel extends container {
    */
   public native function set unstyled(value:Boolean):void;
 
+  /**
+   <b>This config option is only used if this panel is a child of a TabPanel.</b> A CSS class name applied to the tab strip item corresponding to this panel, allowing special styling to be applied.
+   */
+  public native function get tabCls():String;
+
+  /**
+   * @private
+   */
+  public native function set tabCls(value:String):void;
+
 
 }
 }
