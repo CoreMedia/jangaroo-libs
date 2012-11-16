@@ -1,4 +1,5 @@
 package flash.events {
+import joo.flash.RenderLoop;
 
 /**
  * [broadcast event] Dispatched when the Flash Player or AIR application gains operating system focus and becomes active. This event is a broadcast event, which means that it is dispatched by all EventDispatcher objects with a listener registered for this event. For more information about broadcast events, see the DisplayObject class.
@@ -68,6 +69,7 @@ public class EventDispatcher implements IEventDispatcher {
       listenersByType[type].push(eventObj);
     }
     listenersByType[type].sort(eventCompare);
+    RenderLoop.addEventDispatcher(type,  this);
   }
 
   /**
@@ -80,7 +82,7 @@ public class EventDispatcher implements IEventDispatcher {
    *
    */
   public function dispatchEvent(event:Event):Boolean {
-    event.withTarget(this.target || this);
+    event = event.withTarget(this.target || this);
 
     var ancestors:Array = createAncestorChain();
 
@@ -99,7 +101,7 @@ public class EventDispatcher implements IEventDispatcher {
     }
 
     // Be sure we're allowed to continue.
-    if (!event.isPropagationStopped()) {
+    if (event.bubbles && !event.isPropagationStopped()) {
       // Bubble it back up the display chain.
       event['eventPhase'] = EventPhase.BUBBLING_PHASE;
       internalHandleBubble(event, ancestors);
@@ -143,9 +145,10 @@ public class EventDispatcher implements IEventDispatcher {
           } else {
             listeners.splice(i, 1);
           }
-          return;
+          break;
         }
       }
+      RenderLoop.removeEventDispatcher(type,  this);
     }
   }
 

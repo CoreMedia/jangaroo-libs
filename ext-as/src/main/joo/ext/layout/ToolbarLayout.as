@@ -180,7 +180,7 @@ public class ToolbarLayout extends ContainerLayout {
 
   /**
    * Creates the expand trigger and menu, adding them to the &lt;tr&gt; at the extreme right of the
-   * Toolbar table
+   * Toolbar table.
    *
    * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.layout.ToolbarLayout-method-initMore Sencha Docs Ext JS 3.4
    */

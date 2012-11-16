@@ -2,18 +2,14 @@ package flash.display {
 import flash.accessibility.AccessibilityProperties;
 import flash.events.Event;
 import flash.events.EventDispatcher;
-import flash.events.KeyboardEvent;
-import flash.events.MouseEvent;
+import flash.geom.Matrix;
 import flash.geom.Point;
 import flash.geom.Rectangle;
 import flash.geom.Transform;
 import flash.geom.Vector3D;
-import flash.utils.Dictionary;
-import flash.utils.UIDUtil;
 
-import js.Element;
-
-import js.Event;
+import js.CanvasRenderingContext2D;
+import js.HTMLCanvasElement;
 import js.HTMLElement;
 import js.Style;
 
@@ -149,8 +145,10 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * @private
    */
   public function set alpha(value:Number):void {
-    _alpha = value;
-    getElement().style.opacity = String(value);
+    if (_alpha !== value) {
+      _alpha = value;
+      _transformChanged = true; // tell parent to re-render, but do not invalidate transformation matrix!
+    }
   }
 
   /**
@@ -322,14 +320,21 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * </listing>
    */
   public function get cacheAsBitmap():Boolean {
-    return _cacheAsBitmap;
+    // see documentation: "automatically set to true when filter is set", "return to old value when filter removed"
+    return _filters.length > 0 || _cacheAsBitmap;
   }
 
   /**
    * @private
    */
   public function set cacheAsBitmap(value:Boolean):void {
-    _cacheAsBitmap = value; // TODO: implement!
+    if (_cacheAsBitmap !== value) {
+      _cacheAsBitmap = value;
+      resetElement();
+      if (!cacheAsBitmap) {
+        _bitmapCacheContext = null;
+      }
+    }
   }
 
   /**
@@ -394,11 +399,9 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    */
   public function set filters(value:Array):void {
     _filters = value.concat();
-    if (value.length > 0) {
-      // see documentation of "cacheAsBitmap": "automatically set to true when filter is set"
-      _cacheAsBitmap = true;
+    if (!cacheAsBitmap) { // might have changed when setting filters back to empty list:
+      _bitmapCacheContext = null;
     }
-    // TODO: update visual appearance!
   }
 
   /**
@@ -434,27 +437,16 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * </listing>
    */
   public function get height():Number {
-    return _height * _scaleY;
+    return getBoundsTransformed(_transformationMatrix).height;
   }
 
   /**
    * @private
    */
   public function set height(value:Number):void {
-    var style:Style = getElement().style;
-    var oldHeight:Number = this.height;
-    if (!isNaN(value)) {
-      if (style.paddingTop) {
-        value -= styleLengthToNumber(style.paddingTop);
-      }
-      if (style.paddingBottom) {
-        value -= styleLengthToNumber(style.paddingBottom);
-      }
-    }
-    style.height = numberToStyleLength(value);
-    if (oldHeight && value) {
-      _scaleY = value / oldHeight;
-    }
+    scaleY = 1;
+    var normalHeight:Number = height;
+    scaleY = normalHeight ? value / normalHeight : 1;
   }
 
   /**
@@ -508,14 +500,14 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * </listing>
    */
   public function get mask():DisplayObject {
-    throw new Error('not implemented'); // TODO: implement!
+    return _mask;
   }
 
   /**
    * @private
    */
   public function set mask(value:DisplayObject):void {
-    throw new Error('not implemented'); // TODO: implement!
+    _mask = value;
   }
 
   /**
@@ -539,7 +531,8 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * </listing>
    */
   public function get mouseX():Number {
-    return stage ? stage.mouseX / _scaleX : NaN;
+    // TODO: wtf no rotation?
+    return stage ? globalToLocal(stage._stageMouse).x : NaN;
   }
 
   /**
@@ -563,7 +556,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * </listing>
    */
   public function get mouseY():Number {
-    return stage ? stage.mouseY / _scaleY : NaN;
+    return stage ? globalToLocal(stage._stageMouse).y : NaN;
   }
 
   /**
@@ -594,20 +587,12 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * }
    * </listing>
    */
-  public function get name():String {
-    return _name;
-  }
+  public native function get name():String;
 
   /**
    * @private
    */
-  public function set name(value:String):void {
-    if (_name == value) {
-      return;
-    }
-
-    _name = value;
-  }
+  public native function set name(value:String):void;
 
   /**
    * Specifies whether the display object is opaque with a certain background color. A transparent bitmap contains alpha channel data and is drawn transparently. An opaque bitmap has no alpha channel (and renders faster than a transparent bitmap). If the bitmap is opaque, you specify its own background color to use.
@@ -734,26 +719,9 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * @private
    */
   public function set rotation(value:Number):void {
-    if (!value) {
-      value = 0;
-    }
-    if (value !== this._rotation) {
-      this._rotation = value;
-      var style:Style = getElement().style;
-      setProprietaryStyle(style, 'transform', "rotate(" + rotation + "deg)");
-      setProprietaryStyle(style, 'transform-origin', "0pt 0pt");
-    }
-  }
-
-  private static const BROWSER_PREFIXES:Object = { '-moz-': 1, '-webkit-': 1, '-o': 1, '-ms-': 1 };
-
-  private static function setProprietaryStyle(style:Style, property:String, value:String):void {
-    for (var browserPrefix:String in BROWSER_PREFIXES) {
-      try {
-        style['setProperty'](browserPrefix + property, value, "");
-      } catch (e:*) {
-        // ignore
-      }
+    if (_rotation !== value) {
+      _rotation = value;
+      transformChanged();
     }
   }
 
@@ -1087,11 +1055,9 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * @private
    */
   public function set scaleX(value:Number):void {
-    var width:Number = this.width;
-    if (width) {
-      this.width = width * value / _scaleX; // sets _scaleX as a side-effect
-    } else {
+    if (_scaleX !== value) {
       _scaleX = value;
+      transformChanged();
     }
   }
 
@@ -1124,11 +1090,9 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * @private
    */
   public function set scaleY(value:Number):void {
-    var height:Number = this.height;
-    if (height) {
-      this.height = height * value / _scaleY; // sets _scaleY as a side-effect
-    } else {
+    if (_scaleY !== value) {
       _scaleY = value;
+      transformChanged();
     }
   }
 
@@ -1279,6 +1243,60 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
     _transform = value;
   }
 
+  internal function transformationMatrixTo(targetSpace:DisplayObject):Matrix {
+    if (targetSpace == parent) {
+      return _transformationMatrix; //.clone();
+    }
+
+    if (targetSpace.parent == this) {
+      var result:Matrix = _transformationMatrix.clone();
+      result.invert();
+      return result;
+    }
+
+    //------------------------------------------------
+
+    var resultMatrix:Matrix = new Matrix();
+    var resultObject:DisplayObject = this;
+
+    while(resultObject != targetSpace && resultObject.parent != null) {
+      resultMatrix.concat(resultObject._transformationMatrix);
+      resultObject = resultObject.parent;
+    }
+
+    if (targetSpace == null && resultObject != null) {
+      resultMatrix.concat(resultObject._transformationMatrix);
+      resultObject = null;
+    }
+
+    if (resultObject == targetSpace)
+      return resultMatrix;
+
+    //------------------------------------------------
+
+    var targetMatrix:Matrix = new Matrix();
+    var targetObject:DisplayObject = targetSpace;
+
+    while(targetObject != this && targetObject.parent != null) {
+      targetMatrix.concat(targetObject._transformationMatrix);
+      targetObject = targetObject.parent;
+    }
+
+    targetMatrix.invert();
+
+    if (targetObject == this)
+      return targetMatrix;
+
+    if (targetObject != resultObject) {
+      //throw new IllegalOperationError
+      trace("Error #9001: The supplied DisplayObject has no relationship to the caller.");
+    }
+
+    resultMatrix.concat(targetMatrix);
+
+    return resultMatrix;
+  }
+  
   /**
    * Whether or not the display object is visible. Display objects that are not visible are disabled. For example, if <code>visible=false</code> for an InteractiveObject instance, it cannot be clicked.
    * @example The following code uses a Timer object to call a function that periodically changes the <code>visible</code> property of a display object, resulting in a blinking effect:
@@ -1309,7 +1327,6 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    */
   public function set visible(value:Boolean):void {
     _visible = value;
-    getElement().style.display = _visible ? "" : "none";
   }
 
   /**
@@ -1340,27 +1357,38 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * </listing>
    */
   public function get width():Number {
-    return _width * _scaleX;
+    return getBoundsTransformed(_transformationMatrix).width;
+  }
+
+  private static const ARC_TO_RAD_FACTOR:int = Math.PI / 180;
+
+  public function get _transformationMatrix():Matrix {
+    if (_transformationMatrixCacheDirty) {
+      _transformationMatrixCacheDirty = false;
+      if (_rotation === 0) {
+        _transformationMatrixCache.setTo(_scaleX, 0, 0, _scaleY, _x, _y);
+      } else {
+//      var m:Matrix = new Matrix();
+//      m.scale(_scaleX, _scaleY);
+//      m.rotate(_rotation);
+//      m.translate(_x, _y);
+//      return m;
+        var rad:Number = _rotation * ARC_TO_RAD_FACTOR;
+        var cos:Number = Math.cos(rad);
+        var sin:Number = Math.sin(rad);
+        _transformationMatrixCache.setTo(_scaleX * cos, _scaleX * sin, - _scaleY * sin, _scaleY * cos, _x, _y);
+      }
+    }
+    return _transformationMatrixCache;
   }
 
   /**
    * @private
    */
   public function set width(value:Number):void {
-    var style:Style = getElement().style;
-    var oldWidth:Number = this.width;
-    if (!isNaN(value)) {
-      if (style.paddingLeft) {
-        value -= styleLengthToNumber(style.paddingLeft);
-      }
-      if (style.paddingRight) {
-        value -= styleLengthToNumber(style.paddingRight);
-      }
-    }
-    style.width = numberToStyleLength(value);
-    if (oldWidth && value) {
-      _scaleX = value / oldWidth;
-    }
+    scaleX = 1;
+    var normalWidth:Number = width;
+    scaleX = normalWidth ? value / normalWidth : 1;
   }
 
   /**
@@ -1394,16 +1422,16 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * </listing>
    */
   public function get x():Number {
-    return this._x;
+    return _x;
   }
 
   /**
    * @private
    */
   public function set x(value:Number):void {
-    this._x = value || 0;
-    if (this._elem) {
-      this._elem.style.left = this._x + "px";
+    if (_x !== value) {
+      _x = value;
+      transformChanged();
     }
   }
 
@@ -1432,16 +1460,16 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * </listing>
    */
   public function get y():Number {
-    return this._y;
+    return _y;
   }
 
   /**
    * @private
    */
   public function set y(value:Number):void {
-    this._y = value || 0;
-    if (this._elem) {
-      this._elem.style.top = this._y + "px";
+    if (_y !== value) {
+      _y = value;
+      transformChanged();
     }
   }
 
@@ -1527,6 +1555,18 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
     throw new Error('not implemented'); // TODO: implement!
   }
 
+  protected function getBoundsTransformed(matrix:Matrix = null, resultRectangle:Rectangle = null):Rectangle {
+    if (resultRectangle) {
+      resultRectangle.width = 0;
+      resultRectangle.height = 0;
+    } else {
+      resultRectangle = new Rectangle();
+    }
+    resultRectangle.x = matrix ? matrix.tx : 0;
+    resultRectangle.y = matrix ? matrix.ty : 0;
+    return resultRectangle;
+  }
+
   /**
    * Returns a rectangle that defines the area of the display object relative to the coordinate system of the <code>targetCoordinateSpace</code> object. Consider the following code, which shows how the rectangle returned can vary depending on the <code>targetCoordinateSpace</code> parameter that you pass to the method:
    * <listing>
@@ -1554,12 +1594,9 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    *
    */
   public function getBounds(targetCoordinateSpace:DisplayObject):Rectangle {
-    var stageOffset:Point = getStageOffset();
-    var targetStageOffset:Point = targetCoordinateSpace.getStageOffset();
-    return new Rectangle(
-      stageOffset.x - targetStageOffset.x,
-      stageOffset.y - targetStageOffset.y,
-      width, height); // TODO: implement correctly!
+    var matrix:Matrix = targetCoordinateSpace == null ? _transformationMatrix : transformationMatrixTo(targetCoordinateSpace);
+
+    return getBoundsTransformed(matrix);
   }
 
   /**
@@ -1643,7 +1680,15 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * </listing>
    */
   public function globalToLocal(point:Point):Point {
-    return point.subtract(getStageOffset());
+    _tmpMatrix.identity();
+
+    for (var displayObject:DisplayObject = this; displayObject != null; displayObject = displayObject.parent) {
+      _tmpMatrix.concat(displayObject._transformationMatrix);
+    }
+
+    _tmpMatrix.invert();
+
+    return _tmpMatrix.transformPoint(point);
   }
 
   /**
@@ -1733,7 +1778,16 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * </listing>
    */
   public function hitTestPoint(x:Number, y:Number, shapeFlag:Boolean = false):Boolean {
-    throw new Error('not implemented'); // TODO: implement!
+    if (stage == null) {
+      return false;
+    }
+
+    var matrix:Matrix  = transformationMatrixTo(stage);
+    matrix.invert();
+
+    var point:Point = matrix.transformPoint(new Point(x, y));
+
+    return getBoundsTransformed().contains(point.x, point.y);
   }
 
   /**
@@ -1865,8 +1919,13 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * </listing>
    */
   public function localToGlobal(point:Point):Point {
-    // TODO: take into account scale, rotation etc.!
-    return point.add(getStageOffset());
+    _tmpMatrix.identity();
+
+    for (var displayObject:DisplayObject = this; displayObject != null; displayObject = displayObject.parent) {
+      _tmpMatrix.concat(displayObject._transformationMatrix);
+    }
+
+    return _tmpMatrix.transformPoint(point);
   }
 
   // ************************** Jangaroo part **************************
@@ -1881,136 +1940,224 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
   /**
    * @private
    */
-  public function broadcastEvent(event:flash.events.Event):Boolean {
+  public function broadcastEvent(event:Event):Boolean {
     return dispatchEvent(event);
-  }
-
-  internal static const DOM_EVENT_TO_MOUSE_EVENT:Object/*<String,String>*/ = {
-    'click':      MouseEvent.CLICK,
-    'dblclick':   MouseEvent.DOUBLE_CLICK,
-    'mousedown':  MouseEvent.MOUSE_DOWN,
-    'mouseup':    MouseEvent.MOUSE_UP,
-    'mousemove':  MouseEvent.MOUSE_MOVE,
-    'mouseover':  MouseEvent.MOUSE_OVER,
-    'mouseout':   MouseEvent.MOUSE_OUT,
-    'mousewheel': MouseEvent.MOUSE_WHEEL
-    // TODO: map remaining MouseEvent constants to DOM events!
-  };
-  internal static const DOM_EVENT_TO_KEYBOARD_EVENT:Object/*<String,String>*/ = {
-    'keydown': KeyboardEvent.KEY_DOWN,
-    'keyup': KeyboardEvent.KEY_UP
-  };
-  internal static const FLASH_EVENT_TO_DOM_EVENT:Object = merge(
-    reverseMapping(DOM_EVENT_TO_MOUSE_EVENT),
-    reverseMapping(DOM_EVENT_TO_KEYBOARD_EVENT));
-
-  private static function merge(o1:Object, o2:Object):Object {
-    var result:Object = {};
-    for (var m:String in o1) {
-      result[m] = o1[m];
-    }
-    for (m in o2) {
-      result[m] = o2[m];
-    }
-    return result;
-  }
-
-  private static function reverseMapping(mapping:Object):Object {
-    var result:Object = {};
-    for (var m:String in mapping) {
-      result[mapping[m]] = m;
-    }
-    return result;
-  }
-
-  /**
-   * @inheritDoc
-   */
-  override public function addEventListener(type:String, listener:Function, useCapture:Boolean = false,
-                                            priority:int = 0, useWeakReference:Boolean = false):void {
-    var newEventType:Boolean = !this.hasEventListener(type);
-    super.addEventListener(type, listener, useCapture, priority, useWeakReference);
-    var domEventType:String = FLASH_EVENT_TO_DOM_EVENT[type];
-    if (newEventType) {
-      if (domEventType) {
-        this.getElement().addEventListener(domEventType, transformAndDispatch, useCapture);
-        // TODO: maintain different event listeners for useCapture==true and useCapture==false (if supported by browser)!
-      } else if (type === flash.events.Event.ENTER_FRAME) {
-        Stage.addEnterFrameSource(this);
-      }
-    }
-  }
-
-  /**
-   * @inheritDoc
-   */
-  override public function removeEventListener(type:String, listener:Function, useCapture:Boolean = false):void {
-    super.removeEventListener(type, listener, useCapture);
-    if (!this.hasEventListener(type)) { // did we just remove the last event listener of this type?
-      var domEventType:String = FLASH_EVENT_TO_DOM_EVENT[type];
-      if (domEventType) {
-        // remove the DOM element event listener, too:
-        this._elem.removeEventListener(domEventType, transformAndDispatch, useCapture);
-      } else if (type === flash.events.Event.ENTER_FRAME) {
-        Stage.removeEnterFrameSource(this);
-      }
-    }
   }
 
   /**
    * @private
-   * Finds the name of the Flash DOM element that contains the element parameter.
    */
-  private static function findFlashElementTarget(element:Element):String {
-    var flashID:String = element['flashID'];
-    var p:Element = element.parentNode;
-    while (!flashID) {
-      if (!p) {
-        break;
-      }
+  override public function createAncestorChain():Array {
+    var arr:Array = [];
 
-      flashID = p['flashID'];
-      p = p.parentNode;
+    var p:DisplayObjectContainer = this.parent;
+    while (p != null) {
+      arr.push(p);
+      p = p.parent;
     }
-    return flashID;
+
+    return arr;
   }
 
-  private static function transformAndDispatch(event:js.Event):Boolean {
-    // Use the javascript currentTarget just in case a child of our element is dispatching the event.
-
-    // The element dispatching the event might not be registered in jooflash.
-    var flashTarget:String = findFlashElementTarget(event.target);
-    if (!flashTarget) {
-      return false;
-    }
-
-    var eventTarget:DisplayObject = elementToDisplayObjectMap[flashTarget] as DisplayObject;
-    if (eventTarget) {
-      return eventTarget.internalTransformAndDispatch(event);
-    } else {
-      // We don't know who should dispatch the event.
-    }
-    return false;
+  /**
+   * @private
+   */
+  public function DisplayObject() {
+    super();
+    _tmpMatrix = new Matrix();
+    _filters = [];
+    _blendMode = BlendMode.NORMAL;
+    _transformationMatrixCache = new Matrix();
   }
 
-  internal function internalTransformAndDispatch(event:js.Event):Boolean {
-    var flashEvent:flash.events.Event;
+  internal var _transformationMatrixCacheDirty:Boolean = true;
+  private var _transformationMatrixCache:Matrix;
+  private var _transformChanged:Boolean = true;
+  private var _bitmapCacheContext:CanvasRenderingContext2D;
+  private var _bitmapCacheTransform:Matrix;
+  private var _tmpMatrix:Matrix; // for internal use only to minimize memory allocations.
+  private var _x:Number = 0, _y:Number = 0;
+  private var _scaleX:Number = 1;
+  private var _scaleY:Number = 1;
+  private var _transform:Transform;
+  private var _rotation:Number = 0;
+  private var _visible:Boolean = true;
+  private var _alpha:Number = 1;
+  private var _filters:Array;
+  private var _cacheAsBitmap:Boolean;
+  private var _mask:DisplayObject;
+  private var _blendMode:String;
+  private var _elem:HTMLElement;
 
-    var type:String = DOM_EVENT_TO_MOUSE_EVENT[event.type];
-    if (type) {
-      flashEvent = new MouseEvent(type, true, true, event.pageX - this.stage.x, event.pageY - this.stage.y, null,
-        event.ctrlKey, event.altKey, event.shiftKey, stage.buttonDown);
+  private static const ZERO_POINT:Point = new Point(); // never change this singleton "constant" point!
+
+  public function _render(renderState:RenderState):void {
+    if (_isCacheAsBitmap()) {
+      _renderCached(renderState);
+    } else if (blendMode === BlendMode.ERASE) {
+      var oldGlobalCompositeOperation:String = renderState.context.globalCompositeOperation;
+      renderState.context.globalCompositeOperation = "destination-out";
+      _doRender(renderState);
+      renderState.context.globalCompositeOperation = oldGlobalCompositeOperation;
     } else {
-      type = DOM_EVENT_TO_KEYBOARD_EVENT[event.type];
-      if (type) {
-        flashEvent = new KeyboardEvent(type, true, true, event['charCode'], event.keyCode || event['which'], 0,
-          event.ctrlKey, event.altKey, event.shiftKey, event.ctrlKey, event.ctrlKey);
+      _doRender(renderState);
+    }
+  }
+
+  private function _isCacheAsBitmap():Boolean {
+    return cacheAsBitmap && window.cacheAsBitmap !== false;  // experimental feature, allow user to disable it!
+  }
+
+  private function _renderCached(renderState:RenderState):void {
+      var transform:Matrix = renderState.currentTransformation();
+      var bounds:Rectangle = _doRenderCached(transform);
+    // there may be nothing to draw:
+      if (_bitmapCacheContext && _bitmapCacheContext.canvas.width > 0 && _bitmapCacheContext.canvas.height > 0) {
+        var bitmapCacheCanvas:HTMLCanvasElement = _bitmapCacheContext.canvas;
+        renderState.context.setTransform(1, 0, 0, 1, 0, 0);
+        renderState.context.globalAlpha = alpha;
+        // draw with "pixel snapping" to improve performance:
+        renderState.context.drawImage(bitmapCacheCanvas, Math.round(bounds.x), Math.round(bounds.y));
+      }
+  }
+
+  private function _doRenderCached(transform:Matrix):Rectangle {
+    var bounds:Rectangle = getBoundsTransformed(transform);
+    if (!_bitmapCacheTransform || !isScaleAndRotationEqual(_bitmapCacheTransform, transform) || isBitmapCacheDirty()) {
+      if (!_bitmapCacheTransform) {
+        _bitmapCacheTransform = new Matrix();
+      }
+      var transformedZero:Point = transform.transformPoint(ZERO_POINT);
+      _bitmapCacheTransform.setTo(transform.a, transform.b, transform.c, transform.d,
+              transformedZero.x - bounds.x, transformedZero.y - bounds.y);
+      if (!_bitmapCacheContext) {
+        _bitmapCacheContext = RenderState.createCanvasContext2D(bounds.width, bounds.height);
+      } else {
+        RenderState.resizeAndReset(_bitmapCacheContext, bounds.width, bounds.height);
+      }
+      var bitmapCacheRenderState:RenderState = new RenderState(_bitmapCacheContext);
+      bitmapCacheRenderState.translate(_bitmapCacheTransform.tx, _bitmapCacheTransform.ty);
+      _bitmapCacheContext.setTransform(_bitmapCacheTransform.a, _bitmapCacheTransform.b,
+              _bitmapCacheTransform.c, _bitmapCacheTransform.d, _bitmapCacheTransform.tx, _bitmapCacheTransform.ty);
+      if (mask == null) {
+        _doRender(bitmapCacheRenderState);
+      } else {
+        _bitmapCacheContext.save();
+        mask._render(bitmapCacheRenderState);
+        _doRender(bitmapCacheRenderState);
+        _bitmapCacheContext.restore();
       }
     }
-    if (!flashEvent) {
-      trace("Unmapped DOM event type " + event.type + " occurred, ignoring.");
+    return bounds;
+  }
+
+  /**
+   * Compare two matrices' scale and rotation values, not their translation.
+   * @param m1 first matrix to compare, not null
+   * @param m2 second matrix to compare, not null
+   * @return whether m1 and m2's a, b, c and d component are equal
+   */
+  private static function isScaleAndRotationEqual(m1:Matrix, m2:Matrix):Boolean {
+    return m1.a === m2.a && m1.b === m2.b && m1.c === m2.c && m1.d === m2.d;
+  }
+
+  public function _findDirtyLeaf():Object {
+    return isBitmapCacheDirty() ? this : null;
+  }
+
+  private function transformChanged():void {
+    _transformationMatrixCacheDirty = true;
+    _transformChanged = true;
+  }
+
+  protected function isTransformChanged():Boolean {
+    return _transformChanged;
+  }
+
+  internal function _clearTransformChanged():void {
+    _transformChanged = false;
+  }
+
+  protected function isBitmapCacheDirty():Boolean {
+    return visible && !!mask && mask.isBitmapCacheDirty();
+  }
+
+  protected function _doRender(renderState:RenderState):void {
+    // empty / abstract
+  }
+
+  protected function getElement():HTMLElement {
+    return _elem;
+  }
+
+  protected function createElementCached():HTMLElement {
+    if (!_elem) {
+      _elem = createElement();
     }
-    return this.dispatchEvent(flashEvent);
+    return _elem;
+  }
+
+  protected function createElement():HTMLElement {
+    var element:HTMLElement = HTMLElement(window.document.createElement(getElementName()));
+    element.setAttribute("data-flashClass", this.constructor.$class.toString());
+    return element;
+  }
+
+  protected function resetElement():void {
+    _elem = null;
+  }
+
+  public function renderAsDom():HTMLElement {
+    var elem:HTMLElement;
+    var bounds:Rectangle;
+    if (_isCacheAsBitmap()) {
+      bounds = _doRenderCached(new Matrix());
+      elem = _bitmapCacheContext.canvas;
+      updateTransform(elem, bounds);
+    } else {
+      bounds = getBounds(null);
+      elem = createElementCached();
+      updateElement(elem, bounds);
+    }
+    return elem;
+  }
+
+  protected function updateElement(element:HTMLElement, bounds:Rectangle):void {
+    var style:Style = element.style;
+    style.width = bounds.width + "px";
+    style.height = bounds.height + "px";
+    updateTransform(element, bounds);
+  }
+
+  private function updateTransform(elem:HTMLElement, bounds:Rectangle):void {
+    var style:Style = elem.style;
+    style.position = "absolute";
+    var left:Number = /*x +*/ bounds.left;
+    var top:Number = /*y +*/ bounds.top;
+    if (parent) {
+      var parentBounds:Rectangle = parent.getBounds(null);
+      left += parent.x - parentBounds.left;
+      top += parent.y - parentBounds.top;
+    }
+    style.left = left + "px";
+    style.top = top + "px";
+    setProprietaryStyle(style, 'transform', "rotate(" + rotation + "deg)");
+       // + " translate(" + _transformationMatrix.tx + "px " + _transformationMatrix.ty + "px)");
+    setProprietaryStyle(style, 'transform-origin', "0pt 0pt");
+    // TODO: transform, scale! Use transform: matrix(...)?
+  }
+
+
+  private static const BROWSER_PREFIXES:Object = { '-moz-': 1, '-webkit-': 1, '-o': 1, '-ms-': 1 };
+
+  private static function setProprietaryStyle(style:Style, property:String, value:String):void {
+    for (var browserPrefix:String in BROWSER_PREFIXES) {
+      try {
+        style['setProperty'](browserPrefix + property, value, "");
+      } catch (e:*) {
+        // ignore
+      }
+    }
   }
 
   private static function numberToStyleLength(value:Number):String {
@@ -2021,20 +2168,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
     return length == "auto" ? NaN : Number(length.split("px")[0]);
   }
 
-  /**
-   * @private
-   */
-  protected function createElement():HTMLElement {
-    var elem:HTMLElement = HTMLElement(window.document.createElement(getElementName()));
-    elem.style.position = "absolute";
-    elem.style.width = "100%";
-    elem.style.left = _x + "px";
-    elem.style.top = _y + "px";
-    return elem;
-  }
-
-  protected function makeSelectable(selectable:Boolean):void {
-    var elem:HTMLElement = getElement();
+  private static function makeSelectable(elem:HTMLElement, selectable:Boolean):void {
     if (selectable) {
       elem.style['MozUserSelect'] = 'text';
       elem.style['KhtmlUserSelect'] = 'text';
@@ -2065,117 +2199,5 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
     return "div";
   }
 
-  /**
-   * @private
-   */
-  public function hasElement():Boolean {
-    return !!_elem;
-  }
-
-  /**
-   * @private
-   */
-  public function getElement():HTMLElement {
-    if (!_elem) {
-      _elem = this.createElement();
-    }
-    return _elem;
-  }
-
-  /**
-   * @private
-   */
-  protected function setElement(elem:HTMLElement):void {
-    elem.style.left = _x + "px";
-    elem.style.top = _y + "px";
-    if (_elem) {
-      elem.style.width = _elem.style.width;
-      elem.style.height = _elem.style.height;
-      if (parent) {
-        parent.getElement().replaceChild(elem, _elem);
-      }
-    }
-    _elem = elem;
-  }
-
-  private function getStageOffset():Point {
-    var x:Number = _x;
-    var y:Number = _y;
-    for (var current:DisplayObjectContainer = parent; current; current = current.parent) {
-      x += current.x;
-      y += current.y;
-    }
-    return new Point(x, y);
-  }
-
-  /**
-   * @private
-   */
-  override public function createAncestorChain():Array {
-    var arr:Array = [];
-
-    var p:DisplayObjectContainer = this.parent;
-    while (p != null) {
-      arr.push(p);
-      p = p.parent;
-    }
-
-    return arr;
-  }
-
-  private function addedToStageHandler(event:flash.events.Event):void {
-    removeEventListener(flash.events.Event.ADDED_TO_STAGE, addedToStageHandler);
-    addEventListener(flash.events.Event.REMOVED_FROM_STAGE, removedFromStageHandler);
-
-    // Store a reference to the element in the root dictionary.
-    // This will be used later for easy reference.
-
-    var elem:HTMLElement = getElement();
-
-    // Unique ID
-    if (flashID == null || flashID == undefined || flashID == "") {
-      this.flashID = UIDUtil.createUID();
-    }
-
-    elem['flashID'] = this.flashID;
-
-    elementToDisplayObjectMap[this.flashID] = this;
-  }
-
-  private function removedFromStageHandler(event:flash.events.Event):void {
-    addEventListener(flash.events.Event.ADDED_TO_STAGE, addedToStageHandler);
-    removeEventListener(flash.events.Event.REMOVED_FROM_STAGE, removedFromStageHandler);
-
-    // Nuke the dictionary reference.
-    delete elementToDisplayObjectMap[this.flashID];
-  }
-
-  /**
-   * @private
-   */
-  public function DisplayObject() {
-    super();
-    _filters = [];
-    _blendMode = BlendMode.NORMAL;
-
-    addEventListener(flash.events.Event.ADDED_TO_STAGE, addedToStageHandler);
-  }
-
-  private static var elementToDisplayObjectMap:Dictionary = new Dictionary();
-  private var flashID:String;
-
-  private var _elem:HTMLElement;
-  private var _name:String = null;
-  private var _x:Number = 0, _y:Number = 0;
-  protected var _width:Number = 0, _height:Number = 0; // unscaled
-  private var _scaleX:Number = 1;
-  private var _scaleY:Number = 1;
-  private var _transform:Transform;
-  private var _rotation:Number = 0;
-  private var _visible:Boolean = true;
-  private var _alpha:Number = 1;
-  private var _filters:Array;
-  private var _cacheAsBitmap:Boolean;
-  private var _blendMode:String;
 }
 }

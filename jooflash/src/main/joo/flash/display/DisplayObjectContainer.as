@@ -1,10 +1,13 @@
 package flash.display {
 import flash.events.Event;
 import flash.events.MouseEvent;
+import flash.geom.Matrix;
 import flash.geom.Point;
+import flash.geom.Rectangle;
 import flash.text.TextSnapshot;
 
-import js.Element;
+import js.Collection;
+
 import js.HTMLElement;
 
 /**
@@ -159,7 +162,7 @@ public class DisplayObjectContainer extends InteractiveObject {
    * <li><code>new MovieClip()</code></li></ul>
    */
   public function DisplayObjectContainer() {
-    this.children = [];
+    this.children = new <DisplayObject>[];
     super();
   }
 
@@ -267,25 +270,13 @@ public class DisplayObjectContainer extends InteractiveObject {
    * @private
    */
   public function internalAddChildAt(child:DisplayObject, index:int):void {
-    var containerElement:Element = this.getElement();
-    var childElement:Element = child.getElement();
-    assert(containerElement.childNodes.length === getChildIndexOffset() + children.length);
     var oldParent:DisplayObjectContainer = child.parent;
     if (oldParent) {
       oldParent.removeChild(child);
-    } else {
-      assert(!childElement.parentNode || childElement.parentNode === childElement.ownerDocument.body);
     }
     var refChild:DisplayObject = this.children[index];
     this.children.splice(index, 0, child);
     child.setParent(this);
-    // also add to DOM:
-    if (refChild) {
-      containerElement.insertBefore(childElement, refChild.getElement());
-    } else {
-      containerElement.appendChild(childElement);
-    }
-    assert(containerElement.childNodes.length === getChildIndexOffset() + children.length);
   }
 
   /**
@@ -592,15 +583,8 @@ public class DisplayObjectContainer extends InteractiveObject {
    * </listing>
    */
   public function removeChildAt(index:int):DisplayObject {
-    var containerElement:HTMLElement = getElement();
-    assert(containerElement.childNodes.length === getChildIndexOffset() + children.length);
     var child:DisplayObject = children.splice(index, 1)[0];
     child.setParent(null);
-    // if successful, remove in DOM, too:
-    var childElement:Element = child.getElement();
-    containerElement.removeChild(childElement);
-    assert(!childElement.parentNode);
-    assert(containerElement.childNodes.length === getChildIndexOffset() + children.length);
     return child;
   }
 
@@ -739,23 +723,10 @@ public class DisplayObjectContainer extends InteractiveObject {
     if (index1 > index2) {
       swapChildrenAt(index2, index1);
     } else if (index1 < index2) {
-      var containerElement:Element = this.getElement();
-      assert(containerElement.childNodes.length === children.length);
       var child1:DisplayObject = this.children[index1];
       var child2:DisplayObject = this.children[index2];
       children.splice(index1, 1, child2);
       children.splice(index2, 1, child1);
-      // also change in DOM, mind to insert left element first:
-      var child1Element:Element = child1.getElement();
-      var child2Element:Element = child2.getElement();
-      var refElement:Element = Element(child2Element.nextSibling); // since index1 < index2, refElement cannot be child1Element
-      containerElement.insertBefore(child2Element, child1Element); // this removes child2Element at its old position, but we still have refElement
-      if (refElement) {
-        containerElement.insertBefore(child1Element, refElement);
-      } else {
-        containerElement.appendChild(child1Element);
-      }
-      assert(containerElement.childNodes.length === children.length);
     }
   }
 
@@ -790,6 +761,121 @@ public class DisplayObjectContainer extends InteractiveObject {
   }
 
   // ************************** Jangaroo part **************************
+
+  override protected function getBoundsTransformed(matrix:Matrix = null, returnRectangle:Rectangle = null):Rectangle {
+    if (returnRectangle == null) {
+      returnRectangle = new Rectangle();
+    }
+
+    var children:Vector.<DisplayObject> = getBoundsChildren();
+    if (children.length == 0) {
+      return super.getBoundsTransformed(matrix, returnRectangle);
+    }
+
+    var left:Number = Number.MAX_VALUE;
+    var top:Number = Number.MAX_VALUE;
+    var right:Number = Number.MIN_VALUE;
+    var bottom:Number = Number.MIN_VALUE;
+
+    var childrenLength:int = children.length;
+
+    var _tmpMatrix : Matrix = new Matrix();
+    for (var i:int = 0; i < childrenLength; i++) {
+      var childMatrix : Matrix = children[i]._transformationMatrix;
+      if (matrix) {
+        _tmpMatrix.copyFromAndConcat(childMatrix, matrix);
+        childMatrix = _tmpMatrix;
+      }
+
+      var rectangle:Rectangle = children[i].getBoundsTransformed(childMatrix, returnRectangle);
+
+      if (rectangle.width > 0 && rectangle.height > 0) {
+        if (rectangle.x < left) {
+          left = rectangle.x;
+        }
+        if (rectangle.y < top) {
+          top = rectangle.y;
+        }
+        if (rectangle.right > right) {
+          right = rectangle.right;
+        }
+        if (rectangle.bottom > bottom) {
+          bottom = rectangle.bottom;
+        }
+      }
+    }
+
+    returnRectangle.x = left;
+    returnRectangle.y = top;
+    returnRectangle.width = right - left;
+    returnRectangle.height = bottom - top;
+
+    return returnRectangle;
+  }
+
+  internal function getBoundsChildren():Vector.<DisplayObject> {
+    return children;
+  }
+
+  override public function _findDirtyLeaf():Object {
+    for each (var child:DisplayObject in children) {
+      if (child.visible && child.isTransformChanged()) {
+        return child;
+      }
+      var dirtyLeaf:Object = child._findDirtyLeaf();
+      if (dirtyLeaf) {
+        return dirtyLeaf;
+      }
+    }
+    return null;
+  }
+
+  private static function isChildChanged(displayObject:DisplayObject):Boolean {
+    return displayObject.visible && (displayObject.isTransformChanged() || displayObject.isBitmapCacheDirty());
+  }
+
+  override protected function isBitmapCacheDirty():Boolean {
+    return super.isBitmapCacheDirty() || children.some(isChildChanged);
+  }
+
+  override protected function _doRender(renderState:RenderState):void {
+    for each (var child:DisplayObject in children) {
+      if (child.visible) {
+        renderState.renderDisplayObject(child);
+      }
+    }
+  }
+
+  protected function updateContainerElement(element:HTMLElement, bounds:Rectangle):void {
+    element.style.overflow = "hidden";
+    return super.updateElement(element, bounds);
+  }
+
+  override protected function updateElement(element:HTMLElement, bounds:Rectangle):void {
+    updateContainerElement(element, bounds);
+    var childElements:Vector.<HTMLElement> = new <HTMLElement>[];
+    var oldChildren:Collection = element.childNodes;
+    var oldChildIndex:int = 0;
+    for each (var child:DisplayObject in children) {
+      if (child.visible) {
+        var childElement:HTMLElement = child.renderAsDom();
+        if (oldChildIndex !== -1) {
+          if (oldChildren.item(oldChildIndex) === childElement) {
+            ++oldChildIndex;
+          } else {
+            oldChildIndex = -1;
+          }
+        }
+        childElements.push(childElement);
+      }
+    }
+    if (oldChildIndex === -1) {
+      element.innerHTML = ""; // fastest way to remove all child nodes
+      for each (var childElement2:HTMLElement in childElements) {
+        element.appendChild(childElement2);
+      }
+    }
+  }
 
   /**
    * @private
@@ -828,7 +914,36 @@ public class DisplayObjectContainer extends InteractiveObject {
     return false;
   }
 
-  private var children:Array/*<DisplayObject>*/;
+  override protected function hitTestInput(localX:Number, localY:Number):InteractiveObject {
+    var hit:InteractiveObject = null;
+
+    for (var i:int = children.length - 1; i >= 0; i--) {
+      var child:DisplayObject  = children[i];
+
+      if (child.visible && child instanceof InteractiveObject) {
+        var matrix:Matrix = child._transformationMatrix;
+
+        var deltaX:Number = localX - matrix.tx;
+        var deltaY:Number = localY - matrix.ty;
+        var det : Number = matrix.a*matrix.d - matrix.c*matrix.b;
+        var childX:Number = (matrix.d * deltaX - matrix.c * deltaY) / det;
+        var childY:Number = (matrix.a * deltaY - matrix.b * deltaX) / det;
+
+        var displayObject:InteractiveObject = InteractiveObject(child).hitTestInput(childX, childY);
+
+        if (displayObject) {
+          if (displayObject.mouseEnabled) {
+            return _mouseChildren ? displayObject : this;
+          }
+          hit = this;
+        }
+      }
+    }
+
+    return hit || super.hitTestInput(localX, localY);
+  }
+
+  private var children:Vector.<DisplayObject>;
   private var _mouseChildren:Boolean = true;
 }
 }

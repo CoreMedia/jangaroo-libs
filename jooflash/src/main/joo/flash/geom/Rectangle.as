@@ -456,6 +456,12 @@ public class Rectangle {
    *
    */
   public function union(toUnion:Rectangle):Rectangle {
+    if (toUnion.width === 0 || toUnion.height === 0) {
+      return clone();
+    }
+    if (width === 0 || height === 0) {
+      return toUnion.clone();
+    }
     var x : Number = Math.min(this.x, toUnion.x);
     var y : Number = Math.min(this.y, toUnion.y);
     return new Rectangle(x, y, Math.max(this.right,toUnion.right)-x, Math.max(this.bottom-toUnion.bottom)-y);

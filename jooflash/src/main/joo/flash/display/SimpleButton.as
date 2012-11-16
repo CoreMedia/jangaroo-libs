@@ -39,7 +39,6 @@ public class SimpleButton extends InteractiveObject {
    */
   public function set enabled(value:Boolean):void {
     _enabled = value;
-    getElement().disabled = !value;
   }
 
   /**
@@ -135,13 +134,6 @@ public class SimpleButton extends InteractiveObject {
   }
 
   // ************************** Jangaroo part **************************
-
-  /**
-   * @private
-   */
-  override protected function getElementName():String {
-    return "button";
-  }
 
   private var _enabled : Boolean = true;
 }

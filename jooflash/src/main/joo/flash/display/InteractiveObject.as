@@ -2,6 +2,7 @@ package flash.display {
 import flash.accessibility.AccessibilityImplementation;
 import flash.events.Event;
 import flash.events.MouseEvent;
+import flash.geom.Matrix;
 import flash.geom.Rectangle;
 import flash.ui.ContextMenu;
 
@@ -361,7 +362,6 @@ public class InteractiveObject extends DisplayObject {
   public function set mouseEnabled(value:Boolean):void {
     if (_mouseEnabled != value) {
       _mouseEnabled = value;
-      makeSelectable(value);
       // TODO: what's the exact difference between mouseEnabled and TextField#selecteable?
       // TODO: need to cancel more mouse events or even key events?
     }
@@ -449,6 +449,7 @@ public class InteractiveObject extends DisplayObject {
     if (this['constructor'] === InteractiveObject) {
       throw new ArgumentError();
     }
+    doubleClickEnabled = false;
   }
 
   /**
@@ -484,16 +485,8 @@ public class InteractiveObject extends DisplayObject {
     }
   }
 
-  /**
-   * @private
-   */
-  override internal function internalTransformAndDispatch(event:js.Event):Boolean {
-    var type:String = DisplayObject.DOM_EVENT_TO_MOUSE_EVENT[event.type];
-    if (type && !mouseEnabled) {
-      return false;
-    } else {
-      return super.internalTransformAndDispatch(event);
-    }
+  protected function hitTestInput(localX:Number, localY:Number):InteractiveObject {
+    return getBoundsTransformed().contains(localX, localY) ? this : null;
   }
 
   private var _mouseEnabled:Boolean = true;

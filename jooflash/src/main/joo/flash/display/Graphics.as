@@ -1,11 +1,10 @@
 package flash.display {
 import flash.geom.Matrix;
 import flash.geom.Point;
+import flash.geom.Rectangle;
 
 import js.CanvasGradient;
 import js.CanvasRenderingContext2D;
-import js.HTMLCanvasElement;
-import js.ImageData;
 
 /**
  * The Graphics class contains a set of methods that you can use to create a vector shape. Display objects that support drawing include Sprite and Shape objects. Each of these classes includes a <code>graphics</code> property that is a Graphics object. The following are among those helper functions provided for ease of use: <code>drawRect()</code>, <code>drawRoundRect()</code>, <code>drawCircle()</code>, and <code>drawEllipse()</code>.
@@ -91,7 +90,12 @@ public final class Graphics {
    * </listing>
    */
   public function beginBitmapFill(bitmap:BitmapData, matrix:Matrix = null, repeat:Boolean = true, smooth:Boolean = false):void {
-    _beginFill(createPattern(bitmap, matrix, repeat, smooth));
+    commands.push(function (context:CanvasRenderingContext2D):void {
+      doEndFill(context);
+      // TODO: matrix, smooth
+      context.fillStyle = context.createPattern(bitmap.getImage(), repeat ? "repeat" : "no-repeat");
+      doFill = true;
+    });
   }
 
   /**
@@ -108,7 +112,11 @@ public final class Graphics {
    * <a href="http://www.adobe.com/go/learn_as3_usingexamples_en">How to use this example</a>Please see the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/Graphics.html#includeExamplesSummary">example</a> at the end of this class for an illustration of how to use this method.
    */
   public function beginFill(color:uint, alpha:Number = 1.0):void {
-    _beginFill(toRGBA(color, alpha));
+    commands.push(function (context:CanvasRenderingContext2D):void {
+      doEndFill(context);
+      context.fillStyle = toRGBA(color, alpha);
+      doFill = true;
+    });
   }
 
   /**
@@ -178,8 +186,12 @@ public final class Graphics {
    *
    */
   public function beginGradientFill(type:String, colors:Array, alphas:Array, ratios:Array, matrix:Matrix = null, spreadMethod:String = "pad", interpolationMethod:String = "rgb", focalPointRatio:Number = 0):void {
-    _beginFill(createGradientStyle(type, colors, alphas, ratios,
-      matrix, spreadMethod, interpolationMethod, focalPointRatio));
+    commands.push(function(context:CanvasRenderingContext2D):void {
+      doEndFill(context);
+      context.fillStyle = createGradientStyle(context, type, colors, alphas, ratios,
+              matrix, spreadMethod, interpolationMethod, focalPointRatio);
+      doFill = true;
+    });
   }
 
   /**
@@ -214,15 +226,10 @@ public final class Graphics {
    * Clears the graphics that were drawn to this Graphics object, and resets fill and line style settings.
    */
   public function clear():void {
-    this.lineStyle();
-    this.context.save();
-    this.context.setTransform(1, 0, 0, 1, 0, 0);
-    this.context.fillStyle = "#000000";
-    this.context.clearRect(0, 0, this.context.canvas.width, this.context.canvas.height);
-    this.context.restore();
-    this.fillCommands = null;
-    this.context.moveTo(0, 0);
-    empty = true;
+    commands.length = 0;
+    x = y = 0;
+    minX = maxX = minY = maxY = NaN;
+    dirty = true;
   }
 
   /**
@@ -296,20 +303,39 @@ public final class Graphics {
    * </listing></div>
    */
   public function curveTo(controlX:Number, controlY:Number, anchorX:Number, anchorY:Number):void {
-    // TODO: more accurate computation of maximum x and y coordinate occupied by this curve!
     createSpace(x, y);
-    createSpace(controlX, controlY);
     createSpace(anchorX, anchorY);
-    scheduleCommand(function():void {
-      x = anchorX;
-      y = anchorY;
+    createQuadraticBezierSpace(x, controlX, anchorX,
+            controlX, anchorX, controlY, anchorY);
+    createQuadraticBezierSpace(y, controlY, anchorY,
+            controlX, anchorX, controlY, anchorY);
+
+    this.x = anchorX;
+    this.y = anchorY;
+    commands.push(function(context:CanvasRenderingContext2D):void {
       context.quadraticCurveTo(controlX, controlY, anchorX, anchorY);
-      if (!fillCommands && thickness) {
-        // draw immediately:
-        context.stroke();
+      if (drawPathIfNoFill(context)) {
+        context.moveTo(anchorX, anchorY);
       }
-      empty = false;
     });
+  }
+
+  private function createQuadraticBezierSpace(a:Number, b:Number, c:Number,
+                                              controlX:Number, anchorX:Number, controlY:Number, anchorY:Number):void {
+    // algorithm derived from http://processingjs.nihongoresources.com/bezierinfo/
+
+    // compute the value for the first derivative of the quadratic bezier function at time=t
+    var denominator:Number = a - 2 * b + c;
+    if (denominator !== 0) {
+      var t:Number = (a - b) / denominator;
+      if (t >= 0 && t <= 1) {
+        // compute the value for the quadratic bezier function at time=t
+        var mt:Number = 1 - t;
+        var tx:Number = mt * mt * x + 2 * mt * t * controlX + t * t * anchorX;
+        var ty:Number = mt * mt * y + 2 * mt * t * controlY + t * t * anchorY;
+        createSpace(tx, ty);
+      }
+    }
   }
 
   /**
@@ -331,18 +357,13 @@ public final class Graphics {
   public function drawCircle(x:Number, y:Number, radius:Number):void {
     createSpace(x - radius, y - radius);
     createSpace(x + radius, y + radius);
-    createCanvasSpace();
-    this.context.moveTo(x + radius, y);
-    this.context.arc(x, y, radius, 0, 2 * Math.PI, false);
-    if (fillCommands) {
-      this.context.fill();
-    }
-    if (!isNaN(thickness)) {
-      this.context.stroke();
-    }
-    empty = false;
-    this.context.beginPath();
-    this.context.moveTo(x, y);
+    commands.push(function(context:CanvasRenderingContext2D):void {
+      context.moveTo(x + radius, y);
+      context.arc(x, y, radius, 0, 2 * Math.PI, false);
+      if (drawPathIfNoFill(context)) {
+        context.moveTo(x, y);
+      }
+    });
   }
 
   /**
@@ -413,30 +434,23 @@ public final class Graphics {
   public function drawEllipse(x:Number, y:Number, width:Number, height:Number):void {
     createSpace(x - width, y - height);
     createSpace(x + width, y + height);
-    createCanvasSpace();
+    commands.push(function(context:CanvasRenderingContext2D):void {
+      var rx:Number = width / 2;
+      var ry:Number = height / 2;
 
-    var rx:Number = width / 2;
-    var ry:Number = height / 2;
+      var cx:Number = x + rx;
+      var cy:Number = y + ry;
 
-    var cx:Number = x + rx;
-    var cy:Number = y + ry;
+      context.moveTo(cx, cy - ry);
+      context.bezierCurveTo(cx + (KAPPA * rx), cy - ry, cx + rx, cy - (KAPPA * ry), cx + rx, cy);
+      context.bezierCurveTo(cx + rx, cy + (KAPPA * ry), cx + (KAPPA * rx), cy + ry, cx, cy + ry);
+      context.bezierCurveTo(cx - (KAPPA * rx), cy + ry, cx - rx, cy + (KAPPA * ry), cx - rx, cy);
+      context.bezierCurveTo(cx - rx, cy - (KAPPA * ry), cx - (KAPPA * rx), cy - ry, cx, cy - ry);
 
-    context.beginPath();
-    context.moveTo(cx, cy - ry);
-    context.bezierCurveTo(cx + (KAPPA * rx), cy - ry, cx + rx, cy - (KAPPA * ry), cx + rx, cy);
-    context.bezierCurveTo(cx + rx, cy + (KAPPA * ry), cx + (KAPPA * rx), cy + ry, cx, cy + ry);
-    context.bezierCurveTo(cx - (KAPPA * rx), cy + ry, cx - rx, cy + (KAPPA * ry), cx - rx, cy);
-    context.bezierCurveTo(cx - rx, cy - (KAPPA * ry), cx - (KAPPA * rx), cy - ry, cx, cy - ry);
-
-    if (fillCommands) {
-      this.context.fill();
-    }
-    if (!isNaN(thickness)) {
-      this.context.stroke();
-    }
-    empty = false;
-    this.context.beginPath();
-    this.context.moveTo(x, y);
+      if (drawPathIfNoFill(context)) {
+        context.moveTo(x, y);
+      }
+  });
   }
 
   /**
@@ -613,14 +627,18 @@ public final class Graphics {
   public function drawRect(x:Number, y:Number, width:Number, height:Number):void {
     createSpace(x, y);
     createSpace(x + width, y + height);
-    createCanvasSpace();
-    if (this.fillCommands) {
-      this.context.fillRect(x, y, width, height);
-    }
-    if (!isNaN(thickness)) {
-      this.context.strokeRect(x, y, width, height);
-    }
-    empty = false;
+    commands.push(function(context:CanvasRenderingContext2D):void {
+      if (doFill) {
+        context.moveTo(x, y);
+        context.lineTo(x + width, y);
+        context.lineTo(x + width, y + height);
+        context.lineTo(x, y + height);
+        context.lineTo(x, y);
+      } else if (!isNaN(_thickness)) {
+        context.strokeRect(x, y, width, height);
+        context.moveTo(x, y);
+      }
+    });
   }
 
   /**
@@ -646,39 +664,35 @@ public final class Graphics {
    */
   public function drawRoundRect(x:Number, y:Number, width:Number, height:Number, ellipseWidth:Number, ellipseHeight:Number = NaN):void {
     createSpace(x, y);
-    var x_r:Number = x + width;
-    var y_b:Number = y + height;
-    createSpace(x_r, y_b);
-    createCanvasSpace();
+    createSpace(x + width, y + height);
     if (ellipseHeight == 0 || ellipseWidth == 0) {
-      this.drawRect(x, y, width, height);
-      return;
+      drawRect(x, y, width, height);
+    } else {
+      commands.push(function(context:CanvasRenderingContext2D):void {
+        var x_r:Number = x + width;
+        var y_b:Number = y + height;
+        if (isNaN(ellipseHeight)) {
+          ellipseHeight = ellipseWidth;
+        }
+        var x_lw:Number = x + ellipseWidth;
+        var x_rw:Number = x_r - ellipseWidth;
+        var y_tw:Number = y + ellipseHeight;
+        var y_bw:Number = y_b - ellipseHeight;
+
+        context.moveTo(x_lw, y);
+        context.lineTo(x_rw, y);
+        context.quadraticCurveTo(x_r, y, x_r, y_tw);
+        context.lineTo(x_r, y_bw);
+        context.quadraticCurveTo(x_r, y_b, x_rw, y_b);
+        context.lineTo(x_lw, y_b);
+        context.quadraticCurveTo(x, y_b, x, y_bw);
+        context.lineTo(x, y_tw);
+        context.quadraticCurveTo(x, y, x_lw, y);
+        if (drawPathIfNoFill(context)) {
+          context.moveTo(x, y);
+        }
+      });
     }
-    if (isNaN(ellipseHeight)) {
-      ellipseHeight = ellipseWidth;
-    }
-    var x_lw:Number = x + ellipseWidth;
-    var x_rw:Number = x_r - ellipseWidth;
-    var y_tw:Number = y + ellipseHeight;
-    var y_bw:Number = y_b - ellipseHeight;
-    this.context.beginPath();
-    this.context.moveTo(x_lw, y);
-    this.context.lineTo(x_rw, y);
-    this.context.quadraticCurveTo(x_r, y, x_r, y_tw);
-    this.context.lineTo(x_r, y_bw);
-    this.context.quadraticCurveTo(x_r, y_b, x_rw, y_b);
-    this.context.lineTo(x_lw, y_b);
-    this.context.quadraticCurveTo(x, y_b, x, y_bw);
-    this.context.lineTo(x, y_tw);
-    this.context.quadraticCurveTo(x, y, x_lw, y);
-    this.context.closePath();
-    if (fillCommands) {
-      this.context.fill();
-    }
-    if (!isNaN(thickness)) {
-      this.context.stroke();
-    }
-    empty = false;
   }
 
   /**
@@ -699,34 +713,29 @@ public final class Graphics {
    * @param bottomRightRadius The radius of the bottom-right corner, in pixels.
    */
   public function drawRoundRectComplex(x:Number, y:Number, width:Number, height:Number, topLeftRadius:Number, topRightRadius:Number, bottomLeftRadius:Number, bottomRightRadius:Number):void {
-    createSpace(x, y);
-    var x_r:Number = x + width;
-    var y_b:Number = y + height;
-    createSpace(x_r, y_b);
-    createCanvasSpace();
     if (topLeftRadius == 0 && topRightRadius == 0 && bottomLeftRadius == 0 && bottomRightRadius == 0) {
-      this.drawRect(x, y, width, height);
-      return;
+      drawRect(x, y, width, height);
+    } else {
+      createSpace(x, y);
+      createSpace(x + width, y + height);
+      commands.push(function(context:CanvasRenderingContext2D):void {
+        var x_r:Number = x + width;
+        var y_b:Number = y + height;
+        var x_tl:Number = x + topLeftRadius;
+        context.moveTo(x_tl, y);
+        context.lineTo(x_r - topRightRadius, y);
+        context.quadraticCurveTo(x_r, y, x_r, y + topRightRadius);
+        context.lineTo(x_r, y_b - bottomRightRadius);
+        context.quadraticCurveTo(x_r, y_b, x_r - bottomRightRadius, y_b);
+        context.lineTo(x + bottomLeftRadius, y_b);
+        context.quadraticCurveTo(x, y_b, x, y_b - bottomLeftRadius);
+        context.lineTo(x, y + topLeftRadius);
+        context.quadraticCurveTo(x, y, x_tl, y);
+        if (drawPathIfNoFill(context)) {
+          context.moveTo(x, y);
+        }
+      });
     }
-    this.context.beginPath();
-    var x_tl:Number = x + topLeftRadius;
-    this.context.moveTo(x_tl, y);
-    this.context.lineTo(x_r - topRightRadius, y);
-    this.context.quadraticCurveTo(x_r, y, x_r, y + topRightRadius);
-    this.context.lineTo(x_r, y_b - bottomRightRadius);
-    this.context.quadraticCurveTo(x_r, y_b, x_r - bottomRightRadius, y_b);
-    this.context.lineTo(x + bottomLeftRadius, y_b);
-    this.context.quadraticCurveTo(x, y_b, x, y_b - bottomLeftRadius);
-    this.context.lineTo(x, y + topLeftRadius);
-    this.context.quadraticCurveTo(x, y, x_tl, y);
-    this.context.closePath();
-    if (fillCommands) {
-      this.context.fill();
-    }
-    if (!isNaN(thickness)) {
-      this.context.stroke();
-    }
-    empty = false;
   }
 
   /**
@@ -757,21 +766,17 @@ public final class Graphics {
    *
    */
   public function endFill():void {
-    if (fillCommands) {
-      createCanvasSpace();
-      this.context.beginPath();
-      for (var i:int = 0; i < fillCommands.length; i++) {
-        fillCommands[i]();
+    commands.push(doEndFill);
+  }
+
+  private function doEndFill(context:CanvasRenderingContext2D):void {
+    if (doFill) {
+      doFill = false;
+      context.fill();
+      if (!isNaN(_thickness)) {
+        context.stroke();
       }
-      if (x !== startX || y !== startY) {
-        this.context.lineTo(startX, startY);
-      }
-      this.context.closePath();
-      this.context.fill();
-      if (!isNaN(thickness)) {
-        this.context.stroke();
-      }
-      this.fillCommands = null;
+      context.beginPath();
     }
   }
 
@@ -881,8 +886,10 @@ public final class Graphics {
    * </listing>
    */
   public function lineGradientStyle(type:String, colors:Array, alphas:Array, ratios:Array, matrix:Matrix = null, spreadMethod:String = "pad", interpolationMethod:String = "rgb", focalPointRatio:Number = 0):void {
-    this.context.strokeStyle = createGradientStyle(type, colors, alphas, ratios,
-      matrix, spreadMethod, interpolationMethod, focalPointRatio);
+    commands.push(function(context:CanvasRenderingContext2D):void {
+      context.strokeStyle = createGradientStyle(context, type, colors, alphas, ratios,
+        matrix, spreadMethod, interpolationMethod, focalPointRatio);
+    });
   }
 
   /**
@@ -958,12 +965,15 @@ public final class Graphics {
    * <a href="http://www.adobe.com/go/learn_as3_usingexamples_en">How to use this example</a>Please see the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/Graphics.html#lineTo()">lineTo()</a> or <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/Graphics.html#moveTo()">moveTo()</a> method's example for illustrations of how to use the <code>getStyle()</code> method.
    */
   public function lineStyle(thickness:Number = NaN, color:uint = 0, alpha:Number = 1.0, pixelHinting:Boolean = false, scaleMode:String = "normal", caps:String = null, joints:String = null, miterLimit:Number = 3):void {
-    this.thickness = thickness;
-    this.context.lineWidth = thickness > 0 ? thickness : 1;
-    this.context.strokeStyle = toRGBA(color, alpha);
-    this.context.lineCap = caps || CapsStyle.ROUND;
-    this.context.lineJoin = joints || JointStyle.ROUND;
-    this.context.miterLimit = miterLimit;
+    _thickness = thickness; // for min/max x/y computation!
+    commands.push(function(context:CanvasRenderingContext2D):void {
+      _thickness = thickness; // again while drawing!
+      context.lineWidth = thickness > 0 ? thickness : 1;
+      context.strokeStyle = toRGBA(color, alpha);
+      context.lineCap = caps || CapsStyle.ROUND;
+      context.lineJoin = joints || JointStyle.ROUND;
+      context.miterLimit = miterLimit;
+    });
   }
 
   /**
@@ -1007,20 +1017,13 @@ public final class Graphics {
   public function lineTo(x:Number, y:Number):void {
     createSpace(this.x, this.y);
     createSpace(x, y);
-    scheduleCommand(function():void {
-      if (!fillCommands) {
-        context.beginPath();
-        restorePosition();
-      }
+    this.x = x;
+    this.y = y;
+    commands.push(function(context:CanvasRenderingContext2D):void {
       context.lineTo(x, y);
-      setPosition(x, y);
-      if (!fillCommands) {
-        context.closePath();
-        if (!isNaN(thickness)) {
-          context.stroke();
-        }
+      if (drawPathIfNoFill(context)) {
+        context.moveTo(x, y);
       }
-      empty = false;
     });
   }
 
@@ -1061,68 +1064,35 @@ public final class Graphics {
    * </listing>
    */
   public function moveTo(x:Number, y:Number):void {
-    this.startX = x;
-    this.startY = y;
-    setPosition(x, y);
-    scheduleCommand(function():void {
+    this.x = x;
+    this.y = y;
+    commands.push(function(context:CanvasRenderingContext2D):void {
       context.moveTo(x, y);
     });
   }
 
   // ************************** Jangaroo part **************************
 
-  private var context:CanvasRenderingContext2D;
-  private var thickness:Number;
-  private var fillCommands:Array;
-  private var minX:Number;
-  private var minY:Number;
-  private var maxX:Number;
-  private var maxY:Number;
-  private var oldIntMinX:int = 0;
-  private var oldIntMinY:int = 0;
-  private var empty:Boolean = true; // anything drawn into canvas?
-  private var x:Number = 0;
-  private var y:Number = 0;
-  private var startX:Number = 0;
-  private var startY:Number = 0;
+  private var commands:Vector.<Function>;
+  private var x: Number;
+  private var y: Number;
+  private var _thickness:Number;
+  internal var minX:Number;
+  internal var minY:Number;
+  internal var maxX:Number;
+  internal var maxY:Number;
+  internal var dirty:Boolean;
+  private var doFill: Boolean;
 
   /**
    * @private
    */
   public function Graphics() {
-    var canvas:HTMLCanvasElement = window.document.createElement("canvas") as HTMLCanvasElement;
-    canvas.width = 1;
-    canvas.height = 1;
-    canvas.style.position = "absolute";
-
-    this.context = CanvasRenderingContext2D(canvas.getContext("2d"));
-    // switch to Flash defaults:
-    this.context.beginPath();
-    this.context.moveTo(0, 0);
-    this.context.lineWidth = 1;
-    this.context.lineCap = CapsStyle.ROUND;
-    this.context.lineJoin = JointStyle.ROUND;
-    this.context.miterLimit = 3;
-  }
-
-  internal function get canvas():HTMLCanvasElement {
-    return context.canvas;
-  }
-
-  internal function get renderingContext():CanvasRenderingContext2D {
-    return context;
-  }
-
-  public function get width():Number {
-    return isNaN(minX) ? 0 : maxX - minX + 1;
-  }
-
-  public function get height():Number {
-    return isNaN(minY) ? 0 : maxY - minY + 1;
+    commands = new Vector.<Function>();
   }
 
   private function createSpace(x:Number, y:Number):void {
-    var thickness:Number = this.thickness || 0; // this.thickness may be NaN!
+    var thickness:Number = _thickness || 0; // _thickness may be NaN!
     var outerBorderThickness:Number = thickness / 2;
     if (isNaN(minX)) {
       minX = x - outerBorderThickness;
@@ -1135,63 +1105,14 @@ public final class Graphics {
       maxX = Math.max(maxX, x + outerBorderThickness);
       maxY = Math.max(maxY, y + outerBorderThickness);
     }
+    dirty = true;
   }
 
-  private function createCanvasSpace():void {
-    var imageData:ImageData;
-    var canvas:HTMLCanvasElement = this.canvas;
-    var intMinX:int = Math.floor(minX);
-    var intMinY:int = Math.floor(minY);
-    var intWidth:int = Math.ceil(maxX) - intMinX + 1;
-    var intHeight:int = Math.ceil(maxY) - intMinY + 1;
-    if (intWidth > canvas.width || intHeight > canvas.height) {
-      // backup all properties that will be reset by setting width / height:
-      var backupStyle:Object = {
-        fillStyle:   context.fillStyle,
-        lineWidth:   context.lineWidth,
-        strokeStyle: context.strokeStyle,
-        lineCap:     context.lineCap,
-        lineJoin:    context.lineJoin,
-        miterLimit:  context.miterLimit
-      };
-      imageData = empty ? null : context.getImageData(0, 0, canvas.width, canvas.height);
-      if (intWidth > canvas.width) {
-        canvas.width = intWidth;
-      }
-      if (intHeight > canvas.height) {
-        canvas.height = intHeight;
-      }
-      context.translate(-intMinX, -intMinY);
-      canvas.style.left = intMinX + "px";
-      canvas.style.top = intMinY + "px";
-      // restore image data:
-      if (imageData) {
-        context.putImageData(imageData, oldIntMinX - intMinX, oldIntMinY - intMinY);
-      }
-      // restore context properties:
-      for (var m:String in backupStyle) {
-        context[m] = backupStyle[m];
-      }
-      //trace("[INFO] enlarged canvas to " + canvas.width + " x " + canvas.height);
-    }
-    oldIntMinX = intMinX;
-    oldIntMinY = intMinY;
-  }
-
-  private function _beginFill(fillStyle:Object):void {
-    endFill();
-    context.fillStyle = fillStyle;
-    fillCommands = [];
-  }
-
-  private function createPattern(bitmap:BitmapData, matrix:Matrix, repeat:Boolean, smooth:Boolean):Object {
-    // TODO: matrix, smooth
-    return context.createPattern(bitmap.getElement(), repeat ? "repeat" : "no-repeat");
-  }
-
-  private function createGradientStyle(type:String, colors:Array, alphas:Array, ratios:Array,
-                                       matrix:Matrix = null, spreadMethod:String = "pad",
-                                       interpolationMethod:String = "rgb", focalPointRatio:Number = 0):CanvasGradient {
+  private static function createGradientStyle(context:CanvasRenderingContext2D,
+                                       type:String, colors:Array, alphas:Array, ratios:Array,
+                                       matrix:Matrix = null, spreadMethod:String = SpreadMethod.PAD,
+                                       interpolationMethod:String = InterpolationMethod.RGB,
+                                       focalPointRatio:Number = 0):CanvasGradient {
     // TODO: support spreadMethod != "pad" (medium), interpolationMethod == "rgb_linear" (hard)
     // TODO: check enumeration-typed parameters: throw new ArgumentError("<param-name>","2002");
     var gradient:CanvasGradient;
@@ -1222,14 +1143,14 @@ public final class Graphics {
       }
       var x2:Number = p0.x + (p0.x - x1);
       var y2:Number = p0.y + (p0.y - y1);
-      gradient = this.context.createLinearGradient(x1, y1, x2, y2);
+      gradient = context.createLinearGradient(x1, y1, x2, y2);
     } else { // type == GradientType.RADIAL
       // TODO: support squashed box, i.e. ellipse, not circle! But how? Somehow delegate transform to fill...
       var rx:Number = p1.x - p0.x;
       var ry:Number = p1.y - p0.y;
       // point distance with optimizations for two typical special cases:
       var r:Number = rx == 0 ? Math.abs(ry) : ry == 0 ? Math.abs(rx) : Math.sqrt(rx * rx + ry * ry);
-      gradient = this.context.createRadialGradient(p2.x, p2.y, 0, p0.x, p0.y, r);
+      gradient = context.createRadialGradient(p2.x, p2.y, 0, p0.x, p0.y, r);
     }
     for (var i:uint = 0; i < colors.length; ++i) {
       gradient.addColorStop(ratios[i] / 255, toRGBA(colors[i], alphas[i]));
@@ -1247,25 +1168,64 @@ public final class Graphics {
 
   }
 
-  private function setPosition(x:Number, y:Number):void {
-    this.x = x;
-    this.y = y;
-  }
-
-  private function restorePosition():void {
-    context.moveTo(x, y);
-  }
-
-  private function scheduleCommand(command:Function):void {
-    if (fillCommands) {
-      fillCommands.push(command);
-    } else {
-      createCanvasSpace();
-      command();
-    }
-  }
-
   private static const KAPPA:Number = 4 * ((Math.sqrt(2) - 1) / 3);
 
+  public function _render(renderState:RenderState):void {
+    _renderIntoCanvas(renderState.context);
+  }
+
+  public function _renderIntoCanvas(context:CanvasRenderingContext2D):void {
+    if (!isNaN(minX)) { // anything actually drawn?
+      context.save();
+      _thickness = NaN;
+      doFill = false;
+      for (var i:int = 0; i < commands.length; i++) {
+        var command:Function = commands[i];
+        command(context);
+      }
+      doEndFill(context);
+      if (window.showGraphicsBounds) {
+        context.lineWidth = 1;
+        context.strokeStyle = "blue";
+        context.strokeRect(minX,  minY, maxX-minX, maxY-minY);
+      }
+      context.restore();
+    }
+    dirty = false;
+  }
+
+  private function drawPathIfNoFill(context:CanvasRenderingContext2D):Boolean {
+    if (!isNaN(_thickness) && !doFill) {
+      context.stroke();
+      context.beginPath();
+      return true;
+    }
+    return false;
+  }
+
+  internal function get width():Number {
+    return isNaN(minX) ? 0 : maxX - minX;
+  }
+
+  internal function get height():Number {
+    return isNaN(minY) ? 0 : maxY - minY;
+  }
+
+  private static const NO_TRANSFORM:Matrix = new Matrix();
+
+  internal function get _transformationMatrix():Matrix {
+    return NO_TRANSFORM;
+  }
+  
+  internal function getBoundsTransformed(matrix:Matrix = null, returnRectangle:Rectangle = null):Rectangle {
+    if (!returnRectangle) {
+      returnRectangle = new Rectangle();
+    }
+    if (!isNaN(minX)) {
+      returnRectangle = RenderState.transformBounds(minX, minY, maxX - minX, maxY - minY, matrix, returnRectangle);
+    }
+    return returnRectangle;
+  }
+  
 }
 }

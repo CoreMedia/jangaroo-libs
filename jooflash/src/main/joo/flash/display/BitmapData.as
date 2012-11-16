@@ -7,11 +7,11 @@ import flash.geom.Rectangle;
 import flash.utils.ByteArray;
 
 import js.CanvasRenderingContext2D;
-import js.HTMLCanvasElement;
 import js.HTMLElement;
 import js.HTMLImageElement;
 import js.Image;
 import js.ImageData;
+import js.Style;
 
 /**
  * The BitmapData class lets you work with the data (pixels) of a Bitmap object. You can use the methods of the BitmapData class to create arbitrarily sized transparent or opaque bitmap images and manipulate them in various ways at runtime. You can also access the BitmapData for a bitmap image that you load with the <code>flash.display.Loader</code> class.
@@ -226,6 +226,8 @@ public class BitmapData implements IBitmapDrawable {
       }
     }
     // generic, but very slow solution:
+    context.save();
+    context.setTransform(1, 0, 0, 1, 0, 0);
     // get the image data to manipulate
     var input : ImageData = context.getImageData(rect.x, rect.y, rect.width, rect.height);
     var inputData : Array = input.data;
@@ -243,6 +245,7 @@ public class BitmapData implements IBitmapDrawable {
     }
     // put the image data back after manipulation
     context.putImageData(input, rect.x, rect.y);
+    context.restore();
   }
 
   /**
@@ -387,17 +390,14 @@ public class BitmapData implements IBitmapDrawable {
     if (destRect.width > 0 && destRect.height > 0) {
       var sx:Number = sourceRect.x + (destRect.left - destPoint.x);
       var sy:Number = sourceRect.y + (destRect.top - destPoint.y);
-      if (!sourceBitmapData.isCanvas) {
-        if (destRect.equals(rect) && (!isCanvas || !mergeAlpha)) {
+      if (!sourceBitmapData._canvasContext) {
+        if (destRect.equals(rect) && (!_canvasContext || !mergeAlpha)) {
           // the whole Bitmap is to become a copy of (a clipping of) the source bitmap
           _fillColor = sourceBitmapData._fillColor;
           _alpha = sourceBitmapData._alpha;
           image = sourceBitmapData.image;
           imageOffsetX = sx + sourceBitmapData.imageOffsetX;
           imageOffsetY = sy + sourceBitmapData.imageOffsetY;
-          if (elem) {
-            asDiv(); // updates existing div
-          }
         } else {
           // only part of this BitmapData is painted from the source, or we paint transparently onto an existing canvas:
           context = getContext(); // if not already one, become a canvas
@@ -417,7 +417,7 @@ public class BitmapData implements IBitmapDrawable {
         context = getContext();
         if (mergeAlpha) {
           // putImageData() does not support alpha channel, so use drawImage():
-          context.drawImage(sourceBitmapData.asCanvas(), sx, sy, destRect.width, destRect.height,
+          context.drawImage(sourceBitmapData.getContext().canvas, sx, sy, destRect.width, destRect.height,
             destRect.x, destRect.y, destRect.width, destRect.height);
         } else {
           var imageData:ImageData = sourceBitmapData.getContext().getImageData(sx, sy, destRect.width, destRect.height);
@@ -496,50 +496,23 @@ public class BitmapData implements IBitmapDrawable {
    */
   public function draw(source:IBitmapDrawable, matrix:Matrix = null, colorTransform:ColorTransform = null,
                        blendMode:String = null, clipRect:Rectangle = null, smoothing:Boolean = false):void {
-    var bitmapData:BitmapData;
-    if (source is Bitmap) {
-      bitmapData = Bitmap(source).bitmapData;
-    } else {
-      bitmapData = source as BitmapData;
-    }
-    var element:HTMLElement = bitmapData ?
-      bitmapData.image || bitmapData.elem || bitmapData.asDiv() :
-      DisplayObject(source).getElement();
     var context:CanvasRenderingContext2D = getContext();
     if (matrix) {
       context.save();
-      context.setTransform(matrix.a, matrix.b, matrix.c, matrix.d, matrix.tx, matrix.ty);
+      context.transform(matrix.a, matrix.b, matrix.c, matrix.d, matrix.tx, matrix.ty);
     }
-    if (element is HTMLImageElement || element is HTMLCanvasElement) {
-      var offsetX:int;
-      var offsetY:int;
-      if (bitmapData) {
-        offsetX = bitmapData.imageOffsetX;
-        offsetY = bitmapData.imageOffsetY;
-      } else {
-        // TODO: bounds!
-        //var bounds:Rectangle = DisplayObject(source).getBounds(DisplayObject(source).parent);
-        //offsetX = DisplayObject(source).x - bounds.left;
-        //offsetY = DisplayObject(source).y - bounds.top;
-        offsetX = parseInt(element.style.left, 10) || 0;
-        offsetY = parseInt(element.style.top, 10) || 0;
-      }
-      context.drawImage(element, offsetX, offsetY);
-    } else {
-      if (element.style.backgroundColor) {
-        context.fillStyle = element.style.backgroundColor;
-        context.fillRect(0, 0, source['width'], source['height']);
-      }
-      var text:String = element['textContent'];
-      if (text) {
-        context.fillStyle = element.style.color;
-        context.font = element.style.font;
-        context.textBaseline = "top";
-        context.fillText(text, 0, 0);
-      }
-    }
+    var renderState:RenderState = RenderState.fromCanvasRenderingContext2D(context);
+    source._render(renderState);
     if (matrix) {
       context.restore();
+    }
+  }
+
+  public function _render(renderState:RenderState):void {
+    if (_canvasContext) {
+      renderState.context.drawImage(_canvasContext.canvas, 0.0, 0.0);
+    } else {
+      drawIntoCanvas(renderState.context);
     }
   }
 
@@ -570,13 +543,10 @@ public class BitmapData implements IBitmapDrawable {
   public function fillRect(rect:Rectangle, color:uint):void {
     var alpha:uint = (color >> 24 & 0xFF) / 0xFF;
     color = color & 0xFFFFFF;
-    if (!isCanvas && rect.equals(this.rect)) { // TODO: what about alpha != 1?
+    if (!_canvasContext && rect.equals(this.rect)) { // TODO: what about alpha != 1?
       _fillColor = color;
       _alpha = alpha;
       image = null;
-      if (elem) {
-        asDiv();
-      }
       return;
     }
     var context:CanvasRenderingContext2D = getContext();
@@ -1340,15 +1310,6 @@ public class BitmapData implements IBitmapDrawable {
    */
   public native function set height(value:int):void;
 
-  private const elementChangeListeners:Array = [];
-
-  internal function getElement():HTMLElement {
-    if (!elem) {
-      return asDiv();
-    }
-    return elem;
-  }
-
   public static function fromImg(img:HTMLImageElement):BitmapData {
     var bitmapData:BitmapData = new BitmapData(img.width, img.height, true, 0);
     bitmapData.image = img;
@@ -1356,87 +1317,59 @@ public class BitmapData implements IBitmapDrawable {
   }
 
   internal function getImage():HTMLImageElement {
-    if (image)
+    if (image) {
       return image;
-    var img:HTMLImageElement = new Image();
-    if (isCanvas) {
-      img.src = HTMLCanvasElement(elem).toDataURL();
-    } else {
-      return null;
     }
-    return img;
+    if (_canvasContext) {
+      var img:HTMLImageElement = new Image();
+      img.src = _canvasContext.canvas.toDataURL();
+      return img;
+    }
+    return null;
   }
 
-  public function asDiv():HTMLElement {
-    var url:String;
-    if (!elem || isCanvas) {
-      if (isCanvas) {
-        url = asCanvas().toDataURL();
-      }
-      isCanvas = false;
-      var div:HTMLElement = HTMLElement(window.document.createElement("DIV"));
-      div.style.position = "absolute";
-      div.style.width = width + "px";
-      div.style.height = height + "px";
-      changeElement(div);
+  internal function getElement():HTMLElement {
+    if (_canvasContext) {
+      return _canvasContext.canvas;
+    }
+    var element:HTMLElement = HTMLElement(window.document.createElement('div'));
+    var style:Style = element.style;
+    if (_fillColor) {
+      style.backgroundColor = Graphics.toRGBA(_fillColor, _alpha);
     }
     if (image) {
-      url = image.src;
+      style.backgroundImage = "url('" + image.src + "')";
+      style.backgroundPosition = imageOffsetX + "px " + imageOffsetY + "px";
     }
-    elem.style.backgroundColor = Graphics.toRGBA(_fillColor, _alpha);
-    elem.style.backgroundImage = url ? "url('" + url + "')" : "none";
-    return elem;
+    return element;
   }
 
   private function getContext():CanvasRenderingContext2D {
-    return CanvasRenderingContext2D(asCanvas().getContext("2d"));
-  }
-
-  private function asCanvas():HTMLCanvasElement {
-    if (!isCanvas) {
-      isCanvas = true;
-      var canvas:HTMLCanvasElement = HTMLCanvasElement(window.document.createElement("canvas"));
-      canvas.width = width;
-      canvas.height = height;
-      canvas.style.position = "absolute";
-      var context : CanvasRenderingContext2D = CanvasRenderingContext2D(canvas.getContext("2d"));
-      if (_alpha > 0 || !transparent) {
-        context.save();
-        context.fillStyle = Graphics.toRGBA(_fillColor, _alpha);
-        context.fillRect(0, 0, width, height);
-        context.restore();
-      }
-      if (image) {
-        context.drawImage(image, imageOffsetX, imageOffsetY, width, height, 0, 0, width, height);
-        image = null;
-      }
-      changeElement(canvas);
+    if (!_canvasContext) {
+      _canvasContext = RenderState.createCanvasContext2D(width, height);
+      drawIntoCanvas(_canvasContext);
+      // for debugging:
+      //window.document.body.appendChild(_canvasContext.canvas);
+      image = null;
     }
-    return HTMLCanvasElement(elem);
+    return _canvasContext;
   }
 
-  internal function addElementChangeListener(listener:Function):void {
-    elementChangeListeners.push(listener);
-  }
-
-  internal function removeElementChangeListener(listener:Function):void {
-    var listenerIndex:int = elementChangeListeners.indexOf(listener);
-    if (listenerIndex !== -1) {
-      elementChangeListeners.slice(listenerIndex, 1);
+  private function drawIntoCanvas(context:CanvasRenderingContext2D):void {
+    if (_alpha > 0 || !transparent) {
+      context.save();
+      context.fillStyle = Graphics.toRGBA(_fillColor, _alpha);
+      context.fillRect(0, 0, width, height);
+      context.restore();
     }
-  }
-
-  private function changeElement(elem:HTMLElement):void {
-    this.elem = elem;
-    for (var i:int = 0; i < elementChangeListeners.length; i++) {
-      elementChangeListeners[i](elem);
+    if (image) {
+      context.drawImage(image, imageOffsetX, imageOffsetY, width, height, 0, 0, width, height);
     }
   }
 
   private var _fillColor : uint;
   private var _alpha : Number;
-  private var elem : HTMLElement; // either div or canvas
-  private var isCanvas : Boolean; // whether elem is a canvas
+  private var _canvasContext : CanvasRenderingContext2D;
   private var image : HTMLImageElement; // only set if BitmapData if created from and image
   private var imageOffsetX : int; // left offset in the image
   private var imageOffsetY : int; // top offset in the image

@@ -267,16 +267,6 @@ public class tabpanel extends panel {
   public native function set scrollRepeatInterval(value:Number):void;
 
   /**
-   <b>This config option is used on <u>child Components</u> of ths TabPanel.</b> A CSS class name applied to the tab strip item representing the child Component, allowing special styling to be applied.
-   */
-  public native function get tabCls():String;
-
-  /**
-   * @private
-   */
-  public native function set tabCls(value:String):void;
-
-  /**
    The number of pixels of space to calculate into the sizing and scrolling of tabs. If you change the margin in CSS, you will need to update this value so calculations are correct with either <tt><a href="output/Ext.TabPanel.html#Ext.TabPanel-resizeTabs">resizeTabs</a></tt> or scrolling tabs. (defaults to <tt>2</tt>)
    */
   public native function get tabMargin():Number;

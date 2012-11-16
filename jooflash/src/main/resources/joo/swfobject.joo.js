@@ -19,6 +19,7 @@
           iframe.width = widthStr;
           iframe.height = heightStr;
           iframe.frameBorder = 0;
+          iframe.style.overflow = "hidden";
           div.parentNode.replaceChild(iframe, div);
 
           var doc = iframe.contentDocument;
@@ -27,10 +28,21 @@
           doc.write("<html>");
           doc.write("<head>");
           doc.write("</head>");
-          doc.write("<body id='stage'>");
-          doc.write("<p>JooFlash loading...</p>");
+          doc.write("<body style='margin:0;padding:0;overflow:hidden'>");
+          doc.write("<p id='stage'>JooFlash loading...</p>");
+          doc.write("<script>joo = { baseUrl: '../', debug: false};</script>");
           doc.write("<script src='" + url + "'></script>");
-          doc.write("<script>joo.classLoader.run('joo.flash.Run', 'stage', 'main', " + (flashvarsObj ? JSON.stringify(flashvarsObj) : "{}") + ");</script>");
+          var flashvarsStr = "{}";
+          if (flashvarsObj) {
+            for (var key in flashvarsObj) {
+              var value = flashvarsObj[key];
+              if (typeof value === 'string') {
+                flashvarsObj[key] = decodeURIComponent(value); // why is this encoded, anyway?
+              }
+            }
+            flashvarsStr = JSON.stringify(flashvarsObj);
+          }
+          doc.write("<script>joo.classLoader.run('joo.flash.Run', 'stage', 'main', " + flashvarsStr + ", '" + widthStr + "', '" + heightStr + "');</script>");
           doc.write("</body>");
           doc.write("</html>");
           doc.close();
