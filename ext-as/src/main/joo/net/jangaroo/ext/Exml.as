@@ -23,9 +23,13 @@ public class Exml {
   }
 
   private static function applyProperty(config:Object, overrideConfig:Object, property:String):void {
+    var overrideValue:* = overrideConfig[property];
+    if (overrideValue === undefined) {
+      // completely ignore properties with a value of "undefined":
+      return;
+    }
     var atProperty:String = property + AT;
     var overrideAt:int = overrideConfig[atProperty];
-    var overrideValue:* = overrideConfig[property];
     if (overrideAt === undefined) {
       delete config[atProperty];
     } else {
