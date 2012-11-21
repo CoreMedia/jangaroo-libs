@@ -6,6 +6,16 @@ import flexunit.framework.TestCase;
  */
 public class ExmlTest extends TestCase {
 
+  public function testApplyUndefined():void {
+    var result:Object = Exml.apply({
+      foo: "default"
+    }, {
+      foo: undefined
+    });
+    assertPropertyCount(1, result);
+    assertEquals("default", result.foo);
+  }
+
   public function testApplyNoMode():void {
     var result:Object = Exml.apply({
       a: "foo",
