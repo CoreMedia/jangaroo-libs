@@ -94,6 +94,7 @@ public class EventDispatcher implements IEventDispatcher {
     if (!event.isPropagationStopped()) {
       // Handle it here, at the target.
       event['eventPhase'] = EventPhase.AT_TARGET;
+      event.withCurrentTarget(event.target);
       var listeners:Array = this.listeners[event.type];
       if (listeners) {
         processListeners(event, listeners);
