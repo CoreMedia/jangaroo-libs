@@ -774,8 +774,8 @@ public class DisplayObjectContainer extends InteractiveObject {
 
     var left:Number = Number.MAX_VALUE;
     var top:Number = Number.MAX_VALUE;
-    var right:Number = Number.MIN_VALUE;
-    var bottom:Number = Number.MIN_VALUE;
+    var right:Number = -Number.MAX_VALUE;
+    var bottom:Number = -Number.MAX_VALUE;
 
     var childrenLength:int = children.length;
 
@@ -805,10 +805,12 @@ public class DisplayObjectContainer extends InteractiveObject {
       }
     }
 
-    returnRectangle.x = left;
-    returnRectangle.y = top;
-    returnRectangle.width = right - left;
-    returnRectangle.height = bottom - top;
+    if (left !== Number.MAX_VALUE) {
+      returnRectangle.x = left;
+      returnRectangle.y = top;
+      returnRectangle.width = right - left;
+      returnRectangle.height = bottom - top;
+    }
 
     return returnRectangle;
   }
