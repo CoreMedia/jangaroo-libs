@@ -1353,6 +1353,9 @@ public class Stage extends DisplayObjectContainer {
       stageElem.removeEventListener('mousemove', handleMouseEvent, false);
       stageElem.removeEventListener('mouseout', handleMouseEvent, false);
       stageElem.removeEventListener('mousewheel', handleMouseWheelEvent, false);
+      stageElem.removeEventListener('touchstart', handleMouseEvent, false);
+      stageElem.removeEventListener('touchend', handleMouseEvent, false);
+      stageElem.removeEventListener('touchmove', handleMouseEvent, false);
       stageElem.removeEventListener('keydown', handleKeyEvent, false);
       stageElem.removeEventListener('keyup', handleKeyEvent, false);
       stageElem.removeEventListener('keypress', handleTextEvent, false);
@@ -1381,6 +1384,9 @@ public class Stage extends DisplayObjectContainer {
     stageElem.addEventListener('mousemove', handleMouseEvent, false);
     stageElem.addEventListener('mouseout', handleMouseEvent, false);
     stageElem.addEventListener('mousewheel', handleMouseWheelEvent, false);
+    stageElem.addEventListener('touchstart', handleMouseEvent, false);
+    stageElem.addEventListener('touchend', handleMouseEvent, false);
+    stageElem.addEventListener('touchmove', handleMouseEvent, false);
     stageElem.addEventListener('keydown', handleKeyEvent, false);
     stageElem.addEventListener('keyup', handleKeyEvent, false);
     stageElem.addEventListener('keypress', handleTextEvent, false);
