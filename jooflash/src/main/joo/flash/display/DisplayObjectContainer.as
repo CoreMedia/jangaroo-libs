@@ -842,7 +842,7 @@ public class DisplayObjectContainer extends InteractiveObject {
 
   override protected function _doRender(renderState:RenderState):void {
     for each (var child:DisplayObject in children) {
-      if (child.visible) {
+      if (child.visible && child.width > 0) {
         renderState.renderDisplayObject(child);
       }
     }
@@ -858,9 +858,11 @@ public class DisplayObjectContainer extends InteractiveObject {
     var childElements:Vector.<HTMLElement> = new <HTMLElement>[];
     var oldChildren:Collection = element.childNodes;
     var oldChildIndex:int = 0;
+    var visibleChildCount:int = 0;
     for each (var child:DisplayObject in children) {
-      if (child.visible) {
-        var childElement:HTMLElement = child.renderAsDom();
+      var childElement:HTMLElement = child.renderAsDom();
+      if (childElement) {
+        ++visibleChildCount;
         if (oldChildIndex !== -1) {
           if (oldChildren.item(oldChildIndex) === childElement) {
             ++oldChildIndex;
@@ -871,7 +873,7 @@ public class DisplayObjectContainer extends InteractiveObject {
         childElements.push(childElement);
       }
     }
-    if (oldChildIndex === -1) {
+    if (oldChildIndex !== visibleChildCount) {
       element.innerHTML = ""; // fastest way to remove all child nodes
       for each (var childElement2:HTMLElement in childElements) {
         element.appendChild(childElement2);

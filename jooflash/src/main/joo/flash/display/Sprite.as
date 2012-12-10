@@ -474,14 +474,21 @@ public class Sprite extends DisplayObjectContainer {
 
   override protected function updateElement(element:HTMLElement, bounds:Rectangle):void {
     super.updateElement(element, bounds);
-    if (_graphics) {
-      var context:CanvasRenderingContext2D = RenderState.createCanvasContext2D(_graphics.width, _graphics.height); // TODO: reuse canvas!
-      _graphics._renderIntoCanvas(context);
-      element.insertBefore(context.canvas, element.firstChild);
+    if (_graphics && _graphics.dirty) {
+      if (!_context) {
+        _context = RenderState.createCanvasContext2D(_graphics.width, _graphics.height);
+      } else {
+        RenderState.resizeAndReset(_context,  _graphics.width, _graphics.height);
+      }
+      if (element.firstChild !== _context.canvas) {
+        element.insertBefore(_context.canvas, element.firstChild);
+      }
+      _graphics._renderIntoCanvas(_context);
     }
   }
 
   private var _graphics : Graphics;
+  private var _context:CanvasRenderingContext2D;
   private var _buttonMode:Boolean;
   private var _useHandCursor:Boolean;
 }
