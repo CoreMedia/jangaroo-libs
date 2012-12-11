@@ -2114,6 +2114,8 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
       bounds = _doRenderCached(new Matrix());
       if (_bitmapCacheContext) {
         elem = _bitmapCacheContext.canvas;
+        bounds.left += _x;
+        bounds.top += _y;
         updateTransform(elem, bounds);
       }
     } else {
