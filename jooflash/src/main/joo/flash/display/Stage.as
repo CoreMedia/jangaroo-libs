@@ -1374,9 +1374,9 @@ public class Stage extends DisplayObjectContainer {
     var width:String = oldElem.style.width || String(_stageBounds.width);
     var height:String = oldElem.style.height || String(_stageBounds.height);
     _stageBounds.width = _stageBounds.height = -1; // make sure it will be applied!
+    oldElem.parentNode.replaceChild(stageElem, oldElem);
     setDimension(stageElem, 'width', width);
     setDimension(stageElem, 'height', height);
-    oldElem.parentNode.replaceChild(stageElem, oldElem);
 
     stageElem.focus();
     stageElem.addEventListener('mousedown', handleMouseEvent, false);
