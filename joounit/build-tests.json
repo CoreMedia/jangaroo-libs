@@ -1,0 +1,6 @@
+{
+  "baseUrl": "target/test-classes/joo",
+  "name":    "tests",
+  "out":     "target/test-classes/joo/tests-min.js",
+  "preserveLicenseComments": false
+}

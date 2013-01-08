@@ -4,25 +4,15 @@ import flash.display.LoaderInfo;
 import flash.display.Stage;
 
 import flash.events.Event;
-import flash.utils.getDefinitionByName;
-
-import joo.DynamicClassLoader;
-import joo.JooClassDeclaration;
 
 public class Run {
 
-  public static function main(id : String, primaryDisplayObjectClassName : String,
+  public static function main(id : String, primaryDisplayObjectClass : Class,
                               parameters : Object = null,
                               widthStr : String = null, heightStr : String = null) : void {
-    var classLoader:DynamicClassLoader = DynamicClassLoader.INSTANCE;
-    classLoader.import_(primaryDisplayObjectClassName);
-    classLoader.complete(function() : void {
-      if (classLoader.debug) {
-        trace("[INFO] Loaded Flash main class " + primaryDisplayObjectClassName + ".");
-      }
-      var primaryDisplayObjectClass : Object = getDefinitionByName(primaryDisplayObjectClassName);
-      var cd:JooClassDeclaration = primaryDisplayObjectClass['$class'];
-      var metadata:Object = cd.metadata;
+      var cd:Object = primaryDisplayObjectClass['$class'];
+      trace("[INFO] Loaded Flash main class " + cd.fullClassName + ".");
+      var metadata:Object = cd.metadata || {};
       var swf:Object = metadata['SWF'] || {};
       if (widthStr) {
         swf.width = widthStr;
@@ -32,7 +22,7 @@ public class Run {
       }
       var stage : Stage = new Stage(id, swf);
       // use Jangaroo tricks to add the DisplayObject to the Stage before its constructor is called:
-      var displayObject:DisplayObject = DisplayObject(new cd.Public());
+      var displayObject:DisplayObject = DisplayObject(Object['create'](primaryDisplayObjectClass.prototype));
       stage.internalAddChildAt(displayObject, 0);
       var loaderInfo:LoaderInfo = new LoaderInfo();
       if (parameters) {
@@ -41,10 +31,9 @@ public class Run {
         }
       }
       displayObject['loaderInfo'] = loaderInfo;
-      cd.constructor_.call(displayObject);
+      primaryDisplayObjectClass.call(displayObject);
       displayObject.broadcastEvent(new Event(Event.ADDED_TO_STAGE, false, false));
       new RenderLoop().addStage(stage);
-    });
   }
 
 }

@@ -1,5 +1,6 @@
 package net.jangaroo.joounit.runner {
 
+import flash.utils.getQualifiedClassName;
 import flash.utils.getTimer;
 
 import flexunit.framework.AssertionFailedError;
@@ -9,9 +10,6 @@ import flexunit.framework.TestResult;
 import flexunit.framework.TestSuite;
 import flexunit.runner.BaseTestRunner;
 import flexunit.textui.XmlResultPrinter;
-
-import joo.DynamicClassLoader;
-import joo.getQualifiedObject;
 
 import js.Element;
 
@@ -47,7 +45,7 @@ public class BrowserRunner extends BaseTestRunner {
     insertIntoDOM(resultXml);
   };
 
-  private var testSuiteName:String;
+  private var testSuite:Function;
 
   /**
    * Config params are <code>testSuiteName:String</code>
@@ -56,7 +54,7 @@ public class BrowserRunner extends BaseTestRunner {
    * @param config
    */
   public function BrowserRunner(config:Object) {
-    this.testSuiteName = config.testSuiteName;
+    this.testSuite = config.testSuite;
     if(config.onComplete) {
       onComplete = config.onComplete;
     }
@@ -70,8 +68,8 @@ public class BrowserRunner extends BaseTestRunner {
    * @param testConfig
    */
   public static function main(config:Object):void {
-    if(config is String){
-      config = {testSuiteName:config};
+    if(typeof config === "function") {
+      config = {testSuite: config};
     }
     new BrowserRunner(config).run();
   }
@@ -84,16 +82,15 @@ public class BrowserRunner extends BaseTestRunner {
 
   internal function onSuiteLoaded() : void {
     try {
-      var testSuite:Function = getQualifiedObject(testSuiteName);
       if (typeof testSuite == 'function' && typeof testSuite['suite'] == 'function') {
-        trace("[INFO]","running test suite "+ testSuiteName);
+        trace("[INFO]","running test suite "+ getQualifiedClassName(testSuite));
         startTime = getTimer();
         numTestsRun = 0;
         const suite:TestSuite = testSuite['suite']();
         totalTestCount = suite.countTestCases();
         suite.runWithResult( testResult );
       } else {
-        suiteNotFound(testSuiteName + " is not acClass or does not have a static method 'suite'.");
+        suiteNotFound(getQualifiedClassName(testSuite) + " does not have a static method 'suite'.");
       }
     } catch(e:Error){
       trace("[ERROR]",e);
@@ -102,18 +99,11 @@ public class BrowserRunner extends BaseTestRunner {
   }
 
   public function run():void{
-    printer = new XmlResultPrinter(testSuiteName);
+    printer = new XmlResultPrinter(getQualifiedClassName(testSuite));
     testResult = new TestResult();
     testResult.addListener(TestListener( printer ));
     testResult.addListener(TestListener( this ));
-
-    var classLoader:DynamicClassLoader = DynamicClassLoader.INSTANCE;
-    classLoader.debug = true;
-    classLoader.classLoadErrorHandler = function(fullClassName:String, url:String):void {
-      suiteNotFound("Class " + fullClassName + " not found at URL [" + url + "].");
-    };
-    classLoader.import_(testSuiteName);
-    classLoader.complete(onSuiteLoaded);
+    onSuiteLoaded();
   }
 
   override public function testError(test:Test, error:Error):void {
@@ -145,7 +135,7 @@ public class BrowserRunner extends BaseTestRunner {
   }
   
   internal static function exit(b:Boolean) : void {
-    const exitFunc:Function = getQualifiedObject("joo._exit"); // see phantomjs-joo-config.js
+    const exitFunc:Function = window.joo._exit; // see phantomjs-joo-config.js
     if(exitFunc){
       exitFunc(b);
     }
