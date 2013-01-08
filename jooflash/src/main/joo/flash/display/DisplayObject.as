@@ -2099,7 +2099,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
 
   protected function createElement():HTMLElement {
     var element:HTMLElement = HTMLElement(window.document.createElement(getElementName()));
-    element.setAttribute("data-flashClass", this.constructor.$class.toString());
+    element.setAttribute("data-flashclass", this.constructor.$class.toString());
     return element;
   }
 
