@@ -1277,7 +1277,7 @@ public class Stage extends DisplayObjectContainer {
     }
     var valueStr:String = Graphics.toRGBA(uint(value));
     if (_backgroundColor !== valueStr) {
-      createElementCached().style.backgroundColor = _backgroundColor;
+      createElementCached().style.backgroundColor = _backgroundColor = valueStr;
     }
   }
 
