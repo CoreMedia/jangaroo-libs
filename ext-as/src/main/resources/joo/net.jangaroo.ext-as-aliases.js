@@ -79,6 +79,7 @@ ext.Action.prototype.addComponent = Ext.Action.prototype.addComponent.createInte
   Action.superclass = ExtAction.superclass;
 })(Ext.Action);
 
+if (false) {
 // ---- handle ExtConfig annotation ----
 joo.getOrCreatePackage("joo.meta").ExtConfig = (function(){
 
@@ -137,3 +138,4 @@ joo.getOrCreatePackage("joo.meta").ExtConfig = (function(){
   };
 })();
 
+}

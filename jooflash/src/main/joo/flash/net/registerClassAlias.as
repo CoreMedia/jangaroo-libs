@@ -1,5 +1,4 @@
 package flash.net {
-import joo.getOrCreatePackage;
 
 /**
  * Preserves the class (type) of an object when the object is encoded in Action Message Format (AMF). When you encode an object into AMF, this function saves the alias for its class, so that you can recover the class when decoding the object. If the encoding context did not register an alias for an object's class, the object is encoded as an anonymous object. Similarly, if the decoding context does not have the same alias registered, an anonymous object is created for the decoded data.
@@ -36,7 +35,7 @@ import joo.getOrCreatePackage;
  * </listing>
  */
 public function registerClassAlias(aliasName:String, classObject:Class):void {
-  getOrCreatePackage("flash.net.classAliasRegistry")[aliasName] = classObject;
+  // TODO: flash.net.classAliasRegistry[aliasName] = classObject;
 }
 
 }
