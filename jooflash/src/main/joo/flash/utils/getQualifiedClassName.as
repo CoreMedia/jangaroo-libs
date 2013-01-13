@@ -11,6 +11,6 @@ package flash.utils {
  */
 public function getQualifiedClassName(value:*):String {
   var type:Function = typeof value=="function" ? value : value.constructor;
-  return typeof type["$class"]=="object" ? type["$class"]["fullClassName"].replace(/\.([^\.]+$)/,"::$1") : String(type);
+  return typeof type["$class"]==="object" ? type["$class"].qName.replace(/\.([^\.]+$)/,"::$1") : String(type);
 }
 }

@@ -11,7 +11,7 @@ public class Run {
                               parameters : Object = null,
                               widthStr : String = null, heightStr : String = null) : void {
       var cd:Object = primaryDisplayObjectClass['$class'];
-      trace("[INFO] Loaded Flash main class " + cd.fullClassName + ".");
+      trace("[INFO] Loaded Flash main class " + cd.qName + ".");
       var metadata:Object = cd.metadata || {};
       var swf:Object = metadata['SWF'] || {};
       if (widthStr) {

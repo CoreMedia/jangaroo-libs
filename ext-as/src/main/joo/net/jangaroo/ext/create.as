@@ -1,5 +1,4 @@
 package net.jangaroo.ext {
-import joo.JooClassDeclaration;
 import joo.getQualifiedObject;
 
 /**
@@ -15,11 +14,11 @@ import joo.getQualifiedObject;
  */
 public function create(configClass:Class,  config:Object):Object {
   var typedConfig:Object = new configClass(config);
-  var configClassDeclaration:JooClassDeclaration = configClass['$class'];
+  var configClassDeclaration:Object = configClass['$class'];
   var extConfigAnnotation:Object = configClassDeclaration.metadata.ExtConfig;
   if (!extConfigAnnotation || !extConfigAnnotation.target) {
     throw new Error("Missing [ExtConfig(target='...')] annotation in config class "
-            + configClassDeclaration.fullClassName);
+            + configClassDeclaration.qName);
   }
   var targetClass:Class = getQualifiedObject(extConfigAnnotation.target);
   return new targetClass(typedConfig);
