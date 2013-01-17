@@ -3,6 +3,25 @@ package ext.config {
 import ext.Template;
 
 /**
+ * Fires when this button is clicked
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:ext.Button</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>e:ext.IEventObject</code>
+ The click event
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="click", type="ext.event.ButtonClickEvent")]
+
+/**
  * Simple Button class
  *
  * <p>This class represents the xtype 'button' and serves as a
