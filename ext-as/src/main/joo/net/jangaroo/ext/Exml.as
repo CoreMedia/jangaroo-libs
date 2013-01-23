@@ -54,5 +54,51 @@ public class Exml {
     return value === undefined ? EMPTY_ARRAY : value instanceof Array ? value : [value];
   }
 
+  private static const EXT_CONFIG_PACKAGE_REGEXP:RegExp = /^ext\.config\.([a-zA-Z0-9_$]+?)(layout)?$/;
+
+  /**
+   * @private
+   */
+  public static function establishType(configObject:Object, typeProperty:String, registry:Object):void {
+    var configClass:Class = configObject.constructor;
+    var configClassPrototype:Object = configClass.prototype;
+    if (!configClassPrototype.hasOwnProperty(typeProperty)) {
+      var type:String = String(configClass["$class"].qName).toLowerCase();
+      var match:Array = type.match(EXT_CONFIG_PACKAGE_REGEXP);
+      if (match) {
+        // it is a built-in, already registered type: only set configClass typeProperty!
+        configClassPrototype[typeProperty] = match[1];
+      } else {
+        establishTargetClassProperty(typeProperty, configClass, registry);
+        // continue up the inheritance chain:
+        establishType(configClass["$class"]['extends_'].prototype, typeProperty, registry);
+      }
+    }
+  }
+
+  private static function establishTargetClassProperty(typeProperty:String, configClass:Class, registry:Object):void {
+    var configClassPrototype:Object = configClass.prototype;
+    if (!Object['getOwnPropertyDescriptor'](configClassPrototype, "targetClass")) {
+      var getter:Function = function():String {
+        return registry[this[typeProperty]];
+      };
+      Object['defineProperty'](configClassPrototype, "targetClass", {
+        configurable: true,
+        get: getter,
+        set: function(targetClass:Class):void {
+          // performance optimization: ignore subsequent calls!
+          Object['defineProperty'](configClassPrototype, "targetClass", {
+            get: getter,
+            set: EMPTY
+          });
+          var type:String = String(configClass["$class"].qName).toLowerCase();
+          configClass[typeProperty] = configClassPrototype[typeProperty] = type;
+          registry[type] = targetClass;
+        }
+      });
+    }
+  }
+
+  private static function EMPTY():void {}
 }
 }

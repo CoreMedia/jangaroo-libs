@@ -1,6 +1,10 @@
 package ext.config {
 
+import ext.Container;
+
 import joo.JavaScriptObject;
+
+import net.jangaroo.ext.Exml;
 
 /**
  * This class is intended to be extended or created via the <tt><b><a href="output/Ext.Container.html#Ext.Container-layout">layout</a></b></tt> configuration property. See <tt><b><a href="output/Ext.Container.html#Ext.Container-layout">Ext.Container.layout</a></b></tt> for additional details.
@@ -16,8 +20,8 @@ import joo.JavaScriptObject;
 public class containerlayout extends JavaScriptObject {
 
   public function containerlayout(config:Object = null) {
-
     super(config);
+    Exml.establishType(this, "type", Container['LAYOUTS']);
   }
 
 
@@ -43,6 +47,25 @@ public class containerlayout extends JavaScriptObject {
    */
   public native function set renderHidden(value:Boolean):void;
 
+  /**
+   * TODO
+   */
+  public native function get type():String;
+
+  /**
+   * @private
+   */
+  public native function set type(value:String):void;
+
+  /**
+   * TODO
+   */
+  public native function get targetClass():Class;
+
+  /**
+   * @private
+   */
+  public native function set targetClass(value:Class):void;
 
 }
 }

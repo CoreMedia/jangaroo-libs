@@ -1,6 +1,8 @@
 package ext.config {
 import ext.Action;
+import ext.ComponentMgr;
 
+import net.jangaroo.ext.Exml;
 
 /**
  * Base class for all Ext components. All subclasses of Component may participate in the automated Ext component lifecycle of creation, rendering and destruction which is provided by the <a href="Ext.Container.html">Container</a> class. Components may be added to a Container through the <a href="output/Ext.Container.html#Ext.Container-items">items</a> config option at the time the Container is created, or they may be added dynamically via the <a href="output/Ext.Container.html#Ext.Container-add">add</a> method.
@@ -109,6 +111,7 @@ public class component extends observable {
   public function component(config:Object = null) {
 
     super(config);
+    Exml.establishType(this, "xtype", ComponentMgr["types"]);
   }
 
 
@@ -642,7 +645,15 @@ public class component extends observable {
    */
   public native function set xtype(value:String):void;
 
+  /**
+   * TODO
+   */
+  public native function get targetClass():Class;
 
+  /**
+   * @private
+   */
+  public native function set targetClass(value:Class):void;
 }
 }
     

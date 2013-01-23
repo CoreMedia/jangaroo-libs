@@ -1,8 +1,11 @@
 package ext.config {
 
 import ext.form.Field;
+import ext.grid.Column;
 
 import joo.JavaScriptObject;
+
+import net.jangaroo.ext.Exml;
 
 /**
  * This class encapsulates column configuration data to be used in the initialization of a <a href="Ext.grid.ColumnModel.html">ColumnModel</a>.
@@ -20,6 +23,7 @@ public class gridcolumn extends JavaScriptObject {
   public function gridcolumn(config:Object = null) {
 
     super(config);
+    Exml.establishType(this, "xtype", Column["types"]);
   }
 
 
@@ -291,6 +295,15 @@ public class gridcolumn extends JavaScriptObject {
    */
   public native function set xtype(value:String):void;
 
+  /**
+   * TODO
+   */
+  public native function get targetClass():Class;
+
+  /**
+   * @private
+   */
+  public native function set targetClass(value:Class):void;
 
 }
 }
