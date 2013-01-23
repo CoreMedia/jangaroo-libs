@@ -18,6 +18,8 @@ import ext.Template;
  *       </li>
 
  * </ul>
+ *
+ * @see ext.event.ButtonClickEvent
  */
 [Event(name="click", type="ext.event.ButtonClickEvent")]
 
