@@ -1,1 +1,3 @@
-joo.loadScript("ckeditor/ckeditor.js", "ckeditor/ckeditor_source.js");
+define(["/../ckeditor/ckeditor.js"], function() {
+  return CKEDITOR;
+});
