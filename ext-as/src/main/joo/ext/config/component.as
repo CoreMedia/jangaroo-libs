@@ -5,6 +5,20 @@ import ext.ComponentMgr;
 import net.jangaroo.ext.Exml;
 
 /**
+ * Fires before the component is <a href="output/Ext.Component.html#Ext.Component-rendered">rendered</a>. Return false from an event handler to stop the <a href="output/Ext.Component.html#Ext.Component-render">render</a>.
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:ext.Component</code>
+
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="beforerender", type="ext.event.ComponentBeforerenderEvent")]
+
+/**
  * Base class for all Ext components. All subclasses of Component may participate in the automated Ext component lifecycle of creation, rendering and destruction which is provided by the <a href="Ext.Container.html">Container</a> class. Components may be added to a Container through the <a href="output/Ext.Container.html#Ext.Container-items">items</a> config option at the time the Container is created, or they may be added dynamically via the <a href="output/Ext.Container.html#Ext.Container-add">add</a> method.
  <p>The Component base class has built-in support for basic hide/show and enable/disable behavior.</p><p>All Components are registered with the <a href="Ext.ComponentMgr.html">Ext.ComponentMgr</a> on construction so that they can be referenced at any time via <a href="output/Ext.html#Ext-getCmp">Ext.getCmp</a>, passing the <a href="output/Ext.Component.html#Ext.Component-id">id</a>.</p><p>All user-developed visual widgets that are required to participate in automated lifecycle and size management should subclass Component (or <a href="Ext.BoxComponent.html">Ext.BoxComponent</a> if managed box model handling is required, ie height and width management).</p><p>See the <a href="http://extjs.com/learn/Tutorial:Creating_new_UI_controls">Creating new UI controls</a> tutorial for details on how and to either extend or augment ExtJs base classes to create custom Components.</p><p>Every component has a specific xtype, which is its Ext-specific type name, along with methods for checking the xtype like <a href="output/Ext.Component.html#Ext.Component-getXType">getXType</a> and <a href="output/Ext.Component.html#Ext.Component-isXType">isXType</a>. This is the list of all valid xtypes:</p><pre>xtype            Class
  -------------    ------------------
