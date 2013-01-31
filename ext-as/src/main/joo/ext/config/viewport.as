@@ -60,7 +60,6 @@ public class viewport extends container {
   public function viewport(config:Object = null) {
 
     super(config);
-    Functions.defer(ComponentMgr.create, 1, ComponentMgr, [this]);
   }
 
 
