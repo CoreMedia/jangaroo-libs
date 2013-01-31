@@ -1,15 +1,19 @@
 package ext.config {
 import ext.ComponentMgr;
 
+import joo.JavaScriptObject;
+
 import net.jangaroo.ext.Exml;
 
 /**
  * Config class for component plugins implementing ext.Plugin.
  * @see ext.Plugin
  */
-public class plugin {
+[ExtConfig(target="ext.Plugin", ptype="plugin")]
+public class plugin extends JavaScriptObject {
 
-  public function plugin() {
+  public function plugin(config:Object = null) {
+    super(config);
     Exml.establishType(this, "ptype", ComponentMgr["ptypes"]);
   }
 

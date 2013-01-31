@@ -16,7 +16,7 @@ import net.jangaroo.ext.Exml;
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.layout.ContainerLayout
  */
-[ExtConfig(target="ext.layout.ContainerLayout")]
+[ExtConfig(target="ext.layout.ContainerLayout", type="container")]
 public class containerlayout extends JavaScriptObject {
 
   public function containerlayout(config:Object = null) {
