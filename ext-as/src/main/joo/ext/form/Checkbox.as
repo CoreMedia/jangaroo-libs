@@ -31,7 +31,7 @@ import ext.config.checkbox;
  * @see ext.config.checkbox
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.Checkbox Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.form.Checkbox")]
 public class Checkbox extends Field {
 
   /**

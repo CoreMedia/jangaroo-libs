@@ -12,7 +12,7 @@ import ext.config.sliderfield;
  * @see ext.config.sliderfield
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.SliderField Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.form.SliderField")]
 public class SliderField extends Field {
 
   /**

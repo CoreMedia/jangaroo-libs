@@ -58,7 +58,7 @@ package ext.direct {
  * @see ext.config.remotingprovider
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.direct.RemotingProvider Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.direct.RemotingProvider")]
 public class RemotingProvider extends JsonProvider {
 
   /**

@@ -9,7 +9,7 @@ import ext.ExtError;
 
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.DataProxy.Error Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.data.DataProxy.Error")]
 public class ExtError extends ext.ExtError {
 
   /**

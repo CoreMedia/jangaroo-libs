@@ -19,8 +19,9 @@ package ext {
  * @see ext.config.fx
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Fx Sencha Docs Ext JS 3.4
  */
-[Native]
-public class Fx {
+[Native(amd="ext-as.module", global="Ext.Fx")]
+public class Fx
+ {
 
   /**
    *

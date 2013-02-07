@@ -3,7 +3,7 @@ package js {
 /**
  * The XMLHttpRequest object can be used by scripts to programmatically connect to their originating server via HTTP. 
  */
-[Native]
+[Native(global="XMLHttpRequest")]
 public class XMLHttpRequest {
 
   public native function XMLHttpRequest();

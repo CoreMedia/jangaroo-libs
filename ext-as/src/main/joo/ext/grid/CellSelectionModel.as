@@ -79,7 +79,7 @@ import ext.data.Record;
  * @see ext.config.cellselectionmodel
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.CellSelectionModel Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.grid.CellSelectionModel")]
 public class CellSelectionModel extends AbstractSelectionModel {
 
   /**

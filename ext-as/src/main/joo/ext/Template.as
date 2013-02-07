@@ -12,8 +12,9 @@ import ext.config.template;
  * @see ext.config.template
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Template Sencha Docs Ext JS 3.4
  */
-[Native]
-public class Template {
+[Native(amd="ext-as.module", global="Ext.Template")]
+public class Template
+ {
 
   /**
    * An instance of this class may be created by passing to the constructor either a single argument, or multiple arguments: <div class="mdetail-params"><ul><li><b>single argument</b> : String/Array <div class="sub-desc">The single argument may be either a String or an Array:<ul><li><tt>String</tt> :</li><li style="list-style: none"><pre><code>var t = new Ext.Template("&lt;div&gt;Hello {0}.&lt;/div&gt;");

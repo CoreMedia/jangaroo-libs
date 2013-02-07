@@ -14,7 +14,7 @@ public class plugin extends JavaScriptObject {
 
   public function plugin(config:Object = null) {
     super(config);
-    Exml.establishType(this, "ptype", ComponentMgr["ptypes"]);
+    //Exml.establishType(this, "ptype", ComponentMgr["ptypes"]);
   }
 
   /**

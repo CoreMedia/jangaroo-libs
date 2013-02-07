@@ -10,8 +10,9 @@ import ext.config.shadow;
  * @see ext.config.shadow
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Shadow Sencha Docs Ext JS 3.4
  */
-[Native]
-public class Shadow {
+[Native(amd="ext-as.module", global="Ext.Shadow")]
+public class Shadow
+ {
 
   /**
    * Create a new Shadow

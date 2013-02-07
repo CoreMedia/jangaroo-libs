@@ -125,7 +125,7 @@ public class component extends observable {
   public function component(config:Object = null) {
 
     super(config);
-    Exml.establishType(this, "xtype", ComponentMgr["types"]);
+    //Exml.establishType(this, "xtype", ComponentMgr["types"]);
   }
 
 

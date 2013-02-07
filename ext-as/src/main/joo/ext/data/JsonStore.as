@@ -28,7 +28,7 @@ import ext.config.jsonstore;
  * @see ext.config.jsonstore
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.JsonStore Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.data.JsonStore")]
 public class JsonStore extends Store {
 
   /**

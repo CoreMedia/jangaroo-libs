@@ -12,7 +12,7 @@ import ext.config.statusproxy;
  * @see ext.config.statusproxy
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.StatusProxy Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.dd.StatusProxy")]
 public class StatusProxy {
 
   /**

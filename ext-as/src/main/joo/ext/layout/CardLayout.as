@@ -56,7 +56,7 @@ import ext.config.cardlayout;
  * @see ext.config.cardlayout
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.layout.CardLayout Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.layout.CardLayout")]
 public class CardLayout extends FitLayout {
 
   /**

@@ -8,7 +8,7 @@ package ext.lib {
 
 import ext.Element;
 
-[Native]
+[Native(amd="ext-as.module", global="Ext.lib.Region")]
 public class Region {
   public var top:Number, right:Number, bottom:Number, left:Number;
 

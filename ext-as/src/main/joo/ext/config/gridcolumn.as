@@ -23,7 +23,7 @@ public class gridcolumn extends JavaScriptObject {
   public function gridcolumn(config:Object = null) {
 
     super(config);
-    Exml.establishType(this, "xtype", Column["types"]);
+    //Exml.establishType(this, "xtype", Column["types"]);
   }
 
 

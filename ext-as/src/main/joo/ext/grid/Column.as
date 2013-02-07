@@ -131,7 +131,7 @@ import ext.form.Field;
  * @see ext.config.gridcolumn
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.Column Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.grid.Column")]
 public class Column {
 
   /**

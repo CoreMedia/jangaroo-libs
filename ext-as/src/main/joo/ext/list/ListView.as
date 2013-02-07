@@ -81,7 +81,7 @@ import ext.config.listview;
  * @see ext.config.listview
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.list.ListView Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.list.ListView")]
 public class ListView extends DataView {
 
   /**

@@ -9,8 +9,9 @@ package ext {
 
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.WindowGroup Sencha Docs Ext JS 3.4
  */
-[Native]
-public class WindowGroup {
+[Native(amd="ext-as.module", global="Ext.WindowGroup")]
+public class WindowGroup
+ {
 
   /**
    *

@@ -162,7 +162,7 @@ import ext.util.Observable;
  * @see ext.config.columnmodel
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.ColumnModel Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.grid.ColumnModel")]
 public class ColumnModel extends Observable {
 
   /**

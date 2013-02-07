@@ -1,5 +1,6 @@
 package js {
 
+[Native(global="Element")]
 public class Element extends Node {
 
   public native function get id() : String;

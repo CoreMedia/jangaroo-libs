@@ -10,7 +10,7 @@ import ext.config.layer;
  * @see ext.config.layer
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Layer Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.Layer")]
 public class Layer extends Element {
 
   /**

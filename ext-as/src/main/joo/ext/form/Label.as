@@ -12,7 +12,7 @@ import ext.config.label;
  * @see ext.config.label
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.Label Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.form.Label")]
 public class Label extends BoxComponent {
 
   /**

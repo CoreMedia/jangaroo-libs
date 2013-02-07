@@ -1,23 +1,23 @@
 package js{
-public class Screen {
-  public native function get top() : int;
+public interface Screen {
+  function get top() : int;
 
-  public native function get left() : int;
+  function get left() : int;
 
-  public native function get width() : int;
+  function get width() : int;
 
-  public native function get height() : int;
+  function get height() : int;
 
-  public native function get pixelDepth() : int;
+  function get pixelDepth() : int;
 
-  public native function get availTop() : int;
+  function get availTop() : int;
 
-  public native function get availLeft() : int;
+  function get availLeft() : int;
 
-  public native function get availWidth() : int;
+  function get availWidth() : int;
 
-  public native function get availHeight() : int;
+  function get availHeight() : int;
 
-  public native function get colorDepth() : int;
+  function get colorDepth() : int;
 }
 }

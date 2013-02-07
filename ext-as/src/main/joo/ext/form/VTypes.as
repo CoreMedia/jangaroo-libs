@@ -30,7 +30,7 @@ package ext.form {
  * @see ext.form.IVTypes
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.VTypes Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.form.VTypes")]
 public const VTypes:IVTypes;
 
 }

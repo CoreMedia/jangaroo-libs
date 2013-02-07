@@ -9,7 +9,7 @@ package ext.data {
  * @see ext.data.ISortTypes
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.SortTypes Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.data.SortTypes")]
 public const SortTypes:ISortTypes;
 
 }

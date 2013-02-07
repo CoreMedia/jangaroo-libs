@@ -80,7 +80,7 @@ import ext.util.Observable;
  * @see ext.config.connection
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Connection Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.data.Connection")]
 public class Connection extends Observable {
 
   /**

@@ -64,7 +64,7 @@ package ext {
  * @see ext.IDomHelper
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DomHelper Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.DomHelper")]
 public const DomHelper:IDomHelper;
 
 }

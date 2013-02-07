@@ -9,8 +9,9 @@ package ext.chart {
 
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.chart.Series Sencha Docs Ext JS 3.4
  */
-[Native]
-public class Series {
+[Native(amd="ext-as.module", global="Ext.chart.Series")]
+public class Series
+ {
 
   /**
    *

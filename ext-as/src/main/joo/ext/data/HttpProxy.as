@@ -11,7 +11,7 @@ import ext.config.httpproxy;
  * @see ext.config.httpproxy
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.HttpProxy Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.data.HttpProxy")]
 public class HttpProxy extends DataProxy {
 
   /**

@@ -1,4 +1,6 @@
 package js{
+
+[Native(global="HTMLCanvasElement")]
 public class HTMLCanvasElement extends HTMLElement {
 
   public native function get width() : uint;

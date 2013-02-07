@@ -160,7 +160,7 @@ import ext.config.multislider;
  * @see ext.config.multislider
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.slider.MultiSlider Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.slider.MultiSlider")]
 public class MultiSlider extends BoxComponent {
 
   /**

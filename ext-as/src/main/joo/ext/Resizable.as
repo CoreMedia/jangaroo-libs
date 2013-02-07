@@ -82,7 +82,7 @@ import ext.util.Observable;
  * @see ext.config.resizable
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Resizable Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.Resizable")]
 public class Resizable extends Observable {
 
   /**

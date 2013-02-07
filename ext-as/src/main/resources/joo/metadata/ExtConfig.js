@@ -2,7 +2,7 @@
  * Evaluate [ExtConfig] annotations at runtime.
  * Only needed for EXML, not for MXML.
  */
-define(["runtime/AS3", "ext-as.module"], function(AS3, ext) {
+define(["runtime/AS3", "native!Ext@ext-as.module", "classes/joo/getQualifiedObject"], function(AS3, ext, getQualifiedObject) {
   var REGISTRATION_BY_TYPE = {
     xtype: ext.ComponentMgr.registerType,
     ptype: ext.ComponentMgr.registerPlugin,
@@ -38,7 +38,7 @@ define(["runtime/AS3", "ext-as.module"], function(AS3, ext) {
         // does the config class use the standard naming pattern?
         // Components using custom types (like Ext JS standard components) have to take care of registering themselves!
         if (!parameters[typeAttribute]) {
-          var targetClass = AS3.getQualifiedObject(targetClassName);
+          var targetClass = getQualifiedObject(targetClassName);
           REGISTRATION_BY_TYPE[typeAttribute](typeName, targetClass);
         }
       }

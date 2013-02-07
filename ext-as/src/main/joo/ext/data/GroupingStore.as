@@ -31,7 +31,7 @@ import ext.config.groupingstore;
  * @see ext.config.groupingstore
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.GroupingStore Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.data.GroupingStore")]
 public class GroupingStore extends Store {
 
   /**

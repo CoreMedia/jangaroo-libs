@@ -16,7 +16,7 @@ import ext.config.timefield;
  * @see ext.config.timefield
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.TimeField Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.form.TimeField")]
 public class TimeField extends ComboBox {
 
   /**

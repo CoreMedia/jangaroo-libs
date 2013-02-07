@@ -11,7 +11,7 @@ import ext.config.menutextitem;
  * @see ext.config.menutextitem
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.menu.TextItem Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.menu.TextItem")]
 public class TextItem extends BaseItem {
 
   /**

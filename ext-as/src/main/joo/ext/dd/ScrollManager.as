@@ -18,7 +18,7 @@ package ext.dd {
  * @see ext.dd.IScrollManager
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.ScrollManager Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.dd.ScrollManager")]
 public const ScrollManager:IScrollManager;
 
 }

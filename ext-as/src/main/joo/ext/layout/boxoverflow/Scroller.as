@@ -11,7 +11,7 @@ import ext.Element;
  * @see ext.config.scroller
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.layout.boxOverflow.Scroller Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.layout.boxOverflow.Scroller")]
 public class Scroller extends None {
 
   /**

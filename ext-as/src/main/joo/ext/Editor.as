@@ -147,7 +147,7 @@ import ext.form.Field;
  * @see ext.config.editor
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Editor Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.Editor")]
 public class Editor extends Component {
 
   /**

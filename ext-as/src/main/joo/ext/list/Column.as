@@ -13,7 +13,7 @@ import ext.config.lvcolumn;
  * @see ext.config.lvcolumn
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.list.Column Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.list.Column")]
 public class Column {
 
   /**

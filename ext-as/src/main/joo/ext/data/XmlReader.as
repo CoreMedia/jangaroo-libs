@@ -37,7 +37,7 @@ import js.Document;
  * @see ext.config.xmlreader
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.XmlReader Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.data.XmlReader")]
 public class XmlReader extends DataReader {
 
   /**

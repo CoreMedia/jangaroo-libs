@@ -11,7 +11,7 @@ import ext.config.hidden;
  * @see ext.config.hidden
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.Hidden Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.form.Hidden")]
 public class Hidden extends Field {
 
   /**

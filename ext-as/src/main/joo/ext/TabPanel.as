@@ -106,7 +106,7 @@ import js.HTMLElement;
  * @see ext.config.tabpanel
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.TabPanel Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.TabPanel")]
 public class TabPanel extends Panel {
 
   /**

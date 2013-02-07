@@ -175,7 +175,7 @@ import ext.menu.Menu;
  * @see ext.config.button
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Button Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.Button")]
 public class Button extends BoxComponent {
 
   /**

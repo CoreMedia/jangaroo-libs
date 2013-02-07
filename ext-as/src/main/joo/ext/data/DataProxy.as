@@ -211,7 +211,7 @@ import ext.util.Observable;
  * @see ext.config.dataproxy
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.DataProxy Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.data.DataProxy")]
 public class DataProxy extends Observable {
 
   /**

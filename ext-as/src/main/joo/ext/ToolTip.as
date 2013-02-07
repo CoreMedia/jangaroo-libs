@@ -13,7 +13,7 @@ import js.Element;
  * @see ext.config.tooltip
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.ToolTip Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.ToolTip")]
 public class ToolTip extends Tip {
 
   /**

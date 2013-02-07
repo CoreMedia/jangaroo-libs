@@ -49,7 +49,7 @@ import ext.config.absolutelayout;
  * @see ext.config.absolutelayout
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.layout.AbsoluteLayout Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.layout.AbsoluteLayout")]
 public class AbsoluteLayout extends AnchorLayout {
 
   /**

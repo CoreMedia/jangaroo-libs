@@ -1,6 +1,7 @@
 package js {
 import joo.getQualifiedObject;
 
+[Native(global="DOMParser")]
 public class DOMParser {
 
   public function DOMParser() {

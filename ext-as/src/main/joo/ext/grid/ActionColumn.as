@@ -48,7 +48,7 @@ import ext.config.actioncolumn;
  * @see ext.config.actioncolumn
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.ActionColumn Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.grid.ActionColumn")]
 public class ActionColumn extends Column {
 
   /**

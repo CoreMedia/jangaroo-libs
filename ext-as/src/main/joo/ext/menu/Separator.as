@@ -11,7 +11,7 @@ import ext.config.menuseparator;
  * @see ext.config.menuseparator
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.menu.Separator Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.menu.Separator")]
 public class Separator extends BaseItem {
 
   /**

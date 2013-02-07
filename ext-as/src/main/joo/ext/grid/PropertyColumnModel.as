@@ -8,7 +8,7 @@ package ext.grid {
  * @see ext.config.propertycolumnmodel
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PropertyColumnModel Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.grid.PropertyColumnModel")]
 public class PropertyColumnModel extends ColumnModel {
 
   /**

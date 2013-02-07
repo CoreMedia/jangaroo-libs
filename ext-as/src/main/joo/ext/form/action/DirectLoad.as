@@ -68,7 +68,7 @@ package ext.form.action {
  * @see ext.config.directload
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.Action.DirectLoad Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.form.Action.DirectLoad")]
 public class DirectLoad extends Load {
 
   /**

@@ -33,7 +33,7 @@ import ext.config.colormenu;
  * @see ext.config.colormenu
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.menu.ColorMenu Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.menu.ColorMenu")]
 public class ColorMenu extends Menu {
 
   /**

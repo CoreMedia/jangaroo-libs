@@ -100,7 +100,7 @@ import ext.util.Observable;
  * @see ext.config.treeloader
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeLoader Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.tree.TreeLoader")]
 public class TreeLoader extends Observable {
 
   /**

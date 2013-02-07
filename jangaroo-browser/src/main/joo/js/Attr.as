@@ -1,5 +1,6 @@
 package js {
 
+[Native(global="Attr")]
 public class Attr extends Node {
 
   /**

@@ -106,7 +106,7 @@ import ext.toolbar.Spacer;
  * @see ext.config.toolbar
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Toolbar Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.Toolbar")]
 public class Toolbar extends Container {
 
   /**

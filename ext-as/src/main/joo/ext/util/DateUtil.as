@@ -109,7 +109,7 @@ package ext.util {
  * processing each pattern every time a date is formatted. These functions are available
  * on every Date object.</p>
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.util.DateUtil")]
 public class DateUtil {
 
   /**

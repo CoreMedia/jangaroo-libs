@@ -7,7 +7,7 @@ package ext.dd {
 
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DDProxy Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.dd.DDProxy")]
 public class DDProxy extends DD {
 
   /**

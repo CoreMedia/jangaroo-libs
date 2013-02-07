@@ -16,7 +16,7 @@ import ext.menu.Menu;
  * @see ext.config.boxoverflowmenu
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.layout.boxOverflow.Menu Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.layout.boxOverflow.Menu")]
 public class Menu extends None {
 
   /**

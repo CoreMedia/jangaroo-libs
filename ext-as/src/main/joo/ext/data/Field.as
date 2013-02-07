@@ -12,7 +12,7 @@ import ext.config.datafield;
  * @see ext.config.datafield
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Field Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.data.Field")]
 public class Field {
 
   /**

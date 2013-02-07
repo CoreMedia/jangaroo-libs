@@ -14,8 +14,9 @@ import ext.data.Store;
  * @see ext.config.loadmask
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.LoadMask Sencha Docs Ext JS 3.4
  */
-[Native]
-public class LoadMask {
+[Native(amd="ext-as.module", global="Ext.LoadMask")]
+public class LoadMask
+ {
 
   /**
    * Create a new LoadMask

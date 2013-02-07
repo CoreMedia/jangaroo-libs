@@ -1,4 +1,6 @@
 package js {
+
+[Native(global="XMLSerializer")]
 public class XMLSerializer {
 
   public function XMLSerializer() {

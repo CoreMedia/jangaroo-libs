@@ -46,7 +46,7 @@ import ext.config.dragzone;
  * @see ext.config.dragzone
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragZone Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.dd.DragZone")]
 public class DragZone extends DragSource {
 
   /**

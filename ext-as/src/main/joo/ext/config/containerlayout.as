@@ -21,7 +21,7 @@ public class containerlayout extends JavaScriptObject {
 
   public function containerlayout(config:Object = null) {
     super(config);
-    Exml.establishType(this, "type", Container['LAYOUTS']);
+    //Exml.establishType(this, "type", Container['LAYOUTS']);
   }
 
 

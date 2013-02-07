@@ -13,7 +13,7 @@ import ext.config.templatecolumn;
  * @see ext.config.templatecolumn
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.TemplateColumn Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.grid.TemplateColumn")]
 public class TemplateColumn extends Column {
 
   /**

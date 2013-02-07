@@ -378,7 +378,7 @@ import ext.util.Observable;
  * @see ext.config.component
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.Component")]
 public class Component extends Observable {
 
   /**

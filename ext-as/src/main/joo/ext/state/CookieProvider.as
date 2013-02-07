@@ -16,7 +16,7 @@ import ext.config.cookieprovider;
  * @see ext.config.cookieprovider
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.state.CookieProvider Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.state.CookieProvider")]
 public class CookieProvider extends Provider {
 
   /**

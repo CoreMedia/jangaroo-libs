@@ -8,7 +8,7 @@ package ext.layout.boxoverflow {
  * @see ext.config.verticalscroller
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.layout.boxOverflow.VerticalScroller Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.layout.boxOverflow.VerticalScroller")]
 public class VerticalScroller extends Scroller {
 
   /**

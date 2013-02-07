@@ -34,7 +34,7 @@ package ext {
  * @see ext.AjaxClass
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Ajax Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.Ajax")]
 public const Ajax:AjaxClass;
 
 }

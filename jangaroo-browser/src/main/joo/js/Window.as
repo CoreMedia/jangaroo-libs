@@ -1,116 +1,112 @@
 package js{
 
-public dynamic class Window {
+public interface Window {
 
-  public static const INSTANCE : Window = window;
+  function get top() : Window;
 
 
 
-  public native function get top() : Window;
+  function get parent() : Window;
 
 
 
-  public native function get parent() : Window;
+  function get frameElement() : Element;
 
 
 
-  public native function get frameElement() : Element;
+  function get status() : String;
 
 
 
-  public native function get status() : String;
+  function set status(status : String) : void;
 
 
 
-  public native function set status(status : String) : void;
+  function get document() : Document;
 
 
 
-  public native function get document() : Document;
+  function get navigator() : Navigator;
 
 
 
-  public native function get navigator() : Navigator;
+  function get location() : Location;
 
 
 
-  public native function get location() : Location;
+  function get event() : Event;
 
 
 
-  public native function get event() : Event;
+  function open(name : String = null, mode: String = null, windowFeatures : String = null) : Window;
 
 
 
-  public native function open(name : String = null, mode: String = null, windowFeatures : String = null) : Window;
+  function focus() : void;
 
 
 
-  public native function focus() : void;
+  function addEventListener(eventType : String, handler : Function, capture : Boolean = false) : void;
 
 
 
-  public native function addEventListener(eventType : String, handler : Function, capture : Boolean = false) : void;
+  function setTimeout(handler : * /* Function or String */, millies : Number) : Object;
 
 
 
-  public native function setTimeout(handler : * /* Function or String */, millies : Number) : Object;
+  function clearTimeout(timer : Object) : void;
 
 
 
-  public native function clearTimeout(timer : Object) : void;
+  function setInterval(handler : Function, millies : Number) : Object;
 
 
 
-  public native function setInterval(handler : Function, millies : Number) : Object;
+  function clearInterval(interval : Object) : void;
 
 
 
-  public native function clearInterval(interval : Object) : void;
+  function alert(message : String) : void;
 
 
 
-  public native function alert(message : String) : void;
+  function confirm(message : String) : Boolean;
 
 
 
-  public native function confirm(message : String) : Boolean;
+  function prompt(message : String, defaultValue : String) : String;
 
 
 
-  public native function prompt(message : String, defaultValue : String) : String;
+  function get innerWidth() : Number;
 
 
 
-  public native function get innerWidth() : Number;
+  function get innerHeight() : Number;
 
 
 
-  public native function get innerHeight() : Number;
+  function eval(expr : String) : *;
 
 
 
-  public native function eval(expr : String) : *;
+  function getComputedStyle(elem : Element, pseudoElt : String) : Style;
 
 
 
-  public native function getComputedStyle(elem : Element, pseudoElt : String) : Style;
+  function get screen() : Screen;
 
 
 
-  public native function get screen() : Screen;
+  function moveTo(x:int, y:int) : void;
 
 
 
-  public native function moveTo(x:int, y:int) : void;
+  function get closed() : Boolean;
 
 
 
-  public native function get closed() : Boolean;
-
-
-
-  public native function close() : void;
+  function close() : void;
 
 
   /**
@@ -118,12 +114,12 @@ public dynamic class Window {
    * @param x is the pixel along the horizontal axis of the document that you want displayed in the upper left.
    * @param y is the pixel along the vertical axis of the document that you want displayed in the upper left.
    */
-  public native function scrollTo(x:int, y:int):void;
+  function scrollTo(x:int, y:int):void;
 
   /**
    * Firefox only.
    */
-  public native function getSelection() : Selection;
+  function getSelection() : Selection;
 
 }
 

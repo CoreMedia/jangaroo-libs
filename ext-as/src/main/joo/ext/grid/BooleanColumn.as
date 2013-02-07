@@ -13,7 +13,7 @@ import ext.config.booleancolumn;
  * @see ext.config.booleancolumn
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.BooleanColumn Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.grid.BooleanColumn")]
 public class BooleanColumn extends Column {
 
   /**

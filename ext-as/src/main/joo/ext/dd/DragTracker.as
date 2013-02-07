@@ -127,7 +127,7 @@ import ext.util.Observable;
  * @see ext.config.dragtracker
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragTracker Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.dd.DragTracker")]
 public class DragTracker extends Observable {
 
   /**

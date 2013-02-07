@@ -887,8 +887,9 @@ import js.HTMLElement;
 
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element Sencha Docs Ext JS 3.4
  */
-[Native]
-public class Element {
+[Native(amd="ext-as.module", global="Ext.Element")]
+public class Element
+ {
 
   /**
    * Create a new Element directly.

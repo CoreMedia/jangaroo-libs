@@ -33,7 +33,7 @@ package ext.util {
  * @see ext.config.observable
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Observable Sencha Docs Ext JS 3.4
  */
-[Native]
+[Native(amd="ext-as.module", global="Ext.util.Observable")]
 public class Observable {
 
   /**
