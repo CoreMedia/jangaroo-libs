@@ -128,6 +128,7 @@
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-maven-plugin</artifactId>
         <extensions>true</extensions>
+        <version>${jangaroo.version}</version>
       </plugin>
     </plugins>
 
@@ -141,11 +142,6 @@
 
     <pluginManagement>
       <plugins>
-        <plugin>
-          <groupId>net.jangaroo</groupId>
-          <artifactId>jangaroo-maven-plugin</artifactId>
-          <version>${jangaroo.version}</version>
-        </plugin>
         <plugin>
           <groupId>net.jangaroo</groupId>
           <artifactId>exml-maven-plugin</artifactId>
@@ -194,7 +190,6 @@
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-runtime</artifactId>
         <version>${jangaroo.version}</version>
-        <type>jangaroo</type>
       </dependency>
     </dependencies>
   </dependencyManagement>

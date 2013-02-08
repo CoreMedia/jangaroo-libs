@@ -1,7 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
-  <groupId>net.jangaroo</groupId>
   <artifactId>ext-as</artifactId>
   <packaging>jangaroo</packaging>
 
@@ -19,28 +18,24 @@
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>jangaroo-runtime</artifactId>
-      <type>jangaroo</type>
     </dependency>
 
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>jangaroo-browser</artifactId>
       <version>${project.version}</version>
-      <type>jangaroo</type>
     </dependency>
 
     <dependency>
-      <groupId>net.jangaroo</groupId>
+      <groupId>net.jangaroo.com.sencha</groupId>
       <artifactId>ext-js</artifactId>
-      <version>${project.version}</version>
-      <type>jangaroo</type>
+      <version>3.4.0</version>
     </dependency>
 
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>joounit</artifactId>
       <version>${project.version}</version>
-      <type>jangaroo</type>
       <scope>test</scope>
     </dependency>
   </dependencies>

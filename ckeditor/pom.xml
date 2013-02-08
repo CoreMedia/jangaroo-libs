@@ -7,28 +7,15 @@
   </parent>
 
   <modelVersion>4.0.0</modelVersion>
-  <groupId>net.jangaroo</groupId>
   <artifactId>ckeditor</artifactId>
-  <packaging>jangaroo</packaging>
   <name>ckeditor</name>
-  <description>CKEditor 3.5.2</description>
-
-  <build>
-    <resources>
-      <resource>
-        <directory>src/main/resources</directory>
-        <excludes>
-          <exclude>ckeditor/_samples/**</exclude>
-        </excludes>
-      </resource>
-    </resources>
-  </build>
+  <description>CKEditor 3.6.2</description>
+  <packaging>jangaroo</packaging>
 
   <dependencies>
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>jangaroo-runtime</artifactId>
-      <type>jangaroo</type>
     </dependency>
   </dependencies>
 </project>

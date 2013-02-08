@@ -1,7 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
-  <groupId>net.jangaroo</groupId>
   <artifactId>jangaroo-net</artifactId>
   <packaging>jangaroo</packaging>
   <name>jangaroo-net</name>
@@ -21,11 +20,6 @@
         <version>${jangaroo.version}</version>  <!-- for stupid IDEA -->
         <configuration>
           <jooUnitTestExecutionTimeout>120000</jooUnitTestExecutionTimeout>
-          <phantomTestSuite>net.jangaroo.net.TestSuite</phantomTestSuite>
-          <phantomTestRunner>joo/phantomjs-joounit-runner.js</phantomTestRunner>
-          <phantomArgs>
-            {loglevel:(function(){console.info('running tests without test.html'); return 'all'})()}
-          </phantomArgs>
         </configuration>
       </plugin>
     </plugins>
@@ -35,13 +29,11 @@
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>jangaroo-runtime</artifactId>
-      <type>jangaroo</type>
     </dependency>
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>joounit</artifactId>
       <version>${project.version}</version>
-      <type>jangaroo</type>
       <scope>test</scope>
     </dependency>
   </dependencies>

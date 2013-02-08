@@ -39,6 +39,9 @@ public class BrowserRunner extends BaseTestRunner {
 
   private var outputTestResult:Function = function(result:String):void {
     window["result"] = result;
+    if (window["callPhantom"]) {
+      window["callPhantom"](result);
+    }
   };
 
   private var onComplete:Function = function(testResult:TestResult, resultXml:String):void{

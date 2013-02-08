@@ -6,7 +6,6 @@
     <relativePath>../jangaroo-libs-parent/pom.xml</relativePath>
   </parent>
   <modelVersion>4.0.0</modelVersion>
-  <groupId>net.jangaroo</groupId>
   <artifactId>jooflash</artifactId>
   <packaging>jangaroo</packaging>
   <name>jooflash</name>
@@ -28,22 +27,12 @@
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>jangaroo-runtime</artifactId>
-      <type>jangaroo</type>
     </dependency>
 
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>jangaroo-browser</artifactId>
       <version>${project.version}</version>
-      <type>jangaroo</type>
-    </dependency>
-
-    <dependency>
-      <groupId>net.jangaroo</groupId>
-      <artifactId>xmlhttprequest</artifactId>
-      <version>${project.version}</version>
-      <type>jangaroo</type>
-      <scope>runtime</scope>
     </dependency>
   </dependencies>
 
