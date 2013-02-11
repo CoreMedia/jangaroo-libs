@@ -11,7 +11,7 @@ import flash.geom.Vector3D;
 import js.CanvasRenderingContext2D;
 import js.HTMLCanvasElement;
 import js.HTMLElement;
-import js.Style;
+import js.CSS2Properties;
 
 /**
  * Dispatched when a display object is added to the display list. The following methods trigger this event: <code>DisplayObjectContainer.addChild()</code>, <code>DisplayObjectContainer.addChildAt()</code>.
@@ -2131,14 +2131,14 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
   }
 
   protected function updateElement(element:HTMLElement, bounds:Rectangle):void {
-    var style:Style = element.style;
+    var style:CSS2Properties = element.style;
     style.width = bounds.width + "px";
     style.height = bounds.height + "px";
     updateTransform(element, bounds);
   }
 
   private function updateTransform(elem:HTMLElement, bounds:Rectangle):void {
-    var style:Style = elem.style;
+    var style:CSS2Properties = elem.style;
     style.position = "absolute";
     var left:Number = /*x +*/ bounds.left;
     var top:Number = /*y +*/ bounds.top;
@@ -2158,7 +2158,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
 
   private static const BROWSER_PREFIXES:Object = { '-moz-': 1, '-webkit-': 1, '-o': 1, '-ms-': 1 };
 
-  private static function setProprietaryStyle(style:Style, property:String, value:String):void {
+  private static function setProprietaryStyle(style:CSS2Properties, property:String, value:String):void {
     for (var browserPrefix:String in BROWSER_PREFIXES) {
       try {
         style['setProperty'](browserPrefix + property, value, "");

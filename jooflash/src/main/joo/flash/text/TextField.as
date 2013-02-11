@@ -11,7 +11,7 @@ import js.Document;
 import js.Element;
 import js.HTMLCanvasElement;
 import js.HTMLElement;
-import js.Style;
+import js.CSS2Properties;
 import js.TextMetrics;
 
 /**
@@ -2752,7 +2752,7 @@ public class TextField extends InteractiveObject {
       element['type'] = displayAsPassword ? 'password' : 'text';
     }
     element.innerHTML = htmlText;
-    var style:Style = element.style;
+    var style:CSS2Properties = element.style;
     style.padding = "2px";
     style.width = "auto";
     style.fontFamily = asWebFont();

@@ -71,7 +71,7 @@ public class Document extends Node {
 
 
 
-  public native function getElementsByName(name : String) : Collection;
+  public native function getElementsByName(name : String) : NodeList;
 
 
 
@@ -111,7 +111,7 @@ public class Document extends Node {
 
 
 
-  public native function get selection():IESelection; // IE only
+  public native function get selection():MSSelection; // IE only
 
 
 }

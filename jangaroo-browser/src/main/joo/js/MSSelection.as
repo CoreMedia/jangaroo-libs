@@ -5,7 +5,8 @@ package js {
  * or a script can carry out some action on.
  * <code>selection</code> is a child object of the <code>document</code> object.
  */
-public interface IESelection {
+[Native(global="MSSelection")]
+public interface MSSelection {
 
   /**
    * Retrieves the type of selection.
@@ -36,7 +37,7 @@ public interface IESelection {
    * Creates a TextRange object collection from the current selection.
    * <p>The default implementation of this method returns a collection consisting of a single TextRange object.</p>
    */
-  function createRangeCollection():Collection;
+  function createRangeCollection():NodeList;
 
   /**
    * Cancels the current selection, sets the selection type to none, and sets the item property to null.

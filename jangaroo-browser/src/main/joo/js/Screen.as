@@ -1,4 +1,5 @@
 package js{
+[Native(global="Screen")]
 public interface Screen {
   function get top() : int;
 

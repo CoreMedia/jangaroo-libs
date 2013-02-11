@@ -1,5 +1,6 @@
 package js {
 
+[Native(global="Navigator")]
 public interface Navigator {
 
   /**

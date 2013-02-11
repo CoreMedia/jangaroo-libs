@@ -1,6 +1,7 @@
 package js{
 
-public class Collection extends Array {
+[Native(global="NodeList")]
+public class NodeList extends Array {
 
   public native function item(index : Number) : Object;
 

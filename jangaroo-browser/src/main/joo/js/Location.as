@@ -1,4 +1,5 @@
 package js {
+[Native(global="Location")]
 public interface Location {
 
   /**

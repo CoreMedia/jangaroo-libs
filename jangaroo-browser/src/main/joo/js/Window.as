@@ -1,5 +1,6 @@
 package js{
 
+[Native(global="Window")]
 public interface Window {
 
   function get top() : Window;
@@ -90,7 +91,7 @@ public interface Window {
 
 
 
-  function getComputedStyle(elem : Element, pseudoElt : String) : Style;
+  function getComputedStyle(elem : Element, pseudoElt : String) : CSS2Properties;
 
 
 

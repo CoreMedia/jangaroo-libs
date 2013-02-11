@@ -1,6 +1,7 @@
 package js{
 
-public interface Style {
+[Native(global="CSS2Properties|MSStyleCSSProperties")]
+public interface CSS2Properties {
 
   function getPropertyValue(propertyName : String) : String;
 

@@ -6,7 +6,7 @@ import flash.geom.Point;
 import flash.geom.Rectangle;
 import flash.text.TextSnapshot;
 
-import js.Collection;
+import js.NodeList;
 
 import js.HTMLElement;
 
@@ -856,7 +856,7 @@ public class DisplayObjectContainer extends InteractiveObject {
   override protected function updateElement(element:HTMLElement, bounds:Rectangle):void {
     updateContainerElement(element, bounds);
     var childElements:Vector.<HTMLElement> = new <HTMLElement>[];
-    var oldChildren:Collection = element.childNodes;
+    var oldChildren:NodeList = element.childNodes;
     var oldChildIndex:int = 0;
     var visibleChildCount:int = 0;
     for each (var child:DisplayObject in children) {

@@ -39,15 +39,15 @@ public class Element extends Node {
 
 
 
-  public native function get style() : Style;
+  public native function get style() : CSS2Properties;
 
 
 
-  public native function get runtimeStyle() : Style;
+  public native function get runtimeStyle() : CSS2Properties;
 
 
 
-  public native function get filters() : Collection; // IE only
+  public native function get filters() : NodeList; // IE only
 
 
 
@@ -111,7 +111,7 @@ public class Element extends Node {
 
 
 
-  public native function get attributes() : Collection;
+  public native function get attributes() : NodeList;
 
 
 
@@ -232,7 +232,7 @@ public class Element extends Node {
 
   public native function createTextRange() : TextRange; // IE only
 
-  public native function createControlRange() : ControlRange; // IE only
+  public native function createControlRange() : ControlRangeCollection; // IE only
 
 }
 

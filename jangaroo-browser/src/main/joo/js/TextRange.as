@@ -5,6 +5,7 @@ package js {
  *
  * <p>There is no public standard that applies to this interface.</p>
  */
+[Native(global="TextRange")]
 public interface TextRange {
 
 
