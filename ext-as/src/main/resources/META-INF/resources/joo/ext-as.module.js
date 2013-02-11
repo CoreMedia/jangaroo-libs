@@ -1,13 +1,38 @@
 requirejs.config({
+  paths: {
+    "ext-js": "../ext-js"
+  },
   shim: {
-    "../ext-js/ext-all-debug": {
-      deps: ["../ext-js/adapter/ext/ext-base-debug"],
+    "ext-js/ext-all": {
+      deps: ["ext-js/adapter/ext/ext-base"],
+      exports: "Ext"
+    },
+    "ext-js/ext-all-debug": {
+      deps: ["ext-js/adapter/ext/ext-base-debug"],
       exports: "Ext"
     }
   }
 });
 
-define(["../ext-js/ext-all-debug"], function(Ext) {
+(function() {
+  var debug = "false";
+  if (typeof location === "object" && typeof location.hash === "string") {
+    var match = location.hash.match(/(?:^#|&)joo.debug(?:=(true|false|linked)|&|$)/);
+    if (match) {
+      debug = match[1] || "true";
+    }
+  }
+  if (debug === "true") {
+    requirejs.config({
+      map: {
+        "*": {
+          "ext-js/ext-all": "ext-js/ext-all-debug"
+        }
+      }
+    })
+  }
+})();
+define(["ext-js/ext-all"], function(Ext) {
   Ext.util.DateUtil = Date;
   // Forward all additional Date instance methods as static methods, since AS3 does not allow to extend a final class:
   Ext.iterate({getTimezone: 0, getDayOfYear:0, getWeekOfYear:0, isLeapYear:0, getFirstDayOfMonth:0, getLastDayOfMonth:0,
