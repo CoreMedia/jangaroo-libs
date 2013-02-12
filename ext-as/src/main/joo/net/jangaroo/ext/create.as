@@ -20,7 +20,12 @@ public function create(configClass:Class,  config:Object):Object {
     throw new Error("Missing [ExtConfig(target='...')] annotation in config class "
             + configClassDeclaration.qName);
   }
-  var targetClass:Class = getQualifiedObject(extConfigAnnotation.target);
+  var targetClassName:String = extConfigAnnotation.target;
+  // hack for Ext AS aliases:
+  if (targetClassName.substr(0, 4) == "ext.") {
+    targetClassName = "Ext." + targetClassName.substr(4);
+  }
+  var targetClass:Class = getQualifiedObject(targetClassName);
   return new targetClass(typedConfig);
   
 }
