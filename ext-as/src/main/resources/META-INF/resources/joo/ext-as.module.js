@@ -33,6 +33,7 @@ requirejs.config({
   }
 })();
 define(["ext-js/ext-all"], function(Ext) {
+  Ext.EventManager.fireDocReady();
   Ext.util.DateUtil = Date;
   // Forward all additional Date instance methods as static methods, since AS3 does not allow to extend a final class:
   Ext.iterate({getTimezone: 0, getDayOfYear:0, getWeekOfYear:0, isLeapYear:0, getFirstDayOfMonth:0, getLastDayOfMonth:0,
