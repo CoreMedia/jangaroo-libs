@@ -871,7 +871,7 @@ public interface IExt {
    * @param options Options object as passed to <a href="output/Ext.Element.html#Ext.Element-addListener">Ext.Element.addListener</a>. It is recommended that the options <code>{single: true}</code> be used so that the handler is removed on first invocation.
    * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext-method-onReady Sencha Docs Ext JS 3.4
    */
-  function onReady(fn:Function, scope:Object = null, options:Boolean = false):void;
+  function onReady(fn:Function, scope:Object = null, options:Object = null):void;
 
   /**
    * Adds a list of functions to the prototype of an existing class, overwriting any existing methods with the same name. Usage:<pre><code>Ext.override(MyClass, {
