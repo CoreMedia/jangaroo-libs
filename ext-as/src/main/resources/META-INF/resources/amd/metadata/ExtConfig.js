@@ -2,7 +2,7 @@
  * Evaluate [ExtConfig] annotations at runtime.
  * Only needed for EXML, not for MXML.
  */
-define(["runtime/AS3", "native!Ext@ext-as.module", "classes/joo/getQualifiedObject"], function(AS3, ext, getQualifiedObject) {
+define(["as3-rt/AS3", "native!Ext@ext-as.module", "as3/joo/getQualifiedObject"], function(AS3, ext, getQualifiedObject) {
   var REGISTRATION_BY_TYPE = {
     xtype: ext.ComponentMgr.registerType,
     ptype: ext.ComponentMgr.registerPlugin,

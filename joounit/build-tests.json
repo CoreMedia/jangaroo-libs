@@ -1,6 +1,6 @@
 {
-  "baseUrl": "target/test-classes/joo",
+  "baseUrl": "target/test-classes/amd",
   "name":    "tests",
-  "out":     "target/test-classes/joo/tests-min.js",
+  "out":     "target/test-classes/amd/tests-min.js",
   "preserveLicenseComments": false
 }
