@@ -472,19 +472,20 @@ public class Sprite extends DisplayObjectContainer {
     //getElement().style.cursor = buttonMode && useHandCursor ? 'pointer' : 'default';
   }
 
-  override protected function updateElement(element:HTMLElement, bounds:Rectangle):void {
-    super.updateElement(element, bounds);
-    if (_graphics && _graphics.dirty) {
-      if (!_context) {
-        _context = RenderState.createCanvasContext2D(_graphics.width, _graphics.height);
-      } else {
-        RenderState.resizeAndReset(_context,  _graphics.width, _graphics.height);
+  override protected function getChildElements():Vector.<HTMLElement> {
+    var childElements:Vector.<HTMLElement> = super.getChildElements();
+    if (_graphics) {
+      if (_graphics.dirty) {
+        if (!_context) {
+          _context = RenderState.createCanvasContext2D(_graphics.width, _graphics.height);
+        } else {
+          RenderState.resizeAndReset(_context, _graphics.width, _graphics.height);
+        }
+        _graphics._renderIntoCanvas(_context);
       }
-      if (element.firstChild !== _context.canvas) {
-        element.insertBefore(_context.canvas, element.firstChild);
-      }
-      _graphics._renderIntoCanvas(_context);
+      childElements.splice(0, 0, _context.canvas);
     }
+    return childElements;
   }
 
   private var _graphics : Graphics;
