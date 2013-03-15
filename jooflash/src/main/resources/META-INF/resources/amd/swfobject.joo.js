@@ -15,7 +15,6 @@
         if (div) {
           var iframe = document.createElement("IFRAME");
           iframe.id = replaceElemIdStr;
-          var url = swfUrlStr.replace(/\.swf$/, ".js");
           iframe.width = widthStr;
           iframe.height = heightStr;
           iframe.frameBorder = 0;
@@ -33,8 +32,16 @@
           doc.write("</head>");
           doc.write("<body>");
           doc.write("<p id='stage'>JooFlash loading...</p>");
-          doc.write("<script>joo = { baseUrl: '../', debug: false};</script>");
-          doc.write("<script src='" + url + "'></script>");
+          doc.write("<script>requirejs = { baseUrl: '../amd' };</script>");
+          var debug = typeof location === "object" &&
+                  typeof location.hash === "string" &&
+                  !!location.hash.match(/(^#|&)joo.debug(=true|&|$)/);
+          if (debug) {
+            doc.write("<script src='../requirejs/require.js'></script>");
+          } else {
+            var url = swfUrlStr.replace(/\.swf$/, ".js");
+            doc.write("<script src='" + url + "'></script>");
+          }
           var flashvarsStr = "{}";
           if (flashvarsObj) {
             for (var key in flashvarsObj) {
@@ -45,7 +52,7 @@
             }
             flashvarsStr = JSON.stringify(flashvarsObj);
           }
-          doc.write("<script>joo.classLoader.run('joo.flash.Run', 'stage', 'main', " + flashvarsStr + ", '" + widthStr + "', '" + heightStr + "');</script>");
+          doc.write("<script>require(['as3/joo/flash/Run', 'as3/main'], function(Run, main) { Run._.main('stage', main._, " + flashvarsStr + ", '" + widthStr + "', '" + heightStr + "');});</script>");
           doc.write("</body>");
           doc.write("</html>");
           doc.close();
