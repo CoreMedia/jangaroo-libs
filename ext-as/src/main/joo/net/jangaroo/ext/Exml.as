@@ -1,6 +1,4 @@
 package net.jangaroo.ext {
-import joo.JooClassDeclaration;
-import joo.getQualifiedObject;
 
 public class Exml {
 

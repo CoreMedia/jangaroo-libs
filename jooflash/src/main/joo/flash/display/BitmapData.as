@@ -41,6 +41,8 @@ import js.Style;
  *
  */
 public class BitmapData implements IBitmapDrawable {
+  internal var _dirty:Boolean;
+
   /**
    * The height of the bitmap image in pixels.
    */
@@ -195,6 +197,7 @@ public class BitmapData implements IBitmapDrawable {
    * </listing>
    */
   public function colorTransform(rect:Rectangle, colorTransform:ColorTransform):void {
+    _dirty = true;
     var context:CanvasRenderingContext2D = getContext();
     // check for all known faster methods to map colorTransform directly to canvas APIs:
     if (colorTransform.alphaOffset==0
@@ -388,6 +391,7 @@ public class BitmapData implements IBitmapDrawable {
     destRect.width = Math.floor(destRect.width);
     destRect.height = Math.floor(destRect.height);
     if (destRect.width > 0 && destRect.height > 0) {
+      _dirty = true;
       var sx:Number = sourceRect.x + (destRect.left - destPoint.x);
       var sy:Number = sourceRect.y + (destRect.top - destPoint.y);
       if (!sourceBitmapData._canvasContext) {
@@ -496,6 +500,7 @@ public class BitmapData implements IBitmapDrawable {
    */
   public function draw(source:IBitmapDrawable, matrix:Matrix = null, colorTransform:ColorTransform = null,
                        blendMode:String = null, clipRect:Rectangle = null, smoothing:Boolean = false):void {
+    _dirty = true;
     var context:CanvasRenderingContext2D = getContext();
     if (matrix) {
       context.save();
@@ -509,6 +514,7 @@ public class BitmapData implements IBitmapDrawable {
   }
 
   public function _render(renderState:RenderState):void {
+    _dirty = false;
     if (_canvasContext) {
       renderState.context.drawImage(_canvasContext.canvas, 0.0, 0.0);
     } else {
@@ -541,6 +547,7 @@ public class BitmapData implements IBitmapDrawable {
    * </listing>
    */
   public function fillRect(rect:Rectangle, color:uint):void {
+    _dirty = true;
     var alpha:uint = (color >> 24 & 0xFF) / 0xFF;
     color = color & 0xFFFFFF;
     if (!_canvasContext && rect.equals(this.rect)) { // TODO: what about alpha != 1?
@@ -1118,6 +1125,7 @@ public class BitmapData implements IBitmapDrawable {
    */
   public function setPixel(x:int, y:int, color:uint):void {
     if (rect.contains(x, y)) {
+      _dirty = true;
       var context:CanvasRenderingContext2D = getContext();
       var imageData:ImageData = context.createImageData(1, 1);
       imageData.data[0] = color >> 16 & 0xFF;
@@ -1159,6 +1167,7 @@ public class BitmapData implements IBitmapDrawable {
    */
   public function setPixel32(x:int, y:int, color:uint):void {
     if (rect.contains(x, y)) {
+      _dirty = true;
       var context:CanvasRenderingContext2D = getContext();
       var imageData:ImageData = context.createImageData(1, 1);
       imageData.data[0] = color >> 16 & 0xFF;
@@ -1332,12 +1341,13 @@ public class BitmapData implements IBitmapDrawable {
     if (_canvasContext) {
       return _canvasContext.canvas;
     }
-    var element:HTMLElement = HTMLElement(window.document.createElement('div'));
+    var reuseImage:Boolean = imageOffsetX === 0 && imageOffsetY === 0;
+    var element:HTMLElement = reuseImage ? image : HTMLElement(window.document.createElement('div'));
     var style:Style = element.style;
     if (_fillColor) {
       style.backgroundColor = Graphics.toRGBA(_fillColor, _alpha);
     }
-    if (image) {
+    if (image && !reuseImage) {
       style.backgroundImage = "url('" + image.src + "')";
       style.backgroundPosition = imageOffsetX + "px " + imageOffsetY + "px";
     }
@@ -1356,6 +1366,7 @@ public class BitmapData implements IBitmapDrawable {
   }
 
   private function drawIntoCanvas(context:CanvasRenderingContext2D):void {
+    _dirty = false;
     if (_alpha > 0 || !transparent) {
       context.save();
       context.fillStyle = Graphics.toRGBA(_fillColor, _alpha);

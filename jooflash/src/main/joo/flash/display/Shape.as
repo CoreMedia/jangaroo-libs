@@ -48,7 +48,7 @@ public class Shape extends DisplayObject {
 
   override protected function updateElement(element:HTMLElement, bounds:Rectangle):void {
     var canvas:HTMLCanvasElement = HTMLCanvasElement(element);
-    var context:CanvasRenderingContext2D = CanvasRenderingContext2D(canvas.getContext('2D'));
+    var context:CanvasRenderingContext2D = CanvasRenderingContext2D(canvas.getContext('2d'));
     RenderState.resizeAndReset(context, _graphics.width, _graphics.height);
     _graphics._renderIntoCanvas(context);
   }

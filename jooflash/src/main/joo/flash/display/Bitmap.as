@@ -25,6 +25,8 @@ import js.HTMLElement;
  *
  */
 public class Bitmap extends DisplayObject {
+  private var _dirty:Boolean = false;
+
   /**
    * The BitmapData object being referenced.
    */
@@ -36,7 +38,10 @@ public class Bitmap extends DisplayObject {
    * @private
    */
   public function set bitmapData(value:BitmapData):void {
-    _bitmapData = value;
+    if (_bitmapData !== value) {
+      _bitmapData = value;
+      _dirty = true;
+    }
   }
 
   /**
@@ -54,7 +59,10 @@ public class Bitmap extends DisplayObject {
    * @private
    */
   public function set pixelSnapping(value:String):void {
-    this._pixelSnapping = value;
+    if (_pixelSnapping !== value) {
+      _pixelSnapping = value;
+      _dirty = true;
+    }
   }
 
   /**
@@ -68,8 +76,11 @@ public class Bitmap extends DisplayObject {
    * @private
    */
   public function set smoothing(value:Boolean):void {
-    this._smoothing = value;
-    // TODO: can we use canvas.context.mozImageSmoothingEnabled = true / false to achieve smoothing?
+    if (_smoothing !== value) {
+      this._smoothing = value;
+      // TODO: can we use canvas.context.mozImageSmoothingEnabled = true / false to achieve smoothing?
+      _dirty = true;
+    }
   }
 
   /**
@@ -132,10 +143,12 @@ public class Bitmap extends DisplayObject {
   }
 
   override protected function isBitmapCacheDirty():Boolean {
-    return true; // TODO: trace changes!
+    return _dirty || bitmapData && bitmapData._dirty;
   }
 
   override public function _render(renderState:RenderState):void {
+    _dirty = false;
+    _clearTransformChanged();
     if (bitmapData) {
       bitmapData._render(renderState);
     }
@@ -153,6 +166,10 @@ public class Bitmap extends DisplayObject {
 
   override protected function createElementCached():HTMLElement {
     return bitmapData.getElement();
+  }
+
+  override protected function updateElement(element:HTMLElement, bounds:Rectangle):void {
+    super.updateElement(element, bounds);
   }
 
   private var _bitmapData:BitmapData;

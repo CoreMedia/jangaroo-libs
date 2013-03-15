@@ -2023,7 +2023,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
 
   private function _doRenderCached(transform:Matrix):Rectangle {
     var bounds:Rectangle = getBoundsTransformed(transform);
-    if (!_bitmapCacheTransform || !isScaleAndRotationEqual(_bitmapCacheTransform, transform) || isBitmapCacheDirty()) {
+    if (bounds.width > 0 && bounds.height > 0 && (!_bitmapCacheTransform || !isScaleAndRotationEqual(_bitmapCacheTransform, transform) || isBitmapCacheDirty())) {
       if (!_bitmapCacheTransform) {
         _bitmapCacheTransform = new Matrix();
       }
@@ -2099,7 +2099,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
 
   protected function createElement():HTMLElement {
     var element:HTMLElement = HTMLElement(window.document.createElement(getElementName()));
-    element.setAttribute("data-flashClass", this.constructor.$class.toString());
+    element.setAttribute("data-flashclass", this.constructor.$class.toString());
     return element;
   }
 
@@ -2108,16 +2108,24 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
   }
 
   public function renderAsDom():HTMLElement {
-    var elem:HTMLElement;
+    var elem:HTMLElement = null;
     var bounds:Rectangle;
     if (_isCacheAsBitmap()) {
       bounds = _doRenderCached(new Matrix());
-      elem = _bitmapCacheContext.canvas;
-      updateTransform(elem, bounds);
+      if (_bitmapCacheContext) {
+        elem = _bitmapCacheContext.canvas;
+        bounds.left += _x;
+        bounds.top += _y;
+        updateTransform(elem, bounds);
+      }
     } else {
       bounds = getBounds(null);
-      elem = createElementCached();
-      updateElement(elem, bounds);
+      if (bounds.width > 0 && bounds.height > 0) {
+        elem = createElementCached();
+        updateElement(elem, bounds);
+      } else {
+        resetElement();
+      }
     }
     return elem;
   }

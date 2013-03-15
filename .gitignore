@@ -2,8 +2,11 @@
 *.iml
 *.ipr
 *.iws
+.idea/*
 # Backups
 *.*~
 # Maven target dirs
 target/
 site
+# misc
+*/asdoc-output/*

@@ -27,8 +27,11 @@
           doc.write("<!DOCTYPE html>");
           doc.write("<html>");
           doc.write("<head>");
+          doc.write("<style type='text/css'>");
+          doc.write("html, body { margin:0;padding:0;overflow:hidden;width:100%;height:100%; }");
+          doc.write("</style>");
           doc.write("</head>");
-          doc.write("<body style='margin:0;padding:0;overflow:hidden'>");
+          doc.write("<body>");
           doc.write("<p id='stage'>JooFlash loading...</p>");
           doc.write("<script>joo = { baseUrl: '../', debug: false};</script>");
           doc.write("<script src='" + url + "'></script>");
