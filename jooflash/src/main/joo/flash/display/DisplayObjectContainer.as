@@ -262,10 +262,6 @@ public class DisplayObjectContainer extends InteractiveObject {
     return child;
   }
 
-  internal function getChildIndexOffset():int {
-    return 0;
-  }
-
   /**
    * @private
    */
@@ -274,7 +270,6 @@ public class DisplayObjectContainer extends InteractiveObject {
     if (oldParent) {
       oldParent.removeChild(child);
     }
-    var refChild:DisplayObject = this.children[index];
     this.children.splice(index, 0, child);
     child.setParent(this);
   }
@@ -855,30 +850,30 @@ public class DisplayObjectContainer extends InteractiveObject {
 
   override protected function updateElement(element:HTMLElement, bounds:Rectangle):void {
     updateContainerElement(element, bounds);
-    var childElements:Vector.<HTMLElement> = new <HTMLElement>[];
     var oldChildren:NodeList = element.childNodes;
-    var oldChildIndex:int = 0;
-    var visibleChildCount:int = 0;
+    var childElements:Vector.<HTMLElement> = getChildElements();
+    for (var matchIndex:int = 0; matchIndex < childElements.length; matchIndex++) {
+      if (oldChildren.item(matchIndex) !== childElements[matchIndex]) {
+        break;
+      }
+    }
+    if (matchIndex !== childElements.length) { // do we need to update the DOM child elements?
+      element.innerHTML = ""; // fastest way to remove all child nodes
+      for (var i:int = 0; i < childElements.length; i++) {
+        element.appendChild(childElements[i]);
+      }
+    }
+  }
+
+  protected function getChildElements():Vector.<HTMLElement> {
+    var childElements:Vector.<HTMLElement> = new <HTMLElement>[];
     for each (var child:DisplayObject in children) {
       var childElement:HTMLElement = child.renderAsDom();
       if (childElement) {
-        ++visibleChildCount;
-        if (oldChildIndex !== -1) {
-          if (oldChildren.item(oldChildIndex) === childElement) {
-            ++oldChildIndex;
-          } else {
-            oldChildIndex = -1;
-          }
-        }
         childElements.push(childElement);
       }
     }
-    if (oldChildIndex !== visibleChildCount) {
-      element.innerHTML = ""; // fastest way to remove all child nodes
-      for each (var childElement2:HTMLElement in childElements) {
-        element.appendChild(childElement2);
-      }
-    }
+    return childElements;
   }
 
   /**
