@@ -462,10 +462,11 @@ public class Sprite extends DisplayObjectContainer {
   }
 
   override protected function hitTestInput(localX:Number, localY:Number):InteractiveObject {
-    if (_graphics && localX >= _graphics.minX && localY >= _graphics.minY && localX < _graphics.maxX && localY < _graphics.maxY) {
-      return this;
+    var interactiveObject:InteractiveObject = super.hitTestInput(localX, localY);
+    if (!interactiveObject && _graphics && localX >= _graphics.minX && localY >= _graphics.minY && localX < _graphics.maxX && localY < _graphics.maxY) {
+      return interactiveObject = this;
     }
-    return super.hitTestInput(localX, localY);
+    return interactiveObject;
   }
 
   private function updateCursor():void {
@@ -478,6 +479,7 @@ public class Sprite extends DisplayObjectContainer {
       if (_graphics.dirty) {
         if (!_context) {
           _context = RenderState.createCanvasContext2D(_graphics.width, _graphics.height);
+          _context.canvas.setAttribute("data-flashclass", Graphics["$class"].toString());
         } else {
           RenderState.resizeAndReset(_context, _graphics.width, _graphics.height);
         }

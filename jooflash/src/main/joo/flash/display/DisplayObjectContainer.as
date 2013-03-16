@@ -852,9 +852,12 @@ public class DisplayObjectContainer extends InteractiveObject {
     updateContainerElement(element, bounds);
     var oldChildren:NodeList = element.childNodes;
     var childElements:Vector.<HTMLElement> = getChildElements();
-    for (var matchIndex:int = 0; matchIndex < childElements.length; matchIndex++) {
-      if (oldChildren.item(matchIndex) !== childElements[matchIndex]) {
-        break;
+    var matchIndex:int = -1;
+    if (oldChildren.length === childElements.length) {
+      for (matchIndex = 0; matchIndex < childElements.length; matchIndex++) {
+        if (oldChildren.item(matchIndex) !== childElements[matchIndex]) {
+          break;
+        }
       }
     }
     if (matchIndex !== childElements.length) { // do we need to update the DOM child elements?
