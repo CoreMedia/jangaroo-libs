@@ -2137,7 +2137,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
     updateTransform(element, bounds);
   }
 
-  private function updateTransform(elem:HTMLElement, bounds:Rectangle):void {
+  protected function updateTransform(elem:HTMLElement, bounds:Rectangle):void {
     var style:Style = elem.style;
     style.position = "absolute";
     var left:Number = /*x +*/ bounds.left;
