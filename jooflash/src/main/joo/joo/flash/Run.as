@@ -7,13 +7,22 @@ import flash.events.Event;
 
 public class Run {
 
+  //noinspection JSFieldCanBeLocal
+  private static var renderLoop:RenderLoop = new RenderLoop();
+
   public static function main(id : String, primaryDisplayObjectClass : Class,
                               parameters : Object = null,
                               widthStr : String = null, heightStr : String = null) : void {
       var cd:Object = primaryDisplayObjectClass['$class'];
       trace("[INFO] Loaded Flash main class " + cd.qName + ".");
       var metadata:Object = cd.metadata || {};
-      var swf:Object = metadata['SWF'] || {};
+      var swf:Object = {};
+      var metadataSwf:Object = metadata['SWF'];
+      if (metadataSwf) {
+        for (var m:String in metadataSwf) {
+          swf[m] = metadataSwf[m];
+        }
+      }
       if (widthStr) {
         swf.width = widthStr;
       }
@@ -33,7 +42,7 @@ public class Run {
       displayObject['loaderInfo'] = loaderInfo;
       primaryDisplayObjectClass.call(displayObject);
       displayObject.broadcastEvent(new Event(Event.ADDED_TO_STAGE, false, false));
-      new RenderLoop().addStage(stage);
+      renderLoop.addStage(stage);
   }
 
 }
