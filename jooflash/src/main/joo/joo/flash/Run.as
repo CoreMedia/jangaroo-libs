@@ -11,6 +11,9 @@ import joo.JooClassDeclaration;
 
 public class Run {
 
+  //noinspection JSFieldCanBeLocal
+  private static var renderLoop:RenderLoop = new RenderLoop();
+
   public static function main(id : String, primaryDisplayObjectClassName : String,
                               parameters : Object = null,
                               widthStr : String = null, heightStr : String = null) : void {
@@ -23,7 +26,13 @@ public class Run {
       var primaryDisplayObjectClass : Object = getDefinitionByName(primaryDisplayObjectClassName);
       var cd:JooClassDeclaration = primaryDisplayObjectClass['$class'];
       var metadata:Object = cd.metadata;
-      var swf:Object = metadata['SWF'] || {};
+      var swf:Object = {};
+      var metadataSwf:Object = metadata['SWF'];
+      if (metadataSwf) {
+        for (var m:String in metadataSwf) {
+          swf[m] = metadataSwf[m];
+        }
+      }
       if (widthStr) {
         swf.width = widthStr;
       }
@@ -43,7 +52,7 @@ public class Run {
       displayObject['loaderInfo'] = loaderInfo;
       cd.constructor_.call(displayObject);
       displayObject.broadcastEvent(new Event(Event.ADDED_TO_STAGE, false, false));
-      new RenderLoop().addStage(stage);
+      renderLoop.addStage(stage);
     });
   }
 
