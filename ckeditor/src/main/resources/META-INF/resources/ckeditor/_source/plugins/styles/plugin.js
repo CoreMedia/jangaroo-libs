@@ -606,13 +606,27 @@ CKEDITOR.STYLE_OBJECT = 3;
 				for ( attName in removeList.attrs )
 					styleNode.removeAttribute( attName );
 
-				for ( styleName in removeList.styles )
-					styleNode.removeStyle( styleName );
+        for (styleName in removeList.styles)
+          styleNode.removeStyle(styleName);
 
-				if ( styleHasAttrs && !styleNode.hasAttributes() )
-					styleNode = null;
 
-				if ( styleNode )
+        var className = def.className,
+          otherClasses = def.otherClasses;
+
+        // Remove other classes from this style group
+        if (otherClasses) {
+          for (var i = 0; i < otherClasses.length; i++)
+            styleNode.removeClass(otherClasses[ i ]);
+        }
+
+        if (className)
+          styleNode.addClass(className);
+
+
+        if (styleHasAttrs && !styleNode.hasAttributes())
+          styleNode = null;
+
+        if ( styleNode )
 				{
 					// Move the contents of the range to the style element.
 					styleRange.extractContents().appendTo( styleNode );
