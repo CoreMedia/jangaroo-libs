@@ -1240,19 +1240,14 @@ public class Stage extends DisplayObjectContainer {
     _stageMouse = new Point();
     _stageBounds = new Rectangle();
     if (properties) {
-      extractDimension(properties, 'width');
-      extractDimension(properties, 'height');
       for (var m:String in properties) {
-        this[m] = properties[m];
+        var value:* = properties[m];
+        if (m === 'width' || m === 'height') {
+          setDimension(createElementCached(), m, String(value));
+        } else {
+          this[m] = value;
+        }
       }
-    }
-  }
-
-  private function extractDimension(properties:Object, propertyName:String):void {
-    if (propertyName in properties) {
-      var value:String = String(properties[propertyName]);
-      delete properties[propertyName];
-      setDimension(createElementCached(), propertyName, value);
     }
   }
 

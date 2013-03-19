@@ -23,7 +23,13 @@ public class Run {
       var primaryDisplayObjectClass : Object = getDefinitionByName(primaryDisplayObjectClassName);
       var cd:JooClassDeclaration = primaryDisplayObjectClass['$class'];
       var metadata:Object = cd.metadata;
-      var swf:Object = metadata['SWF'] || {};
+      var swf:Object = {};
+      var metadataSwf:Object = metadata['SWF'];
+      if (metadataSwf) {
+        for (var m:String in metadataSwf) {
+          swf[m] = metadataSwf[m];
+        }
+      }
       if (widthStr) {
         swf.width = widthStr;
       }
