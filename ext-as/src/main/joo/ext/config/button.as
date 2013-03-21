@@ -21,7 +21,7 @@ import ext.Template;
  *
  * @see ext.event.ButtonClickEvent
  */
-[Event(name="click", type="ext.event.ButtonClickEvent")]
+[Event(name="onclick", type="ext.event.ButtonClickEvent")]
 
 /**
  * Simple Button class

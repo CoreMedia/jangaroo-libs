@@ -16,7 +16,7 @@ import net.jangaroo.ext.Exml;
 
  * </ul>
  */
-[Event(name="beforerender", type="ext.event.ComponentBeforerenderEvent")]
+[Event(name="onbeforerender", type="ext.event.ComponentBeforerenderEvent")]
 
 /**
  * Base class for all Ext components. All subclasses of Component may participate in the automated Ext component lifecycle of creation, rendering and destruction which is provided by the <a href="Ext.Container.html">Container</a> class. Components may be added to a Container through the <a href="output/Ext.Container.html#Ext.Container-items">items</a> config option at the time the Container is created, or they may be added dynamically via the <a href="output/Ext.Container.html#Ext.Container-add">add</a> method.
