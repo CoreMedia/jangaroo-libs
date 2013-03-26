@@ -668,6 +668,10 @@ public class TextField extends InteractiveObject {
     return _maxScrollV;
   }
 
+  private function setMaxScrollV(value:int) : void {
+    _maxScrollV = value < 1 ? 1 : value;
+  }
+  
   /**
    * A Boolean value that indicates whether Flash Player automatically scrolls multiline text fields when the user clicks a text field and rolls the mouse wheel. By default, this value is <code>true</code>. This property is useful if you want to prevent mouse wheel scrolling of text fields, or implement your own text field scrolling.
    */
@@ -774,7 +778,12 @@ public class TextField extends InteractiveObject {
    * @private
    */
   public function set scrollV(value:int):void {
-    _scrollV = value;
+    _scrollV = value < 1 ? 1 : value;
+    if (_scrollV > maxScrollV) {
+      _scrollV = maxScrollV;
+    }
+    _bottomScrollV = Math.min(_scrollV + _displayableLineCount - 1, numLines);
+    _canvasDirty = true;
   }
 
   /**
@@ -1091,6 +1100,8 @@ public class TextField extends InteractiveObject {
   public function set text(value:String):void {
     if (text !== value) {
       _lines = value.split('\n');
+      _length = value.length;
+      setMaxScrollV(_lines.length - _displayableLineCount + 1);
       _canvasDirty = true;
     }
   }
@@ -1645,7 +1656,20 @@ public class TextField extends InteractiveObject {
    * </listing>
    */
   public function getCharIndexAtPoint(x:Number, y:Number):int {
-    throw new Error('not implemented'); // TODO: implement!
+    var lineIndex:int = getLineIndexAtPoint(x, y);
+    var lineOffset:int = getLineOffset(lineIndex);
+
+    refreshTextMetrics();
+    var line:String = _lines[lineIndex];
+    var lineWidth:Number = textCanvasContext.measureText(line).width;
+    var offsetX:int = getOffsetX(lineWidth);
+
+    for (var i:int = 0; i < line.length; i++) {
+      if (offsetX + textCanvasContext.measureText(line.substr(0, i + 1)).width >= x) {
+        return lineOffset + i;
+      }
+    }
+    return -1;
   }
 
   /**
@@ -1858,7 +1882,7 @@ public class TextField extends InteractiveObject {
    * </listing>
    */
   public function getLineIndexAtPoint(x:Number, y:Number):int {
-    throw new Error('not implemented'); // TODO: implement!
+    return Math.max(0, Math.min(int((y - 2) / getSize()) + scrollV - 1, numLines - 1));
   }
 
   /**
@@ -1913,7 +1937,20 @@ public class TextField extends InteractiveObject {
    * </listing>
    */
   public function getLineIndexOfChar(charIndex:int):int {
-    throw new Error('not implemented'); // TODO: implement!
+    if (charIndex < 0) {
+      return -1;
+    }
+    if (charIndex == 0 || numLines <= 0) {
+      return 0;
+    }
+    var cnt:int = getLineLength(0) - 1; // zero based index vs. 1 based length
+    for (var i:int = 1; i < numLines; i++) {
+      if (cnt >= charIndex) {
+        return i - 1;
+      }
+      cnt += getLineLength(i);
+    }
+    return numLines - 1;
   }
 
   /**
@@ -1982,7 +2019,11 @@ public class TextField extends InteractiveObject {
    * </listing>
    */
   public function getLineLength(lineIndex:int):int {
-    return _lines[lineIndex].length;
+    // add one for line terminator char \n except on the last line
+    if (lineIndex == numLines - 1) {
+      return _lines[lineIndex].length;
+    }
+    return _lines[lineIndex].length + 1;
   }
 
   /**
@@ -2073,9 +2114,9 @@ public class TextField extends InteractiveObject {
         testDiv.appendChild(doc.createTextNode("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"));
       }
       testDiv.style.font = font;
-    
+
       doc.body.appendChild(testDiv);
-    
+
       try {
         metrics.ascent = parseInt(testDiv.style.fontSize, 10);
         metrics.height = testDiv.offsetHeight;
@@ -2150,7 +2191,11 @@ public class TextField extends InteractiveObject {
    * </listing>
    */
   public function getLineOffset(lineIndex:int):int {
-    throw new Error('not implemented'); // TODO: implement!
+    var index:int = 0;
+    for (var i:int = 0; i < lineIndex; i++) {
+      index += getLineLength(i);
+    }
+    return index;
   }
 
   /**
@@ -2217,7 +2262,10 @@ public class TextField extends InteractiveObject {
    * </listing>
    */
   public function getLineText(lineIndex:int):String {
-    throw new Error('not implemented'); // TODO: implement!
+    if (lineIndex == numLines - 1) {
+      return _lines[lineIndex];
+    }
+    return _lines[lineIndex] + '\n';
   }
 
   /**
@@ -2517,7 +2565,8 @@ public class TextField extends InteractiveObject {
   public function setSelection(beginIndex:int, endIndex:int):void {
     _selectionBeginIndex = beginIndex;
     _selectionEndIndex = endIndex;
-    // TODO: implement actual selection!
+    // Ensure it is visible
+    scrollV = getLineIndexOfChar(beginIndex);
   }
 
   /**
@@ -2651,6 +2700,8 @@ public class TextField extends InteractiveObject {
       _width = _textWidth + 4;
       _height = _textHeight + 4;
     }
+    _displayableLineCount = (int)(_height / getSize());
+    setMaxScrollV(numLines - _displayableLineCount + 1);
   }
 
   private function initContext():CanvasRenderingContext2D {
@@ -2712,7 +2763,12 @@ public class TextField extends InteractiveObject {
 
       var offsetY:int = 2;
       var lineHeight:Number = getSize();
-      for(var i:int = 0; i < _lines.length; i++) {
+
+      var startLine:int = 0;
+      if (scrollV > 1) {
+        startLine = scrollV - 1;
+      }
+      for (var i:int = startLine; i < _lines.length; i++) {
         var line:String = _lines[i];
         var metrics:TextMetrics = context.measureText(line);
         context.fillText(line, getOffsetX(metrics.width), offsetY);
@@ -2772,11 +2828,11 @@ public class TextField extends InteractiveObject {
     return _type === TextFieldType.DYNAMIC ? "span" : "input";
   }
 
-  private static function updateElementProperty(element : HTMLElement, propertyPath : String, value : Object) : void {
-    var current : Object = element;
-    var propertyPathArcs : Array = propertyPath.split(".");
-    var lastIndex : uint = propertyPathArcs.length - 1;
-    for (var i:uint=0; i<lastIndex; ++i) {
+  private static function updateElementProperty(element:HTMLElement, propertyPath:String, value:Object):void {
+    var current:Object = element;
+    var propertyPathArcs:Array = propertyPath.split(".");
+    var lastIndex:uint = propertyPathArcs.length - 1;
+    for (var i:uint = 0; i < lastIndex; ++i) {
       current = current[propertyPathArcs[i]];
     }
     current[propertyPathArcs[lastIndex]] = value;
@@ -2823,5 +2879,6 @@ public class TextField extends InteractiveObject {
   private var _height:Number = 100;
   private var _canvasDirty:Boolean = true;
   private var textCanvasContext:CanvasRenderingContext2D;
+  private var _displayableLineCount:int;
 }
 }
