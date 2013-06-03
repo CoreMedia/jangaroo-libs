@@ -48,7 +48,7 @@ public class ColorTransform {
    * <p>When you pass a value for this property, use the format 0x<i>RRGGBB</i>. <i>RR</i>, <i>GG</i>, and <i>BB</i> each consist of two hexadecimal digits that specify the offset of each color component. The 0x tells the ActionScript compiler that the number is a hexadecimal value.</p>
    */
   public function get color():uint {
-    return redOffset << 16 | greenOffset << 8 || blueOffset;
+    return redOffset << 16 | greenOffset << 8 | blueOffset;
   }
 
   /**
