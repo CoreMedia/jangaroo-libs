@@ -116,7 +116,7 @@ public class Point {
    *
    */
   public static function interpolate(pt1:Point, pt2:Point, f:Number):Point {
-    return new Point(pt1.x + pt2.x * f, pt1.y + pt2.y * f);
+    return new Point((pt1.x - (pt1.x * (1 - f))) + (pt2.x - (pt2.x * f)), (pt1.y - (pt1.y * (1 - f))) + (pt2.y - (pt2.y * f)));
   }
 
   /**
