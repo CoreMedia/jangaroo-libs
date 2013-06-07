@@ -253,7 +253,7 @@ public class Rectangle {
    *
    */
   public function contains(x:Number, y:Number):Boolean {
-    return this.x <= x && x < this.right && this.y <= y && y < this.bottom;
+    return this.x <= x && x <= this.right && this.y <= y && y <= this.bottom;
   }
 
   /**
