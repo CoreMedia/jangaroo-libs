@@ -182,7 +182,7 @@ public class Point {
   }
 
   private static function diagonalLength(x:Number, y:Number):Number {
-    return x === 0 ? y : y === 0 ? x : Math.sqrt(x * x + y * y);
+    return x === 0 ? Math.abs(y) : y === 0 ? Math.abs(x) : Math.sqrt(x * x + y * y);
   }
 
 }
