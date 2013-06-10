@@ -116,7 +116,7 @@ public class Point {
    *
    */
   public static function interpolate(pt1:Point, pt2:Point, f:Number):Point {
-    return new Point(pt1.x + pt2.x * f, pt1.y + pt2.y * f);
+    return new Point(pt1.x * f + pt2.x * (1 - f), pt1.y * f + pt2.y * (1 - f));
   }
 
   /**
@@ -182,7 +182,7 @@ public class Point {
   }
 
   private static function diagonalLength(x:Number, y:Number):Number {
-    return x === 0 ? y : y === 0 ? x : Math.sqrt(x * x + y * y);
+    return x === 0 ? Math.abs(y) : y === 0 ? Math.abs(x) : Math.sqrt(x * x + y * y);
   }
 
 }

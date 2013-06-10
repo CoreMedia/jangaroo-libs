@@ -316,8 +316,10 @@ public class Rectangle {
    *
    */
   public function inflate(dx:Number, dy:Number):void {
-    this.width += dx;
-    this.height += dy;
+    this.x -= dx;
+    this.y -= dy;
+    this.width += (dx * 2);
+    this.height += (dy * 2);
   }
 
   /**
