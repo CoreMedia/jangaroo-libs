@@ -53,19 +53,19 @@ public dynamic class Window {
 
 
 
-  public native function setTimeout(handler : * /* Function or String */, millies : Number) : Object;
+  public native function setTimeout(handler : * /* Function or String */, millies : Number, ...parameters) : uint;
 
 
 
-  public native function clearTimeout(timer : Object) : void;
+  public native function clearTimeout(timer : uint) : void;
 
 
 
-  public native function setInterval(handler : Function, millies : Number) : Object;
+  public native function setInterval(handler : Function, millies : Number, ...parameters) : uint;
 
 
 
-  public native function clearInterval(interval : Object) : void;
+  public native function clearInterval(interval : uint) : void;
 
 
 
