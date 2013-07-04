@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2011, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2013, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.html or http://ckeditor.com/license
 */
 
@@ -31,11 +31,12 @@ CKEDITOR.lang['hi'] =
 	 * Screenreader titles. Please note that screenreaders are not always capable
 	 * of reading non-English words. So be careful while translating it.
 	 */
-	editorTitle : 'Rich text editor, %1, press ALT 0 for help.', // MISSING
+	editorTitle : 'रिच टेक्स्ट एडिटर, %1',
+	editorHelp : 'मदद के लिये ALT 0 दबाए',
 
 	// ARIA descriptions.
-	toolbars	: 'Editor toolbars', // MISSING
-	editor		: 'Rich Text Editor', // MISSING
+	toolbars	: 'एडिटर टूलबार',
+	editor		: 'रिच टेक्स्ट एडिटर',
 
 	// Toolbar buttons without dialogs.
 	source			: 'सोर्स',
@@ -56,7 +57,7 @@ CKEDITOR.lang['hi'] =
 	superscript		: 'अभिलेख',
 	horizontalrule	: 'हॉरिज़ॉन्टल रेखा इन्सर्ट करें',
 	pagebreak		: 'पेज ब्रेक इन्सर्ट् करें',
-	pagebreakAlt		: 'Page Break', // MISSING
+	pagebreakAlt		: 'पेज ब्रेक',
 	unlink			: 'लिंक हटायें',
 	undo			: 'अन्डू',
 	redo			: 'रीडू',
@@ -119,6 +120,7 @@ CKEDITOR.lang['hi'] =
 		alignTop		: 'ऊपर',
 		alignMiddle		: 'मध्य',
 		alignBottom		: 'नीचे',
+		invalidValue	: 'Invalid value.', // MISSING
 		invalidHeight	: 'Height must be a number.', // MISSING
 		invalidWidth	: 'Width must be a number.', // MISSING
 		invalidCssLength	: 'Value specified for the "%1" field must be a positive number with or without a valid CSS measurement unit (px, %, in, cm, mm, em, ex, pt, or pc).', // MISSING
@@ -696,7 +698,7 @@ CKEDITOR.lang['hi'] =
 		ignoreAll		: 'Ignore All', // MISSING
 		addWord			: 'Add Word', // MISSING
 		emptyDic		: 'Dictionary name should not be empty.', // MISSING
-
+		noSuggestions	: 'कोई सुझाव नहीं',
 		optionsTab		: 'Options', // MISSING
 		allCaps			: 'Ignore All-Caps Words', // MISSING
 		ignoreDomainNames : 'Ignore Domain Names', // MISSING
@@ -726,8 +728,8 @@ CKEDITOR.lang['hi'] =
 		copy		: 'Copyright &copy; $1. All rights reserved.' // MISSING
 	},
 
-	maximize : 'Maximize', // MISSING
-	minimize : 'Minimize', // MISSING
+	maximize : 'मेक्सिमाईज़',
+	minimize : 'मिनिमाईज़',
 
 	fakeobjects :
 	{
