@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2011, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2013, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.html or http://ckeditor.com/license
 */
 
@@ -31,7 +31,8 @@ CKEDITOR.lang['pl'] =
 	 * Screenreader titles. Please note that screenreaders are not always capable
 	 * of reading non-English words. So be careful while translating it.
 	 */
-	editorTitle : 'Edytor tekstu sformatowanego, %1, w celu uzyskania pomocy naciśnij ALT 0.',
+	editorTitle : 'Edytor tekstu sformatowanego, %1',
+	editorHelp : 'W celu uzyskania pomocy naciśnij ALT 0',
 
 	// ARIA descriptions.
 	toolbars	: 'Paski narzędzi edytora',
@@ -55,7 +56,7 @@ CKEDITOR.lang['pl'] =
 	subscript		: 'Indeks dolny',
 	superscript		: 'Indeks górny',
 	horizontalrule	: 'Wstaw poziomą linię',
-	pagebreak		: 'Wstaw pdodział strony',
+	pagebreak		: 'Wstaw podział strony',
 	pagebreakAlt		: 'Wstaw podział strony',
 	unlink			: 'Usuń odnośnik',
 	undo			: 'Cofnij',
@@ -119,6 +120,7 @@ CKEDITOR.lang['pl'] =
 		alignTop		: 'Do góry',
 		alignMiddle		: 'Do środka',
 		alignBottom		: 'Do dołu',
+		invalidValue	: 'Invalid value.', // MISSING
 		invalidHeight	: 'Wysokość musi być liczbą.',
 		invalidWidth	: 'Szerokość musi być liczbą.',
 		invalidCssLength	: 'Wartość podana dla pola "%1" musi być liczbą dodatnią bez jednostki lub z poprawną jednostką długości zgodną z CSS (px, %, in, cm, mm, em, ex, pt lub pc).',
@@ -302,7 +304,7 @@ CKEDITOR.lang['pl'] =
 			bgColor			: 'Kolor tła',
 			borderColor		: 'Kolor obramowania',
 			data			: 'Dane',
-			header			: 'Nagłowek',
+			header			: 'Nagłówek',
 			yes				: 'Tak',
 			no				: 'Nie',
 			invalidWidth	: 'Szerokość komórki musi być liczbą.',
@@ -696,7 +698,7 @@ CKEDITOR.lang['pl'] =
 		ignoreAll		: 'Ignoruj wszystkie',
 		addWord			: 'Dodaj słowo',
 		emptyDic		: 'Nazwa słownika nie może być pusta.',
-
+		noSuggestions	: 'Brak sugestii',
 		optionsTab		: 'Opcje',
 		allCaps			: 'Ignoruj wyrazy pisane dużymi literami',
 		ignoreDomainNames : 'Ignoruj nazwy domen',
