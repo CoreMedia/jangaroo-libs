@@ -1,1 +1,1 @@
-java -jar ckpackager.jar src/main/joo-js/ckeditor/ckeditor.pack
+java -jar ckpackager.jar src/main/resources/META-INF/resources/ckeditor/ckeditor.pack
