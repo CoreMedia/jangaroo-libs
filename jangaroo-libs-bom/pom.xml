@@ -17,7 +17,7 @@
       <dependency>
         <groupId>net.jangaroo.com.sencha</groupId>
         <artifactId>ext-js</artifactId>
-        <version>3.4.0</version>
+        <version>${extjs.version}</version>
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
