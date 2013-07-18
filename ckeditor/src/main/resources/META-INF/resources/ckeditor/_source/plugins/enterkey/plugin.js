@@ -367,8 +367,10 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 			// This collapse guarantees the cursor will be blinking.
 			range.collapse( true );
 
-			range.select( isPre );
-		}
+                        // Fixes enter key handling for some problematic cases in IE10.
+                        // Taken from http://dev.ckeditor.com/ticket/9719.
+                        if (!CKEDITOR.env.ie || CKEDITOR.env.version < 10) range.select( isPre );
+                }
 	};
 
 	var plugin = CKEDITOR.plugins.enterkey,
