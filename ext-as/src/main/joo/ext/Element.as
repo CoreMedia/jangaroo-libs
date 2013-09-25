@@ -1673,7 +1673,7 @@ public class Element {
    *
    * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-getStyleSize Sencha Docs Ext JS 3.4
    */
-  public native function getStyleSize():void;
+  public native function getStyleSize():Object;
 
   /**
    * Returns an object with properties matching the styles requested. For example, el.getStyles('color', 'font-size', 'width') might return {'color': '#FFFFFF', 'font-size': '13px', 'width': '100px'}.
@@ -1737,7 +1737,7 @@ public class Element {
    *
    * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-getViewSize Sencha Docs Ext JS 3.4
    */
-  public native function getViewSize():void;
+  public native function getViewSize():Object;
 
   /**
    * Returns the offset width of the element

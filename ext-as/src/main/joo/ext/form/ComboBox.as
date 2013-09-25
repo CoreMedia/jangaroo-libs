@@ -1,5 +1,6 @@
 package ext.form {
 import ext.DataView;
+import ext.Element;
 import ext.KeyNav;
 import ext.config.combo;
 import ext.data.Store;
@@ -512,7 +513,7 @@ public class ComboBox extends TriggerField {
    *
    * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.ComboBox-method-getListParent Sencha Docs Ext JS 3.4
    */
-  public native function getListParent():void;
+  public native function getListParent():Element;
 
   /**
    * Returns the store associated with this combo.
@@ -529,6 +530,11 @@ public class ComboBox extends TriggerField {
    * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.ComboBox-method-getValue Sencha Docs Ext JS 3.4
    */
   override public native function getValue():*;
+
+  /**
+   * private
+   */
+  public native function restrictHeight():void;
 
   /**
    * Returns true if the dropdown list is expanded, else false.
