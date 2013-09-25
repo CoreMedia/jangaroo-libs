@@ -94,7 +94,7 @@ public class ElementWrapper {
    *
    * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr.ElementWrapper-method-getScroll Sencha Docs Ext JS 3.4
    */
-  public static native function getScroll():void;
+  public static native function getScroll():Object;
 
   /**
    * Gets the scrollLeft

@@ -302,7 +302,7 @@ public class HtmlEditor extends Field {
    *
    * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.HtmlEditor-method-getDocMarkup Sencha Docs Ext JS 3.4
    */
-  public native function getDocMarkup():void;
+  public native function getDocMarkup():String;
 
   /**
    * Returns the editor's toolbar. <b>This is only available after the editor has been rendered.</b>

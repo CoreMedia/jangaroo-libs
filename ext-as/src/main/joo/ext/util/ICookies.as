@@ -36,7 +36,7 @@ public interface ICookies {
    *
    * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Cookies-method-getCookieVal Sencha Docs Ext JS 3.4
    */
-  function getCookieVal():void;
+  function getCookieVal(offset:int):String;
 
   /**
    * Create a cookie with the specified name and value. Additional settings for the cookie may be optionally specified (for example: expiration, access restriction, SSL).

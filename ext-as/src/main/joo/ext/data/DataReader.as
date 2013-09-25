@@ -74,35 +74,35 @@ public class DataReader {
    *
    * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.DataReader-method-getId Sencha Docs Ext JS 3.4
    */
-  public native function getId():void;
+  public native function getId():*;
 
   /**
    * Abstract method created in extension's buildExtractors impl.
    *
    * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.DataReader-method-getMessage Sencha Docs Ext JS 3.4
    */
-  public native function getMessage():void;
+  public native function getMessage():String;
 
   /**
    * Abstract method created in extension's buildExtractors impl.
    *
    * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.DataReader-method-getRoot Sencha Docs Ext JS 3.4
    */
-  public native function getRoot():void;
+  public native function getRoot():*;
 
   /**
    * Abstract method created in extension's buildExtractors impl.
    *
    * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.DataReader-method-getSuccess Sencha Docs Ext JS 3.4
    */
-  public native function getSuccess():void;
+  public native function getSuccess():Boolean;
 
   /**
    * Abstract method created in extension's buildExtractors impl.
    *
    * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.DataReader-method-getTotal Sencha Docs Ext JS 3.4
    */
-  public native function getTotal():void;
+  public native function getTotal():uint;
 
   /**
    * Returns true if the supplied data-hash <b>looks</b> and quacks like data. Checks to see if it has a key corresponding to idProperty defined in your DataReader config containing non-empty pk.
