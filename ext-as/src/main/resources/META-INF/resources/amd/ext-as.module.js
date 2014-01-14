@@ -1,6 +1,6 @@
 requirejs.config({
   paths: {
-    "ext-js": "../ext-js"
+    "ext-js": "../public/com/sencha/ext-js/3.4.1.1"
   },
   shim: {
     "ext-js/ext-all": {
