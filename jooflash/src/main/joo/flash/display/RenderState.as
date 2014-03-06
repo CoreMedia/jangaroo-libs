@@ -122,12 +122,12 @@ public class RenderState {
     _context.strokeStyle = isMouseOverTarget ? "green" : displayObject instanceof DisplayObjectContainer ? "red" : "blue";
     var bounds:Rectangle = displayObject.getBounds(displayObject.stage);
     _context.strokeRect(bounds.x, bounds.y, bounds.width, bounds.height);
-    if (displayObject.constructor === window.showBounds) {
+    if (displayObject['constructor'] === window.showBounds) {
       return;
     }
     _context.textAlign = "start";
     _context.textBaseline = "bottom";
-    _context.fillText(displayObject.constructor.$class.toString(), bounds.x, bounds.y + bounds.height);
+    _context.fillText(displayObject['constructor'].$class.toString(), bounds.x, bounds.y + bounds.height);
     _context.restore();
   }
 
@@ -137,7 +137,7 @@ public class RenderState {
       msg.push(" ");
     }
     var bounds:Rectangle = displayObject.getBounds(displayObject.stage);
-    msg.push(displayObject.constructor.$class.toString(), ":", bounds);
+    msg.push(displayObject['constructor'].$class.toString(), ":", bounds);
     trace("WARN", msg.join(""));
   }
 

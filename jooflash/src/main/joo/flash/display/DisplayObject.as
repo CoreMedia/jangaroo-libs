@@ -1360,7 +1360,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
     return getBoundsTransformed(_transformationMatrix).width;
   }
 
-  private static const ARC_TO_RAD_FACTOR:int = Math.PI / 180;
+  private static const ARC_TO_RAD_FACTOR:Number = Math.PI / 180;
 
   public function get _transformationMatrix():Matrix {
     if (_transformationMatrixCacheDirty) {
@@ -1933,7 +1933,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
   /**
    * @private
    */
-  protected function setParent(parent:DisplayObjectContainer):void {
+  internal function setParent(parent:DisplayObjectContainer):void {
     this['parent'] = parent;
   }
 
@@ -2070,7 +2070,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
     _transformChanged = true;
   }
 
-  protected function isTransformChanged():Boolean {
+  internal function isTransformChanged():Boolean {
     return _transformChanged;
   }
 
@@ -2078,7 +2078,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
     _transformChanged = false;
   }
 
-  protected function isBitmapCacheDirty():Boolean {
+  public function isBitmapCacheDirty():Boolean {
     return visible && !!mask && mask.isBitmapCacheDirty();
   }
 
@@ -2099,7 +2099,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
 
   protected function createElement():HTMLElement {
     var element:HTMLElement = HTMLElement(window.document.createElement(getElementName()));
-    element.setAttribute("data-flashclass", this.constructor.$class.toString());
+    element.setAttribute("data-flashclass", this['constructor'].$class.toString());
     return element;
   }
 

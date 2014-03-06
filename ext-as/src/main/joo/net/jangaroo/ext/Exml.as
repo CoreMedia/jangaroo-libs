@@ -39,7 +39,7 @@ public class Exml {
         overrideAt = overrideValueArray.length;
       }
       var valueArray:Array = toArray(config[property]);
-      var at:int = config[atProperty];
+      var at:* = config[atProperty];
       if (at !== undefined) {
         if (at === -1) {
           at = valueArray.length;
@@ -54,7 +54,7 @@ public class Exml {
   private static const EMPTY_ARRAY:Array = [];
 
   private static function toArray(value:*):Array {
-    return value === undefined ? EMPTY_ARRAY : value instanceof Array ? value : [value];
+    return value === undefined ? EMPTY_ARRAY : value is Array ? value : [value];
   }
 
   public static function loadStyleSheets(urls:Array, callback:Function):void {

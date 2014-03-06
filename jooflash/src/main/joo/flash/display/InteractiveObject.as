@@ -485,7 +485,7 @@ public class InteractiveObject extends DisplayObject {
     }
   }
 
-  protected function hitTestInput(localX:Number, localY:Number):InteractiveObject {
+  public function hitTestInput(localX:Number, localY:Number):InteractiveObject {
     return getBoundsTransformed().contains(localX, localY) ? this : null;
   }
 

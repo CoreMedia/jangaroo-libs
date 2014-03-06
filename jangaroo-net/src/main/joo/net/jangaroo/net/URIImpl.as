@@ -38,12 +38,7 @@ internal class URIImpl implements URI {
    * @param path must neither be undefined nor null, but might be the empty string
    */
   public function URIImpl(scheme:String, authority:String, path:String, query:String, fragment:String) {
-    assert(scheme !== undefined);
-    assert(authority !== undefined);
-    assert(path !== undefined);
     assert(path !== null);
-    assert(query !== undefined);
-    assert(fragment !== undefined);
     this.scheme = scheme;
     this.authority = authority;
     this.path = path;

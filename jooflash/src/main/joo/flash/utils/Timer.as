@@ -69,7 +69,7 @@ public class Timer extends EventDispatcher {
    * The timer's current state; <code>true</code> if the timer is running, otherwise <code>false</code>.
    */
   public function get running():Boolean {
-    return timer != null;
+    return timer != 0;
   }
 
   /**
@@ -174,7 +174,7 @@ public class Timer extends EventDispatcher {
   public function stop():void {
     if (timer) {
       window.clearInterval(timer);
-      timer = null;
+      timer = 0;
     }
   }
 
@@ -199,7 +199,7 @@ public class Timer extends EventDispatcher {
     }
   }
 
-  private var timer:Object = null;
+  private var timer:uint = 0;
   private var _delay:Number;
   private var _repeatCount:int;
   private var _currentCount:int = 0;

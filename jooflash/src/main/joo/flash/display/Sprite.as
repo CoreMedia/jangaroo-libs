@@ -450,7 +450,7 @@ public class Sprite extends DisplayObjectContainer {
     return visible && _graphics && _graphics.dirty ? _graphics : super._findDirtyLeaf();
   }
 
-  override protected function isBitmapCacheDirty():Boolean {
+  override public function isBitmapCacheDirty():Boolean {
     return visible && _graphics && _graphics.dirty || super.isBitmapCacheDirty();
   }
 
@@ -461,7 +461,7 @@ public class Sprite extends DisplayObjectContainer {
     super._doRender(renderState);
   }
 
-  override protected function hitTestInput(localX:Number, localY:Number):InteractiveObject {
+  override public function hitTestInput(localX:Number, localY:Number):InteractiveObject {
     var interactiveObject:InteractiveObject = super.hitTestInput(localX, localY);
     if (!interactiveObject && _graphics && localX >= _graphics.minX && localY >= _graphics.minY && localX < _graphics.maxX && localY < _graphics.maxY) {
       return interactiveObject = this;

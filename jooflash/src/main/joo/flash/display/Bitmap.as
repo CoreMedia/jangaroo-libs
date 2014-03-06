@@ -149,7 +149,7 @@ public class Bitmap extends DisplayObject {
     return new Bitmap(bitmapData);
   }
 
-  override protected function isBitmapCacheDirty():Boolean {
+  override public function isBitmapCacheDirty():Boolean {
     return _dirty || bitmapData && bitmapData._dirty;
   }
 

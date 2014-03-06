@@ -831,7 +831,7 @@ public class DisplayObjectContainer extends InteractiveObject {
     return displayObject.visible && (displayObject.isTransformChanged() || displayObject.isBitmapCacheDirty());
   }
 
-  override protected function isBitmapCacheDirty():Boolean {
+  override public function isBitmapCacheDirty():Boolean {
     return super.isBitmapCacheDirty() || children.some(isChildChanged);
   }
 
@@ -916,7 +916,7 @@ public class DisplayObjectContainer extends InteractiveObject {
     return false;
   }
 
-  override protected function hitTestInput(localX:Number, localY:Number):InteractiveObject {
+  override public function hitTestInput(localX:Number, localY:Number):InteractiveObject {
     var hit:InteractiveObject = null;
 
     for (var i:int = children.length - 1; i >= 0; i--) {
