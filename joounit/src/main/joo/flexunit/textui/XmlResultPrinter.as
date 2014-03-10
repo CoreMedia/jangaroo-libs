@@ -68,7 +68,7 @@ public class XmlResultPrinter implements TestListener, Printer{
         resultXml.push( '" tests="' );
         resultXml.push( result.runCount());
         resultXml.push( '" time="' );
-        resultXml.push( runTime );
+        resultXml.push( runTime / 1000);
         resultXml.push( '">\n' );
         for( var i = 0; i < this.mTests.length; ++i )
         {
@@ -76,7 +76,7 @@ public class XmlResultPrinter implements TestListener, Printer{
             resultXml.push( '    <testcase name="' );
             resultXml.push( test.mName );
             resultXml.push( '" time="' );
-            resultXml.push( test.mTime );
+            resultXml.push( test.mTime / 1000 );
             resultXml.push( '"' );
             if( test.mError || test.mFailure )
             {
