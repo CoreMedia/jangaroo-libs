@@ -13,6 +13,7 @@
     <module>jangaroo-net</module>
     <module>jangaroo-browser</module>
 
+    <module>jooflash-core</module>
     <module>jooflash</module>
 
     <module>jooflexframework</module>

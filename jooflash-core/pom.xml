@@ -6,10 +6,10 @@
     <relativePath>../jangaroo-libs-parent/pom.xml</relativePath>
   </parent>
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>jooflash</artifactId>
+  <artifactId>jooflash-core</artifactId>
   <packaging>jangaroo</packaging>
-  <name>jooflash</name>
-  <description>Joo Flash Compat. Library</description>
+  <name>jooflash-core</name>
+  <description>Joo Flash Core Compat. Library</description>
 
   <developers>
 
@@ -32,12 +32,6 @@
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>jangaroo-browser</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>net.jangaroo</groupId>
-      <artifactId>jooflash-core</artifactId>
       <version>${project.version}</version>
     </dependency>
   </dependencies>
