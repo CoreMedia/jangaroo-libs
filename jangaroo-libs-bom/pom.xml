@@ -8,7 +8,6 @@
     <version>1.0.4-SNAPSHOT</version>
     <relativePath>../jangaroo-libs-parent/pom.xml</relativePath>
   </parent>
-  <groupId>net.jangaroo</groupId>
   <artifactId>jangaroo-libs-bom</artifactId>
   <name>jangaroo-libs-bom</name>
   <description>A Jangaroo Libs Bill of Materials POM</description>
@@ -30,6 +29,12 @@
       <dependency>
         <groupId>net.jangaroo</groupId>
         <artifactId>ext-as</artifactId>
+        <version>${project.version}</version>
+        <type>jangaroo</type>
+      </dependency>
+      <dependency>
+        <groupId>net.jangaroo</groupId>
+        <artifactId>jooflash-core</artifactId>
         <version>${project.version}</version>
         <type>jangaroo</type>
       </dependency>

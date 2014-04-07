@@ -8,6 +8,8 @@ import flash.geom.Rectangle;
 import flash.geom.Transform;
 import flash.geom.Vector3D;
 
+import joo.flash.RenderLoop;
+
 import js.CanvasRenderingContext2D;
 import js.HTMLCanvasElement;
 import js.HTMLElement;
@@ -74,6 +76,23 @@ import js.Style;
  *
  */
 public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
+
+  /**
+   * @inheritDoc
+   */
+  override public function addEventListener(type:String, listener:Function, useCapture:Boolean = false, priority:int = 0, useWeakReference:Boolean = false):void {
+    super.addEventListener(type, listener, useCapture, priority, useWeakReference);
+    RenderLoop.addEventDispatcher(type,  this);
+  }
+
+  /**
+   * @inheritDoc
+   */
+  override public function removeEventListener(type:String, listener:Function, useCapture:Boolean = false):void {
+    super.removeEventListener(type, listener, useCapture);
+    RenderLoop.removeEventDispatcher(type,  this);
+  }
+
   /**
    * The current accessibility options for this display object. If you modify the <code>accessibilityProperties</code> property or any of the fields within <code>accessibilityProperties</code>, you must call the <code>Accessibility.updateProperties()</code> method to make your changes take effect.
    * <p><b>Note</b>: For an object created in the Flash authoring environment, the value of <code>accessibilityProperties</code> is prepopulated with any information you entered in the Accessibility panel for that object.</p>
