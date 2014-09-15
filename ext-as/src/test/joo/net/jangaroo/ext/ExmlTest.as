@@ -90,6 +90,17 @@ public class ExmlTest extends TestCase {
     assertEquals(2 + 1, result.a$at);
   }
 
+  public function testApplyAppendToLocallyUndefined():void {
+    var result:Object = Exml.apply({
+    }, {
+      a: ["foo"],
+      a$at: Exml.APPEND
+    });
+    assertPropertyCount(2, result);
+    assertArrayEquals(["foo"], result.a);
+    assertEquals(Exml.APPEND, result.a$at);
+  }
+
   //noinspection JSMethodCanBeStatic
   private function assertArrayEquals(expected:Array, actual:Array):void {
     assertTrue("Array expected", actual instanceof Array);
