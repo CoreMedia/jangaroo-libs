@@ -1,6 +1,7 @@
 package ext.grid {
 import ext.Component;
 import ext.Element;
+import ext.data.Record;
 
 /**
  * PivotAxis is a class that supports a <a href="Ext.grid.PivotGrid.html">Ext.grid.PivotGrid</a>. Each PivotGrid contains two PivotAxis instances - the left axis and the top axis. Each PivotAxis defines an ordered set of dimensions, each of which should correspond to a field in a Store's Record (see <a href="Ext.grid.PivotGrid.html">Ext.grid.PivotGrid</a> documentation for further explanation).
@@ -71,7 +72,7 @@ public class PivotAxis extends Component {
    *
    * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotAxis-method-getRecordInfo Sencha Docs Ext JS 3.4
    */
-  public native function getRecordInfo():void;
+  public native function getRecordInfo(record:Record):Object;
 
   /**
    *

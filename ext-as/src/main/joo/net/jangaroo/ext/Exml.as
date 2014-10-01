@@ -32,21 +32,30 @@ public class Exml {
     var atProperty:String = property + AT;
     var overrideAt:int = overrideConfig[atProperty];
     if (overrideAt === undefined) {
+      // If the override does not provide an at position,
+      // make sure to forget about the at position of the original config, too.
       delete config[atProperty];
     } else {
-      var overrideValueArray:Array = toArray(overrideValue);
-      if (overrideAt === -1) {
-        overrideAt = overrideValueArray.length;
-      }
-      var valueArray:Array = toArray(config[property]);
-      var at:* = config[atProperty];
-      if (at !== undefined) {
-        if (at === -1) {
-          at = valueArray.length;
+      var value:* = config[property];
+      var at:int = config[atProperty];
+      if (value === undefined && at === undefined) {
+        // If the original config does not mention the property,
+        // pass the at position along with the value.
+        config[atProperty] = overrideAt;
+      } else {
+        var overrideValueArray:Array = toArray(overrideValue);
+        if (overrideAt === PREPEND) {
+          overrideAt = overrideValueArray.length;
         }
-        config[atProperty] = at + overrideAt;
+        var valueArray:Array = toArray(value);
+        if (at !== undefined) {
+          if (at === PREPEND) {
+            at = valueArray.length;
+          }
+          config[atProperty] = at + overrideAt;
+        }
+        overrideValue = overrideValueArray.slice(0, overrideAt).concat(valueArray, overrideValueArray.slice(overrideAt));
       }
-      overrideValue = overrideValueArray.slice(0, overrideAt).concat(valueArray, overrideValueArray.slice(overrideAt));
     }
     config[property] = overrideValue;
   }

@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2011, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2013, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.html or http://ckeditor.com/license
 */
 
@@ -31,7 +31,8 @@ CKEDITOR.lang['ru'] =
 	 * Screenreader titles. Please note that screenreaders are not always capable
 	 * of reading non-English words. So be careful while translating it.
 	 */
-	editorTitle : 'Визуальный редактор текста, %1, нажмите ALT-0 для открытия справки.',
+	editorTitle : 'Визуальный редактор текста, %1',
+	editorHelp : 'нажмите ALT-0 для открытия справки',
 
 	// ARIA descriptions.
 	toolbars	: 'Панели инструментов редактора',
@@ -119,6 +120,7 @@ CKEDITOR.lang['ru'] =
 		alignTop		: 'По верху',
 		alignMiddle		: 'По середине',
 		alignBottom		: 'По низу',
+		invalidValue	: 'Invalid value.', // MISSING
 		invalidHeight	: 'Высота задается числом.',
 		invalidWidth	: 'Ширина задается числом.',
 		invalidCssLength	: 'Значение, указанное в поле "%1", должно быть положительным целым числом. Допускается указание единиц меры CSS (px, %, in, cm, mm, em, ex, pt или pc).',
@@ -696,7 +698,7 @@ CKEDITOR.lang['ru'] =
 		ignoreAll		: 'Пропустить всё',
 		addWord			: 'Добавить слово',
 		emptyDic		: 'Вы должны указать название словаря.',
-
+		noSuggestions	: 'No suggestions', // MISSING
 		optionsTab		: 'Параметры',
 		allCaps			: 'Игнорировать слова из заглавных букв',
 		ignoreDomainNames : 'Игнорировать доменные имена',

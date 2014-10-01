@@ -124,6 +124,14 @@ public dynamic class Window {
    */
   public native function getSelection() : Selection;
 
+
+
+  public native function get sessionStorage():Storage;
+
+
+
+  public native function get localStorage():Storage;
+
 }
 
 }

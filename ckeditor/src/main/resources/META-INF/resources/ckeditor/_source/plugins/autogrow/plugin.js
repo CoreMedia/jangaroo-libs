@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2011, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2013, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.html or http://ckeditor.com/license
 */
 
@@ -24,18 +24,23 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 		return height;
 	}
 
+	function getScrollable( editor )
+	{
+		var doc = editor.document,
+			body = doc.getBody(),
+			htmlElement = doc.getDocumentElement();
+
+		// Quirks mode overflows body, standards overflows document element
+		return doc.$.compatMode == 'BackCompat' ? body : htmlElement;
+	}
+
 	var resizeEditor = function( editor )
 	{
 		if ( !editor.window )
 			return;
 
-		var doc = editor.document,
-			iframe = new CKEDITOR.dom.element( doc.getWindow().$.frameElement ),
-			body = doc.getBody(),
-			htmlElement = doc.getDocumentElement(),
+		var scrollable = getScrollable( editor ),
 			currentHeight = editor.window.getViewPaneSize().height,
-			// Quirks mode overflows body, standards overflows document element
-			scrollable = doc.$.compatMode == 'BackCompat' ? body : htmlElement,
 			newHeight = contentHeight( scrollable );
 
 		// Additional space specified by user.
@@ -67,7 +72,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 		{
 			editor.addCommand( 'autogrow', { exec : resizeEditor, modes : { wysiwyg:1 }, readOnly: 1, canUndo: false, editorFocus: false } );
 
-			var eventsList = { contentDom:1, key:1, selectionChange:1, insertElement:1 };
+			var eventsList = { contentDom:1, key:1, selectionChange:1, insertElement:1, mode:1 };
 			editor.config.autoGrow_onStartup && ( eventsList[ 'instanceReady' ] = 1 );
 			for ( var eventName in eventsList )
 			{
@@ -89,6 +94,21 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 					}
 				});
 			}
+
+			// Coordinate with the "maximize" plugin. (#9311)
+			editor.on( 'beforeCommandExec', function( evt )
+			{
+				if ( evt.data.name == 'maximize' && evt.editor.mode == 'wysiwyg' )
+				{
+					if ( evt.data.command.state == CKEDITOR.TRISTATE_OFF )
+					{
+						var scrollable = getScrollable( editor );
+						scrollable.removeStyle( 'overflow' );
+					}
+					else
+						resizeEditor( editor );
+				}
+			});
 		}
 	});
 })();

@@ -143,14 +143,14 @@ public class Action {
    *
    * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Action-method-getIconClass Sencha Docs Ext JS 3.4
    */
-  public native function getIconClass():void;
+  public native function getIconClass():String;
 
   /**
    * Gets the text currently displayed by all components using this action.
    *
    * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Action-method-getText Sencha Docs Ext JS 3.4
    */
-  public native function getText():void;
+  public native function getText():String;
 
   /**
    * Hides all components using this action.

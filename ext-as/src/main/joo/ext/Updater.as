@@ -1,4 +1,5 @@
 package ext {
+import ext.updater.BasicRenderer;
 import ext.util.Observable;
 
 /**
@@ -276,7 +277,7 @@ public class Updater extends Observable {
    *
    * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Updater-method-getDefaultRenderer Sencha Docs Ext JS 3.4
    */
-  public native function getDefaultRenderer():void;
+  public native function getDefaultRenderer():BasicRenderer;
 
   /**
    * Get the Element this Updater is bound to

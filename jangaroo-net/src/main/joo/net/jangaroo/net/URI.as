@@ -56,5 +56,12 @@ public interface URI {
    */
   function resolve(reference:URI):URI;
 
+  /**
+   * Return a string representation of this URI.
+   * <code>toString()</code> must be declared explicitly in ActionScript to be accessible through an interface.
+   * @return a string representation of this URI.
+   * @see http://marxsoftware.blogspot.de/2008/11/actionscript-tostring-with-interfaces.html
+   */
+  function toString():String;
 }
 }

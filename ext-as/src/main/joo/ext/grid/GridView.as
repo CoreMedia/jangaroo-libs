@@ -549,7 +549,7 @@ public class GridView extends Observable {
    *
    * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GridView-method-getColumnTooltip Sencha Docs Ext JS 3.4
    */
-  public native function getColumnTooltip():void;
+  public native function getColumnTooltip(i:uint):String;
 
   /**
    *

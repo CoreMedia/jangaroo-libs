@@ -8,7 +8,6 @@
   </parent>
   <packaging>pom</packaging>
   <modelVersion>4.0.0</modelVersion>
-  <groupId>net.jangaroo</groupId>
   <artifactId>jangaroo-sdk</artifactId>
   <name>jangaroo-sdk</name>
   <description>All Jangaroo binaries and standard libraries as a single download</description>
@@ -28,6 +27,11 @@
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>jangaroo-net</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>net.jangaroo</groupId>
+      <artifactId>jooflash-core</artifactId>
       <version>${project.version}</version>
     </dependency>
     <dependency>

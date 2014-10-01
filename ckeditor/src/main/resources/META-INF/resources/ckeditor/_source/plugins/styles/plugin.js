@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2011, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2013, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.html or http://ckeditor.com/license
 */
 
@@ -90,6 +90,16 @@ CKEDITOR.STYLE_OBJECT = 3;
 
 	CKEDITOR.style = function( styleDefinition, variablesValues )
 	{
+		// Inline style text as attribute should be converted
+		// to styles object.
+		var attrs = styleDefinition.attributes;
+		if ( attrs && attrs.style )
+		{
+			styleDefinition.styles = CKEDITOR.tools.extend( {},
+				styleDefinition.styles, parseStyleText( attrs.style ) );
+			delete attrs.style;
+		}
+
 		if ( variablesValues )
 		{
 			styleDefinition = CKEDITOR.tools.clone( styleDefinition );
@@ -218,9 +228,8 @@ CKEDITOR.STYLE_OBJECT = 3;
 			return true;
 		},
 
-		// Checks if an element, or any of its attributes, is removable by the
-		// current style definition.
-		checkElementRemovable : function( element, fullMatch )
+		// Check if the element matches the current style definition.
+		checkElementMatch : function( element, fullMatch )
 		{
 			var def = this._.definition;
 
@@ -266,10 +275,23 @@ CKEDITOR.STYLE_OBJECT = 3;
 					return true;
 			}
 
-			// Check if the element can be somehow overriden.
+			return false;
+		},
+
+		// Checks if an element, or any of its attributes, is removable by the
+		// current style definition.
+		checkElementRemovable : function( element, fullMatch )
+		{
+			// Check element matches the style itself.
+			if ( this.checkElementMatch( element, fullMatch ) )
+				return true;
+
+			// Check if the element matches the style overrides.
 			var override = getOverrides( this )[ element.getName() ] ;
 			if ( override )
 			{
+				var attribs, attName;
+
 				// If no attributes have been defined, remove the element.
 				if ( !( attribs = override.attributes ) )
 					return true;
@@ -1146,9 +1168,9 @@ CKEDITOR.STYLE_OBJECT = 3;
 	function removeFromElement( style, element )
 	{
 		var def = style._.definition,
-			overrides = getOverrides( style )[ element.getName() ],
-			attributes = CKEDITOR.tools.extend( {}, def.attributes, overrides ),
+			attributes = def.attributes,
 			styles = def.styles,
+			overrides = getOverrides( style )[ element.getName() ],
 			// If the style is only about the element itself, we have to remove the element.
 			removeEmpty = CKEDITOR.tools.isEmpty( attributes ) && CKEDITOR.tools.isEmpty( styles );
 
@@ -1174,11 +1196,8 @@ CKEDITOR.STYLE_OBJECT = 3;
 			element.removeStyle( styleName );
 		}
 
-			var className = def.className;
-		if ( className )
-			element.removeClass( className );
-
-		removeOverrides( element, overrides ) ;
+		// Remove overrides, but don't remove the element if it's a block element
+		removeOverrides( element, overrides, blockElements[ element.getName() ] ) ;
 
 		if ( removeEmpty )
 		{
@@ -1221,8 +1240,9 @@ CKEDITOR.STYLE_OBJECT = 3;
 	 *  Note: Remove the element if no attributes remain.
 	 * @param {Object} element
 	 * @param {Object} overrides
+	 * @param {Boolean} Don't remove the element
 	 */
-	function removeOverrides( element, overrides )
+	function removeOverrides( element, overrides, dontRemove )
 	{
 		var attributes = overrides && overrides.attributes ;
 
@@ -1250,7 +1270,8 @@ CKEDITOR.STYLE_OBJECT = 3;
 			}
 		}
 
-		removeNoAttribsElement( element );
+		if ( !dontRemove )
+			removeNoAttribsElement( element );
 	}
 
 	// If the element has no more attributes, remove it.

@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2011, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2013, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.html or http://ckeditor.com/license
 */
 
@@ -315,9 +315,9 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 
 				isPre = ( startBlockTag == 'pre' );
 
-				// Gecko prefers <br> as line-break inside <pre> (#4711).
-				if ( isPre && !CKEDITOR.env.gecko )
-					lineBreak = doc.createText( CKEDITOR.env.ie ? '\r' : '\n' );
+				// IE<8 prefers text node as line-break inside of <pre> (#4711).
+				if ( startBlockTag == 'pre' && CKEDITOR.env.ie && CKEDITOR.env.version < 8 )
+					lineBreak = doc.createText( '\r' );
 				else
 					lineBreak = doc.createElement( 'br' );
 
@@ -367,8 +367,10 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 			// This collapse guarantees the cursor will be blinking.
 			range.collapse( true );
 
-			range.select( isPre );
-		}
+                        // Fixes enter key handling for some problematic cases in IE10.
+                        // Taken from http://dev.ckeditor.com/ticket/9719.
+                        if (!CKEDITOR.env.ie || CKEDITOR.env.version < 10) range.select( isPre );
+                }
 	};
 
 	var plugin = CKEDITOR.plugins.enterkey,
