@@ -602,6 +602,12 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 							'window.parent.CKEDITOR.tools.callFunction( ' + contentDomReadyHandler + ', window );' +
 						'</script>';
 
+                    if (!isCustomDomain) {
+                      // Make bootstrapping comply with CSP.
+                      activationScript =
+                          '<script id="cke_actscrpt" type="text/javascript" data-cke-temp="1" data-cke-call-function="' + contentDomReadyHandler + '" src="ckeditor/_source/core/callFunction.js"></script>';
+                    }
+
 					// Editing area bootstrap code.
 					function contentDomReady( domWindow )
 					{
