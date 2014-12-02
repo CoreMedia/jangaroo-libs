@@ -59,6 +59,22 @@ ext.Component.prototype.getXTypes = function () {
   }
   return tc.xtypes;
 };
+// patch for adding a component reference to the config of a plugin:
+ext.Component.prototype.initPlugin = function(p) {
+  var plugin;
+  if (Ext.isString(p)) {
+    p = { ptype: p };
+  }
+  if (p.ptype && !Ext.isFunction(p.init)) {
+    p.component = this;
+    plugin = Ext.ComponentMgr.createPlugin(p);
+    delete p.component;
+  } else {
+    plugin = p;
+  }
+  plugin.init(this);
+  return plugin;
+};
 // patch for Actions being added to a Component via config's baseAction:
 ext.Action.prototype.addComponent = Ext.Action.prototype.addComponent.createInterceptor(function(component) {
   if (component.initialConfig !== this.initialConfig) {
