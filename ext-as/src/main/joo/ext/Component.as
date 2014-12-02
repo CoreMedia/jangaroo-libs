@@ -1167,6 +1167,10 @@ public class Component extends Observable {
    */
   public native function update(htmlOrData:*, loadScripts:Boolean = false, callback:Function = null):void;
 
+  protected native function applyState(state:Object):void;
+
+  protected native function getState():Object;
+  
 }
 }
     
