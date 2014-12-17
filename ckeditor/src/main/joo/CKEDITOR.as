@@ -1,5 +1,5 @@
 package {
-[Native(amd="ckeditor.module")]
+[Native(amd="ckeditor/ckeditor", global="CKEDITOR")]
 public class CKEDITOR {
 
   public static var TRISTATE_DISABLED :*;
