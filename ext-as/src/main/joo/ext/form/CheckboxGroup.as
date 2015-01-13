@@ -45,7 +45,7 @@ import ext.config.checkboxgroup;
  * @see ext.config.checkboxgroup
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.CheckboxGroup Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.form.CheckboxGroup")]
+[Native(amd="ext-as.module", "form.CheckboxGroup")]
 public class CheckboxGroup extends Field {
 
   /**

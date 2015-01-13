@@ -53,7 +53,7 @@ import ext.config.splitbutton;
  * @see ext.config.splitbutton
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.SplitButton Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.SplitButton")]
+[Native(amd="ext-as.module", "SplitButton")]
 public class SplitButton extends Button {
 
   /**

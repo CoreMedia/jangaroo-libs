@@ -9,7 +9,7 @@ package ext.util {
  * @see ext.util.IFunctions
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Functions Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.util.Functions")]
+[Native(amd="ext-as.module", "util.Functions")]
 public const Functions:IFunctions;
 
 }

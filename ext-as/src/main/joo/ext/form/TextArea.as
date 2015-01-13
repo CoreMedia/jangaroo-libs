@@ -11,7 +11,7 @@ import ext.config.textarea;
  * @see ext.config.textarea
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.TextArea Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.form.TextArea")]
+[Native(amd="ext-as.module", "form.TextArea")]
 public class TextArea extends TextField {
 
   /**

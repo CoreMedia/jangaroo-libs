@@ -9,7 +9,7 @@ package ext.data {
  * @see ext.data.IApi
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Api Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.data.Api")]
+[Native(amd="ext-as.module", "data.Api")]
 public const Api:IApi;
 
 }

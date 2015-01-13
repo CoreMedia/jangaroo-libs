@@ -77,7 +77,7 @@ import ext.util.Observable;
  * @see ext.config.provider
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.direct.Provider Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.direct.Provider")]
+[Native(amd="ext-as.module", "direct.Provider")]
 public class Provider extends Observable {
 
   /**

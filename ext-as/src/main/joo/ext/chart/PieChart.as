@@ -9,7 +9,7 @@ package ext.chart {
  * @see ext.config.piechart
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.chart.PieChart Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.chart.PieChart")]
+[Native(amd="ext-as.module", "chart.PieChart")]
 public class PieChart extends Chart {
 
   /**

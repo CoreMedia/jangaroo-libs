@@ -15,7 +15,7 @@ package ext.state {
  * @see ext.state.IManager
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.state.Manager Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.state.Manager")]
+[Native(amd="ext-as.module", "state.Manager")]
 public const Manager:IManager;
 
 }

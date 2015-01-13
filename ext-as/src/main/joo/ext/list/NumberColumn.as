@@ -13,7 +13,7 @@ import ext.config.lvnumbercolumn;
  * @see ext.config.lvnumbercolumn
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.list.NumberColumn Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.list.NumberColumn")]
+[Native(amd="ext-as.module", "list.NumberColumn")]
 public class NumberColumn extends Column {
 
   /**

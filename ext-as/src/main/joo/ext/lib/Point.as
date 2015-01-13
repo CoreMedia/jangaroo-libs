@@ -6,7 +6,7 @@
  */
 package ext.lib {
 
-[Native(amd="ext-as.module", global="Ext.lib.Point")]
+[Native(amd="ext-as.module", "lib.Point")]
 public class Point extends Region {
 
   public function Point(x:*, y:Number = undefined) {

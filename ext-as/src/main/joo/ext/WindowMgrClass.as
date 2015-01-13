@@ -11,7 +11,7 @@ package ext {
  * @see ext.#WindowMgr ext.WindowMgr
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.WindowMgr Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.WindowMgrClass")]
+[Native(amd="ext-as.module", "WindowMgrClass")]
 public class WindowMgrClass extends WindowGroup {
 
   /**

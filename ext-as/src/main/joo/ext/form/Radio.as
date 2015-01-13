@@ -11,7 +11,7 @@ import ext.config.radio;
  * @see ext.config.radio
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.Radio Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.form.Radio")]
+[Native(amd="ext-as.module", "form.Radio")]
 public class Radio extends Checkbox {
 
   /**

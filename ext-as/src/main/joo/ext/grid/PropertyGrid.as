@@ -82,7 +82,7 @@ import ext.config.propertygrid;
  * @see ext.config.propertygrid
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PropertyGrid Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.grid.PropertyGrid")]
+[Native(amd="ext-as.module", "grid.PropertyGrid")]
 public class PropertyGrid extends EditorGridPanel {
 
   /**

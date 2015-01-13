@@ -10,7 +10,7 @@ package ext.layout {
 
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.layout.AutoLayout Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.layout.AutoLayout")]
+[Native(amd="ext-as.module", "layout.AutoLayout")]
 public class AutoLayout {
 
   /**

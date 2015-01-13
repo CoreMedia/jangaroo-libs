@@ -212,7 +212,7 @@ import ext.util.MixedCollection;
  * @see ext.config.container
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Container Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.Container")]
+[Native(amd="ext-as.module", "Container")]
 public class Container extends BoxComponent {
 
   /**

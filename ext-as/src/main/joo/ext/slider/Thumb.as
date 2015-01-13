@@ -8,7 +8,7 @@ package ext.slider {
  * @see ext.config.thumb
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.slider.Thumb Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.slider.Thumb")]
+[Native(amd="ext-as.module", "slider.Thumb")]
 public class Thumb {
 
   /**

@@ -9,7 +9,7 @@ package ext.chart {
 
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.chart.BarSeries Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.chart.BarSeries")]
+[Native(amd="ext-as.module", "chart.BarSeries")]
 public class BarSeries extends CartesianSeries {
 
   /**

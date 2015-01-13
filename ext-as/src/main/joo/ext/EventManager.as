@@ -9,7 +9,7 @@ package ext {
  * @see ext.IEventManager
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.EventManager Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.EventManager")]
+[Native(amd="ext-as.module", "EventManager")]
 public const EventManager:IEventManager;
 
 }

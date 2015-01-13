@@ -1,6 +1,6 @@
 package js{
 
-[Native(amd="browser.module", global="HTMLElement")]
+[Native(amd="browser.module", "HTMLElement")]
 public class HTMLElement extends Element {
 }
 }

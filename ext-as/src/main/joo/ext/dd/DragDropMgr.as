@@ -9,7 +9,7 @@ package ext.dd {
  * @see ext.dd.IDragDropMgr
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDropMgr Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.dd.DragDropMgr")]
+[Native(amd="ext-as.module", "dd.DragDropMgr")]
 public const DragDropMgr:IDragDropMgr;
 
 }

@@ -26,7 +26,7 @@ import ext.config.flash;
  * @see ext.config.flash
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.FlashComponent Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.FlashComponent")]
+[Native(amd="ext-as.module", "FlashComponent")]
 public class FlashComponent extends BoxComponent {
 
   /**

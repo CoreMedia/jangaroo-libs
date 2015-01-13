@@ -11,7 +11,7 @@ import ext.config.vboxlayout;
  * @see ext.config.vboxlayout
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.layout.VBoxLayout Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.layout.VBoxLayout")]
+[Native(amd="ext-as.module", "layout.VBoxLayout")]
 public class VBoxLayout extends BoxLayout {
 
   /**

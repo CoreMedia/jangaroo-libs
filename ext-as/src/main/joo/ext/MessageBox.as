@@ -29,7 +29,7 @@ package ext {
  * @see ext.IMessageBox
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.MessageBox Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.MessageBox")]
+[Native(amd="ext-as.module", "MessageBox")]
 public const MessageBox:IMessageBox;
 
 }

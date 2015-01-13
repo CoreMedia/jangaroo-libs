@@ -16,7 +16,7 @@ package ext.toolbar {
  * @see ext.config.tbfill
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Toolbar.Fill Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.Toolbar.Fill")]
+[Native(amd="ext-as.module", "Toolbar.Fill")]
 public class Fill extends Spacer {
 
   /**

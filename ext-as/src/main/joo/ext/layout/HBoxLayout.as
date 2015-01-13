@@ -11,7 +11,7 @@ import ext.config.hboxlayout;
  * @see ext.config.hboxlayout
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.layout.HBoxLayout Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.layout.HBoxLayout")]
+[Native(amd="ext-as.module", "layout.HBoxLayout")]
 public class HBoxLayout extends BoxLayout {
 
   /**

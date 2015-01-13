@@ -12,7 +12,7 @@ import ext.config.template;
  * @see ext.config.template
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Template Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.Template")]
+[Native(amd="ext-as.module", "Template")]
 public class Template
  {
 

@@ -9,7 +9,7 @@ package ext.util {
  * @see ext.util.ITextMetrics
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.TextMetrics Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.util.TextMetrics")]
+[Native(amd="ext-as.module", "util.TextMetrics")]
 public const TextMetrics:ITextMetrics;
 
 }

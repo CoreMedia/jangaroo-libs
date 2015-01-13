@@ -9,7 +9,7 @@ package ext.util {
  * @see ext.util.ICSS
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.CSS Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.util.CSS")]
+[Native(amd="ext-as.module", "util.CSS")]
 public const CSS:ICSS;
 
 }

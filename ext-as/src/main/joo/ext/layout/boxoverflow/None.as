@@ -9,7 +9,7 @@ package ext.layout.boxoverflow {
 
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.layout.boxOverflow.None Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.layout.boxOverflow.None")]
+[Native(amd="ext-as.module", "layout.boxOverflow.None")]
 public class None {
 
   /**

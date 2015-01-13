@@ -9,7 +9,7 @@ import ext.ExtError;
 
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store.Error Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.data.Store.Error")]
+[Native(amd="ext-as.module", "data.Store.Error")]
 public class ExtError extends ext.ExtError {
 
   /**

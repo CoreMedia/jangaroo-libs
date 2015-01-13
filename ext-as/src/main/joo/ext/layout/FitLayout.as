@@ -20,7 +20,7 @@ import ext.config.fitlayout;
  * @see ext.config.fitlayout
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.layout.FitLayout Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.layout.FitLayout")]
+[Native(amd="ext-as.module", "layout.FitLayout")]
 public class FitLayout extends ContainerLayout {
 
   /**

@@ -13,7 +13,7 @@ import ext.config.datecolumn;
  * @see ext.config.datecolumn
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.DateColumn Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.grid.DateColumn")]
+[Native(amd="ext-as.module", "grid.DateColumn")]
 public class DateColumn extends Column {
 
   /**

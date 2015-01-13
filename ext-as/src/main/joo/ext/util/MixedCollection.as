@@ -87,7 +87,7 @@ package ext.util {
  * @see ext.config.mixedcollection
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.MixedCollection Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.util.MixedCollection")]
+[Native(amd="ext-as.module", "util.MixedCollection")]
 public class MixedCollection extends Observable {
 
   /**

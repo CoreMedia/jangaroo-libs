@@ -9,7 +9,7 @@ package ext.chart {
 
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.chart.TimeAxis Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.chart.TimeAxis")]
+[Native(amd="ext-as.module", "chart.TimeAxis")]
 public class TimeAxis extends Axis {
 
   /**

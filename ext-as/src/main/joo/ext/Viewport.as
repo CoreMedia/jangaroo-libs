@@ -53,7 +53,7 @@ import ext.config.viewport;
  * @see ext.config.viewport
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Viewport Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.Viewport")]
+[Native(amd="ext-as.module", "Viewport")]
 public class Viewport extends Container {
 
   /**

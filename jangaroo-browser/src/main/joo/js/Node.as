@@ -1,6 +1,6 @@
 package js {
 
-[Native(amd="browser.module", global="Node")]
+[Native(amd="browser.module", "Node")]
 public class Node {
 
   public static const ELEMENT_NODE : int = 1;

@@ -10,7 +10,7 @@ import js.Node;
 
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeNodeUI Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.tree.TreeNodeUI")]
+[Native(amd="ext-as.module", "tree.TreeNodeUI")]
 public class TreeNodeUI {
 
   /**

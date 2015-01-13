@@ -12,7 +12,7 @@ import ext.util.Observable;
  * @see ext.config.sorter
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.list.Sorter Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.list.Sorter")]
+[Native(amd="ext-as.module", "list.Sorter")]
 public class Sorter extends Observable {
 
   /**

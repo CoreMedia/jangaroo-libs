@@ -108,7 +108,7 @@ import ext.dd.DragSource;
  * @see ext.config.window
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Window Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.Window")]
+[Native(amd="ext-as.module", "Window")]
 public class Window extends Panel {
 
   /**

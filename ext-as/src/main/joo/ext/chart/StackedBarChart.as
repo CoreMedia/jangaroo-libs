@@ -9,7 +9,7 @@ package ext.chart {
  * @see ext.config.stackedbarchart
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.chart.StackedBarChart Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.chart.StackedBarChart")]
+[Native(amd="ext-as.module", "chart.StackedBarChart")]
 public class StackedBarChart extends CartesianChart {
 
   /**

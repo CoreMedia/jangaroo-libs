@@ -164,7 +164,7 @@ import js.HTMLElement;
  * @see ext.config.htmleditor
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.HtmlEditor Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.form.HtmlEditor")]
+[Native(amd="ext-as.module", "form.HtmlEditor")]
 public class HtmlEditor extends Field {
 
   /**

@@ -11,7 +11,7 @@ import ext.config.menuitem;
  * @see ext.config.menuitem
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.menu.Item Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.menu.Item")]
+[Native(amd="ext-as.module", "menu.Item")]
 public class Item extends BaseItem {
 
   /**

@@ -11,7 +11,7 @@ import ext.config.numberfield;
  * @see ext.config.numberfield
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.NumberField Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.form.NumberField")]
+[Native(amd="ext-as.module", "form.NumberField")]
 public class NumberField extends TextField {
 
   /**

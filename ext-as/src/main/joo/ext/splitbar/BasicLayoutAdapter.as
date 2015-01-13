@@ -9,7 +9,7 @@ import ext.SplitBar;
 
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.SplitBar.BasicLayoutAdapter Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.SplitBar.BasicLayoutAdapter")]
+[Native(amd="ext-as.module", "SplitBar.BasicLayoutAdapter")]
 public class BasicLayoutAdapter {
 
   /**

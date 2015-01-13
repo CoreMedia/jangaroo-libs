@@ -9,7 +9,7 @@ package ext {
  * @see ext.IDomQuery
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.DomQuery Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.DomQuery")]
+[Native(amd="ext-as.module", "DomQuery")]
 public const DomQuery:IDomQuery;
 
 }

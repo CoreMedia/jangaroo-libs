@@ -106,7 +106,7 @@ import ext.config.menuitem;
  * @see ext.config.menu
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.menu.Menu Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.menu.Menu")]
+[Native(amd="ext-as.module", "menu.Menu")]
 public class Menu extends Container {
 
   /**

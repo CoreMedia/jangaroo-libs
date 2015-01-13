@@ -52,7 +52,7 @@ import ext.config.groupingview;
  * @see ext.config.groupingview
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.GroupingView Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.grid.GroupingView")]
+[Native(amd="ext-as.module", "grid.GroupingView")]
 public class GroupingView extends GridView {
 
   /**

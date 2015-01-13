@@ -12,7 +12,7 @@ import ext.util.Observable;
  * @see ext.config.columnresizer
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.list.ColumnResizer Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.list.ColumnResizer")]
+[Native(amd="ext-as.module", "list.ColumnResizer")]
 public class ColumnResizer extends Observable {
 
   /**

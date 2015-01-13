@@ -74,7 +74,7 @@ import ext.util.Observable;
  * @see ext.config.basicform
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.BasicForm Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.form.BasicForm")]
+[Native(amd="ext-as.module", "form.BasicForm")]
 public class BasicForm extends Observable {
 
   /**

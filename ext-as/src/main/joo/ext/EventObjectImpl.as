@@ -8,7 +8,7 @@ import js.HTMLElement;
  *
  * @see EventManager
  */
-[Native(amd="ext-as.module", global="Ext.EventObjectImpl")]
+[Native(amd="ext-as.module", "EventObjectImpl")]
 public class EventObjectImpl
  implements IEventObject {
 

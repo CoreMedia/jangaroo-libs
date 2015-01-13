@@ -9,7 +9,7 @@ package ext.tree {
 
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeFilter Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.tree.TreeFilter")]
+[Native(amd="ext-as.module", "tree.TreeFilter")]
 public class TreeFilter {
 
   /**

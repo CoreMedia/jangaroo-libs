@@ -1,6 +1,6 @@
 package ext.util {
 
-[Native(amd="ext-as.module", global="Ext.util.StringUtil")]
+[Native(amd="ext-as.module", "util.StringUtil")]
 public class StringUtil {
 
   /**

@@ -9,7 +9,7 @@ package ext.updater {
 
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Updater.defaults Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.Updater.defaults")]
+[Native(amd="ext-as.module", "Updater.defaults")]
 public class defaults {
 
   /**

@@ -15,7 +15,7 @@ import js.HTMLElement;
 
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.dd.DragDrop Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.dd.DragDrop")]
+[Native(amd="ext-as.module", "dd.DragDrop")]
 public class DragDrop {
 
   /**

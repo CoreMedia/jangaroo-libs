@@ -32,7 +32,7 @@ import ext.data.Record;
  * @see ext.config.pivotaxis
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.PivotAxis Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.grid.PivotAxis")]
+[Native(amd="ext-as.module", "grid.PivotAxis")]
 public class PivotAxis extends Component {
 
   /**

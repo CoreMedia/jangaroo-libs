@@ -8,7 +8,7 @@ package ext.layout.boxoverflow {
  * @see ext.config.horizontalscroller
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.layout.boxOverflow.HorizontalScroller Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.layout.boxOverflow.HorizontalScroller")]
+[Native(amd="ext-as.module", "layout.boxOverflow.HorizontalScroller")]
 public class HorizontalScroller extends Scroller {
 
   /**

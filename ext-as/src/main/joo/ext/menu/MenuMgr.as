@@ -9,7 +9,7 @@ package ext.menu {
  * @see ext.menu.IMenuMgr
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.menu.MenuMgr Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.menu.MenuMgr")]
+[Native(amd="ext-as.module", "menu.MenuMgr")]
 public const MenuMgr:IMenuMgr;
 
 }

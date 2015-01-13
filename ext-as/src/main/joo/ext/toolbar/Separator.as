@@ -16,7 +16,7 @@ package ext.toolbar {
  * @see ext.config.tbseparator
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Toolbar.Separator Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.Toolbar.Separator")]
+[Native(amd="ext-as.module", "Toolbar.Separator")]
 public class Separator extends Item {
 
   /**

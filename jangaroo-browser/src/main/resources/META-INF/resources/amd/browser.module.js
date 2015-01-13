@@ -29,4 +29,5 @@ define(function() {
       DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC: 32
     };
   }
+  return this;
 });

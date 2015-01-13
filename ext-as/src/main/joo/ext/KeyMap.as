@@ -38,7 +38,7 @@ package ext {
 
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.KeyMap Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.KeyMap")]
+[Native(amd="ext-as.module", "KeyMap")]
 public class KeyMap
  {
 

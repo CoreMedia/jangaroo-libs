@@ -10,7 +10,7 @@ import ext.config.checkboxselectionmodel;
  * @see ext.config.checkboxselectionmodel
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.CheckboxSelectionModel Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.grid.CheckboxSelectionModel")]
+[Native(amd="ext-as.module", "grid.CheckboxSelectionModel")]
 public class CheckboxSelectionModel extends RowSelectionModel {
 
   /**

@@ -258,7 +258,7 @@ import ext.data.Node;
  * @see ext.config.treenode
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeNode Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.tree.TreeNode")]
+[Native(amd="ext-as.module", "tree.TreeNode")]
 public class TreeNode extends Node {
 
   /**

@@ -10,7 +10,7 @@ package ext.direct {
 
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Direct.Transaction Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.Direct.Transaction")]
+[Native(amd="ext-as.module", "Direct.Transaction")]
 public class Transaction {
 
   /**

@@ -18,7 +18,7 @@ import ext.config.treesorter;
  * @see ext.config.treesorter
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeSorter Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.tree.TreeSorter")]
+[Native(amd="ext-as.module", "tree.TreeSorter")]
 public class TreeSorter {
 
   /**

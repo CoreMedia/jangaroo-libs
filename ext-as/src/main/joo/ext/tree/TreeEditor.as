@@ -11,7 +11,7 @@ import ext.config.treeeditor;
  * @see ext.config.treeeditor
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeEditor Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.tree.TreeEditor")]
+[Native(amd="ext-as.module", "tree.TreeEditor")]
 public class TreeEditor extends Editor {
 
   /**

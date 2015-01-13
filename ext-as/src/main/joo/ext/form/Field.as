@@ -141,7 +141,7 @@ import ext.config.field;
  * @see ext.config.field
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.form.Field Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.form.Field")]
+[Native(amd="ext-as.module", "form.Field")]
 public class Field extends BoxComponent {
 
   /**

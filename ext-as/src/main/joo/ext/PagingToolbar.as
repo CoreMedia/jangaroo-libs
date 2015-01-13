@@ -100,7 +100,7 @@ import ext.data.Store;
  * @see ext.config.paging
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.PagingToolbar Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.PagingToolbar")]
+[Native(amd="ext-as.module", "PagingToolbar")]
 public class PagingToolbar extends Toolbar {
 
   /**

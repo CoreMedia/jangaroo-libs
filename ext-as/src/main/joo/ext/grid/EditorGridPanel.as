@@ -69,7 +69,7 @@ import ext.config.editorgrid;
  * @see ext.config.editorgrid
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.EditorGridPanel Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.grid.EditorGridPanel")]
+[Native(amd="ext-as.module", "grid.EditorGridPanel")]
 public class EditorGridPanel extends GridPanel {
 
   /**

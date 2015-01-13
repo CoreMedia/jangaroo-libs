@@ -12,7 +12,7 @@ import js.Element;
 
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Record Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.data.Record")]
+[Native(amd="ext-as.module", "data.Record")]
 public class Record {
 
   /**

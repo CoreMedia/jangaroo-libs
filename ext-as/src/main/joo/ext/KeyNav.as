@@ -23,7 +23,7 @@ import ext.config.keynav;
  * @see ext.config.keynav
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.KeyNav Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.KeyNav")]
+[Native(amd="ext-as.module", "KeyNav")]
 public class KeyNav
  {
 

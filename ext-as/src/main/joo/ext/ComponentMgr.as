@@ -10,7 +10,7 @@ package ext {
  * @see ext.IComponentMgr
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.ComponentMgr Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.ComponentMgr")]
+[Native(amd="ext-as.module", "ComponentMgr")]
 public const ComponentMgr:IComponentMgr;
 
 }

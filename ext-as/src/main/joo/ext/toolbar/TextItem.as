@@ -14,7 +14,7 @@ package ext.toolbar {
  * @see ext.config.tbtext
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Toolbar.TextItem Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.Toolbar.TextItem")]
+[Native(amd="ext-as.module", "Toolbar.TextItem")]
 public class TextItem extends Item {
 
   /**

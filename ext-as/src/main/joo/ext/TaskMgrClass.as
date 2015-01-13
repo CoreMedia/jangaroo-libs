@@ -19,7 +19,7 @@ import ext.util.TaskRunner;
  * @see ext.#TaskMgr ext.TaskMgr
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.TaskMgr Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.TaskMgrClass")]
+[Native(amd="ext-as.module", "TaskMgrClass")]
 public class TaskMgrClass extends TaskRunner {
 
   /**

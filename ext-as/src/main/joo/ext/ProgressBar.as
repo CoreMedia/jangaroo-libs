@@ -37,7 +37,7 @@ import ext.config.progress;
  * @see ext.config.progress
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.ProgressBar Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.ProgressBar")]
+[Native(amd="ext-as.module", "ProgressBar")]
 public class ProgressBar extends BoxComponent {
 
   /**

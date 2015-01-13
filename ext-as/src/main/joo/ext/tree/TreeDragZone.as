@@ -11,7 +11,7 @@ import ext.dd.DragZone;
  * @see ext.config.treedragzone
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.tree.TreeDragZone Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.tree.TreeDragZone")]
+[Native(amd="ext-as.module", "tree.TreeDragZone")]
 public class TreeDragZone extends DragZone {
 
   /**

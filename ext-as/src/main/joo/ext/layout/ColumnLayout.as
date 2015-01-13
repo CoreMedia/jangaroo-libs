@@ -44,7 +44,7 @@ import ext.config.columnlayout;
  * @see ext.config.columnlayout
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.layout.ColumnLayout Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.layout.ColumnLayout")]
+[Native(amd="ext-as.module", "layout.ColumnLayout")]
 public class ColumnLayout extends ContainerLayout {
 
   /**

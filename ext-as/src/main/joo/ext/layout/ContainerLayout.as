@@ -15,7 +15,7 @@ import ext.config.containerlayout;
  * @see ext.config.containerlayout
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.layout.ContainerLayout Sencha Docs Ext JS 3.4
  */
-[Native(amd="ext-as.module", global="Ext.layout.ContainerLayout")]
+[Native(amd="ext-as.module", "layout.ContainerLayout")]
 public class ContainerLayout {
 
   /**
