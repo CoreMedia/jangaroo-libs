@@ -1,8 +1,7 @@
 package ext.config {
 import ext.Action;
-import ext.ComponentMgr;
 
-import net.jangaroo.ext.Exml;
+import joo.getQualifiedObject;
 
 /**
  * Fires before the component is <a href="output/Ext.Component.html#Ext.Component-rendered">rendered</a>. Return false from an event handler to stop the <a href="output/Ext.Component.html#Ext.Component-render">render</a>.
@@ -125,7 +124,6 @@ public class component extends observable {
   public function component(config:Object = null) {
 
     super(config);
-    //Exml.establishType(this, "xtype", ComponentMgr["types"]);
   }
 
 
@@ -213,6 +211,29 @@ public class component extends observable {
    * @private
    */
   public native function set baseAction(value:Action):void;
+
+  /**
+   * Like <code>baseAction</code>, only using an action config object instead of an Action instance. 
+   */
+  public function get action():action {
+    return ext.config.action(baseAction ? baseAction.initialConfig : null);
+  }
+
+  /**
+   * @private
+   */
+  public function set action(value:action):void {
+    var targetClassName:String = value  &&
+            value.constructor.$class &&
+            value.constructor.$class.metadata.ExtConfig &&
+            value.constructor.$class.metadata.ExtConfig.target;
+    if (targetClassName) {
+      var TargetClass:Class = getQualifiedObject(targetClassName);
+      baseAction = new TargetClass(value);
+    } else {
+      baseAction = null;
+    }
+  }
 
   /**
    An array of events that, when fired, should be bubbled to any parent container. See <a href="output/Ext.util.Observable.html#Ext.util.Observable-enableBubble">Ext.util.Observable.enableBubble</a>. Defaults to <tt>[]</tt>.
