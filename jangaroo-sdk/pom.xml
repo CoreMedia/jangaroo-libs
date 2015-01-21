@@ -18,6 +18,7 @@
       <artifactId>jangaroo-distribution</artifactId>
       <version>${jangaroo.version}</version>
       <type>zip</type>
+      <scope>runtime</scope>
     </dependency>
     <dependency>
       <groupId>net.jangaroo</groupId>
@@ -91,7 +92,8 @@
             </goals>
             <configuration>
               <outputDirectory>${project.build.directory}/work/libs</outputDirectory>
-              <includeTypes>jangaroo</includeTypes>
+              <includeTypes>jar</includeTypes>
+              <includeScope>compile</includeScope>
             </configuration>
           </execution>
           <execution>
@@ -102,7 +104,8 @@
             </goals>
             <configuration>
               <outputDirectory>${project.build.directory}/work/meta</outputDirectory>
-              <includeTypes>jangaroo</includeTypes>
+              <includeTypes>jar</includeTypes>
+              <includeScope>compile</includeScope>
               <includes>META-INF/joo-api/**,*.xsd,joo/*.module.js</includes>
             </configuration>
           </execution>

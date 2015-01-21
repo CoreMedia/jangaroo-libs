@@ -62,6 +62,22 @@ define(["ext-js/ext-all"], function(Ext) {
   Ext.Window.prototype.showWindow = Ext.Window.prototype.show;
   Ext.Component.prototype.addClasses = Ext.Component.prototype.addClass;
   Ext.Component.prototype.removeClasses = Ext.Component.prototype.removeClass;
+  // patch for adding a component reference to the config of a plugin:
+  Ext.Component.prototype.initPlugin = function(p) {
+    var plugin;
+    if (Ext.isString(p)) {
+      p = { ptype: p };
+    }
+    if (p.ptype && !Ext.isFunction(p.init)) {
+      p.component = this;
+      plugin = Ext.ComponentMgr.createPlugin(p);
+      delete p.component;
+    } else {
+      plugin = p;
+    }
+    plugin.init(this);
+    return plugin;
+  };
   // patch for intermediate component superclasses without xtype:
   Ext.Component.prototype.getXTypes = function () {
     var tc = this.constructor;
