@@ -1,6 +1,6 @@
 package js {
 
-[Native(global="HTMLImageElement")]
+[Native("HTMLImageElement")]
 public class HTMLImageElement extends HTMLElement {
 
   public native function get src() : String;

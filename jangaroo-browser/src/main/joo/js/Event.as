@@ -1,6 +1,6 @@
 package js{
 
-[Native(global="Event")]
+[Native("Event")]
 public class Event {
   public native function get type() : String;
 

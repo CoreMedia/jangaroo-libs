@@ -1,6 +1,6 @@
 package js{
 
-[Native(global="CSSPrimitiveValue")]
+[Native("CSSPrimitiveValue")]
 public class CSSPrimitiveValue {
 
   public static const CSS_UNKNOWN : Number = 0;

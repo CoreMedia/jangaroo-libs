@@ -1,6 +1,6 @@
 package js {
 
-[Native(global="NodeList")]
+[Native("NodeList")]
 /**
  * @deprecated use NodeList
  * @see js.NodeList

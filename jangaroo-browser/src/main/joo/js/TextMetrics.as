@@ -1,5 +1,5 @@
 package js{
-[Native(global="TextMetrics")]
+[Native("TextMetrics")]
 public interface TextMetrics {
   function get width() : Number;
 }

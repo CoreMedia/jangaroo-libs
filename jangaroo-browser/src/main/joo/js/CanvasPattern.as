@@ -1,5 +1,5 @@
 package js{
-[Native(global="CanvasPattern")]
+[Native("CanvasPattern")]
 public interface CanvasPattern {
   // opaque object
 }

@@ -1,6 +1,6 @@
 package js {
 
-[Native(global="DOMParser")]
+[Native("DOMParser")]
 public class DOMParser {
 
   public native function DOMParser();

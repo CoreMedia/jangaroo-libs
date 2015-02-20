@@ -1,6 +1,6 @@
 package js {
 
-[Native(global="HTMLAudioElement")]
+[Native("HTMLAudioElement")]
 public class HTMLAudioElement extends HTMLElement {
 
   public native function get src() : String;

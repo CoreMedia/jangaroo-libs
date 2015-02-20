@@ -1,6 +1,6 @@
 package js{
 
-[Native(global="Document")]
+[Native("Document")]
 public class Document extends Node {
 
   public native function get compatMode() : String;

@@ -1,6 +1,6 @@
 package js {
 
-[Native(global="JSON")]
+[Native("JSON")]
 public const JSON : IJSON;
 
 }

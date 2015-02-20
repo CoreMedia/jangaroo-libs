@@ -1,6 +1,6 @@
 package js {
 
-[Native(global="ControlRangeCollection")]
+[Native("ControlRangeCollection")]
 public interface ControlRangeCollection {
 
   /**

@@ -1,5 +1,5 @@
 package js{
-[Native(global="CanvasRenderingContext2D")]
+[Native("CanvasRenderingContext2D")]
 public interface CanvasRenderingContext2D {
 
   // back-reference to the canvas

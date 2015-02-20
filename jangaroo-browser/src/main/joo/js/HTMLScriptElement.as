@@ -1,6 +1,6 @@
 package js {
 
-[Native(global="HTMLScriptElement")]
+[Native("HTMLScriptElement")]
 public class HTMLScriptElement extends HTMLElement {
 
   public native function get src() : String; // <script>, <img>

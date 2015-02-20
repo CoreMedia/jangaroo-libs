@@ -3,7 +3,7 @@ package js{
 /**
  * An event created using document.createEvent("KeyboardEvent").
  */
-[Native(global="KeyEvent")]
+[Native("KeyEvent")]
 public class KeyEvent extends Event {
 
   public static const DOM_VK_CANCEL : Number = 3;

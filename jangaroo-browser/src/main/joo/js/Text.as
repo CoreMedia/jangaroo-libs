@@ -1,6 +1,6 @@
 package js{
 
-[Native(global="Text")]
+[Native("Text")]
 public class Text extends Node {
   public native function get data() : String;
 

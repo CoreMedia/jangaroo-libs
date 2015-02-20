@@ -1,6 +1,6 @@
 package js{
 
-[Native(global="NodeList")]
+[Native("NodeList")]
 public class NodeList extends Collection {
 
 }

@@ -1,6 +1,6 @@
 package js {
 
-[Native(global="Image")]
+[Native("Image")]
 public class Image extends HTMLImageElement {
 
 

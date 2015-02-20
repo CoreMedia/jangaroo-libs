@@ -1,5 +1,5 @@
 package js{
-[Native(global="ImageData")]
+[Native("ImageData")]
 public interface ImageData {
 
   function get width() : uint;

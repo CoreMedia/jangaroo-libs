@@ -1,6 +1,6 @@
 package js{
 
-[Native(global="Window")]
+[Native("Window")]
 public dynamic class Window {
 
 

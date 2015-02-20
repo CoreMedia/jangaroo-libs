@@ -1,6 +1,6 @@
 package js {
 
-[Native(global="Audio")]
+[Native("Audio")]
 public class Audio extends HTMLAudioElement {
 
 

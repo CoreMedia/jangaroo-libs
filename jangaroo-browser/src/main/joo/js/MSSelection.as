@@ -5,7 +5,7 @@ package js {
  * or a script can carry out some action on.
  * <code>selection</code> is a child object of the <code>document</code> object.
  */
-[Native(global="MSSelection")]
+[Native("MSSelection")]
 public interface MSSelection {
 
   /**

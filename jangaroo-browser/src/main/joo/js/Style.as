@@ -1,6 +1,6 @@
 package js {
 
-[Native(global="CSS2Properties|MSStyleCSSProperties")]
+[Native("CSS2Properties|MSStyleCSSProperties")]
 /**
  * @deprecated use CSS2Properties
  * @see js.CSS2Properties
