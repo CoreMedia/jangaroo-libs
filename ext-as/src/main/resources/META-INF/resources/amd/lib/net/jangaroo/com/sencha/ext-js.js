@@ -33,6 +33,9 @@ requirejs.config({
   }
 })();
 define(["ext-js/ext-all"], function(Ext) {
+  // Jangaroo 2 compatibility: alias "Ext" package to lower-case "ext":
+  this.ext = Ext;
+
   Ext.EventManager.fireDocReady();
   Ext.util.DateUtil = Date;
   // Forward all additional Date instance methods as static methods, since AS3 does not allow to extend a final class:
