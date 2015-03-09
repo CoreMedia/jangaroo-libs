@@ -110,11 +110,11 @@ public class BrowserRunner extends BaseTestRunner {
   }
 
   override public function testError(test:Test, error:Error):void {
-    trace("[ERROR]", "test in error", test, error);
+    trace("[ERROR]", "test in error", test, error, error["stack"]);
   }
 
   override public function testFailure(test:Test, error:AssertionFailedError):void {
-    trace("[ERROR]", "test failed", test, error);
+    trace("[ERROR]", "test failed", test, error, error["stack"]);
   }
 
   override public function testEnded(test:Test):void {
