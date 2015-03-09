@@ -47,6 +47,7 @@
         <artifactId>jangaroo-maven-plugin</artifactId>
         <version>${jangaroo.version}</version>
         <configuration>
+          <testSuite>net.jangaroo.ext.TestSuite</testSuite>
           <jooUnitTestExecutionTimeout>120000</jooUnitTestExecutionTimeout>
         </configuration>
       </plugin>
