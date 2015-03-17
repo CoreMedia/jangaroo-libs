@@ -1308,7 +1308,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 	});
 
 	// Fixing Firefox 'Back-Forward Cache' break design mode. (#4514)
-	if ( CKEDITOR.env.gecko )
+	if ( false )
 	{
 		(function()
 		{
