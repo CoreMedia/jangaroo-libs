@@ -7,32 +7,31 @@ requirejs.config({
       deps: ["ext-js/adapter/ext/ext-base"],
       exports: "Ext"
     },
+    "localize!ext-js/src/locale/ext-lang-": {
+      deps: ["ext-js/ext-all"]
+    },
     "ext-js/ext-all-debug": {
       deps: ["ext-js/adapter/ext/ext-base-debug"],
+      exports: "Ext"
+    },
+    "ext-js/src/debug": {
+      deps: ["ext-js/ext-all-debug"],
       exports: "Ext"
     }
   }
 });
 
-(function() {
-  var debug = "false";
-  if (typeof location === "object" && typeof location.hash === "string") {
-    var match = location.hash.match(/(?:^#|&)joo.debug(?:=(true|false|linked)|&|$)/);
-    if (match) {
-      debug = match[1] || "true";
-    }
-  }
-  if (debug === "true") {
-    requirejs.config({
-      map: {
-        "*": {
-          "ext-js/ext-all": "ext-js/ext-all-debug"
-        }
+if (joo.debug) {
+  requirejs.config({
+    map: {
+      "*": {
+        "ext-js/ext-all": "ext-js/src/debug"
       }
-    })
-  }
-})();
-define(["ext-js/ext-all"], function(Ext) {
+    }
+  });
+}
+
+define(["ext-js/ext-all", "localize!ext-js/src/locale/ext-lang-"], function(Ext) {
   // Jangaroo 2 compatibility: alias "Ext" package to lower-case "ext":
   this.ext = Ext;
 
