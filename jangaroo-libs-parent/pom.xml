@@ -4,7 +4,7 @@
   <groupId>net.jangaroo</groupId>
   <artifactId>jangaroo-libs-parent</artifactId>
   <packaging>pom</packaging>
-  <version>3-preview-1-SNAPSHOT</version>
+  <version>3-preview-1</version>
 
   <name>Jangaroo standard libraries parent</name>
 
@@ -69,6 +69,7 @@
     <url>http://github.com/CoreMedia/jangaroo-libs</url>
     <connection>scm:git:git://github.com/CoreMedia/jangaroo-libs.git</connection>
     <developerConnection>scm:git:git@github.com:CoreMedia/jangaroo-libs.git</developerConnection>
+    <tag>jangaroo-libs-3-preview-1</tag>
   </scm>
 
   <properties>
