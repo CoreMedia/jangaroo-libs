@@ -3,7 +3,7 @@ package js{
 /**
  * An event created using document.createEvent("KeyboardEvent").
  */
-[Native("KeyEvent")]
+[Native(amd="browser.module", "KeyEvent")]
 public class KeyEvent extends Event {
 
   public static const DOM_VK_CANCEL : Number = 3;
@@ -121,23 +121,6 @@ public class KeyEvent extends Event {
   public static const DOM_VK_CLOSE_BRACKET : Number = 221;
   public static const DOM_VK_QUOTE : Number = 222;
   public static const DOM_VK_META : Number = 224;
-
-  /**
-   * Initialize the value of this KeyEvent.
-   * @param type The type of event.
-   * @param bubbles A boolean indicating whether the event should bubble up through the event chain or not (see bubbles).
-   * @param cancelable A boolean indicating whether the event can be canceled (see cancelable).
-   * @param viewArg Specifies UIEvent.view. This value may be null.
-   * @param ctrlKeyArg bool True if the Virtual Key to be generated is a combination of the Ctrl key and other keys
-   * @param altKeyArg bool True if the Virtual Key to be generated is a combination of the Alt key and other keys
-   * @param shiftKeyArg bool True if the Virtual Key to be generated is a combination of the Shift key and other keys
-   * @param metaKeyArg bool True if the Virtual Key to be generated is a combination of the Meta key and other keys
-   * @param keyCodeArg unsigned long the virtual key code value of the key which was depressed, otherwise zero
-   * @param charCodeArg unsigned long the Unicode character associated with the depressed key otherwise zero
-   */
-  public native function initKeyEvent (type:String, bubbles:Boolean, cancelable:Boolean, viewArg:Object,
-                        ctrlKeyArg:Boolean, altKeyArg:Boolean, shiftKeyArg:Boolean, metaKeyArg:Boolean,
-                        keyCodeArg:uint, charCodeArg:uint):void;
 
 }
 }
