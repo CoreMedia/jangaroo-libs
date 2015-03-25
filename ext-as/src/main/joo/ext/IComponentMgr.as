@@ -61,7 +61,7 @@ public interface IComponentMgr {
    * @return The newly instantiated Plugin.
    * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.ComponentMgr-method-createPlugin Sencha Docs Ext JS 3.4
    */
-  function createPlugin(config:Object, defaultType:String = null):Component;
+  function createPlugin(config:Object, defaultType:String = null):Plugin;
 
   /**
    * Returns a component by <a href="output/Ext.Component.html#Ext.Component-id">id</a>. For additional details see <a href="output/Ext.util.MixedCollection.html#Ext.util.MixedCollection-get">Ext.util.MixedCollection.get</a>.
