@@ -10,7 +10,7 @@
   <parent>
     <groupId>net.jangaroo</groupId>
     <artifactId>jangaroo-libs-parent</artifactId>
-    <version>3.0.0-SNAPSHOT</version>
+    <version>3.0.0</version>
     <relativePath>../jangaroo-libs-parent/pom.xml</relativePath>
   </parent>
 
