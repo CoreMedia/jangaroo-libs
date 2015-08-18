@@ -576,7 +576,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 						mainElement.append( iframe );
 
 						// Webkit: iframe size doesn't auto fit well. (#7360)
-						if ( CKEDITOR.env.webkit )
+						if ( CKEDITOR.env.webkit && !onResize )
 						{
 							onResize = function()
 							{
@@ -1184,8 +1184,10 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 							{
 								this.onDispose();
 
-								if ( onResize )
-									win.removeListener( 'resize', onResize );
+								if ( onResize ) {
+									win.removeListener('resize', onResize);
+									onResize = null;
+								}
 
 								editor.window = editor.document = iframe = mainElement = isPendingFocus = null;
 
