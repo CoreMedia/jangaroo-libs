@@ -111,6 +111,15 @@ public class component extends observable {
     super(config);
   }
 
+  /**
+   * @see #id
+   */
+  public native function get extId():String;
+
+  /**
+   * @private
+   */
+  public native function set extId(value:String):void;
 
   /**
    Whether the component can move the Dom node when rendering (defaults to true).
@@ -190,12 +199,12 @@ public class component extends observable {
    *
    * @see Action
    */
-  public native function get baseAction():Action;
+  public native function get baseAction():*;
 
   /**
    * @private
    */
-  public native function set baseAction(value:Action):void;
+  public native function set baseAction(value:*):void;
 
   /**
    An array of events that, when fired, should be bubbled to any parent container. See <a href="output/Ext.util.Observable.html#Ext.util.Observable-enableBubble">Ext.util.Observable.enableBubble</a>. Defaults to <tt>[]</tt>.

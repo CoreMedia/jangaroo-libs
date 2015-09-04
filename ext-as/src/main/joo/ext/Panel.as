@@ -212,7 +212,7 @@ public class Panel extends Container {
    * @param config The config object
    * @see ext.config.panel
    */
-  public function Panel(config:panel) {
+  public function Panel(config:panel = null) {
     super(null);
   }
 

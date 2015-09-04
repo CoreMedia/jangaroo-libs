@@ -62,7 +62,7 @@ public class Viewport extends Container {
    * @param config The config object
    * @see ext.config.viewport
    */
-  public function Viewport(config:viewport) {
+  public function Viewport(config:viewport = null) {
     super(null);
   }
 
