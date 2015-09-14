@@ -22,7 +22,7 @@ public class ToolTip extends Tip {
    * @param config The configuration options
    * @see ext.config.tooltip
    */
-  public function ToolTip(config:tooltip) {
+  public function ToolTip(config:tooltip = null) {
     super(null);
   }
 

@@ -387,7 +387,7 @@ public class Component extends Observable {
    * @param config The configuration options may be specified as either: <div class="mdetail-params"><ul><li><b>an element</b> : <p class="sub-desc">it is set as the internal element and its id used as the component id</p></li><li><b>a string</b> : <p class="sub-desc">it is assumed to be the id of an existing element and is used as the component id</p></li><li><b>anything else</b> : <p class="sub-desc">it is assumed to be a standard config object and is applied to the component</p></li></ul></div>
    * @see ext.config.component
    */
-  public function Component(config:component) {
+  public function Component(config:component = null) {
     super();
   }
 
@@ -1170,7 +1170,7 @@ public class Component extends Observable {
   protected native function applyState(state:Object):void;
 
   protected native function getState():Object;
-  
+
 }
 }
     
