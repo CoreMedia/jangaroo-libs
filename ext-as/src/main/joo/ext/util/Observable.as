@@ -1,4 +1,7 @@
 package ext.util {
+import flash.events.Event;
+import flash.events.IEventDispatcher;
+
 /**
  * Base class that provides a common interface for publishing events. Subclasses are expected to to have a property "events" with all the events defined, and, optionally, a property "listeners" with configured listeners defined.<br/>For example: <pre><code>Employee = Ext.extend(Ext.util.Observable, {
  constructor: function(config){
@@ -34,7 +37,7 @@ package ext.util {
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.util.Observable Sencha Docs Ext JS 3.4
  */
 [Native]
-public class Observable {
+public class Observable implements IEventDispatcher {
 
   /**
    *
@@ -44,6 +47,31 @@ public class Observable {
   public function Observable() {
     super();
   }
+
+  /**
+   * @inheritDoc
+   */
+  public native function addEventListener(type:String, listener:Function, useCapture:Boolean = false, priority:int = 0, useWeakReference:Boolean = false):void;
+
+  /**
+   * @inheritDoc
+   */
+  public native function dispatchEvent(event:Event):Boolean;
+
+  /**
+   * @inheritDoc
+   */
+  public native function hasEventListener(type:String):Boolean;
+
+  /**
+   * @inheritDoc
+   */
+  public native function removeEventListener(type:String, listener:Function, useCapture:Boolean = false):void;
+
+  /**
+   * @inheritDoc
+   */
+  public native function willTrigger(type:String):Boolean;
 
   /**
 

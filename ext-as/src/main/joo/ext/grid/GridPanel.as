@@ -757,7 +757,7 @@ import ext.data.Store;
 
  * </ul>
  */
-[Event(name="rowclick")]
+[Event(name="rowclick", type="ext.grid.events.GridClickEvent")]
 
 /**
  * Fires when a row is right clicked

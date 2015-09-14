@@ -27,6 +27,12 @@
     </dependency>
 
     <dependency>
+      <groupId>net.jangaroo</groupId>
+      <artifactId>jooflash-core</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
       <groupId>net.jangaroo.com.sencha</groupId>
       <artifactId>ext-js</artifactId>
       <version>${extjs.version}</version>
@@ -54,8 +60,6 @@
         <version>${jangaroo.version}</version>
         <configuration>
           <jooUnitTestExecutionTimeout>120000</jooUnitTestExecutionTimeout>
-          <phantomTestSuite>net.jangaroo.ext.TestSuite</phantomTestSuite>
-          <phantomTestRunner>joo/phantomjs-joounit-runner.js</phantomTestRunner>
         </configuration>
       </plugin>
       <plugin>

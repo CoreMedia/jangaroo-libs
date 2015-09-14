@@ -1,5 +1,131 @@
 package ext.config {
 
+/**
+ * Fires when this field loses input focus.
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:ext.form.Field</code>
+
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="onblur")]
+
+/**
+ * Fires just before the field blurs if the field value has changed.
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:ext.form.Field</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>newValue:&#42;</code>
+ The new value
+ *       </li>
+
+ *       <li>
+ *           <code>oldValue:&#42;</code>
+ The original value
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="onchange")]
+
+/**
+ * Fires when this field receives input focus.
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:ext.form.Field</code>
+
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="onfocus")]
+
+/**
+ * Fires after the field has been marked as invalid.
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:ext.form.Field</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>msg:String</code>
+ The validation message
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="oninvalid")]
+
+/**
+ * Fires when any key related to navigation (arrows, tab, enter, esc, etc.) is pressed. To handle other keys see <a href="output/Ext.Panel.html#Ext.Panel-keys">Ext.Panel.keys</a> or <a href="Ext.KeyMap.html">Ext.KeyMap</a>. You can check <a href="output/Ext.EventObject.html#Ext.EventObject-getKey">Ext.EventObject.getKey</a> to determine which key was pressed. For example: <pre><code>var form = new Ext.form.FormPanel({
+ ...
+ items: [{
+ fieldLabel: 'Field 1',
+ name: 'field1',
+ allowBlank: false
+ },{
+ fieldLabel: 'Field 2',
+ name: 'field2',
+ listeners: {
+ specialkey: function(field, e){
+ // e.HOME, e.END, e.PAGE_UP, e.PAGE_DOWN,
+ // e.TAB, e.ESC, arrow keys: e.LEFT, e.RIGHT, e.UP, e.DOWN
+ if (e.<a href="output/Ext.EventObject.html#Ext.EventObject-getKey">getKey()</a> == e.ENTER) {
+ var form = field.ownerCt.getForm();
+ form.submit();
+ }
+ }
+ }
+ }
+ ],
+ ...
+ });
+ </code></pre>
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:ext.form.Field</code>
+
+ *       </li>
+
+ *       <li>
+ *           <code>e:ext.IEventObject</code>
+ The event object
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="onspecialkey")]
+
+/**
+ * Fires after the field has been validated with no errors.
+ * Listeners will be called with the following arguments:
+ * <ul>
+
+ *       <li>
+ *           <code>this_:ext.form.Field</code>
+
+ *       </li>
+
+ * </ul>
+ */
+[Event(name="onvalid")]
 
 /**
  * Base class for form fields that provides default event handling, sizing, value handling and other functionality.

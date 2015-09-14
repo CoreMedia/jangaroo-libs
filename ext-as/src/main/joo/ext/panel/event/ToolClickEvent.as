@@ -4,7 +4,7 @@ import ext.Element;
 import ext.IEventObject;
 import ext.Panel;
 
-import js.Event;
+import flash.events.Event;
 
 /**
  * An event that is fired when a tool is clicked.
@@ -19,6 +19,7 @@ public class ToolClickEvent extends Event {
    * and the panel containing the tool, as well as the tool's original config (tc).
    */
   public function ToolClickEvent() {
+    super("click");
   }
 
   /**
