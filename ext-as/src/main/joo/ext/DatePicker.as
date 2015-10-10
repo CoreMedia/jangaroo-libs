@@ -41,7 +41,7 @@ public class DatePicker extends Component {
    * @param config The config object
    * @see ext.config.datepicker
    */
-  public function DatePicker(config:datepicker) {
+  public function DatePicker(config:datepicker = null) {
     super(null);
   }
 

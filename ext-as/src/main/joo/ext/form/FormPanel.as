@@ -42,7 +42,7 @@ public class FormPanel extends Panel {
    * @param config Configuration options
    * @see ext.config.form
    */
-  public function FormPanel(config:form) {
+  public function FormPanel(config:form = null) {
     super(null);
   }
 

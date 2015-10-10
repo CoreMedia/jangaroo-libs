@@ -20,7 +20,7 @@ public class Tip extends Panel {
    * @param config The configuration options
    * @see ext.config.tip
    */
-  public function Tip(config:tip) {
+  public function Tip(config:tip = null) {
     super(null);
   }
 

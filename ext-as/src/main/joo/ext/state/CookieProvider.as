@@ -25,7 +25,7 @@ public class CookieProvider extends Provider {
    * @param config The configuration object
    * @see ext.config.cookieprovider
    */
-  public function CookieProvider(config:cookieprovider) {
+  public function CookieProvider(config:cookieprovider = null) {
     super();
   }
 

@@ -20,7 +20,7 @@ public class TextArea extends TextField {
    * @param config Configuration options
    * @see ext.config.textarea
    */
-  public function TextArea(config:textarea) {
+  public function TextArea(config:textarea = null) {
     super(null);
   }
 

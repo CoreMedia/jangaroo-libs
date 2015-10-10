@@ -20,7 +20,7 @@ public class QuickTip extends ToolTip {
    * @param config The configuration options
    * @see ext.config.quicktip
    */
-  public function QuickTip(config:quicktip) {
+  public function QuickTip(config:quicktip = null) {
     super(config);
   }
 

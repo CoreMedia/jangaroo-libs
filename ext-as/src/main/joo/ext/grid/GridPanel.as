@@ -928,7 +928,7 @@ public class GridPanel extends Panel {
    * @param config The config object
    * @see ext.config.grid
    */
-  public function GridPanel(config:grid) {
+  public function GridPanel(config:grid = null) {
     super(null);
   }
 

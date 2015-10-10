@@ -165,6 +165,9 @@ public class gridcolumn extends JavaScriptObject {
    */
   public native function set id(value:String):void;
 
+  [ExtConfig("id")]
+  public native function set extId(value:String):void;
+
   /**
    Used by ColumnModel setConfig method to avoid reprocessing a Column if <code>isColumn</code> is not set ColumnModel will recreate a new Ext.grid.Column Defaults to true.
    */

@@ -40,7 +40,7 @@ public class Checkbox extends Field {
    * @param config Configuration options
    * @see ext.config.checkbox
    */
-  public function Checkbox(config:checkbox) {
+  public function Checkbox(config:checkbox = null) {
     super(null);
   }
 

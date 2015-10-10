@@ -165,7 +165,7 @@ public class ComboBox extends TriggerField {
    * @param config Configuration options
    * @see ext.config.combo
    */
-  public function ComboBox(config:combo) {
+  public function ComboBox(config:combo = null) {
     super(null);
   }
 

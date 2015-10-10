@@ -116,6 +116,7 @@ public class component extends observable {
    */
   public native function get extId():String;
 
+  [ExtConfig("id")]
   /**
    * @private
    */
@@ -199,12 +200,12 @@ public class component extends observable {
    *
    * @see Action
    */
-  public native function get baseAction():*;
+  public native function get baseAction():Action;
 
   /**
    * @private
    */
-  public native function set baseAction(value:*):void;
+  public native function set baseAction(value:Action):void;
 
   /**
    An array of events that, when fired, should be bubbled to any parent container. See <a href="output/Ext.util.Observable.html#Ext.util.Observable-enableBubble">Ext.util.Observable.enableBubble</a>. Defaults to <tt>[]</tt>.

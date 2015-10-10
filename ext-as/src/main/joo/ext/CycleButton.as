@@ -57,7 +57,7 @@ public class CycleButton extends SplitButton {
    * @param config The config object
    * @see ext.config.cycle
    */
-  public function CycleButton(config:cycle) {
+  public function CycleButton(config:cycle = null) {
     super(null);
   }
 

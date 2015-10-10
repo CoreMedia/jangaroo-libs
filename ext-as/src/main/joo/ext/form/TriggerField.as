@@ -24,7 +24,7 @@ public class TriggerField extends TextField {
    * @param config Configuration options (valid {&#64;Ext.form.TextField} config options will also be applied to the base TextField)
    * @see ext.config.trigger
    */
-  public function TriggerField(config:trigger) {
+  public function TriggerField(config:trigger = null) {
     super(null);
   }
 

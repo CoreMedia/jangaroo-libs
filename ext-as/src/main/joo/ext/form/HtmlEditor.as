@@ -173,7 +173,7 @@ public class HtmlEditor extends Field {
    * @param config
    * @see ext.config.htmleditor
    */
-  public function HtmlEditor(config:htmleditor) {
+  public function HtmlEditor(config:htmleditor = null) {
     super(null);
   }
 

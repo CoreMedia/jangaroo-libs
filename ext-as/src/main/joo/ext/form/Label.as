@@ -21,7 +21,7 @@ public class Label extends BoxComponent {
    * @param config The configuration options. If an element is passed, it is set as the internal element and its id used as the component id. If a string is passed, it is assumed to be the id of an existing element and is used as the component id. Otherwise, it is assumed to be a standard config object and is applied to the component.
    * @see ext.config.label
    */
-  public function Label(config:label) {
+  public function Label(config:label = null) {
     super(null);
   }
 

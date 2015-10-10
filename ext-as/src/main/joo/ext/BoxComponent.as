@@ -87,7 +87,7 @@ public class BoxComponent extends Component {
    * @param config The configuration options.
    * @see ext.config.box
    */
-  public function BoxComponent(config:box) {
+  public function BoxComponent(config:box = null) {
     super(null);
   }
 

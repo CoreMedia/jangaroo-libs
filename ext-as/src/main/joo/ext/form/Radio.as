@@ -20,7 +20,7 @@ public class Radio extends Checkbox {
    * @param config Configuration options
    * @see ext.config.radio
    */
-  public function Radio(config:radio) {
+  public function Radio(config:radio = null) {
     super(null);
   }
 

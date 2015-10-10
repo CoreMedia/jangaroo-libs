@@ -40,7 +40,7 @@ public class RadioGroup extends CheckboxGroup {
    * @param config Configuration options
    * @see ext.config.radiogroup
    */
-  public function RadioGroup(config:radiogroup) {
+  public function RadioGroup(config:radiogroup = null) {
     super(null);
   }
 

@@ -72,7 +72,7 @@ public class FieldSet extends Panel {
    * @param config Configuration options
    * @see ext.config.fieldset
    */
-  public function FieldSet(config:fieldset) {
+  public function FieldSet(config:fieldset = null) {
     super(null);
   }
 

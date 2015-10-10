@@ -156,7 +156,7 @@ public class Editor extends Component {
    * @param config The config object
    * @see ext.config.editor
    */
-  public function Editor(config:editor) {
+  public function Editor(config:editor = null) {
     super(null);
   }
 

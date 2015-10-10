@@ -47,7 +47,7 @@ public class CompositeField extends Field {
    *
    * @see ext.config.compositefield
    */
-  public function CompositeField(config:compositefield) {
+  public function CompositeField(config:compositefield = null) {
     super(null);
   }
 

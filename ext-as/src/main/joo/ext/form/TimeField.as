@@ -25,7 +25,7 @@ public class TimeField extends ComboBox {
    * @param config
    * @see ext.config.timefield
    */
-  public function TimeField(config:timefield) {
+  public function TimeField(config:timefield = null) {
     super(null);
   }
 

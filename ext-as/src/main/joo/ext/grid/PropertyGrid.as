@@ -91,7 +91,7 @@ public class PropertyGrid extends EditorGridPanel {
    * @param config The grid config object
    * @see ext.config.propertygrid
    */
-  public function PropertyGrid(config:propertygrid) {
+  public function PropertyGrid(config:propertygrid = null) {
     super(null);
   }
 

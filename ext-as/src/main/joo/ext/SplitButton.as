@@ -62,7 +62,7 @@ public class SplitButton extends Button {
    * @param config The config object
    * @see ext.config.splitbutton
    */
-  public function SplitButton(config:splitbutton) {
+  public function SplitButton(config:splitbutton = null) {
     super(null);
   }
 

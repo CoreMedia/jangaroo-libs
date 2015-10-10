@@ -19,7 +19,7 @@ public class Shadow {
    * @param config The config object
    * @see ext.config.shadow
    */
-  public function Shadow(config:shadow) {
+  public function Shadow(config:shadow = null) {
     super();
   }
 

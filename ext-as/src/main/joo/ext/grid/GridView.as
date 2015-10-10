@@ -177,7 +177,7 @@ public class GridView extends Observable {
    * @param config
    * @see ext.config.gridview
    */
-  public function GridView(config:gridview) {
+  public function GridView(config:gridview = null) {
     super();
   }
 

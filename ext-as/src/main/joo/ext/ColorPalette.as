@@ -46,7 +46,7 @@ public class ColorPalette extends Component {
    * @param config The config object
    * @see ext.config.colorpalette
    */
-  public function ColorPalette(config:colorpalette) {
+  public function ColorPalette(config:colorpalette = null) {
     super(null);
   }
 

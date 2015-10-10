@@ -69,7 +69,7 @@ public class BaseItem extends Component {
    * @param config Configuration options
    * @see ext.config.menubaseitem
    */
-  public function BaseItem(config:menubaseitem) {
+  public function BaseItem(config:menubaseitem = null) {
     super(null);
   }
 

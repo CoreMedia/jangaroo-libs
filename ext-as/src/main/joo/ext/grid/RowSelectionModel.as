@@ -112,7 +112,7 @@ public class RowSelectionModel extends AbstractSelectionModel {
    * @param config
    * @see ext.config.rowselectionmodel
    */
-  public function RowSelectionModel(config:rowselectionmodel) {
+  public function RowSelectionModel(config:rowselectionmodel = null) {
     super();
   }
 

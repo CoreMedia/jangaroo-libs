@@ -54,7 +54,7 @@ public class CheckboxGroup extends Field {
    * @param config Configuration options
    * @see ext.config.checkboxgroup
    */
-  public function CheckboxGroup(config:checkboxgroup) {
+  public function CheckboxGroup(config:checkboxgroup = null) {
     super(null);
   }
 

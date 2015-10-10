@@ -90,7 +90,7 @@ public class ListView extends DataView {
    * @param config
    * @see ext.config.listview
    */
-  public function ListView(config:listview) {
+  public function ListView(config:listview = null) {
     super(null);
   }
 

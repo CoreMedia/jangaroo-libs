@@ -80,7 +80,7 @@ public class JsonReader extends DataReader {
 
    * @see ext.config.jsonreader
    */
-  public function JsonReader(meta:jsonreader, recordType:Object = null) {
+  public function JsonReader(meta:jsonreader = null, recordType:Object = null) {
     super(meta, recordType);
   }
 

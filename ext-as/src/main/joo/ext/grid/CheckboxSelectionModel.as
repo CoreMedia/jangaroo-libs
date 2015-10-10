@@ -19,7 +19,7 @@ public class CheckboxSelectionModel extends RowSelectionModel {
    * @param config The configuration options
    * @see ext.config.checkboxselectionmodel
    */
-  public function CheckboxSelectionModel(config:checkboxselectionmodel) {
+  public function CheckboxSelectionModel(config:checkboxselectionmodel = null) {
     super(null);
   }
 

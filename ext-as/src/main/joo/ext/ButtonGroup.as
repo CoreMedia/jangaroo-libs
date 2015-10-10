@@ -54,7 +54,7 @@ public class ButtonGroup extends Panel {
    * @param config The config object
    * @see ext.config.buttongroup
    */
-  public function ButtonGroup(config:buttongroup) {
+  public function ButtonGroup(config:buttongroup = null) {
     super(null);
   }
 

@@ -21,7 +21,7 @@ public class SliderField extends Field {
    * @param config Configuration options. Note that you can pass in any slider configuration options, as well as as any field configuration options.
    * @see ext.config.sliderfield
    */
-  public function SliderField(config:sliderfield) {
+  public function SliderField(config:sliderfield = null) {
     super(null);
   }
 

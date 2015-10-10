@@ -21,7 +21,7 @@ public class StatusProxy {
    * @param config
    * @see ext.config.statusproxy
    */
-  public function StatusProxy(config:statusproxy) {
+  public function StatusProxy(config:statusproxy = null) {
     super();
   }
 

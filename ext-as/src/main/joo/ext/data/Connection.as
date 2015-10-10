@@ -89,7 +89,7 @@ public class Connection extends Observable {
    * @param config a configuration object.
    * @see ext.config.connection
    */
-  public function Connection(config:connection) {
+  public function Connection(config:connection = null) {
     super();
   }
 

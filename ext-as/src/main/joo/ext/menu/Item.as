@@ -20,7 +20,7 @@ public class Item extends BaseItem {
    * @param config Configuration options
    * @see ext.config.menuitem
    */
-  public function Item(config:menuitem) {
+  public function Item(config:menuitem = null) {
     super(null);
   }
 

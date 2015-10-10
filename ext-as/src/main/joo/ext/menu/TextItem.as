@@ -20,7 +20,7 @@ public class TextItem extends BaseItem {
    * @param config If config is a string, it is used as the text to display, otherwise it is applied as a config object (and should contain a <tt>text</tt> property).
    * @see ext.config.menutextitem
    */
-  public function TextItem(config:menutextitem) {
+  public function TextItem(config:menutextitem = null) {
     super(null);
   }
 

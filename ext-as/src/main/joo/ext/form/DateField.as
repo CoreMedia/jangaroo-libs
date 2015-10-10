@@ -40,7 +40,7 @@ public class DateField extends TriggerField {
    * @param config
    * @see ext.config.datefield
    */
-  public function DateField(config:datefield) {
+  public function DateField(config:datefield = null) {
     super(null);
   }
 

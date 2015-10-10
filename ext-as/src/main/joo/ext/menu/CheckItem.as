@@ -59,7 +59,7 @@ public class CheckItem extends Item {
    * @param config Configuration options
    * @see ext.config.menucheckitem
    */
-  public function CheckItem(config:menucheckitem) {
+  public function CheckItem(config:menucheckitem = null) {
     super(null);
   }
 

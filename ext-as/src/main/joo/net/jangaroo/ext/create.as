@@ -14,7 +14,6 @@ import joo.getQualifiedObject;
  * @return the created target object
  */
 public function create(configClass:Class,  config:Object):Object {
-  var typedConfig:Object = new configClass(config);
   var configClassDeclaration:JooClassDeclaration = configClass['$class'];
   var extConfigAnnotation:Object = configClassDeclaration.metadata.ExtConfig;
   if (!extConfigAnnotation || !extConfigAnnotation.target) {
@@ -22,7 +21,7 @@ public function create(configClass:Class,  config:Object):Object {
             + configClassDeclaration.fullClassName);
   }
   var targetClass:Class = getQualifiedObject(extConfigAnnotation.target);
-  return new targetClass(typedConfig);
+  return new targetClass(config);
   
 }
 

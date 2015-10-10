@@ -21,7 +21,7 @@ public class ColumnResizer extends Observable {
    * @param config
    * @see ext.config.columnresizer
    */
-  public function ColumnResizer(config:columnresizer) {
+  public function ColumnResizer(config:columnresizer = null) {
     super();
   }
 

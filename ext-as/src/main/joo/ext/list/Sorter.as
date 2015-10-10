@@ -21,7 +21,7 @@ public class Sorter extends Observable {
    * @param config
    * @see ext.config.sorter
    */
-  public function Sorter(config:sorter) {
+  public function Sorter(config:sorter = null) {
     super();
   }
 

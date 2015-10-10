@@ -61,7 +61,7 @@ public class GroupingView extends GridView {
    * @param config
    * @see ext.config.groupingview
    */
-  public function GroupingView(config:groupingview) {
+  public function GroupingView(config:groupingview = null) {
     super(null);
   }
 

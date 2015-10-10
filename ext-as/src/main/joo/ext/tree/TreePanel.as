@@ -810,7 +810,7 @@ public class TreePanel extends Panel {
    * @param config
    * @see ext.config.treepanel
    */
-  public function TreePanel(config:treepanel) {
+  public function TreePanel(config:treepanel = null) {
     super(null);
   }
 

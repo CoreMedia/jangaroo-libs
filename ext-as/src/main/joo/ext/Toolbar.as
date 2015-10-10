@@ -115,7 +115,7 @@ public class Toolbar extends Container {
    * @param config A config object or an array of buttons to <tt><a href="output/Ext.Toolbar.html#Ext.Toolbar-add">add</a></tt>
    * @see ext.config.toolbar
    */
-  public function Toolbar(config:toolbar) {
+  public function Toolbar(config:toolbar = null) {
     super(null);
   }
 

@@ -58,7 +58,7 @@ public class Action {
    * @param config The configuration options
    * @see ext.config.action
    */
-  public function Action(config:action) {
+  public function Action(config:action = null) {
     super();
   }
 

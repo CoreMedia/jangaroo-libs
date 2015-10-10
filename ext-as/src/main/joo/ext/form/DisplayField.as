@@ -20,7 +20,7 @@ public class DisplayField extends Field {
    * @param config Configuration options
    * @see ext.config.displayfield
    */
-  public function DisplayField(config:displayfield) {
+  public function DisplayField(config:displayfield = null) {
     super(null);
   }
 

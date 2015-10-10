@@ -109,7 +109,7 @@ public class TreeLoader extends Observable {
    * @param config A config object containing config properties.
    * @see ext.config.treeloader
    */
-  public function TreeLoader(config:treeloader) {
+  public function TreeLoader(config:treeloader = null) {
     super();
   }
 

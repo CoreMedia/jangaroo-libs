@@ -171,7 +171,7 @@ public class ColumnModel extends Observable {
    * @param config Specify either an Array of <a href="Ext.grid.Column.html">Ext.grid.Column</a> configuration objects or specify a configuration Object (see introductory section discussion utilizing Initialization Method 2 above).
    * @see ext.config.columnmodel
    */
-  public function ColumnModel(config:columnmodel) {
+  public function ColumnModel(config:columnmodel = null) {
     super();
   }
 

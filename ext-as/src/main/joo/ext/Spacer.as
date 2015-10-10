@@ -19,7 +19,7 @@ public class Spacer extends BoxComponent {
    * @param config
    * @see ext.config.spacer
    */
-  public function Spacer(config:spacer) {
+  public function Spacer(config:spacer = null) {
     super(null);
   }
 

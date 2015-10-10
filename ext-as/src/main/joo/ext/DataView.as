@@ -320,7 +320,7 @@ public class DataView extends BoxComponent {
    * @param config The config object
    * @see ext.config.dataview
    */
-  public function DataView(config:dataview) {
+  public function DataView(config:dataview = null) {
     super(null);
   }
 

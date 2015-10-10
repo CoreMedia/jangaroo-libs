@@ -115,7 +115,7 @@ public class TabPanel extends Panel {
    * @param config The configuration options
    * @see ext.config.tabpanel
    */
-  public function TabPanel(config:tabpanel) {
+  public function TabPanel(config:tabpanel = null) {
     super(null);
   }
 

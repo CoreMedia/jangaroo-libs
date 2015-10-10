@@ -184,7 +184,7 @@ public class Button extends BoxComponent {
    * @param config The config object
    * @see ext.config.button
    */
-  public function Button(config:button) {
+  public function Button(config:button = null) {
     super(null);
   }
 

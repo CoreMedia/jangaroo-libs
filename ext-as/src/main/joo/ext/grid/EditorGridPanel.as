@@ -78,7 +78,7 @@ public class EditorGridPanel extends GridPanel {
    * @param config The config object
    * @see ext.config.editorgrid
    */
-  public function EditorGridPanel(config:editorgrid) {
+  public function EditorGridPanel(config:editorgrid = null) {
     super(null);
   }
 

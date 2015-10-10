@@ -26,7 +26,7 @@ public class RowNumberer {
    * @param config The configuration options
    * @see ext.config.rownumberer
    */
-  public function RowNumberer(config:rownumberer) {
+  public function RowNumberer(config:rownumberer = null) {
     super();
   }
 

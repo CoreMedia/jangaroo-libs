@@ -20,7 +20,7 @@ public class Separator extends BaseItem {
    * @param config Configuration options
    * @see ext.config.menuseparator
    */
-  public function Separator(config:menuseparator) {
+  public function Separator(config:menuseparator = null) {
     super(null);
   }
 

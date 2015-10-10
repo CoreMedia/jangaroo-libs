@@ -20,7 +20,7 @@ public class NumberField extends TextField {
    * @param config Configuration options
    * @see ext.config.numberfield
    */
-  public function NumberField(config:numberfield) {
+  public function NumberField(config:numberfield = null) {
     super(null);
   }
 

@@ -109,7 +109,7 @@ public class PagingToolbar extends Toolbar {
    * @param config The config object
    * @see ext.config.paging
    */
-  public function PagingToolbar(config:paging) {
+  public function PagingToolbar(config:paging = null) {
     super(null);
   }
 

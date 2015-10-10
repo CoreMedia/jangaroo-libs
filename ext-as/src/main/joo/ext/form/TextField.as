@@ -98,7 +98,7 @@ public class TextField extends Field {
    * @param config Configuration options
    * @see ext.config.textfield
    */
-  public function TextField(config:textfield) {
+  public function TextField(config:textfield = null) {
     super(null);
   }
 

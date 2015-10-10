@@ -150,7 +150,7 @@ public class Field extends BoxComponent {
    * @param config Configuration options
    * @see ext.config.field
    */
-  public function Field(config:field) {
+  public function Field(config:field = null) {
     super(null);
   }
 

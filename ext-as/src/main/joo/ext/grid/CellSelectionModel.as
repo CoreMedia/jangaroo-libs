@@ -88,7 +88,7 @@ public class CellSelectionModel extends AbstractSelectionModel {
    * @param config The object containing the configuration of this model.
    * @see ext.config.cellselectionmodel
    */
-  public function CellSelectionModel(config:cellselectionmodel) {
+  public function CellSelectionModel(config:cellselectionmodel = null) {
     super();
   }
 

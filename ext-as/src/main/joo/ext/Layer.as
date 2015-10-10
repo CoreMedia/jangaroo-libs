@@ -20,7 +20,7 @@ public class Layer extends Element {
    * @param existingEl Uses an existing DOM element. If the element is not found it creates it.
    * @see ext.config.layer
    */
-  public function Layer(config:layer, existingEl:* = null) {
+  public function Layer(config:layer = null, existingEl:* = null) {
     super(null, false);
   }
 
