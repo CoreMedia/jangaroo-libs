@@ -67,12 +67,12 @@ public class gridcolumn extends JavaScriptObject {
   /**
    The <a href="Ext.form.Field.html">Ext.form.Field</a> to use when editing values in this column if editing is supported by the grid. See <tt><a href="output/Ext.grid.Column.html#Ext.grid.Column-editable">editable</a></tt> also.
    */
-  public native function get editor():Field;
+  public native function get editor():Object;
 
   /**
    * @private
    */
-  public native function set editor(value:Field):void;
+  public native function set editor(value:Object):void;
 
   /**
    If the grid is being rendered by an <a href="Ext.grid.GroupingView.html">Ext.grid.GroupingView</a>, this option may be used to specify the text to display when there is an empty group value. Defaults to the <a href="Ext.grid.GroupingView.html">Ext.grid.GroupingView</a>.<a href="output/Ext.grid.GroupingView.html#Ext.grid.GroupingView-emptyGroupText">emptyGroupText</a>.

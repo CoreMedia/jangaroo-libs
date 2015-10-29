@@ -210,7 +210,6 @@ public class container extends box {
   public native function set hideBorders(value:Boolean):void;
 
   [DefaultProperty]
-  [ArrayElementType("ext.config.component")]
   /**
    <pre><b>&#42;&#42; IMPORTANT</b>: be sure to <b><a href="output/Ext.Container.html#Ext.Container-layout">specify a <code>layout</code></a> if needed ! &#42;&#42;</b></pre><p>A single item, or an array of child Components to be added to this container, for example:</p><pre><code>// specifying a single item
    items: {...},

@@ -92,7 +92,6 @@ public class menu extends container {
   public native function set ignoreParentClicks(value:Boolean):void;
 
   [DefaultProperty]
-  [ArrayElementType("ext.config.component")]
   /**
    An array of items to be added to this menu. Menus may contain either <a href="Ext.menu.Item.html">menu items</a>, or general <a href="Ext.Component.html">Component</a>s.
    */

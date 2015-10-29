@@ -165,12 +165,12 @@ public class store extends observable {
   /**
    The <a href="Ext.data.DataReader.html">Reader</a> object which processes the data object and returns an Array of <a href="Ext.data.Record.html">Ext.data.Record</a> objects which are cached keyed by their <b><tt><a href="output/Ext.data.Record.html#Ext.data.Record-id">id</a></tt></b> property.
    */
-  public native function get reader():DataReader;
+  public native function get reader():Object;
 
   /**
    * @private
    */
-  public native function set reader(value:DataReader):void;
+  public native function set reader(value:Object):void;
 
   /**
    <tt>true</tt> if sorting is to be handled by requesting the <tt><a href="output/Ext.data.Store.html#Ext.data.Store-proxy">Proxy</a></tt> to provide a refreshed version of the data object in sorted order, as opposed to sorting the Record cache in place (defaults to <tt>false</tt>). <p>If <tt>remoteSort</tt> is <tt>true</tt>, then clicking on a <a href="Ext.grid.Column.html">Grid Column</a>'s <a href="output/Ext.grid.Column.html#Ext.grid.Column-header">header</a> causes the current page to be requested from the server appending the following two parameters to the <b><tt><a href="output/Ext.data.Store.html#Ext.data.Store-load">params</a></tt></b>:</p><div class="mdetail-params"><ul><li><b><tt>sort</tt></b> : String<p class="sub-desc">The <tt>name</tt> (as specified in the Record's <a href="Ext.data.Field.html">Field definition</a>) of the field to sort on.</p></li><li><b><tt>dir</tt></b> : String<p class="sub-desc">The direction of the sort, 'ASC' or 'DESC' (case-sensitive).</p></li></ul></div><br/><br/>
