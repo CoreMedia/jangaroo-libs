@@ -20,7 +20,7 @@ public class Hidden extends Field {
    * @param config Configuration options
    * @see ext.config.hidden
    */
-  public function Hidden(config:ext.config.hidden) {
+  public function Hidden(config:ext.config.hidden = null) {
     super(null);
   }
 

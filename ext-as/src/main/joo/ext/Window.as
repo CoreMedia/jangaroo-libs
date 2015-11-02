@@ -117,7 +117,7 @@ public class Window extends Panel {
    * @param config The config object
    * @see ext.config.window
    */
-  public function Window(config:ext.config.window) {
+  public function Window(config:ext.config.window = null) {
     super(null);
   }
 
