@@ -20,7 +20,7 @@ import joo.JavaScriptObject;
  * @see ext.Plugin#init()
  */
 [ExtConfig(target="ext.Plugin", ptype="plugin")]
-public dynamic class plugin extends JavaScriptObject {
+public class plugin extends JavaScriptObject {
 
   public static native function get ptype():String;
 
