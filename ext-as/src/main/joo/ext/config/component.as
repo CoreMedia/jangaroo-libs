@@ -111,16 +111,13 @@ public class component extends observable {
     super(config);
   }
 
-  /**
-   * @see #id
-   */
-  public native function get extId():String;
-
   [ExtConfig("id")]
   /**
-   * @private
+   * Alias for <code>id</code> property to make it accessible from MXML.
+   * @copy #id
+   * @see #id
    */
-  public native function set extId(value:String):void;
+  public native function set id_(value:String):void;
 
   /**
    Whether the component can move the Dom node when rendering (defaults to true).
