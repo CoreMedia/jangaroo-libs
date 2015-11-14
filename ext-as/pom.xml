@@ -60,6 +60,16 @@
         <version>${jangaroo.version}</version>
         <configuration>
           <jooUnitTestExecutionTimeout>120000</jooUnitTestExecutionTimeout>
+          <namespaces>
+            <namespace>
+              <uri>exml:ext.config</uri>
+            </namespace>
+            <!-- for MXML-to-EXML backwards compatibility: -->
+            <namespace>
+              <uri>http://www.jangaroo.net/exml/0.8</uri>
+              <manifest>${project.build.sourceDirectory}/manifest-exml.xml</manifest>
+            </namespace>
+          </namespaces>
         </configuration>
       </plugin>
       <plugin>
