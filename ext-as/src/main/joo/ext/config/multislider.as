@@ -28,7 +28,7 @@ package ext.config {
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.slider.MultiSlider
  */
-[ExtConfig(target="ext.slider.MultiSlider")]
+[ExtConfig(target="ext.slider.MultiSlider", xtype="multislider")]
 public class multislider extends box {
 
   public function multislider(config:Object = null) {
