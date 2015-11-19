@@ -81,6 +81,7 @@
   <component class="ext.config.groupingstore"/>
   <component class="ext.data.GroupingStore"/>
   <component class="ext.config.groupingview"/>
+  <component class="ext.grid.GroupingView"/>
   <component class="ext.config.hboxlayout"/>
   <component class="ext.config.hidden"/>
   <component class="ext.config.horizontalmenu"/>
