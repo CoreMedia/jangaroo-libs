@@ -379,7 +379,13 @@ import ext.util.Observable;
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Component Sencha Docs Ext JS 3.4
  */
 [Native]
+[DefaultProperty("config")]
 public class Component extends Observable {
+
+  /**
+   * @private
+   */
+  public native function set config(value:ext.config.component):void;
 
   /**
    *

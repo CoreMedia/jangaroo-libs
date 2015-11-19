@@ -359,7 +359,13 @@ import ext.util.Observable;
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.Store Sencha Docs Ext JS 3.4
  */
 [Native]
+[DefaultProperty("config")]
 public class Store extends Observable {
+
+  /**
+   * @private
+   */
+  public native function set config(value:ext.config.store):void;
 
   /**
    * Creates a new Store.

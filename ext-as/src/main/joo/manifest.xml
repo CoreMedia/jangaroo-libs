@@ -8,6 +8,7 @@
   <component class="ext.config.anchorlayout"/>
   <component class="ext.config.arrayreader"/>
   <component class="ext.config.arraystore"/>
+  <component class="ext.data.ArrayStore"/>
   <component class="ext.config.asynctreenode"/>
   <component class="ext.config.barchart"/>
   <component class="ext.config.basicform"/>
@@ -31,6 +32,7 @@
   <component class="ext.config.columnchart"/>
   <component class="ext.config.columnlayout"/>
   <component class="ext.config.columnmodel"/>
+  <component class="ext.grid.ColumnModel"/>
   <component class="ext.config.columnresizer"/>
   <component class="ext.config.combo"/>
   <component class="ext.config.component"/>
@@ -43,6 +45,7 @@
   <component class="ext.config.datafield"/>
   <component class="ext.config.dataproxy"/>
   <component class="ext.config.datareader"/>
+  <component class="ext.data.DataReader"/>
   <component class="ext.config.dataview"/>
   <component class="ext.config.datawriter"/>
   <component class="ext.config.datecolumn"/>
@@ -74,7 +77,9 @@
   <component class="ext.config.gridcolumn"/>
   <component class="ext.config.griddragzone"/>
   <component class="ext.config.gridview"/>
+  <component class="ext.grid.GridView"/>
   <component class="ext.config.groupingstore"/>
+  <component class="ext.data.GroupingStore"/>
   <component class="ext.config.groupingview"/>
   <component class="ext.config.hboxlayout"/>
   <component class="ext.config.hidden"/>
@@ -84,7 +89,9 @@
   <component class="ext.config.httpproxy"/>
   <component class="ext.config.jsonprovider"/>
   <component class="ext.config.jsonreader"/>
+  <component class="ext.data.JsonReader"/>
   <component class="ext.config.jsonstore"/>
+  <component class="ext.data.JsonStore"/>
   <component class="ext.config.jsonwriter"/>
   <component class="ext.config.keynav"/>
   <component class="ext.config.label"/>
@@ -135,12 +142,15 @@
   <component class="ext.config.response"/>
   <component class="ext.config.rownumberer"/>
   <component class="ext.config.rowselectionmodel"/>
+  <component class="ext.grid.RowSelectionModel"/>
   <component class="ext.config.scripttagproxy"/>
   <component class="ext.config.scroller"/>
   <component class="ext.config.shadow"/>
   <component class="ext.config.singleslider"/>
+  <component class="ext.config.slider"/>
   <component class="ext.config.sliderfield"/>
   <component class="ext.config.slidertip"/>
+  <component class="ext.slider.Tip"/>
   <component class="ext.config.sorter"/>
   <component class="ext.config.spacer"/>
   <component class="ext.config.splitbar"/>
@@ -150,6 +160,7 @@
   <component class="ext.config.stackedcolumnchart"/>
   <component class="ext.config.statusproxy"/>
   <component class="ext.config.store"/>
+  <component class="ext.data.Store"/>
   <component class="ext.config.submit"/>
   <component class="ext.config.tablelayout"/>
   <component class="ext.config.tabpanel"/>
@@ -160,6 +171,7 @@
   <component class="ext.config.tbtext"/>
   <component class="ext.config.template"/>
   <component class="ext.config.templatecolumn"/>
+  <component class="ext.grid.TemplateColumn"/>
   <component class="ext.config.textarea"/>
   <component class="ext.config.textfield"/>
   <component class="ext.config.thumb"/>

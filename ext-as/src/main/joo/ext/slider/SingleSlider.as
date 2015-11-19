@@ -1,5 +1,5 @@
 package ext.slider {
-import ext.config.singleslider;
+import ext.config.slider;
 
 /**
  * Slider which supports vertical or horizontal orientation, keyboard adjustments, configurable snapping, axis clicking and animation. Can be added as an item to any container. Example usage: <pre><code>new Ext.slider.SingleSlider({
@@ -26,7 +26,7 @@ public class SingleSlider extends MultiSlider {
    *
    * @see ext.config.singleslider
    */
-  public function SingleSlider(config:singleslider = null) {
+  public function SingleSlider(config:slider = null) {
     super(null);
   }
 

@@ -11,7 +11,13 @@ import ext.config.datareader;
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.data.DataReader Sencha Docs Ext JS 3.4
  */
 [Native]
+[DefaultProperty("config")]
 public class DataReader {
+
+  /**
+   * @private
+   */
+  public native function set config(value:ext.config.datareader):void;
 
   /**
    * Create a new DataReader

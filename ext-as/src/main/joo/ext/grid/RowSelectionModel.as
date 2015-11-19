@@ -104,7 +104,13 @@ import ext.data.Record;
  * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.grid.RowSelectionModel Sencha Docs Ext JS 3.4
  */
 [Native]
+[DefaultProperty("config")]
 public class RowSelectionModel extends AbstractSelectionModel {
+
+  /**
+   * @private
+   */
+  public native function set config(value:rowselectionmodel):void;
 
   /**
    *
