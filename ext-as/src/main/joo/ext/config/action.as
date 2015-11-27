@@ -134,6 +134,16 @@ public class action extends JavaScriptObject {
    */
   public native function set text(value:String):void;
 
+  /**
+   The tooltip for the button - can be a string to be used as innerHTML (html tags are accepted) or QuickTips config object
+   */
+  public native function get tooltip():*;
+
+  /**
+   * @private
+   */
+  public native function set tooltip(value:*):void;
+
 
 }
 }

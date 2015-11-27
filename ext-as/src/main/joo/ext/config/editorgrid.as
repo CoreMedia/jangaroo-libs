@@ -1,4 +1,5 @@
 package ext.config {
+import ext.grid.AbstractSelectionModel;
 
 /**
  * This class extends the <a href="Ext.grid.GridPanel.html">GridPanel Class</a> to provide cell editing on selected <a href="Ext.grid.Column.html">columns</a>. The editable columns are specified by providing an <a href="output/Ext.grid.ColumnModel.html#Ext.grid.ColumnModel-editor">editor</a> in the <a href="Ext.grid.Column.html">column configuration</a>.
@@ -53,12 +54,12 @@ public class editorgrid extends grid {
   /**
    Any subclass of AbstractSelectionModel that will provide the selection model for the grid (defaults to <a href="Ext.grid.CellSelectionModel.html">Ext.grid.CellSelectionModel</a> if not specified).
    */
-  override public native function get selModel():Object;
+  override public native function get selModel():AbstractSelectionModel;
 
   /**
    * @private
    */
-  override public native function set selModel(value:Object):void;
+  override public native function set selModel(value:AbstractSelectionModel):void;
 
 
 }

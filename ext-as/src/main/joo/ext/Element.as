@@ -2192,7 +2192,7 @@ public class Element {
    * @return this
    * @see http://docs.sencha.com/ext-js/3-4/#!/api/Ext.Element-method-scrollTo Sencha Docs Ext JS 3.4
    */
-  public native function scrollTo(side:String, value:Number):Element;
+  public native function scrollTo(side:String, value:Number, animate:* = undefined):Element;
 
   /**
    * Creates a <a href="Ext.CompositeElement.html">Ext.CompositeElement</a> for child nodes based on the passed CSS selector (the selector should not contain an id).
