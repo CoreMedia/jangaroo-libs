@@ -101,7 +101,7 @@ public class EditorGridPanel extends GridPanel {
   /**
    Any subclass of AbstractSelectionModel that will provide the selection model for the grid (defaults to <a href="Ext.grid.CellSelectionModel.html">Ext.grid.CellSelectionModel</a> if not specified).
    */
-  override public native function get selModel():Object;
+  override public native function get selModel():AbstractSelectionModel;
 
   /**
    * Starts editing the specified for the specified row/column

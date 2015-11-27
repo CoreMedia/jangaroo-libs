@@ -1,7 +1,9 @@
 package ext.grid {
 import ext.Element;
+import ext.LoadMask;
 import ext.Panel;
 import ext.config.grid;
+import ext.config.gridview;
 import ext.data.Store;
 
 /**
@@ -951,12 +953,12 @@ public class GridPanel extends Panel {
   /**
    Shorthand for <tt><a href="output/Ext.grid.GridPanel.html#Ext.grid.GridPanel-colModel">colModel</a></tt>.
    */
-  public native function get cm():Object;
+  public native function get cm():ColumnModel;
 
   /**
    The <a href="Ext.grid.ColumnModel.html">Ext.grid.ColumnModel</a> to use when rendering the grid (required).
    */
-  public native function get colModel():Object;
+  public native function get colModel():ColumnModel;
 
   /**
    <tt>true</tt> to add css for column separation lines. Default is <tt>false</tt>.
@@ -1020,7 +1022,7 @@ public class GridPanel extends Panel {
   /**
    An <a href="Ext.LoadMask.html">Ext.LoadMask</a> config or true to mask the grid while loading. Defaults to <code>false</code>.
    */
-  public native function get loadMask():Object;
+  public native function get loadMask():LoadMask;
 
   /**
    Sets the maximum height of the grid - ignored if <tt>autoHeight</tt> is not on.
@@ -1035,7 +1037,7 @@ public class GridPanel extends Panel {
   /**
    Any subclass of <a href="Ext.grid.AbstractSelectionModel.html">Ext.grid.AbstractSelectionModel</a> that will provide the selection model for the grid (defaults to <a href="Ext.grid.RowSelectionModel.html">Ext.grid.RowSelectionModel</a> if not specified).
    */
-  public native function get selModel():Object;
+  public native function get selModel():AbstractSelectionModel;
 
   /**
    <tt>true</tt> to stripe the rows. Default is <tt>false</tt>. <p>This causes the CSS class <tt><b>x-grid3-row-alt</b></tt> to be added to alternate rows of the grid. A default CSS rule is provided which sets a background colour, but you can override this with a rule which either overrides the <b>background-color</b> style using the '!important' modifier, or which uses a CSS selector of higher specificity.</p>
@@ -1050,7 +1052,7 @@ public class GridPanel extends Panel {
   /**
    A config object that will be applied to the grid's UI view. Any of the config options available for <a href="Ext.grid.GridView.html">Ext.grid.GridView</a> can be specified here. This option is ignored if <tt><a href="output/Ext.grid.GridPanel.html#Ext.grid.GridPanel-view">view</a></tt> is specified.
    */
-  public native function get viewConfig():Object;
+  public native function get viewConfig():gridview;
 
   /**
    * Returns the grid's ColumnModel.

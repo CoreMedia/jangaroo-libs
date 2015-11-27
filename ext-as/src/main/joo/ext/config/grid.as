@@ -1,6 +1,10 @@
 package ext.config {
 
+import ext.LoadMask;
 import ext.data.Store;
+import ext.grid.AbstractSelectionModel;
+import ext.grid.ColumnModel;
+import ext.grid.GridView;
 
 /**
  * This class represents the primary interface of a component based grid control to represent data in a tabular format of rows and columns. The GridPanel is composed of the following:
@@ -109,22 +113,22 @@ public class grid extends panel {
   /**
    Shorthand for <tt><a href="output/Ext.grid.GridPanel.html#Ext.grid.GridPanel-colModel">colModel</a></tt>.
    */
-  public native function get cm():Object;
+  public native function get cm():ColumnModel;
 
   /**
    * @private
    */
-  public native function set cm(value:Object):void;
+  public native function set cm(value:ColumnModel):void;
 
   /**
    The <a href="Ext.grid.ColumnModel.html">Ext.grid.ColumnModel</a> to use when rendering the grid (required).
    */
-  public native function get colModel():Object;
+  public native function get colModel():ColumnModel;
 
   /**
    * @private
    */
-  public native function set colModel(value:Object):void;
+  public native function set colModel(value:ColumnModel):void;
 
   /**
    <tt>true</tt> to add css for column separation lines. Default is <tt>false</tt>.
@@ -253,12 +257,12 @@ public class grid extends panel {
   /**
    An <a href="Ext.LoadMask.html">Ext.LoadMask</a> config or true to mask the grid while loading. Defaults to <code>false</code>.
    */
-  public native function get loadMask():Object;
+  public native function get loadMask():LoadMask;
 
   /**
    * @private
    */
-  public native function set loadMask(value:Object):void;
+  public native function set loadMask(value:LoadMask):void;
 
   /**
    Sets the maximum height of the grid - ignored if <tt>autoHeight</tt> is not on.
@@ -283,22 +287,22 @@ public class grid extends panel {
   /**
    Any subclass of <a href="Ext.grid.AbstractSelectionModel.html">Ext.grid.AbstractSelectionModel</a> that will provide the selection model for the grid (defaults to <a href="Ext.grid.RowSelectionModel.html">Ext.grid.RowSelectionModel</a> if not specified).
    */
-  public native function get selModel():Object;
+  public native function get selModel():AbstractSelectionModel;
 
   /**
    * @private
    */
-  public native function set selModel(value:Object):void;
+  public native function set selModel(value:AbstractSelectionModel):void;
 
   /**
    Shorthand for <tt><a href="output/Ext.grid.GridPanel.html#Ext.grid.GridPanel-selModel">selModel</a></tt>.
    */
-  public native function get sm():Object;
+  public native function get sm():AbstractSelectionModel;
 
   /**
    * @private
    */
-  public native function set sm(value:Object):void;
+  public native function set sm(value:AbstractSelectionModel):void;
 
   /**
    An array of events that, when fired, should trigger this component to save its state. Defaults to:<pre><code>stateEvents: ['columnmove', 'columnresize', 'sortchange', 'groupchange']
@@ -344,22 +348,22 @@ public class grid extends panel {
   /**
    The <a href="Ext.grid.GridView.html">Ext.grid.GridView</a> used by the grid. This can be set before a call to <a href="output/Ext.Component.html#Ext.Component-render">render()</a>.
    */
-  public native function get view():Object;
+  public native function get view():GridView;
 
   /**
    * @private
    */
-  public native function set view(value:Object):void;
+  public native function set view(value:GridView):void;
 
   /**
    A config object that will be applied to the grid's UI view. Any of the config options available for <a href="Ext.grid.GridView.html">Ext.grid.GridView</a> can be specified here. This option is ignored if <tt><a href="output/Ext.grid.GridPanel.html#Ext.grid.GridPanel-view">view</a></tt> is specified.
    */
-  public native function get viewConfig():Object;
+  public native function get viewConfig():gridview;
 
   /**
    * @private
    */
-  public native function set viewConfig(value:Object):void;
+  public native function set viewConfig(value:gridview):void;
 
 
 }
