@@ -51,7 +51,7 @@ package ext.config {
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.data.XmlStore
  */
-[ExtConfig(target="ext.data.XmlStore")]
+[ExtConfig(target="ext.data.XmlStore", xtype="xmlstore")]
 public class xmlstore extends store {
 
   public function xmlstore(config:Object = null) {

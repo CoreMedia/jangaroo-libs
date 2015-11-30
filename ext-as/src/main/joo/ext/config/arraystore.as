@@ -30,7 +30,7 @@ package ext.config {
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.data.ArrayStore
  */
-[ExtConfig(target="ext.data.ArrayStore")]
+[ExtConfig(target="ext.data.ArrayStore", xtype="arraystore")]
 public class arraystore extends store {
 
   public function arraystore(config:Object = null) {

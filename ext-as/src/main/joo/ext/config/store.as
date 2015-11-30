@@ -43,7 +43,7 @@ import ext.data.DataWriter;
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.data.Store
  */
-[ExtConfig(target="ext.data.Store")]
+[ExtConfig(target="ext.data.Store", xtype="store")]
 public class store extends observable {
 
   public function store(config:Object = null) {

@@ -8,7 +8,7 @@ package ext.config {
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.data.GroupingStore
  */
-[ExtConfig(target="ext.data.GroupingStore")]
+[ExtConfig(target="ext.data.GroupingStore", xtype="groupingstore")]
 public class groupingstore extends store {
 
   public function groupingstore(config:Object = null) {

@@ -9,7 +9,7 @@ package ext.config {
  * <p>Copyright &#169; 2011 Sencha Inc.</p>
  * @see ext.data.DirectStore
  */
-[ExtConfig(target="ext.data.DirectStore")]
+[ExtConfig(target="ext.data.DirectStore", xtype="directstore")]
 public class directstore extends store {
 
   public function directstore(config:Object = null) {
