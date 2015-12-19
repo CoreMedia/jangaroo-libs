@@ -1,992 +1,998 @@
-package js{
+package js {
 
-public class Style {
+[Native("CSS2Properties|MSStyleCSSProperties")]
+/**
+ * @deprecated use CSS2Properties
+ * @see js.CSS2Properties
+ */
+public interface Style {
 
-  public native function getPropertyValue(propertyName : String) : String;
 
+  function getPropertyValue(propertyName : String) : String;
 
 
-  public native function get cssText() : String;
 
+  function get cssText() : String;
 
 
-  public native function set cssText(value : String) : void;
 
+  function set cssText(value : String) : void;
 
 
-  public native function get azimuth() : String;
 
+  function get azimuth() : String;
 
 
-  public native function set azimuth(value : String) : void;
 
+  function set azimuth(value : String) : void;
 
 
-  public native function get background() : String;
 
+  function get background() : String;
 
 
-  public native function set background(value : String) : void;
 
+  function set background(value : String) : void;
 
 
-  public native function get backgroundAttachment() : String;
 
+  function get backgroundAttachment() : String;
 
 
-  public native function set backgroundAttachment(value : String) : void;
 
+  function set backgroundAttachment(value : String) : void;
 
 
-  public native function get backgroundColor() : String;
 
+  function get backgroundColor() : String;
 
 
-  public native function set backgroundColor(value : String) : void;
 
+  function set backgroundColor(value : String) : void;
 
 
-  public native function get backgroundImage() : String;
 
+  function get backgroundImage() : String;
 
 
-  public native function set backgroundImage(value : String) : void;
 
+  function set backgroundImage(value : String) : void;
 
 
-  public native function get backgroundPosition() : String;
 
+  function get backgroundPosition() : String;
 
 
-  public native function set backgroundPosition(value : String) : void;
 
+  function set backgroundPosition(value : String) : void;
 
 
-  public native function get backgroundRepeat() : String;
 
+  function get backgroundRepeat() : String;
 
 
-  public native function set backgroundRepeat(value : String) : void;
 
+  function set backgroundRepeat(value : String) : void;
 
 
-  public native function get border() : String;
 
+  function get border() : String;
 
 
-  public native function set border(value : String) : void;
 
+  function set border(value : String) : void;
 
 
-  public native function get borderCollapse() : String;
 
+  function get borderCollapse() : String;
 
 
-  public native function set borderCollapse(value : String) : void;
 
+  function set borderCollapse(value : String) : void;
 
 
-  public native function get borderColor() : String;
 
+  function get borderColor() : String;
 
 
-  public native function set borderColor(value : String) : void;
 
+  function set borderColor(value : String) : void;
 
 
-  public native function get borderSpacing() : String;
 
+  function get borderSpacing() : String;
 
 
-  public native function set borderSpacing(value : String) : void;
 
+  function set borderSpacing(value : String) : void;
 
 
-  public native function get borderStyle() : String;
 
+  function get borderStyle() : String;
 
 
-  public native function set borderStyle(value : String) : void;
 
+  function set borderStyle(value : String) : void;
 
 
-  public native function get borderTop() : String;
 
+  function get borderTop() : String;
 
 
-  public native function set borderTop(value : String) : void;
 
+  function set borderTop(value : String) : void;
 
 
-  public native function get borderRight() : String;
 
+  function get borderRight() : String;
 
 
-  public native function set borderRight(value : String) : void;
 
+  function set borderRight(value : String) : void;
 
 
-  public native function get borderBottom() : String;
 
+  function get borderBottom() : String;
 
 
-  public native function set borderBottom(value : String) : void;
 
+  function set borderBottom(value : String) : void;
 
 
-  public native function get borderLeft() : String;
 
+  function get borderLeft() : String;
 
 
-  public native function set borderLeft(value : String) : void;
 
+  function set borderLeft(value : String) : void;
 
 
-  public native function get borderTopColor() : String;
 
+  function get borderTopColor() : String;
 
 
-  public native function set borderTopColor(value : String) : void;
 
+  function set borderTopColor(value : String) : void;
 
 
-  public native function get borderRightColor() : String;
 
+  function get borderRightColor() : String;
 
 
-  public native function set borderRightColor(value : String) : void;
 
+  function set borderRightColor(value : String) : void;
 
 
-  public native function get borderBottomColor() : String;
 
+  function get borderBottomColor() : String;
 
 
-  public native function set borderBottomColor(value : String) : void;
 
+  function set borderBottomColor(value : String) : void;
 
 
-  public native function get borderLeftColor() : String;
 
+  function get borderLeftColor() : String;
 
 
-  public native function set borderLeftColor(value : String) : void;
 
+  function set borderLeftColor(value : String) : void;
 
 
-  public native function get borderTopStyle() : String;
 
+  function get borderTopStyle() : String;
 
 
-  public native function set borderTopStyle(value : String) : void;
 
+  function set borderTopStyle(value : String) : void;
 
 
-  public native function get borderRightStyle() : String;
 
+  function get borderRightStyle() : String;
 
 
-  public native function set borderRightStyle(value : String) : void;
 
+  function set borderRightStyle(value : String) : void;
 
 
-  public native function get borderBottomStyle() : String;
 
+  function get borderBottomStyle() : String;
 
 
-  public native function set borderBottomStyle(value : String) : void;
 
+  function set borderBottomStyle(value : String) : void;
 
 
-  public native function get borderLeftStyle() : String;
 
+  function get borderLeftStyle() : String;
 
 
-  public native function set borderLeftStyle(value : String) : void;
 
+  function set borderLeftStyle(value : String) : void;
 
 
-  public native function get borderTopWidth() : String;
 
+  function get borderTopWidth() : String;
 
 
-  public native function set borderTopWidth(value : String) : void;
 
+  function set borderTopWidth(value : String) : void;
 
 
-  public native function get borderRightWidth() : String;
 
+  function get borderRightWidth() : String;
 
 
-  public native function set borderRightWidth(value : String) : void;
 
+  function set borderRightWidth(value : String) : void;
 
 
-  public native function get borderBottomWidth() : String;
 
+  function get borderBottomWidth() : String;
 
 
-  public native function set borderBottomWidth(value : String) : void;
 
+  function set borderBottomWidth(value : String) : void;
 
 
-  public native function get borderLeftWidth() : String;
 
+  function get borderLeftWidth() : String;
 
 
-  public native function set borderLeftWidth(value : String) : void;
 
+  function set borderLeftWidth(value : String) : void;
 
 
-  public native function get borderWidth() : String;
 
+  function get borderWidth() : String;
 
 
-  public native function set borderWidth(value : String) : void;
 
+  function set borderWidth(value : String) : void;
 
 
-  public native function get bottom() : String;
 
+  function get bottom() : String;
 
 
-  public native function set bottom(value : String) : void;
 
+  function set bottom(value : String) : void;
 
 
-  public native function get captionSide() : String;
 
+  function get captionSide() : String;
 
 
-  public native function set captionSide(value : String) : void;
 
+  function set captionSide(value : String) : void;
 
 
-  public native function get clear() : String;
 
+  function get clear() : String;
 
 
-  public native function set clear(value : String) : void;
 
+  function set clear(value : String) : void;
 
 
-  public native function get clip() : String;
 
+  function get clip() : String;
 
 
-  public native function set clip(value : String) : void;
 
+  function set clip(value : String) : void;
 
 
-  public native function get color() : String;
 
+  function get color() : String;
 
 
-  public native function set color(value : String) : void;
 
+  function set color(value : String) : void;
 
 
-  public native function get content() : String;
 
+  function get content() : String;
 
 
-  public native function set content(value : String) : void;
 
+  function set content(value : String) : void;
 
 
-  public native function get counterIncrement() : String;
 
+  function get counterIncrement() : String;
 
 
-  public native function set counterIncrement(value : String) : void;
 
+  function set counterIncrement(value : String) : void;
 
 
-  public native function get counterReset() : String;
 
+  function get counterReset() : String;
 
 
-  public native function set counterReset(value : String) : void;
 
+  function set counterReset(value : String) : void;
 
 
-  public native function get cue() : String;
 
+  function get cue() : String;
 
 
-  public native function set cue(value : String) : void;
 
+  function set cue(value : String) : void;
 
 
-  public native function get cueAfter() : String;
 
+  function get cueAfter() : String;
 
 
-  public native function set cueAfter(value : String) : void;
 
+  function set cueAfter(value : String) : void;
 
 
-  public native function get cueBefore() : String;
 
+  function get cueBefore() : String;
 
 
-  public native function set cueBefore(value : String) : void;
 
+  function set cueBefore(value : String) : void;
 
 
-  public native function get cursor() : String;
 
+  function get cursor() : String;
 
 
-  public native function set cursor(value : String) : void;
 
+  function set cursor(value : String) : void;
 
 
-  public native function get direction() : String;
 
+  function get direction() : String;
 
 
-  public native function set direction(value : String) : void;
 
+  function set direction(value : String) : void;
 
 
-  public native function get display() : String;
 
+  function get display() : String;
 
 
-  public native function set display(value : String) : void;
 
+  function set display(value : String) : void;
 
 
-  public native function get elevation() : String;
 
+  function get elevation() : String;
 
 
-  public native function set elevation(value : String) : void;
 
+  function set elevation(value : String) : void;
 
 
-  public native function get emptyCells() : String;
 
+  function get emptyCells() : String;
 
 
-  public native function set emptyCells(value : String) : void;
 
+  function set emptyCells(value : String) : void;
 
 
-  public native function get cssFloat() : String;
 
+  function get cssFloat() : String;
 
 
-  public native function set cssFloat(value : String) : void;
 
+  function set cssFloat(value : String) : void;
 
 
-  public native function get font() : String;
 
+  function get font() : String;
 
 
-  public native function set font(value : String) : void;
 
+  function set font(value : String) : void;
 
 
-  public native function get fontFamily() : String;
 
+  function get fontFamily() : String;
 
 
-  public native function set fontFamily(value : String) : void;
 
+  function set fontFamily(value : String) : void;
 
 
-  public native function get fontSize() : String;
 
+  function get fontSize() : String;
 
 
-  public native function set fontSize(value : String) : void;
 
+  function set fontSize(value : String) : void;
 
 
-  public native function get fontSizeAdjust() : String;
 
+  function get fontSizeAdjust() : String;
 
 
-  public native function set fontSizeAdjust(value : String) : void;
 
+  function set fontSizeAdjust(value : String) : void;
 
 
-  public native function get fontStretch() : String;
 
+  function get fontStretch() : String;
 
 
-  public native function set fontStretch(value : String) : void;
 
+  function set fontStretch(value : String) : void;
 
 
-  public native function get fontStyle() : String;
 
+  function get fontStyle() : String;
 
 
-  public native function set fontStyle(value : String) : void;
 
+  function set fontStyle(value : String) : void;
 
 
-  public native function get fontVariant() : String;
 
+  function get fontVariant() : String;
 
 
-  public native function set fontVariant(value : String) : void;
 
+  function set fontVariant(value : String) : void;
 
 
-  public native function get fontWeight() : String;
 
+  function get fontWeight() : String;
 
 
-  public native function set fontWeight(value : String) : void;
 
+  function set fontWeight(value : String) : void;
 
 
-  public native function get height() : String;
 
+  function get height() : String;
 
 
-  public native function set height(value : String) : void;
 
+  function set height(value : String) : void;
 
 
-  public native function get left() : String;
 
+  function get left() : String;
 
 
-  public native function set left(value : String) : void;
 
+  function set left(value : String) : void;
 
 
-  public native function get letterSpacing() : String;
 
+  function get letterSpacing() : String;
 
 
-  public native function set letterSpacing(value : String) : void;
 
+  function set letterSpacing(value : String) : void;
 
 
-  public native function get lineHeight() : String;
 
+  function get lineHeight() : String;
 
 
-  public native function set lineHeight(value : String) : void;
 
+  function set lineHeight(value : String) : void;
 
 
-  public native function get listStyle() : String;
 
+  function get listStyle() : String;
 
 
-  public native function set listStyle(value : String) : void;
 
+  function set listStyle(value : String) : void;
 
 
-  public native function get listStyleImage() : String;
 
+  function get listStyleImage() : String;
 
 
-  public native function set listStyleImage(value : String) : void;
 
+  function set listStyleImage(value : String) : void;
 
 
-  public native function get listStylePosition() : String;
 
+  function get listStylePosition() : String;
 
 
-  public native function set listStylePosition(value : String) : void;
 
+  function set listStylePosition(value : String) : void;
 
 
-  public native function get listStyleType() : String;
 
+  function get listStyleType() : String;
 
 
-  public native function set listStyleType(value : String) : void;
 
+  function set listStyleType(value : String) : void;
 
 
-  public native function get margin() : String;
 
+  function get margin() : String;
 
 
-  public native function set margin(value : String) : void;
 
+  function set margin(value : String) : void;
 
 
-  public native function get marginTop() : String;
 
+  function get marginTop() : String;
 
 
-  public native function set marginTop(value : String) : void;
 
+  function set marginTop(value : String) : void;
 
 
-  public native function get marginRight() : String;
 
+  function get marginRight() : String;
 
 
-  public native function set marginRight(value : String) : void;
 
+  function set marginRight(value : String) : void;
 
 
-  public native function get marginBottom() : String;
 
+  function get marginBottom() : String;
 
 
-  public native function set marginBottom(value : String) : void;
 
+  function set marginBottom(value : String) : void;
 
 
-  public native function get marginLeft() : String;
 
+  function get marginLeft() : String;
 
 
-  public native function set marginLeft(value : String) : void;
 
+  function set marginLeft(value : String) : void;
 
 
-  public native function get markerOffset() : String;
 
+  function get markerOffset() : String;
 
 
-  public native function set markerOffset(value : String) : void;
 
+  function set markerOffset(value : String) : void;
 
 
-  public native function get marks() : String;
 
+  function get marks() : String;
 
 
-  public native function set marks(value : String) : void;
 
+  function set marks(value : String) : void;
 
 
-  public native function get maxHeight() : String;
 
+  function get maxHeight() : String;
 
 
-  public native function set maxHeight(value : String) : void;
 
+  function set maxHeight(value : String) : void;
 
 
-  public native function get maxWidth() : String;
 
+  function get maxWidth() : String;
 
 
-  public native function set maxWidth(value : String) : void;
 
+  function set maxWidth(value : String) : void;
 
 
-  public native function get minHeight() : String;
 
+  function get minHeight() : String;
 
 
-  public native function set minHeight(value : String) : void;
 
+  function set minHeight(value : String) : void;
 
 
-  public native function get minWidth() : String;
 
+  function get minWidth() : String;
 
 
-  public native function set minWidth(value : String) : void;
 
+  function set minWidth(value : String) : void;
 
 
-  public native function get orphans() : String;
 
+  function get orphans() : String;
 
 
-  public native function set orphans(value : String) : void;
 
+  function set orphans(value : String) : void;
 
 
-  public native function get outline() : String;
 
+  function get outline() : String;
 
 
-  public native function set outline(value : String) : void;
 
+  function set outline(value : String) : void;
 
 
-  public native function get outlineColor() : String;
 
+  function get outlineColor() : String;
 
 
-  public native function set outlineColor(value : String) : void;
 
+  function set outlineColor(value : String) : void;
 
 
-  public native function get outlineStyle() : String;
 
+  function get outlineStyle() : String;
 
 
-  public native function set outlineStyle(value : String) : void;
 
+  function set outlineStyle(value : String) : void;
 
 
-  public native function get outlineWidth() : String;
 
+  function get outlineWidth() : String;
 
 
-  public native function set outlineWidth(value : String) : void;
 
+  function set outlineWidth(value : String) : void;
 
 
-  public native function get overflow() : String;
 
+  function get overflow() : String;
 
 
-  public native function set overflow(value : String) : void;
 
+  function set overflow(value : String) : void;
 
 
-  public native function get padding() : String;
 
+  function get padding() : String;
 
 
-  public native function set padding(value : String) : void;
 
+  function set padding(value : String) : void;
 
 
-  public native function get paddingTop() : String;
 
+  function get paddingTop() : String;
 
 
-  public native function set paddingTop(value : String) : void;
 
+  function set paddingTop(value : String) : void;
 
 
-  public native function get paddingRight() : String;
 
+  function get paddingRight() : String;
 
 
-  public native function set paddingRight(value : String) : void;
 
+  function set paddingRight(value : String) : void;
 
 
-  public native function get paddingBottom() : String;
 
+  function get paddingBottom() : String;
 
 
-  public native function set paddingBottom(value : String) : void;
 
+  function set paddingBottom(value : String) : void;
 
 
-  public native function get paddingLeft() : String;
 
+  function get paddingLeft() : String;
 
 
-  public native function set paddingLeft(value : String) : void;
 
+  function set paddingLeft(value : String) : void;
 
 
-  public native function get page() : String;
 
+  function get page() : String;
 
 
-  public native function set page(value : String) : void;
 
+  function set page(value : String) : void;
 
 
-  public native function get pageBreakAfter() : String;
 
+  function get pageBreakAfter() : String;
 
 
-  public native function set pageBreakAfter(value : String) : void;
 
+  function set pageBreakAfter(value : String) : void;
 
 
-  public native function get pageBreakBefore() : String;
 
+  function get pageBreakBefore() : String;
 
 
-  public native function set pageBreakBefore(value : String) : void;
 
+  function set pageBreakBefore(value : String) : void;
 
 
-  public native function get pageBreakInside() : String;
 
+  function get pageBreakInside() : String;
 
 
-  public native function set pageBreakInside(value : String) : void;
 
+  function set pageBreakInside(value : String) : void;
 
 
-  public native function get pause() : String;
 
+  function get pause() : String;
 
 
-  public native function set pause(value : String) : void;
 
+  function set pause(value : String) : void;
 
 
-  public native function get pauseAfter() : String;
 
+  function get pauseAfter() : String;
 
 
-  public native function set pauseAfter(value : String) : void;
 
+  function set pauseAfter(value : String) : void;
 
 
-  public native function get pauseBefore() : String;
 
+  function get pauseBefore() : String;
 
 
-  public native function set pauseBefore(value : String) : void;
 
+  function set pauseBefore(value : String) : void;
 
 
-  public native function get pitch() : String;
 
+  function get pitch() : String;
 
 
-  public native function set pitch(value : String) : void;
 
+  function set pitch(value : String) : void;
 
 
-  public native function get pitchRange() : String;
 
+  function get pitchRange() : String;
 
 
-  public native function set pitchRange(value : String) : void;
 
+  function set pitchRange(value : String) : void;
 
 
-  public native function get playDuring() : String;
 
+  function get playDuring() : String;
 
 
-  public native function set playDuring(value : String) : void;
 
+  function set playDuring(value : String) : void;
 
 
-  public native function get position() : String;
 
+  function get position() : String;
 
 
-  public native function set position(value : String) : void;
 
+  function set position(value : String) : void;
 
 
-  public native function get quotes() : String;
 
+  function get quotes() : String;
 
 
-  public native function set quotes(value : String) : void;
 
+  function set quotes(value : String) : void;
 
 
-  public native function get richness() : String;
 
+  function get richness() : String;
 
 
-  public native function set richness(value : String) : void;
 
+  function set richness(value : String) : void;
 
 
-  public native function get right() : String;
 
+  function get right() : String;
 
 
-  public native function set right(value : String) : void;
 
+  function set right(value : String) : void;
 
 
-  public native function get size() : String;
 
+  function get size() : String;
 
 
-  public native function set size(value : String) : void;
 
+  function set size(value : String) : void;
 
 
-  public native function get speak() : String;
 
+  function get speak() : String;
 
 
-  public native function set speak(value : String) : void;
 
+  function set speak(value : String) : void;
 
 
-  public native function get speakHeader() : String;
 
+  function get speakHeader() : String;
 
 
-  public native function set speakHeader(value : String) : void;
 
+  function set speakHeader(value : String) : void;
 
 
-  public native function get speakNumeral() : String;
 
+  function get speakNumeral() : String;
 
 
-  public native function set speakNumeral(value : String) : void;
 
+  function set speakNumeral(value : String) : void;
 
 
-  public native function get speakPunctuation() : String;
 
+  function get speakPunctuation() : String;
 
 
-  public native function set speakPunctuation(value : String) : void;
 
+  function set speakPunctuation(value : String) : void;
 
 
-  public native function get speechRate() : String;
 
+  function get speechRate() : String;
 
 
-  public native function set speechRate(value : String) : void;
 
+  function set speechRate(value : String) : void;
 
 
-  public native function get stress() : String;
 
+  function get stress() : String;
 
 
-  public native function set stress(value : String) : void;
 
+  function set stress(value : String) : void;
 
 
-  public native function get tableLayout() : String;
 
+  function get tableLayout() : String;
 
 
-  public native function set tableLayout(value : String) : void;
 
+  function set tableLayout(value : String) : void;
 
 
-  public native function get textAlign() : String;
 
+  function get textAlign() : String;
 
 
-  public native function set textAlign(value : String) : void;
 
+  function set textAlign(value : String) : void;
 
 
-  public native function get textDecoration() : String;
 
+  function get textDecoration() : String;
 
 
-  public native function set textDecoration(value : String) : void;
 
+  function set textDecoration(value : String) : void;
 
 
-  public native function get textIndent() : String;
 
+  function get textIndent() : String;
 
 
-  public native function set textIndent(value : String) : void;
 
+  function set textIndent(value : String) : void;
 
 
-  public native function get textShadow() : String;
 
+  function get textShadow() : String;
 
 
-  public native function set textShadow(value : String) : void;
 
+  function set textShadow(value : String) : void;
 
 
-  public native function get textTransform() : String;
 
+  function get textTransform() : String;
 
 
-  public native function set textTransform(value : String) : void;
 
+  function set textTransform(value : String) : void;
 
 
-  public native function get top() : String;
 
+  function get top() : String;
 
 
-  public native function set top(value : String) : void;
 
+  function set top(value : String) : void;
 
 
-  public native function get unicodeBidi() : String;
 
+  function get unicodeBidi() : String;
 
 
-  public native function set unicodeBidi(value : String) : void;
 
+  function set unicodeBidi(value : String) : void;
 
 
-  public native function get verticalAlign() : String;
 
+  function get verticalAlign() : String;
 
 
-  public native function set verticalAlign(value : String) : void;
 
+  function set verticalAlign(value : String) : void;
 
 
-  public native function get visibility() : String;
 
+  function get visibility() : String;
 
 
-  public native function set visibility(value : String) : void;
 
+  function set visibility(value : String) : void;
 
 
-  public native function get voiceFamily() : String;
 
+  function get voiceFamily() : String;
 
 
-  public native function set voiceFamily(value : String) : void;
 
+  function set voiceFamily(value : String) : void;
 
 
-  public native function get volume() : String;
 
+  function get volume() : String;
 
 
-  public native function set volume(value : String) : void;
 
+  function set volume(value : String) : void;
 
 
-  public native function get whiteSpace() : String;
 
+  function get whiteSpace() : String;
 
 
-  public native function set whiteSpace(value : String) : void;
 
+  function set whiteSpace(value : String) : void;
 
 
-  public native function get widows() : String;
 
+  function get widows() : String;
 
 
-  public native function set widows(value : String) : void;
 
+  function set widows(value : String) : void;
 
 
-  public native function get width() : String;
 
+  function get width() : String;
 
 
-  public native function set width(value : String) : void;
 
+  function set width(value : String) : void;
 
 
-  public native function get wordSpacing() : String;
 
+  function get wordSpacing() : String;
 
 
-  public native function set wordSpacing(value : String) : void;
 
+  function set wordSpacing(value : String) : void;
 
 
-  public native function get zIndex() : String;
 
+  function get zIndex() : String;
 
 
-  public native function set zIndex(value : String) : void;
+
+  function set zIndex(value : String) : void;
 
 
 
@@ -994,11 +1000,11 @@ public class Style {
 
   // CSS 3 (Firefox, Safari, Opeara):
 
-  public native function get opacity() : String;
+  function get opacity() : String;
 
 
 
-  public native function set opacity(value : String) : void;
+  function set opacity(value : String) : void;
 
 
 
@@ -1006,27 +1012,21 @@ public class Style {
 
   // IE only:
 
-  public native function get filter() : String;
+  function get filter() : String;
 
 
 
-  public native function set filter(value : String) : void;
+  function set filter(value : String) : void;
 
 
 
   // WebKit only:
 
-  public native function get WebkitTransform() : String;
+  function get WebkitTransform() : String;
 
 
 
-  public native function set WebkitTransform(value : String) : void;
-
-
-
-
+  function set WebkitTransform(value : String) : void;
 
 }
-
 }
-

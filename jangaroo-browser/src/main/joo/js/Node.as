@@ -1,5 +1,6 @@
 package js {
 
+[Native("Node")]
 public class Node {
 
   public static const ELEMENT_NODE : int = 1;
@@ -64,7 +65,7 @@ public class Node {
 
 
 
-  public native function get childNodes() : Collection;
+  public native function get childNodes() : NodeList;
 
 
 
@@ -108,11 +109,11 @@ public class Node {
 
 
 
-  public native function getElementsByTagName(name : String) : Collection;
+  public native function getElementsByTagName(name : String) : NodeList;
 
 
 
-  public native function getElementsByTagNameNS(ns : String, name : String) : Collection;
+  public native function getElementsByTagNameNS(ns : String, name : String) : NodeList;
 
 
 

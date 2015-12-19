@@ -1,4 +1,6 @@
 package js{
+
+[Native("Text")]
 public class Text extends Node {
   public native function get data() : String;
 

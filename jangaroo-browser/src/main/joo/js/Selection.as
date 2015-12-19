@@ -4,6 +4,7 @@ package js {
  * Interface for manipulating and querying the current selected range
  * of nodes within the document.
  */
+[Native("Selection")]
 public interface Selection {
 
   /**

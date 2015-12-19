@@ -1,4 +1,6 @@
 package js{
+
+[Native("Range")]
 public class Range {
 
   /**

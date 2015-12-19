@@ -3,7 +3,7 @@ package {
 import js.Window;
 
 
-
-public native function get window() : Window;
+[Native]
+public const window : Window = null;
 
 }

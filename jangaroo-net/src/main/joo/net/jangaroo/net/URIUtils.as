@@ -65,7 +65,7 @@ public class URIUtils {
    * @throws URIError if base or reference is a relative URI
    */
   public static function relativize(base:String, reference:String):String {
-    return parse(base).relativize(parse(reference)).toString();
+    return String(parse(base).relativize(parse(reference)));
   }
 
   /**
@@ -76,7 +76,7 @@ public class URIUtils {
    * @throws URIError if base is not an absolute URI
    */
   public static function resolve(base:String, reference:String):String {
-    return parse(base).resolve(parse(reference)).toString();
+    return String(parse(base).resolve(parse(reference)));
   }
 
 }

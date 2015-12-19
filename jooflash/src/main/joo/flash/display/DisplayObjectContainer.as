@@ -6,7 +6,7 @@ import flash.geom.Point;
 import flash.geom.Rectangle;
 import flash.text.TextSnapshot;
 
-import js.Collection;
+import js.NodeList;
 
 import js.HTMLElement;
 
@@ -831,7 +831,7 @@ public class DisplayObjectContainer extends InteractiveObject {
     return displayObject.visible && (displayObject.isTransformChanged() || displayObject.isBitmapCacheDirty());
   }
 
-  override protected function isBitmapCacheDirty():Boolean {
+  override public function isBitmapCacheDirty():Boolean {
     return super.isBitmapCacheDirty() || children.some(isChildChanged);
   }
 
@@ -850,7 +850,7 @@ public class DisplayObjectContainer extends InteractiveObject {
 
   override protected function updateElement(element:HTMLElement, bounds:Rectangle):void {
     updateContainerElement(element, bounds);
-    var oldChildren:Collection = element.childNodes;
+    var oldChildren:NodeList = element.childNodes;
     var childElements:Vector.<HTMLElement> = getChildElements();
     var matchIndex:int = -1;
     if (oldChildren.length === childElements.length) {
@@ -916,7 +916,7 @@ public class DisplayObjectContainer extends InteractiveObject {
     return false;
   }
 
-  override protected function hitTestInput(localX:Number, localY:Number):InteractiveObject {
+  override public function hitTestInput(localX:Number, localY:Number):InteractiveObject {
     var hit:InteractiveObject = null;
 
     for (var i:int = children.length - 1; i >= 0; i--) {

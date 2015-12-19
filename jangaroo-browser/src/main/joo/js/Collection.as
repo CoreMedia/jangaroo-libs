@@ -1,5 +1,10 @@
-package js{
+package js {
 
+[Native("NodeList")]
+/**
+ * @deprecated use NodeList
+ * @see js.NodeList
+ */
 public class Collection extends Array {
 
   public native function item(index : Number) : Object;
@@ -7,6 +12,4 @@ public class Collection extends Array {
   public native function getNamedItem(name : String) : Object;
 
 }
-
 }
-

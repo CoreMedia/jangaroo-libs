@@ -1,4 +1,6 @@
 package js{
+
+[Native("CSSPrimitiveValue")]
 public class CSSPrimitiveValue {
 
   public static const CSS_UNKNOWN : Number = 0;

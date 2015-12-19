@@ -163,7 +163,7 @@ package flash.utils {
  * </pre>
  */
 public function describeType(value:*):XML {
-  var type:Class = typeof value=="function" ? value : value.constructor;
+  var type:Class = value.$isClass ? value : value.self;
   // fake collection:
   var len:uint = 0;
   var methods:Object = {
@@ -171,16 +171,14 @@ public function describeType(value:*):XML {
       return len;
     }
   };
-  function isGetterOrSetter(object:Object, propertyName:String):Boolean {
-    if (typeof Object['prototype'].__lookupGetter__!="function")
-      return false;
-    return object.__lookupGetter__(propertyName) || object.__lookupSetter__(propertyName);
-  }
   if (type && type.prototype) {
-    for (var p:String in type.prototype) {
-      if (p.match(/^[a-zA-Z_]/) && !isGetterOrSetter(type.prototype,p)
-          && typeof type.prototype[p]=="function") {
-        methods[len++] = p;
+    var propertyNames:Array = Object.getOwnPropertyNames(type.prototype);
+    for each (var p:String in propertyNames) {
+      if (p.match(/^[a-zA-Z_]/)) {
+        var descriptor:* = Object.getOwnPropertyDescriptor(type.prototype, p);
+        if (typeof descriptor.value === "function") {
+          methods[len++] = p;
+        }
       }
     }
   }

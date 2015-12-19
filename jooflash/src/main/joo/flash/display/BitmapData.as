@@ -11,7 +11,7 @@ import js.HTMLElement;
 import js.HTMLImageElement;
 import js.Image;
 import js.ImageData;
-import js.Style;
+import js.CSS2Properties;
 
 /**
  * The BitmapData class lets you work with the data (pixels) of a Bitmap object. You can use the methods of the BitmapData class to create arbitrarily sized transparent or opaque bitmap images and manipulate them in various ways at runtime. You can also access the BitmapData for a bitmap image that you load with the <code>flash.display.Loader</code> class.
@@ -1343,7 +1343,7 @@ public class BitmapData implements IBitmapDrawable {
     }
     var reuseImage:Boolean = imageOffsetX === 0 && imageOffsetY === 0;
     var element:HTMLElement = reuseImage ? image : HTMLElement(window.document.createElement('div'));
-    var style:Style = element.style;
+    var style:CSS2Properties = element.style;
     if (_fillColor) {
       style.backgroundColor = Graphics.toRGBA(_fillColor, _alpha);
     }

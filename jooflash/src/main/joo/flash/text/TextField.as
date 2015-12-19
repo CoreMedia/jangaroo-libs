@@ -11,7 +11,7 @@ import js.Document;
 import js.Element;
 import js.HTMLCanvasElement;
 import js.HTMLElement;
-import js.Style;
+import js.CSS2Properties;
 import js.TextMetrics;
 
 /**
@@ -2663,7 +2663,7 @@ public class TextField extends InteractiveObject {
     return RenderState.transformBounds(0, 0, _width, _height, matrix, returnRectangle);
   }
 
-  override protected function isBitmapCacheDirty():Boolean {
+  override public function isBitmapCacheDirty():Boolean {
     return _canvasDirty || super.isBitmapCacheDirty();
   }
 
@@ -2799,7 +2799,7 @@ public class TextField extends InteractiveObject {
     return "Helvetica,Arial,sans-serif";
   }
 
-  override protected function hitTestInput(localX:Number, localY:Number):InteractiveObject {
+  override public function hitTestInput(localX:Number, localY:Number):InteractiveObject {
     return localX >= 0 && localY >= 0 && localX < _width && localY < _height ? this : null;
   }
 
@@ -2808,7 +2808,7 @@ public class TextField extends InteractiveObject {
       element['type'] = displayAsPassword ? 'password' : 'text';
     }
     element.innerHTML = htmlText;
-    var style:Style = element.style;
+    var style:CSS2Properties = element.style;
     style.padding = "2px";
     style.width = "auto";
     style.fontFamily = asWebFont();

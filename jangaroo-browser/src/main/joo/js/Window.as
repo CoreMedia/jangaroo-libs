@@ -1,8 +1,7 @@
 package js{
 
+[Native("Window")]
 public dynamic class Window {
-
-  public static const INSTANCE : Window = window;
 
 
 
@@ -54,7 +53,7 @@ public dynamic class Window {
 
 
 
-  public native function setTimeout(handler : * /* Function or String */, millies : Number) : Object;
+  public native function setTimeout(handler : * /* Function or String */, millies : Number, ...parameters) : Object;
 
 
 
@@ -62,7 +61,7 @@ public dynamic class Window {
 
 
 
-  public native function setInterval(handler : Function, millies : Number) : Object;
+  public native function setInterval(handler : Function, millies : Number, ...parameters) : Object;
 
 
 
@@ -94,7 +93,7 @@ public dynamic class Window {
 
 
 
-  public native function getComputedStyle(elem : Element, pseudoElt : String) : Style;
+  public native function getComputedStyle(elem : Element, pseudoElt : String) : CSS2Properties;
 
 
 

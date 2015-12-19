@@ -1,4 +1,6 @@
 package js{
+
+[Native("Event")]
 public class Event {
   public native function get type() : String;
 

@@ -37,6 +37,25 @@
   <build>
     <plugins>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>generate-test-resources</phase>
+            <goals>
+              <goal>unpack-dependencies</goal>
+            </goals>
+            <configuration>
+              <includeScope>test</includeScope>
+              <includeGroupIds>com.coremedia.sencha</includeGroupIds>
+              <includeArtifactIds>ext</includeArtifactIds>
+              <includes>build/**</includes>
+              <outputDirectory>${project.build.testOutputDirectory}/ext</outputDirectory>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-maven-plugin</artifactId>
         <version>${jangaroo.version}</version>  <!-- for stupid IDEA -->
@@ -60,6 +79,14 @@
       <groupId>net.jangaroo</groupId>
       <artifactId>jooflexframework</artifactId>
       <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.coremedia.sencha</groupId>
+      <artifactId>ext</artifactId>
+      <type>zip</type>
+      <scope>test</scope>
+      <version>6.0.1.250</version>
     </dependency>
 
   </dependencies>

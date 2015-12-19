@@ -8,8 +8,8 @@ import flexunit.framework.TestSuite;
 import flexunit.runner.BaseTestRunner;
 import flexunit.textui.XmlResultPrinter;
 
-import joo.DynamicClassLoader;
 import joo.getQualifiedObject;
+import joo.require;
 
 /**
  * A test runner that can be instantiated with several test class names and that will invoke a callback
@@ -86,17 +86,7 @@ public class DefaultJooTestRunner extends BaseTestRunner {
 
     // load all test classes
     testClassLoadErrors = new Vector.<String>();
-    var classLoader:DynamicClassLoader = DynamicClassLoader.INSTANCE;
-    classLoader.debug = true;
-    classLoader.classLoadErrorHandler = function(fullClassName:String, url:String):void {
-      // TODO this callback doesn't seem to be working. Investigate here!
-      testClassLoadErrors.push(fullClassName);
-      trace("[ERROR]: Class " + fullClassName + " not found at URL [" + url + "].");
-    };
-    for( var i:int = 0; i<testClassNames.length; i++ ) {
-      classLoader.import_(testClassNames[i]);
-    }
-    classLoader.complete(onSuiteLoaded);
+    require(testClassNames, onSuiteLoaded);
   }
 
   // =================

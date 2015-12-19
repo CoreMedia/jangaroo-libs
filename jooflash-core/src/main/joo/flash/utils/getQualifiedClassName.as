@@ -10,7 +10,7 @@ package flash.utils {
  * @see #getQualifiedSuperclassName
  */
 public function getQualifiedClassName(value:*):String {
-  var type:Function = typeof value=="function" ? value : value.constructor;
-  return typeof type["$class"]=="object" ? type["$class"]["fullClassName"].replace(/\.([^\.]+$)/,"::$1") : String(type);
+  var className:String = value.isInstance || value.$isClass ? value.$className : value.xclass;
+  return className.replace(/\.([^\.]+$)/,"::$1");
 }
 }
