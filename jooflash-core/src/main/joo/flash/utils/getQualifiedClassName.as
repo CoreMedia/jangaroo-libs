@@ -11,6 +11,6 @@ package flash.utils {
  */
 public function getQualifiedClassName(value:*):String {
   var className:String = value.isInstance || value.$isClass ? value.$className : value.xclass;
-  return className.replace(/\.([^\.]+$)/,"::$1");
+  return className.replace(/^(?:AS3[.])?(.*)\.([^\.]+$)/,"$1::$2");
 }
 }
