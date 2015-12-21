@@ -25,6 +25,10 @@
 
   </developers>
 
+  <properties>
+    <extjs.version>6.0.1-1-SNAPSHOT</extjs.version>
+  </properties>
+
   <profiles>
     <profile>
       <id>integrationtest</id>
@@ -36,25 +40,6 @@
 
   <build>
     <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-dependency-plugin</artifactId>
-        <executions>
-          <execution>
-            <phase>generate-test-resources</phase>
-            <goals>
-              <goal>unpack-dependencies</goal>
-            </goals>
-            <configuration>
-              <includeScope>test</includeScope>
-              <includeGroupIds>com.coremedia.sencha</includeGroupIds>
-              <includeArtifactIds>ext</includeArtifactIds>
-              <includes>build/**</includes>
-              <outputDirectory>${project.build.testOutputDirectory}/ext</outputDirectory>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
       <plugin>
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-maven-plugin</artifactId>
@@ -82,11 +67,10 @@
     </dependency>
 
     <dependency>
-      <groupId>com.coremedia.sencha</groupId>
-      <artifactId>ext</artifactId>
-      <type>zip</type>
+      <groupId>net.jangaroo.com.sencha</groupId>
+      <artifactId>ext-js</artifactId>
+      <version>${extjs.version}</version>
       <scope>test</scope>
-      <version>6.0.1.250</version>
     </dependency>
 
   </dependencies>
