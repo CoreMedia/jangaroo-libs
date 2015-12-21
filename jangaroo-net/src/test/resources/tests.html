@@ -1,9 +1,23 @@
 <!DOCTYPE html>
-<html> 
+<html>
 <head>
   <title>net.jangaroo:jangaroo-net</title>
-  <script type="text/javascript" src="ext-all-rtl.js"></script>
-  <script type="text/javascript" src="tests.js"></script>
+  <script type="text/javascript" src="ext-js/6.0.1/ext-all-rtl.js"></script>
+  <script type="text/javascript" src="joo/AS3.js"></script>
+  <script type="text/javascript">
+    Ext.application({
+      requires: [
+        'AS3.net.jangaroo.joounit.runner.BrowserRunner',
+        'AS3.net.jangaroo.net.TestSuite'
+      ],
+
+      launch: function() {
+        AS3.net.jangaroo.joounit.runner.BrowserRunner.main(
+                AS3.net.jangaroo.net.TestSuite
+        );
+      }
+    });
+  </script>
 </head>
 <body>
 </body>

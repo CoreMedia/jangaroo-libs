@@ -76,7 +76,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <jangaroo.version>2.1.0-SNAPSHOT</jangaroo.version>
-    <extjs.version>3.4.1.1</extjs.version>
+    <extjs.version>6.0.1-1-SNAPSHOT</extjs.version>
   </properties>
 
   <prerequisites>
@@ -192,6 +192,11 @@
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-runtime</artifactId>
         <version>${jangaroo.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>net.jangaroo.com.sencha</groupId>
+        <artifactId>ext-js</artifactId>
+        <version>${extjs.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
