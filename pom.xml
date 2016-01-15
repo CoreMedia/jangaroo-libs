@@ -22,6 +22,7 @@
     <module>ext-as</module>
 
     <module>ckeditor</module>
+    <module>ckeditor4</module>
 
     <module>jangaroo-libs-bom</module>
     <module>jangaroo-libs-doc</module>
