@@ -119,7 +119,11 @@ public class RenderState {
     _context.save();
     _context.setTransform(1, 0, 0, 1, 0, 0);
     _context.lineWidth = 1;
-    _context.strokeStyle = isMouseOverTarget ? "green" : displayObject instanceof DisplayObjectContainer ? "red" : "blue";
+    _context.strokeStyle = isMouseOverTarget ?
+            "green" :
+            displayObject['updateContainerElement'] /* would create a cycle: instanceof DisplayObjectContainer */ ?
+                    "red" :
+                    "blue";
     var bounds:Rectangle = displayObject.getBounds(displayObject.stage);
     _context.strokeRect(bounds.x, bounds.y, bounds.width, bounds.height);
     if (displayObject['constructor'] === window.showBounds) {
