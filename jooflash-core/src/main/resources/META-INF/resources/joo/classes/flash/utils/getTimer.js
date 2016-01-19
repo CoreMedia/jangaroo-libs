@@ -1,8 +1,8 @@
-Ext.ns("AS3.flash.utils").getTimer = (function() {
-  var startTime = new Date().getTime();
-  function getTimer() {
-    return new Date().getTime() - startTime;
+Ext.define("AS3.flash.utils.getTimer", {
+  __factory__: function() {
+    var startTime = new Date().getTime();
+    return function () {
+      return new Date().getTime() - startTime;
+    };
   }
-  return getTimer;
-})();
-Ext.ClassManager.triggerCreated("AS3.flash.utils.getTimer");
+});
