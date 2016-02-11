@@ -1,4 +1,4 @@
-define(function() {
+(function() {
   if (!this.HTMLElement) {
     this.HTMLElement = Element;
   }
@@ -148,5 +148,4 @@ define(function() {
       DOM_VK_META: 224
     }
   }
-  return this;
-});
+})();
