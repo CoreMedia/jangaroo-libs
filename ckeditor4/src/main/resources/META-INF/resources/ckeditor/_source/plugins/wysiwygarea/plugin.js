@@ -433,17 +433,17 @@
 						'<script id="cke_actscrpt" type="text/javascript"' +
 						' data-frameloadedhandler="' + this._.frameLoadedHandler +
 						'"' + ( CKEDITOR.env.ie ? ' defer="defer" ' : '' ) + ' />' +
-							'var wasLoaded = 0;' +
-							'function onload() {' +
-							'	if (!wasLoaded) {' +
-							'		var currentScript = document.currentScript || (function () {' +
-							'				var scripts = document.getElementsByTagName("script");' +
-							'				return scripts[scripts.length - 1];' +
-							'			})();' +
-							'		var frameLoadedHandler = currentScript.getAttribute("data-frameloadedhandler");' +
-							'		window.parent.CKEDITOR.tools.callFunction(frameLoadedHandler, window);' +
-							'	}' +
-							'	wasLoaded = 1;' +
+							' var wasLoaded = 0;' +
+							' function onload() {' +
+							' if (!wasLoaded) {' +
+							' var currentScript = document.currentScript || (function () {' +
+							' var scripts = document.getElementsByTagName("script");' +
+							' return scripts[scripts.length - 1];' +
+							' })();' +
+							' var frameLoadedHandler = currentScript.getAttribute("data-frameloadedhandler");' +
+							' window.parent.CKEDITOR.tools.callFunction(frameLoadedHandler, window);' +
+							' }' +
+							' wasLoaded = 1;' +
 							'}' +
 						   ( CKEDITOR.env.ie ? 'onload();' : 'document.addEventListener("DOMContentLoaded", onload, false);' ) +
 						'</script>';
