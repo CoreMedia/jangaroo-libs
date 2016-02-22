@@ -18,4 +18,32 @@
       <artifactId>jangaroo-runtime</artifactId>
     </dependency>
   </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>net.jangaroo</groupId>
+        <artifactId>jangaroo-maven-plugin</artifactId>
+        <configuration>
+          <senchaConfiguration>
+            <production>
+              <additionalJsNonBundle>
+                <value>resources/ckeditor/ckeditor.js</value>
+              </additionalJsNonBundle>
+            </production>
+            <testing>
+              <additionalJsNonBundle>
+                <value>resources/ckeditor/ckeditor.js</value>
+              </additionalJsNonBundle>
+            </testing>
+            <development>
+              <additionalJsNonBundle>
+                <value>resources/ckeditor/ckeditor_source.js</value>
+              </additionalJsNonBundle>
+            </development>
+          </senchaConfiguration>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>
