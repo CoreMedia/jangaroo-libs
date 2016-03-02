@@ -15,11 +15,6 @@
   <dependencyManagement>
     <dependencies>
       <dependency>
-        <groupId>net.jangaroo.com.sencha</groupId>
-        <artifactId>ext-js</artifactId>
-        <version>${extjs.version}</version>
-      </dependency>
-      <dependency>
         <groupId>net.jangaroo</groupId>
         <artifactId>ext-as</artifactId>
         <version>${project.version}</version>

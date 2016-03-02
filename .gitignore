@@ -10,8 +10,3 @@ target/
 site
 # misc
 */asdoc-output/*
-
-# Sencha
-/.sencha
-/workspace.json
-/ext

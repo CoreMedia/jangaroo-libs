@@ -7,9 +7,13 @@
     <version>2.1-SNAPSHOT</version>
     <relativePath>../jangaroo-libs-parent/pom.xml</relativePath>
   </parent>
-  <groupId>com.coremedia</groupId>
   <artifactId>remote-packages</artifactId>
   <packaging>pom</packaging>
+
+  <properties>
+    <remote.packages.dir>${project.build.directory}/packages</remote.packages.dir>
+    <ext.dir>${project.build.directory}/ext</ext.dir>
+  </properties>
 
   <dependencies>
     <dependency>
@@ -22,14 +26,36 @@
   <build>
     <plugins>
       <plugin>
-        <groupId>net.jangaroo</groupId>
-        <artifactId>jangaroo-maven-plugin</artifactId>
-        <version>2.1-SNAPSHOT</version>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
         <executions>
           <execution>
+            <id>unpack-remote-packages</id>
             <goals>
-              <goal>extract-remote-packages</goal>
+              <goal>unpack-dependencies</goal>
             </goals>
+            <configuration>
+              <includeTypes>jar</includeTypes>
+              <outputDirectory>${remote.packages.dir}</outputDirectory>
+              <excludes>META-INF/**</excludes>
+            </configuration>
+          </execution>
+          <execution>
+            <id>unpack-ext</id>
+            <goals>
+              <goal>unpack</goal>
+            </goals>
+            <configuration>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>com.coremedia.sencha</groupId>
+                  <artifactId>ext</artifactId>
+                  <version>6.0.1.250</version>
+                  <type>zip</type>
+                  <outputDirectory>${ext.dir}</outputDirectory>
+                </artifactItem>
+              </artifactItems>
+            </configuration>
           </execution>
         </executions>
       </plugin>

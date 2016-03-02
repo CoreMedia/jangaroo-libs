@@ -32,13 +32,14 @@
     </dependency>
     <dependency>
       <groupId>net.jangaroo</groupId>
-      <artifactId>joounit</artifactId>
+      <artifactId>remote-packages</artifactId>
       <version>${project.version}</version>
-      <scope>test</scope>
+      <type>pom</type>
     </dependency>
     <dependency>
-      <groupId>net.jangaroo.com.sencha</groupId>
-      <artifactId>ext-js</artifactId>
+      <groupId>net.jangaroo</groupId>
+      <artifactId>joounit</artifactId>
+      <version>${project.version}</version>
       <scope>test</scope>
     </dependency>
   </dependencies>

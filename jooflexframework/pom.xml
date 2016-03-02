@@ -21,6 +21,13 @@
       <version>${project.version}</version>
     </dependency>
 
+    <dependency>
+      <groupId>net.jangaroo</groupId>
+      <artifactId>remote-packages</artifactId>
+      <version>${project.version}</version>
+      <type>pom</type>
+    </dependency>
+
   </dependencies>
 
 </project>
