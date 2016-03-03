@@ -9,61 +9,29 @@ CKEDITOR.editorConfig = function( config ) {
 	// config.uiColor = '#AADC6E';
 	// %REMOVE_START%
 	config.plugins =
-		'about,' +
-		'a11yhelp,' +
 		'basicstyles,' +
-		'bidi,' +
 		'blockquote,' +
 		'clipboard,' +
-		'colorbutton,' +
-		'colordialog,' +
 		'contextmenu,' +
-		'dialogadvtab,' +
-		'div,' +
-		'elementspath,' +
-		'enterkey,' +
+		'dialog,' +
+		'dialogui,' +
+		'divarea,' +
 		'entities,' +
-		'filebrowser,' +
+		'fakeobjects,' +
 		'find,' +
-		'flash,' +
-		'floatingspace,' +
-		'font,' +
-		'format,' +
-		'forms,' +
-		'horizontalrule,' +
+		'floatpanel,' +
 		'htmlwriter,' +
-		'image,' +
-		'iframe,' +
+		'indent,' +
 		'indentlist,' +
-		'indentblock,' +
-		'justify,' +
-		'language,' +
 		'link,' +
 		'list,' +
-		'liststyle,' +
-		'magicline,' +
-		'maximize,' +
-		'newpage,' +
-		'pagebreak,' +
+		'menu,' +
+		'panel,' +
 		'pastefromword,' +
 		'pastetext,' +
-		'preview,' +
-		'print,' +
-		'removeformat,' +
-		'resize,' +
-		'save,' +
-		'selectall,' +
-		'showblocks,' +
 		'showborders,' +
-		'smiley,' +
-		'sourcearea,' +
-		'specialchar,' +
-		'stylescombo,' +
-		'tab,' +
 		'table,' +
 		'tabletools,' +
-		'templates,' +
-		'toolbar,' +
 		'undo,' +
 		'wysiwygarea';
 	// %REMOVE_END%
