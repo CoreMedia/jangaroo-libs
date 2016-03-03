@@ -20,6 +20,11 @@
       <groupId>net.jangaroo</groupId>
       <artifactId>jangaroo-runtime</artifactId>
     </dependency>
+    <dependency>
+      <groupId>com.coremedia.sencha</groupId>
+      <artifactId>ext</artifactId>
+      <type>zip</type>
+    </dependency>
   </dependencies>
 
   <name>Remote Packages</name>
@@ -43,18 +48,13 @@
           <execution>
             <id>unpack-ext</id>
             <goals>
-              <goal>unpack</goal>
+              <goal>unpack-dependencies</goal>
             </goals>
             <configuration>
-              <artifactItems>
-                <artifactItem>
-                  <groupId>com.coremedia.sencha</groupId>
-                  <artifactId>ext</artifactId>
-                  <version>6.0.1.250</version>
-                  <type>zip</type>
-                  <outputDirectory>${ext.dir}</outputDirectory>
-                </artifactItem>
-              </artifactItems>
+              <includeGroupIds>com.coremedia.sencha</includeGroupIds>
+              <includeArtifactIds>ext</includeArtifactIds>
+              <includeTypes>zip</includeTypes>
+              <outputDirectory>${ext.dir}</outputDirectory>
             </configuration>
           </execution>
         </executions>
