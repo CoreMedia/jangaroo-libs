@@ -55,6 +55,7 @@ var CKBUILDER_CONFIG = {
 		'clipboard' : 1,
 		'contextmenu' : 1,
 		'divarea' : 1,
+		'entities' : 1,
 		'find' : 1,
 		'htmlwriter' : 1,
 		'indentlist' : 1,
