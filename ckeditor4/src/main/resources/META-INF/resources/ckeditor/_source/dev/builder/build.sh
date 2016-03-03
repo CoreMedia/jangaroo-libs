@@ -1,5 +1,5 @@
 #!/bin/bash
-# Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+# Copyright (c) 2003-2016, CKSource - Frederico Knabben. All rights reserved.
 # For licensing, see LICENSE.md or http://ckeditor.com/license
 
 # Build CKEditor using the default settings (and build.js).
@@ -57,7 +57,7 @@ echo "Starting CKBuilder..."
 
 JAVA_ARGS=${ARGS// -t / } # Remove -t from args.
 
-VERSION="4.5.6 DEV"
+VERSION="4.5.7 DEV"
 REVISION=$(git rev-parse --verify --short HEAD)
 SEMVER_REGEX="^([0-9]+)\.([0-9]+)\.([0-9]+)(\-[0-9A-Za-z-]+)?(\+[0-9A-Za-z-]+)?$"
 
@@ -72,6 +72,15 @@ then
 fi
 
 java -jar ckbuilder/$CKBUILDER_VERSION/ckbuilder.jar --build ../../ release $JAVA_ARGS --version="$VERSION" --revision="$REVISION" --overwrite
+
+# copy compiled ckeditor files to the right place
+# jangaroo-libs customisation  (not ckeditor code)
+cd ../../../
+shopt -s extglob
+rm -rf !(_source)
+cd _source/dev/builder
+cp -a release/ckeditor/* ../../../
+# end of jangaroo-libs customisation
 
 # Copy and build tests.
 if [[ "$ARGS" == *\ \-t\ * ]]; then
