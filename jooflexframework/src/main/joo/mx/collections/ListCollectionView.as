@@ -49,7 +49,7 @@ import flash.events.Event;
  *  /&gt;
  *  </pre>
  */
-public class ListCollectionView extends Array
+public class ListCollectionView 
        implements IList
 {
     include "../core/Version.asfragment";
@@ -57,6 +57,9 @@ public class ListCollectionView extends Array
   public function ListCollectionView() {
     super();
   }
+
+  public native function get length():uint;
+  public native function set length(value:uint):void;
 
   public function addItem(item:Object):void {
     throw new Error("not implemented!");
