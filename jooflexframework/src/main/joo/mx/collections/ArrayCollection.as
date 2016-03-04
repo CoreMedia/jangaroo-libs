@@ -50,6 +50,9 @@ public class ArrayCollection extends ListCollectionView
 {
   include "../core/Version.asfragment";
 
+  //noinspection JSMismatchedCollectionQueryUpdate
+  private static const ARRAY_PROTOTYPE:Array = Array['prototype'];
+
   //--------------------------------------------------------------------------
   //
   //  Constructor
@@ -105,18 +108,14 @@ public class ArrayCollection extends ListCollectionView
    * @inheritDoc
    */
   override public function toArray():Array {
-    var result:Array = [];
-    for (var i:uint = 0; i < length; ++i) {
-      result[i] = this[i];
-    }
-    return result;
+    return ARRAY_PROTOTYPE['slice'].call(this);
   }
 
   /**
    * @inheritDoc
    */
   override public function getItemIndex(item:Object):int {
-    return indexOf(item);
+    return ARRAY_PROTOTYPE['indexOf'].call(this, item);
   }
 
   /**
