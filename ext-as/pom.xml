@@ -45,6 +45,12 @@
       <version>${project.version}</version>
       <type>pom</type>
     </dependency>
+
+    <dependency>
+      <groupId>net.jangaroo.com.sencha</groupId>
+      <artifactId>ext-js</artifactId>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
   
   <build>
