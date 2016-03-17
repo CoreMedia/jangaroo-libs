@@ -21,8 +21,20 @@
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
+        <artifactId>ext-as</artifactId>
+        <version>${project.version}</version>
+        <type>pkg</type>
+      </dependency>
+      <dependency>
+        <groupId>net.jangaroo</groupId>
         <artifactId>jooflash-core</artifactId>
         <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>net.jangaroo</groupId>
+        <artifactId>jooflash-core</artifactId>
+        <version>${project.version}</version>
+        <type>pkg</type>
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
@@ -31,8 +43,20 @@
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
+        <artifactId>jooflash</artifactId>
+        <version>${project.version}</version>
+        <type>pkg</type>
+      </dependency>
+      <dependency>
+        <groupId>net.jangaroo</groupId>
         <artifactId>jooflexframework</artifactId>
         <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>net.jangaroo</groupId>
+        <artifactId>jooflexframework</artifactId>
+        <version>${project.version}</version>
+        <type>pkg</type>
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
@@ -41,8 +65,20 @@
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
+        <artifactId>joounit</artifactId>
+        <version>${project.version}</version>
+        <type>pkg</type>
+      </dependency>
+      <dependency>
+        <groupId>net.jangaroo</groupId>
         <artifactId>ckeditor</artifactId>
         <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>net.jangaroo</groupId>
+        <artifactId>ckeditor</artifactId>
+        <version>${project.version}</version>
+        <type>pkg</type>
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
@@ -51,8 +87,20 @@
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
+        <artifactId>jangaroo-browser</artifactId>
+        <version>${project.version}</version>
+        <type>pkg</type>
+      </dependency>
+      <dependency>
+        <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-net</artifactId>
         <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>net.jangaroo</groupId>
+        <artifactId>jangaroo-net</artifactId>
+        <version>${project.version}</version>
+        <type>pkg</type>
       </dependency>
     </dependencies>
   </dependencyManagement>
