@@ -14,7 +14,6 @@
       <groupId>net.jangaroo</groupId>
       <artifactId>jangaroo-runtime</artifactId>
       <type>pkg</type>
-      <scope>compile</scope>
     </dependency>
   </dependencies>
 

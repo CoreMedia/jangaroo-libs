@@ -1,6 +1,8 @@
 {
   "apps" : [ ],
-  "build" : "${workspace.dir}/target/sencha/build",
+  "build" : {
+    "dir" : "${workspace.dir}/target/sencha/build"
+  },
   "packages" : {
     "dir" : [ "${workspace.dir}", "${workspace.dir}/ckeditor/target/packages/local", "${workspace.dir}/ext-as/target/packages/local", "${workspace.dir}/jangaroo-browser/target/packages/local", "${workspace.dir}/jangaroo-net/target/packages/local", "${workspace.dir}/jooflash-core/target/packages/local", "${workspace.dir}/jooflash/target/packages/local", "${workspace.dir}/jooflexframework/target/packages/local", "${workspace.dir}/joounit/target/packages/local" ],
     "extract" : "${workspace.dir}/remote-packages/target/packages"
