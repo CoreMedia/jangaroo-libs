@@ -58,10 +58,8 @@
           <version>2.1-SNAPSHOT</version>
           <configuration>
             <senchaConfiguration>
-              <remotePackagesArtifact>
-                <groupId>net.jangaroo</groupId>
-                <artifactId>remote-packages</artifactId>
-              </remotePackagesArtifact>
+              <remotePackagesArtifact>net.jangaroo:remote-packages</remotePackagesArtifact>
+              <excludes>net.jangaroo.com.sencha:ext-js</excludes>
             </senchaConfiguration>
           </configuration>
         </plugin>

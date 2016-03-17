@@ -10,7 +10,7 @@
   <artifactId>ckeditor</artifactId>
   <name>ckeditor</name>
   <description>CKEditor 3.6.6.1</description>
-  <packaging>jangaroo</packaging>
+  <packaging>sencha-code</packaging>
 
   <dependencies>
     <dependency>

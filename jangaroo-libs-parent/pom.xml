@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>net.jangaroo</groupId>
@@ -18,7 +19,7 @@
     <groupId>org.sonatype.oss</groupId>
     <artifactId>oss-parent</artifactId>
     <version>7</version>
-    <relativePath />
+    <relativePath/>
   </parent>
 
   <licenses>
@@ -111,7 +112,7 @@
         </plugins>
       </build>
     </profile>
-  </profiles> 
+  </profiles>
 
   <build>
     <sourceDirectory>src/main/joo</sourceDirectory>
@@ -131,6 +132,12 @@
         <artifactId>jangaroo-maven-plugin</artifactId>
         <extensions>true</extensions>
         <version>${jangaroo.version}</version>
+        <configuration>
+          <senchaConfiguration>
+            <remotePackagesArtifact>net.jangaroo:remote-packages</remotePackagesArtifact>
+            <excludes>net.jangaroo.com.sencha:ext-js</excludes>
+          </senchaConfiguration>
+        </configuration>
       </plugin>
     </plugins>
 
@@ -152,22 +159,22 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-release-plugin</artifactId>
-          <version>2.5.1</version>
+          <version>2.5.3</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-deploy-plugin</artifactId>
-          <version>2.5</version>
+          <version>2.8.2</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-install-plugin</artifactId>
-          <version>2.3.1</version>
+          <version>2.5.2</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-resources-plugin</artifactId>
-          <version>2.4.3</version>
+          <version>2.7</version>
           <configuration>
             <includeEmptyDirs>true</includeEmptyDirs>
           </configuration>
@@ -175,12 +182,12 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-clean-plugin</artifactId>
-          <version>2.4.1</version>
+          <version>3.0.0</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-site-plugin</artifactId>
-          <version>3.0</version>
+          <version>3.5</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -190,7 +197,7 @@
       </plugins>
     </pluginManagement>
   </build>
-  
+
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -199,15 +206,15 @@
         <version>${jangaroo.version}</version>
       </dependency>
       <dependency>
+        <groupId>net.jangaroo</groupId>
+        <artifactId>jangaroo-runtime</artifactId>
+        <version>${jangaroo.version}</version>
+        <type>pkg</type>
+      </dependency>
+      <dependency>
         <groupId>net.jangaroo.com.sencha</groupId>
         <artifactId>ext-js</artifactId>
         <version>${extjs.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.coremedia.sencha</groupId>
-        <artifactId>ext</artifactId>
-        <version>6.0.1.250</version>
-        <type>zip</type>
       </dependency>
     </dependencies>
   </dependencyManagement>
