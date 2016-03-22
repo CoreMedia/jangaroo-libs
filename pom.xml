@@ -59,7 +59,6 @@
           <configuration>
             <senchaConfiguration>
               <remotePackagesArtifact>net.jangaroo:remote-packages</remotePackagesArtifact>
-              <excludes>net.jangaroo.com.sencha:ext-js</excludes>
             </senchaConfiguration>
           </configuration>
         </plugin>
