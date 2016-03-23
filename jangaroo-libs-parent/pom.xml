@@ -133,9 +133,7 @@
         <extensions>true</extensions>
         <version>${jangaroo.version}</version>
         <configuration>
-          <senchaConfiguration>
-            <remotePackagesArtifact>net.jangaroo:remote-packages</remotePackagesArtifact>
-          </senchaConfiguration>
+          <remotePackagesArtifact>net.jangaroo:remote-packages</remotePackagesArtifact>
         </configuration>
       </plugin>
     </plugins>
