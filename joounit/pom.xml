@@ -7,7 +7,7 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <artifactId>joounit</artifactId>
-  <packaging>sencha-code</packaging>
+  <packaging>jangaroo-pkg</packaging>
 
   <name>joounit</name>
   <description>JooUnit - Jangaroo FlexUnit 3</description>

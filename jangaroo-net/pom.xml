@@ -2,7 +2,7 @@
 
   <modelVersion>4.0.0</modelVersion>
   <artifactId>jangaroo-net</artifactId>
-  <packaging>sencha-code</packaging>
+  <packaging>jangaroo-pkg</packaging>
   <name>jangaroo-net</name>
   <description>AS3 Networking Utility Classes</description>
   <parent>

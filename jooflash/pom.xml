@@ -7,7 +7,7 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <artifactId>jooflash</artifactId>
-  <packaging>sencha-code</packaging>
+  <packaging>jangaroo-pkg</packaging>
   <name>jooflash</name>
   <description>Joo Flash Compat. Library</description>
 
