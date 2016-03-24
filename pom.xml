@@ -19,8 +19,6 @@
     <module>jooflexframework</module>
     <module>joounit</module>
 
-    <module>ext-as</module>
-
     <module>ckeditor</module>
 
     <module>jangaroo-libs-bom</module>

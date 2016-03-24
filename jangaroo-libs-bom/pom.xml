@@ -21,11 +21,6 @@
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
-        <artifactId>ext-as</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>net.jangaroo</groupId>
         <artifactId>jooflash-core</artifactId>
         <version>${project.version}</version>
       </dependency>
