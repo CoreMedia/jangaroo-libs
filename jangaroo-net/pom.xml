@@ -35,6 +35,7 @@
       <artifactId>remote-packages</artifactId>
       <version>${project.version}</version>
       <type>pom</type>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>net.jangaroo</groupId>
