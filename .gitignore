@@ -10,3 +10,6 @@ target/
 site
 # misc
 */asdoc-output/*
+# Sencha
+.sencha/.cvsignore
+.sencha/.gitignore
