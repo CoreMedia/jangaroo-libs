@@ -485,6 +485,7 @@
 		var config = editor.config,
 			plugins = config.plugins,
 			extraPlugins = config.extraPlugins,
+			extraPluginsPath = config.extraPluginsPath,
 			removePlugins = config.removePlugins;
 
 		if ( extraPlugins ) {
