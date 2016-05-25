@@ -71,6 +71,17 @@
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
+        <artifactId>ckeditor4</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>net.jangaroo</groupId>
+        <artifactId>ckeditor4</artifactId>
+        <version>${project.version}</version>
+        <type>pkg</type>
+      </dependency>
+      <dependency>
+        <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-browser</artifactId>
         <version>${project.version}</version>
       </dependency>

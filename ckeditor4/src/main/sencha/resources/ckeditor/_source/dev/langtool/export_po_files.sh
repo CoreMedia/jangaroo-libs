@@ -9,7 +9,7 @@ set -e
 echo "CKLangTool - export translations to .po files."
 echo ""
 
-. ./_common.sh || exit
+. _common.sh || exit
 
 TARGETDIR=po
 

@@ -9,7 +9,7 @@ set -e
 echo "CKLangTool - updates meta files."
 echo ""
 
-. ./_common.sh || exit
+. _common.sh || exit
 
 TARGETDIR=meta
 

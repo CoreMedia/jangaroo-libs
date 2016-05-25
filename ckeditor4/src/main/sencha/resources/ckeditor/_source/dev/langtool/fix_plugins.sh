@@ -9,7 +9,7 @@ set -e
 echo "CKLangTool - corrects CKEditor plugin definitions."
 echo ""
 
-. ./_common.sh || exit
+. _common.sh || exit
 
 # Run the langtool.
 echo ""

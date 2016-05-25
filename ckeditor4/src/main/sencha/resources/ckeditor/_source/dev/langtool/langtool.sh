@@ -9,7 +9,7 @@ set -e
 echo "CKLangTool - corrects CKEditor language files."
 echo ""
 
-. ./_common.sh || exit
+. _common.sh || exit
 
 # Run the langtool.
 echo ""
