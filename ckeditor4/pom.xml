@@ -32,20 +32,19 @@
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-maven-plugin</artifactId>
         <configuration>
-          <shareAllResources>true</shareAllResources>
           <production>
             <additionalJsNonBundle>
-              <value>resources/ckeditor/ckeditor.js</value>
+              <value>resources/${package.name}/ckeditor/ckeditor.js</value>
             </additionalJsNonBundle>
           </production>
           <testing>
             <additionalJsNonBundle>
-              <value>resources/ckeditor/ckeditor.js</value>
+              <value>resources/ckeditor/_source/ckeditor.js</value>
             </additionalJsNonBundle>
           </testing>
           <development>
             <additionalJsNonBundle>
-              <value>resources/ckeditor/ckeditor_source.js</value>
+              <value>resources/ckeditor/_source/ckeditor.js</value>
             </additionalJsNonBundle>
           </development>
         </configuration>
