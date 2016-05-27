@@ -36,7 +36,7 @@
         <extensions>true</extensions>
         <configuration>
           <additionalJsIncludeInBundle>
-            <value>resources/joo/jangaroo-browser.module.js</value>
+            <value>bundledResources/joo/jangaroo-browser.module.js</value>
           </additionalJsIncludeInBundle>
         </configuration>
       </plugin>
