@@ -43,6 +43,7 @@
         <inherited>false</inherited>
         <configuration>
           <jooUnitTestExecutionTimeout>120000</jooUnitTestExecutionTimeout>
+          <testSuite>flexunit.framework.AllFrameworkTests</testSuite>
         </configuration>
       </plugin>
     </plugins>

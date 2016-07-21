@@ -20,6 +20,7 @@
         <version>${jangaroo.version}</version>  <!-- for stupid IDEA -->
         <configuration>
           <jooUnitTestExecutionTimeout>120000</jooUnitTestExecutionTimeout>
+          <testSuite>net.jangaroo.net.TestSuite</testSuite>
         </configuration>
       </plugin>
     </plugins>
