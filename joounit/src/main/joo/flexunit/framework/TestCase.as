@@ -244,7 +244,7 @@ package flexunit.framework
        */
        public function get className() : String
        {
-           return describeType( this ).attribute( "name" ).toString();
+           return getQualifiedClassName(this).replace(/::/, ".");
        }
        
        public function get assertionsMade() : Number

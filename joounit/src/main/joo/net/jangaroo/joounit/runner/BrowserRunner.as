@@ -102,7 +102,7 @@ public class BrowserRunner extends BaseTestRunner {
   }
 
   public function run():void{
-    printer = new XmlResultPrinter(getQualifiedClassName(testSuite));
+    printer = new XmlResultPrinter(getQualifiedClassName(testSuite).replace(/::/, "."));
     testResult = new TestResult();
     testResult.addListener(TestListener( printer ));
     testResult.addListener(TestListener( this ));
