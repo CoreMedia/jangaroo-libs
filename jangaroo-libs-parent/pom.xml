@@ -115,8 +115,6 @@
   </profiles>
 
   <build>
-    <sourceDirectory>src/main/joo</sourceDirectory>
-    <testSourceDirectory>src/test/joo</testSourceDirectory>
 
     <plugins>
       <plugin>

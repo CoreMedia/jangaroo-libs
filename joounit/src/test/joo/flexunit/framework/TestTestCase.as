@@ -39,7 +39,7 @@ package flexunit.framework
    
        public function testCaseToString() : void
        {
-           Assert.assertEquals( "testCaseToString (flexunit.framework::TestTestCase)", toString() );
+           Assert.assertEquals( "testCaseToString (flexunit.framework.TestTestCase)", toString() );
        }
    
    //------------------------------------------------------------------------------
