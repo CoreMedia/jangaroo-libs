@@ -1,5 +1,8 @@
-// @override Ext.namespace
 // Claim to "override" Ext.namespace so that this code is loaded / included right after Ext.namespace has been defined!
+Ext.define("AS3_override", {
+  override: "Ext.namespace",
+  requires: [ "joo_runtime_init" ]
+});
 
 Class = {
   $isClass: true,

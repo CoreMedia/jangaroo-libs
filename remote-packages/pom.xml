@@ -11,8 +11,8 @@
 
   <dependencies>
     <dependency>
-      <groupId>net.jangaroo</groupId>
-      <artifactId>jangaroo-runtime</artifactId>
+      <groupId>net.jangaroo.com.sencha</groupId>
+      <artifactId>ext-js</artifactId>
       <type>pkg</type>
     </dependency>
   </dependencies>

@@ -42,7 +42,7 @@
     </dependency>
     <dependency>
       <groupId>net.jangaroo</groupId>
-      <artifactId>ckeditor</artifactId>
+      <artifactId>ckeditor4</artifactId>
       <version>${project.version}</version>
     </dependency>
   </dependencies>

@@ -1,5 +1,6 @@
 // built-in as well as Ext Error constructor called as function unfortunately always create a new Error object,
 // so we have to create a class that uses the original Error prototype, but also works as an Ext class:
+Ext.require("AS3_override");
 Ext.define("AS3.Error", {
   __factory__: function () {
     var AS3Error = function (message/*String*/, id/*:int*/) {

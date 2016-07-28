@@ -1,4 +1,7 @@
-// @override Ext
+// Claim to "override" Ext so that this code is loaded early
+Ext.define("joo_runtime_init", {
+  override: "Ext"
+});
 
 Ext.Class.registerPreprocessor('__accessors__', function (Class, data) {
   if (data.__accessors__) {

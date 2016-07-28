@@ -1,3 +1,4 @@
+Ext.require("AS3_override");
 Ext.define("AS3.uint_", {
   __factory__: function () {
     var uint_ = function (num) {

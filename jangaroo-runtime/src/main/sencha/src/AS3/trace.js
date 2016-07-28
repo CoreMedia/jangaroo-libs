@@ -1,4 +1,5 @@
 // function trace(...msg) : void
+Ext.require("AS3_override");
 Ext.define("AS3.trace", {
   __factory__: function() {
     var console, defaultLogLevel;

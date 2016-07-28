@@ -124,5 +124,6 @@ joo.getOrCreatePackage = function(name) {
 Ext.ns("joo.localization");
 
 Ext.require("joo.DynamicClassLoader", function() {
-  new joo.DynamicClassLoader();
+  joo.classLoader = new joo.DynamicClassLoader();
 });
+
