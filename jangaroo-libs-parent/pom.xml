@@ -76,8 +76,8 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <jangaroo.version>4.0-SNAPSHOT</jangaroo.version>
-    <extjs.version>6.0.1-SNAPSHOT</extjs.version>
+    <jangaroo.version>4.0.27</jangaroo.version>
+    <extjs.version>6.0.1-4</extjs.version>
   </properties>
 
   <prerequisites>
@@ -146,11 +146,6 @@
 
     <pluginManagement>
       <plugins>
-        <plugin>
-          <groupId>net.jangaroo</groupId>
-          <artifactId>exml-maven-plugin</artifactId>
-          <version>${jangaroo.version}</version>
-        </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-release-plugin</artifactId>
