@@ -57,7 +57,7 @@
         <plugin>
           <groupId>net.jangaroo</groupId>
           <artifactId>jangaroo-maven-plugin</artifactId>
-          <version>4.0.27</version>
+          <version>4.0.30</version>
           <configuration>
             <remotePackagesArtifact>net.jangaroo:remote-packages</remotePackagesArtifact>
           </configuration>
