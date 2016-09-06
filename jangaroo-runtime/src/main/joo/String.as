@@ -19,7 +19,7 @@ package {
  *
  */
 [Native]
-public class String {
+public final class String {
   /**
    * An integer specifying the number of characters in the specified String object.
    * <p>Because all string indexes are zero-based, the index of the last character for any string <code>x</code> is <code>x.length - 1</code>.</p>
@@ -184,7 +184,7 @@ public class String {
    * <td>The matched substring.</td></tr>
    * <tr>
    * <td><code>$`</code> </td>
-   * <td>The portion of the string that precedes the matched substring. Note that this code uses the straight left single quote character (`), not the straight single quote character (') or the left curly single quote character (‘).</td></tr>
+   * <td>The portion of the string that precedes the matched substring. Note that this code uses the straight left single quote character (`), not the straight single quote character (') or the left curly single quote character (ï¿½).</td></tr>
    * <tr>
    * <td><code>$'</code> </td>
    * <td>The portion of string that follows the matched substring. Note that this code uses the straight single quote character (').</td></tr>
@@ -342,8 +342,8 @@ public class String {
    * Returns a copy of this string, with all uppercase characters converted to lowercase. The original string is unmodified.
    * <p>This method converts all characters (not simply A-Z) for which Unicode lowercase equivalents exist:</p>
    * <listing>
-   *      var str:String = " JOSÉ BARÇA";
-   *      trace(str.toLowerCase()); // josé barça
+   *      var str:String = " JOSï¿½ BARï¿½A";
+   *      trace(str.toLowerCase()); // josï¿½ barï¿½a
    * </listing>
    * <p>These case mappings are defined in the <a href="http://www.unicode.org/ucd/">Unicode Character Database</a> specification.</p>
    * @return A copy of this string with all uppercase characters converted to lowercase.
@@ -358,8 +358,8 @@ public class String {
    * Returns a copy of this string, with all lowercase characters converted to uppercase. The original string is unmodified.
    * <p>This method converts all characters (not simply a-z) for which Unicode uppercase equivalents exist:</p>
    * <listing>
-   *      var str:String = "José Barça";
-   *      trace(str.toUpperCase()); // JOSÉ BARÇA
+   *      var str:String = "Josï¿½ Barï¿½a";
+   *      trace(str.toUpperCase()); // JOSï¿½ BARï¿½A
    * </listing>
    * <p>These case mappings are defined in the <a href="http://www.unicode.org/ucd/">Unicode Character Database</a> specification.</p>
    * @return A copy of this string with all lowercase characters converted to uppercase.
