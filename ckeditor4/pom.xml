@@ -40,12 +40,12 @@
           </production>
           <testing>
             <additionalJsNonBundle>
-              <value>resources/ckeditor/_source/ckeditor.js</value>
+              <value>resources/ckeditor/ckeditor.js</value>
             </additionalJsNonBundle>
           </testing>
           <development>
             <additionalJsNonBundle>
-              <value>resources/ckeditor/_source/ckeditor.js</value>
+              <value>resources/ckeditor/ckeditor.js</value>
             </additionalJsNonBundle>
           </development>
         </configuration>
