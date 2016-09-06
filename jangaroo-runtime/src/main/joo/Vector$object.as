@@ -32,7 +32,7 @@ package {
  *
  */
 [Native]
-public final dynamic class Vector$object {
+public final class Vector$object {
 
   /**
    * Indicates whether the <code>length</code> property of the Vector can be changed. If the value is <code>true</code>, the <code>length</code> property can't be changed. This means the following operations are not allowed when <code>fixed</code> is <code>true</code>:
