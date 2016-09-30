@@ -204,11 +204,6 @@
         <groupId>net.jangaroo.com.sencha</groupId>
         <artifactId>ext-js</artifactId>
         <version>${extjs.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>net.jangaroo.com.sencha</groupId>
-        <artifactId>ext-js</artifactId>
-        <version>${extjs.version}</version>
         <type>pkg</type>
       </dependency>
     </dependencies>
