@@ -162,7 +162,7 @@ public class Timer extends EventDispatcher {
    */
   public function start():void {
     if (!timer) {
-      timer = window.setInterval(tick, _delay);
+      timer = uint(window.setInterval(tick, _delay));
     }
   }
 
