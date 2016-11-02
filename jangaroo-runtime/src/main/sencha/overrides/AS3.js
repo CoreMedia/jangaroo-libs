@@ -79,11 +79,21 @@ Ext.apply(Ext.namespace("AS3"), {
     if (type.$className) {
       var mixins = clazz.prototype.mixins;
       if (Ext.isObject(mixins)) {
+        // fast path for jangaroo compiler: no explicit check if the class really is the expected class
         if (mixins[type.$className]) {
           return true;
         }
-        if (type.prototype.mixinId && mixins[type.prototype.mixinId]) {
+        // as mixinIds might not be unique, have an additional type check if mixin is found
+        if (type.prototype.mixinId && AS3.is(mixins[type.prototype.mixinId], type)) {
           return true;
+        }
+        // fallback to checking the type of every entry in mixin mapping to make sure the mixin is not registered
+        // under a custom id (e.g. Ext.panel.Panel has an entry mixins: { docking: "Ext.container.DockingContainer"; } )
+        for (var key in mixins) {
+          var mixin = mixins[key];
+          if (mixin && AS3.isAssignableFrom(type, mixin.self)) {
+            return true;
+          }
         }
       }
     }
