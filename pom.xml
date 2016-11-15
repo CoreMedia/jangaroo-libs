@@ -4,7 +4,7 @@
   <groupId>net.jangaroo</groupId>
   <artifactId>jangaroo-libs</artifactId>
   <packaging>pom</packaging>
-  <version>4.0.20</version>
+  <version>4.0.21-SNAPSHOT</version>
   <name>Jangaroo standard libraries</name>
   <url>http://www.coremedia.com</url>
 
@@ -70,7 +70,7 @@
     <url>http://github.com/CoreMedia/jangaroo-libs</url>
     <connection>scm:git:git://github.com/CoreMedia/jangaroo-libs.git</connection>
     <developerConnection>scm:git:git@github.com:CoreMedia/jangaroo-libs.git</developerConnection>
-    <tag>jangaroo-libs-4.0.20</tag>
+    <tag>HEAD</tag>
   </scm>
 
 </project>
