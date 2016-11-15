@@ -74,6 +74,7 @@ public class BrowserRunner extends BaseTestRunner {
     if(typeof config === "function") {
       config = {testSuite: config};
     }
+    trace("[INFO]", "creating BrowserRunner");
     new BrowserRunner(config).run();
   }
   
@@ -84,6 +85,7 @@ public class BrowserRunner extends BaseTestRunner {
   }
 
   internal function onSuiteLoaded() : void {
+    trace("[INFO]", "onSuiteLoaded");
     try {
       if (typeof testSuite == 'function' && typeof testSuite['suite'] == 'function') {
         trace("[INFO]","running test suite "+ getQualifiedClassName(testSuite)); 
@@ -93,6 +95,7 @@ public class BrowserRunner extends BaseTestRunner {
         totalTestCount = suite.countTestCases();
         suite.runWithResult( testResult );
       } else {
+        trace("[INFO]", "suiteNotFound");
         suiteNotFound(getQualifiedClassName(testSuite) + " does not have a static method 'suite'.");
       }
     } catch(e:Error){
@@ -102,9 +105,13 @@ public class BrowserRunner extends BaseTestRunner {
   }
 
   public function run():void{
+    trace("[INFO]", "creating XmlResultPrinter");
     printer = new XmlResultPrinter(getQualifiedClassName(testSuite).replace(/::/, "."));
+    trace("[INFO]", "preparing TestResult");
     testResult = new TestResult();
+    trace("[INFO]", "adding TestListener to the testresult");
     testResult.addListener(TestListener( printer ));
+    trace("[INFO]", "adding TestListener to the testresult");
     testResult.addListener(TestListener( this ));
     onSuiteLoaded();
   }
