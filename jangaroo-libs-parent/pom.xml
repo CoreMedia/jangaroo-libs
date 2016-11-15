@@ -5,7 +5,7 @@
   <groupId>net.jangaroo</groupId>
   <artifactId>jangaroo-libs-parent</artifactId>
   <packaging>pom</packaging>
-  <version>4.0-SNAPSHOT</version>
+  <version>4.0.20-SNAPSHOT</version>
 
   <name>Jangaroo standard libraries parent</name>
 
@@ -76,8 +76,8 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <jangaroo.version>4.0-SNAPSHOT</jangaroo.version>
-    <extjs.version>6.2.0-SNAPSHOT</extjs.version>
+    <jangaroo.version>4.0.37</jangaroo.version>
+    <extjs.version>6.2.0</extjs.version>
   </properties>
 
   <prerequisites>
