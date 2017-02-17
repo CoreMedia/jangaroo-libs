@@ -4,7 +4,7 @@
   <groupId>net.jangaroo</groupId>
   <artifactId>jangaroo-libs</artifactId>
   <packaging>pom</packaging>
-  <version>4.0.38-SNAPSHOT</version>
+  <version>4.0.39-SNAPSHOT</version>
   <name>Jangaroo standard libraries</name>
   <url>http://www.coremedia.com</url>
 
@@ -57,7 +57,7 @@
         <plugin>
           <groupId>net.jangaroo</groupId>
           <artifactId>jangaroo-maven-plugin</artifactId>
-          <version>4.0.37</version>
+          <version>4.0.46-SNAPSHOT</version>
           <configuration>
             <remotePackagesArtifact>net.jangaroo:remote-packages</remotePackagesArtifact>
           </configuration>
