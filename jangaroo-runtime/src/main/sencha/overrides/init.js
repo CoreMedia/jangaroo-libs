@@ -56,7 +56,7 @@ Ext.ClassManager.registerPostprocessor('__factory__', function(className, cls, d
         Class.addStatics(statics);
       } else {
         delete statics.__initStatics__;
-        var originalConstructor = data.constructor;
+        var originalConstructor = data.hasOwnProperty("constructor") ? data.constructor : null;
         data.constructor = wrapConstructor(Class);
         for (var staticMemberName in statics) {
           Object.defineProperty(Class, staticMemberName, wrapStaticMember(staticMemberName));
@@ -64,7 +64,13 @@ Ext.ClassManager.registerPostprocessor('__factory__', function(className, cls, d
         Class.__doInit__ = function () {
           delete this.__doInit__; // self-destruct!
           // remove all initializing interceptors:
-          this.prototype.constructor = data.constructor = originalConstructor;
+          if (originalConstructor) {
+            this.prototype.constructor = originalConstructor;
+            data.constructor = originalConstructor;
+          } else {
+            delete this.prototype.constructor;
+            delete data.constructor;
+          }
           for (var staticMemberName in statics) {
             delete this[staticMemberName];
           }
