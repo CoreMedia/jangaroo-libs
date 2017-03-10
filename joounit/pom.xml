@@ -50,7 +50,6 @@
   </build>
 
   <dependencies>
-
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>jooflash-core</artifactId>
@@ -65,17 +64,7 @@
 
     <dependency>
       <groupId>net.jangaroo.com.sencha</groupId>
-      <artifactId>ext-js-pkg-gpl</artifactId>
-      <type>pkg</type>
+      <artifactId>ext-js-pkg</artifactId>
     </dependency>
-
-    <dependency>
-      <groupId>net.jangaroo</groupId>
-      <artifactId>remote-packages</artifactId>
-      <version>${project.version}</version>
-      <type>pom</type>
-      <scope>provided</scope>
-    </dependency>
-
   </dependencies>
 </project>

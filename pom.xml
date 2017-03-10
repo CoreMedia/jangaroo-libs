@@ -14,7 +14,6 @@
     <!--module>jangaroo-compiler-itests</module-->
     <module>jangaroo-runtime</module>
 
-    <module>remote-packages</module>
     <module>jangaroo-net</module>
     <module>jangaroo-browser</module>
 
@@ -57,10 +56,7 @@
         <plugin>
           <groupId>net.jangaroo</groupId>
           <artifactId>jangaroo-maven-plugin</artifactId>
-          <version>4.0.46-SNAPSHOT</version>
-          <configuration>
-            <remotePackagesArtifact>net.jangaroo:remote-packages</remotePackagesArtifact>
-          </configuration>
+          <version>4.0.48</version>
         </plugin>
       </plugins>
     </pluginManagement>

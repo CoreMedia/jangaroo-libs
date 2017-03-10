@@ -14,21 +14,10 @@
   <description>Joo Flex Framework</description>
 
   <dependencies>
-
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>jooflash-core</artifactId>
       <version>${project.version}</version>
     </dependency>
-
-    <dependency>
-      <groupId>net.jangaroo</groupId>
-      <artifactId>remote-packages</artifactId>
-      <version>${project.version}</version>
-      <type>pom</type>
-      <scope>provided</scope>
-    </dependency>
-
   </dependencies>
-
 </project>

@@ -75,8 +75,8 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <jangaroo.version>4.0.47</jangaroo.version>
-    <extjs.version>6.2.0</extjs.version>
+    <jangaroo.version>4.0.48</jangaroo.version>
+    <extjs.version>6.2.0-gpl-1</extjs.version>
   </properties>
 
   <prerequisites>
@@ -129,9 +129,6 @@
         <artifactId>jangaroo-maven-plugin</artifactId>
         <extensions>true</extensions>
         <version>${jangaroo.version}</version>
-        <configuration>
-          <remotePackagesArtifact>net.jangaroo:remote-packages</remotePackagesArtifact>
-        </configuration>
       </plugin>
     </plugins>
 
@@ -201,9 +198,8 @@
       </dependency>
       <dependency>
         <groupId>net.jangaroo.com.sencha</groupId>
-        <artifactId>ext-js-pkg-gpl</artifactId>
+        <artifactId>ext-js-pkg</artifactId>
         <version>${extjs.version}</version>
-        <type>pkg</type>
         <scope>test</scope>
       </dependency>
     </dependencies>
