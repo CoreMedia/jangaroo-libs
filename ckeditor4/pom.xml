@@ -8,7 +8,7 @@
 
   <modelVersion>4.0.0</modelVersion>
   <artifactId>ckeditor4</artifactId>
-  <description>CKEditor 4.5.7</description>
+  <description>CKEditor 4.6.2</description>
   <packaging>jangaroo</packaging>
 
   <dependencies>
@@ -17,4 +17,19 @@
       <artifactId>jangaroo-runtime</artifactId>
     </dependency>
   </dependencies>
+
+  <build>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <excludes>
+          <exclude>**/_source/samples/**</exclude>
+          <exclude>**/_source/tests/**</exclude>
+          <exclude>**/skins/kama/**</exclude>
+          <exclude>**/skins/moono-lisa/**</exclude>
+          <exclude>**/plugins/codesnippetgeshi/**</exclude>
+        </excludes>
+      </resource>
+    </resources>
+  </build>
 </project>
