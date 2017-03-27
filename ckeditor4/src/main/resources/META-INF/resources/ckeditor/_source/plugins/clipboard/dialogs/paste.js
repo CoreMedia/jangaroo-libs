@@ -1,5 +1,5 @@
 /**
- * @license Copyright (c) 2003-2016, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
 
@@ -143,14 +143,8 @@ CKEDITOR.dialog.add( 'paste', function( editor ) {
 						var htmlToLoad = '<html dir="' + editor.config.contentsLangDirection + '"' +
 							' lang="' + ( editor.config.contentsLanguage || editor.langCode ) + '">' +
 							'<head><style>body{margin:3px;height:95%;word-break:break-all;}</style></head><body>' +
-							'<script id="cke_actscrpt" type="text/javascript" ' +
-							' data-frameloadedhandler="' + CKEDITOR.tools.addFunction( onPasteFrameLoad, dialog ) + '">' +
-							' var currentScript = document.currentScript || (function () {' +
-							' var scripts = document.getElementsByTagName("script");' +
-							' return scripts[scripts.length - 1];' +
-							' })();' +
-							' var frameLoadedHandler = currentScript.getAttribute("data-frameloadedhandler");' +
-							' window.parent.CKEDITOR.tools.callFunction( frameLoadedHandler, this );' +
+							'<script id="cke_actscrpt" type="text/javascript">' +
+							'window.parent.CKEDITOR.tools.callFunction(' + CKEDITOR.tools.addFunction( onPasteFrameLoad, dialog ) + ',this);' +
 							'</script></body>' +
 							'</html>';
 

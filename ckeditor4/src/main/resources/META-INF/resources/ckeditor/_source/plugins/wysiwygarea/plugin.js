@@ -1,5 +1,5 @@
 /**
- * @license Copyright (c) 2003-2016, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
 
@@ -9,6 +9,8 @@
  */
 
 ( function() {
+	var framedWysiwyg;
+
 	CKEDITOR.plugins.add( 'wysiwygarea', {
 		init: function( editor ) {
 			if ( editor.config.fullPage ) {
@@ -17,8 +19,6 @@
 					requiredContent: 'body'
 				} );
 			}
-
-			//CKEDITOR.scriptLoader.load('ckeditor/_source/plugins/wysiwygarea/bootstrap.js', function(){ window.console.log("### loaded: ", arguments);
 
 			editor.addMode( 'wysiwyg', function( callback ) {
 				var src = 'document.open();' +
@@ -291,10 +291,13 @@
 
 			// 2. On keyup remove all elements that were not marked
 			// as non-superfluous (which means they must have had appeared in the meantime).
+			// Also we should preserve all temporary elements inserted by editor – otherwise we'd likely
+			// leak fake selection's content into editable due to removing hidden selection container (#14831).
 			editable.attachListener( editable, 'keyup', function() {
 				var elements = doc.getElementsByTag( tagName );
 				if ( lockRetain ) {
-					if ( elements.count() == 1 && !elements.getItem( 0 ).getCustomData( 'retain' ) ) {
+					if ( elements.count() == 1 && !elements.getItem( 0 ).getCustomData( 'retain' ) &&
+						!elements.getItem( 0 ).hasAttribute( 'data-cke-temp' ) ) {
 						elements.getItem( 0 ).remove( 1 );
 					}
 					lockRetain = false;
@@ -303,7 +306,7 @@
 		}
 	}
 
-	var framedWysiwyg = CKEDITOR.tools.createClass( {
+	framedWysiwyg = CKEDITOR.tools.createClass( {
 		$: function() {
 			this.base.apply( this, arguments );
 
@@ -418,34 +421,15 @@
 
 					// The script that launches the bootstrap logic on 'domReady', so the document
 					// is fully editable even before the editing iframe is fully loaded (#4455).
-
-					/*
-					 * Fix Content Security Policy Violation
-					 *
-					 * The bootstrapCode is an inline script messing around with iframe loading logic, which I wasn't
-					 * able to convert to a script loaded from src. So I made this script static by extracting the
-					 * frameloadedhandler as an argument and added its hash to the Studio CSP header.
-					 * Because of this, DO NOT CHANGE ANY CHARACTER OF THE bootstrapCode (whitespaces count)!
-					 *
-					 * The hash of the inline script is: 'sha256-8nQL0a5GSwPH6PJna8Bw6mfa9d0vWq54V9Wt+21yhrI='
-					 */
 					var bootstrapCode =
-						'<script id="cke_actscrpt" type="text/javascript"' +
-						' data-frameloadedhandler="' + this._.frameLoadedHandler +
-						'"' + ( CKEDITOR.env.ie ? ' defer="defer" ' : '' ) + ' />' +
-							' var wasLoaded = 0;' +
-							' function onload() {' +
-							' if (!wasLoaded) {' +
-							' var currentScript = document.currentScript || (function () {' +
-							' var scripts = document.getElementsByTagName("script");' +
-							' return scripts[scripts.length - 1];' +
-							' })();' +
-							' var frameLoadedHandler = currentScript.getAttribute("data-frameloadedhandler");' +
-							' window.parent.CKEDITOR.tools.callFunction(frameLoadedHandler, window);' +
-							' }' +
-							' wasLoaded = 1;' +
+						'<script id="cke_actscrpt" type="text/javascript"' + ( CKEDITOR.env.ie ? ' defer="defer" ' : '' ) + '>' +
+							'var wasLoaded=0;' +	// It must be always set to 0 as it remains as a window property.
+							'function onload(){' +
+								'if(!wasLoaded)' +	// FF3.6 calls onload twice when editor.setData. Stop that.
+									'window.parent.CKEDITOR.tools.callFunction(' + this._.frameLoadedHandler + ',window);' +
+								'wasLoaded=1;' +
 							'}' +
-						   ( CKEDITOR.env.ie ? 'onload();' : 'document.addEventListener("DOMContentLoaded", onload, false);' ) +
+							( CKEDITOR.env.ie ? 'onload();' : 'document.addEventListener("DOMContentLoaded", onload, false );' ) +
 						'</script>';
 
 					// For IE<9 add support for HTML5's elements.

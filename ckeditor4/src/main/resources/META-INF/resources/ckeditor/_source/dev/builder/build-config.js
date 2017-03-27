@@ -1,42 +1,23 @@
-﻿/**
- * @license Copyright (c) 2003-2016, CKSource - Frederico Knabben. All rights reserved.
+/**
+ * @license Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
 
-/**
- * This file was added automatically by CKEditor builder.
- * You may re-use it at any time to build CKEditor again.
- *
- * If you would like to build CKEditor online again
- * (for example to upgrade), visit one the following links:
- *
- * (1) http://ckeditor.com/builder
- *     Visit online builder to build CKEditor from scratch.
- *
- * (2) http://ckeditor.com/builder/311ccbb1f23f8ca718b709e5ef01cc14
- *     Visit online builder to build CKEditor, starting with the same setup as before.
- *
- * (3) http://ckeditor.com/builder/download/311ccbb1f23f8ca718b709e5ef01cc14
- *     Straight download link to the latest version of CKEditor (Optimized) with the same setup as before.
- *
- * NOTE:
- *    This file is not used by CKEditor, you may remove it.
- *    Changing this file will not change your CKEditor configuration.
- */
+/* exported CKBUILDER_CONFIG */
 
 var CKBUILDER_CONFIG = {
 	skin: 'moono',
-	preset: 'basic',
 	ignore: [
-		'.bender',
 		'bender.js',
+		'.bender',
 		'bender-err.log',
 		'bender-out.log',
 		'dev',
+		'docs',
 		'.DS_Store',
 		'.editorconfig',
-		'.gitattributes',
 		'.gitignore',
+		'.gitattributes',
 		'gruntfile.js',
 		'.idea',
 		'.jscsrc',

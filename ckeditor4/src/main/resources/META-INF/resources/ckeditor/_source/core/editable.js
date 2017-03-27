@@ -1,9 +1,12 @@
 /**
- * @license Copyright (c) 2003-2016, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
 
 ( function() {
+	var isNotWhitespace, isNotBookmark, isEmpty, isBogus, emptyParagraphRegexp,
+		insert, fixTableAfterContentsDeletion, fixListAfterContentsDelete, getHtmlFromRangeHelpers, extractHtmlFromRangeHelpers;
+
 	/**
 	 * Editable class which provides all editing related activities by
 	 * the `contenteditable` element, dynamically get attached to editor instance.
@@ -71,10 +74,21 @@
 					}
 				}
 
-				// [IE] Use instead "setActive" method to focus the editable if it belongs to
-				// the host page document, to avoid bringing an unexpected scroll.
+				// [Edge] Starting from EdgeHTML 14.14393, it does not support `setActive`. We need to use focus which
+				// causes unexpected scroll. Store scrollTop value so it can be restored after focusing editor.
+				// Scroll only happens if the editor is focused for the first time. (#14825)
+				if ( CKEDITOR.env.edge && CKEDITOR.env.version > 14 && !this.hasFocus && this.getDocument().equals( CKEDITOR.document ) ) {
+					this.editor._.previousScrollTop = this.$.scrollTop;
+				}
+
+				// [IE] Use instead "setActive" method to focus the editable if it belongs to the host page document,
+				// to avoid bringing an unexpected scroll.
 				try {
-					this.$[ CKEDITOR.env.ie && this.getDocument().equals( CKEDITOR.document ) ? 'setActive' : 'focus' ]();
+					if ( CKEDITOR.env.ie && !( CKEDITOR.env.edge && CKEDITOR.env.version > 14 ) && this.getDocument().equals( CKEDITOR.document ) ) {
+						this.$.setActive();
+					} else {
+						this.$.focus();
+					}
 				} catch ( e ) {
 					// IE throws unspecified error when focusing editable after closing dialog opened on nested editable.
 					if ( !CKEDITOR.env.ie )
@@ -415,12 +429,19 @@
 				// Remove the original contents, merge split nodes.
 				range.deleteContents( 1 );
 
-				// If range is placed in inermediate element (not td or th), we need to do three things:
-				// * fill emptied <td/th>s with if browser needs them,
-				// * remove empty text nodes so IE8 won't crash (http://dev.ckeditor.com/ticket/11183#comment:8),
-				// * fix structure and move range into the <td/th> element.
-				if ( range.startContainer.type == CKEDITOR.NODE_ELEMENT && range.startContainer.is( { tr: 1, table: 1, tbody: 1, thead: 1, tfoot: 1 } ) )
-					fixTableAfterContentsDeletion( range );
+				if ( range.startContainer.type == CKEDITOR.NODE_ELEMENT ) {
+					// If range is placed in intermediate element (not td or th), we need to do three things:
+					// * fill emptied <td/th>s with if browser needs them,
+					// * remove empty text nodes so IE8 won't crash
+					// (http://dev.ckeditor.com/ticket/11183#comment:8),
+					// * fix structure and move range into the <td/th> element.
+					if ( range.startContainer.is( { tr: 1, table: 1, tbody: 1, thead: 1, tfoot: 1 } ) ) {
+						fixTableAfterContentsDeletion( range );
+					} else if ( range.startContainer.is( CKEDITOR.dtd.$list ) ) {
+						// Similarly there's a need for lists.
+						fixListAfterContentsDelete( range );
+					}
+				}
 
 				// If we're inserting a block at dtd-violated position, split
 				// the parent blocks until we reach blockLimit.
@@ -862,6 +883,30 @@
 					this.hasFocus = true;
 				}, null, null, -1 );
 
+				if ( CKEDITOR.env.webkit ) {
+					// [WebKit] Save scrollTop value so it can be used when restoring locked selection. (#14659)
+					this.on( 'scroll', function() {
+						editor._.previousScrollTop = editor.editable().$.scrollTop;
+					}, null, null, -1 );
+				}
+
+				// [Edge] This is the other part of the workaround for Edge which restores saved
+				// scrollTop value and removes listener which is not needed anymore. (#14825)
+				if ( CKEDITOR.env.edge && CKEDITOR.env.version > 14 ) {
+
+					var fixScrollOnFocus = function() {
+						var editable = editor.editable();
+
+						if ( editor._.previousScrollTop != null && editable.getDocument().equals( CKEDITOR.document ) ) {
+							editable.$.scrollTop = editor._.previousScrollTop;
+							editor._.previousScrollTop = null;
+							this.removeListener( 'scroll', fixScrollOnFocus );
+						}
+					};
+
+					this.on( 'scroll', fixScrollOnFocus );
+				}
+
 				// Register to focus manager.
 				editor.focusManager.add( this );
 
@@ -902,12 +947,16 @@
 				// Create the content stylesheet for this document.
 				var styles = CKEDITOR.getCss();
 				if ( styles ) {
-					var head = doc.getHead();
-					if ( !head.getCustomData( 'stylesheet' ) ) {
+					var head = doc.getHead(),
+						stylesElement = head.getCustomData( 'stylesheet' );
+
+					if ( !stylesElement ) {
 						var sheet = doc.appendStyleText( styles );
 						sheet = new CKEDITOR.dom.element( sheet.ownerNode || sheet.owningElement );
 						head.setCustomData( 'stylesheet', sheet );
 						sheet.data( 'cke-temp', 1 );
+					} else if ( styles != stylesElement.getText() ) {
+						CKEDITOR.env.ie && CKEDITOR.env.version < 9 ? stylesElement.$.styleSheet.cssText = styles : stylesElement.setText( styles );
 					}
 				}
 
@@ -1190,7 +1239,7 @@
 	 *
 	 * @method editable
 	 * @member CKEDITOR.editor
-	 * @param {CKEDITOR.dom.element/CKEDITOR.editable} elementOrEditable The
+	 * @param {CKEDITOR.dom.element/CKEDITOR.editable} [elementOrEditable] The
 	 * DOM element to become the editable or a {@link CKEDITOR.editable} object.
 	 */
 	CKEDITOR.editor.prototype.editable = function( element ) {
@@ -1291,12 +1340,12 @@
 	//
 	//
 
-	var isNotWhitespace = CKEDITOR.dom.walker.whitespaces( true ),
-		isNotBookmark = CKEDITOR.dom.walker.bookmark( false, true ),
-		isEmpty = CKEDITOR.dom.walker.empty(),
-		isBogus = CKEDITOR.dom.walker.bogus(),
-		// Matching an empty paragraph at the end of document.
-		emptyParagraphRegexp = /(^|<body\b[^>]*>)\s*<(p|div|address|h\d|center|pre)[^>]*>\s*(?:<br[^>]*>|&nbsp;|\u00A0|&#160;)?\s*(:?<\/\2>)?\s*(?=$|<\/body>)/gi;
+	isNotWhitespace = CKEDITOR.dom.walker.whitespaces( true ),
+	isNotBookmark = CKEDITOR.dom.walker.bookmark( false, true ),
+	isEmpty = CKEDITOR.dom.walker.empty(),
+	isBogus = CKEDITOR.dom.walker.bogus(),
+	// Matching an empty paragraph at the end of document.
+	emptyParagraphRegexp = /(^|<body\b[^>]*>)\s*<(p|div|address|h\d|center|pre)[^>]*>\s*(?:<br[^>]*>|&nbsp;|\u00A0|&#160;)?\s*(:?<\/\2>)?\s*(?=$|<\/body>)/gi;
 
 	// Auto-fixing block-less content by wrapping paragraph (#3190), prevent
 	// non-exitable-block by padding extra br.(#3189)
@@ -1523,7 +1572,7 @@
 	//
 	// Functions related to insertXXX methods
 	//
-	var insert = ( function() {
+	insert = ( function() {
 		'use strict';
 
 		var DTD = CKEDITOR.dtd;
@@ -2232,7 +2281,7 @@
 	// 1. Fixes a range which is a result of deleteContents() and is placed in an intermediate element (see dtd.$intermediate),
 	// inside a table. A goal is to find a closest <td> or <th> element and when this fails, recreate the structure of the table.
 	// 2. Fixes empty cells by appending bogus <br>s or deleting empty text nodes in IE<=8 case.
-	var fixTableAfterContentsDeletion = ( function() {
+	fixTableAfterContentsDeletion = ( function() {
 		// Creates an element walker which can only "go deeper". It won't
 		// move out from any element. Therefore it can be used to find <td>x</td> in cases like:
 		// <table><tbody><tr><td>x</td></tr></tbody>^<tfoot>...
@@ -2327,6 +2376,65 @@
 				bogus.remove();
 
 			range.moveToPosition( deeperSibling, appendToStart ? CKEDITOR.POSITION_AFTER_START : CKEDITOR.POSITION_BEFORE_END );
+		};
+	} )();
+
+	fixListAfterContentsDelete = ( function() {
+		// Creates an element walker which operates only within lists.
+		function getFixListSelectionWalker( testRange ) {
+			var walker = new CKEDITOR.dom.walker( testRange );
+			walker.guard = function( node, isMovingOut ) {
+				if ( isMovingOut )
+					return false;
+				if ( node.type == CKEDITOR.NODE_ELEMENT )
+					return node.is( CKEDITOR.dtd.$list ) || node.is( CKEDITOR.dtd.$listItem );
+			};
+			walker.evaluator = function( node ) {
+				return node.type == CKEDITOR.NODE_ELEMENT && node.is( CKEDITOR.dtd.$listItem );
+			};
+
+			return walker;
+		}
+
+		return function( range ) {
+			var container = range.startContainer,
+				appendToStart = false,
+				testRange,
+				deeperSibling;
+
+			// Look left.
+			testRange = range.clone();
+			testRange.setStart( container, 0 );
+			deeperSibling = getFixListSelectionWalker( testRange ).lastBackward();
+
+			// If left is empty, look right.
+			if ( !deeperSibling ) {
+				testRange = range.clone();
+				testRange.setEndAt( container, CKEDITOR.POSITION_BEFORE_END );
+				deeperSibling = getFixListSelectionWalker( testRange ).lastForward();
+				appendToStart = true;
+			}
+
+			// If there's no deeper nested element in both direction - container is empty - we'll use it then.
+			if ( !deeperSibling )
+				deeperSibling = container;
+
+			// We found a list what means that it's empty - remove it completely.
+			if ( deeperSibling.is( CKEDITOR.dtd.$list ) ) {
+				range.setStartAt( deeperSibling, CKEDITOR.POSITION_BEFORE_START );
+				range.collapse( true );
+				deeperSibling.remove();
+				return;
+			}
+
+			// To avoid setting selection after bogus, remove it from the target list item.
+			// We can safely do that, because we'll insert element into that cell.
+			var bogus = deeperSibling.getBogus();
+			if ( bogus )
+				bogus.remove();
+
+			range.moveToPosition( deeperSibling, appendToStart ? CKEDITOR.POSITION_AFTER_START : CKEDITOR.POSITION_BEFORE_END );
+			range.select();
 		};
 	} )();
 
@@ -2473,7 +2581,7 @@
 	//
 	// Helpers for editable.getHtmlFromRange.
 	//
-	var getHtmlFromRangeHelpers = {
+	getHtmlFromRangeHelpers = {
 		eol: {
 			detect: function( that, editable ) {
 				var range = that.range,
@@ -2638,7 +2746,7 @@
 	//
 	// Helpers for editable.extractHtmlFromRange.
 	//
-	var extractHtmlFromRangeHelpers = ( function() {
+	extractHtmlFromRangeHelpers = ( function() {
 		function optimizeBookmarkNode( node, toStart ) {
 			var parent = node.getParent();
 
