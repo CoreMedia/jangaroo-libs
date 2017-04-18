@@ -9,13 +9,14 @@
   <modelVersion>4.0.0</modelVersion>
   <artifactId>ckeditor4</artifactId>
   <description>CKEditor 4.5.7</description>
-  <packaging>jangaroo-pkg</packaging>
+  <packaging>swc</packaging>
 
   <dependencies>
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>jangaroo-runtime</artifactId>
       <version>${project.version}</version>
+      <type>swc</type>
     </dependency>
   </dependencies>
 

@@ -7,7 +7,7 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <artifactId>joounit</artifactId>
-  <packaging>jangaroo-pkg</packaging>
+  <packaging>swc</packaging>
 
   <name>joounit</name>
   <description>JooUnit - Jangaroo FlexUnit 3</description>
@@ -54,17 +54,20 @@
       <groupId>net.jangaroo</groupId>
       <artifactId>jooflash-core</artifactId>
       <version>${project.version}</version>
+      <type>swc</type>
     </dependency>
 
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>jooflexframework</artifactId>
       <version>${project.version}</version>
+      <type>swc</type>
     </dependency>
 
     <dependency>
       <groupId>net.jangaroo.com.sencha</groupId>
-      <artifactId>ext-js-pkg</artifactId>
+      <artifactId>ext-js-pkg-gpl</artifactId>
+      <type>pkg</type>
     </dependency>
   </dependencies>
 </project>

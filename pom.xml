@@ -56,7 +56,6 @@
         <plugin>
           <groupId>net.jangaroo</groupId>
           <artifactId>jangaroo-maven-plugin</artifactId>
-          <version>4.0.48</version>
         </plugin>
       </plugins>
     </pluginManagement>

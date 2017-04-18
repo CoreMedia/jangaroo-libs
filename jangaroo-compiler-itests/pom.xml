@@ -54,7 +54,7 @@
                 <artifactItem>
                   <groupId>net.jangaroo</groupId>
                   <artifactId>jangaroo-runtime</artifactId>
-                  <type>jar</type>
+                  <type>swc</type>
                   <version>${project.version}</version>
                 </artifactItem>
               </artifactItems>

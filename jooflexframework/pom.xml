@@ -8,7 +8,7 @@
 
   <modelVersion>4.0.0</modelVersion>
   <artifactId>jooflexframework</artifactId>
-  <packaging>jangaroo-pkg</packaging>
+  <packaging>swc</packaging>
 
   <name>jooflexframework</name>
   <description>Joo Flex Framework</description>
@@ -18,6 +18,7 @@
       <groupId>net.jangaroo</groupId>
       <artifactId>jooflash-core</artifactId>
       <version>${project.version}</version>
+      <type>swc</type>
     </dependency>
   </dependencies>
 </project>

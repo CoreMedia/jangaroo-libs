@@ -212,12 +212,14 @@
       <groupId>${project.groupId}</groupId>
       <artifactId>jangaroo-net</artifactId>
       <version>${project.version}</version>
+      <type>swc</type>
     </dependency>
 
     <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>joounit</artifactId>
       <version>${project.version}</version>
+      <type>swc</type>
     </dependency>
 
   </dependencies>

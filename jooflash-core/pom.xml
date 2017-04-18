@@ -7,7 +7,7 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <artifactId>jooflash-core</artifactId>
-  <packaging>jangaroo-pkg</packaging>
+  <packaging>swc</packaging>
   <name>jooflash-core</name>
   <description>Joo Flash Core Compat. Library</description>
 
@@ -28,12 +28,14 @@
       <groupId>net.jangaroo</groupId>
       <artifactId>jangaroo-runtime</artifactId>
       <version>${project.version}</version>
+      <type>swc</type>
     </dependency>
 
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>jangaroo-browser</artifactId>
       <version>${project.version}</version>
+      <type>swc</type>
     </dependency>
   </dependencies>
 

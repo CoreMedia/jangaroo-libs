@@ -2,7 +2,7 @@
 
   <modelVersion>4.0.0</modelVersion>
   <artifactId>jangaroo-net</artifactId>
-  <packaging>jangaroo-pkg</packaging>
+  <packaging>swc</packaging>
   <name>jangaroo-net</name>
   <description>AS3 Networking Utility Classes</description>
   <parent>
@@ -31,16 +31,19 @@
       <groupId>net.jangaroo</groupId>
       <artifactId>jangaroo-runtime</artifactId>
       <version>${project.version}</version>
+      <type>swc</type>
     </dependency>
     <dependency>
       <groupId>net.jangaroo.com.sencha</groupId>
-      <artifactId>ext-js-pkg</artifactId>
+      <artifactId>ext-js-pkg-gpl</artifactId>
+      <type>pkg</type>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>joounit</artifactId>
       <version>${project.version}</version>
+      <type>swc</type>
       <scope>test</scope>
     </dependency>
   </dependencies>

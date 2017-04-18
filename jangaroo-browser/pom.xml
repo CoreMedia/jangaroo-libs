@@ -2,7 +2,7 @@
 
   <modelVersion>4.0.0</modelVersion>
   <artifactId>jangaroo-browser</artifactId>
-  <packaging>jangaroo-pkg</packaging>
+  <packaging>swc</packaging>
   <name>jangaroo-browser</name>
   <description>AS3 version of browser DOM and BOM for use with Jangaroo code</description>
   <parent>
@@ -16,6 +16,7 @@
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>jangaroo-runtime</artifactId>
+      <type>swc</type>
       <version>${project.version}</version>
     </dependency>
   </dependencies>

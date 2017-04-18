@@ -16,91 +16,57 @@
     <dependencies>
       <dependency>
         <groupId>net.jangaroo</groupId>
-        <artifactId>jooflash-core</artifactId>
+        <artifactId>jangaroo-runtime</artifactId>
         <version>${project.version}</version>
+        <type>swc</type>
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
         <artifactId>jooflash-core</artifactId>
         <version>${project.version}</version>
-        <type>pkg</type>
+        <type>swc</type>
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
         <artifactId>jooflash</artifactId>
         <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>net.jangaroo</groupId>
-        <artifactId>jooflash</artifactId>
-        <version>${project.version}</version>
-        <type>pkg</type>
+        <type>swc</type>
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
         <artifactId>jooflexframework</artifactId>
         <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>net.jangaroo</groupId>
-        <artifactId>jooflexframework</artifactId>
-        <version>${project.version}</version>
-        <type>pkg</type>
+        <type>swc</type>
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
         <artifactId>joounit</artifactId>
         <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>net.jangaroo</groupId>
-        <artifactId>joounit</artifactId>
-        <version>${project.version}</version>
-        <type>pkg</type>
+        <type>swc</type>
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
         <artifactId>ckeditor</artifactId>
         <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>net.jangaroo</groupId>
-        <artifactId>ckeditor</artifactId>
-        <version>${project.version}</version>
-        <type>pkg</type>
+        <type>swc</type>
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
         <artifactId>ckeditor4</artifactId>
         <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>net.jangaroo</groupId>
-        <artifactId>ckeditor4</artifactId>
-        <version>${project.version}</version>
-        <type>pkg</type>
+        <type>swc</type>
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-browser</artifactId>
         <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>net.jangaroo</groupId>
-        <artifactId>jangaroo-browser</artifactId>
-        <version>${project.version}</version>
-        <type>pkg</type>
+        <type>swc</type>
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-net</artifactId>
         <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>net.jangaroo</groupId>
-        <artifactId>jangaroo-net</artifactId>
-        <version>${project.version}</version>
-        <type>pkg</type>
+        <type>swc</type>
       </dependency>
     </dependencies>
   </dependencyManagement>
