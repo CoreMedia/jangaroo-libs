@@ -128,6 +128,12 @@ Ext.apply(Ext.namespace("AS3"), {
         }
       }
       value.xclass = type.$className;
+      // It is an Ext JS config object: clean up undefined properties!
+      for (var key in value) {
+        if (value.hasOwnProperty(key) && value[key] === undefined) {
+          delete value[key];
+        }
+      }
     } else if (!AS3.is(value, type)) {
       throw new TypeError("Value cannot be cast to " + Ext.getClassName(type) + ": " + value);
     }
