@@ -13,3 +13,4 @@ site
 # Sencha
 .sencha/.cvsignore
 .sencha/.gitignore
+.remote-packages/
