@@ -8,7 +8,9 @@ Class = {
   $isClass: true,
   $className: "Class",
   __isInstance__: function(object) {
-    return typeof object === "function" && !!object.$isClass;
+    // typeof any === "function" returns false negatives (built-in classes in IE are reported as "object"),
+    // so look for Ext's "$isClass" property or a "prototype" property with an "object"-type value:
+    return !!object && (!!object.$isClass || typeof object.prototype === "object");
   }
 };
 Vector$object = Array;
@@ -32,14 +34,14 @@ Ext.apply(Ext.namespace("AS3"), {
     return boundMethod;
   },
   is: function (object, type) {
-    if (!type || object === undefined || object === null) {
+    if (!Class.__isInstance__(type)) {
+      throw new TypeError("Second parameter of 'is' or 'as' must be a type.");
+    }
+    if (object === undefined || object === null) {
       return false;
     }
     if (Ext.isFunction(type.__isInstance__)) {
       return type.__isInstance__(object);
-    }
-    if (!Ext.isFunction(type)) {
-      return false;
     }
     // constructor or instanceof may return false negatives:
     if (object.constructor === type || object instanceof type) {
