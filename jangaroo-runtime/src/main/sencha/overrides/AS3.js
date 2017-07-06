@@ -10,7 +10,7 @@ Class = {
   __isInstance__: function(object) {
     // typeof any === "function" returns false negatives (built-in classes in IE are reported as "object"),
     // so look for Ext's "$isClass" property or a "prototype" property with an "object"-type value:
-    return !!object && (!!object.$isClass || typeof object.prototype === "object");
+    return !!object && (!!object.$isClass || typeof object.prototype === "object" || typeof object.prototype === "function");
   }
 };
 Vector$object = Array;
