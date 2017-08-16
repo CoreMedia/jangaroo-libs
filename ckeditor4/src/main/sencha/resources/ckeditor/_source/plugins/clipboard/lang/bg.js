@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2003-2016, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.plugins.setLang( 'clipboard', 'bg', {
@@ -8,8 +8,5 @@ CKEDITOR.plugins.setLang( 'clipboard', 'bg', {
 	cut: 'Отрежи',
 	cutError: 'Настройките за сигурност на Вашия браузър не позволяват на редактора автоматично да изъплни действията за отрязване. Моля ползвайте клавиатурните команди за целта (ctrl+x).',
 	paste: 'Вмъкни',
-	pasteArea: 'Зона за вмъкване',
-	pasteMsg: 'Вмъкнете тук съдъжанието с клавиатуарата (<STRONG>Ctrl/Cmd+V</STRONG>) и натиснете <STRONG>OK</STRONG>.',
-	securityMsg: 'Заради настройките за сигурност на Вашия браузър, редакторът не може да прочете данните от клипборда коректно.',
-	title: 'Вмъкни'
+	pasteNotification: 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.' // MISSING
 } );

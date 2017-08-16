@@ -1,5 +1,5 @@
 /**
- * @license Copyright (c) 2003-2016, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
 
@@ -32,6 +32,10 @@ if ( !window.CKEDITOR ) {
 			 * is used, by default, to build the URL for all resources loaded
 			 * by the editor code, guaranteeing clean cache results when
 			 * upgrading.
+			 *
+			 * **Note:** There is [a known issue where "icons.png" does not include
+			 * timestamp](http://dev.ckeditor.com/ticket/10685) and might get cached.
+			 * We are working on having it fixed.
 			 *
 			 *		alert( CKEDITOR.timestamp ); // e.g. '87dm'
 			 */

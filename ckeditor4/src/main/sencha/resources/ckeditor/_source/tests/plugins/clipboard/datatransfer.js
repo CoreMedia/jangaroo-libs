@@ -6,7 +6,11 @@
 
 var htmlMatchOpts = {
 		fixStyles: true
-	};
+	},
+	/* jshint -W100, -W113 */
+	// An example of garbage string sometimes appended to Chrome.
+	garbage = ';\��VN�';
+	/* jshint +W100, +W113 */
 
 bender.editors = {
 	editor1: {
@@ -357,6 +361,122 @@ bender.test( {
 		assert.areSame( '', dataTransfer.getData( 'Text' ) );
 	},
 
+	// http://dev.ckeditor.com/ticket/16847
+	'test getData with getNative flag': function() {
+		if ( !CKEDITOR.plugins.clipboard.isCustomDataTypesSupported ) {
+			return assert.ignore();
+		}
+
+		var html = '<html>' +
+				'<head>' +
+					'<meta charset="UTF-8">' +
+					'<meta name="foo" content=bar>' +
+					'<STYLE>h1 { color: red; }</style>' +
+				'</head>' +
+				'<BODY>' +
+					'<!--StartFragment--><p>Foo</p>' +
+					'<p>Bar</p><!--EndFragment-->' +
+				'</body>' +
+			'</html>',
+			nativeData = bender.tools.mockNativeDataTransfer(),
+			dataTransfer = new CKEDITOR.plugins.clipboard.dataTransfer( nativeData );
+
+		nativeData.setData( 'text/html', html );
+
+		assert.areSame( html, dataTransfer.getData( 'text/html', true ) );
+	},
+
+	// http://dev.ckeditor.com/ticket/16847
+	'test getData with getNative flag after caching': function() {
+		if ( !CKEDITOR.plugins.clipboard.isCustomDataTypesSupported ) {
+			return assert.ignore();
+		}
+
+		var html = '<html>' +
+				'<head>' +
+					'<meta charset="UTF-8">' +
+					'<meta name="foo" content=bar>' +
+					'<STYLE>h1 { color: red; }</style>' +
+				'</head>' +
+				'<BODY>' +
+					'<!--StartFragment--><p>Foo</p>' +
+					'<p>Bar</p><!--EndFragment-->' +
+				'</body>' +
+			'</html>',
+			nativeData = bender.tools.mockNativeDataTransfer(),
+			dataTransfer = new CKEDITOR.plugins.clipboard.dataTransfer( nativeData );
+
+		nativeData.setData( 'text/html', html );
+		dataTransfer.cacheData();
+
+		assert.areSame( html, dataTransfer.getData( 'text/html', true ) );
+	},
+
+	// http://dev.ckeditor.com/ticket/16847
+	'test getData with filter after caching': function() {
+		if ( !CKEDITOR.plugins.clipboard.isCustomDataTypesSupported ) {
+			return assert.ignore();
+		}
+
+		var html = '<html>' +
+				'<head>' +
+					'<meta charset="UTF-8">' +
+					'<meta name="foo" content=bar>' +
+					'<STYLE>h1 { color: red; }</style>' +
+				'</head>' +
+				'<BODY>' +
+					'<!--StartFragment--><p>Foo</p>' +
+					'<p>Bar</p><!--EndFragment-->' +
+				'</body>' +
+			'</html>',
+			nativeData = bender.tools.mockNativeDataTransfer(),
+			dataTransfer = new CKEDITOR.plugins.clipboard.dataTransfer( nativeData );
+
+		nativeData.setData( 'text/html', html );
+		dataTransfer.cacheData();
+
+		assert.areSame( '<p>Foo</p><p>Bar</p>', dataTransfer.getData( 'text/html' ) );
+	},
+
+	// http://dev.ckeditor.com/ticket/16847
+	'test filtering unwanted content with getNative': function() {
+		// Chrome tends to put unwanted artifacts at the end of data transfer, see
+		// https://bugs.chromium.org/p/chromium/issues/detail?id=696978
+		if ( !CKEDITOR.plugins.clipboard.isCustomDataTypesSupported ) {
+			return assert.ignore();
+		}
+
+		var html = '<html>' +
+				'<body>Foo</body>' +
+			'</html>',
+			nativeData = bender.tools.mockNativeDataTransfer(),
+			dataTransfer = new CKEDITOR.plugins.clipboard.dataTransfer( nativeData );
+
+		nativeData.setData( 'text/html', html + garbage );
+
+		assert.areSame( html, dataTransfer.getData( 'text/html', true ) );
+	},
+
+	// http://dev.ckeditor.com/ticket/16847
+	'test filtering unwanted content with getNative and cacheData': function() {
+		if ( !CKEDITOR.plugins.clipboard.isCustomDataTypesSupported ) {
+			return assert.ignore();
+		}
+
+		var html = '<html>' +
+				'<body>Foo</body>' +
+			'</html>',
+			nativeData = bender.tools.mockNativeDataTransfer(),
+			dataTransfer;
+
+		nativeData.setData( 'text/html', html + garbage );
+
+		dataTransfer = new CKEDITOR.plugins.clipboard.dataTransfer( nativeData );
+		dataTransfer.cacheData();
+
+		assert.areSame( html, dataTransfer.getData( 'text/html', true ) );
+	},
+
 	'test cacheData': function() {
 		var isCustomDataTypesSupported = CKEDITOR.plugins.clipboard.isCustomDataTypesSupported,
 			// Emulate native clipboard.
@@ -431,7 +551,7 @@ bender.test( {
 		assert.isUndefined( dataTransfer.getFile( 2 ) );
 	},
 
-	// #12961
+	// http://dev.ckeditor.com/ticket/12961
 	'test file in items': function() {
 		if ( CKEDITOR.env.ie && CKEDITOR.env.version < 10 ) {
 			assert.ignore();
@@ -452,7 +572,7 @@ bender.test( {
 		assert.isUndefined( dataTransfer.getFile( 1 ) );
 	},
 
-	// #12961
+	// http://dev.ckeditor.com/ticket/12961
 	'test file in items with error': function() {
 		if ( CKEDITOR.env.ie && CKEDITOR.env.version < 10 ) {
 			assert.ignore();
@@ -471,7 +591,7 @@ bender.test( {
 		assert.isUndefined( dataTransfer.getFile( 0 ) );
 	},
 
-	// #12961
+	// http://dev.ckeditor.com/ticket/12961
 	'test file in items and files': function() {
 		if ( CKEDITOR.env.ie && CKEDITOR.env.version < 10 ) {
 			assert.ignore();
@@ -520,7 +640,7 @@ bender.test( {
 		assert.isFalse( !!dataTransfer.getFile( 2 ) );
 	},
 
-	// #12961
+	// http://dev.ckeditor.com/ticket/12961
 	'test file in items with cache': function() {
 		if ( CKEDITOR.env.ie && CKEDITOR.env.version < 10 ) {
 			assert.ignore();
@@ -550,7 +670,7 @@ bender.test( {
 		assert.isUndefined( dataTransfer.getFile( 1 ) );
 	},
 
-	// #12961
+	// http://dev.ckeditor.com/ticket/12961
 	'test file in items and files with cache': function() {
 		if ( CKEDITOR.env.ie && CKEDITOR.env.version < 10 ) {
 			assert.ignore();

@@ -11,6 +11,7 @@
 	var editorConfig = {
 		plugins: 'wysiwygarea,sourcearea,widget,clipboard',
 		allowedContent: true,
+		language: 'en',
 		on: {
 			pluginsLoaded: function( evt ) {
 				evt.editor.dataProcessor.writer.sortAttributes = 1;
@@ -668,7 +669,7 @@
 			} );
 		},
 
-		// #13460
+		// http://dev.ckeditor.com/ticket/13460
 		'test pasting a widget with lots of extra markup and mixed HTML case': function() {
 			var editor = this.editor;
 

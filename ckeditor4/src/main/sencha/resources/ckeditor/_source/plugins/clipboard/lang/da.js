@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2003-2016, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.plugins.setLang( 'clipboard', 'da', {
@@ -8,8 +8,5 @@ CKEDITOR.plugins.setLang( 'clipboard', 'da', {
 	cut: 'Klip',
 	cutError: 'Din browsers sikkerhedsindstillinger tillader ikke editoren at få automatisk adgang til udklipsholderen.<br><br>Brug i stedet tastaturet til at klippe teksten (Ctrl/Cmd+X).',
 	paste: 'Indsæt',
-	pasteArea: 'Indsæt område',
-	pasteMsg: 'Indsæt i feltet herunder (<STRONG>Ctrl/Cmd+V</STRONG>) og klik på <STRONG>OK</STRONG>.',
-	securityMsg: 'Din browsers sikkerhedsindstillinger tillader ikke editoren at få automatisk adgang til udklipsholderen.<br><br>Du skal indsætte udklipsholderens indhold i dette vindue igen.',
-	title: 'Indsæt'
+	pasteNotification: 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.' // MISSING
 } );

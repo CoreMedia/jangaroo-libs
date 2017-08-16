@@ -47,7 +47,7 @@ bender.test( {
 		}
 	},
 
-	// #13419
+	// http://dev.ckeditor.com/ticket/13419
 	'test link with quotation marks': function() {
 		var pastedText = 'https://foo.bar/?bam="bom"',
 			expected = '<a href="https://foo.bar/?bam=%22bom%22">https://foo.bar/?bam="bom"</a>';
@@ -78,7 +78,8 @@ bender.test( {
 			'https://placekitten.com/g/180/300',
 			'http://giphy.com/gifs/space-nasa-test-GDiDCTh9AjbiM',
 			'https://www.google.pl/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=ebay',
-			'http://www.legia.sport.pl/legia/1,139320,18079195.html#MTstream'
+			'http://www.legia.sport.pl/legia/1,139320,18079195.html#MTstream',
+			'http://a.b-c.de'
 		];
 
 		var pastedText;

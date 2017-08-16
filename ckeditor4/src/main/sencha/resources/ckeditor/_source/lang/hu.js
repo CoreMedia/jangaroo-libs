@@ -1,5 +1,5 @@
 /**
- * @license Copyright (c) 2003-2016, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
 
@@ -85,8 +85,8 @@ CKEDITOR.lang[ 'hu' ] = {
 		alignTop: 'Tetejére',
 		alignMiddle: 'Középre',
 		alignBottom: 'Aljára',
-		alignNone: 'None', // MISSING
-		invalidValue	: 'Érvénytelen érték.',
+		alignNone: 'Semmi',
+		invalidValue: 'Érvénytelen érték.',
 		invalidHeight: 'A magasság mezőbe csak számokat írhat.',
 		invalidWidth: 'A szélesség mezőbe csak számokat írhat.',
 		invalidCssLength: '"%1"-hez megadott érték csakis egy pozitív szám lehet, esetleg egy érvényes CSS egységgel megjelölve(px, %, in, cm, mm, em, ex, pt vagy pc).',
@@ -95,6 +95,23 @@ CKEDITOR.lang[ 'hu' ] = {
 		cssLengthTooltip: 'Adjon meg egy számot értéknek pixelekben vagy egy számot érvényes CSS mértékegységben (px, %, in, cm, mm, em, ex, pt, vagy pc).',
 
 		// Put the voice-only part of the label in the span.
-		unavailable: '%1<span class="cke_accessibility">, nem elérhető</span>'
+		unavailable: '%1<span class="cke_accessibility">, nem elérhető</span>',
+
+		// Keyboard keys translations used for creating shortcuts descriptions in tooltips, context menus and ARIA labels.
+		keyboard: {
+			8: 'Backspace',
+			13: 'Enter',
+			16: 'Shift',
+			17: 'Ctrl',
+			18: 'Alt',
+			32: 'Space',
+			35: 'End',
+			36: 'Home',
+			46: 'Delete',
+			224: 'Command'
+		},
+
+		// Prepended to ARIA labels with shortcuts.
+		keyboardShortcut: 'Gyorsbillentyű'
 	}
 };

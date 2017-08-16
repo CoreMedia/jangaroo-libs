@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2003-2016, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.plugins.setLang( 'clipboard', 'ru', {
@@ -8,8 +8,5 @@ CKEDITOR.plugins.setLang( 'clipboard', 'ru', {
 	cut: 'Вырезать',
 	cutError: 'Настройки безопасности вашего браузера не разрешают редактору выполнять операции по вырезке текста. Пожалуйста, используйте для этого клавиатуру (Ctrl/Cmd+X).',
 	paste: 'Вставить',
-	pasteArea: 'Зона для вставки',
-	pasteMsg: 'Пожалуйста, вставьте текст в зону ниже, используя клавиатуру (<strong>Ctrl/Cmd+V</strong>) и нажмите кнопку "OK".',
-	securityMsg: 'Настройки безопасности вашего браузера не разрешают редактору напрямую обращаться к буферу обмена. Вы должны вставить текст снова в это окно.',
-	title: 'Вставить'
+	pasteNotification: 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.' // MISSING
 } );

@@ -1,5 +1,5 @@
 /**
- * @license Copyright (c) 2003-2016, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
 
@@ -86,7 +86,7 @@ CKEDITOR.lang[ 'el' ] = {
 		alignMiddle: 'Μέση',
 		alignBottom: 'Κάτω',
 		alignNone: 'Χωρίς',
-		invalidValue	: 'Μη έγκυρη τιμή.',
+		invalidValue: 'Μη έγκυρη τιμή.',
 		invalidHeight: 'Το ύψος πρέπει να είναι ένας αριθμός.',
 		invalidWidth: 'Το πλάτος πρέπει να είναι ένας αριθμός.',
 		invalidCssLength: 'Η τιμή που ορίζεται για το πεδίο "%1" πρέπει να είναι ένας θετικός αριθμός με ή χωρίς μια έγκυρη μονάδα μέτρησης CSS (px, %, in, cm, mm, em, ex, pt, ή pc).',
@@ -95,6 +95,23 @@ CKEDITOR.lang[ 'el' ] = {
 		cssLengthTooltip: 'Εισάγεται μια τιμή σε pixel ή έναν αριθμό μαζί με μια έγκυρη μονάδα μέτρησης CSS (px, %, in, cm, mm, em, ex, pt, ή pc).',
 
 		// Put the voice-only part of the label in the span.
-		unavailable: '%1<span class="cke_accessibility">, δεν είναι διαθέσιμο</span>'
+		unavailable: '%1<span class="cke_accessibility">, δεν είναι διαθέσιμο</span>',
+
+		// Keyboard keys translations used for creating shortcuts descriptions in tooltips, context menus and ARIA labels.
+		keyboard: {
+			8: 'Backspace',
+			13: 'Enter',
+			16: 'Shift',
+			17: 'Ctrl',
+			18: 'Alt',
+			32: 'Space', // MISSING
+			35: 'End',
+			36: 'Home',
+			46: 'Delete',
+			224: 'Command' // MISSING
+		},
+
+		// Prepended to ARIA labels with shortcuts.
+		keyboardShortcut: 'Συντόμευση πληκτρολογίου'
 	}
 };

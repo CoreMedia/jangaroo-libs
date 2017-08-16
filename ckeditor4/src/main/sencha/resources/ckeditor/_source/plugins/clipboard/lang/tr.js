@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2003-2016, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.plugins.setLang( 'clipboard', 'tr', {
@@ -8,8 +8,5 @@ CKEDITOR.plugins.setLang( 'clipboard', 'tr', {
 	cut: 'Kes',
 	cutError: 'Gezgin yazılımınızın güvenlik ayarları düzenleyicinin otomatik kesme işlemine izin vermiyor. İşlem için (Ctrl/Cmd+X) tuşlarını kullanın.',
 	paste: 'Yapıştır',
-	pasteArea: 'Yapıştırma Alanı',
-	pasteMsg: 'Lütfen aşağıdaki kutunun içine yapıştırın. (<STRONG>Ctrl/Cmd+V</STRONG>) ve <STRONG>Tamam</STRONG> butonunu tıklayın.',
-	securityMsg: 'Gezgin yazılımınızın güvenlik ayarları düzenleyicinin direkt olarak panoya erişimine izin vermiyor. Bu pencere içine tekrar yapıştırmalısınız..',
-	title: 'Yapıştır'
+	pasteNotification: 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.' // MISSING
 } );

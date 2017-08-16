@@ -1,5 +1,5 @@
 /**
- * @license Copyright (c) 2003-2016, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
 
@@ -76,6 +76,21 @@
 			}
 
 			return bender.tools.fixHtml( html, stripLineBreaks );
+		},
+
+		env: {
+			/*
+			 * Tells whether current environment is running on a mobile browser.
+			 *
+			 * It's different from deprecated {@link CKEDITOR.env.mobile} in a way that we are just
+			 * interested in checking whether this is iOS or most popular Android env.
+			 */
+			mobile: CKEDITOR.env.iOS || navigator.userAgent.toLowerCase().indexOf( 'android' ) !== -1,
+
+			/*
+			 * Whether current OS is a Linux environment.
+			 */
+			linux: navigator.userAgent.toLowerCase().indexOf( 'linux' ) !== -1
 		},
 
 		fixHtml: function( html, stripLineBreaks, toLowerCase ) {
@@ -240,8 +255,10 @@
 		 * @param {Boolean} [fixStyles] Pass inline styles through {@link CKEDITOR.tools#parseCssText}.
 		 * @param {Boolean} [fixNbsp] Encode `\u00a0`.
 		 * @param {Boolean} [noTempElements] Strip elements with `data-cke-temp` attributes (e.g. hidden selection container).
+		 * @param {CKEDITOR.htmlParser.filter[]} [customFilters] Array of filters that will be applied to parsed HTML.
+		 * This parameter was added in 4.7.0.
 		 */
-		compatHtml: function( html, noInterWS, sortAttributes, fixZWS, fixStyles, fixNbsp, noTempElements ) {
+		compatHtml: function( html, noInterWS, sortAttributes, fixZWS, fixStyles, fixNbsp, noTempElements, customFilters ) {
 			// Remove all indeterminate white spaces.
 			if ( noInterWS ) {
 				html = html.replace( /[\t\n\r ]+(?=<)/g, '' ).replace( />[\t\n\r ]+/g, '>' );
@@ -256,6 +273,12 @@
 
 			if ( sortAttributes ) {
 				writer.sortAttributes = true;
+			}
+
+			if ( customFilters ) {
+				CKEDITOR.tools.array.forEach( customFilters, function( filter ) {
+					fragment.filterChildren( filter );
+				} );
 			}
 
 			fragment.writeHtml( writer );
@@ -339,20 +362,32 @@
 			fn( input, output );
 		},
 
-		testExternalInputOutput: function( url, fn ) {
+		/**
+		 * Note that this function calls `wait()` method therefore stopping any further code execution.
+		 *
+		 * @param {String} url URL to be requested for data.
+		 * @param {Function} fn A function to be called once data is readen from `url`.
+		 */
+		testExternalInput: function( url, fn ) {
 			assert.isObject( CKEDITOR.ajax, 'Ajax plugin is required' );
 
 			CKEDITOR.ajax.load( url, function( data ) {
 				resume( function() {
-					assert.isNotNull( data, 'Error while loading external data' );
-
-					var source = data.split( '=>' );
-
-					fn( source[ 0 ], source[ 1 ] );
+					fn( data );
 				} );
 			} );
 
 			wait();
+		},
+
+		testExternalInputOutput: function( url, fn ) {
+			this.testExternalInput( url, function( data ) {
+				assert.isNotNull( data, 'Error while loading external data' );
+
+				var source = data.split( '=>' );
+
+				fn( source[ 0 ], source[ 1 ] );
+			} );
 		},
 
 		/**
@@ -433,7 +468,7 @@
 				element = isEditor ? editorOrElement.editable() : editorOrElement;
 
 			if ( isEditor ) {
-				// (#9848) Prevent additional selectionChange due to editor.focus().
+				// (http://dev.ckeditor.com/ticket/9848) Prevent additional selectionChange due to editor.focus().
 				// This fix isn't required by IE < 9.
 				if ( CKEDITOR.env.ie ? CKEDITOR.env.version > 8 : 1 ) {
 					editorOrElement.once( 'selectionChange', function( event ) {
@@ -568,6 +603,8 @@
 		 * @deprecated Use {@link bender.tools.range#setWithHtml} instead.
 		 */
 		setHtmlWithRange: function( element, html, root ) {
+			var ranges = [];
+
 			root = root instanceof CKEDITOR.dom.document ?
 				root.getBody() : root || CKEDITOR.document.getBody();
 
@@ -589,7 +626,7 @@
 			// has been replace, which will otherwise bother parser.
 			html = bender.tools.compatHtml( html );
 
-			// Avoid having IE drop the comment nodes before any actual text. (#3801)
+			// Avoid having IE drop the comment nodes before any actual text. (http://dev.ckeditor.com/ticket/3801)
 			if ( CKEDITOR.env.ie && ( document.documentMode || CKEDITOR.env.version ) < 9 ) {
 				element.setHtml( '<span>a</span>' + html );
 				element.getFirst().remove();
@@ -597,9 +634,8 @@
 				element.setHtml( html );
 			}
 
-			var ranges = [],
-				// Walk prepared to traverse the inner dom tree of this element.
-				walkerRange = new CKEDITOR.dom.range( root );
+			// Walk prepared to traverse the inner dom tree of this element.
+			var walkerRange = new CKEDITOR.dom.range( root );
 
 			walkerRange.selectNodeContents( element );
 			var wallker = new CKEDITOR.dom.walker( walkerRange ),
@@ -1195,7 +1231,7 @@
 				html = html.replace( markerReplaceRegex, '<!--cke-range-marker-$1-->' );
 
 				// Set clean HTML without {, }, [, ] but with adequate comments.
-				// Prevent IE from purging comment nodes before any actual text (#3801).
+				// Prevent IE from purging comment nodes before any actual text (http://dev.ckeditor.com/ticket/3801).
 				if ( CKEDITOR.env.ie && CKEDITOR.env.version < 9 ) {
 					element.setHtml( '<span>!</span>' + html );
 					element.getFirst().remove();
@@ -1271,7 +1307,7 @@
 				if ( node.type == CKEDITOR.NODE_TEXT ) {
 					return new CKEDITOR.dom.text( node.getText() );
 				} else {
-					// Make sure ids are cloned (#12130).
+					// Make sure ids are cloned (http://dev.ckeditor.com/ticket/12130).
 					clone = node.clone( 0, 1 );
 				}
 
@@ -1311,7 +1347,7 @@
 				//       It joins adjacent text nodes when using deep clone, which is pretty annoying.
 				// Note: IE9-11 aren't any better. They lose empty text nodes between elements when cloning.
 				// See 'test special #1' in tests.
-				// Make sure ids are cloned (#12130).
+				// Make sure ids are cloned (http://dev.ckeditor.com/ticket/12130).
 				clone = CKEDITOR.env.ie ? cloneNode( element ) : element.clone( 1, 1 );
 
 				startContainer = clone.getChild( startAddress );

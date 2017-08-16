@@ -1,8 +1,8 @@
 /*
-Copyright (c) 2003-2016, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.plugins.setLang( 'pastetext', 'el', {
 	button: 'Επικόλληση ως απλό κείμενο',
-	title: 'Επικόλληση ως απλό κείμενο'
+	pasteNotification: 'Your browser does not allow you to paste plain text this way. Press %1 to paste.' // MISSING
 } );

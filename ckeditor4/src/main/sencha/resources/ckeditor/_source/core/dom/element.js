@@ -1,5 +1,5 @@
 /**
- * @license Copyright (c) 2003-2016, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
 
@@ -308,7 +308,7 @@ CKEDITOR.dom.element.clearMarkers = function( database, element, removeFromDatab
 		 */
 		appendText: function( text ) {
 			// On IE8 it is impossible to append node to script tag, so we use its text.
-			// On the contrary, on Safari the text property is unpredictable in links. (#13232)
+			// On the contrary, on Safari the text property is unpredictable in links. (http://dev.ckeditor.com/ticket/13232)
 			if ( this.$.text != null && CKEDITOR.env.ie && CKEDITOR.env.version < 9 )
 				this.$.text += text;
 			else
@@ -368,13 +368,36 @@ CKEDITOR.dom.element.clearMarkers = function( database, element, removeFromDatab
 			range.setEndAfter( parent );
 
 			// Extract it.
-			var docFrag = range.extractContents( false, cloneId || false );
+			var docFrag = range.extractContents( false, cloneId || false ),
+				tmpElement,
+				current;
 
 			// Move the element outside the broken element.
 			range.insertNode( this.remove() );
 
-			// Re-insert the extracted piece after the element.
-			docFrag.insertAfterNode( this );
+			// In case of Internet Explorer, we must check if there is no background-color
+			// added to the element. In such case, we have to overwrite it to prevent "switching it off"
+			// by a browser (http://dev.ckeditor.com/ticket/14667).
+			if ( CKEDITOR.env.ie && !CKEDITOR.env.edge ) {
+				tmpElement = new CKEDITOR.dom.element( 'div' );
+
+				while ( current = docFrag.getFirst() ) {
+					if ( current.$.style.backgroundColor ) {
+						// This is a necessary hack to make sure that IE will track backgroundColor CSS property, see
+						// http://dev.ckeditor.com/ticket/14667#comment:8 for more details.
+						current.$.style.backgroundColor = current.$.style.backgroundColor;
+					}
+
+					tmpElement.append( current );
+				}
+
+				// Re-insert the extracted piece after the element.
+				tmpElement.insertAfter( this );
+				tmpElement.remove( true );
+			} else {
+				// Re-insert the extracted piece after the element.
+				docFrag.insertAfterNode( this );
+			}
 		},
 
 		/**
@@ -429,7 +452,7 @@ CKEDITOR.dom.element.clearMarkers = function( database, element, removeFromDatab
 		 */
 		getHtml: function() {
 			var retval = this.$.innerHTML;
-			// Strip <?xml:namespace> tags in IE. (#3341).
+			// Strip <?xml:namespace> tags in IE. (http://dev.ckeditor.com/ticket/3341).
 			return CKEDITOR.env.ie ? retval.replace( /<\?[^>]*>/g, '' ) : retval;
 		},
 
@@ -444,7 +467,7 @@ CKEDITOR.dom.element.clearMarkers = function( database, element, removeFromDatab
 		getOuterHtml: function() {
 			if ( this.$.outerHTML ) {
 				// IE includes the <?xml:namespace> tag in the outerHTML of
-				// namespaced element. So, we must strip it here. (#3341)
+				// namespaced element. So, we must strip it here. (http://dev.ckeditor.com/ticket/3341)
 				return this.$.outerHTML.replace( /<\?[^>]*>/, '' );
 			}
 
@@ -595,7 +618,7 @@ CKEDITOR.dom.element.clearMarkers = function( database, element, removeFromDatab
 							return this.$[ name ];
 
 						case 'style':
-							// IE does not return inline styles via getAttribute(). See #2947.
+							// IE does not return inline styles via getAttribute(). See http://dev.ckeditor.com/ticket/2947.
 							return this.$.style.cssText;
 
 						case 'contenteditable':
@@ -609,6 +632,28 @@ CKEDITOR.dom.element.clearMarkers = function( database, element, removeFromDatab
 				return standard;
 			}
 		} )(),
+
+		/**
+		 * Gets the values of all element attributes.
+		 *
+		 * @param {Array} exclude The names of attributes to be excluded from the returned object.
+		 * @return {Object} An object containing all element attributes with their values.
+		 */
+		getAttributes: function( exclude ) {
+			var attributes = {},
+				attrDefs = this.$.attributes,
+				i;
+
+			exclude = CKEDITOR.tools.isArray( exclude ) ? exclude : [];
+
+			for ( i = 0; i < attrDefs.length; i++ ) {
+				if ( CKEDITOR.tools.indexOf( exclude, attrDefs[ i ].name ) === -1 ) {
+					attributes[ attrDefs[ i ].name ] = attrDefs[ i ].value;
+				}
+			}
+
+			return attributes;
+		},
 
 		/**
 		 * Gets the nodes list containing all children of this element.
@@ -634,7 +679,7 @@ CKEDITOR.dom.element.clearMarkers = function( database, element, removeFromDatab
 				function( propertyName ) {
 					var style = this.getWindow().$.getComputedStyle( this.$, null );
 
-					// Firefox may return null if we call the above on a hidden iframe. (#9117)
+					// Firefox may return null if we call the above on a hidden iframe. (http://dev.ckeditor.com/ticket/9117)
 					return style ? style.getPropertyValue( propertyName ) : '';
 				} : function( propertyName ) {
 					return this.$.currentStyle[ CKEDITOR.tools.cssStyleToDomStyle( propertyName ) ];
@@ -927,7 +972,7 @@ CKEDITOR.dom.element.clearMarkers = function( database, element, removeFromDatab
 				elementWindow, elementWindowFrame;
 
 			// Webkit and Opera report non-zero offsetHeight despite that
-			// element is inside an invisible iframe. (#4542)
+			// element is inside an invisible iframe. (http://dev.ckeditor.com/ticket/4542)
 			if ( isVisible && CKEDITOR.env.webkit ) {
 				elementWindow = this.getWindow();
 
@@ -988,7 +1033,7 @@ CKEDITOR.dom.element.clearMarkers = function( database, element, removeFromDatab
 							// attribute, which will be marked as "specified", even if the
 							// outerHTML of the element is not displaying the class attribute.
 							// Note : I was not able to reproduce it outside the editor,
-							// but I've faced it while working on the TC of #1391.
+							// but I've faced it while working on the TC of http://dev.ckeditor.com/ticket/1391.
 							if ( this.getAttribute( 'class' ) ) {
 								return true;
 							}
@@ -1012,7 +1057,7 @@ CKEDITOR.dom.element.clearMarkers = function( database, element, removeFromDatab
 				var attrs = this.$.attributes,
 					attrsNum = attrs.length;
 
-				// The _moz_dirty attribute might get into the element after pasting (#5455)
+				// The _moz_dirty attribute might get into the element after pasting (http://dev.ckeditor.com/ticket/5455)
 				var execludeAttrs = { 'data-cke-expando': 1, _moz_dirty: 1 };
 
 				return attrsNum > 0 && ( attrsNum > 2 || !execludeAttrs[ attrs[ 0 ].nodeName ] || ( attrsNum == 2 && !execludeAttrs[ attrs[ 1 ].nodeName ] ) );
@@ -1119,7 +1164,7 @@ CKEDITOR.dom.element.clearMarkers = function( database, element, removeFromDatab
 			function mergeElements( element, sibling, isNext ) {
 				if ( sibling && sibling.type == CKEDITOR.NODE_ELEMENT ) {
 					// Jumping over bookmark nodes and empty inline elements, e.g. <b><i></i></b>,
-					// queuing them to be moved later. (#5567)
+					// queuing them to be moved later. (http://dev.ckeditor.com/ticket/5567)
 					var pendingNodes = [];
 
 					while ( sibling.data( 'cke-bookmark' ) || sibling.isEmptyInlineRemoveable() ) {
@@ -1149,7 +1194,7 @@ CKEDITOR.dom.element.clearMarkers = function( database, element, removeFromDatab
 			}
 
 			return function( inlineOnly ) {
-				// Merge empty links and anchors also. (#5567)
+				// Merge empty links and anchors also. (http://dev.ckeditor.com/ticket/5567)
 				if ( !( inlineOnly === false || CKEDITOR.dtd.$removeEmpty[ this.getName() ] || this.is( 'a' ) ) ) {
 					return;
 				}
@@ -1208,7 +1253,7 @@ CKEDITOR.dom.element.clearMarkers = function( database, element, removeFromDatab
 				};
 			} else if ( CKEDITOR.env.ie8Compat && CKEDITOR.env.secure ) {
 				return function( name, value ) {
-					// IE8 throws error when setting src attribute to non-ssl value. (#7847)
+					// IE8 throws error when setting src attribute to non-ssl value. (http://dev.ckeditor.com/ticket/7847)
 					if ( name == 'src' && value.match( /^http:\/\// ) ) {
 						try {
 							standard.apply( this, arguments );
@@ -1292,11 +1337,15 @@ CKEDITOR.dom.element.clearMarkers = function( database, element, removeFromDatab
 		 */
 		removeAttributes: function( attributes ) {
 			if ( CKEDITOR.tools.isArray( attributes ) ) {
-				for ( var i = 0; i < attributes.length; i++ )
+				for ( var i = 0; i < attributes.length; i++ ) {
 					this.removeAttribute( attributes[ i ] );
+				}
 			} else {
-				for ( var attr in attributes )
+				attributes = attributes || this.getAttributes();
+
+				for ( var attr in attributes ) {
 					attributes.hasOwnProperty( attr ) && this.removeAttribute( attr );
+				}
 			}
 		},
 
@@ -1442,7 +1491,8 @@ CKEDITOR.dom.element.clearMarkers = function( database, element, removeFromDatab
 				body = doc.getBody(),
 				quirks = doc.$.compatMode == 'BackCompat';
 
-			if ( document.documentElement.getBoundingClientRect ) {
+			if ( document.documentElement.getBoundingClientRect &&
+				( CKEDITOR.env.ie ? CKEDITOR.env.version !== 8 : true ) ) {
 				var box = this.$.getBoundingClientRect(),
 					$doc = doc.$,
 					$docElem = $doc.documentElement;
@@ -1451,7 +1501,7 @@ CKEDITOR.dom.element.clearMarkers = function( database, element, removeFromDatab
 					clientLeft = $docElem.clientLeft || body.$.clientLeft || 0,
 					needAdjustScrollAndBorders = true;
 
-				// #3804: getBoundingClientRect() works differently on IE and non-IE
+				// http://dev.ckeditor.com/ticket/3804: getBoundingClientRect() works differently on IE and non-IE
 				// browsers, regarding scroll positions.
 				//
 				// On IE, the top position of the <html> element is always 0, no matter
@@ -1466,12 +1516,12 @@ CKEDITOR.dom.element.clearMarkers = function( database, element, removeFromDatab
 					needAdjustScrollAndBorders = ( quirks && inBody ) || ( !quirks && inDocElem );
 				}
 
-				// #12747.
+				// http://dev.ckeditor.com/ticket/12747.
 				if ( needAdjustScrollAndBorders ) {
 					var scrollRelativeLeft,
 						scrollRelativeTop;
 
-					// See #12758 to know more about document.(documentElement|body).scroll(Left|Top) in Webkit.
+					// See http://dev.ckeditor.com/ticket/12758 to know more about document.(documentElement|body).scroll(Left|Top) in Webkit.
 					if ( CKEDITOR.env.webkit || ( CKEDITOR.env.ie && CKEDITOR.env.version >= 12 ) ) {
 						scrollRelativeLeft = body.$.scrollLeft || $docElem.scrollLeft;
 						scrollRelativeTop = body.$.scrollTop || $docElem.scrollTop;
@@ -1553,7 +1603,7 @@ CKEDITOR.dom.element.clearMarkers = function( database, element, removeFromDatab
 					parent.$.clientHeight && parent.$.clientHeight < parent.$.scrollHeight;
 
 				// Skip body element, which will report wrong clientHeight when containing
-				// floated content. (#9523)
+				// floated content. (http://dev.ckeditor.com/ticket/9523)
 				if ( overflowed && !parent.is( 'body' ) )
 					this.scrollIntoParent( parent, alignToTop, 1 );
 
@@ -1624,6 +1674,16 @@ CKEDITOR.dom.element.clearMarkers = function( database, element, removeFromDatab
 			// calculated margin size.
 			function margin( element, side ) {
 				return parseInt( element.getComputedStyle( 'margin-' + side ) || 0, 10 ) || 0;
+			}
+
+			// [WebKit] Reset stored scrollTop value to not break scrollIntoView() method flow.
+			// Scrolling breaks when range.select() is used right after element.scrollIntoView(). (http://dev.ckeditor.com/ticket/14659)
+			if ( CKEDITOR.env.webkit ) {
+				var editor = this.getEditor( false );
+
+				if ( editor ) {
+					editor._.previousScrollTop = null;
+				}
 			}
 
 			var win = parent.getWindow();
@@ -1797,7 +1857,7 @@ CKEDITOR.dom.element.clearMarkers = function( database, element, removeFromDatab
 			this.getParent( true ) && this.$.parentNode.replaceChild( newNode.$, this.$ );
 			newNode.$[ 'data-cke-expando' ] = this.$[ 'data-cke-expando' ];
 			this.$ = newNode.$;
-			// Bust getName's cache. (#8663)
+			// Bust getName's cache. (http://dev.ckeditor.com/ticket/8663)
 			delete this.getName;
 		},
 
@@ -1905,17 +1965,32 @@ CKEDITOR.dom.element.clearMarkers = function( database, element, removeFromDatab
 		 *		CKEDITOR.replace( element );
 		 *		alert( element.getEditor().name ); // 'editor1'
 		 *
+		 * By default this method considers only original DOM elements upon which the editor
+		 * was created. Setting `optimized` parameter to `false` will consider editor editable
+		 * and its children.
+		 *
+		 * @param {Boolean} [optimized=true] If set to `false` it will scan every editor editable.
 		 * @returns {CKEDITOR.editor} An editor instance or null if nothing has been found.
 		 */
-		getEditor: function() {
+		getEditor: function( optimized ) {
 			var instances = CKEDITOR.instances,
-				name, instance;
+				name, instance, editable;
+
+			optimized = optimized || optimized === undefined;
 
 			for ( name in instances ) {
 				instance = instances[ name ];
 
 				if ( instance.element.equals( this ) && instance.elementMode != CKEDITOR.ELEMENT_MODE_APPENDTO )
 					return instance;
+
+				if ( !optimized ) {
+					editable = instance.editable();
+
+					if ( editable && ( editable.equals( this ) || editable.contains( this ) ) ) {
+						return instance;
+					}
+				}
 			}
 
 			return null;
@@ -2038,7 +2113,8 @@ CKEDITOR.dom.element.clearMarkers = function( database, element, removeFromDatab
 	}
 
 	function getContextualizedSelector( element, selector ) {
-		return '#' + element.$.id + ' ' + selector.split( /,\s*/ ).join( ', #' + element.$.id + ' ' );
+		var id = CKEDITOR.tools.escapeCss( element.$.id );
+		return '#' + id + ' ' + selector.split( /,\s*/ ).join( ', #' + id + ' ' );
 	}
 
 	var sides = {
@@ -2070,7 +2146,7 @@ CKEDITOR.dom.element.clearMarkers = function( database, element, removeFromDatab
 	function marginAndPaddingSize( type ) {
 		var adjustment = 0;
 		for ( var i = 0, len = sides[ type ].length; i < len; i++ )
-			adjustment += parseInt( this.getComputedStyle( sides[ type ][ i ] ) || 0, 10 ) || 0;
+			adjustment += parseFloat( this.getComputedStyle( sides[ type ][ i ] ) || 0, 10 ) || 0;
 		return adjustment;
 	}
 

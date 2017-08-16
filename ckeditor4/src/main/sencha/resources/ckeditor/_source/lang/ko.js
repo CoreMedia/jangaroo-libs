@@ -1,5 +1,5 @@
 /**
- * @license Copyright (c) 2003-2016, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
 
@@ -28,7 +28,7 @@ CKEDITOR.lang[ 'ko' ] = {
 		// of reading non-English words. So be careful while translating it.
 		editorHelp: '도움이 필요하면 ALT 0 을 누르세요',
 
-		browseServer: '서버 보기',
+		browseServer: '서버 탐색',
 		url: 'URL',
 		protocol: '프로토콜',
 		upload: '업로드',
@@ -86,7 +86,7 @@ CKEDITOR.lang[ 'ko' ] = {
 		alignMiddle: '중간',
 		alignBottom: '아래',
 		alignNone: '기본',
-		invalidValue	: '잘못된 값.',
+		invalidValue: '잘못된 값.',
 		invalidHeight: '높이는 숫자여야 합니다.',
 		invalidWidth: '넓이는 숫자여야 합니다.',
 		invalidCssLength: '"%1" 값은 유효한 CSS 측정 단위(px, %, in, cm, mm, em, ex, pt, or pc)를 포함하거나 포함하지 않은 양수 여야 합니다.',
@@ -95,6 +95,23 @@ CKEDITOR.lang[ 'ko' ] = {
 		cssLengthTooltip: '픽셀 단위의 숫자만 입력하시거나 유효한 CSS 단위(px, %, in, cm, mm, em, ex, pt, or pc)와 함께 숫자를 입력해주세요.',
 
 		// Put the voice-only part of the label in the span.
-		unavailable: '%1<span class="cke_accessibility">, 사용불가</span>'
+		unavailable: '%1<span class="cke_accessibility">, 사용불가</span>',
+
+		// Keyboard keys translations used for creating shortcuts descriptions in tooltips, context menus and ARIA labels.
+		keyboard: {
+			8: '백스페이스',
+			13: '엔터',
+			16: '시프트',
+			17: '컨트롤',
+			18: '알트',
+			32: '간격',
+			35: '엔드',
+			36: '홈',
+			46: '딜리트',
+			224: '커맨드'
+		},
+
+		// Prepended to ARIA labels with shortcuts.
+		keyboardShortcut: '키보드 단축키'
 	}
 };

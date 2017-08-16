@@ -1,5 +1,5 @@
 ﻿/**
- * @license Copyright (c) 2003-2016, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
 
@@ -7,10 +7,10 @@ CKEDITOR.plugins.add( 'contextmenu', {
 	requires: 'menu',
 
 	// jscs:disable maximumLineLength
-	lang: 'af,ar,bg,bn,bs,ca,cs,cy,da,de,de-ch,el,en,en-au,en-ca,en-gb,eo,es,et,eu,fa,fi,fo,fr,fr-ca,gl,gu,he,hi,hr,hu,id,is,it,ja,ka,km,ko,ku,lt,lv,mk,mn,ms,nb,nl,no,pl,pt,pt-br,ro,ru,si,sk,sl,sq,sr,sr-latn,sv,th,tr,tt,ug,uk,vi,zh,zh-cn', // %REMOVE_LINE_CORE%
+	lang: 'af,ar,az,bg,bn,bs,ca,cs,cy,da,de,de-ch,el,en,en-au,en-ca,en-gb,eo,es,es-mx,et,eu,fa,fi,fo,fr,fr-ca,gl,gu,he,hi,hr,hu,id,is,it,ja,ka,km,ko,ku,lt,lv,mk,mn,ms,nb,nl,no,oc,pl,pt,pt-br,ro,ru,si,sk,sl,sq,sr,sr-latn,sv,th,tr,tt,ug,uk,vi,zh,zh-cn', // %REMOVE_LINE_CORE%
 	// jscs:enable maximumLineLength
 
-	// Make sure the base class (CKEDITOR.menu) is loaded before it (#3318).
+	// Make sure the base class (CKEDITOR.menu) is loaded before it (http://dev.ckeditor.com/ticket/3318).
 	onLoad: function() {
 		/**
 		 * Class replacing the non-configurable native context menu with a configurable CKEditor's equivalent.
@@ -51,7 +51,7 @@ CKEDITOR.plugins.add( 'contextmenu', {
 						var domEvent = event.data,
 							isCtrlKeyDown =
 								// Safari on Windows always show 'ctrlKey' as true in 'contextmenu' event,
-								// which make this property unreliable. (#4826)
+								// which make this property unreliable. (http://dev.ckeditor.com/ticket/4826)
 								( CKEDITOR.env.webkit ? holdCtrlKey : ( CKEDITOR.env.mac ? domEvent.$.metaKey : domEvent.$.ctrlKey ) );
 
 						if ( nativeContextMenuOnCtrl && isCtrlKeyDown )
@@ -60,7 +60,7 @@ CKEDITOR.plugins.add( 'contextmenu', {
 						// Cancel the browser context menu.
 						domEvent.preventDefault();
 
-						// Fix selection when non-editable element in Webkit/Blink (Mac) (#11306).
+						// Fix selection when non-editable element in Webkit/Blink (Mac) (http://dev.ckeditor.com/ticket/11306).
 						if ( CKEDITOR.env.mac && CKEDITOR.env.webkit ) {
 							var editor = this.editor,
 								contentEditableParent = new CKEDITOR.dom.elementPath( domEvent.getTarget(), editor.editable() ).contains( function( el ) {
@@ -83,7 +83,7 @@ CKEDITOR.plugins.add( 'contextmenu', {
 						CKEDITOR.tools.setTimeout( function() {
 							this.open( offsetParent, null, offsetX, offsetY );
 
-							// IE needs a short while to allow selection change before opening menu. (#7908)
+							// IE needs a short while to allow selection change before opening menu. (http://dev.ckeditor.com/ticket/7908)
 						}, CKEDITOR.env.ie ? 200 : 0, this );
 					}, this );
 
@@ -111,10 +111,14 @@ CKEDITOR.plugins.add( 'contextmenu', {
 				 * @param {Number} [offsetY]
 				 */
 				open: function( offsetParent, corner, offsetX, offsetY ) {
+					if ( this.editor.config.enableContextMenu === false ) {
+						return;
+					}
+
 					this.editor.focus();
 					offsetParent = offsetParent || CKEDITOR.document.getDocumentElement();
 
-					// #9362: Force selection check to update commands' states in the new context.
+					// http://dev.ckeditor.com/ticket/9362: Force selection check to update commands' states in the new context.
 					this.editor.selectionChange( 1 );
 
 					this.show( offsetParent, corner, offsetX, offsetY );
@@ -155,5 +159,16 @@ CKEDITOR.plugins.add( 'contextmenu', {
  *
  * @since 3.0.2
  * @cfg {Boolean} [browserContextMenuOnCtrl=true]
+ * @member CKEDITOR.config
+ */
+
+/**
+ * Whether to enable the context menu. Regardless of the setting the [Context Menu](http://ckeditor.com/addon/contextmenu)
+ * plugin is still loaded.
+ *
+ *		config.enableContextMenu = false;
+ *
+ * @since 4.7.0
+ * @cfg {Boolean} [enableContextMenu=true]
  * @member CKEDITOR.config
  */

@@ -5,7 +5,9 @@
 	'use strict';
 
 	bender.editor = {
-		config: {},
+		config: {
+			removePlugins: 'tableselection'
+		},
 		allowedForTests: 'table[width];td[id]'
 	};
 
@@ -125,7 +127,7 @@
 			} );
 		},
 
-		// (#11438)
+		// (http://dev.ckeditor.com/ticket/11438)
 		'test split cells (8)': function() {
 			this.doTest( 'split-cells-8', 'cellHorizontalSplit' );
 		},
@@ -134,53 +136,95 @@
 			this.doTest( 'split-cells-9', 'cellHorizontalSplit' );
 		},
 
-		// (#6111)
+		// (http://dev.ckeditor.com/ticket/6111)
 		'test merge one cell': function() {
 			this.doTest( 'merge-cell-right', 'cellMergeRight' );
 			this.doTest( 'merge-cell-down', 'cellMergeDown' );
 		},
 
-		// (#6228)
+		// (http://dev.ckeditor.com/ticket/6228)
 		'test merge one cell (2)': function() {
 			this.doTest( 'merge-cell-down-2', 'cellMergeDown' );
 		},
 
-		// (#8675)
+		// (http://dev.ckeditor.com/ticket/8675)
 		'test delete nested cells': function() {
 			this.doTest( 'delete-nested-cells', 'cellDelete' );
 		},
 
-		// (#8675)
+		// (http://dev.ckeditor.com/ticket/8675)
 		'test delete nested cells (2)': function() {
 			this.doTest( 'delete-nested-cells-2', 'cellDelete' );
 		},
 
-		// (#8675)
+		// (http://dev.ckeditor.com/ticket/8675)
 		// Check if moveOutOfCellGuard works as expected.
 		'test delete nested cells (3)': function() {
 			this.doTest( 'delete-nested-cells-3', 'cellDelete' );
 		},
 
-		// (#8675)
+		// (http://dev.ckeditor.com/ticket/8675)
 		// Test th and caption handling while deleting cells.
 		'test delete nested cells (4)': function() {
 			this.doTest( 'delete-nested-cells-4', 'cellDelete' );
 		},
 
-		// (#10308, #11058)
-		// To reproduce #11058 we need 4 rows in the table.
+		// (http://dev.ckeditor.com/ticket/10308, http://dev.ckeditor.com/ticket/11058)
+		// To reproduce http://dev.ckeditor.com/ticket/11058 we need 4 rows in the table.
 		'test remove row from middle row': function() {
 			this.doTest( 'delete-row-from-middle', 'rowDelete' );
 		},
 
-		// (#10308)
+		// (http://dev.ckeditor.com/ticket/10308)
 		'test remove trailing column': function() {
 			this.doTest( 'delete-column-trailing', 'columnDelete' );
 		},
 
-		// (#10308)
+		// (http://dev.ckeditor.com/ticket/10308)
 		'test remove trailing cell': function() {
 			this.doTest( 'delete-cell-trailing', 'cellDelete' );
+		},
+
+		'test background color conversion': function() {
+			var bot = this.editorBot;
+
+			bender.tools.testInputOut( 'background-conversion', function( source, expected ) {
+				bot.setHtmlWithSelection( source );
+				assert.beautified.html( expected, bot.getData( true ) );
+			} );
+		},
+
+		// (http://dev.ckeditor.com/ticket/16971)
+		'test background color extraction': function() {
+			var bot = this.editorBot;
+
+			bender.tools.testInputOut( 'background-extraction', function( source, expected ) {
+				if ( CKEDITOR.env.ie && CKEDITOR.env.version === 8 ) {
+					// Just a regular IE quirks.
+					expected = expected.replace( 'no-repeat center #00cc99', '#00cc99 no-repeat center 50%' );
+				}
+				bot.setHtmlWithSelection( source );
+				assert.beautified.html( expected, bot.getData( true ) );
+			} );
+		},
+
+		'test valign conversion': function() {
+			var bot = this.editorBot;
+
+			bender.tools.testInputOut( 'align-conversion', function( source, expected ) {
+				bot.setHtmlWithSelection( source );
+				assert.beautified.html( expected, bot.getData( true ) );
+			} );
+		},
+
+		// (http://dev.ckeditor.com/ticket/16818)
+		'test row height conversion': function() {
+			var bot = this.editorBot;
+
+			bender.tools.testInputOut( 'row-height-conversion', function( source, expected ) {
+				bot.setHtmlWithSelection( source );
+				assert.beautified.html( expected, bot.getData( true ) );
+			} );
 		}
 	} );
 } )();

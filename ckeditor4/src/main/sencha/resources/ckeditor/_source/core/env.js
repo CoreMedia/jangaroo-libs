@@ -1,5 +1,5 @@
 /**
- * @license Copyright (c) 2003-2016, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
 
@@ -136,7 +136,7 @@ if ( !CKEDITOR.env ) {
 				var domain = document.domain,
 					hostname = window.location.hostname;
 
-				return domain != hostname && domain != ( '[' + hostname + ']' ); // IPv6 IP support (#5434)
+				return domain != hostname && domain != ( '[' + hostname + ']' ); // IPv6 IP support (http://dev.ckeditor.com/ticket/5434)
 			},
 
 			/**

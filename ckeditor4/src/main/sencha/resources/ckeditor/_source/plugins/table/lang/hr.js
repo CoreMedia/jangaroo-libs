@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2003-2016, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.plugins.setLang( 'table', 'hr', {
@@ -28,7 +28,7 @@ CKEDITOR.plugins.setLang( 'table', 'hr', {
 		data: 'Podatak',
 		header: 'Zaglavlje',
 		yes: 'Da',
-		no: 'ne',
+		no: 'Ne',
 		invalidWidth: 'Širina ćelije mora biti broj.',
 		invalidHeight: 'Visina ćelije mora biti broj.',
 		invalidRowSpan: 'Rows span mora biti cijeli broj.',

@@ -10,7 +10,7 @@
 	};
 
 	bender.test( {
-		// (#12162)
+		// (http://dev.ckeditor.com/ticket/12162)
 		'test autoparagraphing in nested editable': function() {
 			var editor = this.editors.editor1,
 				editable = editor.editable(),
@@ -39,8 +39,8 @@
 				range = editor.createRange();
 
 			nestedEditable.focus();
-			range.setStart( nestedEditable, 0 );
-			range.setEnd( nestedEditable, 0 );
+			range.setStart( nestedEditable.getFirst(), 0 );
+			range.setEnd( nestedEditable.getFirst(), 0 );
 			sel.selectRanges( [ range ] );
 
 			assert.isInnerHtmlMatching( expected, bender.tools.selection.getWithHtml( editor ),

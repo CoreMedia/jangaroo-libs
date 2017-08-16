@@ -1,5 +1,5 @@
 /**
- * @license Copyright (c) 2003-2016, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
 
@@ -85,8 +85,8 @@ CKEDITOR.lang[ 'hr' ] = {
 		alignTop: 'Vrh',
 		alignMiddle: 'Sredina',
 		alignBottom: 'Dolje',
-		alignNone: 'None', // MISSING
-		invalidValue	: 'Neispravna vrijednost.',
+		alignNone: 'Bez poravnanja',
+		invalidValue: 'Neispravna vrijednost.',
 		invalidHeight: 'Visina mora biti broj.',
 		invalidWidth: 'Širina mora biti broj.',
 		invalidCssLength: 'Vrijednost određena za "%1" polje mora biti pozitivni broj sa ili bez važećih CSS mjernih jedinica (px, %, in, cm, mm, em, ex, pt ili pc).',
@@ -95,6 +95,23 @@ CKEDITOR.lang[ 'hr' ] = {
 		cssLengthTooltip: 'Unesite broj za vrijednost u pikselima ili broj s važećim CSS mjernim jedinicama (px, %, in, cm, mm, em, ex, pt ili pc).',
 
 		// Put the voice-only part of the label in the span.
-		unavailable: '%1<span class="cke_accessibility">, nedostupno</span>'
+		unavailable: '%1<span class="cke_accessibility">, nedostupno</span>',
+
+		// Keyboard keys translations used for creating shortcuts descriptions in tooltips, context menus and ARIA labels.
+		keyboard: {
+			8: 'Backspace',
+			13: 'Enter',
+			16: 'Shift',
+			17: 'Ctrl',
+			18: 'Alt',
+			32: 'Space',
+			35: 'End',
+			36: 'Home',
+			46: 'Delete',
+			224: 'Command'
+		},
+
+		// Prepended to ARIA labels with shortcuts.
+		keyboardShortcut: 'Prečica na tipkovnici'
 	}
 };

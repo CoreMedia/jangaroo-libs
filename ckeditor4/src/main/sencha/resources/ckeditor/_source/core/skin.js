@@ -1,5 +1,5 @@
 /**
- * @license Copyright (c) 2003-2016, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
 
@@ -125,7 +125,7 @@
 			offset = overrideOffset || ( icon && icon.offset );
 			bgsize = overrideBgsize || ( icon && icon.bgsize ) || '16px';
 
-			// If we use apostrophes in background-image, we must escape apostrophes in path (just to be sure). (#13361)
+			// If we use apostrophes in background-image, we must escape apostrophes in path (just to be sure). (http://dev.ckeditor.com/ticket/13361)
 			if ( path )
 				path = path.replace( /'/g, '\\\'' );
 

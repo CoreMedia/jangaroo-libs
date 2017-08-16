@@ -229,7 +229,7 @@ bender.test( {
 			'the selection was located after the strong element' );
 	},
 
-	// #12690
+	// http://dev.ckeditor.com/ticket/12690
 	'test selectRanges - inside empty inline element': function() {
 		var editor = this.editor,
 			range = editor.createRange();
@@ -252,7 +252,7 @@ bender.test( {
 		testSelectedElement( '[<b><i><img /></i>]</b>', 'img' );
 	},
 
-	// Issue noticed during works on #9764.
+	// Issue noticed during works on http://dev.ckeditor.com/ticket/9764.
 	'test getSelectedElement does not modify ranges': function() {
 		var editor = this.editor;
 
@@ -286,7 +286,7 @@ bender.test( {
 		} );
 	},
 
-	// #11493
+	// http://dev.ckeditor.com/ticket/11493
 	'test getRanges(true) does not modify cached ranges': function() {
 		var editor = this.editor;
 
@@ -301,7 +301,7 @@ bender.test( {
 		assert.areSame( 1, allRanges.length, 'only 1 range returned by getRanges()' );
 	},
 
-	// #11493
+	// http://dev.ckeditor.com/ticket/11493
 	'test getRanges(true) called after getRanges() does not modify cached ranges': function() {
 		var editor = this.editor;
 
@@ -475,7 +475,7 @@ bender.test( {
 		}
 	},
 
-	// #11500
+	// http://dev.ckeditor.com/ticket/11500
 	'test removeAllRanges is limited to its root': function() {
 		var editable1 = doc.getById( 'sandbox' ),
 			editable2 = doc.getById( 'sandbox2' );
@@ -652,5 +652,79 @@ bender.test( {
 		sel.getType();
 
 		assert.areSame( initialRev, sel.rev, 'Revision has not been modified' );
+	},
+
+	'test IE editable contenteditable="false" handling 1': function() {
+		if ( !CKEDITOR.env.ie ) {
+			assert.ignore();
+		}
+		var preventSpy = sinon.spy();
+
+		bender.tools.setHtmlWithSelection( this.editor, '<span contenteditable="false">^bar</span>' );
+
+		var selection = this.editor.getSelection(),
+			range = selection.getRanges()[ 0 ];
+
+		// Selection was moved somehow.
+		if ( range && range.startContainer.getName() !== 'span' ) {
+			assert.ignore();
+		}
+
+		this.editor.editable().fire( 'keydown', {
+			$: {},
+			preventDefault: preventSpy,
+			getKeystroke: function() {},
+			getKey: function() {}
+		} );
+
+		assert.isTrue( preventSpy.called, 'preventDefault() on keydown was called' );
+	},
+
+	'test IE editable contenteditable="false" handling 2': function() {
+		if ( !CKEDITOR.env.ie ) {
+			assert.ignore();
+		}
+		var preventSpy = sinon.spy();
+
+		bender.tools.setHtmlWithSelection( this.editor, '<span contenteditable="false">' +
+			'<span contenteditable="true">^bar</span></span>' );
+
+		this.editor.editable().fire( 'keydown', {
+			$: {},
+			preventDefault: preventSpy,
+			getKeystroke: function() {},
+			getKey: function() {}
+		} );
+
+		assert.isFalse( preventSpy.called, 'preventDefault() on keydown was called' );
+	},
+
+	// (http://dev.ckeditor.com/ticket/14714)
+	'test remove filling char sequence on keydown blur': function() {
+		if ( !CKEDITOR.env.webkit ) {
+			assert.ignore();
+		}
+
+		// If editor has no focus, filling character should not be removed in WebKits. (http://dev.ckeditor.com/ticket/14714)
+		var editable = this.editor.editable();
+		var fillingCharSequence = CKEDITOR.tools.repeat( '\u200b', 7 );
+
+		var par = this.editor.document.$.createElement( 'p' );
+		var span = this.editor.document.$.createElement( 'span' );
+		var text = editable.getDocument().createText( fillingCharSequence );
+
+		par.appendChild( span );
+		span.appendChild( text.$ );
+
+		editable.setCustomData( 'cke-fillingChar', text );
+		this.editor.focusManager.blur( true );
+		editable.$.innerHTML = '';
+		editable.$.appendChild( par );
+
+		assert.areEqual( 7, editable.$.innerText.length, 'before' );
+		editable.hasFocus = false;
+		this.editor.document.fire( 'keydown', new CKEDITOR.dom.event( { keyCode: 46 } ) );
+
+		assert.areEqual( 7, editable.$.innerText.length );
 	}
 } );

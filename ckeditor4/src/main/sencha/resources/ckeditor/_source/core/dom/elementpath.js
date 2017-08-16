@@ -1,5 +1,5 @@
 /**
- * @license Copyright (c) 2003-2016, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
 
@@ -57,6 +57,11 @@
 		// Backward compact.
 		root = root || startNode.getDocument().getBody();
 
+		// Assign root value if startNode is null (#424)(https://dev.ckeditor.com/ticket/17028).
+		if ( !e ) {
+			e = root;
+		}
+
 		do {
 			if ( e.type == CKEDITOR.NODE_ELEMENT ) {
 				elements.push( e );
@@ -84,7 +89,7 @@
 						block = e;
 
 					if ( pathBlockLimitElements[ elementName ] ) {
-						// End level DIV is considered as the block, if no block is available. (#525)
+						// End level DIV is considered as the block, if no block is available. (http://dev.ckeditor.com/ticket/525)
 						// But it must NOT be the root element (checked above).
 						if ( !block && elementName == 'div' && !checkHasBlock( e ) )
 							block = e;

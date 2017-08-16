@@ -1,6 +1,6 @@
 # CKEditor 4 - The best browser-based WYSIWYG editor
 
-[![devDependency Status](https://david-dm.org/ckeditor/ckeditor-dev/dev-status.svg)](https://david-dm.org/ckeditor/ckeditor-dev#info=devDependencies)
+[![devDependencies Status](https://david-dm.org/ckeditor/ckeditor-dev/dev-status.svg)](https://david-dm.org/ckeditor/ckeditor-dev?type=dev)
 
 This repository contains the development version of CKEditor.
 
@@ -68,10 +68,10 @@ Read more on how to set up the environment and execute tests in the [CKEditor Te
 
 ## Reporting Issues
 
-Please use the [CKEditor Developer Center](https://dev.ckeditor.com/) to report bugs and feature requests.
+Please use the [CKEditor GitHub issue page](https://github.com/ckeditor/ckeditor-dev/issues) to report bugs and feature requests.
 
 ## License
 
-Copyright (c) 2003-2016, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
 
 For licensing, see LICENSE.md or [http://ckeditor.com/license](http://ckeditor.com/license)

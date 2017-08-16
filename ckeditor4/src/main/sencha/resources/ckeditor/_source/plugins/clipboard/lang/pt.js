@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2003-2016, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.plugins.setLang( 'clipboard', 'pt', {
@@ -8,8 +8,5 @@ CKEDITOR.plugins.setLang( 'clipboard', 'pt', {
 	cut: 'Cortar',
 	cutError: 'A configuração de segurança do navegador não permite a execução automática de operações de cortar. Por favor use o teclado (Ctrl/Cmd+X).',
 	paste: 'Colar',
-	pasteArea: 'Colar área',
-	pasteMsg: 'Por favor, cole dentro da seguinte caixa usando o teclado (<STRONG>Ctrl/Cmd+V</STRONG>) e prima <STRONG>OK</STRONG>.',
-	securityMsg: 'Devido ás definições de segurança do teu browser, o editor não pode aceder ao clipboard diretamente. É necessário que voltes a colar as informações nesta janela.',
-	title: 'Colar'
+	pasteNotification: 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.' // MISSING
 } );

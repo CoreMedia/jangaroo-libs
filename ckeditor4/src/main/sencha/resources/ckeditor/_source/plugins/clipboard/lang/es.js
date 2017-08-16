@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2003-2016, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.plugins.setLang( 'clipboard', 'es', {
@@ -8,8 +8,5 @@ CKEDITOR.plugins.setLang( 'clipboard', 'es', {
 	cut: 'Cortar',
 	cutError: 'La configuración de seguridad de este navegador no permite la ejecución automática de operaciones de cortado.\r\nPor favor use el teclado (Ctrl/Cmd+X).',
 	paste: 'Pegar',
-	pasteArea: 'Zona de pegado',
-	pasteMsg: 'Por favor pegue dentro del cuadro utilizando el teclado (<STRONG>Ctrl/Cmd+V</STRONG>);\r\nluego presione <STRONG>Aceptar</STRONG>.',
-	securityMsg: 'Debido a la configuración de seguridad de su navegador, el editor no tiene acceso al portapapeles.\r\nEs necesario que lo pegue de nuevo en esta ventana.',
-	title: 'Pegar'
+	pasteNotification: 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.' // MISSING
 } );

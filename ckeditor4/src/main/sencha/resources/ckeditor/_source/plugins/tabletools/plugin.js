@@ -1,15 +1,28 @@
 /**
- * @license Copyright (c) 2003-2016, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
 
 ( function() {
-	var cellNodeRegex = /^(?:td|th)$/;
+	var cellNodeRegex = /^(?:td|th)$/,
+		isArray = CKEDITOR.tools.isArray;
 
-	function getSelectedCells( selection ) {
+	function getSelectedCells( selection, table ) {
+		if ( !selection ) {
+			return;
+		}
+
 		var ranges = selection.getRanges();
 		var retval = [];
 		var database = {};
+
+		function isInTable( cell ) {
+			if ( !table ) {
+				return true;
+			}
+
+			return table.contains( cell ) && cell.getAscendant( 'table', true ).equals( table );
+		}
 
 		function moveOutOfCellGuard( node ) {
 			// Apply to the first cell only.
@@ -30,9 +43,10 @@
 			if ( range.collapsed ) {
 				// Walker does not handle collapsed ranges yet - fall back to old API.
 				var startNode = range.getCommonAncestor();
-				var nearestCell = startNode.getAscendant( 'td', true ) || startNode.getAscendant( 'th', true );
-				if ( nearestCell )
+				var nearestCell = startNode.getAscendant( { td: 1, th: 1 }, true );
+				if ( nearestCell && isInTable( nearestCell ) ) {
 					retval.push( nearestCell );
+				}
 			} else {
 				var walker = new CKEDITOR.dom.walker( range );
 				var node;
@@ -47,8 +61,8 @@
 					// walked into its children.
 
 					if ( node.type != CKEDITOR.NODE_ELEMENT || !node.is( CKEDITOR.dtd.table ) ) {
-						var parent = node.getAscendant( 'td', true ) || node.getAscendant( 'th', true );
-						if ( parent && !parent.getCustomData( 'selected_cell' ) ) {
+						var parent = node.getAscendant( { td: 1, th: 1 }, true );
+						if ( parent && !parent.getCustomData( 'selected_cell' ) && isInTable( parent ) ) {
 							CKEDITOR.dom.element.setMarker( database, parent, 'selected_cell', true );
 							retval.push( parent );
 						}
@@ -95,8 +109,8 @@
 		return null;
 	}
 
-	function insertRow( selection, insertBefore ) {
-		var cells = getSelectedCells( selection ),
+	function insertRow( selectionOrCells, insertBefore ) {
+		var cells = isArray( selectionOrCells ) ? selectionOrCells : getSelectedCells( selectionOrCells ),
 			firstCell = cells[ 0 ],
 			table = firstCell.getAscendant( 'table' ),
 			doc = firstCell.getDocument(),
@@ -136,7 +150,8 @@
 
 	function deleteRows( selectionOrRow ) {
 		if ( selectionOrRow instanceof CKEDITOR.dom.selection ) {
-			var cells = getSelectedCells( selectionOrRow ),
+			var ranges = selectionOrRow.getRanges(),
+				cells = getSelectedCells( selectionOrRow ),
 				firstCell = cells[ 0 ],
 				table = firstCell.getAscendant( 'table' ),
 				map = CKEDITOR.tools.buildTableMap( table ),
@@ -145,6 +160,8 @@
 				lastCell = cells[ cells.length - 1 ],
 				endRowIndex = lastCell.getParent().$.rowIndex + lastCell.$.rowSpan - 1,
 				rowsToDelete = [];
+
+			selectionOrRow.reset();
 
 			// Delete cell or reduce cell spans by checking through the table map.
 			for ( var i = startRowIndex; i <= endRowIndex; i++ ) {
@@ -176,23 +193,35 @@
 
 			var rows = table.$.rows;
 
+			// After deleting whole table, the selection would be broken,
+			// therefore it's safer to move it outside the table first.
+			ranges[ 0 ].moveToPosition( table, CKEDITOR.POSITION_BEFORE_START );
+
 			// Where to put the cursor after rows been deleted?
 			// 1. Into next sibling row if any;
 			// 2. Into previous sibling row if any;
 			// 3. Into table's parent element if it's the very last row.
 			var cursorPosition = new CKEDITOR.dom.element( rows[ endRowIndex + 1 ] || ( startRowIndex > 0 ? rows[ startRowIndex - 1 ] : null ) || table.$.parentNode );
 
-			for ( i = rowsToDelete.length; i >= 0; i-- )
+			for ( i = rowsToDelete.length; i >= 0; i-- ) {
 				deleteRows( rowsToDelete[ i ] );
+			}
+
+			// If all the rows were removed, table gets removed too.
+			if ( !table.$.parentNode ) {
+				ranges[ 0 ].select();
+				return null;
+			}
 
 			return cursorPosition;
 		} else if ( selectionOrRow instanceof CKEDITOR.dom.element ) {
 			table = selectionOrRow.getAscendant( 'table' );
 
-			if ( table.$.rows.length == 1 )
+			if ( table.$.rows.length == 1 ) {
 				table.remove();
-			else
+			} else {
 				selectionOrRow.remove();
+			}
 		}
 
 		return null;
@@ -223,13 +252,14 @@
 		return retval;
 	}
 
-	function insertColumn( selection, insertBefore ) {
-		var cells = getSelectedCells( selection ),
+	function insertColumn( selectionOrCells, insertBefore ) {
+		var cells = isArray( selectionOrCells ) ? selectionOrCells : getSelectedCells( selectionOrCells ),
 			firstCell = cells[ 0 ],
 			table = firstCell.getAscendant( 'table' ),
 			startCol = getColumnsIndices( cells, 1 ),
 			lastCol = getColumnsIndices( cells ),
-			colIndex = insertBefore ? startCol : lastCol;
+			colIndex = insertBefore ? startCol : lastCol,
+			originalCell;
 
 		var map = CKEDITOR.tools.buildTableMap( table ),
 			cloneCol = [],
@@ -253,10 +283,11 @@
 				cell = cloneCol[ i ];
 				cell.colSpan += 1;
 			} else {
-				cell = new CKEDITOR.dom.element( cloneCol[ i ] ).clone();
+				originalCell = new CKEDITOR.dom.element( cloneCol[ i ] );
+				cell = originalCell.clone();
 				cell.removeAttribute( 'colSpan' );
 				cell.appendBogus();
-				cell[ insertBefore ? 'insertBefore' : 'insertAfter' ].call( cell, new CKEDITOR.dom.element( cloneCol[ i ] ) );
+				cell[ insertBefore ? 'insertBefore' : 'insertAfter' ].call( cell, originalCell );
 				cell = cell.$;
 			}
 
@@ -264,14 +295,17 @@
 		}
 	}
 
-	function deleteColumns( selectionOrCell ) {
-		var cells = getSelectedCells( selectionOrCell ),
+	function deleteColumns( selection ) {
+		var ranges = selection.getRanges(),
+			cells = getSelectedCells( selection ),
 			firstCell = cells[ 0 ],
 			lastCell = cells[ cells.length - 1 ],
 			table = firstCell.getAscendant( 'table' ),
 			map = CKEDITOR.tools.buildTableMap( table ),
 			startColIndex, endColIndex,
 			rowsToDelete = [];
+
+		selection.reset();
 
 		// Figure out selected cells' column indices.
 		for ( var i = 0, rows = map.length; i < rows; i++ ) {
@@ -314,15 +348,21 @@
 		var cursorPosition = new CKEDITOR.dom.element( firstRowCells[ startColIndex ] || ( startColIndex ? firstRowCells[ startColIndex - 1 ] : table.$.parentNode ) );
 
 		// Delete table rows only if all columns are gone (do not remove empty row).
-		if ( rowsToDelete.length == rows )
+		if ( rowsToDelete.length == rows ) {
+			// After deleting whole table, the selection would be broken,
+			// therefore it's safer to move it outside the table first.
+			ranges[ 0 ].moveToPosition( table, CKEDITOR.POSITION_AFTER_END );
+			ranges[ 0 ].select();
+
 			table.remove();
+		}
 
 		return cursorPosition;
 	}
 
 	function insertCell( selection, insertBefore ) {
-		var startElement = selection.getStartElement();
-		var cell = startElement.getAscendant( 'td', 1 ) || startElement.getAscendant( 'th', 1 );
+		var startElement = selection.getStartElement(),
+			cell = startElement.getAscendant( { td: 1, th: 1 }, true );
 
 		if ( !cell )
 			return;
@@ -339,23 +379,34 @@
 
 	function deleteCells( selectionOrCell ) {
 		if ( selectionOrCell instanceof CKEDITOR.dom.selection ) {
-			var cellsToDelete = getSelectedCells( selectionOrCell );
-			var table = cellsToDelete[ 0 ] && cellsToDelete[ 0 ].getAscendant( 'table' );
-			var cellToFocus = getFocusElementAfterDelCells( cellsToDelete );
+			var ranges = selectionOrCell.getRanges(),
+				cellsToDelete = getSelectedCells( selectionOrCell ),
+				table = cellsToDelete[ 0 ] && cellsToDelete[ 0 ].getAscendant( 'table' ),
+				cellToFocus = getFocusElementAfterDelCells( cellsToDelete );
 
-			for ( var i = cellsToDelete.length - 1; i >= 0; i-- )
+			selectionOrCell.reset();
+
+			for ( var i = cellsToDelete.length - 1; i >= 0; i-- ) {
 				deleteCells( cellsToDelete[ i ] );
+			}
 
-			if ( cellToFocus )
+			if ( cellToFocus ) {
 				placeCursorInCell( cellToFocus, true );
-			else if ( table )
+			} else if ( table ) {
+				// After deleting whole table, the selection would be broken,
+				// therefore it's safer to move it outside the table first.
+				ranges[ 0 ].moveToPosition( table, CKEDITOR.POSITION_BEFORE_START );
+				ranges[ 0 ].select();
+
 				table.remove();
+			}
 		} else if ( selectionOrCell instanceof CKEDITOR.dom.element ) {
 			var tr = selectionOrCell.getParent();
-			if ( tr.getChildCount() == 1 )
+			if ( tr.getChildCount() == 1 ) {
 				tr.remove();
-			else
+			} else {
 				selectionOrCell.remove();
+			}
 		}
 	}
 
@@ -371,9 +422,9 @@
 			docOuter = CKEDITOR.document;
 
 		// Fixing "Unspecified error" thrown in IE10 by resetting
-		// selection the dirty and shameful way (#10308).
+		// selection the dirty and shameful way (http://dev.ckeditor.com/ticket/10308).
 		// We can not apply this hack to IE8 because
-		// it causes error (#11058).
+		// it causes error (http://dev.ckeditor.com/ticket/11058).
 		if ( CKEDITOR.env.ie && CKEDITOR.env.version == 10 ) {
 			docOuter.focus();
 			docInner.focus();
@@ -642,9 +693,11 @@
 	}
 
 	CKEDITOR.plugins.tabletools = {
-		requires: 'table,dialog',
+		requires: 'table,dialog,contextmenu',
+
 		init: function( editor ) {
-			var lang = editor.lang.table;
+			var lang = editor.lang.table,
+				styleParse = CKEDITOR.tools.style.parse;
 
 			function createDef( def ) {
 				return CKEDITOR.tools.extend( def || {}, {
@@ -661,31 +714,91 @@
 
 			addCmd( 'cellProperties', new CKEDITOR.dialogCommand( 'cellProperties', createDef( {
 				allowedContent: 'td th{width,height,border-color,background-color,white-space,vertical-align,text-align}[colspan,rowspan]',
-				requiredContent: 'table'
+				requiredContent: 'table',
+				contentTransformations: [ [ {
+						element: 'td',
+						left: function( element ) {
+							return element.styles.background && styleParse.background( element.styles.background ).color;
+						},
+						right: function( element ) {
+							element.styles[ 'background-color' ] = styleParse.background( element.styles.background ).color;
+						}
+					}, {
+						element: 'td',
+						check: 'td{vertical-align}',
+						left: function( element ) {
+							return element.attributes && element.attributes.valign;
+						},
+						right: function( element ) {
+							element.styles[ 'vertical-align' ] = element.attributes.valign;
+							delete element.attributes.valign;
+						}
+					}
+					], [
+						{
+							// (http://dev.ckeditor.com/ticket/16818)
+							element: 'tr',
+							check: 'td{height}',
+							left: function( element ) {
+								return element.styles && element.styles.height;
+							},
+							right: function( element ) {
+								CKEDITOR.tools.array.forEach( element.children, function( node ) {
+									if ( node.name in { td: 1, th: 1 } ) {
+										node.attributes[ 'cke-row-height' ] = element.styles.height;
+									}
+								} );
+
+								delete element.styles.height;
+							}
+						}
+					], [
+						{
+							// (http://dev.ckeditor.com/ticket/16818)
+							element: 'td',
+							check: 'td{height}',
+							left: function( element ) {
+								var attributes = element.attributes;
+								return attributes && attributes[ 'cke-row-height' ];
+							},
+							right: function( element ) {
+								element.styles.height = element.attributes[ 'cke-row-height' ];
+								delete element.attributes[ 'cke-row-height' ];
+							}
+						}
+					] ]
 			} ) ) );
 			CKEDITOR.dialog.add( 'cellProperties', this.path + 'dialogs/tableCell.js' );
 
 			addCmd( 'rowDelete', createDef( {
 				requiredContent: 'table',
 				exec: function( editor ) {
-					var selection = editor.getSelection();
-					placeCursorInCell( deleteRows( selection ) );
+					var selection = editor.getSelection(),
+						cursorPosition = deleteRows( selection );
+
+					if ( cursorPosition ) {
+						placeCursorInCell( cursorPosition );
+					}
 				}
 			} ) );
 
 			addCmd( 'rowInsertBefore', createDef( {
 				requiredContent: 'table',
 				exec: function( editor ) {
-					var selection = editor.getSelection();
-					insertRow( selection, true );
+					var selection = editor.getSelection(),
+						cells = getSelectedCells( selection );
+
+					insertRow( cells, true );
 				}
 			} ) );
 
 			addCmd( 'rowInsertAfter', createDef( {
 				requiredContent: 'table',
 				exec: function( editor ) {
-					var selection = editor.getSelection();
-					insertRow( selection );
+					var selection = editor.getSelection(),
+						cells = getSelectedCells( selection );
+
+					insertRow( cells );
 				}
 			} ) );
 
@@ -694,23 +807,30 @@
 				exec: function( editor ) {
 					var selection = editor.getSelection();
 					var element = deleteColumns( selection );
-					element && placeCursorInCell( element, true );
+
+					if ( element ) {
+						placeCursorInCell( element, true );
+					}
 				}
 			} ) );
 
 			addCmd( 'columnInsertBefore', createDef( {
 				requiredContent: 'table',
 				exec: function( editor ) {
-					var selection = editor.getSelection();
-					insertColumn( selection, true );
+					var selection = editor.getSelection(),
+						cells = getSelectedCells( selection );
+
+					insertColumn( cells, true );
 				}
 			} ) );
 
 			addCmd( 'columnInsertAfter', createDef( {
 				requiredContent: 'table',
 				exec: function( editor ) {
-					var selection = editor.getSelection();
-					insertColumn( selection );
+					var selection = editor.getSelection(),
+						cells = getSelectedCells( selection );
+
+					insertColumn( cells );
 				}
 			} ) );
 
@@ -718,6 +838,7 @@
 				requiredContent: 'table',
 				exec: function( editor ) {
 					var selection = editor.getSelection();
+
 					deleteCells( selection );
 				}
 			} ) );
@@ -725,24 +846,30 @@
 			addCmd( 'cellMerge', createDef( {
 				allowedContent: 'td[colspan,rowspan]',
 				requiredContent: 'td[colspan,rowspan]',
-				exec: function( editor ) {
-					placeCursorInCell( mergeCells( editor.getSelection() ), true );
+				exec: function( editor, data ) {
+					data.cell = mergeCells( editor.getSelection() );
+
+					placeCursorInCell( data.cell, true );
 				}
 			} ) );
 
 			addCmd( 'cellMergeRight', createDef( {
 				allowedContent: 'td[colspan]',
 				requiredContent: 'td[colspan]',
-				exec: function( editor ) {
-					placeCursorInCell( mergeCells( editor.getSelection(), 'right' ), true );
+				exec: function( editor, data ) {
+					data.cell = mergeCells( editor.getSelection(), 'right' );
+
+					placeCursorInCell( data.cell, true );
 				}
 			} ) );
 
 			addCmd( 'cellMergeDown', createDef( {
 				allowedContent: 'td[rowspan]',
 				requiredContent: 'td[rowspan]',
-				exec: function( editor ) {
-					placeCursorInCell( mergeCells( editor.getSelection(), 'down' ), true );
+				exec: function( editor, data ) {
+					data.cell = mergeCells( editor.getSelection(), 'down' );
+
+					placeCursorInCell( data.cell, true );
 				}
 			} ) );
 
@@ -766,6 +893,7 @@
 				requiredContent: 'table',
 				exec: function( editor ) {
 					var selection = editor.getSelection();
+
 					insertCell( selection, true );
 				}
 			} ) );
@@ -774,6 +902,7 @@
 				requiredContent: 'table',
 				exec: function( editor ) {
 					var selection = editor.getSelection();
+
 					insertCell( selection );
 				}
 			} ) );
@@ -952,35 +1081,54 @@
 			}
 		},
 
-		getSelectedCells: getSelectedCells
+		// These methods are needed by tableselection plugin, so we must expose them.
+		getCellColIndex: getCellColIndex,
+		insertRow: insertRow,
+		insertColumn: insertColumn,
 
+		getSelectedCells: getSelectedCells
 	};
 	CKEDITOR.plugins.add( 'tabletools', CKEDITOR.plugins.tabletools );
 } )();
 
 /**
- * Create a two-dimension array that reflects the actual layout of table cells,
- * with cell spans, with mappings to the original td elements.
+ * Creates a two-dimension array that reflects the actual layout of table cells,
+ * with cell spans, with mappings to the original `td` elements.
+ *
+ * It could also create a map for the specified fragment of the table.
  *
  * @param {CKEDITOR.dom.element} table
+ * @param {Number} startRow Row index from which the map should be created.
+ * @param {Number} startCell Cell index from which the map should be created.
+ * @param {Number} endRow Row index to which the map should be created.
+ * @param {Number} endCell Cell index to which the map should be created.
  * @member CKEDITOR.tools
  */
-CKEDITOR.tools.buildTableMap = function( table ) {
+CKEDITOR.tools.buildTableMap = function( table, startRow, startCell, endRow, endCell ) {
 	var aRows = table.$.rows;
+
+	startRow = startRow || 0;
+	startCell = startCell || 0;
+	endRow = typeof endRow === 'number' ? endRow : aRows.length - 1;
+	endCell = typeof endCell === 'number' ? endCell : -1;
 
 	// Row and Column counters.
 	var r = -1;
 
 	var aMap = [];
 
-	for ( var i = 0; i < aRows.length; i++ ) {
+	for ( var i = startRow; i <= endRow; i++ ) {
 		r++;
 		!aMap[ r ] && ( aMap[ r ] = [] );
 
 		var c = -1;
 
-		for ( var j = 0; j < aRows[ i ].cells.length; j++ ) {
+		for ( var j = startCell; j <= ( endCell === -1 ? ( aRows[ i ].cells.length - 1 ) : endCell ); j++ ) {
 			var oCell = aRows[ i ].cells[ j ];
+
+			if ( !oCell ) {
+				break;
+			}
 
 			c++;
 			while ( aMap[ r ][ c ] )
@@ -990,6 +1138,10 @@ CKEDITOR.tools.buildTableMap = function( table ) {
 			var iRowSpan = isNaN( oCell.rowSpan ) ? 1 : oCell.rowSpan;
 
 			for ( var rs = 0; rs < iRowSpan; rs++ ) {
+				if ( i + rs > endRow ) {
+					break;
+				}
+
 				if ( !aMap[ r + rs ] )
 					aMap[ r + rs ] = [];
 
@@ -999,6 +1151,10 @@ CKEDITOR.tools.buildTableMap = function( table ) {
 			}
 
 			c += iColSpan - 1;
+
+			if ( endCell !== -1 && c >= endCell ) {
+				break;
+			}
 		}
 	}
 	return aMap;
