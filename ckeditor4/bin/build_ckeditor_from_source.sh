@@ -31,6 +31,7 @@ declare -r CKEDITOR_MODULE_ROOT="$(readlink -f "${MY_DIR}/..")"
 declare -r CKEDITOR_ORIGINAL_SOURCE="$(readlink -f "${CKEDITOR_MODULE_ROOT}/src/main/sencha/resources/ckeditor/_source")"
 ### Patches, currently only SED scripts, maybe more in the future
 declare -r CKEDITOR_SED_PATCHES_ROOT="$(readlink -f "${CKEDITOR_MODULE_ROOT}/src/patches")"
+declare -r CKEDITOR_DELETE_LIST="${CKEDITOR_SED_PATCHES_ROOT}/delete.txt"
 ### Location for temporary source to apply patches to and to build from.
 declare -r CKEDITOR_PATCHED_SOURCE="$(readlink -fm "${CKEDITOR_MODULE_ROOT}/target/ckeditor/patched-source")"
 declare -r CKEDITOR_PATCHED_BUILDER_DIR="$(readlink -fm "${CKEDITOR_PATCHED_SOURCE}/dev/builder")"
@@ -47,6 +48,7 @@ mkdir --parents "${CKEDITOR_PATCHED_SOURCE}"
 cp --recursive "${CKEDITOR_ORIGINAL_SOURCE}/"* "${CKEDITOR_PATCHED_SOURCE}"
 
 echo "Applying SED Patches from: ${CKEDITOR_SED_PATCHES_ROOT}"
+
 for p in $(find "${CKEDITOR_SED_PATCHES_ROOT}" -name '*.sed.txt'); do
   ### Remove the patches root path from the patch-file-path
   relativePatchFile="${p#${CKEDITOR_SED_PATCHES_ROOT}}"
@@ -58,6 +60,19 @@ for p in $(find "${CKEDITOR_SED_PATCHES_ROOT}" -name '*.sed.txt'); do
   echo "    SED File: ${p}"
   echo "    Target File: ${patchTarget}"
   sed --in-place=.bak --file="${p}" "${patchTarget}"
+done
+
+echo "Deleting files and/or folders as specified in ${CKEDITOR_DELETE_LIST}."
+
+grep -v -e '^\(#.*\|[[:space:]]*\)$' "${CKEDITOR_DELETE_LIST}" | while read line; do
+  deletePath="$(readlink -fm ${CKEDITOR_PATCHED_SOURCE}/${line})"
+  ### A small safety net, that we don't use .. etc. in paths
+  if [[ $deletePath != "${CKEDITOR_PATCHED_SOURCE}"*  ]]; then
+    echo "Path leaves patched source path which is forbidden: ${line} evaluates to ${deletePath}."
+    exit 1
+  fi
+  echo "    Deleting ${deletePath}."
+  rm --recursive "${deletePath}" || true
 done
 
 echo "Going to build CKEditor with configuration file: ${CKEDITOR_PATCHED_BUILD_CONFIG}"
