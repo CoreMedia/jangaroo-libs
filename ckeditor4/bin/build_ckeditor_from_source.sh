@@ -16,7 +16,7 @@ set -o nounset
 set -o pipefail
 set -o errexit
 ### Uncomment to enable debug logging
-set -o xtrace
+#set -o xtrace
 
 declare -r ME="$(readlink -f "${BASH_SOURCE[0]}")"
 declare -r MY_DIR="$(dirname "${ME}")"
@@ -27,11 +27,16 @@ declare -r MY_DIR="$(dirname "${ME}")"
 ### -m, --canonicalize-missing: Also canonicalize for not (yet) existing files/folders
 ###
 declare -r CKEDITOR_MODULE_ROOT="$(readlink -f "${MY_DIR}/..")"
+### Original sources from ckeditor/ckeditor-dev project; untouched
 declare -r CKEDITOR_ORIGINAL_SOURCE="$(readlink -f "${CKEDITOR_MODULE_ROOT}/src/main/sencha/resources/ckeditor/_source")"
+### Patches, currently only SED scripts, maybe more in the future
+declare -r CKEDITOR_SED_PATCHES_ROOT="$(readlink -f "${CKEDITOR_MODULE_ROOT}/src/patches")"
+### Location for temporary source to apply patches to and to build from.
 declare -r CKEDITOR_PATCHED_SOURCE="$(readlink -fm "${CKEDITOR_MODULE_ROOT}/target/ckeditor/patched-source")"
 declare -r CKEDITOR_PATCHED_BUILDER_DIR="$(readlink -fm "${CKEDITOR_PATCHED_SOURCE}/dev/builder")"
 declare -r CKEDITOR_PATCHED_BUILD="$(readlink -fm "${CKEDITOR_PATCHED_BUILDER_DIR}/build.sh")"
 declare -r CKEDITOR_PATCHED_BUILD_OUTPUT="$(readlink -fm "${CKEDITOR_PATCHED_BUILDER_DIR}/release/ckeditor")"
+### Where the patched and built result shall be copied to.
 declare -r CKEDITOR_TARGET="$(readlink -f "${CKEDITOR_MODULE_ROOT}/src/main/sencha/resources/ckeditor")"
 
 declare -r CKEDITOR_PATCHED_BUILD_CONFIG="$(readlink -f "${CKEDITOR_MODULE_ROOT}/src/jangaroo-build-config.js")"
@@ -40,6 +45,20 @@ echo "Preparing temporary CKEditor build folder to apply patches at: ${CKEDITOR_
 rm --recursive "${CKEDITOR_PATCHED_SOURCE}" &> /dev/null || true
 mkdir --parents "${CKEDITOR_PATCHED_SOURCE}"
 cp --recursive "${CKEDITOR_ORIGINAL_SOURCE}/"* "${CKEDITOR_PATCHED_SOURCE}"
+
+echo "Applying SED Patches from: ${CKEDITOR_SED_PATCHES_ROOT}"
+for p in $(find "${CKEDITOR_SED_PATCHES_ROOT}" -name '*.sed.txt'); do
+  ### Remove the patches root path from the patch-file-path
+  relativePatchFile="${p#${CKEDITOR_SED_PATCHES_ROOT}}"
+  ### Remove the .sed.txt suffix
+  relativeTargetFile="${relativePatchFile%.sed.txt}"
+  ### No slash here, as we did not strip that before
+  patchTarget="${CKEDITOR_PATCHED_SOURCE}${relativeTargetFile}"
+  echo "Applying Patch:"
+  echo "    SED File: ${p}"
+  echo "    Target File: ${patchTarget}"
+  sed --in-place=.bak --file="${p}" "${patchTarget}"
+done
 
 echo "Going to build CKEditor with configuration file: ${CKEDITOR_PATCHED_BUILD_CONFIG}"
 
