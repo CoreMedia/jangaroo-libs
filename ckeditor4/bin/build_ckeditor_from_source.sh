@@ -46,6 +46,10 @@ declare -r CKEDITOR_TARGET="$(readlink -f "${CKEDITOR_MODULE_ROOT}/src/main/senc
 
 declare -r CKEDITOR_PATCHED_BUILD_CONFIG="$(readlink -f "${CKEDITOR_MODULE_ROOT}/src/jangaroo-build-config.js")"
 
+### Parsing CKEditor version, Copy & Paste & Adapt from dev/builder/builder.sh
+declare -r CKEDITOR_VERSION="$(cd "${CKEDITOR_ORIGINAL_SOURCE}";node -pe "require('./package.json').version")"
+declare -r CKEDITOR_JANGAROO_VERSION="${CKEDITOR_VERSION}-jangaroo"
+
 declare -ri EXIT_OK=0
 declare -ri EXIT_ILLEGAL_OPTION=10
 
@@ -180,6 +184,21 @@ DESCRIPTION
 HELP
 }
 
+### CKEditor determines if it is a fake build or not by the current git tag on HEAD
+### Thus we fake this approach by creating an appropriate tag prior to triggering the
+### CKEditor Build. CKEditor (currently) ignores the Jangaroo Postfix but we keep it
+### to prevent possibly collisions (and perhaps the postfix is respected some day in the
+### future which would be nice to see that we have a patched CKEditor here).
+function add_fake_ckeditor_tag() {
+  trap remove_fake_ckeditor_tag EXIT TERM INT
+  git tag -a "${CKEDITOR_JANGAROO_VERSION}" -m "Intermediate fake version for CKEditor ${CKEDITOR_VERSION} build."
+}
+
+function remove_fake_ckeditor_tag() {
+  trap - EXIT TERM INT
+  git tag -d "${CKEDITOR_JANGAROO_VERSION}"
+}
+
 function main() {
   parse_cli "${@}"
 
@@ -188,11 +207,15 @@ function main() {
     exit ${EXIT_OK}
   fi
 
+  echo "Going to patch and build CKEditor ${CKEDITOR_VERSION}."
+
   init_working_folder
   apply_sed_patches
   apply_diff_patches
   apply_deletions
+  add_fake_ckeditor_tag
   build_ckeditor
+  remove_fake_ckeditor_tag
   if [[ "${dry_run}" == "true" ]]; then
     echo "Dry Run: Skipping to install CKEditor release to ${CKEDITOR_TARGET}."
     exit ${EXIT_OK}
