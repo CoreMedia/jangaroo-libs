@@ -151,8 +151,6 @@ function install_ckeditor() {
   cd "${CKEDITOR_TARGET}"
   ### true: Ignore failure if there are no more files to delete
   find . -maxdepth 1 ! -name _source ! -name . | xargs rm --recursive || true
-  ### Remove any backup files created during the patch process
-  find . -name "*.bak" | xargs rm || true
 
   echo "Copying build results"
   echo "    from: ${CKEDITOR_PATCHED_BUILD_OUTPUT}"
