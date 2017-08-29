@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2016, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['de'] = {
@@ -7,6 +7,26 @@ CKEDITOR.lang['de'] = {
     {
     	redo : 'Wiederherstellen',
     	undo : 'Rückgängig'
+    },
+    toolbar : 
+    {
+    	toolbarCollapse : 'Werkzeugleiste einklappen',
+    	toolbarExpand : 'Werkzeugleiste ausklappen',
+    	toolbarGroups : 
+    	{
+    		document : 'Dokument',
+    		clipboard : 'Zwischenablage/Rückgängig',
+    		editing : 'Editieren',
+    		forms : 'Formulare',
+    		basicstyles : 'Grundstile',
+    		paragraph : 'Absatz',
+    		links : 'Links',
+    		insert : 'Einfügen',
+    		styles : 'Stile',
+    		colors : 'Farben',
+    		tools : 'Werkzeuge'
+    	},
+    	toolbars : 'Editor Werkzeugleisten'
     },
     table : 
     {
@@ -85,7 +105,7 @@ CKEDITOR.lang['de'] = {
     pastetext : 
     {
     	button : 'Als Klartext einfügen',
-    	title : 'Als Klartext einfügen'
+    	pasteNotification : 'Ihr Browser verhindert das Einfügen von Text über diesen Weg. Zum einfügen drücken Sie %1.'
     },
     pastefromword : 
     {
@@ -93,6 +113,10 @@ CKEDITOR.lang['de'] = {
     	error : 'Aufgrund eines internen Fehlers war es nicht möglich die eingefügten Daten zu bereinigen',
     	title : 'Aus Word einfügen',
     	toolbar : 'Aus Word einfügen'
+    },
+    notification : 
+    {
+    	closed : 'Benachrichtigung geschlossen.'
     },
     list : 
     {
@@ -118,6 +142,8 @@ CKEDITOR.lang['de'] = {
     	anchorName : 'Nach Ankername',
     	charset : 'Verknüpfter Ressourcenzeichensatz',
     	cssClasses : 'Formatvorlagenklasse',
+    	download : 'Herunterladen erzwingen',
+    	displayText : 'Anzeigetext',
     	emailAddress : 'E-Mail-Adresse',
     	emailBody : 'Nachrichtentext',
     	emailSubject : 'Betreffzeile',
@@ -171,15 +197,15 @@ CKEDITOR.lang['de'] = {
     {
     	find : 'Suchen',
     	findOptions : 'Suchoptionen',
-    	findWhat : 'Suche nach:',
+    	findWhat : 'Suchen nach:',
     	matchCase : 'Groß-/Kleinschreibung beachten',
     	matchCyclic : 'Zyklische Suche',
-    	matchWord : 'Nur ganze Worte suchen',
+    	matchWord : 'Nur ganzes Wort suchen',
     	notFoundMsg : 'Der angegebene Text wurde nicht gefunden.',
     	replace : 'Ersetzen',
     	replaceAll : 'Alle ersetzen',
     	replaceSuccessMsg : '%1 Vorkommen ersetzt.',
-    	replaceWith : 'Ersetze mit:',
+    	replaceWith : 'Ersetzen mit:',
     	title : 'Suchen und Ersetzen'
     },
     fakeobjects : 
@@ -189,6 +215,17 @@ CKEDITOR.lang['de'] = {
     	hiddenfield : 'Verstecktes Feld',
     	iframe : 'IFrame',
     	unknown : 'Unbekanntes Objekt'
+    },
+    copyformatting : 
+    {
+    	label : 'Formatierung kopieren',
+    	notification : 
+    	{
+    		copied : 'Formatierung kopiert',
+    		applied : 'Formatierung angewendet',
+    		canceled : 'Formatierung abgebrochen',
+    		failed : 'Formatierung fehlgeschlagen. Sie können Stile nicht anwenden, ohne sie zuerst zu kopieren.'
+    	}
     },
     contextmenu : 
     {
@@ -201,10 +238,11 @@ CKEDITOR.lang['de'] = {
     	cut : 'Ausschneiden',
     	cutError : 'Die Sicherheitseinstellungen Ihres Browsers lassen es nicht zu, den Text automatisch auszuschneiden. Bitte benutzen Sie die System-Zwischenablage über STRG-X (ausschneiden) und STRG-V (einfügen).',
     	paste : 'Einfügen',
-    	pasteArea : 'Einfügebereich',
-    	pasteMsg : 'Bitte fügen Sie den Text in der folgenden Box über die Tastatur (mit <STRONG>Strg+V</STRONG>) ein und bestätigen Sie mit <STRONG>OK</STRONG>.',
-    	securityMsg : 'Aufgrund von Sicherheitsbeschränkungen Ihres Browsers kann der Editor nicht direkt auf die Zwischenablage zugreifen. Bitte fügen Sie den Inhalt erneut in diesem Fenster ein.',
-    	title : 'Einfügen'
+    	pasteNotification : 'Ihr Browser verhindert das Einfügen über diesen Weg. Zum einfügen drücken Sie %1.'
+    },
+    button : 
+    {
+    	selectedLabel : '%1 (Ausgewählt)'
     },
     blockquote : 
     {
@@ -259,7 +297,7 @@ CKEDITOR.lang['de'] = {
     	generalTab : 'Allgemein',
     	advancedTab : 'Erweitert',
     	validateNumberFailed : 'Dieser Wert ist keine Nummer.',
-    	confirmNewPage : 'Alle nicht gespeicherten Änderungen gehen verlohren. Sind Sie sicher die neue Seite zu laden?',
+    	confirmNewPage : 'Alle nicht gespeicherten Änderungen gehen verloren. Sind Sie sicher die neue Seite zu laden?',
     	confirmCancel : 'Einige Optionen wurden geändert. Wollen Sie den Dialog dennoch schließen?',
     	options : 'Optionen',
     	target : 'Zielseite',
@@ -289,5 +327,19 @@ CKEDITOR.lang['de'] = {
     	invalidHtmlLength : 'Wert spezifiziert für "%1" Feld muss ein positiver numerischer Wert sein mit oder ohne korrekte HTML Messeinheit (px oder %).',
     	invalidInlineStyle : 'Wert spezifiziert für inline Stilart muss enthalten ein oder mehr Tupels mit dem Format "Name : Wert" getrennt mit Semikolons.',
     	cssLengthTooltip : 'Gebe eine Zahl ein für ein Wert in pixels oder eine Zahl mit einer korrekten CSS Messeinheit (px, %, in, cm, mm, em, ex, pt oder pc).',
-    	unavailable : '%1<span class="cke_accessibility">, nicht verfügbar</span>'
+    	unavailable : '%1<span class="cke_accessibility">, nicht verfügbar</span>',
+    	keyboard : 
+    	{
+    		'8' : 'Rücktaste',
+    		'13' : 'Eingabe',
+    		'16' : 'Umschalt',
+    		'17' : 'Strg',
+    		'18' : 'Alt',
+    		'32' : 'Leer',
+    		'35' : 'Ende',
+    		'36' : 'Pos1',
+    		'46' : 'Entfernen',
+    		'224' : 'Befehl'
+    	},
+    	keyboardShortcut : 'Tastaturkürzel'
     } }; 
