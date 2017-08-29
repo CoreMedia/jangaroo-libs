@@ -115,7 +115,7 @@ function apply_diff_patches() {
     echo "Applying Patch:"
     echo "    Patch File: ${p}"
     echo "    Target File: ${patchTarget}"
-    patch --backup --input="${p}" --ignore-whitespace "${patchTarget}"
+    patch --input="${p}" --ignore-whitespace "${patchTarget}"
   done
 }
 

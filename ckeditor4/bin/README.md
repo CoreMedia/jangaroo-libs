@@ -30,7 +30,9 @@ The following files and folders are required by the script:
     To generate such `.patch` files use for example:
     
     ```bash
-    $ diff -u hello.c hello_new.c > hello.patch
+    $ diff --unified --strip-trailing-cr \
+        hello.original.js hello.patched.js \
+        > hello.js.patch
     ```
     
     It is expected though not enforced that either a `.sed` or a `.patch` file exists
