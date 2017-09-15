@@ -1,6 +1,6 @@
 # CKEditor Patches
 
-While the original sources from ckeditor-dev are placed in `src/main/sencha/resources/ckeditor/_source`
+While the original sources from ckeditor-dev are placed in `src/ckeditor-dev`
 this folder contains information on required patches to the original source.
 
 Patching is done with the script `bin/build_ckeditor_from_source.sh`.
@@ -12,7 +12,7 @@ of the file in here and will be processed through sed.
 **Example:**
 
 `core/editor.js.sed.txt` will contain the sed script to apply to
-`src/main/sencha/resources/ckeditor/_source/core/editor.js`.
+`src/ckeditor-dev/core/editor.js`.
 
 ## Deleting Files and Folders
 

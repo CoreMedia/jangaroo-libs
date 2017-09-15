@@ -8,7 +8,7 @@ which will become part of Jangaroo Libs.
 
 The following files and folders are required by the script:
 
-* `src/main/sencha/resources/ckeditor/_source/`
+* `src/ckeditor-dev/`
 
     This contains the original sources from [ckeditor/ckeditor-dev](https://github.com/ckeditor/ckeditor-dev)
     from the desired version tag of CKEditor.

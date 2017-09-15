@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 ###
-### Builds the CKEditor from sources in _source folder and copies the results to the required location for a
-### jangaroo-libs release.
+### Builds the CKEditor from sources in ckeditor-dev folder and copies the results
+### to the required location for a jangaroo-libs release.
 ###
 ### For Mac: This build script requires that you installed GNU Tools for example with Homebrew:
 ###
@@ -32,7 +32,7 @@ declare dry_run=false
 ###
 declare -r CKEDITOR_MODULE_ROOT="$(readlink -f "${MY_DIR}/..")"
 ### Original sources from ckeditor/ckeditor-dev project; untouched
-declare -r CKEDITOR_ORIGINAL_SOURCE="$(readlink -f "${CKEDITOR_MODULE_ROOT}/src/main/sencha/resources/ckeditor/_source")"
+declare -r CKEDITOR_ORIGINAL_SOURCE="$(readlink -f "${CKEDITOR_MODULE_ROOT}/src/ckeditor-dev")"
 ### Patches, currently only SED scripts, maybe more in the future
 declare -r CKEDITOR_PATCHES_ROOT="$(readlink -f "${CKEDITOR_MODULE_ROOT}/src/patches")"
 declare -r CKEDITOR_DELETE_LIST="${CKEDITOR_PATCHES_ROOT}/delete.txt"
@@ -146,11 +146,11 @@ function build_ckeditor() {
 }
 
 function install_ckeditor() {
-  echo "Cleaning target folder for CKEditor release: ${CKEDITOR_TARGET} (skipping _source/)"
+  echo "Cleaning target folder for CKEditor release: ${CKEDITOR_TARGET}"
   ### For safety... Change to directory to clean-up.
   cd "${CKEDITOR_TARGET}"
   ### true: Ignore failure if there are no more files to delete
-  find . -maxdepth 1 ! -name _source ! -name . | xargs rm --recursive || true
+  find . -maxdepth 1 ! -name . | xargs rm --recursive || true
 
   echo "Copying build results"
   echo "    from: ${CKEDITOR_PATCHED_BUILD_OUTPUT}"

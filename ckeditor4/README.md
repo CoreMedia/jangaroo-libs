@@ -1,6 +1,6 @@
 # How to update the CKEditor version
 
-1. Delete everything in `src/main/sencha/resources/ckeditor/_source/`
+1. Delete everything in `src/ckeditor-dev`
 
 2. Download the original sources from [ckeditor/ckeditor-dev](https://github.com/ckeditor/ckeditor-dev)
    from the desired version tag of CKEditor to the above empty directory
