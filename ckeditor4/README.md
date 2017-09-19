@@ -11,4 +11,6 @@
    
    The script is described in more detail in [bin/README.md](bin/README.md).
    
-4. Commit all changes
+4. Update the version in the description of the pom.xml
+
+5. Commit all changes
