@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("horizontalrule","gl",{toolbar:"Inserir unha liña horizontal"});

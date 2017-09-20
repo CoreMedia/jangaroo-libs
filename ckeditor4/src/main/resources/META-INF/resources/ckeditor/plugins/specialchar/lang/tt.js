@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("specialchar","tt",{options:"Махсус символ үзлекләре",title:"Махсус символ сайлау",toolbar:"Махсус символ өстәү"});

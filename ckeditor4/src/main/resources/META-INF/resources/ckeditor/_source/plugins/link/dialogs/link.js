@@ -1,5 +1,5 @@
-/**
- * @license Copyright (c) 2003-2016, CKSource - Frederico Knabben. All rights reserved.
+﻿/**
+ * @license Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
 
@@ -7,7 +7,112 @@
 
 ( function() {
 	CKEDITOR.dialog.add( 'link', function( editor ) {
-		var plugin = CKEDITOR.plugins.link;
+		var plugin = CKEDITOR.plugins.link,
+			initialLinkText;
+
+		function createRangeForLink( editor, link ) {
+			var range = editor.createRange();
+
+			range.setStartBefore( link );
+			range.setEndAfter( link );
+
+			return range;
+		}
+
+		function insertLinksIntoSelection( editor, data ) {
+			var attributes = plugin.getLinkAttributes( editor, data ),
+				ranges = editor.getSelection().getRanges(),
+				style = new CKEDITOR.style( {
+					element: 'a',
+					attributes: attributes.set
+				} ),
+				rangesToSelect = [],
+				range,
+				text,
+				nestedLinks,
+				i,
+				j;
+
+			style.type = CKEDITOR.STYLE_INLINE; // need to override... dunno why.
+
+			for ( i = 0; i < ranges.length; i++ ) {
+				range = ranges[ i ];
+
+				// Use link URL as text with a collapsed cursor.
+				if ( range.collapsed ) {
+					// Short mailto link text view (http://dev.ckeditor.com/ticket/5736).
+					text = new CKEDITOR.dom.text( data.linkText || ( data.type == 'email' ?
+						data.email.address : attributes.set[ 'data-cke-saved-href' ] ), editor.document );
+					range.insertNode( text );
+					range.selectNodeContents( text );
+				} else if ( initialLinkText !== data.linkText ) {
+					text = new CKEDITOR.dom.text( data.linkText, editor.document );
+
+					// Shrink range to preserve block element.
+					range.shrink( CKEDITOR.SHRINK_TEXT );
+
+					// Use extractHtmlFromRange to remove markup within the selection. Also this method is a little
+					// smarter than range#deleteContents as it plays better e.g. with table cells.
+					editor.editable().extractHtmlFromRange( range );
+
+					range.insertNode( text );
+				}
+
+				// Editable links nested within current range should be removed, so that the link is applied to whole selection.
+				nestedLinks = range._find( 'a' );
+
+				for	( j = 0; j < nestedLinks.length; j++ ) {
+					nestedLinks[ j ].remove( true );
+				}
+
+
+				// Apply style.
+				style.applyToRange( range, editor );
+
+				rangesToSelect.push( range );
+			}
+
+			editor.getSelection().selectRanges( rangesToSelect );
+		}
+
+		function editLinksInSelection( editor, selectedElements, data ) {
+			var attributes = plugin.getLinkAttributes( editor, data ),
+				ranges = [],
+				element,
+				href,
+				textView,
+				newText,
+				i;
+
+			for ( i = 0; i < selectedElements.length; i++ ) {
+				// We're only editing an existing link, so just overwrite the attributes.
+				element = selectedElements[ i ];
+				href = element.data( 'cke-saved-href' );
+				textView = element.getHtml();
+
+				element.setAttributes( attributes.set );
+				element.removeAttributes( attributes.removed );
+
+
+				if ( data.linkText && initialLinkText != data.linkText ) {
+					// Display text has been changed.
+					newText = data.linkText;
+				} else if ( href == textView || data.type == 'email' && textView.indexOf( '@' ) != -1 ) {
+					// Update text view when user changes protocol (http://dev.ckeditor.com/ticket/4612).
+					// Short mailto link text view (http://dev.ckeditor.com/ticket/5736).
+					newText = data.type == 'email' ? data.email.address : attributes.set[ 'data-cke-saved-href' ];
+				}
+
+				if ( newText ) {
+					element.setText( newText );
+				}
+
+				ranges.push( createRangeForLink( editor, element ) );
+			}
+
+			// We changed the content, so need to select it again.
+			editor.getSelection().selectRanges( ranges );
+		}
 
 		// Handles the event when the "Target" selection box is changed.
 		var targetChanged = function() {
@@ -109,13 +214,30 @@
 
 		return {
 			title: linkLang.title,
-			minWidth: 350,
-			minHeight: 230,
+			minWidth: ( CKEDITOR.skinName || editor.config.skin ) == 'moono-lisa' ? 450 : 350,
+			minHeight: 240,
 			contents: [ {
 				id: 'info',
 				label: linkLang.info,
 				title: linkLang.info,
 				elements: [ {
+					type: 'text',
+					id: 'linkDisplayText',
+					label: linkLang.displayText,
+					setup: function() {
+						this.enable();
+
+						this.setValue( editor.getSelection().getSelectedText() );
+
+						// Keep inner text so that it can be compared in commit function. By obtaining value from getData()
+						// we get value stripped from new line chars which is important when comparing the value later on.
+						initialLinkText = this.getValue();
+					},
+					commit: function( data ) {
+						data.linkText = this.isEnabled() ? this.getValue() : '';
+					}
+				},
+				{
 					id: 'linkType',
 					type: 'select',
 					label: linkLang.type,
@@ -145,7 +267,7 @@
 							label: commonLang.protocol,
 							'default': 'http://',
 							items: [
-								// Force 'ltr' for protocol names in BIDI. (#5433)
+								// Force 'ltr' for protocol names in BIDI. (http://dev.ckeditor.com/ticket/5433)
 								[ 'http://\u200E', 'http://' ],
 								[ 'https://\u200E', 'https://' ],
 								[ 'ftp://\u200E', 'ftp://' ],
@@ -218,7 +340,7 @@
 							},
 							commit: function( data ) {
 								// IE will not trigger the onChange event if the mouse has been used
-								// to carry all the operations #4724
+								// to carry all the operations http://dev.ckeditor.com/ticket/4724
 								this.onChange();
 
 								if ( !data.url )
@@ -776,28 +898,55 @@
 							setup: setupAdvParams,
 							commit: commitAdvParams
 						} ]
+					},
+					{
+						type: 'hbox',
+						widths: [ '45%', '55%' ],
+						children: [ {
+							type: 'checkbox',
+							id: 'download',
+							requiredContent: 'a[download]',
+							label: linkLang.download,
+							setup: function( data ) {
+								if ( data.download !== undefined )
+									this.setValue( 'checked', 'checked' );
+							},
+							commit: function( data ) {
+								if ( this.getValue() ) {
+									data.download = this.getValue();
+								}
+							}
+						} ]
 					} ]
 				} ]
 			} ],
 			onShow: function() {
 				var editor = this.getParentEditor(),
 					selection = editor.getSelection(),
-					element = null;
+					displayTextField = this.getContentElement( 'info', 'linkDisplayText' ).getElement().getParent().getParent(),
+					elements = plugin.getSelectedLink( editor, true ),
+					firstLink = elements[ 0 ] || null;
 
 				// Fill in all the relevant fields if there's already one link selected.
-				if ( ( element = plugin.getSelectedLink( editor ) ) && element.hasAttribute( 'href' ) ) {
+				if ( firstLink && firstLink.hasAttribute( 'href' ) ) {
 					// Don't change selection if some element is already selected.
 					// For example - don't destroy fake selection.
-					if ( !selection.getSelectedElement() )
-						selection.selectElement( element );
-				} else {
-					element = null;
+					if ( !selection.getSelectedElement() && !selection.isInTable() ) {
+						selection.selectElement( firstLink );
+					}
 				}
 
-				var data = plugin.parseLinkAttributes( editor, element );
+				var data = plugin.parseLinkAttributes( editor, firstLink );
+
+				// Here we'll decide whether or not we want to show Display Text field.
+				if ( elements.length <= 1 && plugin.showDisplayTextForElement( firstLink, editor ) ) {
+					displayTextField.show();
+				} else {
+					displayTextField.hide();
+				}
 
 				// Record down the selected element in the dialog.
-				this._.selectedElement = element;
+				this._.selectedElements = elements;
 
 				this.setupContent( data );
 			},
@@ -807,50 +956,12 @@
 				// Collect data from fields.
 				this.commitContent( data );
 
-				var selection = editor.getSelection(),
-					attributes = plugin.getLinkAttributes( editor, data );
-
-				if ( !this._.selectedElement ) {
-					var range = selection.getRanges()[ 0 ];
-
-					// Use link URL as text with a collapsed cursor.
-					if ( range.collapsed ) {
-						// Short mailto link text view (#5736).
-						var text = new CKEDITOR.dom.text( data.type == 'email' ?
-							data.email.address : attributes.set[ 'data-cke-saved-href' ], editor.document );
-						range.insertNode( text );
-						range.selectNodeContents( text );
-					}
-
-					// Apply style.
-					var style = new CKEDITOR.style( {
-						element: 'a',
-						attributes: attributes.set
-					} );
-
-					style.type = CKEDITOR.STYLE_INLINE; // need to override... dunno why.
-					style.applyToRange( range, editor );
-					range.select();
+				if ( !this._.selectedElements.length ) {
+					insertLinksIntoSelection( editor, data );
 				} else {
-					// We're only editing an existing link, so just overwrite the attributes.
-					var element = this._.selectedElement,
-						href = element.data( 'cke-saved-href' ),
-						textView = element.getHtml();
+					editLinksInSelection( editor, this._.selectedElements, data );
 
-					element.setAttributes( attributes.set );
-					element.removeAttributes( attributes.removed );
-
-					// Update text view when user changes protocol (#4612).
-					if ( href == textView || data.type == 'email' && textView.indexOf( '@' ) != -1 ) {
-						// Short mailto link text view (#5736).
-						element.setHtml( data.type == 'email' ?
-							data.email.address : attributes.set[ 'data-cke-saved-href' ] );
-
-						// We changed the content, so need to select it again.
-						selection.selectElement( element );
-					}
-
-					delete this._.selectedElement;
+					delete this._.selectedElements;
 				}
 			},
 			onLoad: function() {

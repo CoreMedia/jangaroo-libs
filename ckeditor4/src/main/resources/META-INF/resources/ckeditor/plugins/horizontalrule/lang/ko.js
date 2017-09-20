@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("horizontalrule","ko",{toolbar:"가로 줄 삽입"});

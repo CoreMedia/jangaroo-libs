@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("sourcearea","az",{toolbar:"HTML mənbəyini göstər"});

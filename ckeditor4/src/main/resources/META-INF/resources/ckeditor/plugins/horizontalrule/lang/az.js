@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("horizontalrule","az",{toolbar:"Sərhəd xətti yarat"});

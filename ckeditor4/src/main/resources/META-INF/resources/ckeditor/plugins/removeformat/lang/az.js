@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("removeformat","az",{toolbar:"Formatı sil"});

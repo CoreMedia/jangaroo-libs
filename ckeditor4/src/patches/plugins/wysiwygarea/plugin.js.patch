@@ -1,0 +1,42 @@
+--- plugin.original.js	2017-08-29 09:59:42.172000000 +0200
++++ plugin.patched.js	2017-08-29 10:14:13.883369300 +0200
+@@ -421,14 +421,31 @@
+ 
+ 					// The script that launches the bootstrap logic on 'domReady', so the document
+ 					// is fully editable even before the editing iframe is fully loaded (http://dev.ckeditor.com/ticket/4455).
+-					var bootstrapCode =
+-						'<script id="cke_actscrpt" type="text/javascript"' + ( CKEDITOR.env.ie ? ' defer="defer" ' : '' ) + '>' +
+-							'var wasLoaded=0;' +	// It must be always set to 0 as it remains as a window property.
+-							'function onload(){' +
+-								'if(!wasLoaded)' +	// FF3.6 calls onload twice when editor.setData. Stop that.
+-									'window.parent.CKEDITOR.tools.callFunction(' + this._.frameLoadedHandler + ',window);' +
+-								'wasLoaded=1;' +
+-							'}' +
++				  /*
++				   * Fix Content Security Policy Violation
++				   *
++				   * The bootstrapCode is an inline script messing around with iframe loading logic, which I wasn't
++				   * able to convert to a script loaded from src. So I made this script static by extracting the
++				   * frameloadedhandler as an argument and added its hash to the Studio CSP header.
++				   * Because of this, DO NOT CHANGE ANY CHARACTER OF THE bootstrapCode (whitespaces count)!
++				   *
++				   * The hash of the inline script is: 'sha256-8nQL0a5GSwPH6PJna8Bw6mfa9d0vWq54V9Wt+21yhrI='
++				   */
++				  var bootstrapCode =
++						'<script id="cke_actscrpt" type="text/javascript"' +
++						' data-frameloadedhandler="' + this._.frameLoadedHandler +
++						'"' + ( CKEDITOR.env.ie ? ' defer="defer" ' : '' ) + ' />' +
++							' var wasLoaded = 0;' +	// It must be always set to 0 as it remains as a window property.
++							' function onload() {' +
++								' if (!wasLoaded) {' +	// FF3.6 calls onload twice when editor.setData. Stop that.
++									' var currentScript = document.currentScript || (function () {' +
++									' var scripts = document.getElementsByTagName("script");' +
++									' return scripts[scripts.length - 1];' +
++									' })();' +
++									' var frameLoadedHandler = currentScript.getAttribute("data-frameloadedhandler");' +
++									' window.parent.CKEDITOR.tools.callFunction(frameLoadedHandler, window);' +
++								' }' +
++								' wasLoaded = 1;' +
+ 							( CKEDITOR.env.ie ? 'onload();' : 'document.addEventListener("DOMContentLoaded", onload, false );' ) +
+ 						'</script>';
+ 

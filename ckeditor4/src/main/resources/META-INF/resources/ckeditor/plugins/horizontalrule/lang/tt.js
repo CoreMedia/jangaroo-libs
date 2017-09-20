@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("horizontalrule","tt",{toolbar:"Ятма сызык өстәү"});
