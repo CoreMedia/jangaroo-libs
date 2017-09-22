@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2016, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['en'] = {
@@ -7,6 +7,26 @@ CKEDITOR.lang['en'] = {
     {
     	redo : 'Redo',
     	undo : 'Undo'
+    },
+    toolbar : 
+    {
+    	toolbarCollapse : 'Collapse Toolbar',
+    	toolbarExpand : 'Expand Toolbar',
+    	toolbarGroups : 
+    	{
+    		document : 'Document',
+    		clipboard : 'Clipboard/Undo',
+    		editing : 'Editing',
+    		forms : 'Forms',
+    		basicstyles : 'Basic Styles',
+    		paragraph : 'Paragraph',
+    		links : 'Links',
+    		insert : 'Insert',
+    		styles : 'Styles',
+    		colors : 'Colors',
+    		tools : 'Tools'
+    	},
+    	toolbars : 'Editor toolbars'
     },
     table : 
     {
@@ -85,7 +105,7 @@ CKEDITOR.lang['en'] = {
     pastetext : 
     {
     	button : 'Paste as plain text',
-    	title : 'Paste as Plain Text'
+    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
     },
     pastefromword : 
     {
@@ -93,6 +113,10 @@ CKEDITOR.lang['en'] = {
     	error : 'It was not possible to clean up the pasted data due to an internal error',
     	title : 'Paste from Word',
     	toolbar : 'Paste from Word'
+    },
+    notification : 
+    {
+    	closed : 'Notification closed.'
     },
     list : 
     {
@@ -118,6 +142,8 @@ CKEDITOR.lang['en'] = {
     	anchorName : 'By Anchor Name',
     	charset : 'Linked Resource Charset',
     	cssClasses : 'Stylesheet Classes',
+    	download : 'Force Download',
+    	displayText : 'Display Text',
     	emailAddress : 'E-Mail Address',
     	emailBody : 'Message Body',
     	emailSubject : 'Message Subject',
@@ -190,6 +216,17 @@ CKEDITOR.lang['en'] = {
     	iframe : 'IFrame',
     	unknown : 'Unknown Object'
     },
+    copyformatting : 
+    {
+    	label : 'Copy Formatting',
+    	notification : 
+    	{
+    		copied : 'Formatting copied',
+    		applied : 'Formatting applied',
+    		canceled : 'Formatting canceled',
+    		failed : 'Formatting failed. You cannot apply styles without copying them first.'
+    	}
+    },
     contextmenu : 
     {
     	options : 'Context Menu Options'
@@ -201,10 +238,11 @@ CKEDITOR.lang['en'] = {
     	cut : 'Cut',
     	cutError : 'Your browser security settings don\'t permit the editor to automatically execute cutting operations. Please use the keyboard for that (Ctrl/Cmd+X).',
     	paste : 'Paste',
-    	pasteArea : 'Paste Area',
-    	pasteMsg : 'Please paste inside the following box using the keyboard (<strong>Ctrl/Cmd+V</strong>) and hit OK',
-    	securityMsg : 'Because of your browser security settings, the editor is not able to access your clipboard data directly. You are required to paste it again in this window.',
-    	title : 'Paste'
+    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
+    },
+    button : 
+    {
+    	selectedLabel : '%1 (Selected)'
     },
     blockquote : 
     {
@@ -289,5 +327,19 @@ CKEDITOR.lang['en'] = {
     	invalidHtmlLength : 'Value specified for the "%1" field must be a positive number with or without a valid HTML measurement unit (px or %).',
     	invalidInlineStyle : 'Value specified for the inline style must consist of one or more tuples with the format of "name : value", separated by semi-colons.',
     	cssLengthTooltip : 'Enter a number for a value in pixels or a number with a valid CSS unit (px, %, in, cm, mm, em, ex, pt, or pc).',
-    	unavailable : '%1<span class="cke_accessibility">, unavailable</span>'
+    	unavailable : '%1<span class="cke_accessibility">, unavailable</span>',
+    	keyboard : 
+    	{
+    		'8' : 'Backspace',
+    		'13' : 'Enter',
+    		'16' : 'Shift',
+    		'17' : 'Ctrl',
+    		'18' : 'Alt',
+    		'32' : 'Space',
+    		'35' : 'End',
+    		'36' : 'Home',
+    		'46' : 'Delete',
+    		'224' : 'Command'
+    	},
+    	keyboardShortcut : 'Keyboard shortcut'
     } }; 
