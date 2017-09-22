@@ -8,7 +8,7 @@
 
   <modelVersion>4.0.0</modelVersion>
   <artifactId>ckeditor4</artifactId>
-  <description>CKEditor 4.5.7</description>
+  <description>CKEditor 4.7.3</description>
   <packaging>jangaroo</packaging>
 
   <dependencies>

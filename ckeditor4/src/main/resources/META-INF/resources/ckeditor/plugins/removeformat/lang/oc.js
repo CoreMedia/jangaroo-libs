@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("removeformat","oc",{toolbar:"Suprimir la mesa en forma"});

@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("specialchar","de",{options:"Sonderzeichenoptionen",title:"Sonderzeichen auswählen",toolbar:"Sonderzeichen einfügen"});

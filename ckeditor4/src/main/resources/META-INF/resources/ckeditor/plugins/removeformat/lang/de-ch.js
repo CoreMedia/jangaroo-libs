@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("removeformat","de-ch",{toolbar:"Formatierung entfernen"});

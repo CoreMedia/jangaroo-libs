@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("horizontalrule","bn",{toolbar:"অনুভূমিক লাইন যোগ করি"});

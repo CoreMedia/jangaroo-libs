@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("about","az",{copy:"Copyright \x26copy; $1. Bütün hüquqlar qorunur.",dlgTitle:"CKEditor haqqında",help:"Kömək üçün  $1 seçin",moreInfo:"Lisenziya informasiyası üçün zəhmət olmasa saytımızı ziyarət edin:",title:"CKEditor haqqında",userGuide:"CKEditor İstifadəçilər üçün kitabça"});
