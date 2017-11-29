@@ -118,6 +118,10 @@ CKEDITOR.lang['tt'] = {
     {
     	closed : 'Notification closed.'
     },
+    magicline : 
+    {
+    	title : 'Бирегә параграф өстәү'
+    },
     list : 
     {
     	bulletedlist : 'Маркерлы тезмә өстәү/бетерү',

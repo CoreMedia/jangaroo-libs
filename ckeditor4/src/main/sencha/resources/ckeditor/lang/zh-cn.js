@@ -118,6 +118,10 @@ CKEDITOR.lang['zh-cn'] = {
     {
     	closed : '通知已关闭'
     },
+    magicline : 
+    {
+    	title : '在这插入段落'
+    },
     list : 
     {
     	bulletedlist : '项目列表',

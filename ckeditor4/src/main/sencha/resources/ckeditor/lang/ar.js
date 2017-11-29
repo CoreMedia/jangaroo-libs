@@ -118,6 +118,10 @@ CKEDITOR.lang['ar'] = {
     {
     	closed : 'Notification closed.'
     },
+    magicline : 
+    {
+    	title : 'إدراج فقرة هنا'
+    },
     list : 
     {
     	bulletedlist : 'ادخال/حذف تعداد نقطي',

@@ -118,6 +118,10 @@ CKEDITOR.lang['vi'] = {
     {
     	closed : 'Notification closed.'
     },
+    magicline : 
+    {
+    	title : 'Chèn đoạn vào đây'
+    },
     list : 
     {
     	bulletedlist : 'Chèn/Xoá Danh sách không thứ tự',

@@ -118,6 +118,10 @@ CKEDITOR.lang['da'] = {
     {
     	closed : 'Notefikation lukket.'
     },
+    magicline : 
+    {
+    	title : 'Indsæt afsnit'
+    },
     list : 
     {
     	bulletedlist : 'Punktopstilling',

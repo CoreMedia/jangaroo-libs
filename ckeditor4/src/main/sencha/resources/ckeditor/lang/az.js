@@ -118,6 +118,10 @@ CKEDITOR.lang['az'] = {
     {
     	closed : 'Xəbərdarlıq pəncərəsi bağlanıb'
     },
+    magicline : 
+    {
+    	title : 'Abzası burada əlavə et'
+    },
     list : 
     {
     	bulletedlist : 'Markerlənmiş siyahını başlat/sil',

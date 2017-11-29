@@ -118,6 +118,10 @@ CKEDITOR.lang['sv'] = {
     {
     	closed : 'Notifiering stängd.'
     },
+    magicline : 
+    {
+    	title : 'Infoga paragraf här'
+    },
     list : 
     {
     	bulletedlist : 'Infoga/ta bort punktlista',

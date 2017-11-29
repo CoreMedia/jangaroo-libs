@@ -118,6 +118,10 @@ CKEDITOR.lang['gl'] = {
     {
     	closed : 'Notificación pechada.'
     },
+    magicline : 
+    {
+    	title : 'Inserir aquí o parágrafo'
+    },
     list : 
     {
     	bulletedlist : 'Inserir/retirar lista viñeteada',

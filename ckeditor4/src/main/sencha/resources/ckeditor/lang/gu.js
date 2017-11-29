@@ -118,6 +118,10 @@ CKEDITOR.lang['gu'] = {
     {
     	closed : 'Notification closed.'
     },
+    magicline : 
+    {
+    	title : 'Insert paragraph here'
+    },
     list : 
     {
     	bulletedlist : 'બુલેટ સૂચિ',

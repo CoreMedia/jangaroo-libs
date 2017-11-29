@@ -118,6 +118,10 @@ CKEDITOR.lang['pt-br'] = {
     {
     	closed : 'Notificação fechada.'
     },
+    magicline : 
+    {
+    	title : 'Insera um parágrafo aqui'
+    },
     list : 
     {
     	bulletedlist : 'Lista sem números',

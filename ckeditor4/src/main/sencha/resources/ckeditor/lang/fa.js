@@ -118,6 +118,10 @@ CKEDITOR.lang['fa'] = {
     {
     	closed : 'Notification closed.'
     },
+    magicline : 
+    {
+    	title : 'قرار دادن بند در اینجا'
+    },
     list : 
     {
     	bulletedlist : 'فهرست نقطه\u200bای',

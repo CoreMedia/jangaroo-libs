@@ -118,6 +118,10 @@ CKEDITOR.lang['no'] = {
     {
     	closed : 'Notification closed.'
     },
+    magicline : 
+    {
+    	title : 'Sett inn nytt avsnitt her'
+    },
     list : 
     {
     	bulletedlist : 'Legg til/Fjern punktmerket liste',

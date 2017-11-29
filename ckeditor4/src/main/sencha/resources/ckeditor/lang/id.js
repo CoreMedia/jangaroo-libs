@@ -118,6 +118,10 @@ CKEDITOR.lang['id'] = {
     {
     	closed : 'Pemberitahuan ditutup'
     },
+    magicline : 
+    {
+    	title : 'Masukkan paragraf disini'
+    },
     list : 
     {
     	bulletedlist : 'Sisip/Hapus Daftar Bullet',

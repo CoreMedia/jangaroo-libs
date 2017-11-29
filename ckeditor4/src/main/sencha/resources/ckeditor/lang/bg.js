@@ -118,6 +118,10 @@ CKEDITOR.lang['bg'] = {
     {
     	closed : 'Notification closed.'
     },
+    magicline : 
+    {
+    	title : 'Вмъкнете параграф тук'
+    },
     list : 
     {
     	bulletedlist : 'Вмъкване/Премахване на точков списък',

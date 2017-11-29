@@ -118,6 +118,10 @@ CKEDITOR.lang['sk'] = {
     {
     	closed : 'Notifikácia zatvorená.'
     },
+    magicline : 
+    {
+    	title : 'Odsek vložiť sem'
+    },
     list : 
     {
     	bulletedlist : 'Vložiť/odstrániť zoznam s odrážkami',

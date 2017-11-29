@@ -118,6 +118,10 @@ CKEDITOR.lang['nb'] = {
     {
     	closed : 'Varsling lukket.'
     },
+    magicline : 
+    {
+    	title : 'Sett inn nytt avsnitt her'
+    },
     list : 
     {
     	bulletedlist : 'Legg til / fjern punktliste',

@@ -118,6 +118,10 @@ CKEDITOR.lang['eu'] = {
     {
     	closed : 'Jakinarazpena itxita.'
     },
+    magicline : 
+    {
+    	title : 'Txertatu paragrafoa hemen'
+    },
     list : 
     {
     	bulletedlist : 'Buletdun Zerrenda',

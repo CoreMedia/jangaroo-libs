@@ -118,6 +118,10 @@ CKEDITOR.lang['eo'] = {
     {
     	closed : 'Sciigo fermita'
     },
+    magicline : 
+    {
+    	title : 'Enmeti paragrafon ĉi-tien'
+    },
     list : 
     {
     	bulletedlist : 'Bula Listo',

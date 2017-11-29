@@ -118,6 +118,10 @@ CKEDITOR.lang['ja'] = {
     {
     	closed : '通知を閉じました。'
     },
+    magicline : 
+    {
+    	title : 'ここに段落を挿入'
+    },
     list : 
     {
     	bulletedlist : '番号無しリスト',

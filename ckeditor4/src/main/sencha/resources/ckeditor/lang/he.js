@@ -118,6 +118,10 @@ CKEDITOR.lang['he'] = {
     {
     	closed : 'Notification closed.'
     },
+    magicline : 
+    {
+    	title : 'הכנס פסקה כאן'
+    },
     list : 
     {
     	bulletedlist : 'רשימת נקודות',

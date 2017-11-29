@@ -118,6 +118,10 @@ CKEDITOR.lang['de-ch'] = {
     {
     	closed : 'Benachrichtigung geschlossen.'
     },
+    magicline : 
+    {
+    	title : 'Absatz hier einfügen'
+    },
     list : 
     {
     	bulletedlist : 'Liste',

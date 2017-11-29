@@ -118,6 +118,10 @@ CKEDITOR.lang['km'] = {
     {
     	closed : 'បាន\u200bបិទ\u200bការ\u200bផ្ដល់\u200bដំណឹង។'
     },
+    magicline : 
+    {
+    	title : 'បញ្ចូល\u200bកថាខណ្ឌ\u200bនៅ\u200bទីនេះ'
+    },
     list : 
     {
     	bulletedlist : 'បញ្ចូល / លុប\u200bបញ្ជី\u200bជា\u200bចំណុច\u200bមូល',

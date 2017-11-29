@@ -118,6 +118,10 @@ CKEDITOR.lang['sl'] = {
     {
     	closed : 'Notification closed.'
     },
+    magicline : 
+    {
+    	title : 'Vstavite odstavek tukaj'
+    },
     list : 
     {
     	bulletedlist : 'Vstavi/odstrani neoštevilčen seznam',

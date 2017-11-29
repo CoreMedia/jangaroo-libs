@@ -118,6 +118,10 @@ CKEDITOR.lang['cs'] = {
     {
     	closed : 'Oznámení zavřeno.'
     },
+    magicline : 
+    {
+    	title : 'zde vložit odstavec'
+    },
     list : 
     {
     	bulletedlist : 'Odrážky',

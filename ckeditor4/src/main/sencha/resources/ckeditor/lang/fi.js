@@ -118,6 +118,10 @@ CKEDITOR.lang['fi'] = {
     {
     	closed : 'Notification closed.'
     },
+    magicline : 
+    {
+    	title : 'Lisää kappale tähän.'
+    },
     list : 
     {
     	bulletedlist : 'Luettelomerkit',

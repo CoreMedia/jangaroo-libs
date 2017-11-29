@@ -118,6 +118,10 @@ CKEDITOR.lang['lv'] = {
     {
     	closed : 'Notification closed.'
     },
+    magicline : 
+    {
+    	title : 'Ievietot šeit rindkopu'
+    },
     list : 
     {
     	bulletedlist : 'Pievienot/Noņemt vienkāršu sarakstu',

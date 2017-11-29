@@ -118,6 +118,10 @@ CKEDITOR.lang['ko'] = {
     {
     	closed : '알림이 닫힘.'
     },
+    magicline : 
+    {
+    	title : '여기에 단락 삽입'
+    },
     list : 
     {
     	bulletedlist : '순서 없는 목록',

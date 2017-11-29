@@ -118,6 +118,10 @@ CKEDITOR.lang['af'] = {
     {
     	closed : 'Notification closed.'
     },
+    magicline : 
+    {
+    	title : 'Voeg paragraaf hier in'
+    },
     list : 
     {
     	bulletedlist : 'Ongenommerde lys',

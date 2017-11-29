@@ -118,6 +118,10 @@ CKEDITOR.lang['ku'] = {
     {
     	closed : 'ئاگادارکەرەوەکە داخرا.'
     },
+    magicline : 
+    {
+    	title : 'بڕگە لێرە دابنێ'
+    },
     list : 
     {
     	bulletedlist : 'دانان/لابردنی خاڵی لیست',
