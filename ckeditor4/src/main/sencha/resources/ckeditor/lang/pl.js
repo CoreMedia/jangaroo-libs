@@ -118,6 +118,10 @@ CKEDITOR.lang['pl'] = {
     {
     	closed : 'Powiadomienie zostało zamknięte.'
     },
+    magicline : 
+    {
+    	title : 'Wstaw nowy akapit'
+    },
     list : 
     {
     	bulletedlist : 'Lista wypunktowana',

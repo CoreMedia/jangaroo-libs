@@ -118,6 +118,10 @@ CKEDITOR.lang['ug'] = {
     {
     	closed : 'ئوقتۇرۇش تاقالدى.'
     },
+    magicline : 
+    {
+    	title : 'بۇ جايغا ئابزاس قىستۇر'
+    },
     list : 
     {
     	bulletedlist : 'تۈر بەلگە تىزىمى',

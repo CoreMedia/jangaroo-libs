@@ -118,6 +118,10 @@ CKEDITOR.lang['bn'] = {
     {
     	closed : 'Notification closed.'
     },
+    magicline : 
+    {
+    	title : 'Insert paragraph here'
+    },
     list : 
     {
     	bulletedlist : 'বুলেটেড তালিকা প্রবেশ/অপসারন করি',

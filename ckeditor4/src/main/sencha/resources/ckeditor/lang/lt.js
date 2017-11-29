@@ -118,6 +118,10 @@ CKEDITOR.lang['lt'] = {
     {
     	closed : 'Notification closed.'
     },
+    magicline : 
+    {
+    	title : 'Insert paragraph here'
+    },
     list : 
     {
     	bulletedlist : 'Suženklintas sąrašas',

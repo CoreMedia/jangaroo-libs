@@ -118,6 +118,10 @@ CKEDITOR.lang['it'] = {
     {
     	closed : 'Notifica chiusa.'
     },
+    magicline : 
+    {
+    	title : 'Inserisci paragrafo qui'
+    },
     list : 
     {
     	bulletedlist : 'Inserisci/Rimuovi Elenco Puntato',

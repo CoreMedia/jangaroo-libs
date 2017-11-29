@@ -118,6 +118,10 @@ CKEDITOR.lang['tr'] = {
     {
     	closed : 'Uyarılar kapatıldı.'
     },
+    magicline : 
+    {
+    	title : 'Parağrafı buraya ekle'
+    },
     list : 
     {
     	bulletedlist : 'Simgeli Liste',

@@ -118,6 +118,10 @@ CKEDITOR.lang['oc'] = {
     {
     	closed : 'Notificacion tampada.'
     },
+    magicline : 
+    {
+    	title : 'Inserir un paragraf aicí'
+    },
     list : 
     {
     	bulletedlist : 'Inserir/Suprimir una lista amb de piuses',

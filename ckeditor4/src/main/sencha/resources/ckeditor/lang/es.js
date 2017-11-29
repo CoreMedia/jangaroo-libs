@@ -118,6 +118,10 @@ CKEDITOR.lang['es'] = {
     {
     	closed : 'Notificación cerrada.'
     },
+    magicline : 
+    {
+    	title : 'Insertar párrafo aquí'
+    },
     list : 
     {
     	bulletedlist : 'Viñetas',

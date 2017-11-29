@@ -118,6 +118,10 @@ CKEDITOR.lang['fr-ca'] = {
     {
     	closed : 'Notification closed.'
     },
+    magicline : 
+    {
+    	title : 'Insérer le paragraphe ici'
+    },
     list : 
     {
     	bulletedlist : 'Liste à puces',

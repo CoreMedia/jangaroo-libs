@@ -118,6 +118,10 @@ CKEDITOR.lang['hu'] = {
     {
     	closed : 'Értesítés bezárva.'
     },
+    magicline : 
+    {
+    	title : 'Szúrja be a bekezdést ide'
+    },
     list : 
     {
     	bulletedlist : 'Felsorolás',

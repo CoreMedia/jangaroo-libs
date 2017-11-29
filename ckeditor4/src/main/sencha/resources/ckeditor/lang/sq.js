@@ -118,6 +118,10 @@ CKEDITOR.lang['sq'] = {
     {
     	closed : 'Notification closed.'
     },
+    magicline : 
+    {
+    	title : 'Vendos paragraf këtu'
+    },
     list : 
     {
     	bulletedlist : 'Vendos/Largo Listën me Pika',

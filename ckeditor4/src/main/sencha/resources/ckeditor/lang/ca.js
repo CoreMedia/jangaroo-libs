@@ -118,6 +118,10 @@ CKEDITOR.lang['ca'] = {
     {
     	closed : 'Notificació tancada.'
     },
+    magicline : 
+    {
+    	title : 'Insereix el paràgraf aquí'
+    },
     list : 
     {
     	bulletedlist : 'Llista de pics',

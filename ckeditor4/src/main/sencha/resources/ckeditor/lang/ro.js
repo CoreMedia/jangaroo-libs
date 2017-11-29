@@ -118,6 +118,10 @@ CKEDITOR.lang['ro'] = {
     {
     	closed : 'Notification closed.'
     },
+    magicline : 
+    {
+    	title : 'Insert paragraph here'
+    },
     list : 
     {
     	bulletedlist : 'Inserează / Elimină Listă cu puncte',

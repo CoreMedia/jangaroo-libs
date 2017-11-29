@@ -118,6 +118,10 @@ CKEDITOR.lang['et'] = {
     {
     	closed : 'Notification closed.'
     },
+    magicline : 
+    {
+    	title : 'Sisesta siia lõigu tekst'
+    },
     list : 
     {
     	bulletedlist : 'Punktloend',

@@ -118,6 +118,10 @@ CKEDITOR.lang['nl'] = {
     {
     	closed : 'Melding gesloten.'
     },
+    magicline : 
+    {
+    	title : 'Hier paragraaf invoeren'
+    },
     list : 
     {
     	bulletedlist : 'Opsomming invoegen',

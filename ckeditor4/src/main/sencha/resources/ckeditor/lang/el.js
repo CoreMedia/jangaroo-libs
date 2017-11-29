@@ -118,6 +118,10 @@ CKEDITOR.lang['el'] = {
     {
     	closed : 'Notification closed.'
     },
+    magicline : 
+    {
+    	title : 'Εισάγετε παράγραφο εδώ'
+    },
     list : 
     {
     	bulletedlist : 'Εισαγωγή/Απομάκρυνση Λίστας Κουκκίδων',

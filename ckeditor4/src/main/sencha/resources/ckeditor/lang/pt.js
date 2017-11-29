@@ -118,6 +118,10 @@ CKEDITOR.lang['pt'] = {
     {
     	closed : 'Notificação encerrada.'
     },
+    magicline : 
+    {
+    	title : 'Inserir parágrafo aqui'
+    },
     list : 
     {
     	bulletedlist : 'Marcas',

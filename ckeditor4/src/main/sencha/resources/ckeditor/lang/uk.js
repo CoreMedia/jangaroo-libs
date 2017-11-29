@@ -118,6 +118,10 @@ CKEDITOR.lang['uk'] = {
     {
     	closed : 'Сповіщення закрито.'
     },
+    magicline : 
+    {
+    	title : 'Вставити абзац'
+    },
     list : 
     {
     	bulletedlist : 'Маркірований список',

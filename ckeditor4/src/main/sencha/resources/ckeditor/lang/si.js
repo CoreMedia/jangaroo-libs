@@ -118,6 +118,10 @@ CKEDITOR.lang['si'] = {
     {
     	closed : 'Notification closed.'
     },
+    magicline : 
+    {
+    	title : 'චේදය ඇතුලත් කරන්න'
+    },
     list : 
     {
     	bulletedlist : 'ඇතුලත් / ඉවත් කිරීම ලඉස්තුව',

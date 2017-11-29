@@ -118,6 +118,10 @@ CKEDITOR.lang['hr'] = {
     {
     	closed : 'Obavijest zatvorena.'
     },
+    magicline : 
+    {
+    	title : 'Ubaci paragraf ovdje'
+    },
     list : 
     {
     	bulletedlist : 'Obična lista',

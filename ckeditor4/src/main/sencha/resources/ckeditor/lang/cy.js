@@ -118,6 +118,10 @@ CKEDITOR.lang['cy'] = {
     {
     	closed : 'Notification closed.'
     },
+    magicline : 
+    {
+    	title : 'Mewnosod paragraff yma'
+    },
     list : 
     {
     	bulletedlist : 'Mewnosod/Tynnu Rhestr Bwled',
