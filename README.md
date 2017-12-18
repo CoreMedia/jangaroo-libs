@@ -1,7 +1,7 @@
 Jangaroo standard libraries
 ==========================
 
-License: [Apache 2.0](CoreMedia/jangaroo-tools/wiki/License@github)
+License: [Apache 2.0](https://github.com/CoreMedia/jangaroo-tools/wiki/License)
 
 Some flash standard libraries for the Jangaroo runtime.
 
