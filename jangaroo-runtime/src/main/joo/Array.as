@@ -607,6 +607,47 @@ public class Array {
   public native function push(... args):uint;
 
   /**
+   * Applies a function against an accumulator and each element in the array (from left to right) to reduce it to a single value.
+   * @param callback Function to execute on each element in the array, taking four arguments:
+   * <pre>function callback(accumulator:*, currentValue:*, currentIndex:uint = 0, array:Array = null):*</pre>
+   * <ul>
+   *   <li><code>accumulator</code> - The accumulator accumulates the callback's return values; it is the accumulated value
+   *     previously returned in the last invocation of the callback, or <code>initialValue</code>, if supplied (see below).</li>
+   *   <li><code>currentValue</code> - The current element being processed in the array.</li>
+   *   <li><code>currentIndex</code> (Optional) - The index of the current element being processed in the array. Starts at index 0,
+   *     if an initialValue is provided, and at index 1 otherwise.</li>
+   *   <li><code>array</code> (Optional) - The array reduce() was called upon.</li>
+   * </ul>
+   * @param initialValue Value to use as the first argument to the first call of the callback.
+   *   If no initial value is supplied, the first element in the array will be used. Calling reduce() on an empty array
+   *   without an initial value is an error.
+   * @return The value that results from the reduction.
+   *
+   * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce
+   */
+  public native function reduce(callback:Function, initialValue:* = undefined):*;
+
+  /**
+   * Applies a function against an accumulator and each element in the array (from right to left) to reduce it to a single value.
+   * @param callback Function to execute on each element in the array, taking four arguments:
+   * <pre>function callback(previousValue:*, currentValue:*, currentIndex:uint = 0, array:Array = null):*</pre>
+   * <ul>
+   *   <li><code>previousValue</code> - The value previously returned in the last invocation of the callback, or
+   *     <code>initialValue</code>, if supplied (see below).</li>
+   *   <li><code>currentValue</code> - The current element being processed in the array.</li>
+   *   <li><code>currentIndex</code> (Optional) - The index of the current element being processed in the array.</li>
+   *   <li><code>array</code> (Optional) - The array reduce() was called upon.</li>
+   * </ul>
+   * @param initialValue Value to use as the first argument to the first call of the callback.
+   *   If no initial value is supplied, the last element in the array will be used. Calling reduce() on an empty array
+   *   without an initial value is an error.
+   * @return The value that results from the reduction.
+   *
+   * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/ReduceRight
+   */
+  public native function reduceRight(callback:Function, initialValue:* = undefined):*;
+
+  /**
    * Reverses the array in place.
    * @return The new array.
    *
