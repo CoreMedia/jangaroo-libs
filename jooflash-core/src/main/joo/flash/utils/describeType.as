@@ -182,7 +182,7 @@ public function describeType(value:*):XML {
       }
     }
   }
-  return {
+  var result:* = {
     attribute: function(attr:String):String {
       return attr == "name" ? getQualifiedClassName(value) : null;
     },
@@ -190,5 +190,6 @@ public function describeType(value:*):XML {
       "@name": methods
     }
   };
+  return result;
 }
 }

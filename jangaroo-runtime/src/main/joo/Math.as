@@ -150,7 +150,7 @@ public final class Math {
    * @see #max()
    *
    */
-  public native static function min(... values : Array) : Number;
+  public native static function min(... values) : Number;
 
   /**
    * Computes and returns <code>base</code> to the power of <code>pow</code>.
