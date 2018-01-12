@@ -188,3 +188,16 @@ Ext.apply(Ext.namespace("AS3"), {
     }
   }
 });
+
+// Add accessors for several Date get/set methods, for all ActionScript API declared in Date.as that is missing in JS:
+Object.defineProperties(Date.prototype, ["date", "fullYear", "day", "hours", "milliseconds", "minutes", "month", "seconds", "time", "timezoneOffset"].reduce(function (properties, name) {
+  var methodSuffix = name.charAt(0).toUpperCase() + name.substr(1);
+  ["", "UTC"].forEach(function createProperty(optUTC) {
+    var getter = Date.prototype["get" + optUTC + methodSuffix];
+    if (getter) {
+      var setter = Date.prototype["set" + optUTC + methodSuffix];
+      properties[name + optUTC] = { get: getter, set: setter };  // e.g. monthUTC = { get: getUTCMonth, set: setUTCMonth }
+    }
+  });
+  return properties;
+}, {}));

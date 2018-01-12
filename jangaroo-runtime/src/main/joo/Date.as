@@ -31,16 +31,12 @@ public final dynamic class Date {
    * @see http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118a9b90204-7f0b.html Getting time unit values
    *
    */
-  public function get date():Number {
-    return getDate();
-  }
+  public native function get date():Number;
 
   /**
    * @private
    */
-  public function set date(value:Number):void {
-    setDate(value);
-  }
+  public native function set date(value:Number):void;
 
   /**
    * The day of the month (an integer from 1 to 31) of a <code>Date</code> object according to universal time (UTC).
@@ -48,16 +44,12 @@ public final dynamic class Date {
    * @see #setUTCDate()
    *
    */
-  public function get dateUTC():Number {
-    return getUTCDate();
-  }
+  public native function get dateUTC():Number;
 
   /**
    * @private
    */
-  public function set dateUTC(value:Number):void {
-    setUTCDate(value);
-  }
+  public native function set dateUTC(value:Number):void;
 
   /**
    * The day of the week (0 for Sunday, 1 for Monday, and so on) specified by this <code>Date</code> according to local time. Local time is determined by the operating system on which the Flash runtimes are running.
@@ -66,18 +58,14 @@ public final dynamic class Date {
    * @see http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118a9b90204-7f0b.html Getting time unit values
    *
    */
-  public function get day():Number {
-    return getDay();
-  }
+  public native function get day():Number;
 
   /**
    * The day of the week (0 for Sunday, 1 for Monday, and so on) of this <code>Date</code> according to universal time (UTC).
    * @see #getUTCDay()
    *
    */
-  public function get dayUTC():Number {
-    return getUTCDay();
-  }
+  public native function get dayUTC():Number;
 
   /**
    * The full year (a four-digit number, such as 2000) of a <code>Date</code> object according to local time. Local time is determined by the operating system on which the Flash runtimes are running.
@@ -87,16 +75,12 @@ public final dynamic class Date {
    * @see http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118a9b90204-7f0b.html Getting time unit values
    *
    */
-  public function get fullYear():Number {
-    return getFullYear();
-  }
+  public native function get fullYear():Number;
 
   /**
    * @private
    */
-  public function set fullYear(value:Number):void {
-    setFullYear(value);
-  }
+  public native function set fullYear(value:Number):void;
 
   /**
    * The four-digit year of a <code>Date</code> object according to universal time (UTC).
@@ -104,16 +88,12 @@ public final dynamic class Date {
    * @see #setUTCFullYear()
    *
    */
-  public function get fullYearUTC():Number {
-    return getUTCFullYear();
-  }
+  public native function get fullYearUTC():Number;
 
   /**
    * @private
    */
-  public function set fullYearUTC(value:Number):void {
-    setUTCFullYear(value);
-  }
+  public native function set fullYearUTC(value:Number):void;
 
   /**
    * The hour (an integer from 0 to 23) of the day portion of a <code>Date</code> object according to local time. Local time is determined by the operating system on which the Flash runtimes are running.
@@ -123,16 +103,12 @@ public final dynamic class Date {
    * @see http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118a9b90204-7f0b.html Getting time unit values
    *
    */
-  public function get hours():Number {
-    return getHours();
-  }
+  public native function get hours():Number;
 
   /**
    * @private
    */
-  public function set hours(value:Number):void {
-    setHours(value);
-  }
+  public native function set hours(value:Number):void;
 
   /**
    * The hour (an integer from 0 to 23) of the day of a <code>Date</code> object according to universal time (UTC).
@@ -140,16 +116,12 @@ public final dynamic class Date {
    * @see #setUTCHours()
    *
    */
-  public function get hoursUTC():Number {
-    return getUTCHours();
-  }
+  public native function get hoursUTC():Number;
 
   /**
    * @private
    */
-  public function set hoursUTC(value:Number):void {
-    setUTCHours(value);
-  }
+  public native function set hoursUTC(value:Number):void;
 
   /**
    * The milliseconds (an integer from 0 to 999) portion of a <code>Date</code> object according to local time. Local time is determined by the operating system on which the Flash runtimes are running.
@@ -159,16 +131,12 @@ public final dynamic class Date {
    * @see http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118a9b90204-7f0b.html Getting time unit values
    *
    */
-  public function get milliseconds():Number {
-    return getMilliseconds();
-  }
+  public native function get milliseconds():Number;
 
   /**
    * @private
    */
-  public function set milliseconds(value:Number):void {
-    setMilliseconds(value);
-  }
+  public native function set milliseconds(value:Number):void;
 
   /**
    * The milliseconds (an integer from 0 to 999) portion of a <code>Date</code> object according to universal time (UTC).
@@ -176,16 +144,12 @@ public final dynamic class Date {
    * @see #setUTCMilliseconds()
    *
    */
-  public function get millisecondsUTC():Number {
-    return getUTCMilliseconds();
-  }
+  public native function get millisecondsUTC():Number;
 
   /**
    * @private
    */
-  public function set millisecondsUTC(value:Number):void {
-    setUTCMilliseconds(value);
-  }
+  public native function set millisecondsUTC(value:Number):void;
 
   /**
    * The minutes (an integer from 0 to 59) portion of a <code>Date</code> object according to local time. Local time is determined by the operating system on which the Flash runtimes are running.
@@ -195,16 +159,12 @@ public final dynamic class Date {
    * @see http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118a9b90204-7f0b.html Getting time unit values
    *
    */
-  public function get minutes():Number {
-    return getMinutes();
-  }
+  public native function get minutes():Number;
 
   /**
    * @private
    */
-  public function set minutes(value:Number):void {
-    setMinutes(value);
-  }
+  public native function set minutes(value:Number):void;
 
   /**
    * The minutes (an integer from 0 to 59) portion of a <code>Date</code> object according to universal time (UTC).
@@ -212,16 +172,12 @@ public final dynamic class Date {
    * @see #setUTCMinutes()
    *
    */
-  public function get minutesUTC():Number {
-    return getUTCMinutes();
-  }
+  public native function get minutesUTC():Number;
 
   /**
    * @private
    */
-  public function set minutesUTC(value:Number):void {
-    setUTCMinutes(value);
-  }
+  public native function set minutesUTC(value:Number):void;
 
   /**
    * The month (0 for January, 1 for February, and so on) portion of a <code>Date</code> object according to local time. Local time is determined by the operating system on which the Flash runtimes are running.
@@ -231,16 +187,12 @@ public final dynamic class Date {
    * @see http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118a9b90204-7f0b.html Getting time unit values
    *
    */
-  public function get month():Number {
-    return getMonth();
-  }
+  public native function get month():Number;
 
   /**
    * @private
    */
-  public function set month(value:Number):void {
-    setMonth(value);
-  }
+  public native function set month(value:Number):void;
 
   /**
    * The month (0 [January] to 11 [December]) portion of a <code>Date</code> object according to universal time (UTC).
@@ -248,16 +200,12 @@ public final dynamic class Date {
    * @see #setUTCMonth()
    *
    */
-  public function get monthUTC():Number {
-    return getUTCMonth();
-  }
+  public native function get monthUTC():Number;
 
   /**
    * @private
    */
-  public function set monthUTC(value:Number):void {
-    setUTCMonth(value);
-  }
+  public native function set monthUTC(value:Number):void;
 
   /**
    * The seconds (an integer from 0 to 59) portion of a <code>Date</code> object according to local time. Local time is determined by the operating system on which the Flash runtimes are running.
@@ -267,16 +215,12 @@ public final dynamic class Date {
    * @see http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118a9b90204-7f0b.html Getting time unit values
    *
    */
-  public function get seconds():Number {
-    return getSeconds();
-  }
+  public native function get seconds():Number;
 
   /**
    * @private
    */
-  public function set seconds(value:Number):void {
-    setSeconds(value);
-  }
+  public native function set seconds(value:Number):void;
 
   /**
    * The seconds (an integer from 0 to 59) portion of a <code>Date</code> object according to universal time (UTC).
@@ -284,16 +228,12 @@ public final dynamic class Date {
    * @see #setUTCSeconds()
    *
    */
-  public function get secondsUTC():Number {
-    return getUTCSeconds();
-  }
+  public native function get secondsUTC():Number;
 
   /**
    * @private
    */
-  public function set secondsUTC(value:Number):void {
-    setUTCSeconds(value);
-  }
+  public native function set secondsUTC(value:Number):void;
 
   /**
    * The number of milliseconds since midnight January 1, 1970, universal time, for a <code>Date</code> object. Use this method to represent a specific instant in time when comparing two or more <code>Date</code> objects.
@@ -301,25 +241,19 @@ public final dynamic class Date {
    * @see #setTime()
    *
    */
-  public function get time():Number {
-    return getTime();
-  }
+  public native function get time():Number;
 
   /**
    * @private
    */
-  public function set time(value:Number):void {
-    setTime(value);
-  }
+  public native function set time(value:Number):void;
 
   /**
    * The difference, in minutes, between universal time (UTC) and the computer's local time. Specifically, this value is the number of minutes you need to add to the computer's local time to equal UTC. If your computer's time is set later than UTC, the value will be negative.
    * @see #getTimezoneOffset()
    *
    */
-  public function get timezoneOffset():Number {
-    return getTimezoneOffset();
-  }
+  public native function get timezoneOffset():Number;
 
   /**
    * Constructs a new Date object that holds the specified date and time.
