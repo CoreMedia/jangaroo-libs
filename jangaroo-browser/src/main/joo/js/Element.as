@@ -47,10 +47,6 @@ public class Element extends Node {
 
 
 
-  public native function get filters() : NodeList; // IE only
-
-
-
   public native function get offsetLeft() : Number;
 
 
@@ -111,7 +107,7 @@ public class Element extends Node {
 
 
 
-  public native function get attributes() : NodeList;
+  public native function get attributes() : NamedNodeMap;
 
 
 

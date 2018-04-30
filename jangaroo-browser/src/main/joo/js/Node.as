@@ -109,11 +109,11 @@ public class Node {
 
 
 
-  public native function getElementsByTagName(name : String) : NodeList;
+  public native function getElementsByTagName(name : String) : HTMLCollection;
 
 
 
-  public native function getElementsByTagNameNS(ns : String, name : String) : NodeList;
+  public native function getElementsByTagNameNS(ns : String, name : String) : HTMLCollection;
 
 
 

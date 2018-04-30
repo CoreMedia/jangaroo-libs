@@ -13,6 +13,10 @@ public dynamic class Window {
 
 
 
+  public native function get frames() : FrameList;
+
+
+
   public native function get frameElement() : Element;
 
 
@@ -119,9 +123,8 @@ public dynamic class Window {
    */
   public native function scrollTo(x:int, y:int):void;
 
-  /**
-   * Firefox only.
-   */
+
+
   public native function getSelection() : Selection;
 
 

@@ -39,11 +39,7 @@ public class Document extends Node {
 
 
 
-  public native function get forms() : Array;
-
-
-
-  public native function get frames() : Array;
+  public native function get forms():HTMLCollection;
 
 
 
@@ -71,7 +67,7 @@ public class Document extends Node {
 
 
 
-  public native function getElementsByName(name : String) : NodeList;
+  public native function getElementsByName(name : String) : HTMLCollection;
 
 
 
@@ -111,7 +107,7 @@ public class Document extends Node {
 
 
 
-  public native function get selection():MSSelection; // IE only
+  public native function getSelection() : Selection;
 
 
 }
