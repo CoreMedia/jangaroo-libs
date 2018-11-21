@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or http://ckeditor.com/license
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['de-ch'] = {
     undo : 
@@ -105,7 +105,8 @@ CKEDITOR.lang['de-ch'] = {
     pastetext : 
     {
     	button : 'Als Klartext einfügen',
-    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	title : 'Als Klartext einfügen'
     },
     pastefromword : 
     {
@@ -162,7 +163,9 @@ CKEDITOR.lang['de-ch'] = {
     	noAnchors : '(Keine Anker im Dokument vorhanden)',
     	noEmail : 'Bitte geben Sie E-Mail-Adresse an',
     	noUrl : 'Bitte geben Sie die Link-URL an',
+    	noTel : 'Please type the phone number',
     	other : '<andere>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Abhängig (Netscape)',
     	popupFeatures : 'Pop-up Fenstereigenschaften',
     	popupFullScreen : 'Vollbild (IE)',
@@ -187,6 +190,7 @@ CKEDITOR.lang['de-ch'] = {
     	toAnchor : 'Anker in dieser Seite',
     	toEmail : 'E-Mail',
     	toUrl : 'URL',
+    	toPhone : 'Phone',
     	toolbar : 'Link einfügen/editieren',
     	type : 'Link-Typ',
     	unlink : 'Link entfernen',
@@ -242,11 +246,9 @@ CKEDITOR.lang['de-ch'] = {
     	cut : 'Ausschneiden',
     	cutError : 'Die Sicherheitseinstellungen Ihres Browsers lassen es nicht zu, den Text automatisch auszuschneiden. Bitte benutzen Sie die System-Zwischenablage über STRG-X (ausschneiden) und STRG-V (einfügen).',
     	paste : 'Einfügen',
-    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Ausgewählt)'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteArea : 'Einfügebereich',
+    	pasteMsg : 'Paste your content inside the area below and press OK.'
     },
     blockquote : 
     {
@@ -316,10 +318,13 @@ CKEDITOR.lang['de-ch'] = {
     	width : 'Breite',
     	height : 'Höhe',
     	align : 'Ausrichtung',
-    	alignLeft : 'Links',
-    	alignRight : 'Rechts',
-    	alignCenter : 'Zentriert',
-    	alignJustify : 'Blocksatz',
+    	left : 'Links',
+    	right : 'Rechts',
+    	center : 'Zentriert',
+    	justify : 'Blocksatz',
+    	alignLeft : 'Linksbündig',
+    	alignRight : 'Rechtsbündig',
+    	alignCenter : 'Align Center',
     	alignTop : 'Oben',
     	alignMiddle : 'Mitte',
     	alignBottom : 'Unten',
@@ -327,6 +332,7 @@ CKEDITOR.lang['de-ch'] = {
     	invalidValue : 'Ungültiger Wert.',
     	invalidHeight : 'Höhe muss eine Zahl sein.',
     	invalidWidth : 'Breite muss eine Zahl sein.',
+    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
     	invalidCssLength : 'Wert spezifiziert für "%1" Feld muss ein positiver numerischer Wert sein mit oder ohne korrekte CSS Messeinheit (px, %, in, cm, mm, em, ex, pt oder pc).',
     	invalidHtmlLength : 'Wert spezifiziert für "%1" Feld muss ein positiver numerischer Wert sein mit oder ohne korrekte HTML Messeinheit (px oder %).',
     	invalidInlineStyle : 'Wert spezifiziert für inline Stilart muss enthalten ein oder mehr Tupels mit dem Format "Name : Wert" getrennt mit Semikolons.',
@@ -343,7 +349,32 @@ CKEDITOR.lang['de-ch'] = {
     		'35' : 'Ende',
     		'36' : 'Pos1',
     		'46' : 'Entfernen',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'Keyboard shortcut'
+    	keyboardShortcut : 'Keyboard shortcut',
+    	optionDefault : 'Default'
     } }; 

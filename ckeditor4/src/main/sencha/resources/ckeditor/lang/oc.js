@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or http://ckeditor.com/license
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['oc'] = {
     undo : 
@@ -105,7 +105,8 @@ CKEDITOR.lang['oc'] = {
     pastetext : 
     {
     	button : 'Pegar coma tèxte brut',
-    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	title : 'Paste as Plain Text'
     },
     pastefromword : 
     {
@@ -162,7 +163,9 @@ CKEDITOR.lang['oc'] = {
     	noAnchors : '(Cap d\'ancòra pas disponibla dins aqueste document)',
     	noEmail : 'Entratz l\'adreça electronica',
     	noUrl : 'Entratz l\'URL del ligam',
+    	noTel : 'Please type the phone number',
     	other : '<autre>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Dependenta (Netscape)',
     	popupFeatures : 'Caracteristicas de la fenèstra sorgissenta',
     	popupFullScreen : 'Ecran complet (IE)',
@@ -187,6 +190,7 @@ CKEDITOR.lang['oc'] = {
     	toAnchor : 'Ancòra',
     	toEmail : 'Corrièl',
     	toUrl : 'URL',
+    	toPhone : 'Phone',
     	toolbar : 'Ligam',
     	type : 'Tipe de ligam',
     	unlink : 'Suprimir lo ligam',
@@ -242,11 +246,9 @@ CKEDITOR.lang['oc'] = {
     	cut : 'Talhar',
     	cutError : 'Los paramètres de seguretat de vòstre navigador autorizan pas l\'editor a executar automaticament l\'operacion « Talhar ». Utilizatz l\'acorchi de clavièr a aqueste efièit (Ctrl/Cmd+X).',
     	paste : 'Pegar',
-    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Seleccionat)'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteArea : 'Paste Area',
+    	pasteMsg : 'Paste your content inside the area below and press OK.'
     },
     blockquote : 
     {
@@ -316,10 +318,13 @@ CKEDITOR.lang['oc'] = {
     	width : 'Largor',
     	height : 'Nautor',
     	align : 'Alinhament',
-    	alignLeft : 'Esquèrra',
-    	alignRight : 'Dreita',
-    	alignCenter : 'Centrar',
-    	alignJustify : 'Justificar',
+    	left : 'Esquèrra',
+    	right : 'Dreita',
+    	center : 'Centrar',
+    	justify : 'Justificar',
+    	alignLeft : 'Alinhar a esquèrra',
+    	alignRight : 'Alinhar a dreita',
+    	alignCenter : 'Align Center',
     	alignTop : 'Naut',
     	alignMiddle : 'Mitan',
     	alignBottom : 'Bas',
@@ -327,6 +332,7 @@ CKEDITOR.lang['oc'] = {
     	invalidValue : 'Valor invalida.',
     	invalidHeight : 'La nautor deu èsser un nombre.',
     	invalidWidth : 'La largor deu èsser un nombre.',
+    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
     	invalidCssLength : 'La valor especificada pel camp « %1 » deu èsser un nombre positiu amb o sens unitat de mesura CSS valid (px, %, in, cm, mm, em, ex, pt, o pc).',
     	invalidHtmlLength : 'La valor especificada pel camp « %1 » deu èsser un nombre positiu amb o sens unitat de mesura HTML valid (px o %).',
     	invalidInlineStyle : 'La valor especificada per l\'estil en linha deu èsser compausada d\'un o mantun parelh al format « nom : valor », separats per de punts-virgulas.',
@@ -343,7 +349,32 @@ CKEDITOR.lang['oc'] = {
     		'35' : 'Fin',
     		'36' : 'Origina',
     		'46' : 'Suprimir',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
     		'224' : 'Comanda'
     	},
-    	keyboardShortcut : 'Acorchi de clavièr'
+    	keyboardShortcut : 'Acorchi de clavièr',
+    	optionDefault : 'Default'
     } }; 

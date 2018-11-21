@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or http://ckeditor.com/license
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['he'] = {
     undo : 
@@ -105,7 +105,8 @@ CKEDITOR.lang['he'] = {
     pastetext : 
     {
     	button : 'הדבקה כטקסט פשוט',
-    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	title : 'הדבקה כטקסט פשוט'
     },
     pastefromword : 
     {
@@ -162,7 +163,9 @@ CKEDITOR.lang['he'] = {
     	noAnchors : '(אין עוגנים זמינים בדף)',
     	noEmail : 'יש להקליד את כתובת הדוא"ל',
     	noUrl : 'יש להקליד את כתובת הקישור (URL)',
+    	noTel : 'Please type the phone number',
     	other : '<אחר>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'תלוי (Netscape)',
     	popupFeatures : 'תכונות החלון הקופץ',
     	popupFullScreen : 'מסך מלא (IE)',
@@ -187,6 +190,7 @@ CKEDITOR.lang['he'] = {
     	toAnchor : 'עוגן בעמוד זה',
     	toEmail : 'דוא"ל',
     	toUrl : 'כתובת (URL)',
+    	toPhone : 'Phone',
     	toolbar : 'הוספת/עריכת קישור',
     	type : 'סוג קישור',
     	unlink : 'הסרת הקישור',
@@ -242,11 +246,9 @@ CKEDITOR.lang['he'] = {
     	cut : 'גזירה',
     	cutError : 'הגדרות האבטחה בדפדפן שלך לא מאפשרות לעורך לבצע פעולות גזירה אוטומטיות. יש להשתמש במקלדת לשם כך (Ctrl/Cmd+X).',
     	paste : 'הדבקה',
-    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
-    },
-    button : 
-    {
-    	selectedLabel : '1% (סומן)'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteArea : 'איזור הדבקה',
+    	pasteMsg : 'Paste your content inside the area below and press OK.'
     },
     blockquote : 
     {
@@ -316,10 +318,13 @@ CKEDITOR.lang['he'] = {
     	width : 'רוחב',
     	height : 'גובה',
     	align : 'יישור',
-    	alignLeft : 'לשמאל',
-    	alignRight : 'לימין',
-    	alignCenter : 'מרכז',
-    	alignJustify : 'יישור לשוליים',
+    	left : 'לשמאל',
+    	right : 'לימין',
+    	center : 'מרכז',
+    	justify : 'יישור לשוליים',
+    	alignLeft : 'יישור לשמאל',
+    	alignRight : 'יישור לימין',
+    	alignCenter : 'Align Center',
     	alignTop : 'למעלה',
     	alignMiddle : 'לאמצע',
     	alignBottom : 'לתחתית',
@@ -327,6 +332,7 @@ CKEDITOR.lang['he'] = {
     	invalidValue : 'ערך לא חוקי.',
     	invalidHeight : 'הגובה חייב להיות מספר.',
     	invalidWidth : 'הרוחב חייב להיות מספר.',
+    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
     	invalidCssLength : 'הערך שצוין לשדה "%1" חייב להיות מספר חיובי עם או ללא יחידת מידה חוקית של CSS (px, %, in, cm, mm, em, ex, pt, או pc).',
     	invalidHtmlLength : 'הערך שצוין לשדה "%1" חייב להיות מספר חיובי עם או ללא יחידת מידה חוקית של HTML (px או %).',
     	invalidInlineStyle : 'הערך שצויין לשדה הסגנון חייב להכיל זוג ערכים אחד או יותר בפורמט "שם : ערך", מופרדים על ידי נקודה-פסיק.',
@@ -343,7 +349,32 @@ CKEDITOR.lang['he'] = {
     		'35' : 'End',
     		'36' : 'Home',
     		'46' : 'מחק',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'Keyboard shortcut'
+    	keyboardShortcut : 'Keyboard shortcut',
+    	optionDefault : 'Default'
     } }; 

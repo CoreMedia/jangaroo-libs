@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or http://ckeditor.com/license
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['sq'] = {
     undo : 
@@ -14,19 +14,19 @@ CKEDITOR.lang['sq'] = {
     	toolbarExpand : 'Zgjero Shiritin',
     	toolbarGroups : 
     	{
-    		document : 'Dokument',
+    		document : 'Dokumenti',
     		clipboard : 'Tabela Punës/Ribëje',
     		editing : 'Duke Redaktuar',
-    		forms : 'Formular',
-    		basicstyles : 'Stili Bazë',
-    		paragraph : 'Paragraf',
-    		links : 'Nyjet',
+    		forms : 'Formularët',
+    		basicstyles : 'Stilet Bazë',
+    		paragraph : 'Paragrafi',
+    		links : 'Nyjat',
     		insert : 'Shto',
-    		styles : 'Stil',
+    		styles : 'Stilet',
     		colors : 'Ngjyrat',
     		tools : 'Mjetet'
     	},
-    	toolbars : 'Shiritet e Redaktuesit'
+    	toolbars : 'Shiritat e Redaktuesit'
     },
     table : 
     {
@@ -105,7 +105,8 @@ CKEDITOR.lang['sq'] = {
     pastetext : 
     {
     	button : 'Hidhe si tekst të thjeshtë',
-    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
+    	pasteNotification : 'Shtyp %1 për të hedhur tekstin. Shfletuesi juaj nuk mbështetë hedhjen me pullë shiriti ose alternativën e menysë kontekstuale.',
+    	title : 'Hidhe si Tekst të Thjeshtë'
     },
     pastefromword : 
     {
@@ -116,11 +117,11 @@ CKEDITOR.lang['sq'] = {
     },
     notification : 
     {
-    	closed : 'Notification closed.'
+    	closed : 'Njoftimi është mbyllur.'
     },
     magicline : 
     {
-    	title : 'Vendos paragraf këtu'
+    	title : 'Shto paragrafin këtu'
     },
     list : 
     {
@@ -129,55 +130,57 @@ CKEDITOR.lang['sq'] = {
     },
     link : 
     {
-    	acccessKey : 'Sipas ID-së së Elementit',
+    	acccessKey : 'Elementi i qasjes',
     	advanced : 'Të përparuara',
-    	advisoryContentType : 'Lloji i Përmbajtjes Këshillimore',
-    	advisoryTitle : 'Titull',
+    	advisoryContentType : 'Lloji i Përmbajtjes Këshillimorit',
+    	advisoryTitle : 'Titulli Këshillimorit',
     	anchor : 
     	{
     		toolbar : 'Spirancë',
     		menu : 'Redakto Spirancën',
-    		title : 'Anchor Properties',
+    		title : 'Karakteristikat e Spirancës',
     		name : 'Emri i Spirancës',
     		errorName : 'Ju lutemi shkruani emrin e spirancës',
     		remove : 'Largo Spirancën'
     	},
     	anchorId : 'Sipas ID-së së Elementit',
     	anchorName : 'Sipas Emrit të Spirancës',
-    	charset : 'Seti i Karaktereve të Burimeve të Nëdlidhura',
-    	cssClasses : 'Klasa stili CSS',
-    	download : 'Force Download',
-    	displayText : 'Display Text',
+    	charset : 'Seti i Karaktereve të Burimeve të lidhura',
+    	cssClasses : 'CSS Klasat',
+    	download : 'Nxit Shkarkimin',
+    	displayText : 'Shfaq Tekstin',
     	emailAddress : 'Posta Elektronike',
-    	emailBody : 'Trupi i Porosisë',
+    	emailBody : 'Hapësira e Porosisë',
     	emailSubject : 'Titulli i Porosisë',
     	id : 'Id',
-    	info : 'Informacione të Nyjes',
-    	langCode : 'Kod gjuhe',
-    	langDir : 'Drejtim teksti',
+    	info : 'Informacione të Nyjës',
+    	langCode : 'Kodi Gjuhës',
+    	langDir : 'Drejtimi Gjuhës',
     	langDirLTR : 'Nga e majta në të djathë (LTR)',
     	langDirRTL : 'Nga e djathta në të majtë (RTL)',
     	menu : 'Redakto Nyjen',
-    	name : 'Emër',
+    	name : 'Emri',
     	noAnchors : '(Nuk ka asnjë spirancë në dokument)',
     	noEmail : 'Ju lutemi shkruani postën elektronike',
-    	noUrl : 'Ju lutemi shkruani URL-në e nyjes',
-    	other : '<tjetër>',
+    	noUrl : 'Ju lutemi shkruani URL-në e nyjës',
+    	noTel : 'Please type the phone number',
+    	other : '<other>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'E Varur (Netscape)',
     	popupFeatures : 'Karakteristikat e Dritares së Dialogut',
-    	popupFullScreen : 'Ekran i Plotë  (IE)',
+    	popupFullScreen : 'Ekrani Plotë  (IE)',
     	popupLeft : 'Pozita Majtas',
-    	popupLocationBar : 'Shiriti i Lokacionit',
-    	popupMenuBar : 'Shiriti i Menysë',
+    	popupLocationBar : 'Shiriti Vendit',
+    	popupMenuBar : 'Shiriti Menysë',
     	popupResizable : 'I ndryshueshëm',
     	popupScrollBars : 'Shiritat zvarritës',
-    	popupStatusBar : 'Shiriti i Statutit',
-    	popupToolbar : 'Shiriti i Mejteve',
+    	popupStatusBar : 'Shiriti Statutit',
+    	popupToolbar : 'Shiriti Mjeteve',
     	popupTop : 'Top Pozita',
     	rel : 'Marrëdhëniet',
-    	selectAnchor : 'Përzgjidh një Spirancë',
+    	selectAnchor : 'Përzgjidh Spirancë',
     	styles : 'Stil',
-    	tabIndex : 'Indeksi i fletave',
+    	tabIndex : 'Indeksi Fletës',
     	target : 'Objektivi',
     	targetFrame : '<frame>',
     	targetFrameName : 'Emri i Kornizës së Synuar',
@@ -187,9 +190,10 @@ CKEDITOR.lang['sq'] = {
     	toAnchor : 'Lidhu me spirancën në tekst',
     	toEmail : 'Posta Elektronike',
     	toUrl : 'URL',
+    	toPhone : 'Phone',
     	toolbar : 'Nyja',
-    	type : 'Lloji i Nyjes',
-    	unlink : 'Largo Nyjen',
+    	type : 'Lloji i Nyjës',
+    	unlink : 'Largo Nyjën',
     	upload : 'Ngarko'
     },
     indent : 
@@ -242,15 +246,13 @@ CKEDITOR.lang['sq'] = {
     	cut : 'Preje',
     	cutError : 'Të dhënat e sigurisë së shfletuesit tuaj nuk lejojnë që redaktuesi automatikisht të kryej veprimin e prerjes. Ju lutemi shfrytëzoni tastierën për këtë veprim (Ctrl/Cmd+X).',
     	paste : 'Hidhe',
-    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Përzgjedhur)'
+    	pasteNotification : 'Shtyp %1 për të hedhur tekstin. Shfletuesi juaj nuk mbështetë hedhjen me pullë shiriti ose alternativën e menysë kontekstuale.',
+    	pasteArea : 'Hapësira e Hedhjes',
+    	pasteMsg : 'Hidh përmbajtjen brenda hapësirës më poshtë dhe shtyp MIRË.'
     },
     blockquote : 
     {
-    	toolbar : 'Citatet'
+    	toolbar : 'Thonjëzat'
     },
     basicstyles : 
     {
@@ -270,40 +272,40 @@ CKEDITOR.lang['sq'] = {
     	url : 'URL',
     	protocol : 'Protokolli',
     	upload : 'Ngarko',
-    	uploadSubmit : 'Dërgo në server',
-    	image : 'Imazh',
+    	uploadSubmit : 'E dërgo në server',
+    	image : 'Foto',
     	flash : 'Objekt flash',
-    	form : 'Formular',
-    	checkbox : 'Checkbox',
-    	radio : 'Buton radio',
-    	textField : 'Fushë tekst',
-    	textarea : 'Hapësirë tekst',
+    	form : 'Formulari',
+    	checkbox : 'Kuti përzgjedhjeje',
+    	radio : 'Pullë përzgjedhjeje',
+    	textField : 'Fushë teksti',
+    	textarea : 'Hapësirë teksti',
     	hiddenField : 'Fushë e fshehur',
-    	button : 'Buton',
-    	select : 'Menu zgjedhjeje',
-    	imageButton : 'Buton imazhi',
-    	notSet : '<e pazgjedhur>',
+    	button : 'Pullë',
+    	select : 'Fusha e përzgjedhjeve',
+    	imageButton : 'Pullë fotografie',
+    	notSet : '<not set>',
     	id : 'Id',
-    	name : 'Emër',
-    	langDir : 'Kod gjuhe',
+    	name : 'Emri',
+    	langDir : 'Drejtim gjuhe',
     	langDirLtr : 'Nga e majta në të djathtë (LTR)',
     	langDirRtl : 'Nga e djathta në të majtë (RTL)',
-    	langCode : 'Kod gjuhe',
-    	longDescr : 'Përshkrim i hollësishëm',
-    	cssClass : 'Klasa stili CSS',
-    	advisoryTitle : 'Titull',
-    	cssStyle : 'Stil',
-    	ok : 'OK',
+    	langCode : 'Kodi i Gjuhës',
+    	longDescr : 'URL e përshkrimit të hollësishëm',
+    	cssClass : 'CSS Klasat',
+    	advisoryTitle : 'Titulli Konsultativ',
+    	cssStyle : 'Stili',
+    	ok : 'Mirë',
     	cancel : 'Anulo',
     	close : 'Mbyll',
-    	preview : 'Parashiko',
-    	resize : 'Ripërmaso',
+    	preview : 'Parashih',
+    	resize : 'Ndrysho madhësinë',
     	generalTab : 'Të përgjithshme',
     	advancedTab : 'Të përparuara',
-    	validateNumberFailed : 'Vlera e futur nuk është një numër',
-    	confirmNewPage : 'Çdo ndryshim që nuk është ruajtur do humbasë. Je i sigurtë që dëshiron të krijosh një faqe të re?',
-    	confirmCancel : 'Disa opsione kanë ndryshuar. Je i sigurtë që dëshiron ta mbyllësh dritaren?',
-    	options : 'Opsione',
+    	validateNumberFailed : 'Kjo vlerë nuk është numër.',
+    	confirmNewPage : 'Çdo ndryshim që nuk është ruajtur do humbasë. Je i sigurt që dëshiron të hapsh faqe të re?',
+    	confirmCancel : 'Ke ndryshuar ca mundësi. Je i sigurt që dëshiron ta mbyllësh dritaren?',
+    	options : 'Mundësitë',
     	target : 'Objektivi',
     	targetNew : 'Dritare e re (_blank)',
     	targetTop : 'Dritare në plan të parë (_top)',
@@ -311,15 +313,18 @@ CKEDITOR.lang['sq'] = {
     	targetParent : 'Dritarja prind (_parent)',
     	langDirLTR : 'Nga e majta në të djathë (LTR)',
     	langDirRTL : 'Nga e djathta në të majtë (RTL)',
-    	styles : 'Stil',
-    	cssClasses : 'Klasa Stili CSS',
-    	width : 'Gjerësi',
-    	height : 'Lartësi',
-    	align : 'Rreshtim',
-    	alignLeft : 'Majtas',
-    	alignRight : 'Djathtas',
-    	alignCenter : 'Qendër',
-    	alignJustify : 'Zgjero',
+    	styles : 'Stili',
+    	cssClasses : 'CSS Klasat',
+    	width : 'Gjerësia',
+    	height : 'Lartësia',
+    	align : 'Rreshtimi',
+    	left : 'Majtas',
+    	right : 'Djathtas',
+    	center : 'Në mes',
+    	justify : 'Zgjero',
+    	alignLeft : 'Rreshto majtas',
+    	alignRight : 'Rreshto Djathtas',
+    	alignCenter : 'Rreshto në mes',
     	alignTop : 'Lart',
     	alignMiddle : 'Në mes',
     	alignBottom : 'Poshtë',
@@ -327,10 +332,11 @@ CKEDITOR.lang['sq'] = {
     	invalidValue : 'Vlerë e pavlefshme',
     	invalidHeight : 'Lartësia duhet të jetë një numër',
     	invalidWidth : 'Gjerësia duhet të jetë një numër',
+    	invalidLength : 'Vlera e përcaktuar për fushën "%1" duhet të jetë pozitive me ose pa njësi matëse me vlerë (%2).',
     	invalidCssLength : 'Vlera e fushës "%1" duhet të jetë një numër pozitiv me apo pa njësi matëse të vlefshme CSS (px, %, in, cm, mm, em, ex, pt ose pc).',
     	invalidHtmlLength : 'Vlera e fushës "%1" duhet të jetë një numër pozitiv me apo pa njësi matëse të vlefshme HTML (px ose %)',
-    	invalidInlineStyle : 'Stili inline duhet të jetë një apo disa vlera të formatit "emër: vlerë", ndarë nga pikëpresje.',
-    	cssLengthTooltip : 'Fut një numër për vlerën në pixel apo një numër me një njësi të vlefshme CSS (px, %, in, cm, mm, ex, pt, ose pc).',
+    	invalidInlineStyle : 'Vlera e përcaktuar për stilin e vijëzuar duhet përmbajtur një ose më shumë vlera me format "emër : vlerë", të ndara me pikëpresje.',
+    	cssLengthTooltip : 'Shto një numër për vlerën në piksel ose një numër me njësi të vlefshme CSS (px, %, in, cm, mm, em, ex, pt, or pc).',
     	unavailable : '%1<span class="cke_accessibility">, i padisponueshëm</span>',
     	keyboard : 
     	{
@@ -339,11 +345,36 @@ CKEDITOR.lang['sq'] = {
     		'16' : 'Shift',
     		'17' : 'Ctrl',
     		'18' : 'Alt',
-    		'32' : 'Space',
+    		'32' : 'Hapësirë',
     		'35' : 'End',
     		'36' : 'Home',
-    		'46' : 'Grise',
-    		'224' : 'Command'
+    		'46' : 'Delete',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
+    		'224' : 'Urdhri'
     	},
-    	keyboardShortcut : 'Keyboard shortcut'
+    	keyboardShortcut : 'Shkurtesat e tastierës',
+    	optionDefault : 'Parazgjedhur'
     } }; 

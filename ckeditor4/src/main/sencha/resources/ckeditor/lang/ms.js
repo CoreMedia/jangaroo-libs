@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or http://ckeditor.com/license
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['ms'] = {
     undo : 
@@ -105,7 +105,8 @@ CKEDITOR.lang['ms'] = {
     pastetext : 
     {
     	button : 'Tampal sebagai text biasa',
-    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	title : 'Tampal sebagai text biasa'
     },
     pastefromword : 
     {
@@ -162,7 +163,9 @@ CKEDITOR.lang['ms'] = {
     	noAnchors : '(Tiada pautan terdapat dalam dokumen ini)',
     	noEmail : 'Sila taip alamat e-mail',
     	noUrl : 'Sila taip sambungan URL',
+    	noTel : 'Please type the phone number',
     	other : '<lain>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Bergantungan (Netscape)',
     	popupFeatures : 'Ciri Tetingkap Popup',
     	popupFullScreen : 'Skrin Penuh (IE)',
@@ -187,6 +190,7 @@ CKEDITOR.lang['ms'] = {
     	toAnchor : 'Pautan dalam muka surat ini',
     	toEmail : 'E-Mail',
     	toUrl : 'URL',
+    	toPhone : 'Phone',
     	toolbar : 'Masukkan/Sunting Sambungan',
     	type : 'Jenis Sambungan',
     	unlink : 'Buang Sambungan',
@@ -242,11 +246,9 @@ CKEDITOR.lang['ms'] = {
     	cut : 'Potong',
     	cutError : 'Keselamatan perisian browser anda tidak membenarkan operasi suntingan text/imej. Sila gunakan papan kekunci (Ctrl/Cmd+X).',
     	paste : 'Tampal',
-    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Selected)'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteArea : 'Paste Area',
+    	pasteMsg : 'Paste your content inside the area below and press OK.'
     },
     blockquote : 
     {
@@ -316,10 +318,13 @@ CKEDITOR.lang['ms'] = {
     	width : 'Lebar',
     	height : 'Tinggi',
     	align : 'Jajaran',
-    	alignLeft : 'Kiri',
-    	alignRight : 'Kanan',
-    	alignCenter : 'Tengah',
-    	alignJustify : 'Jajaran Blok',
+    	left : 'Kiri',
+    	right : 'Kanan',
+    	center : 'Tengah',
+    	justify : 'Jajaran Blok',
+    	alignLeft : 'Jajaran Kiri',
+    	alignRight : 'Jajaran Kanan',
+    	alignCenter : 'Align Center',
     	alignTop : 'Atas',
     	alignMiddle : 'Pertengahan',
     	alignBottom : 'Bawah',
@@ -327,6 +332,7 @@ CKEDITOR.lang['ms'] = {
     	invalidValue : 'Nilai tidak sah.',
     	invalidHeight : 'Height must be a number.',
     	invalidWidth : 'Width must be a number.',
+    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
     	invalidCssLength : 'Value specified for the "%1" field must be a positive number with or without a valid CSS measurement unit (px, %, in, cm, mm, em, ex, pt, or pc).',
     	invalidHtmlLength : 'Value specified for the "%1" field must be a positive number with or without a valid HTML measurement unit (px or %).',
     	invalidInlineStyle : 'Value specified for the inline style must consist of one or more tuples with the format of "name : value", separated by semi-colons.',
@@ -343,7 +349,32 @@ CKEDITOR.lang['ms'] = {
     		'35' : 'End',
     		'36' : 'Home',
     		'46' : 'Delete',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'Keyboard shortcut'
+    	keyboardShortcut : 'Keyboard shortcut',
+    	optionDefault : 'Default'
     } }; 

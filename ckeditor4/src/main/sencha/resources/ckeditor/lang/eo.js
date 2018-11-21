@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or http://ckeditor.com/license
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['eo'] = {
     undo : 
@@ -105,7 +105,8 @@ CKEDITOR.lang['eo'] = {
     pastetext : 
     {
     	button : 'Interglui kiel platan tekston',
-    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	title : 'Interglui kiel platan tekston'
     },
     pastefromword : 
     {
@@ -162,7 +163,9 @@ CKEDITOR.lang['eo'] = {
     	noAnchors : '<Ne disponeblas ankroj en la dokumento>',
     	noEmail : 'Bonvolu entajpi la retpoŝtadreson',
     	noUrl : 'Bonvolu entajpi la URL-on',
+    	noTel : 'Please type the phone number',
     	other : '<alia>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Dependa (Netscape)',
     	popupFeatures : 'Atributoj de la Ŝprucfenestro',
     	popupFullScreen : 'Tutekrane (IE)',
@@ -187,6 +190,7 @@ CKEDITOR.lang['eo'] = {
     	toAnchor : 'Ankri en tiu ĉi paĝo',
     	toEmail : 'Retpoŝto',
     	toUrl : 'URL',
+    	toPhone : 'Phone',
     	toolbar : 'Enmeti/Ŝanĝi Ligilon',
     	type : 'Tipo de Ligilo',
     	unlink : 'Forigi Ligilon',
@@ -242,11 +246,9 @@ CKEDITOR.lang['eo'] = {
     	cut : 'Eltondi',
     	cutError : 'La sekurecagordo de via TTT-legilo ne permesas, ke la redaktilo faras eltondajn operaciojn. Bonvolu uzi la klavaron por tio (Ctrl/Cmd-X).',
     	paste : 'Interglui',
-    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Selektita)'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteArea : 'Intergluoareo',
+    	pasteMsg : 'Paste your content inside the area below and press OK.'
     },
     blockquote : 
     {
@@ -316,10 +318,13 @@ CKEDITOR.lang['eo'] = {
     	width : 'Larĝo',
     	height : 'Alto',
     	align : 'Ĝisrandigo',
-    	alignLeft : 'Maldekstre',
-    	alignRight : 'Dekstre',
-    	alignCenter : 'Centre',
-    	alignJustify : 'Ĝisrandigi Ambaŭflanke',
+    	left : 'Maldekstre',
+    	right : 'Dekstre',
+    	center : 'Centre',
+    	justify : 'Ĝisrandigi Ambaŭflanke',
+    	alignLeft : 'Ĝisrandigi maldekstren',
+    	alignRight : 'Ĝisrandigi dekstren',
+    	alignCenter : 'Align Center',
     	alignTop : 'Supre',
     	alignMiddle : 'Centre',
     	alignBottom : 'Malsupre',
@@ -327,6 +332,7 @@ CKEDITOR.lang['eo'] = {
     	invalidValue : 'Nevalida Valoro',
     	invalidHeight : 'Alto devas esti nombro.',
     	invalidWidth : 'Larĝo devas esti nombro.',
+    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
     	invalidCssLength : 'La valoro indikita por la "%1" kampo devas esti pozitiva nombro kun aŭ sen valida CSSmezurunuo (px, %, in, cm, mm, em, ex, pt, or pc).',
     	invalidHtmlLength : 'La valoro indikita por la "%1" kampo devas esti pozitiva nombro kun aŭ sen valida HTMLmezurunuo (px or %).',
     	invalidInlineStyle : 'La valoro indikita por la enlinia stilo devas konsisti el unu aŭ pluraj elementoj kun la formato de "nomo : valoro", apartigitaj per punktokomoj.',
@@ -343,7 +349,32 @@ CKEDITOR.lang['eo'] = {
     		'35' : 'Fino',
     		'36' : 'Hejmo',
     		'46' : 'Forigi',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
     		'224' : 'Komando'
     	},
-    	keyboardShortcut : 'Fulmoklavo'
+    	keyboardShortcut : 'Fulmoklavo',
+    	optionDefault : 'Defaŭlta'
     } }; 

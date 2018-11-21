@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or http://ckeditor.com/license
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['pl'] = {
     undo : 
@@ -105,7 +105,8 @@ CKEDITOR.lang['pl'] = {
     pastetext : 
     {
     	button : 'Wklej jako czysty tekst',
-    	pasteNotification : 'Twoja przeglądarka nie pozwala na wklejanie treści w ten sposób. Naciśnij %1 by wkleić tekst.'
+    	pasteNotification : 'Naciśnij %1 by wkleić tekst. Twoja przeglądarka nie obsługuje wklejania za pomocą przycisku paska narzędzi lub opcji menu kontekstowego.',
+    	title : 'Wklej jako czysty tekst'
     },
     pastefromword : 
     {
@@ -162,7 +163,9 @@ CKEDITOR.lang['pl'] = {
     	noAnchors : '(W dokumencie nie zdefiniowano żadnych kotwic)',
     	noEmail : 'Podaj adres e-mail',
     	noUrl : 'Podaj adres URL',
+    	noTel : 'Please type the phone number',
     	other : '<inny>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Okno zależne (Netscape)',
     	popupFeatures : 'Właściwości wyskakującego okna',
     	popupFullScreen : 'Pełny ekran (IE)',
@@ -187,6 +190,7 @@ CKEDITOR.lang['pl'] = {
     	toAnchor : 'Odnośnik wewnątrz strony (kotwica)',
     	toEmail : 'Adres e-mail',
     	toUrl : 'Adres URL',
+    	toPhone : 'Phone',
     	toolbar : 'Wstaw/edytuj odnośnik',
     	type : 'Typ odnośnika',
     	unlink : 'Usuń odnośnik',
@@ -242,11 +246,9 @@ CKEDITOR.lang['pl'] = {
     	cut : 'Wytnij',
     	cutError : 'Ustawienia bezpieczeństwa Twojej przeglądarki nie pozwalają na automatyczne wycinanie tekstu. Użyj skrótu klawiszowego Ctrl/Cmd+X.',
     	paste : 'Wklej',
-    	pasteNotification : 'Twoja przeglądarka nie pozwala na wklejanie treści w ten sposób. Naciśnij %1 by wkleić tekst.'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Wybrany)'
+    	pasteNotification : 'Naciśnij %1 by wkleić tekst. Twoja przeglądarka nie pozwala na wklejanie za pomocą przycisku paska narzędzi lub opcji menu kontekstowego.',
+    	pasteArea : 'Miejsce do wklejenia treści',
+    	pasteMsg : 'Wklej treść do obszaru poniżej i naciśnij OK.'
     },
     blockquote : 
     {
@@ -316,10 +318,13 @@ CKEDITOR.lang['pl'] = {
     	width : 'Szerokość',
     	height : 'Wysokość',
     	align : 'Wyrównaj',
-    	alignLeft : 'Do lewej',
-    	alignRight : 'Do prawej',
-    	alignCenter : 'Do środka',
-    	alignJustify : 'Wyjustuj',
+    	left : 'Do lewej',
+    	right : 'Do prawej',
+    	center : 'Do środka',
+    	justify : 'Wyjustuj',
+    	alignLeft : 'Wyrównaj do lewej',
+    	alignRight : 'Wyrównaj do prawej',
+    	alignCenter : 'Wyśrodkuj',
     	alignTop : 'Do góry',
     	alignMiddle : 'Do środka',
     	alignBottom : 'Do dołu',
@@ -327,6 +332,7 @@ CKEDITOR.lang['pl'] = {
     	invalidValue : 'Nieprawidłowa wartość.',
     	invalidHeight : 'Wysokość musi być liczbą.',
     	invalidWidth : 'Szerokość musi być liczbą.',
+    	invalidLength : 'Wartość podana dla pola "%1" musi być liczbą dodatnią bez jednostki lub z poprawną jednostką długości (%2).',
     	invalidCssLength : 'Wartość podana dla pola "%1" musi być liczbą dodatnią bez jednostki lub z poprawną jednostką długości zgodną z CSS (px, %, in, cm, mm, em, ex, pt lub pc).',
     	invalidHtmlLength : 'Wartość podana dla pola "%1" musi być liczbą dodatnią bez jednostki lub z poprawną jednostką długości zgodną z HTML (px lub %).',
     	invalidInlineStyle : 'Wartość podana dla stylu musi składać się z jednej lub większej liczby krotek w formacie "nazwa : wartość", rozdzielonych średnikami.',
@@ -343,7 +349,32 @@ CKEDITOR.lang['pl'] = {
     		'35' : 'End',
     		'36' : 'Home',
     		'46' : 'Delete',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'Skrót klawiszowy'
+    	keyboardShortcut : 'Skrót klawiszowy',
+    	optionDefault : 'Domyślny'
     } }; 

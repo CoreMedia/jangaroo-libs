@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or http://ckeditor.com/license
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['ko'] = {
     undo : 
@@ -105,7 +105,8 @@ CKEDITOR.lang['ko'] = {
     pastetext : 
     {
     	button : '텍스트로 붙여넣기',
-    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	title : '텍스트로 붙여넣기'
     },
     pastefromword : 
     {
@@ -162,7 +163,9 @@ CKEDITOR.lang['ko'] = {
     	noAnchors : '(문서에 책갈피가 없습니다.)',
     	noEmail : '이메일 주소를 입력하십시오',
     	noUrl : '링크 주소(URL)를 입력하십시오',
+    	noTel : 'Please type the phone number',
     	other : '<기타>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Dependent (Netscape)',
     	popupFeatures : '팝업창 속성',
     	popupFullScreen : '전체화면 (IE)',
@@ -187,6 +190,7 @@ CKEDITOR.lang['ko'] = {
     	toAnchor : '책갈피',
     	toEmail : '이메일',
     	toUrl : '주소(URL)',
+    	toPhone : 'Phone',
     	toolbar : '링크 삽입/변경',
     	type : '링크 종류',
     	unlink : '링크 지우기',
@@ -242,11 +246,9 @@ CKEDITOR.lang['ko'] = {
     	cut : '잘라내기',
     	cutError : '브라우저의 보안설정 때문에 잘라내기 기능을 실행할 수 없습니다. 키보드(Ctrl/Cmd+X)를 이용해서 잘라내기 하십시오',
     	paste : '붙여넣기',
-    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (선택됨)'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteArea : '붙여넣기 범위',
+    	pasteMsg : 'Paste your content inside the area below and press OK.'
     },
     blockquote : 
     {
@@ -316,10 +318,13 @@ CKEDITOR.lang['ko'] = {
     	width : '너비',
     	height : '높이',
     	align : '정렬',
-    	alignLeft : '왼쪽',
-    	alignRight : '오른쪽',
-    	alignCenter : '가운데',
-    	alignJustify : '양쪽 맞춤',
+    	left : '왼쪽',
+    	right : '오른쪽',
+    	center : '중앙',
+    	justify : '양쪽 정렬',
+    	alignLeft : '왼쪽 정렬',
+    	alignRight : '오른쪽 정렬',
+    	alignCenter : '중앙 정렬',
     	alignTop : '위',
     	alignMiddle : '중간',
     	alignBottom : '아래',
@@ -327,6 +332,7 @@ CKEDITOR.lang['ko'] = {
     	invalidValue : '잘못된 값.',
     	invalidHeight : '높이는 숫자여야 합니다.',
     	invalidWidth : '넓이는 숫자여야 합니다.',
+    	invalidLength : '"%1" 값은 유효한 측정단위(%2)를 포함하거나 포함하지 않은 양수여야 합니다.',
     	invalidCssLength : '"%1" 값은 유효한 CSS 측정 단위(px, %, in, cm, mm, em, ex, pt, or pc)를 포함하거나 포함하지 않은 양수 여야 합니다.',
     	invalidHtmlLength : '"%1" 값은 유효한 HTML 측정 단위(px or %)를 포함하거나 포함하지 않은 양수여야 합니다.',
     	invalidInlineStyle : '인라인 스타일에 설정된 값은 "name : value" 형식을 가진 하나 이상의 투플(tuples)이 세미콜론(;)으로 구분되어 구성되어야 합니다.',
@@ -343,7 +349,32 @@ CKEDITOR.lang['ko'] = {
     		'35' : '엔드',
     		'36' : '홈',
     		'46' : '딜리트',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
     		'224' : '커맨드'
     	},
-    	keyboardShortcut : '키보드 단축키'
+    	keyboardShortcut : '키보드 단축키',
+    	optionDefault : '기본값'
     } }; 

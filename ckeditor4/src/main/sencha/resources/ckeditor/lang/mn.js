@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or http://ckeditor.com/license
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['mn'] = {
     undo : 
@@ -105,7 +105,8 @@ CKEDITOR.lang['mn'] = {
     pastetext : 
     {
     	button : 'Энгийн бичвэрээр буулгах',
-    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	title : 'Энгийн бичвэрээр буулгах'
     },
     pastefromword : 
     {
@@ -162,7 +163,9 @@ CKEDITOR.lang['mn'] = {
     	noAnchors : '(Баримт бичиг зангуугүй байна)',
     	noEmail : 'Э-шуудангий хаягаа шивнэ үү',
     	noUrl : 'Холбоосны URL хаягийг шивнэ үү',
+    	noTel : 'Please type the phone number',
     	other : '<other>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Хамаатай (Netscape)',
     	popupFeatures : 'Popup цонхны онцлог',
     	popupFullScreen : 'Цонх дүүргэх (Internet Explorer)',
@@ -187,6 +190,7 @@ CKEDITOR.lang['mn'] = {
     	toAnchor : 'Энэ бичвэр дэх зангуу руу очих холбоос',
     	toEmail : 'Э-захиа',
     	toUrl : 'цахим хуудасны хаяг (URL)',
+    	toPhone : 'Phone',
     	toolbar : 'Холбоос',
     	type : 'Линкийн төрөл',
     	unlink : 'Холбоос авч хаях',
@@ -242,11 +246,9 @@ CKEDITOR.lang['mn'] = {
     	cut : 'Хайчлах',
     	cutError : 'Таны browser-ын хамгаалалтын тохиргоо editor-д автоматаар хайчлах үйлдэлийг зөвшөөрөхгүй байна. (Ctrl/Cmd+X) товчны хослолыг ашиглана уу.',
     	paste : 'Буулгах',
-    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Selected)'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteArea : 'Paste Area',
+    	pasteMsg : 'Paste your content inside the area below and press OK.'
     },
     blockquote : 
     {
@@ -316,10 +318,13 @@ CKEDITOR.lang['mn'] = {
     	width : 'Өргөн',
     	height : 'Өндөр',
     	align : 'Эгнээ',
-    	alignLeft : 'Зүүн',
-    	alignRight : 'Баруун',
-    	alignCenter : 'Төвд',
-    	alignJustify : 'Тэгшлэх',
+    	left : 'Зүүн',
+    	right : 'Баруун',
+    	center : 'Төвд',
+    	justify : 'Тэгшлэх',
+    	alignLeft : 'Зүүн талд тулгах',
+    	alignRight : 'Баруун талд тулгах',
+    	alignCenter : 'Align Center',
     	alignTop : 'Дээд талд',
     	alignMiddle : 'Дунд',
     	alignBottom : 'Доод талд',
@@ -327,6 +332,7 @@ CKEDITOR.lang['mn'] = {
     	invalidValue : 'Invalid value.',
     	invalidHeight : 'Өндөр нь тоо байх ёстой.',
     	invalidWidth : 'Өргөн нь тоо байх ёстой.',
+    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
     	invalidCssLength : 'Value specified for the "%1" field must be a positive number with or without a valid CSS measurement unit (px, %, in, cm, mm, em, ex, pt, or pc).',
     	invalidHtmlLength : 'Value specified for the "%1" field must be a positive number with or without a valid HTML measurement unit (px or %).',
     	invalidInlineStyle : 'Value specified for the inline style must consist of one or more tuples with the format of "name : value", separated by semi-colons.',
@@ -343,7 +349,32 @@ CKEDITOR.lang['mn'] = {
     		'35' : 'End',
     		'36' : 'Home',
     		'46' : 'Delete',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'Keyboard shortcut'
+    	keyboardShortcut : 'Keyboard shortcut',
+    	optionDefault : 'Default'
     } }; 

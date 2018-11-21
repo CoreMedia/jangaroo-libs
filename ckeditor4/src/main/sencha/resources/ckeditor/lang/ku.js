@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or http://ckeditor.com/license
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['ku'] = {
     undo : 
@@ -105,7 +105,8 @@ CKEDITOR.lang['ku'] = {
     pastetext : 
     {
     	button : 'لکاندنی وەك دەقی ڕوون',
-    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
+    	pasteNotification : 'کلیک بکە لەسەر %1 بۆ لکاندنی. وێبگەڕەکەت پشتیوانی لکاندن ناکات بە دوگمەی تولامراز یان ئامرازی ناوەڕۆکی لیستە - کلیکی دەستی ڕاست',
+    	title : 'لکاندنی وەك دەقی ڕوون'
     },
     pastefromword : 
     {
@@ -162,7 +163,9 @@ CKEDITOR.lang['ku'] = {
     	noAnchors : '(هیچ جۆرێکی لەنگەر ئامادە نیە لەم پەڕەیه)',
     	noEmail : 'تکایە ناونیشانی ئیمەیل بنووسە',
     	noUrl : 'تکایە ناونیشانی بەستەر بنووسە',
+    	noTel : 'Please type the phone number',
     	other : '<هیتر>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'پێوەبەستراو (Netscape)',
     	popupFeatures : 'خاسیەتی پەنجەرەی سەرهەڵدەر',
     	popupFullScreen : 'پڕ بەپڕی شاشە (IE)',
@@ -187,6 +190,7 @@ CKEDITOR.lang['ku'] = {
     	toAnchor : 'بەستەر بۆ لەنگەر له دەق',
     	toEmail : 'ئیمەیل',
     	toUrl : 'ناونیشانی بەستەر',
+    	toPhone : 'Phone',
     	toolbar : 'دانان/ڕێکخستنی بەستەر',
     	type : 'جۆری بەستەر',
     	unlink : 'لابردنی بەستەر',
@@ -242,11 +246,9 @@ CKEDITOR.lang['ku'] = {
     	cut : 'بڕین',
     	cutError : 'پارێزی وێبگەڕەکەت ڕێگەنادات بە سەرنووسەکە لەبڕینی خۆکارانە. تکایە لەبری ئەمە ئەم فەرمانە بەکاربهێنە بەداگرتنی کلیلی (Ctrl/Cmd+X).',
     	paste : 'لکاندن',
-    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (هەڵبژێردراو)'
+    	pasteNotification : 'کلیک بکە لەسەر %1 بۆ لکاندنی. وێبگەڕەکەت پشتیوانی لکاندن ناکات بە دوگمەی تولامراز یان ئامرازی ناوەڕۆکی لیستە -  کلیکی دەستی ڕاست. ',
+    	pasteArea : 'ناوچەی لکاندن',
+    	pasteMsg : 'ناوەڕۆکەکەت لەم پانتایی خوارەوە بلکێنە'
     },
     blockquote : 
     {
@@ -316,10 +318,13 @@ CKEDITOR.lang['ku'] = {
     	width : 'پانی',
     	height : 'درێژی',
     	align : 'ڕێککەرەوە',
-    	alignLeft : 'چەپ',
-    	alignRight : 'ڕاست',
-    	alignCenter : 'ناوەڕاست',
-    	alignJustify : 'هاوستوونی',
+    	left : 'چەپ',
+    	right : 'ڕاست',
+    	center : 'ناوەڕاست',
+    	justify : 'هاوستوونی',
+    	alignLeft : 'بەهێڵ کردنی چەپ',
+    	alignRight : 'بەهێڵ کردنی ڕاست',
+    	alignCenter : 'Align Center',
     	alignTop : 'سەرەوە',
     	alignMiddle : 'ناوەند',
     	alignBottom : 'ژێرەوە',
@@ -327,6 +332,7 @@ CKEDITOR.lang['ku'] = {
     	invalidValue : 'نرخێکی نادرووست.',
     	invalidHeight : 'درێژی دەبێت ژمارە بێت.',
     	invalidWidth : 'پانی دەبێت ژمارە بێت.',
+    	invalidLength : 'ئەم نرخەی دراوە بۆ خانەی "%1" دەبێت ژمارەکی درووست لەگەڵ بێت یان بە بێ پێوانەی یەکەی ( %2)',
     	invalidCssLength : 'ئەم نرخەی دراوە بۆ خانەی "%1" دەبێت ژمارەکی درووست بێت یان بێ ناونیشانی ئامرازی (px, %, in, cm, mm, em, ex, pt, یان pc).',
     	invalidHtmlLength : 'ئەم نرخەی دراوە بۆ خانەی "%1" دەبێت ژمارەکی درووست بێت یان بێ ناونیشانی ئامرازی HTML (px یان %).',
     	invalidInlineStyle : 'دانەی نرخی شێوازی ناوهێڵ دەبێت پێکهاتبێت لەیەك یان زیاتری داڕشتە "ناو : نرخ", جیاکردنەوەی بە فاریزە و خاڵ',
@@ -343,7 +349,32 @@ CKEDITOR.lang['ku'] = {
     		'35' : 'End',
     		'36' : 'Home',
     		'46' : 'Delete',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
     		'224' : 'فەرمان'
     	},
-    	keyboardShortcut : 'کورتبڕی تەختەکلیل'
+    	keyboardShortcut : 'کورتبڕی تەختەکلیل',
+    	optionDefault : 'هەمیشەیی'
     } }; 

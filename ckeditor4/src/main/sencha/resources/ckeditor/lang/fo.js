@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or http://ckeditor.com/license
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['fo'] = {
     undo : 
@@ -105,7 +105,8 @@ CKEDITOR.lang['fo'] = {
     pastetext : 
     {
     	button : 'Innrita som reinan tekst',
-    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	title : 'Innrita som reinan tekst'
     },
     pastefromword : 
     {
@@ -162,7 +163,9 @@ CKEDITOR.lang['fo'] = {
     	noAnchors : '(Eingir marknasteinar eru í hesum dokumentið)',
     	noEmail : 'Vinarliga skriva teldupost-adressu',
     	noUrl : 'Vinarliga skriva tilknýti (URL)',
+    	noTel : 'Please type the phone number',
     	other : '<annað>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Bundið (Netscape)',
     	popupFeatures : 'Popup vindeygans víðkaðu eginleikar',
     	popupFullScreen : 'Fullur skermur (IE)',
@@ -187,6 +190,7 @@ CKEDITOR.lang['fo'] = {
     	toAnchor : 'Tilknýti til marknastein í tekstinum',
     	toEmail : 'Teldupostur',
     	toUrl : 'URL',
+    	toPhone : 'Phone',
     	toolbar : 'Ger/broyt tilknýti',
     	type : 'Tilknýtisslag',
     	unlink : 'Strika tilknýti',
@@ -242,11 +246,9 @@ CKEDITOR.lang['fo'] = {
     	cut : 'Kvett',
     	cutError : 'Trygdaruppseting alnótskagans forðar tekstviðgeranum í at kvetta tekstin. Vinarliga nýt knappaborðið til at kvetta tekstin (Ctrl/Cmd+X).',
     	paste : 'Innrita',
-    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Selected)'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteArea : 'Avritingarumráði',
+    	pasteMsg : 'Paste your content inside the area below and press OK.'
     },
     blockquote : 
     {
@@ -316,10 +318,13 @@ CKEDITOR.lang['fo'] = {
     	width : 'Breidd',
     	height : 'Hædd',
     	align : 'Justering',
-    	alignLeft : 'Vinstra',
-    	alignRight : 'Høgra',
-    	alignCenter : 'Miðsett',
-    	alignJustify : 'Javnir tekstkantar',
+    	left : 'Vinstra',
+    	right : 'Høgra',
+    	center : 'Miðsett',
+    	justify : 'Javnir tekstkantar',
+    	alignLeft : 'Vinstrasett',
+    	alignRight : 'Høgrasett',
+    	alignCenter : 'Align Center',
     	alignTop : 'Ovast',
     	alignMiddle : 'Miðja',
     	alignBottom : 'Botnur',
@@ -327,6 +332,7 @@ CKEDITOR.lang['fo'] = {
     	invalidValue : 'Invalid value.',
     	invalidHeight : 'Hædd má vera eitt tal.',
     	invalidWidth : 'Breidd má vera eitt tal.',
+    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
     	invalidCssLength : 'Virðið sett í "%1" feltið má vera eitt positivt tal, við ella uttan gyldugum CSS mátieind (px, %, in, cm, mm, em, ex, pt, ella pc).',
     	invalidHtmlLength : 'Virðið sett í "%1" feltiðield má vera eitt positivt tal, við ella uttan gyldugum CSS mátieind (px ella %).',
     	invalidInlineStyle : 'Virði specifiserað fyri inline style má hava eitt ella fleiri pør (tuples) skrivað sum "name : value", hvørt parið sundurskilt við semi-colon.',
@@ -343,7 +349,32 @@ CKEDITOR.lang['fo'] = {
     		'35' : 'End',
     		'36' : 'Home',
     		'46' : 'Delete',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'Keyboard shortcut'
+    	keyboardShortcut : 'Keyboard shortcut',
+    	optionDefault : 'Default'
     } }; 

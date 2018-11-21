@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or http://ckeditor.com/license
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['ro'] = {
     undo : 
@@ -105,7 +105,8 @@ CKEDITOR.lang['ro'] = {
     pastetext : 
     {
     	button : 'Adaugă ca text simplu (Plain Text)',
-    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	title : 'Adaugă ca text simplu (Plain Text)'
     },
     pastefromword : 
     {
@@ -116,11 +117,11 @@ CKEDITOR.lang['ro'] = {
     },
     notification : 
     {
-    	closed : 'Notification closed.'
+    	closed : 'Notificare închisă.'
     },
     magicline : 
     {
-    	title : 'Insert paragraph here'
+    	title : 'Inserează paragraf aici'
     },
     list : 
     {
@@ -146,23 +147,25 @@ CKEDITOR.lang['ro'] = {
     	anchorName : 'după numele ancorei',
     	charset : 'Setul de caractere al resursei legate',
     	cssClasses : 'Clasele cu stilul paginii (CSS)',
-    	download : 'Force Download',
-    	displayText : 'Display Text',
+    	download : 'descarcă',
+    	displayText : 'afișează textul',
     	emailAddress : 'Adresă de e-mail',
-    	emailBody : 'Opțiuni Meniu Contextual',
+    	emailBody : 'conținut email',
     	emailSubject : 'Subiectul mesajului',
-    	id : 'Id',
+    	id : 'identitate',
     	info : 'Informaţii despre link (Legătură web)',
     	langCode : 'Direcţia cuvintelor',
     	langDir : 'Direcţia cuvintelor',
-    	langDirLTR : 'stânga-dreapta (LTR)',
-    	langDirRTL : 'dreapta-stânga (RTL)',
+    	langDirLTR : 'de la stânga la dreapta (LTR)',
+    	langDirRTL : 'de la dreapta la stânga (RTL)',
     	menu : 'Editează Link',
     	name : 'Nume',
-    	noAnchors : '(Nicio ancoră disponibilă în document)',
+    	noAnchors : 'Nu există nici o ancoră',
     	noEmail : 'Vă rugăm să scrieţi adresa de e-mail',
     	noUrl : 'Vă rugăm să scrieţi URL-ul',
-    	other : '<alt>',
+    	noTel : 'Please type the phone number',
+    	other : 'altceva',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Dependent (Netscape)',
     	popupFeatures : 'Proprietăţile ferestrei popup',
     	popupFullScreen : 'Tot ecranul (Full Screen)(IE)',
@@ -171,22 +174,23 @@ CKEDITOR.lang['ro'] = {
     	popupMenuBar : 'Bara de meniu',
     	popupResizable : 'Redimensionabil',
     	popupScrollBars : 'Bare de derulare',
-    	popupStatusBar : 'Bara de status',
+    	popupStatusBar : 'Bara de stare',
     	popupToolbar : 'Bara de opţiuni',
     	popupTop : 'Poziţia la dreapta',
-    	rel : 'Relație',
+    	rel : 'Relaționare',
     	selectAnchor : 'Selectaţi o ancoră',
     	styles : 'Stil',
     	tabIndex : 'Indexul tabului',
     	target : 'Ţintă (Target)',
-    	targetFrame : '<frame>',
+    	targetFrame : 'frame țintă',
     	targetFrameName : 'Numele frameului ţintă',
-    	targetPopup : '<fereastra popup>',
+    	targetPopup : 'popup țintă',
     	targetPopupName : 'Numele ferestrei popup',
-    	title : 'Link (Legătură web)',
+    	title : 'titlu',
     	toAnchor : 'Ancoră în această pagină',
     	toEmail : 'E-Mail',
     	toUrl : 'URL',
+    	toPhone : 'Phone',
     	toolbar : 'Inserează/Editează link (legătură web)',
     	type : 'Tipul link-ului (al legăturii web)',
     	unlink : 'Înlătură link (legătură web)',
@@ -215,10 +219,10 @@ CKEDITOR.lang['ro'] = {
     fakeobjects : 
     {
     	anchor : 'Inserează/Editează ancoră',
-    	flash : 'Flash Animation',
+    	flash : 'Element Flash',
     	hiddenfield : 'Câmp ascuns (HiddenField)',
-    	iframe : 'IFrame',
-    	unknown : 'Unknown Object'
+    	iframe : 'Fereastră în fereastră (iframe)',
+    	unknown : 'Necunoscut'
     },
     copyformatting : 
     {
@@ -239,14 +243,12 @@ CKEDITOR.lang['ro'] = {
     {
     	copy : 'Copiază',
     	copyError : 'Setările de securitate ale navigatorului (browser) pe care îl folosiţi nu permit editorului să execute automat operaţiunea de copiere. Vă rugăm folosiţi tastatura (Ctrl/Cmd+C).',
-    	cut : 'Taie',
+    	cut : 'Tăiere',
     	cutError : 'Setările de securitate ale navigatorului (browser) pe care îl folosiţi nu permit editorului să execute automat operaţiunea de tăiere. Vă rugăm folosiţi tastatura (Ctrl/Cmd+X).',
     	paste : 'Adaugă',
-    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Selectat)'
+    	pasteNotification : 'Apasă %1 pentru adăugare. Navigatorul (browser) tău nu suportă adăugarea din clipboard cu butonul din toolbar sau cu opțiunea din meniul contextual.',
+    	pasteArea : 'Suprafața de adăugare',
+    	pasteMsg : 'Adaugă conținutul tău înăuntru zonei de mai jos și apasă OK.'
     },
     blockquote : 
     {
@@ -261,12 +263,12 @@ CKEDITOR.lang['ro'] = {
     	superscript : 'Putere (superscript)',
     	underline : 'Subliniat (underline)'
     },
-    editor : 'Rich Text Editor',
-    editorPanel : 'Rich Text Editor panel',
+    editor : 'Editor de text îmbogățit',
+    editorPanel : 'Panoul editorului de text îmbogățit',
     common : 
     {
     	editorHelp : 'Apasă ALT 0 pentru ajutor',
-    	browseServer : 'Răsfoieşte server',
+    	browseServer : 'Răsfoiește fișiere',
     	url : 'URL',
     	protocol : 'Protocol',
     	upload : 'Încarcă',
@@ -282,14 +284,14 @@ CKEDITOR.lang['ro'] = {
     	button : 'Buton',
     	select : 'Câmp selecţie (SelectionField)',
     	imageButton : 'Buton imagine (ImageButton)',
-    	notSet : '<nesetat>',
-    	id : 'Id',
+    	notSet : 'fără setări',
+    	id : 'identificator',
     	name : 'Nume',
     	langDir : 'Direcţia cuvintelor',
-    	langDirLtr : 'stânga-dreapta (LTR)',
-    	langDirRtl : 'dreapta-stânga (RTL)',
+    	langDirLtr : 'de la stânga la dreapta (LTR)',
+    	langDirRtl : 'de la dreapta la stânga (RTL)',
     	langCode : 'Codul limbii',
-    	longDescr : 'Descrierea lungă URL',
+    	longDescr : 'Descrierea completă URL',
     	cssClass : 'Clasele cu stilul paginii (CSS)',
     	advisoryTitle : 'Titlul consultativ',
     	cssStyle : 'Stil',
@@ -297,12 +299,12 @@ CKEDITOR.lang['ro'] = {
     	cancel : 'Anulare',
     	close : 'Închide',
     	preview : 'Previzualizare',
-    	resize : 'Trage pentru a redimensiona',
+    	resize : 'Redimensionează',
     	generalTab : 'General',
     	advancedTab : 'Avansat',
-    	validateNumberFailed : 'Această valoare nu este un număr.',
+    	validateNumberFailed : 'Această valoare nu este un număr!',
     	confirmNewPage : 'Orice modificări nesalvate ale acestui conținut, vor fi pierdute. Sigur doriți încărcarea unei noi pagini?',
-    	confirmCancel : 'Câteva opțiuni au fost schimbate. Sigur doriți să închideți dialogul?',
+    	confirmCancel : 'Ai schimbat câteva opțiuni. Ești sigur că dorești să închiz fereastra de dialog?',
     	options : 'Opțiuni',
     	target : 'Țintă',
     	targetNew : 'Fereastră nouă (_blank)',
@@ -312,25 +314,29 @@ CKEDITOR.lang['ro'] = {
     	langDirLTR : 'Stânga spre Dreapta (LTR)',
     	langDirRTL : 'Dreapta spre Stânga (RTL)',
     	styles : 'Stil',
-    	cssClasses : 'Stylesheet Classes',
+    	cssClasses : 'Clase foaie de stil',
     	width : 'Lăţime',
     	height : 'Înălţime',
     	align : 'Aliniere',
-    	alignLeft : 'Mărește Bara',
-    	alignRight : 'Dreapta',
-    	alignCenter : 'Centru',
-    	alignJustify : 'Aliniere în bloc (Block Justify)',
-    	alignTop : 'Sus',
-    	alignMiddle : 'Mijloc',
-    	alignBottom : 'Jos',
-    	alignNone : 'None',
+    	left : 'Aliniază la stânga',
+    	right : 'Aliniază la dreapta',
+    	center : 'Aliniază pe centru',
+    	justify : 'Aliniere în bloc (Justify)',
+    	alignLeft : 'Aliniere la stânga',
+    	alignRight : 'Aliniere la dreapta',
+    	alignCenter : 'Aliniere centru',
+    	alignTop : 'Aliniere sus',
+    	alignMiddle : 'Aliniere la mijloc',
+    	alignBottom : 'Aliniere jos',
+    	alignNone : 'Fără aliniere',
     	invalidValue : 'Valoare invalidă',
     	invalidHeight : 'Înălțimea trebuie să fie un număr.',
     	invalidWidth : 'Lățimea trebuie să fie un număr.',
-    	invalidCssLength : 'Valoarea specificată pentru câmpul "%1" trebuie să fie un număr pozitiv cu sau fără o unitate de măsură CSS (px, %, in, cm, mm, em, ex, pt, sau pc).',
-    	invalidHtmlLength : 'Valoarea specificată pentru câmpul "%1" trebuie să fie un număr pozitiv cu sau fără o unitate de măsură HTML (px sau %).',
+    	invalidLength : 'Valoarea specificată pentru câmpul "%1" trebuie să fie un număr pozitiv cu sau fără o unitate de măsură validă (%2).',
+    	invalidCssLength : 'Valoarea specificată pentru câmpul "%1" trebuie să fie un număr pozitiv cu sau fără o unitate de măsură validă CSS (px, %, in, cm, mm, em, ex, pt, sau pc).',
+    	invalidHtmlLength : 'Valoarea specificată pentru câmpul "%1" trebuie să fie un număr pozitiv cu sau fără o unitate de măsură validă HTML (px sau %).',
     	invalidInlineStyle : 'Valoarea specificată pentru stil trebuie să conțină una sau mai multe construcții de tipul "name : value", separate prin punct și virgulă.',
-    	cssLengthTooltip : 'Introduceți un număr în pixeli sau un număr cu o unitate de măsură CSS (px, %, in, cm, mm, em, ex, pt, sau pc).',
+    	cssLengthTooltip : 'Introdu un număr pentru o valoare în pixeli sau un număr pentru o unitate de măsură validă CSS (px, %, in, cm, mm, em, ex, pt, sau pc).',
     	unavailable : '%1<span class="cke_accessibility">, nu este disponibil</span>',
     	keyboard : 
     	{
@@ -339,11 +345,36 @@ CKEDITOR.lang['ro'] = {
     		'16' : 'Shift',
     		'17' : 'Ctrl',
     		'18' : 'Alt',
-    		'32' : 'Space',
+    		'32' : 'Bară spațiu',
     		'35' : 'End',
     		'36' : 'Home',
     		'46' : 'Delete',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'Keyboard shortcut'
+    	keyboardShortcut : 'Scurtături tastatură',
+    	optionDefault : 'Implicit'
     } }; 

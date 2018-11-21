@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or http://ckeditor.com/license
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['lv'] = {
     undo : 
@@ -105,7 +105,8 @@ CKEDITOR.lang['lv'] = {
     pastetext : 
     {
     	button : 'Ievietot kā vienkāršu tekstu',
-    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
+    	pasteNotification : 'Nospied %1 lai ielīmētu. Tavs pārlūks neatbalsta ielīmēšanu ar rīkjoslas pogām vai uznirstošās izvēlnes opciju.',
+    	title : 'Ievietot kā vienkāršu tekstu'
     },
     pastefromword : 
     {
@@ -116,7 +117,7 @@ CKEDITOR.lang['lv'] = {
     },
     notification : 
     {
-    	closed : 'Notification closed.'
+    	closed : 'Paziņojums aizvērts.'
     },
     magicline : 
     {
@@ -146,8 +147,8 @@ CKEDITOR.lang['lv'] = {
     	anchorName : 'Pēc iezīmes nosaukuma',
     	charset : 'Pievienotā resursa kodējums',
     	cssClasses : 'Stilu saraksta klases',
-    	download : 'Force Download',
-    	displayText : 'Display Text',
+    	download : 'Piespiedu ielāde',
+    	displayText : 'Attēlot tekstu',
     	emailAddress : 'E-pasta adrese',
     	emailBody : 'Ziņas saturs',
     	emailSubject : 'Ziņas tēma',
@@ -162,7 +163,9 @@ CKEDITOR.lang['lv'] = {
     	noAnchors : '(Šajā dokumentā nav iezīmju)',
     	noEmail : 'Lūdzu norādi e-pasta adresi',
     	noUrl : 'Lūdzu norādi hipersaiti',
+    	noTel : 'Please type the phone number',
     	other : '<cits>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Atkarīgs (Netscape)',
     	popupFeatures : 'Uznirstošā loga nosaukums īpašības',
     	popupFullScreen : 'Pilnā ekrānā (IE)',
@@ -187,6 +190,7 @@ CKEDITOR.lang['lv'] = {
     	toAnchor : 'Iezīme šajā lapā',
     	toEmail : 'E-pasts',
     	toUrl : 'Adrese',
+    	toPhone : 'Phone',
     	toolbar : 'Ievietot/Labot hipersaiti',
     	type : 'Hipersaites tips',
     	unlink : 'Noņemt hipersaiti',
@@ -242,11 +246,9 @@ CKEDITOR.lang['lv'] = {
     	cut : 'Izgriezt',
     	cutError : 'Jūsu pārlūkprogrammas drošības iestatījumi nepieļauj redaktoram automātiski veikt izgriezšanas darbību.  Lūdzu, izmantojiet (Ctrl/Cmd+X), lai veiktu šo darbību.',
     	paste : 'Ielīmēt',
-    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Selected)'
+    	pasteNotification : 'Nospied %1 lai ielīmētu. Tavs pārlūks neatbalsta ielīmēšanu ar rīkjoslas pogām vai uznirstošās izvēlnes opciju.',
+    	pasteArea : 'Ielīmēšanas zona',
+    	pasteMsg : 'Ielīmē saturu zemāk esošajā laukā un nospied OK.'
     },
     blockquote : 
     {
@@ -316,10 +318,13 @@ CKEDITOR.lang['lv'] = {
     	width : 'Platums',
     	height : 'Augstums',
     	align : 'Nolīdzināt',
-    	alignLeft : 'Pa kreisi',
-    	alignRight : 'Pa labi',
-    	alignCenter : 'Centrēti',
-    	alignJustify : 'Izlīdzināt malas',
+    	left : 'Pa kreisi',
+    	right : 'Pa labi',
+    	center : 'Centrēti',
+    	justify : 'Izlīdzināt malas',
+    	alignLeft : 'Izlīdzināt pa kreisi',
+    	alignRight : 'Izlīdzināt pa labi',
+    	alignCenter : 'Centrēt',
     	alignTop : 'Augšā',
     	alignMiddle : 'Vertikāli centrēts',
     	alignBottom : 'Apakšā',
@@ -327,23 +332,49 @@ CKEDITOR.lang['lv'] = {
     	invalidValue : 'Nekorekta vērtība',
     	invalidHeight : 'Augstumam jābūt skaitlim.',
     	invalidWidth : 'Platumam jābūt skaitlim',
+    	invalidLength : 'Laukam "%1" norādītajai vērtībai jābūt pozitīvam skaitlim ar vai bez korektām mērvienībām (%2).',
     	invalidCssLength : 'Laukam "%1" norādītajai vērtībai jābūt pozitīvam skaitlim ar vai bez korektām CSS mērvienībām (px, %, in, cm, mm, em, ex, pt, vai pc).',
     	invalidHtmlLength : 'Laukam "%1" norādītajai vērtībai jābūt pozitīvam skaitlim ar vai bez korektām HTML mērvienībām (px vai %).',
-    	invalidInlineStyle : 'Iekļautajā stilā norādītajai vērtībai jāsastāv no viena vai vairākiem pāriem pēc forma\'ta "nosaukums: vērtība", atdalītiem ar semikolu.',
+    	invalidInlineStyle : 'Iekļautajā stilā norādītajai vērtībai jāsastāv no viena vai vairākiem pāriem pēc formāta "nosaukums: vērtība", atdalītiem ar semikolu.',
     	cssLengthTooltip : 'Ievadiet vērtību pikseļos vai skaitli ar derīgu CSS mērvienību (px, %, in, cm, mm, em, ex, pt, vai pc).',
     	unavailable : '%1<span class="cke_accessibility">, nav pieejams</span>',
     	keyboard : 
     	{
-    		'8' : 'Backspace',
-    		'13' : 'Enter',
-    		'16' : 'Shift',
-    		'17' : 'Ctrl',
-    		'18' : 'Alt',
-    		'32' : 'Space',
-    		'35' : 'End',
-    		'36' : 'Home',
-    		'46' : 'Delete',
-    		'224' : 'Command'
+    		'8' : ' atkāpšanās taustiņš',
+    		'13' : 'Ievadīt',
+    		'16' : 'pārslēgšanas taustiņš',
+    		'17' : 'vadīšanas taustiņš',
+    		'18' : 'alternēšanas taustiņš',
+    		'32' : 'Atstarpe',
+    		'35' : 'Beigas',
+    		'36' : 'Mājup',
+    		'46' : 'Dzēst',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
+    		'224' : 'Komanda'
     	},
-    	keyboardShortcut : 'Keyboard shortcut'
+    	keyboardShortcut : 'Klaviatūras saīsne',
+    	optionDefault : 'Noklusēts'
     } }; 

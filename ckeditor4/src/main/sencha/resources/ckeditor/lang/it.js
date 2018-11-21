@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or http://ckeditor.com/license
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['it'] = {
     undo : 
@@ -105,7 +105,8 @@ CKEDITOR.lang['it'] = {
     pastetext : 
     {
     	button : 'Incolla come testo semplice',
-    	pasteNotification : 'Il browser non permette di incollare il testo semplice in questo modo. Premere %1 per incollare.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	title : 'Incolla come testo semplice'
     },
     pastefromword : 
     {
@@ -162,7 +163,9 @@ CKEDITOR.lang['it'] = {
     	noAnchors : '(Nessuna ancora disponibile nel documento)',
     	noEmail : 'Devi inserire un\'indirizzo e-mail',
     	noUrl : 'Devi inserire l\'URL del collegamento',
+    	noTel : 'Please type the phone number',
     	other : '<altro>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Dipendente (Netscape)',
     	popupFeatures : 'Caratteristiche finestra popup',
     	popupFullScreen : 'A tutto schermo (IE)',
@@ -187,6 +190,7 @@ CKEDITOR.lang['it'] = {
     	toAnchor : 'Ancora nel testo',
     	toEmail : 'E-Mail',
     	toUrl : 'URL',
+    	toPhone : 'Phone',
     	toolbar : 'Collegamento',
     	type : 'Tipo di Collegamento',
     	unlink : 'Elimina collegamento',
@@ -242,11 +246,9 @@ CKEDITOR.lang['it'] = {
     	cut : 'Taglia',
     	cutError : 'Le impostazioni di sicurezza del browser non permettono di tagliare automaticamente il testo. Usa la tastiera (Ctrl/Cmd+X).',
     	paste : 'Incolla',
-    	pasteNotification : 'Il browser non permette di incollare in questo modo. Premere %1 per incollare.'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (selezionato)'
+    	pasteNotification : 'Premere %1 per incollare. Il tuo browser non permette di incollare tramite il pulsante della barra degli strumenti o tramite la voce del menu contestuale.',
+    	pasteArea : 'Area dove incollare',
+    	pasteMsg : 'Incollare il proprio contenuto all\'interno dell\'area sottostante e premere OK.'
     },
     blockquote : 
     {
@@ -316,10 +318,13 @@ CKEDITOR.lang['it'] = {
     	width : 'Larghezza',
     	height : 'Altezza',
     	align : 'Allineamento',
-    	alignLeft : 'Sinistra',
-    	alignRight : 'Destra',
-    	alignCenter : 'Centrato',
-    	alignJustify : 'Giustifica',
+    	left : 'Sinistra',
+    	right : 'Destra',
+    	center : 'Centrato',
+    	justify : 'Giustifica',
+    	alignLeft : 'Allinea a sinistra',
+    	alignRight : 'Allinea a destra',
+    	alignCenter : 'Allinea al centro',
     	alignTop : 'In Alto',
     	alignMiddle : 'Centrato',
     	alignBottom : 'In Basso',
@@ -327,6 +332,7 @@ CKEDITOR.lang['it'] = {
     	invalidValue : 'Valore non valido.',
     	invalidHeight : 'L\'altezza dev\'essere un numero',
     	invalidWidth : 'La Larghezza dev\'essere un numero',
+    	invalidLength : 'Il valore specificato per il campo "%1" deve essere un numero positivo con o senza un\'unità di misura valida (%2).',
     	invalidCssLength : 'Il valore indicato per il campo "%1" deve essere un numero positivo con o senza indicazione di una valida unità di misura per le classi CSS (px, %, in, cm, mm, em, ex, pt, o pc).',
     	invalidHtmlLength : 'Il valore indicato per il campo "%1" deve essere un numero positivo con o senza indicazione di una valida unità di misura per le pagine HTML (px o %).',
     	invalidInlineStyle : 'Il valore specificato per lo stile inline deve consistere in una o più tuple con il formato di "name : value", separati da semicolonne.',
@@ -343,7 +349,32 @@ CKEDITOR.lang['it'] = {
     		'35' : 'Fine',
     		'36' : 'Inizio',
     		'46' : 'Canc',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
     		'224' : 'Comando'
     	},
-    	keyboardShortcut : 'Scorciatoia da tastiera'
+    	keyboardShortcut : 'Scorciatoia da tastiera',
+    	optionDefault : 'Predefinito'
     } }; 

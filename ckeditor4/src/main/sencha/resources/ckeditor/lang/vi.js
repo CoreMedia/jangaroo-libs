@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or http://ckeditor.com/license
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['vi'] = {
     undo : 
@@ -105,7 +105,8 @@ CKEDITOR.lang['vi'] = {
     pastetext : 
     {
     	button : 'Dán theo định dạng văn bản thuần',
-    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	title : 'Dán theo định dạng văn bản thuần'
     },
     pastefromword : 
     {
@@ -162,7 +163,9 @@ CKEDITOR.lang['vi'] = {
     	noAnchors : '(Không có điểm neo nào trong tài liệu)',
     	noEmail : 'Hãy đưa vào địa chỉ thư điện tử',
     	noUrl : 'Hãy đưa vào đường dẫn liên kết (URL)',
+    	noTel : 'Please type the phone number',
     	other : '<khác>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Phụ thuộc (Netscape)',
     	popupFeatures : 'Đặc điểm của cửa sổ Popup',
     	popupFullScreen : 'Toàn màn hình (IE)',
@@ -187,6 +190,7 @@ CKEDITOR.lang['vi'] = {
     	toAnchor : 'Neo trong trang này',
     	toEmail : 'Thư điện tử',
     	toUrl : 'URL',
+    	toPhone : 'Phone',
     	toolbar : 'Chèn/Sửa liên kết',
     	type : 'Kiểu liên kết',
     	unlink : 'Xoá liên kết',
@@ -242,11 +246,9 @@ CKEDITOR.lang['vi'] = {
     	cut : 'Cắt',
     	cutError : 'Các thiết lập bảo mật của trình duyệt không cho phép trình biên tập tự động thực thi lệnh cắt. Hãy sử dụng bàn phím cho lệnh này (Ctrl/Cmd+X).',
     	paste : 'Dán',
-    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Đã chọn)'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteArea : 'Khu vực dán',
+    	pasteMsg : 'Paste your content inside the area below and press OK.'
     },
     blockquote : 
     {
@@ -316,10 +318,13 @@ CKEDITOR.lang['vi'] = {
     	width : 'Chiều rộng',
     	height : 'Chiều cao',
     	align : 'Vị trí',
-    	alignLeft : 'Trái',
-    	alignRight : 'Phải',
-    	alignCenter : 'Giữa',
-    	alignJustify : 'Sắp chữ',
+    	left : 'Trái',
+    	right : 'Phải',
+    	center : 'Giữa',
+    	justify : 'Sắp chữ',
+    	alignLeft : 'Canh trái',
+    	alignRight : 'Canh phải',
+    	alignCenter : 'Align Center',
     	alignTop : 'Trên',
     	alignMiddle : 'Giữa',
     	alignBottom : 'Dưới',
@@ -327,6 +332,7 @@ CKEDITOR.lang['vi'] = {
     	invalidValue : 'Giá trị không hợp lệ.',
     	invalidHeight : 'Chiều cao phải là số nguyên.',
     	invalidWidth : 'Chiều rộng phải là số nguyên.',
+    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
     	invalidCssLength : 'Giá trị quy định cho trường "%1" phải là một số dương có hoặc không có một đơn vị đo CSS hợp lệ (px, %, in, cm, mm, em, ex, pt, hoặc pc).',
     	invalidHtmlLength : 'Giá trị quy định cho trường "%1" phải là một số dương có hoặc không có một đơn vị đo HTML hợp lệ (px hoặc %).',
     	invalidInlineStyle : 'Giá trị quy định cho kiểu nội tuyến phải bao gồm một hoặc nhiều dữ liệu với định dạng "tên:giá trị", cách nhau bằng dấu chấm phẩy.',
@@ -343,7 +349,32 @@ CKEDITOR.lang['vi'] = {
     		'35' : 'End',
     		'36' : 'Home',
     		'46' : 'Xóa',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'Keyboard shortcut'
+    	keyboardShortcut : 'Keyboard shortcut',
+    	optionDefault : 'Default'
     } }; 

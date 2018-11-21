@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or http://ckeditor.com/license
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['af'] = {
     undo : 
@@ -104,15 +104,16 @@ CKEDITOR.lang['af'] = {
     },
     pastetext : 
     {
-    	button : 'Plak as eenvoudige teks',
-    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
+    	button : 'Voeg by as eenvoudige teks',
+    	pasteNotification : 'Druk %1 om by te voeg. Jou leser ondersteun nie byvoeg deur die toolbar knoppie of die konteks kieslys nie',
+    	title : 'Voeg by as eenvoudige teks'
     },
     pastefromword : 
     {
-    	confirmCleanup : 'Die teks wat u wil plak lyk asof dit uit Word gekopiëer is. Wil u dit eers skoonmaak voordat dit geplak word?',
-    	error : 'Die geplakte teks kon nie skoongemaak word nie, weens \'n interne fout',
-    	title : 'Plak vanuit Word',
-    	toolbar : 'Plak vanuit Word'
+    	confirmCleanup : 'Die teks wat u wil byvoeg lyk asof dit uit Word gekopiëer is. Wil u dit eers skoonmaak voordat dit bygevoeg word?',
+    	error : 'Die bygevoegte teks kon nie skoongemaak word nie, weens \'n interne fout',
+    	title : 'Uit Word byvoeg',
+    	toolbar : 'Uit Word byvoeg'
     },
     notification : 
     {
@@ -162,7 +163,9 @@ CKEDITOR.lang['af'] = {
     	noAnchors : '(Geen ankers beskikbaar in dokument)',
     	noEmail : 'Gee die e-posadres',
     	noUrl : 'Gee die skakel se URL',
+    	noTel : 'Please type the phone number',
     	other : '<ander>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Afhanklik (Netscape)',
     	popupFeatures : 'Eienskappe van opspringvenster',
     	popupFullScreen : 'Volskerm (IE)',
@@ -187,6 +190,7 @@ CKEDITOR.lang['af'] = {
     	toAnchor : 'Anker in bladsy',
     	toEmail : 'E-pos',
     	toUrl : 'URL',
+    	toPhone : 'Phone',
     	toolbar : 'Skakel invoeg/wysig',
     	type : 'Skakelsoort',
     	unlink : 'Verwyder skakel',
@@ -238,15 +242,13 @@ CKEDITOR.lang['af'] = {
     clipboard : 
     {
     	copy : 'Kopiëer',
-    	copyError : 'U blaaier se sekuriteitsinstelling belet die kopiëringsaksie. Gebruik die sleutelbordkombinasie (Ctrl/Cmd+C).',
-    	cut : 'Knip',
-    	cutError : 'U blaaier se sekuriteitsinstelling belet die outomatiese knip-aksie. Gebruik die sleutelbordkombinasie (Ctrl/Cmd+X).',
-    	paste : 'Plak',
-    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 uitgekies'
+    	copyError : 'U leser se sekuriteitsinstelling belet die kopiëringsaksie. Gebruik die sleutelbordkombinasie (Ctrl/Cmd+C).',
+    	cut : 'Uitsnei',
+    	cutError : 'U leser se sekuriteitsinstelling belet die outomatiese uitsnei-aksie. Gebruik die sleutelbordkombinasie (Ctrl/Cmd+X).',
+    	paste : 'Byvoeg',
+    	pasteNotification : 'Druk %1 om by te voeg. You leser ondersteun nie die toolbar knoppie of inoud kieslysie opsie nie. ',
+    	pasteArea : 'Area byvoeg',
+    	pasteMsg : 'Voeg jou inhoud in die gebied onder by en druk OK'
     },
     blockquote : 
     {
@@ -316,10 +318,13 @@ CKEDITOR.lang['af'] = {
     	width : 'Breedte',
     	height : 'Hoogte',
     	align : 'Orienteerung',
-    	alignLeft : 'Links',
-    	alignRight : 'Regs',
-    	alignCenter : 'Middel',
-    	alignJustify : 'Eweredig',
+    	left : 'Links',
+    	right : 'Regs',
+    	center : 'Middel',
+    	justify : 'Eweredig',
+    	alignLeft : 'Links oplyn',
+    	alignRight : 'Regs oplyn',
+    	alignCenter : 'Middel oplyn',
     	alignTop : 'Bo',
     	alignMiddle : 'Middel',
     	alignBottom : 'Onder',
@@ -327,6 +332,7 @@ CKEDITOR.lang['af'] = {
     	invalidValue : 'Ongeldige waarde',
     	invalidHeight : 'Hoogte moet \'n getal wees',
     	invalidWidth : 'Breedte moet \'n getal wees.',
+    	invalidLength : 'Die waarde vir die veld "%1" moet \'n  posetiewe nommer wees met of sonder die meeteenheid (%2).',
     	invalidCssLength : 'Die waarde vir die "%1" veld moet \'n posetiewe getal wees met of sonder \'n geldige CSS eenheid (px, %, in, cm, mm, em, ex, pt, of pc).',
     	invalidHtmlLength : 'Die waarde vir die  "%1" veld moet \'n posetiewe getal wees met of sonder \'n geldige HTML eenheid (px of %).',
     	invalidInlineStyle : 'Ongeldige CSS. Formaat is een of meer sleutel-wert paare, "naam : wert" met kommapunte gesky.',
@@ -343,7 +349,32 @@ CKEDITOR.lang['af'] = {
     		'35' : 'Einde',
     		'36' : 'Tuis',
     		'46' : 'Verwyder',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
     		'224' : 'Bevel'
     	},
-    	keyboardShortcut : 'Sleutel kombenasie'
+    	keyboardShortcut : 'Sleutel kombenasie',
+    	optionDefault : 'Verstek'
     } }; 
