@@ -194,7 +194,17 @@
 			assert.isTrue( doc.getById( '_enclosed_i' ).equals( range.getEnclosedNode() ) );
 		},
 
-		/* Start of http://dev.ckeditor.com/ticket/6735 */
+		// Test getEnclosedNode returns text node (#2089).
+		test_enclosed_node4: function() {
+			var range = new CKEDITOR.dom.range( doc );
+			range.setStart( doc.getById( '_enclosed_i' ).getFirst(), 0 );
+			range.setEnd( doc.getById( '_enclosed_i' ).getLast(), 8 );
+			// <p> Test <i>[enclosed]</i> node.</p>
+
+			assert.areSame( doc.getById( '_enclosed_i' ).getFirst(), range.getEnclosedNode() );
+		},
+
+		/* Start of https://dev.ckeditor.com/ticket/6735 */
 
 		'test checkReadOnly when both range boundaries are inside of read-only element': function() {
 			var source = 'some <strong contenteditable="false"> sample [text</strong> and a <a href="javascript:void(0)" contenteditable="false">link]</a>',
@@ -220,7 +230,7 @@
 			assert.isFalse( range.checkReadOnly() );
 		},
 
-		/* End of http://dev.ckeditor.com/ticket/6735 */
+		/* End of https://dev.ckeditor.com/ticket/6735 */
 
 		'test checkReadOnly when entire range is enclosed in an editable element which is contained by another read-only element': function() {
 			var source = 'some <strong contenteditable="false"> sample text and <a href="javascript:void(0)" contenteditable="true">a [link].</a></strong>',

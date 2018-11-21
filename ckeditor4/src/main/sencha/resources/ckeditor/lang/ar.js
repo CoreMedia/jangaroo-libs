@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or http://ckeditor.com/license
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['ar'] = {
     undo : 
@@ -105,7 +105,8 @@ CKEDITOR.lang['ar'] = {
     pastetext : 
     {
     	button : 'لصق كنص بسيط',
-    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	title : 'لصق كنص بسيط'
     },
     pastefromword : 
     {
@@ -146,8 +147,8 @@ CKEDITOR.lang['ar'] = {
     	anchorName : 'حسب إسم الإشارة المرجعية',
     	charset : 'ترميز المادة المطلوبة',
     	cssClasses : 'فئات التنسيق',
-    	download : 'Force Download',
-    	displayText : 'Display Text',
+    	download : 'فرض التحميل',
+    	displayText : 'نص العرض',
     	emailAddress : 'البريد الإلكتروني',
     	emailBody : 'محتوى الرسالة',
     	emailSubject : 'موضوع الرسالة',
@@ -162,7 +163,9 @@ CKEDITOR.lang['ar'] = {
     	noAnchors : '(لا توجد علامات مرجعية في هذا المستند)',
     	noEmail : 'الرجاء كتابة الريد الإلكتروني',
     	noUrl : 'الرجاء كتابة رابط الموقع',
+    	noTel : 'Please type the phone number',
     	other : '<أخرى>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'تابع (Netscape)',
     	popupFeatures : 'خصائص النافذة المنبثقة',
     	popupFullScreen : 'ملئ الشاشة (IE)',
@@ -187,6 +190,7 @@ CKEDITOR.lang['ar'] = {
     	toAnchor : 'مكان في هذا المستند',
     	toEmail : 'بريد إلكتروني',
     	toUrl : 'الرابط',
+    	toPhone : 'Phone',
     	toolbar : 'رابط',
     	type : 'نوع الربط',
     	unlink : 'إزالة رابط',
@@ -242,11 +246,9 @@ CKEDITOR.lang['ar'] = {
     	cut : 'قص',
     	cutError : 'الإعدادات الأمنية للمتصفح الذي تستخدمه تمنع القص التلقائي. فضلاً إستخدم لوحة المفاتيح لفعل ذلك (Ctrl/Cmd+X).',
     	paste : 'لصق',
-    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (محدد)'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteArea : 'منطقة اللصق',
+    	pasteMsg : 'Paste your content inside the area below and press OK.'
     },
     blockquote : 
     {
@@ -316,10 +318,13 @@ CKEDITOR.lang['ar'] = {
     	width : 'العرض',
     	height : 'الإرتفاع',
     	align : 'محاذاة',
-    	alignLeft : 'يسار',
-    	alignRight : 'يمين',
-    	alignCenter : 'وسط',
-    	alignJustify : 'ضبط',
+    	left : 'يسار',
+    	right : 'يمين',
+    	center : 'وسط',
+    	justify : 'ضبط',
+    	alignLeft : 'محاذاة إلى اليسار',
+    	alignRight : 'محاذاة إلى اليمين',
+    	alignCenter : 'Align Center',
     	alignTop : 'أعلى',
     	alignMiddle : 'وسط',
     	alignBottom : 'أسفل',
@@ -327,6 +332,7 @@ CKEDITOR.lang['ar'] = {
     	invalidValue : 'قيمة غير مفبولة.',
     	invalidHeight : 'الارتفاع يجب أن يكون عدداً.',
     	invalidWidth : 'العرض يجب أن يكون عدداً.',
+    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
     	invalidCssLength : 'قيمة الخانة المخصصة لـ "%1" يجب أن تكون رقما موجبا، باستخدام أو من غير استخدام وحدة CSS قياس مقبولة (px, %, in, cm, mm, em, ex, pt, or pc).',
     	invalidHtmlLength : 'قيمة الخانة المخصصة لـ "%1" يجب أن تكون رقما موجبا، باستخدام أو من غير استخدام وحدة HTML قياس مقبولة (px or %).',
     	invalidInlineStyle : 'قيمة الخانة المخصصة لـ  Inline Style يجب أن تختوي على مجموع واحد أو أكثر بالشكل التالي: "name : value", مفصولة بفاصلة منقزطة.',
@@ -343,7 +349,32 @@ CKEDITOR.lang['ar'] = {
     		'35' : 'End',
     		'36' : 'Home',
     		'46' : 'Delete',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'Keyboard shortcut'
+    	keyboardShortcut : 'Keyboard shortcut',
+    	optionDefault : 'Default'
     } }; 

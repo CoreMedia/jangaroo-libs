@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or http://ckeditor.com/license
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.plugins.setLang( 'link', 'nb', {
 	acccessKey: 'Aksessknapp',
@@ -35,7 +35,9 @@ CKEDITOR.plugins.setLang( 'link', 'nb', {
 	noAnchors: '(Ingen anker i dokumentet)',
 	noEmail: 'Vennligst skriv inn e-postadressen',
 	noUrl: 'Vennligst skriv inn lenkens URL',
+	noTel: 'Please type the phone number', // MISSING
 	other: '<annen>',
+	phoneNumber: 'Phone number', // MISSING
 	popupDependent: 'Avhenging (Netscape)',
 	popupFeatures: 'Egenskaper for popup-vindu',
 	popupFullScreen: 'Fullskjerm (IE)',
@@ -60,6 +62,7 @@ CKEDITOR.plugins.setLang( 'link', 'nb', {
 	toAnchor: 'Lenke til anker i teksten',
 	toEmail: 'E-post',
 	toUrl: 'URL',
+	toPhone: 'Phone', // MISSING
 	toolbar: 'Lenke',
 	type: 'Lenketype',
 	unlink: 'Fjern lenke',

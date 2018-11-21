@@ -1,6 +1,6 @@
 /**
- * @license Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
- * For licensing, see LICENSE.md or http://ckeditor.com/license
+ * @license Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+ * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
 ( function() {
@@ -52,11 +52,15 @@
 				data = evtData.dataValue,
 				fixBodyTag;
 
+			// Before we start protecting markup, make sure there's no externally injected <cke:encoded> elements. Only
+			// HTML processor can use this tag, any external injections should discarded.
+			data = data.replace( reservedElementsRegex, '' );
+
 			// The source data is already HTML, but we need to clean
 			// it up and apply the filter.
 			data = protectSource( data, editor );
 
-			// Protect content of textareas. (http://dev.ckeditor.com/ticket/9995)
+			// Protect content of textareas. (https://dev.ckeditor.com/ticket/9995)
 			// Do this before protecting attributes to avoid breaking:
 			// <textarea><img src="..." /></textarea>
 			data = protectElements( data, protectTextareaRegex );
@@ -67,23 +71,23 @@
 			data = protectAttributes( data );
 
 			// Protect elements than can't be set inside a DIV. E.g. IE removes
-			// style tags from innerHTML. (http://dev.ckeditor.com/ticket/3710)
+			// style tags from innerHTML. (https://dev.ckeditor.com/ticket/3710)
 			data = protectElements( data, protectElementsRegex );
 
 			// Certain elements has problem to go through DOM operation, protect
-			// them by prefixing 'cke' namespace. (http://dev.ckeditor.com/ticket/3591)
+			// them by prefixing 'cke' namespace. (https://dev.ckeditor.com/ticket/3591)
 			data = protectElementsNames( data );
 
 			// All none-IE browsers ignore self-closed custom elements,
-			// protecting them into open-close. (http://dev.ckeditor.com/ticket/3591)
+			// protecting them into open-close. (https://dev.ckeditor.com/ticket/3591)
 			data = protectSelfClosingElements( data );
 
 			// Compensate one leading line break after <pre> open as browsers
-			// eat it up. (http://dev.ckeditor.com/ticket/5789)
+			// eat it up. (https://dev.ckeditor.com/ticket/5789)
 			data = protectPreFormatted( data );
 
 			// There are attributes which may execute JavaScript code inside fixBin.
-			// Encode them greedily. They will be unprotected right after getting HTML from fixBin. (http://dev.ckeditor.com/ticket/10)
+			// Encode them greedily. They will be unprotected right after getting HTML from fixBin. (https://dev.ckeditor.com/ticket/10)
 			data = protectInsecureAttributes( data );
 
 			var fixBin = evtData.context || editor.editable().getName(),
@@ -99,7 +103,7 @@
 			// Call the browser to help us fixing a possibly invalid HTML
 			// structure.
 			var el = editor.document.createElement( fixBin );
-			// Add fake character to workaround IE comments bug. (http://dev.ckeditor.com/ticket/3801)
+			// Add fake character to workaround IE comments bug. (https://dev.ckeditor.com/ticket/3801)
 			el.setHtml( 'a' + data );
 			data = el.getHtml().substr( 1 );
 
@@ -128,7 +132,7 @@
 			data = CKEDITOR.htmlParser.fragment.fromHtml( data, evtData.context, fixBodyTag );
 
 			// The empty root element needs to be fixed by adding 'p' or 'div' into it.
-			// This avoids the need to create that element on the first focus (http://dev.ckeditor.com/ticket/12630).
+			// This avoids the need to create that element on the first focus (https://dev.ckeditor.com/ticket/12630).
 			if ( fixBodyTag ) {
 				fixEmptyRoot( data, fixBodyTag );
 			}
@@ -163,7 +167,7 @@
 		editor.on( 'toDataFormat', function( evt ) {
 			var data = evt.data.dataValue;
 
-			// http://dev.ckeditor.com/ticket/10854 - we need to strip leading blockless <br> which FF adds
+			// https://dev.ckeditor.com/ticket/10854 - we need to strip leading blockless <br> which FF adds
 			// automatically when editable contains only non-editable content.
 			// We do that for every browser (so it's a constant behavior) and
 			// not in BR mode, in which chance of valid leading blockless <br> is higher.
@@ -192,7 +196,7 @@
 			data.writeChildrenHtml( writer );
 			data = writer.getHtml( true );
 
-			// Restore those non-HTML protected source. (http://dev.ckeditor.com/ticket/4475,http://dev.ckeditor.com/ticket/4880)
+			// Restore those non-HTML protected source. (https://dev.ckeditor.com/ticket/4475,https://dev.ckeditor.com/ticket/4880)
 			data = unprotectRealComments( data );
 			data = unprotectSource( data, editor );
 
@@ -448,7 +452,7 @@
 				return false;
 
 			// 1. For IE version >=8,  empty blocks are displayed correctly themself in wysiwiyg;
-			// 2. For the rest, at least table cell and list item need no filler space. (http://dev.ckeditor.com/ticket/6248)
+			// 2. For the rest, at least table cell and list item need no filler space. (https://dev.ckeditor.com/ticket/6248)
 			if ( !isOutput && !CKEDITOR.env.needsBrFiller &&
 				( document.documentMode > 7 ||
 					block.name in CKEDITOR.dtd.tr ||
@@ -484,7 +488,7 @@
 	}
 
 	// Regex to scan for &nbsp; at the end of blocks, which are actually placeholders.
-	// Safari transforms the &nbsp; to \xa0. (http://dev.ckeditor.com/ticket/4172)
+	// Safari transforms the &nbsp; to \xa0. (https://dev.ckeditor.com/ticket/4172)
 	var tailNbspRegex = /(?:&nbsp;|\xa0)$/;
 
 	var protectedSourceMarker = '{cke_protected}';
@@ -586,12 +590,12 @@
 		}
 	};
 
-	// Disable form elements editing mode provided by some browsers. (http://dev.ckeditor.com/ticket/5746)
+	// Disable form elements editing mode provided by some browsers. (https://dev.ckeditor.com/ticket/5746)
 	function protectReadOnly( element ) {
 		var attrs = element.attributes;
 
 		// We should flag that the element was locked by our code so
-		// it'll be editable by the editor functions (http://dev.ckeditor.com/ticket/6046).
+		// it'll be editable by the editor functions (https://dev.ckeditor.com/ticket/6046).
 		if ( attrs.contenteditable != 'false' )
 			attrs[ 'data-cke-editable' ] = attrs.contenteditable ? 'true' : 1;
 
@@ -619,7 +623,7 @@
 				}
 			},
 
-			// Remove empty link but not empty anchor. (http://dev.ckeditor.com/ticket/3829, http://dev.ckeditor.com/ticket/13516)
+			// Remove empty link but not empty anchor. (https://dev.ckeditor.com/ticket/3829, https://dev.ckeditor.com/ticket/13516)
 			a: function( element ) {
 				var attrs = element.attributes;
 
@@ -658,7 +662,7 @@
 					if ( attribs[ 'data-cke-temp' ] )
 						return false;
 
-					// Remove duplicated attributes - http://dev.ckeditor.com/ticket/3789.
+					// Remove duplicated attributes - https://dev.ckeditor.com/ticket/3789.
 					var attributeNames = [ 'name', 'href', 'src' ],
 						savedAttributeName;
 					for ( var i = 0; i < attributeNames.length; i++ ) {
@@ -670,7 +674,7 @@
 				return element;
 			},
 
-			// The contents of table should be in correct order (http://dev.ckeditor.com/ticket/4809).
+			// The contents of table should be in correct order (https://dev.ckeditor.com/ticket/4809).
 			table: function( element ) {
 				// Clone the array as it would become empty during the sort call.
 				var children = element.children.slice( 0 );
@@ -729,7 +733,7 @@
 			title: function( element ) {
 				var titleText = element.children[ 0 ];
 
-				// Append text-node to title tag if not present (i.e. non-IEs) (http://dev.ckeditor.com/ticket/9882).
+				// Append text-node to title tag if not present (i.e. non-IEs) (https://dev.ckeditor.com/ticket/9882).
 				!titleText && append( element, titleText = new CKEDITOR.htmlParser.text() );
 
 				// Transfer data-saved title to title tag.
@@ -750,7 +754,7 @@
 
 	if ( CKEDITOR.env.ie ) {
 		// IE outputs style attribute in capital letters. We should convert
-		// them back to lower case, while not hurting the values (http://dev.ckeditor.com/ticket/5930)
+		// them back to lower case, while not hurting the values (https://dev.ckeditor.com/ticket/5930)
 		defaultHtmlFilterRulesForAll.attributes.style = function( value ) {
 			return value.replace( /(^|;)([^\:]+)/g, function( match ) {
 				return match.toLowerCase();
@@ -758,7 +762,7 @@
 		};
 	}
 
-	// Disable form elements editing mode provided by some browsers. (http://dev.ckeditor.com/ticket/5746)
+	// Disable form elements editing mode provided by some browsers. (https://dev.ckeditor.com/ticket/5746)
 	function unprotectReadyOnly( element ) {
 		var attrs = element.attributes;
 		switch ( attrs[ 'data-cke-editable' ] ) {
@@ -790,16 +794,18 @@
 		//
 		// 	'data-x' => '&lt;a href=&quot;X&quot;'
 		//
-		// which, can be easily filtered out (http://dev.ckeditor.com/ticket/11508).
+		// which, can be easily filtered out (https://dev.ckeditor.com/ticket/11508).
 		protectAttributeRegex = /([\w-:]+)\s*=\s*(?:(?:"[^"]*")|(?:'[^']*')|(?:[^ "'>]+))/gi,
 		protectAttributeNameRegex = /^(href|src|name)$/i;
 
 		// Note: we use lazy star '*?' to prevent eating everything up to the last occurrence of </style> or </textarea>.
 	var protectElementsRegex = /(?:<style(?=[ >])[^>]*>[\s\S]*?<\/style>)|(?:<(:?link|meta|base)[^>]*>)/gi,
 		protectTextareaRegex = /(<textarea(?=[ >])[^>]*>)([\s\S]*?)(?:<\/textarea>)/gi,
-		encodedElementsRegex = /<cke:encoded>([^<]*)<\/cke:encoded>/gi;
+		encodedElementsRegex = /<cke:encoded>([^<]*)<\/cke:encoded>/gi,
+		reservedElementsRegex = createReservedElementsRegex();
 
-	var protectElementNamesRegex = /(<\/?)((?:object|embed|param|html|body|head|title)[^>]*>)/gi,
+		// Element name should be followed by space or closing angle bracket '>' to not protect custom tags (#988).
+	var protectElementNamesRegex = /(<\/?)((?:object|embed|param|html|body|head|title)([\s][^>]*)?>)/gi,
 		unprotectElementNamesRegex = /(<\/?)cke:((?:html|body|head|title)[^>]*>)/gi;
 
 	var protectSelfClosingRegex = /<cke:(param|embed)([^>]*?)\/?>(?!\s*<\/cke:\1)/gi;
@@ -807,8 +813,8 @@
 	function protectAttributes( html ) {
 		return html.replace( protectElementRegex, function( element, tag, attributes ) {
 			return '<' + tag + attributes.replace( protectAttributeRegex, function( fullAttr, attrName ) {
-				// Avoid corrupting the inline event attributes (http://dev.ckeditor.com/ticket/7243).
-				// We should not rewrite the existed protected attributes, e.g. clipboard content from editor. (http://dev.ckeditor.com/ticket/5218)
+				// Avoid corrupting the inline event attributes (https://dev.ckeditor.com/ticket/7243).
+				// We should not rewrite the existed protected attributes, e.g. clipboard content from editor. (https://dev.ckeditor.com/ticket/5218)
 				if ( protectAttributeNameRegex.test( attrName ) && attributes.indexOf( 'data-cke-saved-' + attrName ) == -1 )
 					return ' data-cke-saved-' + fullAttr + ' data-cke-' + CKEDITOR.rnd + '-' + fullAttr;
 
@@ -859,6 +865,72 @@
 		} );
 	}
 
+	// Produces regex matching reserved `cke:encoded` element for valid HTML symbol codes.
+	// Matches `cke:encoded` element in hexadecimal, HTML-code, or HTML-entity.
+	function createReservedElementsRegex() {
+		return new RegExp( '(' +
+			// Create closed element regex i.e `<cke:encoded>xxx</cke:encoded>`.
+			createEncodedRegex( '<cke:encoded>' ) +
+			'(.*?)' +
+			createEncodedRegex( '</cke:encoded>' ) +
+			')|(' +
+			// Create unclosed element regex i.e `<cke:encoded>xxx` or `xxx</cke:encoded>` to make sure that
+			// element won't be closed by HTML parser and matched by `unprotectElements` function.
+			createEncodedRegex( '<' ) +
+			createEncodedRegex( '/' ) + '?' +
+			createEncodedRegex( 'cke:encoded>' ) +
+			')', 'gi' );
+	}
+
+	function createEncodedRegex( str ) {
+		return CKEDITOR.tools.array.reduce( str.split( '' ), function( cur, character ) {
+			// Produce case insensitive regex. `i` flag is not enough thus code entities differs
+			// depending on case sensitivity.
+			var lowerCase = character.toLowerCase(),
+				upperCase = character.toUpperCase(),
+				regex = createCharacterEncodedRegex( lowerCase );
+
+			if ( lowerCase !== upperCase ) {
+				regex += '|' + createCharacterEncodedRegex( upperCase );
+			}
+
+			cur += '(' + regex + ')';
+
+			return cur;
+		}, '' );
+	}
+
+	function createCharacterEncodedRegex( character ) {
+		var map = getCharRegexMap( character ),
+			charRegex = character;
+
+		for ( var code in map ) {
+			if ( map[ code ] ) {
+				charRegex += '|' + map[ code ];
+			}
+		}
+
+		return charRegex;
+	}
+
+	function getCharRegexMap( character ) {
+		var entities = {
+				'<': '&lt;',
+				'>': '&gt;',
+				':': '&colon;'
+			},
+			charCode = character.charCodeAt( 0 ),
+			hex = charCode.toString( 16 );
+
+		return {
+			// `;` is optional and HTML parser is able to recognize codes without it.
+			htmlCode: '&#' + charCode + ';?',
+			// Hexadecimal value is valid despite leading zero padding e.g. `&#x0065` === `&#x65`.
+			hex: '&#x0*' + hex + ';?',
+			entity: entities[ character ]
+		};
+	}
+
 	// Replace all "on\w{3,}" strings which are not:
 	// * opening tags - e.g. `<onfoo`,
 	// * closing tags - e.g. </onfoo> (tested in "false positive 1"),
@@ -897,7 +969,7 @@
 			// <noscript> tags (get lost in IE and messed up in FF).
 			/<noscript[\s\S]*?<\/noscript>/gi,
 
-			// Avoid meta tags being stripped (http://dev.ckeditor.com/ticket/8117).
+			// Avoid meta tags being stripped (https://dev.ckeditor.com/ticket/8117).
 			/<meta[\s\S]*?\/?>/gi
 		].concat( protectRegexes );
 
@@ -911,7 +983,7 @@
 
 		for ( var i = 0; i < regexes.length; i++ ) {
 			data = data.replace( regexes[ i ], function( match ) {
-				match = match.replace( tempRegex, // There could be protected source inside another one. (http://dev.ckeditor.com/ticket/3869).
+				match = match.replace( tempRegex, // There could be protected source inside another one. (https://dev.ckeditor.com/ticket/3869).
 				function( $, isComment, id ) {
 					return protectedHtml[ id ];
 				} );
@@ -929,7 +1001,7 @@
 
 		// Different protection pattern is used for those that
 		// live in attributes to avoid from being HTML encoded.
-		// Why so serious? See http://dev.ckeditor.com/ticket/9205, http://dev.ckeditor.com/ticket/8216, http://dev.ckeditor.com/ticket/7805, http://dev.ckeditor.com/ticket/11754, http://dev.ckeditor.com/ticket/11846.
+		// Why so serious? See https://dev.ckeditor.com/ticket/9205, https://dev.ckeditor.com/ticket/8216, https://dev.ckeditor.com/ticket/7805, https://dev.ckeditor.com/ticket/11754, https://dev.ckeditor.com/ticket/11846.
 		data = data.replace( /<\w+(?:\s+(?:(?:[^\s=>]+\s*=\s*(?:[^'"\s>]+|'[^']*'|"[^"]*"))|[^\s=\/>]+))+\s*\/?>/g, function( match ) {
 			return match.replace( /<!--\{cke_protected\}([^>]*)-->/g, function( match, data ) {
 				store[ store.id ] = decodeURIComponent( data );
@@ -939,7 +1011,7 @@
 
 		// This RegExp searches for innerText in all the title/iframe/textarea elements.
 		// This is because browser doesn't allow HTML in these elements, that's why we can't
-		// nest comments in there. (http://dev.ckeditor.com/ticket/11223)
+		// nest comments in there. (https://dev.ckeditor.com/ticket/11223)
 		data = data.replace( /<(title|iframe|textarea)([^>]*)>([\s\S]*?)<\/\1>/g, function( match, tagName, tagAttributes, innerText ) {
 			return '<' + tagName + tagAttributes + '>' + unprotectSource( unprotectRealComments( innerText ), editor ) + '</' + tagName + '>';
 		} );

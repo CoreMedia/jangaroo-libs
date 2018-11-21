@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or http://ckeditor.com/license
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['es-mx'] = {
     undo : 
@@ -105,7 +105,8 @@ CKEDITOR.lang['es-mx'] = {
     pastetext : 
     {
     	button : 'Pegar como texto plano',
-    	pasteNotification : 'Su navegador no permite esta forma de pegar texto plano. Presiona %1 para pegar.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	title : 'Paste as Plain Text'
     },
     pastefromword : 
     {
@@ -162,7 +163,9 @@ CKEDITOR.lang['es-mx'] = {
     	noAnchors : '(No hay anclas disponibles en el documento)',
     	noEmail : 'Escriba la dirección de correo electrónico',
     	noUrl : 'Escriba la URL del enlace',
+    	noTel : 'Please type the phone number',
     	other : '<other>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Dependiente (Netscape)',
     	popupFeatures : 'Ventana emergente',
     	popupFullScreen : 'Pantalla completa (IE)',
@@ -187,6 +190,7 @@ CKEDITOR.lang['es-mx'] = {
     	toAnchor : 'Enlace al ancla en el texto',
     	toEmail : 'Correo electrónico',
     	toUrl : 'URL',
+    	toPhone : 'Phone',
     	toolbar : 'Enlace',
     	type : 'Tipo de enlace',
     	unlink : 'Desconectar',
@@ -242,11 +246,9 @@ CKEDITOR.lang['es-mx'] = {
     	cut : 'Cortar',
     	cutError : 'La configuración de seguridad de su navegador no permite al editor ejecutar automáticamente operaciones de corte. Por favor, utilice el teclado para (Ctrl/Cmd+X).',
     	paste : 'Pegar',
-    	pasteNotification : 'Tu navegador no permite pegar de esta manera. Presiona %1 para pegar.'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Seleccionado)'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteArea : 'Paste Area',
+    	pasteMsg : 'Paste your content inside the area below and press OK.'
     },
     blockquote : 
     {
@@ -316,10 +318,13 @@ CKEDITOR.lang['es-mx'] = {
     	width : 'Ancho',
     	height : 'Alto',
     	align : 'Alineación',
-    	alignLeft : 'Izquierda',
-    	alignRight : 'Derecha',
-    	alignCenter : 'Centrado',
-    	alignJustify : 'Justificado',
+    	left : 'Izquierda',
+    	right : 'Derecha',
+    	center : 'Centrado',
+    	justify : 'Justificado',
+    	alignLeft : 'Alinear a la izquierda',
+    	alignRight : 'Alinear a la derecha',
+    	alignCenter : 'Align Center',
     	alignTop : 'Arriba',
     	alignMiddle : 'En medio',
     	alignBottom : 'Abajo',
@@ -327,6 +332,7 @@ CKEDITOR.lang['es-mx'] = {
     	invalidValue : 'Valor inválido',
     	invalidHeight : 'La altura debe ser un número.',
     	invalidWidth : 'La anchura debe ser un número.',
+    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
     	invalidCssLength : 'El valor especificado para el campo "% 1" debe ser un número positivo con o sin una unidad de medida CSS válida (px, %, in, cm, mm, em, ex, pt, or pc).',
     	invalidHtmlLength : 'El valor especificado para el campo "% 1" debe ser un número positivo con o sin una unidad de medición HTML válida (px or %).',
     	invalidInlineStyle : 'El valor especificado para el estilo en línea debe constar de una o más tuplas con el formato de "nombre: valor", separados por punto y coma',
@@ -343,7 +349,32 @@ CKEDITOR.lang['es-mx'] = {
     		'35' : 'Fin',
     		'36' : 'Inicio',
     		'46' : 'Borrar',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
     		'224' : 'Comando'
     	},
-    	keyboardShortcut : 'Atajo de teclado'
+    	keyboardShortcut : 'Atajo de teclado',
+    	optionDefault : 'Default'
     } }; 

@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or http://ckeditor.com/license
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.plugins.setLang( 'link', 'pl', {
 	acccessKey: 'Klawisz dostępu',
@@ -35,7 +35,9 @@ CKEDITOR.plugins.setLang( 'link', 'pl', {
 	noAnchors: '(W dokumencie nie zdefiniowano żadnych kotwic)',
 	noEmail: 'Podaj adres e-mail',
 	noUrl: 'Podaj adres URL',
+	noTel: 'Please type the phone number', // MISSING
 	other: '<inny>',
+	phoneNumber: 'Phone number', // MISSING
 	popupDependent: 'Okno zależne (Netscape)',
 	popupFeatures: 'Właściwości wyskakującego okna',
 	popupFullScreen: 'Pełny ekran (IE)',
@@ -60,6 +62,7 @@ CKEDITOR.plugins.setLang( 'link', 'pl', {
 	toAnchor: 'Odnośnik wewnątrz strony (kotwica)',
 	toEmail: 'Adres e-mail',
 	toUrl: 'Adres URL',
+	toPhone: 'Phone', // MISSING
 	toolbar: 'Wstaw/edytuj odnośnik',
 	type: 'Typ odnośnika',
 	unlink: 'Usuń odnośnik',

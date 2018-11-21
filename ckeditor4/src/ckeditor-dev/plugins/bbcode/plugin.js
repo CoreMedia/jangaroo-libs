@@ -1,6 +1,6 @@
 /**
- * @license Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
- * For licensing, see LICENSE.md or http://ckeditor.com/license
+ * @license Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+ * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
 ( function() {
@@ -26,10 +26,10 @@
 		}
 	} );
 
-	var bbcodeMap = { b: 'strong', u: 'u', i: 'em', color: 'span', size: 'span', quote: 'blockquote', code: 'code', url: 'a', email: 'span', img: 'span', '*': 'li', list: 'ol' },
+	var bbcodeMap = { b: 'strong', u: 'u', i: 'em', color: 'span', size: 'span', left: 'div', right: 'div', center: 'div', justify: 'div', quote: 'blockquote', code: 'code', url: 'a', email: 'span', img: 'span', '*': 'li', list: 'ol' },
 		convertMap = { strong: 'b', b: 'b', u: 'u', em: 'i', i: 'i', code: 'code', li: '*' },
 		tagnameMap = { strong: 'b', em: 'i', u: 'u', li: '*', ul: 'list', ol: 'list', code: 'code', a: 'link', img: 'img', blockquote: 'quote' },
-		stylesMap = { color: 'color', size: 'font-size' },
+		stylesMap = { color: 'color', size: 'font-size', left: 'text-align', center: 'text-align', right: 'text-align', justify: 'text-align' },
 		attributesMap = { url: 'href', email: 'mailhref', quote: 'cite', list: 'listType' };
 
 	// List of block-like tags.
@@ -113,7 +113,7 @@
 				// 4 : close of tag;
 
 				part = ( parts[ 1 ] || parts[ 3 ] || '' ).toLowerCase();
-				// Unrecognized tags should be delivered as a simple text (http://dev.ckeditor.com/ticket/7860).
+				// Unrecognized tags should be delivered as a simple text (https://dev.ckeditor.com/ticket/7860).
 				if ( part && !bbcodeMap[ part ] ) {
 					this.onText( parts[ 0 ] );
 					continue;
@@ -125,6 +125,11 @@
 						attribs = {},
 						styles = {},
 						optionPart = parts[ 2 ];
+
+					// Special handling of justify tags, these provide the alignment as a tag name (#2248).
+					if ( part == 'left' || part == 'right' || part == 'center' || part == 'justify' ) {
+						optionPart = part;
+					}
 
 					if ( optionPart ) {
 						if ( part == 'list' ) {
@@ -138,8 +143,9 @@
 
 						if ( stylesMap[ part ] ) {
 							// Font size represents percentage.
-							if ( part == 'size' )
+							if ( part == 'size' ) {
 								optionPart += '%';
+							}
 
 							styles[ stylesMap[ part ] ] = optionPart;
 							attribs.style = serializeStyleText( styles );
@@ -559,7 +565,7 @@
 
 			CKEDITOR.tools.extend( config, {
 				// This one is for backwards compatibility only as
-				// editor#enterMode is already set at this stage (http://dev.ckeditor.com/ticket/11202).
+				// editor#enterMode is already set at this stage (https://dev.ckeditor.com/ticket/11202).
 				enterMode: CKEDITOR.ENTER_BR,
 				basicEntities: false,
 				entities: false,
@@ -569,7 +575,7 @@
 			editor.filter.disable();
 
 			// Since CKEditor 4.3, editor#(active)enterMode is set before
-			// beforeInit. Properties got to be updated (http://dev.ckeditor.com/ticket/11202).
+			// beforeInit. Properties got to be updated (https://dev.ckeditor.com/ticket/11202).
 			editor.activeEnterMode = editor.enterMode = CKEDITOR.ENTER_BR;
 		},
 
@@ -729,6 +735,15 @@
 						return null;
 					},
 
+					div: function( element ) {
+						var alignment = CKEDITOR.tools.parseCssText( element.attributes.style, 1 )[ 'text-align' ] || '';
+
+						if ( alignment ) {
+							element.name = alignment;
+							return null;
+						}
+					},
+
 					// Remove any bogus br from the end of a pseudo block,
 					// e.g. <div>some text<br /><p>paragraph</p></div>
 					br: function( element ) {
@@ -775,6 +790,9 @@
 								name = 'size';
 							else if ( element.getStyle( 'color' ) )
 								name = 'color';
+						// Styled div could be align
+						} else if ( htmlName == 'div' && element.getStyle( 'text-align' ) ) {
+							name = element.getStyle( 'text-align' );
 						} else if ( name == 'img' ) {
 							var src = element.data( 'cke-saved-src' ) || element.getAttribute( 'src' );
 							if ( src && src.indexOf( editor.config.smiley_path ) === 0 )

@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or http://ckeditor.com/license
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['hr'] = {
     undo : 
@@ -105,7 +105,8 @@ CKEDITOR.lang['hr'] = {
     pastetext : 
     {
     	button : 'Zalijepi kao čisti tekst',
-    	pasteNotification : 'Vaš preglednik Vam ne dozvoljava lijepljenje običnog teksta na ovaj način. Za lijepljenje, pritisnite %1.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	title : 'Zalijepi kao čisti tekst'
     },
     pastefromword : 
     {
@@ -162,7 +163,9 @@ CKEDITOR.lang['hr'] = {
     	noAnchors : '(Nema dostupnih sidra)',
     	noEmail : 'Molimo upišite e-mail adresu',
     	noUrl : 'Molimo upišite URL link',
+    	noTel : 'Please type the phone number',
     	other : '<drugi>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Ovisno (Netscape)',
     	popupFeatures : 'Mogućnosti popup prozora',
     	popupFullScreen : 'Cijeli ekran (IE)',
@@ -187,6 +190,7 @@ CKEDITOR.lang['hr'] = {
     	toAnchor : 'Sidro na ovoj stranici',
     	toEmail : 'E-Mail',
     	toUrl : 'URL',
+    	toPhone : 'Phone',
     	toolbar : 'Ubaci/promijeni vezu',
     	type : 'Vrsta veze',
     	unlink : 'Ukloni vezu',
@@ -242,11 +246,9 @@ CKEDITOR.lang['hr'] = {
     	cut : 'Izreži',
     	cutError : 'Sigurnosne postavke Vašeg pretraživača ne dozvoljavaju operacije automatskog izrezivanja. Molimo koristite kraticu na tipkovnici (Ctrl/Cmd+X).',
     	paste : 'Zalijepi',
-    	pasteNotification : 'Vaš preglednik Vam ne dozvoljava lijepljenje na ovaj način. Za lijepljenje, pritisnite %1.'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Odabrano)'
+    	pasteNotification : 'Vaš preglednik Vam ne dozvoljava lijepljenje običnog teksta na ovaj način. Za lijepljenje, pritisnite %1.',
+    	pasteArea : 'Okvir za lijepljenje',
+    	pasteMsg : 'Zalijepite vaš sadržaj u okvir ispod i pritisnite OK.'
     },
     blockquote : 
     {
@@ -316,10 +318,13 @@ CKEDITOR.lang['hr'] = {
     	width : 'Širina',
     	height : 'Visina',
     	align : 'Poravnanje',
-    	alignLeft : 'Lijevo',
-    	alignRight : 'Desno',
-    	alignCenter : 'Središnje',
-    	alignJustify : 'Blok poravnanje',
+    	left : 'Lijevo',
+    	right : 'Desno',
+    	center : 'Središnje',
+    	justify : 'Blok poravnanje',
+    	alignLeft : 'Lijevo poravnanje',
+    	alignRight : 'Desno poravnanje',
+    	alignCenter : 'Align Center',
     	alignTop : 'Vrh',
     	alignMiddle : 'Sredina',
     	alignBottom : 'Dolje',
@@ -327,6 +332,7 @@ CKEDITOR.lang['hr'] = {
     	invalidValue : 'Neispravna vrijednost.',
     	invalidHeight : 'Visina mora biti broj.',
     	invalidWidth : 'Širina mora biti broj.',
+    	invalidLength : 'Naznačena vrijednost polja "%1" mora biti pozitivni broj sa ili bez važeće mjerne jedinice (%2).',
     	invalidCssLength : 'Vrijednost određena za "%1" polje mora biti pozitivni broj sa ili bez važećih CSS mjernih jedinica (px, %, in, cm, mm, em, ex, pt ili pc).',
     	invalidHtmlLength : 'Vrijednost određena za "%1" polje mora biti pozitivni broj sa ili bez važećih HTML mjernih jedinica (px ili %).',
     	invalidInlineStyle : 'Vrijednost za linijski stil mora sadržavati jednu ili više definicija s formatom "naziv:vrijednost", odvojenih točka-zarezom.',
@@ -343,7 +349,32 @@ CKEDITOR.lang['hr'] = {
     		'35' : 'End',
     		'36' : 'Home',
     		'46' : 'Delete',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'Prečica na tipkovnici'
+    	keyboardShortcut : 'Prečica na tipkovnici',
+    	optionDefault : 'Zadano'
     } }; 

@@ -1,12 +1,12 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or http://ckeditor.com/license
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['bg'] = {
     undo : 
     {
-    	redo : 'Връщане на предишен статус',
-    	undo : 'Възтанови'
+    	redo : 'Пренаправи',
+    	undo : 'Отмени'
     },
     toolbar : 
     {
@@ -16,7 +16,7 @@ CKEDITOR.lang['bg'] = {
     	{
     		document : 'Документ',
     		clipboard : 'Клипборд/Отмяна',
-    		editing : 'Промяна',
+    		editing : 'Редакция',
     		forms : 'Форми',
     		basicstyles : 'Базови стилове',
     		paragraph : 'Параграф',
@@ -39,14 +39,14 @@ CKEDITOR.lang['bg'] = {
     		insertAfter : 'Вмъкване на клетка след',
     		deleteCell : 'Изтриване на клетки',
     		merge : 'Сливане на клетки',
-    		mergeRight : 'Сливане в дясно',
-    		mergeDown : 'Merge Down',
-    		splitHorizontal : 'Split Cell Horizontally',
-    		splitVertical : 'Split Cell Vertically',
+    		mergeRight : 'Сливане надясно',
+    		mergeDown : 'Сливане надолу',
+    		splitHorizontal : 'Разделяне клетката хоризонтално',
+    		splitVertical : 'Разделяне клетката вертикално',
     		title : 'Настройки на клетката',
     		cellType : 'Тип на клетката',
-    		rowSpan : 'Rows Span',
-    		colSpan : 'Columns Span',
+    		rowSpan : 'Редове обединени',
+    		colSpan : 'Колони обединени',
     		wordWrap : 'Авто. пренос',
     		hAlign : 'Хоризонтално подравняване',
     		vAlign : 'Вертикално подравняване',
@@ -54,17 +54,17 @@ CKEDITOR.lang['bg'] = {
     		bgColor : 'Фон',
     		borderColor : 'Цвят на рамката',
     		data : 'Данни',
-    		header : 'Хедър',
+    		header : 'Заглавие',
     		yes : 'Да',
     		no : 'Не',
-    		invalidWidth : 'Cell width must be a number.',
-    		invalidHeight : 'Cell height must be a number.',
-    		invalidRowSpan : 'Rows span must be a whole number.',
-    		invalidColSpan : 'Columns span must be a whole number.',
+    		invalidWidth : 'Ширината на клетката трябва да е число.',
+    		invalidHeight : 'Височината на клетката трябва да е число.',
+    		invalidRowSpan : 'Редове обединени трябва да е цяло число.',
+    		invalidColSpan : 'Колони обединени трябва да е цяло число.',
     		chooseColor : 'Изберете'
     	},
     	cellPad : 'Отделяне на клетките',
-    	cellSpace : 'Разтояние между клетките',
+    	cellSpace : 'Разстояние между клетките',
     	column : 
     	{
     		menu : 'Колона',
@@ -74,14 +74,14 @@ CKEDITOR.lang['bg'] = {
     	},
     	columns : 'Колони',
     	deleteTable : 'Изтриване на таблица',
-    	headers : 'Хедъри',
-    	headersBoth : 'Заедно',
+    	headers : 'Заглавия',
+    	headersBoth : 'И двете',
     	headersColumn : 'Първа колона',
     	headersNone : 'Няма',
     	headersRow : 'Първи ред',
     	invalidBorder : 'Размерът на рамката трябва да е число.',
-    	invalidCellPadding : 'Отстоянието на клетките трябва да е позитивно число.',
-    	invalidCellSpacing : 'Интервала в клетките трябва да е позитивно число.',
+    	invalidCellPadding : 'Отстоянието на клетките трябва да е положително число.',
+    	invalidCellSpacing : 'Интервалът в клетките трябва да е положително число.',
     	invalidCols : 'Броят колони трябва да е по-голям от 0.',
     	invalidHeight : 'Височината на таблицата трябва да е число.',
     	invalidRows : 'Броят редове трябва да е по-голям от 0.',
@@ -105,18 +105,19 @@ CKEDITOR.lang['bg'] = {
     pastetext : 
     {
     	button : 'Вмъкни като чист текст',
-    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
+    	pasteNotification : 'Натиснете %1 за да поставите. Вашият браузър не поддържа поставяне с бутон от лентата с инструменти или контекстното меню.',
+    	title : 'Вмъкни като чист текст'
     },
     pastefromword : 
     {
-    	confirmCleanup : 'The text you want to paste seems to be copied from Word. Do you want to clean it before pasting?',
-    	error : 'It was not possible to clean up the pasted data due to an internal error',
-    	title : 'Вмъкни от MS Word',
-    	toolbar : 'Вмъкни от MS Word'
+    	confirmCleanup : 'Текстът, който искате да поставите, изглежда е копиран от Word. Искате ли да се почисти преди поставянето?',
+    	error : 'Вмъкваните данни не могат да бъдат почистени поради вътрешна грешка',
+    	title : 'Вмъкни от Word',
+    	toolbar : 'Вмъкни от Word'
     },
     notification : 
     {
-    	closed : 'Notification closed.'
+    	closed : 'Известието е затворено.'
     },
     magicline : 
     {
@@ -124,15 +125,15 @@ CKEDITOR.lang['bg'] = {
     },
     list : 
     {
-    	bulletedlist : 'Вмъкване/Премахване на точков списък',
-    	numberedlist : 'Вмъкване/Премахване на номериран списък'
+    	bulletedlist : 'Вмъкване/премахване на точков списък',
+    	numberedlist : 'Вмъкване/премахване на номериран списък'
     },
     link : 
     {
-    	acccessKey : 'Ключ за достъп',
+    	acccessKey : 'Клавиш за достъп',
     	advanced : 'Разширено',
-    	advisoryContentType : 'Препоръчителен тип на съдържанието',
-    	advisoryTitle : 'Препоръчително заглавие',
+    	advisoryContentType : 'Тип на съдържанието',
+    	advisoryTitle : 'Заглавие',
     	anchor : 
     	{
     		toolbar : 'Котва',
@@ -144,25 +145,27 @@ CKEDITOR.lang['bg'] = {
     	},
     	anchorId : 'По ID на елемент',
     	anchorName : 'По име на котва',
-    	charset : 'Тип на свързания ресурс',
-    	cssClasses : 'Класове за CSS',
-    	download : 'Force Download',
-    	displayText : 'Display Text',
-    	emailAddress : 'E-mail aдрес',
+    	charset : 'Езиков код на свързания ресурс',
+    	cssClasses : 'CSS класове',
+    	download : 'Укажи изтегляне',
+    	displayText : 'Текст за показване',
+    	emailAddress : 'Имейл aдрес',
     	emailBody : 'Съдържание',
     	emailSubject : 'Тема',
-    	id : 'ID',
-    	info : 'Инфо за връзката',
-    	langCode : 'Код за езика',
+    	id : 'Id',
+    	info : 'Връзка',
+    	langCode : 'Езиков код',
     	langDir : 'Посока на езика',
-    	langDirLTR : 'Ляво на Дясно (ЛнД)',
-    	langDirRTL : 'Дясно на Ляво (ДнЛ)',
+    	langDirLTR : 'От ляво надясно (LTR)',
+    	langDirRTL : 'От дясно наляво (RTL)',
     	menu : 'Промяна на връзка',
     	name : 'Име',
     	noAnchors : '(Няма котви в текущия документ)',
-    	noEmail : 'Моля въведете e-mail aдрес',
-    	noUrl : 'Моля въведете URL адреса',
+    	noEmail : 'Моля въведете имейл адрес',
+    	noUrl : 'Моля въведете URL адрес',
+    	noTel : 'Please type the phone number',
     	other : '<друго>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Зависимост (Netscape)',
     	popupFeatures : 'Функции на изкачащ прозорец',
     	popupFullScreen : 'Цял екран (IE)',
@@ -170,23 +173,24 @@ CKEDITOR.lang['bg'] = {
     	popupLocationBar : 'Лента с локацията',
     	popupMenuBar : 'Лента за меню',
     	popupResizable : 'Оразмеряем',
-    	popupScrollBars : 'Скролери',
+    	popupScrollBars : 'Ленти за прелистване',
     	popupStatusBar : 'Статусна лента',
     	popupToolbar : 'Лента с инструменти',
     	popupTop : 'Горна позиция',
-    	rel : 'Връзка',
+    	rel : 'Свързаност (rel атрибут)',
     	selectAnchor : 'Изберете котва',
     	styles : 'Стил',
     	tabIndex : 'Ред на достъп',
     	target : 'Цел',
     	targetFrame : '<frame>',
-    	targetFrameName : 'Име на целевият прозорец',
+    	targetFrameName : 'Име на целевия прозорец',
     	targetPopup : '<изкачащ прозорец>',
     	targetPopupName : 'Име на изкачащ прозорец',
     	title : 'Връзка',
     	toAnchor : 'Връзка към котва в текста',
-    	toEmail : 'E-mail',
+    	toEmail : 'Имейл',
     	toUrl : 'Уеб адрес',
+    	toPhone : 'Phone',
     	toolbar : 'Връзка',
     	type : 'Тип на връзката',
     	unlink : 'Премахни връзката',
@@ -200,17 +204,17 @@ CKEDITOR.lang['bg'] = {
     find : 
     {
     	find : 'Търсене',
-    	findOptions : 'Find Options',
+    	findOptions : 'Настройки за търсене',
     	findWhat : 'Търси за:',
-    	matchCase : 'Съвпадение',
-    	matchCyclic : 'Циклично съвпадение',
-    	matchWord : 'Съвпадение с дума',
+    	matchCase : 'Съвпадение на големи/малки букви',
+    	matchCyclic : 'Циклично търсене',
+    	matchWord : 'Търсене по цели думи',
     	notFoundMsg : 'Указаният текст не е намерен.',
-    	replace : 'Препокриване',
-    	replaceAll : 'Препокрий всички',
-    	replaceSuccessMsg : '%1 occurrence(s) replaced.',
-    	replaceWith : 'Препокрива с:',
-    	title : 'Търсене и препокриване'
+    	replace : 'Замяна',
+    	replaceAll : 'Замени всички',
+    	replaceSuccessMsg : '%1 съвпадения заменени.',
+    	replaceWith : 'Замяна с:',
+    	title : 'Търсене и замяна'
     },
     fakeobjects : 
     {
@@ -238,15 +242,13 @@ CKEDITOR.lang['bg'] = {
     clipboard : 
     {
     	copy : 'Копирай',
-    	copyError : 'Настройките за сигурност на вашия бразуър не разрешават на редактора да изпълни запаметяването. За целта използвайте клавиатурата (Ctrl/Cmd+C).',
+    	copyError : 'Настройките за сигурност на вашия бразуър не разрешават на редактора да изпълни действията по копиране. За целта използвайте клавиатурата (Ctrl+C).',
     	cut : 'Отрежи',
-    	cutError : 'Настройките за сигурност на Вашия браузър не позволяват на редактора автоматично да изъплни действията за отрязване. Моля ползвайте клавиатурните команди за целта (ctrl+x).',
+    	cutError : 'Настройките за сигурност на вашия браузър не позволяват на редактора автоматично да изъплни действията за отрязване. За целта използвайте клавиатурата (Ctrl+X).',
     	paste : 'Вмъкни',
-    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Избрано)'
+    	pasteNotification : 'Натиснете %1 за да вмъкнете. Вашият браузър не поддържа поставяне с бутон от лентата с инструменти или от контекстното меню.',
+    	pasteArea : 'Зона за поставяне',
+    	pasteMsg : 'Поставете съдържанието в зоната отдолу и натиснете OK.'
     },
     blockquote : 
     {
@@ -257,21 +259,21 @@ CKEDITOR.lang['bg'] = {
     	bold : 'Удебелен',
     	italic : 'Наклонен',
     	strike : 'Зачертан текст',
-    	subscript : 'Индексиран текст',
-    	superscript : 'Суперскрипт',
+    	subscript : 'Долен индекс',
+    	superscript : 'Горен индекс',
     	underline : 'Подчертан'
     },
-    editor : 'Текстов редактор за форматиран текст',
+    editor : 'Редактор за форматиран текст',
     editorPanel : 'Панел на текстовия редактор',
     common : 
     {
-    	editorHelp : 'натиснете ALT 0 за помощ',
+    	editorHelp : 'натиснете ALT+0 за помощ',
     	browseServer : 'Избор от сървъра',
-    	url : 'URL',
+    	url : 'URL адрес',
     	protocol : 'Протокол',
     	upload : 'Качване',
     	uploadSubmit : 'Изпращане към сървъра',
-    	image : 'Снимка',
+    	image : 'Изображение',
     	flash : 'Флаш',
     	form : 'Форма',
     	checkbox : 'Поле за избор',
@@ -281,17 +283,17 @@ CKEDITOR.lang['bg'] = {
     	hiddenField : 'Скрито поле',
     	button : 'Бутон',
     	select : 'Поле за избор',
-    	imageButton : 'Бутон за снимка',
+    	imageButton : 'Бутон за изображение',
     	notSet : '<не е избрано>',
     	id : 'ID',
     	name : 'Име',
     	langDir : 'Посока на езика',
-    	langDirLtr : 'Ляво на дясно (ЛнД)',
-    	langDirRtl : 'Дясно на ляво (ДнЛ)',
+    	langDirLtr : 'От ляво надясно (LTR)',
+    	langDirRtl : 'От дясно наляво (RTL)',
     	langCode : 'Код на езика',
     	longDescr : 'Уеб адрес за дълго описание',
     	cssClass : 'Класове за CSS',
-    	advisoryTitle : 'Препоръчително заглавие',
+    	advisoryTitle : 'Заглавие',
     	cssStyle : 'Стил',
     	ok : 'ОК',
     	cancel : 'Отказ',
@@ -306,29 +308,33 @@ CKEDITOR.lang['bg'] = {
     	options : 'Опции',
     	target : 'Цел',
     	targetNew : 'Нов прозорец (_blank)',
-    	targetTop : 'Горна позиция (_top)',
-    	targetSelf : 'Текущия прозорец (_self)',
-    	targetParent : 'Основен прозорец (_parent)',
-    	langDirLTR : 'Ляво на дясно (ЛнД)',
-    	langDirRTL : 'Дясно на ляво (ДнЛ)',
+    	targetTop : 'Най-горният прозорец (_top)',
+    	targetSelf : 'Текущият прозорец (_self)',
+    	targetParent : 'Горният прозорец (_parent)',
+    	langDirLTR : 'От ляво надясно (LTR)',
+    	langDirRTL : 'От дясно наляво (RTL)',
     	styles : 'Стил',
     	cssClasses : 'Класове за CSS',
     	width : 'Ширина',
     	height : 'Височина',
     	align : 'Подравняване',
-    	alignLeft : 'Ляво',
-    	alignRight : 'Дясно',
-    	alignCenter : 'Център',
-    	alignJustify : 'Двустранно подравняване',
+    	left : 'Ляво',
+    	right : 'Дясно',
+    	center : 'Център',
+    	justify : 'Двустранно',
+    	alignLeft : 'Подравни ляво',
+    	alignRight : 'Подравни дясно',
+    	alignCenter : 'Подравни център',
     	alignTop : 'Горе',
     	alignMiddle : 'По средата',
     	alignBottom : 'Долу',
     	alignNone : 'Без подравняване',
     	invalidValue : 'Невалидна стойност.',
     	invalidHeight : 'Височината трябва да е число.',
-    	invalidWidth : 'Ширина требе да е число.',
-    	invalidCssLength : 'Стойността на полето "%1" трябва да бъде положително число с или без валидна CSS измервателна единица (px, %, in, cm, mm, em, ex, pt, или pc).',
-    	invalidHtmlLength : 'Стойността на полето "%1" трябва да бъде положително число с или без валидна HTML измервателна единица (px или %).',
+    	invalidWidth : 'Ширина трябва да е число.',
+    	invalidLength : 'Стойността на полето "%1" трябва да е положително число с или без валидна мерна единица (%2).',
+    	invalidCssLength : 'Стойността на полето "%1" трябва да е положително число с или без валидна CSS мерна единица (px, %, in, cm, mm, em, ex, pt, или pc).',
+    	invalidHtmlLength : 'Стойността на полето "%1" трябва да е положително число с или без валидна HTML мерна единица (px или %).',
     	invalidInlineStyle : 'Стойността на стилa трябва да съдържат една или повече двойки във формат "name : value", разделени с двоеточие.',
     	cssLengthTooltip : 'Въведете числена стойност в пиксели или друга валидна CSS единица (px, %, in, cm, mm, em, ex, pt, или pc).',
     	unavailable : '%1<span class="cke_accessibility">, недостъпно</span>',
@@ -343,7 +349,32 @@ CKEDITOR.lang['bg'] = {
     		'35' : 'End',
     		'36' : 'Home',
     		'46' : 'Delete',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'Keyboard shortcut'
+    	keyboardShortcut : 'Клавишна комбинация',
+    	optionDefault : 'По подразбиране'
     } }; 

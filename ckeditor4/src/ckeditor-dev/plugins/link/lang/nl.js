@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or http://ckeditor.com/license
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.plugins.setLang( 'link', 'nl', {
 	acccessKey: 'Toegangstoets',
@@ -35,7 +35,9 @@ CKEDITOR.plugins.setLang( 'link', 'nl', {
 	noAnchors: '(Geen interne links in document gevonden)',
 	noEmail: 'Geef een e-mailadres',
 	noUrl: 'Geef de link van de URL',
+	noTel: 'Please type the phone number', // MISSING
 	other: '<ander>',
+	phoneNumber: 'Phone number', // MISSING
 	popupDependent: 'Afhankelijk (Netscape)',
 	popupFeatures: 'Instellingen popupvenster',
 	popupFullScreen: 'Volledig scherm (IE)',
@@ -60,6 +62,7 @@ CKEDITOR.plugins.setLang( 'link', 'nl', {
 	toAnchor: 'Interne link in pagina',
 	toEmail: 'E-mail',
 	toUrl: 'URL',
+	toPhone: 'Phone', // MISSING
 	toolbar: 'Link invoegen/wijzigen',
 	type: 'Linktype',
 	unlink: 'Link verwijderen',

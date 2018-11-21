@@ -1,6 +1,6 @@
 /**
- * @license Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
- * For licensing, see LICENSE.md or http://ckeditor.com/license
+ * @license Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+ * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
 ( function() {
@@ -15,6 +15,10 @@
 		getCellColIndex,
 		insertRow,
 		insertColumn;
+
+	function isWidget( element ) {
+		return CKEDITOR.plugins.widget && CKEDITOR.plugins.widget.isDomWidget( element );
+	}
 
 	function getCellsBetween( first, last ) {
 		var firstTable = first.getAscendant( 'table' ),
@@ -201,14 +205,15 @@
 			return;
 		}
 
-		// We should check if the newly selected cell is still inside the same table (http://dev.ckeditor.com/ticket/17052, #493).
+		// We should check if the newly selected cell is still inside the same table (https://dev.ckeditor.com/ticket/17052, #493).
 		if ( cell && fakeSelection.first.getAscendant( 'table' ).equals( cell.getAscendant( 'table' ) ) ) {
 			cells = getCellsBetween( fakeSelection.first, cell );
 
 			// The selection is inside one cell, so we should allow native selection,
 			// but only in case if no other cell between mousedown and mouseup
 			// was selected.
-			if ( !fakeSelection.dirty && cells.length === 1 ) {
+			// We don't want to clear selection if widget is event target (#1027).
+			if ( !fakeSelection.dirty && cells.length === 1 && !( isWidget( evt.data.getTarget() ) ) ) {
 				return clearFakeCellSelection( editor, evt.name === 'mouseup' );
 			}
 
@@ -269,6 +274,11 @@
 		if ( !evt.data.getTarget().getName ) {
 			return;
 		}
+		// Prevent applying table selection when widget is selected.
+		// Mouseup remains a possibility to finish table selection when user release mouse button above widget in table.
+		if ( evt.name !== 'mouseup' && isWidget( evt.data.getTarget() ) ) {
+			return;
+		}
 
 		var editor = evt.editor || evt.listenerData.editor,
 			selection = editor.getSelection( 1 ),
@@ -276,8 +286,7 @@
 			target = evt.data.getTarget(),
 			cell = target && target.getAscendant( { td: 1, th: 1 }, true ),
 			table = target && target.getAscendant( 'table', true ),
-			tableElements = { table: 1, thead: 1, tbody: 1, tfoot: 1, tr: 1, td: 1, th: 1 },
-			canClear;
+			tableElements = { table: 1, thead: 1, tbody: 1, tfoot: 1, tr: 1, td: 1, th: 1 };
 
 		// Nested tables should be treated as the same one (e.g. user starts dragging from outer table
 		// and ends in inner one).
@@ -300,17 +309,22 @@
 				return true;
 			}
 
+			var isProperMouseEvent = evt.name === ( CKEDITOR.env.gecko ? 'mousedown' : 'mouseup' );
 			// Covers a case when:
 			// 1. User releases mouse button outside the table.
-			// 2. User opens context menu not in the selected table.
-			if ( evt.name === 'mouseup' && !isOutsideTable( evt.data.getTarget() ) && !isSameTable( selectedTable, table ) ) {
-				return true;
-			}
-
-			return false;
+			// 2. User opens context menu outside of selection.
+			// Use 'mousedown' for Firefox, as it doesn't fire 'mouseup' when mouse is released in context menu.
+			return isProperMouseEvent && !isOutsideTable( evt.data.getTarget() ) &&
+				!isInSelectedCell( evt.data.getTarget(), fakeSelectedClass );
 		}
 
-		if ( canClear = canClearSelection( evt, selection, selectedTable, table ) ) {
+		function isInSelectedCell( target, fakeSelectedClass ) {
+			var cell = target.getAscendant( { td: 1, th: 1 }, true );
+
+			return cell && cell.hasClass( fakeSelectedClass );
+		}
+
+		if ( canClearSelection( evt, selection, selectedTable, table ) ) {
 			clearFakeCellSelection( editor, true );
 		}
 
@@ -517,7 +531,7 @@
 			}
 		}
 
-		var startIndex = getCellColIndex( this.cells.first, true ),
+		var startIndex = getCellColIndex( this.cells.first ),
 			endIndex = getRealCellPosition( this.cells.last );
 
 		return CKEDITOR.tools.buildTableMap( this._getTable(), getRowIndex( this.rows.first ), startIndex,
@@ -657,7 +671,7 @@
 			var cellToReplace,
 				// Index of first selected cell, it needs to be reused later, to calculate the
 				// proper position of newly pasted cells.
-				startIndex = getCellColIndex( tableSel.cells.first, true ),
+				startIndex = getCellColIndex( tableSel.cells.first ),
 				selectedTable = tableSel._getTable(),
 				markers = {},
 				currentRow,
@@ -851,7 +865,7 @@
 
 	/**
 	 * Namespace providing a set of helper functions for working with tables, exposed by
-	 * [Table Selection](http://ckeditor.com/addon/tableselection) plugin.
+	 * [Table Selection](https://ckeditor.com/cke4/addon/tableselection) plugin.
 	 *
 	 * @since 4.7.0
 	 * @singleton
@@ -874,7 +888,7 @@
 		 * @private
 		 */
 		keyboardIntegration: function( editor ) {
-			// Handle left, up, right, down, delete and backspace keystrokes inside table fake selection.
+			// Handle left, up, right, down, delete, backspace and enter keystrokes inside table fake selection.
 			function getTableOnKeyDownListener( editor ) {
 				var keystrokes = {
 						37: 1, // Left Arrow
@@ -882,7 +896,8 @@
 						39: 1, // Right Arrow,
 						40: 1, // Down Arrow
 						8: 1, // Backspace
-						46: 1 // Delete
+						46: 1, // Delete
+						13: 1 // Enter
 					},
 					tags = CKEDITOR.tools.extend( { table: 1 }, CKEDITOR.dtd.$tableContent );
 
@@ -916,7 +931,7 @@
 							selectBeginning = false,
 							matchingElement = function( elem ) {
 								// We're interested in matching only td/th but not contained by the startNode since it will be removed.
-								// Technically none of startNode children should be visited but it will due to http://dev.ckeditor.com/ticket/12191.
+								// Technically none of startNode children should be visited but it will due to https://dev.ckeditor.com/ticket/12191.
 								return !startNode.contains( elem ) && elem.is && elem.is( 'td', 'th' );
 							};
 
@@ -953,17 +968,19 @@
 
 				return function( evt ) {
 					// Use getKey directly in order to ignore modifiers.
-					// Justification: http://dev.ckeditor.com/ticket/11861#comment:13
-					var keystroke = evt.data.getKey(),
+					// Justification: https://dev.ckeditor.com/ticket/11861#comment:13
+					var key = evt.data.getKey(),
+						keystroke = evt.data.getKeystroke(),
 						selection,
-						toStart = keystroke === 37 || keystroke == 38,
+						toStart = key === 37 || key == 38,
 						ranges,
 						firstCell,
 						lastCell,
 						i;
 
 					// Handle only left/right/del/bspace keys.
-					if ( !keystrokes[ keystroke ] ) {
+					// Disable editing cells in readonly mode (#1489).
+					if ( !keystrokes[ key ] || editor.readOnly ) {
 						return;
 					}
 
@@ -977,15 +994,24 @@
 					firstCell = ranges[ 0 ]._getTableElement();
 					lastCell = ranges[ ranges.length - 1 ]._getTableElement();
 
-					evt.data.preventDefault();
-					evt.cancel();
+					// Only prevent event when tableselection handle it. Which is non-enter button, or pressing enter button with enterkey plugin present (#1816).
+					if ( key !== 13 || editor.plugins.enterkey ) {
+						evt.data.preventDefault();
+						evt.cancel();
+					}
 
-					if ( keystroke > 8 && keystroke < 46 ) {
+					if ( key > 36 && key < 41 ) {
 						// Arrows.
 						ranges[ 0 ].moveToElementEditablePosition( toStart ? firstCell : lastCell, !toStart );
 						selection.selectRanges( [ ranges[ 0 ] ] );
 					} else {
-						// Delete.
+						// Delete, backspace, enter.
+
+						// Do nothing for Enter with modifiers different than shift.
+						if ( key === 13 && !( keystroke === 13 || keystroke === CKEDITOR.SHIFT + 13 ) ) {
+							return;
+						}
+
 						for ( i = 0; i < ranges.length; i++ ) {
 							clearCellInRange( ranges[ i ] );
 						}
@@ -1000,7 +1026,17 @@
 						}
 
 						selection.selectRanges( ranges );
-						editor.fire( 'saveSnapshot' );
+
+						if ( key === 13 && editor.plugins.enterkey ) {
+							// We need to lock undoManager to consider clearing table and inserting new paragraph as single operation, and have only one undo step (#1816).
+							editor.fire( 'lockSnapshot' );
+							keystroke === 13 ? editor.execCommand( 'enter' ) : editor.execCommand( 'shiftEnter' );
+							editor.fire( 'unlockSnapshot' );
+							editor.fire( 'saveSnapshot' );
+						} else if ( key !== 13 ) {
+							// Backspace and delete key should have saved snapshot.
+							editor.fire( 'saveSnapshot' );
+						}
 					}
 				};
 			}
@@ -1012,6 +1048,11 @@
 					ranges,
 					firstCell,
 					i;
+
+				// Disable editing cells in readonly mode (#1489).
+				if ( editor.readOnly ) {
+					return;
+				}
 
 				// We must check if the event really did not produce any character as it's fired for all keys in Gecko.
 				if ( !selection || !selection.isInTable() || !selection.isFake || !isCharKey ||
@@ -1037,8 +1078,9 @@
 				var node = range.getEnclosedNode();
 
 				// Set text only in case of table cells, otherwise remove whole element (#867).
-				if ( node && node.is( { td: 1, th: 1 } ) ) {
-					range.getEnclosedNode().setText( '' );
+				// Check if `node.is` is function, as returned node might be CKEDITOR.dom.text (#2089).
+				if ( node && typeof node.is === 'function' && node.is( { td: 1, th: 1 } ) ) {
+					node.setText( '' );
 				} else {
 					range.deleteContents();
 				}

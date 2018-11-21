@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or http://ckeditor.com/license
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.plugins.setLang( 'link', 'cs', {
 	acccessKey: 'Přístupový klíč',
@@ -35,7 +35,9 @@ CKEDITOR.plugins.setLang( 'link', 'cs', {
 	noAnchors: '(Ve stránce není definována žádná kotva!)',
 	noEmail: 'Zadejte prosím e-mailovou adresu',
 	noUrl: 'Zadejte prosím URL odkazu',
+	noTel: 'Please type the phone number', // MISSING
 	other: '<jiný>',
+	phoneNumber: 'Phone number', // MISSING
 	popupDependent: 'Závislost (Netscape)',
 	popupFeatures: 'Vlastnosti vyskakovacího okna',
 	popupFullScreen: 'Celá obrazovka (IE)',
@@ -60,6 +62,7 @@ CKEDITOR.plugins.setLang( 'link', 'cs', {
 	toAnchor: 'Kotva v této stránce',
 	toEmail: 'E-mail',
 	toUrl: 'URL',
+	toPhone: 'Phone', // MISSING
 	toolbar: 'Odkaz',
 	type: 'Typ odkazu',
 	unlink: 'Odstranit odkaz',

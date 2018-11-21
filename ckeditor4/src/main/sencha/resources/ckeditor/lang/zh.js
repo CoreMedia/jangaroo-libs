@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or http://ckeditor.com/license
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['zh'] = {
     undo : 
@@ -105,7 +105,8 @@ CKEDITOR.lang['zh'] = {
     pastetext : 
     {
     	button : '貼成純文字',
-    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
+    	pasteNotification : '請按下「%1」貼上。您的瀏覽器不支援工具列按鈕或是內容功能表選項。 ',
+    	title : '貼成純文字'
     },
     pastefromword : 
     {
@@ -162,7 +163,9 @@ CKEDITOR.lang['zh'] = {
     	noAnchors : '(本文件中無可用之錨點)',
     	noEmail : '請輸入電子郵件',
     	noUrl : '請輸入連結 URL',
+    	noTel : 'Please type the phone number',
     	other : '<其他>',
+    	phoneNumber : 'Phone number',
     	popupDependent : '獨立 (Netscape)',
     	popupFeatures : '快顯視窗功能',
     	popupFullScreen : '全螢幕 (IE)',
@@ -187,6 +190,7 @@ CKEDITOR.lang['zh'] = {
     	toAnchor : '文字中的錨點連結',
     	toEmail : '電子郵件',
     	toUrl : '網址',
+    	toPhone : 'Phone',
     	toolbar : '連結',
     	type : '連結類型',
     	unlink : '取消連結',
@@ -242,11 +246,9 @@ CKEDITOR.lang['zh'] = {
     	cut : '剪下',
     	cutError : '瀏覽器的安全性設定不允許編輯器自動執行剪下動作。請使用鏐盤快捷鍵 (Ctrl/Cmd+X) 剪下。',
     	paste : '貼上',
-    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (已選取)'
+    	pasteNotification : '請按下「%1」貼上。您的瀏覽器不支援工具列按鈕或是內容功能表選項。',
+    	pasteArea : '貼上區',
+    	pasteMsg : '請將您的內容貼於下方區域中並按下「OK」。'
     },
     blockquote : 
     {
@@ -316,10 +318,13 @@ CKEDITOR.lang['zh'] = {
     	width : '寬度',
     	height : '高度',
     	align : '對齊方式',
+    	left : '靠左對齊',
+    	right : '靠右對齊',
+    	center : '置中對齊',
+    	justify : '左右對齊',
     	alignLeft : '靠左對齊',
     	alignRight : '靠右對齊',
     	alignCenter : '置中對齊',
-    	alignJustify : '左右對齊',
     	alignTop : '頂端',
     	alignMiddle : '中間對齊',
     	alignBottom : '底端',
@@ -327,6 +332,7 @@ CKEDITOR.lang['zh'] = {
     	invalidValue : '無效值。',
     	invalidHeight : '高度必須為數字。',
     	invalidWidth : '寬度必須為數字。',
+    	invalidLength : '為「%1」欄位指定的值必須為正值，可包含或不包含測量單位（%2）。',
     	invalidCssLength : '「%1」的值應為正數，並可包含有效的 CSS 單位 (px, %, in, cm, mm, em, ex, pt, 或 pc)。',
     	invalidHtmlLength : '「%1」的值應為正數，並可包含有效的 HTML 單位 (px 或 %)。',
     	invalidInlineStyle : '行內樣式的值應包含一個以上的變數值組，其格式如「名稱:值」，並以分號區隔之。',
@@ -343,7 +349,32 @@ CKEDITOR.lang['zh'] = {
     		'35' : 'End',
     		'36' : 'Home',
     		'46' : '刪除',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
     		'224' : 'Command 鍵'
     	},
-    	keyboardShortcut : '鍵盤快捷鍵'
+    	keyboardShortcut : '鍵盤快捷鍵',
+    	optionDefault : '預設'
     } }; 

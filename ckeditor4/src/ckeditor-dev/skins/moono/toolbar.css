@@ -1,6 +1,6 @@
 /*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or http://ckeditor.com/license
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 
 /*
@@ -101,6 +101,10 @@ a.cke_button
 	cursor: default;
 	float: left;
 	border: 0;
+}
+
+a.cke_button.cke_button_expandable {
+	padding: 4px 5px;
 }
 
 .cke_ltr .cke_button:last-child,
@@ -249,7 +253,7 @@ a.cke_button_disabled:active
 {
 	/* Arrow in CSS */
 	display: inline-block;
-	margin: 8px 0 0 1px;
+	margin: 8px 0 0 3px;
 	width: 0;
 	height: 0;
 	cursor: default;

@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or http://ckeditor.com/license
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['ru'] = {
     undo : 
@@ -105,7 +105,8 @@ CKEDITOR.lang['ru'] = {
     pastetext : 
     {
     	button : 'Вставить только текст',
-    	pasteNotification : 'Ваш браузер не поддерживает данный метод вставки. Для вставки нажмите %1'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	title : 'Вставить только текст'
     },
     pastefromword : 
     {
@@ -162,7 +163,9 @@ CKEDITOR.lang['ru'] = {
     	noAnchors : '(В документе нет ни одного якоря)',
     	noEmail : 'Пожалуйста, введите email адрес',
     	noUrl : 'Пожалуйста, введите ссылку',
+    	noTel : 'Please type the phone number',
     	other : '<другой>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Зависимое (Netscape)',
     	popupFeatures : 'Параметры всплывающего окна',
     	popupFullScreen : 'Полноэкранное (IE)',
@@ -187,6 +190,7 @@ CKEDITOR.lang['ru'] = {
     	toAnchor : 'Ссылка на якорь в тексте',
     	toEmail : 'Email',
     	toUrl : 'Ссылка',
+    	toPhone : 'Phone',
     	toolbar : 'Вставить/Редактировать ссылку',
     	type : 'Тип ссылки',
     	unlink : 'Убрать ссылку',
@@ -242,11 +246,9 @@ CKEDITOR.lang['ru'] = {
     	cut : 'Вырезать',
     	cutError : 'Настройки безопасности вашего браузера не разрешают редактору выполнять операции по вырезке текста. Пожалуйста, используйте для этого клавиатуру (Ctrl/Cmd+X).',
     	paste : 'Вставить',
-    	pasteNotification : 'Ваш браузер не поддерживает данный метод вставки. Для вставки нажмите %1'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Выбрано)'
+    	pasteNotification : 'Для вставки нажмите %1. Ваш браузер не поддерживает возможность вставки через панель инструментов или контекстное меню',
+    	pasteArea : 'Область вставки',
+    	pasteMsg : 'Вставьте контент в эту область и нажмите OK'
     },
     blockquote : 
     {
@@ -316,10 +318,13 @@ CKEDITOR.lang['ru'] = {
     	width : 'Ширина',
     	height : 'Высота',
     	align : 'Выравнивание',
+    	left : 'По левому краю',
+    	right : 'По правому краю',
+    	center : 'По центру',
+    	justify : 'По ширине',
     	alignLeft : 'По левому краю',
     	alignRight : 'По правому краю',
     	alignCenter : 'По центру',
-    	alignJustify : 'По ширине',
     	alignTop : 'Поверху',
     	alignMiddle : 'Посередине',
     	alignBottom : 'Понизу',
@@ -327,6 +332,7 @@ CKEDITOR.lang['ru'] = {
     	invalidValue : 'Недопустимое значение.',
     	invalidHeight : 'Высота задается числом.',
     	invalidWidth : 'Ширина задается числом.',
+    	invalidLength : 'Указанное значение для поля "%1" должно быть положительным числом без или с корректным символом единицы измерения (%2)',
     	invalidCssLength : 'Значение, указанное в поле "%1", должно быть положительным целым числом. Допускается указание единиц меры CSS (px, %, in, cm, mm, em, ex, pt или pc).',
     	invalidHtmlLength : 'Значение, указанное в поле "%1", должно быть положительным целым числом. Допускается указание единиц меры HTML (px или %).',
     	invalidInlineStyle : 'Значение, указанное для стиля элемента, должно состоять из одной или нескольких пар данных в формате "параметр : значение", разделённых точкой с запятой.',
@@ -335,7 +341,7 @@ CKEDITOR.lang['ru'] = {
     	keyboard : 
     	{
     		'8' : 'Backspace',
-    		'13' : 'Enter',
+    		'13' : 'Ввод',
     		'16' : 'Shift',
     		'17' : 'Ctrl',
     		'18' : 'Alt',
@@ -343,7 +349,32 @@ CKEDITOR.lang['ru'] = {
     		'35' : 'End',
     		'36' : 'Home',
     		'46' : 'Delete',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'Комбинация клавиш'
+    	keyboardShortcut : 'Комбинация клавиш',
+    	optionDefault : 'По умолчанию'
     } }; 

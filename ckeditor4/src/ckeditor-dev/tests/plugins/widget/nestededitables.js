@@ -10,7 +10,7 @@
 		config: {
 			allowedContent: true,
 
-			// (http://dev.ckeditor.com/ticket/13186)
+			// (https://dev.ckeditor.com/ticket/13186)
 			pasteFilter: null,
 
 			on: {
@@ -216,6 +216,52 @@
 
 				assert.areEqual( 2, keysLength( editor.widgets.instances ), '2 widgets reimained' );
 				assert.isNotNull( getWidgetById( editor, 'w2', true ), 'nested widget was not destroyed' );
+			} );
+		},
+
+		// (#1722)
+		'test #destroyEditable destroys unused editable filters': function() {
+			var editor = this.editor;
+
+			editor.widgets.add( 'testmethod5', {
+				editables: {
+					foo: '#foo'
+				}
+			} );
+
+			var widget1Html = '<div data-widget="testmethod5" id="w1"><p>A</p><p class="foo">B</p></div>',
+				widget2Html = '<div data-widget="testmethod5" id="w2"><p>A</p><p class="foo">B</p></div>';
+
+			this.editorBot.setData( widget1Html + widget2Html, function() {
+				var widget1 = getWidgetById( editor, 'w1' ),
+					widget2 = getWidgetById( editor, 'w2' );
+
+				widget1.initEditable( 'foo', { selector: '.foo', allowedContent: 'p br' } );
+				widget2.initEditable( 'foo', { selector: '.foo', allowedContent: 'p br' } );
+
+				var removedListeners = [],
+					filters = editor.widgets._.filters.testmethod5,
+					filterSpy = sinon.spy( filters.foo, 'destroy' );
+
+				widget1.editables.foo.removeListener = function( evtName ) {
+					removedListeners.push( evtName );
+				};
+
+				widget2.editables.foo.removeListener = function( evtName ) {
+					removedListeners.push( evtName );
+				};
+
+				widget1.destroyEditable( 'foo' );
+
+				assert.isNotUndefined( filters.foo );
+
+				widget2.destroyEditable( 'foo' );
+
+				assert.isUndefined( filters.foo );
+
+				assert.isTrue( filterSpy.calledOnce );
+
+				filterSpy.restore();
 			} );
 		},
 
@@ -1207,7 +1253,7 @@
 
 					range.moveToPosition( e2.findOne( '.p2' ), CKEDITOR.POSITION_AFTER_START );
 					testDelKey( editor,	'del',	range,	false,	'e2 - ^bar' );
-					// This case is handled on Webkits and Gecko because of http://dev.ckeditor.com/ticket/11861, http://dev.ckeditor.com/ticket/13798.
+					// This case is handled on Webkits and Gecko because of https://dev.ckeditor.com/ticket/11861, https://dev.ckeditor.com/ticket/13798.
 					if ( CKEDITOR.env.ie )
 						testDelKey( editor,	'bspc',	range,	false,	'e2 - ^bar' );
 
@@ -1289,7 +1335,7 @@
 		},
 
 		'test pasting widget which was copied (d&d) when its nested editable was focused': function() {
-			// http://dev.ckeditor.com/ticket/11055
+			// https://dev.ckeditor.com/ticket/11055
 			if ( CKEDITOR.env.ie && CKEDITOR.env.version == 8 ) {
 				assert.ignore();
 			}
@@ -1334,7 +1380,7 @@
 			} );
 		},
 
-		// (http://dev.ckeditor.com/ticket/13186)
+		// (https://dev.ckeditor.com/ticket/13186)
 		'test pasting into widget nested editable when range in paste data (drop)': function() {
 			var editor = this.editor,
 				bot = this.editorBot;
@@ -1375,7 +1421,7 @@
 			} );
 		},
 
-		// Behaviour has been changed in 4.5 (http://dev.ckeditor.com/ticket/12112), so we're leaving this
+		// Behaviour has been changed in 4.5 (https://dev.ckeditor.com/ticket/12112), so we're leaving this
 		// test as a validation of this change.
 		'test widgets\' commands are enabled in nested editable': function() {
 			var editor = this.editor,
@@ -1465,7 +1511,7 @@
 		},
 
 		'test selection in nested editable is preserved after opening and closing dialog - inline editor': function() {
-			// http://dev.ckeditor.com/ticket/11399
+			// https://dev.ckeditor.com/ticket/11399
 			if ( CKEDITOR.env.gecko ) {
 				assert.ignore();
 			}
@@ -1567,7 +1613,7 @@
 			} );
 		},
 
-		// Nested editable with preexisting numeric id. (http://dev.ckeditor.com/ticket/14451)
+		// Nested editable with preexisting numeric id. (https://dev.ckeditor.com/ticket/14451)
 		'test nested editable with preexisting numeric id': function() {
 			var editor = this.editor,
 				bot = this.editorBot;

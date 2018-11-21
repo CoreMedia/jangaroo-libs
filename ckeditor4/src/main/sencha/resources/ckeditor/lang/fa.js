@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or http://ckeditor.com/license
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['fa'] = {
     undo : 
@@ -105,7 +105,8 @@ CKEDITOR.lang['fa'] = {
     pastetext : 
     {
     	button : 'چسباندن به عنوان متن ساده',
-    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	title : 'چسباندن به عنوان متن ساده'
     },
     pastefromword : 
     {
@@ -116,7 +117,7 @@ CKEDITOR.lang['fa'] = {
     },
     notification : 
     {
-    	closed : 'Notification closed.'
+    	closed : 'آگاه‌سازی بسته شد'
     },
     magicline : 
     {
@@ -147,7 +148,7 @@ CKEDITOR.lang['fa'] = {
     	charset : 'نویسه\u200bگان منبع پیوند شده',
     	cssClasses : 'کلاس\u200bهای شیوه\u200bنامه(Stylesheet)',
     	download : 'Force Download',
-    	displayText : 'Display Text',
+    	displayText : 'نمایش متن',
     	emailAddress : 'نشانی پست الکترونیکی',
     	emailBody : 'متن پیام',
     	emailSubject : 'موضوع پیام',
@@ -162,7 +163,9 @@ CKEDITOR.lang['fa'] = {
     	noAnchors : '(در این سند لنگری دردسترس نیست)',
     	noEmail : 'لطفا نشانی پست الکترونیکی را بنویسید',
     	noUrl : 'لطفا URL پیوند را بنویسید',
+    	noTel : 'Please type the phone number',
     	other : '<سایر>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'وابسته (Netscape)',
     	popupFeatures : 'ویژگی\u200bهای پنجرهٴ پاپاپ',
     	popupFullScreen : 'تمام صفحه (IE)',
@@ -187,6 +190,7 @@ CKEDITOR.lang['fa'] = {
     	toAnchor : 'لنگر در همین صفحه',
     	toEmail : 'پست الکترونیکی',
     	toUrl : 'URL',
+    	toPhone : 'Phone',
     	toolbar : 'گنجاندن/ویرایش پیوند',
     	type : 'نوع پیوند',
     	unlink : 'برداشتن پیوند',
@@ -242,11 +246,9 @@ CKEDITOR.lang['fa'] = {
     	cut : 'برش',
     	cutError : 'تنظیمات امنیتی مرورگر شما اجازه نمیدهد که ویرایشگر به طور خودکار عملکردهای برش را انجام دهد. لطفا با دکمههای صفحه کلید این کار را انجام دهید (Ctrl/Cmd+X).',
     	paste : 'چسباندن',
-    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (انتخاب شده)'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteArea : 'محل چسباندن',
+    	pasteMsg : 'Paste your content inside the area below and press OK.'
     },
     blockquote : 
     {
@@ -316,10 +318,13 @@ CKEDITOR.lang['fa'] = {
     	width : 'عرض',
     	height : 'طول',
     	align : 'چینش',
-    	alignLeft : 'چپ',
-    	alignRight : 'راست',
-    	alignCenter : 'وسط',
-    	alignJustify : 'بلوک چین',
+    	left : 'چپ',
+    	right : 'راست',
+    	center : 'وسط',
+    	justify : 'بلوک چین',
+    	alignLeft : 'چپ چین',
+    	alignRight : 'راست چین',
+    	alignCenter : 'مرکز قرار بده',
     	alignTop : 'بالا',
     	alignMiddle : 'میانه',
     	alignBottom : 'پائین',
@@ -327,6 +332,7 @@ CKEDITOR.lang['fa'] = {
     	invalidValue : 'مقدار نامعتبر.',
     	invalidHeight : 'ارتفاع باید یک عدد باشد.',
     	invalidWidth : 'عرض باید یک عدد باشد.',
+    	invalidLength : 'عدد تعیین شده برای فیلد "%1" باید یک عدد مثبت با یا بدون یک واحد اندازه گیری معتبر ("%2") باشد.',
     	invalidCssLength : 'عدد تعیین شده برای فیلد "%1" باید یک عدد مثبت با یا بدون یک واحد اندازه گیری CSS معتبر باشد (px, %, in, cm, mm, em, ex, pt, or pc).',
     	invalidHtmlLength : 'عدد تعیین شده برای فیلد "%1" باید یک عدد مثبت با یا بدون یک واحد اندازه گیری HTML معتبر باشد (px or %).',
     	invalidInlineStyle : 'عدد تعیین شده برای سبک درون\u200bخطی -Inline Style- باید دارای یک یا چند چندتایی با شکلی شبیه "name : value" که باید با یک ";" از هم جدا شوند.',
@@ -339,11 +345,36 @@ CKEDITOR.lang['fa'] = {
     		'16' : 'تعویض',
     		'17' : 'کنترل',
     		'18' : 'دگرساز',
-    		'32' : 'Space',
+    		'32' : 'فاصله',
     		'35' : 'پایان',
     		'36' : 'خانه',
     		'46' : 'حذف',
-    		'224' : 'Command'
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
+    		'224' : 'فرمان'
     	},
-    	keyboardShortcut : 'Keyboard shortcut'
+    	keyboardShortcut : 'میانبر صفحه کلید',
+    	optionDefault : 'پیش فرض'
     } }; 

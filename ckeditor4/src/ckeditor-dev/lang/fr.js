@@ -1,6 +1,6 @@
 /**
- * @license Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
- * For licensing, see LICENSE.md or http://ckeditor.com/license
+ * @license Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+ * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
 /**
@@ -78,10 +78,13 @@ CKEDITOR.lang[ 'fr' ] = {
 		width: 'Largeur',
 		height: 'Hauteur',
 		align: 'Alignement',
-		alignLeft: 'Gauche',
-		alignRight: 'Droite',
-		alignCenter: 'Centrer',
-		alignJustify: 'Justifier',
+		left: 'Gauche',
+		right: 'Droite',
+		center: 'Centrer',
+		justify: 'Justifier',
+		alignLeft: 'Aligner à gauche',
+		alignRight: 'Aligner à droite',
+		alignCenter: 'Aligner au centre',
 		alignTop: 'Haut',
 		alignMiddle: 'Milieu',
 		alignBottom: 'Bas',
@@ -89,6 +92,7 @@ CKEDITOR.lang[ 'fr' ] = {
 		invalidValue: 'Valeur invalide.',
 		invalidHeight: 'La hauteur doit être un nombre.',
 		invalidWidth: 'La largeur doit être un nombre.',
+		invalidLength: 'La valeur de "%1" doit être un nombre positif avec ou sans unité de mesure (%2).',
 		invalidCssLength: 'La valeur spécifiée pour le champ « %1 » doit être un nombre positif avec ou sans unité de mesure CSS valide (px, %, in, cm, mm, em, ex, pt, ou pc).',
 		invalidHtmlLength: 'La valeur spécifiée pour le champ « %1 » doit être un nombre positif avec ou sans unité de mesure HTML valide (px ou %).',
 		invalidInlineStyle: 'La valeur spécifiée pour le style en ligne doit être composée d\'un ou plusieurs couples au format « nom : valeur », séparés par des points-virgules.',
@@ -108,10 +112,36 @@ CKEDITOR.lang[ 'fr' ] = {
 			35: 'Fin',
 			36: 'Origine',
 			46: 'Supprimer',
+			112: 'F1',
+			113: 'F2',
+			114: 'F3',
+			115: 'F4',
+			116: 'F5',
+			117: 'F6',
+			118: 'F7',
+			119: 'F8',
+			120: 'F9',
+			121: 'F10',
+			122: 'F11',
+			123: 'F12',
+			124: 'F13',
+			125: 'F14',
+			126: 'F15',
+			127: 'F16',
+			128: 'F17',
+			129: 'F18',
+			130: 'F19',
+			131: 'F20',
+			132: 'F21',
+			133: 'F22',
+			134: 'F23',
+			135: 'F24',
 			224: 'Commande'
 		},
 
 		// Prepended to ARIA labels with shortcuts.
-		keyboardShortcut: 'Raccourci clavier'
+		keyboardShortcut: 'Raccourci clavier',
+
+		optionDefault: 'Par défaut'
 	}
 };

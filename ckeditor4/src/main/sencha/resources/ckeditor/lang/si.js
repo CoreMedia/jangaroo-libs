@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or http://ckeditor.com/license
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['si'] = {
     undo : 
@@ -105,7 +105,8 @@ CKEDITOR.lang['si'] = {
     pastetext : 
     {
     	button : 'සාමාන්‍ය අක්ෂර ලෙස අලවන්න',
-    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	title : 'සාමාන්‍ය අක්ෂර ලෙස අලවන්න'
     },
     pastefromword : 
     {
@@ -162,7 +163,9 @@ CKEDITOR.lang['si'] = {
     	noAnchors : '(No anchors available in the document)',
     	noEmail : 'Please type the e-mail address',
     	noUrl : 'Please type the link URL',
+    	noTel : 'Please type the phone number',
     	other : '<other>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Dependent (Netscape)',
     	popupFeatures : 'Popup Window Features',
     	popupFullScreen : 'Full Screen (IE)',
@@ -187,6 +190,7 @@ CKEDITOR.lang['si'] = {
     	toAnchor : 'Link to anchor in the text',
     	toEmail : 'E-mail',
     	toUrl : 'URL',
+    	toPhone : 'Phone',
     	toolbar : 'සබැඳිය',
     	type : 'Link Type',
     	unlink : 'Unlink',
@@ -242,11 +246,9 @@ CKEDITOR.lang['si'] = {
     	cut : 'කපාගන්න',
     	cutError : 'Your browser security settings don\'t permit the editor to automatically execute cutting operations. Please use the keyboard for that (Ctrl/Cmd+X).',
     	paste : 'අලවන්න',
-    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Selected)'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteArea : 'අලවන ප්‍රදේශ',
+    	pasteMsg : 'Paste your content inside the area below and press OK.'
     },
     blockquote : 
     {
@@ -316,10 +318,13 @@ CKEDITOR.lang['si'] = {
     	width : 'පළල',
     	height : 'උස',
     	align : 'ගැලපුම',
-    	alignLeft : 'වම',
-    	alignRight : 'දකුණ',
-    	alignCenter : 'මධ්‍ය',
-    	alignJustify : 'Justify',
+    	left : 'වම',
+    	right : 'දකුණ',
+    	center : 'මධ්‍ය',
+    	justify : 'Justify',
+    	alignLeft : 'Align Left',
+    	alignRight : 'Align Right',
+    	alignCenter : 'Align Center',
     	alignTop : 'ඉ',
     	alignMiddle : 'මැද',
     	alignBottom : 'පහල',
@@ -327,6 +332,7 @@ CKEDITOR.lang['si'] = {
     	invalidValue : 'වැරදී වටිනාකමකි',
     	invalidHeight : 'උස අංකයක් විය යුතුය',
     	invalidWidth : 'පළල අංකයක් විය යුතුය',
+    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
     	invalidCssLength : 'වටිනාකමක් නිරූපණය කිරීම "%1" ප්‍රදේශය ධන සංක්‍යාත්මක වටිනාකමක් හෝ  නිවරදි නොවන  CSS මිනුම් එකක(px, %, in, cm, mm, em, ex, pt, pc)',
     	invalidHtmlLength : 'වටිනාකමක් නිරූපණය කිරීම "%1" ප්‍රදේශය ධන සංක්‍යාත්මක වටිනාකමක් හෝ  නිවරදි නොවන  HTML මිනුම් එකක (px හෝ %).',
     	invalidInlineStyle : 'වටිනාකමක් නිරූපණය කිරීම  පේළි විලාසයයට ආකෘතිය  අනතර්ග විය යුතය  "නම : වටිනාකම", තිත් කොමාවකින් වෙන් වෙන ලද.',
@@ -343,7 +349,32 @@ CKEDITOR.lang['si'] = {
     		'35' : 'End',
     		'36' : 'Home',
     		'46' : 'Delete',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'Keyboard shortcut'
+    	keyboardShortcut : 'Keyboard shortcut',
+    	optionDefault : 'Default'
     } }; 

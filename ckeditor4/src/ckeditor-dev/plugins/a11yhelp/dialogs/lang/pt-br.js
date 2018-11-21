@@ -1,6 +1,6 @@
 /**
- * @license Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
- * For licensing, see LICENSE.md or http://ckeditor.com/license
+ * @license Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+ * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
 CKEDITOR.plugins.setLang( 'a11yhelp', 'pt-br', {
@@ -81,9 +81,9 @@ CKEDITOR.plugins.setLang( 'a11yhelp', 'pt-br', {
 			legend: 'Pressione ${a11yHelp}'
 		},
 			{
-			name: ' Paste as plain text', // MISSING
-			legend: 'Press ${pastetext}', // MISSING
-			legendEdge: 'Press ${pastetext}, followed by ${paste}' // MISSING
+			name: 'Colar como texto sem formatação',
+			legend: 'Pressione ${pastetext}',
+			legendEdge: 'Pressione ${pastetext}, seguido de ${paste}'
 		}
 		]
 	}

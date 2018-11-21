@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or http://ckeditor.com/license
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['lt'] = {
     undo : 
@@ -105,7 +105,8 @@ CKEDITOR.lang['lt'] = {
     pastetext : 
     {
     	button : 'Įdėti kaip gryną tekstą',
-    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	title : 'Įdėti kaip gryną tekstą'
     },
     pastefromword : 
     {
@@ -162,7 +163,9 @@ CKEDITOR.lang['lt'] = {
     	noAnchors : '(Šiame dokumente žymių nėra)',
     	noEmail : 'Prašome įvesti el.pašto adresą',
     	noUrl : 'Prašome įvesti nuorodos URL',
+    	noTel : 'Please type the phone number',
     	other : '<kitas>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Priklausomas (Netscape)',
     	popupFeatures : 'Išskleidžiamo lango savybės',
     	popupFullScreen : 'Visas ekranas (IE)',
@@ -187,6 +190,7 @@ CKEDITOR.lang['lt'] = {
     	toAnchor : 'Žymė šiame puslapyje',
     	toEmail : 'El.paštas',
     	toUrl : 'Nuoroda',
+    	toPhone : 'Phone',
     	toolbar : 'Įterpti/taisyti nuorodą',
     	type : 'Nuorodos tipas',
     	unlink : 'Panaikinti nuorodą',
@@ -242,11 +246,9 @@ CKEDITOR.lang['lt'] = {
     	cut : 'Iškirpti',
     	cutError : 'Jūsų naršyklės saugumo nustatymai neleidžia redaktoriui automatiškai įvykdyti iškirpimo operacijų. Tam prašome naudoti klaviatūrą (Ctrl/Cmd+X).',
     	paste : 'Įdėti',
-    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Pasirinkta)'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteArea : 'Įkelti dalį',
+    	pasteMsg : 'Paste your content inside the area below and press OK.'
     },
     blockquote : 
     {
@@ -316,10 +318,13 @@ CKEDITOR.lang['lt'] = {
     	width : 'Plotis',
     	height : 'Aukštis',
     	align : 'Lygiuoti',
-    	alignLeft : 'Kairę',
-    	alignRight : 'Dešinę',
-    	alignCenter : 'Centrą',
-    	alignJustify : 'Lygiuoti abi puses',
+    	left : 'Kairę',
+    	right : 'Dešinę',
+    	center : 'Centrą',
+    	justify : 'Lygiuoti abi puses',
+    	alignLeft : 'Lygiuoti kairę',
+    	alignRight : 'Lygiuoti dešinę',
+    	alignCenter : 'Align Center',
     	alignTop : 'Viršūnę',
     	alignMiddle : 'Vidurį',
     	alignBottom : 'Apačią',
@@ -327,6 +332,7 @@ CKEDITOR.lang['lt'] = {
     	invalidValue : 'Neteisinga reikšmė.',
     	invalidHeight : 'Aukštis turi būti nurodytas skaičiais.',
     	invalidWidth : 'Plotis turi būti nurodytas skaičiais.',
+    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
     	invalidCssLength : 'Reikšmė nurodyta "%1" laukui, turi būti teigiamas skaičius su arba be tinkamo CSS matavimo vieneto (px, %, in, cm, mm, em, ex, pt arba pc).',
     	invalidHtmlLength : 'Reikšmė nurodyta "%1" laukui, turi būti teigiamas skaičius su arba be tinkamo HTML matavimo vieneto (px arba %).',
     	invalidInlineStyle : 'Reikšmė nurodyta vidiniame stiliuje turi būti sudaryta iš vieno šių reikšmių "vardas : reikšmė", atskirta kabliataškiais.',
@@ -343,7 +349,32 @@ CKEDITOR.lang['lt'] = {
     		'35' : 'End',
     		'36' : 'Home',
     		'46' : 'Delete',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'Keyboard shortcut'
+    	keyboardShortcut : 'Keyboard shortcut',
+    	optionDefault : 'Default'
     } }; 

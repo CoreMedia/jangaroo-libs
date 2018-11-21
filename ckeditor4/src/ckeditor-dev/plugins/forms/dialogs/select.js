@@ -1,6 +1,6 @@
 ﻿/**
- * @license Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
- * For licensing, see LICENSE.md or http://ckeditor.com/license
+ * @license Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+ * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 CKEDITOR.dialog.add( 'select', function( editor ) {
 	// Add a new option to a SELECT object (combo or list).
@@ -490,8 +490,9 @@ CKEDITOR.dialog.add( 'select', function( editor ) {
 						accessKey: 'Q',
 						value: 'checked',
 						setup: function( name, element ) {
-							if ( name == 'select' )
-								this.setValue( element.getAttribute( 'required' ) );
+							if ( name == 'select' ) {
+								CKEDITOR.plugins.forms._setupRequiredAttribute.call( this, element );
+							}
 						},
 						commit: function( element ) {
 							if ( this.getValue() )

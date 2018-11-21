@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or http://ckeditor.com/license
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['cy'] = {
     undo : 
@@ -105,7 +105,8 @@ CKEDITOR.lang['cy'] = {
     pastetext : 
     {
     	button : 'Gludo fel testun plaen',
-    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	title : 'Gludo fel Testun Plaen'
     },
     pastefromword : 
     {
@@ -162,7 +163,9 @@ CKEDITOR.lang['cy'] = {
     	noAnchors : '(Dim angorau ar gael yn y ddogfen)',
     	noEmail : 'Teipiwch gyfeiriad yr e-bost',
     	noUrl : 'Teipiwch URL y ddolen',
+    	noTel : 'Please type the phone number',
     	other : '<eraill>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Dibynnol (Netscape)',
     	popupFeatures : 'Nodweddion Ffenestr Bop',
     	popupFullScreen : 'Sgrin Llawn (IE)',
@@ -187,6 +190,7 @@ CKEDITOR.lang['cy'] = {
     	toAnchor : 'Dolen at angor yn y testun',
     	toEmail : 'E-bost',
     	toUrl : 'URL',
+    	toPhone : 'Phone',
     	toolbar : 'Dolen',
     	type : 'Math y Ddolen',
     	unlink : 'Datgysylltu',
@@ -242,11 +246,9 @@ CKEDITOR.lang['cy'] = {
     	cut : 'Torri',
     	cutError : 'Nid yw gosodiadau diogelwch eich porwr yn caniatàu\'r golygydd i gynnal \'gweithredoedd torri\' yn awtomatig. Defnyddiwch y bysellfwrdd (Ctrl/Cmd+X).',
     	paste : 'Gludo',
-    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Selected)'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteArea : 'Ardal Gludo',
+    	pasteMsg : 'Paste your content inside the area below and press OK.'
     },
     blockquote : 
     {
@@ -316,10 +318,13 @@ CKEDITOR.lang['cy'] = {
     	width : 'Lled',
     	height : 'Uchder',
     	align : 'Alinio',
-    	alignLeft : 'Chwith',
-    	alignRight : 'Dde',
-    	alignCenter : 'Canol',
-    	alignJustify : 'Unioni',
+    	left : 'Chwith',
+    	right : 'Dde',
+    	center : 'Canol',
+    	justify : 'Unioni',
+    	alignLeft : 'Alinio i\'r Chwith',
+    	alignRight : 'Alinio i\'r Dde',
+    	alignCenter : 'Align Center',
     	alignTop : 'Brig',
     	alignMiddle : 'Canol',
     	alignBottom : 'Gwaelod',
@@ -327,6 +332,7 @@ CKEDITOR.lang['cy'] = {
     	invalidValue : 'Gwerth annilys.',
     	invalidHeight : 'Mae\'n rhaid i\'r uchder fod yn rhif.',
     	invalidWidth : 'Mae\'n rhaid i\'r lled fod yn rhif.',
+    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
     	invalidCssLength : 'Mae\'n rhaid i\'r gwerth ar gyfer maes "%1" fod yn rhif positif gyda neu heb uned fesuriad CSS dilys (px, %, in, cm, mm, em, ex, pt, neu pc).',
     	invalidHtmlLength : 'Mae\'n rhaid i\'r gwerth ar gyfer maes "%1" fod yn rhif positif gyda neu heb uned fesuriad HTML dilys (px neu %).',
     	invalidInlineStyle : 'Mae\'n rhaid i\'r gwerth ar gyfer arddull mewn-llinell gynnwys un set neu fwy ar y fformat "enw : gwerth", wedi\'u gwahanu gyda hanner colon.',
@@ -343,7 +349,32 @@ CKEDITOR.lang['cy'] = {
     		'35' : 'End',
     		'36' : 'Home',
     		'46' : 'Delete',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'Keyboard shortcut'
+    	keyboardShortcut : 'Keyboard shortcut',
+    	optionDefault : 'Default'
     } }; 

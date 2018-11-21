@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or http://ckeditor.com/license
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['nb'] = {
     undo : 
@@ -105,7 +105,8 @@ CKEDITOR.lang['nb'] = {
     pastetext : 
     {
     	button : 'Lim inn som ren tekst',
-    	pasteNotification : 'Nettleseren din lar deg ikke lime inn ren tekst på denne måten. Trykk %1 for å lime inn.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	title : 'Lim inn som ren tekst'
     },
     pastefromword : 
     {
@@ -162,7 +163,9 @@ CKEDITOR.lang['nb'] = {
     	noAnchors : '(Ingen anker i dokumentet)',
     	noEmail : 'Vennligst skriv inn e-postadressen',
     	noUrl : 'Vennligst skriv inn lenkens URL',
+    	noTel : 'Please type the phone number',
     	other : '<annen>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Avhenging (Netscape)',
     	popupFeatures : 'Egenskaper for popup-vindu',
     	popupFullScreen : 'Fullskjerm (IE)',
@@ -187,6 +190,7 @@ CKEDITOR.lang['nb'] = {
     	toAnchor : 'Lenke til anker i teksten',
     	toEmail : 'E-post',
     	toUrl : 'URL',
+    	toPhone : 'Phone',
     	toolbar : 'Lenke',
     	type : 'Lenketype',
     	unlink : 'Fjern lenke',
@@ -242,11 +246,9 @@ CKEDITOR.lang['nb'] = {
     	cut : 'Klipp ut',
     	cutError : 'Din nettlesers sikkerhetsinstillinger tillater ikke automatisk utklipping av tekst. Vennligst bruk tastatursnarveien (Ctrl/Cmd+X).',
     	paste : 'Lim inn',
-    	pasteNotification : 'Nettleseren din lar deg ikke lime inn på denne måten. Trykk %1 for å lime inn.'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Valgt)'
+    	pasteNotification : 'Trykk %1 for å lime inn. Nettleseren din støtter ikke å lime inn med knappen i verktøylinjen eller høyreklikkmenyen.',
+    	pasteArea : 'Innlimingsområde',
+    	pasteMsg : 'Lim inn innholdet i området nedenfor og klikk OK.'
     },
     blockquote : 
     {
@@ -316,10 +318,13 @@ CKEDITOR.lang['nb'] = {
     	width : 'Bredde',
     	height : 'Høyde',
     	align : 'Juster',
-    	alignLeft : 'Venstre',
-    	alignRight : 'Høyre',
-    	alignCenter : 'Midtjuster',
-    	alignJustify : 'Blokkjuster',
+    	left : 'Venstre',
+    	right : 'Høyre',
+    	center : 'Midtstill',
+    	justify : 'Blokkjuster',
+    	alignLeft : 'Venstrejuster',
+    	alignRight : 'Høyrejuster',
+    	alignCenter : 'Midtstill',
     	alignTop : 'Topp',
     	alignMiddle : 'Midten',
     	alignBottom : 'Bunn',
@@ -327,6 +332,7 @@ CKEDITOR.lang['nb'] = {
     	invalidValue : 'Ugyldig verdi.',
     	invalidHeight : 'Høyde må være et tall.',
     	invalidWidth : 'Bredde må være et tall.',
+    	invalidLength : 'Den angitte verdien for feltet "%1" må være et positivt tall med eller uten en gyldig måleenhet (%2).',
     	invalidCssLength : 'Den angitte verdien for feltet "%1" må være et positivt tall med eller uten en gyldig CSS-målingsenhet (px, %, in, cm, mm, em, ex, pt, eller pc).',
     	invalidHtmlLength : 'Den angitte verdien for feltet "%1" må være et positivt tall med eller uten en gyldig HTML-målingsenhet (px eller %).',
     	invalidInlineStyle : 'Verdi angitt for inline stil må bestå av en eller flere sett med formatet "navn : verdi", separert med semikolon',
@@ -343,7 +349,32 @@ CKEDITOR.lang['nb'] = {
     		'35' : 'End',
     		'36' : 'Home',
     		'46' : 'Delete',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'Tastatursnarvei'
+    	keyboardShortcut : 'Tastatursnarvei',
+    	optionDefault : 'Standard'
     } }; 

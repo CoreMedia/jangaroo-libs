@@ -75,7 +75,7 @@
 		'test element + styles - style': function() {
 			var test = createTest( 'a p{color,width,border-*}' );
 
-			// http://dev.ckeditor.com/ticket/13886
+			// https://dev.ckeditor.com/ticket/13886
 			test( true, st( { element: 'a', styles: {} } ) );
 			test( true, st( { element: 'p', styles: { color: 'red' } } ) );
 			test( true, st( { element: 'a', styles: { color: 'red', width: '10px' } } ) );
@@ -92,6 +92,7 @@
 
 			test( true, 'p(cl1)' );
 			test( true, 'p(cl1,cl2)' );
+			test( true, 'p(cl2,cl1)' );
 			test( true, 'p(cl2,cl3,cl3c)' );
 			test( true, 'p' );
 
@@ -109,6 +110,7 @@
 			test( true, st( { element: 'p', attributes: { 'class': 'cl1' } } ) );
 			test( true, st( { element: 'a', attributes: { 'class': 'cl1 cl2' } } ) );
 			test( true, st( { element: 'p' } ) );
+			test( true, st( { element: 'a', attributes: { 'class': 'cl2 cl1' } } ) );
 
 			test( false, st( { element: 'p', styles: { height: '10px' } } ) );
 			test( false, st( { element: 'p', attributes: { 'class': 'cl3' } } ) );

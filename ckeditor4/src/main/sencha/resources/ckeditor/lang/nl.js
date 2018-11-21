@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or http://ckeditor.com/license
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['nl'] = {
     undo : 
@@ -105,7 +105,8 @@ CKEDITOR.lang['nl'] = {
     pastetext : 
     {
     	button : 'Plakken als platte tekst',
-    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	title : 'Plakken als platte tekst'
     },
     pastefromword : 
     {
@@ -162,7 +163,9 @@ CKEDITOR.lang['nl'] = {
     	noAnchors : '(Geen interne links in document gevonden)',
     	noEmail : 'Geef een e-mailadres',
     	noUrl : 'Geef de link van de URL',
+    	noTel : 'Please type the phone number',
     	other : '<ander>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Afhankelijk (Netscape)',
     	popupFeatures : 'Instellingen popupvenster',
     	popupFullScreen : 'Volledig scherm (IE)',
@@ -187,6 +190,7 @@ CKEDITOR.lang['nl'] = {
     	toAnchor : 'Interne link in pagina',
     	toEmail : 'E-mail',
     	toUrl : 'URL',
+    	toPhone : 'Phone',
     	toolbar : 'Link invoegen/wijzigen',
     	type : 'Linktype',
     	unlink : 'Link verwijderen',
@@ -242,11 +246,9 @@ CKEDITOR.lang['nl'] = {
     	cut : 'Knippen',
     	cutError : 'De beveiligingsinstelling van de browser verhinderen het automatisch knippen. Gebruik de sneltoets Ctrl/Cmd+X van het toetsenbord.',
     	paste : 'Plakken',
-    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Geselecteerd)'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteArea : 'Plakgebied',
+    	pasteMsg : 'Paste your content inside the area below and press OK.'
     },
     blockquote : 
     {
@@ -316,10 +318,13 @@ CKEDITOR.lang['nl'] = {
     	width : 'Breedte',
     	height : 'Hoogte',
     	align : 'Uitlijning',
-    	alignLeft : 'Links',
-    	alignRight : 'Rechts',
-    	alignCenter : 'Centreren',
-    	alignJustify : 'Uitvullen',
+    	left : 'Links',
+    	right : 'Rechts',
+    	center : 'Centreren',
+    	justify : 'Uitvullen',
+    	alignLeft : 'Links uitlijnen',
+    	alignRight : 'Rechts uitlijnen',
+    	alignCenter : 'Align Center',
     	alignTop : 'Boven',
     	alignMiddle : 'Midden',
     	alignBottom : 'Onder',
@@ -327,6 +332,7 @@ CKEDITOR.lang['nl'] = {
     	invalidValue : 'Ongeldige waarde.',
     	invalidHeight : 'De hoogte moet een getal zijn.',
     	invalidWidth : 'De breedte moet een getal zijn.',
+    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
     	invalidCssLength : 'Waarde in veld "%1" moet een positief nummer zijn, met of zonder een geldige CSS meeteenheid (px, %, in, cm, mm, em, ex, pt of pc).',
     	invalidHtmlLength : 'Waarde in veld "%1" moet een positief nummer zijn, met of zonder een geldige HTML meeteenheid (px of %).',
     	invalidInlineStyle : 'Waarde voor de online stijl moet bestaan uit een of meerdere tupels met het formaat "naam : waarde", gescheiden door puntkomma\'s.',
@@ -343,7 +349,32 @@ CKEDITOR.lang['nl'] = {
     		'35' : 'End',
     		'36' : 'Home',
     		'46' : 'Verwijderen',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'Sneltoets'
+    	keyboardShortcut : 'Sneltoets',
+    	optionDefault : 'Default'
     } }; 

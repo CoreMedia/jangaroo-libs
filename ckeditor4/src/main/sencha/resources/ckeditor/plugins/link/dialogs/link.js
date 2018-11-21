@@ -1,6 +1,6 @@
 ﻿/**
- * @license Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
- * For licensing, see LICENSE.md or http://ckeditor.com/license
+ * @license Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+ * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
 'use strict';
@@ -40,7 +40,7 @@
 
 				// Use link URL as text with a collapsed cursor.
 				if ( range.collapsed ) {
-					// Short mailto link text view (http://dev.ckeditor.com/ticket/5736).
+					// Short mailto link text view (https://dev.ckeditor.com/ticket/5736).
 					text = new CKEDITOR.dom.text( data.linkText || ( data.type == 'email' ?
 						data.email.address : attributes.set[ 'data-cke-saved-href' ] ), editor.document );
 					range.insertNode( text );
@@ -98,8 +98,8 @@
 					// Display text has been changed.
 					newText = data.linkText;
 				} else if ( href == textView || data.type == 'email' && textView.indexOf( '@' ) != -1 ) {
-					// Update text view when user changes protocol (http://dev.ckeditor.com/ticket/4612).
-					// Short mailto link text view (http://dev.ckeditor.com/ticket/5736).
+					// Update text view when user changes protocol (https://dev.ckeditor.com/ticket/4612).
+					// Short mailto link text view (https://dev.ckeditor.com/ticket/5736).
 					newText = data.type == 'email' ? data.email.address : attributes.set[ 'data-cke-saved-href' ];
 				}
 
@@ -149,7 +149,7 @@
 		// Handles the event when the "Type" selection box is changed.
 		var linkTypeChanged = function() {
 				var dialog = this.getDialog(),
-					partIds = [ 'urlOptions', 'anchorOptions', 'emailOptions' ],
+					partIds = [ 'urlOptions', 'anchorOptions', 'emailOptions', 'telOptions' ],
 					typeValue = this.getValue(),
 					uploadTab = dialog.definition.getContents( 'upload' ),
 					uploadInitiallyHidden = uploadTab && uploadTab.hidden;
@@ -245,7 +245,8 @@
 					items: [
 						[ linkLang.toUrl, 'url' ],
 						[ linkLang.toAnchor, 'anchor' ],
-						[ linkLang.toEmail, 'email' ]
+						[ linkLang.toEmail, 'email' ],
+						[ linkLang.toPhone, 'tel' ]
 					],
 					onChange: linkTypeChanged,
 					setup: function( data ) {
@@ -267,7 +268,7 @@
 							label: commonLang.protocol,
 							'default': 'http://',
 							items: [
-								// Force 'ltr' for protocol names in BIDI. (http://dev.ckeditor.com/ticket/5433)
+								// Force 'ltr' for protocol names in BIDI. (https://dev.ckeditor.com/ticket/5433)
 								[ 'http://\u200E', 'http://' ],
 								[ 'https://\u200E', 'https://' ],
 								[ 'ftp://\u200E', 'ftp://' ],
@@ -340,7 +341,7 @@
 							},
 							commit: function( data ) {
 								// IE will not trigger the onChange event if the mouse has been used
-								// to carry all the operations http://dev.ckeditor.com/ticket/4724
+								// to carry all the operations https://dev.ckeditor.com/ticket/4724
 								this.onChange();
 
 								if ( !data.url )
@@ -534,6 +535,36 @@
 					setup: function() {
 						if ( !this.getDialog().getContentElement( 'info', 'linkType' ) )
 							this.getElement().hide();
+					}
+				},
+				{
+					type: 'vbox',
+					id: 'telOptions',
+					padding: 1,
+					children: [ {
+						type: 'tel',
+						id: 'telNumber',
+						label: linkLang.phoneNumber,
+						required: true,
+						validate: validateTelNumber,
+						setup: function( data ) {
+							if ( data.tel ) {
+								this.setValue( data.tel );
+							}
+
+							var linkType = this.getDialog().getContentElement( 'info', 'linkType' );
+							if ( linkType && linkType.getValue() == 'tel' ) {
+								this.select();
+							}
+						},
+						commit: function( data ) {
+							data.tel = this.getValue();
+						}
+					} ],
+					setup: function() {
+						if ( !this.getDialog().getContentElement( 'info', 'linkType' ) ) {
+							this.getElement().hide();
+						}
 					}
 				} ]
 			},
@@ -983,6 +1014,27 @@
 			}
 		};
 	} );
+
+	function validateTelNumber() {
+		var dialog = this.getDialog(),
+			editor = dialog._.editor,
+			regExp =  editor.config.linkPhoneRegExp,
+			msg = editor.config.linkPhoneMsg,
+			linkLang = editor.lang.link,
+			messageWhenEmpty = CKEDITOR.dialog.validate.notEmpty( linkLang.noTel ).apply( this );
+
+		if ( !dialog.getContentElement( 'info', 'linkType' ) || dialog.getValueOf( 'info', 'linkType' ) != 'tel' ) {
+			return true;
+		}
+
+		if ( messageWhenEmpty !== true ) {
+			return messageWhenEmpty;
+		}
+
+		if ( regExp ) {
+			return CKEDITOR.dialog.validate.regex( regExp, msg ).call( this );
+		}
+	}
 } )();
 // jscs:disable maximumLineLength
 /**

@@ -1,6 +1,6 @@
 /**
- * @license Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
- * For licensing, see LICENSE.md or http://ckeditor.com/license
+ * @license Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+ * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
 /**
@@ -77,10 +77,13 @@ CKEDITOR.lang[ 'es-mx' ] = {
 		width: 'Ancho',
 		height: 'Alto',
 		align: 'Alineación',
-		alignLeft: 'Izquierda',
-		alignRight: 'Derecha',
-		alignCenter: 'Centrado',
-		alignJustify: 'Justificado',
+		left: 'Izquierda',
+		right: 'Derecha',
+		center: 'Centrado',
+		justify: 'Justificado',
+		alignLeft: 'Alinear a la izquierda',
+		alignRight: 'Alinear a la derecha',
+		alignCenter: 'Align Center', // MISSING
 		alignTop: 'Arriba',
 		alignMiddle: 'En medio',
 		alignBottom: 'Abajo',
@@ -88,6 +91,7 @@ CKEDITOR.lang[ 'es-mx' ] = {
 		invalidValue: 'Valor inválido',
 		invalidHeight: 'La altura debe ser un número.',
 		invalidWidth: 'La anchura debe ser un número.',
+		invalidLength: 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).', // MISSING
 		invalidCssLength: 'El valor especificado para el campo "% 1" debe ser un número positivo con o sin una unidad de medida CSS válida (px, %, in, cm, mm, em, ex, pt, or pc).',
 		invalidHtmlLength: 'El valor especificado para el campo "% 1" debe ser un número positivo con o sin una unidad de medición HTML válida (px or %).',
 		invalidInlineStyle: 'El valor especificado para el estilo en línea debe constar de una o más tuplas con el formato de "nombre: valor", separados por punto y coma',
@@ -107,10 +111,36 @@ CKEDITOR.lang[ 'es-mx' ] = {
 			35: 'Fin',
 			36: 'Inicio',
 			46: 'Borrar',
+			112: 'F1', // MISSING
+			113: 'F2', // MISSING
+			114: 'F3', // MISSING
+			115: 'F4', // MISSING
+			116: 'F5', // MISSING
+			117: 'F6', // MISSING
+			118: 'F7', // MISSING
+			119: 'F8', // MISSING
+			120: 'F9', // MISSING
+			121: 'F10', // MISSING
+			122: 'F11', // MISSING
+			123: 'F12', // MISSING
+			124: 'F13', // MISSING
+			125: 'F14', // MISSING
+			126: 'F15', // MISSING
+			127: 'F16', // MISSING
+			128: 'F17', // MISSING
+			129: 'F18', // MISSING
+			130: 'F19', // MISSING
+			131: 'F20', // MISSING
+			132: 'F21', // MISSING
+			133: 'F22', // MISSING
+			134: 'F23', // MISSING
+			135: 'F24', // MISSING
 			224: 'Comando'
 		},
 
 		// Prepended to ARIA labels with shortcuts.
-		keyboardShortcut: 'Atajo de teclado'
+		keyboardShortcut: 'Atajo de teclado',
+
+		optionDefault: 'Default' // MISSING
 	}
 };

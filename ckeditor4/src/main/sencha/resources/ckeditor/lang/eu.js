@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or http://ckeditor.com/license
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['eu'] = {
     undo : 
@@ -105,7 +105,8 @@ CKEDITOR.lang['eu'] = {
     pastetext : 
     {
     	button : 'Itsatsi testu arrunta bezala',
-    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	title : 'Itsatsi testu arrunta bezala'
     },
     pastefromword : 
     {
@@ -162,7 +163,9 @@ CKEDITOR.lang['eu'] = {
     	noAnchors : '(Ez dago aingurarik erabilgarri dokumentuan)',
     	noEmail : 'Mesedez idatzi e-posta helbidea',
     	noUrl : 'Mesedez idatzi estekaren URLa',
+    	noTel : 'Please type the phone number',
     	other : '<bestelakoa>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Menpekoa (Netscape)',
     	popupFeatures : 'Laster-leihoaren ezaugarriak',
     	popupFullScreen : 'Pantaila osoa (IE)',
@@ -187,6 +190,7 @@ CKEDITOR.lang['eu'] = {
     	toAnchor : 'Estekatu testuko aingurara',
     	toEmail : 'E-posta',
     	toUrl : 'URLa',
+    	toPhone : 'Phone',
     	toolbar : 'Esteka',
     	type : 'Esteka-mota',
     	unlink : 'Kendu esteka',
@@ -242,11 +246,9 @@ CKEDITOR.lang['eu'] = {
     	cut : 'Ebaki',
     	cutError : 'Zure web nabigatzailearen segurtasun ezarpenek ez dute baimentzen testuak automatikoki moztea. Mesedez teklatua erabil ezazu (Ctrl/Cmd+X).',
     	paste : 'Itsatsi',
-    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (hautatuta)'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteArea : 'Itsasteko area',
+    	pasteMsg : 'Paste your content inside the area below and press OK.'
     },
     blockquote : 
     {
@@ -316,10 +318,13 @@ CKEDITOR.lang['eu'] = {
     	width : 'Zabalera',
     	height : 'Altuera',
     	align : 'Lerrokatzea',
-    	alignLeft : 'Ezkerrean',
-    	alignRight : 'Eskuinean',
-    	alignCenter : 'Erdian',
-    	alignJustify : 'Justifikatu',
+    	left : 'Ezkerrean',
+    	right : 'Eskuinean',
+    	center : 'Erdian',
+    	justify : 'Justifikatu',
+    	alignLeft : 'Lerrokatu ezkerrean',
+    	alignRight : 'Lerrokatu eskuinean',
+    	alignCenter : 'Align Center',
     	alignTop : 'Goian',
     	alignMiddle : 'Erdian',
     	alignBottom : 'Behean',
@@ -327,6 +332,7 @@ CKEDITOR.lang['eu'] = {
     	invalidValue : 'Balio desegokia.',
     	invalidHeight : 'Altuera zenbaki bat izan behar da.',
     	invalidWidth : 'Zabalera zenbaki bat izan behar da.',
+    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
     	invalidCssLength : '"%1" eremurako zehaztutako balioak zenbaki positibo bat izan behar du, CSS neurri unitate batekin edo gabe (px, %, in, cm, mm, em, ex, pt edo pc).',
     	invalidHtmlLength : '"%1" eremurako zehaztutako balioak zenbaki positibo bat izan behar du, HTML neurri unitate batekin edo gabe (px edo %).',
     	invalidInlineStyle : 'Lineako estiloan zehaztutako balioak "izen : balio" formatuko tupla bat edo gehiago izan behar dira, komaz bereiztuak.',
@@ -334,16 +340,41 @@ CKEDITOR.lang['eu'] = {
     	unavailable : '%1<span class="cke_accessibility">, erabilezina</span>',
     	keyboard : 
     	{
-    		'8' : 'Backspace',
+    		'8' : 'Atzera tekla',
     		'13' : 'Sartu',
     		'16' : 'Maius',
     		'17' : 'Ktrl',
     		'18' : 'Alt',
-    		'32' : 'Space',
+    		'32' : 'Zuriunea',
     		'35' : 'Buka',
     		'36' : 'Etxea',
     		'46' : 'Ezabatu',
-    		'224' : 'Command'
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
+    		'224' : 'Komandoa'
     	},
-    	keyboardShortcut : 'Keyboard shortcut'
+    	keyboardShortcut : 'Laster-tekla',
+    	optionDefault : 'Lehenetsia'
     } }; 

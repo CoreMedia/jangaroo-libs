@@ -264,6 +264,15 @@
 				'<b lang="pt" style="color:red; font-size:11pt">this<b style="font-weight:700"> is some sample text</b></b>' );
 		},
 
+		// (#2294, #2380)
+		'test inline style apply to HTML comments': createInlineStyleTestCase( 'html-comments-bold' ),
+
+		// (#2294, #2380)
+		'test HTML comments between blocks': createInlineStyleTestCase( 'html-comments-between-blocks' ),
+
+		// (#2294, #2380)
+		'test HTML comments between inline': createInlineStyleTestCase( 'html-comments-between-inline' ),
+
 		test_inline_nobreak1: function() {
 			playground.setHtml( 'this is <a href="http://example.com/">some sample</a> text' );
 
@@ -466,7 +475,7 @@
 			assert.areSame( '<span class="fontcomic">one <b><i>two</i></b> three</span>', getInnerHtml( element ) );
 		},
 
-		// http://dev.ckeditor.com/ticket/8078
+		// https://dev.ckeditor.com/ticket/8078
 		'test remove heading style': function() {
 			function doTest( enterMode, expected ) {
 				var range = bender.tools.setHtmlWithRange( playground, '<h1>h[eadi]ng</h1>' )[ 0 ];
@@ -481,7 +490,7 @@
 			doTest( CKEDITOR.ENTER_DIV, '<div>heading</div>' );
 		},
 
-		// http://dev.ckeditor.com/ticket/4772, http://dev.ckeditor.com/ticket/8232
+		// https://dev.ckeditor.com/ticket/4772, https://dev.ckeditor.com/ticket/8232
 		'test color styles applied inside of link': function() {
 			var ct = playground;
 			var range = bender.tools.setHtmlWithRange( ct, '[some text and <a href="javascript:void(0)">a link</a>]' )[ 0 ];
@@ -517,7 +526,7 @@
 			assert.areSame( 'abc def ghi', getInnerHtml( playground ) );
 		},
 
-		// http://dev.ckeditor.com/ticket/14667
+		// https://dev.ckeditor.com/ticket/14667
 		'test removing background color in IE': function() {
 			if ( !CKEDITOR.env.ie || CKEDITOR.env.edge ) {
 				assert.ignore();
@@ -541,7 +550,7 @@
 				fixHtml( getInnerHtml( ct ).replace( /rgb\(255,255,0\)/g, 'rgb(255, 255, 0)' ) ) );
 		},
 
-		// http://dev.ckeditor.com/ticket/13062
+		// https://dev.ckeditor.com/ticket/13062
 		'test forcing remove of boundary element': function() {
 			var editor = this.editor,
 				bot = this.editorBot,
@@ -595,7 +604,7 @@
 	t.a( '<ul><li><p>{x</p></li><li><p>a}</p><p>b</p></li><li>x</li></ul>', '<ul><li><h1>x</h1></li><li><h1>a</h1><p>b</p></li><li>x</li></ul>', 'tc3' );
 
 
-	// http://dev.ckeditor.com/ticket/12273
+	// https://dev.ckeditor.com/ticket/12273
 	t = createAssertionFunction2( tcs, 'test apply block style - description lists', { element: 'h1' } );
 
 	t.a( '<dl><dt>x</dt><dd>a{}b</dd><dt>x</dt></dl>', '<dl><dt>x</dt><dd><h1>ab</h1></dd><dt>x</dt></dl>', 'tc1' );
@@ -1044,4 +1053,18 @@
 
 	bender.test( tcs );
 
+	function createInlineStyleTestCase( fixtureId ) {
+		return function() {
+			bender.tools.testInputOut( fixtureId, function( inputHtml, expectedHtml ) {
+				playground.setHtml( CKEDITOR.tools.trim( inputHtml ) );
+
+				var rng = new CKEDITOR.dom.range( doc );
+				rng.selectNodeContents( playground );
+
+				getStyle( { element: 'strong' } ).applyToRange( rng );
+
+				assert.beautified.html( expectedHtml, playground.getHtml() );
+			} );
+		};
+	}
 } )();

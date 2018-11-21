@@ -1,6 +1,6 @@
 ﻿/**
- * @license Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
- * For licensing, see LICENSE.md or http://ckeditor.com/license
+ * @license Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+ * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
 ( function() {
@@ -29,7 +29,7 @@
 
 	template += ' onkeydown="return CKEDITOR.tools.callFunction({keydownFn},event);"' +
 		' onfocus="return CKEDITOR.tools.callFunction({focusFn},event);" ' +
-		( CKEDITOR.env.ie ? 'onclick="return false;" onmouseup' : 'onclick' ) + // http://dev.ckeditor.com/ticket/188
+		( CKEDITOR.env.ie ? 'onclick="return false;" onmouseup' : 'onclick' ) + // https://dev.ckeditor.com/ticket/188
 			'="CKEDITOR.tools.callFunction({clickFn},this);return false;">' +
 		'<span class="cke_button_icon cke_button__{iconName}_icon" style="{style}"';
 
@@ -49,7 +49,6 @@
 		btnTpl = CKEDITOR.addTemplate( 'button', template );
 
 	CKEDITOR.plugins.add( 'button', {
-		lang: 'af,ar,az,bg,ca,cs,da,de,de-ch,el,en,en-gb,eo,es,es-mx,eu,fa,fi,fr,gl,he,hr,hu,id,it,ja,km,ko,ku,lt,nb,nl,no,oc,pl,pt,pt-br,ro,ru,sk,sl,sq,sv,tr,tt,ug,uk,vi,zh,zh-cn', // %REMOVE_LINE_CORE%
 		beforeInit: function( editor ) {
 			editor.ui.addHandler( CKEDITOR.UI_BUTTON, CKEDITOR.ui.button.handler );
 		}
@@ -95,7 +94,7 @@
 	 */
 	CKEDITOR.ui.button.handler = {
 		/**
-		 * Transforms a button definition in a {@link CKEDITOR.ui.button} instance.
+		 * Transforms a button definition into a {@link CKEDITOR.ui.button} instance.
 		 *
 		 * @member CKEDITOR.ui.button.handler
 		 * @param {Object} definition
@@ -117,6 +116,8 @@
 		 * this button should be appended.
 		 */
 		render: function( editor, output ) {
+			var modeStates = null;
+
 			function updateState() {
 				// "this" is a CKEDITOR.ui.button instance.
 				var mode = editor.mode;
@@ -189,7 +190,7 @@
 				}
 				instance.execute();
 
-				// Fixed iOS focus issue when your press disabled button (http://dev.ckeditor.com/ticket/12381).
+				// Fixed iOS focus issue when your press disabled button (https://dev.ckeditor.com/ticket/12381).
 				if ( env.iOS ) {
 					editor.focus();
 				}
@@ -198,7 +199,7 @@
 
 			// Indicate a mode sensitive button.
 			if ( this.modes ) {
-				var modeStates = {};
+				modeStates = {};
 
 				editor.on( 'beforeModeUnload', function() {
 					if ( editor.mode && this._.state != CKEDITOR.TRISTATE_DISABLED )
@@ -223,6 +224,8 @@
 					stateName += ( command.state == CKEDITOR.TRISTATE_ON ? 'on' : command.state == CKEDITOR.TRISTATE_DISABLED ? 'disabled' : 'off' );
 				}
 			}
+
+			var iconName;
 
 			// For button that has text-direction awareness on selection path.
 			if ( this.directional ) {
@@ -254,12 +257,31 @@
 			}
 
 			var name = this.name || this.command,
-				iconName = name;
+				iconPath = null,
+				overridePath = this.icon;
 
-			// Check if we're pointing to an icon defined by another command. (http://dev.ckeditor.com/ticket/9555)
+			iconName = name;
+
+			// Check if we're pointing to an icon defined by another command. (https://dev.ckeditor.com/ticket/9555)
 			if ( this.icon && !( /\./ ).test( this.icon ) ) {
 				iconName = this.icon;
-				this.icon = null;
+				overridePath = null;
+
+			} else {
+				// Register and use custom icon for button (#1530).
+				if ( this.icon ) {
+					iconPath = this.icon;
+				}
+				if ( CKEDITOR.env.hidpi && this.iconHiDpi ) {
+					iconPath = this.iconHiDpi;
+				}
+			}
+
+			if ( iconPath ) {
+				CKEDITOR.skin.addIcon( iconPath, iconPath );
+				overridePath = null;
+			} else {
+				iconPath = iconName;
 			}
 
 			var params = {
@@ -267,17 +289,18 @@
 				name: name,
 				iconName: iconName,
 				label: this.label,
-				cls: this.className || '',
+				// .cke_button_expandable enables additional styling for popup buttons (#2483).
+				cls:  ( this.hasArrow ? 'cke_button_expandable ' : '' ) + ( this.className || '' ),
 				state: stateName,
 				ariaDisabled: stateName == 'disabled' ? 'true' : 'false',
 				title: this.title + ( shortcut ? ' (' + shortcut.display + ')' : '' ),
 				ariaShortcut: shortcut ? editor.lang.common.keyboardShortcut + ' ' + shortcut.aria : '',
 				titleJs: env.gecko && !env.hc ? '' : ( this.title || '' ).replace( "'", '' ),
-				hasArrow: this.hasArrow ? 'true' : 'false',
+				hasArrow: typeof this.hasArrow === 'string' && this.hasArrow || ( this.hasArrow ? 'true' : 'false' ),
 				keydownFn: keydownFn,
 				focusFn: focusFn,
 				clickFn: clickFn,
-				style: CKEDITOR.skin.getIconStyle( iconName, ( editor.lang.dir == 'rtl' ), this.icon, this.iconOffset ),
+				style: CKEDITOR.skin.getIconStyle( iconPath, ( editor.lang.dir == 'rtl' ), overridePath, this.iconOffset ),
 				arrowHtml: this.hasArrow ? btnArrowTpl.output() : ''
 			};
 
@@ -305,20 +328,18 @@
 
 			if ( element ) {
 				element.setState( state, 'cke_button' );
-
-				state == CKEDITOR.TRISTATE_DISABLED ?
-					element.setAttribute( 'aria-disabled', true ) :
-					element.removeAttribute( 'aria-disabled' );
+				element.setAttribute( 'aria-disabled', state == CKEDITOR.TRISTATE_DISABLED );
 
 				if ( !this.hasArrow ) {
-					// Note: aria-pressed attribute should not be added to menuButton instances. (http://dev.ckeditor.com/ticket/11331)
-					state == CKEDITOR.TRISTATE_ON ?
-						element.setAttribute( 'aria-pressed', true ) :
+					// Note: aria-pressed attribute should not be added to menuButton instances. (https://dev.ckeditor.com/ticket/11331)
+					if ( state === CKEDITOR.TRISTATE_ON ) {
+						element.setAttribute( 'aria-pressed', true );
+					} else {
 						element.removeAttribute( 'aria-pressed' );
+					}
 				} else {
-					var newLabel = state == CKEDITOR.TRISTATE_ON ?
-						this._.editor.lang.button.selectedLabel.replace( /%1/g, this.label ) : this.label;
-					CKEDITOR.document.getById( this._.id + '_label' ).setText( newLabel );
+					// Indicates that menu button is opened (#421).
+					element.setAttribute( 'aria-expanded', state == CKEDITOR.TRISTATE_ON );
 				}
 
 				return true;
@@ -381,6 +402,34 @@
 	 * @param {String} definition.command The command to be executed once the button is activated.
 	 * @param {String} definition.toolbar The {@link CKEDITOR.config#toolbarGroups toolbar group} into which
 	 * the button will be added. An optional index value (separated by a comma) determines the button position within the group.
+	 * @param {String} definition.icon The path to a custom icon or icon name registered by another plugin. Custom icon paths
+	 * are supported since the **4.9.0** version.
+	 *
+	 * To use icon registered by another plugin, icon parameter should be used like:
+	 *
+	 * 		editor.ui.addButton( 'my_button', {
+	 * 			icon: 'Link' // Uses link icon from Link plugin.
+	 * 		} );
+	 *
+	 * If the plugin provides a HiDPI version of an icon, it will be used for HiDPI displays (so defining `iconHiDpi` is not needed
+	 * in this case).
+	 *
+	 * To use a custom icon, the path to the icon should be provided:
+	 *
+	 * 		editor.ui.addButton( 'my_button', {
+	 * 			icon: 'assets/icons/my_button.png'
+	 * 		} )
+	 *
+	 * This icon will be used for both standard and HiDPI displays unless `iconHiDpi` is explicitly defined.
+	 * **Important**: CKEditor will resolve relative paths based on {@link CKEDITOR#basePath}.
+	 * @param {String} definition.iconHiDpi The path to the custom HiDPI icon version. Supported since **4.9.0** version.
+	 * It will be used only in HiDPI environments. The usage is similar to the `icon` parameter:
+	 *
+	 * 		editor.ui.addButton( 'my_button', {
+	 * 			iconHiDpi: 'assets/icons/my_button.hidpi.png'
+	 * 		} )
+	 * @param {String/Boolean} definition.hasArrow If Boolean, it indicates whether the button should have a dropdown. If a string, it acts
+	 * as a value of the button's `aria-haspopup` attribute. Since **4.11.0** it supports the string as a value.
 	 */
 	CKEDITOR.ui.prototype.addButton = function( name, definition ) {
 		this.add( name, CKEDITOR.UI_BUTTON, definition );

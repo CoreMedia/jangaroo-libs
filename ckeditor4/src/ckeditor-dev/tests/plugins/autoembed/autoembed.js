@@ -1,12 +1,11 @@
 /* bender-tags: editor */
 /* bender-ckeditor-plugins: embed,autoembed,enterkey,undo,link */
-/* bender-include: ../embedbase/_helpers/tools.js, ../clipboard/_helpers/pasting.js, ../widget/_helpers/tools.js */
-
-/* global embedTools, assertPasteEvent, widgetTestsTools */
+/* bender-include: ../embedbase/_helpers/tools.js, ../clipboard/_helpers/pasting.js */
+/* global embedTools, assertPasteEvent */
 
 'use strict';
 
-var obj2Array = widgetTestsTools.obj2Array;
+var objToArray = bender.tools.objToArray;
 
 function correctJsonpCallback( urlTemplate, urlParams, callback ) {
 	callback( {
@@ -36,7 +35,7 @@ bender.test( {
 		var bot = this.editorBot;
 
 		this.editor.once( 'paste', function( evt ) {
-			assert.isMatching( /^<a data-cke-autoembed="\d+" href="https:\/\/foo.bar\/g\/200\/300">https:\/\/foo.bar\/g\/200\/300<\/a>$/, evt.data.dataValue );
+			assert.isMatching( /^<a data-cke-autoembed="\d+" href="https:\/\/foo.bar\/g\/200\/300">https:\/\/foo.bar\/g\/200\/300<\/a>$/i, evt.data.dataValue );
 		}, null, null, 900 );
 
 		bot.setData( '<p>This is an embed</p>', function() {
@@ -119,7 +118,7 @@ bender.test( {
 		} );
 	},
 
-	// http://dev.ckeditor.com/ticket/13420.
+	// https://dev.ckeditor.com/ticket/13420.
 	'test link with encodable characters': function() {
 		var links = [
 			// Mind that links differ in a part g/200/3xx so it is easier and faster
@@ -269,7 +268,7 @@ bender.test( {
 		this.editor.execCommand( 'paste', pastedText );
 	},
 
-	// http://dev.ckeditor.com/ticket/13532
+	// https://dev.ckeditor.com/ticket/13532
 	'test re–embeddable url': function() {
 		var bot = this.editorBot,
 			editor = bot.editor;
@@ -301,7 +300,7 @@ bender.test( {
 				editor.execCommand( 'paste', 'y' );
 
 				wait( function() {
-					assert.areEqual( 0, obj2Array( editor.widgets.instances ).length, 'Link should not be re–embedded.' );
+					assert.areEqual( 0, objToArray( editor.widgets.instances ).length, 'Link should not be re–embedded.' );
 				}, 400 );
 			} );
 		};
@@ -377,7 +376,7 @@ bender.test( {
 		} );
 	},
 
-	// http://dev.ckeditor.com/ticket/13429.
+	// https://dev.ckeditor.com/ticket/13429.
 	'test selection after auto embedding - empty editor': function() {
 		var bot = this.editorBot,
 			editor = bot.editor,
@@ -401,7 +400,7 @@ bender.test( {
 		} );
 	},
 
-	// http://dev.ckeditor.com/ticket/13429.
+	// https://dev.ckeditor.com/ticket/13429.
 	'test selection after auto embedding - inside content': function() {
 		var bot = this.editorBot,
 			editor = bot.editor,
@@ -436,7 +435,7 @@ bender.test( {
 		} );
 	},
 
-	// http://dev.ckeditor.com/ticket/13429.
+	// https://dev.ckeditor.com/ticket/13429.
 	'test selection after auto embedding - content and selection change before insert': function() {
 		var bot = this.editorBot,
 			editor = bot.editor,

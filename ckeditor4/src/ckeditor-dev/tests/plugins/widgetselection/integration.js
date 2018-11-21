@@ -155,7 +155,7 @@
 			var editor = this.editor;
 
 			if ( CKEDITOR.env.chrome ) {
-				// http://dev.ckeditor.com/ticket/17029
+				// https://dev.ckeditor.com/ticket/17029
 				assert.ignore();
 			}
 
@@ -181,7 +181,7 @@
 		},
 
 		fireSelectAll: function( editor ) {
-			editor.document.fire( 'keydown', new CKEDITOR.dom.event( {
+			editor.editable().fire( 'keydown', new CKEDITOR.dom.event( {
 				keyCode: 65,
 				metaKey: true,
 				ctrlKey: true

@@ -9,6 +9,20 @@ var READ_ONLY_CMDS = [
 	'preview', 'print', 'showblocks', 'showborders', 'source', 'toolbarCollapse', 'toolbarFocus', 'selectAll'
 ];
 
+function assertCommand( editor, cmd, commandDefinition ) {
+	// Register command from command instance.
+	editor.addCommand( 'cmd1', cmd );
+
+	// Register command from command definition.
+	editor.addCommand( 'cmd2', commandDefinition );
+
+	// Registered command should be same as the command that was passed as definition.
+	assert.areSame( editor.getCommand( 'cmd1' ), cmd );
+
+	// Registered command should't be same to another command with same definition.
+	assert.areNotSame( editor.getCommand( 'cmd2' ), cmd );
+}
+
 bender.editor = true;
 
 bender.test( {
@@ -35,11 +49,11 @@ bender.test( {
 		assert.areSame( cmd.state, CKEDITOR.TRISTATE_ON );
 
 		// We don't want this to be executed in successive tests
-		// since they use the same editor (http://dev.ckeditor.com/ticket/9848).
+		// since they use the same editor (https://dev.ckeditor.com/ticket/9848).
 		delete ed.commands.test_context_sensitive;
 	},
 
-	// http://dev.ckeditor.com/ticket/8342
+	// https://dev.ckeditor.com/ticket/8342
 	'test command states with readonly editor': function() {
 		var bot = this.editorBot, editor = bot.editor;
 		editor.setReadOnly( true );
@@ -134,7 +148,7 @@ bender.test( {
 								st2 = cmd2.state,
 								st3 = cmd3.state;
 
-							// http://dev.ckeditor.com/ticket/10103 Before this test was created commands were refreshed on #mode, but not on #instanceReady.
+							// https://dev.ckeditor.com/ticket/10103 Before this test was created commands were refreshed on #mode, but not on #instanceReady.
 							// So cmd4 wouldn't be refreshed because this listener will be executed after that
 							// refreshing commands.
 							cmd4 = editor.addCommand( 'acftest4', {
@@ -142,7 +156,7 @@ bender.test( {
 							} );
 
 							resume( function() {
-								// http://dev.ckeditor.com/ticket/10249 Commands should be updated on first 'mode' event, so they are ready
+								// https://dev.ckeditor.com/ticket/10249 Commands should be updated on first 'mode' event, so they are ready
 								// on 'instanceReady'.
 								assert.areSame( CKEDITOR.TRISTATE_OFF, st1, 'first "mode" cmd1.state' );
 								assert.areSame( CKEDITOR.TRISTATE_DISABLED, st2, 'first "mode" cmd2.state' );
@@ -258,7 +272,7 @@ bender.test( {
 		assert.isTrue( cmd.checkAllowed( true ), 'is allowed - no cache' );
 	},
 
-	// http://dev.ckeditor.com/ticket/13548
+	// https://dev.ckeditor.com/ticket/13548
 	'test copy command not disabled after clicking on elements path': function() {
 		if ( !CKEDITOR.env.ie ) {
 			assert.ignore();
@@ -281,7 +295,7 @@ bender.test( {
 		wait();
 	},
 
-	// http://dev.ckeditor.com/ticket/13548
+	// https://dev.ckeditor.com/ticket/13548
 	'test cut command not disabled after clicking on elements path': function() {
 		if ( !CKEDITOR.env.ie ) {
 			assert.ignore();
@@ -302,5 +316,38 @@ bender.test( {
 		editor._.elementsPath.onClick( 0 );
 
 		wait();
+	},
+
+	// (#1582)
+	'test addCommand from command instance': function() {
+		var editor = this.editor,
+			styleDefinition = {
+				element: 'span',
+				attributes: {
+					bar: 'foo'
+				}
+			},
+			style = new CKEDITOR.style( styleDefinition ),
+			commandDefinition = new CKEDITOR.styleCommand( style ),
+			cmd = new CKEDITOR.command( editor, commandDefinition );
+
+		assertCommand( editor, cmd, commandDefinition );
+	},
+
+	// (#1582)
+	'test addCommand from command subclass': function() {
+		var editor = this.editor,
+			styleDefinition = {
+				element: 'span',
+				attributes: {
+					bar: 'foo'
+				}
+			},
+			subCommand = CKEDITOR.tools.createClass( { base: CKEDITOR.command } ),
+			style = new CKEDITOR.style( styleDefinition ),
+			commandDefinition = new CKEDITOR.styleCommand( style ),
+			cmd = new subCommand( editor, commandDefinition );
+
+		assertCommand( editor, cmd, commandDefinition );
 	}
 } );

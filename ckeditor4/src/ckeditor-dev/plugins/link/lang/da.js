@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or http://ckeditor.com/license
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.plugins.setLang( 'link', 'da', {
 	acccessKey: 'Genvejstast',
@@ -35,7 +35,9 @@ CKEDITOR.plugins.setLang( 'link', 'da', {
 	noAnchors: '(Ingen bogmærker i dokumentet)',
 	noEmail: 'Indtast e-mailadresse!',
 	noUrl: 'Indtast hyperlink-URL!',
+	noTel: 'Please type the phone number', // MISSING
 	other: '<anden>',
+	phoneNumber: 'Phone number', // MISSING
 	popupDependent: 'Koblet/dependent (Netscape)',
 	popupFeatures: 'Egenskaber for popup',
 	popupFullScreen: 'Fuld skærm (IE)',
@@ -60,6 +62,7 @@ CKEDITOR.plugins.setLang( 'link', 'da', {
 	toAnchor: 'Bogmærke på denne side',
 	toEmail: 'E-mail',
 	toUrl: 'URL',
+	toPhone: 'Phone', // MISSING
 	toolbar: 'Indsæt/redigér hyperlink',
 	type: 'Type',
 	unlink: 'Fjern hyperlink',

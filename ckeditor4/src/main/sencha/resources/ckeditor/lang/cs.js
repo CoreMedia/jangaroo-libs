@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or http://ckeditor.com/license
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['cs'] = {
     undo : 
@@ -105,7 +105,8 @@ CKEDITOR.lang['cs'] = {
     pastetext : 
     {
     	button : 'Vložit jako čistý text',
-    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	title : 'Vložit jako čistý text'
     },
     pastefromword : 
     {
@@ -162,7 +163,9 @@ CKEDITOR.lang['cs'] = {
     	noAnchors : '(Ve stránce není definována žádná kotva!)',
     	noEmail : 'Zadejte prosím e-mailovou adresu',
     	noUrl : 'Zadejte prosím URL odkazu',
+    	noTel : 'Please type the phone number',
     	other : '<jiný>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Závislost (Netscape)',
     	popupFeatures : 'Vlastnosti vyskakovacího okna',
     	popupFullScreen : 'Celá obrazovka (IE)',
@@ -187,6 +190,7 @@ CKEDITOR.lang['cs'] = {
     	toAnchor : 'Kotva v této stránce',
     	toEmail : 'E-mail',
     	toUrl : 'URL',
+    	toPhone : 'Phone',
     	toolbar : 'Odkaz',
     	type : 'Typ odkazu',
     	unlink : 'Odstranit odkaz',
@@ -242,11 +246,9 @@ CKEDITOR.lang['cs'] = {
     	cut : 'Vyjmout',
     	cutError : 'Bezpečnostní nastavení vašeho prohlížeče nedovolují editoru spustit funkci pro vyjmutí zvoleného textu do schránky. Prosím vyjměte zvolený text do schránky pomocí klávesnice (Ctrl/Cmd+X).',
     	paste : 'Vložit',
-    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Vybráno)'
+    	pasteNotification : 'Stiskněte %1 pro vložení. Váš prohlížeč nepodporuje vkládání pomocí tlačítka na panelu nástrojů nebo volby kontextového menu.',
+    	pasteArea : 'Oblast vkládání',
+    	pasteMsg : 'Vložte svůj obsah do oblasti níže a stiskněte OK.'
     },
     blockquote : 
     {
@@ -316,10 +318,13 @@ CKEDITOR.lang['cs'] = {
     	width : 'Šířka',
     	height : 'Výška',
     	align : 'Zarovnání',
-    	alignLeft : 'Vlevo',
-    	alignRight : 'Vpravo',
-    	alignCenter : 'Na střed',
-    	alignJustify : 'Zarovnat do bloku',
+    	left : 'Vlevo',
+    	right : 'Vpravo',
+    	center : 'Na střed',
+    	justify : 'Zarovnat do bloku',
+    	alignLeft : 'Zarovnat vlevo',
+    	alignRight : 'Zarovnat vpravo',
+    	alignCenter : 'Zarovnat na střed',
     	alignTop : 'Nahoru',
     	alignMiddle : 'Na střed',
     	alignBottom : 'Dolů',
@@ -327,6 +332,7 @@ CKEDITOR.lang['cs'] = {
     	invalidValue : 'Neplatná hodnota.',
     	invalidHeight : 'Zadaná výška musí být číslo.',
     	invalidWidth : 'Šířka musí být číslo.',
+    	invalidLength : 'Hodnota určená pro pole "%1" musí být kladné číslo bez nebo s platnou jednotkou míry (%2).',
     	invalidCssLength : 'Hodnota určená pro pole "%1" musí být kladné číslo bez nebo s platnou jednotkou míry CSS (px, %, in, cm, mm, em, ex, pt, nebo pc).',
     	invalidHtmlLength : 'Hodnota určená pro pole "%1" musí být kladné číslo bez nebo s platnou jednotkou míry HTML (px nebo %).',
     	invalidInlineStyle : 'Hodnota určená pro řádkový styl se musí skládat z jedné nebo více n-tic ve formátu "název : hodnota", oddělené středníky',
@@ -343,7 +349,32 @@ CKEDITOR.lang['cs'] = {
     		'35' : 'Konec',
     		'36' : 'Domů',
     		'46' : 'Smazat',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'Klávesová zkratka'
+    	keyboardShortcut : 'Klávesová zkratka',
+    	optionDefault : 'Výchozí'
     } }; 
