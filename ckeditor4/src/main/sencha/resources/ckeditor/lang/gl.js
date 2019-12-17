@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['gl'] = {
@@ -79,6 +79,7 @@ CKEDITOR.lang['gl'] = {
     	headersColumn : 'Primeira columna',
     	headersNone : 'Ningún',
     	headersRow : 'Primeira fila',
+    	heightUnit : 'height unit',
     	invalidBorder : 'O tamaño do bordo debe ser un número.',
     	invalidCellPadding : 'A marxe interior debe ser un número positivo.',
     	invalidCellSpacing : 'A marxe entre celas debe ser un número positivo.',
@@ -163,9 +164,9 @@ CKEDITOR.lang['gl'] = {
     	noAnchors : '(Non hai ancoraxes dispoñíbeis no documento)',
     	noEmail : 'Escriba o enderezo de correo',
     	noUrl : 'Escriba a ligazón URL',
-    	noTel : 'Please type the phone number',
-    	other : '<outro>',
-    	phoneNumber : 'Phone number',
+    	noTel : 'Escriba o número de teléfono',
+    	other : '<other>',
+    	phoneNumber : 'Número de teléfono',
     	popupDependent : 'Dependente (Netscape)',
     	popupFeatures : 'Características da xanela emerxente',
     	popupFullScreen : 'Pantalla completa (IE)',
@@ -190,7 +191,7 @@ CKEDITOR.lang['gl'] = {
     	toAnchor : 'Ligar coa ancoraxe no testo',
     	toEmail : 'Correo',
     	toUrl : 'URL',
-    	toPhone : 'Phone',
+    	toPhone : 'Teléfono',
     	toolbar : 'Ligazón',
     	type : 'Tipo de ligazón',
     	unlink : 'Eliminar a ligazón',

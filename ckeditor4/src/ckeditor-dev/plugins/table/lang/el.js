@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.plugins.setLang( 'table', 'el', {
@@ -50,6 +50,7 @@ CKEDITOR.plugins.setLang( 'table', 'el', {
 	headersColumn: 'Πρώτη στήλη',
 	headersNone: 'Κανένα',
 	headersRow: 'Πρώτη Γραμμή',
+	heightUnit: 'height unit', // MISSING
 	invalidBorder: 'Το πάχος του περιγράμματος πρέπει να είναι ένας αριθμός.',
 	invalidCellPadding: 'Η αναπλήρωση των κελιών πρέπει να είναι θετικός αριθμός.',
 	invalidCellSpacing: 'Η απόσταση μεταξύ των κελιών πρέπει να είναι ένας θετικός αριθμός.',

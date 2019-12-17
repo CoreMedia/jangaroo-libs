@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['de'] = {
@@ -79,6 +79,7 @@ CKEDITOR.lang['de'] = {
     	headersColumn : 'Erste Spalte',
     	headersNone : 'Keine',
     	headersRow : 'Erste Zeile',
+    	heightUnit : 'height unit',
     	invalidBorder : 'Die Rahmenbreite muß eine Zahl sein.',
     	invalidCellPadding : 'Der Zellenabstand innen muß eine positive Zahl sein.',
     	invalidCellSpacing : 'Der Zellenabstand außen muß eine positive Zahl sein.',
@@ -332,7 +333,7 @@ CKEDITOR.lang['de'] = {
     	invalidValue : 'Ungültiger Wert.',
     	invalidHeight : 'Höhe muss eine Zahl sein.',
     	invalidWidth : 'Breite muss eine Zahl sein.',
-    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
+    	invalidLength : 'Der für das Feld "%1" angegebene Wert muss eine positive Zahl mit oder ohne gültige Maßeinheit (%2) sein. ',
     	invalidCssLength : 'Wert spezifiziert für "%1" Feld muss ein positiver numerischer Wert sein mit oder ohne korrekte CSS Messeinheit (px, %, in, cm, mm, em, ex, pt oder pc).',
     	invalidHtmlLength : 'Wert spezifiziert für "%1" Feld muss ein positiver numerischer Wert sein mit oder ohne korrekte HTML Messeinheit (px oder %).',
     	invalidInlineStyle : 'Wert spezifiziert für inline Stilart muss enthalten ein oder mehr Tupels mit dem Format "Name : Wert" getrennt mit Semikolons.',
@@ -376,5 +377,5 @@ CKEDITOR.lang['de'] = {
     		'224' : 'Befehl'
     	},
     	keyboardShortcut : 'Tastaturkürzel',
-    	optionDefault : 'Default'
+    	optionDefault : 'Standard'
     } }; 

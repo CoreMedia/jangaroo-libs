@@ -1,5 +1,5 @@
 /**
- * @license Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -15,7 +15,7 @@
 	 * @private
 	 * @extends CKEDITOR.ui.balloonPanel
 	 * @constructor Creates a balloon toolbar view instance.
-	 * @since 4.8
+	 * @since 4.8.0
 	 * @param {CKEDITOR.editor} editor The editor instance for which the toolbar is created.
 	 * @param {Object} definition An object containing the toolbar definition. See {@link CKEDITOR.ui.balloonPanel}
 	 * documentation for an example definition.
@@ -68,7 +68,7 @@
 	 *
 	 * @class
 	 * @constructor Creates a balloon toolbar instance.
-	 * @since 4.8
+	 * @since 4.8.0
 	 * @param {CKEDITOR.editor} editor The editor instance for which the toolbar is created.
 	 * @param {Object} definition An object containing the panel definition. See {@link CKEDITOR.ui.balloonPanel}
 	 * documentation for an example definition.
@@ -122,6 +122,16 @@
 	 */
 	CKEDITOR.ui.balloonToolbar.prototype.hide = function() {
 		this._view.hide();
+	};
+
+	/**
+	 * Repositions the balloon toolbar, pointing to the previously attached `element`.
+	 *
+	 * @since 4.12.0
+	 * @member CKEDITOR.ui.balloonToolbar
+	 */
+	CKEDITOR.ui.balloonToolbar.prototype.reposition = function() {
+		this._view.reposition();
 	};
 
 	/**
@@ -205,7 +215,7 @@
 	 *
 	 * @class CKEDITOR.plugins.balloontoolbar.context
 	 * @constructor Creates a balloon toolbar context instance.
-	 * @since 4.8
+	 * @since 4.8.0
 	 * @param {CKEDITOR.editor} editor The editor instance for which the toolbar is created.
 	 * @param {CKEDITOR.plugins.balloontoolbar.contextDefinition} options A set of options defining the context behavior.
 	 */
@@ -374,7 +384,7 @@
 	 *
 	 * @class CKEDITOR.plugins.balloontoolbar.contextManager
 	 * @constructor
-	 * @since 4.8
+	 * @since 4.8.0
 	 * @param {CKEDITOR.editor} editor The editor instance which the toolbar is created for.
 	 */
 	function ContextManager( editor ) {
@@ -604,6 +614,10 @@
 	CKEDITOR.plugins.add( 'balloontoolbar', {
 		requires: 'balloonpanel',
 
+		isSupportedEnvironment: function() {
+			return !CKEDITOR.env.ie || CKEDITOR.env.version > 8;
+		},
+
 		beforeInit: function( editor ) {
 			if ( !cssLoaded ) {
 				// Load fallback styles.
@@ -629,7 +643,7 @@
 			 *			cssSelector: 'a[href], img'
 			 *		} );
 			 *
-			 * @since 4.8
+			 * @since 4.8.0
 			 * @readonly
 			 * @property {CKEDITOR.plugins.balloontoolbar.contextManager} balloonToolbars
 			 * @member CKEDITOR.editor
@@ -661,21 +675,44 @@
 				if ( this.rect.visible ) {
 					return;
 				}
-				var editable = this.editor.editable();
-				this._detachListeners();
+				var editor = this.editor,
+					editable = editor.editable(),
+					editorScrollableElement = editable.isInline() ? editable : editable.getDocument(),
+					win = CKEDITOR.document.getWindow();
 
-				function attachListener() {
-					this.attach( this._pointedElement, {
-						focusElement: false
-					} );
+				// iOS classic editor listens on frame parent element for editor `scroll` event (#1910).
+				// Since iOS 13, this `if` won't be necesary any longer https://bugs.webkit.org/show_bug.cgi?id=149264.
+				if ( CKEDITOR.env.iOS && !editable.isInline() ) {
+					editorScrollableElement = editor.window.getFrame().getParent();
 				}
 
-				this._listeners.push( this.editor.on( 'change', attachListener, this ) );
-				this._listeners.push( this.editor.on( 'resize', attachListener, this ) );
-				this._listeners.push( CKEDITOR.document.getWindow().on( 'resize', attachListener, this ) );
-				this._listeners.push( editable.attachListener( editable.getDocument(), 'scroll', attachListener, this ) );
+				this._detachListeners();
+
+				this._listeners.push( editor.on( 'change', repositionClosure, this ) );
+				this._listeners.push( editor.on( 'resize', repositionClosure, this ) );
+				this._listeners.push( win.on( 'resize', repositionClosure, this ) );
+				this._listeners.push( win.on( 'scroll', repositionClosure, this ) );
+				this._listeners.push( editorScrollableElement.on( 'scroll', repositionClosure, this ) );
 
 				CKEDITOR.ui.balloonPanel.prototype.show.call( this );
+
+				// It's necessary to execute code in a closure, as reposition is defined in a prototype.
+				// Otherwise hiding balloon toolbar may remove event listeners from different editors,
+				// as removing listeners are done by function delegate.
+				function repositionClosure() {
+					this.reposition();
+				}
+			};
+
+			/**
+			 * @inheritdoc CKEDITOR.ui.balloonToolbar#reposition
+			 * @since 4.12.0
+			 * @member CKEDITOR.ui.balloonToolbarView
+			 */
+			CKEDITOR.ui.balloonToolbarView.prototype.reposition = function() {
+				if ( this.rect.visible ) {
+					this.attach( this._pointedElement, { focusElement: false } );
+				}
 			};
 
 			CKEDITOR.ui.balloonToolbarView.prototype.hide = function() {
@@ -735,7 +772,7 @@
 			 */
 			CKEDITOR.ui.balloonToolbarView.prototype.renderItems = function( items ) {
 				var output = [],
-					keys = CKEDITOR.tools.objectKeys( items ),
+					keys = CKEDITOR.tools.object.keys( items ),
 					groupStarted = false;
 
 				// When we rerender toolbar we want to clear focusable in case of removing some items.

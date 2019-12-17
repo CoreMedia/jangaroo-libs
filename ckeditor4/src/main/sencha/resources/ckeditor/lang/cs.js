@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['cs'] = {
@@ -79,6 +79,7 @@ CKEDITOR.lang['cs'] = {
     	headersColumn : 'První sloupec',
     	headersNone : 'Žádné',
     	headersRow : 'První řádek',
+    	heightUnit : 'height unit',
     	invalidBorder : 'Zdaná velikost okraje musí být číselná.',
     	invalidCellPadding : 'Zadané odsazení obsahu v buňce musí být číselné.',
     	invalidCellSpacing : 'Zadaná vzdálenost buněk musí být číselná.',
@@ -147,7 +148,7 @@ CKEDITOR.lang['cs'] = {
     	anchorName : 'Podle jména kotvy',
     	charset : 'Přiřazená znaková sada',
     	cssClasses : 'Třída stylu',
-    	download : 'Force Download',
+    	download : 'Vynutit stažení',
     	displayText : 'Zobrazit text',
     	emailAddress : 'E-mailová adresa',
     	emailBody : 'Tělo zprávy',
@@ -163,9 +164,9 @@ CKEDITOR.lang['cs'] = {
     	noAnchors : '(Ve stránce není definována žádná kotva!)',
     	noEmail : 'Zadejte prosím e-mailovou adresu',
     	noUrl : 'Zadejte prosím URL odkazu',
-    	noTel : 'Please type the phone number',
+    	noTel : 'Vyplňte prosím telefonní číslo',
     	other : '<jiný>',
-    	phoneNumber : 'Phone number',
+    	phoneNumber : 'Telefonní číslo',
     	popupDependent : 'Závislost (Netscape)',
     	popupFeatures : 'Vlastnosti vyskakovacího okna',
     	popupFullScreen : 'Celá obrazovka (IE)',
@@ -190,7 +191,7 @@ CKEDITOR.lang['cs'] = {
     	toAnchor : 'Kotva v této stránce',
     	toEmail : 'E-mail',
     	toUrl : 'URL',
-    	toPhone : 'Phone',
+    	toPhone : 'Telefon',
     	toolbar : 'Odkaz',
     	type : 'Typ odkazu',
     	unlink : 'Odstranit odkaz',

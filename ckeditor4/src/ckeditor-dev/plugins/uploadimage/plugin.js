@@ -1,5 +1,5 @@
 /**
- * @license Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -40,9 +40,13 @@
 			);
 		},
 
+		isSupportedEnvironment: function() {
+			return CKEDITOR.plugins.clipboard.isFileApiSupported;
+		},
+
 		init: function( editor ) {
 			// Do not execute this paste listener if it will not be possible to upload file.
-			if ( !CKEDITOR.plugins.clipboard.isFileApiSupported ) {
+			if ( !this.isSupportedEnvironment() ) {
 				return;
 			}
 
@@ -143,7 +147,7 @@
 	/**
 	 * The URL where images should be uploaded.
 	 *
-	 * @since 4.5
+	 * @since 4.5.0
 	 * @cfg {String} [imageUploadUrl='' (empty string = disabled)]
 	 * @member CKEDITOR.config
 	 */

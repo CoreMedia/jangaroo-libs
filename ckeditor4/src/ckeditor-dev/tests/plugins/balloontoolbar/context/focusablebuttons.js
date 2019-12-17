@@ -16,7 +16,7 @@
 	// @param {CKEDITOR.dom.element} needle
 	// @returns {string/undefined}
 	function indexOfElement( dict, needle ) {
-		return CKEDITOR.tools.array.filter( CKEDITOR.tools.objectKeys( dict ), function( key ) {
+		return CKEDITOR.tools.array.filter( CKEDITOR.tools.object.keys( dict ), function( key ) {
 			return needle.equals( dict[ key ] );
 		} )[ 0 ];
 	}
@@ -62,7 +62,7 @@
 
 			boldButton.once( 'focus', function() {
 				// Blur is delayed a little bit, that's why, it's necessary to wait more than this delay to check result.
-				// https://github.com/ckeditor/ckeditor-dev/blob/230f715926634e4056a87a572c94707c4190921c/core/focusmanager.js#L72
+				// https://github.com/ckeditor/ckeditor4/blob/230f715926634e4056a87a572c94707c4190921c/core/focusmanager.js#L72
 				setTimeout( function() {
 					resume( function() {
 						assert.isFalse( blurSpy.called, 'Editor should remain focused, when balloontoolbar is focused.' );

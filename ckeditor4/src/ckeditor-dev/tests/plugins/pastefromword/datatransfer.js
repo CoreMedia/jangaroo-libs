@@ -1,5 +1,7 @@
 /* bender-tags: editor,clipboard,pastefromword */
 /* bender-ckeditor-plugins: pastefromword */
+/* bender-include: generated/_helpers/pfwTools.js, ../pastetools/_helpers/ptTools.js */
+/* global ptTools */
 
 ( function() {
 	'use strict';
@@ -11,7 +13,7 @@
 		return '<span style="mso-mock">' + content + '</span>';
 	}
 
-	bender.test( {
+	var tests = {
 		'test PFW uses dataTransfer when available': function() {
 			if ( !CKEDITOR.plugins.clipboard.isCustomDataTypesSupported ) {
 				assert.ignore();
@@ -81,6 +83,10 @@
 
 			wait();
 		}
-	} );
+	};
+
+	ptTools.ignoreTestsOnMobiles( tests );
+
+	bender.test( tests );
 
 } )();

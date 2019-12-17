@@ -366,7 +366,6 @@
 	</tr>
 </table>
 
-
 <table id="2cells2rows">
 	<tr>
 		<td>11</td>
@@ -397,3 +396,33 @@
 		</tr>
 	</tbody>
 </table>
+
+<textarea id="ignored">
+<table>
+	<tbody>
+		<tr>
+			<td>cell1</td>
+			<td>[cell2]</td>
+		</tr>
+	</tbody>
+</table>
+
+=>
+<table>
+	<tbody>
+	<tr>
+		<td>cell1</td>
+		<td>
+			<table>
+				<tbody>
+					<tr>
+						<td>foo</td>
+						<td>foo^</td>
+					</tr>
+				</tbody>
+			</table>
+		</td>
+	</tr>
+	</tbody>
+</table>
+</textarea>

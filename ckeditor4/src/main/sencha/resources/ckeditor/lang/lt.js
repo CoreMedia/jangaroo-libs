@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['lt'] = {
@@ -79,6 +79,7 @@ CKEDITOR.lang['lt'] = {
     	headersColumn : 'Pirmas stulpelis',
     	headersNone : 'Nėra',
     	headersRow : 'Pirma eilutė',
+    	heightUnit : 'height unit',
     	invalidBorder : 'Reikšmė turi būti nurodyta skaičiumi.',
     	invalidCellPadding : 'Reikšmė turi būti nurodyta skaičiumi.',
     	invalidCellSpacing : 'Reikšmė turi būti nurodyta skaičiumi.',
@@ -105,7 +106,7 @@ CKEDITOR.lang['lt'] = {
     pastetext : 
     {
     	button : 'Įdėti kaip gryną tekstą',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteNotification : 'Spauskite %1 kad įklijuotumėte. Jūsų naršyklė nepalaiko įklijavimo mygtuko arba kontekstinio meniu šiam veiksmui.',
     	title : 'Įdėti kaip gryną tekstą'
     },
     pastefromword : 
@@ -117,11 +118,11 @@ CKEDITOR.lang['lt'] = {
     },
     notification : 
     {
-    	closed : 'Notification closed.'
+    	closed : 'Pranešimas uždarytas.'
     },
     magicline : 
     {
-    	title : 'Insert paragraph here'
+    	title : 'Įterpti pastraipą čia'
     },
     list : 
     {
@@ -246,9 +247,9 @@ CKEDITOR.lang['lt'] = {
     	cut : 'Iškirpti',
     	cutError : 'Jūsų naršyklės saugumo nustatymai neleidžia redaktoriui automatiškai įvykdyti iškirpimo operacijų. Tam prašome naudoti klaviatūrą (Ctrl/Cmd+X).',
     	paste : 'Įdėti',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteNotification : 'Spauskite %1 kad įkliuotumėte. Jūsų naršyklė nepalaiko įklijavimo paspaudus mygtuką arba kontekstinio menių galimybės.',
     	pasteArea : 'Įkelti dalį',
-    	pasteMsg : 'Paste your content inside the area below and press OK.'
+    	pasteMsg : 'Įklijuokite savo turinį į žemiau esantį lauką ir paspauskite OK.'
     },
     blockquote : 
     {
@@ -345,7 +346,7 @@ CKEDITOR.lang['lt'] = {
     		'16' : 'Shift',
     		'17' : 'Ctrl',
     		'18' : 'Alt',
-    		'32' : 'Space',
+    		'32' : 'Tarpas',
     		'35' : 'End',
     		'36' : 'Home',
     		'46' : 'Delete',
@@ -375,6 +376,6 @@ CKEDITOR.lang['lt'] = {
     		'135' : 'F24',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'Keyboard shortcut',
-    	optionDefault : 'Default'
+    	keyboardShortcut : 'Spartusis klavišas',
+    	optionDefault : 'Numatytasis'
     } }; 

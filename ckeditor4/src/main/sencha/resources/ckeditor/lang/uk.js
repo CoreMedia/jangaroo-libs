@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['uk'] = {
@@ -79,6 +79,7 @@ CKEDITOR.lang['uk'] = {
     	headersColumn : 'Стовбці',
     	headersNone : 'Без заголовків',
     	headersRow : 'Рядки',
+    	heightUnit : 'height unit',
     	invalidBorder : 'Розмір рамки повинен бути цілим числом.',
     	invalidCellPadding : 'Внутр. відступ комірки повинен бути цілим числом.',
     	invalidCellSpacing : 'Проміжок між комірками повинен бути цілим числом.',
@@ -105,7 +106,7 @@ CKEDITOR.lang['uk'] = {
     pastetext : 
     {
     	button : 'Вставити тільки текст',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteNotification : 'Натисніть %1, щоб вставити. Ваш браузер не підтримує вставку за допомогою кнопки панелі інструментів або пункту контекстного меню.',
     	title : 'Вставити тільки текст'
     },
     pastefromword : 
@@ -147,8 +148,8 @@ CKEDITOR.lang['uk'] = {
     	anchorName : 'За ім\'ям елементу',
     	charset : 'Кодування',
     	cssClasses : 'Клас CSS',
-    	download : 'Force Download',
-    	displayText : 'Display Text',
+    	download : 'Завантажити як файл',
+    	displayText : 'Відображуваний текст',
     	emailAddress : 'Адреса ел. пошти',
     	emailBody : 'Тіло повідомлення',
     	emailSubject : 'Тема листа',
@@ -163,9 +164,9 @@ CKEDITOR.lang['uk'] = {
     	noAnchors : '(В цьому документі немає якорів)',
     	noEmail : 'Будь ласка, вкажіть адрес ел. пошти',
     	noUrl : 'Будь ласка, вкажіть URL посилання',
-    	noTel : 'Please type the phone number',
+    	noTel : 'Будь ласка, введіть номер телефону',
     	other : '<інший>',
-    	phoneNumber : 'Phone number',
+    	phoneNumber : 'Номер телефону',
     	popupDependent : 'Залежний (Netscape)',
     	popupFeatures : 'Властивості випливаючого вікна',
     	popupFullScreen : 'Повний екран (IE)',
@@ -190,7 +191,7 @@ CKEDITOR.lang['uk'] = {
     	toAnchor : 'Якір на цю сторінку',
     	toEmail : 'Ел. пошта',
     	toUrl : 'URL',
-    	toPhone : 'Phone',
+    	toPhone : 'Телефон',
     	toolbar : 'Вставити/Редагувати посилання',
     	type : 'Тип посилання',
     	unlink : 'Видалити посилання',
@@ -246,9 +247,9 @@ CKEDITOR.lang['uk'] = {
     	cut : 'Вирізати',
     	cutError : 'Налаштування безпеки Вашого браузера не дозволяють редактору автоматично виконувати операції вирізування. Будь ласка, використовуйте клавіатуру для цього (Ctrl/Cmd+X)',
     	paste : 'Вставити',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteNotification : 'Натисніть %1, щоб вставити. Ваш браузер не підтримує вставку за допомогою кнопки панелі інструментів або пункту контекстного меню.',
     	pasteArea : 'Область вставки',
-    	pasteMsg : 'Paste your content inside the area below and press OK.'
+    	pasteMsg : 'Вставте вміст у область нижче та натисніть OK.'
     },
     blockquote : 
     {
@@ -324,7 +325,7 @@ CKEDITOR.lang['uk'] = {
     	justify : 'По ширині',
     	alignLeft : 'По лівому краю',
     	alignRight : 'По правому краю',
-    	alignCenter : 'Align Center',
+    	alignCenter : 'По центру',
     	alignTop : 'По верхньому краю',
     	alignMiddle : 'По середині',
     	alignBottom : 'По нижньому краю',
@@ -332,7 +333,7 @@ CKEDITOR.lang['uk'] = {
     	invalidValue : 'Невірне значення.',
     	invalidHeight : 'Висота повинна бути цілим числом.',
     	invalidWidth : 'Ширина повинна бути цілим числом.',
-    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
+    	invalidLength : 'Вказане значення для поля "%1" має бути позитивним числом без або з коректним символом одиниці виміру (%2).',
     	invalidCssLength : 'Значення, вказане для "%1" в полі повинно бути позитивним числом або без дійсного виміру CSS блоку (px, %, in, cm, mm, em, ex, pt або pc).',
     	invalidHtmlLength : 'Значення, вказане для "%1" в полі повинно бути позитивним числом або без дійсного виміру HTML блоку (px або %).',
     	invalidInlineStyle : 'Значення, вказане для вбудованого стилю повинне складатися з одного чи кількох кортежів у форматі "ім\'я : значення", розділених крапкою з комою.',
@@ -345,7 +346,7 @@ CKEDITOR.lang['uk'] = {
     		'16' : 'Shift',
     		'17' : 'Ctrl',
     		'18' : 'Alt',
-    		'32' : 'Space',
+    		'32' : 'Пробіл',
     		'35' : 'End',
     		'36' : 'Home',
     		'46' : 'Видалити',
@@ -375,6 +376,6 @@ CKEDITOR.lang['uk'] = {
     		'135' : 'F24',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'Keyboard shortcut',
-    	optionDefault : 'Default'
+    	keyboardShortcut : 'Сполучення клавіш',
+    	optionDefault : 'Типово'
     } }; 

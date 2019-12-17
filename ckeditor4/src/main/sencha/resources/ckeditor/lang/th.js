@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['th'] = {
@@ -79,6 +79,7 @@ CKEDITOR.lang['th'] = {
     	headersColumn : 'คอลัมน์แรก',
     	headersNone : 'None',
     	headersRow : 'แถวแรก',
+    	heightUnit : 'height unit',
     	invalidBorder : 'ขนาดเส้นกรอบต้องเป็นจำนวนตัวเลข',
     	invalidCellPadding : 'ช่องว่างภายในเซลล์ต้องเลขจำนวนบวก',
     	invalidCellSpacing : 'ช่องว่างภายในเซลล์ต้องเป็นเลขจำนวนบวก',

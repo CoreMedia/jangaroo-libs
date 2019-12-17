@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.plugins.setLang( 'table', 'fo', {
@@ -50,6 +50,7 @@ CKEDITOR.plugins.setLang( 'table', 'fo', {
 	headersColumn: 'Fyrsta kolonna',
 	headersNone: 'Eingin',
 	headersRow: 'Fyrsta rað',
+	heightUnit: 'height unit', // MISSING
 	invalidBorder: 'Borda-stødd má vera eitt tal.',
 	invalidCellPadding: 'Cell padding má vera eitt tal.',
 	invalidCellSpacing: 'Cell spacing má vera eitt tal.',

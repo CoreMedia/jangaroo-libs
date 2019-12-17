@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['hu'] = {
@@ -79,6 +79,7 @@ CKEDITOR.lang['hu'] = {
     	headersColumn : 'Első oszlop',
     	headersNone : 'Nincsenek',
     	headersRow : 'Első sor',
+    	heightUnit : 'height unit',
     	invalidBorder : 'A szegélyméret mezőbe csak számokat írhat.',
     	invalidCellPadding : 'A cella belső margó mezőbe csak számokat írhat.',
     	invalidCellSpacing : 'A cella térköz mezőbe csak számokat írhat.',
@@ -105,12 +106,12 @@ CKEDITOR.lang['hu'] = {
     pastetext : 
     {
     	button : 'Beillesztés formázatlan szövegként',
-    	pasteNotification : 'Nyomjd meg a %1 gombot a beillesztéshez. A böngésző nem támogatja a beillesztést az eszköztás gombbal vagy a menüből.',
+    	pasteNotification : 'Nyomja meg a %1 gombot a beillesztéshez. A böngésző nem támogatja a beillesztést az eszköztár gombbal vagy a menüből.',
     	title : 'Beillesztés formázatlan szövegként'
     },
     pastefromword : 
     {
-    	confirmCleanup : 'Úgy tűnik a beillesztett szöveget Word-ből másolt át. Meg szeretné tisztítani a szöveget? (ajánlott)',
+    	confirmCleanup : 'Úgy tűnik a beillesztett szöveget Word-ből másolta át. Meg szeretné tisztítani a szöveget? (ajánlott)',
     	error : 'Egy belső hiba miatt nem sikerült megtisztítani a szöveget',
     	title : 'Beillesztés Word-ből',
     	toolbar : 'Beillesztés Word-ből'

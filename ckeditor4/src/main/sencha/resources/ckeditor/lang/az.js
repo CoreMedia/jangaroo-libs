@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['az'] = {
@@ -79,6 +79,7 @@ CKEDITOR.lang['az'] = {
     	headersColumn : 'Birinci sütun',
     	headersNone : 'yox',
     	headersRow : 'Birinci sətir',
+    	heightUnit : 'height unit',
     	invalidBorder : 'Sərhədlərin eni müsbət rəqəm olmalıdır.',
     	invalidCellPadding : 'Xanalardakı kənar boşluqlar müsbət rəqəm olmalıdır.',
     	invalidCellSpacing : 'Xanalararası interval müsbət rəqəm olmalıdır.',
@@ -324,7 +325,7 @@ CKEDITOR.lang['az'] = {
     	justify : 'Eninə görə',
     	alignLeft : 'Soldan düzləndir',
     	alignRight : 'Sağdan düzləndir',
-    	alignCenter : 'Align Center',
+    	alignCenter : 'Mərkəzə düzləndir',
     	alignTop : 'Yuxarı',
     	alignMiddle : 'Orta',
     	alignBottom : 'Aşağı',
@@ -332,7 +333,7 @@ CKEDITOR.lang['az'] = {
     	invalidValue : 'Yanlışdır.',
     	invalidHeight : 'Hündürlük rəqəm olmalıdır.',
     	invalidWidth : 'En rəqəm olmalıdır.',
-    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
+    	invalidLength : '"%1" xanasına, ölçü vahidinin (%2) göstərilməsindən asılı olmayaraq, müsbət ədəd qeyd olunmalıdır.',
     	invalidCssLength : '"%1" xanasında göstərilən məzmun tam və müsbət olmalıdır, CSS-də olan ölçü vahidlərin (px, %, in, cm, mm, em, ex, pt, or pc) istifadısinə icazə verilir.',
     	invalidHtmlLength : '"%1" xanasında göstərilən məzmun tam və müsbət olmalıdır HTML-də olan ölçü vahidlərin (px və ya %) istifadısinə icazə verilir.',
     	invalidInlineStyle : 'Teq içində olan üslub "ad :  məzmun" şəklidə, nöqtə-verqül işarəsi ilə bitməlidir',
@@ -376,5 +377,5 @@ CKEDITOR.lang['az'] = {
     		'224' : 'Əmr'
     	},
     	keyboardShortcut : 'Qısayol düymələri',
-    	optionDefault : 'Default'
+    	optionDefault : 'Standart'
     } }; 

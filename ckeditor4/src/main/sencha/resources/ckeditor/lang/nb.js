@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['nb'] = {
@@ -79,6 +79,7 @@ CKEDITOR.lang['nb'] = {
     	headersColumn : 'Første kolonne',
     	headersNone : 'Ingen',
     	headersRow : 'Første rad',
+    	heightUnit : 'height unit',
     	invalidBorder : 'Rammestørrelse må være et tall.',
     	invalidCellPadding : 'Cellepolstring må være et positivt tall.',
     	invalidCellSpacing : 'Cellemarg må være et positivt tall.',
@@ -163,9 +164,9 @@ CKEDITOR.lang['nb'] = {
     	noAnchors : '(Ingen anker i dokumentet)',
     	noEmail : 'Vennligst skriv inn e-postadressen',
     	noUrl : 'Vennligst skriv inn lenkens URL',
-    	noTel : 'Please type the phone number',
+    	noTel : 'Vennligst skriv inn telefonnummeret',
     	other : '<annen>',
-    	phoneNumber : 'Phone number',
+    	phoneNumber : 'Telefonnummer',
     	popupDependent : 'Avhenging (Netscape)',
     	popupFeatures : 'Egenskaper for popup-vindu',
     	popupFullScreen : 'Fullskjerm (IE)',
@@ -190,7 +191,7 @@ CKEDITOR.lang['nb'] = {
     	toAnchor : 'Lenke til anker i teksten',
     	toEmail : 'E-post',
     	toUrl : 'URL',
-    	toPhone : 'Phone',
+    	toPhone : 'Telefon',
     	toolbar : 'Lenke',
     	type : 'Lenketype',
     	unlink : 'Fjern lenke',

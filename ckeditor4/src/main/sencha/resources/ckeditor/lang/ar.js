@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['ar'] = {
@@ -79,6 +79,7 @@ CKEDITOR.lang['ar'] = {
     	headersColumn : 'العمود الأول',
     	headersNone : 'بدون',
     	headersRow : 'الصف الأول',
+    	heightUnit : 'height unit',
     	invalidBorder : 'حجم الحد يجب أن يكون عدداً.',
     	invalidCellPadding : 'المسافة البادئة يجب أن تكون عدداً',
     	invalidCellSpacing : 'المسافة بين الخلايا يجب أن تكون عدداً.',
@@ -246,9 +247,9 @@ CKEDITOR.lang['ar'] = {
     	cut : 'قص',
     	cutError : 'الإعدادات الأمنية للمتصفح الذي تستخدمه تمنع القص التلقائي. فضلاً إستخدم لوحة المفاتيح لفعل ذلك (Ctrl/Cmd+X).',
     	paste : 'لصق',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteNotification : 'اضغط %1 للصق. اللصق عن طريق شريط الادوات او القائمة غير مدعوم من المتصفح المستخدم من قبلك.',
     	pasteArea : 'منطقة اللصق',
-    	pasteMsg : 'Paste your content inside the area below and press OK.'
+    	pasteMsg : 'الصق المحتوى بداخل المساحة المخصصة ادناه ثم اضغط على OK'
     },
     blockquote : 
     {

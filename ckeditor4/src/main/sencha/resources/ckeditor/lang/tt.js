@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['tt'] = {
@@ -79,6 +79,7 @@ CKEDITOR.lang['tt'] = {
     	headersColumn : 'Беренче багана',
     	headersNone : 'Һичбер',
     	headersRow : 'Беренче юл',
+    	heightUnit : 'height unit',
     	invalidBorder : 'Чик киңлеге сан булырга тиеш.',
     	invalidCellPadding : 'Cell padding must be a positive number.',
     	invalidCellSpacing : 'Күзәнәкләр аралары уңай сан булырга тиеш.',
@@ -163,9 +164,9 @@ CKEDITOR.lang['tt'] = {
     	noAnchors : '(Әлеге документта якорьләр табылмады)',
     	noEmail : 'Электрон почта адресын языгыз',
     	noUrl : 'Сылталаманы языгыз',
-    	noTel : 'Please type the phone number',
+    	noTel : 'Телефон номерыгызны языгыз',
     	other : '<бүтән>',
-    	phoneNumber : 'Phone number',
+    	phoneNumber : 'Телефон номеры',
     	popupDependent : 'Бәйле (Netscape)',
     	popupFeatures : 'Popup Window Features',
     	popupFullScreen : 'Тулы экран (IE)',
@@ -190,7 +191,7 @@ CKEDITOR.lang['tt'] = {
     	toAnchor : 'Якорьне текст белән бәйләү',
     	toEmail : 'Электрон почта',
     	toUrl : 'Сылталама',
-    	toPhone : 'Phone',
+    	toPhone : 'Телефон',
     	toolbar : 'Сылталама',
     	type : 'Сылталама төре',
     	unlink : 'Сылталаманы бетерү',

@@ -1,5 +1,5 @@
 /**
- * @license Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -443,8 +443,12 @@
 						index = this._.focusIndex;
 						focusable = index >= 0 && this._.getItems().getItem( index );
 
-						if ( focusable )
-							focusable.$[ keyAction ] ? focusable.$[ keyAction ]() : focusable.$[ 'on' + keyAction ]();
+						if ( focusable ) {
+							// We must pass info about clicked button (#2857).
+							focusable.fireEventHandler( keyAction, {
+								button: CKEDITOR.tools.normalizeMouseButton( CKEDITOR.MOUSE_BUTTON_LEFT, true )
+							} );
+						}
 
 						return false;
 				}

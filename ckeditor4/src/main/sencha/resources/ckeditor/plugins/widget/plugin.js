@@ -1,5 +1,5 @@
 ﻿/**
- * @license Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -14,7 +14,7 @@
 
 	CKEDITOR.plugins.add( 'widget', {
 		// jscs:disable maximumLineLength
-		lang: 'af,ar,az,bg,ca,cs,cy,da,de,de-ch,el,en,en-au,en-gb,eo,es,es-mx,et,eu,fa,fi,fr,gl,he,hr,hu,id,it,ja,km,ko,ku,lv,nb,nl,no,oc,pl,pt,pt-br,ro,ru,sk,sl,sq,sv,tr,tt,ug,uk,vi,zh,zh-cn', // %REMOVE_LINE_CORE%
+		lang: 'af,ar,az,bg,ca,cs,cy,da,de,de-ch,el,en,en-au,en-gb,eo,es,es-mx,et,eu,fa,fi,fr,gl,he,hr,hu,id,it,ja,km,ko,ku,lt,lv,nb,nl,no,oc,pl,pt,pt-br,ro,ru,sk,sl,sq,sr,sr-latn,sv,tr,tt,ug,uk,vi,zh,zh-cn', // %REMOVE_LINE_CORE%
 		// jscs:enable maximumLineLength
 		requires: 'lineutils,clipboard,widgetselection',
 		onLoad: function() {
@@ -49,11 +49,7 @@
 					'position:absolute;' +
 					'width:' + DRAG_HANDLER_SIZE + 'px;' +
 					'height:0;' +
-					// Initially drag handler should not be visible, until its position will be
-					// calculated (https://dev.ckeditor.com/ticket/11177).
-					// We need to hide unpositined handlers, so they don't extend
-					// widget's outline far to the left (https://dev.ckeditor.com/ticket/12024).
-					'display:none;' +
+					'display:block;' +
 					'opacity:0.75;' +
 					'transition:height 0s 0.2s;' + // Delay hiding drag handler.
 					// Prevent drag handler from being misplaced (https://dev.ckeditor.com/ticket/11198).
@@ -65,6 +61,9 @@
 				'}' +
 				'.cke_widget_drag_handler_container:hover{' +
 					'opacity:1' +
+				'}' +
+				'.cke_editable[contenteditable="false"] .cke_widget_drag_handler_container{' + // Hide drag handler in read only mode (#3260).
+					'display:none;' +
 				'}' +
 				'img.cke_widget_drag_handler{' +
 					'cursor:move;' +
@@ -78,6 +77,10 @@
 					'left:0;' +
 					'width:100%;' +
 					'height:100%;' +
+					'display:block' +
+				'}' +
+				'.cke_widget_partial_mask{' +
+					'position:absolute;' +
 					'display:block' +
 				'}' +
 				'.cke_editable.cke_widget_dragging, .cke_editable.cke_widget_dragging *{' +
@@ -104,7 +107,7 @@
 			 *
 			 *		editor.widgets.registered.someName; // -> Widget definition
 			 *
-			 * @since 4.3
+			 * @since 4.3.0
 			 * @readonly
 			 * @property {CKEDITOR.plugins.widget.repository} widgets
 			 * @member CKEDITOR.editor
@@ -119,6 +122,7 @@
 			}
 			addWidgetButtons( editor );
 			setupContextMenu( editor );
+			setupUndoFilter( editor.undoManager );
 		}
 	} );
 
@@ -221,21 +225,41 @@
 		 * @returns {CKEDITOR.plugins.widget.definition}
 		 */
 		add: function( name, widgetDef ) {
+			var editor = this.editor;
+
 			// Create prototyped copy of original widget definition, so we won't modify it.
 			widgetDef = CKEDITOR.tools.prototypedCopy( widgetDef );
 			widgetDef.name = name;
 
 			widgetDef._ = widgetDef._ || {};
 
-			this.editor.fire( 'widgetDefinition', widgetDef );
+			editor.fire( 'widgetDefinition', widgetDef );
 
 			if ( widgetDef.template )
 				widgetDef.template = new CKEDITOR.template( widgetDef.template );
 
-			addWidgetCommand( this.editor, widgetDef );
+			addWidgetCommand( editor, widgetDef );
 			addWidgetProcessors( this, widgetDef );
 
 			this.registered[ name ] = widgetDef;
+
+			// Define default `getMode` member for widget dialog definition (#2423).
+			if ( widgetDef.dialog && editor.plugins.dialog ) {
+				var dialogListener = CKEDITOR.on( 'dialogDefinition', function( evt ) {
+					var definition = evt.data.definition,
+						dialog = definition.dialog;
+
+					if ( !definition.getMode && dialog.getName() === widgetDef.dialog ) {
+						definition.getMode = function() {
+							var model = dialog.getModel( editor );
+							return model && model instanceof CKEDITOR.plugins.widget && model.ready ?
+								CKEDITOR.dialog.EDITING_MODE : CKEDITOR.dialog.CREATION_MODE;
+						};
+					}
+
+					dialogListener.removeListener();
+				} );
+			}
 
 			return widgetDef;
 		},
@@ -564,7 +588,7 @@
 		 *			// Event `action` occurs on `image` widget.
 		 *		} );
 		 *
-		 * @since 4.5
+		 * @since 4.5.0
 		 * @param {String} widgetName
 		 * @param {String} eventName
 		 * @param {Function} listenerFunction
@@ -601,7 +625,7 @@
 		 * This method is used by the {@link CKEDITOR.plugins.widget#getClasses} method and
 		 * may be used when overriding that method.
 		 *
-		 * @since 4.4
+		 * @since 4.4.0
 		 * @param {String} classes String (value of `class` attribute).
 		 * @returns {Object} Object containing classes or `null` if no classes found.
 		 */
@@ -665,7 +689,7 @@
 					preserveSpaces( element );
 				}
 
-				wrapper = new CKEDITOR.dom.element( isInline ? 'span' : 'div' );
+				wrapper = new CKEDITOR.dom.element( isInline ? 'span' : 'div', element.getDocument() );
 				wrapper.setAttributes( getWrapperAttributes( isInline, widgetName ) );
 
 				wrapper.data( 'cke-display-name', widgetDef.pathName ? widgetDef.pathName : element.getName() );
@@ -803,7 +827,7 @@
 	 *		// insert a new simplebox widget or edit the one currently focused.
 	 *		editor.execCommand( 'simplebox' );
 	 *
-	 * Note: Since CKEditor 4.5 widget's `startupData` can be passed as the command argument:
+	 * Note: Since CKEditor 4.5.0 widget's `startupData` can be passed as the command argument:
 	 *
 	 *		editor.execCommand( 'simplebox', {
 	 *			startupData: {
@@ -817,7 +841,7 @@
 	 *		editor.insertElement( element );
 	 *		var widget = editor.widgets.initOn( element, 'simplebox' );
 	 *
-	 * @since 4.3
+	 * @since 4.3.0
 	 * @class CKEDITOR.plugins.widget
 	 * @mixins CKEDITOR.event
 	 * @extends CKEDITOR.plugins.widget.definition
@@ -1017,7 +1041,7 @@
 		 *
 		 * See also: {@link #removeClass}, {@link #hasClass}, {@link #getClasses}.
 		 *
-		 * @since 4.4
+		 * @since 4.4.0
 		 * @param {String} className The class name to be added.
 		 */
 		addClass: function( className ) {
@@ -1043,7 +1067,7 @@
 		 *
 		 * See also: {@link #checkStyleActive}, {@link #removeStyle}.
 		 *
-		 * @since 4.4
+		 * @since 4.4.0
 		 * @param {CKEDITOR.style} style The custom widget style to be applied.
 		 */
 		applyStyle: function( style ) {
@@ -1061,7 +1085,7 @@
 		 *
 		 * See also: {@link #applyStyle}, {@link #removeStyle}.
 		 *
-		 * @since 4.4
+		 * @since 4.4.0
 		 * @param {CKEDITOR.style} style The custom widget style to be checked.
 		 * @returns {Boolean} Whether the style is applied to this widget.
 		 */
@@ -1220,7 +1244,7 @@
 					showListener.removeListener();
 					okListener.removeListener();
 				} );
-			} );
+			}, that );
 
 			return true;
 		},
@@ -1234,11 +1258,28 @@
 		 *
 		 * See also: {@link #removeClass}, {@link #addClass}, {@link #hasClass}.
 		 *
-		 * @since 4.4
+		 * @since 4.4.0
 		 * @returns {Object}
 		 */
 		getClasses: function() {
 			return this.repository.parseElementClasses( this.element.getAttribute( 'class' ) );
+		},
+
+		/**
+		 * Returns the HTML of the widget. Can be overridden by
+		 * {@link CKEDITOR.plugins.widget.definition#getClipboardHtml widgetDefinition.getClipboardHtml()}
+		 * to customize the HTML copied to the clipboard during copy, cut and drag events.
+		 *
+		 * @since 4.13.0
+		 * @returns {String} Widget HTML.
+		 */
+		getClipboardHtml: function() {
+			var range = this.editor.createRange();
+
+			range.setStartBefore( this.wrapper );
+			range.setEndAfter( this.wrapper );
+
+			return this.editor.editable().getHtmlFromRange( range ).getHtml();
 		},
 
 		/**
@@ -1248,7 +1289,7 @@
 		 *
 		 * See also: {@link #removeClass}, {@link #addClass}, {@link #getClasses}.
 		 *
-		 * @since 4.4
+		 * @since 4.4.0
 		 * @param {String} className The class to be checked.
 		 * @param {Boolean} Whether a widget has specified class.
 		 */
@@ -1312,7 +1353,7 @@
 		 * Looks inside wrapper element to find a node that
 		 * matches given selector and is not nested in other widget. (https://dev.ckeditor.com/ticket/13334)
 		 *
-		 * @since 4.5
+		 * @since 4.5.0
 		 * @private
 		 * @param {String} selector Selector to match.
 		 * @returns {CKEDITOR.dom.element} Matched element or `null` if a node has not been found.
@@ -1389,7 +1430,7 @@
 		 *
 		 * See also: {@link #hasClass}, {@link #addClass}.
 		 *
-		 * @since 4.4
+		 * @since 4.4.0
 		 * @param {String} className The class to be removed.
 		 */
 		removeClass: function( className ) {
@@ -1407,7 +1448,7 @@
 		 *
 		 * See also {@link #checkStyleActive}, {@link #applyStyle}, {@link #getClasses}.
 		 *
-		 * @since 4.4
+		 * @since 4.4.0
 		 * @param {CKEDITOR.style} style The custom widget style to be removed.
 		 */
 		removeStyle: function( style ) {
@@ -1534,9 +1575,10 @@
 			editor.fire( 'lockSnapshot' );
 			this.dragHandlerContainer.setStyles( {
 				top: newPos.y + 'px',
-				left: newPos.x + 'px',
-				display: 'block'
+				left: newPos.x + 'px'
 			} );
+			this.dragHandlerContainer.removeStyle( 'display' );
+
 			editor.fire( 'unlockSnapshot' );
 			!initialDirty && editor.resetDirty();
 
@@ -1551,7 +1593,7 @@
 	 * (returned as a {@link CKEDITOR.dom.element}, not as a {@link CKEDITOR.plugins.widget.nestedEditable})
 	 * closest to the `node` or the `node` if it is a nested editable itself.
 	 *
-	 * @since 4.5
+	 * @since 4.5.0
 	 * @static
 	 * @param {CKEDITOR.dom.element} guard Stop ancestor search on this node (usually editor's editable).
 	 * @param {CKEDITOR.dom.node} node Start the search from this node.
@@ -1570,7 +1612,7 @@
 	/**
 	 * Checks whether the `node` is a widget's drag handle element.
 	 *
-	 * @since 4.5
+	 * @since 4.5.0
 	 * @static
 	 * @param {CKEDITOR.dom.node} node
 	 * @returns {Boolean}
@@ -1582,7 +1624,7 @@
 	/**
 	 * Checks whether the `node` is a container of the widget's drag handle element.
 	 *
-	 * @since 4.5
+	 * @since 4.5.0
 	 * @static
 	 * @param {CKEDITOR.dom.node} node
 	 * @returns {Boolean}
@@ -1596,7 +1638,7 @@
 	 * Note that this function only checks whether it is the right element, not whether
 	 * the passed `node` is an instance of {@link CKEDITOR.plugins.widget.nestedEditable}.
 	 *
-	 * @since 4.5
+	 * @since 4.5.0
 	 * @static
 	 * @param {CKEDITOR.dom.node} node
 	 * @returns {Boolean}
@@ -1608,7 +1650,7 @@
 	/**
 	 * Checks whether the `node` is a {@link CKEDITOR.plugins.widget#element widget element}.
 	 *
-	 * @since 4.5
+	 * @since 4.5.0
 	 * @static
 	 * @param {CKEDITOR.dom.node} node
 	 * @returns {Boolean}
@@ -1620,7 +1662,7 @@
 	/**
 	 * Checks whether the `node` is a {@link CKEDITOR.plugins.widget#wrapper widget wrapper}.
 	 *
-	 * @since 4.5
+	 * @since 4.5.0
 	 * @static
 	 * @param {CKEDITOR.dom.element} node
 	 * @returns {Boolean}
@@ -1644,7 +1686,7 @@
 	/**
 	 * Checks whether the `node` is a {@link CKEDITOR.plugins.widget#element widget element}.
 	 *
-	 * @since 4.5
+	 * @since 4.5.0
 	 * @static
 	 * @param {CKEDITOR.htmlParser.node} node
 	 * @returns {Boolean}
@@ -1656,7 +1698,7 @@
 	/**
 	 * Checks whether the `node` is a {@link CKEDITOR.plugins.widget#wrapper widget wrapper}.
 	 *
-	 * @since 4.5
+	 * @since 4.5.0
 	 * @static
 	 * @param {CKEDITOR.htmlParser.element} node
 	 * @returns {Boolean}
@@ -1945,7 +1987,7 @@
 				} else if ( widgetDef.template ) {
 					// ... or create a brand-new widget from template.
 					var defaults = typeof widgetDef.defaults == 'function' ? widgetDef.defaults() : widgetDef.defaults,
-						element = CKEDITOR.dom.element.createFromHtml( widgetDef.template.output( defaults ) ),
+						element = CKEDITOR.dom.element.createFromHtml( widgetDef.template.output( defaults ), editor.document ),
 						instance,
 						wrapper = editor.widgets.wrapElement( element, widgetDef.name ),
 						temp = new CKEDITOR.dom.documentFragment( wrapper.getDocument() );
@@ -2567,7 +2609,7 @@
 			delete CKEDITOR.plugins.clipboard.dragStartContainerChildCount;
 			delete CKEDITOR.plugins.clipboard.dragEndContainerChildCount;
 
-			evt.data.dataTransfer.setData( 'text/html', editor.editable().getHtmlFromRange( dragRange ).getHtml() );
+			evt.data.dataTransfer.setData( 'text/html', sourceWidget.getClipboardHtml() );
 			editor.widgets.destroy( sourceWidget, true );
 		} );
 
@@ -2743,9 +2785,9 @@
 	}
 
 	// Setup copybin on native copy and cut events in order to handle copy and cut commands
-	// if user accepted security alert on IEs.
-	// Note: when copying or cutting using keystroke, copySingleWidget will be first executed
-	// by the keydown listener. Conflict between two calls will be resolved by copy_bin existence check.
+	// if the user accepted the security alert on IEs.
+	// Note: When copying or cutting using keystroke, copyWidgets will be executed first
+	// by the keydown listener. A conflict between two calls will be resolved by the copy_bin existence check.
 	function setupNativeCutAndCopy( widgetsRepo ) {
 		var editor = widgetsRepo.editor;
 
@@ -2757,21 +2799,30 @@
 		} );
 
 		function eventListener( evt ) {
-			if ( widgetsRepo.focused )
-				copySingleWidget( widgetsRepo.focused, evt.name == 'cut' );
+			if ( widgetsRepo.selected.length < 1 ) {
+				return;
+			}
+
+			copyWidgets( editor, evt.name === 'cut' );
 		}
 	}
 
 	// Setup selection observer which will trigger:
 	// * widget select & focus on selection change,
-	// * nested editable focus (related properites and classes) on selection change,
+	// * nested editable focus (related properties and classes) on selection change,
 	// * deselecting and blurring all widgets on data,
 	// * blurring widget on editor blur.
 	function setupSelectionObserver( widgetsRepo ) {
 		var editor = widgetsRepo.editor;
 
-		editor.on( 'selectionCheck', function() {
-			widgetsRepo.fire( 'checkSelection' );
+		editor.on( 'selectionCheck', fireCheckSelection );
+
+		// The selectionCheck event is fired on keyup, so we must force refreshing
+		// widgets selection on key event. Also fire it only in WYSIWYG mode (#3352, #3704).
+		editor.on( 'contentDom', function() {
+			editor.editable().attachListener( editor, 'key', function() {
+				setTimeout( fireCheckSelection, 10 );
+			} );
 		} );
 
 		widgetsRepo.on( 'checkSelection', widgetsRepo.checkSelection, widgetsRepo );
@@ -2811,6 +2862,10 @@
 			if ( ( widget = widgetsRepo.widgetHoldingFocusedEditable ) )
 				setFocusedEditable( widgetsRepo, widget, null );
 		} );
+
+		function fireCheckSelection() {
+			widgetsRepo.fire( 'checkSelection' );
+		}
 	}
 
 	// Set up actions like:
@@ -2888,7 +2943,11 @@
 					// Nested editables are downcasted in the successive toDataFormat to create an opportunity
 					// for dataFilter's "excludeNestedEditable" option to do its job (that option relies on
 					// contenteditable="true" attribute) (https://dev.ckeditor.com/ticket/11372).
-					toBeDowncasted[ toBeDowncasted.length - 1 ].editables[ attrs[ 'data-cke-widget-editable' ] ] = element;
+					// There is possibility that nested editable is detected during pasting, when widget
+					// containing it is not yet upcasted (#1469).
+					if ( toBeDowncasted.length > 0 ) {
+						toBeDowncasted[ toBeDowncasted.length - 1 ].editables[ attrs[ 'data-cke-widget-editable' ] ] = element;
+					}
 
 					// Don't check children - there won't be next wrapper or nested editable which we
 					// should process in this session.
@@ -2905,12 +2964,19 @@
 				return;
 
 			var toBeDowncasted = downcastingSessions[ evt.data.downcastingSessionId ],
-				toBe, widget, widgetElement, retElement, editableElement, e;
+				toBe, widget, widgetElement, retElement, editableElement, e, parserFragment;
 
 			while ( ( toBe = toBeDowncasted.shift() ) ) {
 				widget = toBe.widget;
 				widgetElement = toBe.element;
 				retElement = widget._.downcastFn && widget._.downcastFn.call( widget, widgetElement );
+
+				// In case of copying widgets, we replace the widget with clipboard data (#3138).
+				if ( evt.data.widgetsCopy && widget.getClipboardHtml ) {
+					parserFragment = CKEDITOR.htmlParser.fragment.fromHtml( widget.getClipboardHtml() );
+
+					retElement = parserFragment.children[ 0 ];
+				}
 
 				// Replace nested editables' content with their output data.
 				for ( e in toBe.editables ) {
@@ -2966,8 +3032,9 @@
 
 		editor.on( 'dataReady', function() {
 			// Clean up all widgets loaded from snapshot.
-			if ( snapshotLoaded )
+			if ( snapshotLoaded ) {
 				cleanUpAllWidgetElements( widgetsRepo, editor.editable() );
+			}
 			snapshotLoaded = 0;
 
 			// Some widgets were destroyed on contentDomUnload,
@@ -2983,8 +3050,9 @@
 		editor.on( 'loadSnapshot', function( evt ) {
 			// Primitive but sufficient check which will prevent from executing
 			// heavier cleanUpAllWidgetElements if not needed.
-			if ( ( /data-cke-widget/ ).test( evt.data ) )
+			if ( ( /data-cke-widget/ ).test( evt.data ) ) {
 				snapshotLoaded = 1;
+			}
 
 			widgetsRepo.destroyAll( true );
 		}, null, null, 9 );
@@ -3040,12 +3108,14 @@
 
 		return {
 			select: function( widget ) {
-				if ( CKEDITOR.tools.indexOf( currentlySelected, widget ) < 0 )
+				if ( CKEDITOR.tools.indexOf( currentlySelected, widget ) < 0 ) {
 					toBeSelected.push( widget );
+				}
 
 				var index = CKEDITOR.tools.indexOf( toBeDeselected, widget );
-				if ( index >= 0 )
+				if ( index >= 0 ) {
 					toBeDeselected.splice( index, 1 );
+				}
 
 				return this;
 			},
@@ -3061,8 +3131,9 @@
 
 				widgetsRepo.editor.fire( 'lockSnapshot' );
 
-				if ( focusedChanged && ( widget = widgetsRepo.focused ) )
+				if ( focusedChanged && ( widget = widgetsRepo.focused ) ) {
 					blurWidget( widgetsRepo, widget );
+				}
 
 				while ( ( widget = toBeDeselected.pop() ) ) {
 					currentlySelected.splice( CKEDITOR.tools.indexOf( currentlySelected, widget ), 1 );
@@ -3096,6 +3167,17 @@
 		};
 	}
 
+	function setupUndoFilter( undoManager ) {
+		if ( !undoManager ) {
+			return;
+		}
+
+		undoManager.addFilterRule( function( data ) {
+			return data.replace( /\s*cke_widget_selected/g, '' )
+				.replace( /\s*cke_widget_focused/g, '' )
+				.replace( /<span[^>]*cke_widget_drag_handler_container[^>]*.*?<\/span>/gmi, '' );
+		} );
+	}
 
 	//
 	// WIDGET helpers ---------------------------------------------------------
@@ -3103,6 +3185,9 @@
 
 	// LEFT, RIGHT, UP, DOWN, DEL, BACKSPACE - unblock default fake sel handlers.
 	var keystrokesNotBlockedByWidget = { 37: 1, 38: 1, 39: 1, 40: 1, 8: 1, 46: 1 };
+
+	// Do not block SHIFT + F10 which opens context menu (#1901).
+	keystrokesNotBlockedByWidget[ CKEDITOR.SHIFT + 121 ] = 1;
 
 	// Applies or removes style's classes from widget.
 	// @param {CKEDITOR.style} style Custom widget style.
@@ -3114,16 +3199,18 @@
 			cl;
 
 		// Ee... Something is wrong with this style.
-		if ( !classes )
+		if ( !classes ) {
 			return;
+		}
 
 		// Clone, because we need to break reference.
 		updatedClasses = CKEDITOR.tools.clone( updatedClasses );
 
 		while ( ( cl = classes.pop() ) ) {
 			if ( apply ) {
-				if ( !updatedClasses[ cl ] )
+				if ( !updatedClasses[ cl ] ) {
 					changed = updatedClasses[ cl ] = 1;
+				}
 			} else {
 				if ( updatedClasses[ cl ] ) {
 					delete updatedClasses[ cl ];
@@ -3131,105 +3218,219 @@
 				}
 			}
 		}
-		if ( changed )
+		if ( changed ) {
 			widget.setData( 'classes', updatedClasses );
+		}
 	}
 
 	function cancel( evt ) {
 		evt.cancel();
 	}
 
-	function copySingleWidget( widget, isCut ) {
-		var editor = widget.editor,
-			doc = editor.document,
-			isEdge16 = CKEDITOR.env.edge && CKEDITOR.env.version >= 16;
+	var CopyBin = CKEDITOR.tools.createClass( {
+		$: function( editor, options ) {
+			this._.createCopyBin( editor, options );
+			this._.createListeners( options );
+		},
+
+		_: {
+			createCopyBin: function( editor ) {
+				// [IE] Use span for copybin and its container to avoid bug with expanding
+				// editable height by absolutely positioned element.
+				// For Edge 16+ always use div, as span causes scrolling to the end of the document
+				// on widget cut (also for blockless editor) (#1160).
+				// Edge 16+ workaround could be safetly removed after #1169 is fixed.
+				var doc = editor.document,
+					isEdge16 = CKEDITOR.env.edge && CKEDITOR.env.version >= 16,
+					copyBinName = ( ( editor.blockless || CKEDITOR.env.ie ) && !isEdge16 ) ? 'span' : 'div',
+					copyBin = doc.createElement( copyBinName ),
+					container = doc.createElement( copyBinName );
+
+				container.setAttributes( {
+					id: 'cke_copybin',
+					'data-cke-temp': '1'
+				} );
+
+				// Position copybin element outside current viewport.
+				copyBin.setStyles( {
+					position: 'absolute',
+					width: '1px',
+					height: '1px',
+					overflow: 'hidden'
+				} );
+
+				copyBin.setStyle( editor.config.contentsLangDirection == 'ltr' ? 'left' : 'right', '-5000px' );
+
+				this.editor = editor;
+				this.copyBin = copyBin;
+				this.container = container;
+			},
+
+			createListeners: function( options ) {
+				if ( !options ) {
+					return;
+				}
+
+				if ( options.beforeDestroy ) {
+					this.beforeDestroy = options.beforeDestroy;
+				}
+
+				if ( options.afterDestroy ) {
+					this.afterDestroy = options.afterDestroy;
+				}
+			}
+		},
+
+		proto: {
+			handle: function( html ) {
+				var copyBin = this.copyBin,
+					editor = this.editor,
+					container = this.container,
+					// IE8 always jumps to the end of document.
+					needsScrollHack = CKEDITOR.env.ie && CKEDITOR.env.version < 9,
+					docElement = editor.document.getDocumentElement().$,
+					range = editor.createRange(),
+					that = this,
+					// We need 100ms timeout for Chrome on macOS so it will be able to grab the content on cut.
+					isMacWebkit = CKEDITOR.env.mac && CKEDITOR.env.webkit,
+					copyTimeout = isMacWebkit ? 100 : 0,
+					waitForContent = window.requestAnimationFrame && !isMacWebkit ? requestAnimationFrame : setTimeout,
+					listener1,
+					listener2,
+					scrollTop;
+
+				copyBin.setHtml(
+					'<span data-cke-copybin-start="1">\u200b</span>' +
+					html +
+					'<span data-cke-copybin-end="1">\u200b</span>' );
+
+				// Ignore copybin.
+				editor.fire( 'lockSnapshot' );
+
+
+				container.append( copyBin );
+				editor.editable().append( container );
+
+				listener1 = editor.on( 'selectionChange', cancel, null, null, 0 );
+				listener2 = editor.widgets.on( 'checkSelection', cancel, null, null, 0 );
+
+				if ( needsScrollHack ) {
+					scrollTop = docElement.scrollTop;
+				}
+
+				// Once the clone of the widget is inside of copybin, select
+				// the entire contents. This selection will be copied by the
+				// native browser's clipboard system.
+				range.selectNodeContents( copyBin );
+				range.select();
+
+				if ( needsScrollHack ) {
+					docElement.scrollTop = scrollTop;
+				}
+
+				return new CKEDITOR.tools.promise( function( resolve ) {
+					waitForContent( function() {
+						if ( that.beforeDestroy ) {
+							that.beforeDestroy();
+						}
+
+						container.remove();
+
+						listener1.removeListener();
+						listener2.removeListener();
+
+						editor.fire( 'unlockSnapshot' );
+
+						if ( that.afterDestroy ) {
+							that.afterDestroy();
+						}
+
+						resolve();
+					}, copyTimeout );
+				} );
+			}
+		},
+
+		statics: {
+			hasCopyBin: function( editor ) {
+				return !!CopyBin.getCopyBin( editor );
+			},
+
+			getCopyBin: function( editor ) {
+				return editor.document.getById( 'cke_copybin' );
+			}
+		}
+	} );
+
+	function copyWidgets( editor, isCut ) {
+		var focused = editor.widgets.focused,
+			isWholeSelection,
+			copyBin,
+			bookmarks;
 
 		// We're still handling previous copy/cut.
 		// When keystroke is used to copy/cut this will also prevent
-		// conflict with copySingleWidget called again for native copy/cut event.
-		if ( doc.getById( 'cke_copybin' ) )
+		// conflict with copyWidgets called again for native copy/cut event.
+		if ( CopyBin.hasCopyBin( editor ) ) {
 			return;
-
-		// [IE] Use span for copybin and its container to avoid bug with expanding
-		// editable height by absolutely positioned element.
-		// For Edge 16+ always use div, as span causes scrolling to the end of the document
-		// on widget cut (also for blockless editor) (#1160).
-		// Edge 16+ workaround could be safetly removed after #1169 is fixed.
-		var copybinName = ( ( editor.blockless || CKEDITOR.env.ie ) && !isEdge16 ) ? 'span' : 'div',
-			copybin = doc.createElement( copybinName ),
-			copybinContainer = doc.createElement( copybinName ),
-			// IE8 always jumps to the end of document.
-			needsScrollHack = CKEDITOR.env.ie && CKEDITOR.env.version < 9;
-
-		copybinContainer.setAttributes( {
-			id: 'cke_copybin',
-			'data-cke-temp': '1'
-		} );
-
-		// Position copybin element outside current viewport.
-		copybin.setStyles( {
-			position: 'absolute',
-			width: '1px',
-			height: '1px',
-			overflow: 'hidden'
-		} );
-
-		copybin.setStyle( editor.config.contentsLangDirection == 'ltr' ? 'left' : 'right', '-5000px' );
-
-		var range = editor.createRange();
-		range.setStartBefore( widget.wrapper );
-		range.setEndAfter( widget.wrapper );
-
-		copybin.setHtml(
-			'<span data-cke-copybin-start="1">\u200b</span>' +
-			editor.editable().getHtmlFromRange( range ).getHtml() +
-			'<span data-cke-copybin-end="1">\u200b</span>' );
-
-		// Save snapshot with the current state.
-		editor.fire( 'saveSnapshot' );
-
-		// Ignore copybin.
-		editor.fire( 'lockSnapshot' );
-
-		copybinContainer.append( copybin );
-		editor.editable().append( copybinContainer );
-
-		var listener1 = editor.on( 'selectionChange', cancel, null, null, 0 ),
-			listener2 = widget.repository.on( 'checkSelection', cancel, null, null, 0 );
-
-		if ( needsScrollHack ) {
-			var docElement = doc.getDocumentElement().$,
-				scrollTop = docElement.scrollTop;
 		}
 
-		// Once the clone of the widget is inside of copybin, select
-		// the entire contents. This selection will be copied by the
-		// native browser's clipboard system.
-		range = editor.createRange();
-		range.selectNodeContents( copybin );
-		range.select();
+		copyBin = new CopyBin( editor, {
+			beforeDestroy: function() {
+				if ( !isCut && focused ) {
+					focused.focus();
+				}
 
-		if ( needsScrollHack )
-			docElement.scrollTop = scrollTop;
+				if ( bookmarks ) {
+					editor.getSelection().selectBookmarks( bookmarks );
+				}
 
-		setTimeout( function() {
-			// [IE] Focus widget before removing copybin to avoid scroll jump.
-			if ( !isCut )
-				widget.focus();
+				if ( isWholeSelection ) {
+					CKEDITOR.plugins.widgetselection.addFillers( editor.editable() );
+				}
+			},
 
-			copybinContainer.remove();
-
-			listener1.removeListener();
-			listener2.removeListener();
-
-			editor.fire( 'unlockSnapshot' );
-
-			// Prevent cutting in read-only editor (#1570).
-			if ( isCut && !editor.readOnly ) {
-				widget.repository.del( widget );
-				editor.fire( 'saveSnapshot' );
+			afterDestroy: function() {
+				// Prevent cutting in read-only editor (#1570).
+				if ( isCut && !editor.readOnly ) {
+					handleCut();
+				}
 			}
-		}, 100 ); // Use 100ms, so Chrome (@Mac) will be able to grab the content.
+		} );
+
+		// When more than one widget is selected, we must save selection to restore it
+		// after destroying copybin. Additionally we have to work around issue with selecting all in
+		// Blink and WebKit, when widgets are at the beginning and at the end of the content (#3138).
+		if ( !focused ) {
+			isWholeSelection = CKEDITOR.env.webkit && CKEDITOR.plugins.widgetselection.isWholeContentSelected( editor.editable() );
+			bookmarks = editor.getSelection().createBookmarks( true );
+		}
+
+		copyBin.handle( getClipboardHtml() );
+
+		function getClipboardHtml() {
+			var selectedHtml = editor.getSelectedHtml( true );
+
+			if ( editor.widgets.focused ) {
+				return editor.widgets.focused.getClipboardHtml();
+			}
+
+			editor.once( 'toDataFormat', function( evt ) {
+				evt.data.widgetsCopy = true;
+			}, null, null, -1 );
+
+			return editor.dataProcessor.toDataFormat( selectedHtml );
+		}
+
+		function handleCut() {
+			if ( focused ) {
+				editor.widgets.del( focused );
+			} else {
+				editor.extractSelectedHtml();
+			}
+
+			editor.fire( 'saveSnapshot' );
+		}
 	}
 
 	// Extracts classes array from style instance.
@@ -3250,8 +3451,9 @@
 
 		// If focus stays within editor override blur and set currentActive because it should be
 		// automatically changed to editable on editable#focus but it is not fired.
-		if ( ( editable.isInline() ? editable : editor.document.getWindow().getFrame() ).equals( active ) )
+		if ( ( editable.isInline() ? editable : editor.document.getWindow().getFrame() ).equals( active ) ) {
 			editor.focusManager.focus( editable );
+		}
 	}
 
 	// Force selectionChange when editable was focused.
@@ -3260,8 +3462,9 @@
 	function onEditableFocus() {
 		// Gecko does not support 'DOMFocusIn' event on which we unlock selection
 		// in selection.js to prevent selection locking when entering nested editables.
-		if ( CKEDITOR.env.gecko )
+		if ( CKEDITOR.env.gecko ) {
 			this.editor.unlockSelection();
+		}
 
 		// We don't need to force selectionCheck on Webkit, because on Webkit
 		// we do that on DOMFocusIn in selection.js.
@@ -3271,60 +3474,262 @@
 		}
 	}
 
-	// Setup listener on widget#data which will update (remove/add) classes
-	// by comparing newly set classes with the old ones.
-	function setupDataClassesListener( widget ) {
-		// Note: previousClasses and newClasses may be null!
-		// Tip: for ( cl in null ) is correct.
-		var previousClasses = null;
+	function setupWidget( widget, widgetDef ) {
+		setupWrapper( widget );
+		setupParts( widget );
+		setupEditables( widget );
+		setupMask( widget );
+		setupDragHandler( widget );
+		setupDataClassesListener( widget );
+		setupA11yListener( widget );
 
-		widget.on( 'data', function() {
-			var newClasses = this.data.classes,
-				cl;
+		// https://dev.ckeditor.com/ticket/11145: [IE8] Non-editable content of widget is draggable.
+		if ( CKEDITOR.env.ie && CKEDITOR.env.version < 9 ) {
+			widget.wrapper.on( 'dragstart', function( evt ) {
+				var target = evt.data.getTarget();
 
-			// When setting new classes one need to remember
-			// that he must break reference.
-			if ( previousClasses == newClasses )
+				// Allow text dragging inside nested editables or dragging inline widget's drag handler.
+				if ( !Widget.getNestedEditable( widget, target ) &&
+					!( widget.inline &&
+					Widget.isDomDragHandler( target ) ) ) {
+					evt.data.preventDefault();
+				}
+			} );
+		}
+
+		widget.wrapper.removeClass( 'cke_widget_new' );
+		widget.element.addClass( 'cke_widget_element' );
+
+		widget.on( 'key', function( evt ) {
+			var keyCode = evt.data.keyCode;
+
+			// ENTER.
+			if ( keyCode == 13 ) {
+				widget.edit();
+				// CTRL+C or CTRL+X.
+			} else if ( keyCode == CKEDITOR.CTRL + 67 || keyCode == CKEDITOR.CTRL + 88 ) {
+				copyWidgets( widget.editor, keyCode == CKEDITOR.CTRL + 88 );
+				return; // Do not preventDefault.
+				// Pass chosen keystrokes to other plugins or default fake sel handlers.
+				// Pass all CTRL/ALT keystrokes.
+			} else if ( keyCode in keystrokesNotBlockedByWidget ||
+				( CKEDITOR.CTRL & keyCode ) ||
+				( CKEDITOR.ALT & keyCode ) ) {
 				return;
-
-			for ( cl in previousClasses ) {
-				// Avoid removing and adding classes again.
-				if ( !( newClasses && newClasses[ cl ] ) )
-					this.removeClass( cl );
 			}
-			for ( cl in newClasses )
-				this.addClass( cl );
+			return false;
+		}, null, null, 999 );
 
-			previousClasses = newClasses;
+		// Listen with high priority so it's possible
+		// to overwrite this callback.
+
+		widget.on( 'doubleclick', function( evt ) {
+			if ( widget.edit() ) {
+				// We have to cancel event if edit method opens a dialog, otherwise
+				// link plugin may open extra dialog (https://dev.ckeditor.com/ticket/12140).
+				evt.cancel();
+			}
+		} );
+
+		if ( widgetDef.data ) {
+			widget.on( 'data', widgetDef.data );
+		}
+
+		if ( widgetDef.edit ) {
+			widget.on( 'edit', widgetDef.edit );
+		}
+	}
+
+	function setupWrapper( widget ) {
+		// Retrieve widget wrapper. Assign an id to it.
+		var wrapper = widget.wrapper = widget.element.getParent();
+		wrapper.setAttribute( 'data-cke-widget-id', widget.id );
+	}
+
+	// Replace parts object containing:
+	// partName => selector pairs
+	// with:
+	// partName => element pairs
+	function setupParts( widget ) {
+		if ( widget.parts ) {
+			var parts = {},
+				el,
+				partName;
+
+			for ( partName in widget.parts ) {
+				el = widget.wrapper.findOne( widget.parts[ partName ] );
+				parts[ partName ] = el;
+			}
+			widget.parts = parts;
+		}
+	}
+
+	function setupEditables( widget ) {
+		var definedEditables = widget.editables,
+			editableName,
+			editableDef;
+
+		widget.editables = {};
+
+		if ( !widget.editables ) {
+			return;
+		}
+
+		for ( editableName in definedEditables ) {
+			editableDef = definedEditables[ editableName ];
+			widget.initEditable( editableName, typeof editableDef == 'string' ? { selector: editableDef } : editableDef );
+		}
+	}
+
+	function setupMask( widget ) {
+		if ( widget.mask === true ) {
+			setupFullMask( widget );
+		} else if ( widget.mask ) {
+			// Buffer to limit number of separate calls to 'refreshPartialMask()', e.g. during writing.
+			var maskBuffer = new CKEDITOR.tools.buffers.throttle( 250, refreshPartialMask, widget ),
+				timeout = ( CKEDITOR.env.gecko ? 300 : 0 ),
+				changeListener,
+				blurListener;
+
+			// First listener is the most obvious, refresh mask after every change that could affect widget.
+			widget.on( 'focus', function() {
+				// Refresh widget mask on initial focus. This handle cases when widget can be resized without
+				// being focused and is focused right after (e.g. `image2` on Edge/IE browsers).
+				maskBuffer.input();
+
+				changeListener = widget.editor.on( 'change', maskBuffer.input );
+				blurListener = widget.on( 'blur', function() {
+					changeListener.removeListener();
+					blurListener.removeListener();
+				} );
+			} );
+
+			// Another insurance policy vs FF but this time also Chrome (the latter is just a bit better here).
+			// This time setup mask after editor is ready (in FF it doesn't mean that widgets are fully loaded
+			// so timeout is needed) and after switching from source mode (same story).
+			widget.editor.on( 'instanceReady', function() {
+				setTimeout( function() {
+					maskBuffer.input();
+				}, timeout );
+			} );
+
+			widget.editor.on( 'mode', function() {
+				setTimeout( function() {
+					maskBuffer.input();
+				}, timeout );
+			} );
+
+			// FF renders image-like widget very late, so mask has to be create asynchronously after
+			// image is loaded.
+			if ( CKEDITOR.env.gecko ) {
+				var imgs = widget.element.find( 'img' );
+				CKEDITOR.tools.array.forEach( imgs.toArray(), function( img ) {
+					img.on( 'load', function() {
+						maskBuffer.input();
+					} );
+				} );
+			}
+
+			// Focusing editable doesn't trigger focus on widget, so listen to those events separately.
+			for ( var editable in widget.editables ) {
+				widget.editables[ editable ].on( 'focus', function() {
+					widget.editor.on( 'change', maskBuffer.input );
+					// If widget was focused before focusing editable, the 'blur' event has to be removed.
+					// Otherwise on Chrome it will trigger after the focus event and cancel listening to
+					// changes (on FF it works inversely).
+					if ( blurListener ) {
+						blurListener.removeListener();
+					}
+				} );
+				widget.editables[ editable ].on( 'blur', function() {
+					widget.editor.removeListener( 'change', maskBuffer.input );
+				} );
+			}
+
+			// Trigger initial setup.
+			maskBuffer.input();
+		}
+	}
+
+	function setupFullMask( widget ) {
+		// Reuse mask if already exists (https://dev.ckeditor.com/ticket/11281).
+		var mask = widget.wrapper.findOne( '.cke_widget_mask' );
+
+		if ( !mask ) {
+			mask = new CKEDITOR.dom.element( 'img', widget.editor.document );
+			mask.setAttributes( {
+				src: CKEDITOR.tools.transparentImageData,
+				'class': 'cke_reset cke_widget_mask'
+			} );
+			widget.wrapper.append( mask );
+		}
+
+		widget.mask = mask;
+	}
+
+	function refreshPartialMask() {
+		if ( !this.wrapper ) {
+			return;
+		}
+
+		// Original value of 'widget.mask' is substituted with actual mask element, so
+		// 'widget.maskPart' property was added to be able to adjust partial mask e.g. after resizing.
+		this.maskPart = this.maskPart || this.mask;
+
+		var part = this.parts[ this.maskPart ],
+			mask;
+
+		// If requested part is invalid, don't create mask.
+		if ( !part ) {
+			return;
+		}
+
+		mask = this.wrapper.findOne( '.cke_widget_partial_mask' );
+
+		if ( !mask ) {
+			mask = new CKEDITOR.dom.element( 'img', this.editor.document );
+			mask.setAttributes( {
+				src: CKEDITOR.tools.transparentImageData,
+				'class': 'cke_reset cke_widget_partial_mask'
+			} );
+			this.wrapper.append( mask );
+		}
+
+		this.mask = mask;
+
+		if ( !isMaskFitting( mask, part ) ) {
+			setMaskSizeAndPosition( mask, part );
+		}
+	}
+
+	function isMaskFitting( oldElement, newElement ) {
+		var oldEl = oldElement.$,
+			newEl = newElement.$,
+			dimensionsChanged = !( oldEl.offsetWidth == newEl.offsetWidth && oldEl.offsetHeight == newEl.offsetHeight ),
+			positionChanged = !( oldEl.offsetTop == newEl.offsetTop && oldEl.offsetLeft == newEl.offsetLeft );
+
+		return !( dimensionsChanged || positionChanged );
+	}
+
+	function setMaskSizeAndPosition( mask, maskedPart ) {
+		// Widgets with resize feature are messing with default widget structure,
+		// so it needs to be taken into account and mask's position will be adjusted.
+		// The problem was appearing after dragging the widget in FF.
+		var parent = maskedPart.getParent(),
+			isDomWidget = CKEDITOR.plugins.widget.isDomWidget( parent );
+
+		mask.setStyles( {
+			top: maskedPart.$.offsetTop + ( !isDomWidget ? parent.$.offsetTop : 0 ) + 'px',
+			left: maskedPart.$.offsetLeft + ( !isDomWidget ? parent.$.offsetLeft : 0 ) + 'px',
+			width: maskedPart.$.offsetWidth + 'px',
+			height: maskedPart.$.offsetHeight + 'px'
 		} );
 	}
 
-	// Add a listener to data event that will set/change widget's label (https://dev.ckeditor.com/ticket/14539).
-	function setupA11yListener( widget ) {
-		// Note, the function gets executed in a context of widget instance.
-		function getLabelDefault() {
-			return this.editor.lang.widget.label.replace( /%1/, this.pathName || this.element.getName() );
-		}
-
-		// Setting a listener on data is enough, there's no need to perform it on widget initialization, as
-		// setupWidgetData fires this event anyway.
-		widget.on( 'data', function() {
-			// In some cases widget might get destroyed in an earlier data listener. For instance, image2 plugin, does
-			// so when changing its internal state.
-			if ( !widget.wrapper ) {
-				return;
-			}
-
-			var label = this.getLabel ? this.getLabel() : getLabelDefault.call( this );
-
-			widget.wrapper.setAttribute( 'role', 'region' );
-			widget.wrapper.setAttribute( 'aria-label', label );
-		}, null, null, 9999 );
-	}
-
 	function setupDragHandler( widget ) {
-		if ( !widget.draggable )
+		if ( !widget.draggable ) {
 			return;
+		}
 
 		var editor = widget.editor,
 			// Use getLast to find wrapper's direct descendant (https://dev.ckeditor.com/ticket/12022).
@@ -3332,14 +3737,19 @@
 			img;
 
 		// Reuse drag handler if already exists (https://dev.ckeditor.com/ticket/11281).
-		if ( container )
+		if ( container ) {
 			img = container.findOne( 'img' );
-		else {
+		} else {
 			container = new CKEDITOR.dom.element( 'span', editor.document );
 			container.setAttributes( {
 				'class': 'cke_reset cke_widget_drag_handler_container',
 				// Split background and background-image for IE8 which will break on rgba().
-				style: 'background:rgba(220,220,220,0.5);background-image:url(' + editor.plugins.widget.path + 'images/handle.png)'
+				// Initially drag handler should not be visible, until its position will be
+				// calculated (https://dev.ckeditor.com/ticket/11177).
+				// We need to hide unpositined handlers, so they don't extend
+				// widget's outline far to the left (https://dev.ckeditor.com/ticket/12024).
+				style: 'background:rgba(220,220,220,0.5);background-image:url(' + editor.plugins.widget.path + 'images/handle.png);' +
+					'display:none;'
 			} );
 
 			img = new CKEDITOR.dom.element( 'img', editor.document );
@@ -3406,7 +3816,6 @@
 
 		// Harvest all possible relations and display some closest.
 		var relations = finder.greedySearch(),
-
 			buffer = CKEDITOR.tools.eventsBuffer( 50, function() {
 				locations = locator.locate( relations );
 
@@ -3431,7 +3840,6 @@
 
 		// Fire drag start as it happens during the native D&D.
 		editor.fire( 'dragstart', { target: evt.sender } );
-
 
 		function onMouseUp() {
 			var l;
@@ -3489,128 +3897,74 @@
 		editor.fire( 'dragend', { target: dragTarget } );
 	}
 
-	function setupEditables( widget ) {
-		var editableName,
-			editableDef,
-			definedEditables = widget.editables;
+	// Setup listener on widget#data which will update (remove/add) classes
+	// by comparing newly set classes with the old ones.
+	function setupDataClassesListener( widget ) {
+		// Note: previousClasses and newClasses may be null!
+		// Tip: for ( cl in null ) is correct.
+		var previousClasses = null;
 
-		widget.editables = {};
+		widget.on( 'data', function() {
+			var newClasses = this.data.classes,
+				cl;
 
-		if ( !widget.editables )
-			return;
-
-		for ( editableName in definedEditables ) {
-			editableDef = definedEditables[ editableName ];
-			widget.initEditable( editableName, typeof editableDef == 'string' ? { selector: editableDef } : editableDef );
-		}
-	}
-
-	function setupMask( widget ) {
-		if ( !widget.mask )
-			return;
-
-		// Reuse mask if already exists (https://dev.ckeditor.com/ticket/11281).
-		var img = widget.wrapper.findOne( '.cke_widget_mask' );
-
-		if ( !img ) {
-			img = new CKEDITOR.dom.element( 'img', widget.editor.document );
-			img.setAttributes( {
-				src: CKEDITOR.tools.transparentImageData,
-				'class': 'cke_reset cke_widget_mask'
-			} );
-			widget.wrapper.append( img );
-		}
-
-		widget.mask = img;
-	}
-
-	// Replace parts object containing:
-	// partName => selector pairs
-	// with:
-	// partName => element pairs
-	function setupParts( widget ) {
-		if ( widget.parts ) {
-			var parts = {},
-				el, partName;
-
-			for ( partName in widget.parts ) {
-				el = widget.wrapper.findOne( widget.parts[ partName ] );
-				parts[ partName ] = el;
-			}
-			widget.parts = parts;
-		}
-	}
-
-	function setupWidget( widget, widgetDef ) {
-		setupWrapper( widget );
-		setupParts( widget );
-		setupEditables( widget );
-		setupMask( widget );
-		setupDragHandler( widget );
-		setupDataClassesListener( widget );
-		setupA11yListener( widget );
-
-		// https://dev.ckeditor.com/ticket/11145: [IE8] Non-editable content of widget is draggable.
-		if ( CKEDITOR.env.ie && CKEDITOR.env.version < 9 ) {
-			widget.wrapper.on( 'dragstart', function( evt ) {
-				var target = evt.data.getTarget();
-
-				// Allow text dragging inside nested editables or dragging inline widget's drag handler.
-				if ( !Widget.getNestedEditable( widget, target ) && !( widget.inline && Widget.isDomDragHandler( target ) ) )
-					evt.data.preventDefault();
-			} );
-		}
-
-		widget.wrapper.removeClass( 'cke_widget_new' );
-		widget.element.addClass( 'cke_widget_element' );
-
-		widget.on( 'key', function( evt ) {
-			var keyCode = evt.data.keyCode;
-
-			// ENTER.
-			if ( keyCode == 13 ) {
-				widget.edit();
-				// CTRL+C or CTRL+X.
-			} else if ( keyCode == CKEDITOR.CTRL + 67 || keyCode == CKEDITOR.CTRL + 88 ) {
-				copySingleWidget( widget, keyCode == CKEDITOR.CTRL + 88 );
-				return; // Do not preventDefault.
-			} else if ( keyCode in keystrokesNotBlockedByWidget || ( CKEDITOR.CTRL & keyCode ) || ( CKEDITOR.ALT & keyCode ) ) {
-				// Pass chosen keystrokes to other plugins or default fake sel handlers.
-				// Pass all CTRL/ALT keystrokes.
+			// When setting new classes one need to remember
+			// that he must break reference.
+			if ( previousClasses == newClasses ) {
 				return;
 			}
 
-			return false;
-		}, null, null, 999 );
-		// Listen with high priority so it's possible
-		// to overwrite this callback.
-
-		widget.on( 'doubleclick', function( evt ) {
-			if ( widget.edit() ) {
-				// We have to cancel event if edit method opens a dialog, otherwise
-				// link plugin may open extra dialog (https://dev.ckeditor.com/ticket/12140).
-				evt.cancel();
+			for ( cl in previousClasses ) {
+				// Avoid removing and adding classes again.
+				if ( !( newClasses && newClasses[ cl ] ) ) {
+					this.removeClass( cl );
+				}
 			}
+			for ( cl in newClasses ) {
+				this.addClass( cl );
+			}
+
+			previousClasses = newClasses;
 		} );
+	}
 
-		if ( widgetDef.data )
-			widget.on( 'data', widgetDef.data );
+	// Add a listener to data event that will set/change widget's label (https://dev.ckeditor.com/ticket/14539).
+	function setupA11yListener( widget ) {
+		// Note, the function gets executed in a context of widget instance.
+		function getLabelDefault() {
+			return this.editor.lang.widget.label.replace( /%1/, this.pathName || this.element.getName() );
+		}
 
-		if ( widgetDef.edit )
-			widget.on( 'edit', widgetDef.edit );
+		// Setting a listener on data is enough, there's no need to perform it on widget initialization, as
+		// setupWidgetData fires this event anyway.
+		widget.on( 'data', function() {
+			// In some cases widget might get destroyed in an earlier data listener. For instance, image2 plugin, does
+			// so when changing its internal state.
+			if ( !widget.wrapper ) {
+				return;
+			}
+
+			var label = this.getLabel ? this.getLabel() : getLabelDefault.call( this );
+
+			widget.wrapper.setAttribute( 'role', 'region' );
+			widget.wrapper.setAttribute( 'aria-label', label );
+		}, null, null, 9999 );
 	}
 
 	function setupWidgetData( widget, startupData ) {
 		var widgetDataAttr = widget.element.data( 'cke-widget-data' );
 
-		if ( widgetDataAttr )
+		if ( widgetDataAttr ) {
 			widget.setData( JSON.parse( decodeURIComponent( widgetDataAttr ) ) );
-		if ( startupData )
+		}
+		if ( startupData ) {
 			widget.setData( startupData );
+		}
 
 		// Populate classes if they are not preset.
-		if ( !widget.data.classes )
+		if ( !widget.data.classes ) {
 			widget.setData( 'classes', widget.getClasses() );
+		}
 
 		// Unblock data and...
 		widget.dataReady = true;
@@ -3620,12 +3974,6 @@
 
 		// Fire data event first time, because this was blocked when data wasn't ready.
 		widget.fire( 'data', widget.data );
-	}
-
-	function setupWrapper( widget ) {
-		// Retrieve widget wrapper. Assign an id to it.
-		var wrapper = widget.wrapper = widget.element.getParent();
-		wrapper.setAttribute( 'data-cke-widget-id', widget.id );
 	}
 
 	function writeDataToElement( widget ) {
@@ -3647,7 +3995,7 @@
 		 * **Note:** This custom style handler does not support all methods of the {@link CKEDITOR.style} class.
 		 * Not supported methods: {@link #applyToRange}, {@link #removeFromRange}, {@link #applyToObject}.
 		 *
-		 * @since 4.4
+		 * @since 4.4.0
 		 * @class CKEDITOR.style.customHandlers.widget
 		 * @extends CKEDITOR.style
 		 */
@@ -3682,10 +4030,11 @@
 			apply: function( editor ) {
 				var widget;
 
-				// Before CKEditor 4.4 wasn't a required argument, so we need to
+				// Before CKEditor 4.4.0 wasn't a required argument, so we need to
 				// handle a case when it wasn't provided.
-				if ( !( editor instanceof CKEDITOR.editor ) )
+				if ( !( editor instanceof CKEDITOR.editor ) ) {
 					return;
+				}
 
 				// Theoretically we could bypass checkApplicable, get widget from
 				// widgets.focused and check its name, what would be faster, but then
@@ -3704,13 +4053,15 @@
 			},
 
 			remove: function( editor ) {
-				// Before CKEditor 4.4 wasn't a required argument, so we need to
+				// Before CKEditor 4.4.0 wasn't a required argument, so we need to
 				// handle a case when it wasn't provided.
-				if ( !( editor instanceof CKEDITOR.editor ) )
+				if ( !( editor instanceof CKEDITOR.editor ) ) {
 					return;
+				}
 
-				if ( this.checkApplicable( editor.elementPath(), editor ) )
+				if ( this.checkApplicable( editor.elementPath(), editor ) ) {
 					editor.widgets.focused.removeStyle( this );
+				}
 			},
 
 			/**
@@ -3723,14 +4074,15 @@
 			 * @returns {Boolean}
 			 */
 			removeStylesFromSameGroup: function( editor ) {
-				var stylesFromSameGroup,
-					path,
-					removed = false;
+				var removed = false,
+					stylesFromSameGroup,
+					path;
 
-				// Before CKEditor 4.4 wasn't a required argument, so we need to
+				// Before CKEditor 4.4.0 wasn't a required argument, so we need to
 				// handle a case when it wasn't provided.
-				if ( !( editor instanceof CKEDITOR.editor ) )
+				if ( !( editor instanceof CKEDITOR.editor ) ) {
 					return false;
+				}
 
 				path = editor.elementPath();
 				if ( this.checkApplicable( path, editor ) ) {
@@ -3755,10 +4107,11 @@
 			},
 
 			checkApplicable: function( elementPath, editor ) {
-				// Before CKEditor 4.4 wasn't a required argument, so we need to
+				// Before CKEditor 4.4.0 wasn't a required argument, so we need to
 				// handle a case when it wasn't provided.
-				if ( !( editor instanceof CKEDITOR.editor ) )
+				if ( !( editor instanceof CKEDITOR.editor ) ) {
 					return false;
+				}
 
 				return this.checkElement( elementPath.lastElement );
 			},
@@ -3775,8 +4128,9 @@
 			 * @returns {Boolean}
 			 */
 			checkElement: function( element ) {
-				if ( !Widget.isDomWidgetWrapper( element ) )
+				if ( !Widget.isDomWidgetWrapper( element ) ) {
 					return false;
+				}
 
 				var widgetElement = element.getFirst( Widget.isDomWidgetElement );
 				return widgetElement && widgetElement.data( 'widget' ) == this.widget;
@@ -3797,20 +4151,23 @@
 			 * @returns {CKEDITOR.filter.allowedContentRules}
 			 */
 			toAllowedContentRules: function( editor ) {
-				if ( !editor )
+				if ( !editor ) {
 					return null;
+				}
 
 				var widgetDef = editor.widgets.registered[ this.widget ],
 					classes,
 					rule = {};
 
-				if ( !widgetDef )
+				if ( !widgetDef ) {
 					return null;
+				}
 
 				if ( widgetDef.styleableElements ) {
 					classes = this.getClassesArray();
-					if ( !classes )
+					if ( !classes ) {
 						return null;
+					}
 
 					rule[ widgetDef.styleableElements ] = {
 						classes: classes,
@@ -3818,8 +4175,10 @@
 					};
 					return rule;
 				}
-				if ( widgetDef.styleToAllowedContentRules )
+
+				if ( widgetDef.styleToAllowedContentRules ) {
 					return widgetDef.styleToAllowedContentRules( this );
+				}
 				return null;
 			},
 
@@ -3860,13 +4219,15 @@
 
 		// @context style
 		function checkElementMatch( element, fullMatch, editor ) {
-			// Before CKEditor 4.4 wasn't a required argument, so we need to
+			// Before CKEditor 4.4.0 wasn't a required argument, so we need to
 			// handle a case when it wasn't provided.
-			if ( !editor )
+			if ( !editor ) {
 				return false;
+			}
 
-			if ( !this.checkElement( element ) )
+			if ( !this.checkElement( element ) ) {
 				return false;
+			}
 
 			var widget = editor.widgets.getByElement( element, true );
 			return widget && widget.checkStyleActive( this );
@@ -3875,6 +4236,7 @@
 		// Save and categorize style by its group.
 		function saveStyleGroup( style ) {
 			var widgetName = style.widget,
+				groupName,
 				group;
 
 			if ( !styleGroups[ widgetName ] ) {
@@ -3882,12 +4244,58 @@
 			}
 
 			for ( var i = 0, l = style.group.length; i < l; i++ ) {
-				group = style.group[ i ];
-				if ( !styleGroups[ widgetName ][ group ] ) {
-					styleGroups[ widgetName ][ group ] = [];
+				groupName = style.group[ i ];
+
+				if ( !styleGroups[ widgetName ][ groupName ] ) {
+					styleGroups[ widgetName ][ groupName ] = [];
 				}
 
-				styleGroups[ widgetName ][ group ].push( style );
+				group = styleGroups[ widgetName ][ groupName ];
+
+				// Don't push the style if it's already stored (#589).
+				if ( !find( group, getCompareFn( style ) ) ) {
+					group.push( style );
+				}
+			}
+
+			// Copied `CKEDITOR.tools.array` from major branch.
+			function find( array, fn, thisArg ) {
+				var length = array.length,
+					i = 0;
+
+				while ( i < length ) {
+					if ( fn.call( thisArg, array[ i ], i, array ) ) {
+						return array[ i ];
+					}
+					i++;
+				}
+
+				return undefined;
+			}
+
+			function getCompareFn( left ) {
+				return function( right ) {
+					return deepCompare( left.getDefinition(), right.getDefinition() );
+				};
+
+				function deepCompare( left, right ) {
+					var leftKeys = CKEDITOR.tools.object.keys( left ),
+						rightKeys = CKEDITOR.tools.object.keys( right );
+
+					if ( leftKeys.length !== rightKeys.length ) {
+						return false;
+					}
+
+					for ( var key in left ) {
+						var areSameObjects = typeof left[ key ] === 'object' && typeof right[ key ] === 'object' && deepCompare( left[ key ], right[ key ] );
+
+						if ( !areSameObjects && left[ key ] !== right[ key ] ) {
+							return false;
+						}
+					}
+
+					return true;
+				}
 			}
 		}
 
@@ -4002,7 +4410,7 @@
  * The {@link #upcast} method(s) priority. The upcast with a lower priority number will be called before
  * the one with a higher number. The default priority is `10`.
  *
- * @since 4.5
+ * @since 4.5.0
  * @property {Number} [upcastPriority=10]
  */
 
@@ -4155,14 +4563,19 @@
  * This will prevent its content from being clickable, which matters in case
  * of special elements like embedded Flash or iframes that generate a separate "context".
  *
- * @property {Boolean} mask
+ * If the value is a `string` type, then the partial mask covering only the given widget part
+ * is created instead. The `string` mask should point to the name of one of the widget {@link CKEDITOR.plugins.widget#parts parts}.
+ *
+ * **Note**: Partial mask is available since the `4.13.0` version.
+ *
+ * @property {Boolean/String} mask
  */
 
 /**
- * If set to `true/false`, it will force the widget to be either an inline or a block widget.
+ * If set to `true`/`false`, it will force the widget to be either an inline or a block widget.
  * If not set, the widget type will be determined from the widget element.
  *
- * Widget type influences whether a block (`div`) or an inline (`span`) element is used
+ * Widget type influences whether a block (`<div>`) or an inline (`<span>`) element is used
  * for the wrapper.
  *
  * @property {Boolean} inline
@@ -4183,15 +4596,29 @@
  */
 
 /**
- * Whether widget should be draggable. Defaults to `true`.
- * If set to `false` drag handler will not be displayed when hovering widget.
+ * Customizes widget HTML copied to the clipboard
+ * during copy, cut and drop operations.
+ *
+ * If not set, the current widget HTML will be used instead.
+ *
+ * Note: This method will overwrite the HTML for the whole widget, **including**
+ * any nested widgets.
+ *
+ * @method getClipboardHtml
+ * @since 4.13.0
+ * @returns {String} Widget HTML.
+ */
+
+/**
+ * Whether the widget should be draggable. Defaults to `true`.
+ * If set to `false`, the drag handler will not be displayed when hovering the widget.
  *
  * @property {Boolean} draggable
  */
 
 /**
  * Names of element(s) (separated by spaces) for which the {@link CKEDITOR.filter} should allow classes
- * defined in the widget styles. For example if your widget is upcasted from a simple `<div>`
+ * defined in the widget styles. For example, if your widget is upcasted from a simple `<div>`
  * element, then in order to make it styleable you can set:
  *
  *		editor.widgets.add( 'customWidget', {
@@ -4216,7 +4643,7 @@
  * If you need to have more freedom when transforming widget style to allowed content rules,
  * you can use the {@link #styleToAllowedContentRules} callback.
  *
- * @since 4.4
+ * @since 4.4.0
  * @property {String} styleableElements
  */
 
@@ -4254,7 +4681,7 @@
  *			}
  *		} );
  *
- * @since 4.4
+ * @since 4.4.0
  * @property {Function} styleToAllowedContentRules
  * @param {CKEDITOR.style.customHandlers.widget} style The style to be transformed.
  * @returns {CKEDITOR.filter.allowedContentRules}

@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.plugins.setLang( 'table', 'it', {
@@ -50,6 +50,7 @@ CKEDITOR.plugins.setLang( 'table', 'it', {
 	headersColumn: 'Prima Colonna',
 	headersNone: 'Nessuna',
 	headersRow: 'Prima Riga',
+	heightUnit: 'height unit', // MISSING
 	invalidBorder: 'La dimensione del bordo dev\'essere un numero.',
 	invalidCellPadding: 'Il paging delle celle dev\'essere un numero',
 	invalidCellSpacing: 'La spaziatura tra le celle dev\'essere un numero.',

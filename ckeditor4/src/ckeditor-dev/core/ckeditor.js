@@ -1,5 +1,5 @@
 /**
- * @license Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -49,14 +49,19 @@ CKEDITOR.add = function( editor ) {
 		}
 	} );
 
-	editor.on( 'blur', function() {
+	editor.on( 'blur', removeInstance );
+
+	// Remove currentInstance if it's destroyed (#589).
+	editor.on( 'destroy', removeInstance );
+
+	CKEDITOR.fire( 'instance', null, editor );
+
+	function removeInstance() {
 		if ( CKEDITOR.currentInstance == editor ) {
 			CKEDITOR.currentInstance = null;
 			CKEDITOR.fire( 'currentInstance' );
 		}
-	} );
-
-	CKEDITOR.fire( 'instance', null, editor );
+	}
 };
 
 /**

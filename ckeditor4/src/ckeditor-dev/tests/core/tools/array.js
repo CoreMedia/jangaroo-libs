@@ -34,8 +34,8 @@
 
 		'test array.filter context and arguments': function() {
 			var context = {
-					foo: 'bar'
-				};
+				foo: 'bar'
+			};
 
 			this.array.filter( [ 'a', 'b', 'c' ], function( elem, index ) {
 				assert.isString( elem, 'Element type' );
@@ -59,8 +59,8 @@
 
 		'test array.forEach context': function() {
 			var context = {
-					foo: 'bar'
-				};
+				foo: 'bar'
+			};
 
 			this.array.forEach( [ 1, 1 ], function() {
 				assert.areSame( context, this, 'Context object' );
@@ -129,7 +129,11 @@
 			}, [ 1 ] ) );
 		},
 
+		// (#1073)
 		'test array.every array': function() {
+			var testArray = [ 1234 ],
+				testThis = {};
+
 			assert.isTrue( this.array.every( [], function() {} ) );
 
 			assert.isTrue( this.array.every( [ 11, 12, 34, 35, 546546 ], function( item ) {
@@ -146,13 +150,71 @@
 				return item.charAt( 0 ) === 'a';
 			} ) );
 
-			this.array.every( [ 1234 ], function( item, index, array ) {
+			this.array.every( testArray, function( item, index, array ) {
 				assert.areSame( 1234, item );
 				assert.areSame( 0, index );
-				arrayAssert.itemsAreSame( [ 1234 ], array );
-			} );
-		}
+				assert.areSame( testArray, array );
+				assert.areSame( testThis, this );
+			}, testThis );
+		},
 
+		// (#2700)
+		'test array.find no match': function() {
+			var arr = [ 'foo', 'bar', 'baz', 1, 2, 3 ],
+				results = [],
+				ret = this.array.find( arr, function( item, index ) {
+					results.push( item );
+
+					arrayAssert.indexOf( item, arr, index, 'Index argument should match item index' );
+
+					return false;
+				}, this );
+
+			assert.isUndefined( ret, 'Returned value' );
+
+			arrayAssert.itemsAreSame( arr, results, 'Each array item should be iterated' );
+		},
+
+		// (#2700)
+		'test array.find match': function() {
+			var arr = [ 'foo', 'bar', 'baz', 1, 2, 3 ],
+				ret = this.array.find( arr, function( item, index, array ) {
+					assert.areSame( arr, array, 'Array argument should match given array' );
+
+					assert.areSame( window, this, 'thisArg should match given object' );
+
+					return item === 'baz';
+				}, window );
+
+			assert.areSame( 'baz', ret );
+		},
+
+		// (3154)
+		'test array.some method': function() {
+			var testArray = [ 1234 ],
+				testThis = {};
+
+			assert.isFalse( this.array.some( [], function() {} ) );
+
+			assert.isTrue( this.array.some( [ 11, 12, 34, 35, 546546 ], function( item ) {
+				return item > 10;
+			} ) );
+
+			assert.isTrue( this.array.some( [ 10, 12, 1, 4, 8 ], function( item ) {
+				return item > 10;
+			} ) );
+
+			assert.isFalse( this.array.some( [ 1, 4, 5, 6, 10 ], function( item ) {
+				return item > 10;
+			} ) );
+
+			this.array.some( testArray, function( item, index, array ) {
+				assert.areSame( 1234, item );
+				assert.areSame( 0, index );
+				assert.areSame( testArray, array );
+				assert.areSame( testThis, this );
+			}, testThis );
+		}
 	} );
 
 } )();

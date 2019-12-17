@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['fr'] = {
@@ -79,6 +79,7 @@ CKEDITOR.lang['fr'] = {
     	headersColumn : 'Première colonne',
     	headersNone : 'Aucun',
     	headersRow : 'Première ligne',
+    	heightUnit : 'height unit',
     	invalidBorder : 'La taille de la bordure doit être un nombre.',
     	invalidCellPadding : 'La marge interne des cellules doit être un nombre positif.',
     	invalidCellSpacing : 'L\'espacement entre les cellules doit être un nombre positif.',
@@ -163,9 +164,9 @@ CKEDITOR.lang['fr'] = {
     	noAnchors : '(Aucune ancre disponible dans ce document)',
     	noEmail : 'Veuillez entrer l\'adresse électronique',
     	noUrl : 'Veuillez entrer l\'URL du lien',
-    	noTel : 'Please type the phone number',
+    	noTel : 'Veuillez entrer le numéro de téléphone',
     	other : '<autre>',
-    	phoneNumber : 'Phone number',
+    	phoneNumber : 'Numéro de téléphone',
     	popupDependent : 'Dépendante (Netscape)',
     	popupFeatures : 'Caractéristiques de la fenêtre surgissante',
     	popupFullScreen : 'Plein écran (IE)',
@@ -190,7 +191,7 @@ CKEDITOR.lang['fr'] = {
     	toAnchor : 'Ancre',
     	toEmail : 'Courriel',
     	toUrl : 'URL',
-    	toPhone : 'Phone',
+    	toPhone : 'Téléphone',
     	toolbar : 'Lien',
     	type : 'Type de lien',
     	unlink : 'Supprimer le lien',

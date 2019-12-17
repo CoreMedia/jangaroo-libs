@@ -76,6 +76,8 @@
 							} else if ( rectKey === 'height' || rectKey === 'top' ) {
 								continue;
 							}
+						} else if ( bender.tools.env.mobile ) {
+							actual = Math.round( actual );
 						}
 						assert.areEqual( expected[ index ][ rectKey ], actual, 'rect[' + index + '].' + rectKey );
 					}
@@ -84,7 +86,7 @@
 		}
 	};
 
-	tests = bender.tools.createTestsForEditors( CKEDITOR.tools.objectKeys( bender.editors ), tests );
+	tests = bender.tools.createTestsForEditors( CKEDITOR.tools.object.keys( bender.editors ), tests );
 
 	bender.test( tests );
 } )();

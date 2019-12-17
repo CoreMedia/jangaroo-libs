@@ -49,8 +49,7 @@
 		} );
 	}
 
-	var trustySafari = CKEDITOR.env.safari && CKEDITOR.env.version >= 603 && !CKEDITOR.env.iOS,
-		trustyEdge = CKEDITOR.env.edge && CKEDITOR.env.version >= 16;
+	var trustyEdge = CKEDITOR.env.edge && CKEDITOR.env.version >= 16;
 
 	bender.test( {
 		setUp: function() {
@@ -1347,6 +1346,30 @@
 			}, 0 );
 		},
 
+		// (#3415)
+		'test paste list with whitespace on boundaries': function() {
+			if ( !CKEDITOR.plugins.clipboard.isCustomCopyCutSupported ) {
+				assert.ignore();
+			}
+
+			var editor = this.editor;
+
+			this.on( 'afterPaste', function() {
+				resume( function() {
+					// If we got here, it means that the list was pasted successfully.
+					assert.pass();
+				} );
+			} );
+
+			bender.tools.emulatePaste( editor, '<html>' +
+				'<body>\n' +
+				'<!--StartFragment--><li>foo</li><!--EndFragment-->\n' +
+				'</body>' +
+				'</html>' );
+
+			this.wait();
+		},
+
 		'test canClipboardApiBeTrusted internal': function() {
 			var canClipboardApiBeTrusted = CKEDITOR.plugins.clipboard.canClipboardApiBeTrusted;
 
@@ -1376,7 +1399,7 @@
 		},
 
 		'test canClipboardApiBeTrusted in Safari': function() {
-			if ( !trustySafari ) {
+			if ( !CKEDITOR.env.safari ) {
 				assert.ignore();
 			}
 
@@ -1471,7 +1494,7 @@
 		},
 
 		'test canClipboardApiBeTrusted on other browser': function() {
-			if ( CKEDITOR.env.chrome || CKEDITOR.env.gecko || trustySafari || trustyEdge ) {
+			if ( CKEDITOR.env.chrome || CKEDITOR.env.gecko || CKEDITOR.env.safari || trustyEdge ) {
 				assert.ignore();
 			}
 

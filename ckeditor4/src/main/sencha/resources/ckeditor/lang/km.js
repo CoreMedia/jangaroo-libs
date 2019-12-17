@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['km'] = {
@@ -79,6 +79,7 @@ CKEDITOR.lang['km'] = {
     	headersColumn : 'ជួរ\u200bឈរ\u200bដំបូង',
     	headersNone : 'មិន\u200bមាន',
     	headersRow : 'ជួរ\u200bដេក\u200bដំបូង',
+    	heightUnit : 'height unit',
     	invalidBorder : 'ទំហំ\u200bបន្ទាត់\u200bស៊ុម\u200bត្រូវ\u200bតែ\u200bជា\u200bលេខ។',
     	invalidCellPadding : 'ចន្លោះ\u200bក្រឡា\u200bត្រូវ\u200bតែជា\u200bលេខ\u200bវិជ្ជមាន។',
     	invalidCellSpacing : 'គម្លាត\u200bក្រឡា\u200bត្រូវ\u200bតែ\u200bជា\u200bលេខ\u200bវិជ្ជមាន។',

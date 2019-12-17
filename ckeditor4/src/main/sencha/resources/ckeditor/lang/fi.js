@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['fi'] = {
@@ -79,6 +79,7 @@ CKEDITOR.lang['fi'] = {
     	headersColumn : 'Ensimmäinen sarake',
     	headersNone : 'Ei',
     	headersRow : 'Ensimmäinen rivi',
+    	heightUnit : 'height unit',
     	invalidBorder : 'Reunan koon täytyy olla numero.',
     	invalidCellPadding : 'Solujen sisennyksen täytyy olla numero.',
     	invalidCellSpacing : 'Solujen välin täytyy olla numero.',

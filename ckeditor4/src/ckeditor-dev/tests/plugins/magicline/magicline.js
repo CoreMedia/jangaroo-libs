@@ -44,7 +44,7 @@
 					);
 
 					tc.resume( function() {
-						callback( editor, editable, editor.plugins.magicline.backdoor );
+						callback( editor, editable, editor._.magiclineBackdoor );
 					} );
 				}
 			}
@@ -65,10 +65,11 @@
 		assert.isTrue( typeof object == 'object' && typeof reference == 'object' );
 
 		for ( var p in object ) {
-			if ( typeof object[ p ] == 'object' )
+			if ( typeof object[ p ] == 'object' ) {
 				compareObjects( object[ p ], reference[ p ] );
-			else
-				assert.areEqual( reference[ p ], object[ p ] );
+			} else {
+				assert.areEqual( reference[ p ], Math.round( object[ p ] ) );
+			}
 		}
 	}
 

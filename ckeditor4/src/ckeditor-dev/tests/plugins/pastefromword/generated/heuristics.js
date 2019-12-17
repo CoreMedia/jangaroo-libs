@@ -1,7 +1,7 @@
 /* bender-tags: clipboard,pastefromword */
-/* bender-ckeditor-plugins: pastefromword,ajax */
-/* bender-include: ../../../plugins/clipboard/_helpers/pasting.js,  ../../../../plugins/pastefromword/filter/default.js, _helpers/pfwTools.js */
-/* global pfwTools */
+/* bender-ckeditor-plugins: pastetools, pastefromword,ajax */
+/* bender-include: ../../../plugins/clipboard/_helpers/pasting.js, ../../pastetools/_helpers/ptTools.js, _helpers/pfwTools.js */
+/* global pfwTools, ptTools */
 
 ( function() {
 	'use strict';
@@ -10,7 +10,7 @@
 		config: pfwTools.defaultConfig
 	};
 
-	bender.test( {
+	var tests = {
 		setUp: function(  ) {
 			// Map PFW namespaces, so it's more convenient to use them.
 			this.pastefromword = CKEDITOR.plugins.pastefromword;
@@ -92,5 +92,12 @@
 			fragment.writeHtml( writer );
 			return writer.getHtml();
 		}
-	} );
+	};
+
+	ptTools.ignoreTestsOnMobiles( tests );
+
+	ptTools.testWithFilters( tests, [
+		CKEDITOR.getUrl( CKEDITOR.plugins.getPath( 'pastetools' ) + 'filter/common.js' ),
+		CKEDITOR.getUrl( CKEDITOR.plugins.getPath( 'pastefromword' ) + 'filter/default.js' )
+	] );
 } )();

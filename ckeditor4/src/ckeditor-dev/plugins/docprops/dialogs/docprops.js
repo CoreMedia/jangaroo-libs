@@ -1,5 +1,5 @@
 /**
- * @license Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -157,6 +157,9 @@ CKEDITOR.dialog.add( 'docProps', function( editor ) {
 		title: lang.title,
 		minHeight: 330,
 		minWidth: 500,
+		getModel: function() {
+			return editor.document;
+		},
 		onShow: function() {
 			var doc = editor.document,
 				html = doc.getElementsByTag( 'html' ).getItem( 0 ),

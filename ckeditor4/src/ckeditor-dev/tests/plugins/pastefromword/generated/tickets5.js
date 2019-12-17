@@ -3,7 +3,7 @@
 /* bender-ckeditor-plugins: pastefromword,ajax,basicstyles,bidi,font,link,toolbar,colorbutton,image */
 /* bender-ckeditor-plugins: list,liststyle,sourcearea,format,justify,table,tableresize,tabletools,indent,indentblock,div,dialog */
 /* jshint ignore:end */
-/* bender-include: _lib/q.js,_helpers/promisePasteEvent.js,_helpers/assertWordFilter.js,_helpers/createTestCase.js */
+/* bender-include: _helpers/promisePasteEvent.js,_helpers/assertWordFilter.js,_helpers/createTestCase.js */
 /* bender-include: _helpers/createTestSuite.js,_helpers/pfwTools.js */
 /* global pfwTools,createTestSuite */
 
@@ -47,6 +47,6 @@
 			pfwTools.filters.font
 		],
 		compareRawData: true,
-		ignoreAll: CKEDITOR.env.ie && CKEDITOR.env.version <= 11
+		ignoreAll: ( CKEDITOR.env.ie && CKEDITOR.env.version <= 11 ) || bender.tools.env.mobile
 	} ) );
 } )();

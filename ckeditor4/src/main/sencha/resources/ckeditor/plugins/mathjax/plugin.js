@@ -1,5 +1,5 @@
 ﻿/**
- * @license Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -12,11 +12,15 @@
 ( function() {
 	CKEDITOR.plugins.add( 'mathjax', {
 		// jscs:disable maximumLineLength
-		lang: 'af,ar,az,bg,ca,cs,cy,da,de,de-ch,el,en,en-au,en-gb,eo,es,es-mx,et,eu,fa,fi,fr,gl,he,hr,hu,id,it,ja,km,ko,ku,lt,lv,nb,nl,no,oc,pl,pt,pt-br,ro,ru,sk,sl,sq,sv,tr,tt,ug,uk,vi,zh,zh-cn', // %REMOVE_LINE_CORE%
+		lang: 'af,ar,az,bg,ca,cs,cy,da,de,de-ch,el,en,en-au,en-gb,eo,es,es-mx,et,eu,fa,fi,fr,gl,he,hr,hu,id,it,ja,km,ko,ku,lt,lv,nb,nl,no,oc,pl,pt,pt-br,ro,ru,sk,sl,sq,sr,sr-latn,sv,tr,tt,ug,uk,vi,zh,zh-cn', // %REMOVE_LINE_CORE%
 		// jscs:enable maximumLineLength
 		requires: 'widget,dialog',
 		icons: 'mathjax',
 		hidpi: true, // %REMOVE_LINE_CORE%
+
+		isSupportedEnvironment: function() {
+			return !CKEDITOR.env.ie || CKEDITOR.env.version > 8;
+		},
 
 		init: function( editor ) {
 			var cls = editor.config.mathJaxClass || 'math-tex';
@@ -440,15 +444,15 @@
  *
  * Please note that this must be a full or absolute path.
  *
- * Read more in the {@glink guide/dev_mathjax documentation}
- * and see the [SDK sample](https://sdk.ckeditor.com/samples/mathjax.html).
+ * Read more in the {@glink features/mathjax documentation}
+ * and see the {@glink examples/mathjax example}.
  *
  *		config.mathJaxLib = '//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML';
  *
- * **Note:** Since CKEditor 4.5 this option does not have a default value, so it must
+ * **Note:** Since CKEditor 4.5.0 this option does not have a default value, so it must
  * be set in order to enable the MathJax plugin.
  *
- * @since 4.3
+ * @since 4.3.0
  * @cfg {String} mathJaxLib
  * @member CKEDITOR.config
  */
@@ -466,8 +470,8 @@
  *
  *		<span class="my-math">\( \sqrt{4} = 2 \)</span>
  *
- * Read more in the {@glink guide/dev_mathjax documentation}
- * and see the [SDK sample](https://sdk.ckeditor.com/samples/mathjax.html).
+ * Read more in the {@glink features/mathjax documentation}
+ * and see the {@glink examples/mathjax example}.
  *
  * @cfg {String} [mathJaxClass='math-tex']
  * @member CKEDITOR.config

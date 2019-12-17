@@ -1,6 +1,6 @@
 /* bender-tags: clipboard,pastefromword */
 /* bender-ckeditor-plugins: pastefromword,ajax,basicstyles,toolbar,list */
-/* bender-include: _lib/q.js,_helpers/promisePasteEvent.js,_helpers/assertWordFilter.js,_helpers/createTestCase.js */
+/* bender-include: _helpers/promisePasteEvent.js,_helpers/assertWordFilter.js,_helpers/createTestCase.js */
 /* bender-include: _helpers/createTestSuite.js */
 /* global createTestSuite */
 
@@ -31,6 +31,7 @@
 			'Unordered_nested_list': true
 		},
 
-		compareRawData: false
+		compareRawData: false,
+		ignoreAll: bender.tools.env.mobile
 	} ) );
 } )();

@@ -1,5 +1,5 @@
 /**
- * @license Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -18,7 +18,7 @@ CKEDITOR.plugins.setLang( 'a11yhelp', 'pt', {
 			{
 			name: 'Janela do editor',
 			legend:
-				'Inside a dialog, press TAB to navigate to the next dialog element, press SHIFT+TAB to move to the previous dialog element, press ENTER to submit the dialog, press ESC to cancel the dialog. When a dialog has multiple tabs, the tab list can be reached either with ALT+F10 or with TAB as part of the dialog tabbing order. With tab list focused, move to the next and previous tab with RIGHT and LEFT ARROW, respectively.'  // MISSING
+				'Dentro de uma janela de diálogo, use TAB para navegar para o campo seguinte; use SHIFT + TAB para mover para o campo anterior, use ENTER para submeter a janela, use ESC para cancelar a janela. Para as janelas que tenham vários separadores, use ALT + F10 para navegar na lista de separadores. Na lista pode mover entre o separador seguinte ou anterior com SETA DIREITA e SETA ESQUERDA, respetivamente' 
 		},
 
 			{

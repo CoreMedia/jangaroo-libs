@@ -1,5 +1,5 @@
 /**
- * @license Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -181,7 +181,7 @@ CKEDITOR.dom.element.clearMarkers = function( database, element, removeFromDatab
 		 *		element.addClass( 'classB' ); // <div class="classA classB">
 		 *		element.addClass( 'classA' ); // <div class="classA classB">
 		 *
-		 * **Note:** Since CKEditor 4.5 this method cannot be used with multiple classes (`'classA classB'`).
+		 * **Note:** Since CKEditor 4.5.0 this method cannot be used with multiple classes (`'classA classB'`).
 		 *
 		 * @chainable
 		 * @method addClass
@@ -680,6 +680,19 @@ CKEDITOR.dom.element.clearMarkers = function( database, element, removeFromDatab
 		 */
 		getChildren: function() {
 			return new CKEDITOR.dom.nodeList( this.$.childNodes );
+		},
+
+		/**
+		 * Gets the element `clientWidth` and `clientHeight`.
+		 *
+		 * @since 4.13.0
+		 * @returns {Object} An object containing the width and height values.
+		 */
+		getClientSize: function() {
+			return {
+				width: this.$.clientWidth,
+				height: this.$.clientHeight
+			};
 		},
 
 		/**
@@ -2028,7 +2041,7 @@ CKEDITOR.dom.element.clearMarkers = function( database, element, removeFromDatab
 		 *			Method:		div.find( 'body i' ) // ->					[]
 		 *						div.find( 'i' ) // ->						[ <i>foo</i> ]
 		 *
-		 * @since 4.3
+		 * @since 4.3.0
 		 * @param {String} selector A valid [CSS selector](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors).
 		 * @returns {CKEDITOR.dom.nodeList}
 		 */
@@ -2056,7 +2069,7 @@ CKEDITOR.dom.element.clearMarkers = function( database, element, removeFromDatab
 		 *			Method:		div.findOne( 'body i' ) // ->				null
 		 *						div.findOne( 'i' ) // ->					<i>foo</i>
 		 *
-		 * @since 4.3
+		 * @since 4.3.0
 		 * @param {String} selector A valid [CSS selector](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors).
 		 * @returns {CKEDITOR.dom.element}
 		 */
@@ -2085,7 +2098,7 @@ CKEDITOR.dom.element.clearMarkers = function( database, element, removeFromDatab
 		 *		// 5. "bar" text node,
 		 *		// 6. "bom" text node.
 		 *
-		 * @since 4.3
+		 * @since 4.3.0
 		 * @param {Function} callback Function to be executed on every node.
 		 * If `callback` returns `false` descendants of the node will be ignored.
 		 * @param {CKEDITOR.htmlParser.node} callback.node Node passed as argument.
@@ -2113,6 +2126,64 @@ CKEDITOR.dom.element.clearMarkers = function( database, element, removeFromDatab
 				else if ( !type || node.type == type )
 					callback( node );
 			}
+		},
+
+		/**
+		 * Fires the element event handler attribute, for example:
+		 *
+		 * ```html
+		 * <button onkeydown="return customFn( event )">x</button>
+		 * ```
+		 *
+		 * ```javascript
+		 * buttonEl.fireEventHandler( 'keydown', {
+		 * 	keyCode: 13 // Enter
+		 * } );
+		 * ```
+		 *
+		 * @since 4.13.0
+		 * @param {CKEDITOR.dom.element/HTMLElement} element An element with an attached event handler attribute.
+		 * @param {String} eventName Event name.
+		 * @param {Object} evt Event payload.
+		 */
+		fireEventHandler: function( eventName, evt ) {
+			var handlerName = 'on' + eventName,
+				nativeElement = this.$;
+
+			if ( CKEDITOR.env.ie && CKEDITOR.env.version < 9 ) {
+				var nativeEvent = nativeElement.ownerDocument.createEventObject();
+
+				for ( var key in evt ) {
+					nativeEvent[ key ] = evt[ key ];
+				}
+
+				nativeElement.fireEvent( handlerName, nativeEvent );
+			} else {
+				nativeElement[ nativeElement[ eventName ] ? eventName : handlerName ]( evt );
+			}
+		},
+
+		/**
+		 * Checks if an element is detached from the DOM.
+		 *
+		 * @since 4.13.0
+		 * @returns {Boolean} Whether an element is detached from the DOM.
+		 */
+		isDetached: function() {
+			var doc = this.getDocument(),
+				docEl = doc.getDocumentElement();
+
+			// It is not in the document.
+			if ( !docEl.equals( this ) && !docEl.contains( this ) ) {
+				return true;
+			}
+
+			// Check if the `window` exists in this document. The `window` is null for detached documents.
+			if ( !CKEDITOR.env.ie || CKEDITOR.env.version > 8 && !CKEDITOR.env.quirks ) {
+				return !doc.$.defaultView;
+			}
+
+			return false;
 		}
 	} );
 

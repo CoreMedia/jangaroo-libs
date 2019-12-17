@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['da'] = {
@@ -79,6 +79,7 @@ CKEDITOR.lang['da'] = {
     	headersColumn : 'Første kolonne',
     	headersNone : 'Ingen',
     	headersRow : 'Første række',
+    	heightUnit : 'height unit',
     	invalidBorder : 'Rammetykkelse skal være et tal.',
     	invalidCellPadding : 'Cellemargen skal være et tal.',
     	invalidCellSpacing : 'Celleafstand skal være et tal.',
@@ -147,8 +148,8 @@ CKEDITOR.lang['da'] = {
     	anchorName : 'Efter ankernavn',
     	charset : 'Tegnsæt',
     	cssClasses : 'Typografiark',
-    	download : 'Force Download',
-    	displayText : 'Display Text',
+    	download : 'Tving Download',
+    	displayText : 'Vis tekst',
     	emailAddress : 'E-mailadresse',
     	emailBody : 'Besked',
     	emailSubject : 'Emne',
@@ -242,9 +243,9 @@ CKEDITOR.lang['da'] = {
     clipboard : 
     {
     	copy : 'Kopiér',
-    	copyError : 'Din browsers sikkerhedsindstillinger tillader ikke editoren at få automatisk adgang til udklipsholderen.<br><br>Brug i stedet tastaturet til at kopiere teksten (Ctrl/Cmd+C).',
+    	copyError : 'Din browsers sikkerhedsindstillinger tillader ikke editoren at få automatisk adgang til udklipsholderen. Brug i stedet tastaturet til at kopiere teksten (Ctrl/Cmd+C).',
     	cut : 'Klip',
-    	cutError : 'Din browsers sikkerhedsindstillinger tillader ikke editoren at få automatisk adgang til udklipsholderen.<br><br>Brug i stedet tastaturet til at klippe teksten (Ctrl/Cmd+X).',
+    	cutError : 'Din browsers sikkerhedsindstillinger tillader ikke editoren at få automatisk adgang til udklipsholderen. Brug i stedet tastaturet til at klippe teksten (Ctrl/Cmd+X).',
     	paste : 'Indsæt',
     	pasteNotification : 'Tryk %1 for at sætte ind. Din browser understøtter ikke indsættelse med værktøjslinje knappen eller kontekst menuen.',
     	pasteArea : 'Indsættelses område',
@@ -346,8 +347,8 @@ CKEDITOR.lang['da'] = {
     		'17' : 'Ctrl',
     		'18' : 'Alt',
     		'32' : 'Mellemrum',
-    		'35' : 'End',
-    		'36' : 'Home',
+    		'35' : 'Slut',
+    		'36' : 'Hjem',
     		'46' : 'Slet',
     		'112' : 'F1',
     		'113' : 'F2',
@@ -376,5 +377,5 @@ CKEDITOR.lang['da'] = {
     		'224' : 'Kommando'
     	},
     	keyboardShortcut : 'Tastatur genvej',
-    	optionDefault : 'Default'
+    	optionDefault : 'Standard'
     } }; 

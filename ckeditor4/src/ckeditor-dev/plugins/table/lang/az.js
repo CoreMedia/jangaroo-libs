@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.plugins.setLang( 'table', 'az', {
@@ -50,6 +50,7 @@ CKEDITOR.plugins.setLang( 'table', 'az', {
 	headersColumn: 'Birinci sütun',
 	headersNone: 'yox',
 	headersRow: 'Birinci sətir',
+	heightUnit: 'height unit', // MISSING
 	invalidBorder: 'Sərhədlərin eni müsbət rəqəm olmalıdır.',
 	invalidCellPadding: 'Xanalardakı kənar boşluqlar müsbət rəqəm olmalıdır.',
 	invalidCellSpacing: 'Xanalararası interval müsbət rəqəm olmalıdır.',

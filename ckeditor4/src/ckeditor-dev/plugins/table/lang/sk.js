@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.plugins.setLang( 'table', 'sk', {
@@ -50,6 +50,7 @@ CKEDITOR.plugins.setLang( 'table', 'sk', {
 	headersColumn: 'Prvý stĺpec',
 	headersNone: 'Žiadne',
 	headersRow: 'Prvý riadok',
+	heightUnit: 'height unit', // MISSING
 	invalidBorder: 'Šírka orámovania musí byť číslo.',
 	invalidCellPadding: 'Odsadenie v bunkách (cell padding) musí byť kladné číslo.',
 	invalidCellSpacing: 'Medzera mädzi bunkami (cell spacing) musí byť kladné číslo.',

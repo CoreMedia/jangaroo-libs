@@ -73,7 +73,7 @@
 							attributes;
 
 						function needSorting( element ) {
-							var keys = CKEDITOR.tools.objectKeys,
+							var keys = CKEDITOR.tools.object.keys,
 								parent = element.parent,
 								parentAttrs = keys( parent.attributes ),
 								elementAttrs = keys( element.attributes );
