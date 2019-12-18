@@ -1,5 +1,5 @@
 /**
- * @license Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -41,7 +41,7 @@
 	}
 
 	function getWidgetsWithFeature( widgets, feature ) {
-		return CKEDITOR.tools.array.reduce( CKEDITOR.tools.objectKeys( widgets ), function( featuredWidgets, id ) {
+		return CKEDITOR.tools.array.reduce( CKEDITOR.tools.object.keys( widgets ), function( featuredWidgets, id ) {
 			var widget = widgets[ id ];
 			if ( hasWidgetFeature( widget, feature ) ) {
 				featuredWidgets.push( widget );
@@ -702,7 +702,7 @@
 		 * @member CKEDITOR.plugins.imagebase.imageWidgetDefinition
 		 * @property {String}
 		 */
-		definition.upcast = CKEDITOR.tools.objectKeys( definition.upcasts ).join( ',' );
+		definition.upcast = CKEDITOR.tools.object.keys( definition.upcasts ).join( ',' );
 
 		return definition;
 	}

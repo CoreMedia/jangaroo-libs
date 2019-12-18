@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.plugins.setLang( 'table', 'af', {
@@ -50,6 +50,7 @@ CKEDITOR.plugins.setLang( 'table', 'af', {
 	headersColumn: 'Eerste kolom',
 	headersNone: 'Geen',
 	headersRow: 'Eerste ry',
+	heightUnit: 'height unit', // MISSING
 	invalidBorder: 'Randbreedte moet \'n getal wees.',
 	invalidCellPadding: 'Sel-spasie moet \'n getal wees.',
 	invalidCellSpacing: 'Sel-afstand moet \'n getal wees.',

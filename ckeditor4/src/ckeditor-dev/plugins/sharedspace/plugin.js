@@ -1,5 +1,5 @@
 /**
- * @license Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -114,8 +114,8 @@
  * instances. In that case only the blocks relevant to the active editor instance
  * will be displayed.
  *
- * Read more in the {@glink guide/dev_sharedspace documentation}
- * and see the [SDK sample](https://sdk.ckeditor.com/samples/sharedspace.html).
+ * Read more in the {@glink features/sharedspace documentation}
+ * and see the {@glink examples/sharedspace example}.
  *
  *		// Place the toolbar inside the element with an ID of "someElementId" and the
  *		// elements path into the element with an  ID of "anotherId".
@@ -130,7 +130,7 @@
  *			top: 'someElementId'
  *		};
  *
- *		// (Since 4.5)
+ *		// (Since 4.5.0)
  *		// Place the toolbar inside a DOM element passed by a reference. The
  *		// elements path will remain attached to the editor UI.
  *		var htmlElement = document.getElementById( 'someElementId' );

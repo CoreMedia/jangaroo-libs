@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['pt-br'] = {
@@ -79,6 +79,7 @@ CKEDITOR.lang['pt-br'] = {
     	headersColumn : 'Primeira coluna',
     	headersNone : 'Nenhum',
     	headersRow : 'Primeira linha',
+    	heightUnit : 'height unit',
     	invalidBorder : 'O tamanho da borda tem que ser um número.',
     	invalidCellPadding : 'A margem interna das células tem que ser um número.',
     	invalidCellSpacing : 'O espaçamento das células tem que ser um número.',
@@ -246,9 +247,9 @@ CKEDITOR.lang['pt-br'] = {
     	cut : 'Recortar',
     	cutError : 'As configurações de segurança do seu navegador não permitem que o editor execute operações de recortar automaticamente. Por favor, utilize o teclado para recortar (Ctrl/Cmd+X).',
     	paste : 'Colar',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteNotification : 'Pressione %1 para colar. Seu navegador não permite colar pelos botões da barra de tarefas ou pelo menu de contexto.',
     	pasteArea : 'Área para Colar',
-    	pasteMsg : 'Paste your content inside the area below and press OK.'
+    	pasteMsg : 'Cole o conteúdo na área abaixo e pressione OK.'
     },
     blockquote : 
     {

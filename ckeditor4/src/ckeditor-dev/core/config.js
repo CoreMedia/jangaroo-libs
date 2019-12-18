@@ -1,5 +1,5 @@
 /**
- * @license Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -14,8 +14,8 @@
  * settings to make the editor produce `<p>` tags when
  * using the <kbd>Enter</kbd> key.
  *
- * Read more in the {@glink guide/dev_enterkey documentation} and see the
- * [SDK sample](https://sdk.ckeditor.com/samples/enterkey.html).
+ * Read more in the {@glink features/enterkey documentation} and see the
+ * {@glink examples/enterkey example}.
  *
  * @readonly
  * @property {Number} [=1]
@@ -29,8 +29,8 @@ CKEDITOR.ENTER_P = 1;
  * settings to make the editor produce `<br>` tags when
  * using the <kbd>Enter</kbd> key.
  *
- * Read more in the {@glink guide/dev_enterkey documentation} and see the
- * [SDK sample](https://sdk.ckeditor.com/samples/enterkey.html).
+ * Read more in the {@glink features/enterkey documentation} and see the
+ * {@glink examples/enterkey example}.
  *
  * @readonly
  * @property {Number} [=2]
@@ -44,8 +44,8 @@ CKEDITOR.ENTER_BR = 2;
  * settings to make the editor produce `<div>` tags when
  * using the <kbd>Enter</kbd> key.
  *
- * Read more in the {@glink guide/dev_enterkey documentation} and see the
- * [SDK sample](https://sdk.ckeditor.com/samples/enterkey.html).
+ * Read more in the {@glink features/enterkey documentation} and see the
+ * {@glink examples/enterkey example}.
  *
  * @readonly
  * @property {Number} [=3]
@@ -100,8 +100,8 @@ CKEDITOR.config = {
 	 * the language specified in the {@link CKEDITOR.config#defaultLanguage}
 	 * configuration setting is used.
 	 *
-	 * Read more in the {@glink guide/dev_uilanguage documentation} and see the
-	 * [SDK sample](https://sdk.ckeditor.com/samples/uilanguages.html).
+	 * Read more in the {@glink features/uilanguage documentation} and see the
+	 * {@glink examples/uilanguages example}.
 	 *
 	 *		// Load the German interface.
 	 *		config.language = 'de';
@@ -114,8 +114,8 @@ CKEDITOR.config = {
 	 * The language to be used if the {@link CKEDITOR.config#language}
 	 * setting is left empty and it is not possible to localize the editor to the user language.
 	 *
-	 * Read more in the {@glink guide/dev_uilanguage documentation} and see the
-	 * [SDK sample](https://sdk.ckeditor.com/samples/uilanguages.html).
+	 * Read more in the {@glink features/uilanguage documentation} and see the
+	 * {@glink examples/uilanguages example}.
 	 *
 	 *		config.defaultLanguage = 'it';
 	 *
@@ -134,7 +134,7 @@ CKEDITOR.config = {
 	 * * `'ltr'` &ndash; Indicates a Left-To-Right text direction (like in English).
 	 * * `'rtl'` &ndash; Indicates a Right-To-Left text direction (like in Arabic).
 	 *
-	 * See the [SDK sample](https://sdk.ckeditor.com/samples/language.html).
+	 * See the {@glink examples/language example}.
 	 *
 	 * Example:
 	 *
@@ -157,8 +157,8 @@ CKEDITOR.config = {
 	 * **Note**: It is recommended to use the {@link CKEDITOR#ENTER_P} setting because of
 	 * its semantic value and correctness. The editor is optimized for this setting.
 	 *
-	 * Read more in the {@glink guide/dev_enterkey documentation} and see the
-	 * [SDK sample](https://sdk.ckeditor.com/samples/enterkey.html).
+	 * Read more in the {@glink features/enterkey documentation} and see the
+	 * {@glink examples/enterkey example}.
 	 *
 	 *		// Not recommended.
 	 *		config.enterMode = CKEDITOR.ENTER_BR;
@@ -174,8 +174,8 @@ CKEDITOR.config = {
 	 * `<div>` element will create a new paragraph with a `<p>`
 	 * instead of a `<div>`.
 	 *
-	 * Read more in the {@glink guide/dev_enterkey documentation} and see the
-	 * [SDK sample](https://sdk.ckeditor.com/samples/enterkey.html).
+	 * Read more in the {@glink features/enterkey documentation} and see the
+	 * {@glink examples/enterkey example}.
 	 *
 	 *		// Not recommended.
 	 *		config.forceEnterMode = true;
@@ -195,8 +195,8 @@ CKEDITOR.config = {
 	 * * {@link CKEDITOR#ENTER_BR} (2) &ndash; Lines are broken with `<br>` elements.
 	 * * {@link CKEDITOR#ENTER_DIV} (3) &ndash; New `<div>` blocks are created.
 	 *
-	 * Read more in the {@glink guide/dev_enterkey documentation} and see the
-	 * [SDK sample](https://sdk.ckeditor.com/samples/enterkey.html).
+	 * Read more in the {@glink features/enterkey documentation} and see the
+	 * {@glink examples/enterkey example}.
 	 *
 	 * Example:
 	 *
@@ -225,7 +225,7 @@ CKEDITOR.config = {
 	 *
 	 *		config.bodyId = 'contents_id';
 	 *
-	 * @since 3.1
+	 * @since 3.1.0
 	 * @cfg
 	 */
 	bodyId: '',
@@ -245,7 +245,7 @@ CKEDITOR.config = {
 	 *
 	 * **Note:** This setting only applies to {@glink guide/dev_framed classic editor} (the one that uses `iframe`).
 	 *
-	 * @since 3.1
+	 * @since 3.1.0
 	 * @cfg
 	 */
 	bodyClass: '',
@@ -256,12 +256,12 @@ CKEDITOR.config = {
 	 * The final output will also reflect this setting, including the
 	 * `<body>` content only if this setting is disabled.
 	 *
-	 * Read more in the {@glink guide/dev_fullpage documentation} and see the
-	 * [SDK sample](https://sdk.ckeditor.com/samples/fullpage.html).
+	 * Read more in the {@glink features/fullpage documentation} and see the
+	 * {@glink examples/fullpage example}.
 	 *
 	 *		config.fullPage = true;
 	 *
-	 * @since 3.1
+	 * @since 3.1.0
 	 * @cfg
 	 */
 	fullPage: false,
@@ -273,8 +273,8 @@ CKEDITOR.config = {
 	 *
 	 * **Note:** This configuration option is ignored by {@glink guide/dev_inline inline editor}.
 	 *
-	 * Read more in the {@glink guide/dev_size documentation} and see the
-	 * [SDK sample](https://sdk.ckeditor.com/samples/size.html).
+	 * Read more in the {@glink features/size documentation} and see the
+	 * {@glink examples/size example}.
 	 *
 	 *		config.height = 500;		// 500 pixels.
 	 *		config.height = '25em';		// CSS length.
@@ -294,8 +294,8 @@ CKEDITOR.config = {
 	 * rendered on. It is also ignored in the {@link #fullPage full page mode} in
 	 * which the developer has full control over the page HTML code.
 	 *
-	 * Read more in the {@glink guide/dev_styles documentation} and see the
-	 * [SDK sample](https://sdk.ckeditor.com/samples/styles.html).
+	 * Read more in the {@glink features/styles documentation} and see the
+	 * {@glink examples/styles example}.
 	 *
 	 *		config.contentsCss = '/css/mysitestyles.css';
 	 *		config.contentsCss = [ '/css/mysitestyles.css', '/css/anotherfile.css' ];
@@ -359,8 +359,8 @@ CKEDITOR.config = {
 	/**
 	 * The editor `tabindex` value.
 	 *
-	 * Read more in the {@glink guide/dev_tabindex documentation} and see the
-	 * [SDK sample](https://sdk.ckeditor.com/samples/tabindex.html).
+	 * Read more in the {@glink features/tabindex documentation} and see the
+	 * {@glink examples/tabindex example}.
 	 *
 	 *		config.tabIndex = 1;
 	 *
@@ -378,8 +378,8 @@ CKEDITOR.config = {
 	 *
 	 * **Note:** This configuration option is ignored by {@glink guide/dev_inline inline editor}.
 	 *
-	 * Read more in the {@glink guide/dev_size documentation} and see the
-	 * [SDK sample](https://sdk.ckeditor.com/samples/size.html).
+	 * Read more in the {@glink features/size documentation} and see the
+	 * {@glink examples/size example}.
 	 *
 	 *		config.width = 850;		// 850 pixels wide.
 	 *		config.width = '75%';	// CSS unit.
@@ -428,7 +428,7 @@ CKEDITOR.config = {
  *
  *		config.useComputedState = false;
  *
- * @since 3.4
+ * @since 3.4.0
  * @cfg {Boolean} [useComputedState=true]
  */
 
@@ -436,8 +436,8 @@ CKEDITOR.config = {
  * The base user interface color to be used by the editor. Not all skins are
  * {@glink guide/skin_sdk_chameleon compatible with this setting}.
  *
- * Read more in the {@glink guide/dev_uicolor documentation} and see the
- * [SDK sample](https://sdk.ckeditor.com/samples/uicolor.html).
+ * Read more in the {@glink features/uicolor documentation} and see the
+ * {@glink examples/uicolor example}.
  *
  *		// Using a color code.
  *		config.uiColor = '#AADC6E';

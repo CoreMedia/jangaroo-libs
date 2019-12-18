@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.plugins.setLang( 'table', 'tt', {
@@ -50,6 +50,7 @@ CKEDITOR.plugins.setLang( 'table', 'tt', {
 	headersColumn: 'Беренче багана',
 	headersNone: 'Һичбер',
 	headersRow: 'Беренче юл',
+	heightUnit: 'height unit', // MISSING
 	invalidBorder: 'Чик киңлеге сан булырга тиеш.',
 	invalidCellPadding: 'Cell padding must be a positive number.', // MISSING
 	invalidCellSpacing: 'Күзәнәкләр аралары уңай сан булырга тиеш.',

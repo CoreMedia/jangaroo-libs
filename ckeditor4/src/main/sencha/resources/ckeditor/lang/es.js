@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['es'] = {
@@ -79,6 +79,7 @@ CKEDITOR.lang['es'] = {
     	headersColumn : 'Primera columna',
     	headersNone : 'Ninguno',
     	headersRow : 'Primera fila',
+    	heightUnit : 'height unit',
     	invalidBorder : 'El tamaño del borde debe ser un número.',
     	invalidCellPadding : 'El espaciado interior debe ser un número.',
     	invalidCellSpacing : 'El espaciado entre celdas debe ser un número.',

@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.plugins.setLang( 'table', 'lt', {
@@ -50,6 +50,7 @@ CKEDITOR.plugins.setLang( 'table', 'lt', {
 	headersColumn: 'Pirmas stulpelis',
 	headersNone: 'Nėra',
 	headersRow: 'Pirma eilutė',
+	heightUnit: 'height unit', // MISSING
 	invalidBorder: 'Reikšmė turi būti nurodyta skaičiumi.',
 	invalidCellPadding: 'Reikšmė turi būti nurodyta skaičiumi.',
 	invalidCellSpacing: 'Reikšmė turi būti nurodyta skaičiumi.',

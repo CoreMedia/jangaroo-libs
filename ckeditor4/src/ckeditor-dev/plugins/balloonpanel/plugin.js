@@ -1,5 +1,5 @@
 /**
- * @license Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -38,7 +38,7 @@
 	 *		panel.attach( domElement );
 	 *
 	 * @class
-	 * @since 4.6
+	 * @since 4.6.0
 	 * @param {CKEDITOR.editor} editor The editor instance for which the panel is created.
 	 * @param {Object} definition An object containing the panel definition.
 	 */
@@ -452,6 +452,11 @@
 				frame = this.editor.window.getFrame();
 				editable = this.editor.editable();
 				isInline = editable.isInline();
+
+				if ( !isInline && CKEDITOR.env.safari ) {
+					// Overwrite frame with editor iframe closest parent, because iframe has wrong rect values in mobile Safari (#1076).
+					frame = frame.getParent();
+				}
 
 				var panelWidth = this.getWidth(),
 					panelHeight = this.getHeight(),

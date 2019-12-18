@@ -1,5 +1,5 @@
 /**
- * @license Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -268,7 +268,7 @@
 			/**
 			 * Transforms plain text to HTML based on current selection and {@link CKEDITOR.editor#activeEnterMode}.
 			 *
-			 * @since 4.5
+			 * @since 4.5.0
 			 * @param {String} text Text to transform.
 			 * @returns {String} HTML generated from the text.
 			 */
@@ -295,7 +295,7 @@
 			 * @param {String} [mode='html'] See {@link CKEDITOR.editor#method-insertHtml}'s param.
 			 * @param {CKEDITOR.dom.range} [range] If specified, the HTML will be inserted into the range
 			 * instead of into the selection. The selection will be placed at the end of the insertion (like in the normal case).
-			 * Introduced in CKEditor 4.5.
+			 * Introduced in CKEditor 4.5.0.
 			 */
 			insertHtml: function( data, mode, range ) {
 				var editor = this.editor;
@@ -329,7 +329,7 @@
 			 *
 			 * Fires the {@link CKEDITOR.editor#event-afterInsertHtml} event.
 			 *
-			 * @since 4.5
+			 * @since 4.5.0
 			 * @param {String} data HTML code to be inserted into the editor.
 			 * @param {CKEDITOR.dom.range} range The range as a place of insertion.
 			 * @param {String} [mode='html'] Mode in which HTML will be inserted.
@@ -460,12 +460,22 @@
 							( dtd = CKEDITOR.dtd[ current.getName() ] ) &&
 							!( dtd && dtd[ elementName ] ) ) {
 						// Split up inline elements.
-						if ( current.getName() in CKEDITOR.dtd.span )
-							range.splitElement( current );
+						if ( current.getName() in CKEDITOR.dtd.span ) {
+							var endNode = range.splitElement( current ),
+								bookmark = range.createBookmark();
+
+							// Remove empty element created after splitting (#2813).
+							// The range.splitElement() method splits the given element in two and places the selection
+							// in-between in such way that <div>F^oo</div> becomes <div>F</div>^<div>oo</div>.
+							// Then removeEmptyInlineElement() method removes any of these elements if they are empty.
+							removeEmptyInlineElement( current );
+							removeEmptyInlineElement( endNode );
+
+							range.moveToBookmark( bookmark );
 
 						// If we're in an empty block which indicate a new paragraph,
-						// simply replace it with the inserting block.(https://dev.ckeditor.com/ticket/3664)
-						else if ( range.checkStartOfBlock() && range.checkEndOfBlock() ) {
+						// simply replace it with the inserting block (https://dev.ckeditor.com/ticket/3664).
+						} else if ( range.checkStartOfBlock() && range.checkEndOfBlock() ) {
 							range.setStartBefore( current );
 							range.collapse( true );
 							current.remove();
@@ -524,19 +534,29 @@
 			 * Detaches this editable object from the DOM (removes classes, listeners, etc.)
 			 */
 			detach: function() {
-				// Cleanup the element.
-				this.removeClass( 'cke_editable' );
-
 				this.status = 'detached';
 
-				// Save the editor reference which will be lost after
-				// calling detach from super class.
-				var editor = this.editor;
+				// Update the editor cached data with current data.
+				this.editor.setData( this.editor.getData(), {
+					internal: true
+				} );
 
-				this._.detach();
+				this.clearListeners();
 
-				delete editor.document;
-				delete editor.window;
+				// Edge randomly throws permission denied when trying to access native elements of detached editor (#3115, #3419).
+				try {
+					this._.cleanCustomData();
+				} catch ( error ) {
+					if ( !CKEDITOR.env.ie || error.number !== -2146828218 ) {
+						throw( error );
+					}
+				}
+
+				this.editor.fire( 'contentDomUnload' );
+
+				delete this.editor.document;
+				delete this.editor.window;
+				delete this.editor;
 			},
 
 			/**
@@ -652,7 +672,7 @@
 			/**
 			 * The base of the {@link CKEDITOR.editor#getSelectedHtml} method.
 			 *
-			 * @since 4.5
+			 * @since 4.5.0
 			 * @method getHtmlFromRange
 			 * @param {CKEDITOR.dom.range} range
 			 * @returns {CKEDITOR.dom.documentFragment}
@@ -687,7 +707,7 @@
 			 * **Note:** The range is modified so it matches the desired selection after extraction
 			 * even though the selection is not made.
 			 *
-			 * @since 4.5
+			 * @since 4.5.0
 			 * @param {CKEDITOR.dom.range} range
 			 * @param {Boolean} [removeEmptyBlock=false] See {@link CKEDITOR.editor#extractSelectedHtml}'s parameter.
 			 * Note that the range will not be modified if this parameter is set to `true`.
@@ -1212,44 +1232,59 @@
 						return false;
 					}, this, null, 100 ); // Later is better – do not override existing listeners.
 				}
+			},
+
+			/**
+			 * @inheritdoc CKEDITOR.dom.domObject#getUniqueId
+			 */
+			getUniqueId: function() {
+				var expandoNumber;
+				// Editable is cached unlike other elements, so we can use it to store expando number.
+				// We need it to properly cleanup custom data in case of permission denied
+				// thrown by Edge when accessing native element of detached editable (#3115).
+				try {
+					this._.expandoNumber = expandoNumber = CKEDITOR.dom.domObject.prototype.getUniqueId.call( this );
+				} catch ( e ) {
+					expandoNumber = this._ && this._.expandoNumber;
+				}
+
+				return expandoNumber;
 			}
 		},
 
 		_: {
-			detach: function() {
+			cleanCustomData: function() {
 				// Update the editor cached data with current data.
-				this.editor.setData( this.editor.getData(), 0, 1 );
-
-				this.clearListeners();
+				this.removeClass( 'cke_editable' );
 				this.restoreAttrs();
 
 				// Cleanup our custom classes.
-				var classes;
-				if ( ( classes = this.removeCustomData( 'classes' ) ) ) {
-					while ( classes.length )
-						this.removeClass( classes.pop() );
+				var classes = this.removeCustomData( 'classes' );
+
+				while ( classes && classes.length ) {
+					this.removeClass( classes.pop() );
 				}
+
+				if ( this.is( 'textarea' ) ) {
+					return;
+				}
+
+				var doc = this.getDocument(),
+					head = doc.getHead();
+
+				if ( !head.getCustomData( 'stylesheet' ) ) {
+					return;
+				}
+
+				var refs = doc.getCustomData( 'stylesheet_ref' );
 
 				// Remove contents stylesheet from document if it's the last usage.
-				if ( !this.is( 'textarea' ) ) {
-					var doc = this.getDocument(),
-						head = doc.getHead();
-					if ( head.getCustomData( 'stylesheet' ) ) {
-						var refs = doc.getCustomData( 'stylesheet_ref' );
-						if ( !( --refs ) ) {
-							doc.removeCustomData( 'stylesheet_ref' );
-							var sheet = head.removeCustomData( 'stylesheet' );
-							sheet.remove();
-						} else {
-							doc.setCustomData( 'stylesheet_ref', refs );
-						}
-					}
+				if ( !--refs ) {
+					doc.removeCustomData( 'stylesheet_ref' );
+					head.removeCustomData( 'stylesheet' ).remove();
+				} else {
+					doc.setCustomData( 'stylesheet_ref', refs );
 				}
-
-				this.editor.fire( 'contentDomUnload' );
-
-				// Free up the editor reference.
-				delete this.editor;
 			}
 		}
 	} );
@@ -1272,14 +1307,18 @@
 		if ( editable && element )
 			return 0;
 
-		if ( arguments.length ) {
-			editable = this._.editable = element ? ( element instanceof CKEDITOR.editable ? element : new CKEDITOR.editable( this, element ) ) :
-			// Detach the editable from editor.
-			( editable && editable.detach(), null );
+		if ( !arguments.length ) {
+			return editable;
 		}
 
-		// Just retrieve the editable.
-		return editable;
+		if ( element ) {
+			editable = element instanceof CKEDITOR.editable ? element : new CKEDITOR.editable( this, element );
+		} else {
+			editable && editable.detach();
+			editable = null;
+		}
+
+		return this._.editable = editable;
 	};
 
 	CKEDITOR.on( 'instanceLoaded', function( evt ) {
@@ -1387,7 +1426,9 @@
 				blockNeedsFiller.appendBogus();
 				// IE tends to place selection after appended bogus, so we need to
 				// select the original range (placed before bogus).
-				selectionUpdateNeeded = CKEDITOR.env.ie;
+				// In Edge update selection only if editor has gained focus before (#504).
+				selectionUpdateNeeded = ( CKEDITOR.env.ie && !CKEDITOR.env.edge ) ||
+					( CKEDITOR.env.edge && editor._.previousActive );
 			}
 		}
 
@@ -1642,6 +1683,12 @@
 
 			prepareRangeToDataInsertion( that );
 
+			// When enter mode is set to div and content wrapped with div is pasted,
+			// we must ensure that no additional divs are created (#2751, #3379).
+			if ( editor.enterMode === CKEDITOR.ENTER_DIV && editor.getData( true ) === '' ) {
+				clearEditable( editable, range );
+			}
+
 			// DATA PROCESSING
 
 			// Select range and stop execution.
@@ -1658,13 +1705,21 @@
 			cleanupAfterInsertion( that );
 		}
 
+		function clearEditable( editable, range ) {
+			var first = editable.getFirst();
+			first && first.remove();
+			range.setStartAt( editable, CKEDITOR.POSITION_AFTER_START );
+			range.collapse( true );
+		}
+
 		// Prepare range to its data deletion.
 		// Delete its contents.
 		// Prepare it to insertion.
 		function prepareRangeToDataInsertion( that ) {
 			var range = that.range,
 				mergeCandidates = that.mergeCandidates,
-				node, marker, path, startPath, endPath, previous, bm;
+				isHtml = that.type === 'html',
+				node, marker, path, startPath, endPath, previous, bm, endNode;
 
 			// If range starts in inline element then insert a marker, so empty
 			// inline elements won't be removed while range.deleteContents
@@ -1717,13 +1772,19 @@
 			// Split inline elements so HTML will be inserted with its own styles.
 			path = range.startPath();
 			if ( ( node = path.contains( isInline, false, 1 ) ) ) {
-				range.splitElement( node );
+				endNode = range.splitElement( node );
 				that.inlineStylesRoot = node;
 				that.inlineStylesPeak = path.lastElement;
 			}
 
 			// Record inline merging candidates for later cleanup in place.
 			bm = range.createBookmark();
+
+			// When called by insertHtml remove empty element created after splitting (#2813).
+			if ( isHtml ) {
+				removeEmptyInlineElement( node );
+				removeEmptyInlineElement( endNode );
+			}
 
 			// 1. Inline siblings.
 			node = bm.startNode.getPrevious( isNotEmpty );
@@ -1733,8 +1794,9 @@
 
 			// 2. Inline parents.
 			node = bm.startNode;
-			while ( ( node = node.getParent() ) && isInline( node ) )
+			while ( ( node = node.getParent() ) && isInline( node ) ) {
 				mergeCandidates.push( node );
+			}
 
 			range.moveToBookmark( bm );
 		}
@@ -2285,6 +2347,12 @@
 
 		return insert;
 	} )();
+
+	function removeEmptyInlineElement( element ) {
+		if ( element && element.isEmptyInlineRemoveable() ) {
+			element.remove();
+		}
+	}
 
 	function afterInsert( editable ) {
 		var editor = editable.editor;

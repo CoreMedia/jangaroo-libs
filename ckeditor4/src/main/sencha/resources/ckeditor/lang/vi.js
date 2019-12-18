@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['vi'] = {
@@ -79,6 +79,7 @@ CKEDITOR.lang['vi'] = {
     	headersColumn : 'Cột đầu tiên',
     	headersNone : 'Không có',
     	headersRow : 'Hàng đầu tiên',
+    	heightUnit : 'height unit',
     	invalidBorder : 'Kích cỡ của đường biên phải là một số nguyên.',
     	invalidCellPadding : 'Khoảng đệm giữa ô và nội dung phải là một số nguyên.',
     	invalidCellSpacing : 'Khoảng cách giữa các ô phải là một số nguyên.',
@@ -324,7 +325,7 @@ CKEDITOR.lang['vi'] = {
     	justify : 'Sắp chữ',
     	alignLeft : 'Canh trái',
     	alignRight : 'Canh phải',
-    	alignCenter : 'Align Center',
+    	alignCenter : 'Canh giữa',
     	alignTop : 'Trên',
     	alignMiddle : 'Giữa',
     	alignBottom : 'Dưới',
@@ -332,7 +333,7 @@ CKEDITOR.lang['vi'] = {
     	invalidValue : 'Giá trị không hợp lệ.',
     	invalidHeight : 'Chiều cao phải là số nguyên.',
     	invalidWidth : 'Chiều rộng phải là số nguyên.',
-    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
+    	invalidLength : 'Giá trị cho trường "%1" phải là một số dương có hoặc không có đơn vị đo lường hợp lệ (%2)',
     	invalidCssLength : 'Giá trị quy định cho trường "%1" phải là một số dương có hoặc không có một đơn vị đo CSS hợp lệ (px, %, in, cm, mm, em, ex, pt, hoặc pc).',
     	invalidHtmlLength : 'Giá trị quy định cho trường "%1" phải là một số dương có hoặc không có một đơn vị đo HTML hợp lệ (px hoặc %).',
     	invalidInlineStyle : 'Giá trị quy định cho kiểu nội tuyến phải bao gồm một hoặc nhiều dữ liệu với định dạng "tên:giá trị", cách nhau bằng dấu chấm phẩy.',
@@ -345,7 +346,7 @@ CKEDITOR.lang['vi'] = {
     		'16' : 'Shift',
     		'17' : 'Ctrl',
     		'18' : 'Alt',
-    		'32' : 'Space',
+    		'32' : 'Cách',
     		'35' : 'End',
     		'36' : 'Home',
     		'46' : 'Xóa',
@@ -375,6 +376,6 @@ CKEDITOR.lang['vi'] = {
     		'135' : 'F24',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'Keyboard shortcut',
-    	optionDefault : 'Default'
+    	keyboardShortcut : 'Phím tắt',
+    	optionDefault : 'Mặc định'
     } }; 

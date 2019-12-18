@@ -1,5 +1,5 @@
 /**
- * @license Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -60,6 +60,46 @@
 
 	bender.tools = {
 		/**
+		 * Ignores test case when the given plugin is not supported on the testing
+		 * environment. Uses {@link CKEDITOR.pluginDefinition#isSupportedEnvironment} to
+		 * verify if plugin is supported.
+		 *
+		 * Works for both manual and unit tests.
+		 *
+		 * @param pluginName pluginName Plugin name to check.
+		 * @param CKEDITOR.editor [editor] Editor instance passsed as an argument
+		 * to the {@link CKEDITOR.pluginDefinition#isSupportedEnvironment} method.
+		 */
+		ignoreUnsupportedEnvironment: function( pluginName, editor ) {
+			if ( editor ) {
+				if ( editor.status === 'ready' ) {
+					ignoreUnsupportedEnvironment();
+				} else {
+					editor.once( 'instanceReady', ignoreUnsupportedEnvironment );
+				}
+				return;
+			}
+
+			if ( CKEDITOR.plugins.registered[ pluginName ] ) {
+				ignoreUnsupportedEnvironment();
+			} else {
+				CKEDITOR.once( pluginName + 'PluginReady', ignoreUnsupportedEnvironment );
+			}
+
+			function ignoreUnsupportedEnvironment() {
+				var plugin = editor ? editor.plugins[ pluginName ] : CKEDITOR.plugins.registered[ pluginName ];
+
+				if ( !plugin.isSupportedEnvironment( editor ) ) {
+					if ( bender.testData.manual ) {
+						bender.ignore();
+					} else {
+						assert.ignore();
+					}
+				}
+			}
+		},
+
+		/**
 		 * Creates an array from an object.
 		 *
 		 * @param  {Object} obj
@@ -67,7 +107,7 @@
 		 */
 		objToArray: function( obj ) {
 			var tools = CKEDITOR.tools;
-			return tools.array.map( tools.objectKeys( obj ), function( key ) {
+			return tools.array.map( tools.object.keys( obj ), function( key ) {
 				return obj[ key ];
 			} );
 		},
@@ -92,7 +132,7 @@
 		},
 
 		env: {
-			/*
+			/**
 			 * Tells whether current environment is running on a mobile browser.
 			 *
 			 * It's different from deprecated {@link CKEDITOR.env.mobile} in a way that we are just
@@ -100,15 +140,20 @@
 			 */
 			mobile: CKEDITOR.env.iOS || navigator.userAgent.toLowerCase().indexOf( 'android' ) !== -1,
 
-			/*
+			/**
 			 * Whether current OS is a Linux environment.
 			 */
 			linux: navigator.userAgent.toLowerCase().indexOf( 'linux' ) !== -1,
 
-			/*
+			/**
 			 * Whether current environment is Opera browser.
 			 */
-			opera: navigator.userAgent.toLowerCase().indexOf( ' opr/' ) !== -1
+			opera: navigator.userAgent.toLowerCase().indexOf( ' opr/' ) !== -1,
+
+			/**
+			 * Whether current environment is run as build version of CKEditor.
+			 */
+			isBuild: CKEDITOR.revision !== '%REV%'
 		},
 
 		fixHtml: function( html, stripLineBreaks, toLowerCase ) {
@@ -1080,10 +1125,10 @@
 		/**
 		 * Multiplies inputTests for every editor.
 		 *
-		 * @param {Object} editorsNames editors definitions.
-		 * @param {Object} inputTests Tests to apply on every editor.
-		 * @param {Boolean} isolateTests If set to `true` each test is run on new editor instance.
-		 * @returns {Object} Created tests for every editor.
+		 * @param {String[]} editorsNames Editors definitions.
+		 * @param {Object.<String, Function>} inputTests Tests to apply on every editor.
+		 * @param {Boolean} [isolateTests=false] If set to `true` each test is run on new editor instance.
+		 * @returns {Object.<String, Function>} Created tests for every editor.
 		 */
 		createTestsForEditors: function( editorsNames, inputTests, isolateTests ) {
 			var outputTests = {},
@@ -1171,6 +1216,68 @@
 
 			// Add random string to be sure that the image will be downloaded, not taken from cache.
 			img.setAttribute( 'src', src + '?' + Math.random().toString( 16 ).substring( 2 ) );
+		},
+
+		/**
+		 * Creates test suite object for `bender.test` method from synchronous and asynchronous test cases.
+		 * Asynchronous test must be a function which returns a promise and cannot poses wait-resume statements.
+		 *
+		 * Please notice that currently this method doesn't support special test methods (`setUp`, `tearDown`, etc.),
+		 * which might be passed to the `bender.test` function.
+		 *
+		 * @param {Object} tests object
+		 */
+		createAsyncTests: function( tests ) {
+			var tmp = {};
+
+			for ( var testName in tests ) {
+				tmp[ testName ] = ( function( test ) {
+					return function() {
+						var promise = test.apply( this );
+
+						if ( promise ) {
+							promise.then( function() {
+									resume();
+								} )
+								[ 'catch' ]( function( err ) {
+									resume( function() {
+										throw err;
+									} );
+								} );
+
+							wait();
+						}
+					};
+				} )( tests[ testName ] );
+			}
+
+			return tmp;
+		},
+
+		/**
+		 * Fires specified mouse event on the given element.
+		 *
+		 * @param {CKEDITOR.dom.element/HTMLElement} element Element with attached event handler attribute.
+		 * @param {String} eventName Event handler attribute name.
+		 * @param {Number} button Mouse button to be used.
+		*/
+		dispatchMouseEvent: function( element, type, button ) {
+			var mouseEvent;
+			button = CKEDITOR.tools.normalizeMouseButton( button, true );
+			element = element.$;
+
+			// Thanks to http://help.dottoro.com/ljhlvomw.php
+			if ( document.createEventObject ) {
+				mouseEvent = element.ownerDocument.createEventObject();
+
+				mouseEvent.button = button;
+				element.fireEvent( 'on' + type, mouseEvent );
+			} else {
+				mouseEvent = document.createEvent( 'MouseEvent' );
+
+				mouseEvent.initMouseEvent( type, true, true, window, 0, 0, 0, 80, 20, false, false, false, false, button, null );
+				element.dispatchEvent( mouseEvent );
+			}
 		}
 	};
 

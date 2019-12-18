@@ -1,9 +1,9 @@
 /**
- * @license Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
- /**
+/**
  * @fileOverview Rich code snippets for CKEditor using GeSHi syntax highlighter (http://qbnz.com/highlighter/).
  */
 
@@ -181,7 +181,7 @@
 /**
  * Sets GeSHi URL which, once queried with Ajax, will return highlighted code.
  *
- * Check the {@glink guide/dev_codesnippetgeshi Code Snippet GeSHi documentation} for
+ * Check the {@glink features/codesnippetgeshi Code Snippet GeSHi documentation} for
  * more information.
  *
  *		config.codeSnippetGeshi_url = 'http:\/\/example.com\/geshi\/colorize.php';

@@ -1,5 +1,5 @@
 /**
- * @license Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -42,6 +42,15 @@
 			title: iframeLang.title,
 			minWidth: 350,
 			minHeight: 260,
+			getModel: function( editor ) {
+				var element = editor.getSelection().getSelectedElement();
+
+				if ( element && element.data( 'cke-real-element-type' ) === 'iframe' ) {
+					return element;
+				}
+
+				return null;
+			},
 			onShow: function() {
 				// Clear previously saved elements.
 				this.fakeImage = this.iframeNode = null;

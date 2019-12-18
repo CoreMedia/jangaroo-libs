@@ -1,4 +1,4 @@
-/* bender-tags: editor,widget */
+/* bender-tags: editor,widget,dialog */
 /* bender-ckeditor-plugins: easyimage,toolbar,contextmenu,undo */
 /* bender-include: _helpers/tools.js */
 /* global easyImageTools */
@@ -24,9 +24,7 @@
 		widgetHtml = '<figure class="easyimage easyimage-full"><img src="../image2/_assets/foo.png" alt="foo"><figcaption>Test image</figcaption></figure>',
 		tests = {
 			setUp: function() {
-				if ( easyImageTools.isUnsupportedEnvironment() ) {
-					assert.ignore();
-				}
+				bender.tools.ignoreUnsupportedEnvironment( 'easyimage' );
 
 				if ( CKEDITOR.env.ie ) {
 					CKEDITOR.dom.element.prototype.getClientRect = function() {
@@ -88,6 +86,10 @@
 
 							assert.areSame( 'bar', editor.editable().findOne( 'img' ).getAttribute( 'alt' ),
 								'Alt text of image is changed' );
+
+							// (#2423)
+							assert.areSame( widget, dialog.getModel( editor ), 'Dialog model should point at widget' );
+							assert.areEqual( CKEDITOR.dialog.EDITING_MODE, dialog.getMode( editor ), 'Dialog should be in editing mode' );
 						} );
 					} );
 
@@ -165,6 +167,6 @@
 		};
 
 	// Force Edge to run every test in new CKEditor's instance.
-	tests = bender.tools.createTestsForEditors( CKEDITOR.tools.objectKeys( bender.editors ), tests, CKEDITOR.env.edge );
+	tests = bender.tools.createTestsForEditors( CKEDITOR.tools.object.keys( bender.editors ), tests, CKEDITOR.env.edge );
 	bender.test( tests );
 } )();

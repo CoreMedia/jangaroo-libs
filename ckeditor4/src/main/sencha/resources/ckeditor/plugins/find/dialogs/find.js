@@ -1,5 +1,5 @@
 ﻿/**
- * @license Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -451,7 +451,7 @@
 				if ( matchCyclic && !cyclicRerun ) {
 					this.searchRange = getSearchRange( 1 );
 					this.matchRange = null;
-					return arguments.callee.apply( this, Array.prototype.slice.call( arguments ).concat( [ true ] ) );
+					return finder.find.apply( this, Array.prototype.slice.call( arguments ).concat( [ true ] ) );
 				}
 
 				return false;

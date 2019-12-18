@@ -1,18 +1,18 @@
 /*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.plugins.setLang( 'find', 'sr-latn', {
 	find: 'Pretraga',
-	findOptions: 'Find Options',
-	findWhat: 'Pronadi:',
+	findOptions: 'Podešavanja',
+	findWhat: 'Pronadji:',
 	matchCase: 'Razlikuj mala i velika slova',
-	matchCyclic: 'Match cyclic',
+	matchCyclic: 'Pretraga u ciklusima',
 	matchWord: 'Uporedi cele reci',
 	notFoundMsg: 'Traženi tekst nije pronađen.',
 	replace: 'Zamena',
 	replaceAll: 'Zameni sve',
 	replaceSuccessMsg: '%1 occurrence(s) replaced.',
 	replaceWith: 'Zameni sa:',
-	title: 'Find and Replace'
+	title: 'Pretraži i zameni'
 } );

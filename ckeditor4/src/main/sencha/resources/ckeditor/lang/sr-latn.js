@@ -1,32 +1,32 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['sr-latn'] = {
     undo : 
     {
-    	redo : 'Ponovi akciju',
-    	undo : 'Poni�ti akciju'
+    	redo : 'Ponovi ',
+    	undo : 'Vrati'
     },
     toolbar : 
     {
-    	toolbarCollapse : 'Suzi alatnu traku',
-    	toolbarExpand : 'Proširi alatnu traku',
+    	toolbarCollapse : 'Zatvori alatnu traku',
+    	toolbarExpand : 'Otvori alatnu traku',
     	toolbarGroups : 
     	{
-    		document : 'Document',
-    		clipboard : 'Clipboard/Undo',
-    		editing : 'Editing',
-    		forms : 'Forms',
-    		basicstyles : 'Basic Styles',
-    		paragraph : 'Paragraph',
-    		links : 'Links',
-    		insert : 'Insert',
-    		styles : 'Styles',
-    		colors : 'Colors',
-    		tools : 'Tools'
+    		document : 'Dokument',
+    		clipboard : 'Clipboard/Vrati',
+    		editing : 'Uredi',
+    		forms : 'Obrasci',
+    		basicstyles : 'Osnovni stilovi',
+    		paragraph : 'Pasus',
+    		links : 'Linkovi',
+    		insert : 'Dodaj',
+    		styles : 'Stilovi',
+    		colors : 'Boje',
+    		tools : 'Alatke'
     	},
-    	toolbars : 'Alatne trake'
+    	toolbars : 'Uredjivač alatne trake'
     },
     table : 
     {
@@ -34,42 +34,42 @@ CKEDITOR.lang['sr-latn'] = {
     	caption : 'Naslov tabele',
     	cell : 
     	{
-    		menu : 'Cell',
-    		insertBefore : 'Insert Cell Before',
-    		insertAfter : 'Insert Cell After',
+    		menu : 'Ćelija',
+    		insertBefore : 'Ubaci levo',
+    		insertAfter : 'Ubaci desno',
     		deleteCell : 'Obriši ćelije',
-    		merge : 'Spoj celije',
-    		mergeRight : 'Merge Right',
-    		mergeDown : 'Merge Down',
-    		splitHorizontal : 'Split Cell Horizontally',
-    		splitVertical : 'Split Cell Vertically',
-    		title : 'Cell Properties',
-    		cellType : 'Cell Type',
-    		rowSpan : 'Rows Span',
-    		colSpan : 'Columns Span',
-    		wordWrap : 'Word Wrap',
-    		hAlign : 'Horizontal Alignment',
-    		vAlign : 'Vertical Alignment',
-    		alignBaseline : 'Baseline',
-    		bgColor : 'Background Color',
-    		borderColor : 'Border Color',
-    		data : 'Data',
-    		header : 'Header',
-    		yes : 'Yes',
-    		no : 'No',
-    		invalidWidth : 'Cell width must be a number.',
-    		invalidHeight : 'Cell height must be a number.',
-    		invalidRowSpan : 'Rows span must be a whole number.',
-    		invalidColSpan : 'Columns span must be a whole number.',
-    		chooseColor : 'Choose'
+    		merge : 'Spoj ćelije',
+    		mergeRight : 'Spolj ćelije desno',
+    		mergeDown : 'Spolj čelije na dole',
+    		splitHorizontal : 'Razdvoji ćelije vodoravno',
+    		splitVertical : 'Razdvoji ćelije uspravno',
+    		title : 'Karakteristike ćelija',
+    		cellType : 'Tip ćelija',
+    		rowSpan : 'Spoj uzdužno',
+    		colSpan : 'Spoj vodoravno',
+    		wordWrap : 'Brisanje dugačkih redova',
+    		hAlign : 'Ravnanje vodoravno',
+    		vAlign : 'Ravnanje uspravno',
+    		alignBaseline : 'Bazna linija',
+    		bgColor : 'Boja pozadine',
+    		borderColor : 'Boja okvira',
+    		data : 'Podatak',
+    		header : 'Zaglavlje',
+    		yes : 'Da',
+    		no : 'Nе',
+    		invalidWidth : 'U polje širina možete upisati samo brojeve. ',
+    		invalidHeight : 'U polje visina možete upisati samo brojeve.',
+    		invalidRowSpan : 'U polje spoj uspravno  možete upistai samo brojeve.',
+    		invalidColSpan : 'U polje spoj vodoravno možete upistai samo brojeve.',
+    		chooseColor : 'Izaberi'
     	},
     	cellPad : 'Razmak ćelija',
     	cellSpace : 'Ćelijski prostor',
     	column : 
     	{
-    		menu : 'Column',
-    		insertBefore : 'Insert Column Before',
-    		insertAfter : 'Insert Column After',
+    		menu : 'Kolona',
+    		insertBefore : 'Ubaci levo',
+    		insertAfter : 'Ubaci desno',
     		deleteColumn : 'Obriši kolone'
     	},
     	columns : 'Kolona',
@@ -77,8 +77,9 @@ CKEDITOR.lang['sr-latn'] = {
     	headers : 'Zaglavlja',
     	headersBoth : 'Oba',
     	headersColumn : 'Prva kolona',
-    	headersNone : 'None',
+    	headersNone : 'Nema',
     	headersRow : 'Prvi red',
+    	heightUnit : 'height unit',
     	invalidBorder : 'Veličina okvira mora biti broj.',
     	invalidCellPadding : 'Padding polja mora biti pozitivan broj.',
     	invalidCellSpacing : 'Razmak između ćelija mora biti pozitivan broj.',
@@ -89,14 +90,14 @@ CKEDITOR.lang['sr-latn'] = {
     	menu : 'Osobine tabele',
     	row : 
     	{
-    		menu : 'Row',
-    		insertBefore : 'Insert Row Before',
-    		insertAfter : 'Insert Row After',
+    		menu : 'Red',
+    		insertBefore : 'Ubaci iznad',
+    		insertAfter : 'Ubaci ispod',
     		deleteRow : 'Obriši redove'
     	},
-    	rows : 'Redova',
-    	summary : 'Sažetak',
-    	title : 'Osobine tabele',
+    	rows : 'Redovi',
+    	summary : 'Opis',
+    	title : 'Karakteristike tabele',
     	toolbar : 'Tabela',
     	widthPc : 'procenata',
     	widthPx : 'piksela',
@@ -104,125 +105,125 @@ CKEDITOR.lang['sr-latn'] = {
     },
     pastetext : 
     {
-    	button : 'Zalepi kao čist tekst',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
-    	title : 'Zalepi kao čist tekst'
+    	button : 'Zalepi kao neformiran tekst',
+    	pasteNotification : 'Pritisnite taster % 1 da bi ste nalepili. Pretraživač ne podržava lepljenje pomoću tastera na traci sa alatkama ili iz menija.',
+    	title : 'Zalepi kao neformiran tekst'
     },
     pastefromword : 
     {
-    	confirmCleanup : 'The text you want to paste seems to be copied from Word. Do you want to clean it before pasting?',
-    	error : 'It was not possible to clean up the pasted data due to an internal error',
+    	confirmCleanup : 'Kopirani tekst je iz Word-a. Želite ga očistiti? ',
+    	error : 'Zbog interne greške tekst nije očišćen.',
     	title : 'Zalepi iz Worda',
     	toolbar : 'Zalepi iz Worda'
     },
     notification : 
     {
-    	closed : 'Notification closed.'
+    	closed : 'Obaveštenje zatvoreno'
     },
     magicline : 
     {
-    	title : 'Insert paragraph here'
+    	title : 'Umetnite pasus ovde.'
     },
     list : 
     {
-    	bulletedlist : 'Nenabrojiva lista',
-    	numberedlist : 'Nabrojiva lista'
+    	bulletedlist : 'Nаbrajanje',
+    	numberedlist : 'Numerisanje'
     },
     link : 
     {
-    	acccessKey : 'Pristupni taster',
-    	advanced : 'Napredni tagovi',
-    	advisoryContentType : 'Advisory vrsta sadržaja',
-    	advisoryTitle : 'Advisory naslov',
+    	acccessKey : 'Kombinacija tastera',
+    	advanced : 'Dalje mogućnosti',
+    	advisoryContentType : 'Tip sadržaja pomoći',
+    	advisoryTitle : 'Oznaka za pomoć',
     	anchor : 
     	{
     		toolbar : 'Unesi/izmeni sidro',
-    		menu : 'Osobine sidra',
-    		title : 'Osobine sidra',
+    		menu : 'Karakteristike sidra',
+    		title : 'Karakteristike sidra',
     		name : 'Naziv sidra',
     		errorName : 'Unesite naziv sidra',
     		remove : 'Ukloni sidro'
     	},
     	anchorId : 'Po Id-u elementa',
     	anchorName : 'Po nazivu sidra',
-    	charset : 'Linked Resource Charset',
-    	cssClasses : 'Stylesheet klase',
-    	download : 'Force Download',
-    	displayText : 'Display Text',
+    	charset : 'Kod stranica navedenog sadržaja',
+    	cssClasses : 'Stilske oznake',
+    	download : 'Obavezno preuzimanje',
+    	displayText : 'Prikazani tekst',
     	emailAddress : 'E-Mail adresa',
     	emailBody : 'Sadržaj poruke',
-    	emailSubject : 'Naslov',
+    	emailSubject : 'Naslov poruke',
     	id : 'Id',
-    	info : 'Link Info',
-    	langCode : 'Smer jezika',
-    	langDir : 'Smer jezika',
+    	info : 'Osnovne karakteristike',
+    	langCode : 'Smer pisanja',
+    	langDir : 'Smer pisanja',
     	langDirLTR : 'S leva na desno (LTR)',
     	langDirRTL : 'S desna na levo (RTL)',
     	menu : 'Izmeni link',
     	name : 'Naziv',
-    	noAnchors : '(Nema dostupnih sidra)',
-    	noEmail : 'Otkucajte adresu elektronske pote',
+    	noAnchors : '(Nema sidra u dokumentu)',
+    	noEmail : 'Odredite e-mail adresu',
     	noUrl : 'Unesite URL linka',
-    	noTel : 'Please type the phone number',
-    	other : '<остало>',
-    	phoneNumber : 'Phone number',
+    	noTel : 'Unesite broj telefona',
+    	other : '<оstalo>',
+    	phoneNumber : 'Broj telefona',
     	popupDependent : 'Zavisno (Netscape)',
-    	popupFeatures : 'Mogućnosti popup prozora',
+    	popupFeatures : 'Karakteristike iskačućeg prozora',
     	popupFullScreen : 'Prikaz preko celog ekrana (IE)',
-    	popupLeft : 'Od leve ivice ekrana (px)',
+    	popupLeft : 'Leva pozicija ',
     	popupLocationBar : 'Lokacija',
     	popupMenuBar : 'Kontekstni meni',
     	popupResizable : 'Promenljive veličine',
-    	popupScrollBars : 'Scroll bar',
+    	popupScrollBars : 'Klizač',
     	popupStatusBar : 'Statusna linija',
-    	popupToolbar : 'Toolbar',
-    	popupTop : 'Od vrha ekrana (px)',
-    	rel : 'Odnos',
+    	popupToolbar : 'Traka sa altakama',
+    	popupTop : 'Gornja pozicija',
+    	rel : 'Vrsta odnosа',
     	selectAnchor : 'Odaberi sidro',
     	styles : 'Stil',
     	tabIndex : 'Tab indeks',
-    	target : 'Meta',
+    	target : 'Prikaži sadržaj',
     	targetFrame : '<okvir>',
-    	targetFrameName : 'Naziv odredišnog frejma',
-    	targetPopup : '<popup prozor>',
-    	targetPopupName : 'Naziv popup prozora',
-    	title : 'Link',
+    	targetFrameName : 'Naziv okvira',
+    	targetPopup : ' <iskačuć prozor>',
+    	targetPopupName : 'Naziv iskačućeg prozora',
+    	title : 'Karaktersitike linka',
     	toAnchor : 'Sidro na ovoj stranici',
     	toEmail : 'E-Mail',
     	toUrl : 'URL',
-    	toPhone : 'Phone',
+    	toPhone : 'Telefon',
     	toolbar : 'Unesi/izmeni link',
     	type : 'Vrsta linka',
     	unlink : 'Ukloni link',
-    	upload : 'Pošalji'
+    	upload : 'Postavi'
     },
     indent : 
     {
-    	indent : 'Uvećaj levu marginu',
-    	outdent : 'Smanji levu marginu'
+    	indent : 'Uvećaj marginu',
+    	outdent : 'Smanji marginu'
     },
     find : 
     {
     	find : 'Pretraga',
-    	findOptions : 'Find Options',
-    	findWhat : 'Pronadi:',
+    	findOptions : 'Podešavanja',
+    	findWhat : 'Pronadji:',
     	matchCase : 'Razlikuj mala i velika slova',
-    	matchCyclic : 'Match cyclic',
+    	matchCyclic : 'Pretraga u ciklusima',
     	matchWord : 'Uporedi cele reci',
     	notFoundMsg : 'Traženi tekst nije pronađen.',
     	replace : 'Zamena',
     	replaceAll : 'Zameni sve',
     	replaceSuccessMsg : '%1 occurrence(s) replaced.',
     	replaceWith : 'Zameni sa:',
-    	title : 'Find and Replace'
+    	title : 'Pretraži i zameni'
     },
     fakeobjects : 
     {
-    	anchor : 'Unesi/izmeni sidro',
-    	flash : 'Flash Animation',
+    	anchor : 'Sidro',
+    	flash : 'Fleš animacija',
     	hiddenfield : 'Skriveno polje',
     	iframe : 'IFrame',
-    	unknown : 'Unknown Object'
+    	unknown : 'Nepoznat objekat'
     },
     copyformatting : 
     {
@@ -237,7 +238,7 @@ CKEDITOR.lang['sr-latn'] = {
     },
     contextmenu : 
     {
-    	options : 'Context Menu Options'
+    	options : 'Opcije menija'
     },
     clipboard : 
     {
@@ -246,13 +247,13 @@ CKEDITOR.lang['sr-latn'] = {
     	cut : 'Iseci',
     	cutError : 'Sigurnosna podešavanja Vašeg pretraživača ne dozvoljavaju operacije automatskog isecanja teksta. Molimo Vas da koristite prečicu sa tastature (Ctrl/Cmd+X).',
     	paste : 'Zalepi',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteNotification : '"Pritisnite taster %1 za lepljenje. Vaš pretraživač ne dozvoljava lepljenje iz alatne trake ili menia.',
     	pasteArea : 'Prostor za lepljenje',
-    	pasteMsg : 'Paste your content inside the area below and press OK.'
+    	pasteMsg : 'Nalepite sadržaj u sledeći prostor i pritisnite taster OK.'
     },
     blockquote : 
     {
-    	toolbar : 'Block Quote'
+    	toolbar : 'Blok citat'
     },
     basicstyles : 
     {
@@ -264,57 +265,57 @@ CKEDITOR.lang['sr-latn'] = {
     	underline : 'Podvučeno'
     },
     editor : 'Bogati uređivač teksta',
-    editorPanel : 'Rich Text Editor panel',
+    editorPanel : 'Bogati uređivač panel',
     common : 
     {
-    	editorHelp : 'Press ALT 0 for help',
-    	browseServer : 'Pretraži server',
+    	editorHelp : 'Za pomoć pritisnite ALT 0',
+    	browseServer : 'Pretraži na serveru',
     	url : 'URL',
     	protocol : 'Protokol',
     	upload : 'Pošalji',
     	uploadSubmit : 'Pošalji na server',
     	image : 'Slika',
     	flash : 'Fleš',
-    	form : 'Forma',
+    	form : 'Formular',
     	checkbox : 'Polje za potvrdu',
     	radio : 'Radio-dugme',
     	textField : 'Tekstualno polje',
     	textarea : 'Zona teksta',
     	hiddenField : 'Skriveno polje',
     	button : 'Dugme',
-    	select : 'Izborno polje',
+    	select : 'Padajuća lista',
     	imageButton : 'Dugme sa slikom',
-    	notSet : '<nije postavljeno>',
+    	notSet : '<nije postavljeno> ',
     	id : 'Id',
     	name : 'Naziv',
-    	langDir : 'Smer jezika',
+    	langDir : 'Smer pisanja',
     	langDirLtr : 'S leva na desno (LTR)',
     	langDirRtl : 'S desna na levo (RTL)',
     	langCode : 'Kôd jezika',
-    	longDescr : 'Pun opis URL',
-    	cssClass : 'Stylesheet klase',
+    	longDescr : 'Detaljan opis URL',
+    	cssClass : 'CSS klase',
     	advisoryTitle : 'Advisory naslov',
     	cssStyle : 'Stil',
     	ok : 'OK',
     	cancel : 'Otkaži',
     	close : 'Zatvori',
     	preview : 'Izgled stranice',
-    	resize : 'Resize',
-    	generalTab : 'Opšte',
-    	advancedTab : 'Napredni tagovi',
+    	resize : 'Promena veličine',
+    	generalTab : 'Opšti',
+    	advancedTab : 'Dalje opcije',
     	validateNumberFailed : 'Ova vrednost nije broj.',
     	confirmNewPage : 'Nesačuvane promene ovog sadržaja će biti izgubljene. Jeste li sigurni da želita da učitate novu stranu?',
-    	confirmCancel : 'You have changed some options. Are you sure you want to close the dialog window?',
-    	options : 'Opcije',
-    	target : 'Meta',
+    	confirmCancel : 'Neka podešavanja su promenjena.Sigurno želite zatvoriti prozor?',
+    	options : 'Podešavanja',
+    	target : 'Cilj',
     	targetNew : 'Novi prozor (_blank)',
-    	targetTop : 'Topmost Window (_top)',
+    	targetTop : 'Prozor na vrhu stranice(_top)',
     	targetSelf : 'Isti prozor (_self)',
-    	targetParent : 'Parent Window (_parent)',
+    	targetParent : 'Matični prozor (_parent)',
     	langDirLTR : 'S leva na desno (LTR)',
     	langDirRTL : 'S desna na levo (RTL)',
     	styles : 'Stil',
-    	cssClasses : 'Stylesheet klase',
+    	cssClasses : 'CSS klase',
     	width : 'Širina',
     	height : 'Visina',
     	align : 'Ravnanje',
@@ -324,19 +325,19 @@ CKEDITOR.lang['sr-latn'] = {
     	justify : 'Obostrano ravnanje',
     	alignLeft : 'Levo ravnanje',
     	alignRight : 'Desno ravnanje',
-    	alignCenter : 'Align Center',
+    	alignCenter : 'Centralno ravnanje',
     	alignTop : 'Vrh',
     	alignMiddle : 'Sredina',
     	alignBottom : 'Dole',
-    	alignNone : 'None',
-    	invalidValue : 'Invalid value.',
-    	invalidHeight : 'Visina mora biti broj.',
-    	invalidWidth : 'Širina mora biti broj.',
-    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
-    	invalidCssLength : 'Value specified for the "%1" field must be a positive number with or without a valid CSS measurement unit (px, %, in, cm, mm, em, ex, pt, or pc).',
-    	invalidHtmlLength : 'Value specified for the "%1" field must be a positive number with or without a valid HTML measurement unit (px or %).',
-    	invalidInlineStyle : 'Value specified for the inline style must consist of one or more tuples with the format of "name : value", separated by semi-colons.',
-    	cssLengthTooltip : 'Enter a number for a value in pixels or a number with a valid CSS unit (px, %, in, cm, mm, em, ex, pt, or pc).',
+    	alignNone : 'Ništa',
+    	invalidValue : 'Nevažeća vrednost.',
+    	invalidHeight : 'U polje visina mogu se upisati samo brojevi.',
+    	invalidWidth : 'U polje širina mogu se upisati samo brojevi.',
+    	invalidLength : 'U "%1" polju data vrednos treba da bude pozitivan broj, sa validnom mernom jedinicom ili bez (%2).',
+    	invalidCssLength : 'Za "%1" data vrednost mora biti pozitivan broj, moguće označiti sa validnim CSS vrednosću (px, %, in, cm, mm, em, ex, pt, or pc).',
+    	invalidHtmlLength : 'Za "%1" data vrednost mora biti potitivan broj, moguće označiti sa validnim HTML vrednošću (px or %).',
+    	invalidInlineStyle : 'Vrednost u inline styleu mora da sadrži barem jedan rekord u formatu "name : value", razdeljeni sa tačkazapetom.',
+    	cssLengthTooltip : 'Odredite broj u pixeima ili u validnim CSS vrednostima (px, %, in, cm, mm, em, ex, pt, or pc).',
     	unavailable : '%1<span class="cke_accessibility">, unavailable</span>',
     	keyboard : 
     	{
@@ -375,6 +376,6 @@ CKEDITOR.lang['sr-latn'] = {
     		'135' : 'F24',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'Keyboard shortcut',
-    	optionDefault : 'Default'
+    	keyboardShortcut : 'Taster za prečicu',
+    	optionDefault : 'Оsnovni'
     } }; 

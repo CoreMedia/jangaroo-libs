@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['id'] = {
@@ -79,6 +79,7 @@ CKEDITOR.lang['id'] = {
     	headersColumn : 'Kolom pertama',
     	headersNone : 'Tidak ada',
     	headersRow : 'Baris Pertama',
+    	heightUnit : 'height unit',
     	invalidBorder : 'Ukuran batasan harus sebuah angka',
     	invalidCellPadding : '\'Spasi dalam\' sel harus angka positif.',
     	invalidCellSpacing : 'Spasi antar sel harus angka positif.',

@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['et'] = {
@@ -79,6 +79,7 @@ CKEDITOR.lang['et'] = {
     	headersColumn : 'Esimene tulp',
     	headersNone : 'Puudub',
     	headersRow : 'Esimene rida',
+    	heightUnit : 'height unit',
     	invalidBorder : 'Äärise suurus peab olema number.',
     	invalidCellPadding : 'Lahtrite polsterdus (padding) peab olema positiivne arv.',
     	invalidCellSpacing : 'Lahtrite vahe peab olema positiivne arv.',
@@ -105,7 +106,7 @@ CKEDITOR.lang['et'] = {
     pastetext : 
     {
     	button : 'Asetamine tavalise tekstina',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteNotification : 'Asetamiseks vajuta %1. Sinu brauser ei toeta asetamist tööriistariba nupu või kontekstimenüü valikuga.',
     	title : 'Asetamine tavalise tekstina'
     },
     pastefromword : 
@@ -163,9 +164,9 @@ CKEDITOR.lang['et'] = {
     	noAnchors : '(Selles dokumendis pole ankruid)',
     	noEmail : 'Palun kirjuta e-posti aadress',
     	noUrl : 'Palun kirjuta lingi URL',
-    	noTel : 'Please type the phone number',
+    	noTel : 'Palun sisesta telefoninumber',
     	other : '<muu>',
-    	phoneNumber : 'Phone number',
+    	phoneNumber : 'Telefoninumber',
     	popupDependent : 'Sõltuv (Netscape)',
     	popupFeatures : 'Hüpikakna omadused',
     	popupFullScreen : 'Täisekraan (IE)',
@@ -190,7 +191,7 @@ CKEDITOR.lang['et'] = {
     	toAnchor : 'Ankur sellel lehel',
     	toEmail : 'E-post',
     	toUrl : 'URL',
-    	toPhone : 'Phone',
+    	toPhone : 'Telefon',
     	toolbar : 'Lingi lisamine/muutmine',
     	type : 'Lingi liik',
     	unlink : 'Lingi eemaldamine',
@@ -246,9 +247,9 @@ CKEDITOR.lang['et'] = {
     	cut : 'Lõika',
     	cutError : 'Sinu veebisirvija turvaseaded ei luba redaktoril automaatselt lõigata. Palun kasutage selleks klaviatuuri klahvikombinatsiooni (Ctrl/Cmd+X).',
     	paste : 'Aseta',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteNotification : 'Asetamiseks vajuta %1. Sinu brauser ei toeta asetamist tööriistariba nupu või kontekstimenüü valikuga.',
     	pasteArea : 'Asetamise ala',
-    	pasteMsg : 'Paste your content inside the area below and press OK.'
+    	pasteMsg : 'Aseta sisu alumisse kasti ja vajuta OK nupule.'
     },
     blockquote : 
     {
@@ -324,7 +325,7 @@ CKEDITOR.lang['et'] = {
     	justify : 'Rööpjoondus',
     	alignLeft : 'Vasakjoondus',
     	alignRight : 'Paremjoondus',
-    	alignCenter : 'Align Center',
+    	alignCenter : 'Keskjoondus',
     	alignTop : 'Üles',
     	alignMiddle : 'Keskele',
     	alignBottom : 'Alla',
@@ -332,7 +333,7 @@ CKEDITOR.lang['et'] = {
     	invalidValue : 'Vigane väärtus.',
     	invalidHeight : 'Kõrgus peab olema number.',
     	invalidWidth : 'Laius peab olema number.',
-    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
+    	invalidLength : 'Välja "%1" väärtus peab olema positiivne arv korrektse ühikuga (%2) või ilma.',
     	invalidCssLength : '"%1" välja jaoks määratud väärtus peab olema positiivne täisarv CSS ühikuga (px, %, in, cm, mm, em, ex, pt või pc) või ilma.',
     	invalidHtmlLength : '"%1" välja jaoks määratud väärtus peab olema positiivne täisarv HTML ühikuga (px või %) või ilma.',
     	invalidInlineStyle : 'Reasisese stiili määrangud peavad koosnema paarisväärtustest (tuples), mis on semikoolonitega eraldatult järgnevas vormingus: "nimi : väärtus".',
@@ -375,6 +376,6 @@ CKEDITOR.lang['et'] = {
     		'135' : 'F24',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'Keyboard shortcut',
+    	keyboardShortcut : 'Kiirklahv',
     	optionDefault : 'Vaikeväärtus'
     } }; 

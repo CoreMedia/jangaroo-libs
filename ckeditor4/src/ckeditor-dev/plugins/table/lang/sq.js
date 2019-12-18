@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.plugins.setLang( 'table', 'sq', {
@@ -50,6 +50,7 @@ CKEDITOR.plugins.setLang( 'table', 'sq', {
 	headersColumn: 'Kolona e parë',
 	headersNone: 'Asnjë',
 	headersRow: 'Rreshti i Parë',
+	heightUnit: 'height unit', // MISSING
 	invalidBorder: 'Madhësia e kufinjve duhet të jetë numër.',
 	invalidCellPadding: 'Mbushja e qelisë duhet të jetë numër pozitiv.',
 	invalidCellSpacing: 'Hapësira e qelisë duhet të jetë numër pozitiv.',

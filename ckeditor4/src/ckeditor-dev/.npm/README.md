@@ -1,8 +1,8 @@
-# CKEditor 4 (dev) [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Check%20out%20CKEditor%204%20on%20npm&url=https%3A%2F%2Fwww.npmjs.com%2Fpackage%2Fckeditor-dev)
+# CKEditor 4 (dev) [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Check%20out%20CKEditor%204%20on%20npm&url=https%3A%2F%2Fwww.npmjs.com%2Fpackage%2Fckeditor4-dev)
 
-[![GitHub tag](https://img.shields.io/github/tag/ckeditor/ckeditor-dev.svg)](https://github.com/ckeditor/ckeditor-dev)
-[![Dependencies](https://img.shields.io/david/ckeditor/ckeditor-dev.svg)](https://david-dm.org/ckeditor/ckeditor-dev)
-[![Dev dependencies](https://img.shields.io/david/dev/ckeditor/ckeditor-dev.svg)](https://david-dm.org/ckeditor/ckeditor-dev?type=dev)
+[![GitHub tag](https://img.shields.io/github/tag/ckeditor/ckeditor4.svg)](https://github.com/ckeditor/ckeditor4)
+[![Dependencies](https://img.shields.io/david/ckeditor/ckeditor4.svg)](https://david-dm.org/ckeditor/ckeditor4)
+[![Dev dependencies](https://img.shields.io/david/dev/ckeditor/ckeditor4.svg)](https://david-dm.org/ckeditor/ckeditor4?type=dev)
 
 [![Join newsletter](https://img.shields.io/badge/join-newsletter-00cc99.svg)](http://eepurl.com/c3zRPr)
 [![Follow twitter](https://img.shields.io/badge/follow-twitter-00cc99.svg)](https://twitter.com/ckeditor)
@@ -11,14 +11,14 @@ A highly configurable WYSIWYG HTML editor with hundreds of features, from creati
 
 Supports a broad range of browsers, including legacy ones.
 
-**Note: This is a developer version.** Use the  [CKEditor 4 optimized package](https://www.npmjs.com/package/ckeditor) for production environment.
+**Note: This is a developer version.** Use the  [CKEditor 4 optimized package](https://www.npmjs.com/package/ckeditor4) for production environment.
 
 ![CKEditor 4 screenshot](https://c.cksource.com/a/1/img/npm/ckeditor4.png)
 
 ## Getting Started
 
 ```
-npm install --save ckeditor-dev
+npm install --save ckeditor4-dev
 ```
 
 Use it on your website:
@@ -27,7 +27,7 @@ Use it on your website:
 <div id="editor">
     <p>This is the editor content.</p>
 </div>
-<script src="./node_modules/ckeditor-dev/ckeditor.js"></script>
+<script src="./node_modules/ckeditor4-dev/ckeditor.js"></script>
 <script>
     CKEDITOR.replace( 'editor' );
 </script>
@@ -50,7 +50,7 @@ You can also load CKEditor 4 using [CDN](https://cdn.ckeditor.com/#ckeditor4).
 
 ## Presets
 
-The CKEditor 4 dev npm package comes in the `full-all` preset, so it includes all official CKEditor plugins, with those from the [full package](https://sdk.ckeditor.com/samples/fullpreset.html) active by default.
+The CKEditor 4 dev npm package comes in the `full-all` preset, so it includes all official CKEditor plugins, with those from the [full package](https://ckeditor.com/docs/ckeditor4/latest/examples/fullpreset.html) active by default.
 
 ## Further Resources
 
@@ -58,7 +58,7 @@ The CKEditor 4 dev npm package comes in the `full-all` preset, so it includes al
 * [Documentation](https://ckeditor.com/docs/ckeditor4/latest/)
 * [API documentation](https://ckeditor.com/docs/ckeditor4/latest/api/index.html)
 * [Configuration reference](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_config.html)
-* [CKEditor SDK with more samples](https://sdk.ckeditor.com/)
+* [CKEditor Examples](https://ckeditor.com/docs/ckeditor4/latest/examples/index.html)
 
 If you are looking for CKEditor 5, here's a link to the relevant npm package: <https://www.npmjs.com/package/ckeditor5>
 
@@ -72,10 +72,10 @@ Find out more in the [Browser Compatibility guide](https://ckeditor.com/docs/cke
 
 ## Contribute
 
-If you would like to help maintain the project, follow the [Contribution instructions](https://github.com/ckeditor/ckeditor-dev/blob/master/.github/CONTRIBUTING.md).
+If you would like to help maintain the project, follow the [Contribution instructions](https://github.com/ckeditor/ckeditor4/blob/master/.github/CONTRIBUTING.md).
 
 ## License
 
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 
 For licensing, see LICENSE.md or <https://ckeditor.com/legal/ckeditor-oss-license>

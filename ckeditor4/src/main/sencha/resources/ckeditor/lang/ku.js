@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['ku'] = {
@@ -79,6 +79,7 @@ CKEDITOR.lang['ku'] = {
     	headersColumn : 'یەکەم ئەستوون',
     	headersNone : 'هیچ',
     	headersRow : 'یەکەم ڕیز',
+    	heightUnit : 'height unit',
     	invalidBorder : 'ژمارەی پەراوێز دەبێت تەنها ژماره بێت.',
     	invalidCellPadding : 'ناوپۆشی خانه دەبێت ژمارەکی درووست بێت.',
     	invalidCellSpacing : 'بۆشایی خانه دەبێت ژمارەکی درووست بێت.',
@@ -324,7 +325,7 @@ CKEDITOR.lang['ku'] = {
     	justify : 'هاوستوونی',
     	alignLeft : 'بەهێڵ کردنی چەپ',
     	alignRight : 'بەهێڵ کردنی ڕاست',
-    	alignCenter : 'Align Center',
+    	alignCenter : 'بەهێڵ کردنی ناوەڕاست',
     	alignTop : 'سەرەوە',
     	alignMiddle : 'ناوەند',
     	alignBottom : 'ژێرەوە',

@@ -44,9 +44,7 @@
 		initialFrameHeight = testSuiteIframe && testSuiteIframe.getStyle( 'height' ),
 		tests = {
 			setUp: function() {
-				if ( easyImageTools.isUnsupportedEnvironment() ) {
-					assert.ignore();
-				}
+				bender.tools.ignoreUnsupportedEnvironment( 'easyimage' );
 				// This test checks real balloon panel positioning. To avoid affecting position with scroll offset, set the parent iframe height
 				// enough to contain entire content. Note that iframe is not present if the test suite is open in a separate window, or ran on IEs.
 				if ( testSuiteIframe ) {
@@ -95,6 +93,10 @@
 			},
 
 			'test balloontoolbar positioning': function( editor, bot ) {
+				// Ignore test with builded editor in travis.
+				if ( bender.config.isTravis && bender.tools.env.isBuild ) {
+					assert.ignore();
+				}
 				// Force toolbar to always appear under the widget.
 				editor.container.getWindow().$.scroll( 0, editor.container.getDocumentPosition().y );
 
@@ -136,6 +138,6 @@
 			}
 		};
 
-	tests = bender.tools.createTestsForEditors( CKEDITOR.tools.objectKeys( bender.editors ), tests );
+	tests = bender.tools.createTestsForEditors( CKEDITOR.tools.object.keys( bender.editors ), tests );
 	bender.test( tests );
 } )();

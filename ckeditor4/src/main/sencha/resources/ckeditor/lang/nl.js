@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['nl'] = {
@@ -31,7 +31,7 @@ CKEDITOR.lang['nl'] = {
     table : 
     {
     	border : 'Randdikte',
-    	caption : 'Titel',
+    	caption : 'Bijschrift',
     	cell : 
     	{
     		menu : 'Cel',
@@ -79,6 +79,7 @@ CKEDITOR.lang['nl'] = {
     	headersColumn : 'Eerste kolom',
     	headersNone : 'Geen',
     	headersRow : 'Eerste rij',
+    	heightUnit : 'height unit',
     	invalidBorder : 'De randdikte moet een getal zijn.',
     	invalidCellPadding : 'Celopvulling moet een getal zijn.',
     	invalidCellSpacing : 'Celafstand moet een getal zijn.',
@@ -163,9 +164,9 @@ CKEDITOR.lang['nl'] = {
     	noAnchors : '(Geen interne links in document gevonden)',
     	noEmail : 'Geef een e-mailadres',
     	noUrl : 'Geef de link van de URL',
-    	noTel : 'Please type the phone number',
+    	noTel : 'Geef een telefoonnummer',
     	other : '<ander>',
-    	phoneNumber : 'Phone number',
+    	phoneNumber : 'Telefoonnummer',
     	popupDependent : 'Afhankelijk (Netscape)',
     	popupFeatures : 'Instellingen popupvenster',
     	popupFullScreen : 'Volledig scherm (IE)',
@@ -190,7 +191,7 @@ CKEDITOR.lang['nl'] = {
     	toAnchor : 'Interne link in pagina',
     	toEmail : 'E-mail',
     	toUrl : 'URL',
-    	toPhone : 'Phone',
+    	toPhone : 'Telefoon',
     	toolbar : 'Link invoegen/wijzigen',
     	type : 'Linktype',
     	unlink : 'Link verwijderen',
@@ -324,7 +325,7 @@ CKEDITOR.lang['nl'] = {
     	justify : 'Uitvullen',
     	alignLeft : 'Links uitlijnen',
     	alignRight : 'Rechts uitlijnen',
-    	alignCenter : 'Align Center',
+    	alignCenter : 'Centreren',
     	alignTop : 'Boven',
     	alignMiddle : 'Midden',
     	alignBottom : 'Onder',
@@ -376,5 +377,5 @@ CKEDITOR.lang['nl'] = {
     		'224' : 'Command'
     	},
     	keyboardShortcut : 'Sneltoets',
-    	optionDefault : 'Default'
+    	optionDefault : 'Standaard'
     } }; 

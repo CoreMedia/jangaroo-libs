@@ -1193,5 +1193,64 @@ bender.test( {
 		assert.areSame( '', dt1._stripHtml( '' ), 'Empty html' );
 		assert.isUndefined( dt1._stripHtml( undefined ), 'Undefined' );
 		assert.isNull( dt1._stripHtml( null ), 'Null' );
+	},
+
+	// (#3415)
+	'test getData body filter whitespace': function() {
+		if ( !CKEDITOR.plugins.clipboard.isCustomDataTypesSupported ) {
+			assert.ignore();
+		}
+
+		var nativeData = bender.tools.mockNativeDataTransfer();
+		nativeData.setData( 'text/html',
+			'<html>' +
+			'<body>\n' +
+			'<!--StartFragment--><li>foo</li><!--EndFragment-->\n' +
+			'</body>' +
+			'</html>' );
+
+		var dataTransfer = new CKEDITOR.plugins.clipboard.dataTransfer( nativeData );
+
+		assert.areSame( '<li>foo</li>', dataTransfer.getData( 'text/html' ) );
+	},
+
+	// (#3634)
+	'test getTypes (custom types)': function() {
+		if ( !CKEDITOR.plugins.clipboard.isCustomDataTypesSupported || CKEDITOR.env.edge ) {
+			assert.ignore();
+		}
+
+		var expectedTypes = [ 'whatever/cke', 'custom/type' ],
+			nativeData,
+			dataTransfer;
+
+		nativeData = bender.tools.mockNativeDataTransfer();
+		nativeData.setData( 'whatever/cke', 'Test' );
+		nativeData.setData( 'custom/type', 'lorem ipsum' );
+
+		dataTransfer = new CKEDITOR.plugins.clipboard.dataTransfer( nativeData );
+
+		arrayAssert.itemsAreSame( expectedTypes, dataTransfer.getTypes() );
+	},
+
+	// (#3634)
+	'test getTypes (non-custom types)': function() {
+		var expectedTypes = [ 'Text' ],
+			nativeData,
+			dataTransfer;
+
+		nativeData = bender.tools.mockNativeDataTransfer();
+		nativeData.setData( 'Text', 'Test' );
+
+		dataTransfer = new CKEDITOR.plugins.clipboard.dataTransfer( nativeData );
+
+		arrayAssert.itemsAreSame( expectedTypes, dataTransfer.getTypes() );
+	},
+
+	// (#3634)
+	'test getTypes when there is no native data transfer': function() {
+		var dataTransfer = new CKEDITOR.plugins.clipboard.dataTransfer();
+
+		arrayAssert.itemsAreSame( [], dataTransfer.getTypes() );
 	}
 } );

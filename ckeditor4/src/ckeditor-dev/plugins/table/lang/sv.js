@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.plugins.setLang( 'table', 'sv', {
@@ -50,6 +50,7 @@ CKEDITOR.plugins.setLang( 'table', 'sv', {
 	headersColumn: 'Första kolumnen',
 	headersNone: 'Ingen',
 	headersRow: 'Första raden',
+	heightUnit: 'height unit', // MISSING
 	invalidBorder: 'Ram måste vara ett nummer.',
 	invalidCellPadding: 'Luft i cell måste vara ett nummer.',
 	invalidCellSpacing: 'Luft i cell måste vara ett nummer.',

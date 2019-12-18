@@ -1,5 +1,5 @@
 ﻿/**
- * @license Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -11,6 +11,9 @@
 		requires: 'textwatcher',
 		onLoad: function() {
 			CKEDITOR.document.appendStyleSheet( this.path + 'skins/default.css' );
+		},
+		isSupportedEnvironment: function() {
+			return !CKEDITOR.env.ie || CKEDITOR.env.version > 8;
 		}
 	} );
 
@@ -239,6 +242,10 @@
 				this.attach();
 			}, this );
 		}
+
+		editor.on( 'destroy', function() {
+			this.destroy();
+		}, this );
 	}
 
 	Autocomplete.prototype = {
@@ -359,7 +366,7 @@
 
 			this._listeners = [];
 
-			this.view.element.remove();
+			this.view.element && this.view.element.remove();
 		},
 
 		/**
@@ -763,7 +770,7 @@
 			}
 
 			// Consider that offset host might be repositioned on its own.
-			// Similar to #1048. See https://github.com/ckeditor/ckeditor-dev/pull/1732#discussion_r182790235.
+			// Similar to #1048. See https://github.com/ckeditor/ckeditor4/pull/1732#discussion_r182790235.
 			var hostElement = CKEDITOR.document.getBody();
 			if ( hostElement.getComputedStyle( 'position' ) === 'static' ) {
 				hostElement = hostElement.getParent();
@@ -1338,7 +1345,7 @@
 	}
 
 	function encodeItem( item ) {
-		return CKEDITOR.tools.array.reduce( CKEDITOR.tools.objectKeys( item ), function( cur, key ) {
+		return CKEDITOR.tools.array.reduce( CKEDITOR.tools.object.keys( item ), function( cur, key ) {
 			cur[ key ] = CKEDITOR.tools.htmlEncode( item[ key ] );
 			return cur;
 		}, {} );

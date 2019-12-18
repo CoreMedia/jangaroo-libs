@@ -4,11 +4,11 @@
 	'use strict';
 
 	var vendorPrefix = CKEDITOR.env.gecko ? '-moz-' :
-			CKEDITOR.env.webkit ? '-webkit-' :
-			CKEDITOR.env.ie ? '-ms-' :
-			'';
+		CKEDITOR.env.webkit ? '-webkit-' :
+		CKEDITOR.env.ie ? '-ms-' :
+		'',
 
-	var htmlEncode = CKEDITOR.tools.htmlEncode,
+		htmlEncode = CKEDITOR.tools.htmlEncode,
 		htmlDecode = CKEDITOR.tools.htmlDecode;
 
 	bender.editor = {
@@ -50,6 +50,17 @@
 			assert.areSame( fakeArray	, target.prop5, 'prop5 doesn\'t match' );
 			assert.areSame( 'Good'		, target.prop6, 'prop6 doesn\'t match' );
 			assert.areSame( fakeArray	, target.prop7, 'prop7 doesn\'t match' );
+		},
+
+		// (#3120)
+		'test extend dont enum attribute': function() {
+			var dontEnumObj = CKEDITOR.tools.convertArrayToObject( CKEDITOR.tools.object.DONT_ENUMS, 1 ),
+				target = {};
+
+			CKEDITOR.tools.extend( target, dontEnumObj, true );
+
+			// hasOwnProperty function is shadowed, so objectAssert.areEqual assertion will fail.
+			arrayAssert.itemsAreEqual( CKEDITOR.tools.object.DONT_ENUMS, CKEDITOR.tools.object.keys( target ) );
 		},
 
 		test_isArray1: function() {
@@ -508,13 +519,6 @@
 			assert.areSame( copy.d, orig.d );
 		},
 
-		'test objectKeys': function() {
-			var keys = CKEDITOR.tools.objectKeys;
-
-			arrayAssert.itemsAreEqual( [ 'foo', 'bar', '$ x !/', 'bom' ], keys( { foo: 1, bar: 'a', '$ x !/': false, bom: undefined } ) );
-			arrayAssert.itemsAreEqual( [], keys( {} ) );
-		},
-
 		'test convertArrayToObject': function() {
 			var arr = [ 'foo', 'bar', 'foo' ],
 				obj;
@@ -522,13 +526,13 @@
 			obj = CKEDITOR.tools.convertArrayToObject( arr );
 			assert.isTrue( obj.foo );
 			assert.isTrue( obj.bar );
-			arrayAssert.itemsAreEqual( [ 'foo', 'bar' ], CKEDITOR.tools.objectKeys( obj ) );
+			arrayAssert.itemsAreEqual( [ 'foo', 'bar' ], CKEDITOR.tools.object.keys( obj ) );
 
 			obj = CKEDITOR.tools.convertArrayToObject( arr, 1 );
 			assert.areSame( 1, obj.foo );
 			assert.areSame( 1, obj.bar );
 
-			arrayAssert.itemsAreEqual( [], CKEDITOR.tools.objectKeys( CKEDITOR.tools.convertArrayToObject( {} ) ) );
+			arrayAssert.itemsAreEqual( [], CKEDITOR.tools.object.keys( CKEDITOR.tools.convertArrayToObject( {} ) ) );
 		},
 
 		'test eventsBuffer': function() {
@@ -637,6 +641,11 @@
 		},
 
 		'test buffers.throttle': function() {
+			if ( bender.config.isTravis && CKEDITOR.env.gecko ) {
+				// test randomly fails on FF on Travis.
+				assert.ignore();
+			}
+
 			var foo = 'foo',
 				baz = 'baz',
 				inputSpy = sinon.spy(),
@@ -743,7 +752,7 @@
 
 			assert.isFalse( c( {}, r1 ) );
 			assert.isFalse( c( { bar: 1 }, r1 ) );
-			assert.isFalse( c( { bar: 1, f: 1, oo: 1 }, r2 ) ); // Ekhem, don't try to objectKeys().join();
+			assert.isFalse( c( { bar: 1, f: 1, oo: 1 }, r2 ) ); // Ekhem, don't try to object.keys().join();
 		},
 
 		'test checkIfAnyArrayItemMatches': function() {
@@ -858,27 +867,97 @@
 		'test getMouseButton': function() {
 			var isIe8 = CKEDITOR.env.ie && CKEDITOR.env.version < 9;
 
-			function generateMouseButtonAsserts( inputs ) {
-				function generateEvent( button ) {
-					return {
-						data: {
-							$: {
-								button: button
-							}
-						}
-					};
-				}
+			generateMouseButtonAsserts( [
+				[ CKEDITOR.MOUSE_BUTTON_LEFT, 1 ],
+				[ CKEDITOR.MOUSE_BUTTON_MIDDLE, 4 ],
+				[ CKEDITOR.MOUSE_BUTTON_RIGHT, 2 ]
+			] );
 
+			function generateMouseButtonAsserts( inputs ) {
 				CKEDITOR.tools.array.forEach( inputs, function( input ) {
-					assert.areSame( input[ 0 ], CKEDITOR.tools.getMouseButton( generateEvent( input[ 1 ] ) ) );
+					assert.areSame( input[ 0 ],
+						CKEDITOR.tools.getMouseButton( generateEvent( input[ isIe8 ? 1 : 0 ] ) ) );
 				} );
 			}
 
+			function generateEvent( button ) {
+				return {
+					data: {
+						$: {
+							button: button
+						}
+					}
+				};
+			}
+		},
+
+		// (#2565)
+		'test getMouseButton with native DOM event': function() {
+			var isIe8 = CKEDITOR.env.ie && CKEDITOR.env.version < 9;
+
 			generateMouseButtonAsserts( [
-				[ CKEDITOR.MOUSE_BUTTON_LEFT, isIe8 ? 1 : CKEDITOR.MOUSE_BUTTON_LEFT ],
-				[ CKEDITOR.MOUSE_BUTTON_MIDDLE, isIe8 ? 4 : CKEDITOR.MOUSE_BUTTON_MIDDLE ],
-				[ CKEDITOR.MOUSE_BUTTON_RIGHT, isIe8 ? 2 : CKEDITOR.MOUSE_BUTTON_RIGHT ]
+				[ CKEDITOR.MOUSE_BUTTON_LEFT, 1 ],
+				[ CKEDITOR.MOUSE_BUTTON_MIDDLE, 4 ],
+				[ CKEDITOR.MOUSE_BUTTON_RIGHT, 2 ]
 			] );
+
+			function generateMouseButtonAsserts( inputs ) {
+				CKEDITOR.tools.array.forEach( inputs, function( input ) {
+					assert.areSame( input[ 0 ],
+						CKEDITOR.tools.getMouseButton( generateEvent( input[ isIe8 ? 1 : 0 ] ) ) );
+				} );
+			}
+
+			function generateEvent( button ) {
+				var event;
+
+				if ( document.createEventObject ) {
+					event = document.createEventObject();
+					event.button = button;
+				} else {
+					event = document.createEvent( 'MouseEvent' );
+					event.initMouseEvent( 'click', true, true, window, 0, 0, 0, 80, 20,
+						false, false, false, false, button, null );
+				}
+
+				return event;
+			}
+		},
+
+		// (#2845)
+		'test normalizeMouseButton': function() {
+			var isIe8 = CKEDITOR.env.ie && CKEDITOR.env.version < 9;
+
+			generateMouseButtonAsserts( [
+				[ CKEDITOR.MOUSE_BUTTON_LEFT, 1 ],
+				[ CKEDITOR.MOUSE_BUTTON_MIDDLE, 4 ],
+				[ CKEDITOR.MOUSE_BUTTON_RIGHT, 2 ]
+			] );
+
+			function generateMouseButtonAsserts( inputs ) {
+				CKEDITOR.tools.array.forEach( inputs, function( input ) {
+					assert.areSame( input[ 0 ],
+						CKEDITOR.tools.normalizeMouseButton( input[ isIe8 ? 1 : 0 ] ) );
+				} );
+			}
+		},
+
+		// (#2845)
+		'test reversed normalizeMouseButton': function() {
+			var isIe8 = CKEDITOR.env.ie && CKEDITOR.env.version < 9;
+
+			generateMouseButtonAsserts( [
+				[ CKEDITOR.MOUSE_BUTTON_LEFT, 1 ],
+				[ CKEDITOR.MOUSE_BUTTON_MIDDLE, 4 ],
+				[ CKEDITOR.MOUSE_BUTTON_RIGHT, 2 ]
+			] );
+
+			function generateMouseButtonAsserts( inputs ) {
+				CKEDITOR.tools.array.forEach( inputs, function( input ) {
+					assert.areSame( input[ isIe8 ? 1 : 0 ],
+						CKEDITOR.tools.normalizeMouseButton( input[ 0 ], true ) );
+				} );
+			}
 		},
 
 		// #662
@@ -990,6 +1069,66 @@
 			CKEDITOR.tools.array.forEach( conversionArray, function( item ) {
 				assert.areSame( item.output, CKEDITOR.tools.convertToPx( item.input ), 'Value ' + item.input + ' should be converted to ' + item.output );
 			} );
+		},
+
+		'test bind without context and without arguments': function() {
+			var testSpy = sinon.spy(),
+				bindedFn = CKEDITOR.tools.bind( testSpy );
+
+			bindedFn( 'foo' );
+			assert.areSame( 1, testSpy.callCount );
+			assert.isTrue( testSpy.calledWithExactly( 'foo' ) );
+
+			bindedFn( 'bar' );
+			assert.areSame( 2, testSpy.callCount );
+			assert.isTrue( testSpy.calledWithExactly( 'bar' ) );
+		},
+
+		'text bind with context and without arguments': function() {
+			var testSpy = sinon.spy(),
+				testObj = {},
+				bindedFn = CKEDITOR.tools.bind( testSpy, testObj );
+
+			bindedFn( 'foo' );
+			assert.areSame( 1, testSpy.callCount );
+			assert.areSame( testObj, testSpy.getCall( 0 ).thisValue );
+			assert.isTrue( testSpy.calledWithExactly( 'foo' ) );
+
+			bindedFn( 'bar' );
+			assert.areSame( 2, testSpy.callCount );
+			assert.areSame( testObj, testSpy.getCall( 1 ).thisValue );
+			assert.isTrue( testSpy.calledWithExactly( 'bar' ) );
+		},
+
+		// (#3247)
+		'test bind without context and with arguments': function() {
+			var testSpy = sinon.spy(),
+				bindedFn = CKEDITOR.tools.bind( testSpy, null, 'baz', 100 );
+
+			bindedFn( 'foo' );
+			assert.areSame( 1, testSpy.callCount );
+			assert.isTrue( testSpy.calledWithExactly( 'baz', 100, 'foo' ) );
+
+			bindedFn( 'bar' );
+			assert.areSame( 2, testSpy.callCount );
+			assert.isTrue( testSpy.calledWithExactly( 'baz', 100, 'bar' ) );
+		},
+
+		// (#3247)
+		'text bind with context and with arguments': function() {
+			var testSpy = sinon.spy(),
+				testObj = {},
+				bindedFn = CKEDITOR.tools.bind( testSpy, testObj, 'baz', 100 );
+
+			bindedFn( 'foo' );
+			assert.areSame( 1, testSpy.callCount );
+			assert.areSame( testObj, testSpy.getCall( 0 ).thisValue );
+			assert.isTrue( testSpy.calledWithExactly( 'baz', 100, 'foo' ) );
+
+			bindedFn( 'bar' );
+			assert.areSame( 2, testSpy.callCount );
+			assert.areSame( testObj, testSpy.getCall( 0 ).thisValue );
+			assert.isTrue( testSpy.calledWithExactly( 'baz', 100, 'bar' ) );
 		}
 	} );
 } )();

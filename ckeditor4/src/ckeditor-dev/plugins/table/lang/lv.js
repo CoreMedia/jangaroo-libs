@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.plugins.setLang( 'table', 'lv', {
@@ -50,6 +50,7 @@ CKEDITOR.plugins.setLang( 'table', 'lv', {
 	headersColumn: 'Pirmā kolona',
 	headersNone: 'Nekas',
 	headersRow: 'Pirmā rinda',
+	heightUnit: 'height unit', // MISSING
 	invalidBorder: 'Rāmju izmēram jābūt skaitlim',
 	invalidCellPadding: 'Šūnu atkāpēm jābūt pozitīvam skaitlim',
 	invalidCellSpacing: 'Šūnu atstarpēm jābūt pozitīvam skaitlim',

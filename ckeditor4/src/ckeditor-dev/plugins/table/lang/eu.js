@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.plugins.setLang( 'table', 'eu', {
@@ -50,6 +50,7 @@ CKEDITOR.plugins.setLang( 'table', 'eu', {
 	headersColumn: 'Lehen zutabea',
 	headersNone: 'Bat ere ez',
 	headersRow: 'Lehen errenkada',
+	heightUnit: 'height unit', // MISSING
 	invalidBorder: 'Ertzaren tamaina zenbaki bat izan behar da.',
 	invalidCellPadding: 'Gelaxken betegarria zenbaki bat izan behar da.',
 	invalidCellSpacing: 'Gelaxka arteko tartea zenbaki bat izan behar da.',

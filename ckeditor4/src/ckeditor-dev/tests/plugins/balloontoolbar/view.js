@@ -1,7 +1,6 @@
 /* bender-tags: balloontoolbar */
 /* bender-ckeditor-plugins: balloontoolbar */
 /* bender-include: _helpers/default.js */
-/* global ignoreUnsupportedEnvironment */
 
 ( function() {
 	'use strict';
@@ -13,6 +12,10 @@
 	};
 
 	var tests = {
+		setUp: function() {
+			bender.tools.ignoreUnsupportedEnvironment( 'balloontoolbar' );
+		},
+
 		'test balloonToolbarView.render': function() {
 			var view = new CKEDITOR.ui.balloonToolbarView( this.editor ),
 				items = {
@@ -45,7 +48,7 @@
 			assert.areSame( '', view.parts.content.getHtml() );
 		},
 
-		'test Balloon Toolbar doesnt steal the focus': function() {
+		'test Balloon Toolbar doesn\'t steal the focus': function() {
 			var editor = this.editor;
 
 			this.editorBot.setData( '<p>foo <strong>bar</strong> baz</p>', function() {
@@ -78,7 +81,7 @@
 
 				view.show();
 				assert.isTrue( view.rect.visible, 'Toolbar should be shown after show method' );
-				assert.areEqual( 4, view._listeners.length, 'Listeners should be attached after show method' );
+				assert.areEqual( 5, view._listeners.length, 'Listeners should be attached after show method' );
 
 				view.hide();
 				assert.isFalse( view.rect.visible, 'Toolbar should not be shown after hide method' );
@@ -89,6 +92,5 @@
 		}
 	};
 
-	ignoreUnsupportedEnvironment( tests );
 	bender.test( tests );
 } )();

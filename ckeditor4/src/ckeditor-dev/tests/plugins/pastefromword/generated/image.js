@@ -1,6 +1,6 @@
 /* bender-tags: clipboard,pastefromword */
 /* bender-ckeditor-plugins: pastefromword,ajax,indentblock,image,table */
-/* bender-include: ./_lib/q.js,./_helpers/promisePasteEvent.js,./_helpers/assertWordFilter.js,./_helpers/createTestCase.js */
+/* bender-include: ././_helpers/promisePasteEvent.js,./_helpers/assertWordFilter.js,./_helpers/createTestCase.js */
 /* bender-include: ./_helpers/createTestSuite.js,./_helpers/pfwTools.js */
 /* global pfwTools,createTestSuite */
 
@@ -32,7 +32,7 @@
 			'PFW_image/Image_reflection': true,
 			'PFW_image/Image_rotation': true
 		},
-		ignoreAll: CKEDITOR.env.ie,
+		ignoreAll: CKEDITOR.env.ie || bender.tools.env.mobile,
 		includeRTF: true
 	} ) );
 } )();

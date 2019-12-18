@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['sv'] = {
@@ -79,6 +79,7 @@ CKEDITOR.lang['sv'] = {
     	headersColumn : 'Första kolumnen',
     	headersNone : 'Ingen',
     	headersRow : 'Första raden',
+    	heightUnit : 'height unit',
     	invalidBorder : 'Ram måste vara ett nummer.',
     	invalidCellPadding : 'Luft i cell måste vara ett nummer.',
     	invalidCellSpacing : 'Luft i cell måste vara ett nummer.',
@@ -163,9 +164,9 @@ CKEDITOR.lang['sv'] = {
     	noAnchors : '(Inga ankare kunde hittas)',
     	noEmail : 'Var god ange e-postadress',
     	noUrl : 'Var god ange länkens URL',
-    	noTel : 'Please type the phone number',
+    	noTel : 'Var god ange telefonnummer',
     	other : '<annan>',
-    	phoneNumber : 'Phone number',
+    	phoneNumber : 'Telefonnummer',
     	popupDependent : 'Beroende (endast Netscape)',
     	popupFeatures : 'Popup-fönstrets egenskaper',
     	popupFullScreen : 'Helskärm (endast IE)',
@@ -190,7 +191,7 @@ CKEDITOR.lang['sv'] = {
     	toAnchor : 'Länk till ankare i texten',
     	toEmail : 'E-post',
     	toUrl : 'URL',
-    	toPhone : 'Phone',
+    	toPhone : 'Telefon',
     	toolbar : 'Infoga/Redigera länk',
     	type : 'Länktyp',
     	unlink : 'Radera länk',

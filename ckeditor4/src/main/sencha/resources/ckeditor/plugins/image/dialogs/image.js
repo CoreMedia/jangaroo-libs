@@ -1,5 +1,5 @@
 ﻿/**
- * @license Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -277,6 +277,18 @@
 				title: editor.lang.image[ dialogType == 'image' ? 'title' : 'titleButton' ],
 				minWidth: ( CKEDITOR.skinName || editor.config.skin ) == 'moono-lisa' ? 500 : 420,
 				minHeight: 360,
+				getModel: function( editor ) {
+					var element = editor.getSelection().getSelectedElement(),
+						isImage = element && element.getName() === 'img',
+						isImageInput = element && element.getName() === 'input' &&
+							element.getAttribute( 'type' ) === 'image';
+
+					if ( isImage ||isImageInput ) {
+						return element;
+					}
+
+					return null;
+				},
 				onShow: function() {
 					this.imageElement = false;
 					this.linkElement = false;

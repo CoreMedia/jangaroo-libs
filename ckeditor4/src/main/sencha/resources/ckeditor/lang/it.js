@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['it'] = {
@@ -79,6 +79,7 @@ CKEDITOR.lang['it'] = {
     	headersColumn : 'Prima Colonna',
     	headersNone : 'Nessuna',
     	headersRow : 'Prima Riga',
+    	heightUnit : 'height unit',
     	invalidBorder : 'La dimensione del bordo dev\'essere un numero.',
     	invalidCellPadding : 'Il paging delle celle dev\'essere un numero',
     	invalidCellSpacing : 'La spaziatura tra le celle dev\'essere un numero.',
@@ -163,9 +164,9 @@ CKEDITOR.lang['it'] = {
     	noAnchors : '(Nessuna ancora disponibile nel documento)',
     	noEmail : 'Devi inserire un\'indirizzo e-mail',
     	noUrl : 'Devi inserire l\'URL del collegamento',
-    	noTel : 'Please type the phone number',
+    	noTel : 'Inserire il numero di telefono',
     	other : '<altro>',
-    	phoneNumber : 'Phone number',
+    	phoneNumber : 'Numero di telefono',
     	popupDependent : 'Dipendente (Netscape)',
     	popupFeatures : 'Caratteristiche finestra popup',
     	popupFullScreen : 'A tutto schermo (IE)',
@@ -190,7 +191,7 @@ CKEDITOR.lang['it'] = {
     	toAnchor : 'Ancora nel testo',
     	toEmail : 'E-Mail',
     	toUrl : 'URL',
-    	toPhone : 'Phone',
+    	toPhone : 'Telefono',
     	toolbar : 'Collegamento',
     	type : 'Tipo di Collegamento',
     	unlink : 'Elimina collegamento',

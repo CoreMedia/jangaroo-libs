@@ -54,6 +54,7 @@ var CKBUILDER_CONFIG = {
 		menu: 1,
 		pastefromword: 1,
 		pastetext: 1,
+		pastetools: 1,
 		showborders: 1,
 		table: 1,
 		tableselection: 1,

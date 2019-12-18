@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['pt'] = {
@@ -79,6 +79,7 @@ CKEDITOR.lang['pt'] = {
     	headersColumn : 'Primeira coluna',
     	headersNone : 'Nenhum',
     	headersRow : 'Primeira linha',
+    	heightUnit : 'height unit',
     	invalidBorder : 'O tamanho da margem tem de ser um número.',
     	invalidCellPadding : 'A criação do espaço na célula deve ser um número positivo.',
     	invalidCellSpacing : 'O espaçamento da célula deve ser um número positivo.',
@@ -99,7 +100,7 @@ CKEDITOR.lang['pt'] = {
     	title : 'Propriedades da tabela',
     	toolbar : 'Tabela',
     	widthPc : 'percentagem',
-    	widthPx : 'pixéis',
+    	widthPx : 'píxeis',
     	widthUnit : 'unidade da largura'
     },
     pastetext : 
@@ -163,9 +164,9 @@ CKEDITOR.lang['pt'] = {
     	noAnchors : '(Não existem âncoras no documento)',
     	noEmail : 'Por favor, escreva o endereço de email',
     	noUrl : 'Por favor, introduza o endereço URL',
-    	noTel : 'Please type the phone number',
+    	noTel : 'Por favor, escreva o número de telefone',
     	other : '<outro>',
-    	phoneNumber : 'Phone number',
+    	phoneNumber : 'Número de telefone',
     	popupDependent : 'Dependente (Netscape)',
     	popupFeatures : 'Características de janela flutuante',
     	popupFullScreen : 'Janela completa (IE)',
@@ -190,7 +191,7 @@ CKEDITOR.lang['pt'] = {
     	toAnchor : 'Ligar a âncora no texto',
     	toEmail : 'Email',
     	toUrl : 'URL',
-    	toPhone : 'Phone',
+    	toPhone : 'Telefone',
     	toolbar : 'Hiperligação',
     	type : 'Tipo de hiperligação',
     	unlink : 'Eliminar hiperligação',
@@ -247,7 +248,7 @@ CKEDITOR.lang['pt'] = {
     	cutError : 'A configuração de segurança do navegador não permite a execução automática de operações de cortar. Por favor use o teclado (Ctrl/Cmd+X).',
     	paste : 'Colar',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
-    	pasteArea : 'Colar área',
+    	pasteArea : 'Área de colagem',
     	pasteMsg : 'Paste your content inside the area below and press OK.'
     },
     blockquote : 
@@ -324,9 +325,9 @@ CKEDITOR.lang['pt'] = {
     	justify : 'Justificado',
     	alignLeft : 'Alinhar à esquerda',
     	alignRight : 'Alinhar à direita',
-    	alignCenter : 'Align Center',
+    	alignCenter : 'Centrado',
     	alignTop : 'Topo',
-    	alignMiddle : 'Centro',
+    	alignMiddle : 'Meio',
     	alignBottom : 'Base',
     	alignNone : 'Nenhum',
     	invalidValue : 'Valor inválido.',
@@ -336,7 +337,7 @@ CKEDITOR.lang['pt'] = {
     	invalidCssLength : 'O valor especificado para o campo "1%" deve ser um número positivo, com ou sem uma unidade de medida CSS válida (px, %, in, cm, mm, em, ex, pt, ou pc).',
     	invalidHtmlLength : 'O valor especificado para o campo "1%" deve ser um número positivo, com ou sem uma unidade de medida HTML válida (px ou %).',
     	invalidInlineStyle : 'O valor especificado para o estilo em linha deve constituir um ou mais conjuntos de valores com o formato de "nome : valor", separados por ponto e vírgula.',
-    	cssLengthTooltip : 'Insira um número para um valor em pontos ou um número com uma unidade CSS válida (px, %, in, cm, mm, em, ex, pt, ou pc).',
+    	cssLengthTooltip : 'Insira um número para um valor em píxeis ou um número com uma unidade CSS válida (px, %, in, cm, mm, em, ex, pt, ou pc).',
     	unavailable : '%1<span class="cke_accessibility">, indisponível</span>',
     	keyboard : 
     	{
@@ -376,5 +377,5 @@ CKEDITOR.lang['pt'] = {
     		'224' : 'Comando'
     	},
     	keyboardShortcut : 'Keyboard shortcut',
-    	optionDefault : 'Default'
+    	optionDefault : 'Padrão'
     } }; 

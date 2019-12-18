@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['sl'] = {
@@ -79,6 +79,7 @@ CKEDITOR.lang['sl'] = {
     	headersColumn : 'Prvi stolpec',
     	headersNone : 'Brez',
     	headersRow : 'Prva vrstica',
+    	heightUnit : 'height unit',
     	invalidBorder : 'Širina obrobe mora biti število.',
     	invalidCellPadding : 'Odmik znotraj celic mora biti pozitivno število.',
     	invalidCellSpacing : 'Razmik med celicami mora biti pozitivno število.',

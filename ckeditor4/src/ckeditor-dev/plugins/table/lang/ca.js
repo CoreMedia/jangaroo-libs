@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.plugins.setLang( 'table', 'ca', {
@@ -50,6 +50,7 @@ CKEDITOR.plugins.setLang( 'table', 'ca', {
 	headersColumn: 'Primera columna',
 	headersNone: 'Cap',
 	headersRow: 'Primera fila',
+	heightUnit: 'height unit', // MISSING
 	invalidBorder: 'El gruix de la vora ha de ser un nombre.',
 	invalidCellPadding: 'L\'encoixinament de cel·la  ha de ser un nombre.',
 	invalidCellSpacing: 'L\'espaiat de cel·la  ha de ser un nombre.',

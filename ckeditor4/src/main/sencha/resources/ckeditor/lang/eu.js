@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['eu'] = {
@@ -79,6 +79,7 @@ CKEDITOR.lang['eu'] = {
     	headersColumn : 'Lehen zutabea',
     	headersNone : 'Bat ere ez',
     	headersRow : 'Lehen errenkada',
+    	heightUnit : 'height unit',
     	invalidBorder : 'Ertzaren tamaina zenbaki bat izan behar da.',
     	invalidCellPadding : 'Gelaxken betegarria zenbaki bat izan behar da.',
     	invalidCellSpacing : 'Gelaxka arteko tartea zenbaki bat izan behar da.',
@@ -147,7 +148,7 @@ CKEDITOR.lang['eu'] = {
     	anchorName : 'Aingura-izenaren arabera',
     	charset : 'Estekatutako baliabide karaktere-jokoa',
     	cssClasses : 'Estilo-orriko klaseak',
-    	download : 'Force Download',
+    	download : 'Behartu deskarga',
     	displayText : 'Bistaratu testua',
     	emailAddress : 'E-posta helbidea',
     	emailBody : 'Mezuaren gorputza',

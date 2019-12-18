@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['sk'] = {
@@ -79,6 +79,7 @@ CKEDITOR.lang['sk'] = {
     	headersColumn : 'Prvý stĺpec',
     	headersNone : 'Žiadne',
     	headersRow : 'Prvý riadok',
+    	heightUnit : 'height unit',
     	invalidBorder : 'Šírka orámovania musí byť číslo.',
     	invalidCellPadding : 'Odsadenie v bunkách (cell padding) musí byť kladné číslo.',
     	invalidCellSpacing : 'Medzera mädzi bunkami (cell spacing) musí byť kladné číslo.',
@@ -163,9 +164,9 @@ CKEDITOR.lang['sk'] = {
     	noAnchors : '(V dokumente nie sú dostupné žiadne kotvy)',
     	noEmail : 'Zadajte prosím e-mailovú adresu',
     	noUrl : 'Zadajte prosím URL odkazu',
-    	noTel : 'Please type the phone number',
+    	noTel : 'Zadajte prosím telefónne číslo',
     	other : '<iný>',
-    	phoneNumber : 'Phone number',
+    	phoneNumber : 'Telefónne číslo',
     	popupDependent : 'Závislosť (Netscape)',
     	popupFeatures : 'Vlastnosti vyskakovacieho okna',
     	popupFullScreen : 'Celá obrazovka (IE)',
@@ -190,7 +191,7 @@ CKEDITOR.lang['sk'] = {
     	toAnchor : 'Odkaz na kotvu v texte',
     	toEmail : 'E-mail',
     	toUrl : 'URL',
-    	toPhone : 'Phone',
+    	toPhone : 'Telefón',
     	toolbar : 'Odkaz',
     	type : 'Typ odkazu',
     	unlink : 'Odstrániť odkaz',

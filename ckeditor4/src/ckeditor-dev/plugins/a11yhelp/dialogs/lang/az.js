@@ -1,5 +1,5 @@
 /**
- * @license Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -81,9 +81,9 @@ CKEDITOR.plugins.setLang( 'a11yhelp', 'az', {
 			legend: '${a11yHelp} basın'
 		},
 			{
-			name: ' Paste as plain text', // MISSING
-			legend: 'Press ${pastetext}', // MISSING
-			legendEdge: 'Press ${pastetext}, followed by ${paste}' // MISSING
+			name: 'Yalnız mətni əlavə et',
+			legend: '${pastetext} basın',
+			legendEdge: 'Öncə ${pastetext}, sonra ${paste} basın'
 		}
 		]
 	}

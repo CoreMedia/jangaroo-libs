@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.plugins.setLang( 'table', 'de', {
@@ -50,6 +50,7 @@ CKEDITOR.plugins.setLang( 'table', 'de', {
 	headersColumn: 'Erste Spalte',
 	headersNone: 'Keine',
 	headersRow: 'Erste Zeile',
+	heightUnit: 'height unit', // MISSING
 	invalidBorder: 'Die Rahmenbreite muß eine Zahl sein.',
 	invalidCellPadding: 'Der Zellenabstand innen muß eine positive Zahl sein.',
 	invalidCellSpacing: 'Der Zellenabstand außen muß eine positive Zahl sein.',

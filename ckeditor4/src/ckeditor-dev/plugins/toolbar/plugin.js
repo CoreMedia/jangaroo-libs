@@ -1,5 +1,5 @@
 ﻿/**
- * @license Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -665,8 +665,8 @@ CKEDITOR.UI_SEPARATOR = 'separator';
  * (`iframe`-based) editor. In case of {@glink guide/dev_inline inline} editor the toolbar
  * position is set dynamically depending on the position of the editable element on the screen.
  *
- * Read more in the {@glink guide/dev_toolbarlocation documentation}
- * and see the [SDK sample](https://sdk.ckeditor.com/samples/toolbarlocation.html).
+ * Read more in the {@glink features/toolbarlocation documentation}
+ * and see the {@glink examples/toolbarlocation example}.
  *
  *		config.toolbarLocation = 'bottom';
  *
@@ -682,8 +682,8 @@ CKEDITOR.config.toolbarLocation = 'top';
  * If set to `null`, the toolbar will be generated automatically using all available buttons
  * and {@link #toolbarGroups} as a toolbar groups layout.
  *
- * In CKEditor 4.5+ you can generate your toolbar customization code by using the [visual
- * toolbar configurator](https://ckeditor.com/docs/ckeditor4/latest/guide/dev_toolbar.html).
+ * In CKEditor 4.5.0+ you can generate your toolbar customization code by using the {@glink features/toolbar visual
+ * toolbar configurator}.
  *
  *		// Defines a toolbar with only one strip containing the "Source" button, a
  *		// separator, and the "Bold" and "Italic" buttons.
@@ -769,7 +769,7 @@ CKEDITOR.config.toolbarLocation = 'top';
  *
  *		config.toolbarGroupCycling = false;
  *
- * @since 3.6
+ * @since 3.6.0
  * @cfg {Boolean} [toolbarGroupCycling=true]
  * @member CKEDITOR.config
  */

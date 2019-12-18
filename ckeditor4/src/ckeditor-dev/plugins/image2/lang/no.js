@@ -1,12 +1,12 @@
 /*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.plugins.setLang( 'image2', 'no', {
 	alt: 'Alternativ tekst',
 	btnUpload: 'Send det til serveren',
 	captioned: 'Bilde med bildetekst',
-	captionPlaceholder: 'Caption', // MISSING
+	captionPlaceholder: 'Billedtekst',
 	infoTab: 'Bildeinformasjon',
 	lockRatio: 'Lås forhold',
 	menu: 'Bildeegenskaper',
@@ -17,5 +17,5 @@ CKEDITOR.plugins.setLang( 'image2', 'no', {
 	title: 'Bildeegenskaper',
 	uploadTab: 'Last opp',
 	urlMissing: 'Bildets adresse mangler.',
-	altMissing: 'Alternative text is missing.' // MISSING
+	altMissing: 'Alternativ tekst mangler.'
 } );
