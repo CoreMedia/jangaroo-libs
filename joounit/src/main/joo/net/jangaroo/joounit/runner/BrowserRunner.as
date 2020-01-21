@@ -117,6 +117,10 @@ public class BrowserRunner extends BaseTestRunner {
     trace("[ERROR]", "test failed", test, error, error["stack"]);
   }
 
+  override public function testStarted(test:Test):void {
+    trace("[INFO]", "running test", test);
+  }
+
   override public function testEnded(test:Test):void {
     if (++numTestsRun == totalTestCount)
     {
