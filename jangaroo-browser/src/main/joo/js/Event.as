@@ -36,15 +36,9 @@ public class Event {
   public native function get relatedTarget() : Element;
 
   public native function set relatedTarget(e : Element) : void; // only for IE
-  public native function get shiftKey() : Boolean;
-
   public native function get shiftLeft() : Boolean;
 
-  public native function get ctrlKey() : Boolean;
-
   public native function get ctrlLeft() : Boolean;
-
-  public native function get altKey() : Boolean;
 
   public native function get metaKey() : Boolean;
 
@@ -54,9 +48,5 @@ public class Event {
   public native function get cancelBubble() : Boolean; // IE only
   public native function set cancelBubble(val : Boolean) : void; // IE only
   public native function get touches() : Array;  // iPhone only
-  public native function initMouseEvent(eventType : String, param2 : Boolean, param3 : Boolean, view:*, detail:*,
-                                        screenX : int, screenY : int, clientX : int, clientY : int,
-                                        ctrlKey : Boolean, altKey : Boolean, shiftKey : Boolean, metaKey : Boolean,
-                                        param14 : *, param15 : *) : void;
 }
 }

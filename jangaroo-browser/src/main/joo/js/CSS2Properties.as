@@ -1,6 +1,6 @@
 package js {
 
-[Native("CSS2Properties|MSStyleCSSProperties")]
+[Native("CSSStyleDeclaration")]
 public interface CSS2Properties {
 
 

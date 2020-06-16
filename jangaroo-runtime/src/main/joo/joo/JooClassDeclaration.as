@@ -291,7 +291,7 @@ public class JooClassDeclaration extends NativeClassDeclaration {
   //noinspection JSFieldCanBeLocalInspection
   private static var jooClasstoString:Function;
   jooClasstoString = function():String {
-    return "[class " + this.$class.className + "]";
+    return "[class " + this['$class'].className + "]";
   };
 
   internal function _setConstructor(constructor_:Function):void {

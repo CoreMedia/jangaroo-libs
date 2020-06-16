@@ -98,10 +98,10 @@ public class RenderState {
         displayObject._render(this);
         _context.restore();
       }
-      if (window.showBounds) {
+      if (window['showBounds']) {
         debugBounds(displayObject);
       }
-      if (window.dumpDisplayList) {
+      if (window['dumpDisplayList']) {
         dump(displayObject);
       }
       _depth--;
@@ -113,7 +113,7 @@ public class RenderState {
 
   private function debugBounds(displayObject:DisplayObject):void {
     var isMouseOverTarget:Boolean = displayObject === displayObject.stage._mouseOverTarget;
-    if (!isMouseOverTarget && typeof window.showBounds === 'function' && !(displayObject instanceof window.showBounds)) {
+    if (!isMouseOverTarget && typeof window['showBounds'] === 'function' && !(displayObject instanceof window["showBounds"])) {
       return;
     }
     _context.save();
@@ -126,12 +126,12 @@ public class RenderState {
                     "blue";
     var bounds:Rectangle = displayObject.getBounds(displayObject.stage);
     _context.strokeRect(bounds.x, bounds.y, bounds.width, bounds.height);
-    if (displayObject['constructor'] === window.showBounds) {
+    if (displayObject['constructor'] === window['showBounds']) {
       return;
     }
     _context.textAlign = "start";
     _context.textBaseline = "bottom";
-    _context.fillText(displayObject['constructor'].$class.toString(), bounds.x, bounds.y + bounds.height);
+    _context.fillText(displayObject['constructor']['$class'].toString(), bounds.x, bounds.y + bounds.height);
     _context.restore();
   }
 
@@ -141,7 +141,7 @@ public class RenderState {
       msg.push(" ");
     }
     var bounds:Rectangle = displayObject.getBounds(displayObject.stage);
-    msg.push(displayObject['constructor'].$class.toString(), ":", bounds);
+    msg.push(displayObject['constructor']['$class'].toString(), ":", bounds);
     trace("WARN", msg.join(""));
   }
 

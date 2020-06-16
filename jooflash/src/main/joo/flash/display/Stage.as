@@ -11,10 +11,11 @@ import flash.text.TextSnapshot;
 import flash.ui.KeyLocation;
 
 import js.CanvasRenderingContext2D;
-import js.Element;
 import js.Event;
 import js.HTMLCanvasElement;
 import js.HTMLElement;
+import js.KeyEvent;
+import js.MouseEvent;
 
 /**
  * Dispatched when the Stage object enters, or leaves, full-screen mode. A change in full-screen mode can be initiated through ActionScript, or the user invoking a keyboard shortcut, or if the current focus leaves the full-screen window.
@@ -1002,14 +1003,14 @@ public class Stage extends DisplayObjectContainer {
    */
   override public native function dispatchEvent(event:flash.events.Event):Boolean;
 
-  private function newMouseEvent(flashEventType:String, event:js.Event):MouseEvent {
-    var mouseEvent:MouseEvent = new MouseEvent(flashEventType, true, true, NaN, NaN, null,
+  private function newMouseEvent(flashEventType:String, event:js.MouseEvent):flash.events.MouseEvent {
+    var mouseEvent:flash.events.MouseEvent = new flash.events.MouseEvent(flashEventType, true, true, NaN, NaN, null,
             event.ctrlKey, event.altKey, event.shiftKey, buttonDown, event['wheelDelta']);
     mouseEvent.stagePoint = new Point(_stageMouse.x, _stageMouse.y);
     return mouseEvent;
   }
 
-  private function handleMouseEvent(event:js.Event):Boolean {
+  private function handleMouseEvent(event:js.MouseEvent):Boolean {
     var button:int = event['button'];
     if (button < 0 || button > 2) {
       return true;
@@ -1024,7 +1025,7 @@ public class Stage extends DisplayObjectContainer {
 
     //------------------------------------------------------
     if (_mouseOverTarget !== null && _mouseOverTarget !== target) {
-      _mouseOverTarget.dispatchEvent(newMouseEvent(MouseEvent.MOUSE_OUT, event));
+      _mouseOverTarget.dispatchEvent(newMouseEvent(flash.events.MouseEvent.MOUSE_OUT, event));
       _mouseOverTarget = null;
     }
 
@@ -1035,7 +1036,7 @@ public class Stage extends DisplayObjectContainer {
 
     if (target !== null && target !== _mouseOverTarget) {
       _mouseOverTarget = target;
-      _mouseOverTarget.dispatchEvent(newMouseEvent(MouseEvent.MOUSE_OVER, event));
+      _mouseOverTarget.dispatchEvent(newMouseEvent(flash.events.MouseEvent.MOUSE_OVER, event));
     }
 
     //------------------------------------------------------
@@ -1046,7 +1047,7 @@ public class Stage extends DisplayObjectContainer {
     switch (event.type) {
       case 'mousedown':
       case 'touchstart':
-        mouseEventType = MouseEvent.MOUSE_DOWN;
+        mouseEventType = flash.events.MouseEvent.MOUSE_DOWN;
         buttonDown = true;
         if (target !== _clickTarget || time > _clickTime + 500) {
           _clickCount = 0;
@@ -1058,17 +1059,17 @@ public class Stage extends DisplayObjectContainer {
 
       case 'mouseup':
       case 'touchend':
-        mouseEventType = MouseEvent.MOUSE_UP;
+        mouseEventType = flash.events.MouseEvent.MOUSE_UP;
         buttonDown = false;
         if (target && _clickTarget === target) {
           var isDoubleClick:Boolean = target.doubleClickEnabled && _clickCount % 2 === 0 && time < _clickTime + 500;
-          sndMouseEventType = isDoubleClick ? MouseEvent.DOUBLE_CLICK : MouseEvent.CLICK;
+          sndMouseEventType = isDoubleClick ? flash.events.MouseEvent.DOUBLE_CLICK : flash.events.MouseEvent.CLICK;
         }
         break;
 
       case 'mousemove':
       case 'touchmove':
-        mouseEventType = MouseEvent.MOUSE_MOVE;
+        mouseEventType = flash.events.MouseEvent.MOUSE_MOVE;
         _clickCount = 0;
         break;
 
@@ -1109,18 +1110,18 @@ public class Stage extends DisplayObjectContainer {
   }
 
   /**
-   * Beware: not a real Rectangle, but only <code>{top: ..., left: ..., width: ..., height: ...}</code>!
    * @return the bounds of the DOM element representing this Stage
    */
   private static function getDomBounds(element:HTMLElement):Rectangle {
-    return element['getBoundingClientRect']();  // TODO: more cross-browser cases, scroll offsets?
+    var boundingClientRect:Object = element['getBoundingClientRect']();
+    return new Rectangle(boundingClientRect.x, boundingClientRect.y, boundingClientRect.width, boundingClientRect.height);  // TODO: more cross-browser cases, scroll offsets?
   }
 
-  private function handleMouseWheelEvent(event:js.Event):Boolean {
+  private function handleMouseWheelEvent(event:js.MouseEvent):Boolean {
     updateStageMouse(event);
     var target:InteractiveObject = hitTestInput(_stageMouse.x, _stageMouse.y);
     if (target != null) {
-      target.dispatchEvent(newMouseEvent(MouseEvent.MOUSE_WHEEL, event));
+      target.dispatchEvent(newMouseEvent(flash.events.MouseEvent.MOUSE_WHEEL, event));
     }
     return false;
   }
@@ -1285,17 +1286,17 @@ public class Stage extends DisplayObjectContainer {
     return canvasContext.canvas;
   }
 
-  private function handleKeyEvent(event:js.Event):Boolean {
+  private function handleKeyEvent(event:KeyEvent):Boolean {
     event.preventDefault();
     var keyboardEventType:String = event.type === "keyup" ? KeyboardEvent.KEY_UP : KeyboardEvent.KEY_DOWN;
     var keyboardEvent:KeyboardEvent = new KeyboardEvent(keyboardEventType, true, true, event['charCode'],
             event.keyCode, event['location'] || KeyLocation.STANDARD,
-            event.ctrlKey, event.altKey, event.shiftKey, event.ctrlLeft, event.metaKey);
+            event.ctrlKey, event.altKey, event.shiftKey, event['ctrlLeft'], event.metaKey);
     (focus || stage).dispatchEvent(keyboardEvent);
     return false;
   }
 
-  private function handleTextEvent(event:js.Event):Boolean {
+  private function handleTextEvent(event:KeyEvent):Boolean {
     event.preventDefault();
     if (focus) {
       var text:String = String.fromCharCode(event['charCode'] || event.keyCode);
@@ -1364,7 +1365,7 @@ public class Stage extends DisplayObjectContainer {
     stageElem['tabIndex'] = 1;
     stageElem.style.outline = "none";
     stageElem.style.position = "relative";
-    var oldElem:Element = window.document.getElementById(id);
+    var oldElem:HTMLElement = window.document.getElementById(id);
     updateContainerElement(stageElem, null);
     var width:String = oldElem.style.width || String(_stageBounds.width);
     var height:String = oldElem.style.height || String(_stageBounds.height);
@@ -1413,7 +1414,7 @@ public class Stage extends DisplayObjectContainer {
       if (isBitmapCacheDirty()) {
         _renderState.reset();
         _render(_renderState);
-        window.dumpDisplayList = false;
+        window['dumpDisplayList'] = false;
       }
     }
   }

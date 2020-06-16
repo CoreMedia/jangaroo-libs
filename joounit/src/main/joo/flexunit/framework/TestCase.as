@@ -359,7 +359,7 @@ package flexunit.framework
             methodNames = new Array();
 
             var type : XML = describeType( this );
-            var names : XMLList = type.method.@name;
+            var names : XMLList = type['method']['@name'];
 
             for ( var i : uint = 0; i < names.length(); i++ )
             {

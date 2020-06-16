@@ -19,7 +19,7 @@ public class Sprite extends DisplayObjectContainer {
   override internal function getBoundsChildren():Vector.<DisplayObject> {
     var boundsChildren:Vector.<DisplayObject> = super.getBoundsChildren();
     if (_graphics) {
-      boundsChildren = boundsChildren.concat(_graphics); // yes, Graphics is not a DisplayObject, but it implements getBoundsTransformed() and _transformationMatrix!
+      boundsChildren = boundsChildren.concat(DisplayObject(_graphics)); // yes, Graphics is not a DisplayObject, but it implements getBoundsTransformed() and _transformationMatrix!
     }
     return boundsChildren;
   }

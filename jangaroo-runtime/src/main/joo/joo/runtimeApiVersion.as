@@ -5,6 +5,6 @@ package joo {
  * @return the Jangaroo Runtime API version.
  */
 [Native]
-public native function get runtimeApiVersion():String;
+public const runtimeApiVersion:String = null;
 
 }

@@ -51,7 +51,7 @@ public class Document extends Node {
 
 
 
-  public native function createElement(name : String) : Element;
+  public native function createElement(name : String) : HTMLElement;
 
 
 
@@ -63,7 +63,7 @@ public class Document extends Node {
 
 
 
-  public native function getElementById(id : String) : Element;
+  public native function getElementById(id : String) : HTMLElement;
 
 
 

@@ -1184,7 +1184,7 @@ public final class Graphics {
         command(context);
       }
       doEndFill(context);
-      if (window.showGraphicsBounds) {
+      if (window['showGraphicsBounds']) {
         context.lineWidth = 1;
         context.strokeStyle = "blue";
         context.strokeRect(minX,  minY, maxX-minX, maxY-minY);

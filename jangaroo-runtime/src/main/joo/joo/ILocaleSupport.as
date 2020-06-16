@@ -14,6 +14,7 @@
  */
 package joo {
 
+[Native(require)]
 /**
  * This interface provides the foundation of localization support with ExtJS.
  * Its singleton instance <code>joo.localeSupport</code> maintain a current locale and loads a locale-specific subclass of any

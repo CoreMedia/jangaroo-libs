@@ -2024,7 +2024,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
   }
 
   private function _isCacheAsBitmap():Boolean {
-    return cacheAsBitmap && window.cacheAsBitmap !== false;  // experimental feature, allow user to disable it!
+    return cacheAsBitmap && window['cacheAsBitmap'] !== false;  // experimental feature, allow user to disable it!
   }
 
   private function _renderCached(renderState:RenderState):void {
@@ -2118,7 +2118,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
 
   protected function createElement():HTMLElement {
     var element:HTMLElement = HTMLElement(window.document.createElement(getElementName()));
-    element.setAttribute("data-flashclass", this['constructor'].$class.toString());
+    element.setAttribute("data-flashclass", this['constructor']['$class'].toString());
     return element;
   }
 

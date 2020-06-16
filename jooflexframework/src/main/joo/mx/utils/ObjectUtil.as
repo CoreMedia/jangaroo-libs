@@ -725,7 +725,7 @@ public class ObjectUtil
                         }
                         
                         // loop through all of the properties and compare
-                        var propName:QName;
+                        var propName:String;
                         var aProp:Object;
                         var bProp:Object;
                         for (var i:int = 0; i < aProps.length; i++)

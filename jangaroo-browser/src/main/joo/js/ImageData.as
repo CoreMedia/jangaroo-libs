@@ -6,7 +6,7 @@ public interface ImageData {
 
   function get height() : uint;
 
-  function get data() : Array; // CanvasPixelArray
+  function get data() : Uint8ClampedArray;
 
 }
 }

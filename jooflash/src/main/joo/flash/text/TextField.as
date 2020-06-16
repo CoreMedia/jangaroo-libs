@@ -8,7 +8,6 @@ import flash.geom.Rectangle;
 
 import js.CanvasRenderingContext2D;
 import js.Document;
-import js.Element;
 import js.HTMLCanvasElement;
 import js.HTMLElement;
 import js.CSS2Properties;
@@ -1143,7 +1142,7 @@ public class TextField extends InteractiveObject {
    * @private
    */
   public function set textColor(value:uint):void {
-    _textFormat.color = value;
+    _textFormat.color = Object(value);
     _canvasDirty = true;
   }
 
@@ -2102,7 +2101,7 @@ public class TextField extends InteractiveObject {
   }
 
   private static const FONT_METRICS_CACHE:Object = {};
-  private static var testDiv:Element;
+  private static var testDiv:HTMLElement;
 
   private static function getFontMetrics(font:String):Object {
     var metrics:Object = FONT_METRICS_CACHE[font];
@@ -2814,9 +2813,9 @@ public class TextField extends InteractiveObject {
     style.fontFamily = asWebFont();
     style.fontSize = getSize() + "px";
     style.color = Graphics.toRGBA(textColor);
-    var bold:Boolean = _textFormat.bold !== null ? _textFormat.bold : _defaultTextFormat.bold;
+    var bold:Boolean = Boolean(_textFormat.bold !== null ? _textFormat.bold : _defaultTextFormat.bold);
     style.fontWeight = bold ? "bold" : "normal";
-    var italic:Boolean = _textFormat.italic !== null ? _textFormat.italic : _defaultTextFormat.italic;
+    var italic:Boolean = Boolean(_textFormat.italic !== null ? _textFormat.italic : _defaultTextFormat.italic);
     style.fontStyle = italic ? "italic" : "normal";
     style.textAlign = _textFormat.align !== null ? _textFormat.align : _defaultTextFormat.align;
   }

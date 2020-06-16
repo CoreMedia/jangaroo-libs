@@ -5,6 +5,6 @@ package joo {
  * @return the Jangaroo compiler version that generated the Runtime.
  */
 [Native]
-public native function get compilerVersion():String;
+public const compilerVersion:String = null;
 
 }

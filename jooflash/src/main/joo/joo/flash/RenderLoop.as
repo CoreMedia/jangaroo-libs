@@ -22,10 +22,10 @@ public class RenderLoop {
     }
 
     if (!window.requestAnimationFrame) {
-      window.requestAnimationFrame = function (callback:Function):Object {
+      window.requestAnimationFrame = function (callback:Function):Number {
         var currTime:Number = new Date().getTime();
         var timeToCall:Number = Math.max(0, 16 - (currTime - lastTime));
-        var id:Object = window.setTimeout(function ():void {
+        var id:Number = window.setTimeout(function ():void {
                   callback(currTime + timeToCall);
                 },
                 timeToCall);

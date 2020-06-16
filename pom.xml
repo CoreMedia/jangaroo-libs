@@ -18,16 +18,16 @@
     <module>jangaroo-browser</module>
 
     <module>jooflash-core</module>
-    <module>jooflash</module>
+<!--    <module>jooflash</module>-->
 
     <module>jooflexframework</module>
     <module>joounit</module>
 
-    <module>ckeditor4</module>
+<!--    <module>ckeditor4</module>-->
 
     <module>jangaroo-libs-bom</module>
-    <module>jangaroo-libs-doc</module>
-    <module>jangaroo-sdk</module>
+<!--    <module>jangaroo-libs-doc</module>-->
+<!--    <module>jangaroo-sdk</module>-->
   </modules>
 
   <build>

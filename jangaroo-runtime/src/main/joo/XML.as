@@ -574,7 +574,7 @@ public final dynamic class XML {
    * @see http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/operators.html#dot_(XML)
    * @see http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118a9b90204-7e71.html XML objects
    *
-   * @example The following example shows that the <code>elements()</code> method returns a list of elements only — not comments, text properties, or processing instructions:
+   * @example The following example shows that the <code>elements()</code> method returns a list of elements only ï¿½ not comments, text properties, or processing instructions:
    * <listing>
    * var xml:XML =
    *         &lt;foo>
@@ -1430,7 +1430,6 @@ public native static function settings():Object;
  * trace(xml.text()[1]); // text2
  * </listing>
  */
-[Native]
 public native function text():XMLList;
 
 /**
@@ -1466,7 +1465,6 @@ public native function text():XMLList;
  *   // &lt;/type>
  * </listing></div>
  */
-[Native]
 public native function toString():String;
 
 /**
@@ -1485,7 +1483,6 @@ public native function toString():String;
  * trace(xml.toXMLString()); // &lt;p>hello&lt;/p>
  * </listing>
  */
-[Native]
 public native function toXMLString():String;
 
 /**
@@ -1500,7 +1497,6 @@ public native function toXMLString():String;
  * trace(xml.valueOf() === xml); // true
  * </listing>
  */
-[Native]
 public native function valueOf():XML;
 }
 }

@@ -60,7 +60,7 @@ public dynamic class URLVariables {
     var builder:Array = [];
     for (var name:String in this) {
       if (this.hasOwnProperty(name)) {
-        builder.push(name + "=" + encodeURIComponent(this[name]));
+        builder.push(name + "=" + encodeURIComponent(String(this[name])));
       }
     }
     return builder.join("&");

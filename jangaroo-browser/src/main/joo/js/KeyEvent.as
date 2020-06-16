@@ -3,7 +3,7 @@ package js{
 /**
  * An event created using document.createEvent("KeyboardEvent").
  */
-[Native("KeyEvent")]
+[Native("KeyboardEvent")]
 public class KeyEvent extends Event {
 
   public static const DOM_VK_CANCEL : Number = 3;
@@ -121,6 +121,12 @@ public class KeyEvent extends Event {
   public static const DOM_VK_CLOSE_BRACKET : Number = 221;
   public static const DOM_VK_QUOTE : Number = 222;
   public static const DOM_VK_META : Number = 224;
+
+  public native function get shiftKey() : Boolean;
+
+  public native function get ctrlKey() : Boolean;
+
+  public native function get altKey() : Boolean;
 
 }
 }
