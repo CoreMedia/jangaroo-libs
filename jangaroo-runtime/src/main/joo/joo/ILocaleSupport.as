@@ -52,6 +52,11 @@ public interface ILocaleSupport {
    */
   function get localeCookieDomain():String;
 
+  /**
+   * @private
+   */
+  function set localeCookieDomain(value:String):void;
+
   //noinspection JSUnusedGlobalSymbols
   function getSupportedLocales():Array;
 
