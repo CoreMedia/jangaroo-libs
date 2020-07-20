@@ -27,7 +27,7 @@ public final class Function {
    * @see #call()
    *
    */
-  public native function apply(thisArg:* = NaN, argArray:* = NaN):*;
+  public native function apply(thisArg:*, argArray:* = NaN):*;
 
   /**
    * Invokes the function represented by a Function object. Every function in ActionScript is represented by a Function object, so all functions support this method.
@@ -53,7 +53,7 @@ public final class Function {
    * @see #apply()
    *
    */
-  public native function call(thisArg:* = NaN, ...args):*;
+  public native function call(thisArg:*, ...args):*;
 
   /**
    * A reference to the prototype object of a class or function object. The prototype property is automatically created
