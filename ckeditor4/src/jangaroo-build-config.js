@@ -52,6 +52,8 @@ var CKBUILDER_CONFIG = {
 		list: 1,
 		magicline: 1,
 		menu: 1,
+		pastefromgdocs: 1,
+		pastefromlibreoffice: 1,
 		pastefromword: 1,
 		pastetext: 1,
 		pastetools: 1,
