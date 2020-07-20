@@ -85,13 +85,13 @@ public class EventDispatcher implements IEventDispatcher {
     var ancestors:Array = createAncestorChain();
 
     // Capture from the top down.
-    event['eventPhase'] = EventPhase.CAPTURING_PHASE;
+    enterPhase(event, EventPhase.CAPTURING_PHASE);
     internalHandleCapture(event, ancestors);
 
     // Be sure we're allowed to continue.
     if (!event.isPropagationStopped()) {
       // Handle it here, at the target.
-      event['eventPhase'] = EventPhase.AT_TARGET;
+      enterPhase(event, EventPhase.AT_TARGET);
       event.withCurrentTarget(event.target);
       var listeners:Array = this.listeners[event.type];
       if (listeners) {
@@ -102,11 +102,15 @@ public class EventDispatcher implements IEventDispatcher {
     // Be sure we're allowed to continue.
     if (event.bubbles && !event.isPropagationStopped()) {
       // Bubble it back up the display chain.
-      event['eventPhase'] = EventPhase.BUBBLING_PHASE;
+      enterPhase(event, EventPhase.BUBBLING_PHASE);
       internalHandleBubble(event, ancestors);
     }
 
     return !event.isDefaultPrevented();
+  }
+
+  private static function enterPhase(event:Object, phase:uint):void {
+    event.eventPhase = phase;
   }
 
   /**

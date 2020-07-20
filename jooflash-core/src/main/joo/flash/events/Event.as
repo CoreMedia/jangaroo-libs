@@ -967,12 +967,12 @@ public class Event {
    */
   internal function withTarget(target:Object):Event {
     var event:Event = this.target ? clone() : this;
-    event['target'] = target;
+    (event as Object).target = target;
     return event;
   }
 
   internal function withCurrentTarget(currentTarget:Object):Event {
-    this['currentTarget'] = currentTarget;
+    (this as Object).currentTarget = currentTarget;
     return this;
   }
 
