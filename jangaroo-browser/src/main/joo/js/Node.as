@@ -85,7 +85,7 @@ public class Node {
 
 
 
-  public native function setAttribute(name : String, value : Object) : void;
+  public native function setAttribute(name : String, value : String) : void;
 
 
 
