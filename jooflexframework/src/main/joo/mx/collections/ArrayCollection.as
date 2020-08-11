@@ -108,14 +108,14 @@ public class ArrayCollection extends ListCollectionView
    * @inheritDoc
    */
   override public function toArray():Array {
-    return ARRAY_PROTOTYPE['slice'].call(this);
+    return ARRAY_PROTOTYPE.slice.call(this);
   }
 
   /**
    * @inheritDoc
    */
   override public function getItemIndex(item:Object):int {
-    return ARRAY_PROTOTYPE['indexOf'].call(this, item);
+    return ARRAY_PROTOTYPE.indexOf.call(this, item);
   }
 
   /**
