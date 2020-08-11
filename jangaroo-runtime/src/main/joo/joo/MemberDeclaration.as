@@ -38,33 +38,6 @@ public class MemberDeclaration {
           OVERRIDE : String = "override",
           VIRTUAL : String = "virtual";
 
-  private static var SUPPORTS_GETTERS_SETTERS : Boolean;
-  private static var SUPPORTS_PROPERTIES : Boolean;
-  private static var DEFINE_METHOD : Object;
-  private static var LOOKUP_METHOD : Object;
-
-{
-  // no static initializers in system classes, use static block:
-  if ('getOwnPropertyDescriptor' in Object) {
-    try {
-      // To make sure we are not in IE8, which implements this method only partially,
-      // just try getting a property of some Object and see if it fails:
-      SUPPORTS_PROPERTIES = Object['getOwnPropertyDescriptor']({foo:1},"foo").value === 1;
-    } catch (e:*) {
-      // ignore
-    }
-  }
-  SUPPORTS_GETTERS_SETTERS = "__defineGetter__" in Object['prototype'];
-  DEFINE_METHOD = {
-    "get":  "__defineGetter__",
-    "set": "__defineSetter__"
-  };
-  LOOKUP_METHOD = {
-    "get": "__lookupGetter__",
-    "set": "__lookupSetter__"
-  };
-}
-
   public static function create(memberDeclarationStr : String) : MemberDeclaration {
     var tokens : Array = memberDeclarationStr.split(/\s+/);
     // ignore imports:
@@ -112,7 +85,7 @@ public class MemberDeclaration {
             this._namespace = token;
         }
       } else {
-        if (this.isMethod() && LOOKUP_METHOD[this.memberName]) {
+        if (this.isMethod() && (this.memberName === METHOD_TYPE_GET || this.memberName === METHOD_TYPE_SET)) {
           this.getterOrSetter = this.memberName; // detected getter or setter
         }
         this.memberName = token; // token following the member type is the member name
@@ -160,14 +133,6 @@ public class MemberDeclaration {
             : memberName;
   }
 
-  // public function retrieveMember(source : Object) : Function
-  /* not needed if we take reflection seriously!
-   retrieveMember: function joo$MemberDeclaration$getMember(source) {
-   return this.getterOrSetter==METHOD_TYPE_GET ? source.__lookupGetter__(this.memberName)
-   : this.getterOrSetter==METHOD_TYPE_SET ? source.__lookupSetter__(this.memberName)
-   : source[this.memberName];
-   },*/
-
   public function getNativeMember(publicConstructor : Function) : * {
     var target : * = this.isStatic() ? publicConstructor : publicConstructor.prototype;
     if (this.memberType==MEMBER_TYPE_FUNCTION && this.getterOrSetter) {
@@ -211,14 +176,8 @@ public class MemberDeclaration {
     }
     var slot : String = this.slot;
     if (this.getterOrSetter) {
-      if (SUPPORTS_PROPERTIES) {
-        var propertyDescriptor:Object = _lookupPropertyDescriptor(target);
-        return propertyDescriptor ? propertyDescriptor[this.getterOrSetter] : undefined;
-      } else if (SUPPORTS_GETTERS_SETTERS) {
-        return target[LOOKUP_METHOD[this.getterOrSetter]](slot);
-      } else {
-        slot = slot+"$"+this.getterOrSetter;
-      }
+      var propertyDescriptor:Object = _lookupPropertyDescriptor(target);
+      return propertyDescriptor ? propertyDescriptor[this.getterOrSetter] : undefined;
     }
     try {
       return target[slot];
@@ -231,7 +190,7 @@ public class MemberDeclaration {
   internal function _lookupPropertyDescriptor(target:Object):Object {
     var slot:String = this.slot;
     do {
-      var propertyDescriptor:Object = Object['getOwnPropertyDescriptor'](target, slot);
+      var propertyDescriptor:Object = Object.getOwnPropertyDescriptor(target, slot);
       if (propertyDescriptor) {
         return propertyDescriptor;
       }
@@ -246,28 +205,12 @@ public class MemberDeclaration {
     if (!isNative() && !hasOwnMember(target)) {
       var slot : String = this.slot;
       if (this.getterOrSetter) {
-        if (SUPPORTS_PROPERTIES) {
-          // we have to redefine the property as a whole, so we look up the existing definition first:
-          var propertyDescriptor:Object = _lookupPropertyDescriptor(target)
+        // we have to redefine the property as a whole, so we look up the existing definition first:
+        var propertyDescriptor:Object = _lookupPropertyDescriptor(target)
             || { configurable: true, enumerable: true };
-          propertyDescriptor[this.getterOrSetter] = this.value;
-          Object['defineProperty'](target, slot, propertyDescriptor);
-          return;
-        } else if (SUPPORTS_GETTERS_SETTERS) {
-          // defining a getter or setter disables the counterpart setter/getter from the prototype,
-          // so copy that setter/getter before, if "target" does not already define it:
-          var oppositeMethodType:* = this.getterOrSetter==METHOD_TYPE_GET ? METHOD_TYPE_SET : METHOD_TYPE_GET;
-          var counterpart : Function = target[LOOKUP_METHOD[oppositeMethodType]](slot);
-          // if counterpart is defined, check that it is not overridden (differs from prototype's counterpart):
-          if (counterpart && counterpart===Object.getPrototypeOf(target)[LOOKUP_METHOD[oppositeMethodType]](slot)) {
-            // set the counterpart directly on target. This may be redundant, but we cannot find out.
-            target[DEFINE_METHOD[oppositeMethodType]](slot, counterpart);
-          }
-          target[DEFINE_METHOD[this.getterOrSetter]](slot, this.value);
-          return;
-        } else {
-          slot = slot+"$"+this.getterOrSetter;
-        }
+        propertyDescriptor[this.getterOrSetter] = this.value;
+        Object.defineProperty(target, slot, propertyDescriptor);
+        return;
       }
       target[slot] = this.value;
     }
