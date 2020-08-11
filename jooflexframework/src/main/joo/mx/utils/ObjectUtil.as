@@ -23,13 +23,13 @@ import mx.collections.IList;
  *  The ObjectUtil class is an all-static class with methods for
  *  working with Objects within Flex.
  *  You do not create instances of ObjectUtil;
- *  instead you simply call static methods such as the 
+ *  instead you simply call static methods such as the
  *  <code>ObjectUtil.isSimple()</code> method.
  */
 public class ObjectUtil
 {
     include "../core/Version.asfragment";
-    
+
     /**
     *  Array of properties to exclude from debugging output.
     */
@@ -42,7 +42,7 @@ public class ObjectUtil
     //--------------------------------------------------------------------------
 
     /**
-     *  Compares the Objects and returns an integer value 
+     *  Compares the Objects and returns an integer value
      *  indicating if the first item is less than greater than or equal to
      *  the second item.
      *  This method will recursively compare properties on nested objects and
@@ -55,45 +55,45 @@ public class ObjectUtil
      *
      *  @param b Object.
      *
-     *  @param depth Indicates how many levels should be 
+     *  @param depth Indicates how many levels should be
      *  recursed when performing the comparison.
-     *  Set this value to 0 for a shallow comparison of only the primitive 
+     *  Set this value to 0 for a shallow comparison of only the primitive
      *  representation of each property.
      *  For example:<pre>
      *  var a:Object = {name:"Bob", info:[1,2,3]};
      *  var b:Object = {name:"Alice", info:[5,6,7]};
      *  var c:int = ObjectUtil.compare(a, b, 0);</pre>
      *
-     *  <p>In the above example the complex properties of <code>a</code> and 
+     *  <p>In the above example the complex properties of <code>a</code> and
      *  <code>b</code> will be flattened by a call to <code>toString()</code>
      *  when doing the comparison.
      *  In this case the <code>info</code> property will be turned into a string
      *  when performing the comparison.</p>
      *
-     *  @return Return 0 if a and b are null, NaN, or equal. 
-     *  Return 1 if a is null or greater than b. 
-     *  Return -1 if b is null or greater than a. 
+     *  @return Return 0 if a and b are null, NaN, or equal.
+     *  Return 1 if a is null or greater than b.
+     *  Return -1 if b is null or greater than a.
      */
     public static function compare(a:Object, b:Object, depth:int = -1):int
     {
         return internalCompare(a, b, 0, depth, new Dictionary(true));
     }
-    
+
     /**
      *  Copies the specified Object and returns a reference to the copy.
-     *  The copy is made using a native serialization technique. 
+     *  The copy is made using a native serialization technique.
      *  This means that custom serialization will be respected during the copy.
      *
-     *  <p>This method is designed for copying data objects, 
-     *  such as elements of a collection. It is not intended for copying 
-     *  a UIComponent object, such as a TextInput control. If you want to create copies 
-     *  of specific UIComponent objects, you can create a subclass of the component and implement 
+     *  <p>This method is designed for copying data objects,
+     *  such as elements of a collection. It is not intended for copying
+     *  a UIComponent object, such as a TextInput control. If you want to create copies
+     *  of specific UIComponent objects, you can create a subclass of the component and implement
      *  a <code>clone()</code> method, or other method to perform the copy.</p>
-     * 
+     *
      *  @param value Object that should be copied.
-     * 
+     *
      *  @return Copy of the specified Object.
-     */ 
+     */
     public static function copy(value:Object):Object
     {
 //        var buffer:ByteArray = new ByteArray();
@@ -103,7 +103,7 @@ public class ObjectUtil
 //        return result;
       return null;
     }
-    
+
     /**
      *  Returns <code>true</code> if the object reference specified
      *  is a simple data type. The simple data types include the following:
@@ -145,12 +145,12 @@ public class ObjectUtil
 
     /**
      *  Compares two numeric values.
-     * 
+     *
      *  @param a First number.
-     * 
+     *
      *  @param b Second number.
      *
-     *  @return 0 is both numbers are NaN. 
+     *  @return 0 is both numbers are NaN.
      *  1 if only <code>a</code> is a NaN.
      *  -1 if only <code>b</code> is a NaN.
      *  -1 if <code>a</code> is less than <code>b</code>.
@@ -178,15 +178,15 @@ public class ObjectUtil
 
     /**
      *  Compares two String values.
-     * 
+     *
      *  @param a First String value.
-     * 
+     *
      *  @param b Second String value.
      *
-     *  @param caseInsensitive Specifies to perform a case insensitive compare, 
+     *  @param caseInsensitive Specifies to perform a case insensitive compare,
      *  <code>true</code>, or not, <code>false</code>.
      *
-     *  @return 0 is both Strings are null. 
+     *  @return 0 is both Strings are null.
      *  1 if only <code>a</code> is null.
      *  -1 if only <code>b</code> is null.
      *  -1 if <code>a</code> precedes <code>b</code>.
@@ -212,7 +212,7 @@ public class ObjectUtil
         }
 
         var result:int = a.localeCompare(b);
-        
+
         if (result < -1)
             result = -1;
         else if (result > 1)
@@ -222,8 +222,8 @@ public class ObjectUtil
     }
 
     /**
-     *  Compares the two Date objects and returns an integer value 
-     *  indicating if the first Date object is before, equal to, 
+     *  Compares the two Date objects and returns an integer value
+     *  indicating if the first Date object is before, equal to,
      *  or after the second item.
      *
      *  @param a Date object.
@@ -231,11 +231,11 @@ public class ObjectUtil
      *  @param b Date object.
      *
      *  @return 0 if <code>a</code> and <code>b</code>
-     *  are <code>null</code> or equal; 
+     *  are <code>null</code> or equal;
      *  1 if <code>a</code> is <code>null</code>
-     *  or before <code>b</code>; 
+     *  or before <code>b</code>;
      *  -1 if <code>b</code> is <code>null</code>
-     *  or before <code>a</code>. 
+     *  or before <code>a</code>.
      */
     public static function dateCompare(a:Date, b:Date):int
     {
@@ -250,7 +250,7 @@ public class ObjectUtil
 
         var na:Number = a.getTime();
         var nb:Number = b.getTime();
-        
+
         if (na < nb)
             return -1;
 
@@ -259,7 +259,7 @@ public class ObjectUtil
 
         return 0;
     }
-        
+
     /**
      *  Pretty-prints the specified Object into a String.
      *  All properties will be in alpha ordering.
@@ -279,27 +279,27 @@ public class ObjectUtil
      *    public class MyCustomClass {
      *      public var clazz:Class;
      *    }</pre>
-     * 
+     *
      *  <p>With the <code>clazz</code> property assigned to <code>Date</code>
      *  will display as shown below:</p>
-     * 
+     *
      *  <pre>
      *   (somepackage::MyCustomClass)#0
      *      clazz = (Date)</pre>
      *
      *  @param obj Object to be pretty printed.
-     * 
-     *  @param namespaceURIs Array of namespace URIs for properties 
+     *
+     *  @param namespaceURIs Array of namespace URIs for properties
      *  that should be included in the output.
      *  By default only properties in the public namespace will be included in
      *  the output.
-     *  To get all properties regardless of namespace pass an array with a 
+     *  To get all properties regardless of namespace pass an array with a
      *  single element of "*".
-     * 
-     *  @param exclude Array of the property names that should be 
+     *
+     *  @param exclude Array of the property names that should be
      *  excluded from the output.
      *  Use this to remove data from the formatted string.
-     * 
+     *
      *  @return String containing the formatted version
      *  of the specified object.
      *
@@ -398,7 +398,7 @@ public class ObjectUtil
      *      deeper2 = (Object)#6
      *        deeperStill = (Object)#7
      *          yetDeeper = (Object)#0
-     * 
+     *
      * // example 3 with Dictionary
      * var point:Point = new Point(100, 100);
      * var point2:Point = new Point(100, 100);
@@ -409,7 +409,7 @@ public class ObjectUtil
      * obj["two"] = { name: "2", num: 2};
      * obj[3] = 3;
      * trace(ObjectUtil.toString(obj));
-     * 
+     *
      * // will output to flashlog.txt
      * (flash.utils::Dictionary)#0
      *   {(flash.geom::Point)#1
@@ -427,31 +427,31 @@ public class ObjectUtil
      *   {"two"} = (Object)#4
      *     name = "2"
      *     num = 2
-     * 
+     *
      * </pre>
      */
-    public static function toString(value:Object, 
-                                    namespaceURIs:Array = null, 
+    public static function toString(value:Object,
+                                    namespaceURIs:Array = null,
                                     exclude:Array = null):String
     {
         if (exclude == null)
         {
             exclude = defaultToStringExcludes;
         }
-        
+
         refCount = 0;
         return internalToString(value, 0, null, namespaceURIs, exclude);
     }
-    
+
     /**
      *  This method cleans up all of the additional parameters that show up in AsDoc
      *  code hinting tools that developers shouldn't ever see.
      *  @private
      */
-    private static function internalToString(value:Object, 
+    private static function internalToString(value:Object,
                                              indent:int = 0,
-                                             refs:Dictionary= null, 
-                                             namespaceURIs:Array = null, 
+                                             refs:Dictionary= null,
+                                             namespaceURIs:Array = null,
                                              exclude:Array = null):String
     {
         var str:String;
@@ -487,11 +487,11 @@ public class ObjectUtil
                 {
                     var classInfo:Object = getClassInfo(value, exclude,
                         { includeReadOnly: true, uris: namespaceURIs });
-                        
+
                     var properties:Array = classInfo.properties;
-                    
+
                     str = "(" + classInfo.name + ")";
-                    
+
                     // refs help us avoid circular reference infinite recursion.
                     // Each time an object is encoumtered it is pushed onto the
                     // refs stack so that we can determine if we have visited
@@ -506,7 +506,7 @@ public class ObjectUtil
                         str += "#" + id;
                         return str;
                     }
-                    
+
                     if (value != null)
                     {
                         str += "#" + refCount;
@@ -518,19 +518,19 @@ public class ObjectUtil
                     var isDict:Boolean = value is Dictionary;
                     var prop:*;
                     indent += 2;
-                    
+
                     // Print all of the variable values.
                     for (var j:int = 0; j < properties.length; j++)
                     {
                         str = newline(str, indent);
                         prop = properties[j];
-                        
+
                         if (isArray)
                             str += "[";
                         else if (isDict)
                             str += "{";
 
-                    
+
                         if (isDict)
                         {
                             // in dictionaries, recurse on the key, because it can be a complex object
@@ -541,14 +541,14 @@ public class ObjectUtil
                         {
                             str += prop.toString();
                         }
-                        
+
                         if (isArray)
                             str += "] ";
                         else if (isDict)
                             str += "} = ";
                         else
                             str += " = ";
-                        
+
                         try
                         {
                             // print the value
@@ -592,7 +592,7 @@ public class ObjectUtil
                 return "(" + type + ")";
             }
         }
-        
+
         return "(unknown)";
     }
 
@@ -605,30 +605,30 @@ public class ObjectUtil
     {
         var result:String = str;
         result += "\n";
-        
+
         for (var i:int = 0; i < n; i++)
         {
             result += " ";
         }
         return result;
     }
-    
+
     private static function internalCompare(a:Object, b:Object,
                                             currentDepth:int, desiredDepth:int,
                                             refs:Dictionary):int
     {
         if (a == null && b == null)
             return 0;
-    
+
         if (a == null)
             return 1;
-    
+
         if (b == null)
             return -1;
-           
+
 //        if (a is ObjectProxy)
 //            a = ObjectProxy(a).object_proxy::object;
-//            
+//
 //        if (b is ObjectProxy)
 //            b = ObjectProxy(b).object_proxy::object;
 
@@ -636,7 +636,7 @@ public class ObjectUtil
         var typeOfB:String = typeof b;
 
         var result:int = 0;
-        
+
         if (typeOfA == typeOfB)
         {
             switch(typeOfA)
@@ -646,19 +646,19 @@ public class ObjectUtil
                     result = numericCompare(Number(a), Number(b));
                     break;
                 }
-                
+
                 case "number":
                 {
                     result = numericCompare(a as Number, b as Number);
                     break;
                 }
-                
+
                 case "string":
                 {
                     result = stringCompare(a as String, b as String);
                     break;
                 }
-                
+
                 case "object":
                 {
                     var newDepth:int = desiredDepth > 0 ? desiredDepth -1 : desiredDepth;
@@ -668,25 +668,25 @@ public class ObjectUtil
                     // this object already.
                     // Here since we are comparing two objects we can short
                     // circuit at the first encounter but have to exhaust all
-                    // references found.  A visited reference makes an object 
+                    // references found.  A visited reference makes an object
                     // "greater" than another object, only if both objects
                     // have a visited reference will the result be 0
                     var aRef:Boolean = refs[a];
                     var bRef:Boolean = refs[b];
-                    
+
                     if (aRef && !bRef)
                         return 1;
                     else if (bRef && !aRef)
                         return -1;
                     else if (bRef && aRef)
                         return 0;
-                    
+
                     refs[a] = true;
                     refs[b] = true;
 
                     if (desiredDepth != -1 && currentDepth > desiredDepth)
                     {
-                        // once we try to go beyond the desired depth we should 
+                        // once we try to go beyond the desired depth we should
                         // toString() our way out
                         result = stringCompare(a.toString(), b.toString());
                     }
@@ -710,20 +710,20 @@ public class ObjectUtil
                     {
                         var aProps:Array = getClassInfo(a).properties;
                         var bProps:Array;
-                        
-                        // if the objects are anonymous they could have different 
+
+                        // if the objects are anonymous they could have different
                         // # of properties and should be treated on that basis first
                         if (getQualifiedClassName(a) == "Object")
                         {
                             bProps = getClassInfo(b).properties;
                             result = arrayCompare(aProps, bProps, currentDepth, newDepth, refs);
                         }
-                        
+
                         if (result != 0)
                         {
                             return result;
                         }
-                        
+
                         // loop through all of the properties and compare
                         var propName:String;
                         var aProp:Object;
@@ -756,36 +756,36 @@ public class ObjectUtil
 
         return result;
     }
-    
+
     /**
      *  Returns information about the class, and properties of the class, for
      *  the specified Object.
      *
      *  @param obj The Object to inspect.
      *
-     *  @param exclude Array of Strings specifying the property names that should be 
-     *  excluded from the returned result. For example, you could specify 
-     *  <code>["currentTarget", "target"]</code> for an Event object since these properties 
+     *  @param exclude Array of Strings specifying the property names that should be
+     *  excluded from the returned result. For example, you could specify
+     *  <code>["currentTarget", "target"]</code> for an Event object since these properties
      *  can cause the returned result to become large.
      *
-     *  @param options An Object containing one or more properties 
-     *  that control the information returned by this method. 
+     *  @param options An Object containing one or more properties
+     *  that control the information returned by this method.
      *  The properties include the following:
      *
      *  <ul>
-     *    <li><code>includeReadOnly</code>: If <code>false</code>, 
-     *      exclude Object properties that are read-only. 
+     *    <li><code>includeReadOnly</code>: If <code>false</code>,
+     *      exclude Object properties that are read-only.
      *      The default value is <code>true</code>.</li>
-     *  <li><code>includeTransient</code>: If <code>false</code>, 
+     *  <li><code>includeTransient</code>: If <code>false</code>,
      *      exclude Object properties and variables that have <code>[Transient]</code> metadata.
      *      The default value is <code>true</code>.</li>
      *  <li><code>uris</code>: Array of Strings of all namespaces that should be included in the output.
-     *      It does allow for a wildcard of "~~". 
-     *      By default, it is null, meaning no namespaces should be included. 
-     *      For example, you could specify <code>["mx_internal", "mx_object"]</code> 
+     *      It does allow for a wildcard of "~~".
+     *      By default, it is null, meaning no namespaces should be included.
+     *      For example, you could specify <code>["mx_internal", "mx_object"]</code>
      *      or <code>["~~"]</code>.</li>
      *  </ul>
-     * 
+     *
      *  @return An Object containing the following properties:
      *  <ul>
      *    <li><code>name</code>: String containing the name of the class;</li>
@@ -1022,9 +1022,9 @@ public class ObjectUtil
 
     /**
      * Uses <code>getClassInfo</code> and examines the metadata information to
-     * determine whether a property on a given object has the specified 
+     * determine whether a property on a given object has the specified
      * metadata.
-     * 
+     *
      * @param obj The object holding the property.
      * @param propName The property to check for metadata.
      * @param metadataName The name of the metadata to check on the property.
@@ -1032,9 +1032,9 @@ public class ObjectUtil
      * @param options If any options flags need to changed when generating class info. (Optional)
      * @return true if the property has the specified metadata.
      */
-    public static function hasMetadata(obj:Object, 
-                propName:String, 
-                metadataName:String, 
+    public static function hasMetadata(obj:Object,
+                propName:String,
+                metadataName:String,
                 excludes:Array = null,
                 options:Object = null):Boolean
     {
@@ -1204,7 +1204,7 @@ public class ObjectUtil
 
         return result;
     }
-    
+
     /**
      * @private
      */
@@ -1237,7 +1237,7 @@ public class ObjectUtil
     /**
      *  @private
      */
-    private static function listCompare(a:IList, b:IList, currentDepth:int, 
+    private static function listCompare(a:IList, b:IList, currentDepth:int,
                                         desiredDepth:int, refs:Dictionary):int
     {
         var result:int = 0;
@@ -1253,7 +1253,7 @@ public class ObjectUtil
         {
             for (var i:int = 0; i < a.length; i++)
             {
-                result = internalCompare(a.getItemAt(i), b.getItemAt(i), 
+                result = internalCompare(a.getItemAt(i), b.getItemAt(i),
                                          currentDepth+1, desiredDepth, refs);
                 if (result != 0)
                 {
@@ -1264,7 +1264,7 @@ public class ObjectUtil
 
         return result;
     }
-    
+
     /**
      * @private
      */
@@ -1272,7 +1272,7 @@ public class ObjectUtil
 
     /**
      * @private
-     */ 
+     */
     private static var CLASS_INFO_CACHE:Object = {};
 }
 
