@@ -29,12 +29,12 @@
 
 package flexunit.framework
 {
-   
+
    import flash.utils.*;
    import flash.utils.describeType;
-   
+
    import flexunit.utils.*;
-   
+
    /**
     * A <code>TestSuite</code> is a collection of tests.
     * @description
@@ -196,9 +196,9 @@ package flexunit.framework
        public function addTest( test : Test ) : void
        {
            if (!( test is Test ))
-               addTest( Test( new WarningTestCase( "Object instance passed to addTest does not implement Test interface" )));
+             addTest(Test(new WarningTestCase("Object instance passed to addTest does not implement Test interface")));
            else
-               addTestToList( test );
+             addTestToList(test);
        }
 
    //------------------------------------------------------------------------------
@@ -283,7 +283,7 @@ package flexunit.framework
 
            return count;
        }
-         
+
    //------------------------------------------------------------------------------
 
    /**

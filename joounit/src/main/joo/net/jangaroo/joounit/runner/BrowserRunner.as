@@ -76,7 +76,7 @@ public class BrowserRunner extends BaseTestRunner {
     }
     new BrowserRunner(config).run();
   }
-  
+
   internal static function suiteNotFound(msg:String) {
     window.classLoadingError = msg; // this property is read by jangaroo-maven-plugin
     trace("[ERROR]", window.classLoadingError);
@@ -86,7 +86,7 @@ public class BrowserRunner extends BaseTestRunner {
   internal function onSuiteLoaded() : void {
     try {
       if (typeof testSuite == 'function' && typeof testSuite['suite'] == 'function') {
-        trace("[INFO]","running test suite "+ getQualifiedClassName(testSuite)); 
+        trace("[INFO]","running test suite "+ getQualifiedClassName(testSuite));
         startTime = getTimer();
         numTestsRun = 0;
         const suite:TestSuite = testSuite['suite']();
@@ -140,7 +140,7 @@ public class BrowserRunner extends BaseTestRunner {
       exit(testResult.wasSuccessful());
     }
   }
-  
+
   internal static function exit(b:Boolean) : void {
     const exitFunc:Function = window['joo'] && window['joo']._exit; // see phantomjs-joo-config.js
     if(exitFunc){

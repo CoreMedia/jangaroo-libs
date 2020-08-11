@@ -15,7 +15,7 @@ package mx.events
 import flash.events.Event;
 
 /**
- *  The mx.events.CollectionEvent class represents an event that is  
+ *  The mx.events.CollectionEvent class represents an event that is
  *  dispatched when the associated collection changes.
  *
  *  @see FlexEvent#CURSOR_UPDATE
@@ -51,7 +51,7 @@ public class CollectionEvent extends Event
 	 * 		 The contents of this field depend on the event kind;
 	 *       for details see the <code>items</code> property</td></tr>
      *     <tr><td><code>kind</code></td><td>The kind of event.
-     *       The valid values are defined in the CollectionEventKind 
+     *       The valid values are defined in the CollectionEventKind
 	 *       class as constants.</td></tr>
      *     <tr><td><code>location</code></td><td>Location within the target collection
      *         of the item(s) specified in the <code>items</code> property.</td></tr>
@@ -86,7 +86,7 @@ public class CollectionEvent extends Event
      *  associated with the event can be prevented.
      *
      *  @param kind Indicates the kind of event that occured.
-     *  The parameter value can be one of the values in the CollectionEventKind 
+     *  The parameter value can be one of the values in the CollectionEventKind
 	 *  class, or <code>null</code>, which indicates that the kind is unknown.
      *
      *  @param location When the <code>kind</code> is
@@ -103,7 +103,7 @@ public class CollectionEvent extends Event
      *  the old location within the target collection
      *  of the item(s) specified in the <code>items</code> property.
       *
-     *  @param items Array of objects with information about the items 
+     *  @param items Array of objects with information about the items
 	 *  affected by the event, as described in the <code>items</code> property.
      *  When the <code>kind</code> is <code>CollectionEventKind.REFRESH</code>
      *  or <code>CollectionEventKind.RESET</code>, this Array has zero length.
@@ -133,12 +133,12 @@ public class CollectionEvent extends Event
 
     /**
      *  Indicates the kind of event that occurred.
-     *  The property value can be one of the values in the 
-	 *  CollectionEventKind class, 
+     *  The property value can be one of the values in the
+	 *  CollectionEventKind class,
 	 *  or <code>null</code>, which indicates that the kind is unknown.
-	 * 
+	 *
      *  @default null
-	 * 
+	 *
 	 *  @see CollectionEventKind
      */
     public var kind:String;
@@ -175,8 +175,8 @@ public class CollectionEvent extends Event
      *  When the <code>kind</code> value is <code>CollectionEventKind.ADD</code>,
      *  <code>CollectionEventKind.MOVE</code>,
      *  <code>CollectionEventKind.REMOVE</code>, or
-     *  <code>CollectionEventKind.REPLACE</code>, this property is the 
-	 *  zero-base index in the collection of the item(s) specified in the 
+     *  <code>CollectionEventKind.REPLACE</code>, this property is the
+	 *  zero-base index in the collection of the item(s) specified in the
 	 *  <code>items</code> property.
      *
      *  @see CollectionEventKind
