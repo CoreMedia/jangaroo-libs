@@ -2,7 +2,7 @@
   <parent>
     <groupId>net.jangaroo</groupId>
     <artifactId>jangaroo-libs-parent</artifactId>
-    <version>4.0.51-SNAPSHOT</version>
+    <version>4.0.52-SNAPSHOT</version>
     <relativePath>../jangaroo-libs-parent/pom.xml</relativePath>
   </parent>
   <modelVersion>4.0.0</modelVersion>
@@ -43,6 +43,7 @@
         <inherited>false</inherited>
         <configuration>
           <jooUnitTestExecutionTimeout>120000</jooUnitTestExecutionTimeout>
+          <jooUnitWebDriverBrowser>chrome</jooUnitWebDriverBrowser>
           <testSuite>flexunit.framework.AllFrameworkTests</testSuite>
         </configuration>
       </plugin>
