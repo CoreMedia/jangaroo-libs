@@ -88,18 +88,18 @@ package flexunit.framework
        * Asserts that 2 values are equal.
        * The first argument can be the message when the assertion fails
        *
-       * @param rest [ message = "", expected, actual ]
+       * @param arguments [ message = "", expected, actual ]
        *
        */
-      public static function assertEquals( ... rest ) : void
+      public static function assertEquals( ... arguments ) : void
       {
-         if ( rest.length == 3 )
+         if ( arguments.length == 3 )
          {
-            failNotEquals( rest[ 0 ], rest[ 1 ], rest[ 2 ] );
+            failNotEquals( arguments[ 0 ], arguments[ 1 ], arguments[ 2 ] );
          }
          else
          {
-            failNotEquals( "", rest[ 0 ], rest[ 1 ] );
+            failNotEquals( "", arguments[ 0 ], arguments[ 1 ] );
          }
       }
       
@@ -111,18 +111,18 @@ package flexunit.framework
        * This method will recursively compare properties on the nested objects.
        * The first argument can be the message when the assertion fails
        *
-       * @param rest [ message = "", expected, actual ]
+       * @param arguments [ message = "", expected, actual ]
        *
        */
-      public static function assertObjectEquals( ... rest ) : void 
+      public static function assertObjectEquals( ... arguments ) : void 
       { 
-         if ( rest.length == 3 )
+         if ( arguments.length == 3 )
          {
-            failObjectEquals( rest[ 0 ], rest[ 1 ], rest[ 2 ] );
+            failObjectEquals( arguments[ 0 ], arguments[ 1 ], arguments[ 2 ] );
          }
          else
          {
-            failObjectEquals( "", rest[ 0 ], rest[ 1 ] );
+            failObjectEquals( "", arguments[ 0 ], arguments[ 1 ] );
          }
       } 
 
@@ -133,18 +133,18 @@ package flexunit.framework
        * Asserts that a string matches a regexp.
        * The first argument can be the message when the assertion fails
        *
-       * @param rest [ message = "", regexp, stringToTest ]
+       * @param arguments [ message = "", regexp, stringToTest ]
        *
        */
-      public static function assertMatch( ... rest ) : void
+      public static function assertMatch( ... arguments ) : void
       {
-         if ( rest.length == 3 )
+         if ( arguments.length == 3 )
          {
-            failNoMatch( rest[ 0 ], rest[ 1 ], rest[ 2 ] );
+            failNoMatch( arguments[ 0 ], arguments[ 1 ], arguments[ 2 ] );
          }
          else
          {
-            failNoMatch( "", rest[ 0 ], rest[ 1 ] );
+            failNoMatch( "", arguments[ 0 ], arguments[ 1 ] );
          }
       }
 
@@ -154,18 +154,18 @@ package flexunit.framework
        * Asserts that a string doesn't match a regexp.
        * The first argument can be the message when the assertion fails
        *
-       * @param rest [ message = "", regexp, stringToTest ]
+       * @param arguments [ message = "", regexp, stringToTest ]
        *
        */
-      public static function assertNoMatch( ... rest ) : void
+      public static function assertNoMatch( ... arguments ) : void
       {
-         if ( rest.length == 3 )
+         if ( arguments.length == 3 )
          {
-            failMatch( rest[ 0 ], rest[ 1 ], rest[ 2 ] );
+            failMatch( arguments[ 0 ], arguments[ 1 ], arguments[ 2 ] );
          }
          else
          {
-            failMatch( "", rest[ 0 ], rest[ 1 ] );
+            failMatch( "", arguments[ 0 ], arguments[ 1 ] );
          }
       }
 
@@ -175,18 +175,18 @@ package flexunit.framework
        * Asserts that the first string is contained in the second one
        * The first argument can be the message when the assertion fails
        *
-       * @param rest [ message = "", shortString, longString ]
+       * @param arguments [ message = "", shortString, longString ]
        *
        */
-      public static function assertContained( ... rest ) : void
+      public static function assertContained( ... arguments ) : void
       {
-         if ( rest.length == 3 )
+         if ( arguments.length == 3 )
          {
-            failNotContained( rest[ 0 ], rest[ 1 ], rest[ 2 ] );
+            failNotContained( arguments[ 0 ], arguments[ 1 ], arguments[ 2 ] );
          }
          else
          {
-            failNotContained( "", rest[ 0 ], rest[ 1 ] );
+            failNotContained( "", arguments[ 0 ], arguments[ 1 ] );
          }
      }
 
@@ -196,18 +196,18 @@ package flexunit.framework
        * Asserts that the first string is not contained in the second one
        * The first argument can be the message when the assertion fails
        *
-       * @param rest [ message = "", shortString, longString ]
+       * @param arguments [ message = "", shortString, longString ]
        *
        */
-      public static function assertNotContained( ... rest ) : void
+      public static function assertNotContained( ... arguments ) : void
       {         
-         if ( rest.length == 3 )
+         if ( arguments.length == 3 )
          {
-            failContained( rest[ 0 ], rest[ 1 ], rest[ 2 ] );
+            failContained( arguments[ 0 ], arguments[ 1 ], arguments[ 2 ] );
          }
          else
          {
-            failContained( "", rest[ 0 ], rest[ 1 ] );
+            failContained( "", arguments[ 0 ], arguments[ 1 ] );
          }
       }
 
@@ -217,18 +217,18 @@ package flexunit.framework
        * Asserts that two objects are strickly identical
        * The first argument can be the message when the assertion fails
        *
-       * @param rest [ message = "", expectedObject, actualObject ]
+       * @param arguments [ message = "", expectedObject, actualObject ]
        *
        */
-      public static function assertStrictlyEquals( ... rest ) : void
+      public static function assertStrictlyEquals( ... arguments ) : void
       {
-         if ( rest.length == 3 )
+         if ( arguments.length == 3 )
          {
-            failNotStrictlyEquals( rest[ 0 ], rest[ 1 ], rest[ 2 ] );
+            failNotStrictlyEquals( arguments[ 0 ], arguments[ 1 ], arguments[ 2 ] );
          }
          else
          {
-            failNotStrictlyEquals( "", rest[ 0 ], rest[ 1 ] );
+            failNotStrictlyEquals( "", arguments[ 0 ], arguments[ 1 ] );
          }
       }
 
@@ -238,18 +238,18 @@ package flexunit.framework
        * Asserts that a condition is true
        * The first argument can be the message when the assertion fails
        *
-       * @param rest [ message = "", condition ]
+       * @param arguments [ message = "", condition ]
        *
        */
-      public static function assertTrue( ... rest ) : void
+      public static function assertTrue( ... arguments ) : void
       {
-         if ( rest.length == 2 )
+         if ( arguments.length == 2 )
          {
-            failNotTrue( rest[ 0 ], rest[ 1 ] );
+            failNotTrue( arguments[ 0 ], arguments[ 1 ] );
          }
          else
          {
-            failNotTrue( "", rest[ 0 ] );
+            failNotTrue( "", arguments[ 0 ] );
          }
       }
 
@@ -259,18 +259,18 @@ package flexunit.framework
        * Asserts that a condition is false
        * The first argument can be the message when the assertion fails
        *
-       * @param rest [ message = "", condition ]
+       * @param arguments [ message = "", condition ]
        *
        */
-      public static function assertFalse( ... rest ) : void
+      public static function assertFalse( ... arguments ) : void
       {
-         if ( rest.length == 2 )
+         if ( arguments.length == 2 )
          {
-            failTrue( rest[ 0 ], rest[ 1 ] );
+            failTrue( arguments[ 0 ], arguments[ 1 ] );
          }
          else
          {
-            failTrue( "", rest[ 0 ] );
+            failTrue( "", arguments[ 0 ] );
          }
       }
 
@@ -280,18 +280,18 @@ package flexunit.framework
        * Asserts that an object is null
        * The first argument can be the message when the assertion fails
        *
-       * @param rest [ message = "", objectToTest ]
+       * @param arguments [ message = "", objectToTest ]
        *
        */
-      public static function assertNull( ... rest ) : void
+      public static function assertNull( ... arguments ) : void
       {
-         if ( rest.length == 2 )
+         if ( arguments.length == 2 )
          {
-            failNotNull( rest[ 0 ], rest[ 1 ] );
+            failNotNull( arguments[ 0 ], arguments[ 1 ] );
          }
          else
          {
-            failNotNull( "", rest[ 0 ] );
+            failNotNull( "", arguments[ 0 ] );
          }
       }
 
@@ -301,18 +301,18 @@ package flexunit.framework
        * Asserts that an object is not null
        * The first argument can be the message when the assertion fails
        *
-       * @param rest [ message = "", objectToTest ]
+       * @param arguments [ message = "", objectToTest ]
        *
        */
-      public static function assertNotNull( ... rest ) : void
+      public static function assertNotNull( ... arguments ) : void
       {
-         if ( rest.length == 2 )
+         if ( arguments.length == 2 )
          {
-            failNull( rest[ 0 ], rest[ 1 ] );
+            failNull( arguments[ 0 ], arguments[ 1 ] );
          }
          else
          {
-            failNull( "", rest[ 0 ] );
+            failNull( "", arguments[ 0 ] );
          }
       }
 
@@ -322,18 +322,18 @@ package flexunit.framework
        * Asserts that an object is undefined
        * The first argument can be the message when the assertion fails
        *
-       * @param rest [ message = "", objectToTest ]
+       * @param arguments [ message = "", objectToTest ]
        *
        */
-      public static function assertUndefined( ... rest ) : void
+      public static function assertUndefined( ... arguments ) : void
       {
-         if ( rest.length == 2 )
+         if ( arguments.length == 2 )
          {
-            failNotUndefined( rest[ 0 ], rest[ 1 ] );
+            failNotUndefined( arguments[ 0 ], arguments[ 1 ] );
          }
          else
          {
-            failNotUndefined( "", rest[ 0 ] );
+            failNotUndefined( "", arguments[ 0 ] );
          }
       }
 
@@ -343,18 +343,18 @@ package flexunit.framework
        * Asserts that an object is not undefined
        * The first argument can be the message when the assertion fails
        *
-       * @param rest [ message = "", objectToTest ]
+       * @param arguments [ message = "", objectToTest ]
        *
        */
-      public static function assertNotUndefined( ... rest ) : void
+      public static function assertNotUndefined( ... arguments ) : void
       {
-         if ( rest.length == 2 )
+         if ( arguments.length == 2 )
          {
-            failUndefined( rest[ 0 ], rest[ 1 ] );
+            failUndefined( arguments[ 0 ], arguments[ 1 ] );
          }
          else
          {
-            failUndefined( "", rest[ 0 ] );
+            failUndefined( "", arguments[ 0 ] );
          }
       }
 
