@@ -129,6 +129,10 @@
         <artifactId>jangaroo-maven-plugin</artifactId>
         <extensions>true</extensions>
         <version>${jangaroo.version}</version>
+        <configuration>
+          <migrateToTypeScript>false</migrateToTypeScript>
+          <suppressCommentedActionScriptCode>false</suppressCommentedActionScriptCode>
+        </configuration>
       </plugin>
     </plugins>
 
