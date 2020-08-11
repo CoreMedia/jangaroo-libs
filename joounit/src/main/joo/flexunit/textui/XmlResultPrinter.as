@@ -13,7 +13,7 @@ public class XmlResultPrinter implements TestListener, Printer{
 
   private var resultXml:Array = null;
   private var mTests:Array = new Array();
-  private var mCurrentTest = null;
+  private var mCurrentTest:Object = null;
   private var mSuite:String = null;
 
 
@@ -40,7 +40,7 @@ public class XmlResultPrinter implements TestListener, Printer{
 
   public function endTest(test : Test):void {
     if( this.mCurrentTest != null ) {
-        var endTime = new Date();
+        var endTime : Date = new Date();
         this.mCurrentTest.mTime = endTime.valueOf() - this.mCurrentTest.mTime ;
         this.mTests.push( this.mCurrentTest );
         this.mCurrentTest = null;
@@ -82,8 +82,8 @@ public class XmlResultPrinter implements TestListener, Printer{
             {
                 resultXml.push( '>\n' );
                 resultXml.push( '        <' );
-                var defect;
-                var tag;
+                var defect: Object;
+                var tag: String;
                 if( test.mError )
                 {
                     defect = test.mError;
