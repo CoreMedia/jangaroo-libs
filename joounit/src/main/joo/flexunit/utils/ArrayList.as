@@ -60,21 +60,21 @@ package flexunit.utils
 
       public function contains(item:Object):Boolean
       {
-         return ( getItemIndex( item ) > -1 );
+         return getItemIndex( item ) > -1;
       }
 
    //------------------------------------------------------------------------------
 
       public function getItemAt(index:Number):Object
       {
-         return ( items[ index ] );
+         return items[ index ];
       }
 
    //------------------------------------------------------------------------------
 
       public function iterator():Iterator
       {
-         return ( Iterator( new CollectionIterator( this )));
+         return Iterator( new CollectionIterator( this ));
       }
 
    //------------------------------------------------------------------------------
@@ -88,7 +88,7 @@ package flexunit.utils
 
       public function isEmpty():Boolean
       {
-         return ( items.length == 0 );
+         return items.length == 0;
       }
 
    //------------------------------------------------------------------------------

@@ -42,7 +42,7 @@ package flexunit.utils
 
       public function hasNext():Boolean
       {
-         return( cursor < collection.length() );
+         return cursor < collection.length();
       }
 
    //------------------------------------------------------------------------------
@@ -52,7 +52,7 @@ package flexunit.utils
          if ( cursor >= collection.length() )
             throw new Error( "Past end of collection" );
 
-         return( collection.getItemAt( cursor++ ) );
+         return collection.getItemAt( cursor++ );
       }
 
    //------------------------------------------------------------------------------
