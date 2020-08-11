@@ -19,8 +19,9 @@ public class DefaultJooTestRunner extends BaseTestRunner {
 
   private var testClassNames:Array;
 
+  [ArrayElementType("String")]
   // names of the test classes the couldn't be found
-  private var testClassLoadErrors:Vector.<String>;
+  private var testClassLoadErrors:Array;
 
   private var testName:String;
   private var testSuite:TestSuite;
@@ -85,7 +86,7 @@ public class DefaultJooTestRunner extends BaseTestRunner {
     testResult.addListener(TestListener( this ));
 
     // load all test classes
-    testClassLoadErrors = new Vector.<String>();
+    testClassLoadErrors = [];
     require(testClassNames, onSuiteLoaded);
   }
 
