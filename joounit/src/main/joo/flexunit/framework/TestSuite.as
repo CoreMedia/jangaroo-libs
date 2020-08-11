@@ -250,7 +250,7 @@ package flexunit.framework
    */
        public function getTestMethodNames() : Array
        {
-           return(null);
+           return null;
        }
 
    //------------------------------------------------------------------------------
