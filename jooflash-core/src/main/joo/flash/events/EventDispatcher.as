@@ -65,9 +65,10 @@ public class EventDispatcher implements IEventDispatcher {
     if (!(type in listenersByType)) {
       listenersByType[type] = [ eventObj ];
     } else {
-      listenersByType[type].push(eventObj);
+      var listeners:Array = listenersByType[type];
+      listeners.push(eventObj);
+      listeners.sort(eventCompare);
     }
-    listenersByType[type].sort(eventCompare);
   }
 
   /**
