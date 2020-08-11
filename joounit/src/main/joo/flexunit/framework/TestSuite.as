@@ -113,7 +113,6 @@ package flexunit.framework
        */
        public function TestSuite( param : Object = null )
        {
-           super();
            testArrayList = Collection( new ArrayList());
 
            if( param == null )
