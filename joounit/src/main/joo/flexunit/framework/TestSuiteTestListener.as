@@ -76,12 +76,12 @@ package flexunit.framework
 
        public function pop() : void
        {
-           var popped : TestSuiteTestListener = listenerStack.shift();
+           var popped : TestListener = listenerStack.shift();
            //assertEquals(this, popped);
-           result.removeListener(TestListener(this));
+           result.removeListener(this);
            if (listenerStack.length > 0)
            {
-               result.addListener(TestListener(listenerStack[0]));
+               result.addListener(listenerStack[0]);
                listenerStack[0].endTest(null);
            }
        }
@@ -92,6 +92,7 @@ package flexunit.framework
 
        public function startTest( test : Test ) : void { }
 
+       [ArrayElementType("flexunit.framework.TestListener")]
        private static var listenerStack : Array;
        private var suite : TestSuite;
        private var result : TestResult;
