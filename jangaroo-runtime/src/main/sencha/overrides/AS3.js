@@ -4,18 +4,20 @@ Ext.define("AS3_override", {
   requires: [ "joo_runtime_init" ]
 });
 
-Class = {
-  $isClass: true,
-  $className: "Class",
-  __isInstance__: function(object) {
-    // typeof any === "function" returns false negatives (built-in classes in IE are reported as "object"),
-    // so look for Ext's "$isClass" property or a "prototype" property with an "object"-type value:
-    return !!object && (!!object.$isClass || typeof object.prototype === "object" || typeof object.prototype === "function");
-  }
-};
 Vector$object = Array;
 
+Ext.define("AS3.Class", {
+});
 Ext.apply(Ext.namespace("AS3"), {
+  Class: {
+    $isClass: true,
+    $className: "AS3.Class",
+    __isInstance__: function(object) {
+      // typeof any === "function" returns false negatives (built-in classes in IE are reported as "object"),
+      // so look for Ext's "$isClass" property or a "prototype" property with an "object"-type value:
+      return !!object && (!!object.$isClass || typeof object.prototype === "object" || typeof object.prototype === "function");
+    }
+  },
   // function assert(cond : Object, file : String, line : uint, column : uint) : void
   assert: function (cond, file, line, column) {
     if (!cond)
@@ -34,7 +36,7 @@ Ext.apply(Ext.namespace("AS3"), {
     return boundMethod;
   },
   is: function (object, type) {
-    if (!Class.__isInstance__(type)) {
+    if (!AS3.Class.__isInstance__(type)) {
       throw new TypeError("Second parameter of 'is' or 'as' must be a type.");
     }
     if (object === undefined || object === null) {
