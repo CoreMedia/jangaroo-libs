@@ -124,7 +124,7 @@ public class ObjectUtil
      */
     public static function isSimple(value:Object):Boolean
     {
-        var type:String = typeof(value);
+        var type:String = typeof value;
         switch (type)
         {
             case "number":
@@ -455,7 +455,7 @@ public class ObjectUtil
                                              exclude:Array = null):String
     {
         var str:String;
-        var type:String = value == null ? "null" : typeof(value);
+        var type:String = value == null ? "null" : typeof value;
         switch (type)
         {
             case "boolean":
@@ -631,10 +631,10 @@ public class ObjectUtil
 //            
 //        if (b is ObjectProxy)
 //            b = ObjectProxy(b).object_proxy::object;
-            
-        var typeOfA:String = typeof(a);
-        var typeOfB:String = typeof(b);
-        
+
+        var typeOfA:String = typeof a;
+        var typeOfB:String = typeof b;
+
         var result:int = 0;
         
         if (typeOfA == typeOfB)
@@ -683,8 +683,8 @@ public class ObjectUtil
                     
                     refs[a] = true;
                     refs[b] = true;
-                    
-                    if (desiredDepth != -1 && (currentDepth > desiredDepth))
+
+                    if (desiredDepth != -1 && currentDepth > desiredDepth)
                     {
                         // once we try to go beyond the desired depth we should 
                         // toString() our way out
