@@ -32,7 +32,7 @@ import flash.events.Event;
  * If you use code such as <code>myListCollectionView[index]</code>
  * Flex calls the <code>myListCollectionView</code> object's
  * <code>getItemAt()</code> or <code>setItemAt()</code> method.</p>
- * 
+ *
  * @mxml
  *
  *  <p>The <code>&lt;mx:ListCollectionView&gt;</code> has the following attributes,
@@ -49,7 +49,7 @@ import flash.events.Event;
  *  /&gt;
  *  </pre>
  */
-public class ListCollectionView 
+public class ListCollectionView
        implements IList
 {
     include "../core/Version.asfragment";
