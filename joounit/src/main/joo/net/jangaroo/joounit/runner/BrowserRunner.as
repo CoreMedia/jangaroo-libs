@@ -142,7 +142,7 @@ public class BrowserRunner extends BaseTestRunner {
   }
 
   internal static function exit(b:Boolean) : void {
-    const exitFunc:Function = window['joo'] && window['joo']._exit; // see phantomjs-joo-config.js
+    const exitFunc:Function = window['joo'] && window['joo']['_exit']; // see phantomjs-joo-config.js
     if(exitFunc){
       exitFunc(b);
     }
