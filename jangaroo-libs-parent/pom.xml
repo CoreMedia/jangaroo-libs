@@ -85,6 +85,36 @@
 
   <profiles>
     <profile>
+      <id>forTypeScriptComparison</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>net.jangaroo</groupId>
+            <artifactId>jangaroo-maven-plugin</artifactId>
+            <configuration>
+              <suppressCommentedActionScriptCode>true</suppressCommentedActionScriptCode>
+              <useEcmaParameterInitializerSemantics>true</useEcmaParameterInitializerSemantics>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>migrateToTypeScript</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>net.jangaroo</groupId>
+            <artifactId>jangaroo-maven-plugin</artifactId>
+            <configuration>
+              <migrateToTypeScript>true</migrateToTypeScript>
+              <suppressCommentedActionScriptCode>true</suppressCommentedActionScriptCode>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
       <id>release-signing</id>
       <activation>
         <property>
@@ -129,11 +159,6 @@
         <artifactId>jangaroo-maven-plugin</artifactId>
         <extensions>true</extensions>
         <version>${jangaroo.version}</version>
-        <configuration>
-          <migrateToTypeScript>false</migrateToTypeScript>
-          <suppressCommentedActionScriptCode>false</suppressCommentedActionScriptCode>
-          <useEcmaParameterInitializerSemantics>false</useEcmaParameterInitializerSemantics>
-        </configuration>
       </plugin>
     </plugins>
 
