@@ -9,7 +9,7 @@ public class DataTransferItemList {
   /**
    * Returns the number of items in the drag data store.
    */
-  public native function get length(): Number;
+  public native function get length(): uint;
 
   //noinspection ReservedWordAsName
   /**
@@ -25,16 +25,11 @@ public class DataTransferItemList {
    */
   public native function clear(): void;
 
-  public native function item(index: Number): DataTransferItem;
+  public native function item(index: uint): DataTransferItem;
 
   /**
    * Removes the indexth entry in the drag data store.
    */
-  public native function remove(index: Number): void;
-
-  /*
-  Cannot be expressed in ActionScript:
-  [name: Number]: DataTransferItem;
-   */
+  public native function remove(index: uint): void;
 }
 }

@@ -7,13 +7,8 @@ package js {
  */
 [Native("FileList")]
 public class FileList {
-  public native function get length(): Number;
+  public native function get length(): uint;
 
-  public native function item(index: Number): File;
-
-  /*
-  Cannot be expressed in ActionScript:
-  [index: Number]: File;
-   */
+  public native function item(index: uint): File;
 }
 }

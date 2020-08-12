@@ -11,11 +11,11 @@ public class ArrayBuffer {
   /**
    * Read-only. The length of the ArrayBuffer (in bytes).
    */
-  public native function get byteLength(): Number;
+  public native function get byteLength(): uint;
 
   /**
    * Returns a section of an ArrayBuffer.
    */
-  public native function slice(begin: Number, end: Number = undefined): ArrayBuffer;
+  public native function slice(begin: uint, end: uint = undefined): ArrayBuffer;
 }
 }

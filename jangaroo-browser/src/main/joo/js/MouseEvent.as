@@ -6,8 +6,8 @@ package js {
  */
 [Native("MouseEvent")]
 public class MouseEvent extends UIEvent {
-  public native function get button(): Number;
-  public native function get buttons(): Number;
+  public native function get button(): uint;
+  public native function get buttons(): uint;
   public native function get movementX(): Number;
   public native function get movementY(): Number;
   public native function get offsetX(): Number;

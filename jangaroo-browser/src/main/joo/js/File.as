@@ -5,7 +5,7 @@ package js {
  */
 [Native("File")]
 public class File extends Blob {
-  public native function get lastModified(): Number;
+  public native function get lastModified(): uint;
 
   public native function get name(): String;
 }

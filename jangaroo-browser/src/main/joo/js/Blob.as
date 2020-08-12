@@ -7,7 +7,7 @@ package js {
  */
 [Native("Blob")]
 public class Blob {
-  public native function get size(): Number;
+  public native function get size(): uint;
 
   //noinspection ReservedWordAsName
   public native function get type(): String;
@@ -17,7 +17,7 @@ public class Blob {
    */
   public native function arrayBuffer(): *;
 
-  public native function slice(start: Number = undefined, end: Number = undefined, contentType: String = undefined): Blob;
+  public native function slice(start: uint = undefined, end: uint = undefined, contentType: String = undefined): Blob;
 
   /**
    * Returns a readable stream.
