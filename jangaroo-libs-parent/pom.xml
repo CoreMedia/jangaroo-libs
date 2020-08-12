@@ -132,6 +132,7 @@
         <configuration>
           <migrateToTypeScript>false</migrateToTypeScript>
           <suppressCommentedActionScriptCode>false</suppressCommentedActionScriptCode>
+          <useEcmaParameterInitializerSemantics>false</useEcmaParameterInitializerSemantics>
         </configuration>
       </plugin>
     </plugins>
