@@ -14,7 +14,7 @@ package {
  *
  */
 [Native("AS3.Error", require)]
-public class Error {
+public class Error extends Object {
   /**
    * Contains the reference number associated with the specific error message. For a custom Error object, this number is the value from the <code>id</code> parameter supplied in the constructor.
    */
@@ -102,6 +102,6 @@ public class Error {
    * trace(err.toString());    // Error: Another New Error Message
    * </listing>
    */
-  public native function toString():String;
+  public native override function toString():String;
 }
 }
