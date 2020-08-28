@@ -1270,5 +1270,12 @@ public class Array {
    *
    */
   public static const UNIQUESORT:uint = 4;
+
+  /**
+   * Determines whether the passed value is an Array.
+   * @param value the value to check
+   * @return whether the passed value is an Array
+   */
+  public native static function isArray(value: *): Boolean;
 }
 }
