@@ -148,4 +148,17 @@
       DOM_VK_META: 224
     }
   }
+  if (!window.Promise) {
+    Ext.Loader.loadScript(Ext.getResourcePath("corejs-promise.js", null, "net.jangaroo__jangaroo-browser"));
+  }
+  if (!window.Map || !window.Map.prototype.keys) {
+    Ext.Loader.loadScript(Ext.getResourcePath("corejs-map.js", null, "net.jangaroo__jangaroo-browser"));
+  }
+  if (!window.fetch) {
+    Ext.Loader.loadScript(Ext.getResourcePath("fetch.umd.js", null, "net.jangaroo__jangaroo-browser"));
+  }
+  joo.aliasKeywordMembers(FormData, "delete");
+  joo.aliasKeywordMembers(Headers, "delete");
+  joo.aliasKeywordMembers(Map, "delete");
+  joo.aliasKeywordMembers(Promise, "catch");
 })();
