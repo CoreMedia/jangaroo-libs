@@ -1,7 +1,7 @@
 package js {
 
 /**
- * Represents the completion of an asynchronous operation
+ * Represents the completion of an asynchronous operation.
  */
 [Native("Promise")]
 public class Promise {
