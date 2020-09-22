@@ -7,7 +7,7 @@ package {
 /**
  * A special member of the Number data type that represents a value that is "not a number" (<code>NaN</code>). When a mathematical expression results in a value that cannot be expressed as a number, the result is <code>NaN</code>. The following list describes common expressions that result in <code>NaN</code>.
  * <ul>
- * <li>Division by 0 results in <code>NaN</code> only if the divisor is also 0. If the divisor is greater than 0, division by 0 results in <code><code>Infinity</code></code>. If the divisor is less than 0, division by 0 results in <code><code>-Infinity</code></code>;</li>
+ * <li>Division by 0 results in <code>NaN</code> only if the divisor is also 0. If the divisor is greater than 0, division by 0 results in <code>Infinity</code>. If the divisor is less than 0, division by 0 results in <code>-Infinity</code>;</li>
  * <li>Square root of a negative number;</li>
  * <li>The arcsine of a number outside the valid range of 0 to 1;</li>
  * <li><code>Infinity</code> subtracted from <code>Infinity</code>;</li>
