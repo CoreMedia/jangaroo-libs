@@ -14,12 +14,14 @@ public class Response implements Body {
    * Creates a new Response object.
    *
    * @param body An object defining a body for the response. This can be null (which is the default value), or
-   *             - <code>Blob</code>
-   *             - BufferSource
-   *             - <code>FormData</code>
-   *             - URLSearchParams
-   *             - ReadableStream<Uint8Array>
-   *             - String
+   *             <ul>
+   *               <li><code>Blob</code></li>
+   *               <li>BufferSource</li>
+   *               <li><code>FormData</code></li>
+   *               <li>URLSearchParams</li>
+   *               <li>ReadableStream<Uint8Array></li>
+   *               <li>String</li>
+   *             </ul>
    * @param init An options object containing any custom settings that you want to apply to the response, or an empty
    *             object (which is the default value).
    *

@@ -17,9 +17,11 @@ package js {
  * the resources it's retrieving.
  *
  * @param input This defines the resource that you wish to fetch. This can either be:
- *              - A String containing the direct URL of the resource you want to fetch. Some browsers accept the blob:
- *                and data: schemes.
- *              - A <code>js.Request</code> object.
+ *              <ul>
+ *                <li>A String containing the direct URL of the resource you want to fetch. Some browsers accept the
+ *                    blob: and data: schemes.</li>
+ *                <li>A <code>js.Request</code> object.</li>
+ *              </ul>
  * @param init
  * @return A Promise that resolves to a <code>Response</code> object.
  * @throws AbortError The request was aborted due to a call to the AbortController method abort() method.

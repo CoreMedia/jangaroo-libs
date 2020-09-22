@@ -13,12 +13,18 @@ public class Request {
    * Creates a new Request object.
    *
    * @param input Defines the resource that you wish to fetch. This can either be:
-   *              - A String containing the direct URL of the resource you want to fetch.
-   *              - A <code>Request</code> object, effectively creating a copy. Note the following behavioural updates
-   *                to retain security while making the constructor less likely to throw exceptions:
-   *                - If this object exists on another origin to the constructor call, the Request.referrer is stripped
-   *                  out.
-   *                - If this object has a Request.mode of navigate, the mode value is converted to same-origin.
+   *              <ul>
+   *                <li>A String containing the direct URL of the resource you want to fetch.</li>
+   *                <li>A <code>Request</code> object, effectively creating a copy. Note the following behavioural
+   *                    updates to retain security while making the constructor less likely to throw exceptions:
+   *                    <ul>
+   *                      <li>If this object exists on another origin to the constructor call, the Request.referrer is
+   *                          stripped out.</li>
+   *                      <li>If this object has a Request.mode of navigate, the mode value is converted to
+   *                          same-origin.</li>
+   *                    </ul>
+   *                </li>
+   *              </ul>
    * @param init An options object containing any custom settings that you want to apply to the request.
    */
   public native function Request(input: *, init: RequestInit = undefined);
