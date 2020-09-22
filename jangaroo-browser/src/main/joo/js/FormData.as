@@ -30,8 +30,8 @@ public class FormData {
    *                 passed as the second parameter. The default filename for <code>Blob</code> objects is "blob". The
    *                 default filename for <code>File</code> objects is the file's filename.
    *
-   * @see Blob
-   * @see File
+   * @see js.Blob
+   * @see js.File
    */
   public native function append(name: String, value: *, fileName: String = undefined): void;
 
@@ -51,7 +51,7 @@ public class FormData {
    * @param name A String representing the name of the key you want to retrieve.
    * @return A String or <code>File</code> containing the value. If the key doesn't exist, the method returns null.
    *
-   * @see File
+   * @see js.File
    */
   public native function get(name: String): *;
 
@@ -61,7 +61,7 @@ public class FormData {
    * @return An array of Strings or <code>File</code>s whose key matches the value passed in the name parameter. If the
    *         key doesn't exist, the method returns an empty list.
    *
-   * @see File
+   * @see js.File
    */
   public native function getAll(name: String): Array;
 
@@ -83,8 +83,8 @@ public class FormData {
    *                 passed as the second parameter. The default filename for <code>Blob</code> objects is "blob". The
    *                 default filename for <code>File</code> objects is the file's filename.
    *
-   * @see Blob
-   * @see File
+   * @see js.Blob
+   * @see js.File
    */
   public native function set(name: String, value: *, fileName: String = undefined): void;
 

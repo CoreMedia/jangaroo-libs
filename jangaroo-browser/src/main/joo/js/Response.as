@@ -25,8 +25,8 @@ public class Response implements Body {
    * @param init An options object containing any custom settings that you want to apply to the response, or an empty
    *             object (which is the default value).
    *
-   * @see Blob
-   * @see FormData
+   * @see js.Blob
+   * @see js.FormData
    */
   public native function Response(body: * = undefined, init: ResponseInit = undefined);
 
@@ -75,9 +75,9 @@ public class Response implements Body {
    * A <code>Promise</code> resolving to a <code>Headers</code> object, associated with the response with
    * <code>#headers</code> for values of the HTTP Trailer header.
    *
-   * @see #headers
-   * @see Headers
-   * @see Promise
+   * @see #headers()
+   * @see js.Headers
+   * @see js.Promise
    */
   public native function get trailer(): Promise;
 
@@ -111,14 +111,14 @@ public class Response implements Body {
    * Takes a Response stream and reads it to completion. It returns a promise that resolves with an
    * <code>ArrayBuffer</code>.
    *
-   * @see ArrayBuffer
+   * @see js.ArrayBuffer
    */
   public native function get arrayBuffer():Promise;
 
   /**
    * Takes a Response stream and reads it to completion. It returns a promise that resolves with a <code>Blob</code>.
    *
-   * @see Blob
+   * @see js.Blob
    */
   public native function get blob():Promise;
 
@@ -126,7 +126,7 @@ public class Response implements Body {
    * Takes a Response stream and reads it to completion. It returns a promise that resolves with a <code>FormData</code>
    * object.
    *
-   * @see FormData
+   * @see js.FormData
    */
   public native function get formData():Promise;
 

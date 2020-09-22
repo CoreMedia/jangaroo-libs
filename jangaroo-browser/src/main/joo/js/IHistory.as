@@ -33,7 +33,7 @@ public interface IHistory {
    * This asynchronous method goes to the previous page in session history, the same action as when the user clicks the
    * browser's Back button. Equivalent to passing -1 to <code>#go</code>.
    *
-   * @see #go
+   * @see #go()
    */
   function back(): void;
 
@@ -41,7 +41,7 @@ public interface IHistory {
    * This asynchronous method goes to the next page in session history, the same action as when the user clicks the
    * browser's Forward button; this is equivalent to passing 1 to <code>@go</code>.
    *
-   * @see #go
+   * @see #go()
    */
   function forward(): void;
 
@@ -56,7 +56,6 @@ public interface IHistory {
    *              pages and history.go(-2) moves back two pages. If no value is passed or if delta equals 0, it has the
    *              same result as calling <code>window.location.reload</code>.
    *
-   * @see #go
    * @see window.location.reload
    */
   function go(delta: int = 0): void;

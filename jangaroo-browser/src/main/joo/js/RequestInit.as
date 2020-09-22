@@ -23,7 +23,7 @@ public class RequestInit {
    *
    * @return <code>Headers</code> or Object or two dimensional string Array.
    *
-   * @see Headers
+   * @see js.Headers
    */
   public native function get headers(): *;
 

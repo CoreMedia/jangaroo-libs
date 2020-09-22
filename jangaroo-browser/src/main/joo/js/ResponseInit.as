@@ -8,7 +8,7 @@ public interface ResponseInit {
   /**
    * @return <code>Headers</code> or Object or two dimensional string Array.
    *
-   * @see Headers
+   * @see js.Headers
    */
   function get headers(): *;
 

@@ -30,7 +30,7 @@ public class Map {
    * @param key The key of the element to remove from the Map object.
    * @return true if an element in the Map object existed and has been removed, or false if the element does not exist.
    *
-   * @see #has
+   * @see #has()
    */
   public native function delete_(key: *): Boolean;
 

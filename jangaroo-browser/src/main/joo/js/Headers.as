@@ -27,7 +27,7 @@ public class Headers {
    *
    * @param init <code>Headers</code> or Object or two dimensional String Array.
    *
-   * @see Headers
+   * @see js.Headers
    */
   public native function Headers(init: *);
 

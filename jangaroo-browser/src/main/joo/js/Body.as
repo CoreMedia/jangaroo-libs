@@ -7,9 +7,9 @@ package js {
  * <code>Body is implemented by both <code>Request</code> and <code>Response</code>. This provides these objects with an
  * associated body (a stream), a used flag (initially unset), and a MIME type (initially the empty byte sequence).
  *
- * @see #fetch
- * @see Request
- * @see Response
+ * @see js.fetch()
+ * @see js.Request
+ * @see js.Response
  */
 public interface Body {
 
@@ -29,14 +29,14 @@ public interface Body {
    * Takes a Response stream and reads it to completion. It returns a promise that resolves with an
    * <code>ArrayBuffer</code>.
    *
-   * @see ArrayBuffer
+   * @see js.ArrayBuffer
    */
   function get arrayBuffer(): Promise;
 
   /**
    * Takes a Response stream and reads it to completion. It returns a promise that resolves with a <code>Blob</code>.
    *
-   * @see Blob
+   * @see js.Blob
    */
   function get blob(): Promise;
 
@@ -44,7 +44,7 @@ public interface Body {
    * Takes a Response stream and reads it to completion. It returns a promise that resolves with a <code>FormData</code>
    * object.
    *
-   * @see FormData
+   * @see js.FormData
    */
   function get formData(): Promise;
 

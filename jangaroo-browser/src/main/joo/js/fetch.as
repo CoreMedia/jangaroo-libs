@@ -28,7 +28,7 @@ package js {
  * @throws TypeError The specified URL string includes user credentials. This information should instead be provided
  *                   using an Authorization header.
  *
- * @see Request
+ * @see js.Request
  */
 [Native("fetch")]
 public native function fetch(input: *, init: RequestInit = undefined): Promise;

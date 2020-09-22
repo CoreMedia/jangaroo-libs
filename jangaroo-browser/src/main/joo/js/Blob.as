@@ -15,7 +15,7 @@ public class Blob {
   /**
    * Returns a promise which will provide a <code>ArrayBuffer</code>
    *
-   * @see ArrayBuffer
+   * @see js.ArrayBuffer
    */
   public native function arrayBuffer(): *;
 
