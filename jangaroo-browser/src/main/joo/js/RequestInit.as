@@ -21,7 +21,9 @@ public class RequestInit {
    * Any headers you want to add to your request, contained within a Headers object or an object literal with ByteString
    * values. Note that some names are forbidden.
    *
-   * @return {@link Headers} or {@link Object} or two dimensional string Array.
+   * @return <code>Headers</code> or Object or two dimensional string Array.
+   *
+   * @see Headers
    */
   public native function get headers(): *;
 

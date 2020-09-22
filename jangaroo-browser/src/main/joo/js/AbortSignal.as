@@ -2,14 +2,18 @@ package js {
 
 /**
  * A signal object that allows you to communicate with a DOM request (such as a Fetch) and abort it if required via an
- * {@link AbortController} object.
+ * <code>AbortController</code> object.
+ *
+ * @see AbortController
  */
 [Native("AbortSignal")]
 public class AbortSignal extends EventTarget {
   public native function AbortSignal();
 
   /**
-   * Returns true if this AbortSignal's {@link AbortController} has signaled to abort, and false otherwise.
+   * Returns true if this AbortSignal's <code>AbortController</code> has signaled to abort, and false otherwise.
+   *
+   * @see AbortController
    */
   public native function get aborted(): Boolean;
 

@@ -19,12 +19,14 @@ package js {
  * @param input This defines the resource that you wish to fetch. This can either be:
  *              - A String containing the direct URL of the resource you want to fetch. Some browsers accept the blob:
  *                and data: schemes.
- *              - A {@link js.Request} object.
+ *              - A <code>js.Request</code> object.
  * @param init
- * @return A Promise that resolves to a {@link Response} object.
+ * @return A Promise that resolves to a <code>Response</code> object.
  * @throws AbortError The request was aborted due to a call to the AbortController method abort() method.
  * @throws TypeError The specified URL string includes user credentials. This information should instead be provided
  *                   using an Authorization header.
+ *
+ * @see Request
  */
 [Native("fetch")]
 public native function fetch(input: *, init: RequestInit = undefined): Promise;

@@ -14,14 +14,17 @@ public class Response implements Body {
    * Creates a new Response object.
    *
    * @param body An object defining a body for the response. This can be null (which is the default value), or
-   *             - {@link Blob}
+   *             - <code>Blob</code>
    *             - BufferSource
-   *             - {@link FormData}
+   *             - <code>FormData</code>
    *             - URLSearchParams
    *             - ReadableStream<Uint8Array>
    *             - String
    * @param init An options object containing any custom settings that you want to apply to the response, or an empty
    *             object (which is the default value).
+   *
+   * @see Blob
+   * @see FormData
    */
   public native function Response(body: * = undefined, init: ResponseInit = undefined);
 
@@ -67,8 +70,12 @@ public class Response implements Body {
   public native function get statusText(): String;
 
   /**
-   * A {@link Promise} resolving to a {@link Headers} object, associated with the response with {@link #headers} for
-   * values of the HTTP Trailer header.
+   * A <code>Promise</code> resolving to a <code>Headers</code> object, associated with the response with
+   * <code>#headers</code> for values of the HTTP Trailer header.
+   *
+   * @see #headers
+   * @see Headers
+   * @see Promise
    */
   public native function get trailer(): Promise;
 
@@ -99,18 +106,25 @@ public class Response implements Body {
   public native function get bodyUsed():Boolean;
 
   /**
-   * Takes a Response stream and reads it to completion. It returns a promise that resolves with an {@link ArrayBuffer}.
+   * Takes a Response stream and reads it to completion. It returns a promise that resolves with an
+   * <code>ArrayBuffer</code>.
+   *
+   * @see ArrayBuffer
    */
   public native function get arrayBuffer():Promise;
 
   /**
-   * Takes a Response stream and reads it to completion. It returns a promise that resolves with a {@link Blob}.
+   * Takes a Response stream and reads it to completion. It returns a promise that resolves with a <code>Blob</code>.
+   *
+   * @see Blob
    */
   public native function get blob():Promise;
 
   /**
-   * Takes a Response stream and reads it to completion. It returns a promise that resolves with a {@link FormData}
+   * Takes a Response stream and reads it to completion. It returns a promise that resolves with a <code>FormData</code>
    * object.
+   *
+   * @see FormData
    */
   public native function get formData():Promise;
 

@@ -13,7 +13,9 @@ public class Blob {
   public native function get type(): String;
 
   /**
-   * Returns a promise which will provide a {@link ArrayBuffer}
+   * Returns a promise which will provide a <code>ArrayBuffer</code>
+   *
+   * @see ArrayBuffer
    */
   public native function arrayBuffer(): *;
 

@@ -18,18 +18,25 @@ public interface Body {
   function get bodyUsed(): Boolean;
 
   /**
-   * Takes a Response stream and reads it to completion. It returns a promise that resolves with an {@link ArrayBuffer}.
+   * Takes a Response stream and reads it to completion. It returns a promise that resolves with an
+   * <code>ArrayBuffer</code>.
+   *
+   * @see ArrayBuffer
    */
   function get arrayBuffer(): Promise;
 
   /**
-   * Takes a Response stream and reads it to completion. It returns a promise that resolves with a {@link Blob}.
+   * Takes a Response stream and reads it to completion. It returns a promise that resolves with a <code>Blob</code>.
+   *
+   * @see Blob
    */
   function get blob(): Promise;
 
   /**
-   * Takes a Response stream and reads it to completion. It returns a promise that resolves with a {@link FormData}
+   * Takes a Response stream and reads it to completion. It returns a promise that resolves with a <code>FormData</code>
    * object.
+   *
+   * @see FormData
    */
   function get formData(): Promise;
 

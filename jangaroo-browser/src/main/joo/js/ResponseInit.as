@@ -6,7 +6,9 @@ package js {
 public interface ResponseInit {
 
   /**
-   * @return {@link Headers} or {@link Object} or two dimensional string Array.
+   * @return <code>Headers</code> or Object or two dimensional string Array.
+   *
+   * @see Headers
    */
   function get headers(): *;
 
