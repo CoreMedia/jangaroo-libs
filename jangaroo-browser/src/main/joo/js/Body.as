@@ -3,11 +3,14 @@ package js {
 /**
  * The <code>Body</code> mixin of the <code>fetch</code> API represents the body of the response/request, allowing you
  * to declare what its content type is and how it should be handled.
+ * <p>
+ * <code>Body</code> is implemented by both <code>Request</code> and <code>Response</code>. This provides these
+ * objects with an associated body (a stream), a used flag (initially unset), and a MIME type (initially the empty byte
+ * sequence).
+ * </p>
  *
- * <code>Body is implemented by both <code>Request</code> and <code>Response</code>. This provides these objects with an
- * associated body (a stream), a used flag (initially unset), and a MIME type (initially the empty byte sequence).
- *
- * @see js.fetch()
+ * @see js.fetch() js.fetch() (workaround for IDEA)
+ * @see js.#fetch() js.fetch()
  * @see js.Request
  * @see js.Response
  */
