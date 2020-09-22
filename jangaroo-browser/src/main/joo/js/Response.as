@@ -19,7 +19,7 @@ public class Response implements Body {
    *               <li>BufferSource</li>
    *               <li><code>FormData</code></li>
    *               <li>URLSearchParams</li>
-   *               <li>ReadableStream<Uint8Array></li>
+   *               <li>ReadableStream&lt;Uint8Array></li>
    *               <li>String</li>
    *             </ul>
    * @param init An options object containing any custom settings that you want to apply to the response, or an empty
