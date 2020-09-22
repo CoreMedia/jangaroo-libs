@@ -18,8 +18,8 @@
   <name>jangaroo-libs-doc</name>
 
   <properties>
-    <flexmojos.version>4.0-RC2</flexmojos.version>
-    <flex.sdk.version>4.5.1.21328</flex.sdk.version>
+    <flexmojos.version>4.2-beta</flexmojos.version>
+    <flex.sdk.version>4.6.b.23201</flex.sdk.version>
   </properties>
 
   <pluginRepositories>
@@ -30,7 +30,7 @@
         <enabled>true</enabled>
       </releases>
       <snapshots>
-        <enabled>true</enabled>
+        <enabled>false</enabled>
       </snapshots>
     </pluginRepository>
   </pluginRepositories>
@@ -43,7 +43,7 @@
         <enabled>true</enabled>
       </releases>
       <snapshots>
-        <enabled>true</enabled>
+        <enabled>false</enabled>
       </snapshots>
     </repository>
   </repositories>
@@ -53,48 +53,19 @@
     <plugins>
 
       <plugin>
-        <groupId>com.github.github</groupId>
-        <artifactId>site-maven-plugin</artifactId>
-        <version>0.2</version>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
         <configuration>
-          <message>Building site for ${project.version}</message>
+          <skipDeploy>true</skipDeploy>
+          <skip>false</skip>
         </configuration>
-        <executions>
-          <execution>
-            <goals>
-              <goal>site</goal>
-            </goals>
-            <phase>site</phase>
-          </execution>
-        </executions>
       </plugin>
 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-site-plugin</artifactId>
-        <version>3.0</version>
+        <artifactId>maven-deploy-plugin</artifactId>
         <configuration>
-          <locales>en</locales>
-          <inputEncoding>UTF-8</inputEncoding>
-          <outputEncoding>UTF-8</outputEncoding>
-          <reportPlugins>
-            <reportPlugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-project-info-reports-plugin</artifactId>
-              <version>2.3.1</version>
-              <configuration>
-                <dependencyDetailsEnabled>false</dependencyDetailsEnabled>
-                <dependencyLocationsEnabled>false</dependencyLocationsEnabled>
-              </configuration>
-              <reportSets>
-                <reportSet>
-                  <reports>
-                    <report>index</report>
-                  </reports>
-                </reportSet>
-              </reportSets>
-            </reportPlugin>
-          </reportPlugins>
+          <skip>true</skip>
         </configuration>
       </plugin>
 
@@ -108,7 +79,8 @@
               <goal>unpack-dependencies</goal>
             </goals>
             <configuration>
-              <includeTypes>jar</includeTypes>
+              <includeTypes>swc</includeTypes>
+              <includeScope>runtime</includeScope>
               <includes>
                 META-INF/joo-api/**
               </includes>
@@ -168,12 +140,12 @@
         <groupId>org.sonatype.flexmojos</groupId>
         <artifactId>flexmojos-maven-plugin</artifactId>
         <version>${flexmojos.version}</version>
-        <extensions>true</extensions>
+        <extensions>false</extensions>
         <executions>
           <execution>
             <id>generate-asdoc-sources</id>
             <goals>
-              <goal>asdoc</goal>
+              <goal>asdoc-report</goal>
             </goals>
             <phase>pre-site</phase>
             <configuration>
@@ -182,11 +154,28 @@
           </execution>
         </executions>
         <configuration>
+          <!--
+                Workaround for Flexmojos/Java 11 bug: Flexmojos uses Java standard date format to hand in
+                compiler option metadata.date. In Java 9, the standard date format has been changed to use a comma,
+                which the compiler then interprets as two values and exits with an error.
+                As workaround, metadata.date is set explicitly. For a meaningful value, the Maven build time stamp
+                is used.
+               -->
+          <metadata><date>${maven.build.timestamp}</date></metadata>
           <keepXml>true</keepXml>
           <lenient>true</lenient>
           <showWarnings>false</showWarnings>
           <strict>false</strict>
           <storepass>foobar</storepass>
+          <mainTitle>Jangaroo Libs API</mainTitle>
+          <windowTitle>Jangaroo Libs ${project.version} API</windowTitle>
+          <compileSourceRoots>${project.build.directory}/temp/jangaroo-asdoc/META-INF/joo-api</compileSourceRoots>
+          <docSources>
+            <docSource>${project.build.directory}/temp/jangaroo-asdoc/META-INF/joo-api</docSource>
+          </docSources>
+          <compilerWarnings>
+            <warn-const-not-initialized>false</warn-const-not-initialized>
+          </compilerWarnings>
         </configuration>
         <dependencies>
           <dependency>
@@ -200,6 +189,10 @@
     </plugins>
   </build>
 
+  <reporting>
+    <excludeDefaults>true</excludeDefaults>
+  </reporting>
+
   <dependencies>
     <dependency>
       <groupId>com.adobe.flex.framework</groupId>
@@ -210,9 +203,42 @@
 
     <dependency>
       <groupId>${project.groupId}</groupId>
+      <artifactId>jangaroo-runtime</artifactId>
+      <version>${project.version}</version>
+      <type>swc</type>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>jangaroo-browser</artifactId>
+      <version>${project.version}</version>
+      <type>swc</type>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>jooflash-core</artifactId>
+      <version>${project.version}</version>
+      <type>swc</type>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>jooflexframework</artifactId>
+      <version>${project.version}</version>
+      <type>swc</type>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>${project.groupId}</groupId>
       <artifactId>jangaroo-net</artifactId>
       <version>${project.version}</version>
       <type>swc</type>
+      <scope>runtime</scope>
     </dependency>
 
     <dependency>
@@ -220,6 +246,7 @@
       <artifactId>joounit</artifactId>
       <version>${project.version}</version>
       <type>swc</type>
+      <scope>runtime</scope>
     </dependency>
 
   </dependencies>
