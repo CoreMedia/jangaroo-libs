@@ -40,7 +40,7 @@ public interface Body {
   function get json(): Promise;
 
   /**
-   * Takes a Response stream and reads it to completion. It returns a promise that resolves with a {@link String}. The
+   * Takes a Response stream and reads it to completion. It returns a promise that resolves with a String. The
    * response is always decoded using UTF-8.
    */
   function get text(): Promise;

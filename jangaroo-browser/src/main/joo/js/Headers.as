@@ -25,7 +25,7 @@ public class Headers {
   /**
    * Creates a new Headers object.
    *
-   * @param init {@link Headers} or {@link Object} or two dimensional String {@link Array}.
+   * @param init {@link Headers} or {@link Object} or two dimensional String Array.
    */
   public native function Headers(init: *);
 

@@ -13,7 +13,7 @@ public class Request {
    * Creates a new Request object.
    *
    * @param input Defines the resource that you wish to fetch. This can either be:
-   *              - A {@link String} containing the direct URL of the resource you want to fetch.
+   *              - A String containing the direct URL of the resource you want to fetch.
    *              - A {@link Request} object, effectively creating a copy. Note the following behavioural updates to
    *                retain security while making the constructor less likely to throw exceptions:
    *                - If this object exists on another origin to the constructor call, the Request.referrer is stripped

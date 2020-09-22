@@ -21,7 +21,7 @@ public class RequestInit {
    * Any headers you want to add to your request, contained within a Headers object or an object literal with ByteString
    * values. Note that some names are forbidden.
    *
-   * @return {@link Headers} or {@link Object} or two dimensional string {@link Array}.
+   * @return {@link Headers} or {@link Object} or two dimensional string Array.
    */
   public native function get headers(): *;
 
@@ -32,7 +32,7 @@ public class RequestInit {
 
   /**
    * Any body that you want to add to your request: this can be a Blob, BufferSource, FormData, URLSearchParams,
-   * {@link String}, or ReadableStream object. Note that a request using the GET or HEAD method cannot have a body.
+   * String, or ReadableStream object. Note that a request using the GET or HEAD method cannot have a body.
    */
   public native function get body(): *;
 
@@ -86,7 +86,7 @@ public class RequestInit {
   public native function set redirect(redirect: String): void;
 
   /**
-   * A {@link String} specifying the referrer of the request. This can be a same-origin URL, about:client, or an empty
+   * A String specifying the referrer of the request. This can be a same-origin URL, about:client, or an empty
    * string.
    */
   public native function get referrer(): String;

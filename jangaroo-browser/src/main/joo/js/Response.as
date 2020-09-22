@@ -19,7 +19,7 @@ public class Response implements Body {
    *             - {@link FormData}
    *             - URLSearchParams
    *             - ReadableStream<Uint8Array>
-   *             - {@link String}
+   *             - String
    * @param init An options object containing any custom settings that you want to apply to the response, or an empty
    *             object (which is the default value).
    */
@@ -121,7 +121,7 @@ public class Response implements Body {
   public native function get json():Promise;
 
   /**
-   * Takes a Response stream and reads it to completion. It returns a promise that resolves with a {@link String}.
+   * Takes a Response stream and reads it to completion. It returns a promise that resolves with a String.
    */
   public native function get text():Promise;
 }

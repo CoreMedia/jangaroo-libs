@@ -24,11 +24,11 @@ public class FormData {
    * Appends a new value onto an existing key inside a FormData object, or adds the key if it does not already exist.
    *
    * @param name The name of the field whose data is contained in value.
-   * @param value The field's value. This can be a {@link String} or {@link Blob} (including subclasses such as
-   *              {@link File}). If none of these are specified the value is converted to a string.
-   * @param fileName The filename reported to the server (a {@link String}), when a {@link Blob} or {@link File} is
-   *                 passed as the second parameter. The default filename for {@link Blob} objects is "blob". The
-   *                 default filename for {@link File} objects is the file's filename.
+   * @param value The field's value. This can be a String or {@link Blob} (including subclasses such as {@link File}).
+   *              If none of these are specified the value is converted to a string.
+   * @param fileName The filename reported to the server (a String), when a {@link Blob} or {@link File} is passed as
+   *                 the second parameter. The default filename for {@link Blob} objects is "blob". The default filename
+   *                 for {@link File} objects is the file's filename.
    */
   public native function append(name: String, value: *, fileName: String = undefined): void;
 
@@ -42,23 +42,23 @@ public class FormData {
   /**
    * Returns the first value associated with a given key from within a FormData object.
    *
-   * @param name A {@link String} representing the name of the key you want to retrieve.
-   * @return A {@link String} or {@link File} containing the value. If the key doesn't exist, the method returns null.
+   * @param name A String representing the name of the key you want to retrieve.
+   * @return A String or {@link File} containing the value. If the key doesn't exist, the method returns null.
    */
   public native function get(name: String): *;
 
   /**
    * Returns an array of all the values associated with a given key from within a FormData.
-   * @param name A {@link String} representing the name of the key you want to retrieve.
-   * @return An array of {@link String}s or {@link File}s whose key matches the value passed in the name parameter. If
-   *         the key doesn't exist, the method returns an empty list.
+   * @param name A String representing the name of the key you want to retrieve.
+   * @return An array of Strings or {@link File}s whose key matches the value passed in the name parameter. If the key
+   *         doesn't exist, the method returns an empty list.
    */
   public native function getAll(name: String): Array;
 
   /**
    * Returns a boolean stating whether a FormData object contains a certain key.
    *
-   * @param name A {@link String} representing the name of the key you want to test for.
+   * @param name A String representing the name of the key you want to test for.
    * @return TRUE if the form contains the key, otherwise FALSE
    */
   public native function has(name: String): Boolean;
@@ -67,11 +67,11 @@ public class FormData {
    * Sets a new value for an existing key inside a FormData object, or adds the key/value if it does not already exist.
    *
    * @param name The name of the field whose data is contained in value.
-   * @param value The field's value. This can be a {@link String} or {@link Blob} (including subclasses such as
-   *              {@link File}). If none of these are specified the value is converted to a string.
-   * @param fileName The filename reported to the server (a {@link String}), when a {@link Blob} or {@link File} is
-   *                 passed as the second parameter. The default filename for {@link Blob} objects is "blob". The
-   *                 default filename for {@link File} objects is the file's filename.
+   * @param value The field's value. This can be a String or {@link Blob} (including subclasses such as {@link File}).
+   *              If none of these are specified the value is converted to a String.
+   * @param fileName The filename reported to the server (a String), when a {@link Blob} or {@link File} is passed as
+   *                 the second parameter. The default filename for {@link Blob} objects is "blob". The default filename
+   *                 for {@link File} objects is the file's filename.
    */
   public native function set(name: String, value: *, fileName: String = undefined): void;
 

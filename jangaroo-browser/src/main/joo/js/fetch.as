@@ -17,8 +17,8 @@ package js {
  * the resources it's retrieving.
  *
  * @param input This defines the resource that you wish to fetch. This can either be:
- *              - A {@link String} containing the direct URL of the resource you want to fetch. Some browsers accept the
- *                blob: and data: schemes.
+ *              - A String containing the direct URL of the resource you want to fetch. Some browsers accept the blob:
+ *                and data: schemes.
  *              - A {@link js.Request} object.
  * @param init
  * @return A Promise that resolves to a {@link Response} object.
