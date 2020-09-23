@@ -1200,6 +1200,12 @@ public final dynamic class Date {
    */
   public native function toGMTString():String;
 
+  /**
+   * Converts a date to a string following the ISO 8601 Extended Format.
+   *
+   * @return A string representing the given date in the ISO 8601 format according to universal time.
+   */
+  public native function toISOString():String;
 }
 
 }
