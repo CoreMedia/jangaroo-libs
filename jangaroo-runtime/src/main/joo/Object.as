@@ -188,5 +188,14 @@ public dynamic class Object {
 
   public static native function seal(object:Object):Object;
 
+  /**
+   * The Object.assign() method copies all enumerable own properties from one or more source objects to a target object.
+   * It returns the target object.
+   *
+   * @param target The target object — what to apply the sources’ properties to, which is returned after it is modified.
+   * @param sources The source object(s) — objects containing the properties you want to apply.
+   * @return The target object.
+   */
+  public static native function assign(target:Object, ...sources):Object;
 }
 }
