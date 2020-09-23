@@ -121,11 +121,15 @@ joo.getQualifiedObject = (function(theGlobalObject) {
 joo.getOrCreatePackage = function(name) {
   return Ext.ns(name);
 };
-joo.aliasKeywordMembers = (clazz, ...keywords) =>
-  keywords.forEach(keyword => Object.defineProperty(
-    clazz.prototype, keyword+"_",
-    Object.getOwnPropertyDescriptor(clazz.prototype, keyword)
-  ));
+joo.aliasKeywordMembers = function (clazz) {
+  var keywords = Array.prototype.slice.call(arguments, 1);
+  keywords.forEach(function (keyword) {
+    Object.defineProperty(
+            clazz.prototype, keyword + "_",
+            Object.getOwnPropertyDescriptor(clazz.prototype, keyword)
+    );
+  });
+};
 Ext.ns("joo.localization");
 
 Ext.require("joo.DynamicClassLoader", function() {

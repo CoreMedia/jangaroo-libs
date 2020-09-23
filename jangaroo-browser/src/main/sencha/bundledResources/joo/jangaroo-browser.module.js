@@ -148,17 +148,43 @@
       DOM_VK_META: 224
     }
   }
-  if (!window.Promise) {
-    Ext.Loader.loadScript(Ext.getResourcePath("corejs-promise.js", null, "net.jangaroo__jangaroo-browser"));
+
+  function loadIfNeededAndExecute(condition, resourceFile, execution) {
+    if (condition) {
+      Ext.Loader.loadScript({
+        url: Ext.getResourcePath(resourceFile, null, "net.jangaroo__jangaroo-browser"),
+        onLoad: function () {
+          execution && execution();
+        }
+      });
+    } else {
+      execution && execution();
+    }
   }
-  if (!window.Map || !window.Map.prototype.keys) {
-    Ext.Loader.loadScript(Ext.getResourcePath("corejs-map.js", null, "net.jangaroo__jangaroo-browser"));
-  }
-  if (!window.fetch) {
-    Ext.Loader.loadScript(Ext.getResourcePath("fetch.umd.js", null, "net.jangaroo__jangaroo-browser"));
-  }
-  joo.aliasKeywordMembers(FormData, "delete");
-  joo.aliasKeywordMembers(Headers, "delete");
-  joo.aliasKeywordMembers(Map, "delete");
-  joo.aliasKeywordMembers(Promise, "catch");
+
+  loadIfNeededAndExecute(!Object.assign, "object-assign.js");
+
+  loadIfNeededAndExecute(!window.Promise, "corejs-promise.js", function () {
+    joo.aliasKeywordMembers(Promise, "catch");
+  });
+
+  loadIfNeededAndExecute(!window.Map || !Map.prototype.keys, "corejs-map.js", function () {
+    joo.aliasKeywordMembers(Map, "delete");
+  });
+
+  loadIfNeededAndExecute(!window.fetch, "fetch.umd.js");
+
+  loadIfNeededAndExecute(!window.Headers, "headers-es5.min.js", function () {
+    joo.aliasKeywordMembers(Headers, "delete");
+  });
+
+  loadIfNeededAndExecute(!window.FormData || !FormData.prototype.delete, "formdata.min.js", function () {
+    if (FormData.prototype.delete) {
+      joo.aliasKeywordMembers(FormData, "delete");
+    } else {
+      FormData.prototype.delete_ = function () {
+        this.delete.apply(this, arguments);
+      };
+    }
+  });
 })();
