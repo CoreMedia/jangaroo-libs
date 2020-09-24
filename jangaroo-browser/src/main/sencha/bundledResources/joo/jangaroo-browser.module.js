@@ -162,8 +162,6 @@
     }
   }
 
-  loadIfNeededAndExecute(!Object.assign, "object-assign.js");
-
   loadIfNeededAndExecute(!window.Promise, "corejs-promise.js", function () {
     joo.aliasKeywordMembers(Promise, "catch");
   });

@@ -197,5 +197,15 @@ public dynamic class Object {
    * @return The target object.
    */
   public static native function assign(target:Object, ...sources):Object;
+
+  /**
+   * The Object.values() method returns an array of a given object's own enumerable property values, in the same order
+   * as that provided by a for...in loop. (The only difference is that a for...in loop enumerates properties in the
+   * prototype chain as well.)
+   *
+   * @param obj The object whose enumerable own property values are to be returned.
+   * @return An array containing the given object's own enumerable property values.
+   */
+  public static native function values(obj:Object):Array;
 }
 }
