@@ -113,14 +113,14 @@ public class Response implements Body {
    *
    * @see js.ArrayBuffer
    */
-  public native function get arrayBuffer():Promise;
+  public native function arrayBuffer():Promise;
 
   /**
    * Takes a Response stream and reads it to completion. It returns a promise that resolves with a <code>Blob</code>.
    *
    * @see js.Blob
    */
-  public native function get blob():Promise;
+  public native function blob():Promise;
 
   /**
    * Takes a Response stream and reads it to completion. It returns a promise that resolves with a <code>FormData</code>
@@ -128,17 +128,17 @@ public class Response implements Body {
    *
    * @see js.FormData
    */
-  public native function get formData():Promise;
+  public native function formData():Promise;
 
   /**
    * Takes a Response stream and reads it to completion. It returns a promise that resolves with the result of parsing
    * the body text as JSON, which is a JavaScript value of datatype object, string, etc.
    */
-  public native function get json():Promise;
+  public native function json():Promise;
 
   /**
    * Takes a Response stream and reads it to completion. It returns a promise that resolves with a String.
    */
-  public native function get text():Promise;
+  public native function text():Promise;
 }
 }

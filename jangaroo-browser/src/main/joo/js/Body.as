@@ -34,14 +34,14 @@ public interface Body {
    *
    * @see js.ArrayBuffer
    */
-  function get arrayBuffer(): Promise;
+  function arrayBuffer(): Promise;
 
   /**
    * Takes a Response stream and reads it to completion. It returns a promise that resolves with a <code>Blob</code>.
    *
    * @see js.Blob
    */
-  function get blob(): Promise;
+  function blob(): Promise;
 
   /**
    * Takes a Response stream and reads it to completion. It returns a promise that resolves with a <code>FormData</code>
@@ -49,18 +49,18 @@ public interface Body {
    *
    * @see js.FormData
    */
-  function get formData(): Promise;
+  function formData(): Promise;
 
   /**
    * Takes a Response stream and reads it to completion. It returns a promise that resolves with the result of parsing
    * the body text as JSON.
    */
-  function get json(): Promise;
+  function json(): Promise;
 
   /**
    * Takes a Response stream and reads it to completion. It returns a promise that resolves with a String. The
    * response is always decoded using UTF-8.
    */
-  function get text(): Promise;
+  function text(): Promise;
 }
 }
