@@ -162,7 +162,7 @@ public dynamic class Object {
 
   //public native function watch(prop:String, handler:Object):void;
 
-  public static native function create(proto:Object, propertyDescriptors:Object = null):Object;
+  public static native function create(proto:Object, propertyDescriptors:Object = null):*;
 
   public static native function defineProperties(object:Object, propertyDescriptors:Object):Object;
 
@@ -196,7 +196,7 @@ public dynamic class Object {
    * @param sources The source object(s) — objects containing the properties you want to apply.
    * @return The target object.
    */
-  public static native function assign(target:Object, ...sources):Object;
+  public static native function assign(target:Object, ...sources):*;
 
   /**
    * The Object.values() method returns an array of a given object's own enumerable property values, in the same order

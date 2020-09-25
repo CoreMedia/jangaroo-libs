@@ -29,7 +29,7 @@ public class Headers {
    *
    * @see js.Headers
    */
-  public native function Headers(init: *);
+  public native function Headers(init: * = undefined);
 
   /**
    * Appends a new value onto an existing header inside a Headers object, or adds the header if it does not already

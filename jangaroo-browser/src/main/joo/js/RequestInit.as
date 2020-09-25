@@ -3,8 +3,15 @@ package js {
 /**
  * An object containing any custom settings that you want to apply to the request.
  */
-[Native("RequestInit")]
+[Native]
 public class RequestInit {
+
+  /**
+   * @private
+   */
+  public function RequestInit() {
+    throw new Error("Do not use!");
+  }
 
   /**
    * The request method, e.g., GET, POST. Note that the Origin header is not set on Fetch requests with a method of HEAD
