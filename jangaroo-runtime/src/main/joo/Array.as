@@ -1270,5 +1270,15 @@ public class Array {
    *
    */
   public static const UNIQUESORT:uint = 4;
+
+  /**
+   * The Array.from() static method creates a new, shallow-copied Array instance from an array-like or iterable object.
+   *
+   * @param arrayLike An array-like or iterable object to convert to an array.
+   * @param mapFn Map function to call on every element of the array.
+   * @param thisArg Value to use as this when executing mapFn.
+   * @return A new Array instance
+   */
+  public static native function from(arrayLike:*, mapFn:Function = undefined, thisArg:Object = undefined):Array;
 }
 }

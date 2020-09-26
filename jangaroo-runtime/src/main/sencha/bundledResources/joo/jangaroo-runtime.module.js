@@ -139,3 +139,7 @@ Ext.require("joo.DynamicClassLoader", function() {
 if (!Object.assign || !Object.values) {
   Ext.Loader.loadScript(Ext.getResourcePath("object.js", null, "net.jangaroo__jangaroo-runtime"));
 }
+
+if (!Array.from) {
+  Ext.Loader.loadScript(Ext.getResourcePath("array-from.js", null, "net.jangaroo__jangaroo-runtime"));
+}
