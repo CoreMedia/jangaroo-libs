@@ -162,6 +162,8 @@
     }
   }
 
+  loadIfNeededAndExecute(!window.WeakMap, "weakmap-polyfill.min.js");
+
   loadIfNeededAndExecute(!window.Promise, "corejs-promise.js", function () {
     joo.aliasKeywordMembers(Promise, "catch");
   });
