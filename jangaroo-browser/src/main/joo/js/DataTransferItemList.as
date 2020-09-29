@@ -13,10 +13,13 @@ public class DataTransferItemList {
 
   //noinspection ReservedWordAsName
   /**
-   * Adds a new entry for the given data to the drag data store. If the data is plain text then a type string has to be provided also.
+   * Adds a new entry for the given data to the drag data store. If the data is plain text then a type string has to be
+   * provided also.
    *
-   * @param data can be a String or {@link File}
+   * @param data can be a String or <code>File</code>
    * @param type If the data is plain text then a type string has to be provided also.
+   *
+   * @see js.File
    */
   public native function add(data: *, type: String = undefined): DataTransferItem;
 

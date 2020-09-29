@@ -1124,11 +1124,6 @@ public final dynamic class Date {
   public native function toString():String;
 
   /**
-   * Returns a String representation of this date in ISO format.
-   */
-  public native function toISOString():String;
-
-  /**
    * Returns a String representation of the time and timezone only, and does not include the day and date. Contrast with the <code>Date.toDateString()</code> method, which returns only the day and date.
    * @return The string representation of time and timezone only.
    *
@@ -1205,6 +1200,12 @@ public final dynamic class Date {
    */
   public native function toGMTString():String;
 
+  /**
+   * Converts a date to a string following the ISO 8601 Extended Format.
+   *
+   * @return A string representing the given date in the ISO 8601 format according to universal time.
+   */
+  public native function toISOString():String;
 }
 
 }

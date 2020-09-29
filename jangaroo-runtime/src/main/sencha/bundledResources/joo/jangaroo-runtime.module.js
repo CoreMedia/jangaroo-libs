@@ -121,9 +121,25 @@ joo.getQualifiedObject = (function(theGlobalObject) {
 joo.getOrCreatePackage = function(name) {
   return Ext.ns(name);
 };
+joo.aliasKeywordMembers = function (clazz) {
+  var keywords = Array.prototype.slice.call(arguments, 1);
+  keywords.forEach(function (keyword) {
+    Object.defineProperty(
+            clazz.prototype, keyword + "_",
+            Object.getOwnPropertyDescriptor(clazz.prototype, keyword)
+    );
+  });
+};
 Ext.ns("joo.localization");
 
 Ext.require("joo.DynamicClassLoader", function() {
   joo.classLoader = new joo.DynamicClassLoader();
 });
 
+if (!Object.assign || !Object.values) {
+  Ext.Loader.loadScript(Ext.getResourcePath("object.js", null, "net.jangaroo__jangaroo-runtime"));
+}
+
+if (!Array.from) {
+  Ext.Loader.loadScript(Ext.getResourcePath("array-from.js", null, "net.jangaroo__jangaroo-runtime"));
+}

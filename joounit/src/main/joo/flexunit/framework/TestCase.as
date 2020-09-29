@@ -36,7 +36,7 @@ package flexunit.framework
     * @description
     * Each test runs in its own fixture so there can be no side effects among test runs.
     * Here is an example:
-    * <code>
+    * <pre>
     * import samples.com.iterationtwo.Money;
     * import flexunit.framework.TestCase;
     *
@@ -44,12 +44,12 @@ package flexunit.framework
     * {
     *     ...
     * }
-    * </code>
+    * </pre>
     *
     * For each test, implement a method which interacts
     * with the fixture. Verify the expected results using the assertions
     * residing in the base class <code>Assert</code>.
-    * <code>
+    * <pre>
     *  public function testAddMoney()
     *  {
     *     var dollars1 : Number = 3;
@@ -68,10 +68,10 @@ package flexunit.framework
     *     assertEquals( "Dollars should be 6", 6, money3.dollars );
     *     assertEquals( "Cents should be 70", 70, money3.cents );
     *  }
-    * </code>
+    * </pre>
     * You can also specify <code>setUp()</code> and <code>tearDown()</code> methods
     * to initialize and clean-up tests.
-    * <code>
+    * <pre>
     * import samples.com.iterationtwo.Money;
     * import flexunit.framework.TestCase;
     *
@@ -89,7 +89,7 @@ package flexunit.framework
     *
     *    private var money : Money;
     * }
-    * </code>
+    * </pre>
     * The tests to be run can be collected into a <code>TestSuite</code> and run using a a <code>TestRunner</code>.
     *
     * The AS3 version has been extended to allow asynchronous tests.  This means that an individual test method
@@ -98,7 +98,7 @@ package flexunit.framework
     * time in which it is expected to complete.  You can also pass any data you want carried through the call.  addAsync
     * will return a function capable of handling generic events which you can then set as the event listener on an object.
     * E.g.,
-    * <code>
+    * <pre>
     *   public function testAsync() : void
     *   {
     *      var myDispatcher : ValueDispatcher = new ValueDispatcher();
@@ -113,7 +113,7 @@ package flexunit.framework
     *      var actual : String = event.value;
     *      assertEquals(expected, actual);
     *   }
-    * <code>
+    * </pre>
     *
     *
     * @see flexunit.framework.Assert

@@ -203,7 +203,18 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-site-plugin</artifactId>
-          <version>3.5</version>
+          <version>3.4</version>
+          <configuration>
+            <!--
+             | ===== BE CAREFUL ======
+             | with 3.5 skip implies skipDeploy. Therefore, we cannot upgrade the site plugin without reworking the
+             | whole site creation process
+             -->
+            <skip>true</skip>
+            <skipDeploy>true</skipDeploy>
+            <inputEncoding>UTF-8</inputEncoding>
+            <outputEncoding>UTF-8</outputEncoding>
+          </configuration>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
