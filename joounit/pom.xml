@@ -43,7 +43,6 @@
         <inherited>false</inherited>
         <configuration>
           <jooUnitTestExecutionTimeout>120000</jooUnitTestExecutionTimeout>
-          <jooUnitWebDriverBrowser>chrome</jooUnitWebDriverBrowser>
           <testSuite>flexunit.framework.AllFrameworkTests</testSuite>
         </configuration>
       </plugin>
