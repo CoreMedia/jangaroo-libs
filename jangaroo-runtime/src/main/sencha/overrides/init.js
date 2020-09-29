@@ -24,6 +24,35 @@ Ext.ClassManager.registerPostprocessor('__factory__', function(className, cls, d
   return true;
 });
 
+Ext.ClassManager.registerPostprocessor('__lazyFactory__', function(className, cls, data) {
+  if (data.__lazyFactory__) {
+    this.set(className, undefined);
+    var parts = className.split('.');
+    var name = parts.pop();
+    var scope = !parts.length ? Ext.ns() : Ext.ns(parts.join('.')); 
+    Object.defineProperty(scope, name, {
+      get: function() {
+        if (joo.debug) {
+          console.log("lazy init " + className);
+        }
+        return this[name] = data.__lazyFactory__();
+      },
+      set: function(value) {
+        Object.defineProperty(this, name, {
+          value: value,
+          enumerable: true,
+          writable: true,
+          configurable: true
+        });
+      },
+      configurable: true
+    });
+    this.triggerCreated(className);
+    return false;
+  }
+  return true;
+});
+
 (function() {
   var wrapConstructor = function(Class) {
     return function() {
