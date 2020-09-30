@@ -136,6 +136,18 @@ Ext.require("joo.DynamicClassLoader", function() {
   joo.classLoader = new joo.DynamicClassLoader();
 });
 
+if (typeof globalThis !== "object") {
+  // see: https://mathiasbynens.be/notes/globalthis
+  Object.defineProperty(Object.prototype, '__magic__', {
+    get: function() {
+      return this;
+    },
+    configurable: true
+  });
+  __magic__.globalThis = __magic__;
+  delete Object.prototype.__magic__;
+}
+
 if (!Object.assign || !Object.values) {
   Ext.Loader.loadScript(Ext.getResourcePath("object.js", null, "net.jangaroo__jangaroo-runtime"));
 }
