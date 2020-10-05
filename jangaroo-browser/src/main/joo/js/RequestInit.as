@@ -46,7 +46,7 @@ public class RequestInit {
    *
    * @see js.Blob
    * @see js.FormData
-   * @see URLSearchParams
+   * @see js.URLSearchParams
    */
   public native function get body(): *;
 
