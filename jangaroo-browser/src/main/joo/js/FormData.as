@@ -5,11 +5,13 @@ package js {
  * values, which can then be easily sent using the XMLHttpRequest.send() method. It uses the same format a form would
  * use if the encoding type were set to "multipart/form-data".
  *
- * You can also pass it directly to the URLSearchParams constructor if you want to generate query parameters in the way
- * a &lt;form> would do if it were using simple GET submission.
+ * You can also pass it directly to the <code>URLSearchParams</code> constructor if you want to generate query
+ * parameters in the way a &lt;form> would do if it were using simple GET submission.
  *
  * An object implementing FormData can directly be used in a for...of structure, instead of entries(): for (var p of
  * myFormData) is equivalent to for (var p of myFormData.entries()).
+ *
+ * @see js.URLSearchParams
  */
 [Native("FormData")]
 public class FormData {

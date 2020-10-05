@@ -172,8 +172,6 @@
     joo.aliasKeywordMembers(Map, "delete");
   });
 
-  loadIfNeededAndExecute(!window.fetch, "fetch.umd.js");
-
   loadIfNeededAndExecute(!window.Headers, "headers-es5.min.js", function () {
     joo.aliasKeywordMembers(Headers, "delete");
   });
@@ -187,4 +185,10 @@
       };
     }
   });
+
+  loadIfNeededAndExecute(!window.URLSearchParams || !URLSearchParams.prototype.delete, "urlsearchparams.min.js", function () {
+    joo.aliasKeywordMembers(URLSearchParams, "delete");
+  });
+
+  loadIfNeededAndExecute(!window.fetch, "fetch.umd.js");
 })();

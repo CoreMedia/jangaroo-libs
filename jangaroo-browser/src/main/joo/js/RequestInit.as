@@ -40,8 +40,13 @@ public class RequestInit {
   public native function set headers(headers: *): void;
 
   /**
-   * Any body that you want to add to your request: this can be a Blob, BufferSource, FormData, URLSearchParams,
-   * String, or ReadableStream object. Note that a request using the GET or HEAD method cannot have a body.
+   * Any body that you want to add to your request: this can be a <code>Blob</code>, BufferSource,
+   * <code>FormData</code>, <code>URLSearchParams</code>, String, or ReadableStream object. Note that a request using
+   * the GET or HEAD method cannot have a body.
+   *
+   * @see js.Blob
+   * @see js.FormData
+   * @see URLSearchParams
    */
   public native function get body(): *;
 

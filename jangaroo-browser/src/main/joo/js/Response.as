@@ -18,7 +18,7 @@ public class Response implements Body {
    *               <li><code>Blob</code></li>
    *               <li>BufferSource</li>
    *               <li><code>FormData</code></li>
-   *               <li>URLSearchParams</li>
+   *               <li><code>URLSearchParams</code></li>
    *               <li>ReadableStream&lt;Uint8Array></li>
    *               <li>String</li>
    *             </ul>
@@ -27,6 +27,7 @@ public class Response implements Body {
    *
    * @see js.Blob
    * @see js.FormData
+   * @see js.URLSearchParams
    */
   public native function Response(body: * = undefined, init: ResponseInit = undefined);
 
