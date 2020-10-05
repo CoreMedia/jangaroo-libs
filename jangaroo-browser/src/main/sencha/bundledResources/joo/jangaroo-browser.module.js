@@ -172,10 +172,6 @@
     joo.aliasKeywordMembers(Map, "delete");
   });
 
-  loadIfNeededAndExecute(!globalThis.Headers, "headers-es5.min.js", function () {
-    joo.aliasKeywordMembers(Headers, "delete");
-  });
-
   loadIfNeededAndExecute(!globalThis.FormData || !FormData.prototype.delete, "formdata.min.js", function () {
     if (FormData.prototype.delete) {
       joo.aliasKeywordMembers(FormData, "delete");
@@ -191,4 +187,8 @@
   });
 
   loadIfNeededAndExecute(!globalThis.fetch, "fetch.umd.js");
+
+  loadIfNeededAndExecute(!globalThis.Headers, "headers-es5.min.js", function () {
+    joo.aliasKeywordMembers(Headers, "delete");
+  });
 })();
