@@ -162,21 +162,21 @@
     }
   }
 
-  loadIfNeededAndExecute(!window.WeakMap, "weakmap-polyfill.min.js");
+  loadIfNeededAndExecute(!globalThis.WeakMap, "weakmap-polyfill.min.js");
 
-  loadIfNeededAndExecute(!window.Promise, "corejs-promise.js", function () {
+  loadIfNeededAndExecute(!globalThis.Promise, "corejs-promise.js", function () {
     joo.aliasKeywordMembers(Promise, "catch");
   });
 
-  loadIfNeededAndExecute(!window.Map || !Map.prototype.keys, "corejs-map.js", function () {
+  loadIfNeededAndExecute(!globalThis.Map || !Map.prototype.keys, "corejs-map.js", function () {
     joo.aliasKeywordMembers(Map, "delete");
   });
 
-  loadIfNeededAndExecute(!window.Headers, "headers-es5.min.js", function () {
+  loadIfNeededAndExecute(!globalThis.Headers, "headers-es5.min.js", function () {
     joo.aliasKeywordMembers(Headers, "delete");
   });
 
-  loadIfNeededAndExecute(!window.FormData || !FormData.prototype.delete, "formdata.min.js", function () {
+  loadIfNeededAndExecute(!globalThis.FormData || !FormData.prototype.delete, "formdata.min.js", function () {
     if (FormData.prototype.delete) {
       joo.aliasKeywordMembers(FormData, "delete");
     } else {
@@ -186,9 +186,9 @@
     }
   });
 
-  loadIfNeededAndExecute(!window.URLSearchParams || !URLSearchParams.prototype.delete, "urlsearchparams.min.js", function () {
+  loadIfNeededAndExecute(!globalThis.URLSearchParams || !URLSearchParams.prototype.delete, "urlsearchparams.min.js", function () {
     joo.aliasKeywordMembers(URLSearchParams, "delete");
   });
 
-  loadIfNeededAndExecute(!window.fetch, "fetch.umd.js");
+  loadIfNeededAndExecute(!globalThis.fetch, "fetch.umd.js");
 })();

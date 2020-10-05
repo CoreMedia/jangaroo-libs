@@ -12,10 +12,10 @@ Ext.define("AS3.trace", {
       return false;
     };
     try {
-      lookup(window.console, "log") ||
-      lookup(window.runtime, "trace") ||
-      lookup(window, "trace") ||
-      lookup(window.opera, "postError");
+      lookup(globalThis.console, "log") ||
+      lookup(globalThis.runtime, "trace") ||
+      lookup(globalThis, "trace") ||
+      lookup(globalThis.opera, "postError");
     } catch (e) {
       // ignore
     }
