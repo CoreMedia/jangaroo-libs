@@ -131,6 +131,10 @@ public class Element extends Node {
 
 
 
+  public native function setAttribute(name : String, value : Object) : void;
+
+
+
   public native function removeAttribute(name : String) : void;
 
 
