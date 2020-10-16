@@ -61,6 +61,7 @@ public dynamic class Window {
 
 
 
+  [Parameter("timer", coerceTo="Number")]
   public native function clearTimeout(timer : Object) : void;
 
 
@@ -69,6 +70,7 @@ public dynamic class Window {
 
 
 
+  [Parameter("interval", coerceTo="Number")]
   public native function clearInterval(interval : Object) : void;
 
 

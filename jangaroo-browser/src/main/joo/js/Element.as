@@ -131,6 +131,7 @@ public class Element extends Node {
 
 
 
+  [Parameter("value", coerceTo="String")]
   public native function setAttribute(name : String, value : Object) : void;
 
 
