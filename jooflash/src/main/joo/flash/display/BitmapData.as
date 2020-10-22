@@ -12,6 +12,7 @@ import js.HTMLImageElement;
 import js.Image;
 import js.ImageData;
 import js.CSS2Properties;
+import js.Uint8ClampedArray;
 
 /**
  * The BitmapData class lets you work with the data (pixels) of a Bitmap object. You can use the methods of the BitmapData class to create arbitrarily sized transparent or opaque bitmap images and manipulate them in various ways at runtime. You can also access the BitmapData for a bitmap image that you load with the <code>flash.display.Loader</code> class.
@@ -233,7 +234,7 @@ public class BitmapData implements IBitmapDrawable {
     context.setTransform(1, 0, 0, 1, 0, 0);
     // get the image data to manipulate
     var input : ImageData = context.getImageData(rect.x, rect.y, rect.width, rect.height);
-    var inputData : Array = input.data;
+    var inputData : Uint8ClampedArray = input.data;
 
     // color transformation:
     var maps : Array = colorTransform.getComponentMaps();
@@ -699,7 +700,7 @@ public class BitmapData implements IBitmapDrawable {
    */
   public function getPixel(x:int, y:int):uint {
     if (rect.contains(x, y)) {
-      var data : Array = getContext().getImageData(x, y, 1, 1).data;
+      var data : Uint8ClampedArray = getContext().getImageData(x, y, 1, 1).data;
       return data[0] << 16 | data[1] << 8 | data[2];
     }
     return 0;
@@ -736,7 +737,7 @@ public class BitmapData implements IBitmapDrawable {
    */
   public function getPixel32(x:int, y:int):uint {
     if (rect.contains(x, y)) {
-      var data : Array = getContext().getImageData(x, y, 1, 1).data;
+      var data : Uint8ClampedArray = getContext().getImageData(x, y, 1, 1).data;
       return data[0] << 16 | data[1] << 8 | data[2] | data[3] << 24;
     }
     return 0;
