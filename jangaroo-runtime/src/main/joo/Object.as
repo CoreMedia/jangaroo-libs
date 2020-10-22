@@ -162,7 +162,7 @@ public dynamic class Object {
 
   //public native function watch(prop:String, handler:Object):void;
 
-  public static native function create(proto:Object, propertyDescriptors:Object = null):Object;
+  public static native function create(proto:Object, propertyDescriptors:Object = null):*;
 
   public static native function defineProperties(object:Object, propertyDescriptors:Object):Object;
 
@@ -188,5 +188,24 @@ public dynamic class Object {
 
   public static native function seal(object:Object):Object;
 
+  /**
+   * The Object.assign() method copies all enumerable own properties from one or more source objects to a target object.
+   * It returns the target object.
+   *
+   * @param target The target object — what to apply the sources’ properties to, which is returned after it is modified.
+   * @param sources The source object(s) — objects containing the properties you want to apply.
+   * @return The target object.
+   */
+  public static native function assign(target:Object, ...sources):*;
+
+  /**
+   * The Object.values() method returns an array of a given object's own enumerable property values, in the same order
+   * as that provided by a for...in loop. (The only difference is that a for...in loop enumerates properties in the
+   * prototype chain as well.)
+   *
+   * @param obj The object whose enumerable own property values are to be returned.
+   * @return An array containing the given object's own enumerable property values.
+   */
+  public static native function values(obj:Object):Array;
 }
 }

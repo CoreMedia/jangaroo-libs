@@ -1,7 +1,7 @@
 package js{
 
 [Native("Window")]
-public dynamic class Window {
+public dynamic class Window implements IGlobalThis {
 
 
 

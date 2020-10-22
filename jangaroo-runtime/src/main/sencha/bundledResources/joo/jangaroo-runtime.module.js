@@ -1,5 +1,17 @@
 Ext.ns("joo");
 
+if (typeof globalThis !== "object") {
+  // see: https://mathiasbynens.be/notes/globalthis
+  Object.defineProperty(Object.prototype, '__magic__', {
+    get: function() {
+      return this;
+    },
+    configurable: true
+  });
+  __magic__.globalThis = __magic__;
+  delete Object.prototype.__magic__;
+}
+
 joo.startTime = new Date().getTime();
 if (typeof joo.debug !== "boolean") {
   joo.debug = typeof location === "object" &&
@@ -34,7 +46,7 @@ if (typeof joo.baseUrl !== "string") {
   joo.baseUrl = (function() {
     var baseUrl = "";
     var JANGAROO_SCRIPT_PATTERN = /^(.*\/)joo\/jangaroo-.*\.js$/;
-    var scripts = window.document.getElementsByTagName("SCRIPT");
+    var scripts = globalThis["window"] ? window.document.getElementsByTagName("SCRIPT") : [];
     for (var i=0; i<scripts.length; ++i) {
       var match = JANGAROO_SCRIPT_PATTERN.exec(scripts[i].src);
       if (match) {
@@ -121,9 +133,25 @@ joo.getQualifiedObject = (function(theGlobalObject) {
 joo.getOrCreatePackage = function(name) {
   return Ext.ns(name);
 };
+joo.aliasKeywordMembers = function (clazz) {
+  var keywords = Array.prototype.slice.call(arguments, 1);
+  keywords.forEach(function (keyword) {
+    Object.defineProperty(
+            clazz.prototype, keyword + "_",
+            Object.getOwnPropertyDescriptor(clazz.prototype, keyword)
+    );
+  });
+};
 Ext.ns("joo.localization");
 
 Ext.require("joo.DynamicClassLoader", function() {
   joo.classLoader = new joo.DynamicClassLoader();
 });
 
+if (!Object.assign || !Object.values) {
+  Ext.Loader.loadScript(Ext.getResourcePath("object.js", null, "net.jangaroo__jangaroo-runtime"));
+}
+
+if (!Array.from) {
+  Ext.Loader.loadScript(Ext.getResourcePath("array-from.js", null, "net.jangaroo__jangaroo-runtime"));
+}
