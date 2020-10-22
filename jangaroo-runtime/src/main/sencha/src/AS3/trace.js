@@ -19,7 +19,7 @@ Ext.define("AS3.trace", {
     } catch (e) {
       // ignore
     }
-    var LOG_LEVEL_PATTERN = /^\[(LOG|DEBUG|TRACE|INFO|WARN|ERROR)]\s*(.*)$/;
+    var LOG_LEVEL_PATTERN = /^\[(LOG|DEBUG|TRACE|INFO|WARN|ERROR)]\s*([\s\S]*)$/;
     var trace = !console ? Ext.emptyFn : function () {
       // don't use Array.prototype.map, as it is not available in all browsers and has not yet been polyfilled:
       var params = [];
