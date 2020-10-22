@@ -20,8 +20,8 @@ public class NativeClassDeclaration {
 
   internal static const RESOURCE_BUNDLE_PATTERN:RegExp = /_properties$/;
 
-  internal static function createEmptyConstructor(prototype_ : Object) : Function {
-    var emptyConstructor : Function = function() : void {};
+  internal static function createEmptyConstructor(prototype_ : Object) : Class {
+    var emptyConstructor : Class = function() : void {} as Class;
     if (prototype_) {
       emptyConstructor.prototype = prototype_;
     }
@@ -40,7 +40,7 @@ public class NativeClassDeclaration {
           constructor_ : Function,
           publicConstructor : Function,
           state  : int = STATE_LOADED,
-          Public : Function,
+          Public : Class,
           superClassDeclaration : NativeClassDeclaration,
           interfaces : Array;
 

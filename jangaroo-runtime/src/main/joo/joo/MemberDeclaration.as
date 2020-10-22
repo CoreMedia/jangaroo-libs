@@ -51,7 +51,7 @@ public class MemberDeclaration {
           _final : Boolean = false,
           _native : Boolean = false,
           _override : Boolean = false,
-          _cloneFactory : Function;
+          _cloneFactory : Class;
   public var
           memberType : String,
           getterOrSetter : String,
@@ -221,16 +221,16 @@ public class MemberDeclaration {
       memberType !== MEMBER_TYPE_FUNCTION && typeof value === 'function' && value.constructor !== RegExp;
   }
 
-  public function _getCloneFactory() : Function {
+  public function _getCloneFactory() : Class {
     if (!this._cloneFactory) {
-      this._cloneFactory = function() : void { };
+      this._cloneFactory = function() : void { } as Class;
       this._cloneFactory.prototype = this;
     }
     return this._cloneFactory;
   }
 
   public function clone(changedProperties : Object) : MemberDeclaration {
-    var CloneFactory : Function = this._getCloneFactory();
+    var CloneFactory : Class = this._getCloneFactory();
     var clone : MemberDeclaration = MemberDeclaration(new CloneFactory());
     for (var m:String in changedProperties) {
       clone[m] = changedProperties[m];
