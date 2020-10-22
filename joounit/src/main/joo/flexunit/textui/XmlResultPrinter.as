@@ -41,7 +41,7 @@ public class XmlResultPrinter implements TestListener, Printer{
   public function endTest(test : Test):void {
     if( this.mCurrentTest != null ) {
         var endTime : Date = new Date();
-        this.mCurrentTest.mTime = endTime - this.mCurrentTest.mTime ;
+        this.mCurrentTest.mTime = endTime.valueOf() - this.mCurrentTest.mTime ;
         this.mTests.push( this.mCurrentTest );
         this.mCurrentTest = null;
     }
