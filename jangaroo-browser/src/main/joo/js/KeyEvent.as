@@ -1,10 +1,7 @@
 package js{
 
-/**
- * An event created using document.createEvent("KeyboardEvent").
- */
 [Native("KeyEvent")]
-public class KeyEvent extends Event {
+public class KeyEvent extends KeyboardEvent {
 
   public static const DOM_VK_CANCEL : Number = 3;
   public static const DOM_VK_HELP : Number = 6;
