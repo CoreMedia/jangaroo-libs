@@ -1,6 +1,6 @@
 package {
 
-[Native("AS3.assert")]
+[Native]
 public native function assert(condition : Boolean) : void;
 
 }
