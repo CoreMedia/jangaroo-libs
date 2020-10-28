@@ -3,6 +3,7 @@ package js {
 /**
  * @see http://dev.w3.org/html5/webstorage/#storage-0 WhatWG Storage Interface 
  */
+[Native("Storage")]
 public interface Storage {
 
   function get length():uint;
