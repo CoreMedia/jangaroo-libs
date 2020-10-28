@@ -3,7 +3,7 @@ package js {
 /**
  * An object containing any custom settings that you want to apply to the request.
  */
-[Native]
+[Native("RequestInit")]
 public class RequestInit {
 
   /**

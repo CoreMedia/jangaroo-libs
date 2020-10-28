@@ -14,6 +14,7 @@ package js {
  * @see js.Request
  * @see js.Response
  */
+[Native("Body")]
 public interface Body {
 
   /**
