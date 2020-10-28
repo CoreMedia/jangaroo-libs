@@ -52,6 +52,7 @@ public final class String {
    * @see http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118a9b90204-7efe.html Working with characters in strings
    *
    */
+  [Parameter("index", required)]
   public native function charAt(index:Number = 0):String;
 
   /**
@@ -66,6 +67,7 @@ public final class String {
    * @see http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118a9b90204-7efe.html Working with characters in strings
    *
    */
+  [Parameter("index", required)]
   public native function charCodeAt(index:Number = 0):Number;
 
   /**
