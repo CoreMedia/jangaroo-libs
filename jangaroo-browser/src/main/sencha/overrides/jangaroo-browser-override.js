@@ -1,3 +1,11 @@
+Ext.define("jangaroo_browser_override", {
+  override: "jangaroo_runtime"
+});
+// offer extension point
+Ext.define("jangaroo_browser", {
+  requires: ["jangaroo_runtime"]
+});
+
 (function() {
   if (!this.HTMLElement) {
     this.HTMLElement = Element;
@@ -151,15 +159,9 @@
 
   function loadIfNeededAndExecute(condition, resourceFile, execution) {
     if (condition) {
-      Ext.Loader.loadScript({
-        url: Ext.getResourcePath(resourceFile, null, "net.jangaroo__jangaroo-browser"),
-        onLoad: function () {
-          execution && execution();
-        }
-      });
-    } else {
-      execution && execution();
+      Ext.Loader.loadScriptsSync(Ext.getResourcePath(resourceFile, null, "net.jangaroo__jangaroo-browser"));
     }
+    execution && execution();
   }
 
   loadIfNeededAndExecute(!globalThis.WeakMap, "weakmap-polyfill.min.js");

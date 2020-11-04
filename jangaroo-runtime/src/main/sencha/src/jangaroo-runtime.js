@@ -1,4 +1,6 @@
-Ext.ns("joo");
+Ext.require("AS3_override");
+// offer extension point
+Ext.define("jangaroo_runtime", {});
 
 if (typeof globalThis !== "object") {
   // see: https://mathiasbynens.be/notes/globalthis
@@ -12,6 +14,7 @@ if (typeof globalThis !== "object") {
   delete Object.prototype.__magic__;
 }
 
+Ext.ns("joo");
 joo.startTime = new Date().getTime();
 if (typeof joo.debug !== "boolean") {
   joo.debug = typeof location === "object" &&
@@ -149,9 +152,9 @@ Ext.require("joo.DynamicClassLoader", function() {
 });
 
 if (!Object.assign || !Object.values) {
-  Ext.Loader.loadScript(Ext.getResourcePath("object.js", null, "net.jangaroo__jangaroo-runtime"));
+  Ext.Loader.loadScriptsSync(Ext.getResourcePath("object.js", null, "net.jangaroo__jangaroo-runtime"));
 }
 
 if (!Array.from) {
-  Ext.Loader.loadScript(Ext.getResourcePath("array-from.js", null, "net.jangaroo__jangaroo-runtime"));
+  Ext.Loader.loadScriptsSync(Ext.getResourcePath("array-from.js", null, "net.jangaroo__jangaroo-runtime"));
 }
