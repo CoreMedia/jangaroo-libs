@@ -29,11 +29,6 @@
         <artifactId>jangaroo-maven-plugin</artifactId>
         <version>${jangaroo.version}</version> <!-- explicit version for IDEA! -->
         <extensions>true</extensions>
-        <configuration>
-          <additionalJsIncludeInBundle>
-            <value>bundledResources/joo/jangaroo-runtime.module.js</value>
-          </additionalJsIncludeInBundle>
-        </configuration>
       </plugin>
     </plugins>
   </build>

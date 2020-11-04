@@ -1206,6 +1206,14 @@ public final dynamic class Date {
    * @return A string representing the given date in the ISO 8601 format according to universal time.
    */
   public native function toISOString():String;
+
+  /**
+   * Returns the numeric value corresponding to the current time—the number of milliseconds elapsed since
+   * January 1, 1970 00:00:00 UTC, with leap seconds ignored.
+   *
+   * @return A Number representing the milliseconds elapsed since the UNIX epoch.
+   */
+  public native static function now(): uint;
 }
 
 }
