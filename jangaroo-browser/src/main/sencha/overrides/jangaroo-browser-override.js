@@ -157,24 +157,7 @@ Ext.define("jangaroo_browser", {
     }
   }
 
-  function loadIfNeededAndExecute(condition, resourceFile, execution) {
-    if (condition) {
-      Ext.Loader.loadScriptsSync(Ext.getResourcePath(resourceFile, null, "net.jangaroo__jangaroo-browser"));
-    }
-    execution && execution();
-  }
-
-  loadIfNeededAndExecute(!globalThis.WeakMap, "weakmap-polyfill.min.js");
-
-  loadIfNeededAndExecute(!globalThis.Promise, "corejs-promise.js", function () {
-    joo.aliasKeywordMembers(Promise, "catch");
-  });
-
-  loadIfNeededAndExecute(!globalThis.Map || !Map.prototype.keys, "corejs-map.js", function () {
-    joo.aliasKeywordMembers(Map, "delete");
-  });
-
-  loadIfNeededAndExecute(!globalThis.FormData || !FormData.prototype.delete, "formdata.min.js", function () {
+  joo._loadIfNeededAndExecute(!globalThis.FormData || !FormData.prototype.delete, "formdata.min.js", function () {
     if (FormData.prototype.delete) {
       joo.aliasKeywordMembers(FormData, "delete");
     } else {
@@ -184,13 +167,10 @@ Ext.define("jangaroo_browser", {
     }
   });
 
-  loadIfNeededAndExecute(!globalThis.URLSearchParams || !URLSearchParams.prototype.delete, "urlsearchparams.min.js", function () {
-    joo.aliasKeywordMembers(URLSearchParams, "delete");
-  });
+  joo._loadIfNeededAndExecute(!globalThis.fetch, "fetch.umd.js");
 
-  loadIfNeededAndExecute(!globalThis.fetch, "fetch.umd.js");
-
-  loadIfNeededAndExecute(!globalThis.Headers, "headers-es5.min.js", function () {
+  joo._loadIfNeededAndExecute(!globalThis.Headers, "headers-es5.min.js", function () {
     joo.aliasKeywordMembers(Headers, "delete");
   });
+
 })();

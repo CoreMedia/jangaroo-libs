@@ -151,10 +151,27 @@ Ext.require("joo.DynamicClassLoader", function() {
   joo.classLoader = new joo.DynamicClassLoader();
 });
 
-if (!Object.assign || !Object.values) {
-  Ext.Loader.loadScriptsSync(Ext.getResourcePath("object.js", null, "net.jangaroo__jangaroo-runtime"));
+joo._loadIfNeededAndExecute = function (condition, resourceFile, execution) {
+  if (condition) {
+    Ext.Loader.loadScriptsSync(Ext.getResourcePath(resourceFile, null, "net.jangaroo__jangaroo-browser"));
+  }
+  execution && execution();
 }
 
-if (!Array.from) {
-  Ext.Loader.loadScriptsSync(Ext.getResourcePath("array-from.js", null, "net.jangaroo__jangaroo-runtime"));
-}
+joo._loadIfNeededAndExecute(!Object.assign || !Object.values, "object.js");
+
+joo._loadIfNeededAndExecute(!Array.from, "array-from.js");
+
+joo._loadIfNeededAndExecute(!globalThis.WeakMap, "weakmap-polyfill.min.js");
+
+joo._loadIfNeededAndExecute(!globalThis.Promise, "corejs-promise.js", function () {
+  joo.aliasKeywordMembers(Promise, "catch");
+});
+
+joo._loadIfNeededAndExecute(!globalThis.Map || !Map.prototype.keys, "corejs-map.js", function () {
+  joo.aliasKeywordMembers(Map, "delete");
+});
+
+joo._loadIfNeededAndExecute(!globalThis.URLSearchParams || !URLSearchParams.prototype.delete, "urlsearchparams.min.js", function () {
+  joo.aliasKeywordMembers(URLSearchParams, "delete");
+});
