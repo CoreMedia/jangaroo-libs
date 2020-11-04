@@ -25,7 +25,7 @@ public class Document extends Node {
 
   public native function get documentElement() : Element;
 
-
+  public native function get URL(): String;
 
   public native function get body() : Element;
 

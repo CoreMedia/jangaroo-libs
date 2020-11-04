@@ -151,27 +151,11 @@ Ext.require("joo.DynamicClassLoader", function() {
   joo.classLoader = new joo.DynamicClassLoader();
 });
 
-joo._loadIfNeededAndExecute = function (condition, resourceFile, execution) {
-  if (condition) {
-    Ext.Loader.loadScriptsSync(Ext.getResourcePath(resourceFile, null, "net.jangaroo__jangaroo-browser"));
-  }
-  execution && execution();
+// check if browser is IE11 or phantomJS and needs polyfills
+if (!(globalThis.ActiveXObject) && "ActiveXObject" in globalThis
+  || globalThis["window"] && /PhantomJS/.test(window.navigator.userAgent)) {
+  Ext.Loader.loadScriptsSync(Ext.getResourcePath("ie11-polyfills.js", null, "net.jangaroo__jangaroo-runtime"));
 }
-
-joo._loadIfNeededAndExecute(!Object.assign || !Object.values, "object.js");
-
-joo._loadIfNeededAndExecute(!Array.from, "array-from.js");
-
-joo._loadIfNeededAndExecute(!globalThis.WeakMap, "weakmap-polyfill.min.js");
-
-joo._loadIfNeededAndExecute(!globalThis.Promise, "corejs-promise.js", function () {
-  joo.aliasKeywordMembers(Promise, "catch");
-});
-
-joo._loadIfNeededAndExecute(!globalThis.Map || !Map.prototype.keys, "corejs-map.js", function () {
-  joo.aliasKeywordMembers(Map, "delete");
-});
-
-joo._loadIfNeededAndExecute(!globalThis.URLSearchParams || !URLSearchParams.prototype.delete, "urlsearchparams.min.js", function () {
-  joo.aliasKeywordMembers(URLSearchParams, "delete");
-});
+joo.aliasKeywordMembers(Promise, "catch");
+joo.aliasKeywordMembers(Map, "delete");
+joo.aliasKeywordMembers(URLSearchParams, "delete");
