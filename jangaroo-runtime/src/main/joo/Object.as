@@ -77,7 +77,7 @@ public dynamic class Object {
    * @see http://help.adobe.com/en_US/as3/learn/WS5b3ccc516d4fbf351e63e3d118a9b90204-7f3f.html Advanced topics
    *
    */
-  public native function get constructor() : Object;
+  public native function get constructor() : Function;
 
   /**
    * Creates an Object object and stores a reference to the object's constructor method in the object's <code>constructor</code> property.
