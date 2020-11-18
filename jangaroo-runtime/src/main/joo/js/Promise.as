@@ -36,10 +36,10 @@ public class Promise {
   /**
    * Creates a Promise that is resolved with an array of results when all of the provided Promises
    * resolve, or rejected when any Promise is rejected.
-   * @param values An array of Promises.
+   * @param iterable An iterable of Promises.
    * @returns A new Promise.
    */
-  public static native function all(...values): Promise;
+  public static native function all(iterable: *): Promise;
   /**
    * Creates a Promise that is resolved or rejected when any of the provided Promises are resolved
    * or rejected.

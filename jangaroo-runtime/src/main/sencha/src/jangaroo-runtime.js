@@ -159,3 +159,81 @@ if (!(globalThis.ActiveXObject) && "ActiveXObject" in globalThis
 joo.aliasKeywordMembers(Promise, "catch");
 joo.aliasKeywordMembers(Map, "delete");
 joo.aliasKeywordMembers(URLSearchParams, "delete");
+
+/**
+ * @typedef AppEntry
+ * @property {String} name the name of the app
+ * @property {URL} path the path where the app is stored
+ * @property {Array<String>} locales the available locales of the app
+ */
+
+/**
+ * @return {Promise<Array<AppEntry>>}
+ */
+joo.getApps = function () {
+  return new Promise(function (resolve, reject) {
+    if (!globalThis["window"]) {
+      reject(new Error("Must be in a browser in order to work"));
+      return;
+    }
+    fetch(joo.resolveUrl("apps.json")).then(function (response) {
+      if (response.ok) {
+        response.json().then(function (json) {
+          resolve(json.map(
+            /**
+             * @param appEntry
+             * @returns {AppEntry}
+             */
+            function (appEntry) {
+              return {
+                name: appEntry.name,
+                path: new URL(appEntry.path ? appEntry.path + "/" : "", window.document.URL),
+                locales: appEntry.locales
+              }
+            }
+          ));
+        });
+      } else if (response.status === 404) {
+        // an app can also run on its own without being bundled as jangaroo-apps
+        resolve([{
+          name: window.document.title,
+          path: new URL("", window.document.URL),
+          locales: joo.localeSupport.getSupportedLocales()
+        }]);
+      } else {
+        reject(new Error("Could not read apps.json"));
+      }
+    }).catch(function (error) {
+      reject(error);
+    });
+  });
+}
+
+/**
+ * @param {AppEntry} appEntry
+ * @returns {URL}
+ */
+joo.getAppManifestLocation = function (appEntry) {
+  var manifestName = "app-manifest.json";
+  var currentLocale = joo.localeSupport.getLocale();
+  if (joo.localeSupport.getDefaultLocale() !== currentLocale && appEntry.locales.indexOf(currentLocale) !== -1) {
+    manifestName = "app-manifest-" + currentLocale + ".json";
+  }
+
+  return new URL(manifestName, appEntry.path);
+}
+
+/**
+ * @param {Array<AppEntry>} appEntries
+ * @returns {URL}
+ */
+joo.getAppRootPath = function (appEntries) {
+  var appPaths = appEntries.map(function (appEntry) {
+    return appEntry.path;
+  });
+  return appPaths.find(function (appPathToCheck) {
+    return appPaths.every(function (otherAppPath) {
+      return otherAppPath.toString().startsWith(appPathToCheck.toString());
+    });
+  });
+}
