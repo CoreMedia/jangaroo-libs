@@ -172,6 +172,7 @@ public dynamic class Object {
 
   public static native function getOwnPropertyDescriptor(object:Object, propertyName:String):Object;
 
+  [ArrayElementType("String")]
   public static native function getOwnPropertyNames(object:Object):Array;
 
   public static native function getPrototypeOf(value:Object):Object;
@@ -182,6 +183,7 @@ public dynamic class Object {
 
   public static native function isSealed(object:Object):Boolean;
 
+  [ArrayElementType("String")]
   public static native function keys(object:Object):Array;
 
   public static native function preventExtensions(object:Object):Object;
