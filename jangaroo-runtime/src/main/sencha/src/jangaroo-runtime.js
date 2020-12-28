@@ -185,9 +185,11 @@ joo.getApps = function () {
              * @returns {AppEntry}
              */
             function (appEntry) {
+              var url = new URL(appEntry.path ? appEntry.path + "/" : "", window.document.URL);
+              url.search = "";
               return {
                 name: appEntry.name,
-                path: new URL(appEntry.path ? appEntry.path + "/" : "", window.document.URL),
+                path: url,
                 locales: appEntry.locales
               }
             }
