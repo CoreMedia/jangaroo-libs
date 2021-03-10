@@ -54,6 +54,56 @@ Ext.ClassManager.registerPostprocessor('__lazyFactory__', function(className, cl
 });
 
 (function() {
+  function createAccessor(cfg) {
+    return {
+      get: function () {
+        var caller;
+        if (this[cfg.names.get] === cfg.getter // no need to call default get method, as it only calls me
+            || (caller = arguments.callee.caller) && (caller === cfg.getter || caller === cfg.setter || caller === Ext.Base.mixin)) {
+          // avoid endless recursion between get method and me (get accessor) by accessing the internal field directly:
+          return this[cfg.names.internal];
+        } else {
+          // forward to custom get method:
+          return this[cfg.names.get]();
+        }
+      },
+      set: function (value) {
+        var caller;
+        if (this === this.self.prototype // do not forward to set method when setting default value on the prototype
+            || (caller = arguments.callee.caller) && (caller === cfg.setter || caller === Ext.Configurator.prototype.configure)) {
+          // avoid endless recursion between set method and me (set accessor) by accessing the internal field directly:
+          this[cfg.names.internal] = value;
+        } else {
+          // forward to set method:
+          this[cfg.names.set](value);
+        }
+      },
+      configurable: true,
+      enumerable: true
+    };
+  }
+
+  var originalAdd = Ext.Configurator.prototype.add;
+  Ext.Configurator.prototype.add = function (config, mixin) {
+    var cls = this.cls,
+        prototype = cls.prototype,
+        accessors = {},
+        name;
+    if (!prototype.$configPrefixed && (!mixin || !mixin.prototype.$configPrefixed)) {
+      // check whether _name is "free" and warn if not:
+      for (name in config) {
+        if (prototype.hasOwnProperty("_" + name)) {
+          console.warn("Config prefix name clash in " + this.cls.$className + "#[_]" + name);
+        }
+      }
+    }
+    originalAdd.apply(this, arguments);
+    for (name in config) {
+      accessors[name] = createAccessor(this.configs[name]);
+    }
+    Object.defineProperties(prototype, accessors);
+  };
+
   var wrapConstructor = function(Class) {
     return function() {
       // console.log("*** called constructor of " + Ext.getClassName(Class) + " for the first time.");
