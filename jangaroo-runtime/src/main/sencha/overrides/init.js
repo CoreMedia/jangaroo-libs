@@ -85,23 +85,26 @@ Ext.ClassManager.registerPostprocessor('__lazyFactory__', function(className, cl
 
   var originalAdd = Ext.Configurator.prototype.add;
   Ext.Configurator.prototype.add = function (config, mixin) {
+    originalAdd.apply(this, arguments);
     var cls = this.cls,
         prototype = cls.prototype,
-        accessors = {},
+        accessors,
         name;
-    if (!prototype.$configPrefixed && (!mixin || !mixin.prototype.$configPrefixed)) {
-      // check whether _name is "free" and warn if not:
+    // ignore all non-$configPrefixed Ext.* classes, they are known to not like their internal field being replaced by an accessor:
+    if (!prototype.$configPrefixed ||
+        cls.$className && cls.$className.indexOf("Ext.") !== 0 &&
+        (!mixin || mixin.$className.indexOf("Ext.") !== 0)) {
+      accessors = {};
       for (name in config) {
-        if (prototype.hasOwnProperty("_" + name)) {
-          console.warn("Config prefix name clash in " + this.cls.$className + "#[_]" + name);
+        // only add accessors for new configs, not for overridden ones:
+        if (this.configs.hasOwnProperty(name)) {
+          accessors[name] = createAccessor(this.configs[name]);
+        } else if (!mixin && !prototype.__lookupGetter__(name)) {
+          console.warn("You cannot override an Ext config with a Jangaroo accessor config " + cls.$className + "." + name + ", accessor won't be available!");
         }
       }
+      Object.defineProperties(prototype, accessors);
     }
-    originalAdd.apply(this, arguments);
-    for (name in config) {
-      accessors[name] = createAccessor(this.configs[name]);
-    }
-    Object.defineProperties(prototype, accessors);
   };
 
   var wrapConstructor = function(Class) {
