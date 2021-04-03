@@ -25,7 +25,8 @@ public class Promise {
    * Attaches a callback for only the rejection of the Promise.
    *
    * Aliased by Jangaroo with an underscore suffix to avoid clash with ActionScript keyword
-   * <code>catch</code>. To make this alias work, it is added to the class prototype.
+   * <code>catch</code>. To make this alias work, generated JavaScript calling this API
+   * uses 'catch'.
    *
    * @param onrejected The callback to execute when the Promise is rejected.
    * @returns A Promise for the completion of the callback.

@@ -29,9 +29,11 @@ public class URLSearchParams {
 
   /**
    * Deletes the given search parameter, and its associated value, from the list of all search parameters.
+   * To make this alias work, generated JavaScript calling this API uses 'delete'.
    *
    * @param name The name of the parameter to be deleted.
    */
+  [Native("delete")]
   public native function delete_(name: String): void;
 
   /**

@@ -25,13 +25,15 @@ public class Map {
    * <code>#has</code> will return false afterwards.
    *
    * Aliased by Jangaroo with an underscore suffix to avoid clash with ActionScript keyword
-   * <code>delete</code>. To make this alias work, it is added to the class prototype.
+   * <code>delete</code>. To make this alias work, generated JavaScript calling this API
+   * uses 'delete'.
    *
    * @param key The key of the element to remove from the Map object.
    * @return true if an element in the Map object existed and has been removed, or false if the element does not exist.
    *
    * @see #has()
    */
+  [Native("delete")]
   public native function delete_(key: *): Boolean;
 
   /**

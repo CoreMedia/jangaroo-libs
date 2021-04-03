@@ -136,15 +136,6 @@ joo.getQualifiedObject = (function(theGlobalObject) {
 joo.getOrCreatePackage = function(name) {
   return Ext.ns(name);
 };
-joo.aliasKeywordMembers = function (clazz) {
-  var keywords = Array.prototype.slice.call(arguments, 1);
-  keywords.forEach(function (keyword) {
-    Object.defineProperty(
-            clazz.prototype, keyword + "_",
-            Object.getOwnPropertyDescriptor(clazz.prototype, keyword)
-    );
-  });
-};
 Ext.ns("joo.localization");
 
 Ext.require("joo.DynamicClassLoader", function() {
@@ -156,9 +147,6 @@ if (!(globalThis.ActiveXObject) && "ActiveXObject" in globalThis
   || globalThis["window"] && /PhantomJS/.test(window.navigator.userAgent)) {
   Ext.Loader.loadScriptsSync(Ext.getResourcePath("ie11-polyfills.js", null, "net.jangaroo__jangaroo-runtime"));
 }
-joo.aliasKeywordMembers(Promise, "catch");
-joo.aliasKeywordMembers(Map, "delete");
-joo.aliasKeywordMembers(URLSearchParams, "delete");
 
 /**
  * @typedef AppEntry

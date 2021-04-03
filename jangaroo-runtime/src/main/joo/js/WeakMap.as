@@ -20,12 +20,14 @@ public class WeakMap {
    * Removes any value associated to the key. WeakMap.prototype.has(key) will return false afterwards.
    *
    * Aliased by Jangaroo with an underscore suffix to avoid clash with ActionScript keyword
-   * <code>delete</code>. To make this alias work, it is added to the class prototype.
+   * <code>delete</code>. To make this alias work, generated JavaScript calling this API
+   * uses 'delete'.
    *
    * @param key The key of the element to remove from the WeakMap object.
    * @return true if an element in the WeakMap object has been removed successfully. false if the key is not found in
    *         the WeakMap or if the key is not an object.
    */
+  [Native("delete")]
   public native function delete_(key:Object):Boolean;
 
   /**

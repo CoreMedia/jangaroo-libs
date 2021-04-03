@@ -41,10 +41,12 @@ public class FormData {
    * Deletes a key/value pair from a FormData object.
    *
    * Aliased by Jangaroo with an underscore suffix to avoid clash with ActionScript keyword
-   * <code>delete</code>. To make this alias work, it is added to the class prototype.
+   * <code>delete</code>. To make this alias work, generated JavaScript calling this API
+   * uses 'delete'.
    *
    * @param name The name of the key you want to delete.
    */
+  [Native("delete")]
   public native function delete_(name: String): void;
 
   /**

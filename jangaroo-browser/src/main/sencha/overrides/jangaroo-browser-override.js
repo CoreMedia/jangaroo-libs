@@ -164,20 +164,10 @@ Ext.define("jangaroo_browser", {
     execution && execution();
   }
 
-  loadIfNeededAndExecute(!globalThis.FormData || !FormData.prototype.delete, "formdata.min.js", function () {
-    if (FormData.prototype.delete) {
-      joo.aliasKeywordMembers(FormData, "delete");
-    } else {
-      FormData.prototype.delete_ = function () {
-        this.delete.apply(this, arguments);
-      };
-    }
-  });
+  loadIfNeededAndExecute(!globalThis.FormData || !FormData.prototype.delete, "formdata.min.js");
 
   loadIfNeededAndExecute(!globalThis.fetch, "fetch.umd.js");
 
-  loadIfNeededAndExecute(!globalThis.Headers, "headers-es5.min.js", function () {
-    joo.aliasKeywordMembers(Headers, "delete");
-  });
+  loadIfNeededAndExecute(!globalThis.Headers, "headers-es5.min.js");
 
 })();

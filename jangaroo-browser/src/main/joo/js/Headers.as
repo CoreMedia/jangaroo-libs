@@ -44,10 +44,12 @@ public class Headers {
    * Deletes a header from a Headers object.
    *
    * Aliased by Jangaroo with an underscore suffix to avoid clash with ActionScript keyword
-   * <code>delete</code>. To make this alias work, it is added to the class prototype.
+   * <code>delete</code>. To make this alias work, generated JavaScript calling this API
+   * uses 'delete'.
    *
    * @param name The name of the HTTP header you want to delete from the Headers object.
    */
+  [Native("delete")]
   public native function delete_(name: String): void;
 
   /**
