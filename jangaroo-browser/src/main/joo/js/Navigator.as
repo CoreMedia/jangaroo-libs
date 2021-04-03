@@ -58,6 +58,12 @@ public interface Navigator {
    */
   function get userLanguage():Boolean;
 
+  /**
+   * Returns a ServiceWorkerContainer object, which provides access to registration,
+   * removal, upgrade, and communication with the ServiceWorker objects for the
+   * associated document.
+   */
+  function get serviceWorker():ServiceWorkerContainer;
 }
 
 }
