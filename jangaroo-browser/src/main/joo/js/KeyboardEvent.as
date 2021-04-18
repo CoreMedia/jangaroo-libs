@@ -11,7 +11,8 @@ public class KeyboardEvent extends UIEvent {
   static const DOM_KEY_LOCATION_RIGHT : uint = 0x02;
   static const DOM_KEY_LOCATION_NUMPAD : uint = 0x03;
   
-  public function KeyboardEvent() {
+  public function KeyboardEvent(typeArg:String, eventInit: Object = null) {
+    super(typeArg, eventInit);
   }
 
   public native function get shiftKey() : Boolean;

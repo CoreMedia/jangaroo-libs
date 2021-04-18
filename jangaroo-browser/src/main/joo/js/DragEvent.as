@@ -7,6 +7,9 @@ package js {
  */
 [Native("DragEvent")]
 public class DragEvent extends MouseEvent {
+  public function DragEvent(typeArg:String, eventInit:Object = null) {
+    super(typeArg, eventInit);
+  }
   /**
    * Returns the DataTransfer object for the event.
    */

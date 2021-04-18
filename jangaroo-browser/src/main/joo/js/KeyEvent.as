@@ -119,5 +119,8 @@ public class KeyEvent extends KeyboardEvent {
   public static const DOM_VK_QUOTE : Number = 222;
   public static const DOM_VK_META : Number = 224;
 
+  public function KeyEvent(typeArg:String, eventInit:Object = null) {
+    super(typeArg, eventInit);
+  }
 }
 }
