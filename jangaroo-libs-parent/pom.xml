@@ -159,9 +159,6 @@
         <artifactId>jangaroo-maven-plugin</artifactId>
         <extensions>true</extensions>
         <version>${jangaroo.version}</version>
-        <configuration>
-          <jooUnitWebDriverBrowser>chrome</jooUnitWebDriverBrowser>
-        </configuration>
       </plugin>
     </plugins>
 
