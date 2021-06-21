@@ -1,5 +1,5 @@
 /**
- * @license Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -28,6 +28,7 @@ var CKBUILDER_CONFIG = {
 		'.jshintrc',
 		'less',
 		'.mailmap',
+		'.nvmrc',
 		'node_modules',
 		'package.json',
 		'README.md',
@@ -74,6 +75,7 @@ var CKBUILDER_CONFIG = {
 		pastefromlibreoffice: 1,
 		pastefromword: 1,
 		pastetext: 1,
+		editorplaceholder: 1,
 		preview: 1,
 		print: 1,
 		removeformat: 1,

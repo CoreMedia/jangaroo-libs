@@ -1,5 +1,5 @@
 /**
- * @license Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -68,6 +68,10 @@
 		}
 
 		return true;
+	}
+
+	function isSupportingTableSelectionPlugin( editor ) {
+		return editor && editor.plugins.tableselection && editor.plugins.tableselection.isSupportedEnvironment( editor );
 	}
 
 	// After performing fake table selection, the real selection is limited
@@ -574,8 +578,8 @@
 		};
 	} )();
 
-	// Handle left, right, delete and backspace keystrokes next to non-editable elements
-	// by faking selection on them.
+	// Handle left and right keystrokes next to non-editable elements by faking selection on them.
+	// Delete and backspace keystrokes can delete empty paragraphs between the widgets (#1572).
 	function getOnKeyDownListener( editor ) {
 		var keystrokes = { 37: 1, 39: 1, 8: 1, 46: 1 };
 
@@ -583,25 +587,53 @@
 			var keystroke = evt.data.getKeystroke();
 
 			// Handle only left/right/del/bspace keys.
-			if ( !keystrokes[ keystroke ] )
+			if ( !keystrokes[ keystroke ] ) {
 				return;
+			}
 
 			var sel = editor.getSelection(),
 				ranges = sel.getRanges(),
-				range = ranges[ 0 ];
+				range = ranges[ 0 ],
+				startElement;
 
 			// Handle only single range and it has to be collapsed.
-			if ( ranges.length != 1 || !range.collapsed )
+			if ( !sel.isCollapsed() ) {
 				return;
+			}
 
 			var next = range[ keystroke < 38 ? 'getPreviousEditableNode' : 'getNextEditableNode' ]();
 
 			if ( next && next.type == CKEDITOR.NODE_ELEMENT && next.getAttribute( 'contenteditable' ) == 'false' ) {
+
+				// Allow removal of empty paragraphs (#1572).
+				startElement = sel.getStartElement();
+
+				if ( isEmptyBlock( startElement ) && isDeleteAction( keystroke ) ) {
+					startElement.remove();
+
+					// Save an undo restore point.
+					editor.fire( 'saveSnapshot' );
+				}
+
 				editor.getSelection().fake( next );
 				evt.data.preventDefault();
 				evt.cancel();
 			}
 		};
+
+		function isDeleteAction( keystroke ) {
+			return ( keystroke === 8 || keystroke === 46 );
+		}
+
+		function isEmptyElement( element ) {
+			var text = element.$.textContent === undefined ? element.$.innerText : element.$.textContent;
+
+			return text === '';
+		}
+
+		function isEmptyBlock( block ) {
+			return block.isBlockBoundary() && isEmptyElement( block );
+		}
 	}
 
 	// If fake selection should be applied this function will return instance of
@@ -1971,7 +2003,7 @@
 			var editor = this.root.editor;
 
 			// Use fake selection on tables only with tableselection plugin (#3136).
-			if ( editor.plugins.tableselection && isTableSelection( ranges ) ) {
+			if ( isSupportingTableSelectionPlugin( editor ) && isTableSelection( ranges ) ) {
 				// Tables have it's own selection method.
 				performFakeTableSelection.call( this, ranges );
 				return;
@@ -2082,8 +2114,7 @@
 			}
 
 			// Handle special case - fake selection of table cells.
-			if ( editor && editor.plugins.tableselection &&
-				editor.plugins.tableselection.isSupportedEnvironment() &&
+			if ( isSupportingTableSelectionPlugin( editor ) &&
 				isTableSelection( ranges ) && !isSelectingTable &&
 				!ranges[ 0 ]._getTableElement( { table: 1 } ).hasAttribute( 'data-cke-tableselection-ignored' )
 			) {
@@ -2492,8 +2523,9 @@
 		 */
 		scrollIntoView: function() {
 			// Scrolls the first range into view.
-			if ( this.type != CKEDITOR.SELECTION_NONE )
+			if ( this.getType() != CKEDITOR.SELECTION_NONE ) {
 				this.getRanges()[ 0 ].scrollIntoView();
+			}
 		},
 
 		/**

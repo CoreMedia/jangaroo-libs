@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['nb'] = {
@@ -106,7 +106,7 @@ CKEDITOR.lang['nb'] = {
     pastetext : 
     {
     	button : 'Lim inn som ren tekst',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteNotification : 'Trykk %1 for å lime inn. Nettleseren din støtter ikke å lime inn med knappen i verktøylinjen eller høyreklikkmenyen.',
     	title : 'Lim inn som ren tekst'
     },
     pastefromword : 

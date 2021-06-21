@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.plugins.setLang( 'table', 'fa', {
@@ -50,7 +50,7 @@ CKEDITOR.plugins.setLang( 'table', 'fa', {
 	headersColumn: 'اولین ستون',
 	headersNone: 'هیچ',
 	headersRow: 'اولین ردیف',
-	heightUnit: 'height unit', // MISSING
+	heightUnit: 'واحد ارتفاع',
 	invalidBorder: 'مقدار اندازه خطوط باید یک عدد باشد.',
 	invalidCellPadding: 'بالشتک سلول باید یک عدد باشد.',
 	invalidCellSpacing: 'مقدار فاصلهگذاری سلول باید یک عدد باشد.',

@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['ja'] = {
@@ -106,7 +106,7 @@ CKEDITOR.lang['ja'] = {
     pastetext : 
     {
     	button : 'プレーンテキストとして貼り付け',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteNotification : '%1 を押して貼り付けます。 ブラウザは、ツールバーボタンまたはコンテキストメニューオプションを使用した貼り付けをサポートしていません。',
     	title : 'プレーンテキストとして貼り付け'
     },
     pastefromword : 
@@ -233,7 +233,7 @@ CKEDITOR.lang['ja'] = {
     		copied : 'コピーされたフォーマット',
     		applied : 'フォーマットを適用しました',
     		canceled : 'フォーマットを取り消しました',
-    		failed : 'フォーマットに失敗しました。最初にフォーマットをコピーしてください。'
+    		failed : 'フォーマットのコピーに失敗しました。最初にフォーマットをコピーしてから適用してください。'
     	}
     },
     contextmenu : 

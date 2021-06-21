@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['ro'] = {
@@ -227,13 +227,13 @@ CKEDITOR.lang['ro'] = {
     },
     copyformatting : 
     {
-    	label : 'Copy Formatting',
+    	label : 'Copiere formatare',
     	notification : 
     	{
-    		copied : 'Formatting copied',
-    		applied : 'Formatting applied',
-    		canceled : 'Formatting canceled',
-    		failed : 'Formatting failed. You cannot apply styles without copying them first.'
+    		copied : 'Formatare copiată',
+    		applied : 'Formatare aplicată',
+    		canceled : 'Formatare anulată',
+    		failed : 'Formatare greșită. Nu poți aplica stiluri fără a le copia întâi.'
     	}
     },
     contextmenu : 

@@ -760,6 +760,118 @@
 					testButton( 2, false );
 				} );
 			} );
+		},
+
+		// (#3926)
+		'test drop with initial widget id': function() {
+			var editor = this.editor,
+				widgetId = 0,
+				destroySpy = sinon.spy( editor.widgets, 'destroy' );
+
+			editor.widgets._.nextId = widgetId;
+
+			this.editorBot.setData( '<p><span data-widget="testwidget5" id="w1">foo</span></p>', function() {
+				var evt = { data: bender.tools.mockDropEvent() },
+					range = editor.createRange();
+
+				editor.focus();
+
+				bender.tools.resumeAfter( editor, 'drop', function( originalEvt ) {
+					destroySpy.restore();
+
+					assert.isTrue( destroySpy.calledWithMatch( function( widget ) {
+						return widget.id === widgetId;
+					} ), 'Widget should be destroyed' );
+
+					assert.areEqual( '<p>foobar</p>', originalEvt.data.dataTransfer.getData( 'text/html' ), 'Data transfer should have expected HTML' );
+				} );
+
+				// Ensure async.
+				wait( function() {
+					var widget = getWidgetById( editor, 'w1' );
+
+					dragstart( editor, evt.data, widget );
+
+					CKEDITOR.plugins.clipboard.initDragDataTransfer( evt );
+
+					evt.data.dataTransfer.setData( 'cke/widget-id', widgetId );
+
+					range.setStartBefore( widget.wrapper );
+					evt.data.testRange = range;
+
+					drop( editor, evt.data, range );
+				} );
+			} );
+		},
+
+		// (#4509)
+		'test drop - parent on child': function() {
+			bender.editorBot.create( {
+				name: 'testdropparentchild',
+				creator: 'replace',
+				config: {
+					allowedContent: true
+				}
+			}, function( bot ) {
+				var editor = bot.editor,
+					initialHtml = '<div data-widget="testnestedwidget" id="w1">' +
+						'<div class="content">' +
+							'<div data-widget="testnestedwidget" id="w2">' +
+								'<div class="content">' +
+									'<p>x</p>' +
+								'</div>' +
+							'</div>' +
+						'</div>' +
+					'</div>';
+
+				editor.widgets.add( 'testnestedwidget', {
+					editables: {
+						content: {
+							selector: '.content'
+						}
+					}
+				} );
+
+				bot.setData( initialHtml, function() {
+					var parentWidget = getWidgetById( editor, 'w1' ),
+						evt = { data: bender.tools.mockDropEvent() },
+						widgetWasDestroyed = 0,
+						dropNotCancelled = 0,
+						range;
+
+					editor.focus();
+
+					parentWidget.on( 'destroy', function() {
+						widgetWasDestroyed += 1;
+					} );
+
+					editor.on( 'drop', function() {
+						dropNotCancelled += 1;
+					}, null, null, 999 );
+
+					CKEDITOR.plugins.clipboard.initDragDataTransfer( evt );
+					evt.data.dataTransfer.setData( 'cke/widget-id', parentWidget.id );
+					parentWidget.focus();
+
+					// It's safer to select widget and get selected range from selection
+					// than to create range manually, due to #4607.
+					range = editor.getSelection().getRanges()[ 0 ];
+
+					evt.data.testRange = range;
+
+					dragstart( editor, evt.data, parentWidget );
+
+					drop( editor, evt.data, range );
+
+					dragend( editor, evt.data, parentWidget );
+
+					wait( function() {
+						bender.assert.isInnerHtmlMatching( initialHtml, editor.getData(), null, 'Data should not be altered' );
+						assert.areSame( 0, widgetWasDestroyed, 'Original widget should not be destroyed' );
+						assert.areSame( 0, dropNotCancelled, 'Drop event should be cancelled' );
+					}, 10 );
+				} );
+			} );
 		}
 	} );
 } )();

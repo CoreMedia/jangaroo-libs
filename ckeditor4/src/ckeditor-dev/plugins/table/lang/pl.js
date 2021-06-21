@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.plugins.setLang( 'table', 'pl', {
@@ -50,7 +50,7 @@ CKEDITOR.plugins.setLang( 'table', 'pl', {
 	headersColumn: 'Pierwsza kolumna',
 	headersNone: 'Brak',
 	headersRow: 'Pierwszy wiersz',
-	heightUnit: 'height unit', // MISSING
+	heightUnit: 'jednostka wysokości',
 	invalidBorder: 'Wartość obramowania musi być liczbą.',
 	invalidCellPadding: 'Dopełnienie komórek musi być liczbą dodatnią.',
 	invalidCellSpacing: 'Odstęp pomiędzy komórkami musi być liczbą dodatnią.',

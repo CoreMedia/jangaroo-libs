@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['fa'] = {
@@ -79,7 +79,7 @@ CKEDITOR.lang['fa'] = {
     	headersColumn : 'اولین ستون',
     	headersNone : 'هیچ',
     	headersRow : 'اولین ردیف',
-    	heightUnit : 'height unit',
+    	heightUnit : 'واحد ارتفاع',
     	invalidBorder : 'مقدار اندازه خطوط باید یک عدد باشد.',
     	invalidCellPadding : 'بالشتک سلول باید یک عدد باشد.',
     	invalidCellSpacing : 'مقدار فاصلهگذاری سلول باید یک عدد باشد.',
@@ -106,7 +106,7 @@ CKEDITOR.lang['fa'] = {
     pastetext : 
     {
     	button : 'چسباندن به عنوان متن ساده',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteNotification : '1% را فشاردهید تا بچسبد. مرورگر شما از چسباندن با دکمه نوارابزار یا گزینه منوی زمینه پشتیبانی نمیکند',
     	title : 'چسباندن به عنوان متن ساده'
     },
     pastefromword : 
@@ -137,38 +137,38 @@ CKEDITOR.lang['fa'] = {
     	advisoryTitle : 'عنوان کمکی',
     	anchor : 
     	{
-    		toolbar : 'گنجاندن/ویرایش لنگر',
-    		menu : 'ویژگی\u200bهای لنگر',
-    		title : 'ویژگی\u200bهای لنگر',
-    		name : 'نام لنگر',
+    		toolbar : 'گنجاندن/ویرایش لینک',
+    		menu : 'ویرایش لینک',
+    		title : 'ویژگی\u200bهای لینک',
+    		name : 'نام لینک',
     		errorName : 'لطفا نام لنگر را بنویسید',
-    		remove : 'حذف لنگر'
+    		remove : 'حذف لینک'
     	},
     	anchorId : 'با شناسهٴ المان',
-    	anchorName : 'با نام لنگر',
+    	anchorName : 'با نام لینک ',
     	charset : 'نویسه\u200bگان منبع پیوند شده',
-    	cssClasses : 'کلاس\u200bهای شیوه\u200bنامه(Stylesheet)',
-    	download : 'Force Download',
+    	cssClasses : 'کلاس\u200bهای شیوه\u200bنامه (Style sheet)',
+    	download : 'بارگیری اجباری',
     	displayText : 'نمایش متن',
     	emailAddress : 'نشانی پست الکترونیکی',
     	emailBody : 'متن پیام',
     	emailSubject : 'موضوع پیام',
     	id : 'شناسه',
     	info : 'اطلاعات پیوند',
-    	langCode : 'جهت\u200bنمای زبان',
+    	langCode : 'کد زبان',
     	langDir : 'جهت\u200bنمای زبان',
     	langDirLTR : 'چپ به راست (LTR)',
     	langDirRTL : 'راست به چپ (RTL)',
     	menu : 'ویرایش پیوند',
     	name : 'نام',
-    	noAnchors : '(در این سند لنگری دردسترس نیست)',
+    	noAnchors : '(در این سند لینکی دردسترس نیست)',
     	noEmail : 'لطفا نشانی پست الکترونیکی را بنویسید',
-    	noUrl : 'لطفا URL پیوند را بنویسید',
-    	noTel : 'Please type the phone number',
+    	noUrl : 'لطفا آدرس پیوند را بنویسید',
+    	noTel : 'لطفا شماره تلفن را وارد کنید',
     	other : '<سایر>',
-    	phoneNumber : 'Phone number',
+    	phoneNumber : 'شماره تلفن',
     	popupDependent : 'وابسته (Netscape)',
-    	popupFeatures : 'ویژگی\u200bهای پنجرهٴ پاپاپ',
+    	popupFeatures : 'ویژگی\u200bهای پنجره ی پاپاپ',
     	popupFullScreen : 'تمام صفحه (IE)',
     	popupLeft : 'موقعیت چپ',
     	popupLocationBar : 'نوار موقعیت',
@@ -179,19 +179,19 @@ CKEDITOR.lang['fa'] = {
     	popupToolbar : 'نوار ابزار',
     	popupTop : 'موقعیت بالا',
     	rel : 'وابستگی',
-    	selectAnchor : 'یک لنگر برگزینید',
+    	selectAnchor : 'یک لینک برگزینید',
     	styles : 'شیوه (style)',
     	tabIndex : 'نمایهٴ دسترسی با برگه',
     	target : 'مقصد',
-    	targetFrame : '<فریم>',
-    	targetFrameName : 'نام فریم مقصد',
+    	targetFrame : '<قاب>',
+    	targetFrameName : 'نام قاب مقصد',
     	targetPopup : '<پنجرهٴ پاپاپ>',
-    	targetPopupName : 'نام پنجرهٴ پاپاپ',
+    	targetPopupName : 'نام پنجره ی پاپاپ',
     	title : 'پیوند',
     	toAnchor : 'لنگر در همین صفحه',
     	toEmail : 'پست الکترونیکی',
-    	toUrl : 'URL',
-    	toPhone : 'Phone',
+    	toUrl : 'آدرس',
+    	toPhone : 'تلفن',
     	toolbar : 'گنجاندن/ویرایش پیوند',
     	type : 'نوع پیوند',
     	unlink : 'برداشتن پیوند',
@@ -227,13 +227,13 @@ CKEDITOR.lang['fa'] = {
     },
     copyformatting : 
     {
-    	label : 'Copy Formatting',
+    	label : 'کپی کردن قالب بندی',
     	notification : 
     	{
-    		copied : 'Formatting copied',
-    		applied : 'Formatting applied',
-    		canceled : 'Formatting canceled',
-    		failed : 'Formatting failed. You cannot apply styles without copying them first.'
+    		copied : 'قالب بندی کپی شد',
+    		applied : 'قالب بندی اعمال شد',
+    		canceled : 'قالب بندی لغو شد',
+    		failed : 'قالب بندی ناموفق بود. شما نمیتوانید بدون اینکه ابتدا سبک ها را کپی کنید ، آنها را اعمال نمایید'
     	}
     },
     contextmenu : 

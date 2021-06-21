@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['sv'] = {
@@ -79,7 +79,7 @@ CKEDITOR.lang['sv'] = {
     	headersColumn : 'Första kolumnen',
     	headersNone : 'Ingen',
     	headersRow : 'Första raden',
-    	heightUnit : 'height unit',
+    	heightUnit : 'Enhetshöjd',
     	invalidBorder : 'Ram måste vara ett nummer.',
     	invalidCellPadding : 'Luft i cell måste vara ett nummer.',
     	invalidCellSpacing : 'Luft i cell måste vara ett nummer.',
@@ -106,7 +106,7 @@ CKEDITOR.lang['sv'] = {
     pastetext : 
     {
     	button : 'Klistra in som vanlig text',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteNotification : 'Tryck på %1 för att klistra in. Din webbläsare stödjer inte inklistring via verktygsfältet eller snabbmenyn.',
     	title : 'Klistra in som vanlig text'
     },
     pastefromword : 

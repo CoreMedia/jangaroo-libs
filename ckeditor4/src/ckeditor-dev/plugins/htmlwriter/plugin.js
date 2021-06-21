@@ -1,5 +1,5 @@
 /**
- * @license Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -8,7 +8,7 @@ CKEDITOR.plugins.add( 'htmlwriter', {
 		var writer = new CKEDITOR.htmlWriter();
 
 		writer.forceSimpleAmpersand = editor.config.forceSimpleAmpersand;
-		writer.indentationChars = editor.config.dataIndentationChars || '\t';
+		writer.indentationChars = typeof editor.config.dataIndentationChars === 'string' ? editor.config.dataIndentationChars : '\t';
 
 		// Overwrite default basicWriter initialized in hmtlDataProcessor constructor.
 		editor.dataProcessor.writer = writer;

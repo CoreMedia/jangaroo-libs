@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['fr'] = {
@@ -79,7 +79,7 @@ CKEDITOR.lang['fr'] = {
     	headersColumn : 'Première colonne',
     	headersNone : 'Aucun',
     	headersRow : 'Première ligne',
-    	heightUnit : 'height unit',
+    	heightUnit : 'unité de hauteur',
     	invalidBorder : 'La taille de la bordure doit être un nombre.',
     	invalidCellPadding : 'La marge interne des cellules doit être un nombre positif.',
     	invalidCellSpacing : 'L\'espacement entre les cellules doit être un nombre positif.',
@@ -227,13 +227,13 @@ CKEDITOR.lang['fr'] = {
     },
     copyformatting : 
     {
-    	label : 'Copy Formatting',
+    	label : 'Copier le formatage',
     	notification : 
     	{
-    		copied : 'Formatting copied',
-    		applied : 'Formatting applied',
-    		canceled : 'Formatting canceled',
-    		failed : 'Formatting failed. You cannot apply styles without copying them first.'
+    		copied : 'Formatage copié',
+    		applied : 'Formatage appliqué',
+    		canceled : 'Formatage supprimé',
+    		failed : 'Échec du formatage. Vous devez d\'abord copier des styles pour pouvoir les appliquer.'
     	}
     },
     contextmenu : 

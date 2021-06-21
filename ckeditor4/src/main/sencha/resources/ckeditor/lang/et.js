@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['et'] = {
@@ -79,7 +79,7 @@ CKEDITOR.lang['et'] = {
     	headersColumn : 'Esimene tulp',
     	headersNone : 'Puudub',
     	headersRow : 'Esimene rida',
-    	heightUnit : 'height unit',
+    	heightUnit : 'kõrgusühik',
     	invalidBorder : 'Äärise suurus peab olema number.',
     	invalidCellPadding : 'Lahtrite polsterdus (padding) peab olema positiivne arv.',
     	invalidCellSpacing : 'Lahtrite vahe peab olema positiivne arv.',
@@ -227,13 +227,13 @@ CKEDITOR.lang['et'] = {
     },
     copyformatting : 
     {
-    	label : 'Copy Formatting',
+    	label : 'Kopeeri vorming',
     	notification : 
     	{
-    		copied : 'Formatting copied',
-    		applied : 'Formatting applied',
-    		canceled : 'Formatting canceled',
-    		failed : 'Formatting failed. You cannot apply styles without copying them first.'
+    		copied : 'Vorming on kopeeritud',
+    		applied : 'Vorming on rakendatud',
+    		canceled : 'Vormindamisest loobuti',
+    		failed : 'Vormindamine nurjus. Stiile ei saa rakendada ilma neid enne kopeerimata.'
     	}
     },
     contextmenu : 

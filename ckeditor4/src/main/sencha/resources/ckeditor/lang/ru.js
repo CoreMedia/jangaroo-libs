@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['ru'] = {
@@ -106,7 +106,7 @@ CKEDITOR.lang['ru'] = {
     pastetext : 
     {
     	button : 'Вставить только текст',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteNotification : 'Для вставки нажмите %1. Ваш браузер не поддерживает возможность вставки через панель инструментов или контекстное меню',
     	title : 'Вставить только текст'
     },
     pastefromword : 
@@ -233,7 +233,7 @@ CKEDITOR.lang['ru'] = {
     		copied : 'Форматирование скопировано',
     		applied : 'Форматирование применено',
     		canceled : 'Форматирование отменен',
-    		failed : 'Formatting failed. You cannot apply styles without copying them first.'
+    		failed : 'Форматирование не выполнено. Стили необходимо скопировать перед применением.'
     	}
     },
     contextmenu : 

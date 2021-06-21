@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['sk'] = {
@@ -79,7 +79,7 @@ CKEDITOR.lang['sk'] = {
     	headersColumn : 'Prvý stĺpec',
     	headersNone : 'Žiadne',
     	headersRow : 'Prvý riadok',
-    	heightUnit : 'height unit',
+    	heightUnit : 'jednotka výšky',
     	invalidBorder : 'Šírka orámovania musí byť číslo.',
     	invalidCellPadding : 'Odsadenie v bunkách (cell padding) musí byť kladné číslo.',
     	invalidCellSpacing : 'Medzera mädzi bunkami (cell spacing) musí byť kladné číslo.',
@@ -106,7 +106,7 @@ CKEDITOR.lang['sk'] = {
     pastetext : 
     {
     	button : 'Vložiť ako čistý text',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteNotification : 'Stlačte %1 na vloženie. Váš prehliadač nepodporuje vloženie prostredníctvom tlačidla v nástrojovej lište alebo voľby v kontextovom menu.',
     	title : 'Vložiť ako čistý text'
     },
     pastefromword : 
@@ -227,13 +227,13 @@ CKEDITOR.lang['sk'] = {
     },
     copyformatting : 
     {
-    	label : 'Copy Formatting',
+    	label : 'Kopírovať formátovanie',
     	notification : 
     	{
-    		copied : 'Formatting copied',
-    		applied : 'Formatting applied',
-    		canceled : 'Formatting canceled',
-    		failed : 'Formatting failed. You cannot apply styles without copying them first.'
+    		copied : 'Formátovanie skopírované',
+    		applied : 'Formátovanie aplikované',
+    		canceled : 'Formátovanie zrušené',
+    		failed : 'Formátovanie zlyhalo. Nemôžete aplikovať štýly bez toho, aby ste ich najprv skopírovali.'
     	}
     },
     contextmenu : 

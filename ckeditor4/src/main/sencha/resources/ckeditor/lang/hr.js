@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['hr'] = {
@@ -106,7 +106,7 @@ CKEDITOR.lang['hr'] = {
     pastetext : 
     {
     	button : 'Zalijepi kao čisti tekst',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteNotification : 'Vaš preglednik Vam ne dozvoljava lijepljenje običnog teksta na ovaj način. Za lijepljenje, pritisnite %1.',
     	title : 'Zalijepi kao čisti tekst'
     },
     pastefromword : 
@@ -227,13 +227,13 @@ CKEDITOR.lang['hr'] = {
     },
     copyformatting : 
     {
-    	label : 'Copy Formatting',
+    	label : 'Kopiraj formatiranje',
     	notification : 
     	{
-    		copied : 'Formatting copied',
-    		applied : 'Formatting applied',
-    		canceled : 'Formatting canceled',
-    		failed : 'Formatting failed. You cannot apply styles without copying them first.'
+    		copied : 'Formatiranje kopirano',
+    		applied : 'Formatiranje primjenjeno',
+    		canceled : 'Formatiranje poništeno',
+    		failed : 'Formatiranje nije uspjelo. Nije moguće primjeniti stilove bez da ih prvo kopirate.'
     	}
     },
     contextmenu : 

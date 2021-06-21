@@ -1,5 +1,5 @@
 ﻿/**
- * @license Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -318,6 +318,21 @@ CKEDITOR.plugins.add( 'richcombo', {
 
 					textElement.setText( typeof text != 'undefined' ? text : value );
 				}
+
+				var newLabel = createLabel( typeof text != 'undefined' ? text : value, this.label ),
+					labelElement = this.document.getById( 'cke_' + this.id + '_label' );
+
+				if ( labelElement ) {
+					labelElement.setText( newLabel );
+				}
+
+				function createLabel( newLabel, initialLabel ) {
+					if ( newLabel === initialLabel ) {
+						return newLabel;
+					}
+
+					return newLabel + ', ' + initialLabel;
+				}
 			},
 
 			getValue: function() {
@@ -373,12 +388,18 @@ CKEDITOR.plugins.add( 'richcombo', {
 				if ( this._.state == state )
 					return;
 
-				var el = this.document.getById( 'cke_' + this.id );
+				var el = this.document.getById( 'cke_' + this.id ),
+					linkEl = el.getElementsByTag( 'a' ).getItem( 0 );
+
 				el.setState( state, 'cke_combo' );
 
 				state == CKEDITOR.TRISTATE_DISABLED ?
 					el.setAttribute( 'aria-disabled', true ) :
 					el.removeAttribute( 'aria-disabled' );
+
+				if ( linkEl ) {
+					linkEl.setAttribute( 'aria-expanded', state == CKEDITOR.TRISTATE_ON );
+				}
 
 				this._.state = state;
 			},

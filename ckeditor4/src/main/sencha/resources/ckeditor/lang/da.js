@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['da'] = {
@@ -79,7 +79,7 @@ CKEDITOR.lang['da'] = {
     	headersColumn : 'Første kolonne',
     	headersNone : 'Ingen',
     	headersRow : 'Første række',
-    	heightUnit : 'height unit',
+    	heightUnit : 'højde enhed',
     	invalidBorder : 'Rammetykkelse skal være et tal.',
     	invalidCellPadding : 'Cellemargen skal være et tal.',
     	invalidCellSpacing : 'Celleafstand skal være et tal.',
@@ -106,7 +106,7 @@ CKEDITOR.lang['da'] = {
     pastetext : 
     {
     	button : 'Indsæt som ikke-formateret tekst',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteNotification : 'Klik %1 for at indsætte. Din browser understøtter ikke indsæt med tastatur eller kontekstmenu-valg.',
     	title : 'Indsæt som ikke-formateret tekst'
     },
     pastefromword : 
@@ -118,7 +118,7 @@ CKEDITOR.lang['da'] = {
     },
     notification : 
     {
-    	closed : 'Notefikation lukket.'
+    	closed : 'Notifikation lukket.'
     },
     magicline : 
     {
@@ -164,9 +164,9 @@ CKEDITOR.lang['da'] = {
     	noAnchors : '(Ingen bogmærker i dokumentet)',
     	noEmail : 'Indtast e-mailadresse!',
     	noUrl : 'Indtast hyperlink-URL!',
-    	noTel : 'Please type the phone number',
+    	noTel : 'Indtast venligst et telefonnummer',
     	other : '<anden>',
-    	phoneNumber : 'Phone number',
+    	phoneNumber : 'Telefonnummer',
     	popupDependent : 'Koblet/dependent (Netscape)',
     	popupFeatures : 'Egenskaber for popup',
     	popupFullScreen : 'Fuld skærm (IE)',
@@ -191,7 +191,7 @@ CKEDITOR.lang['da'] = {
     	toAnchor : 'Bogmærke på denne side',
     	toEmail : 'E-mail',
     	toUrl : 'URL',
-    	toPhone : 'Phone',
+    	toPhone : 'Telefon',
     	toolbar : 'Indsæt/redigér hyperlink',
     	type : 'Type',
     	unlink : 'Fjern hyperlink',
@@ -227,13 +227,13 @@ CKEDITOR.lang['da'] = {
     },
     copyformatting : 
     {
-    	label : 'Copy Formatting',
+    	label : 'Kopiér formatering',
     	notification : 
     	{
-    		copied : 'Formatting copied',
-    		applied : 'Formatting applied',
-    		canceled : 'Formatting canceled',
-    		failed : 'Formatting failed. You cannot apply styles without copying them first.'
+    		copied : 'Formatering kopieret',
+    		applied : 'Formatering anvendt',
+    		canceled : 'Formatering annulleret',
+    		failed : 'Formatering fejlede. Du kan ikke anvende stile uden at kopiere dem først.'
     	}
     },
     contextmenu : 

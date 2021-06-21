@@ -1,5 +1,5 @@
 /**
- * @license Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -303,6 +303,24 @@
 				context: context,
 				enterMode: enterMode || this.editor.enterMode
 			} ).dataValue;
+		},
+
+		/**
+		 * @since 4.16.1
+		 * @private
+		 * @param {String} data
+		 */
+		protectSource: function( data ) {
+			return protectSource( data, this.editor );
+		},
+
+		/**
+		 * @since 4.16.1
+		 * @private
+		 * @param {String} html
+		 */
+		unprotectSource: function( html ) {
+			return unprotectSource( html, this.editor );
 		}
 	};
 

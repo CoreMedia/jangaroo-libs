@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 
@@ -177,6 +177,31 @@ a.cke_button_off:active
 {
 	background-color: #dff1ff;
 	opacity: 1;
+}
+
+/* Disable hover styles on mobile devices (#4611). */
+@media screen and ( hover: none ) {
+	a.cke_button_off:hover
+	{
+		background: transparent;
+		opacity: 0.7;
+	}
+
+	a.cke_button_on:hover {
+		background-color: #a3d7ff;
+	}
+
+	/* We need to restore :active styles. */
+	a.cke_button_off:active
+	{
+		background-color: #dff1ff;
+		opacity: 1;
+	}
+
+	a.cke_button_on:active
+	{
+		background-color: #86caff;
+	}
 }
 
 /* The icon which is a visual representation of the button. */

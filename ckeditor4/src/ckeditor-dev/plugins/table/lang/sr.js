@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.plugins.setLang( 'table', 'sr', {
@@ -50,7 +50,7 @@ CKEDITOR.plugins.setLang( 'table', 'sr', {
 	headersColumn: 'Прва колона',
 	headersNone: 'Нема',
 	headersRow: 'Први ред',
-	heightUnit: 'height unit', // MISSING
+	heightUnit: 'Јединица висине',
 	invalidBorder: 'Величина ивице треба да буде цифра.',
 	invalidCellPadding: 'Пуњење ћелије треба да буде позитивна цифра.',
 	invalidCellSpacing: 'Размак ћелије треба да буде позитивна цифра.',

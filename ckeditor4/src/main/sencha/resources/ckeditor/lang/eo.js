@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['eo'] = {
@@ -227,13 +227,13 @@ CKEDITOR.lang['eo'] = {
     },
     copyformatting : 
     {
-    	label : 'Copy Formatting',
+    	label : 'Kopii la formaton',
     	notification : 
     	{
-    		copied : 'Formatting copied',
-    		applied : 'Formatting applied',
-    		canceled : 'Formatting canceled',
-    		failed : 'Formatting failed. You cannot apply styles without copying them first.'
+    		copied : 'Formato kopiita',
+    		applied : 'Formato aplikita',
+    		canceled : 'Formato nuligita',
+    		failed : 'Malsukceso de la formato. Vi ne povas apliki stilojn se vi ne kopiis ilin antaŭe.'
     	}
     },
     contextmenu : 
