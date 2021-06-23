@@ -1,5 +1,5 @@
 ﻿/**
- * @license Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -29,22 +29,22 @@
 	} );
 
 	/**
-	 * Allows to customize the implementation of printing the editor content
-	 * provided by the [Print](https://ckeditor.com/cke4/addon/print) plugin.
-	 *
-	 * **Note**: This class represents the {@link CKEDITOR.commandDefinition}
-	 * type and should be compatible with its API.
+	 * Allows to customize the implementation of printing the editor content provided
+	 * by the [Print](https://ckeditor.com/cke4/addon/print) plugin. For example, the official
+	 * CKEditor 4 [Export to PDF](https://ckeditor.com/cke4/addon/exportpdf) plugin
+	 * can be used here (see the {@glink features/exporttopdf#installation installation guide}):
 	 *
 	 * ```javascript
-	 * // Using an external API to generate PDF.
+	 * // Using an 'Export to PDF' plugin to generate PDF.
 	 * CKEDITOR.plugins.print = {
 	 * 	exec: function( editor ) {
-	 * 		var data = editor.getData();
-	 *
-	 * 		pdfAPI.generateFromHTML( data );
+	 * 		editor.execCommand( 'exportPdf' );
 	 * 	}
 	 * };
 	 * ```
+	 *
+	 * **Note**: This class represents the {@link CKEDITOR.commandDefinition}
+	 * type and should be compatible with its API.
 	 *
 	 * @singleton
 	 * @since 4.14.0

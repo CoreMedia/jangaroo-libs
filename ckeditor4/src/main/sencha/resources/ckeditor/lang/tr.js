@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['tr'] = {
@@ -79,7 +79,7 @@ CKEDITOR.lang['tr'] = {
     	headersColumn : 'İlk Sütun',
     	headersNone : 'Yok',
     	headersRow : 'İlk Satır',
-    	heightUnit : 'height unit',
+    	heightUnit : 'yükseklik birimi',
     	invalidBorder : 'Çerceve büyüklüklüğü sayı olmalıdır.',
     	invalidCellPadding : 'Hücre aralığı (padding) sayı olmalıdır.',
     	invalidCellSpacing : 'Hücre boşluğu (spacing) sayı olmalıdır.',
@@ -164,9 +164,9 @@ CKEDITOR.lang['tr'] = {
     	noAnchors : '(Bu belgede hiç çapa yok)',
     	noEmail : 'Lütfen E-posta adresini yazın',
     	noUrl : 'Lütfen Link URL\'sini yazın',
-    	noTel : 'Please type the phone number',
+    	noTel : 'Lütfen telefon numaranızı yazınız',
     	other : '<diğer>',
-    	phoneNumber : 'Phone number',
+    	phoneNumber : 'Telefon numarası',
     	popupDependent : 'Bağımlı (Netscape)',
     	popupFeatures : 'Yeni Açılan Pencere Özellikleri',
     	popupFullScreen : 'Tam Ekran (IE)',
@@ -191,7 +191,7 @@ CKEDITOR.lang['tr'] = {
     	toAnchor : 'Bu sayfada çapa',
     	toEmail : 'E-Posta',
     	toUrl : 'URL',
-    	toPhone : 'Phone',
+    	toPhone : 'Telefon',
     	toolbar : 'Link Ekle/Düzenle',
     	type : 'Link Türü',
     	unlink : 'Köprü Kaldır',

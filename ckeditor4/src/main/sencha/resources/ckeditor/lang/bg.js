@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['bg'] = {
@@ -227,13 +227,13 @@ CKEDITOR.lang['bg'] = {
     },
     copyformatting : 
     {
-    	label : 'Copy Formatting',
+    	label : 'Копирай форматиране',
     	notification : 
     	{
-    		copied : 'Formatting copied',
-    		applied : 'Formatting applied',
-    		canceled : 'Formatting canceled',
-    		failed : 'Formatting failed. You cannot apply styles without copying them first.'
+    		copied : 'Форматирането е копирано',
+    		applied : 'Форматирането е приложено',
+    		canceled : 'Форматирането е анулирано',
+    		failed : 'Форматирането не е успешно. Не можете да прилагате стилове без първо да ги копирате.'
     	}
     },
     contextmenu : 

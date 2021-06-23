@@ -1,7 +1,9 @@
 /* bender-tags: editor */
 /* bender-ckeditor-plugins: richcombo,toolbar */
 
-var customCls = 'my_combo';
+var customCls = 'my_combo',
+	initialLabel = 'Combo Label';
+
 bender.editor = {
 	config: {
 		toolbar: [ [ 'custom_combo', 'custom_combo_with_options' ] ],
@@ -16,6 +18,7 @@ bender.editor = {
 
 				ed.ui.addRichCombo( 'custom_combo', {
 					className: customCls,
+					label: initialLabel,
 					panel: {
 						css: [],
 						multiSelect: false
@@ -27,6 +30,7 @@ bender.editor = {
 
 				ed.ui.addRichCombo( 'custom_combo_with_options', {
 					className: customCls,
+					label: initialLabel,
 					panel: {
 						css: [],
 						multiSelect: false
@@ -59,6 +63,90 @@ bender.test( {
 			anchorEl = CKEDITOR.document.getById( 'cke_' + combo.id ).findOne( 'a' );
 
 		assert.areEqual( anchorEl.getAttribute( 'aria-haspopup' ), 'listbox' );
+	},
+
+	// (#4007)
+	'test richcombo has aria-expanded=false attribute set at initialisation': function() {
+		var editor = this.editor,
+			combo = editor.ui.get( 'custom_combo' ),
+			comboBtn = CKEDITOR.document.findOne( '#cke_' + combo.id + ' .cke_combo_button' );
+
+		combo.createPanel( editor );
+
+		assert.areEqual( 'false', comboBtn.getAttribute( 'aria-expanded' ), 'Aria-expanded attribute should be set at the element creation.' );
+	},
+
+	// (#4007)
+	'test richcombo has aria-expanded=true attribute set when opened': function() {
+		var editor = this.editor,
+			bot = this.editorBot,
+			activeCombo = editor.ui.get( 'custom_combo' ),
+			inactiveCombo = editor.ui.get( 'custom_combo_with_options' ),
+			activeComboBtn = CKEDITOR.document.findOne( '#cke_' + activeCombo.id + ' .cke_combo_button' ),
+			inactiveComboBtn = CKEDITOR.document.findOne( '#cke_' + inactiveCombo.id + ' .cke_combo_button' );
+
+		activeCombo.createPanel( editor );
+
+		bot.combo( 'custom_combo', function() {
+			assert.areEqual( 'true', activeComboBtn.getAttribute( 'aria-expanded' ), 'Aria-expanded attribute was not set to true.' );
+			assert.areEqual( 'false', inactiveComboBtn.getAttribute( 'aria-expanded' ), 'Aria-expanded attribute of different combo was changed' );
+		} );
+	},
+
+	// (#4493)
+	'test richcombo aria-labelledby attribute points to label element of the combobox': function() {
+		var editor = this.editor,
+			combo = editor.ui.get( 'custom_combo' ),
+			comboBtnSelector = '#cke_' + combo.id,
+			comboBtn = CKEDITOR.document.findOne( comboBtnSelector + ' .cke_combo_button' ),
+			comboBtnLabelElementId = comboBtnSelector.substr( 1 ) + '_label';
+
+		combo.createPanel( editor );
+
+		assert.areEqual( comboBtnLabelElementId, comboBtn.getAttribute( 'aria-labelledby' ), 'Aria-labelledby attribute should point to element with the combo label.' );
+	},
+
+	// (#4493)
+	'test richcombo label elements contains initial label by default': function() {
+		var editor = this.editor,
+			combo = editor.ui.get( 'custom_combo' ),
+			comboBtnSelector = '#cke_' + combo.id,
+			comboBtnLabelSelector = comboBtnSelector + '_label',
+			comboBtnLabel = CKEDITOR.document.findOne( comboBtnLabelSelector );
+
+		combo.createPanel( editor );
+
+		assert.areEqual( initialLabel, comboBtnLabel.getHtml() );
+	},
+
+	// (#4493)
+	'test richcombo label element contains text from selected option': function() {
+		var editor = this.editor,
+			combo = editor.ui.get( 'custom_combo_with_options' ),
+			comboBtnSelector = '#cke_' + combo.id,
+			comboBtnLabelSelector = comboBtnSelector + '_label',
+			comboBtnLabel = CKEDITOR.document.findOne( comboBtnLabelSelector ),
+			expectedLabel = 'ONE, ' + initialLabel;
+
+		combo.createPanel( editor );
+		combo.setValue( 'one', 'ONE' );
+
+		assert.areEqual( expectedLabel, comboBtnLabel.getHtml() );
+	},
+
+	// (#4493)
+	'test richcombo label element contains initial label after richcombo returns to default value': function() {
+		var editor = this.editor,
+			combo = editor.ui.get( 'custom_combo_with_options' ),
+			comboBtnSelector = '#cke_' + combo.id,
+			comboBtnLabelSelector = comboBtnSelector + '_label',
+			comboBtnLabel = CKEDITOR.document.findOne( comboBtnLabelSelector );
+
+		combo.createPanel( editor );
+		combo.setValue( 'one' );
+		combo.setValue( '' );
+
+		assert.areEqual( initialLabel, comboBtnLabel.getHtml() );
 	},
 
 	// (#1477)

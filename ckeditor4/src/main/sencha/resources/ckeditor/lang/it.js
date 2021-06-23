@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['it'] = {
@@ -79,7 +79,7 @@ CKEDITOR.lang['it'] = {
     	headersColumn : 'Prima Colonna',
     	headersNone : 'Nessuna',
     	headersRow : 'Prima Riga',
-    	heightUnit : 'height unit',
+    	heightUnit : 'unità altezza',
     	invalidBorder : 'La dimensione del bordo dev\'essere un numero.',
     	invalidCellPadding : 'Il paging delle celle dev\'essere un numero',
     	invalidCellSpacing : 'La spaziatura tra le celle dev\'essere un numero.',
@@ -106,7 +106,7 @@ CKEDITOR.lang['it'] = {
     pastetext : 
     {
     	button : 'Incolla come testo semplice',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteNotification : 'Premere %1 per incollare. Il tuo browser non permette di incollare tramite il pulsante della barra degli strumenti o tramite la voce del menu contestuale.',
     	title : 'Incolla come testo semplice'
     },
     pastefromword : 

@@ -1,5 +1,5 @@
 /* bender-tags: editor */
-/* bender-ckeditor-plugins: autolink,clipboard,link,sourcearea */
+/* bender-ckeditor-plugins: autolink,clipboard,sourcearea */
 /* bender-include: ../clipboard/_helpers/pasting.js */
 /* global assertPasteEvent */
 
@@ -10,8 +10,16 @@
 		classic: {
 			config: {
 				allowedContent: true,
+				pasteFilter: null
+			}
+		},
+		optionalParameters: {
+			config: {
+				allowedContent: true,
 				pasteFilter: null,
-				removePlugins: 'link'
+				removePlugins: 'link',
+				autolink_urlRegex: /^https:\/\/foobar.com$/,
+				autolink_emailRegex: /^foo@foobar\.com$/
 			}
 		},
 		encodedDefault: {
@@ -31,6 +39,9 @@
 	};
 
 	bender.test( {
+		setUp: function() {
+			bender.tools.ignoreUnsupportedEnvironment( 'autolink' );
+		},
 
 		'test URL link with HTML tags': function() {
 			var pastedTexts = [
@@ -127,6 +138,8 @@
 				this.editors.classic.once( 'paste', function( evt ) {
 					evt.cancel();
 
+					pastedText = pastedText.replace( /&/g, '&amp;' );
+
 					assert.areSame( '<a href="' + pastedText + '">' + pastedText + '</a>', evt.data.dataValue );
 				}, null, null, 900 );
 
@@ -134,11 +147,20 @@
 			}
 		},
 
+		// (#3156)
+		'test valid URL link with optional regex': function() {
+			var pastedText = 'https://foobar.com',
+				expected = '<a href="' + pastedText + '">' + pastedText + '</a>';
+
+			assertPasteEvent( this.editors.optionalParameters, { dataValue: pastedText }, { dataValue: expected, type: 'html' } );
+		},
+
 		'test various valid email links': function() {
 			var pastedTexts = [
 				'mail@example.com',
 				'mail@mail',
-				".!#$%&'*+-/=?^_`{|}~@1234567890",
+				// ? character is missing because of the (#2138) issue.
+				".!#$%&'*+-/=^_`{|}~@1234567890",
 				'mail@192.168.20.99'
 			];
 
@@ -148,11 +170,21 @@
 				this.editors.classic.once( 'paste', function( evt ) {
 					evt.cancel();
 
+					pastedText = pastedText.replace( '&', '&amp;' );
+
 					assert.areSame( '<a href="mailto:' + pastedText + '">' + pastedText + '</a>', evt.data.dataValue );
 				}, null, null, 900 );
 
 				this.editors.classic.execCommand( 'paste', pastedText );
 			}
+		},
+
+		// (#3156)
+		'test valid email link with optional regex': function() {
+			var pastedText = 'foo@foobar.com',
+				expected = '<a href="mailto:' + pastedText + '">' + pastedText + '</a>';
+
+			assertPasteEvent( this.editors.optionalParameters, { dataValue: pastedText }, { dataValue: expected, type: 'html' } );
 		},
 
 		'test various invalid URL links': function() {
@@ -177,6 +209,14 @@
 			}
 		},
 
+		// (#3156)
+		'test invalid URL link with optional regex': function() {
+			var pastedText = 'https://fobar.com';
+
+			assertPasteEvent( this.editors.optionalParameters, { dataValue: pastedText }, { dataValue: pastedText, type: 'html' } );
+		},
+
+
 		'test various invalid email links': function() {
 			var pastedTexts = [
 				'mail@',
@@ -198,6 +238,13 @@
 
 				this.editors.classic.execCommand( 'paste', pastedText );
 			}
+		},
+
+		// (#3156)
+		'test invalid email link with optional regex': function() {
+			var pastedText = 'foo@fobar.com';
+
+			assertPasteEvent( this.editors.optionalParameters, { dataValue: pastedText }, { dataValue: pastedText, type: 'html' } );
 		},
 
 		'test pasting multiple URL links': function() {
@@ -298,6 +345,18 @@
 			} );
 
 			wait();
+		},
+
+		// (#1824)
+		'test link plugin is loaded': function() {
+			bender.editorBot.create( {
+				name: 'editor_link_loaded',
+				config: {
+					plugins: 'autolink'
+				}
+			}, function( bot ) {
+				assert.isNotUndefined( bot.editor.plugins.link );
+			} );
 		}
 	} );
 

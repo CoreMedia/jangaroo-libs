@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['de'] = {
@@ -79,7 +79,7 @@ CKEDITOR.lang['de'] = {
     	headersColumn : 'Erste Spalte',
     	headersNone : 'Keine',
     	headersRow : 'Erste Zeile',
-    	heightUnit : 'height unit',
+    	heightUnit : 'Höheneinheit',
     	invalidBorder : 'Die Rahmenbreite muß eine Zahl sein.',
     	invalidCellPadding : 'Der Zellenabstand innen muß eine positive Zahl sein.',
     	invalidCellSpacing : 'Der Zellenabstand außen muß eine positive Zahl sein.',
@@ -164,9 +164,9 @@ CKEDITOR.lang['de'] = {
     	noAnchors : '(Keine Anker im Dokument vorhanden)',
     	noEmail : 'Bitte geben Sie E-Mail-Adresse an',
     	noUrl : 'Bitte geben Sie die Link-URL an',
-    	noTel : 'Please type the phone number',
+    	noTel : 'Bitte geben Sie die Telefonnummer ein',
     	other : '<andere>',
-    	phoneNumber : 'Phone number',
+    	phoneNumber : 'Telefonnummer',
     	popupDependent : 'Abhängig (Netscape)',
     	popupFeatures : 'Pop-up Fenstereigenschaften',
     	popupFullScreen : 'Vollbild (IE)',
@@ -191,7 +191,7 @@ CKEDITOR.lang['de'] = {
     	toAnchor : 'Anker in dieser Seite',
     	toEmail : 'E-Mail',
     	toUrl : 'URL',
-    	toPhone : 'Phone',
+    	toPhone : 'Telefon',
     	toolbar : 'Link einfügen/editieren',
     	type : 'Link-Typ',
     	unlink : 'Link entfernen',
@@ -199,8 +199,8 @@ CKEDITOR.lang['de'] = {
     },
     indent : 
     {
-    	indent : 'Einzug erhöhen',
-    	outdent : 'Einzug verringern'
+    	indent : 'Einzug vergrößern',
+    	outdent : 'Einzug verkleinern'
     },
     find : 
     {
@@ -243,7 +243,7 @@ CKEDITOR.lang['de'] = {
     clipboard : 
     {
     	copy : 'Kopieren',
-    	copyError : 'Die Sicherheitseinstellungen Ihres Browsers lassen es nicht zu, den Text automatisch kopieren. Bitte benutzen Sie die System-Zwischenablage über STRG-C (kopieren).',
+    	copyError : 'Die Sicherheitseinstellungen Ihres Browsers lassen es nicht zu, den Text automatisch zu kopieren. Bitte benutzen Sie die System-Zwischenablage über STRG-C (kopieren).',
     	cut : 'Ausschneiden',
     	cutError : 'Die Sicherheitseinstellungen Ihres Browsers lassen es nicht zu, den Text automatisch auszuschneiden. Bitte benutzen Sie die System-Zwischenablage über STRG-X (ausschneiden) und STRG-V (einfügen).',
     	paste : 'Einfügen',
@@ -304,7 +304,7 @@ CKEDITOR.lang['de'] = {
     	generalTab : 'Allgemein',
     	advancedTab : 'Erweitert',
     	validateNumberFailed : 'Dieser Wert ist keine Nummer.',
-    	confirmNewPage : 'Alle nicht gespeicherten Änderungen gehen verloren. Sind Sie sicher die neue Seite zu laden?',
+    	confirmNewPage : 'Alle nicht gespeicherten Änderungen gehen verloren. Sind Sie sicher, die neue Seite zu laden?',
     	confirmCancel : 'Einige Optionen wurden geändert. Wollen Sie den Dialog dennoch schließen?',
     	options : 'Optionen',
     	target : 'Zielseite',

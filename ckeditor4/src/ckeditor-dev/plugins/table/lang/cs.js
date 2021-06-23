@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.plugins.setLang( 'table', 'cs', {
@@ -50,7 +50,7 @@ CKEDITOR.plugins.setLang( 'table', 'cs', {
 	headersColumn: 'První sloupec',
 	headersNone: 'Žádné',
 	headersRow: 'První řádek',
-	heightUnit: 'height unit', // MISSING
+	heightUnit: 'jednotka výšky',
 	invalidBorder: 'Zdaná velikost okraje musí být číselná.',
 	invalidCellPadding: 'Zadané odsazení obsahu v buňce musí být číselné.',
 	invalidCellSpacing: 'Zadaná vzdálenost buněk musí být číselná.',

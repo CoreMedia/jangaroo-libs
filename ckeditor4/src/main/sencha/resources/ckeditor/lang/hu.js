@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['hu'] = {
@@ -79,7 +79,7 @@ CKEDITOR.lang['hu'] = {
     	headersColumn : 'Első oszlop',
     	headersNone : 'Nincsenek',
     	headersRow : 'Első sor',
-    	heightUnit : 'height unit',
+    	heightUnit : 'Magasság egység',
     	invalidBorder : 'A szegélyméret mezőbe csak számokat írhat.',
     	invalidCellPadding : 'A cella belső margó mezőbe csak számokat írhat.',
     	invalidCellSpacing : 'A cella térköz mezőbe csak számokat írhat.',
@@ -164,9 +164,9 @@ CKEDITOR.lang['hu'] = {
     	noAnchors : '(Nincs horgony a dokumentumban)',
     	noEmail : 'Adja meg az E-Mail címet',
     	noUrl : 'Adja meg a hivatkozás webcímét',
-    	noTel : 'Please type the phone number',
+    	noTel : 'Adja meg a telefonszámot',
     	other : '<más>',
-    	phoneNumber : 'Phone number',
+    	phoneNumber : 'Telefonszám',
     	popupDependent : 'Szülőhöz kapcsolt (csak Netscape)',
     	popupFeatures : 'Felugró ablak jellemzői',
     	popupFullScreen : 'Teljes képernyő (csak IE)',
@@ -191,7 +191,7 @@ CKEDITOR.lang['hu'] = {
     	toAnchor : 'Horgony az oldalon',
     	toEmail : 'E-Mail',
     	toUrl : 'URL',
-    	toPhone : 'Phone',
+    	toPhone : 'Telefon',
     	toolbar : 'Hivatkozás beillesztése/módosítása',
     	type : 'Hivatkozás típusa',
     	unlink : 'Hivatkozás törlése',
@@ -227,13 +227,13 @@ CKEDITOR.lang['hu'] = {
     },
     copyformatting : 
     {
-    	label : 'Copy Formatting',
+    	label : 'Formázás másolása',
     	notification : 
     	{
-    		copied : 'Formatting copied',
-    		applied : 'Formatting applied',
-    		canceled : 'Formatting canceled',
-    		failed : 'Formatting failed. You cannot apply styles without copying them first.'
+    		copied : 'Formázás másolva',
+    		applied : 'Formázás alkalmazva',
+    		canceled : 'Formázás megszakítva',
+    		failed : 'A formázás meghiúsult. Nem alkalmazhatsz stílusokat mielőtt másolnád őket.'
     	}
     },
     contextmenu : 

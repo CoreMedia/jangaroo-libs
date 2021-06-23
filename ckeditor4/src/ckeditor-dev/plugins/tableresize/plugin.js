@@ -1,5 +1,5 @@
 /**
- * @license Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -27,7 +27,7 @@
 				computed = 0;
 		}
 
-		return parseInt( computed, 10 );
+		return parseFloat( computed );
 	}
 
 	// Sets pillar height and position based on given table element (head, body, footer).
@@ -41,54 +41,76 @@
 	function buildTableColumnPillars( table ) {
 		var pillars = [],
 			pillarIndexMap = {},
-			rtl = ( table.getComputedStyle( 'direction' ) == 'rtl' );
+			rtl = table.getComputedStyle( 'direction' ) === 'rtl',
+			// We are building table map to expand row spans (#3961).
+			rows = CKEDITOR.tools.array.zip( new CKEDITOR.dom.nodeList( table.$.rows ).toArray(),
+				CKEDITOR.tools.buildTableMap( table ) );
 
-		var rows = table.$.rows;
-
-		CKEDITOR.tools.array.forEach( rows, function( item, index ) {
-			var $tr = item,
+		CKEDITOR.tools.array.forEach( rows, function( item ) {
+			var $tr = item[ 0 ].$,
+				cells = item[ 1 ],
 				pillarIndex = -1,
-				pillarRow,
 				pillarHeight = 0,
 				pillarPosition = null,
-				pillarDimensions = setPillarDimensions( $tr );
+				pillarDimensions = setPillarDimensions( $tr ),
+				isIE = CKEDITOR.env.ie && !CKEDITOR.env.edge,
+				isBorderCollapse = table.getComputedStyle( 'border-collapse' ) === 'collapse';
 
 			pillarHeight = pillarDimensions.height;
 			pillarPosition = pillarDimensions.position;
 
 			// Loop thorugh all cells, building pillars after each one of them.
-			for ( var i = 0, len = $tr.cells.length; i < len; i++ ) {
+			for ( var i = 0; i < cells.length; i++ ) {
 				// Both the current cell and the successive one will be used in the
 				// pillar size calculation.
-				var td = new CKEDITOR.dom.element( $tr.cells[ i ] ),
-					nextTd = $tr.cells[ i + 1 ] && new CKEDITOR.dom.element( $tr.cells[ i + 1 ] ),
-					pillar;
+				var td = new CKEDITOR.dom.element( cells[ i ] ),
+					nextTd = cells[ i + 1 ] && new CKEDITOR.dom.element( cells[ i + 1 ] ),
+					pillar,
+					pillarLeft,
+					pillarRight,
+					pillarWidth,
+					x = td.getDocumentPosition().x;
 
 				pillarIndex += td.$.colSpan || 1;
-				pillarRow = index;
-
-				// Calculate the pillar boundary positions.
-				var pillarLeft, pillarRight, pillarWidth;
-
-				var x = td.getDocumentPosition().x;
 
 				// Calculate positions based on the current cell.
-				rtl ? pillarRight = x + getBorderWidth( td, 'left' ) : pillarLeft = x + td.$.offsetWidth - getBorderWidth( td, 'right' );
+				if ( rtl ) {
+					pillarRight = x + getBorderWidth( td, 'left' );
+				} else {
+					pillarLeft = x + td.$.offsetWidth - getBorderWidth( td, 'right' );
+				}
 
 				// Calculate positions based on the next cell, if available.
 				if ( nextTd ) {
 					x = nextTd.getDocumentPosition().x;
 
-					rtl ? pillarLeft = x + nextTd.$.offsetWidth - getBorderWidth( nextTd, 'right' ) : pillarRight = x + getBorderWidth( nextTd, 'left' );
+					if ( rtl ) {
+						pillarLeft = x + nextTd.$.offsetWidth - getBorderWidth( nextTd, 'right' );
+					} else {
+						pillarRight = x + getBorderWidth( nextTd, 'left' );
+					}
 				}
 				// Otherwise calculate positions based on the table (for last cell).
 				else {
 					x = table.getDocumentPosition().x;
 
-					rtl ? pillarLeft = x : pillarRight = x + table.$.offsetWidth;
+					if ( rtl ) {
+						pillarLeft = x;
+					} else {
+						pillarRight = x + table.$.offsetWidth;
+					}
 				}
 
 				pillarWidth = Math.max( pillarRight - pillarLeft, 3 );
+
+				// In case of IE and collapsed table border, we must substract pillarWidth
+				// from the current position and recalculate pillarWidth (#2823).
+				if ( isIE && isBorderCollapse ) {
+					pillarLeft -= pillarWidth;
+
+					pillarWidth = Math.max( pillarRight - pillarLeft, 3 );
+				}
+
 
 				// The pillar should reflects exactly the shape of the hovered
 				// column border line.
@@ -275,7 +297,7 @@
 
 		resizer = CKEDITOR.dom.element.createFromHtml( '<div data-cke-temp=1 contenteditable=false unselectable=on ' +
 			'style="position:absolute;cursor:col-resize;filter:alpha(opacity=0);opacity:0;' +
-				'padding:0;background-color:#004;background-image:none;border:0px none;z-index:10"></div>', document );
+				'padding:0;background-color:#004;background-image:none;border:0px none;z-index:10000"></div>', document );
 
 		// Clean DOM when editor is destroyed.
 		editor.on( 'destroy', function() {

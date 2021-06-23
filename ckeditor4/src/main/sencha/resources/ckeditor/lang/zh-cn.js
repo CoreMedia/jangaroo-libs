@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['zh-cn'] = {
@@ -79,7 +79,7 @@ CKEDITOR.lang['zh-cn'] = {
     	headersColumn : '第一列',
     	headersNone : '无',
     	headersRow : '第一行',
-    	heightUnit : 'height unit',
+    	heightUnit : '高度单位',
     	invalidBorder : '边框粗细必须为数字格式',
     	invalidCellPadding : '单元格填充必须为数字格式',
     	invalidCellSpacing : '单元格间距必须为数字格式',
@@ -164,9 +164,9 @@ CKEDITOR.lang['zh-cn'] = {
     	noAnchors : '(此文档没有可用的锚点)',
     	noEmail : '请输入电子邮件地址',
     	noUrl : '请输入超链接地址',
-    	noTel : 'Please type the phone number',
+    	noTel : '请输入电话号码',
     	other : '<其他>',
-    	phoneNumber : 'Phone number',
+    	phoneNumber : '电话号码',
     	popupDependent : '依附 (NS)',
     	popupFeatures : '弹出窗口属性',
     	popupFullScreen : '全屏 (IE)',
@@ -191,7 +191,7 @@ CKEDITOR.lang['zh-cn'] = {
     	toAnchor : '页内锚点链接',
     	toEmail : '电子邮件',
     	toUrl : '地址',
-    	toPhone : 'Phone',
+    	toPhone : '电话',
     	toolbar : '插入/编辑超链接',
     	type : '超链接类型',
     	unlink : '取消超链接',

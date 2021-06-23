@@ -1,5 +1,5 @@
 /**
- * @license Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -66,7 +66,8 @@ CKEDITOR.DIALOG_STATE_BUSY = 2;
 
 	var cssLength = CKEDITOR.tools.cssLength,
 		defaultDialogDefinition,
-		currentCover;
+		currentCover,
+		stylesLoaded = false;
 
 	function focusActiveTab( dialog ) {
 		dialog._.tabBarMode = true;
@@ -1027,7 +1028,7 @@ CKEDITOR.DIALOG_STATE_BUSY = 2;
 		foreach: function( fn ) {
 			for ( var i in this._.contents ) {
 				for ( var j in this._.contents[ i ] ) {
-					fn.call( this, this._.contents[i][j] );
+					fn.call( this, this._.contents[ i ][ j ] );
 				}
 			}
 
@@ -2690,7 +2691,7 @@ CKEDITOR.DIALOG_STATE_BUSY = 2;
 							html.push( '<td class="', className, '" role="presentation" ' );
 							if ( widths ) {
 								if ( widths[ i ] ) {
-									styles.push( 'width:' + cssLength( widths[i] ) );
+									styles.push( 'width:' + cssLength( widths[ i ] ) );
 								}
 							} else {
 								styles.push( 'width:' + Math.floor( 100 / childHtmlList.length ) + '%' );
@@ -3168,7 +3169,7 @@ CKEDITOR.DIALOG_STATE_BUSY = 2;
 			numberRegex = /^\d*(?:\.\d+)?$/,
 			htmlLengthRegex = /^(((\d*(\.\d+))|(\d*))(px|\%)?)?$/,
 			cssLengthRegex = /^(((\d*(\.\d+))|(\d*))(px|em|ex|in|cm|mm|pt|pc|\%)?)?$/i,
-			inlineStyleRegex = /^(\s*[\w-]+\s*:\s*[^:;]+(?:;|$))*$/;
+			inlineStylePropertyRegex = /^(--|-?([a-zA-Z_]|\\))(\\|[a-zA-Z0-9-_])*\s*?:\s*?[^:;]+$/;
 
 		/**
 		 * {@link CKEDITOR.dialog Dialog} `OR` logical value indicates the
@@ -3366,6 +3367,7 @@ CKEDITOR.DIALOG_STATE_BUSY = 2;
 			 * Checks if a dialog UI element value is a correct CSS inline style.
 			 *
 			 * ```javascript
+			 * CKEDITOR.dialog.validate.inlineStyle( 'error!' )( '' ) // true
 			 * CKEDITOR.dialog.validate.inlineStyle( 'error!' )( 'height: 10px; width: 20px;' ) // true
 			 * CKEDITOR.dialog.validate.inlineStyle( 'error!' )( 'test' ) // error!
 			 * ```
@@ -3375,7 +3377,18 @@ CKEDITOR.DIALOG_STATE_BUSY = 2;
 			 */
 			'inlineStyle': function( msg ) {
 				return this.functions( function( val ) {
-					return inlineStyleRegex.test( CKEDITOR.tools.trim( val ) );
+					var properties = CKEDITOR.tools.trim( val ).split( ';' );
+
+					// Empty value is treated as valid value. It can be the only value (when empty 'val' provided)
+					// or the last one in table after splitting (due to ';' on end).
+					// Such value is removed so `every` call below can check for valid non-empty values only.
+					if ( properties[ properties.length - 1 ] === '' ) {
+						properties.pop();
+					}
+
+					return CKEDITOR.tools.array.every( properties, function( property ) {
+						return inlineStylePropertyRegex.test( CKEDITOR.tools.trim( property ) );
+					} );
 				}, msg );
 			},
 
@@ -3496,24 +3509,23 @@ CKEDITOR.DIALOG_STATE_BUSY = 2;
 			return dialog;
 		}
 	} );
+
+	CKEDITOR.plugins.add( 'dialog', {
+		requires: 'dialogui',
+		init: function( editor ) {
+			if ( !stylesLoaded ) {
+				CKEDITOR.document.appendStyleSheet( this.path + 'styles/dialog.css' );
+				stylesLoaded = true;
+			}
+
+			editor.on( 'doubleclick', function( evt ) {
+				if ( evt.data.dialog )
+					editor.openDialog( evt.data.dialog );
+			}, null, null, 999 );
+		}
+	} );
 } )();
 
-var stylesLoaded = false;
-
-CKEDITOR.plugins.add( 'dialog', {
-	requires: 'dialogui',
-	init: function( editor ) {
-		if ( !stylesLoaded ) {
-			CKEDITOR.document.appendStyleSheet( this.path + 'styles/dialog.css' );
-			stylesLoaded = true;
-		}
-
-		editor.on( 'doubleclick', function( evt ) {
-			if ( evt.data.dialog )
-				editor.openDialog( evt.data.dialog );
-		}, null, null, 999 );
-	}
-} );
 
 // Dialog related configurations.
 

@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['uk'] = {
@@ -79,7 +79,7 @@ CKEDITOR.lang['uk'] = {
     	headersColumn : 'Стовбці',
     	headersNone : 'Без заголовків',
     	headersRow : 'Рядки',
-    	heightUnit : 'height unit',
+    	heightUnit : 'одиниця висоти',
     	invalidBorder : 'Розмір рамки повинен бути цілим числом.',
     	invalidCellPadding : 'Внутр. відступ комірки повинен бути цілим числом.',
     	invalidCellSpacing : 'Проміжок між комірками повинен бути цілим числом.',
@@ -101,7 +101,7 @@ CKEDITOR.lang['uk'] = {
     	toolbar : 'Таблиця',
     	widthPc : 'відсотків',
     	widthPx : 'пікселів',
-    	widthUnit : 'Одиниці вимір.'
+    	widthUnit : 'одиниця ширини'
     },
     pastetext : 
     {
@@ -126,8 +126,8 @@ CKEDITOR.lang['uk'] = {
     },
     list : 
     {
-    	bulletedlist : 'Маркірований список',
-    	numberedlist : 'Нумерований список'
+    	bulletedlist : 'Вставити/видалити маркований список',
+    	numberedlist : 'Вставити/видалити нумерований список'
     },
     link : 
     {
@@ -227,13 +227,13 @@ CKEDITOR.lang['uk'] = {
     },
     copyformatting : 
     {
-    	label : 'Copy Formatting',
+    	label : 'Копіювати форматування',
     	notification : 
     	{
-    		copied : 'Formatting copied',
-    		applied : 'Formatting applied',
-    		canceled : 'Formatting canceled',
-    		failed : 'Formatting failed. You cannot apply styles without copying them first.'
+    		copied : 'Форматування скопійовано',
+    		applied : 'Форматування застосовано',
+    		canceled : 'Форматування скасовано',
+    		failed : 'Помилка форматування. Ви не можете застосовувати стилі без попереднього їх копіювання.'
     	}
     },
     contextmenu : 

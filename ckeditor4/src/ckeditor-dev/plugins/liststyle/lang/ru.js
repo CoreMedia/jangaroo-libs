@@ -1,12 +1,12 @@
 /*
-Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.plugins.setLang( 'liststyle', 'ru', {
 	bulletedTitle: 'Свойства маркированного списка',
-	circle: 'Круг',
+	circle: 'Окружность',
 	decimal: 'Десятичные (1, 2, 3, и т.д.)',
-	disc: 'Окружность',
+	disc: 'Круг',
 	lowerAlpha: 'Строчные латинские (a, b, c, d, e, и т.д.)',
 	lowerRoman: 'Строчные римские (i, ii, iii, iv, v, и т.д.)',
 	none: 'Нет',

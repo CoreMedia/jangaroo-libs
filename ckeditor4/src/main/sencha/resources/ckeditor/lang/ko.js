@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['ko'] = {
@@ -227,13 +227,13 @@ CKEDITOR.lang['ko'] = {
     },
     copyformatting : 
     {
-    	label : 'Copy Formatting',
+    	label : '양식 복사',
     	notification : 
     	{
-    		copied : 'Formatting copied',
-    		applied : 'Formatting applied',
-    		canceled : 'Formatting canceled',
-    		failed : 'Formatting failed. You cannot apply styles without copying them first.'
+    		copied : '양식이 복사 되었습니다',
+    		applied : '양식을 적용 했습니다',
+    		canceled : '양식이 취소 되었습니다',
+    		failed : '양식 적용에 실패했습니다. 양식을 복사해야 적용할 수 있습니다.'
     	}
     },
     contextmenu : 

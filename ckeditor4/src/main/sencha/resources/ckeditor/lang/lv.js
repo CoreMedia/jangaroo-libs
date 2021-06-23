@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['lv'] = {
@@ -126,8 +126,8 @@ CKEDITOR.lang['lv'] = {
     },
     list : 
     {
-    	bulletedlist : 'Pievienot/Noņemt vienkāršu sarakstu',
-    	numberedlist : 'Numurēts saraksts'
+    	bulletedlist : 'Ievietot/noņemt sarakstu ar aizzīmēm',
+    	numberedlist : 'Ievietot/noņemt numurētu sarakstu'
     },
     link : 
     {
@@ -151,22 +151,22 @@ CKEDITOR.lang['lv'] = {
     	download : 'Piespiedu ielāde',
     	displayText : 'Attēlot tekstu',
     	emailAddress : 'E-pasta adrese',
-    	emailBody : 'Ziņas saturs',
-    	emailSubject : 'Ziņas tēma',
+    	emailBody : 'Ziņojuma pamatteksts',
+    	emailSubject : 'Ziņojuma tēma',
     	id : 'ID',
-    	info : 'Hipersaites informācija',
+    	info : 'Saites informācija',
     	langCode : 'Valodas kods',
     	langDir : 'Valodas lasīšanas virziens',
     	langDirLTR : 'No kreisās uz labo (LTR)',
     	langDirRTL : 'No labās uz kreiso (RTL)',
-    	menu : 'Labot hipersaiti',
+    	menu : 'Rediģēt saiti',
     	name : 'Nosaukums',
     	noAnchors : '(Šajā dokumentā nav iezīmju)',
-    	noEmail : 'Lūdzu norādi e-pasta adresi',
-    	noUrl : 'Lūdzu norādi hipersaiti',
-    	noTel : 'Please type the phone number',
+    	noEmail : 'Lūdzu, ievadiet e-pasta adresi',
+    	noUrl : 'Lūdzu, ievadiet saites URL',
+    	noTel : 'Lūdzu, ievadiet tālruņa numuru',
     	other : '<cits>',
-    	phoneNumber : 'Phone number',
+    	phoneNumber : 'Tālruņa numurs',
     	popupDependent : 'Atkarīgs (Netscape)',
     	popupFeatures : 'Uznirstošā loga nosaukums īpašības',
     	popupFullScreen : 'Pilnā ekrānā (IE)',
@@ -187,14 +187,14 @@ CKEDITOR.lang['lv'] = {
     	targetFrameName : 'Mērķa ietvara nosaukums',
     	targetPopup : '<uznirstošā logā>',
     	targetPopupName : 'Uznirstošā loga nosaukums',
-    	title : 'Hipersaite',
+    	title : 'Saite',
     	toAnchor : 'Iezīme šajā lapā',
     	toEmail : 'E-pasts',
     	toUrl : 'Adrese',
-    	toPhone : 'Phone',
-    	toolbar : 'Ievietot/Labot hipersaiti',
-    	type : 'Hipersaites tips',
-    	unlink : 'Noņemt hipersaiti',
+    	toPhone : 'Tālrunis',
+    	toolbar : 'Saite',
+    	type : 'Saites tips',
+    	unlink : 'Atsaistīt',
     	upload : 'Augšupielādēt'
     },
     indent : 
@@ -227,13 +227,13 @@ CKEDITOR.lang['lv'] = {
     },
     copyformatting : 
     {
-    	label : 'Copy Formatting',
+    	label : 'Kopēt formatējumu',
     	notification : 
     	{
-    		copied : 'Formatting copied',
-    		applied : 'Formatting applied',
-    		canceled : 'Formatting canceled',
-    		failed : 'Formatting failed. You cannot apply styles without copying them first.'
+    		copied : 'Formatējums nokopēts',
+    		applied : 'Formatējums uzstādīts',
+    		canceled : 'Formatējums atcelts',
+    		failed : 'Formatēšana neizdevās. Nevar uzstādīt stilus bez to nokopēšanas.'
     	}
     },
     contextmenu : 
@@ -257,12 +257,12 @@ CKEDITOR.lang['lv'] = {
     },
     basicstyles : 
     {
-    	bold : 'Treknināts',
-    	italic : 'Kursīvs',
-    	strike : 'Pārsvītrots',
-    	subscript : 'Apakšrakstā',
-    	superscript : 'Augšrakstā',
-    	underline : 'Pasvītrots'
+    	bold : 'Treknraksts',
+    	italic : 'Slīpraksts',
+    	strike : 'Pārsvītrojums',
+    	subscript : 'Apakšraksts',
+    	superscript : 'Augšraksts',
+    	underline : 'Pasvītrojums'
     },
     editor : 'Bagātinātā teksta redaktors',
     editorPanel : 'Bagātinātā teksta redaktora panelis',

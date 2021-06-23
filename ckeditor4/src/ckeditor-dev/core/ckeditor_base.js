@@ -1,17 +1,16 @@
 /**
- * @license Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
 /**
  * @fileOverview Contains the first and essential part of the {@link CKEDITOR}
- *		object definition.
+ * object definition.
  */
 
 // #### Compressed Code
 // Compressed code in ckeditor.js must be be updated on changes in the script.
-// The Closure Compiler online service should be used when updating this manually:
-// http://closure-compiler.appspot.com/
+// Simply run `grunt ckeditor-base-replace` after changing this file.
 
 // #### Raw code
 // ATTENTION: read the above "Compressed Code" notes when changing this code.
@@ -201,11 +200,13 @@ if ( !window.CKEDITOR ) {
 						// Cleanup functions for the document ready method
 						if ( document.addEventListener ) {
 							document.removeEventListener( 'DOMContentLoaded', onReady, false );
+							window.removeEventListener( 'load', onReady, false );
 							executeCallbacks();
 						}
 						// Make sure body exists, at least, in case IE gets a little overzealous.
 						else if ( document.attachEvent && document.readyState === 'complete' ) {
 							document.detachEvent( 'onreadystatechange', onReady );
+							window.detachEvent( 'onload', onReady );
 							executeCallbacks();
 						}
 					} catch ( er ) {}

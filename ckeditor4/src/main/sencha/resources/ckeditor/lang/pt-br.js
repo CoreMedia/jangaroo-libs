@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['pt-br'] = {
@@ -79,7 +79,7 @@ CKEDITOR.lang['pt-br'] = {
     	headersColumn : 'Primeira coluna',
     	headersNone : 'Nenhum',
     	headersRow : 'Primeira linha',
-    	heightUnit : 'height unit',
+    	heightUnit : 'Unidade para altura',
     	invalidBorder : 'O tamanho da borda tem que ser um número.',
     	invalidCellPadding : 'A margem interna das células tem que ser um número.',
     	invalidCellSpacing : 'O espaçamento das células tem que ser um número.',
@@ -122,7 +122,7 @@ CKEDITOR.lang['pt-br'] = {
     },
     magicline : 
     {
-    	title : 'Insera um parágrafo aqui'
+    	title : 'Inserir um parágrafo aqui'
     },
     list : 
     {
@@ -164,9 +164,9 @@ CKEDITOR.lang['pt-br'] = {
     	noAnchors : '(Não há âncoras no documento)',
     	noEmail : 'Por favor, digite o endereço de e-mail',
     	noUrl : 'Por favor, digite o endereço do Link',
-    	noTel : 'Please type the phone number',
+    	noTel : 'Por favor, informe o número do telefone',
     	other : '<outro>',
-    	phoneNumber : 'Phone number',
+    	phoneNumber : 'Número de telefone',
     	popupDependent : 'Dependente (Netscape)',
     	popupFeatures : 'Propriedades da Janela Pop-up',
     	popupFullScreen : 'Modo Tela Cheia (IE)',
@@ -191,7 +191,7 @@ CKEDITOR.lang['pt-br'] = {
     	toAnchor : 'Âncora nesta página',
     	toEmail : 'E-Mail',
     	toUrl : 'URL',
-    	toPhone : 'Phone',
+    	toPhone : 'Telefone',
     	toolbar : 'Inserir/Editar Link',
     	type : 'Tipo de hiperlink',
     	unlink : 'Remover Link',

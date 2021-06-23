@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['el'] = {
@@ -227,7 +227,7 @@ CKEDITOR.lang['el'] = {
     },
     copyformatting : 
     {
-    	label : 'Copy Formatting',
+    	label : 'Αντιγραφή Μορφοποίησης',
     	notification : 
     	{
     		copied : 'Formatting copied',

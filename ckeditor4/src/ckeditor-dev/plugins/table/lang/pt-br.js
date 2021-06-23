@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.plugins.setLang( 'table', 'pt-br', {
@@ -50,7 +50,7 @@ CKEDITOR.plugins.setLang( 'table', 'pt-br', {
 	headersColumn: 'Primeira coluna',
 	headersNone: 'Nenhum',
 	headersRow: 'Primeira linha',
-	heightUnit: 'height unit', // MISSING
+	heightUnit: 'Unidade para altura',
 	invalidBorder: 'O tamanho da borda tem que ser um número.',
 	invalidCellPadding: 'A margem interna das células tem que ser um número.',
 	invalidCellSpacing: 'O espaçamento das células tem que ser um número.',

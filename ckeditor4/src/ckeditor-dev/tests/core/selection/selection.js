@@ -2,6 +2,18 @@
 /* global testSelection, testSelectedElement, testSelectedText, testStartElement, rangy, doc, makeSelection,
 	convertRange, checkRangeEqual, checkSelection, assertSelectionsAreEqual, tools */
 
+bender.editors = {
+	divarea: {
+		name: 'divarea',
+		startupData: '<p>Paragraph 1</p><p>Paragraph 2</p><p>Paragraph 3</p><p>Paragraph 4</p><p>Paragraph 5</p><p>Paragraph 6</p>',
+		config: {
+			extraPlugins: 'divarea',
+			width: '100px',
+			height: '100px'
+		}
+	}
+};
+
 bender.editor = {
 	config: {
 		allowedContent: true
@@ -368,6 +380,22 @@ bender.test( {
 		assert.isTrue( checkRangeEqual( resultRange, newRange ), 'get ranges result from locked selection doesn\'t match the original.' );
 		assert.isTrue( sel.getStartElement().is( 'strong' ), 'start element result from locked selection doesn\'t match the original.' );
 		assert.isTrue( sel.rev > initialRev, 'unlocked selection gets new rev' );
+	},
+
+	// (#3931)
+	'test unlock with no root editor': function() {
+		makeSelection( '<p>[abc]</p>' );
+
+		var sel = doc.getSelection();
+
+		sel.lock();
+
+		try {
+			sel.unlock( true );
+			assert.pass();
+		} catch ( e ) {
+			assert.fail();
+		}
 	},
 
 	'test unlock outdated selection 1': function() {
@@ -827,5 +855,19 @@ bender.test( {
 		editor.editable().fire( 'keydown', event );
 
 		assert.isFalse( eventSpy.called );
+	},
+
+	// (#4041)
+	'test scrollIntoView method': function() {
+		var editor = this.editor,
+			selection = editor.getSelection();
+
+		selection.removeAllRanges();
+
+		// Should be able to detect if selection equals none.
+		// Throws error for failing path.
+		selection.scrollIntoView();
+
+		assert.pass();
 	}
 } );

@@ -1,5 +1,5 @@
 /* bender-tags: editor */
-/* bender-ckeditor-plugins: autocomplete,wysiwygarea */
+/* bender-ckeditor-plugins: autocomplete,wysiwygarea,sourcearea */
 
 ( function() {
 	'use strict';
@@ -8,6 +8,11 @@
 		standard: {
 			config: {
 				allowedContent: 'strong',
+				removePlugins: 'tab'
+			}
+		},
+		source: {
+			config: {
 				removePlugins: 'tab'
 			}
 		},
@@ -153,6 +158,37 @@
 				} );
 
 			}, 150 );
+
+			wait();
+		},
+
+		// (#3938, #4107)
+		'test navigation keybindings are registered after changing mode': function() {
+			var editor = this.editors.source,
+				bot = this.editorBots.standard,
+				ac1 = new CKEDITOR.plugins.autocomplete( editor, configDefinition ),
+				ac2 = new CKEDITOR.plugins.autocomplete( editor, configDefinition );
+
+			editor.setMode( 'source', function() {
+				editor.setMode( 'wysiwyg', function() {
+					resume( function() {
+						testPanelEvents( ac1, 'The first autocomplete navigation bindings should work' );
+						testPanelEvents( ac2, 'The second autocomplete navigation bindings should work' );
+					} );
+				} );
+			} );
+
+			function testPanelEvents( autocomplete, msg ) {
+				var spy = sinon.spy( autocomplete, 'onKeyDown' );
+
+				bot.setHtmlWithSelection( '' );
+
+				editor.editable().fire( 'keydown', new CKEDITOR.dom.event( {} ) );
+
+				spy.restore();
+
+				assert.isTrue( spy.called, msg );
+			}
 
 			wait();
 		},
@@ -362,7 +398,7 @@
 			// |     |     view     |                        |
 			// |     |              |                        |
 			// |     +--------------+                        |
-			// |																						 |
+			// |                                             |
 			// |       editor viewport                       |
 			// +---------------------------------------------+
 			viewport.fire( 'scroll' );
@@ -416,14 +452,17 @@
 						callback( [ { id: 1, name: 'anna' } ] );
 					},
 					itemTemplate: '<li data-id="{id}"><strong>{name}</strong></li>'
-				} );
+				} ),
+				expectedHtmlRegex = /<ul><li class="cke_autocomplete_selected" data-id="1" id="cke_[\d]+" role="option"><strong>anna<\/strong><\/li><\/ul>/,
+				actualHtml;
 
 			this.editorBots.standard.setHtmlWithSelection( '' );
 
 			editor.editable().fire( 'keyup', new CKEDITOR.dom.event( {} ) );
 
-			assert.beautified.html( '<ul><li class="cke_autocomplete_selected" data-id="1"><strong>anna</strong></li></ul>',
-				ac.view.element.getHtml() );
+			actualHtml = bender.tools.compatHtml( ac.view.element.getHtml(), false, true );
+
+			assert.isTrue( expectedHtmlRegex.test( actualHtml ), 'Incorrect autocomplete item HTML' );
 
 			ac.destroy();
 		},

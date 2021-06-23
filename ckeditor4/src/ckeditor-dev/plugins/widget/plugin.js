@@ -1,5 +1,5 @@
 ﻿/**
- * @license Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -288,6 +288,10 @@
 		 * This method is triggered by the {@link #event-checkSelection} event.
 		 */
 		checkSelection: function() {
+			if ( !this.editor.getSelection() ) {
+				return;
+			}
+
 			var sel = this.editor.getSelection(),
 				selectedElement = sel.getSelectedElement(),
 				updater = stateUpdater( this ),
@@ -1924,11 +1928,14 @@
 			}
 			this._.initialSetData = false;
 
+			// Unescape protected content to prevent double escaping and corruption of content (#4060, #4509).
+			data = this.editor.dataProcessor.unprotectSource( data );
 			data = this.editor.dataProcessor.toHtml( data, {
 				context: this.getName(),
 				filter: this.filter,
 				enterMode: this.enterMode
 			} );
+
 			this.setHtml( data );
 
 			this.editor.widgets.initOnAll( this );
@@ -2619,6 +2626,8 @@
 				id = dataTransfer.getData( 'cke/widget-id' ),
 				transferType = dataTransfer.getTransferType( editor ),
 				dragRange = editor.createRange(),
+				dropRange = evt.data.dropRange,
+				dropWidget = getWidgetFromRange( dropRange ),
 				sourceWidget;
 
 			// Disable cross-editor drag & drop for widgets - https://dev.ckeditor.com/ticket/13599.
@@ -2633,13 +2642,20 @@
 
 			// Add support for dropping selection containing more than widget itself
 			// or more than one widget (#3441).
-			if ( !id && editor.widgets.selected.length > 0 ) {
+			if ( id === '' && editor.widgets.selected.length > 0 ) {
 				evt.data.dataTransfer.setData( 'text/html', getClipboardHtml( editor ) );
 				return;
 			}
 
 			sourceWidget = widgetsRepo.instances[ id ];
 			if ( !sourceWidget ) {
+				return;
+			}
+
+			// Disable dropping into itself or nested widgets (#4509).
+			if ( isTheSameWidget( sourceWidget, dropWidget ) ) {
+				evt.cancel();
+
 				return;
 			}
 
@@ -2655,6 +2671,26 @@
 
 			evt.data.dataTransfer.setData( 'text/html', sourceWidget.getClipboardHtml() );
 			editor.widgets.destroy( sourceWidget, true );
+
+			// In case of dropping widget, the fake selection should be on the widget itself.
+			// Thanks to that we should always get widget from range's boundary nodes.
+			function getWidgetFromRange( range ) {
+				var startElement = range.getBoundaryNodes().startNode;
+
+				if ( startElement.type !== CKEDITOR.NODE_ELEMENT ) {
+					startElement = startElement.getParent();
+				}
+
+				return editor.widgets.getByElement( startElement );
+			}
+
+			function isTheSameWidget( widget1, widget2 ) {
+				if ( !widget1 || !widget2 ) {
+					return false;
+				}
+
+				return widget1.wrapper.equals( widget2.wrapper ) || widget1.wrapper.contains( widget2.wrapper );
+			}
 		} );
 
 		editor.on( 'contentDom', function() {
@@ -2916,10 +2952,12 @@
 		// It's not possible to manually create selection which starts inside one widget and ends in another,
 		// so we are skipping this case to simplify implementation (#3498).
 		function fixCrossContentSelection() {
-			var selection = editor.getSelection(),
-				ranges = selection && selection.getRanges(),
-				range = ranges[ 0 ];
+			var selection = editor.getSelection();
+			if ( !selection ) {
+				return;
+			}
 
+			var range = selection.getRanges()[ 0 ];
 			if ( !range || range.collapsed ) {
 				return;
 			}

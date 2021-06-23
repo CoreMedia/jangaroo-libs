@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 
@@ -176,6 +176,35 @@ a.cke_button_expandable.cke_button_off:active
 	border: 3px solid #000;
 	/* Compensate the border change */
 	padding: 1px 3px;
+}
+
+/* Disable hover styles on mobile devices (#4611). */
+@media screen and ( hover: none ) {
+	a.cke_button_off:hover
+	{
+		background: transparent;
+		border: 0;
+		padding: 4px 6px;
+	}
+
+	a.cke_button_expandable.cke_button_off:hover
+	{
+		padding: 4px 5px;
+	}
+
+	/* We need to restore :active styles. */
+	a.cke_button_off:active
+	{
+		background: #e5e5e5;
+		border: 1px #bcbcbc solid;
+		/* Compensate the border change */
+		padding: 3px 5px;
+	}
+
+	a.cke_button_expandable.cke_button_off:active
+	{
+		padding: 3px 4px;
+	}
 }
 
 

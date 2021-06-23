@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['sr'] = {
@@ -79,7 +79,7 @@ CKEDITOR.lang['sr'] = {
     	headersColumn : 'Прва колона',
     	headersNone : 'Нема',
     	headersRow : 'Први ред',
-    	heightUnit : 'height unit',
+    	heightUnit : 'Јединица висине',
     	invalidBorder : 'Величина ивице треба да буде цифра.',
     	invalidCellPadding : 'Пуњење ћелије треба да буде позитивна цифра.',
     	invalidCellSpacing : 'Размак ћелије треба да буде позитивна цифра.',
@@ -227,13 +227,13 @@ CKEDITOR.lang['sr'] = {
     },
     copyformatting : 
     {
-    	label : 'Copy Formatting',
+    	label : 'Копирање форматирања',
     	notification : 
     	{
-    		copied : 'Formatting copied',
-    		applied : 'Formatting applied',
-    		canceled : 'Formatting canceled',
-    		failed : 'Formatting failed. You cannot apply styles without copying them first.'
+    		copied : 'Копирано форматирање',
+    		applied : 'Форматирање примењено',
+    		canceled : 'Форматирање примењено',
+    		failed : 'Форматирање није успело. Не можете примењивати стилове пре него што их копирате.'
     	}
     },
     contextmenu : 

@@ -2,21 +2,21 @@ Software License Agreement
 ==========================
 
 CKEditor - The text editor for Internet - https://ckeditor.com/
-Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
 
 Licensed under the terms of any of the following licenses at your
 choice:
 
  - GNU General Public License Version 2 or later (the "GPL")
-   http://www.gnu.org/licenses/gpl.html
+   https://www.gnu.org/licenses/gpl.html
    (See Appendix A)
 
  - GNU Lesser General Public License Version 2.1 or later (the "LGPL")
-   http://www.gnu.org/licenses/lgpl.html
+   https://www.gnu.org/licenses/lgpl.html
    (See Appendix B)
 
  - Mozilla Public License Version 1.1 or later (the "MPL")
-   http://www.mozilla.org/MPL/MPL-1.1.html
+   https://www.mozilla.org/MPL/MPL-1.1.html
    (See Appendix C)
 
 You are not required to, but if you want to explicitly declare the
@@ -37,14 +37,14 @@ done by developers outside of CKSource with their express permission.
 
 The following libraries are included in CKEditor under the MIT license (see Appendix D):
 
-* CKSource Samples Framework (included in the samples) - Copyright (c) 2014-2020, CKSource - Frederico Knabben.
+* CKSource Samples Framework (included in the samples) - Copyright (c) 2014-2021, CKSource - Frederico Knabben.
 * PicoModal (included in `samples/js/sf.js`) - Copyright (c) 2012 James Frasca.
 * CodeMirror (included in the samples) - Copyright (C) 2014 by Marijn Haverbeke <marijnh@gmail.com> and others.
 * ES6Promise - Copyright (c) 2014 Yehuda Katz, Tom Dale, Stefan Penner and contributors.
 
 Parts of code taken from the following libraries are included in CKEditor under the MIT license (see Appendix D):
 
-* jQuery (inspired the domReady function, ckeditor_base.js) - Copyright (c) 2011 John Resig, http://jquery.com/
+* jQuery (inspired the domReady function, ckeditor_base.js) - Copyright (c) 2011 John Resig, https://jquery.com/
 
 The following libraries are included in CKEditor under the SIL Open Font License, Version 1.1 (see Appendix E):
 
@@ -59,16 +59,16 @@ The following libraries are included in CKEditor under the BSD-3 License (see Ap
 
 The following libraries are included only in the development version of CKEditor under the MIT license (see Appendix D):
 
-* CKBuilder - Copyright (c) 2012-2020, CKSource - Frederico Knabben.
-* CKLangTool - Copyright (c) 2012-2020, CKSource - Frederico Knabben.
+* CKBuilder - Copyright (c) 2012-2021, CKSource - Frederico Knabben.
+* CKLangTool - Copyright (c) 2012-2021, CKSource - Frederico Knabben.
 * Optimist - Copyright 2010 James Halliday (mail@substack.net).
 * Tmp - Copyright (c) 2014 KARASZI István.
 * Mkdirp - Copyright 2010 James Halliday (mail@substack.net).
-* Bender.js - Copyright (c) 2014-2020, CKSource - Frederico Knabben.
-* benderjs-coverage - Copyright (c) 2014-2020, CKSource - Frederico Knabben.
-* benderjs-jquery - Copyright (c) 2014-2020, CKSource - Frederico Knabben.
-* benderjs-sinon - Copyright (c) 2014-2020, CKSource - Frederico Knabben.
-* benderjs-yui - Copyright (c) 2014-2020, CKSource - Frederico Knabben.
+* Bender.js - Copyright (c) 2014-2021, CKSource - Frederico Knabben.
+* benderjs-coverage - Copyright (c) 2014-2021, CKSource - Frederico Knabben.
+* benderjs-jquery - Copyright (c) 2014-2021, CKSource - Frederico Knabben.
+* benderjs-sinon - Copyright (c) 2014-2021, CKSource - Frederico Knabben.
+* benderjs-yui - Copyright (c) 2014-2021, CKSource - Frederico Knabben.
 * Grunt - Copyright (c) 2015 "Cowboy" Ben Alman.
 * grunt-contrib-imagemin - Copyright (c) 2014 Sindre Sorhus, contributors.
 * grunt-jscs - Copyright (c) 2014 Gustavo Henke, contributors.
@@ -80,6 +80,7 @@ The following libraries are included only in the development version of CKEditor
 * grunt-githooks - Copyright (c) 2013 Romaric Pascal.
 * jQuery Form Plugin (used in jquery adapter test) - Copyright (c) 2012 M. Alsup
 * RequireJS - Copyright jQuery Foundation and other contributors.
+* Replace in File - Copyright 2015-2020, Adam Reis, Co-founder at Hello Club.
 
 The following libraries are included only in the development version of CKEditor under the BSD-3 License (see Appendix F):
 
@@ -88,6 +89,10 @@ The following libraries are included only in the development version of CKEditor
 The following libraries are included only in the development version of CKEditor under the Apache License (see Appendix G):
 
 * Less.js - Copyright (c) 2009-2014 Alexis Sellier & The Core Less Team.
+
+The following libraries are included only in the development version of CKEditor under the BSD-2 License (see Appendix H):
+
+* UglifyJS 3 - Copyright 2012-2019 (c) Mihai Bazon <mihai.bazon@gmail.com>.
 
 (Ignore this line: %REMOVE_END%)
 
@@ -1640,3 +1645,17 @@ END OF TERMS AND CONDITIONS
 ```
 
 (Ignore this line: %REMOVE_END%)
+
+Appendix H: The BSD-2 License
+-----------------------------
+
+```
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+```
+
+(Ignore this line: %REMOVE_START%)

@@ -1,5 +1,5 @@
 /**
- * @license Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -260,8 +260,9 @@
 		var customConfig = editor.config.customConfig;
 
 		// Check if there is a custom config to load.
-		if ( !customConfig )
+		if ( !customConfig ) {
 			return false;
+		}
 
 		customConfig = CKEDITOR.getUrl( customConfig );
 
@@ -275,19 +276,19 @@
 
 			// If there is no other customConfig in the chain, fire the
 			// "configLoaded" event.
-			if ( CKEDITOR.getUrl( editor.config.customConfig ) == customConfig || !loadConfig( editor ) )
+			if ( CKEDITOR.getUrl( editor.config.customConfig ) == customConfig || !loadConfig( editor ) ) {
 				editor.fireOnce( 'customConfigLoaded' );
+			}
+
 		} else {
 			// Load the custom configuration file.
 			// To resolve customConfig race conflicts, use scriptLoader#queue
 			// instead of scriptLoader#load (https://dev.ckeditor.com/ticket/6504).
 			CKEDITOR.scriptLoader.queue( customConfig, function() {
-				// If the CKEDITOR.editorConfig function has been properly
-				// defined in the custom configuration file, cache it.
-				if ( CKEDITOR.editorConfig )
-					loadedConfig.fn = CKEDITOR.editorConfig;
-				else
-					loadedConfig.fn = function() {};
+				// Cache config if it has been properly set using `editorConfig`,
+				// but make sure to not overwrite existing cache if the same config has
+				// been loaded multiple times by different editors (#3361).
+				loadedConfig.fn = loadedConfig.fn || CKEDITOR.editorConfig || function() {};
 
 				// Call the load config again. This time the custom
 				// config is already cached and so it will get loaded.
@@ -1117,6 +1118,9 @@
 		 * @param {Function} [options.callback] Function to be called after `setData` is completed (on {@link #dataReady}).
 		 * @param {Boolean} [options.noSnapshot=false] If set to `true`, it will prevent recording an undo snapshot.
 		 * Introduced in CKEditor 4.4.2.
+		 * @param {Boolean} [internal=false] Old equivalent of `options.internal` parameter. It is only available
+		 * to provide backwards compatibility for calls with `data, callback, internal` parameters.
+		 * It is recommended to use `options.internal` parameter instead.
 		 */
 		setData: function( data, options, internal ) {
 			var fireSnapshot = true,

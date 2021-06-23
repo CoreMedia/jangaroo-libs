@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.plugins.setLang( 'docprops', 'es', {
@@ -33,7 +33,7 @@ CKEDITOR.plugins.setLang( 'docprops', 'es', {
 	metaAuthor: 'Autor',
 	metaCopyright: 'Copyright',
 	metaDescription: 'Descripción del documento',
-	metaKeywords: 'Palabras claves del documento separadas por coma (meta keywords)',
+	metaKeywords: 'Palabras claves del documento (separadas por coma)',
 	other: 'Otro...',
 	previewHtml: '<p>Este es un <strong>texto de ejemplo</strong>. Usted está usando <a href="javascript:void(0)">CKEditor</a>.</p>',
 	title: 'Propiedades del documento',
