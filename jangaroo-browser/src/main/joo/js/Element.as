@@ -131,6 +131,10 @@ public class Element extends Node {
 
 
 
+  public native function hasAttribute(name : String) : Boolean;
+
+
+
   public native function removeAttribute(name : String) : void;
 
 
