@@ -75,7 +75,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <jangaroo.version>4.1.0-alpha-1</jangaroo.version>
+    <jangaroo.version>4.1.0-alpha-9-SNAPSHOT</jangaroo.version>
     <extjs.version>6.2.0</extjs.version>
   </properties>
 
@@ -109,6 +109,18 @@
             <configuration>
               <migrateToTypeScript>true</migrateToTypeScript>
               <suppressCommentedActionScriptCode>true</suppressCommentedActionScriptCode>
+              <npmPackageFolderNameReplacers>
+                <npmPackageFolderNameReplacer>
+                  <search>^@jangaroo/(.*)$</search>
+                  <replace>packages/$1</replace>
+                </npmPackageFolderNameReplacer>
+              </npmPackageFolderNameReplacers>
+              <npmDependencyOverrides>
+                <npmDependencyOverride>
+                  <search>^(@jangaroo/.*):.*$</search>
+                  <replace>$1:^1.0.0-alpha</replace>
+                </npmDependencyOverride>
+              </npmDependencyOverrides>
             </configuration>
           </plugin>
         </plugins>
@@ -159,6 +171,24 @@
         <artifactId>jangaroo-maven-plugin</artifactId>
         <extensions>true</extensions>
         <version>${jangaroo.version}</version>
+        <configuration>
+          <npmPackageNameReplacers>
+            <nameReplacer>
+              <search>^net.jangaroo__jangaroo-runtime$</search>
+              <replace>@jangaroo/runtime</replace>
+            </nameReplacer>
+            <nameReplacer>
+              <search>^net.jangaroo__(.*)$</search>
+              <replace>@jangaroo/$1</replace>
+            </nameReplacer>
+          </npmPackageNameReplacers>
+          <npmPackageVersionReplacers>
+            <npmPackageVersionReplacer>
+              <search>^.*$</search>
+              <replace>1.0.0</replace>
+            </npmPackageVersionReplacer>
+          </npmPackageVersionReplacers>
+        </configuration>
       </plugin>
     </plugins>
 
