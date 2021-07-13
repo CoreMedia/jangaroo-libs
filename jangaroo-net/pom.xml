@@ -19,6 +19,7 @@
         <artifactId>jangaroo-maven-plugin</artifactId>
         <version>${jangaroo.version}</version>  <!-- for stupid IDEA -->
         <configuration>
+          <extNamespace>net.jangaroo.net</extNamespace>
           <jooUnitTestExecutionTimeout>120000</jooUnitTestExecutionTimeout>
           <testSuite>net.jangaroo.net.TestSuite</testSuite>
         </configuration>
