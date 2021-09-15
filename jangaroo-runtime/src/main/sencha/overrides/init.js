@@ -32,6 +32,10 @@ Ext.ClassManager.registerPostprocessor('__lazyFactory__', function(className, cl
     var scope = !parts.length ? Ext.ns() : Ext.ns(parts.join('.')); 
     Object.defineProperty(scope, name, {
       get: function() {
+        // prevent that lookupName initializes lazy singletons earlier than expected
+        if (arguments.callee.caller === Ext.ClassManager.lookupName) {
+          return className;
+        }
         if (joo.debug) {
           console.log("lazy init " + className);
         }
