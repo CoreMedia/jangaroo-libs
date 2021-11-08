@@ -5,6 +5,7 @@ package joo {
  * @return the Jangaroo compiler version that generated the Runtime.
  */
 [Native]
+[Deprecated(since="4.1.9", replacement="none")]
 public native function get compilerVersion():String;
 
 }
