@@ -4,6 +4,7 @@ import js.URL;
 /**
  * Represents an entry in an app listing.
  */
+[Rename("AS3.AppEntry")]
 public interface AppEntry {
 
   /**

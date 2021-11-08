@@ -1,6 +1,6 @@
 package net.jangaroo.ext {
 
-[Rename("joo.ConfigUtils")]
+[Rename("AS3.ConfigUtils")]
 public class Exml {
 
   public static const PREPEND:int = -1;
