@@ -2,7 +2,7 @@ package mx.resources {
 
 import joo.getQualifiedObject;
 
-[Rename("joo.ResourceManager")]
+[Rename("l10n.ResourceManagerImpl")]
 public class ResourceManager implements IResourceManager {
 
   private static const resourceManager:ResourceManager = new ResourceManager();

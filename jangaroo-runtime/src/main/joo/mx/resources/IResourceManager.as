@@ -20,7 +20,7 @@
 package mx.resources
 {
 
-[Rename("joo.IResourceManager")]
+[Rename("l10n.IResourceManager")]
 /**
  *  The APIs of the IResourceManager interface
  *  provide localization support for Flex applications.
@@ -98,7 +98,7 @@ package mx.resources
  *  @playerversion AIR 1.1
  *  @productversion Flex 3
  */
-public interface IResourceManager 
+public interface IResourceManager
 {
   //--------------------------------------------------------------------------
   //

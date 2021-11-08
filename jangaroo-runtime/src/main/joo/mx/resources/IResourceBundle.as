@@ -20,7 +20,7 @@
 package mx.resources
 {
 
-[Rename("joo.IResourceBundle")]
+[Rename("l10n.IResourceBundle")]
 /**
  *  The IResourceBundle and IResourceManager interfaces work together
  *  to provide localization support for Flex applications.

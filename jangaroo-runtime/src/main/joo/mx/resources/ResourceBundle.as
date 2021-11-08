@@ -3,7 +3,7 @@
  */
 package mx.resources {
 
-[Rename("joo.ResourceBundle")]
+[Rename("l10n.ResourceBundle")]
 public class ResourceBundle implements IResourceBundle {
 
   /**

@@ -44,6 +44,7 @@ package joo {
  * @author Manuel Ohlendorf
  * @author Frank Wienberg
  */
+[Rename("l10n.ILocaleSupport")]
 public interface ILocaleSupport {
 
   /**
