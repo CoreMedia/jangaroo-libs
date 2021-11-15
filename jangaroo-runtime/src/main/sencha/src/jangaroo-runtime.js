@@ -227,3 +227,9 @@ joo.getAppRootPath = function (appEntries) {
     });
   });
 }
+
+Object.defineProperty(globalThis, "resourceManager", {
+  get: function () {
+    return joo.getQualifiedObject("l10n.resourceManager");
+  }
+});
