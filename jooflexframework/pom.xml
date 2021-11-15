@@ -2,7 +2,7 @@
   <parent>
     <groupId>net.jangaroo</groupId>
     <artifactId>jangaroo-libs-parent</artifactId>
-    <version>4.1.3</version>
+    <version>4.1.4-SNAPSHOT</version>
     <relativePath>../jangaroo-libs-parent/pom.xml</relativePath>
   </parent>
 
