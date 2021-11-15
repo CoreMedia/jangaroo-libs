@@ -26,7 +26,7 @@ package joo {
  * @see joo.DynamicClassLoader
  */
 [Native]
-[Deprecated(since="4.1.9", replacement="none")]
+[Deprecated(since="4.1.2", replacement="none")]
 public native function loadModule(groupId:String, artifactId:String):void;
 
 }

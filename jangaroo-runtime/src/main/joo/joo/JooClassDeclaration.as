@@ -17,7 +17,7 @@
 
 package joo {
 
-[Deprecated(since="4.1.9", replacement="none")]
+[Deprecated(since="4.1.2", replacement="none")]
 public class JooClassDeclaration extends NativeClassDeclaration {
 
   public static const STATE_EVENT_AFTER_INIT_MEMBERS:String = 'afterInitMembers';

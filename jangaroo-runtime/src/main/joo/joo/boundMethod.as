@@ -52,7 +52,7 @@ package joo {
  * @see Function
  */
 [Native]
-[Deprecated(since="4.1.9", replacement="none")]
+[Deprecated(since="4.1.2", replacement="none")]
 public native function boundMethod(object:Object, methodName:String):Function;
 
 

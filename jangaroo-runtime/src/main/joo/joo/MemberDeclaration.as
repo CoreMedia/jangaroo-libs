@@ -16,7 +16,7 @@
 // JangarooScript runtime support. Author: Frank Wienberg
 
 package joo {
-[Deprecated(since="4.1.9", replacement="none")]
+[Deprecated(since="4.1.2", replacement="none")]
 public class MemberDeclaration {
 
   public static const

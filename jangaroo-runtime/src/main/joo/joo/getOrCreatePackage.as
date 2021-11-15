@@ -22,7 +22,7 @@ package joo {
  * @see joo.getQualifiedObject()
  */
 [Native]
-[Deprecated(since="4.1.9", replacement="none")]
+[Deprecated(since="4.1.2", replacement="none")]
 public native function getOrCreatePackage(packageName : String) : *;
 
 

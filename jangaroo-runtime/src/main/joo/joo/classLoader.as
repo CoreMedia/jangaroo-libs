@@ -18,7 +18,7 @@ package joo {
  * Jangaroo's singleton class loader object.
  */
 [Native]
-[Deprecated(since="4.1.9", replacement="none")]
+[Deprecated(since="4.1.2", replacement="none")]
 public var classLoader:SystemClassLoader;
 
 }

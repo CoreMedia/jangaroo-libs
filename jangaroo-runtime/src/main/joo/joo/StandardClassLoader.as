@@ -17,7 +17,7 @@
 
 package joo {
 
-[Deprecated(since="4.1.9", replacement="none")]
+[Deprecated(since="4.1.2", replacement="none")]
 public class StandardClassLoader extends SystemClassLoader {
 
   private static var classDeclarations : Array = [];
