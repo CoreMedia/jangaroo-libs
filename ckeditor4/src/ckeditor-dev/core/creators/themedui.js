@@ -260,7 +260,7 @@ CKEDITOR.replaceClass = 'ckeditor';
 	 * ```
 	 *
 	 * @param {Number/String} width The new width. It can be an integer denoting a value
-	 * in pixels or a CSS size value with unit.
+	 * in pixels or a CSS size value with unit. When null is passed, the value will not be set.
 	 * @param {Number/String} height The new height. It can be an integer denoting a value
 	 * in pixels or a CSS size value with unit.
 	 * @param {Boolean} [isContentHeight] Indicates that the provided height is to
@@ -340,6 +340,12 @@ CKEDITOR.replaceClass = 'ckeditor';
 		element = CKEDITOR.editor._getEditorElement( element );
 
 		if ( !element ) {
+			return null;
+		}
+
+		// (#4461)
+		if ( CKEDITOR.editor.shouldDelayEditorCreation( element, config ) ) {
+			CKEDITOR.editor.initializeDelayedEditorCreation( element, config, 'replace' );
 			return null;
 		}
 

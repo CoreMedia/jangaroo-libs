@@ -4,7 +4,6 @@
  */
 
 ( function() {
-
 	CKEDITOR.dialog.add( 'templates', function( editor ) {
 		// Constructs the HTML view of the specified templates data.
 		function renderTemplatesList( container, templatesDefinitions ) {
@@ -51,7 +50,19 @@
 			item.getFirst().setHtml( html );
 
 			item.on( 'click', function() {
-				insertTemplate( template.html );
+				if( template.htmlFile ) {
+					var templatesDialog = CKEDITOR.dialog.getCurrent();
+
+					templatesDialog.setState( CKEDITOR.DIALOG_STATE_BUSY );
+
+					// Load HTML of the file before inserting it.
+					CKEDITOR.ajax.loadText( template.htmlFile, function( html ) {
+						insertTemplate( html );
+						templatesDialog.setState( CKEDITOR.DIALOG_STATE_IDLE );
+					} );
+				} else {
+					insertTemplate( template.html );
+				}
 			} );
 
 			return item;
@@ -145,6 +156,12 @@
 					type: 'vbox',
 					padding: 5,
 					children: [ {
+						id: 'chkInsertOpt',
+						type: 'checkbox',
+						label: lang.insertOption,
+						'default': config.templates_replaceContent
+					},
+					{
 						id: 'selectTplText',
 						type: 'html',
 						html: '<span>' +
@@ -159,12 +176,6 @@
 								'<div class="cke_tpl_loading"><span></span></div>' +
 							'</div>' +
 							'<span class="cke_voice_label" id="' + templateListLabelId + '">' + lang.options + '</span>'
-					},
-					{
-						id: 'chkInsertOpt',
-						type: 'checkbox',
-						label: lang.insertOption,
-						'default': config.templates_replaceContent
 					} ]
 				} ]
 			} ],

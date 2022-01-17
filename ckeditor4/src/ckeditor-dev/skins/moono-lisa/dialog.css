@@ -663,7 +663,7 @@ a.cke_dialog_ui_button_ok
 }
 
 .cke_hc a.cke_dialog_ui_button {
-	border: 3px solid #bcbcbc;
+	border: 1px solid #bcbcbc;
 }
 
 
@@ -750,6 +750,13 @@ select.cke_dialog_ui_input_select
 .cke_dialog_ui_labeled_label
 {
 	margin-left: 1px;
+}
+
+/* (#3433) */
+.cke_dialog_ui_labeled_required
+{
+	font-weight: bold;
+	font-size: 1.2em;
 }
 
 /*
@@ -923,17 +930,6 @@ tendency that these will be moved to the plugins code in the future.
 	filter: alpha(opacity = 90);
 
 	background-color: #e4e4e4;
-}
-
-.cke_dialog .FlashPreviewBox
-{
-	white-space: normal;
-	border: 1px solid #bcbcbc;
-	overflow: auto;
-	height: 160px;
-	width: 390px;
-	padding: 2px;
-	background-color: white;
 }
 
 .cke_dialog .cke_pastetext
@@ -1120,8 +1116,7 @@ a.cke_specialchar:active
 	padding-top: 4px;
 }
 
-.cke_dialog_image_url .cke_dialog_ui_hbox_last,
-.cke_dialog_flash_url .cke_dialog_ui_hbox_last
+.cke_dialog_image_url .cke_dialog_ui_hbox_last
 {
 	vertical-align: bottom;
 }

@@ -352,6 +352,13 @@ div.cke_disabled .cke_dialog_ui_labeled_content *
 	cursor : default;
 }
 
+/* (#3433) */
+.cke_dialog_ui_labeled_required
+{
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
 /*
 Horizontal-Box and Vertical-Box
 ---------------------------------
@@ -712,17 +719,6 @@ tendency that these will be moved to the plugins code in the future.
 	filter : alpha(opacity=90);
 
 	background-color : #e4e4e4;
-}
-
-.cke_dialog  .FlashPreviewBox
-{
-	white-space : normal;
-	border : 2px ridge black;
-	overflow : auto;
-	height : 160px;
-	width : 390px;
-	padding : 2px;
-	background-color : white;
 }
 
 .cke_dialog .cke_pastetext

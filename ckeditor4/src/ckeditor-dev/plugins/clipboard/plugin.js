@@ -146,10 +146,13 @@
 
 			CKEDITOR.dialog.add( 'paste', CKEDITOR.getUrl( this.path + 'dialogs/paste.js' ) );
 
-			// Convert image file (if present) to base64 string for Firefox. Do it as the first
-			// step as the conversion is asynchronous and should hold all further paste processing.
-			if ( CKEDITOR.env.gecko ) {
+			// Convert image file (if present) to base64 string for modern browsers except IE<10, as it does not support
+			// custom MIME types in clipboard (#4612).
+			// Do it as the first step as the conversion is asynchronous and should hold all further paste processing.
+			var isImagePasteSupported = CKEDITOR.plugins.clipboard.isCustomDataTypesSupported || CKEDITOR.plugins.clipboard.isFileApiSupported;
+			if ( isImagePasteSupported && editor.config.clipboard_handleImages ) {
 				var supportedImageTypes = [ 'image/png', 'image/jpeg', 'image/gif' ],
+					unsupportedTypeMsg = createNotificationMessage( supportedImageTypes ),
 					latestId;
 
 				editor.on( 'paste', function( evt ) {
@@ -158,50 +161,84 @@
 						dataTransfer = dataObj.dataTransfer;
 
 					// If data empty check for image content inside data transfer. https://dev.ckeditor.com/ticket/16705
-					if ( !data && dataObj.method == 'paste' && isFileData( dataTransfer ) ) {
+					// Allow both dragging and dropping and pasting images as base64 (#4681).
+					if ( !data && isFileData( evt, dataTransfer ) ) {
 						var file = dataTransfer.getFile( 0 );
 
-						if ( CKEDITOR.tools.indexOf( supportedImageTypes, file.type ) != -1 ) {
-							var fileReader = new FileReader();
+						if ( CKEDITOR.tools.indexOf( supportedImageTypes, file.type ) === -1 ) {
+							editor.showNotification( unsupportedTypeMsg, 'info', editor.config.clipboard_notificationDuration );
 
-							// Convert image file to img tag with base64 image.
-							fileReader.addEventListener( 'load', function() {
-								evt.data.dataValue = '<img src="' + fileReader.result + '" />';
-								editor.fire( 'paste', evt.data );
-							}, false );
-
-							// Proceed with normal flow if reading file was aborted.
-							fileReader.addEventListener( 'abort', function() {
-								editor.fire( 'paste', evt.data );
-							}, false );
-
-							// Proceed with normal flow if reading file failed.
-							fileReader.addEventListener( 'error', function() {
-								editor.fire( 'paste', evt.data );
-							}, false );
-
-							fileReader.readAsDataURL( file );
-
-							latestId = dataObj.dataTransfer.id;
-
-							evt.stop();
+							return;
 						}
+
+						var fileReader = new FileReader();
+
+						// Convert image file to img tag with base64 image.
+						fileReader.addEventListener( 'load', function() {
+							evt.data.dataValue = '<img src="' + fileReader.result + '" />';
+							editor.fire( 'paste', evt.data );
+						}, false );
+
+						// Proceed with normal flow if reading file was aborted.
+						fileReader.addEventListener( 'abort', function() {
+							// (#4681)
+							setCustomIEEventAttribute( evt );
+							editor.fire( 'paste', evt.data );
+						}, false );
+
+						// Proceed with normal flow if reading file failed.
+						fileReader.addEventListener( 'error', function() {
+							// (#4681)
+							setCustomIEEventAttribute( evt );
+							editor.fire( 'paste', evt.data );
+						}, false );
+
+						fileReader.readAsDataURL( file );
+
+						latestId = dataObj.dataTransfer.id;
+
+						evt.stop();
 					}
 				}, null, null, 1 );
 			}
 
+			// Prepare content for unsupported image type notification (#4750).
+			function createNotificationMessage( imageTypes ) {
+				var humanReadableImageTypes = CKEDITOR.tools.array.map( imageTypes, function( imageType ) {
+					var splittedMimeType = imageType.split( '/' ),
+						imageFormat = splittedMimeType[ 1 ].toUpperCase();
+
+					return imageFormat;
+				} ).join( ', ' ),
+
+				message = editor.lang.clipboard.fileFormatNotSupportedNotification.
+					replace( /\${formats\}/g, humanReadableImageTypes );
+
+				return message;
+			}
+
 			// Only dataTransfer objects containing only file should be considered
 			// to image pasting (#3585, #3625).
-			function isFileData( dataTransfer ) {
-				if ( !dataTransfer || latestId === dataTransfer.id ) {
+			function isFileData( evt, dataTransfer ) {
+				// Checking for fileTransferCancel on IE to prevent comparing empty string
+				// from dataTransfer.id and falling into infinite loop (#4681).
+				if ( CKEDITOR.env.ie && evt.data.fileTransferCancel ) {
 					return false;
 				}
 
-				var types = dataTransfer.getTypes(),
-					isFileOnly = types.length === 1 && types[ 0 ] === 'Files',
-					containsFile = dataTransfer.getFilesCount() === 1;
+				if ( !CKEDITOR.env.ie && ( !dataTransfer || latestId === dataTransfer.id ) ) {
+					return false;
+				}
 
-				return isFileOnly && containsFile;
+				return dataTransfer.isFileTransfer() && dataTransfer.getFilesCount() === 1;
+			}
+
+			// To avoid falling into an infinite loop on IE10+ when the image loading state is other than `load`
+			// add a custom data attribute.
+			function setCustomIEEventAttribute( evt ) {
+				if ( CKEDITOR.env.ie ) {
+					evt.data.fileTransferCancel = true;
+				}
 			}
 
 			editor.on( 'paste', function( evt ) {
@@ -2338,9 +2375,9 @@
 
 		this._ = {
 			metaRegExp: /^<meta.*?>/i,
-			bodyRegExp: /<body(?:[\s\S]*?)>([\s\S]*)<\/body>/i,
 			fragmentRegExp: /\s*<!--StartFragment-->|<!--EndFragment-->\s*/g,
 
+			types: [],
 			data: {},
 			files: [],
 
@@ -2354,6 +2391,9 @@
 					return 'Text'; // IE support only Text and URL;
 				} else if ( type == 'url' ) {
 					return 'URL'; // IE support only Text and URL;
+				} else if ( type === 'files' ) {
+					// Do not normalize Files type (#4604).
+					return 'Files';
 				} else {
 					return type;
 				}
@@ -2594,7 +2634,7 @@
 			}
 
 			var that = this,
-				i, file;
+				i, file, files;
 
 			function getAndSetData( type ) {
 				type = that._.normalizeType( type );
@@ -2610,6 +2650,9 @@
 				if ( data ) {
 					that._.data[ type ] = data;
 				}
+
+				// Cache type itself (#4604).
+				that._.types.push( type );
 			}
 
 			// Copy data.
@@ -2626,13 +2669,15 @@
 
 			// Copy files references.
 			file = this._getImageFromClipboard();
-			if ( ( this.$ && this.$.files ) || file ) {
+			// Only access .files once - it's expensive in Chrome (#4807).
+			files = this.$ && this.$.files || null;
+			if ( files || file ) {
 				this._.files = [];
 
 				// Edge have empty files property with no length (https://dev.ckeditor.com/ticket/13755).
-				if ( this.$.files && this.$.files.length ) {
-					for ( i = 0; i < this.$.files.length; i++ ) {
-						this._.files.push( this.$.files[ i ] );
+				if ( files && files.length ) {
+					for ( i = 0; i < files.length; i++ ) {
+						this._.files.push( files[ i ] );
 					}
 				}
 
@@ -2654,8 +2699,10 @@
 				return this._.files.length;
 			}
 
-			if ( this.$ && this.$.files && this.$.files.length ) {
-				return this.$.files.length;
+			// Only access .files once - it's expensive in Chrome (#4807).
+			var files = this.$ && this.$.files || null;
+			if ( files && files.length ) {
+				return files.length;
 			}
 
 			return this._getImageFromClipboard() ? 1 : 0;
@@ -2672,12 +2719,30 @@
 				return this._.files[ i ];
 			}
 
-			if ( this.$ && this.$.files && this.$.files.length ) {
-				return this.$.files[ i ];
+			// Only access .files once - it's expensive in Chrome (#4807).
+			var files = this.$ && this.$.files || null;
+			if ( files && files.length ) {
+				return files[ i ];
 			}
 
 			// File or null if the file was not found.
 			return i === 0 ? this._getImageFromClipboard() : undefined;
+		},
+
+		/**
+		 * Checks if the data transfer contains only files.
+		 *
+		 * @since 4.17.0
+		 * @returns {Boolean} `true` if the object contains only files.
+		 */
+		isFileTransfer: function() {
+			var types = this.getTypes(),
+				// Firefox uses application/x-moz-file type for dropped local files.
+				filteredTypes = CKEDITOR.tools.array.filter( types, function( type ) {
+					return type !== 'application/x-moz-file';
+				} );
+
+			return filteredTypes.length === 1 && filteredTypes[ 0 ].toLowerCase() === 'files';
 		},
 
 		/**
@@ -2733,6 +2798,10 @@
 		 * @returns {String[]}
 		 */
 		getTypes: function() {
+			if ( this._.types.length > 0 ) {
+				return this._.types;
+			}
+
 			if ( !this.$ || !this.$.types ) {
 				return [];
 			}
@@ -2781,21 +2850,43 @@
 
 			// Passed HTML may be empty or null. There is no need to strip such values (#1299).
 			if ( result && result.length ) {
+				result = extractBodyContent( result );
+
 				// See https://dev.ckeditor.com/ticket/13583 for more details.
 				// Additionally https://dev.ckeditor.com/ticket/16847 adds a flag allowing to get the whole, original content.
 				result = result.replace( this._.metaRegExp, '' );
 
-				// Keep only contents of the <body> element
-				var match = this._.bodyRegExp.exec( result );
-				if ( match && match.length ) {
-					result = match[ 1 ];
-
-					// Remove also comments.
-					result = result.replace( this._.fragmentRegExp, '' );
-				}
+				// Remove also comments.
+				result = result.replace( this._.fragmentRegExp, '' );
 			}
 
 			return result;
+
+			function extractBodyContent( html ) {
+				var parser = new CKEDITOR.htmlParser(),
+					start,
+					end;
+
+				parser.onTagOpen = function( name ) {
+					if ( name === 'body' ) {
+						start = parser._.htmlPartsRegex.lastIndex;
+					}
+				};
+
+				parser.onTagClose = function( name ) {
+					if ( name === 'body' ) {
+						end = parser._.htmlPartsRegex.lastIndex;
+					}
+				};
+
+				parser.parse( html );
+
+				if ( typeof start !== 'number' || typeof end !== 'number' ) {
+					return html;
+				}
+
+				return html.substring( start, end ).replace( /<\/body\s*>$/gi, '' );
+			}
 		}
 	};
 
@@ -3381,3 +3472,13 @@
  * @member CKEDITOR.config
  */
 CKEDITOR.config.clipboard_notificationDuration = 10000;
+
+/**
+ * Whether to use clipboard plugin to handle image pasting and dropping,
+ * turning images into base64 strings on browsers supporting the File API.
+ *
+ * @since 4.17.0
+ * @cfg {Boolean} [clipboard_handleImages=true]
+ * @member CKEDITOR.config
+ */
+CKEDITOR.config.clipboard_handleImages = true;

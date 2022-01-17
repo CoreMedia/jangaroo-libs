@@ -1218,7 +1218,8 @@
 							startPath = range.startPath();
 
 						if ( range.collapsed ) {
-							if ( !mergeBlocksCollapsedSelection( editor, range, backspace, startPath ) ) {
+							// Skip inner range trimming (#3819).
+							if ( !mergeBlocksCollapsedSelection( editor, range, backspace, startPath, true ) ) {
 								return;
 							}
 						} else {
@@ -1896,7 +1897,10 @@
 
 			nodesData = extractNodesData( that.dataWrapper, that );
 
-			removeBrsAdjacentToPastedBlocks( nodesData, range );
+			// Keep br's when CKEDITOR.ENTER_BR is active for proper spacing. (#3858)
+			if ( that.editor.enterMode !== CKEDITOR.ENTER_BR ) {
+				removeBrsAdjacentToPastedBlocks( nodesData, range );
+			}
 
 			for ( ; nodeIndex < nodesData.length; nodeIndex++ ) {
 				nodeData = nodesData[ nodeIndex ];
@@ -2556,7 +2560,7 @@
 		};
 	} )();
 
-	function mergeBlocksCollapsedSelection( editor, range, backspace, startPath ) {
+	function mergeBlocksCollapsedSelection( editor, range, backspace, startPath, skipRangeTrimming ) {
 		var startBlock = startPath.block;
 
 		// Selection must be collapsed and to be anchored in a block.
@@ -2565,7 +2569,7 @@
 
 		// Exclude cases where, i.e. if pressed arrow key, selection
 		// would move within the same block (merge inside a block).
-		if ( !range[ backspace ? 'checkStartOfBlock' : 'checkEndOfBlock' ]() )
+		if ( !range[ backspace ? 'checkStartOfBlock' : 'checkEndOfBlock' ]( skipRangeTrimming ) )
 			return false;
 
 		// Make sure, there's an editable position to put selection,

@@ -110,6 +110,7 @@
 			name: 'test_editor3',
 			config: {
 				protectedSource: [ /\[\[[^\]]*?\]\]/g ],
+				removePlugins: 'iframe', // Iframe plugin does not allow any content inside (#4822).
 				fullPage: true,
 				allowedContent: true
 			}
@@ -371,8 +372,6 @@
 			assert.areSame( getTextAreaValue( '_TEXTAREA_3591_protected' ), protectedHtml );
 			assert.areSame( getTextAreaValue( '_TEXTAREA_3591' ), dataProcessor.toDataFormat( protectedHtml ) );
 		}, */
-
-		test_ticket_3591_2: testProcessedHtmlUnchanged( '_TEXTAREA_3591_2', true ),
 
 		test_ticket_3869_1: testProcessedHtmlUnchanged( '_TEXTAREA_3869_1' ),
 
