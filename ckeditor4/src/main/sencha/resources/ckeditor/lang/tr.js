@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['tr'] = {
@@ -220,7 +220,6 @@ CKEDITOR.lang['tr'] = {
     fakeobjects : 
     {
     	anchor : 'Bağlantı',
-    	flash : 'Flash Animasyonu',
     	hiddenfield : 'Gizli Alan',
     	iframe : 'IFrame',
     	unknown : 'Bilinmeyen Nesne'
@@ -249,7 +248,8 @@ CKEDITOR.lang['tr'] = {
     	paste : 'Yapıştır',
     	pasteNotification : '%1 tuşuna yapıştırmak için tıklayın. Tarayıcınız, Araç Çubuğu yada İçerik Menüsünü kullanarak yapıştırmayı desteklemiyor.',
     	pasteArea : 'Yapıştırma Alanı',
-    	pasteMsg : 'İçeriğinizi alttaki bulunan alana yapıştırın ve TAMAM butonuna tıklayın'
+    	pasteMsg : 'İçeriğinizi alttaki bulunan alana yapıştırın ve TAMAM butonuna tıklayın',
+    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
     },
     blockquote : 
     {
@@ -275,7 +275,6 @@ CKEDITOR.lang['tr'] = {
     	upload : 'Karşıya Yükle',
     	uploadSubmit : 'Sunucuya Gönder',
     	image : 'Resim',
-    	flash : 'Flash',
     	form : 'Form',
     	checkbox : 'Seçim Kutusu',
     	radio : 'Seçenek Düğmesi',

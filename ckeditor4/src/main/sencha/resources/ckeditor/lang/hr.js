@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['hr'] = {
@@ -220,7 +220,6 @@ CKEDITOR.lang['hr'] = {
     fakeobjects : 
     {
     	anchor : 'Sidro',
-    	flash : 'Flash animacija',
     	hiddenfield : 'Sakriveno polje',
     	iframe : 'IFrame',
     	unknown : 'Nepoznati objekt'
@@ -249,7 +248,8 @@ CKEDITOR.lang['hr'] = {
     	paste : 'Zalijepi',
     	pasteNotification : 'Vaš preglednik Vam ne dozvoljava lijepljenje običnog teksta na ovaj način. Za lijepljenje, pritisnite %1.',
     	pasteArea : 'Okvir za lijepljenje',
-    	pasteMsg : 'Zalijepite vaš sadržaj u okvir ispod i pritisnite OK.'
+    	pasteMsg : 'Zalijepite vaš sadržaj u okvir ispod i pritisnite OK.',
+    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
     },
     blockquote : 
     {
@@ -275,7 +275,6 @@ CKEDITOR.lang['hr'] = {
     	upload : 'Pošalji',
     	uploadSubmit : 'Pošalji na server',
     	image : 'Slika',
-    	flash : 'Flash',
     	form : 'Forma',
     	checkbox : 'Checkbox',
     	radio : 'Radio Button',

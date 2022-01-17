@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['ug'] = {
@@ -220,7 +220,6 @@ CKEDITOR.lang['ug'] = {
     fakeobjects : 
     {
     	anchor : 'لەڭگەرلىك نۇقتا',
-    	flash : 'Flash جانلاندۇرۇم',
     	hiddenfield : 'يوشۇرۇن دائىرە',
     	iframe : 'IFrame',
     	unknown : 'يوچۇن نەڭ'
@@ -249,7 +248,8 @@ CKEDITOR.lang['ug'] = {
     	paste : 'چاپلا',
     	pasteNotification : 'چاپلانغىنى 1% . سىزنىڭ تور كۆرگۈچىڭىز قۇرال تەكچىسى ۋە سىيرىلما تاللاپ چاپلاش ئىقتىدارىنى قوللىمايدىكەن .',
     	pasteArea : 'چاپلاش دائىرىسى',
-    	pasteMsg : 'مەزمۇنىڭىزنى تۆۋەندىكى رايونغا چاپلاپ ئاندىن OK نى بېسىڭ .'
+    	pasteMsg : 'مەزمۇنىڭىزنى تۆۋەندىكى رايونغا چاپلاپ ئاندىن OK نى بېسىڭ .',
+    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
     },
     blockquote : 
     {
@@ -275,7 +275,6 @@ CKEDITOR.lang['ug'] = {
     	upload : 'يۈكلە',
     	uploadSubmit : 'مۇلازىمېتىرغا يۈكلە',
     	image : 'سۈرەت',
-    	flash : 'چاقماق',
     	form : 'جەدۋەل',
     	checkbox : 'كۆپ تاللاش رامكىسى',
     	radio : 'يەككە تاللاش توپچىسى',

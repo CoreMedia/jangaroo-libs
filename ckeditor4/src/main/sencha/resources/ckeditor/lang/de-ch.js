@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['de-ch'] = {
@@ -220,7 +220,6 @@ CKEDITOR.lang['de-ch'] = {
     fakeobjects : 
     {
     	anchor : 'Anker',
-    	flash : 'Flash-Animation',
     	hiddenfield : 'Verstecktes Feld',
     	iframe : 'IFrame',
     	unknown : 'Unbekanntes Objekt'
@@ -249,7 +248,8 @@ CKEDITOR.lang['de-ch'] = {
     	paste : 'Einfügen',
     	pasteNotification : 'Drücken Sie %1 zum Einfügen. Ihr Browser unterstützt nicht das Einfügen über dem Knopf in der Werkzeugleiste oder dem Kontextmenü.',
     	pasteArea : 'Einfügebereich',
-    	pasteMsg : 'Fügen Sie den Inhalt in den unteren Bereich ein und drücken Sie OK.'
+    	pasteMsg : 'Fügen Sie den Inhalt in den unteren Bereich ein und drücken Sie OK.',
+    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
     },
     blockquote : 
     {
@@ -275,7 +275,6 @@ CKEDITOR.lang['de-ch'] = {
     	upload : 'Hochladen',
     	uploadSubmit : 'Zum Server senden',
     	image : 'Bild',
-    	flash : 'Flash',
     	form : 'Formular',
     	checkbox : 'Kontrollbox',
     	radio : 'Optionsfeld',

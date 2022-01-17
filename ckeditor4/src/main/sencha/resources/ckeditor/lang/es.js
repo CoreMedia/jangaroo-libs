@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['es'] = {
@@ -148,8 +148,8 @@ CKEDITOR.lang['es'] = {
     	anchorName : 'Por Nombre de Referencia',
     	charset : 'Fuente de caracteres vinculado',
     	cssClasses : 'Clases de hojas de estilo',
-    	download : 'Force Download',
-    	displayText : 'Display Text',
+    	download : 'Forzar la descarga',
+    	displayText : 'Mostrar texto',
     	emailAddress : 'Dirección de E-Mail',
     	emailBody : 'Cuerpo del Mensaje',
     	emailSubject : 'Título del Mensaje',
@@ -164,7 +164,7 @@ CKEDITOR.lang['es'] = {
     	noAnchors : '(No hay referencias disponibles en el documento)',
     	noEmail : 'Por favor escriba la dirección de e-mail',
     	noUrl : 'Por favor escriba el vínculo URL',
-    	noTel : 'Please type the phone number',
+    	noTel : 'Por favor ingrese el numero de telefono',
     	other : '<otro>',
     	phoneNumber : 'Phone number',
     	popupDependent : 'Dependiente (Netscape)',
@@ -191,7 +191,7 @@ CKEDITOR.lang['es'] = {
     	toAnchor : 'Referencia en esta página',
     	toEmail : 'E-Mail',
     	toUrl : 'URL',
-    	toPhone : 'Phone',
+    	toPhone : 'Teléfono',
     	toolbar : 'Insertar/Editar Vínculo',
     	type : 'Tipo de vínculo',
     	unlink : 'Eliminar Vínculo',
@@ -220,7 +220,6 @@ CKEDITOR.lang['es'] = {
     fakeobjects : 
     {
     	anchor : 'Ancla',
-    	flash : 'Animación flash',
     	hiddenfield : 'Campo oculto',
     	iframe : 'IFrame',
     	unknown : 'Objeto desconocido'
@@ -249,7 +248,8 @@ CKEDITOR.lang['es'] = {
     	paste : 'Pegar',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'Zona de pegado',
-    	pasteMsg : 'Paste your content inside the area below and press OK.'
+    	pasteMsg : 'Paste your content inside the area below and press OK.',
+    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
     },
     blockquote : 
     {
@@ -275,7 +275,6 @@ CKEDITOR.lang['es'] = {
     	upload : 'Cargar',
     	uploadSubmit : 'Enviar al Servidor',
     	image : 'Imagen',
-    	flash : 'Flash',
     	form : 'Formulario',
     	checkbox : 'Casilla de Verificación',
     	radio : 'Botones de Radio',

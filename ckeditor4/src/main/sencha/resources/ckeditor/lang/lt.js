@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['lt'] = {
@@ -220,7 +220,6 @@ CKEDITOR.lang['lt'] = {
     fakeobjects : 
     {
     	anchor : 'Žymė',
-    	flash : 'Flash animacija',
     	hiddenfield : 'Paslėptas laukas',
     	iframe : 'IFrame',
     	unknown : 'Nežinomas objektas'
@@ -249,7 +248,8 @@ CKEDITOR.lang['lt'] = {
     	paste : 'Įdėti',
     	pasteNotification : 'Spauskite %1 kad įkliuotumėte. Jūsų naršyklė nepalaiko įklijavimo paspaudus mygtuką arba kontekstinio menių galimybės.',
     	pasteArea : 'Įkelti dalį',
-    	pasteMsg : 'Įklijuokite savo turinį į žemiau esantį lauką ir paspauskite OK.'
+    	pasteMsg : 'Įklijuokite savo turinį į žemiau esantį lauką ir paspauskite OK.',
+    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
     },
     blockquote : 
     {
@@ -275,7 +275,6 @@ CKEDITOR.lang['lt'] = {
     	upload : 'Siųsti',
     	uploadSubmit : 'Siųsti į serverį',
     	image : 'Vaizdas',
-    	flash : 'Flash',
     	form : 'Forma',
     	checkbox : 'Žymimasis langelis',
     	radio : 'Žymimoji akutė',

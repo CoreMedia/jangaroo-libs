@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['gu'] = {
@@ -220,7 +220,6 @@ CKEDITOR.lang['gu'] = {
     fakeobjects : 
     {
     	anchor : 'અનકર',
-    	flash : 'ફ્લેશ ',
     	hiddenfield : 'હિડન ',
     	iframe : 'IFrame',
     	unknown : 'અનનોન ઓબ્જેક્ટ'
@@ -249,7 +248,8 @@ CKEDITOR.lang['gu'] = {
     	paste : 'પેસ્ટ',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'પેસ્ટ કરવાની જગ્યા',
-    	pasteMsg : 'Paste your content inside the area below and press OK.'
+    	pasteMsg : 'Paste your content inside the area below and press OK.',
+    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
     },
     blockquote : 
     {
@@ -275,7 +275,6 @@ CKEDITOR.lang['gu'] = {
     	upload : 'અપલોડ',
     	uploadSubmit : 'આ સર્વરને મોકલવું',
     	image : 'ચિત્ર',
-    	flash : 'ફ્લૅશ',
     	form : 'ફૉર્મ/પત્રક',
     	checkbox : 'ચેક બોક્સ',
     	radio : 'રેડિઓ બટન',

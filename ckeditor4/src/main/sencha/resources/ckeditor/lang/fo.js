@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['fo'] = {
@@ -220,7 +220,6 @@ CKEDITOR.lang['fo'] = {
     fakeobjects : 
     {
     	anchor : 'Anchor',
-    	flash : 'Flash Animation',
     	hiddenfield : 'Fjaldur teigur',
     	iframe : 'IFrame',
     	unknown : 'Ókent Object'
@@ -249,7 +248,8 @@ CKEDITOR.lang['fo'] = {
     	paste : 'Innrita',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'Avritingarumráði',
-    	pasteMsg : 'Paste your content inside the area below and press OK.'
+    	pasteMsg : 'Paste your content inside the area below and press OK.',
+    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
     },
     blockquote : 
     {
@@ -275,7 +275,6 @@ CKEDITOR.lang['fo'] = {
     	upload : 'Send til ambætaran',
     	uploadSubmit : 'Send til ambætaran',
     	image : 'Myndir',
-    	flash : 'Flash',
     	form : 'Formur',
     	checkbox : 'Flugubein',
     	radio : 'Radioknøttur',

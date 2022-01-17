@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['ja'] = {
@@ -220,7 +220,6 @@ CKEDITOR.lang['ja'] = {
     fakeobjects : 
     {
     	anchor : 'アンカー',
-    	flash : 'Flash Animation',
     	hiddenfield : '不可視フィールド',
     	iframe : 'IFrame',
     	unknown : 'Unknown Object'
@@ -249,7 +248,8 @@ CKEDITOR.lang['ja'] = {
     	paste : '貼り付け',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : '貼り付け場所',
-    	pasteMsg : 'Paste your content inside the area below and press OK.'
+    	pasteMsg : 'Paste your content inside the area below and press OK.',
+    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
     },
     blockquote : 
     {
@@ -275,7 +275,6 @@ CKEDITOR.lang['ja'] = {
     	upload : 'アップロード',
     	uploadSubmit : 'サーバーに送信',
     	image : 'イメージ',
-    	flash : 'Flash',
     	form : 'フォーム',
     	checkbox : 'チェックボックス',
     	radio : 'ラジオボタン',

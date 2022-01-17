@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['tt'] = {
@@ -220,7 +220,6 @@ CKEDITOR.lang['tt'] = {
     fakeobjects : 
     {
     	anchor : 'Якорь',
-    	flash : 'Флеш анимациясы',
     	hiddenfield : 'Яшерен кыр',
     	iframe : 'IFrame',
     	unknown : 'Танылмаган объект'
@@ -249,7 +248,8 @@ CKEDITOR.lang['tt'] = {
     	paste : 'Өстәү',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'Өстәү мәйданы',
-    	pasteMsg : 'Paste your content inside the area below and press OK.'
+    	pasteMsg : 'Paste your content inside the area below and press OK.',
+    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
     },
     blockquote : 
     {
@@ -275,7 +275,6 @@ CKEDITOR.lang['tt'] = {
     	upload : 'Йөкләү',
     	uploadSubmit : 'Серверга җибәрү',
     	image : 'Рәсем',
-    	flash : 'Флеш',
     	form : 'Форма',
     	checkbox : 'Чекбокс',
     	radio : 'Радио төймә',

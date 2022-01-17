@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['cs'] = {
@@ -220,7 +220,6 @@ CKEDITOR.lang['cs'] = {
     fakeobjects : 
     {
     	anchor : 'Záložka',
-    	flash : 'Flash animace',
     	hiddenfield : 'Skryté pole',
     	iframe : 'IFrame',
     	unknown : 'Neznámý objekt'
@@ -249,7 +248,8 @@ CKEDITOR.lang['cs'] = {
     	paste : 'Vložit',
     	pasteNotification : 'Stiskněte %1 pro vložení. Váš prohlížeč nepodporuje vkládání pomocí tlačítka na panelu nástrojů nebo volby kontextového menu.',
     	pasteArea : 'Oblast vkládání',
-    	pasteMsg : 'Vložte svůj obsah do oblasti níže a stiskněte OK.'
+    	pasteMsg : 'Vložte svůj obsah do oblasti níže a stiskněte OK.',
+    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
     },
     blockquote : 
     {
@@ -275,7 +275,6 @@ CKEDITOR.lang['cs'] = {
     	upload : 'Odeslat',
     	uploadSubmit : 'Odeslat na server',
     	image : 'Obrázek',
-    	flash : 'Flash',
     	form : 'Formulář',
     	checkbox : 'Zaškrtávací políčko',
     	radio : 'Přepínač',

@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['eu'] = {
@@ -220,7 +220,6 @@ CKEDITOR.lang['eu'] = {
     fakeobjects : 
     {
     	anchor : 'Aingura',
-    	flash : 'Flash animazioa',
     	hiddenfield : 'Ezkutuko eremua',
     	iframe : 'IFrame-a',
     	unknown : 'Objektu ezezaguna'
@@ -249,7 +248,8 @@ CKEDITOR.lang['eu'] = {
     	paste : 'Itsatsi',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'Itsasteko area',
-    	pasteMsg : 'Paste your content inside the area below and press OK.'
+    	pasteMsg : 'Paste your content inside the area below and press OK.',
+    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
     },
     blockquote : 
     {
@@ -275,7 +275,6 @@ CKEDITOR.lang['eu'] = {
     	upload : 'Kargatu',
     	uploadSubmit : 'Bidali zerbitzarira',
     	image : 'Irudia',
-    	flash : 'Flash',
     	form : 'Formularioa',
     	checkbox : 'Kontrol-laukia',
     	radio : 'Aukera-botoia',

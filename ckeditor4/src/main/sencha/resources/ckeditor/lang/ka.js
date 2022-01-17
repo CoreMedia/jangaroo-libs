@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['ka'] = {
@@ -220,7 +220,6 @@ CKEDITOR.lang['ka'] = {
     fakeobjects : 
     {
     	anchor : 'ღუზა',
-    	flash : 'Flash ანიმაცია',
     	hiddenfield : 'მალული ველი',
     	iframe : 'IFrame',
     	unknown : 'უცნობი ობიექტი'
@@ -249,7 +248,8 @@ CKEDITOR.lang['ka'] = {
     	paste : 'ჩასმა',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'ჩასმის არე',
-    	pasteMsg : 'Paste your content inside the area below and press OK.'
+    	pasteMsg : 'Paste your content inside the area below and press OK.',
+    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
     },
     blockquote : 
     {
@@ -275,7 +275,6 @@ CKEDITOR.lang['ka'] = {
     	upload : 'ატვირთვა',
     	uploadSubmit : 'სერვერზე გაგზავნა',
     	image : 'სურათი',
-    	flash : 'Flash',
     	form : 'ფორმა',
     	checkbox : 'მონიშვნის ღილაკი',
     	radio : 'ამორჩევის ღილაკი',
