@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['nl'] = {
@@ -220,7 +220,6 @@ CKEDITOR.lang['nl'] = {
     fakeobjects : 
     {
     	anchor : 'Interne link',
-    	flash : 'Flash animatie',
     	hiddenfield : 'Verborgen veld',
     	iframe : 'IFrame',
     	unknown : 'Onbekend object'
@@ -249,7 +248,8 @@ CKEDITOR.lang['nl'] = {
     	paste : 'Plakken',
     	pasteNotification : 'Plakken met de knop in de werkbalk wordt niet ondersteund door de browser. Gebruik de sneltoets %1 van het toetsenbord.',
     	pasteArea : 'Plakgebied',
-    	pasteMsg : 'Plak de inhoud in het vak hieronder en druk op OK.'
+    	pasteMsg : 'Plak de inhoud in het vak hieronder en druk op OK.',
+    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
     },
     blockquote : 
     {
@@ -275,7 +275,6 @@ CKEDITOR.lang['nl'] = {
     	upload : 'Upload',
     	uploadSubmit : 'Naar server verzenden',
     	image : 'Afbeelding',
-    	flash : 'Flash',
     	form : 'Formulier',
     	checkbox : 'Selectievinkje',
     	radio : 'Keuzerondje',

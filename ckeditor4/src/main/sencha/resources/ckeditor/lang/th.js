@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['th'] = {
@@ -220,7 +220,6 @@ CKEDITOR.lang['th'] = {
     fakeobjects : 
     {
     	anchor : 'แทรก/แก้ไข Anchor',
-    	flash : 'ภาพอนิเมชั่นแฟลช',
     	hiddenfield : 'ฮิดเดนฟิลด์',
     	iframe : 'IFrame',
     	unknown : 'วัตถุไม่ทราบชนิด'
@@ -249,7 +248,8 @@ CKEDITOR.lang['th'] = {
     	paste : 'วาง',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'Paste Area',
-    	pasteMsg : 'Paste your content inside the area below and press OK.'
+    	pasteMsg : 'Paste your content inside the area below and press OK.',
+    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
     },
     blockquote : 
     {
@@ -275,7 +275,6 @@ CKEDITOR.lang['th'] = {
     	upload : 'อัพโหลดไฟล์',
     	uploadSubmit : 'อัพโหลดไฟล์ไปเก็บไว้ที่เครื่องแม่ข่าย (เซิร์ฟเวอร์)',
     	image : 'รูปภาพ',
-    	flash : 'ไฟล์ Flash',
     	form : 'แบบฟอร์ม',
     	checkbox : 'เช็คบ๊อก',
     	radio : 'เรดิโอบัตตอน',

@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['mn'] = {
@@ -220,7 +220,6 @@ CKEDITOR.lang['mn'] = {
     fakeobjects : 
     {
     	anchor : 'Зангуу',
-    	flash : 'Flash Animation',
     	hiddenfield : 'Нууц талбар',
     	iframe : 'IFrame',
     	unknown : 'Unknown Object'
@@ -249,7 +248,8 @@ CKEDITOR.lang['mn'] = {
     	paste : 'Буулгах',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'Paste Area',
-    	pasteMsg : 'Paste your content inside the area below and press OK.'
+    	pasteMsg : 'Paste your content inside the area below and press OK.',
+    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
     },
     blockquote : 
     {
@@ -275,7 +275,6 @@ CKEDITOR.lang['mn'] = {
     	upload : 'Илгээж ачаалах',
     	uploadSubmit : 'Үүнийг үйлчлэгч тооцоолуур (сервер) лүү илгээх',
     	image : 'Зураг',
-    	flash : 'Флаш хөдөлгөөнтэй зураг',
     	form : 'Маягт',
     	checkbox : 'Тэмдэглээний нүд',
     	radio : 'Радио товчлуур',

@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['de'] = {
@@ -106,7 +106,7 @@ CKEDITOR.lang['de'] = {
     pastetext : 
     {
     	button : 'Als Klartext einfügen',
-    	pasteNotification : 'Drücken Sie %1 zum Einfügen. Ihr Browser unterstützt nicht das Einfügen über dem Knopf in der Toolbar oder dem Kontextmenü.',
+    	pasteNotification : 'Drücken Sie %1 zum Einfügen. Ihr Browser unterstützt nicht das Einfügen über den Knopf in der Toolbar oder dem Kontextmenü.',
     	title : 'Als Klartext einfügen'
     },
     pastefromword : 
@@ -220,7 +220,6 @@ CKEDITOR.lang['de'] = {
     fakeobjects : 
     {
     	anchor : 'Anker',
-    	flash : 'Flash-Animation',
     	hiddenfield : 'Verstecktes Feld',
     	iframe : 'IFrame',
     	unknown : 'Unbekanntes Objekt'
@@ -247,9 +246,10 @@ CKEDITOR.lang['de'] = {
     	cut : 'Ausschneiden',
     	cutError : 'Die Sicherheitseinstellungen Ihres Browsers lassen es nicht zu, den Text automatisch auszuschneiden. Bitte benutzen Sie die System-Zwischenablage über STRG-X (ausschneiden) und STRG-V (einfügen).',
     	paste : 'Einfügen',
-    	pasteNotification : 'Drücken Sie %1 zum Einfügen. Ihr Browser unterstützt nicht das Einfügen über dem Knopf in der Toolbar oder dem Kontextmenü.',
+    	pasteNotification : 'Drücken Sie %1 zum Einfügen. Ihr Browser unterstützt nicht das Einfügen über den Knopf in der Toolbar oder dem Kontextmenü.',
     	pasteArea : 'Einfügebereich',
-    	pasteMsg : 'Fügen Sie den Inhalt in den unteren Bereich ein und drücken Sie OK.'
+    	pasteMsg : 'Fügen Sie den Inhalt in den unteren Bereich ein und drücken Sie OK.',
+    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
     },
     blockquote : 
     {
@@ -275,7 +275,6 @@ CKEDITOR.lang['de'] = {
     	upload : 'Hochladen',
     	uploadSubmit : 'Zum Server senden',
     	image : 'Bild',
-    	flash : 'Flash',
     	form : 'Formular',
     	checkbox : 'Kontrollbox',
     	radio : 'Optionsfeld',

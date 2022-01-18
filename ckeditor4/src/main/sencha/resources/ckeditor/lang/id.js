@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['id'] = {
@@ -220,7 +220,6 @@ CKEDITOR.lang['id'] = {
     fakeobjects : 
     {
     	anchor : 'Anchor',
-    	flash : 'Animasi Flash',
     	hiddenfield : 'Kolom Tersembunyi',
     	iframe : 'IFrame',
     	unknown : 'Obyek Tak Dikenal'
@@ -249,7 +248,8 @@ CKEDITOR.lang['id'] = {
     	paste : 'Tempel',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'Area Tempel',
-    	pasteMsg : 'Paste your content inside the area below and press OK.'
+    	pasteMsg : 'Paste your content inside the area below and press OK.',
+    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
     },
     blockquote : 
     {
@@ -275,7 +275,6 @@ CKEDITOR.lang['id'] = {
     	upload : 'Unggah',
     	uploadSubmit : 'Kirim ke Server',
     	image : 'Gambar',
-    	flash : 'Flash',
     	form : 'Formulir',
     	checkbox : 'Kotak Cek',
     	radio : 'Tombol Radio',
@@ -323,9 +322,9 @@ CKEDITOR.lang['id'] = {
     	right : 'Kanan',
     	center : 'Tengah',
     	justify : 'Rata kiri-kanan',
-    	alignLeft : 'Align Left',
-    	alignRight : 'Align Right',
-    	alignCenter : 'Align Center',
+    	alignLeft : 'Rata Kiri',
+    	alignRight : 'Rata Kanan',
+    	alignCenter : 'Rata Tengah',
     	alignTop : 'Atas',
     	alignMiddle : 'Tengah',
     	alignBottom : 'Bawah',
@@ -333,7 +332,7 @@ CKEDITOR.lang['id'] = {
     	invalidValue : 'Nilai tidak sah.',
     	invalidHeight : 'Tinggi harus sebuah angka.',
     	invalidWidth : 'Lebar harus sebuah angka.',
-    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
+    	invalidLength : 'Nilai untuk "%1" harus bernilai positif dengan atau tanpa disertai dengan satuan ukur yang tepat (%2)',
     	invalidCssLength : 'Nilai untuk "%1" harus sebuah angkat positif dengan atau tanpa pengukuran unit CSS yang sah (px, %, in, cm, mm, em, ex, pt, or pc).',
     	invalidHtmlLength : 'Nilai yang dispesifikasian untuk kolom "%1" harus sebuah angka positif dengan atau tanpa sebuah unit pengukuran HTML (px atau %) yang valid.',
     	invalidInlineStyle : 'Nilai pada inline style merupakan pasangan nama dan nilai dengan format "nama : nilai", yang dipisahkan dengan titik dua.',

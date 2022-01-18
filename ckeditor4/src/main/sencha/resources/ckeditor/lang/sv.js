@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['sv'] = {
@@ -220,7 +220,6 @@ CKEDITOR.lang['sv'] = {
     fakeobjects : 
     {
     	anchor : 'Ankare',
-    	flash : 'Flashanimation',
     	hiddenfield : 'Gömt fält',
     	iframe : 'iFrame',
     	unknown : 'Okänt objekt'
@@ -249,7 +248,8 @@ CKEDITOR.lang['sv'] = {
     	paste : 'Klistra in',
     	pasteNotification : 'Tryck på %1 för att klistra in. Din webbläsare stödjer inte inklistring via verktygsfältet eller snabbmenyn.',
     	pasteArea : 'Inklistringsområde',
-    	pasteMsg : 'Klistra in ditt innehåll i området nedan och tryck på OK.'
+    	pasteMsg : 'Klistra in ditt innehåll i området nedan och tryck på OK.',
+    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
     },
     blockquote : 
     {
@@ -275,7 +275,6 @@ CKEDITOR.lang['sv'] = {
     	upload : 'Ladda upp',
     	uploadSubmit : 'Skicka till server',
     	image : 'Bild',
-    	flash : 'Flash',
     	form : 'Formulär',
     	checkbox : 'Kryssruta',
     	radio : 'Alternativknapp',

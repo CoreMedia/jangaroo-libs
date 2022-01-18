@@ -1,5 +1,5 @@
-/* exported assertPasteEvent, pasteFiles, assertPasteCommand, assertPasteNotification, testResetScenario,
-getDefaultNotification, createFixtures */
+/* exported assertPasteEvent, pasteFiles, assertPasteCommand, assertPasteNotification, assertImagePaste,
+assertImageDrop, testResetScenario,getDefaultNotification, createFixtures, mockFileReader */
 
 'use strict';
 
@@ -195,4 +195,164 @@ function createFixtures( fixtures ) {
 			return CKEDITOR.tools.copy( fixtures[ name ] );
 		}
 	};
+}
+
+function mockFileReader() {
+	var fileMockBase64 = ';base64,fileMockBase64=',
+		fileMockType,
+		readResultMock;
+
+	function FileReaderMock() {
+		this.listeners = {};
+	}
+
+	// Any MIME type.
+	FileReaderMock.setFileMockType = function( type ) {
+		fileMockType = type;
+	};
+
+	// Result can be: load, abort, error.
+	FileReaderMock.setReadResult = function( readResult ) {
+		readResultMock = readResult;
+		if ( !readResultMock ) {
+			readResultMock = 'load';
+		}
+	};
+
+	FileReaderMock.prototype.addEventListener = function( eventName, callback ) {
+		this.listeners[ eventName ] = callback;
+	};
+
+	FileReaderMock.prototype.readAsDataURL = function() {
+		CKEDITOR.tools.setTimeout( function() {
+			this.result = ( readResultMock == 'load' ? 'data:' + fileMockType + fileMockBase64 : null );
+
+			if ( this.listeners[ readResultMock ] ) {
+				this.listeners[ readResultMock ]();
+			}
+		}, 15, this );
+	};
+
+	window.FileReader = FileReaderMock;
+}
+
+function assertImagePaste( editor, options ) {
+	// Mock paste file from clipboard.
+	function mockPasteFile( type, additionalData ) {
+		var nativeData = bender.tools.mockNativeDataTransfer(),
+			dataTransfer = new CKEDITOR.plugins.clipboard.dataTransfer( nativeData );
+
+		nativeData.files.push( {
+			name: 'mock.file',
+			type: type
+		} );
+		nativeData.types.push( 'Files' );
+
+		if ( additionalData ) {
+			CKEDITOR.tools.array.forEach( additionalData, function( data ) {
+				nativeData.setData( data.type, data.data );
+			} );
+		}
+
+		dataTransfer.cacheData();
+
+		editor.fire( 'paste', {
+			dataTransfer: dataTransfer,
+			dataValue: '',
+			method: 'paste',
+			type: 'auto'
+		} );
+	}
+
+	var type = options.type,
+		expected = options.expected,
+		additionalData = options.additionalData,
+		callback = options.callback;
+
+	editor.once( 'paste', function() {
+		resume( function() {
+			assert.isInnerHtmlMatching( expected, bender.tools.selection.getWithHtml( editor ), {
+				noTempElements: true,
+				fixStyles: true,
+				compareSelection: true,
+				normalizeSelection: true
+			} );
+
+			if ( callback ) {
+				callback();
+			}
+		} );
+	}, this, null, 9999 );
+
+	mockPasteFile( type, additionalData );
+
+	wait();
+}
+
+function assertImageDrop( options ) {
+	function mockDropFile( type ) {
+		var nativeData = bender.tools.mockNativeDataTransfer(),
+			dataTransfer = new CKEDITOR.plugins.clipboard.dataTransfer( nativeData );
+
+		nativeData.files.push( {
+			name: 'mock.file',
+			type: type
+		} );
+
+		nativeData.types.push( 'Files' );
+		dataTransfer.cacheData();
+
+		return dataTransfer.$;
+	}
+
+	var editor = options.editor,
+		evt = options.event,
+		type = options.type,
+		expectedData = options.expectedData,
+		callback = options.callback,
+		dropRangeOptions = options.dropRange,
+		dropTarget = CKEDITOR.plugins.clipboard.getDropTarget( editor ),
+		range = new CKEDITOR.dom.range( editor.document );
+
+	range.setStart( dropRangeOptions.dropContainer, dropRangeOptions.dropOffset );
+	evt.testRange = range;
+
+	// Push data into clipboard and invoke paste event
+	evt.$.dataTransfer = mockDropFile( type );
+
+	var onDrop,
+		onPaste,
+		tearDown;
+
+	tearDown = function() {
+		editor.removeListener( 'drop', onDrop );
+		editor.removeListener( 'paste', onPaste );
+	};
+
+	onDrop = function( dropEvt ) {
+		var dropRange = dropEvt.data.dropRange;
+
+		dropRange.startContainer = dropRangeOptions.dropContainer;
+		dropRange.startOffset = dropRangeOptions.dropOffset;
+		dropRange.endOffset = dropRangeOptions.dropOffset;
+	};
+
+	onPaste = function() {
+		resume( function() {
+			assert.beautified.html( expectedData, editor.getData() );
+
+			if ( callback ) {
+				callback();
+			}
+
+			tearDown();
+		} );
+	};
+
+	editor.on( 'drop', onDrop );
+	editor.on( 'paste', onPaste );
+
+	dropTarget.fire( 'drop', evt );
+
+	wait();
 }

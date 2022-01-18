@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['lv'] = {
@@ -220,7 +220,6 @@ CKEDITOR.lang['lv'] = {
     fakeobjects : 
     {
     	anchor : 'Iezīme',
-    	flash : 'Flash animācija',
     	hiddenfield : 'Slēpts lauks',
     	iframe : 'Iframe',
     	unknown : 'Nezināms objekts'
@@ -249,7 +248,8 @@ CKEDITOR.lang['lv'] = {
     	paste : 'Ielīmēt',
     	pasteNotification : 'Nospied %1 lai ielīmētu. Tavs pārlūks neatbalsta ielīmēšanu ar rīkjoslas pogām vai uznirstošās izvēlnes opciju.',
     	pasteArea : 'Ielīmēšanas zona',
-    	pasteMsg : 'Ielīmē saturu zemāk esošajā laukā un nospied OK.'
+    	pasteMsg : 'Ielīmē saturu zemāk esošajā laukā un nospied OK.',
+    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
     },
     blockquote : 
     {
@@ -275,7 +275,6 @@ CKEDITOR.lang['lv'] = {
     	upload : 'Augšupielādēt',
     	uploadSubmit : 'Nosūtīt serverim',
     	image : 'Attēls',
-    	flash : 'Flash',
     	form : 'Forma',
     	checkbox : 'Atzīmēšanas kastīte',
     	radio : 'Izvēles poga',

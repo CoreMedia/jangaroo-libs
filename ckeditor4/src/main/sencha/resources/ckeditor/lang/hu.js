@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['hu'] = {
@@ -220,7 +220,6 @@ CKEDITOR.lang['hu'] = {
     fakeobjects : 
     {
     	anchor : 'Horgony',
-    	flash : 'Flash animáció',
     	hiddenfield : 'Rejtett mezõ',
     	iframe : 'IFrame',
     	unknown : 'Ismeretlen objektum'
@@ -249,7 +248,8 @@ CKEDITOR.lang['hu'] = {
     	paste : 'Beillesztés',
     	pasteNotification : 'Nyomja meg a %1 gombot a beillesztéshez. A böngésző nem támogatja a beillesztést az eszköztárról vagy a menüből.',
     	pasteArea : 'Beillesztési terület',
-    	pasteMsg : 'Illessze be a tartalmat az alábbi mezőbe, és nyomja meg az OK-t.'
+    	pasteMsg : 'Illessze be a tartalmat az alábbi mezőbe, és nyomja meg az OK-t.',
+    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
     },
     blockquote : 
     {
@@ -275,7 +275,6 @@ CKEDITOR.lang['hu'] = {
     	upload : 'Feltöltés',
     	uploadSubmit : 'Küldés a szerverre',
     	image : 'Kép',
-    	flash : 'Flash',
     	form : 'Űrlap',
     	checkbox : 'Jelölőnégyzet',
     	radio : 'Választógomb',
@@ -302,7 +301,7 @@ CKEDITOR.lang['hu'] = {
     	preview : 'Előnézet',
     	resize : 'Húzza az átméretezéshez',
     	generalTab : 'Általános',
-    	advancedTab : 'További opciók',
+    	advancedTab : 'Speciális',
     	validateNumberFailed : 'A mezőbe csak számokat írhat.',
     	confirmNewPage : 'Minden nem mentett változás el fog veszni! Biztosan be szeretné tölteni az oldalt?',
     	confirmCancel : 'Pár beállítást megváltoztatott. Biztosan be szeretné zárni az ablakot?',

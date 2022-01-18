@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['pt'] = {
@@ -220,7 +220,6 @@ CKEDITOR.lang['pt'] = {
     fakeobjects : 
     {
     	anchor : ' Inserir/Editar âncora',
-    	flash : 'Animação Flash',
     	hiddenfield : 'Campo oculto',
     	iframe : 'IFrame',
     	unknown : 'Objeto desconhecido'
@@ -249,7 +248,8 @@ CKEDITOR.lang['pt'] = {
     	paste : 'Colar',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'Área de colagem',
-    	pasteMsg : 'Paste your content inside the area below and press OK.'
+    	pasteMsg : 'Paste your content inside the area below and press OK.',
+    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
     },
     blockquote : 
     {
@@ -275,7 +275,6 @@ CKEDITOR.lang['pt'] = {
     	upload : 'Carregar',
     	uploadSubmit : 'Enviar para o servidor',
     	image : 'Imagem',
-    	flash : 'Flash',
     	form : 'Formulário',
     	checkbox : 'Caixa de verificação',
     	radio : 'Botão',

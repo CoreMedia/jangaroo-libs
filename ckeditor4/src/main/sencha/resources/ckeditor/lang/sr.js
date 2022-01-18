@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['sr'] = {
@@ -220,7 +220,6 @@ CKEDITOR.lang['sr'] = {
     fakeobjects : 
     {
     	anchor : 'Сидро',
-    	flash : 'Флеш анимација',
     	hiddenfield : 'Скривено полје',
     	iframe : 'IFrame',
     	unknown : 'Непознат објекат'
@@ -249,7 +248,8 @@ CKEDITOR.lang['sr'] = {
     	paste : 'Залепи',
     	pasteNotification : 'Притисните тастер %1 за лепљење. Ваш ретраживач не дозвољаба лепљење из алатне траке или мениа.',
     	pasteArea : 'Залепи зону',
-    	pasteMsg : 'Налепите садржај у следећи простор и притисните тастер OK.'
+    	pasteMsg : 'Налепите садржај у следећи простор и притисните тастер OK.',
+    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
     },
     blockquote : 
     {
@@ -275,7 +275,6 @@ CKEDITOR.lang['sr'] = {
     	upload : 'Пошаљи',
     	uploadSubmit : 'Пошаљи на сервер',
     	image : 'Слика',
-    	flash : 'Флеш елемент',
     	form : 'Формулар',
     	checkbox : 'Поље за потврду',
     	radio : 'Радио-дугме',

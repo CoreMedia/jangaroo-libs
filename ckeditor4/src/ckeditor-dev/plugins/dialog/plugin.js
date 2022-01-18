@@ -905,7 +905,8 @@ CKEDITOR.DIALOG_STATE_BUSY = 2;
 				CKEDITOR.dialog._.currentTop = this;
 				this._.parentDialog = null;
 				showCover( this._.editor );
-			} else {
+			} else if ( CKEDITOR.dialog._.currentTop !== this ) {
+				// Reposition the new dialog only if the current dialog is not already on the top (#3638).
 				this._.parentDialog = CKEDITOR.dialog._.currentTop;
 
 				var parentElement = this._.parentDialog.getElement().getFirst();
@@ -1534,12 +1535,16 @@ CKEDITOR.DIALOG_STATE_BUSY = 2;
 				// Finally, show the spinner.
 				this.parts.spinner.show();
 
-				this.getButton( 'ok' ).disable();
+				if ( this.getButton( 'ok' ) ) {
+					this.getButton( 'ok' ).disable();
+				}
 			} else if ( state == CKEDITOR.DIALOG_STATE_IDLE ) {
 				// Hide the spinner. But don't do anything if there is no spinner yet.
 				this.parts.spinner && this.parts.spinner.hide();
 
-				this.getButton( 'ok' ).enable();
+				if ( this.getButton( 'ok' ) ) {
+					this.getButton( 'ok' ).enable();
+				}
 			}
 
 			this.fire( 'state', state );
@@ -3593,7 +3598,7 @@ CKEDITOR.DIALOG_STATE_BUSY = 2;
  * **Note:** Be cautious when specifying dialog tabs that are mandatory,
  * like `'info'`, dialog functionality might be broken because of this!
  *
- *		config.removeDialogTabs = 'flash:advanced;image:Link';
+ *		config.removeDialogTabs = 'table:advanced;image:Link';
  *
  * @since 3.5.0
  * @cfg {String} [removeDialogTabs='']
