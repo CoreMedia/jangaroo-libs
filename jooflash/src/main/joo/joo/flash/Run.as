@@ -6,9 +6,6 @@ import flash.display.Stage;
 import flash.events.Event;
 import flash.utils.getDefinitionByName;
 
-import joo.DynamicClassLoader;
-import joo.JooClassDeclaration;
-
 public class Run {
 
   //noinspection JSFieldCanBeLocal
@@ -17,14 +14,14 @@ public class Run {
   public static function main(id : String, primaryDisplayObjectClassName : String,
                               parameters : Object = null,
                               widthStr : String = null, heightStr : String = null) : void {
-    var classLoader:DynamicClassLoader = DynamicClassLoader.INSTANCE;
+    var classLoader:* = null;
     classLoader.import_(primaryDisplayObjectClassName);
     classLoader.complete(function() : void {
       if (classLoader.debug) {
         trace("[INFO] Loaded Flash main class " + primaryDisplayObjectClassName + ".");
       }
       var primaryDisplayObjectClass : Object = getDefinitionByName(primaryDisplayObjectClassName);
-      var cd:JooClassDeclaration = primaryDisplayObjectClass['$class'];
+      var cd:* = primaryDisplayObjectClass['$class'];
       var metadata:Object = cd.metadata;
       var swf:Object = {};
       var metadataSwf:Object = metadata['SWF'];

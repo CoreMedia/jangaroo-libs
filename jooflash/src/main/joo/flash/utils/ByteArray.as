@@ -139,7 +139,7 @@ public class ByteArray implements IDataInput, IDataOutput {
    * @see CompressionAlgorithm
    *
    */
-  public function compress(algorithm:String):void {
+  public function compress(algorithm:String = null):void {
     throw new Error('not implemented'); // TODO: implement!
   }
 

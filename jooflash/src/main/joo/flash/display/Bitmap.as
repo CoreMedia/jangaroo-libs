@@ -138,8 +138,8 @@ public class Bitmap extends DisplayObject {
    * </listing>
    */
   public function Bitmap(bitmapData:BitmapData = null, pixelSnapping:String = "auto", smoothing:Boolean = false) {
-    this._bitmapData = bitmapData;
     super();
+    this._bitmapData = bitmapData;
     this._pixelSnapping = pixelSnapping;
     this._smoothing = smoothing;
   }

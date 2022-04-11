@@ -1195,7 +1195,7 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
    * </listing>
    */
   public function get stage():Stage {
-    return parent ? parent.stage : null;
+    return parent ? parent.stage : globalThis["stage"];
   }
 
   /**
@@ -1263,14 +1263,8 @@ public class DisplayObject extends EventDispatcher implements IBitmapDrawable {
   }
 
   internal function transformationMatrixTo(targetSpace:DisplayObject):Matrix {
-    if (targetSpace == parent) {
+    if (targetSpace === parent) {
       return _transformationMatrix; //.clone();
-    }
-
-    if (targetSpace.parent == this) {
-      var result:Matrix = _transformationMatrix.clone();
-      result.invert();
-      return result;
     }
 
     //------------------------------------------------

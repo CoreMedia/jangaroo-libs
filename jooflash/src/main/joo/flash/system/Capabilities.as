@@ -1,6 +1,5 @@
 package flash.system {
 import joo.debug;
-import joo.getQualifiedObject;
 
 /**
  * The Capabilities class provides properties that describe the system and runtime that are hosting the application. For example, a mobile phone's screen might be 100 square pixels, black and white, whereas a PC screen might be 1000 square pixels, color. By using the Capabilities class to determine what capabilities the client has, you can provide appropriate content to as many users as possible. When you know the device's capabilities, you can tell the server to send the appropriate SWF files or tell the SWF file to alter its presentation.
@@ -167,7 +166,7 @@ public final class Capabilities {
    * Specifies whether the system supports (<code>true</code>) or does not support (<code>false</code>) embedded video. The server string is <code>EV</code>.
    */
   public static function get hasEmbeddedVideo():Boolean {
-    return !!getQualifiedObject('Video');
+    return !!globalThis["Video"];
   }
 
   /**
@@ -665,7 +664,7 @@ public final class Capabilities {
   // ************************** Jangaroo part **************************
 
   private static const audio:Object = (function():Object {
-    var Audio:Class = getQualifiedObject('Audio');
+    var Audio:Class = globalThis["Audio"];
     return Audio ? new Audio : null;
   })();
 

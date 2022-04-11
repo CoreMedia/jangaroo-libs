@@ -1342,7 +1342,7 @@ public class BitmapData implements IBitmapDrawable {
     if (_canvasContext) {
       return _canvasContext.canvas;
     }
-    var reuseImage:Boolean = imageOffsetX === 0 && imageOffsetY === 0;
+    var reuseImage:Boolean = image && imageOffsetX === 0 && imageOffsetY === 0;
     var element:HTMLElement = reuseImage ? image : HTMLElement(window.document.createElement('div'));
     var style:CSS2Properties = element.style;
     if (_fillColor) {

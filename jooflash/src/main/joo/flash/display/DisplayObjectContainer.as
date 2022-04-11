@@ -162,8 +162,8 @@ public class DisplayObjectContainer extends InteractiveObject {
    * <li><code>new MovieClip()</code></li></ul>
    */
   public function DisplayObjectContainer() {
-    this.children = new <DisplayObject>[];
     super();
+    this.children = new <DisplayObject>[];
   }
 
   /**
@@ -756,6 +756,17 @@ public class DisplayObjectContainer extends InteractiveObject {
   }
 
   // ************************** Jangaroo part **************************
+
+
+  override internal function transformationMatrixTo(targetSpace:DisplayObject):Matrix {
+    if (targetSpace && targetSpace.parent == this) {
+      var result:Matrix = _transformationMatrix.clone();
+      result.invert();
+      return result;
+    }
+
+    return super.transformationMatrixTo(targetSpace);
+  }
 
   override protected function getBoundsTransformed(matrix:Matrix = null, returnRectangle:Rectangle = null):Rectangle {
     if (returnRectangle == null) {
