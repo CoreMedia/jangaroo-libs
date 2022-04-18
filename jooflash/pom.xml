@@ -36,12 +36,6 @@
       <version>${project.version}</version>
       <type>swc</type>
     </dependency>
-    <dependency>
-      <groupId>net.jangaroo</groupId>
-      <artifactId>jooflash-core</artifactId>
-      <version>${project.version}</version>
-      <type>swc</type>
-    </dependency>
   </dependencies>
 
 </project>

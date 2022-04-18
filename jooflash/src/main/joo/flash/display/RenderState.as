@@ -7,10 +7,10 @@ import js.HTMLCanvasElement;
 
 public class RenderState {
     private var _context:CanvasRenderingContext2D ;
-  
+
     private var _matrices:Vector.<Matrix>;
     private var _alphas:Vector.<Number>;
-  
+
     private var _depth:int;
 
 
@@ -30,10 +30,10 @@ public class RenderState {
   public static function fromCanvasRenderingContext2D(context:CanvasRenderingContext2D):RenderState {
     return new RenderState(context);
   }
-  
+
     //-------------------------------------------------------------------------------------------------
     //-------------------------------------------------------------------------------------------------
-  
+
     public function get context():CanvasRenderingContext2D {
       return _context;
     }
@@ -43,7 +43,7 @@ public class RenderState {
     }
 
 //-------------------------------------------------------------------------------------------------
-  
+
     public function reset():void {
       resetContext(_context);
       _depth = 0;
@@ -62,12 +62,12 @@ public class RenderState {
          this.context.lineCap = CapsStyle.ROUND;
          this.context.lineJoin = JointStyle.ROUND;
          this.context.miterLimit = 3;
-     
+
      */
   }
-  
+
     //-------------------------------------------------------------------------------------------------
-  
+
     public function translate(tx:Number, ty:Number):void {
       _matrices[0].tx = tx;
       _matrices[0].ty = ty;
@@ -75,11 +75,11 @@ public class RenderState {
 
     public function renderDisplayObject(displayObject:DisplayObject):void {
       _depth++;
-  
+
       var matrix:Matrix = currentTransformation();
       matrix.copyFromAndConcat(displayObject._transformationMatrix, _matrices[_depth - 1]);
       displayObject._clearTransformChanged(); // we will use the updated transformation matrix for rendering!
-      
+
       _context.setTransform(matrix.a, matrix.b, matrix.c, matrix.d, matrix.tx, matrix.ty);
 
       // TODO: why not let the context aggregate transformations, like so:
@@ -89,7 +89,7 @@ public class RenderState {
       // END TODO: plus always restore context afterwards!
 
       _context.globalAlpha = _alphas[_depth] = _alphas[_depth - 1] * displayObject.alpha;
-  
+
       if (displayObject.mask == null) {
         displayObject._render(this);
       } else {
@@ -177,7 +177,7 @@ public class RenderState {
       returnRectangle.width = right - left;
       returnRectangle.height = bottom - top;
     }
-    return returnRectangle;  
+    return returnRectangle;
   }
 
   public static function unite(rectangle:Rectangle, uniteWith:Rectangle):void {
