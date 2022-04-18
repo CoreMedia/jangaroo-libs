@@ -8,7 +8,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>net.jangaroo</groupId>
   <artifactId>jooflash</artifactId>
-  <version>4.1.5-SNAPSHOT</version>
+  <version>4.1.5</version>
   <packaging>swc</packaging>
   <name>jooflash</name>
   <description>Joo Flash Compat. Library</description>
@@ -42,7 +42,7 @@
     <url>http://github.com/CoreMedia/jangaroo-libs</url>
     <connection>scm:git:git://github.com/CoreMedia/jangaroo-libs.git</connection>
     <developerConnection>scm:git:git@github.com:CoreMedia/jangaroo-libs.git</developerConnection>
-    <tag>HEAD</tag>
+    <tag>jangaroo-libs-4.1.5</tag>
   </scm>
 
   <properties>
