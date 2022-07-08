@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
+Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license/
 */
 CKEDITOR.lang['nb'] = {
     undo : 
@@ -249,7 +249,8 @@ CKEDITOR.lang['nb'] = {
     	pasteNotification : 'Trykk %1 for å lime inn. Nettleseren din støtter ikke å lime inn med knappen i verktøylinjen eller høyreklikkmenyen.',
     	pasteArea : 'Innlimingsområde',
     	pasteMsg : 'Lim inn innholdet i området nedenfor og klikk OK.',
-    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
+    	fileFormatNotSupportedNotification : 'The ${formats} file format(s) are not supported.',
+    	fileWithoutFormatNotSupportedNotification : 'The file format is not supported.'
     },
     blockquote : 
     {
@@ -264,6 +265,7 @@ CKEDITOR.lang['nb'] = {
     	superscript : 'Hevet skrift',
     	underline : 'Understreking'
     },
+    application : 'Rich Text Editor',
     editor : 'Rikteksteditor',
     editorPanel : 'Panel for rikteksteditor',
     common : 

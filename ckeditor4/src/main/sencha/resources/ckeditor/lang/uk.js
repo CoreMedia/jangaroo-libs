@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
+Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license/
 */
 CKEDITOR.lang['uk'] = {
     undo : 
@@ -249,7 +249,8 @@ CKEDITOR.lang['uk'] = {
     	pasteNotification : 'Натисніть %1, щоб вставити. Ваш браузер не підтримує вставку за допомогою кнопки панелі інструментів або пункту контекстного меню.',
     	pasteArea : 'Область вставки',
     	pasteMsg : 'Вставте вміст у область нижче та натисніть OK.',
-    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
+    	fileFormatNotSupportedNotification : 'The ${formats} file format(s) are not supported.',
+    	fileWithoutFormatNotSupportedNotification : 'The file format is not supported.'
     },
     blockquote : 
     {
@@ -264,6 +265,7 @@ CKEDITOR.lang['uk'] = {
     	superscript : 'Верхній індекс',
     	underline : 'Підкреслений'
     },
+    application : 'Rich Text Editor',
     editor : 'Текстовий редактор',
     editorPanel : 'Панель розширеного текстового редактора',
     common : 

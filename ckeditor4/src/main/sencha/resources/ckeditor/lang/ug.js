@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
+Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license/
 */
 CKEDITOR.lang['ug'] = {
     undo : 
@@ -249,7 +249,8 @@ CKEDITOR.lang['ug'] = {
     	pasteNotification : 'چاپلانغىنى 1% . سىزنىڭ تور كۆرگۈچىڭىز قۇرال تەكچىسى ۋە سىيرىلما تاللاپ چاپلاش ئىقتىدارىنى قوللىمايدىكەن .',
     	pasteArea : 'چاپلاش دائىرىسى',
     	pasteMsg : 'مەزمۇنىڭىزنى تۆۋەندىكى رايونغا چاپلاپ ئاندىن OK نى بېسىڭ .',
-    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
+    	fileFormatNotSupportedNotification : 'The ${formats} file format(s) are not supported.',
+    	fileWithoutFormatNotSupportedNotification : 'The file format is not supported.'
     },
     blockquote : 
     {
@@ -264,6 +265,7 @@ CKEDITOR.lang['ug'] = {
     	superscript : 'يۇقىرى ئىندېكس',
     	underline : 'ئاستى سىزىق'
     },
+    application : 'Rich Text Editor',
     editor : 'تەھرىرلىگۈچ',
     editorPanel : 'مول تېكست تەھرىرلىگۈچ تاختىسى',
     common : 

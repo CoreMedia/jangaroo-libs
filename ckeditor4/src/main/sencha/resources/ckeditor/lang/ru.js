@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
+Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license/
 */
 CKEDITOR.lang['ru'] = {
     undo : 
@@ -249,7 +249,8 @@ CKEDITOR.lang['ru'] = {
     	pasteNotification : 'Для вставки нажмите %1. Ваш браузер не поддерживает возможность вставки через панель инструментов или контекстное меню',
     	pasteArea : 'Область вставки',
     	pasteMsg : 'Вставьте контент в эту область и нажмите OK',
-    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
+    	fileFormatNotSupportedNotification : 'The ${formats} file format(s) are not supported.',
+    	fileWithoutFormatNotSupportedNotification : 'The file format is not supported.'
     },
     blockquote : 
     {
@@ -264,6 +265,7 @@ CKEDITOR.lang['ru'] = {
     	superscript : 'Надстрочный индекс',
     	underline : 'Подчеркнутый'
     },
+    application : 'Rich Text Editor',
     editor : 'Визуальный текстовый редактор',
     editorPanel : 'Визуальный редактор текста',
     common : 

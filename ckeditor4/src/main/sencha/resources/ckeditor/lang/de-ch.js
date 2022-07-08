@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
+Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license/
 */
 CKEDITOR.lang['de-ch'] = {
     undo : 
@@ -249,7 +249,8 @@ CKEDITOR.lang['de-ch'] = {
     	pasteNotification : 'Drücken Sie %1 zum Einfügen. Ihr Browser unterstützt nicht das Einfügen über dem Knopf in der Werkzeugleiste oder dem Kontextmenü.',
     	pasteArea : 'Einfügebereich',
     	pasteMsg : 'Fügen Sie den Inhalt in den unteren Bereich ein und drücken Sie OK.',
-    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
+    	fileFormatNotSupportedNotification : 'The ${formats} file format(s) are not supported.',
+    	fileWithoutFormatNotSupportedNotification : 'The file format is not supported.'
     },
     blockquote : 
     {
@@ -264,6 +265,7 @@ CKEDITOR.lang['de-ch'] = {
     	superscript : 'Hochgestellt',
     	underline : 'Unterstrichen'
     },
+    application : 'Rich Text Editor',
     editor : 'WYSIWYG-Editor',
     editorPanel : 'WYSIWYG-Editor-Leiste',
     common : 

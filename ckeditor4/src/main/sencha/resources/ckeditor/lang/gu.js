@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
+Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license/
 */
 CKEDITOR.lang['gu'] = {
     undo : 
@@ -249,7 +249,8 @@ CKEDITOR.lang['gu'] = {
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'પેસ્ટ કરવાની જગ્યા',
     	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
+    	fileFormatNotSupportedNotification : 'The ${formats} file format(s) are not supported.',
+    	fileWithoutFormatNotSupportedNotification : 'The file format is not supported.'
     },
     blockquote : 
     {
@@ -264,6 +265,7 @@ CKEDITOR.lang['gu'] = {
     	superscript : 'એક ચિહ્ન ઉપર કરેલું બીજું ચિહ્ન.',
     	underline : 'અન્ડર્લાઇન, નીચે લીટી'
     },
+    application : 'Rich Text Editor',
     editor : 'રીચ ટેક્ષ્ત્ એડીટર',
     editorPanel : 'વધુ વિકલ્પ વાળુ એડિટર',
     common : 

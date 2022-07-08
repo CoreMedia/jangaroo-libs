@@ -196,7 +196,10 @@
 	bender.test( tests );
 
 	function prepareNotificationRegex( notification ) {
-		var formatsGroup = '[a-z,\\s]+',
+		// Escape (s)
+		notification = notification.replace( /[()]/g, '\\$&' );
+
+		var formatsGroup = '<em>[a-z/]+<\/em>',
 			regexp = '^' + notification.replace( /\$\{formats\}/g, formatsGroup ) + '$';
 
 		return new RegExp( regexp, 'gi' );

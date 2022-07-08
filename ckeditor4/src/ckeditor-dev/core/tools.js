@@ -1,5 +1,5 @@
 /**
- * @license Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -424,10 +424,12 @@
 			for ( var i = 0; i < css.length; i++ ) {
 				if ( ( item = css[ i ] ) ) {
 					// Is CSS style text ?
-					if ( /@import|[{}]/.test( item ) )
+					if ( /@import|[{}]/.test( item ) ) {
 						retval.push( '<style>' + item + '</style>' );
-					else
+					} else {
+						item = CKEDITOR.appendTimestamp( item );
 						retval.push( '<link type="text/css" rel=stylesheet href="' + item + '">' );
+					}
 				}
 			}
 			return retval.join( '' );
@@ -969,7 +971,8 @@
 		 * @returns {Number/String} A number representing the length in pixels or a string with a percentage value.
 		 */
 		convertToPx: ( function() {
-			var calculator;
+			var calculator,
+				boundingClientRect;
 
 			return function( cssLength ) {
 				if ( !calculator ) {
@@ -988,7 +991,9 @@
 					}
 
 					calculator.setStyle( 'width', cssLength );
-					ret = calculator.$.clientWidth;
+					boundingClientRect = calculator.getClientRect();
+
+					ret = Math.round( boundingClientRect.width );
 
 					if ( isNegative ) {
 						return -ret;

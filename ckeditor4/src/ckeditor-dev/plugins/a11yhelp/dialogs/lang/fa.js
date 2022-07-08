@@ -1,5 +1,5 @@
 /**
- * @license Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -12,7 +12,7 @@ CKEDITOR.plugins.setLang( 'a11yhelp', 'fa', {
 		items: [
 			{
 			name: 'نوار ابزار ویرایشگر',
-			legend: '${toolbarFocus} را برای باز کردن نوار ابزار بفشارید. با کلید Tab و Shift+Tab در مجموعه نوار ابزار بعدی و قبلی حرکت کنید. برای حرکت در کلید نوار ابزار قبلی و بعدی با کلید جهت‌نمای راست و چپ جابجا شوید. کلید Space یا Enter را برای فعال کردن کلید نوار ابزار بفشارید.'
+			legend: 'برای باز کردن نوار ابزار،  {toolbarFocus}$ را بفشارید. با کلید Tab و Shift+Tab به مجموعه نوار ابزار بعدی و یا قبلی بروید. با کلید های جهت نمای راست و چپ روی دکمه های نوار ابزار حرکت کنید. برای فعال کردن دکمه مورد نظر کلید Enter و یا Space را بفشارید. با فعال کردن دکمه مورد نظر، تمرکز به محیط ویرایش باز خواهد گشت.'
 		},
 
 			{

@@ -1,5 +1,5 @@
 ﻿/**
- * @license Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -11,7 +11,6 @@
 ( function() {
 	var toolbox = function() {
 			this.toolbars = [];
-			this.focusCommandExecuted = false;
 		};
 
 	toolbox.prototype.focus = function() {
@@ -32,8 +31,6 @@
 
 			exec: function( editor ) {
 				if ( editor.toolbox ) {
-					editor.toolbox.focusCommandExecuted = true;
-
 					// Make the first button focus accessible for IE. (https://dev.ckeditor.com/ticket/3417)
 					// Adobe AIR instead need while of delay.
 					if ( CKEDITOR.env.ie || CKEDITOR.env.air ) {
@@ -282,13 +279,6 @@
 
 								itemObj.toolbar = toolbarObj;
 								itemObj.onkey = itemKeystroke;
-
-								// Fix for https://dev.ckeditor.com/ticket/3052:
-								// Prevent JAWS from focusing the toolbar after document load.
-								itemObj.onfocus = function() {
-									if ( !editor.toolbox.focusCommandExecuted )
-										editor.focus();
-								};
 							}
 
 							if ( pendingSeparator ) {

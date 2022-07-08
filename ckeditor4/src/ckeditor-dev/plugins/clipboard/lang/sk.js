@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.plugins.setLang( 'clipboard', 'sk', {
@@ -11,5 +11,6 @@ CKEDITOR.plugins.setLang( 'clipboard', 'sk', {
 	pasteNotification: 'Stlačte %1 na vloženie. Váš prehliadač nepodporuje vloženie prostredníctvom tlačidla v nástrojovej lište alebo voľby v kontextovom menu.',
 	pasteArea: 'Miesto pre vloženie',
 	pasteMsg: 'Vložte svoj obsah do nasledujúcej oblasti a stlačte OK.',
-	fileFormatNotSupportedNotification: 'This file format is not supported. You can try with one of the supported formats: ${formats}.' // MISSING
+	fileFormatNotSupportedNotification: 'The ${formats} file format(s) are not supported.', // MISSING
+	fileWithoutFormatNotSupportedNotification: 'The file format is not supported.' // MISSING
 } );

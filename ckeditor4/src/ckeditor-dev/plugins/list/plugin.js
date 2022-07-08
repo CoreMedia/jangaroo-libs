@@ -1,5 +1,5 @@
 ﻿/**
- * @license Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -363,8 +363,6 @@
 
 		var useComputedState = editor.config.useComputedState,
 			listDir, explicitDirection;
-
-		useComputedState = useComputedState === undefined || useComputedState;
 
 		// We want to insert things that are in the same tree level only, so calculate the contents again
 		// by expanding the selected blocks to the same tree level.
@@ -857,12 +855,14 @@
 			// Register the toolbar button.
 			if ( editor.ui.addButton ) {
 				editor.ui.addButton( 'NumberedList', {
+					isToggle: true,
 					label: editor.lang.list.numberedlist,
 					command: 'numberedlist',
 					directional: true,
 					toolbar: 'list,10'
 				} );
 				editor.ui.addButton( 'BulletedList', {
+					isToggle: true,
 					label: editor.lang.list.bulletedlist,
 					command: 'bulletedlist',
 					directional: true,

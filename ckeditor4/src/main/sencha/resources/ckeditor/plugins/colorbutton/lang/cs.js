@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.plugins.setLang( 'colorbutton', 'cs', {
@@ -29,7 +29,7 @@ CKEDITOR.plugins.setLang( 'colorbutton', 'cs', {
 		'0FF': 'Azurová',
 		'00F': 'Modrá',
 		EE82EE: 'Fialová',
-		A9A9A9: 'Kalně šedá',
+		A9A9A9: 'Tmavě šedá',
 		FFA07A: 'Světle lososová',
 		FFA500: 'Oranžová',
 		FFFF00: 'Žlutá',

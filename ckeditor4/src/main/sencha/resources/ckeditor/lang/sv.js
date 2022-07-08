@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
+Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license/
 */
 CKEDITOR.lang['sv'] = {
     undo : 
@@ -249,7 +249,8 @@ CKEDITOR.lang['sv'] = {
     	pasteNotification : 'Tryck på %1 för att klistra in. Din webbläsare stödjer inte inklistring via verktygsfältet eller snabbmenyn.',
     	pasteArea : 'Inklistringsområde',
     	pasteMsg : 'Klistra in ditt innehåll i området nedan och tryck på OK.',
-    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
+    	fileFormatNotSupportedNotification : 'The ${formats} file format(s) are not supported.',
+    	fileWithoutFormatNotSupportedNotification : 'The file format is not supported.'
     },
     blockquote : 
     {
@@ -264,6 +265,7 @@ CKEDITOR.lang['sv'] = {
     	superscript : 'Upphöjda tecken',
     	underline : 'Understruken'
     },
+    application : 'Rich Text Editor',
     editor : 'Rich Text-editor',
     editorPanel : 'Panel till Rich Text-editor',
     common : 

@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
+Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license/
 */
 CKEDITOR.lang['lv'] = {
     undo : 
@@ -249,7 +249,8 @@ CKEDITOR.lang['lv'] = {
     	pasteNotification : 'Nospied %1 lai ielīmētu. Tavs pārlūks neatbalsta ielīmēšanu ar rīkjoslas pogām vai uznirstošās izvēlnes opciju.',
     	pasteArea : 'Ielīmēšanas zona',
     	pasteMsg : 'Ielīmē saturu zemāk esošajā laukā un nospied OK.',
-    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
+    	fileFormatNotSupportedNotification : 'The ${formats} file format(s) are not supported.',
+    	fileWithoutFormatNotSupportedNotification : 'The file format is not supported.'
     },
     blockquote : 
     {
@@ -264,6 +265,7 @@ CKEDITOR.lang['lv'] = {
     	superscript : 'Augšraksts',
     	underline : 'Pasvītrojums'
     },
+    application : 'Rich Text Editor',
     editor : 'Bagātinātā teksta redaktors',
     editorPanel : 'Bagātinātā teksta redaktora panelis',
     common : 

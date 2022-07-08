@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
+Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license/
 */
 CKEDITOR.lang['gl'] = {
     undo : 
@@ -249,7 +249,8 @@ CKEDITOR.lang['gl'] = {
     	pasteNotification : 'Prema %1 para pegar. O seu navegador non admite pegar co botón da barra de ferramentas ou coa opción do menú contextual.',
     	pasteArea : 'Zona de pegado',
     	pasteMsg : 'Pegue o contido dentro da área de abaixo e prema Aceptar.',
-    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
+    	fileFormatNotSupportedNotification : 'The ${formats} file format(s) are not supported.',
+    	fileWithoutFormatNotSupportedNotification : 'The file format is not supported.'
     },
     blockquote : 
     {
@@ -264,6 +265,7 @@ CKEDITOR.lang['gl'] = {
     	superscript : 'Superíndice',
     	underline : 'Subliñado'
     },
+    application : 'Rich Text Editor',
     editor : 'Editor de texto mellorado',
     editorPanel : 'Panel do editor de texto mellorado',
     common : 
