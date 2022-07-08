@@ -1,5 +1,5 @@
 /**
- * @license Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -3169,8 +3169,7 @@ CKEDITOR.DIALOG_STATE_BUSY = 2;
 	};
 
 	( function() {
-		var notEmptyRegex = /^([a]|[^a])+$/,
-			integerRegex = /^\d*$/,
+		var integerRegex = /^\d*$/,
 			numberRegex = /^\d*(?:\.\d+)?$/,
 			htmlLengthRegex = /^(((\d*(\.\d+))|(\d*))(px|\%)?)?$/,
 			cssLengthRegex = /^(((\d*(\.\d+))|(\d*))(px|em|ex|in|cm|mm|pt|pc|\%)?)?$/i,
@@ -3297,7 +3296,14 @@ CKEDITOR.DIALOG_STATE_BUSY = 2;
 			 * @returns {Function} Validation function.
 			 */
 			notEmpty: function( msg ) {
-				return this.regex( notEmptyRegex, msg );
+				var trimCharacters = '\\u0020\\u00a0\\u1680\\u202f\\u205f\\u3000\\u2000-\\u200a\\s',
+					trimRegex = new RegExp( '^[' + trimCharacters + ']+|[' + trimCharacters + ']+$', 'g' );
+
+				return function() {
+					var value = this && this.getValue ? this.getValue() : arguments[ 0 ];
+
+					return value.replace( trimRegex, '' ).length > 0 || msg;
+				};
 			},
 
 			/**

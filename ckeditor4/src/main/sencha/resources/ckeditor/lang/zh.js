@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
+Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license/
 */
 CKEDITOR.lang['zh'] = {
     undo : 
@@ -249,7 +249,8 @@ CKEDITOR.lang['zh'] = {
     	pasteNotification : '請按下「%1」貼上。您的瀏覽器不支援工具列按鈕或是內容功能表選項。',
     	pasteArea : '貼上區',
     	pasteMsg : '請將您的內容貼於下方區域中並按下「OK」。',
-    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
+    	fileFormatNotSupportedNotification : 'The ${formats} file format(s) are not supported.',
+    	fileWithoutFormatNotSupportedNotification : 'The file format is not supported.'
     },
     blockquote : 
     {
@@ -264,6 +265,7 @@ CKEDITOR.lang['zh'] = {
     	superscript : '上標',
     	underline : '底線'
     },
+    application : 'Rich Text Editor',
     editor : 'RTF 編輯器',
     editorPanel : 'RTF 編輯器面板',
     common : 

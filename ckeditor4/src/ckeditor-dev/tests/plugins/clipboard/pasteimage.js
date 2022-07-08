@@ -1,7 +1,7 @@
 /* bender-tags: editor */
 /* bender-ckeditor-plugins: clipboard */
 /* bender-include: _helpers/pasting.js */
-/* globals mockFileReader */
+/* globals mockFileReader, assertImagePaste */
 
 ( function() {
 	'use strict';
@@ -145,7 +145,9 @@
 	} );
 
 	function prepareNotificationRegex( notification ) {
-		var formatsGroup = '[a-z,\\s]+',
+		notification = notification.replace( /[()]/g, '\\$&' );
+
+		var formatsGroup = '<em>[a-z/]+<\/em>',
 			regexp = '^' + notification.replace( /\$\{formats\}/g, formatsGroup ) + '$';
 
 		return new RegExp( regexp, 'gi' );

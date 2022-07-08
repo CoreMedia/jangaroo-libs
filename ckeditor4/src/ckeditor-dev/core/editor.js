@@ -1,5 +1,5 @@
 /**
- * @license Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -424,7 +424,8 @@
 
 	function loadLang( editor ) {
 		CKEDITOR.lang.load( editor.config.language, editor.config.defaultLanguage, function( languageCode, lang ) {
-			var configTitle = editor.config.title;
+			var configTitle = editor.config.title,
+				configApplicationTitle = editor.config.applicationTitle;
 
 			/**
 			 * The code for the language resources that have been loaded
@@ -462,6 +463,21 @@
 			 * @property {String/Boolean}
 			 */
 			editor.title = typeof configTitle == 'string' || configTitle === false ? configTitle : [ editor.lang.editor, editor.name ].join( ', ' );
+
+			/**
+			 * Indicates the human-readable title of this editor's application (the website's region
+			 * that contains the editor and its whole UI). Although this is a read-only property,
+			 * it can be initialized with {@link CKEDITOR.config#applicationTitle}.
+			 *
+			 * **Note:** Please do not confuse this property with {@link CKEDITOR.editor#name editor.name}
+			 * which identifies the literal instance in the {@link CKEDITOR#instances}.
+			 *
+			 * @since 4.19.0
+			 * @readonly
+			 * @property {String/Boolean}
+			 */
+			editor.applicationTitle = typeof configApplicationTitle == 'string' || configApplicationTitle === false ?
+				configApplicationTitle : [ editor.lang.application, editor.name ].join( ', ' );
 
 			if ( !editor.config.contentsLangDirection ) {
 				// Fallback to either the editable element direction or editor UI direction depending on creators.
@@ -684,10 +700,14 @@
 		// 2. <td>[Cell]</td> (IE8-, Safari)
 		function isSelectedCell( range ) {
 			var start = range.startContainer,
-				end = range.endContainer;
+				end = range.endContainer,
+				startIsTr = start.is && start.is( 'tr' ),
+				startIsTd = start.is && start.is( 'td' ),
+				startIsTdWithEqualChildCount = startIsTd && start.equals( end ) && range.endOffset === start.getChildCount(),
+				// (#4952)
+				startIsTdAndIncludeOnlyImage = startIsTd && start.getChildCount() === 1 && start.getChildren().getItem( 0 ).getName() === 'img';
 
-			if ( start.is && ( start.is( 'tr' ) ||
-				( start.is( 'td' ) && start.equals( end ) && range.endOffset === start.getChildCount() ) ) ) {
+			if ( startIsTr || ( startIsTdWithEqualChildCount && !startIsTdAndIncludeOnlyImage ) ) {
 				return true;
 			}
 
@@ -1658,6 +1678,7 @@
 	 * * A callback, that should be called to create editor.
 	 *
 	 * Otherwise, it periodically (with `setInterval()` calls) checks if element is attached to DOM and creates editor automatically.
+	 * The interval can be canceled by executing a callback function (a handle) clearing the interval.
 	 *
 	 * ```js
 	 *	CKEDITOR.inline( detachedEditorElement, {
@@ -1671,8 +1692,11 @@
 	 * @static
 	 * @member CKEDITOR.editor
 	 * @param {CKEDITOR.dom.element} element The DOM element on which editor should be initialized.
-	 * @param {Object} config The specific configuration to apply to the editor instance. Configuration set here will override the global CKEditor settings.
+	 * @param {Object} config The specific configuration to apply to the editor instance.
+	 * Configuration set here will override the global CKEditor settings.
 	 * @param {String} editorCreationMethod Creator function that should be used to initialize editor (inline/replace).
+	 * @returns {Function/null} A handle allowing to cancel delayed editor initialization creation
+	 * or null if {@link CKEDITOR.config#delayIfDetached_callback} option is set.
 	 */
 	CKEDITOR.editor.initializeDelayedEditorCreation = function( element, config, editorCreationMethod ) {
 		if ( config.delayIfDetached_callback ) {
@@ -1687,26 +1711,33 @@
 					method: 'callback'
 				} );
 			} );
-		} else {
-			var interval = config.delayIfDetached_interval === undefined ? CKEDITOR.config.delayIfDetached_interval : config.delayIfDetached_interval,
-				intervalId;
 
-			CKEDITOR.warn( 'editor-delayed-creation', {
-				method: 'interval - ' + interval + ' ms'
-			} );
-
-			intervalId = setInterval( function() {
-				if ( !element.isDetached() ) {
-					clearInterval( intervalId );
-
-					CKEDITOR[ editorCreationMethod ]( element, config );
-
-					CKEDITOR.warn( 'editor-delayed-creation-success', {
-						method: 'interval - ' + interval + ' ms'
-					} );
-				}
-			}, interval );
+			return null;
 		}
+
+		var interval = config.delayIfDetached_interval === undefined ?
+			CKEDITOR.config.delayIfDetached_interval
+			: config.delayIfDetached_interval;
+
+		CKEDITOR.warn( 'editor-delayed-creation', {
+			method: 'interval - ' + interval + ' ms'
+		} );
+
+		var intervalId = setInterval( function() {
+			if ( !element.isDetached() ) {
+				clearInterval( intervalId );
+
+				CKEDITOR[ editorCreationMethod ]( element, config );
+
+				CKEDITOR.warn( 'editor-delayed-creation-success', {
+					method: 'interval - ' + interval + ' ms'
+				} );
+			}
+		}, interval );
+
+		return function() {
+			clearInterval( intervalId );
+		};
 	};
 
 	/**
@@ -1852,12 +1883,48 @@ CKEDITOR.ELEMENT_MODE_INLINE = 3;
  *		config.title = false;
  *
  * See also:
- *
- * * CKEDITOR.editor#name
  * * CKEDITOR.editor#title
+ * * CKEDITOR.editor#name
+ * * CKEDITOR.editor#applicationTitle
+ * * CKEDITOR.config#applicationTitle
  *
  * @since 4.2.0
  * @cfg {String/Boolean} [title=based on editor.name]
+ * @member CKEDITOR.config
+ */
+
+/**
+ * Customizes the {@link CKEDITOR.editor#applicationTitle human-readable title} of the application for this
+ * editor. This title is used as a label for the whole website's region containing the editor with its toolbars and other
+ * UI parts. Application title impacts various
+ * [accessibility aspects](#!/guide/dev_a11y-section-announcing-the-editor-on-the-page),
+ * e.g. it is commonly used by screen readers for distinguishing editor instances and for navigation.
+ * Accepted values are a string or `false`.
+ *
+ * **Note:** When `config.applicationTitle` is set globally, the same value will be applied to all editor instances
+ * loaded with this config. This may adversely affect accessibility as screen reader users will be unable
+ * to distinguish particular editor instances and navigate between them.
+ *
+ * **Note:** Setting `config.applicationTitle = false` may also impair accessibility in a similar way.
+ *
+ * **Note:** Please do not confuse this property with {@link CKEDITOR.editor#name}
+ * which identifies the instance in the {@link CKEDITOR#instances} literal.
+ *
+ *		// Set the application title to 'My WYSIWYG'.
+ *		config.applicationTitle = 'My WYSIWYG';
+ *
+ *		// Do not add the application title.
+ *		config.applicationTitle = false;
+ *
+ * See also:
+ *
+ * * CKEDITOR.editor#applicationTitle
+ * * CKEDITOR.editor#name
+ * * CKEDITOR.editor#title
+ * * CKEDITOR.config#title
+ *
+ * @since 4.19.0
+ * @cfg {String/Boolean} [applicationTitle=based on editor.name]
  * @member CKEDITOR.config
  */
 

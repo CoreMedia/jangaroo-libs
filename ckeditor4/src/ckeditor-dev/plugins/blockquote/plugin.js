@@ -1,5 +1,5 @@
 ﻿/**
- * @license Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -242,6 +242,7 @@
 			editor.addCommand( 'blockquote', commandObject );
 
 			editor.ui.addButton && editor.ui.addButton( 'Blockquote', {
+				isToggle: true,
 				label: editor.lang.blockquote.toolbar,
 				command: 'blockquote',
 				toolbar: 'blocks,10'

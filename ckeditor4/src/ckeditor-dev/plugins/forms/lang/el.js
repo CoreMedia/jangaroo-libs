@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.plugins.setLang( 'forms', 'el', {
@@ -38,7 +38,7 @@ CKEDITOR.plugins.setLang( 'forms', 'el', {
 		size: 'Μέγεθος',
 		lines: 'γραμμές',
 		chkMulti: 'Να επιτρέπονται οι πολλαπλές επιλογές',
-		required: 'Required', // MISSING
+		required: 'Απαιτείται',
 		opText: 'Κείμενο',
 		opValue: 'Τιμή',
 		btnAdd: 'Προσθήκη',
@@ -59,7 +59,7 @@ CKEDITOR.plugins.setLang( 'forms', 'el', {
 		value: 'Τιμή',
 		charWidth: 'Πλάτος Χαρακτήρων',
 		maxChars: 'Μέγιστοι χαρακτήρες',
-		required: 'Required', // MISSING
+		required: 'Απαιτείται',
 		type: 'Τύπος',
 		typeText: 'Κείμενο',
 		typePass: 'Κωδικός',

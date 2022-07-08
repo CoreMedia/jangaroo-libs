@@ -1,5 +1,5 @@
 /**
- * @license Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -12,7 +12,7 @@ CKEDITOR.plugins.setLang( 'a11yhelp', 'cs', {
 		items: [
 			{
 			name: 'Panel nástrojů editoru',
-			legend: 'Stiskněte${toolbarFocus} k procházení panelu nástrojů. Přejděte na další a předchozí skupiny pomocí TAB a SHIFT+TAB. Přechod na další a předchozí tlačítko panelu nástrojů je pomocí ŠIPKA VPRAVO nebo ŠIPKA VLEVO. Stisknutím mezerníku nebo klávesy ENTER tlačítko aktivujete.'
+			legend: 'Stiskněte ${toolbarFocus} k procházení panelu nástrojů. K přechodu na další nebo předchozí skupinu použijte TAB nebo SHIFT+TAB. Pro přechod na další nebo předchozí tlačítko panelu nástrojů použijte ŠIPKA VPRAVO nebo ŠIPKA VLEVO. Stisknutím mezerníku nebo klávesy ENTER tlačítko aktivujete. Po aktivaci tlačítka se fokus přesune zpět do editační oblasti.'
 		},
 
 			{

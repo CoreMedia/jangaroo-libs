@@ -2,10 +2,8 @@
 
 [![npm version](https://badge.fury.io/js/ckeditor4.svg)](https://www.npmjs.com/package/ckeditor4)
 [![GitHub tag](https://img.shields.io/github/tag/ckeditor/ckeditor4.svg)](https://github.com/ckeditor/ckeditor4)
+[![Build Status](https://app.travis-ci.com/ckeditor/ckeditor4.svg?branch=master)](https://app.travis-ci.com/ckeditor/ckeditor4)
 
-[![Build Status](https://travis-ci.org/ckeditor/ckeditor4.svg?branch=major)](https://travis-ci.org/ckeditor/ckeditor4)
-[![Dependencies](https://img.shields.io/david/ckeditor/ckeditor4.svg)](https://david-dm.org/ckeditor/ckeditor4)
-[![Dev dependencies](https://img.shields.io/david/dev/ckeditor/ckeditor4.svg)](https://david-dm.org/ckeditor/ckeditor4?type=dev)
 
 [![Join newsletter](https://img.shields.io/badge/join-newsletter-00cc99.svg)](http://eepurl.com/c3zRPr)
 [![Follow Twitter](https://img.shields.io/badge/follow-twitter-00cc99.svg)](https://twitter.com/ckeditor)
@@ -81,7 +79,7 @@ Find out more in the [Browser Compatibility guide](https://ckeditor.com/docs/cke
 
 ---
 
-## Working with the `ckeditor4` repostiory
+## Working with the `ckeditor4` repository
 
 **Attention**: The code in this repository should be used locally and for development purposes only. We do not recommend using it in a production environment because the user experience will be very limited.
 
@@ -137,6 +135,6 @@ Use the [CKEditor 4 GitHub issue page](https://github.com/ckeditor/ckeditor4/iss
 
 ### License
 
-Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
 
 For licensing, see LICENSE.md or [https://ckeditor.com/legal/ckeditor-oss-license](https://ckeditor.com/legal/ckeditor-oss-license)

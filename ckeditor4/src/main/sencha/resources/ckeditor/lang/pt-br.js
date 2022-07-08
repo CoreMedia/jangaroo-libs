@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
+Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license/
 */
 CKEDITOR.lang['pt-br'] = {
     undo : 
@@ -249,7 +249,8 @@ CKEDITOR.lang['pt-br'] = {
     	pasteNotification : 'Pressione %1 para colar. Seu navegador não permite colar pelos botões da barra de tarefas ou pelo menu de contexto.',
     	pasteArea : 'Área para Colar',
     	pasteMsg : 'Cole o conteúdo na área abaixo e pressione OK.',
-    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
+    	fileFormatNotSupportedNotification : 'The ${formats} file format(s) are not supported.',
+    	fileWithoutFormatNotSupportedNotification : 'The file format is not supported.'
     },
     blockquote : 
     {
@@ -264,6 +265,7 @@ CKEDITOR.lang['pt-br'] = {
     	superscript : 'Sobrescrito',
     	underline : 'Sublinhado'
     },
+    application : 'Rich Text Editor',
     editor : 'Editor de Rich Text',
     editorPanel : 'Painel do editor de Rich Text',
     common : 

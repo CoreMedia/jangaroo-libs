@@ -1,5 +1,5 @@
 ﻿/**
- * @license Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -173,6 +173,16 @@
 			uploads = editor.uploadRepository,
 			// Plugins which support all file type has lower priority than plugins which support specific types.
 			priority = def.supportedTypes ? 10 : 20;
+
+		// Add a callback as a matcher in the clipboard plugin to check if notification should be displayed (#5095).
+		CKEDITOR.plugins.clipboard.addFileMatcher( editor, function( file ) {
+			// Allow any file type in case no type is defined.
+			if ( !def.supportedTypes ) {
+				return true;
+			}
+
+			return fileTools.isTypeSupported( file, def.supportedTypes );
+		} );
 
 		if ( def.fileToElement ) {
 			editor.on( 'paste', function( evt ) {

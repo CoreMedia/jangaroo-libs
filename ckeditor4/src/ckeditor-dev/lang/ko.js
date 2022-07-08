@@ -1,5 +1,5 @@
 /**
- * @license Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -19,6 +19,7 @@
  */
 CKEDITOR.lang[ 'ko' ] = {
 	// ARIA description.
+	application: 'Rich Text Editor', // MISSING
 	editor: '리치 텍스트 편집기',
 	editorPanel: '리치 텍스트 편집기 패널',
 

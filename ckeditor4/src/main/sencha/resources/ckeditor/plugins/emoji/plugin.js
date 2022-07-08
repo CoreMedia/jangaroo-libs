@@ -1,5 +1,5 @@
 ﻿/**
- * @license Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -8,7 +8,7 @@
 
 	var stylesLoaded = false,
 		arrTools = CKEDITOR.tools.array,
-		htmlEncode = CKEDITOR.tools.htmlEncode,
+		htmlEncode = CKEDITOR.tools.htmlEncodeAttr,
 		EmojiDropdown = CKEDITOR.tools.createClass( {
 			$: function( editor, plugin ) {
 				var lang = this.lang = editor.lang.emoji,
@@ -566,7 +566,7 @@
 
 	CKEDITOR.plugins.add( 'emoji', {
 		requires: 'autocomplete,textmatch,ajax,panelbutton,floatpanel',
-		lang: 'cs,da,de,de-ch,en,en-au,et,fa,fr,gl,hr,hu,it,nl,pl,pt-br,sk,sr,sr-latn,sv,tr,uk,zh,zh-cn', // %REMOVE_LINE_CORE%
+		lang: 'cs,da,de,de-ch,el,en,en-au,et,fa,fr,gl,hr,hu,it,nl,pl,pt-br,sk,sr,sr-latn,sv,tr,uk,zh,zh-cn', // %REMOVE_LINE_CORE%
 		icons: 'emojipanel',
 		hidpi: true,
 

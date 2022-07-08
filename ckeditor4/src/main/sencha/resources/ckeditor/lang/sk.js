@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
+Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license/
 */
 CKEDITOR.lang['sk'] = {
     undo : 
@@ -249,7 +249,8 @@ CKEDITOR.lang['sk'] = {
     	pasteNotification : 'Stlačte %1 na vloženie. Váš prehliadač nepodporuje vloženie prostredníctvom tlačidla v nástrojovej lište alebo voľby v kontextovom menu.',
     	pasteArea : 'Miesto pre vloženie',
     	pasteMsg : 'Vložte svoj obsah do nasledujúcej oblasti a stlačte OK.',
-    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
+    	fileFormatNotSupportedNotification : 'The ${formats} file format(s) are not supported.',
+    	fileWithoutFormatNotSupportedNotification : 'The file format is not supported.'
     },
     blockquote : 
     {
@@ -264,6 +265,7 @@ CKEDITOR.lang['sk'] = {
     	superscript : 'Horný index',
     	underline : 'Podčiarknuté'
     },
+    application : 'Rich Text Editor',
     editor : 'Editor formátovaného textu',
     editorPanel : 'Panel editora formátovaného textu',
     common : 

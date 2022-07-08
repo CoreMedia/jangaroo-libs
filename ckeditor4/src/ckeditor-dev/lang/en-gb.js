@@ -1,5 +1,5 @@
 /**
- * @license Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -19,6 +19,7 @@
  */
 CKEDITOR.lang[ 'en-gb' ] = {
 	// ARIA description.
+	application: 'Rich Text Editor', // MISSING
 	editor: 'Rich Text Editor',
 	editorPanel: 'Rich Text Editor panel',
 
@@ -79,11 +80,11 @@ CKEDITOR.lang[ 'en-gb' ] = {
 		align: 'Align',
 		left: 'Left', // MISSING
 		right: 'Right', // MISSING
-		center: 'Center', // MISSING
+		center: 'Centre',
 		justify: 'Justify', // MISSING
 		alignLeft: 'Align Left', // MISSING
 		alignRight: 'Align Right', // MISSING
-		alignCenter: 'Align Center', // MISSING
+		alignCenter: 'Align Centre',
 		alignTop: 'Top',
 		alignMiddle: 'Middle',
 		alignBottom: 'Bottom',

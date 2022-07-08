@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
+Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license/
 */
 CKEDITOR.lang['ku'] = {
     undo : 
@@ -249,7 +249,8 @@ CKEDITOR.lang['ku'] = {
     	pasteNotification : 'کلیک بکە لەسەر %1 بۆ لکاندنی. وێبگەڕەکەت پشتیوانی لکاندن ناکات بە دوگمەی تولامراز یان ئامرازی ناوەڕۆکی لیستە -  کلیکی دەستی ڕاست. ',
     	pasteArea : 'ناوچەی لکاندن',
     	pasteMsg : 'ناوەڕۆکەکەت لەم پانتایی خوارەوە بلکێنە',
-    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
+    	fileFormatNotSupportedNotification : 'The ${formats} file format(s) are not supported.',
+    	fileWithoutFormatNotSupportedNotification : 'The file format is not supported.'
     },
     blockquote : 
     {
@@ -264,6 +265,7 @@ CKEDITOR.lang['ku'] = {
     	superscript : 'سەرنووس',
     	underline : 'ژێرهێڵ'
     },
+    application : 'Rich Text Editor',
     editor : 'سەرنووسەی دەقی تەواو',
     editorPanel : 'بڕگەی سەرنووسەی دەقی تەواو',
     common : 

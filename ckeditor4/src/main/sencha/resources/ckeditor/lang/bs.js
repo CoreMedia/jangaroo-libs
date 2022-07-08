@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
+Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license/
 */
 CKEDITOR.lang['bs'] = {
     undo : 
@@ -249,7 +249,8 @@ CKEDITOR.lang['bs'] = {
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'Paste Area',
     	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
+    	fileFormatNotSupportedNotification : 'The ${formats} file format(s) are not supported.',
+    	fileWithoutFormatNotSupportedNotification : 'The file format is not supported.'
     },
     blockquote : 
     {
@@ -264,7 +265,8 @@ CKEDITOR.lang['bs'] = {
     	superscript : 'Superscript',
     	underline : 'Podvuci'
     },
-    editor : 'Rich Text Editor',
+    application : 'Rich Text Editor',
+    editor : 'Editor',
     editorPanel : 'Rich Text Editor panel',
     common : 
     {
@@ -275,12 +277,12 @@ CKEDITOR.lang['bs'] = {
     	upload : 'Šalji',
     	uploadSubmit : 'Šalji na server',
     	image : 'Slika',
-    	form : 'Form',
+    	form : 'Forma',
     	checkbox : 'Checkbox',
     	radio : 'Radio Button',
-    	textField : 'Text Field',
+    	textField : 'Polje za unos teksta',
     	textarea : 'Textarea',
-    	hiddenField : 'Hidden Field',
+    	hiddenField : 'Skriveno polje',
     	button : 'Button',
     	select : 'Selection Field',
     	imageButton : 'Image Button',
@@ -297,15 +299,15 @@ CKEDITOR.lang['bs'] = {
     	cssStyle : 'Stil',
     	ok : 'OK',
     	cancel : 'Odustani',
-    	close : 'Close',
+    	close : 'Zatvori',
     	preview : 'Prikaži',
-    	resize : 'Resize',
-    	generalTab : 'General',
+    	resize : 'Promijeni veličinu',
+    	generalTab : 'Generalno',
     	advancedTab : 'Naprednije',
-    	validateNumberFailed : 'This value is not a number.',
-    	confirmNewPage : 'Any unsaved changes to this content will be lost. Are you sure you want to load new page?',
-    	confirmCancel : 'You have changed some options. Are you sure you want to close the dialog window?',
-    	options : 'Options',
+    	validateNumberFailed : 'Unesena vrijednost nije broj',
+    	confirmNewPage : 'Nesačuvane izmjene će biti izgubljene. Da li ste sigurni da želite otvoriti novu stranicu ?',
+    	confirmCancel : 'Napravili ste par izmjena. Da li želite zatvoriti prozor ?',
+    	options : 'Opcije',
     	target : 'Prozor',
     	targetNew : 'New Window (_blank)',
     	targetTop : 'Topmost Window (_top)',
@@ -324,20 +326,20 @@ CKEDITOR.lang['bs'] = {
     	justify : 'Puno poravnanje',
     	alignLeft : 'Lijevo poravnanje',
     	alignRight : 'Desno poravnanje',
-    	alignCenter : 'Align Center',
+    	alignCenter : 'Centriranje',
     	alignTop : 'Vrh',
     	alignMiddle : 'Sredina',
     	alignBottom : 'Dno',
-    	alignNone : 'None',
-    	invalidValue : 'Invalid value.',
-    	invalidHeight : 'Height must be a number.',
-    	invalidWidth : 'Width must be a number.',
-    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
-    	invalidCssLength : 'Value specified for the "%1" field must be a positive number with or without a valid CSS measurement unit (px, %, in, cm, mm, em, ex, pt, or pc).',
-    	invalidHtmlLength : 'Value specified for the "%1" field must be a positive number with or without a valid HTML measurement unit (px or %).',
-    	invalidInlineStyle : 'Value specified for the inline style must consist of one or more tuples with the format of "name : value", separated by semi-colons.',
-    	cssLengthTooltip : 'Enter a number for a value in pixels or a number with a valid CSS unit (px, %, in, cm, mm, em, ex, pt, or pc).',
-    	unavailable : '%1<span class="cke_accessibility">, unavailable</span>',
+    	alignNone : 'Bez poravnanja',
+    	invalidValue : 'Nepravilna vrijednost',
+    	invalidHeight : 'Vrijednost visine mora biti broj.',
+    	invalidWidth : 'Vrijednost širine mora biti broj.',
+    	invalidLength : 'Vrijednost za "%1" polje mora biti pozitivan broj ili bez ispravne mjerne jedinice (%2).',
+    	invalidCssLength : 'Vrijednost za "%1" polje mora biti pozitivan broj ili bez validne CSS mjerne jedinice (px, %, in, cm, mm, em, ex, pt ili pc).',
+    	invalidHtmlLength : 'Vrijednost za "%1" polje mora biti pozitivan broj ili bez validne HTML mjerne jedinice (px ili %).',
+    	invalidInlineStyle : 'Vrijednost za inline stil mora sadržavati jedan ili više parova u formatu "name: value", razdvojenih tačka-zarezom.',
+    	cssLengthTooltip : 'Unesite vrijednost u pikselima ili kao broj sa ispravnom CSS jedinicom (px, %, in, cm, mm, em, ex, pt ili pc).',
+    	unavailable : '$1<span class="cke_accessibility">, nedostupno</span>',
     	keyboard : 
     	{
     		'8' : 'Backspace',
@@ -376,5 +378,5 @@ CKEDITOR.lang['bs'] = {
     		'224' : 'Command'
     	},
     	keyboardShortcut : 'Keyboard shortcut',
-    	optionDefault : 'Default'
+    	optionDefault : 'Zadano'
     } }; 

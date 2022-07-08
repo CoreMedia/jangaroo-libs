@@ -1,5 +1,5 @@
 ﻿/**
- * @license Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -14,8 +14,6 @@
 	function setToolbarStates( editor, path ) {
 		var useComputedState = editor.config.useComputedState,
 			selectedElement;
-
-		useComputedState = useComputedState === undefined || useComputedState;
 
 		// We can use computedState provided by the browser or traverse parents manually.
 		if ( !useComputedState )
@@ -80,7 +78,7 @@
 			}
 		}
 
-		var useComputedState = ( 'useComputedState' in editor.config ) ? editor.config.useComputedState : 1;
+		var useComputedState = editor.config.useComputedState;
 
 		var elementDir = useComputedState ? element.getComputedStyle( 'direction' ) : element.getStyle( 'direction' ) || element.hasAttribute( 'dir' );
 
@@ -227,6 +225,7 @@
 
 				if ( editor.ui.addButton ) {
 					editor.ui.addButton( buttonName, {
+						isToggle: true,
 						label: buttonLabel,
 						command: commandName,
 						toolbar: 'bidi,' + order

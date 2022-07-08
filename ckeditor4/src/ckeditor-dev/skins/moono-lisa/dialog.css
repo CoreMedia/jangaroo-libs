@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 
@@ -280,6 +280,11 @@ a.cke_dialog_tab_selected:focus
 {
 	border: 3px solid;
 	padding: 2px 6px;
+}
+
+/* #4934 */
+.cke_hc a.cke_dialog_tab:focus {
+	text-decoration: underline;
 }
 
 a.cke_dialog_tab_disabled

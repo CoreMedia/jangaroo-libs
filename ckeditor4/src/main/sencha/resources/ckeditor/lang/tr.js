@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
+Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license/
 */
 CKEDITOR.lang['tr'] = {
     undo : 
@@ -249,7 +249,8 @@ CKEDITOR.lang['tr'] = {
     	pasteNotification : '%1 tuşuna yapıştırmak için tıklayın. Tarayıcınız, Araç Çubuğu yada İçerik Menüsünü kullanarak yapıştırmayı desteklemiyor.',
     	pasteArea : 'Yapıştırma Alanı',
     	pasteMsg : 'İçeriğinizi alttaki bulunan alana yapıştırın ve TAMAM butonuna tıklayın',
-    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
+    	fileFormatNotSupportedNotification : 'The ${formats} file format(s) are not supported.',
+    	fileWithoutFormatNotSupportedNotification : 'The file format is not supported.'
     },
     blockquote : 
     {
@@ -264,6 +265,7 @@ CKEDITOR.lang['tr'] = {
     	superscript : 'Üst Simge',
     	underline : 'Altı Çizgili'
     },
+    application : 'Rich Text Editor',
     editor : 'Zengin Metin Editörü',
     editorPanel : 'Zengin Metin Editör Paneli',
     common : 
