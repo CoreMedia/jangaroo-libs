@@ -28,12 +28,6 @@
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
-        <artifactId>jooflash</artifactId>
-        <version>${project.version}</version>
-        <type>swc</type>
-      </dependency>
-      <dependency>
-        <groupId>net.jangaroo</groupId>
         <artifactId>jooflexframework</artifactId>
         <version>${project.version}</version>
         <type>swc</type>
