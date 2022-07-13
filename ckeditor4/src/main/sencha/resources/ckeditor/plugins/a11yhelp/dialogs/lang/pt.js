@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @license Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
@@ -18,7 +18,7 @@ CKEDITOR.plugins.setLang( 'a11yhelp', 'pt', {
 			{
 			name: 'Janela do editor',
 			legend:
-				'Dentro de uma janela de diálogo, use TAB para navegar para o campo seguinte; use SHIFT + TAB para mover para o campo anterior, use ENTER para submeter a janela, use ESC para cancelar a janela. Para as janelas que tenham vários separadores, use ALT + F10 para navegar na lista de separadores. Na lista pode mover entre o separador seguinte ou anterior com SETA DIREITA e SETA ESQUERDA, respetivamente'
+				'Dentro de uma janela de diálogo, use TAB para navegar para o campo seguinte; use SHIFT + TAB para mover para o campo anterior, use ENTER para submeter a janela, use ESC para cancelar a janela. Para as janelas que tenham vários separadores, use ALT + F10 para navegar na lista de separadores. Na lista pode mover entre o separador seguinte ou anterior com SETA DIREITA e SETA ESQUERDA, respetivamente' 
 		},
 
 			{
