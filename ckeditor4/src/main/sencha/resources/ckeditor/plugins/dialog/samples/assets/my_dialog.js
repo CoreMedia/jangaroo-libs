@@ -46,4 +46,3 @@ CKEDITOR.dialog.add( 'myDialog', function() {
 	};
 } );
 
-// %LEAVE_UNMINIFIED% %REMOVE_LINE%

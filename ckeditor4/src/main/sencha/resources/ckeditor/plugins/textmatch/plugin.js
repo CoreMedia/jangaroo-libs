@@ -262,7 +262,6 @@
 	 */
 	CKEDITOR.plugins.textMatch.getAdjacentTextNodes = function( range ) {
 		if ( !range.collapsed ) {
-			throw new Error( 'Range must be collapsed.' ); // %REMOVE_LINE%
 			// Reachable in prod mode.
 			return []; // jshint ignore:line
 		}

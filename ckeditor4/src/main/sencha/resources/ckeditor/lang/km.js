@@ -2,4 +2,381 @@
 Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license/
 */
-CKEDITOR.lang['km']={"application":"Rich Text Editor","editor":"ឧបករណ៍​សរសេរ​អត្ថបទ​សម្បូរ​បែប","editorPanel":"ផ្ទាំង​ឧបករណ៍​សរសេរ​អត្ថបទ​សម្បូរ​បែប","common":{"editorHelp":"ចុច ALT 0 សម្រាប់​ជំនួយ","browseServer":"រក​មើល​ក្នុង​ម៉ាស៊ីន​បម្រើ","url":"URL","protocol":"ពិធីការ","upload":"ផ្ទុក​ឡើង","uploadSubmit":"បញ្ជូនទៅកាន់ម៉ាស៊ីន​បម្រើ","image":"រូបភាព","form":"បែបបទ","checkbox":"ប្រអប់​ធីក","radio":"ប៊ូតុង​មូល","textField":"វាល​អត្ថបទ","textarea":"Textarea","hiddenField":"វាល​កំបាំង","button":"ប៊ូតុង","select":"វាល​ជម្រើស","imageButton":"ប៊ូតុង​រូបភាព","notSet":"<មិនកំណត់>","id":"Id","name":"ឈ្មោះ","langDir":"ទិសដៅភាសា","langDirLtr":"ពីឆ្វេងទៅស្តាំ (LTR)","langDirRtl":"ពីស្តាំទៅឆ្វេង (RTL)","langCode":"លេខ​កូដ​ភាសា","longDescr":"URL អធិប្បាយ​វែង","cssClass":"Stylesheet Classes","advisoryTitle":"ចំណង​ជើង​ណែនាំ","cssStyle":"រចនាបថ","ok":"ព្រម","cancel":"បោះបង់","close":"បិទ","preview":"មើល​ជា​មុន","resize":"ប្ដូរ​ទំហំ","generalTab":"ទូទៅ","advancedTab":"កម្រិត​ខ្ពស់","validateNumberFailed":"តម្លៃ​នេះ​ពុំ​មែន​ជា​លេខ​ទេ។","confirmNewPage":"រាល់​បន្លាស់​ប្ដូរ​នានា​ដែល​មិន​ទាន់​រក្សា​ទុក​ក្នុង​មាតិកា​នេះ នឹង​ត្រូវ​បាត់​បង់។ តើ​អ្នក​ពិត​ជា​ចង់​ផ្ទុក​ទំព័រ​ថ្មី​មែនទេ?","confirmCancel":"ការ​កំណត់​មួយ​ចំនួន​ត្រូ​វ​បាន​ផ្លាស់​ប្ដូរ។ តើ​អ្នក​ពិត​ជា​ចង់​បិទ​ប្រអប់​នេះ​មែនទេ?","options":"ការ​កំណត់","target":"គោលដៅ","targetNew":"វីនដូ​ថ្មី (_blank)","targetTop":"វីនដូ​លើ​គេ (_top)","targetSelf":"វីនដូ​ដូច​គ្នា (_self)","targetParent":"វីនដូ​មេ (_parent)","langDirLTR":"ពីឆ្វេងទៅស្តាំ(LTR)","langDirRTL":"ពីស្តាំទៅឆ្វេង(RTL)","styles":"រចនាបថ","cssClasses":"Stylesheet Classes","width":"ទទឹង","height":"កំពស់","align":"កំណត់​ទីតាំង","left":"ខាងឆ្វង","right":"ខាងស្តាំ","center":"កណ្តាល","justify":"តំរឹមសងខាង","alignLeft":"តម្រឹម​ឆ្វេង","alignRight":"តម្រឹម​ស្ដាំ","alignCenter":"Align Center","alignTop":"ខាងលើ","alignMiddle":"កណ្តាល","alignBottom":"ខាងក្រោម","alignNone":"គ្មាន","invalidValue":"តម្លៃ​មិន​ត្រឹម​ត្រូវ។","invalidHeight":"តម្លៃ​កំពស់​ត្រូវ​តែ​ជា​លេខ។","invalidWidth":"តម្លៃ​ទទឹង​ត្រូវ​តែ​ជា​លេខ។","invalidLength":"Value specified for the \"%1\" field must be a positive number with or without a valid measurement unit (%2).","invalidCssLength":"តម្លៃ​កំណត់​សម្រាប់​វាល \"%1\" ត្រូវ​តែ​ជា​លេខ​វិជ្ជមាន​ ដោយ​ភ្ជាប់ឬ​មិន​ភ្ជាប់​ជាមួយ​នឹង​ឯកតា​រង្វាស់​របស់ CSS (px, %, in, cm, mm, em, ex, pt ឬ pc) ។","invalidHtmlLength":"តម្លៃ​កំណត់​សម្រាប់​វាល \"%1\" ត្រូវ​តែ​ជា​លេខ​វិជ្ជមាន ដោយ​ភ្ជាប់​ឬ​មិន​ភ្ជាប់​ជាមួយ​នឹង​ឯកតា​រង្វាស់​របស់ HTML (px ឬ %) ។","invalidInlineStyle":"តម្លៃ​កំណត់​សម្រាប់​រចនាបថ​ក្នុង​តួ ត្រូវ​តែ​មាន​មួយ​ឬ​ធាតុ​ច្រើន​ដោយ​មាន​ទ្រង់ទ្រាយ​ជា \"ឈ្មោះ : តម្លៃ\" ហើយ​ញែក​ចេញ​ពី​គ្នា​ដោយ​ចុច​ក្បៀស។","cssLengthTooltip":"បញ្ចូល​លេខ​សម្រាប់​តម្លៃ​ជា​ភិចសែល ឬ​លេខ​ដែល​មាន​ឯកតា​ត្រឹមត្រូវ​របស់ CSS (px, %, in, cm, mm, em, ex, pt ឬ pc) ។","unavailable":"%1<span class=\"cke_accessibility\">, មិន​មាន</span>","keyboard":{"8":"លុបថយក្រោយ","13":"Enter","16":"Shift","17":"Ctrl","18":"Alt","32":"Space","35":"ចុង","36":"ផ្ទះ","46":"លុប","112":"F1","113":"F2","114":"F3","115":"F4","116":"F5","117":"F6","118":"F7","119":"F8","120":"F9","121":"F10","122":"F11","123":"F12","124":"F13","125":"F14","126":"F15","127":"F16","128":"F17","129":"F18","130":"F19","131":"F20","132":"F21","133":"F22","134":"F23","135":"F24","224":"Command"},"keyboardShortcut":"Keyboard shortcut","optionDefault":"Default"},"about":{"copy":"រក្សាសិទ្ធិ &copy; $1។ រក្សា​សិទ្ធិ​គ្រប់​បែប​យ៉ាង។","dlgTitle":"អំពី CKEditor","moreInfo":"សម្រាប់​ព័ត៌មាន​អំពី​អាជ្ញាបណញណ សូម​មើល​ក្នុង​គេហទំព័រ​របស់​យើង៖"},"basicstyles":{"bold":"ដិត","italic":"ទ្រេត","strike":"គូស​បន្ទាត់​ចំ​កណ្ដាល","subscript":"អក្សរតូចក្រោម","superscript":"អក្សរតូចលើ","underline":"គូស​បន្ទាត់​ក្រោម"},"blockquote":{"toolbar":"ប្លក់​ពាក្យ​សម្រង់"},"notification":{"closed":"បាន​បិទ​ការ​ផ្ដល់​ដំណឹង។"},"toolbar":{"toolbarCollapse":"បង្រួម​របារ​ឧបករណ៍","toolbarExpand":"ពង្រីក​របារ​ឧបករណ៍","toolbarGroups":{"document":"ឯកសារ","clipboard":"Clipboard/មិន​ធ្វើ​វិញ","editing":"ការ​កែ​សម្រួល","forms":"បែបបទ","basicstyles":"រចនាបថ​មូលដ្ឋាន","paragraph":"កថាខណ្ឌ","links":"តំណ","insert":"បញ្ចូល","styles":"រចនាបថ","colors":"ពណ៌","tools":"ឧបករណ៍"},"toolbars":"របារ​ឧបករណ៍​កែ​សម្រួល"},"clipboard":{"copy":"ចម្លង","copyError":"ការកំណត់សុវត្ថភាពរបស់កម្មវិធីរុករករបស់លោកអ្នក នេះ​មិនអាចធ្វើកម្មវិធីតាក់តែងអត្ថបទ ចំលងអត្ថបទយកដោយស្វ័យប្រវត្តបានឡើយ ។ សូមប្រើប្រាស់បន្សំ ឃីដូចនេះ (Ctrl/Cmd+C)។","cut":"កាត់យក","cutError":"ការកំណត់សុវត្ថភាពរបស់កម្មវិធីរុករករបស់លោកអ្នក នេះ​មិនអាចធ្វើកម្មវិធីតាក់តែងអត្ថបទ កាត់អត្ថបទយកដោយស្វ័យប្រវត្តបានឡើយ ។ សូមប្រើប្រាស់បន្សំ ឃីដូចនេះ  (Ctrl/Cmd+X) ។","paste":"បិទ​ភ្ជាប់","pasteNotification":"Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.","pasteArea":"តំបន់​បិទ​ភ្ជាប់","pasteMsg":"Paste your content inside the area below and press OK.","fileFormatNotSupportedNotification":"The ${formats} file format(s) are not supported.","fileWithoutFormatNotSupportedNotification":"The file format is not supported."},"contextmenu":{"options":"ជម្រើស​ម៉ឺនុយ​បរិបទ"},"elementspath":{"eleLabel":"ទីតាំង​ធាតុ","eleTitle":"ធាតុ %1"},"filetools":{"loadError":"មាន​បញ្ហា​កើតឡើង​ក្នុង​ពេល​អាន​ឯកសារ។","networkError":"មាន​បញ្ហា​បណ្ដាញ​កើត​ឡើង​ក្នុង​ពេល​ផ្ទុកឡើង​ឯកសារ។","httpError404":"មាន​បញ្ហា HTTP កើត​ឡើង​ក្នុង​ពេល​ផ្ទុកឡើង​ឯកសារ (404៖ រក​ឯកសារ​មិន​ឃើញ)។","httpError403":"មាន​បញ្ហា HTTP កើត​ឡើង​ក្នុង​ពេល​ផ្ទុកឡើង​ឯកសារ (403៖ ហាមឃាត់)។","httpError":"មាន​បញ្ហា HTTP កើត​ឡើង​ក្នុង​ពេល​ផ្ទុកឡើង​ឯកសារ (ស្ថានភាព​កំហុស៖ %1)។","noUrlError":"មិន​មាន​បញ្ជាក់ URL ផ្ទុក​ឡើង។","responseError":"ការ​ឆ្លើយតប​របស់​ម៉ាស៊ីនបម្រើ មិន​ត្រឹមត្រូវ។"},"format":{"label":"ទម្រង់","panelTitle":"ទម្រង់​កថាខណ្ឌ","tag_address":"អាសយដ្ឋាន","tag_div":"ធម្មតា (DIV)","tag_h1":"ចំណង​ជើង 1","tag_h2":"ចំណង​ជើង 2","tag_h3":"ចំណង​ជើង 3","tag_h4":"ចំណង​ជើង 4","tag_h5":"ចំណង​ជើង 5","tag_h6":"ចំណង​ជើង 6","tag_p":"ធម្មតា","tag_pre":"Formatted"},"horizontalrule":{"toolbar":"បន្ថែមបន្ទាត់ផ្តេក"},"image":{"alt":"អត្ថបទជំនួស","border":"ស៊ុម","btnUpload":"ផ្ញើ​ទៅ​ម៉ាស៊ីន​បម្រើ","button2Img":"តើ​អ្នក​ចង់​ផ្លាស់​ប្ដូរ​ប៊ូតុង​រូបភាព​ដែល​បាន​ជ្រើស នៅ​លើ​រូបភាព​ធម្មតា​មួយ​មែនទេ?","hSpace":"គម្លាត​ផ្ដេក","img2Button":"តើ​អ្នក​ចង់​ផ្លាស់​ប្ដូរ​រូបភាព​ដែល​បាន​ជ្រើស នៅ​លើ​ប៊ូតុង​រូបភាព​មែនទេ?","infoTab":"ពត៌មានអំពីរូបភាព","linkTab":"តំណ","lockRatio":"ចាក់​សោ​ផល​ធៀប","menu":"លក្ខណៈ​រូបភាព","resetSize":"កំណត់ទំហំឡើងវិញ","title":"លក្ខណៈ​រូបភាព","titleButton":"លក្ខណៈ​ប៊ូតុង​រូបភាព","upload":"ផ្ទុកឡើង","urlMissing":"ខ្វះ URL ប្រភព​រូប​ភាព។","vSpace":"គម្លាត​បញ្ឈរ","validateBorder":"ស៊ុម​ត្រូវ​តែ​ជា​លេខ។","validateHSpace":"គម្លាត​ផ្ដេក​ត្រូវ​តែ​ជា​លេខ។","validateVSpace":"គម្លាត​បញ្ឈរ​ត្រូវ​តែ​ជា​លេខ។"},"indent":{"indent":"បន្ថែមការចូលបន្ទាត់","outdent":"បន្ថយការចូលបន្ទាត់"},"fakeobjects":{"anchor":"យុថ្កា","hiddenfield":"វាល​កំបាំង","iframe":"IFrame","unknown":"វត្ថុ​មិន​ស្គាល់"},"link":{"acccessKey":"សោរ​ចូល","advanced":"កម្រិត​ខ្ពស់","advisoryContentType":"ប្រភេទអត្ថបទ​ប្រឹក្សា","advisoryTitle":"ចំណងជើង​ប្រឹក្សា","anchor":{"toolbar":"យុថ្កា","menu":"កែ​យុថ្កា","title":"លក្ខណៈ​យុថ្កា","name":"ឈ្មោះ​យុថ្កា","errorName":"សូម​បញ្ចូល​ឈ្មោះ​យុថ្កា","remove":"ដក​យុថ្កា​ចេញ"},"anchorId":"តាម ID ធាតុ","anchorName":"តាម​ឈ្មោះ​យុថ្កា","charset":"លេខកូតអក្សររបស់ឈ្នាប់","cssClasses":"Stylesheet Classes","download":"Force Download","displayText":"Display Text","emailAddress":"អាសយដ្ឋាន​អ៊ីមែល","emailBody":"តួ​អត្ថបទ","emailSubject":"ប្រធានបទ​សារ","id":"Id","info":"ព័ត៌មាន​ពី​តំណ","langCode":"កូដ​ភាសា","langDir":"ទិសដៅភាសា","langDirLTR":"ពីឆ្វេងទៅស្តាំ(LTR)","langDirRTL":"ពីស្តាំទៅឆ្វេង(RTL)","menu":"កែ​តំណ","name":"ឈ្មោះ","noAnchors":"(មិន​មាន​យុថ្កា​នៅ​ក្នុង​ឯកសារ​អត្ថថបទ​ទេ)","noEmail":"សូម​បញ្ចូល​អាសយដ្ឋាន​អ៊ីមែល","noUrl":"សូម​បញ្ចូល​តំណ URL","noTel":"Please type the phone number","other":"<ផ្សេង​ទៀត>","phoneNumber":"Phone number","popupDependent":"Dependent (Netscape)","popupFeatures":"មុខ​ងារ​ផុស​ផ្ទាំង​វីនដូ​ឡើង","popupFullScreen":"ពេញ​អេក្រង់ (IE)","popupLeft":"ទីតាំងខាងឆ្វេង","popupLocationBar":"របារ​ទីតាំង","popupMenuBar":"របារ​ម៉ឺនុយ","popupResizable":"អាច​ប្ដូរ​ទំហំ","popupScrollBars":"របារ​រំកិល","popupStatusBar":"របារ​ស្ថានភាព","popupToolbar":"របារ​ឧបករណ៍","popupTop":"ទីតាំង​កំពូល","rel":"សម្ពន្ធ​ភាព","selectAnchor":"រើស​យក​យុថ្កា​មួយ","styles":"ស្ទីល","tabIndex":"លេខ Tab","target":"គោលដៅ","targetFrame":"<ស៊ុម>","targetFrameName":"ឈ្មោះ​ស៊ុម​ជា​គោល​ដៅ","targetPopup":"<វីនដូ​ផុស​ឡើង>","targetPopupName":"ឈ្មោះ​វីនដូត​ផុស​ឡើង","title":"តំណ","toAnchor":"ត​ភ្ជាប់​ទៅ​យុថ្កា​ក្នុង​អត្ថបទ","toEmail":"អ៊ីមែល","toUrl":"URL","toPhone":"Phone","toolbar":"តំណ","type":"ប្រភេទ​តំណ","unlink":"ផ្ដាច់​តំណ","upload":"ផ្ទុក​ឡើង"},"list":{"bulletedlist":"បញ្ចូល / លុប​បញ្ជី​ជា​ចំណុច​មូល","numberedlist":"បញ្ចូល / លុប​បញ្ជី​ជា​លេខ"},"magicline":{"title":"បញ្ចូល​កថាខណ្ឌ​នៅ​ទីនេះ"},"maximize":{"maximize":"ពង្រីក​អតិបរមា","minimize":"បង្រួម​អប្បបរមា"},"pastetext":{"button":"បិទ​ភ្ជាប់​ជា​អត្ថបទ​ធម្មតា","pasteNotification":"Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.","title":"បិទ​ភ្ជាប់​ជា​អត្ថបទ​ធម្មតា"},"pastefromword":{"confirmCleanup":"អត្ថបទ​ដែល​អ្នក​ចង់​បិទ​ភ្ជាប់​នេះ ទំនង​ដូច​ជា​ចម្លង​មក​ពី Word។ តើ​អ្នក​ចង់​សម្អាត​វា​មុន​បិទ​ភ្ជាប់​ទេ?","error":"ដោយ​សារ​មាន​បញ្ហា​ផ្នែក​ក្នុង​ធ្វើ​ឲ្យ​មិន​អាច​សម្អាត​ទិន្នន័យ​ដែល​បាន​បិទ​ភ្ជាប់","title":"បិទ​ភ្ជាប់​ពី Word","toolbar":"បិទ​ភ្ជាប់​ពី Word"},"removeformat":{"toolbar":"ជម្រះ​ទ្រង់​ទ្រាយ"},"sourcearea":{"toolbar":"អក្សរ​កូដ"},"specialchar":{"options":"ជម្រើស​តួ​អក្សរ​ពិសេស","title":"រើស​តួអក្សរ​ពិសេស","toolbar":"បន្ថែមអក្សរពិសេស"},"scayt":{"btn_about":"About SCAYT","btn_dictionaries":"Dictionaries","btn_disable":"Disable SCAYT","btn_enable":"Enable SCAYT","btn_langs":"Languages","btn_options":"Options","text_title":"Spell Check As You Type"},"stylescombo":{"label":"រចនាបថ","panelTitle":"ទ្រង់ទ្រាយ​រចនាបថ","panelTitle1":"រចនាបថ​ប្លក់","panelTitle2":"រចនាបថ​ក្នុង​ជួរ","panelTitle3":"រចនាបថ​វត្ថុ"},"table":{"border":"ទំហំ​បន្ទាត់​ស៊ុម","caption":"ចំណងជើង","cell":{"menu":"ក្រឡា","insertBefore":"បញ្ចូល​ក្រឡា​ពីមុខ","insertAfter":"បញ្ចូល​ក្រឡា​ពី​ក្រោយ","deleteCell":"លុប​ក្រឡា","merge":"បញ្ចូល​ក្រឡា​ចូល​គ្នា","mergeRight":"បញ្ចូល​គ្នា​ខាង​ស្ដាំ","mergeDown":"បញ្ចូល​គ្នា​ចុះ​ក្រោម","splitHorizontal":"ពុះ​ក្រឡា​ផ្ដេក","splitVertical":"ពុះ​ក្រឡា​បញ្ឈរ","title":"លក្ខណៈ​ក្រឡា","cellType":"ប្រភេទ​ក្រឡា","rowSpan":"ចំនួន​ជួរ​ដេក​លាយ​ចូល​គ្នា","colSpan":"ចំនួន​ជួរ​ឈរ​លាយ​ចូល​គ្នា","wordWrap":"រុំ​ពាក្យ","hAlign":"ការ​តម្រឹម​ផ្ដេក","vAlign":"ការ​តម្រឹម​បញ្ឈរ","alignBaseline":"ខ្សែ​បន្ទាត់​គោល","bgColor":"ពណ៌​ផ្ទៃ​ក្រោយ","borderColor":"ពណ៌​បន្ទាត់​ស៊ុម","data":"ទិន្នន័យ","header":"ក្បាល","yes":"ព្រម","no":"ទេ","invalidWidth":"ទទឹង​ក្រឡា​ត្រូវ​តែ​ជា​លេខ។","invalidHeight":"កម្ពស់​ក្រឡា​ត្រូវ​តែ​ជា​លេខ។","invalidRowSpan":"ចំនួន​ជួរ​ដេក​លាយ​ចូល​គ្នា​ត្រូវ​តែ​ជា​លេខ​ទាំង​អស់។","invalidColSpan":"ចំនួន​ជួរ​ឈរ​លាយ​ចូល​គ្នា​ត្រូវ​តែ​ជា​លេខ​ទាំង​អស់។","chooseColor":"រើស"},"cellPad":"ចន្លោះ​ក្រឡា","cellSpace":"គម្លាត​ក្រឡា","column":{"menu":"ជួរ​ឈរ","insertBefore":"បញ្ចូល​ជួរ​ឈរ​ពីមុខ","insertAfter":"បញ្ចូល​ជួរ​ឈរ​ពី​ក្រោយ","deleteColumn":"លុប​ជួរ​ឈរ"},"columns":"ជួរឈរ","deleteTable":"លុប​តារាង","headers":"ក្បាល","headersBoth":"ទាំង​ពីរ","headersColumn":"ជួរ​ឈរ​ដំបូង","headersNone":"មិន​មាន","headersRow":"ជួរ​ដេក​ដំបូង","heightUnit":"height unit","invalidBorder":"ទំហំ​បន្ទាត់​ស៊ុម​ត្រូវ​តែ​ជា​លេខ។","invalidCellPadding":"ចន្លោះ​ក្រឡា​ត្រូវ​តែជា​លេខ​វិជ្ជមាន។","invalidCellSpacing":"គម្លាត​ក្រឡា​ត្រូវ​តែ​ជា​លេខ​វិជ្ជមាន។","invalidCols":"ចំនួន​ជួរ​ឈរ​ត្រូវ​តែ​ជា​លេខ​ធំ​ជាង 0។","invalidHeight":"កម្ពស់​តារាង​ត្រូវ​តែ​ជា​លេខ","invalidRows":"ចំនួន​ជួរ​ដេក​ត្រូវ​តែ​ជា​លេខ​ធំ​ជាង 0។","invalidWidth":"ទទឹង​តារាង​ត្រូវ​តែ​ជា​លេខ។","menu":"លក្ខណៈ​តារាង","row":{"menu":"ជួរ​ដេក","insertBefore":"បញ្ចូល​ជួរ​ដេក​ពីមុខ","insertAfter":"បញ្ចូល​ជួរ​ដេក​ពី​ក្រោយ","deleteRow":"លុប​ជួរ​ដេក"},"rows":"ជួរ​ដេក","summary":"សេចក្តី​សង្ខេប","title":"លក្ខណៈ​តារាង","toolbar":"តារាង","widthPc":"ភាគរយ","widthPx":"ភីកសែល","widthUnit":"ឯកតា​ទទឹង"},"undo":{"redo":"ធ្វើ​ឡើង​វិញ","undo":"មិន​ធ្វើ​វិញ"},"widget":{"move":"ចុច​ហើយ​ទាញ​ដើម្បី​ផ្លាស់​ទី","label":"%1 widget"},"uploadwidget":{"abort":"បាន​ផ្ដាច់​ការផ្ទុកឡើង​ដោយ​អ្នក​ប្រើប្រាស់។","doneOne":"បាន​ផ្ទុកឡើង​នូវ​ឯកសារ​ដោយ​ជោគជ័យ។","doneMany":"បាន​ផ្ទុក​ឡើង​នូវ​ឯកសារ %1 ដោយ​ជោគជ័យ។","uploadOne":"កំពុង​ផ្ទុកឡើង​ឯកសារ ({percentage}%)...","uploadMany":"កំពុង​ផ្ទុកឡើង​ឯកសារ, រួចរាល់ {current} នៃ {max} ({percentage}%)..."}};
+CKEDITOR.lang['km'] = {
+    undo : 
+    {
+    	redo : 'ធ្វើ\u200bឡើង\u200bវិញ',
+    	undo : 'មិន\u200bធ្វើ\u200bវិញ'
+    },
+    toolbar : 
+    {
+    	toolbarCollapse : 'បង្រួម\u200bរបារ\u200bឧបករណ៍',
+    	toolbarExpand : 'ពង្រីក\u200bរបារ\u200bឧបករណ៍',
+    	toolbarGroups : 
+    	{
+    		document : 'ឯកសារ',
+    		clipboard : 'Clipboard/មិន\u200bធ្វើ\u200bវិញ',
+    		editing : 'ការ\u200bកែ\u200bសម្រួល',
+    		forms : 'បែបបទ',
+    		basicstyles : 'រចនាបថ\u200bមូលដ្ឋាន',
+    		paragraph : 'កថាខណ្ឌ',
+    		links : 'តំណ',
+    		insert : 'បញ្ចូល',
+    		styles : 'រចនាបថ',
+    		colors : 'ពណ៌',
+    		tools : 'ឧបករណ៍'
+    	},
+    	toolbars : 'របារ\u200bឧបករណ៍\u200bកែ\u200bសម្រួល'
+    },
+    table : 
+    {
+    	border : 'ទំហំ\u200bបន្ទាត់\u200bស៊ុម',
+    	caption : 'ចំណងជើង',
+    	cell : 
+    	{
+    		menu : 'ក្រឡា',
+    		insertBefore : 'បញ្ចូល\u200bក្រឡា\u200bពីមុខ',
+    		insertAfter : 'បញ្ចូល\u200bក្រឡា\u200bពី\u200bក្រោយ',
+    		deleteCell : 'លុប\u200bក្រឡា',
+    		merge : 'បញ្ចូល\u200bក្រឡា\u200bចូល\u200bគ្នា',
+    		mergeRight : 'បញ្ចូល\u200bគ្នា\u200bខាង\u200bស្ដាំ',
+    		mergeDown : 'បញ្ចូល\u200bគ្នា\u200bចុះ\u200bក្រោម',
+    		splitHorizontal : 'ពុះ\u200bក្រឡា\u200bផ្ដេក',
+    		splitVertical : 'ពុះ\u200bក្រឡា\u200bបញ្ឈរ',
+    		title : 'លក្ខណៈ\u200bក្រឡា',
+    		cellType : 'ប្រភេទ\u200bក្រឡា',
+    		rowSpan : 'ចំនួន\u200bជួរ\u200bដេក\u200bលាយ\u200bចូល\u200bគ្នា',
+    		colSpan : 'ចំនួន\u200bជួរ\u200bឈរ\u200bលាយ\u200bចូល\u200bគ្នា',
+    		wordWrap : 'រុំ\u200bពាក្យ',
+    		hAlign : 'ការ\u200bតម្រឹម\u200bផ្ដេក',
+    		vAlign : 'ការ\u200bតម្រឹម\u200bបញ្ឈរ',
+    		alignBaseline : 'ខ្សែ\u200bបន្ទាត់\u200bគោល',
+    		bgColor : 'ពណ៌\u200bផ្ទៃ\u200bក្រោយ',
+    		borderColor : 'ពណ៌\u200bបន្ទាត់\u200bស៊ុម',
+    		data : 'ទិន្នន័យ',
+    		header : 'ក្បាល',
+    		yes : 'ព្រម',
+    		no : 'ទេ',
+    		invalidWidth : 'ទទឹង\u200bក្រឡា\u200bត្រូវ\u200bតែ\u200bជា\u200bលេខ។',
+    		invalidHeight : 'កម្ពស់\u200bក្រឡា\u200bត្រូវ\u200bតែ\u200bជា\u200bលេខ។',
+    		invalidRowSpan : 'ចំនួន\u200bជួរ\u200bដេក\u200bលាយ\u200bចូល\u200bគ្នា\u200bត្រូវ\u200bតែ\u200bជា\u200bលេខ\u200bទាំង\u200bអស់។',
+    		invalidColSpan : 'ចំនួន\u200bជួរ\u200bឈរ\u200bលាយ\u200bចូល\u200bគ្នា\u200bត្រូវ\u200bតែ\u200bជា\u200bលេខ\u200bទាំង\u200bអស់។',
+    		chooseColor : 'រើស'
+    	},
+    	cellPad : 'ចន្លោះ\u200bក្រឡា',
+    	cellSpace : 'គម្លាត\u200bក្រឡា',
+    	column : 
+    	{
+    		menu : 'ជួរ\u200bឈរ',
+    		insertBefore : 'បញ្ចូល\u200bជួរ\u200bឈរ\u200bពីមុខ',
+    		insertAfter : 'បញ្ចូល\u200bជួរ\u200bឈរ\u200bពី\u200bក្រោយ',
+    		deleteColumn : 'លុប\u200bជួរ\u200bឈរ'
+    	},
+    	columns : 'ជួរឈរ',
+    	deleteTable : 'លុប\u200bតារាង',
+    	headers : 'ក្បាល',
+    	headersBoth : 'ទាំង\u200bពីរ',
+    	headersColumn : 'ជួរ\u200bឈរ\u200bដំបូង',
+    	headersNone : 'មិន\u200bមាន',
+    	headersRow : 'ជួរ\u200bដេក\u200bដំបូង',
+    	heightUnit : 'height unit',
+    	invalidBorder : 'ទំហំ\u200bបន្ទាត់\u200bស៊ុម\u200bត្រូវ\u200bតែ\u200bជា\u200bលេខ។',
+    	invalidCellPadding : 'ចន្លោះ\u200bក្រឡា\u200bត្រូវ\u200bតែជា\u200bលេខ\u200bវិជ្ជមាន។',
+    	invalidCellSpacing : 'គម្លាត\u200bក្រឡា\u200bត្រូវ\u200bតែ\u200bជា\u200bលេខ\u200bវិជ្ជមាន។',
+    	invalidCols : 'ចំនួន\u200bជួរ\u200bឈរ\u200bត្រូវ\u200bតែ\u200bជា\u200bលេខ\u200bធំ\u200bជាង 0។',
+    	invalidHeight : 'កម្ពស់\u200bតារាង\u200bត្រូវ\u200bតែ\u200bជា\u200bលេខ',
+    	invalidRows : 'ចំនួន\u200bជួរ\u200bដេក\u200bត្រូវ\u200bតែ\u200bជា\u200bលេខ\u200bធំ\u200bជាង 0។',
+    	invalidWidth : 'ទទឹង\u200bតារាង\u200bត្រូវ\u200bតែ\u200bជា\u200bលេខ។',
+    	menu : 'លក្ខណៈ\u200bតារាង',
+    	row : 
+    	{
+    		menu : 'ជួរ\u200bដេក',
+    		insertBefore : 'បញ្ចូល\u200bជួរ\u200bដេក\u200bពីមុខ',
+    		insertAfter : 'បញ្ចូល\u200bជួរ\u200bដេក\u200bពី\u200bក្រោយ',
+    		deleteRow : 'លុប\u200bជួរ\u200bដេក'
+    	},
+    	rows : 'ជួរ\u200bដេក',
+    	summary : 'សេចក្តី\u200bសង្ខេប',
+    	title : 'លក្ខណៈ\u200bតារាង',
+    	toolbar : 'តារាង',
+    	widthPc : 'ភាគរយ',
+    	widthPx : 'ភីកសែល',
+    	widthUnit : 'ឯកតា\u200bទទឹង'
+    },
+    pastetext : 
+    {
+    	button : 'បិទ\u200bភ្ជាប់\u200bជា\u200bអត្ថបទ\u200bធម្មតា',
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	title : 'បិទ\u200bភ្ជាប់\u200bជា\u200bអត្ថបទ\u200bធម្មតា'
+    },
+    pastefromword : 
+    {
+    	confirmCleanup : 'អត្ថបទ\u200bដែល\u200bអ្នក\u200bចង់\u200bបិទ\u200bភ្ជាប់\u200bនេះ ទំនង\u200bដូច\u200bជា\u200bចម្លង\u200bមក\u200bពី Word។ តើ\u200bអ្នក\u200bចង់\u200bសម្អាត\u200bវា\u200bមុន\u200bបិទ\u200bភ្ជាប់\u200bទេ?',
+    	error : 'ដោយ\u200bសារ\u200bមាន\u200bបញ្ហា\u200bផ្នែក\u200bក្នុង\u200bធ្វើ\u200bឲ្យ\u200bមិន\u200bអាច\u200bសម្អាត\u200bទិន្នន័យ\u200bដែល\u200bបាន\u200bបិទ\u200bភ្ជាប់',
+    	title : 'បិទ\u200bភ្ជាប់\u200bពី Word',
+    	toolbar : 'បិទ\u200bភ្ជាប់\u200bពី Word'
+    },
+    notification : 
+    {
+    	closed : 'បាន\u200bបិទ\u200bការ\u200bផ្ដល់\u200bដំណឹង។'
+    },
+    magicline : 
+    {
+    	title : 'បញ្ចូល\u200bកថាខណ្ឌ\u200bនៅ\u200bទីនេះ'
+    },
+    list : 
+    {
+    	bulletedlist : 'បញ្ចូល / លុប\u200bបញ្ជី\u200bជា\u200bចំណុច\u200bមូល',
+    	numberedlist : 'បញ្ចូល / លុប\u200bបញ្ជី\u200bជា\u200bលេខ'
+    },
+    link : 
+    {
+    	acccessKey : 'សោរ\u200bចូល',
+    	advanced : 'កម្រិត\u200bខ្ពស់',
+    	advisoryContentType : 'ប្រភេទអត្ថបទ\u200bប្រឹក្សា',
+    	advisoryTitle : 'ចំណងជើង\u200bប្រឹក្សា',
+    	anchor : 
+    	{
+    		toolbar : 'យុថ្កា',
+    		menu : 'កែ\u200bយុថ្កា',
+    		title : 'លក្ខណៈ\u200bយុថ្កា',
+    		name : 'ឈ្មោះ\u200bយុថ្កា',
+    		errorName : 'សូម\u200bបញ្ចូល\u200bឈ្មោះ\u200bយុថ្កា',
+    		remove : 'ដក\u200bយុថ្កា\u200bចេញ'
+    	},
+    	anchorId : 'តាម ID ធាតុ',
+    	anchorName : 'តាម\u200bឈ្មោះ\u200bយុថ្កា',
+    	charset : 'លេខកូតអក្សររបស់ឈ្នាប់',
+    	cssClasses : 'Stylesheet Classes',
+    	download : 'Force Download',
+    	displayText : 'Display Text',
+    	emailAddress : 'អាសយដ្ឋាន\u200bអ៊ីមែល',
+    	emailBody : 'តួ\u200bអត្ថបទ',
+    	emailSubject : 'ប្រធានបទ\u200bសារ',
+    	id : 'Id',
+    	info : 'ព័ត៌មាន\u200bពី\u200bតំណ',
+    	langCode : 'កូដ\u200bភាសា',
+    	langDir : 'ទិសដៅភាសា',
+    	langDirLTR : 'ពីឆ្វេងទៅស្តាំ(LTR)',
+    	langDirRTL : 'ពីស្តាំទៅឆ្វេង(RTL)',
+    	menu : 'កែ\u200bតំណ',
+    	name : 'ឈ្មោះ',
+    	noAnchors : '(មិន\u200bមាន\u200bយុថ្កា\u200bនៅ\u200bក្នុង\u200bឯកសារ\u200bអត្ថថបទ\u200bទេ)',
+    	noEmail : 'សូម\u200bបញ្ចូល\u200bអាសយដ្ឋាន\u200bអ៊ីមែល',
+    	noUrl : 'សូម\u200bបញ្ចូល\u200bតំណ URL',
+    	noTel : 'Please type the phone number',
+    	other : '<ផ្សេង\u200bទៀត>',
+    	phoneNumber : 'Phone number',
+    	popupDependent : 'Dependent (Netscape)',
+    	popupFeatures : 'មុខ\u200bងារ\u200bផុស\u200bផ្ទាំង\u200bវីនដូ\u200bឡើង',
+    	popupFullScreen : 'ពេញ\u200bអេក្រង់ (IE)',
+    	popupLeft : 'ទីតាំងខាងឆ្វេង',
+    	popupLocationBar : 'របារ\u200bទីតាំង',
+    	popupMenuBar : 'របារ\u200bម៉ឺនុយ',
+    	popupResizable : 'អាច\u200bប្ដូរ\u200bទំហំ',
+    	popupScrollBars : 'របារ\u200bរំកិល',
+    	popupStatusBar : 'របារ\u200bស្ថានភាព',
+    	popupToolbar : 'របារ\u200bឧបករណ៍',
+    	popupTop : 'ទីតាំង\u200bកំពូល',
+    	rel : 'សម្ពន្ធ\u200bភាព',
+    	selectAnchor : 'រើស\u200bយក\u200bយុថ្កា\u200bមួយ',
+    	styles : 'ស្ទីល',
+    	tabIndex : 'លេខ Tab',
+    	target : 'គោលដៅ',
+    	targetFrame : '<ស៊ុម>',
+    	targetFrameName : 'ឈ្មោះ\u200bស៊ុម\u200bជា\u200bគោល\u200bដៅ',
+    	targetPopup : '<វីនដូ\u200bផុស\u200bឡើង>',
+    	targetPopupName : 'ឈ្មោះ\u200bវីនដូត\u200bផុស\u200bឡើង',
+    	title : 'តំណ',
+    	toAnchor : 'ត\u200bភ្ជាប់\u200bទៅ\u200bយុថ្កា\u200bក្នុង\u200bអត្ថបទ',
+    	toEmail : 'អ៊ីមែល',
+    	toUrl : 'URL',
+    	toPhone : 'Phone',
+    	toolbar : 'តំណ',
+    	type : 'ប្រភេទ\u200bតំណ',
+    	unlink : 'ផ្ដាច់\u200bតំណ',
+    	upload : 'ផ្ទុក\u200bឡើង'
+    },
+    indent : 
+    {
+    	indent : 'បន្ថែមការចូលបន្ទាត់',
+    	outdent : 'បន្ថយការចូលបន្ទាត់'
+    },
+    find : 
+    {
+    	find : 'ស្វែងរក',
+    	findOptions : 'ជម្រើស\u200bស្វែង\u200bរក',
+    	findWhat : 'ស្វែងរកអ្វី:',
+    	matchCase : 'ករណី\u200bដំណូច',
+    	matchCyclic : 'ត្រូវ\u200bនឹង cyclic',
+    	matchWord : 'ដូច\u200bនឹង\u200bពាក្យ\u200bទាំង\u200bមូល',
+    	notFoundMsg : 'រក\u200bមិន\u200bឃើញ\u200bពាក្យ\u200bដែល\u200bបាន\u200bបញ្ជាក់។',
+    	replace : 'ជំនួស',
+    	replaceAll : 'ជំនួសទាំងអស់',
+    	replaceSuccessMsg : 'ការ\u200bជំនួស\u200bចំនួន %1 បាន\u200bកើត\u200bឡើង។',
+    	replaceWith : 'ជំនួសជាមួយ:',
+    	title : 'រក\u200bនិង\u200bជំនួស'
+    },
+    fakeobjects : 
+    {
+    	anchor : 'យុថ្កា',
+    	hiddenfield : 'វាល\u200bកំបាំង',
+    	iframe : 'IFrame',
+    	unknown : 'វត្ថុ\u200bមិន\u200bស្គាល់'
+    },
+    copyformatting : 
+    {
+    	label : 'Copy Formatting',
+    	notification : 
+    	{
+    		copied : 'Formatting copied',
+    		applied : 'Formatting applied',
+    		canceled : 'Formatting canceled',
+    		failed : 'Formatting failed. You cannot apply styles without copying them first.'
+    	}
+    },
+    contextmenu : 
+    {
+    	options : 'ជម្រើស\u200bម៉ឺនុយ\u200bបរិបទ'
+    },
+    clipboard : 
+    {
+    	copy : 'ចម្លង',
+    	copyError : 'ការកំណត់សុវត្ថភាពរបស់កម្មវិធីរុករករបស់លោកអ្នក នេះ\u200bមិនអាចធ្វើកម្មវិធីតាក់តែងអត្ថបទ ចំលងអត្ថបទយកដោយស្វ័យប្រវត្តបានឡើយ ។ សូមប្រើប្រាស់បន្សំ ឃីដូចនេះ (Ctrl/Cmd+C)។',
+    	cut : 'កាត់យក',
+    	cutError : 'ការកំណត់សុវត្ថភាពរបស់កម្មវិធីរុករករបស់លោកអ្នក នេះ\u200bមិនអាចធ្វើកម្មវិធីតាក់តែងអត្ថបទ កាត់អត្ថបទយកដោយស្វ័យប្រវត្តបានឡើយ ។ សូមប្រើប្រាស់បន្សំ ឃីដូចនេះ  (Ctrl/Cmd+X) ។',
+    	paste : 'បិទ\u200bភ្ជាប់',
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteArea : 'តំបន់\u200bបិទ\u200bភ្ជាប់',
+    	pasteMsg : 'Paste your content inside the area below and press OK.',
+    	fileFormatNotSupportedNotification : 'The ${formats} file format(s) are not supported.',
+    	fileWithoutFormatNotSupportedNotification : 'The file format is not supported.'
+    },
+    blockquote : 
+    {
+    	toolbar : 'ប្លក់\u200bពាក្យ\u200bសម្រង់'
+    },
+    basicstyles : 
+    {
+    	bold : 'ដិត',
+    	italic : 'ទ្រេត',
+    	strike : 'គូស\u200bបន្ទាត់\u200bចំ\u200bកណ្ដាល',
+    	subscript : 'អក្សរតូចក្រោម',
+    	superscript : 'អក្សរតូចលើ',
+    	underline : 'គូស\u200bបន្ទាត់\u200bក្រោម'
+    },
+    application : 'Rich Text Editor',
+    editor : 'ឧបករណ៍\u200bសរសេរ\u200bអត្ថបទ\u200bសម្បូរ\u200bបែប',
+    editorPanel : 'ផ្ទាំង\u200bឧបករណ៍\u200bសរសេរ\u200bអត្ថបទ\u200bសម្បូរ\u200bបែប',
+    common : 
+    {
+    	editorHelp : 'ចុច ALT 0 សម្រាប់\u200bជំនួយ',
+    	browseServer : 'រក\u200bមើល\u200bក្នុង\u200bម៉ាស៊ីន\u200bបម្រើ',
+    	url : 'URL',
+    	protocol : 'ពិធីការ',
+    	upload : 'ផ្ទុក\u200bឡើង',
+    	uploadSubmit : 'បញ្ជូនទៅកាន់ម៉ាស៊ីន\u200bបម្រើ',
+    	image : 'រូបភាព',
+    	form : 'បែបបទ',
+    	checkbox : 'ប្រអប់\u200bធីក',
+    	radio : 'ប៊ូតុង\u200bមូល',
+    	textField : 'វាល\u200bអត្ថបទ',
+    	textarea : 'Textarea',
+    	hiddenField : 'វាល\u200bកំបាំង',
+    	button : 'ប៊ូតុង',
+    	select : 'វាល\u200bជម្រើស',
+    	imageButton : 'ប៊ូតុង\u200bរូបភាព',
+    	notSet : '<មិនកំណត់>',
+    	id : 'Id',
+    	name : 'ឈ្មោះ',
+    	langDir : 'ទិសដៅភាសា',
+    	langDirLtr : 'ពីឆ្វេងទៅស្តាំ (LTR)',
+    	langDirRtl : 'ពីស្តាំទៅឆ្វេង (RTL)',
+    	langCode : 'លេខ\u200bកូដ\u200bភាសា',
+    	longDescr : 'URL អធិប្បាយ\u200bវែង',
+    	cssClass : 'Stylesheet Classes',
+    	advisoryTitle : 'ចំណង\u200bជើង\u200bណែនាំ',
+    	cssStyle : 'រចនាបថ',
+    	ok : 'ព្រម',
+    	cancel : 'បោះបង់',
+    	close : 'បិទ',
+    	preview : 'មើល\u200bជា\u200bមុន',
+    	resize : 'ប្ដូរ\u200bទំហំ',
+    	generalTab : 'ទូទៅ',
+    	advancedTab : 'កម្រិត\u200bខ្ពស់',
+    	validateNumberFailed : 'តម្លៃ\u200bនេះ\u200bពុំ\u200bមែន\u200bជា\u200bលេខ\u200bទេ។',
+    	confirmNewPage : 'រាល់\u200bបន្លាស់\u200bប្ដូរ\u200bនានា\u200bដែល\u200bមិន\u200bទាន់\u200bរក្សា\u200bទុក\u200bក្នុង\u200bមាតិកា\u200bនេះ នឹង\u200bត្រូវ\u200bបាត់\u200bបង់។ តើ\u200bអ្នក\u200bពិត\u200bជា\u200bចង់\u200bផ្ទុក\u200bទំព័រ\u200bថ្មី\u200bមែនទេ?',
+    	confirmCancel : 'ការ\u200bកំណត់\u200bមួយ\u200bចំនួន\u200bត្រូ\u200bវ\u200bបាន\u200bផ្លាស់\u200bប្ដូរ។ តើ\u200bអ្នក\u200bពិត\u200bជា\u200bចង់\u200bបិទ\u200bប្រអប់\u200bនេះ\u200bមែនទេ?',
+    	options : 'ការ\u200bកំណត់',
+    	target : 'គោលដៅ',
+    	targetNew : 'វីនដូ\u200bថ្មី (_blank)',
+    	targetTop : 'វីនដូ\u200bលើ\u200bគេ (_top)',
+    	targetSelf : 'វីនដូ\u200bដូច\u200bគ្នា (_self)',
+    	targetParent : 'វីនដូ\u200bមេ (_parent)',
+    	langDirLTR : 'ពីឆ្វេងទៅស្តាំ(LTR)',
+    	langDirRTL : 'ពីស្តាំទៅឆ្វេង(RTL)',
+    	styles : 'រចនាបថ',
+    	cssClasses : 'Stylesheet Classes',
+    	width : 'ទទឹង',
+    	height : 'កំពស់',
+    	align : 'កំណត់\u200bទីតាំង',
+    	left : 'ខាងឆ្វង',
+    	right : 'ខាងស្តាំ',
+    	center : 'កណ្តាល',
+    	justify : 'តំរឹមសងខាង',
+    	alignLeft : 'តម្រឹម\u200bឆ្វេង',
+    	alignRight : 'តម្រឹម\u200bស្ដាំ',
+    	alignCenter : 'Align Center',
+    	alignTop : 'ខាងលើ',
+    	alignMiddle : 'កណ្តាល',
+    	alignBottom : 'ខាងក្រោម',
+    	alignNone : 'គ្មាន',
+    	invalidValue : 'តម្លៃ\u200bមិន\u200bត្រឹម\u200bត្រូវ។',
+    	invalidHeight : 'តម្លៃ\u200bកំពស់\u200bត្រូវ\u200bតែ\u200bជា\u200bលេខ។',
+    	invalidWidth : 'តម្លៃ\u200bទទឹង\u200bត្រូវ\u200bតែ\u200bជា\u200bលេខ។',
+    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
+    	invalidCssLength : 'តម្លៃ\u200bកំណត់\u200bសម្រាប់\u200bវាល "%1" ត្រូវ\u200bតែ\u200bជា\u200bលេខ\u200bវិជ្ជមាន\u200b ដោយ\u200bភ្ជាប់ឬ\u200bមិន\u200bភ្ជាប់\u200bជាមួយ\u200bនឹង\u200bឯកតា\u200bរង្វាស់\u200bរបស់ CSS (px, %, in, cm, mm, em, ex, pt ឬ pc) ។',
+    	invalidHtmlLength : 'តម្លៃ\u200bកំណត់\u200bសម្រាប់\u200bវាល "%1" ត្រូវ\u200bតែ\u200bជា\u200bលេខ\u200bវិជ្ជមាន ដោយ\u200bភ្ជាប់\u200bឬ\u200bមិន\u200bភ្ជាប់\u200bជាមួយ\u200bនឹង\u200bឯកតា\u200bរង្វាស់\u200bរបស់ HTML (px ឬ %) ។',
+    	invalidInlineStyle : 'តម្លៃ\u200bកំណត់\u200bសម្រាប់\u200bរចនាបថ\u200bក្នុង\u200bតួ ត្រូវ\u200bតែ\u200bមាន\u200bមួយ\u200bឬ\u200bធាតុ\u200bច្រើន\u200bដោយ\u200bមាន\u200bទ្រង់ទ្រាយ\u200bជា "ឈ្មោះ : តម្លៃ" ហើយ\u200bញែក\u200bចេញ\u200bពី\u200bគ្នា\u200bដោយ\u200bចុច\u200bក្បៀស។',
+    	cssLengthTooltip : 'បញ្ចូល\u200bលេខ\u200bសម្រាប់\u200bតម្លៃ\u200bជា\u200bភិចសែល ឬ\u200bលេខ\u200bដែល\u200bមាន\u200bឯកតា\u200bត្រឹមត្រូវ\u200bរបស់ CSS (px, %, in, cm, mm, em, ex, pt ឬ pc) ។',
+    	unavailable : '%1<span class="cke_accessibility">, មិន\u200bមាន</span>',
+    	keyboard : 
+    	{
+    		'8' : 'លុបថយក្រោយ',
+    		'13' : 'Enter',
+    		'16' : 'Shift',
+    		'17' : 'Ctrl',
+    		'18' : 'Alt',
+    		'32' : 'Space',
+    		'35' : 'ចុង',
+    		'36' : 'ផ្ទះ',
+    		'46' : 'លុប',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
+    		'224' : 'Command'
+    	},
+    	keyboardShortcut : 'Keyboard shortcut',
+    	optionDefault : 'Default'
+    } }; 
