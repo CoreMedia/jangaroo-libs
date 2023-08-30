@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license/
 */
 CKEDITOR.lang['gu'] = {
@@ -55,6 +55,8 @@ CKEDITOR.lang['gu'] = {
     		borderColor : 'બોર્ડેર રંગ',
     		data : 'સ્વીકૃત માહિતી',
     		header : 'મથાળું',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'હા',
     		no : 'ના',
     		invalidWidth : 'સેલની પોહલાઈ આંકડો હોવો જોઈએ.',
@@ -142,6 +144,7 @@ CKEDITOR.lang['gu'] = {
     		title : 'ઍંકરના ગુણ',
     		name : 'ઍંકરનું નામ',
     		errorName : 'ઍંકરનું નામ ટાઈપ કરો',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'સ્થિર નકરવું'
     	},
     	anchorId : 'ઍંકર એલિમન્ટ Id થી પસંદ કરો',
@@ -379,4 +382,11 @@ CKEDITOR.lang['gu'] = {
     	},
     	keyboardShortcut : 'કીબોર્ડ શૉર્ટકટ',
     	optionDefault : 'Default'
+    },
+    versionCheck : 
+    {
+    	notificationMessage : 'This CKEditor %current version is not secure. Consider <a target="_blank" href="%link">upgrading to the latest one</a>, %latest.',
+    	consoleMessage : 'This CKEditor %current version is not secure. Consider upgrading to the latest one, %latest: %link',
+    	aboutDialogInsecureMessage : 'This CKEditor %current version is not secure.<br>Consider upgrading to the latest one, %latest:<br><a target="_blank" href="%link">%link</a>',
+    	aboutDialogUpgradeMessage : 'Consider upgrading to the latest editor version, %latest:<br><a target="_blank" href="%link">%link</a>'
     } }; 

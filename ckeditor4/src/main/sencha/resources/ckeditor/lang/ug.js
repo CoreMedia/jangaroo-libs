@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license/
 */
 CKEDITOR.lang['ug'] = {
@@ -55,6 +55,8 @@ CKEDITOR.lang['ug'] = {
     		borderColor : 'گىرۋەك رەڭگى',
     		data : 'سانلىق مەلۇمات',
     		header : 'جەدۋەل باشى',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'ھەئە',
     		no : 'ياق',
     		invalidWidth : 'كاتەكچە كەڭلىكى چوقۇم سان بولىدۇ',
@@ -142,6 +144,7 @@ CKEDITOR.lang['ug'] = {
     		title : 'لەڭگەرلىك نۇقتا ئۇلانما خاسلىقى',
     		name : 'لەڭگەرلىك نۇقتا ئاتى',
     		errorName : 'لەڭگەرلىك نۇقتا ئاتىنى كىرگۈزۈڭ',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'لەڭگەرلىك نۇقتا ئۆچۈر'
     	},
     	anchorId : 'لەڭگەرلىك نۇقتا ID سى بويىچە',
@@ -265,7 +268,7 @@ CKEDITOR.lang['ug'] = {
     	superscript : 'يۇقىرى ئىندېكس',
     	underline : 'ئاستى سىزىق'
     },
-    application : 'Rich Text Editor',
+    application : 'مول تېكست تەھرىرلىگۈچ',
     editor : 'تەھرىرلىگۈچ',
     editorPanel : 'مول تېكست تەھرىرلىگۈچ تاختىسى',
     common : 
@@ -326,7 +329,7 @@ CKEDITOR.lang['ug'] = {
     	justify : 'ئىككى تەرەپتىن توغرىلا',
     	alignLeft : 'سولغا توغرىلا',
     	alignRight : 'ئوڭغا توغرىلا',
-    	alignCenter : 'Align Center',
+    	alignCenter : 'ئوتتۇرىغا توغرىلا',
     	alignTop : 'ئۈستى',
     	alignMiddle : 'ئوتتۇرا',
     	alignBottom : 'ئاستى',
@@ -379,4 +382,11 @@ CKEDITOR.lang['ug'] = {
     	},
     	keyboardShortcut : 'تېزلەتمە كونۇپكا',
     	optionDefault : 'سۈكۈتتىكى'
+    },
+    versionCheck : 
+    {
+    	notificationMessage : 'This CKEditor %current version is not secure. Consider <a target="_blank" href="%link">upgrading to the latest one</a>, %latest.',
+    	consoleMessage : 'This CKEditor %current version is not secure. Consider upgrading to the latest one, %latest: %link',
+    	aboutDialogInsecureMessage : 'This CKEditor %current version is not secure.<br>Consider upgrading to the latest one, %latest:<br><a target="_blank" href="%link">%link</a>',
+    	aboutDialogUpgradeMessage : 'Consider upgrading to the latest editor version, %latest:<br><a target="_blank" href="%link">%link</a>'
     } }; 

@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license/
 */
 CKEDITOR.lang['eo'] = {
@@ -55,6 +55,8 @@ CKEDITOR.lang['eo'] = {
     		borderColor : 'Borderkoloro',
     		data : 'Datenoj',
     		header : 'Supra paĝotitolo',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Jes',
     		no : 'No',
     		invalidWidth : 'Ĉellarĝo devas esti nombro.',
@@ -142,6 +144,7 @@ CKEDITOR.lang['eo'] = {
     		title : 'Ankraj Atributoj',
     		name : 'Ankra Nomo',
     		errorName : 'Bv entajpi la ankran nomon',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Forigi Ankron'
     	},
     	anchorId : 'Per Elementidentigilo',
@@ -379,4 +382,11 @@ CKEDITOR.lang['eo'] = {
     	},
     	keyboardShortcut : 'Fulmoklavo',
     	optionDefault : 'Defaŭlta'
+    },
+    versionCheck : 
+    {
+    	notificationMessage : 'This CKEditor %current version is not secure. Consider <a target="_blank" href="%link">upgrading to the latest one</a>, %latest.',
+    	consoleMessage : 'This CKEditor %current version is not secure. Consider upgrading to the latest one, %latest: %link',
+    	aboutDialogInsecureMessage : 'This CKEditor %current version is not secure.<br>Consider upgrading to the latest one, %latest:<br><a target="_blank" href="%link">%link</a>',
+    	aboutDialogUpgradeMessage : 'Consider upgrading to the latest editor version, %latest:<br><a target="_blank" href="%link">%link</a>'
     } }; 

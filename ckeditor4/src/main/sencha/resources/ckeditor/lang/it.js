@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license/
 */
 CKEDITOR.lang['it'] = {
@@ -55,6 +55,8 @@ CKEDITOR.lang['it'] = {
     		borderColor : 'Colore del Bordo',
     		data : 'Dati',
     		header : 'Intestazione',
+    		columnHeader : 'Intestazione colonna',
+    		rowHeader : 'Intestazione riga',
     		yes : 'Si',
     		no : 'No',
     		invalidWidth : 'La larghezza della cella dev\'essere un numero.',
@@ -142,6 +144,7 @@ CKEDITOR.lang['it'] = {
     		title : 'Proprietà ancora',
     		name : 'Nome ancora',
     		errorName : 'Inserici il nome dell\'ancora',
+    		errorWhitespace : 'Il nome delle ancore non può contenere caratteri di spaziatura',
     		remove : 'Rimuovi l\'ancora'
     	},
     	anchorId : 'Per id elemento',
@@ -249,8 +252,8 @@ CKEDITOR.lang['it'] = {
     	pasteNotification : 'Premere %1 per incollare. Il tuo browser non permette di incollare tramite il pulsante della barra degli strumenti o tramite la voce del menu contestuale.',
     	pasteArea : 'Area dove incollare',
     	pasteMsg : 'Incollare il proprio contenuto all\'interno dell\'area sottostante e premere OK.',
-    	fileFormatNotSupportedNotification : 'The ${formats} file format(s) are not supported.',
-    	fileWithoutFormatNotSupportedNotification : 'The file format is not supported.'
+    	fileFormatNotSupportedNotification : 'I file in formato ${formats} non sono supportati.',
+    	fileWithoutFormatNotSupportedNotification : 'Il formato di file non è supportato.'
     },
     blockquote : 
     {
@@ -266,7 +269,7 @@ CKEDITOR.lang['it'] = {
     	underline : 'Sottolineato'
     },
     application : 'Rich Text Editor',
-    editor : 'Rich Text Editor',
+    editor : 'Editor',
     editorPanel : 'Pannello Rich Text Editor',
     common : 
     {
@@ -379,4 +382,11 @@ CKEDITOR.lang['it'] = {
     	},
     	keyboardShortcut : 'Scorciatoia da tastiera',
     	optionDefault : 'Predefinito'
+    },
+    versionCheck : 
+    {
+    	notificationMessage : 'This CKEditor %current version is not secure. Consider <a target="_blank" href="%link">upgrading to the latest one</a>, %latest.',
+    	consoleMessage : 'This CKEditor %current version is not secure. Consider upgrading to the latest one, %latest: %link',
+    	aboutDialogInsecureMessage : 'This CKEditor %current version is not secure.<br>Consider upgrading to the latest one, %latest:<br><a target="_blank" href="%link">%link</a>',
+    	aboutDialogUpgradeMessage : 'Consider upgrading to the latest editor version, %latest:<br><a target="_blank" href="%link">%link</a>'
     } }; 

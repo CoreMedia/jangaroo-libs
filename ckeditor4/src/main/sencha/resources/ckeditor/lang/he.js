@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license/
 */
 CKEDITOR.lang['he'] = {
@@ -55,6 +55,8 @@ CKEDITOR.lang['he'] = {
     		borderColor : 'צבע מסגרת',
     		data : 'מידע',
     		header : 'כותרת',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'כן',
     		no : 'לא',
     		invalidWidth : 'שדה רוחב התא חייב להיות מספר.',
@@ -142,6 +144,7 @@ CKEDITOR.lang['he'] = {
     		title : 'מאפייני נקודת עיגון',
     		name : 'שם לנקודת עיגון',
     		errorName : 'יש להקליד שם לנקודת עיגון',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'מחיקת נקודת עיגון'
     	},
     	anchorId : 'עפ"י זיהוי (ID) האלמנט',
@@ -379,4 +382,11 @@ CKEDITOR.lang['he'] = {
     	},
     	keyboardShortcut : 'Keyboard shortcut',
     	optionDefault : 'Default'
+    },
+    versionCheck : 
+    {
+    	notificationMessage : 'This CKEditor %current version is not secure. Consider <a target="_blank" href="%link">upgrading to the latest one</a>, %latest.',
+    	consoleMessage : 'This CKEditor %current version is not secure. Consider upgrading to the latest one, %latest: %link',
+    	aboutDialogInsecureMessage : 'This CKEditor %current version is not secure.<br>Consider upgrading to the latest one, %latest:<br><a target="_blank" href="%link">%link</a>',
+    	aboutDialogUpgradeMessage : 'Consider upgrading to the latest editor version, %latest:<br><a target="_blank" href="%link">%link</a>'
     } }; 

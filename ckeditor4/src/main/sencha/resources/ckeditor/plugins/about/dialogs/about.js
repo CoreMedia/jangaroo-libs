@@ -1,5 +1,5 @@
 ﻿/**
- * @license Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+ * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -52,6 +52,10 @@ CKEDITOR.dialog.add( 'about', function( editor ) {
 						'{' +
 							'text-align:center;' +
 						'}' +
+						'.cke_about_version-check > strong' +
+						'{' +
+							'color: inherit;' +
+						'}' +
 						'</style>' +
 						'<div class="cke_about_container">' +
 						'<div class="cke_about_logo"></div>' +
@@ -59,6 +63,7 @@ CKEDITOR.dialog.add( 'about', function( editor ) {
 							'CKEditor ' + CKEDITOR.version + ' (revision ' + CKEDITOR.revision + ')<br>' +
 							'<a target="_blank" rel="noopener noreferrer" href="https://ckeditor.com/">https://ckeditor.com</a>' +
 						'</p>' +
+						'<p class="cke_about_version-check"></p>' +
 						'<p>' +
 							lang.moreInfo + '<br>' +
 							'<a target="_blank" rel="noopener noreferrer" href="https://ckeditor.com/legal/ckeditor-oss-license/">https://ckeditor.com/legal/ckeditor-oss-license/</a>' +

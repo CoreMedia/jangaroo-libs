@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license/
 */
 CKEDITOR.lang['cy'] = {
@@ -55,6 +55,8 @@ CKEDITOR.lang['cy'] = {
     		borderColor : 'Lliw Ymyl',
     		data : 'Data',
     		header : 'Pennyn',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Ie',
     		no : 'Na',
     		invalidWidth : 'Mae\'n rhaid i led y gell fod yn rhif.',
@@ -142,6 +144,7 @@ CKEDITOR.lang['cy'] = {
     		title : 'Priodweddau\'r Angor',
     		name : 'Enw\'r Angor',
     		errorName : 'Teipiwch enw\'r angor',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Tynnwch yr Angor'
     	},
     	anchorId : 'Gan Id yr Elfen',
@@ -379,4 +382,11 @@ CKEDITOR.lang['cy'] = {
     	},
     	keyboardShortcut : 'Keyboard shortcut',
     	optionDefault : 'Default'
+    },
+    versionCheck : 
+    {
+    	notificationMessage : 'This CKEditor %current version is not secure. Consider <a target="_blank" href="%link">upgrading to the latest one</a>, %latest.',
+    	consoleMessage : 'This CKEditor %current version is not secure. Consider upgrading to the latest one, %latest: %link',
+    	aboutDialogInsecureMessage : 'This CKEditor %current version is not secure.<br>Consider upgrading to the latest one, %latest:<br><a target="_blank" href="%link">%link</a>',
+    	aboutDialogUpgradeMessage : 'Consider upgrading to the latest editor version, %latest:<br><a target="_blank" href="%link">%link</a>'
     } }; 

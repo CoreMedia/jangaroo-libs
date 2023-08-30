@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license/
 */
 CKEDITOR.lang['sk'] = {
@@ -55,6 +55,8 @@ CKEDITOR.lang['sk'] = {
     		borderColor : 'Farba orámovania',
     		data : 'Dáta',
     		header : 'Hlavička',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Áno',
     		no : 'Nie',
     		invalidWidth : 'Šírka bunky musí byť číslo.',
@@ -142,6 +144,7 @@ CKEDITOR.lang['sk'] = {
     		title : 'Vlastnosti kotvy',
     		name : 'Názov kotvy',
     		errorName : 'Zadajte prosím názov kotvy',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Odstrániť kotvu'
     	},
     	anchorId : 'Podľa Id objektu',
@@ -379,4 +382,11 @@ CKEDITOR.lang['sk'] = {
     	},
     	keyboardShortcut : 'Klávesová skratka',
     	optionDefault : 'Predvolený'
+    },
+    versionCheck : 
+    {
+    	notificationMessage : 'This CKEditor %current version is not secure. Consider <a target="_blank" href="%link">upgrading to the latest one</a>, %latest.',
+    	consoleMessage : 'This CKEditor %current version is not secure. Consider upgrading to the latest one, %latest: %link',
+    	aboutDialogInsecureMessage : 'This CKEditor %current version is not secure.<br>Consider upgrading to the latest one, %latest:<br><a target="_blank" href="%link">%link</a>',
+    	aboutDialogUpgradeMessage : 'Consider upgrading to the latest editor version, %latest:<br><a target="_blank" href="%link">%link</a>'
     } }; 

@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license/
 */
 CKEDITOR.lang['tr'] = {
@@ -55,6 +55,8 @@ CKEDITOR.lang['tr'] = {
     		borderColor : 'Çerçeve Rengi',
     		data : 'Veri',
     		header : 'Başlık',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Evet',
     		no : 'Hayır',
     		invalidWidth : 'Hücre genişliği sayı olmalıdır.',
@@ -142,6 +144,7 @@ CKEDITOR.lang['tr'] = {
     		title : 'Bağlantı Özellikleri',
     		name : 'Bağlantı Adı',
     		errorName : 'Lütfen bağlantı için ad giriniz',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Bağlantıyı Kaldır'
     	},
     	anchorId : 'Eleman Kimlik Numarası ile',
@@ -379,4 +382,11 @@ CKEDITOR.lang['tr'] = {
     	},
     	keyboardShortcut : 'Klavye Kısayolu',
     	optionDefault : 'Varsayılan'
+    },
+    versionCheck : 
+    {
+    	notificationMessage : 'This CKEditor %current version is not secure. Consider <a target="_blank" href="%link">upgrading to the latest one</a>, %latest.',
+    	consoleMessage : 'This CKEditor %current version is not secure. Consider upgrading to the latest one, %latest: %link',
+    	aboutDialogInsecureMessage : 'This CKEditor %current version is not secure.<br>Consider upgrading to the latest one, %latest:<br><a target="_blank" href="%link">%link</a>',
+    	aboutDialogUpgradeMessage : 'Consider upgrading to the latest editor version, %latest:<br><a target="_blank" href="%link">%link</a>'
     } }; 

@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license/
 */
 CKEDITOR.lang['ru'] = {
@@ -55,6 +55,8 @@ CKEDITOR.lang['ru'] = {
     		borderColor : 'Цвет границ',
     		data : 'Данные',
     		header : 'Заголовок',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Да',
     		no : 'Нет',
     		invalidWidth : 'Ширина ячейки должна быть числом.',
@@ -142,6 +144,7 @@ CKEDITOR.lang['ru'] = {
     		title : 'Свойства якоря',
     		name : 'Имя якоря',
     		errorName : 'Пожалуйста, введите имя якоря',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Удалить якорь'
     	},
     	anchorId : 'По идентификатору',
@@ -379,4 +382,11 @@ CKEDITOR.lang['ru'] = {
     	},
     	keyboardShortcut : 'Комбинация клавиш',
     	optionDefault : 'По умолчанию'
+    },
+    versionCheck : 
+    {
+    	notificationMessage : 'This CKEditor %current version is not secure. Consider <a target="_blank" href="%link">upgrading to the latest one</a>, %latest.',
+    	consoleMessage : 'This CKEditor %current version is not secure. Consider upgrading to the latest one, %latest: %link',
+    	aboutDialogInsecureMessage : 'This CKEditor %current version is not secure.<br>Consider upgrading to the latest one, %latest:<br><a target="_blank" href="%link">%link</a>',
+    	aboutDialogUpgradeMessage : 'Consider upgrading to the latest editor version, %latest:<br><a target="_blank" href="%link">%link</a>'
     } }; 

@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license/
 */
 CKEDITOR.lang['vi'] = {
@@ -55,6 +55,8 @@ CKEDITOR.lang['vi'] = {
     		borderColor : 'Màu viền',
     		data : 'Dữ liệu',
     		header : 'Đầu đề',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Có',
     		no : 'Không',
     		invalidWidth : 'Chiều rộng của ô phải là một số nguyên.',
@@ -142,6 +144,7 @@ CKEDITOR.lang['vi'] = {
     		title : 'Thuộc tính điểm neo',
     		name : 'Tên của điểm neo',
     		errorName : 'Hãy nhập vào tên của điểm neo',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Xóa neo'
     	},
     	anchorId : 'Theo định danh thành phần',
@@ -379,4 +382,11 @@ CKEDITOR.lang['vi'] = {
     	},
     	keyboardShortcut : 'Phím tắt',
     	optionDefault : 'Mặc định'
+    },
+    versionCheck : 
+    {
+    	notificationMessage : 'This CKEditor %current version is not secure. Consider <a target="_blank" href="%link">upgrading to the latest one</a>, %latest.',
+    	consoleMessage : 'This CKEditor %current version is not secure. Consider upgrading to the latest one, %latest: %link',
+    	aboutDialogInsecureMessage : 'This CKEditor %current version is not secure.<br>Consider upgrading to the latest one, %latest:<br><a target="_blank" href="%link">%link</a>',
+    	aboutDialogUpgradeMessage : 'Consider upgrading to the latest editor version, %latest:<br><a target="_blank" href="%link">%link</a>'
     } }; 

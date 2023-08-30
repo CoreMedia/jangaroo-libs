@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license/
 */
 CKEDITOR.lang['ro'] = {
@@ -55,6 +55,8 @@ CKEDITOR.lang['ro'] = {
     		borderColor : 'Culoare bordură',
     		data : 'Data',
     		header : 'Antet',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Da',
     		no : 'Nu',
     		invalidWidth : 'Lățimea celulei trebuie să fie un număr.',
@@ -142,6 +144,7 @@ CKEDITOR.lang['ro'] = {
     		title : 'Proprietăţi ancoră',
     		name : 'Numele ancorei',
     		errorName : 'Vă rugăm scrieţi numele ancorei',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Elimină ancora'
     	},
     	anchorId : 'după Id-ul elementului',
@@ -379,4 +382,11 @@ CKEDITOR.lang['ro'] = {
     	},
     	keyboardShortcut : 'Scurtături tastatură',
     	optionDefault : 'Implicit'
+    },
+    versionCheck : 
+    {
+    	notificationMessage : 'This CKEditor %current version is not secure. Consider <a target="_blank" href="%link">upgrading to the latest one</a>, %latest.',
+    	consoleMessage : 'This CKEditor %current version is not secure. Consider upgrading to the latest one, %latest: %link',
+    	aboutDialogInsecureMessage : 'This CKEditor %current version is not secure.<br>Consider upgrading to the latest one, %latest:<br><a target="_blank" href="%link">%link</a>',
+    	aboutDialogUpgradeMessage : 'Consider upgrading to the latest editor version, %latest:<br><a target="_blank" href="%link">%link</a>'
     } }; 

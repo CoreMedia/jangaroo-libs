@@ -1,5 +1,5 @@
 ﻿/**
- * @license Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+ * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -2034,7 +2034,8 @@
 				} else if ( widgetDef.template ) {
 					// ... or create a brand-new widget from template.
 					var defaults = typeof widgetDef.defaults == 'function' ? widgetDef.defaults() : widgetDef.defaults,
-						element = CKEDITOR.dom.element.createFromHtml( widgetDef.template.output( defaults ), editor.document ),
+						templateData = CKEDITOR.tools.object.merge( defaults || {}, commandData && commandData.startupData || {} ),
+						element = CKEDITOR.dom.element.createFromHtml( widgetDef.template.output( templateData ), editor.document ),
 						instance,
 						wrapper = editor.widgets.wrapElement( element, widgetDef.name ),
 						temp = new CKEDITOR.dom.documentFragment( wrapper.getDocument() );
@@ -3059,8 +3060,9 @@
 						} );
 
 						// If widget did not have data-cke-widget attribute before upcasting remove it.
-						if ( widgetElement.attributes[ 'data-cke-widget-keep-attr' ] != '1' )
+						if ( widgetElement && widgetElement.attributes[ 'data-cke-widget-keep-attr' ] != '1' ) {
 							delete widgetElement.attributes[ 'data-widget' ];
+						}
 					}
 				}
 				// Nested editable.
@@ -3116,7 +3118,16 @@
 				if ( !retElement )
 					retElement = widgetElement;
 
-				toBe.wrapper.replaceWith( retElement );
+				// In some edge cases (especially applying formating
+				// at the boundary of the inline editable) the widget
+				// is going to be duplicated (split in half).
+				// In that case there won't be a retElement
+				// and we can safely remove such doppelganger widget (#698).
+				if ( retElement ) {
+					toBe.wrapper.replaceWith( retElement );
+				} else {
+					toBe.wrapper.remove();
+				}
 			}
 		}, null, null, 13 );
 

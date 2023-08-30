@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license/
 */
 CKEDITOR.lang['gl'] = {
@@ -55,6 +55,8 @@ CKEDITOR.lang['gl'] = {
     		borderColor : 'Cor do bordo',
     		data : 'Datos',
     		header : 'Cabeceira',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Si',
     		no : 'Non',
     		invalidWidth : 'O largo da cela debe ser un número.',
@@ -142,6 +144,7 @@ CKEDITOR.lang['gl'] = {
     		title : 'Propiedades da ancoraxe',
     		name : 'Nome da ancoraxe',
     		errorName : 'Escriba o nome da ancoraxe',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Retirar a ancoraxe'
     	},
     	anchorId : 'Polo ID do elemento',
@@ -249,8 +252,8 @@ CKEDITOR.lang['gl'] = {
     	pasteNotification : 'Prema %1 para pegar. O seu navegador non admite pegar co botón da barra de ferramentas ou coa opción do menú contextual.',
     	pasteArea : 'Zona de pegado',
     	pasteMsg : 'Pegue o contido dentro da área de abaixo e prema Aceptar.',
-    	fileFormatNotSupportedNotification : 'The ${formats} file format(s) are not supported.',
-    	fileWithoutFormatNotSupportedNotification : 'The file format is not supported.'
+    	fileFormatNotSupportedNotification : 'Os formatos de ficheiro ${formats} non son compatíbeis.',
+    	fileWithoutFormatNotSupportedNotification : 'O formato de ficheiro non está admitido.'
     },
     blockquote : 
     {
@@ -265,7 +268,7 @@ CKEDITOR.lang['gl'] = {
     	superscript : 'Superíndice',
     	underline : 'Subliñado'
     },
-    application : 'Rich Text Editor',
+    application : 'Editor de texto mellorado',
     editor : 'Editor de texto mellorado',
     editorPanel : 'Panel do editor de texto mellorado',
     common : 
@@ -379,4 +382,11 @@ CKEDITOR.lang['gl'] = {
     	},
     	keyboardShortcut : 'Atallo de teclado',
     	optionDefault : 'Predeterminado'
+    },
+    versionCheck : 
+    {
+    	notificationMessage : 'This CKEditor %current version is not secure. Consider <a target="_blank" href="%link">upgrading to the latest one</a>, %latest.',
+    	consoleMessage : 'This CKEditor %current version is not secure. Consider upgrading to the latest one, %latest: %link',
+    	aboutDialogInsecureMessage : 'This CKEditor %current version is not secure.<br>Consider upgrading to the latest one, %latest:<br><a target="_blank" href="%link">%link</a>',
+    	aboutDialogUpgradeMessage : 'Consider upgrading to the latest editor version, %latest:<br><a target="_blank" href="%link">%link</a>'
     } }; 

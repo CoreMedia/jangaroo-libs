@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license/
 */
 CKEDITOR.lang['zh'] = {
@@ -55,6 +55,8 @@ CKEDITOR.lang['zh'] = {
     		borderColor : '框線顏色',
     		data : '資料',
     		header : '頁首',
+    		columnHeader : '欄標題',
+    		rowHeader : '列標題',
     		yes : '是',
     		no : '否',
     		invalidWidth : '儲存格寬度必須為數字。',
@@ -79,7 +81,7 @@ CKEDITOR.lang['zh'] = {
     	headersColumn : '第一列',
     	headersNone : '無',
     	headersRow : '第一行',
-    	heightUnit : 'height unit',
+    	heightUnit : '高度單位',
     	invalidBorder : '框線大小必須是整數。',
     	invalidCellPadding : '儲存格邊距必須為正數。',
     	invalidCellSpacing : '儲存格間距必須為正數。',
@@ -142,6 +144,7 @@ CKEDITOR.lang['zh'] = {
     		title : '錨點內容',
     		name : '錨點名稱',
     		errorName : '請輸入錨點名稱',
+    		errorWhitespace : '錨定名稱不能包含空格字元',
     		remove : '移除錨點'
     	},
     	anchorId : '依元件編號',
@@ -164,9 +167,9 @@ CKEDITOR.lang['zh'] = {
     	noAnchors : '(本文件中無可用之錨點)',
     	noEmail : '請輸入電子郵件',
     	noUrl : '請輸入連結 URL',
-    	noTel : 'Please type the phone number',
+    	noTel : '請輸入電話號碼',
     	other : '<其他>',
-    	phoneNumber : 'Phone number',
+    	phoneNumber : '電話號碼',
     	popupDependent : '獨立 (Netscape)',
     	popupFeatures : '快顯視窗功能',
     	popupFullScreen : '全螢幕 (IE)',
@@ -191,7 +194,7 @@ CKEDITOR.lang['zh'] = {
     	toAnchor : '文字中的錨點連結',
     	toEmail : '電子郵件',
     	toUrl : '網址',
-    	toPhone : 'Phone',
+    	toPhone : '電話',
     	toolbar : '連結',
     	type : '連結類型',
     	unlink : '取消連結',
@@ -249,8 +252,8 @@ CKEDITOR.lang['zh'] = {
     	pasteNotification : '請按下「%1」貼上。您的瀏覽器不支援工具列按鈕或是內容功能表選項。',
     	pasteArea : '貼上區',
     	pasteMsg : '請將您的內容貼於下方區域中並按下「OK」。',
-    	fileFormatNotSupportedNotification : 'The ${formats} file format(s) are not supported.',
-    	fileWithoutFormatNotSupportedNotification : 'The file format is not supported.'
+    	fileFormatNotSupportedNotification : '不支援 ${formats} 檔案格式。',
+    	fileWithoutFormatNotSupportedNotification : '檔案格式不支援。'
     },
     blockquote : 
     {
@@ -265,8 +268,8 @@ CKEDITOR.lang['zh'] = {
     	superscript : '上標',
     	underline : '底線'
     },
-    application : 'Rich Text Editor',
-    editor : 'RTF 編輯器',
+    application : '格式化文字編輯器',
+    editor : '編輯器',
     editorPanel : 'RTF 編輯器面板',
     common : 
     {
@@ -379,4 +382,11 @@ CKEDITOR.lang['zh'] = {
     	},
     	keyboardShortcut : '鍵盤快捷鍵',
     	optionDefault : '預設'
+    },
+    versionCheck : 
+    {
+    	notificationMessage : 'This CKEditor %current version is not secure. Consider <a target="_blank" href="%link">upgrading to the latest one</a>, %latest.',
+    	consoleMessage : 'This CKEditor %current version is not secure. Consider upgrading to the latest one, %latest: %link',
+    	aboutDialogInsecureMessage : 'This CKEditor %current version is not secure.<br>Consider upgrading to the latest one, %latest:<br><a target="_blank" href="%link">%link</a>',
+    	aboutDialogUpgradeMessage : 'Consider upgrading to the latest editor version, %latest:<br><a target="_blank" href="%link">%link</a>'
     } }; 
