@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.plugins.setLang( 'link', 'cy', {
@@ -13,6 +13,7 @@ CKEDITOR.plugins.setLang( 'link', 'cy', {
 		title: 'Priodweddau\'r Angor',
 		name: 'Enw\'r Angor',
 		errorName: 'Teipiwch enw\'r angor',
+		errorWhitespace: 'Anchor name cannot contain space characters', // MISSING
 		remove: 'Tynnwch yr Angor'
 	},
 	anchorId: 'Gan Id yr Elfen',

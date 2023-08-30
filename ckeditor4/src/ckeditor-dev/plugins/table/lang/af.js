@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.plugins.setLang( 'table', 'af', {
@@ -27,6 +27,8 @@ CKEDITOR.plugins.setLang( 'table', 'af', {
 		borderColor: 'Randkleur',
 		data: 'Inhoud',
 		header: 'Opskrif',
+		columnHeader: 'Column Header', // MISSING
+		rowHeader: 'Row Header', // MISSING
 		yes: 'Ja',
 		no: 'Nee',
 		invalidWidth: 'Selbreedte moet \'n getal wees.',

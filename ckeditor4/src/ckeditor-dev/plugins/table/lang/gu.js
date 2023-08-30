@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.plugins.setLang( 'table', 'gu', {
@@ -27,6 +27,8 @@ CKEDITOR.plugins.setLang( 'table', 'gu', {
 		borderColor: 'બોર્ડેર રંગ',
 		data: 'સ્વીકૃત માહિતી',
 		header: 'મથાળું',
+		columnHeader: 'Column Header', // MISSING
+		rowHeader: 'Row Header', // MISSING
 		yes: 'હા',
 		no: 'ના',
 		invalidWidth: 'સેલની પોહલાઈ આંકડો હોવો જોઈએ.',

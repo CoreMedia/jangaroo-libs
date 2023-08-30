@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.plugins.setLang( 'link', 'bg', {
@@ -13,6 +13,7 @@ CKEDITOR.plugins.setLang( 'link', 'bg', {
 		title: 'Настройки на котва',
 		name: 'Име на котва',
 		errorName: 'Моля въведете име на котвата',
+		errorWhitespace: 'Anchor name cannot contain space characters', // MISSING
 		remove: 'Премахване на котва'
 	},
 	anchorId: 'По ID на елемент',

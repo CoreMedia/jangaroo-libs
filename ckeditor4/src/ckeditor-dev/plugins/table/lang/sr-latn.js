@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.plugins.setLang( 'table', 'sr-latn', {
@@ -27,6 +27,8 @@ CKEDITOR.plugins.setLang( 'table', 'sr-latn', {
 		borderColor: 'Boja okvira',
 		data: 'Podatak',
 		header: 'Zaglavlje',
+		columnHeader: 'Zaglavlje kolone',
+		rowHeader: 'Zaglavlje reda',
 		yes: 'Da',
 		no: 'Nе',
 		invalidWidth: 'U polje širina možete upisati samo brojeve. ',

@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license/
 */
 CKEDITOR.lang['el'] = {
@@ -55,6 +55,8 @@ CKEDITOR.lang['el'] = {
     		borderColor : 'Χρώμα Περιγράμματος',
     		data : 'Δεδομένα',
     		header : 'Κεφαλίδα',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Ναι',
     		no : 'Όχι',
     		invalidWidth : 'Το πλάτος του κελιού πρέπει να είναι αριθμός.',
@@ -118,7 +120,7 @@ CKEDITOR.lang['el'] = {
     },
     notification : 
     {
-    	closed : 'Notification closed.'
+    	closed : 'Η ειδοποίηση έκλεισε.'
     },
     magicline : 
     {
@@ -142,6 +144,7 @@ CKEDITOR.lang['el'] = {
     		title : 'Ιδιότητες άγκυρας',
     		name : 'Όνομα άγκυρας',
     		errorName : 'Παρακαλούμε εισάγετε όνομα άγκυρας',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Αφαίρεση Άγκυρας'
     	},
     	anchorId : 'Βάσει του Element Id',
@@ -379,4 +382,11 @@ CKEDITOR.lang['el'] = {
     	},
     	keyboardShortcut : 'Συντόμευση πληκτρολογίου',
     	optionDefault : 'Προεπιλογή'
+    },
+    versionCheck : 
+    {
+    	notificationMessage : 'This CKEditor %current version is not secure. Consider <a target="_blank" href="%link">upgrading to the latest one</a>, %latest.',
+    	consoleMessage : 'This CKEditor %current version is not secure. Consider upgrading to the latest one, %latest: %link',
+    	aboutDialogInsecureMessage : 'This CKEditor %current version is not secure.<br>Consider upgrading to the latest one, %latest:<br><a target="_blank" href="%link">%link</a>',
+    	aboutDialogUpgradeMessage : 'Consider upgrading to the latest editor version, %latest:<br><a target="_blank" href="%link">%link</a>'
     } }; 

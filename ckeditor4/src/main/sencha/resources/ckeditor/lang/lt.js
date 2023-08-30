@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license/
 */
 CKEDITOR.lang['lt'] = {
@@ -55,6 +55,8 @@ CKEDITOR.lang['lt'] = {
     		borderColor : 'Rėmelio spalva',
     		data : 'Data',
     		header : 'Antraštė',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Taip',
     		no : 'Ne',
     		invalidWidth : 'Reikšmė turi būti skaičius.',
@@ -142,6 +144,7 @@ CKEDITOR.lang['lt'] = {
     		title : 'Žymės savybės',
     		name : 'Žymės vardas',
     		errorName : 'Prašome įvesti žymės vardą',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Pašalinti žymę'
     	},
     	anchorId : 'Pagal žymės Id',
@@ -379,4 +382,11 @@ CKEDITOR.lang['lt'] = {
     	},
     	keyboardShortcut : 'Spartusis klavišas',
     	optionDefault : 'Numatytasis'
+    },
+    versionCheck : 
+    {
+    	notificationMessage : 'This CKEditor %current version is not secure. Consider <a target="_blank" href="%link">upgrading to the latest one</a>, %latest.',
+    	consoleMessage : 'This CKEditor %current version is not secure. Consider upgrading to the latest one, %latest: %link',
+    	aboutDialogInsecureMessage : 'This CKEditor %current version is not secure.<br>Consider upgrading to the latest one, %latest:<br><a target="_blank" href="%link">%link</a>',
+    	aboutDialogUpgradeMessage : 'Consider upgrading to the latest editor version, %latest:<br><a target="_blank" href="%link">%link</a>'
     } }; 

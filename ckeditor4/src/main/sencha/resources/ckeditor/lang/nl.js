@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license/
 */
 CKEDITOR.lang['nl'] = {
@@ -55,6 +55,8 @@ CKEDITOR.lang['nl'] = {
     		borderColor : 'Randkleur',
     		data : 'Gegevens',
     		header : 'Kop',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Ja',
     		no : 'Nee',
     		invalidWidth : 'De celbreedte moet een getal zijn.',
@@ -142,6 +144,7 @@ CKEDITOR.lang['nl'] = {
     		title : 'Eigenschappen interne link',
     		name : 'Naam interne link',
     		errorName : 'Geef de naam van de interne link op',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Interne link verwijderen'
     	},
     	anchorId : 'Op kenmerk interne link',
@@ -379,4 +382,11 @@ CKEDITOR.lang['nl'] = {
     	},
     	keyboardShortcut : 'Sneltoets',
     	optionDefault : 'Standaard'
+    },
+    versionCheck : 
+    {
+    	notificationMessage : 'This CKEditor %current version is not secure. Consider <a target="_blank" href="%link">upgrading to the latest one</a>, %latest.',
+    	consoleMessage : 'This CKEditor %current version is not secure. Consider upgrading to the latest one, %latest: %link',
+    	aboutDialogInsecureMessage : 'This CKEditor %current version is not secure.<br>Consider upgrading to the latest one, %latest:<br><a target="_blank" href="%link">%link</a>',
+    	aboutDialogUpgradeMessage : 'Consider upgrading to the latest editor version, %latest:<br><a target="_blank" href="%link">%link</a>'
     } }; 

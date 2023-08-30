@@ -1,5 +1,5 @@
-﻿/**
- * @license Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+/**
+ * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -158,7 +158,7 @@
 					contentTransformations: contentTransformations,
 
 					panel: {
-						css: CKEDITOR.skin.getPath( 'editor' ),
+						css: [ CKEDITOR.skin.getPath( 'editor' ) ].concat( config.colorButton_contentsCss ),
 						attributes: { role: 'listbox', 'aria-label': lang.panelTitle }
 					},
 
@@ -1007,3 +1007,17 @@ CKEDITOR.config.colorButton_historyRowLimit = 1;
  * @member CKEDITOR.config
  */
 CKEDITOR.config.colorButton_renderContentColors = true;
+
+/**
+ * The CSS file(s) to be used to apply the style to the color button menu content.
+ *
+ * ```javascript
+ * config.colorButton_contentsCss = '/css/myfile.css';
+ * config.colorButton_contentsCss = [ '/css/myfile.css', '/css/anotherfile.css' ];
+ * ```
+ *
+ * @since 4.20.2
+ * @cfg {String/String[]} [colorButton_contentsCss]
+ * @member CKEDITOR.config
+ */
+CKEDITOR.config.colorButton_contentsCss = [];

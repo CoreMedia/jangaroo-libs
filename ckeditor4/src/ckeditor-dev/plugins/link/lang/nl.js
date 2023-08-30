@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.plugins.setLang( 'link', 'nl', {
@@ -13,6 +13,7 @@ CKEDITOR.plugins.setLang( 'link', 'nl', {
 		title: 'Eigenschappen interne link',
 		name: 'Naam interne link',
 		errorName: 'Geef de naam van de interne link op',
+		errorWhitespace: 'Anchor name cannot contain space characters', // MISSING
 		remove: 'Interne link verwijderen'
 	},
 	anchorId: 'Op kenmerk interne link',

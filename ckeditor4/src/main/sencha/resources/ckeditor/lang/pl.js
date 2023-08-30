@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license/
 */
 CKEDITOR.lang['pl'] = {
@@ -55,6 +55,8 @@ CKEDITOR.lang['pl'] = {
     		borderColor : 'Kolor obramowania',
     		data : 'Dane',
     		header : 'Nagłówek',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Tak',
     		no : 'Nie',
     		invalidWidth : 'Szerokość komórki musi być liczbą.',
@@ -142,6 +144,7 @@ CKEDITOR.lang['pl'] = {
     		title : 'Właściwości kotwicy',
     		name : 'Nazwa kotwicy',
     		errorName : 'Podaj nazwę kotwicy.',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Usuń kotwicę'
     	},
     	anchorId : 'Wg identyfikatora',
@@ -379,4 +382,11 @@ CKEDITOR.lang['pl'] = {
     	},
     	keyboardShortcut : 'Skrót klawiszowy',
     	optionDefault : 'Domyślny'
+    },
+    versionCheck : 
+    {
+    	notificationMessage : 'This CKEditor %current version is not secure. Consider <a target="_blank" href="%link">upgrading to the latest one</a>, %latest.',
+    	consoleMessage : 'This CKEditor %current version is not secure. Consider upgrading to the latest one, %latest: %link',
+    	aboutDialogInsecureMessage : 'This CKEditor %current version is not secure.<br>Consider upgrading to the latest one, %latest:<br><a target="_blank" href="%link">%link</a>',
+    	aboutDialogUpgradeMessage : 'Consider upgrading to the latest editor version, %latest:<br><a target="_blank" href="%link">%link</a>'
     } }; 

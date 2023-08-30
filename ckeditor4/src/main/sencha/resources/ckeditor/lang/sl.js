@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license/
 */
 CKEDITOR.lang['sl'] = {
@@ -55,6 +55,8 @@ CKEDITOR.lang['sl'] = {
     		borderColor : 'Barva obrobe',
     		data : 'Podatki',
     		header : 'Glava',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Da',
     		no : 'Ne',
     		invalidWidth : 'Širina celice mora biti število.',
@@ -142,6 +144,7 @@ CKEDITOR.lang['sl'] = {
     		title : 'Lastnosti sidra',
     		name : 'Ime sidra',
     		errorName : 'Prosimo, vnesite ime sidra',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Odstrani sidro'
     	},
     	anchorId : 'Po ID-ju elementa',
@@ -379,4 +382,11 @@ CKEDITOR.lang['sl'] = {
     	},
     	keyboardShortcut : 'Keyboard shortcut',
     	optionDefault : 'Default'
+    },
+    versionCheck : 
+    {
+    	notificationMessage : 'This CKEditor %current version is not secure. Consider <a target="_blank" href="%link">upgrading to the latest one</a>, %latest.',
+    	consoleMessage : 'This CKEditor %current version is not secure. Consider upgrading to the latest one, %latest: %link',
+    	aboutDialogInsecureMessage : 'This CKEditor %current version is not secure.<br>Consider upgrading to the latest one, %latest:<br><a target="_blank" href="%link">%link</a>',
+    	aboutDialogUpgradeMessage : 'Consider upgrading to the latest editor version, %latest:<br><a target="_blank" href="%link">%link</a>'
     } }; 

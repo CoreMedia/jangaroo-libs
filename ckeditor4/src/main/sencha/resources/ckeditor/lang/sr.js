@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license/
 */
 CKEDITOR.lang['sr'] = {
@@ -55,6 +55,8 @@ CKEDITOR.lang['sr'] = {
     		borderColor : 'Боја оквира',
     		data : 'Податак',
     		header : 'Наслов',
+    		columnHeader : 'Заглавље колоне',
+    		rowHeader : 'Заглавље реда',
     		yes : 'Да',
     		no : 'Не',
     		invalidWidth : 'У поље ширина можете уписати само бројеве.',
@@ -142,6 +144,7 @@ CKEDITOR.lang['sr'] = {
     		title : 'Карактеристике сидра',
     		name : 'Назив сидра',
     		errorName : 'Унесите назив сидра',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Уклони сидро'
     	},
     	anchorId : 'Пo Ид-у елемента',
@@ -249,8 +252,8 @@ CKEDITOR.lang['sr'] = {
     	pasteNotification : 'Притисните тастер %1 за лепљење. Ваш ретраживач не дозвољаба лепљење из алатне траке или мениа.',
     	pasteArea : 'Залепи зону',
     	pasteMsg : 'Налепите садржај у следећи простор и притисните тастер OK.',
-    	fileFormatNotSupportedNotification : 'The ${formats} file format(s) are not supported.',
-    	fileWithoutFormatNotSupportedNotification : 'The file format is not supported.'
+    	fileFormatNotSupportedNotification : 'Формати датотеке ${форматс} нису подржани.',
+    	fileWithoutFormatNotSupportedNotification : 'Формат датотеке није подржан.'
     },
     blockquote : 
     {
@@ -265,8 +268,8 @@ CKEDITOR.lang['sr'] = {
     	superscript : 'Степен',
     	underline : 'Подвучено'
     },
-    application : 'Rich Text Editor',
-    editor : 'ХТМЛ уређивач текста',
+    application : 'Уређивач богатог текста',
+    editor : 'Уређивач',
     editorPanel : 'ХТМЛ уређивач панел',
     common : 
     {
@@ -379,4 +382,11 @@ CKEDITOR.lang['sr'] = {
     	},
     	keyboardShortcut : 'Tастер за пречицу',
     	optionDefault : 'Основни'
+    },
+    versionCheck : 
+    {
+    	notificationMessage : 'This CKEditor %current version is not secure. Consider <a target="_blank" href="%link">upgrading to the latest one</a>, %latest.',
+    	consoleMessage : 'This CKEditor %current version is not secure. Consider upgrading to the latest one, %latest: %link',
+    	aboutDialogInsecureMessage : 'This CKEditor %current version is not secure.<br>Consider upgrading to the latest one, %latest:<br><a target="_blank" href="%link">%link</a>',
+    	aboutDialogUpgradeMessage : 'Consider upgrading to the latest editor version, %latest:<br><a target="_blank" href="%link">%link</a>'
     } }; 

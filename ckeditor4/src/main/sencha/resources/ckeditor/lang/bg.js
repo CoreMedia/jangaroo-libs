@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license/
 */
 CKEDITOR.lang['bg'] = {
@@ -55,6 +55,8 @@ CKEDITOR.lang['bg'] = {
     		borderColor : 'Цвят на рамката',
     		data : 'Данни',
     		header : 'Заглавие',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Да',
     		no : 'Не',
     		invalidWidth : 'Ширината на клетката трябва да е число.',
@@ -142,6 +144,7 @@ CKEDITOR.lang['bg'] = {
     		title : 'Настройки на котва',
     		name : 'Име на котва',
     		errorName : 'Моля въведете име на котвата',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Премахване на котва'
     	},
     	anchorId : 'По ID на елемент',
@@ -379,4 +382,11 @@ CKEDITOR.lang['bg'] = {
     	},
     	keyboardShortcut : 'Клавишна комбинация',
     	optionDefault : 'По подразбиране'
+    },
+    versionCheck : 
+    {
+    	notificationMessage : 'This CKEditor %current version is not secure. Consider <a target="_blank" href="%link">upgrading to the latest one</a>, %latest.',
+    	consoleMessage : 'This CKEditor %current version is not secure. Consider upgrading to the latest one, %latest: %link',
+    	aboutDialogInsecureMessage : 'This CKEditor %current version is not secure.<br>Consider upgrading to the latest one, %latest:<br><a target="_blank" href="%link">%link</a>',
+    	aboutDialogUpgradeMessage : 'Consider upgrading to the latest editor version, %latest:<br><a target="_blank" href="%link">%link</a>'
     } }; 

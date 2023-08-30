@@ -1,5 +1,5 @@
 ﻿/**
- * @license Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+ * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -402,11 +402,12 @@
 		init: function( editor ) {
 			editor.on( 'contentDom', function() {
 				var resizer,
-					editable = editor.editable();
+					editable = editor.editable(),
+					// In Classic editor it is better to use document
+					// instead of editable so event will work below body.
+					listenerTarget = editable.isInline() ? editable : editor.document;
 
-				// In Classic editor it is better to use document
-				// instead of editable so event will work below body.
-				editable.attachListener( editable.isInline() ? editable : editor.document, 'mousemove', function( evt ) {
+				editable.attachListener( listenerTarget, 'mousemove', function( evt ) {
 					evt = evt.data;
 
 					var target = evt.getTarget();
@@ -455,6 +456,15 @@
 						!resizer && ( resizer = new columnResizer( editor ) );
 						resizer.attachTo( pillar );
 					}
+				} );
+
+				// Reset pillars position on scroll (#4889).
+				editable.attachListener( listenerTarget, 'scroll', function() {
+					var tables = editable.find( 'table' ).toArray();
+
+					CKEDITOR.tools.array.forEach( tables, CKEDITOR.tools.debounce( function( table ) {
+						table.removeCustomData( '_cke_table_pillars' );
+					}, 200 ) );
 				} );
 			} );
 		}

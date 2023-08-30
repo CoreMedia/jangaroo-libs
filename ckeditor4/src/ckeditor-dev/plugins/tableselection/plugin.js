@@ -1,5 +1,5 @@
 /**
- * @license Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+ * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -921,8 +921,11 @@
 		editor.on( 'afterCommandExec', function( evt ) {
 			if ( CKEDITOR.tools.array.indexOf( cmds, evt.data.name ) !== -1 ) {
 				callback( editor, evt.data );
+
 			}
-		} );
+		// This listener is connected with undo plugin listener and require a higher priority
+		// than the listener in undo plugin to create a correct undo step (#4284).
+		}, null, null, 9 );
 	}
 
 	/**
@@ -1146,6 +1149,21 @@
 				}
 			}
 
+			function getTableKeyUpListener( editor ) {
+				return function( evt ) {
+					var key = evt.data.getKey(),
+						selection = editor.getSelection();
+
+					// Handle only Tab key in table selection.
+					if ( key !== 9 || !selection.isInTable() ) {
+						return;
+					}
+
+					// Restore fake selection after pressing Tab (#4802).
+					restoreFakeSelection( editor );
+				};
+			}
+
 			function clearCellInRange( range ) {
 				var node = range.getEnclosedNode();
 
@@ -1169,6 +1187,7 @@
 			var editable = editor.editable();
 			editable.attachListener( editable, 'keydown', getTableOnKeyDownListener( editor ), null, null, -1 );
 			editable.attachListener( editable, 'keypress', tableKeyPressListener, null, null, -1 );
+			editable.attachListener( editable, 'keyup', getTableKeyUpListener( editor ), null, null, -1 );
 		}
 	};
 

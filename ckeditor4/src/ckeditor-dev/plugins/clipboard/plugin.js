@@ -1,5 +1,5 @@
 ﻿/**
- * @license Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+ * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -236,6 +236,11 @@
 			}, null, null, 1 );
 
 			function testImageBase64Support( file ) {
+				// Check if turning images into base64 is disabled (#5431).
+				if ( !editor.config.clipboard_handleImages ) {
+					return false;
+				}
+
 				var supportedImageTypes = [ 'image/png', 'image/jpeg', 'image/gif' ];
 				return CKEDITOR.tools.indexOf( supportedImageTypes, file.type ) !== -1;
 			}

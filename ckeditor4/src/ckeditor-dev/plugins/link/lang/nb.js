@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.plugins.setLang( 'link', 'nb', {
@@ -13,6 +13,7 @@ CKEDITOR.plugins.setLang( 'link', 'nb', {
 		title: 'Egenskaper for anker',
 		name: 'Ankernavn',
 		errorName: 'Vennligst skriv inn ankernavnet',
+		errorWhitespace: 'Anchor name cannot contain space characters', // MISSING
 		remove: 'Fjern anker'
 	},
 	anchorId: 'Element etter ID',

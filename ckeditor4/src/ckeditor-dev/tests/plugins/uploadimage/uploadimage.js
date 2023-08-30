@@ -24,6 +24,18 @@
 				pasteFilter: null
 			}
 		},
+		classicSupportingWebp: {
+			name: 'classicSupportingWebp',
+			creator: 'replace',
+			config: {
+				extraPlugins: 'uploadimage,image',
+				removePlugins: 'image2',
+				imageUploadUrl: 'http://foo/upload',
+				uploadImage_supportedTypes: /image\/(jpeg|png|gif|bmp|webp)/,
+				// Disable pasteFilter on Webkits (pasteFilter defaults semantic-text on Webkits).
+				pasteFilter: null
+			}
+		},
 		inline: {
 			name: 'inline',
 			creator: 'inline',
@@ -302,6 +314,22 @@
 			} );
 		},
 
+		// (#4400)
+		'test not supportedTypes webp': function() {
+			var bot = this.editorBots.classic,
+				editor = this.editors.classic;
+
+			bot.setData( '', function() {
+				resumeAfter( editor, 'paste', function() {
+					assert.areSame( 0, editor.editable().find( 'img[data-widget="uploadimage"]' ).count() );
+				} );
+
+				pasteFiles( editor, [ { name: 'test.webp', type: 'image/webp' } ] );
+
+				wait();
+			} );
+		},
+
 		'test not supportedTypes tiff': function() {
 			var bot = this.editorBots.classic,
 				editor = this.editors.classic;
@@ -312,6 +340,22 @@
 				} );
 
 				pasteFiles( editor, [ { name: 'test.tiff', type: 'image/tiff' } ] );
+
+				wait();
+			} );
+		},
+
+		// (#4400)
+		'test setting config.uploadImage_supportedTypes allows uploading webp images': function() {
+			var bot = this.editorBots.classicSupportingWebp,
+				editor = this.editors.classicSupportingWebp;
+
+			bot.setData( '', function() {
+				resumeAfter( editor, 'paste', function() {
+					assertUploadingWidgets( editor, LOADING_IMG );
+				} );
+
+				pasteFiles( editor, [ { name: 'test.webp', type: 'image/webp' } ] );
 
 				wait();
 			} );
@@ -582,13 +626,154 @@
 
 			bender.editorBot.create( {
 				name: 'configerror_test',
-				extraPlugins: 'uploadimage'
+				config: {
+					extraPlugins: 'uploadimage'
+				}
 			}, function( bot ) {
 				spy.restore();
 
 				assert.areSame( 0, spy.callCount, 'CKEDITOR.error call count' );
 				assert.isFalse( !!bot.editor.widgets.registered.uploadimage, 'uploadimage widget' );
 			} );
+		},
+
+		// (#5333)
+		'test warning about disabling the clipboard image handling logic (default config value)': createHandlingImageWarnTest(
+			'clipboard-warning-default' ),
+
+		// (#5333)
+		'test warning about disabling the clipboard image handling logic (config value of true)': createHandlingImageWarnTest(
+			'clipboard-warning-true', true ),
+
+		// (#5333)
+		'test warning about disabling the clipboard image handling logic (config value of false)': createHandlingImageWarnTest(
+			'clipboard-warning-false', false ),
+
+		// (#5333)
+		'test original file name is preserved after the upload': function() {
+			bender.editorBot.create( {
+				name: 'clipboard-integration-original-file-name',
+				config: {
+					uploadUrl: '%BASE_PATH',
+					extraPlugins: 'uploadimage'
+				}
+			}, function( bot ) {
+				var editor = bot.editor,
+					imageName = 'test.png',
+					image = {
+						name: imageName,
+						type: 'image/png'
+					};
+
+				bot.setData( '', function() {
+					resumeAfter( editor, 'paste', function() {
+						var widget = CKEDITOR.tools.object.values( editor.widgets.instances )[ 0 ],
+							loader = widget._getLoader();
+
+						assert.areSame( imageName, loader.fileName, 'The name of the uploaded file' );
+					} );
+
+					pasteFilesWithFilesMimeType( editor, [ image ] );
+
+					wait();
+				} );
+			} );
+		},
+
+		// (#5414)
+		'test change event is fired after upload finishes': function() {
+			bender.editorBot.create( {
+				name: 'undo-integration-change-after-upload',
+				config: {
+					uploadUrl: '%BASE_PATH',
+					extraPlugins: 'uploadimage'
+				}
+			}, function( bot ) {
+				var editor = bot.editor,
+					imageName = 'test.png',
+					image = {
+						name: imageName,
+						type: 'image/png'
+					},
+					loader;
+
+				bot.setData( '', function() {
+					editor.once( 'change', function( evt ) {
+						resume( function() {
+							var editorData = evt.editor.getData(),
+								containsUploadedImageUrl = editorData.indexOf( 'src="' + IMG_URL ) !== -1;
+
+							assert.isTrue( containsUploadedImageUrl );
+						} );
+					} );
+
+					pasteFilesWithFilesMimeType( editor, [ image ] );
+
+					loader = editor.uploadRepository.loaders[ 0 ];
+
+					loader.url = IMG_URL;
+					loader.changeStatus( 'uploaded' );
+
+					wait();
+				} );
+			} );
 		}
 	} );
+
+	function createHandlingImageWarnTest( editorName, configValue ) {
+		return function() {
+			var spy = sinon.spy( CKEDITOR, 'warn' ),
+				editorConfig =  {
+					uploadUrl: '%BASE_PATH',
+					extraPlugins: 'uploadimage'
+				};
+
+			if ( configValue !== undefined ) {
+				editorConfig.clipboard_handleImages = configValue;
+			}
+
+			bender.editorBot.create( {
+				name: editorName,
+				config: editorConfig
+			}, function() {
+				var warnCalls = spy.args,
+					expectedWarnDetails = {
+						editor: editorName,
+						plugin: 'uploadimage'
+					};
+
+				spy.restore();
+
+				var warningCalled = spy.calledWith( 'clipboard-image-handling-disabled', expectedWarnDetails );
+
+				if ( configValue === false ) {
+					assert.isFalse( warningCalled, 'CKEDITOR.warn should not be called' );
+				} else {
+					assert.isTrue( warningCalled, 'CKEDITOR.warn should be called' );
+
+					var warningDetails = CKEDITOR.tools.array.find( warnCalls, function( item ) {
+						return item[ 0 ] === 'clipboard-image-handling-disabled';
+					} );
+
+					objectAssert.areDeepEqual( expectedWarnDetails, warningDetails[ 1 ],
+						'CKEDITOR.warn should include proper details' );
+				}
+			} );
+		};
+	}
+
+	function pasteFilesWithFilesMimeType( editor, files, pasteMethod ) {
+		var	nativeData = bender.tools.mockNativeDataTransfer(),
+			dataTransfer;
+
+		pasteMethod = pasteMethod || 'paste';
+		nativeData.files = files;
+		nativeData.types.push( 'Files' );
+		dataTransfer = new CKEDITOR.plugins.clipboard.dataTransfer( nativeData );
+
+		editor.fire( 'paste', {
+			dataTransfer: dataTransfer,
+			dataValue: ''
+		} );
+	}
 } )();

@@ -1,4 +1,4 @@
-﻿/* bender-tags: editor */
+/* bender-tags: editor */
 
 ( function() {
 	'use strict';
@@ -1111,6 +1111,22 @@
 			} );
 		},
 
+		// (#5158)
+		'test convertToPx works after calculator element was removed': function() {
+			// Attach calculator element to the DOM.
+			CKEDITOR.tools.convertToPx( '10px' );
+
+			// Based on convertToPx implementation
+			// calculator is the last element under `body` after `convertToPx` invocation.
+			var bodyChildren = CKEDITOR.document.getBody().getChildren(),
+				calculator = bodyChildren.getItem( bodyChildren.count() - 1 );
+
+			calculator.remove();
+
+			var result = CKEDITOR.tools.convertToPx( '10px' );
+			assert.areEqual( 10, result );
+		},
+
 		'test bind without context and without arguments': function() {
 			var testSpy = sinon.spy(),
 				bindedFn = CKEDITOR.tools.bind( testSpy );
@@ -1248,6 +1264,52 @@
 				var expectedPosition = html.indexOf( expectedHref );
 				assert.isTrue( expectedPosition > -1, 'Built HTML does not contains expected hrefs with timestamp' );
 			} );
+		},
+
+		// (#5184)
+		'test debounce is called only once after multiple function calls': function() {
+			var spy = sinon.spy(),
+				timer = sinon.useFakeTimers(),
+				debouncedFn = CKEDITOR.tools.debounce( spy, 100 );
+
+			timer.tick( 50 );
+
+			debouncedFn();
+			debouncedFn();
+			debouncedFn();
+
+			timer.tick( 50 );
+
+			debouncedFn();
+			debouncedFn();
+			debouncedFn();
+
+			// Calling debounced function resets timer, so we have to use the original delay.
+			timer.tick( 100 );
+			timer.restore();
+
+			assert.isTrue( spy.calledOnce );
+		},
+
+		// (#5184)
+		'test debounce uses proper caller context': function() {
+			var timer = sinon.useFakeTimers(),
+				context = {},
+				debouncedFn = CKEDITOR.tools.debounce( someFunc, 100 );
+
+			// Change function context.
+			debouncedFn = CKEDITOR.tools.bind( debouncedFn, context );
+
+			debouncedFn();
+
+			timer.tick( 100 );
+			timer.restore();
+
+			assert.isTrue( context.called );
+
+			function someFunc() {
+				this.called = true;
+			}
 		}
 	} );
 } )();

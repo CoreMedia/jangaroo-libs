@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license/
 */
 CKEDITOR.lang['si'] = {
@@ -55,6 +55,8 @@ CKEDITOR.lang['si'] = {
     		borderColor : 'මායිම් ',
     		data : 'Data',
     		header : 'ශීර්ෂක',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'ඔව්',
     		no : 'නැත',
     		invalidWidth : 'කොටු පළල සංඛ්‍ය්ත්මක වටිනාකමක් විය යුතුය',
@@ -142,6 +144,7 @@ CKEDITOR.lang['si'] = {
     		title : 'ආධාරක ',
     		name : 'ආධාරකයේ නාමය',
     		errorName : 'කරුණාකර ආධාරකයේ නාමය ඇතුල් කරන්න',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'ආධාරකය ඉවත් කිරීම'
     	},
     	anchorId : 'By Element Id',
@@ -379,4 +382,11 @@ CKEDITOR.lang['si'] = {
     	},
     	keyboardShortcut : 'Keyboard shortcut',
     	optionDefault : 'Default'
+    },
+    versionCheck : 
+    {
+    	notificationMessage : 'This CKEditor %current version is not secure. Consider <a target="_blank" href="%link">upgrading to the latest one</a>, %latest.',
+    	consoleMessage : 'This CKEditor %current version is not secure. Consider upgrading to the latest one, %latest: %link',
+    	aboutDialogInsecureMessage : 'This CKEditor %current version is not secure.<br>Consider upgrading to the latest one, %latest:<br><a target="_blank" href="%link">%link</a>',
+    	aboutDialogUpgradeMessage : 'Consider upgrading to the latest editor version, %latest:<br><a target="_blank" href="%link">%link</a>'
     } }; 

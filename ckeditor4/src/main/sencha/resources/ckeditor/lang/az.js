@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license/
 */
 CKEDITOR.lang['az'] = {
@@ -55,6 +55,8 @@ CKEDITOR.lang['az'] = {
     		borderColor : 'Sərhədin rəngi',
     		data : 'Məlumatlar',
     		header : 'Başlıq',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Bəli',
     		no : 'Xeyr',
     		invalidWidth : 'Xanasın eni rəqəm olmalıdır.',
@@ -142,6 +144,7 @@ CKEDITOR.lang['az'] = {
     		title : 'Xeşin seçimləri',
     		name : 'Xeşin adı',
     		errorName : 'Xeşin adı yanlışdır',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Xeşin adı sil'
     	},
     	anchorId : 'ID görə',
@@ -265,8 +268,8 @@ CKEDITOR.lang['az'] = {
     	superscript : 'Yuxarı indeks',
     	underline : 'Altdan xətt'
     },
-    application : 'Rich Text Editor',
-    editor : 'Mətn Redaktoru',
+    application : 'Rich Text Redaktoru',
+    editor : 'Redaktor',
     editorPanel : 'Mətn Redaktorun Paneli',
     common : 
     {
@@ -379,4 +382,11 @@ CKEDITOR.lang['az'] = {
     	},
     	keyboardShortcut : 'Qısayol düymələri',
     	optionDefault : 'Standart'
+    },
+    versionCheck : 
+    {
+    	notificationMessage : 'This CKEditor %current version is not secure. Consider <a target="_blank" href="%link">upgrading to the latest one</a>, %latest.',
+    	consoleMessage : 'This CKEditor %current version is not secure. Consider upgrading to the latest one, %latest: %link',
+    	aboutDialogInsecureMessage : 'This CKEditor %current version is not secure.<br>Consider upgrading to the latest one, %latest:<br><a target="_blank" href="%link">%link</a>',
+    	aboutDialogUpgradeMessage : 'Consider upgrading to the latest editor version, %latest:<br><a target="_blank" href="%link">%link</a>'
     } }; 

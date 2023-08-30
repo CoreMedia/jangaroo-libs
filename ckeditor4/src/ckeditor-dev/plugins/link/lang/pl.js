@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.plugins.setLang( 'link', 'pl', {
@@ -13,6 +13,7 @@ CKEDITOR.plugins.setLang( 'link', 'pl', {
 		title: 'Właściwości kotwicy',
 		name: 'Nazwa kotwicy',
 		errorName: 'Podaj nazwę kotwicy.',
+		errorWhitespace: 'Anchor name cannot contain space characters', // MISSING
 		remove: 'Usuń kotwicę'
 	},
 	anchorId: 'Wg identyfikatora',

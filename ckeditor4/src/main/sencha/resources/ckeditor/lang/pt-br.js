@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license/
 */
 CKEDITOR.lang['pt-br'] = {
@@ -55,6 +55,8 @@ CKEDITOR.lang['pt-br'] = {
     		borderColor : 'Cor das bordas',
     		data : 'Dados',
     		header : 'Cabeçalho',
+    		columnHeader : 'Cabeçalho da Coluna',
+    		rowHeader : 'Cabeçalho da Linha',
     		yes : 'Sim',
     		no : 'Não',
     		invalidWidth : 'A largura da célula tem que ser um número.',
@@ -142,6 +144,7 @@ CKEDITOR.lang['pt-br'] = {
     		title : 'Formatar Âncora',
     		name : 'Nome da Âncora',
     		errorName : 'Por favor, digite o nome da âncora',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Remover Âncora'
     	},
     	anchorId : 'Id da âncora',
@@ -249,8 +252,8 @@ CKEDITOR.lang['pt-br'] = {
     	pasteNotification : 'Pressione %1 para colar. Seu navegador não permite colar pelos botões da barra de tarefas ou pelo menu de contexto.',
     	pasteArea : 'Área para Colar',
     	pasteMsg : 'Cole o conteúdo na área abaixo e pressione OK.',
-    	fileFormatNotSupportedNotification : 'The ${formats} file format(s) are not supported.',
-    	fileWithoutFormatNotSupportedNotification : 'The file format is not supported.'
+    	fileFormatNotSupportedNotification : 'Os formatos de arquivo ${formats} não são suportados.',
+    	fileWithoutFormatNotSupportedNotification : 'Formato de arquivo não suportado.'
     },
     blockquote : 
     {
@@ -265,8 +268,8 @@ CKEDITOR.lang['pt-br'] = {
     	superscript : 'Sobrescrito',
     	underline : 'Sublinhado'
     },
-    application : 'Rich Text Editor',
-    editor : 'Editor de Rich Text',
+    application : 'Editor de Rich Text',
+    editor : 'Editor',
     editorPanel : 'Painel do editor de Rich Text',
     common : 
     {
@@ -379,4 +382,11 @@ CKEDITOR.lang['pt-br'] = {
     	},
     	keyboardShortcut : 'Atalho do teclado',
     	optionDefault : 'Padrão'
+    },
+    versionCheck : 
+    {
+    	notificationMessage : 'This CKEditor %current version is not secure. Consider <a target="_blank" href="%link">upgrading to the latest one</a>, %latest.',
+    	consoleMessage : 'This CKEditor %current version is not secure. Consider upgrading to the latest one, %latest: %link',
+    	aboutDialogInsecureMessage : 'This CKEditor %current version is not secure.<br>Consider upgrading to the latest one, %latest:<br><a target="_blank" href="%link">%link</a>',
+    	aboutDialogUpgradeMessage : 'Consider upgrading to the latest editor version, %latest:<br><a target="_blank" href="%link">%link</a>'
     } }; 

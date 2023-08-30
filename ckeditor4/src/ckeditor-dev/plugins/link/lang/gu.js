@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.plugins.setLang( 'link', 'gu', {
@@ -13,6 +13,7 @@ CKEDITOR.plugins.setLang( 'link', 'gu', {
 		title: 'ઍંકરના ગુણ',
 		name: 'ઍંકરનું નામ',
 		errorName: 'ઍંકરનું નામ ટાઈપ કરો',
+		errorWhitespace: 'Anchor name cannot contain space characters', // MISSING
 		remove: 'સ્થિર નકરવું'
 	},
 	anchorId: 'ઍંકર એલિમન્ટ Id થી પસંદ કરો',

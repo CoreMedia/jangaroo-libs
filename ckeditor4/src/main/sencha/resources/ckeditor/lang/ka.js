@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license/
 */
 CKEDITOR.lang['ka'] = {
@@ -55,6 +55,8 @@ CKEDITOR.lang['ka'] = {
     		borderColor : 'ჩარჩოს ფერი',
     		data : 'მონაცემები',
     		header : 'სათაური',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'დიახ',
     		no : 'არა',
     		invalidWidth : 'უჯრის სიგანე რიცხვით უნდა იყოს წარმოდგენილი.',
@@ -142,6 +144,7 @@ CKEDITOR.lang['ka'] = {
     		title : 'ღუზის პარამეტრები',
     		name : 'ღუზუს სახელი',
     		errorName : 'აკრიფეთ ღუზის სახელი',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Remove Anchor'
     	},
     	anchorId : 'ელემენტის Id-თ',
@@ -379,4 +382,11 @@ CKEDITOR.lang['ka'] = {
     	},
     	keyboardShortcut : 'Keyboard shortcut',
     	optionDefault : 'Default'
+    },
+    versionCheck : 
+    {
+    	notificationMessage : 'This CKEditor %current version is not secure. Consider <a target="_blank" href="%link">upgrading to the latest one</a>, %latest.',
+    	consoleMessage : 'This CKEditor %current version is not secure. Consider upgrading to the latest one, %latest: %link',
+    	aboutDialogInsecureMessage : 'This CKEditor %current version is not secure.<br>Consider upgrading to the latest one, %latest:<br><a target="_blank" href="%link">%link</a>',
+    	aboutDialogUpgradeMessage : 'Consider upgrading to the latest editor version, %latest:<br><a target="_blank" href="%link">%link</a>'
     } }; 

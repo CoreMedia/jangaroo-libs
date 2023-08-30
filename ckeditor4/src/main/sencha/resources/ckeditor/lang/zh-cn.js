@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license/
 */
 CKEDITOR.lang['zh-cn'] = {
@@ -55,6 +55,8 @@ CKEDITOR.lang['zh-cn'] = {
     		borderColor : '边框颜色',
     		data : '数据',
     		header : '表头',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : '是',
     		no : '否',
     		invalidWidth : '单元格宽度必须为数字格式',
@@ -142,6 +144,7 @@ CKEDITOR.lang['zh-cn'] = {
     		title : '锚点链接属性',
     		name : '锚点名称',
     		errorName : '请输入锚点名称',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : '删除锚点'
     	},
     	anchorId : '按锚点 ID',
@@ -265,8 +268,8 @@ CKEDITOR.lang['zh-cn'] = {
     	superscript : '上标',
     	underline : '下划线'
     },
-    application : 'Rich Text Editor',
-    editor : '所见即所得编辑器',
+    application : '富文本编辑器',
+    editor : '编辑器',
     editorPanel : '所见即所得编辑器面板',
     common : 
     {
@@ -379,4 +382,11 @@ CKEDITOR.lang['zh-cn'] = {
     	},
     	keyboardShortcut : '快捷键',
     	optionDefault : '默认'
+    },
+    versionCheck : 
+    {
+    	notificationMessage : 'This CKEditor %current version is not secure. Consider <a target="_blank" href="%link">upgrading to the latest one</a>, %latest.',
+    	consoleMessage : 'This CKEditor %current version is not secure. Consider upgrading to the latest one, %latest: %link',
+    	aboutDialogInsecureMessage : 'This CKEditor %current version is not secure.<br>Consider upgrading to the latest one, %latest:<br><a target="_blank" href="%link">%link</a>',
+    	aboutDialogUpgradeMessage : 'Consider upgrading to the latest editor version, %latest:<br><a target="_blank" href="%link">%link</a>'
     } }; 

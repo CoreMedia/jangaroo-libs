@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license/
 */
 CKEDITOR.lang['fr-ca'] = {
@@ -55,6 +55,8 @@ CKEDITOR.lang['fr-ca'] = {
     		borderColor : 'Couleur de bordure',
     		data : 'Données',
     		header : 'En-tête',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Oui',
     		no : 'Non',
     		invalidWidth : 'La largeur de cellule doit être un nombre.',
@@ -142,6 +144,7 @@ CKEDITOR.lang['fr-ca'] = {
     		title : 'Propriétés de l\'ancre',
     		name : 'Nom de l\'ancre',
     		errorName : 'Veuillez saisir le nom de l\'ancre',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Supprimer l\'ancre'
     	},
     	anchorId : 'Par ID',
@@ -379,4 +382,11 @@ CKEDITOR.lang['fr-ca'] = {
     	},
     	keyboardShortcut : 'Keyboard shortcut',
     	optionDefault : 'Default'
+    },
+    versionCheck : 
+    {
+    	notificationMessage : 'This CKEditor %current version is not secure. Consider <a target="_blank" href="%link">upgrading to the latest one</a>, %latest.',
+    	consoleMessage : 'This CKEditor %current version is not secure. Consider upgrading to the latest one, %latest: %link',
+    	aboutDialogInsecureMessage : 'This CKEditor %current version is not secure.<br>Consider upgrading to the latest one, %latest:<br><a target="_blank" href="%link">%link</a>',
+    	aboutDialogUpgradeMessage : 'Consider upgrading to the latest editor version, %latest:<br><a target="_blank" href="%link">%link</a>'
     } }; 

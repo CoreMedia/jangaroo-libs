@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license/
 */
 CKEDITOR.lang['ja'] = {
@@ -55,6 +55,8 @@ CKEDITOR.lang['ja'] = {
     		borderColor : 'ボーダーカラー',
     		data : 'テーブルデータ (td)',
     		header : 'ヘッダ',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'はい',
     		no : 'いいえ',
     		invalidWidth : 'セル幅は数値で入力してください。',
@@ -142,6 +144,7 @@ CKEDITOR.lang['ja'] = {
     		title : 'アンカーのプロパティ',
     		name : 'アンカー名',
     		errorName : 'アンカー名を入力してください。',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'アンカーを削除'
     	},
     	anchorId : 'エレメントID',
@@ -379,4 +382,11 @@ CKEDITOR.lang['ja'] = {
     	},
     	keyboardShortcut : 'キーボードショートカット',
     	optionDefault : 'Default'
+    },
+    versionCheck : 
+    {
+    	notificationMessage : 'This CKEditor %current version is not secure. Consider <a target="_blank" href="%link">upgrading to the latest one</a>, %latest.',
+    	consoleMessage : 'This CKEditor %current version is not secure. Consider upgrading to the latest one, %latest: %link',
+    	aboutDialogInsecureMessage : 'This CKEditor %current version is not secure.<br>Consider upgrading to the latest one, %latest:<br><a target="_blank" href="%link">%link</a>',
+    	aboutDialogUpgradeMessage : 'Consider upgrading to the latest editor version, %latest:<br><a target="_blank" href="%link">%link</a>'
     } }; 

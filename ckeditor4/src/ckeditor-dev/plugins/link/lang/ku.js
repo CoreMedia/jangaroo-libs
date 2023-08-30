@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.plugins.setLang( 'link', 'ku', {
@@ -13,6 +13,7 @@ CKEDITOR.plugins.setLang( 'link', 'ku', {
 		title: 'خاسیەتی لەنگەر',
 		name: 'ناوی لەنگەر',
 		errorName: 'تکایه ناوی لەنگەر بنووسه',
+		errorWhitespace: 'Anchor name cannot contain space characters', // MISSING
 		remove: 'لابردنی لەنگەر'
 	},
 	anchorId: 'بەپێی ناسنامەی توخم',

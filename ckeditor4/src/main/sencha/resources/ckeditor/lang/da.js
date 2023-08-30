@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license/
 */
 CKEDITOR.lang['da'] = {
@@ -55,6 +55,8 @@ CKEDITOR.lang['da'] = {
     		borderColor : 'Rammefarve',
     		data : 'Data',
     		header : 'Hoved',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Ja',
     		no : 'Nej',
     		invalidWidth : 'Cellebredde skal være et tal.',
@@ -142,6 +144,7 @@ CKEDITOR.lang['da'] = {
     		title : 'Egenskaber for bogmærke',
     		name : 'Bogmærkenavn',
     		errorName : 'Indtast bogmærkenavn',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Fjern bogmærke'
     	},
     	anchorId : 'Efter element-Id',
@@ -379,4 +382,11 @@ CKEDITOR.lang['da'] = {
     	},
     	keyboardShortcut : 'Tastatur genvej',
     	optionDefault : 'Standard'
+    },
+    versionCheck : 
+    {
+    	notificationMessage : 'This CKEditor %current version is not secure. Consider <a target="_blank" href="%link">upgrading to the latest one</a>, %latest.',
+    	consoleMessage : 'This CKEditor %current version is not secure. Consider upgrading to the latest one, %latest: %link',
+    	aboutDialogInsecureMessage : 'This CKEditor %current version is not secure.<br>Consider upgrading to the latest one, %latest:<br><a target="_blank" href="%link">%link</a>',
+    	aboutDialogUpgradeMessage : 'Consider upgrading to the latest editor version, %latest:<br><a target="_blank" href="%link">%link</a>'
     } }; 

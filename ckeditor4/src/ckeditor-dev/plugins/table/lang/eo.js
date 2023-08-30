@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.plugins.setLang( 'table', 'eo', {
@@ -27,6 +27,8 @@ CKEDITOR.plugins.setLang( 'table', 'eo', {
 		borderColor: 'Borderkoloro',
 		data: 'Datenoj',
 		header: 'Supra paĝotitolo',
+		columnHeader: 'Column Header', // MISSING
+		rowHeader: 'Row Header', // MISSING
 		yes: 'Jes',
 		no: 'No',
 		invalidWidth: 'Ĉellarĝo devas esti nombro.',

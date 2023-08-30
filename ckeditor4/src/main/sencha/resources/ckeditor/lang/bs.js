@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license/
 */
 CKEDITOR.lang['bs'] = {
@@ -55,6 +55,8 @@ CKEDITOR.lang['bs'] = {
     		borderColor : 'Border Color',
     		data : 'Data',
     		header : 'Header',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Yes',
     		no : 'No',
     		invalidWidth : 'Cell width must be a number.',
@@ -142,6 +144,7 @@ CKEDITOR.lang['bs'] = {
     		title : 'Anchor Properties',
     		name : 'Anchor Name',
     		errorName : 'Please type the anchor name',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Remove Anchor'
     	},
     	anchorId : 'Po Id-u elementa',
@@ -379,4 +382,11 @@ CKEDITOR.lang['bs'] = {
     	},
     	keyboardShortcut : 'Keyboard shortcut',
     	optionDefault : 'Zadano'
+    },
+    versionCheck : 
+    {
+    	notificationMessage : 'This CKEditor %current version is not secure. Consider <a target="_blank" href="%link">upgrading to the latest one</a>, %latest.',
+    	consoleMessage : 'This CKEditor %current version is not secure. Consider upgrading to the latest one, %latest: %link',
+    	aboutDialogInsecureMessage : 'This CKEditor %current version is not secure.<br>Consider upgrading to the latest one, %latest:<br><a target="_blank" href="%link">%link</a>',
+    	aboutDialogUpgradeMessage : 'Consider upgrading to the latest editor version, %latest:<br><a target="_blank" href="%link">%link</a>'
     } }; 

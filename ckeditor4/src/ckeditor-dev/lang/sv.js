@@ -1,11 +1,12 @@
 /**
- * @license Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+ * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
 /**
-* @fileOverview
-*/
+ * @fileOverview Defines the {@link CKEDITOR.lang} object, for the
+ * Swedish language.
+ */
 
 /**#@+
    @type String
@@ -142,5 +143,12 @@ CKEDITOR.lang[ 'sv' ] = {
 		keyboardShortcut: 'Kortkommando',
 
 		optionDefault: 'Standard'
+	},
+
+	versionCheck: {
+		notificationMessage: 'This CKEditor %current version is not secure. Consider <a target="_blank" href="%link">upgrading to the latest one</a>, %latest.', // MISSING
+		consoleMessage: 'This CKEditor %current version is not secure. Consider upgrading to the latest one, %latest: %link', // MISSING
+		aboutDialogInsecureMessage: 'This CKEditor %current version is not secure.<br>Consider upgrading to the latest one, %latest:<br><a target="_blank" href="%link">%link</a>', // MISSING
+		aboutDialogUpgradeMessage: 'Consider upgrading to the latest editor version, %latest:<br><a target="_blank" href="%link">%link</a>' // MISSING
 	}
 };

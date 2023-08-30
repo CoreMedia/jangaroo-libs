@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license/
 */
 CKEDITOR.lang['km'] = {
@@ -55,6 +55,8 @@ CKEDITOR.lang['km'] = {
     		borderColor : 'ពណ៌\u200bបន្ទាត់\u200bស៊ុម',
     		data : 'ទិន្នន័យ',
     		header : 'ក្បាល',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'ព្រម',
     		no : 'ទេ',
     		invalidWidth : 'ទទឹង\u200bក្រឡា\u200bត្រូវ\u200bតែ\u200bជា\u200bលេខ។',
@@ -142,6 +144,7 @@ CKEDITOR.lang['km'] = {
     		title : 'លក្ខណៈ\u200bយុថ្កា',
     		name : 'ឈ្មោះ\u200bយុថ្កា',
     		errorName : 'សូម\u200bបញ្ចូល\u200bឈ្មោះ\u200bយុថ្កា',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'ដក\u200bយុថ្កា\u200bចេញ'
     	},
     	anchorId : 'តាម ID ធាតុ',
@@ -379,4 +382,11 @@ CKEDITOR.lang['km'] = {
     	},
     	keyboardShortcut : 'Keyboard shortcut',
     	optionDefault : 'Default'
+    },
+    versionCheck : 
+    {
+    	notificationMessage : 'This CKEditor %current version is not secure. Consider <a target="_blank" href="%link">upgrading to the latest one</a>, %latest.',
+    	consoleMessage : 'This CKEditor %current version is not secure. Consider upgrading to the latest one, %latest: %link',
+    	aboutDialogInsecureMessage : 'This CKEditor %current version is not secure.<br>Consider upgrading to the latest one, %latest:<br><a target="_blank" href="%link">%link</a>',
+    	aboutDialogUpgradeMessage : 'Consider upgrading to the latest editor version, %latest:<br><a target="_blank" href="%link">%link</a>'
     } }; 

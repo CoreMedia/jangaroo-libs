@@ -1,5 +1,5 @@
 /**
- * @license Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+ * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -19,7 +19,7 @@
  */
 CKEDITOR.lang[ 'gl' ] = {
 	// ARIA description.
-	application: 'Rich Text Editor', // MISSING
+	application: 'Editor de texto mellorado',
 	editor: 'Editor de texto mellorado',
 	editorPanel: 'Panel do editor de texto mellorado',
 
@@ -143,5 +143,12 @@ CKEDITOR.lang[ 'gl' ] = {
 		keyboardShortcut: 'Atallo de teclado',
 
 		optionDefault: 'Predeterminado'
+	},
+
+	versionCheck: {
+		notificationMessage: 'This CKEditor %current version is not secure. Consider <a target="_blank" href="%link">upgrading to the latest one</a>, %latest.', // MISSING
+		consoleMessage: 'This CKEditor %current version is not secure. Consider upgrading to the latest one, %latest: %link', // MISSING
+		aboutDialogInsecureMessage: 'This CKEditor %current version is not secure.<br>Consider upgrading to the latest one, %latest:<br><a target="_blank" href="%link">%link</a>', // MISSING
+		aboutDialogUpgradeMessage: 'Consider upgrading to the latest editor version, %latest:<br><a target="_blank" href="%link">%link</a>' // MISSING
 	}
 };
