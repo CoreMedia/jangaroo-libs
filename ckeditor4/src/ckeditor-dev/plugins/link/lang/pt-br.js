@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.plugins.setLang( 'link', 'pt-br', {
@@ -13,6 +13,7 @@ CKEDITOR.plugins.setLang( 'link', 'pt-br', {
 		title: 'Formatar Âncora',
 		name: 'Nome da Âncora',
 		errorName: 'Por favor, digite o nome da âncora',
+		errorWhitespace: 'Anchor name cannot contain space characters', // MISSING
 		remove: 'Remover Âncora'
 	},
 	anchorId: 'Id da âncora',

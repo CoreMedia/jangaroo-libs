@@ -1,5 +1,5 @@
 ﻿/**
- * @license Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+ * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -349,6 +349,10 @@
 							srcset: srcset,
 							sizes: '100vw'
 						} );
+
+						// Ensure that replacing the placeholder image with the final one
+						// is considered a content change (#5414).
+						this.editor.fire( 'change' );
 					} );
 
 					this.on( 'uploadFailed', function() {
@@ -530,7 +534,11 @@
 						editor.fire( 'paste', {
 							method: 'paste',
 							dataValue: '',
-							dataTransfer: new CKEDITOR.plugins.clipboard.dataTransfer( { files: targetElement.$.files } )
+							dataTransfer: new CKEDITOR.plugins.clipboard.dataTransfer( {
+								files: targetElement.$.files,
+								// Add missing content type (#5234).
+								types: [ 'Files' ]
+							} )
 						} );
 					}
 				} );

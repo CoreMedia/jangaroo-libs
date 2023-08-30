@@ -1,5 +1,5 @@
 ﻿/**
- * @license Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+ * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -153,6 +153,9 @@
 						case 13: // ENTER
 						case 32: // SPACE
 							item.execute();
+							return false;
+						case CKEDITOR.ALT + 122: // ALT + F11 (#438).
+							editor.execCommand( 'elementsPathFocus' );
 							return false;
 					}
 					return true;
@@ -412,9 +415,16 @@
 	} );
 
 	function getToolbarConfig( editor ) {
-		var removeButtons = editor.config.removeButtons;
+		var removeButtons = getRemoveButtons( editor.config.removeButtons );
 
-		removeButtons = removeButtons && removeButtons.split( ',' );
+		// (#5122)
+		function getRemoveButtons( config ) {
+			if ( config && typeof config === 'string' ) {
+				return config.split( ',' );
+			}
+
+			return config;
+		}
 
 		function buildToolbarConfig() {
 
@@ -768,7 +778,15 @@ CKEDITOR.config.toolbarLocation = 'top';
  * List of toolbar button names that must not be rendered. This will also work
  * for non-button toolbar items, like the Font drop-down list.
  *
- *		config.removeButtons = 'Underline,JustifyCenter';
+ * ```javascript
+ * config.removeButtons = 'Underline,JustifyCenter';
+ * ```
+ *
+ * Since version 4.20.0 you can also pass an array of button names:
+ *
+ * ```javascript
+ * config.removeButtons = [ 'Underline', 'JustifyCenter' ];
+ * ```
  *
  * This configuration option should not be overused. The recommended way is to use the
  * {@link CKEDITOR.config#removePlugins} setting to remove features from the editor
@@ -777,7 +795,7 @@ CKEDITOR.config.toolbarLocation = 'top';
  * In some cases though, a single plugin may define a set of toolbar buttons and
  * `removeButtons` may be useful when just a few of them are to be removed.
  *
- * @cfg {String} [removeButtons]
+ * @cfg {String/String[]} [removeButtons]
  * @member CKEDITOR.config
  */
 

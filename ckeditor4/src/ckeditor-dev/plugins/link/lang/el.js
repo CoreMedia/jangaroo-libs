@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.plugins.setLang( 'link', 'el', {
@@ -13,6 +13,7 @@ CKEDITOR.plugins.setLang( 'link', 'el', {
 		title: 'Ιδιότητες άγκυρας',
 		name: 'Όνομα άγκυρας',
 		errorName: 'Παρακαλούμε εισάγετε όνομα άγκυρας',
+		errorWhitespace: 'Anchor name cannot contain space characters', // MISSING
 		remove: 'Αφαίρεση Άγκυρας'
 	},
 	anchorId: 'Βάσει του Element Id',

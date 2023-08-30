@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.plugins.setLang( 'table', 'km', {
@@ -27,6 +27,8 @@ CKEDITOR.plugins.setLang( 'table', 'km', {
 		borderColor: 'ពណ៌​បន្ទាត់​ស៊ុម',
 		data: 'ទិន្នន័យ',
 		header: 'ក្បាល',
+		columnHeader: 'Column Header', // MISSING
+		rowHeader: 'Row Header', // MISSING
 		yes: 'ព្រម',
 		no: 'ទេ',
 		invalidWidth: 'ទទឹង​ក្រឡា​ត្រូវ​តែ​ជា​លេខ។',

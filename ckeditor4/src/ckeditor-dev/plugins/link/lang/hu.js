@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.plugins.setLang( 'link', 'hu', {
@@ -13,6 +13,7 @@ CKEDITOR.plugins.setLang( 'link', 'hu', {
 		title: 'Horgony tulajdonságai',
 		name: 'Horgony neve',
 		errorName: 'Kérem adja meg a horgony nevét',
+		errorWhitespace: 'Anchor name cannot contain space characters', // MISSING
 		remove: 'Horgony eltávolítása'
 	},
 	anchorId: 'Azonosító szerint',

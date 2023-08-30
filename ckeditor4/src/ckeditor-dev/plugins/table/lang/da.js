@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.plugins.setLang( 'table', 'da', {
@@ -27,6 +27,8 @@ CKEDITOR.plugins.setLang( 'table', 'da', {
 		borderColor: 'Rammefarve',
 		data: 'Data',
 		header: 'Hoved',
+		columnHeader: 'Column Header', // MISSING
+		rowHeader: 'Row Header', // MISSING
 		yes: 'Ja',
 		no: 'Nej',
 		invalidWidth: 'Cellebredde skal være et tal.',

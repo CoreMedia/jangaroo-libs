@@ -1,5 +1,5 @@
 ﻿/**
- * @license Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+ * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -116,6 +116,14 @@
 			function resizeHandler() {
 				var viewPaneSize = mainWindow.getViewPaneSize();
 				editor.resize( viewPaneSize.width, viewPaneSize.height, null, true );
+			}
+
+			function handleHistoryApi() {
+				var command = editor.getCommand( 'maximize' );
+
+				if ( command.state === CKEDITOR.TRISTATE_ON ) {
+					command.exec();
+				}
 			}
 
 			// Retain state after mode switches.
@@ -295,12 +303,11 @@
 				var historyEvent = editor.config.maximize_historyIntegration === CKEDITOR.HISTORY_NATIVE ?
 					'popstate' : 'hashchange';
 
-				mainWindow.on( historyEvent, function() {
-					var command = editor.getCommand( 'maximize' );
+				mainWindow.on( historyEvent, handleHistoryApi );
 
-					if ( command.state === CKEDITOR.TRISTATE_ON ) {
-						command.exec();
-					}
+				// Remove the history listener when destroying an editor instance (#5396).
+				editor.on( 'destroy', function() {
+					mainWindow.removeListener( historyEvent, handleHistoryApi );
 				} );
 			}
 		}
